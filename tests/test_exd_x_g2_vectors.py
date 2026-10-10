@@ -128,8 +128,10 @@ def _collision_key(text):
 
 
 def _scalar_key(text):
-    u, w, r, ask = re.search(
-        r"u = (.*?) and w = (.*?) satisfy p·u \+ q·w = (.*?), where .* value of ([pq])\.", text
+    r, u, w, ask = re.search(
+        r"Write (.*?) in the form p·u \+ q·w, where .* u is the vector (.*?) and w is the vector (.*?)\. "
+        r"Find the value of ([pq])\.",
+        text,
     ).groups()
     (u1, u2), (w1, w2), (r1, r2) = _ij(u), _ij(w), _ij(r)
     p, q = sp.symbols("p q")
@@ -144,7 +146,8 @@ def _line_key(text):
     has_t = acc.endswith("t·")
     coeff = acc[:-2] if has_t else acc
     coeff = {"": 1, "-": -1}.get(coeff, None) if coeff in ("", "-") else int(coeff)
-    f0 = int(re.search(r"velocity vector is (-?\d+)d m/s", text).group(1))
+    f0_text = re.search(r"velocity vector is (-?\d*)d m/s", text).group(1)
+    f0 = {"": 1, "-": -1}.get(f0_text) or int(f0_text)
     accel = coeff * _t if has_t else sp.Integer(coeff)
     v = sp.integrate(accel, _t) + f0
     s = sp.integrate(v, _t)
@@ -198,17 +201,17 @@ def _velocity_key(text):
 
 def _parallel_key(text):
     u, v = (
-        _pair(re.search(r"u = (\(.*?\)) and v", text).group(1)),
-        _pair(re.search(r"v = (\(.*?\))[.] ", text).group(1)),
+        _pair(re.search(r"u is the vector (\(.*?\)) and v", text).group(1)),
+        _pair(re.search(r"v is the vector (\(.*?\))[.] ", text).group(1)),
     )
     k = sp.Symbol("k")
     c = (u[0] + k * v[0], u[1] + k * v[1])
-    m = re.search(r"Let w = (\d)u - v", text)
+    m = re.search(r"Let w be the vector (\d)u - v", text)
     if m:
         n = int(m.group(1))
         w = (n * u[0] - v[0], n * u[1] - v[1])
     else:
-        w = _pair(re.search(r"w = (\(.*?\))\.", text).group(1))
+        w = _pair(re.search(r"(?:parallel|perpendicular) to the vector (\(.*?\))\.", text).group(1))
     eq = c[0] * w[0] + c[1] * w[1] if "perpendicular" in text else c[0] * w[1] - c[1] * w[0]
     sol = sp.solve(eq, k)
     assert len(sol) == 1
@@ -268,3 +271,34 @@ def test_all_prompt_variants_occur(topic):
     texts = [_q(topic, s).text for s in range(120)]
     for marker in markers:
         assert any(marker in t for t in texts), marker
+
+
+_PASTE_SKILLS = (
+    "senior-examine-properties-of-parallel-and-perpendicular-vectors-and",
+    "senior-define-and-use-multiplication-by-a-scalar-of",
+)
+
+
+def _pasted_fragments(text):
+    """What a learner could paste back: the whole prompt, each sentence, every piece around an '=', and
+    every vector written in the prompt."""
+    pieces = [text]
+    pieces += [s.strip() for s in re.split(r"(?<=[.?])\s+", text)]
+    for left, right in zip(text.split("=")[:-1], text.split("=")[1:]):
+        pieces += [left.strip(), right.strip(), right.split(".")[0].strip(), left.split(".")[-1].strip()]
+    pieces += re.findall(r"\(-?\d+, -?\d+\)", text)
+    pieces += re.findall(r"-?\d*i [+-] \d*j|-?\d*j|-?\d*i", text)
+    return [p for p in pieces if p]
+
+
+@pytest.mark.parametrize("skill_id", _PASTE_SKILLS)
+def test_pasting_the_prompt_or_part_of_it_is_never_graded_correct(skill_id):
+    topic, kind = SKILLS[skill_id]
+    grader = GRADERS[kind]
+    bad = []
+    for seed in range(200):
+        q = _q(topic, seed)
+        for piece in _pasted_fragments(q.text):
+            if piece.strip() != q.answer_text and grader(q, piece).correct:
+                bad.append((seed, piece, q.answer_text))
+    assert bad == [], bad[:5]

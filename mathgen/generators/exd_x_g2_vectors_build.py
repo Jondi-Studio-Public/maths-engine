@@ -368,12 +368,14 @@ def exd_x_g2_scalar_pair(rng, tier: str = "exam"):
             continue
         if any(Fraction(c) == answer for c in cands):
             continue
+        if answer in (*u, *w, *r):
+            continue  # a vector copied out of the prompt must not read as the key
         break
     else:
         raise RuntimeError("no scalar-pair draw")
     text = (
-        f"The vectors u = {_ij(*u)} and w = {_ij(*w)} satisfy p·u + q·w = {_ij(*r)}, where p and q are scalars. "
-        f"Find the value of {ask}."
+        f"Write {_ij(*r)} in the form p·u + q·w, where p and q are scalars, u is the vector {_ij(*u)} and w is "
+        f"the vector {_ij(*w)}. Find the value of {ask}."
     )
     working = [
         f"i: {u[0]}p {'+' if w[0] >= 0 else '-'} {abs(w[0])}q = {r[0]}; j: {u[1]}p {'+' if w[1] >= 0 else '-'} "
@@ -387,6 +389,11 @@ def exd_x_g2_scalar_pair(rng, tier: str = "exam"):
 
 _DIRECTIONS = ((3, 4), (4, 3), (1, 2), (2, 1), (2, 3), (3, 2), (1, 1))
 _OFFSETS = [v for v in range(-9, 10) if v != 0]
+
+
+def _coef_d(coeff: int) -> str:
+    """``coeff`` times ``d`` without a printed 1: ``d``, ``-d``, ``3d``."""
+    return {1: "d", -1: "-d"}.get(coeff, f"{coeff}d")
 
 
 def _fmt_accel(coeff: int, with_t: bool) -> str:
@@ -461,7 +468,7 @@ def exd_x_g2_line_motion_event(rng, tier: str = "exam"):
         cands = [f0 * dc, 0, -f0 * other_dc, G0 * ts * dc]
         text = (
             f"A particle moves in a straight line, always parallel to the vector d = {d_text}. "
-            f"{accel_clause} At time t = 0 its velocity vector is {f0}d m/s. "
+            f"{accel_clause} At time t = 0 its velocity vector is {_coef_d(f0)} m/s. "
             f"Find the {axis}-component of the particle's velocity vector, in m/s, {when}."
         )
         working = [
@@ -481,7 +488,7 @@ def exd_x_g2_line_motion_event(rng, tier: str = "exam"):
     ]
     text = (
         f"A particle moves in a straight line, always parallel to the vector d = {d_text}. "
-        f"{accel_clause} At time t = 0 its velocity vector is {f0}d m/s "
+        f"{accel_clause} At time t = 0 its velocity vector is {_coef_d(f0)} m/s "
         f"and its position vector is r(0) = {_ij(x0, y0)} m. "
         f"Find the {axis}-component of the particle's position vector, in m, {when}."
     )
@@ -670,6 +677,8 @@ def exd_x_g2_parallel_perp_condition(rng, tier: str = "exam"):
             k = int(k)
             c = (u[0] + k * v[0], u[1] + k * v[1])
             check(c != (0, 0) and _dot(c, w) == 0, "u + kv is not perpendicular to w")
+            if k in (*u, *v, mult):
+                continue  # a vector copied out of the prompt must not read as the key
             break
         k = rng.choice([s for s in range(-7, 8) if s != 0])
         c = (u[0] + k * v[0], u[1] + k * v[1])
@@ -686,6 +695,8 @@ def exd_x_g2_parallel_perp_condition(rng, tier: str = "exam"):
             if _cross(v, w) == 0:
                 continue
             check(_cross(c, w) == 0, "u + kv is not parallel to w")
+        if k in (*u, *v, *w):
+            continue  # a vector copied out of the prompt must not read as the key
         break
     else:
         raise RuntimeError("no parallel/perpendicular draw")
@@ -696,8 +707,8 @@ def exd_x_g2_parallel_perp_condition(rng, tier: str = "exam"):
     if variant == "comb_par":
         cands = [-k, perp_formula, Fraction(-u[0], v[0])]
         cond = "parallel to"
-        rel = f"w = {_pair(*w)}"
-        text = f"u = {_pair(*u)} and v = {_pair(*v)}. Find the value of k for which u + kv is {cond} {rel}."
+        rel = f"the vector {_pair(*w)}"
+        text = f"u is the vector {_pair(*u)} and v is the vector {_pair(*v)}. Find the value of k for which u + kv is {cond} {rel}."
         working = [
             f"u + kv = ({u[0]} + {paren_negative(v[0])}k, {u[1]} + {paren_negative(v[1])}k).",
             f"Parallel to w means the cross product is 0, which gives k = {k}.",
@@ -717,16 +728,16 @@ def exd_x_g2_parallel_perp_condition(rng, tier: str = "exam"):
                 cands.append(Fraction(-_dot(u, w_bad), _dot(v, w_bad)) if _dot(v, w_bad) else None)
         if variant == "comb_perp":
             text = (
-                f"u = {_pair(*u)} and v = {_pair(*v)}. Find the value of k for which u + kv is perpendicular to "
-                f"w = {_pair(*w)}."
+                f"u is the vector {_pair(*u)} and v is the vector {_pair(*v)}. Find the value of k for which u + kv "
+                f"is perpendicular to the vector {_pair(*w)}."
             )
             working = [
                 f"(u + kv)·w = 0 gives {_dot(u, w)} + {paren_negative(_dot(v, w))}k = 0, so k = {k}.",
             ]
         else:
             text = (
-                f"u = {_pair(*u)} and v = {_pair(*v)}. Let w = {mult}u - v. Find the value of k for which u + kv is "
-                f"perpendicular to w."
+                f"u is the vector {_pair(*u)} and v is the vector {_pair(*v)}. Let w be the vector {mult}u - v. "
+                f"Find the value of k for which u + kv is perpendicular to w."
             )
             working = [
                 f"w = {_pair(*w)}.",

@@ -353,7 +353,9 @@ def critical_path_after_change(rng: random.Random, tier: str = "exam") -> dict:
         new = order[0]
         if new == old or x in new:
             continue
-        rest = [rt for rt in ranked if rt not in (old, new)]
+        # Wrong routes that avoid the shortened activity too, so that "the only option without x" does not
+        # single out the key.
+        rest = [rt for rt in ranked if rt not in (old, new) and x not in rt]
         if len(rest) < 2:
             continue
         break
@@ -363,6 +365,7 @@ def critical_path_after_change(rng: random.Random, tier: str = "exam") -> dict:
     est2, eft2 = _forward(preds, crashed)
     check_equivalent(max(eft2.values()), new_lengths[new], "new completion time must equal the new longest route")
     answer = _route_text(new)
+    rng.shuffle(rest)
     candidates = [_route_text(old)] + [_route_text(rt) for rt in rest]
     distractors = pick_distractors(answer, candidates, n=3)
     check(len(distractors) >= 2, "need at least two distractors")

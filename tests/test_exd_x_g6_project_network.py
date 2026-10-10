@@ -166,6 +166,23 @@ def test_critical_path_after_change_oracle():
     assert bad == []
 
 
+def test_critical_path_options_do_not_give_the_key_away_by_the_shortened_activity():
+    """The key never contains the shortened activity, so it must not be the only option that avoids it."""
+    only_key = []
+    avoiders = []
+    for s in range(150):
+        q = _exam("change", s)
+        x = re.search(r"Activity ([A-Z]) is shortened by", q.text).group(1)
+        options = [q.answer_text, *q.distractors]
+        without = [o for o in options if x not in o.split("-")]
+        assert q.answer_text in without, (s, q.answer_text, x)
+        avoiders.append(len(without))
+        if len(without) == 1:
+            only_key.append(s)
+    assert only_key == [], only_key[:5]
+    assert min(avoiders) >= 2 and max(avoiders) <= len(options) - 1, set(avoiders)
+
+
 # -- the real grader --------------------------------------------------------------------------------------
 
 

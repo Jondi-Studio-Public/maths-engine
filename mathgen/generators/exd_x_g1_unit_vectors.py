@@ -26,14 +26,14 @@ _TRIPLES = [(3, 4, 5), (6, 8, 10), (5, 12, 13), (8, 15, 17), (9, 12, 15), (7, 24
 
 _POINTS = (
     "A is the point ({ax}, {ay}) and B is the point ({bx}, {by}). Rotating AB through 90° {turn} gives a vector "
-    "perpendicular to AB. Find the coefficient of {axis} in the unit vector in that direction.",
+    "perpendicular to AB. Find the coefficient of {axis} in the unit vector in that direction. Give your answer as a fraction.",
     "Given A({ax}, {ay}) and B({bx}, {by}), let w be the vector AB turned through 90° {turn}. "
-    "What is the coefficient of {axis} in the unit vector in the direction of w?",
+    "What is the coefficient of {axis} in the unit vector in the direction of w? Give your answer as a fraction.",
 )
 _COMBINATION = (
-    "p = ({px}, {py}) and q = ({qx}, {qy}). Find the coefficient of {axis} in the unit vector in the direction of {e}.",
+    "p = ({px}, {py}) and q = ({qx}, {qy}). Find the coefficient of {axis} in the unit vector in the direction of {e}. Give your answer as a fraction.",
     "Let p = ({px}, {py}) and q = ({qx}, {qy}). The vector {e} has a unit vector in the same direction; "
-    "find its coefficient of {axis}.",
+    "find its coefficient of {axis}, as a fraction.",
 )
 
 

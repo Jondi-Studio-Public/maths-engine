@@ -68,7 +68,7 @@ _ROT_SPECIAL = re.compile(r"a rotation of (\d+) degrees anticlockwise about the 
 _ROT_GENERAL = re.compile(
     r"a rotation about the origin through an angle theta, where cos\(theta\) = (-?\d+)/(\d+) and sin\(theta\) = (-?\d+)/(\d+)"
 )
-_REFLECT = re.compile(r"a reflection in (?:the )?(x-axis|y-axis|line y = x|line y = -x|line y = (-?\d+)x(?:/(\d+))?)")
+_REFLECT = re.compile(r"a reflection in (?:the )?(x-axis|y-axis|line y = x|line y = -x|line y = (-?\d*)x(?:/(\d+))?)")
 
 
 def _apply(desc: str, P):
@@ -88,7 +88,7 @@ def _apply(desc: str, P):
     assert m, desc
     d = {"x-axis": (1, 0), "y-axis": (0, 1), "line y = x": (1, 1), "line y = -x": (1, -1)}.get(m[1])
     if d is None:
-        d = (int(m[3] or 1), int(m[2]))
+        d = (int(m[3] or 1), {"": 1, "-": -1}.get(m[2], None) or int(m[2]))
     dd = d[0] ** 2 + d[1] ** 2
     t = (x * d[0] + y * d[1]) / dd
     return (2 * t * d[0] - x, 2 * t * d[1] - y)
@@ -105,7 +105,7 @@ def _check_int(P):
 
 def _oracle_basic(text):
     m = re.fullmatch(
-        r"Find the image of the point \((-?\d+), (-?\d+)\) when it is reflected in the line y = (-?\d+)x(?:/(\d+))?\.",
+        r"Find the image of the point \((-?\d+), (-?\d+)\) when it is reflected in the line y = (-?\d*)x(?:/(\d+))?\.",
         text,
     )
     if m:

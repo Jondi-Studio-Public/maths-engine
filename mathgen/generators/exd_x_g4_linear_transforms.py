@@ -146,9 +146,10 @@ def _reflection_special(rng: random.Random) -> _Map:
 
 
 def _line_text(p: int, q: int) -> str:
+    coeff = {1: "", -1: "-"}.get(p, str(p))  # y = -x/2, not y = -1x/2
     if q == 1:
-        return f"y = {p}x"
-    return f"y = {p}x/{q}"
+        return f"y = {coeff}x"
+    return f"y = {coeff}x/{q}"
 
 
 def _reflection_matrix(p: int, q: int) -> Mat:

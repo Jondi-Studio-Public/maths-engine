@@ -11,8 +11,10 @@ Questions are built backwards from the answer so the key is exact for every seed
 * ratio ``AP : PB = m : n``: the step ``d`` and the point ``A`` are drawn, then ``B = A + (m+n) d`` and
   ``P = A + m d``, so every coordinate is an integer.
 
-Answer kind is ``list`` (three components, graded in any order), so every distractor is checked
-against the key as an unordered multiset.
+The skill's answer kind is ``list``, which grades in any order, so asking for the whole vector would
+accept its components permuted. Each question therefore asks for one named coordinate of the point: the
+learner still has to find the whole position vector, but the key is a single number that no reordering
+can reach. Distractors are the same coordinate of each principled wrong vector.
 """
 
 from __future__ import annotations
@@ -23,16 +25,19 @@ from ..core import check, check_equivalent, generator, pick_distractors
 
 _PARALLELOGRAM = (
     "ABCD is a parallelogram, with its vertices labelled in order. A is the point {a}, B is {b} and C is {c}. "
-    "Find the position vector of D.",
+    "Find the {axis}-coordinate of D.",
     "The points A{a}, B{b} and C{c} are three consecutive vertices of the parallelogram ABCD. "
-    "Find the position vector of the fourth vertex D.",
+    "Find the {axis}-coordinate of the fourth vertex D.",
 )
 _RATIO = (
     "A is the point {a} and B is the point {b}. The point P lies on the line segment AB with AP : PB = {m} : {n}. "
-    "Find the position vector of P.",
+    "Find the {axis}-coordinate of P.",
     "The point P divides the segment from A{a} to B{b} internally in the ratio {m} : {n} (AP : PB). "
-    "Find the position vector of P.",
+    "Find the {axis}-coordinate of P.",
 )
+
+
+_AXES = ("x", "y", "z")
 
 
 def _fmt(v) -> str:
@@ -52,6 +57,7 @@ def _rand_vec(rng: random.Random, lo: int, hi: int):
 
 
 def _parallelogram(rng: random.Random) -> dict | None:
+    k = rng.randrange(3)  # which coordinate is asked for
     while True:
         a, b, d = (_rand_vec(rng, -6, 6) for _ in range(3))
         c = _vadd(_vsub(d, a), b)  # D = A + C - B  =>  C = D - A + B
@@ -67,15 +73,17 @@ def _parallelogram(rng: random.Random) -> dict | None:
     # AC and BD bisect each other: the midpoints of the diagonals coincide.
     check([x + y for x, y in zip(a, c)] == [x + y for x, y in zip(b, d)], "diagonals do not share a midpoint")
     cands = [
-        _fmt(_vsub(_vadd(b, c), a)),  # paired the vertices wrongly: A taken as the vertex opposite D
-        _fmt(_vsub(_vadd(a, b), c)),  # paired the vertices wrongly: C taken as the vertex opposite D
-        _fmt(_vadd(a, c)),  # forgot to subtract B
+        _vsub(_vadd(b, c), a),  # paired the vertices wrongly: A taken as the vertex opposite D
+        _vsub(_vadd(a, b), c),  # paired the vertices wrongly: C taken as the vertex opposite D
+        _vadd(a, c),  # forgot to subtract B
     ]
-    text = rng.choice(_PARALLELOGRAM).format(a=_fmt(a), b=_fmt(b), c=_fmt(c))
-    return _result(text, d, cands)
+    axis = _AXES[k]
+    text = rng.choice(_PARALLELOGRAM).format(a=_fmt(a), b=_fmt(b), c=_fmt(c), axis=axis)
+    return _result(text, d, cands, k)
 
 
 def _ratio(rng: random.Random) -> dict | None:
+    k = rng.randrange(3)  # which coordinate is asked for
     m, n = rng.choice([(1, 2), (2, 1), (1, 3), (3, 1), (2, 3), (3, 2), (1, 4), (2, 5), (4, 1)])
     while True:
         a = _rand_vec(rng, -6, 6)
@@ -90,25 +98,27 @@ def _ratio(rng: random.Random) -> dict | None:
     swapped = [x + n * s for x, s in zip(a, step)]  # weights the wrong way round (PB : AP)
     unscaled = [x + m * (y - x) for x, y in zip(a, b)]  # A + m AB, forgot to divide by m + n
     summed = _vadd(a, b)  # added the position vectors
-    cands = [_fmt(swapped), _fmt(unscaled), _fmt(summed)]
+    cands = [swapped, unscaled, summed]
     if (m + n) % 2 == 0 or all(s % 2 == 0 for s in step):
         mid = [x + (m + n) * s // 2 for x, s in zip(a, step)]
-        cands.append(_fmt(mid))  # ignored the ratio and took the midpoint
-    text = rng.choice(_RATIO).format(a=_fmt(a), b=_fmt(b), m=m, n=n)
-    return _result(text, p, cands)
+        cands.append(mid)  # ignored the ratio and took the midpoint
+    axis = _AXES[k]
+    text = rng.choice(_RATIO).format(a=_fmt(a), b=_fmt(b), m=m, n=n, axis=axis)
+    return _result(text, p, cands, k)
 
 
-def _result(text: str, ans, cands) -> dict | None:
-    answer_text = _fmt(ans)
-    distractors = pick_distractors(answer_text, cands, unordered=True)
+def _result(text: str, ans, cands, k: int) -> dict | None:
+    """Key and distractors are the ``k``-th coordinate of the answer and of each wrong vector."""
+    answer_text = str(ans[k])
+    distractors = pick_distractors(answer_text, [str(c[k]) for c in cands])
     if len(distractors) < 2:
         return None  # caller redraws
     return dict(
         text=text,
         latex=text,
-        answer=list(ans),
+        answer=[ans[k]],
         answer_text=answer_text,
-        answer_latex=r"\left(" + r",\ ".join(str(x) for x in ans) + r"\right)",
+        answer_latex=str(ans[k]),
         distractors=distractors,
     )
 

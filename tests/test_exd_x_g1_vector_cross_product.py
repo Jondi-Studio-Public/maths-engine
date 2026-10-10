@@ -53,7 +53,11 @@ def _kind(text):
     return "points" if "AB × AC" in text else "bilinear"
 
 
-def _expected(text):
+def _axis(text):
+    return "xyz".index(re.search(r"the ([xyz])-component", text).group(1))
+
+
+def _expected_vector(text):
     pts = _triples(text)
     if _kind(text) == "points":
         a, b, c = (sympy.Matrix(p) for p in pts)
@@ -66,8 +70,12 @@ def _expected(text):
     return list(u.cross(v))
 
 
+def _expected(text):
+    return [_expected_vector(text)[_axis(text)]]
+
+
 def _agrees(q, expected):
-    return sorted(q.answer) == sorted(int(x) for x in expected)
+    return list(q.answer) == [int(x) for x in expected]
 
 
 def test_no_text_defects_over_60_seeds():
@@ -125,7 +133,33 @@ def test_grader_accepts_key_and_rejects_every_distractor():
 def test_grader_rejects_deliberately_wrong_values():
     for seed in range(40):
         q = _exam(seed)
-        for wrong in ["(0, 0, 0)", "", "(1, 2)", "(%s)" % ", ".join(str(x + 1) for x in q.answer)]:
+        for wrong in [
+            "(0, 0, 0)",
+            "",
+            "(1, 2)",
+            "(%s)" % ", ".join(str(x + 1) for x in q.answer),
+            str(q.answer[0] + 1),
+        ]:
             if wrong == q.answer_text:
                 continue
             assert not GRADER(q, wrong).correct, (seed, wrong, q.answer_text)
+
+
+def test_no_reordering_of_the_product_vector_is_graded_correct():
+    """The skill's `list` grader ignores order, so the key is one named component: pasting the whole
+    vector in any order, or any other component on its own, must be wrong."""
+    import itertools
+
+    bad = []
+    for seed in range(150):
+        q = _exam(seed)
+        vec = [int(x) for x in _expected_vector(q.text)]
+        assert len(q.answer) == 1 and q.answer_text == str(q.answer[0]), (seed, q.answer)
+        for perm in itertools.permutations(vec):
+            if GRADER(q, "(" + ", ".join(str(x) for x in perm) + ")").correct:
+                bad.append((seed, "whole vector", perm))
+        k = _axis(q.text)
+        for i, x in enumerate(vec):
+            if i != k and x != vec[k] and GRADER(q, str(x)).correct:
+                bad.append((seed, "other component", i))
+    assert bad == [], bad[:5]

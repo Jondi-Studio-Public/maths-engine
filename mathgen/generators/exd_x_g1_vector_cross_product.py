@@ -9,7 +9,10 @@ Two kinds, chosen per seed:
   ``(a d - b c) (p x q)``, so a learner who chooses that route does one cross product; one who does not
   forms two combined vectors and crosses them. Either way the key is the same.
 
-Answer kind is ``list`` (graded in any order), so distractors are filtered as unordered multisets.
+The skill's answer kind is ``list``, which grades in any order, so asking for the whole vector would
+accept its components permuted. Each question therefore asks for one named component: the learner still
+forms the whole product, but the key is a single number that no reordering can reach. Distractors are the
+same component of each principled wrong vector.
 """
 
 from __future__ import annotations
@@ -21,12 +24,12 @@ from sympy import Matrix
 from ..core import check, check_equivalent, generator, join_terms, pick_distractors
 
 _POINTS = (
-    "The points A{a}, B{b} and C{c} are given. Find AB × AC.",
-    "A is {a}, B is {b} and C is {c}. Calculate the cross product AB × AC.",
+    "The points A{a}, B{b} and C{c} are given. Find the {axis}-component of AB × AC.",
+    "A is {a}, B is {b} and C is {c}. Calculate the {axis}-component of the cross product AB × AC.",
 )
 _BILINEAR = (
-    "p = {p} and q = {q}. Find ({e1}) × ({e2}).",
-    "Given p = {p} and q = {q}, calculate ({e1}) × ({e2}).",
+    "p = {p} and q = {q}. Find the {axis}-component of ({e1}) × ({e2}).",
+    "Given p = {p} and q = {q}, calculate the {axis}-component of ({e1}) × ({e2}).",
 )
 
 
@@ -47,22 +50,27 @@ def _scale(k, v):
     return [k * x for x in v]
 
 
-def _result(text: str, ans, cands) -> dict | None:
-    answer_text = _fmt(ans)
-    distractors = pick_distractors(answer_text, [_fmt(c) for c in cands], unordered=True)
+_AXES = ("x", "y", "z")
+
+
+def _result(text: str, ans, cands, k: int) -> dict | None:
+    """Key and distractors are the ``k``-th component of the answer and of each wrong vector."""
+    answer_text = str(ans[k])
+    distractors = pick_distractors(answer_text, [str(c[k]) for c in cands])
     if len(distractors) < 2:
         return None  # caller redraws
     return dict(
         text=text,
         latex=text,
-        answer=list(ans),
+        answer=[ans[k]],
         answer_text=answer_text,
-        answer_latex=r"\left(" + r",\ ".join(str(x) for x in ans) + r"\right)",
+        answer_latex=str(ans[k]),
         distractors=distractors,
     )
 
 
 def _points(rng: random.Random) -> dict | None:
+    k = rng.randrange(3)  # which component is asked for
     while True:
         a, b, c = ([rng.randint(-5, 5) for _ in range(3)] for _ in range(3))
         ab, ac = _sub(b, a), _sub(c, a)
@@ -76,11 +84,12 @@ def _points(rng: random.Random) -> dict | None:
         _cross(b, c),  # crossed the position vectors of B and C, never formed the edges
         _cross(_sub(a, b), ac),  # edge BA used for AB
     ]
-    text = rng.choice(_POINTS).format(a=_fmt(a), b=_fmt(b), c=_fmt(c))
-    return _result(text, ans, cands)
+    text = rng.choice(_POINTS).format(a=_fmt(a), b=_fmt(b), c=_fmt(c), axis=_AXES[k])
+    return _result(text, ans, cands, k)
 
 
 def _bilinear(rng: random.Random) -> dict | None:
+    k = rng.randrange(3)  # which component is asked for
     while True:
         p = [rng.randint(-4, 4) for _ in range(3)]
         q = [rng.randint(-4, 4) for _ in range(3)]
@@ -101,8 +110,8 @@ def _bilinear(rng: random.Random) -> dict | None:
     ]
     e1 = join_terms([(a, "p"), (b, "q")])
     e2 = join_terms([(c, "p"), (d, "q")])
-    text = rng.choice(_BILINEAR).format(p=_fmt(p), q=_fmt(q), e1=e1, e2=e2)
-    return _result(text, ans, cands)
+    text = rng.choice(_BILINEAR).format(p=_fmt(p), q=_fmt(q), e1=e1, e2=e2, axis=_AXES[k])
+    return _result(text, ans, cands, k)
 
 
 @generator(

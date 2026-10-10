@@ -83,12 +83,12 @@ def _build(rng: random.Random) -> dict:
             rf"\text{{ has magnitude {magnitude} and points {direction} }}\mathbf{{w}}"
             r"\text{. Write }\mathbf{v}\text{ in component form using the unit vectors }"
             r"\mathbf{i}\text{ and }\mathbf{j}"
-            rf"\text{{. What is the coefficient of }}\mathbf{{{want}}}\text{{?}}"
+            rf"\text{{. What is the coefficient of }}\mathbf{{{want}}}\text{{ (a whole number)?}}"
         )
         text = (
             f"Let w = {wtxt}. A vector v has magnitude {magnitude} and points {direction} w. "
             f"Write v in component form using the unit vectors i and j. "
-            f"What is the coefficient of {want}?"
+            f"What is the coefficient of {want} (a whole number)?"
         )
     else:
         direction = "opposite to" if opposite else "along"
@@ -96,12 +96,12 @@ def _build(rng: random.Random) -> dict:
             rf"\text{{A force }}\mathbf{{F}}\text{{ of magnitude {magnitude} newtons acts {direction} the vector }}{wtex}"
             r"\text{. Write }\mathbf{F}\text{ in component form using the unit vectors }"
             r"\mathbf{i}\text{ and }\mathbf{j}"
-            rf"\text{{. What is the coefficient of }}\mathbf{{{want}}}\text{{ in }}\mathbf{{F}}\text{{?}}"
+            rf"\text{{. What is the coefficient of }}\mathbf{{{want}}}\text{{ in }}\mathbf{{F}}\text{{ (a whole number)?}}"
         )
         text = (
             f"A force F of magnitude {magnitude} newtons acts {direction} the vector {wtxt}. "
             f"Write F in component form using the unit vectors i and j. "
-            f"What is the coefficient of {want} in F?"
+            f"What is the coefficient of {want} in F (a whole number)?"
         )
     check(len(distractors) >= 3)
     return dict(
