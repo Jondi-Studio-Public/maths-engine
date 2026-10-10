@@ -470,7 +470,9 @@ def grade_number(question, given: str) -> GradeResult:
     reachable via this kind for a generator this fix hasn't audited) falls
     through to the pre-existing `check_answer` delegation unchanged."""
     canonical = question.answer_text
-    answer = question.answer
+    answer = _as_exact_fraction(question.answer)
+    if isinstance(answer, sympy.Integer):
+        answer = int(answer)
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         # A `number` skill whose generator answers with an exact fraction
         # (definite-integral's "16/21"). Falling through to `check_answer`
@@ -523,6 +525,15 @@ def _ratio_form_is_acceptable(canonical: str, given: str) -> bool:
 _WRITTEN_FRACTION_RE = re.compile(r"(-?\d+)\s*/\s*(\d+)")
 
 
+def _as_exact_fraction(answer):
+    """An exact rational answer (a sympy Rational, a `fractions.Fraction`) as the {"p", "q"} form the fraction
+    path reads. Left as it was, it fell through to the spoken reading, which takes neither, and every reply was
+    marked wrong, its own canonical included."""
+    if isinstance(answer, Fraction) or (isinstance(answer, sympy.Rational) and not isinstance(answer, sympy.Integer)):
+        return {"p": int(answer.numerator), "q": int(answer.denominator)}
+    return answer
+
+
 def grade_fraction(question, given: str) -> GradeResult:
     """Typed fraction answers are graded *exactly*: "0.8" is wrong for 3/4 even though it's within the ~0.05
     tolerance `mathgen.grading.spoken.check_answer` accepts for spoken transcripts. That loose tolerance is
@@ -538,9 +549,14 @@ def grade_fraction(question, given: str) -> GradeResult:
         # A generator that writes its fraction as text ("3/20") was graded by `check_answer`'s spoken
         # reading, where "not 3/20" is correct. It is the same exact fraction as the {"p", "q"} form.
         answer = {"p": int(written.group(1)), "q": int(written.group(2))}
+    answer = _as_exact_fraction(answer)
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         given_normalised = _normalised_values(given)
         parsed = _parse_typed_fraction(given)
+        if parsed is None:
+            # "x = 50/7": the variable the question solves for, as `number` and `expression` already accept it.
+            given = _strip_label(given)
+            parsed = _parse_typed_fraction(given)
         if parsed is None:
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
         expected = Fraction(answer["p"], answer["q"])
@@ -1976,19 +1992,34 @@ def _match_constant_of_integration(given_expr, expected):
     return given_expr.xreplace({stand_ins.pop(): _CONSTANT_SYMBOL})
 
 
-def _exact_decimals(given_expr, expected):
-    """The reply with each decimal read as the exact number it spells ("x^0.5" as x^(1/2)), when the expected answer
-    has no decimal of its own. sympy keeps a typed decimal as a float, so "x^0.5" and "0.5x" never simplified to
-    match sqrt(x) and x/2: a right answer marked wrong. A decimal that is not the exact value stays wrong."""
+_DECIMAL_LITERAL_RE = re.compile(r"(?<![\w.])(\d+)?\.(\d+)?(?![\d.])")
+
+
+def _decimal_as_quotient(match: re.Match) -> str:
+    whole, places = match.group(1) or "", match.group(2) or ""
+    if not whole and not places:
+        return match.group(0)
+    return f"({int(whole + places or '0')}/1{'0' * len(places)})"
+
+
+def _exact_decimals(given_expr, expected, text: str):
+    """The reply re-read with each typed decimal as the exact number it spells ("x^0.5" as x^(5/10)), when the
+    expected answer has no decimal of its own. sympy keeps a typed decimal as a float, so "x^0.5" and "0.5x" never
+    simplified to match sqrt(x) and x/2: a right answer marked wrong. The decimals are rewritten in the text, before
+    sympy folds them: "x/3.0" is x/3, where rationalising the parsed float 0.333... afterwards would not be. A decimal
+    that is not the exact value stays wrong."""
     try:
-        if expected.atoms(sympy.Float):
+        if expected.atoms(sympy.Float) or not given_expr.atoms(sympy.Float):
             return given_expr
-        floats = given_expr.atoms(sympy.Float)
     except (AttributeError, TypeError):
         return given_expr
-    if not floats:
+    reread = _parse_expression(_DECIMAL_LITERAL_RE.sub(_decimal_as_quotient, text))
+    if reread is None:
         return given_expr
-    return given_expr.xreplace({f: sympy.Rational(str(f)) for f in floats})
+    reread = _resolve_constants(reread, expected)
+    if reread is None:
+        return given_expr
+    return _match_constant_of_integration(reread, expected)
 
 
 # -- expression: answer_form "factored" ------------------------------------
@@ -2059,6 +2090,9 @@ def _factorised_as_far_as(stripped: str, question) -> bool:
 _DEGREE_SUFFIX_RE = re.compile(r"(?<=[\d)])\s*(?:[°º˚]|deg(?:rees?|s)?\.?)\s*$", re.IGNORECASE)
 
 
+_INFINITY_REPLY_RE = re.compile(r"^\s*([+-]?)\s*(?:∞|infinity|inf|oo)\s*$", re.I)
+
+
 def grade_expression(question, given: str) -> GradeResult:
     canonical = question.answer_text
     stripped = _round_brackets(_strip_label(given))
@@ -2093,6 +2127,9 @@ def grade_expression(question, given: str) -> GradeResult:
         # An angle typed with its unit: "30°", "30 degrees". Only when the answer is a plain number, so
         # nothing else a learner writes is read differently.
         stripped = _DEGREE_SUFFIX_RE.sub("", stripped)
+    if "∞" in (canonical or ""):
+        # "infinity", "inf" or "oo" for an answer shown as ∞: the reply on its own, so nothing else is read differently.
+        stripped = _INFINITY_REPLY_RE.sub(r"\1∞", stripped)
     given_expr = _parse_expression(stripped)
     if given_expr is None:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
@@ -2175,7 +2212,7 @@ def grade_expression(question, given: str) -> GradeResult:
         # ~35 ms simplify spends exhausting its rewrites first. It can only ever
         # short-circuit to False, never to True.
         if expected is not None:
-            given_expr = _exact_decimals(_match_constant_of_integration(given_expr, expected), expected)
+            given_expr = _exact_decimals(_match_constant_of_integration(given_expr, expected), expected, stripped)
         correct = expected is not None and symbolically_equal(expected, given_expr)
     except (sympy.SympifyError, TypeError, ValueError):
         correct = False

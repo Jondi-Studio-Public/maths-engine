@@ -7,7 +7,10 @@ as "∅", and an ordered list separated by semicolons."""
 
 from __future__ import annotations
 
+from fractions import Fraction
+
 import pytest
+import sympy
 
 from mathgen.core import Question
 from mathgen.grading import typed as grading
@@ -186,6 +189,28 @@ def test_rounded_decimal_for_a_third_is_wrong():
     assert not _correct("expression", _q("x/3", "x/3"), "0.333333x")
 
 
+@pytest.mark.parametrize(
+    "answer, given",
+    [
+        ("x/3", "x/3.0"),
+        ("x/3", "x/3."),
+        ("pi/3", "pi/3.0"),
+        ("1/6", "1/6.0"),
+        ("1/6", "0.5/3"),
+        ("2/3", "2/3."),
+        ("2/3", "2.0/3"),
+        ("x**3/3 + C", "x^3/3.0 + c"),
+    ],
+)
+def test_a_whole_number_written_as_a_decimal_is_read_exactly(answer, given):
+    """The decimal is read as written, before sympy divides by it: 1/3.0 is a third, not 0.333... made exact."""
+    assert _correct("expression", _q(answer, answer), given)
+
+
+def test_a_decimal_divisor_that_is_not_the_value_is_wrong():
+    assert not _correct("expression", _q("x/3", "x/3"), "x/3.1")
+
+
 # -- the empty set -------------------------------------------------------------------------
 
 _EMPTY = _q([], grading.set_answer_text([]))
@@ -315,3 +340,38 @@ def test_a_common_factor_is_allowed_when_the_canonical_keeps_one():
     for given in ["(3x - 3)(x^2 + 9)", "3(x - 1)(x^2 + 9)", "(x - 1)(3x^2 + 27)"]:
         assert _correct("expression", question, given)
     assert not _correct("expression", question, "(3x^3 - 3x^2 + 27x - 27)")
+
+
+# -- infinity in words, for an answer shown as ∞ -------------------------------------------
+
+
+@pytest.mark.parametrize("given", ["∞", "+∞", "infinity", "Infinity", "inf", "oo", "+infinity"])
+def test_infinity_in_words(given):
+    assert _correct("expression", _q("∞", "∞"), given)
+
+
+@pytest.mark.parametrize("given", ["-∞", "-infinity", "∞∞", "infinity squared", "2"])
+def test_not_infinity_is_wrong(given):
+    assert not _correct("expression", _q("∞", "∞"), given)
+
+
+def test_negative_infinity_in_words():
+    assert _correct("expression", _q("-∞", "-∞"), "-infinity")
+    assert not _correct("expression", _q("-∞", "-∞"), "infinity")
+
+
+# -- an exact fraction answer, with the variable named ---------------------------------------
+
+
+@pytest.mark.parametrize("answer", [Fraction(50, 7), sympy.Rational(50, 7), {"p": 50, "q": 7}])
+@pytest.mark.parametrize("kind", ["number", "fraction"])
+@pytest.mark.parametrize("given", ["x = 50/7", "x=50/7", "50/7", "7 1/7", "100/14"])
+def test_exact_fraction_answer_with_or_without_the_variable(answer, kind, given):
+    assert _correct(kind, _q(answer, "x = 50/7"), given)
+
+
+@pytest.mark.parametrize("answer", [Fraction(50, 7), sympy.Rational(50, 7), {"p": 50, "q": 7}])
+@pytest.mark.parametrize("kind", ["number", "fraction"])
+@pytest.mark.parametrize("given", ["x = 50/8", "7.14", "x = 7", "x = -50/7"])
+def test_exact_fraction_answer_wrong_values(answer, kind, given):
+    assert not _correct(kind, _q(answer, "x = 50/7"), given)
