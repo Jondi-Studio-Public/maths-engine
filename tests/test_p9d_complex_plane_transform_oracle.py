@@ -129,6 +129,8 @@ def test_addition_vector_oracle():
     examined = 0
 
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         variant = source.params.get("variant")
         for seed in SEEDS:
             q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **source.params)

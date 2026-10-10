@@ -5,6 +5,12 @@ description: Calculate a balance under annual compound interest and round to cen
 status: active
 prerequisites: [simple-interest, evaluate-powers]
 answer: number
-sources: [{topic: financial_interest, params: {kind: compound}, difficulty: easy}]
+sources:
+- {topic: financial_interest, params: {kind: compound}, difficulty: easy}
+- topic: exd_x_g5_compound_interest
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: uses-simple-interest, description: Adds the same interest amount each year.}]
 tags: [expansion-batch-5, finance]

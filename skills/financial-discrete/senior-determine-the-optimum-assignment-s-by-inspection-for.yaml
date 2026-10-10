@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_g6_assignment_max_forbidden
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: row-greedy-ignores-conflicts
   description: Each worker independently picks their cheapest task, ignoring that multiple workers might pick the same task (infeasible assignment).
