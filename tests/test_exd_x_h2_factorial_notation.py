@@ -55,12 +55,9 @@ def _oracle_check(q) -> None:
         hits = [m for m in range(0, 60) if _value(lhs, m) == int(rhs)]
         assert hits == [int(q.answer_text)], (text, hits, q.answer_text)
         return
-    expr_text = re.search(r"Simplify (.+?) for integers", text).group(1)
-    # The simplified polynomial has degree at most 3, so eight values pin it down exactly.
-    poly = sympy.Poly(sympy.interpolate([(v, _value(expr_text, v)) for v in range(2, 10)], _n), _n)
-    term = re.search(r"What is (the constant term|the coefficient of n(?:\^(\d+))?)\?", text)
-    degree = 0 if term.group(1) == "the constant term" else int(term.group(2) or 1)
-    assert poly.coeff_monomial(_n**degree) == int(q.answer_text), (text, q.answer_text, poly)
+    expr_text, n_text = re.search(r"Simplify (.+?) for integers.*when n = (\d+)\.$", text).groups()
+    assert _value(expr_text, int(n_text)) == int(q.answer_text), (text, q.answer_text)
+    assert q.answer_text not in text.replace(f"n = {n_text}", ""), text
 
 
 def test_key_matches_independent_oracle_over_300_seeds():
@@ -97,6 +94,14 @@ def test_restating_the_prompt_expression_is_graded_wrong():
             assert not grade(q, d).correct, (seed, d)
         checked += 1
     assert checked >= 100, checked
+
+
+def test_answer_space_is_wide():
+    from collections import Counter
+
+    keys = Counter(_exam(s).answer_text for s in range(300) if _exam(s).text.startswith("Simplify"))
+    assert len(keys) >= 100, len(keys)
+    assert max(keys.values()) <= 0.05 * sum(keys.values()), keys.most_common(3)
 
 
 def test_deterministic_and_all_three_kinds_occur():

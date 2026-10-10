@@ -10,7 +10,7 @@ The practice tiers evaluate two small factorials, telescope ``n!/m!`` for number
 * ``solve``: an equation ``(n + a)!/(n + b)! = N`` to solve for the integer ``n``, where the ratio telescopes
   to a product of two or three consecutive terms.
 
-The two simplify kinds ask for one coefficient of the simplified polynomial, never for "the simplified
+The two simplify kinds ask for the value of the simplified expression at a stated n, never for "the simplified
 expression": the grader compares by value, so a restated prompt would otherwise be marked correct.
 
 Answers are built from the polynomial forms, then re-evaluated from the definition of the factorial at several
@@ -75,39 +75,28 @@ def _w(expr) -> str:
     return _pretty(expr).replace("*", " × ")
 
 
-def _term_name(degree: int) -> str:
-    if degree == 0:
-        return "the constant term"
-    return "the coefficient of n" if degree == 1 else f"the coefficient of n^{degree}"
-
-
-def _finish_coefficient(rng: random.Random, expression_text: str, expr, candidates: list, working: list[str]) -> dict:
-    """Ask for one coefficient of the simplified polynomial, so that restating the prompt cannot be the answer.
+def _finish_value(rng: random.Random, expression_text: str, expr, candidates: list, working: list[str]) -> dict:
+    """Ask for the simplified expression's value at a stated n, so that restating the prompt cannot be the answer.
 
     The grader compares by value, so asking for "the simplified expression" would accept the printed expression
-    typed back. A single coefficient is a number that only the simplification produces.
+    typed back. A number at n = 4..16 only comes out of the simplification (or a long evaluation), and the answer
+    space is wide.
     """
-    poly = sympy.Poly(sympy.expand(expr), _n)
-    degrees = [d for d in range(poly.degree() + 1) if poly.coeff_monomial(_n**d) != 0]
-    degree = rng.choice(degrees)
-    key = int(poly.coeff_monomial(_n**degree))
+    n_value = rng.randint(4, 16)
+    key = int(sympy.expand(expr).subs(_n, n_value))
     wrong: list[int] = []
     for cand in candidates:
-        value = sympy.Poly(sympy.expand(sympy.cancel(cand)), _n).coeff_monomial(_n**degree)
+        value = sympy.cancel(cand).subs(_n, n_value)
         if value == int(value) and int(value) != key and int(value) not in wrong:
             wrong.append(int(value))
-    # Principled extras: the coefficient read from the wrong degree, and the key with its sign reversed.
-    for extra in (poly.coeff_monomial(_n ** ((degree + 1) % (poly.degree() + 1))), -key):
-        if int(extra) != key and int(extra) not in wrong:
-            wrong.append(int(extra))
     check(len(wrong) >= 1, "no usable distractor")
     distractors = pick_distractors(str(key), [str(w) for w in wrong])
     check(len(distractors) >= 1, "no usable distractor")
     text = (
-        f"Simplify {expression_text} for integers n >= 2 and write the result as a polynomial in n. "
-        f"What is {_term_name(degree)}?"
+        f"Simplify {expression_text} for integers n >= 2, then find the value of the simplified expression "
+        f"when n = {n_value}."
     )
-    working = [*working, f"Expanded, the result is {_w(sympy.expand(expr))}, so {_term_name(degree)} is {key}."]
+    working = [*working, f"At n = {n_value}, {_w(sympy.factor(expr))} = {key}."]
     return dict(
         text=text,
         latex=text,
@@ -153,7 +142,7 @@ def _factor_out(rng: random.Random) -> dict:
         f"Factor {_fact(b)} out of the numerator: {_fact(a)} = {_fact(b)} × {_w(sympy.factor(_run(b + 1, a)))}. "
         f"Then cancel with the denominator to get {_w(sympy.factor(expr))}."
     ]
-    return _finish_coefficient(rng, expression_text, expr, candidates, working)
+    return _finish_value(rng, expression_text, expr, candidates, working)
 
 
 def _two_ratios(rng: random.Random) -> dict:
@@ -183,7 +172,7 @@ def _two_ratios(rng: random.Random) -> dict:
         f"{_fact(s1)}/{_fact(s1 - d1)} = {_w(sympy.factor(p1))} and {_fact(s2)}/{_fact(s2 - d2)} = {_w(sympy.factor(p2))}; "
         f"combining gives {_w(sympy.factor(expr))}."
     ]
-    return _finish_coefficient(rng, expression_text, expr, candidates, working)
+    return _finish_value(rng, expression_text, expr, candidates, working)
 
 
 def _solve_for_n(rng: random.Random) -> dict:
