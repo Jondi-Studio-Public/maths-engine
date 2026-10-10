@@ -15,6 +15,8 @@ from sympy import Eq, Float, Integer, Rational, Symbol, Tuple, simplify, sympify
 from sympy import latex as _sympy_latex
 from sympy.core.sympify import SympifyError
 
+from .answers import ANSWER_FORMS, ANSWER_KINDS, Distractor, flatten_distractors
+
 
 @dataclass
 class Question:
@@ -59,6 +61,13 @@ class Question:
     # by `mathgen.figures`. None for every generator that doesn't draw
     # one, and omitted from to_dict()/to_json() when None,
     # exactly like `answer_alt` above.
+    # The typed answer contract (mathgen/answers.py). Each is unset for a generator that doesn't declare it and
+    # omitted from to_dict()/to_json() when unset, exactly like `answer_alt` above.
+    answer_kind: str | None = None  # grader kind of `answer`, one of answers.ANSWER_KINDS
+    distractor_values: dict[str, Any] = field(default_factory=dict)  # option text -> the structured
+    # value a learner making that option's error reaches, shaped like `answer`
+    distractor_credit: dict[str, str] = field(default_factory=dict)  # option text -> share of the
+    # marks that error still earns, as a fraction string ("1/2")
 
     def to_dict(self) -> dict:
         d = asdict(self)
@@ -70,6 +79,9 @@ class Question:
             d.pop("answer_form", None)
         if d.get("figure") is None:
             d.pop("figure", None)
+        for key in ("answer_kind", "distractor_values", "distractor_credit"):
+            if not d.get(key):
+                d.pop(key, None)
         return d
 
     def to_json(self) -> str:
@@ -132,6 +144,13 @@ def make(topic: str, seed: int | None = None, difficulty: str | None = None, **p
     # string so easy/hard streams are independent.
     rng = random.Random(f"{topic}:{difficulty or ''}:{seed}")
     d = fn(rng, **params)
+    # Tagged distractors become plain option text plus the keyed attributes (mathgen/answers.py), so every consumer
+    # that reads `distractors` as strings is unchanged.
+    flatten_distractors(d)
+    if d.get("answer_kind") is not None and d["answer_kind"] not in ANSWER_KINDS:
+        raise ValueError(f"{topic}: unknown answer_kind {d['answer_kind']!r}")
+    if d.get("answer_form") is not None and d["answer_form"] not in ANSWER_FORMS:
+        raise ValueError(f"{topic}: unknown answer_form {d['answer_form']!r}")
     # A generator that never authored its own `latex` (or authored it as a
     # verbatim copy of `text`) gets one for free here -- the single choke
     # point every consumer goes through, so no generator needs touching.
@@ -250,11 +269,14 @@ def pick_distractors(
     the real grader however different it looks. It has to stay opt-in: `fraction`
     skills are graded exactly, and an absolute 0.051 would throw away perfectly
     good distractors for a small probability such as 2/437.
+
+    A `mathgen.answers.Distractor` candidate is judged by its text and kept as it is, tag and all; every other
+    candidate comes back as its string.
     """
     tolerance = Fraction(tolerance).limit_denominator(10**6)
     seen = {str(answer_text)}
     answer_signature = _distractor_signature(str(answer_text), unordered=unordered)
-    out: list[str] = []
+    out: list = []
     for c in candidates:
         s = str(c)
         if s in seen:
@@ -262,7 +284,7 @@ def pick_distractors(
         if _same_answer(answer_signature, _distractor_signature(s, unordered=unordered), tolerance):
             continue
         seen.add(s)
-        out.append(s)
+        out.append(c if isinstance(c, Distractor) else s)
         if len(out) == n:
             break
     return out

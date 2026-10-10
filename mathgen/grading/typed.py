@@ -15,6 +15,7 @@ for both the splitting policy and why.
 
 from __future__ import annotations
 
+import copy
 import json
 import logging
 import random
@@ -41,6 +42,7 @@ from mathgen.grading.safe_parse import (
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
+from mathgen.misconceptions import describe as describe_misconception
 from mathgen.text_quality import requested_rounding
 
 logger = logging.getLogger("mathgen.grading")
@@ -126,6 +128,8 @@ class GradeResult:
     note: str | None = None  # Resolved misconception/near-miss text
     note_kind: str | None = None  # "misconception" or "near_miss"; None when `note` is None
     cells: dict[str, bool] | None = None  # table: per-blank verdict, keyed "r,c"
+    misconception: str | None = None  # id of the tagged distractor a wrong reply matched (mathgen/misconceptions.py)
+    matched_distractor: str | None = None  # that distractor's option text, the key for its `distractor_credit`
 
 
 def _normalised_values(given: str) -> str | None:
@@ -2499,13 +2503,17 @@ GRADERS: dict[str, Callable] = {
 # -- option_notes resolution --------------------------------
 #
 # `Question.option_notes` (mathgen/core.py) maps an option's exact text to a
-# note id into the *skill's* `misconceptions` or `near_misses` list -- the
+# misconception id: an id in the shared catalogue (mathgen/misconceptions.py),
+# or one in the *skill's* own `misconceptions` or `near_misses` list -- the
 # question doesn't carry the note text itself, since the same wrong-thinking
 # id can be shared across every question a generator makes. Resolution only
-# ever runs when the answer graded incorrect, and only ever fills `note`
-# when it can name an id that actually resolves; a miss (nothing in
-# `option_notes`, or an id that resolves to neither list) leaves `note` and
-# `note_kind` at their `None` default -- never guess a note.
+# ever runs when the answer graded incorrect. A reply is matched to an option
+# by its spelling first, then -- for an option whose structured value the
+# generator recorded in `distractor_values` -- by grading the reply as though
+# that option were the answer, so "x=-3" matches the option "x = -3". A match
+# fills `misconception` and `matched_distractor`; `note` is filled only when
+# the id resolves (the skill's wording first, then the catalogue's), and a
+# miss leaves all four at their `None` default -- never guess a note.
 
 
 def _matched_option_text(kind: str, question, given: str, given_normalised: str | None) -> str | None:
@@ -2535,28 +2543,68 @@ def _matched_option_text(kind: str, question, given: str, given_normalised: str 
     return None
 
 
-def _resolve_note(kind: str, question, given: str, result: GradeResult, skill) -> tuple[str | None, str | None]:
-    """`(note, note_kind)` for a graded-wrong answer, or `(None, None)`.
+# The answer attributes a grader reads, cleared on the stand-in question a reply is graded against when it is matched
+# to a distractor: the distractor has no alternative answer, no required form and no options of its own.
+_STAND_IN_CLEARED = {
+    "answer_latex": "",
+    "answer_alt": None,
+    "answer_form": None,
+    "distractors": [],
+    "option_notes": {},
+    "distractor_values": {},
+    "distractor_credit": {},
+}
 
-    Resolves the matched `option_notes` id against `skill.misconceptions`
-    first, then `skill.near_misses` (`validate()` in mathgen/skills.py rejects an
-    id that collides between the two, so this order never matters for a
-    valid skill). `skill` is duck-typed rather than imported, so this module
-    never depends on `mathgen.skills` -- that module already imports this one.
+
+def _graded_option_match(kind: str, question, given: str) -> str | None:
+    """The first tagged option the reply is a correct answer to, or None.
+
+    Each such option is made the answer of a shallow copy of `question` and the reply graded against it with the
+    same grader, so the match is exactly as forgiving as grading is: spacing, labels, order where order does not
+    count, equivalent forms. Duck-typed, so a question part is matched the same way.
     """
-    if skill is None:
-        return None, None
+    option_notes = getattr(question, "option_notes", None) or {}
+    values = getattr(question, "distractor_values", None) or {}
+    folded = " ".join((given or "").split()).casefold()
+    for text in getattr(question, "distractors", None) or ():
+        if text not in option_notes:
+            continue
+        if values.get(text) is None:
+            # No value to grade against ("undefined", "does not exist"): the spelling, in any case and spacing.
+            if folded and folded == " ".join(text.split()).casefold():
+                return text
+            continue
+        stand_in = copy.copy(question)
+        for attr, value in {**_STAND_IN_CLEARED, "answer": values[text], "answer_text": text}.items():
+            setattr(stand_in, attr, value)
+        try:
+            if GRADERS[kind](stand_in, given).correct:
+                return text
+        except Exception:  # noqa: BLE001 - a diagnosis that cannot be made is no diagnosis, never a crash
+            logger.warning("matching %r to option %r failed", given, text, exc_info=True)
+    return None
+
+
+def _resolve_note(kind: str, question, given: str, result: GradeResult, skill) -> None:
+    """Fill `result`'s `misconception`, `matched_distractor`, `note` and `note_kind` for a graded-wrong reply.
+
+    The matched option's id resolves against `skill.misconceptions`, then
+    `skill.near_misses` (`validate()` in mathgen/skills.py rejects an id that
+    collides between the two, so this order never matters for a valid skill),
+    then the shared catalogue. `skill` is duck-typed rather than imported, so
+    this module never depends on `mathgen.skills` -- that module already
+    imports this one.
+    """
     matched = _matched_option_text(kind, question, given, result.given_normalised)
+    if matched is None and kind != "mcq":
+        matched = _graded_option_match(kind, question, given)
     if matched is None:
-        return None, None
+        return
     note_id = question.option_notes[matched]
-    for m in getattr(skill, "misconceptions", None) or ():
-        if m.id == note_id:
-            return m.description, "misconception"
-    for nm in getattr(skill, "near_misses", None) or ():
-        if nm.id == note_id:
-            return nm.description, "near_miss"
-    return None, None
+    result.misconception, result.matched_distractor = note_id, matched
+    resolved = describe_misconception(note_id, skill)
+    if resolved is not None:
+        result.note, result.note_kind = resolved
 
 
 # -- the minus sign ----------------------------------------------------------------------
@@ -2622,9 +2670,10 @@ def _one_gap(match: re.Match) -> str:
 
 def grade(kind: str, question, given: str, *, skill=None) -> GradeResult:
     """`skill` is optional and keyword-only: every pre-existing
-    call site is unaffected, and only a caller that passes the skill whose
-    `misconceptions`/`near_misses` the question's `option_notes` ids resolve
-    against ever gets a `note` filled in."""
+    call site is unaffected. A wrong reply that matches a tagged distractor
+    gets `misconception` and `matched_distractor` either way; its `note` comes
+    from the skill's own `misconceptions`/`near_misses` when `skill` is passed
+    and lists the id, else from the shared catalogue (mathgen/misconceptions.py)."""
     if kind not in GRADERS:
         raise KeyError(f"unknown answer kind {kind!r}; known: {', '.join(sorted(GRADERS))}")
     if isinstance(given, str) and len(given) > MAX_REPLY_LENGTH:
@@ -2649,5 +2698,5 @@ def grade(kind: str, question, given: str, *, skill=None) -> GradeResult:
         logger.exception("grade(kind=%r, given=%.200r) raised; grading incorrect", kind, given)
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if not result.correct:
-        result.note, result.note_kind = _resolve_note(kind, question, given, result, skill)
+        _resolve_note(kind, question, given, result, skill)
     return result
