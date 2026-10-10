@@ -666,13 +666,44 @@ def _equation_pair_matches(canonical: str, given: str):
     expected = _parse_expression(_strip_label(canonical))
     if expected is None:
         return None
-    supplied = _resolve_constants(_parse_expression(_strip_label(given or "")), expected)
+    given = given or ""
+    parts = given.split("=")
+    if len(parts) == 2 and not _LABEL_RE.match(given):
+        # Not "label = value": a rearrangement ("y - 3 = 0", "3 = y").
+        canonical_label = canonical.split("=", 1)[0].strip()
+        equivalent = _constant_line_equivalent(canonical_label, expected, parts)
+        if equivalent is not None:
+            return equivalent
+    # A bare value ("3") and any "label = value" stay accepted by design (the label is
+    # stripped; see tests/test_pv1d_parabola_build.py and
+    # tests/test_pv1d_sideways_circle_build.py).
+    supplied = _resolve_constants(_parse_expression(_strip_label(given)), expected)
     if supplied is None:
         return False
     try:
         return symbolically_equal(expected, supplied)
     except (TypeError, ValueError):
         return None
+
+
+def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | None:
+    """Rearrangements of a constant line key (`y = 3`): `y - 3 = 0`, `3 = y`.
+
+    Equal up to sign only, never a scaled multiple (`2y = 6`). Only keys whose
+    value side is a pure number take this path; any other key returns None
+    (not applicable).
+    """
+    if expected.free_symbols:
+        return None
+    lhs, rhs = _parse_expression(parts[0]), _parse_expression(parts[1])
+    if lhs is None or rhs is None:
+        return False
+    try:
+        key = sympy.Symbol(label) - expected
+        diff = lhs - rhs
+        return bool(sympy.expand(diff - key) == 0 or sympy.expand(diff + key) == 0)
+    except (TypeError, ValueError):
+        return False
 
 
 # -- pair: labelled-order independence -----------------------
