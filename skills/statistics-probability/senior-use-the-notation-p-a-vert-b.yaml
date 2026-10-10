@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_s5_condprob
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-joint-not-conditional
   description: Reports P(A ∩ B) instead of P(A|B), confusing the joint probability with the conditional.

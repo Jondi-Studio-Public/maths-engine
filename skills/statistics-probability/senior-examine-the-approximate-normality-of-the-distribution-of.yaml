@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_s3_normality
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: checks-only-one-condition
   description: Checks only one of n×p-hat or n×(1-p-hat) against the threshold of 10 and ignores the other, picking a category true for only one condition.

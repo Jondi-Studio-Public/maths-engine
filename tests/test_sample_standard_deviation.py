@@ -281,9 +281,11 @@ def test_skill_contract_loads_with_expected_shape():
     skill = by_id[SKILL_ID]
     assert skill.answer == "number"
     assert skill.status == "active"
-    assert len(skill.sources) == 4
+    assert len(skill.sources) == 5  # the four variants plus the exam source
     seen_variants = set()
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == TOPIC
         variant = source.params["variant"]
         seen_variants.add(variant)

@@ -20,6 +20,11 @@ sources:
   params: {space_size: 10, pool_hi: 20, event_type: "intersection"}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_s2_sample_space
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: event-count
   description: Reports the count of favourable outcomes as a bare integer instead of a probability fraction.

@@ -21,6 +21,11 @@ sources:
   params: {variant: solve_for_n}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_s4_interval
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-square-root
   description: Computes z*phat*(1-phat)/n without taking the square root.
