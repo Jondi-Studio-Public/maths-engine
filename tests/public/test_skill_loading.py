@@ -3,7 +3,7 @@
 import pytest
 
 from mathgen import _paths, skills as skills_mod
-from mathgen.skills import SkillsNotFoundError, load_problems, load_skills, validate
+from mathgen.skills import DuplicateSkillError, SkillsNotFoundError, load_problems, load_skills, validate
 
 SKILL = """\
 id: add-two
@@ -195,11 +195,14 @@ def test_extra_folders_come_from_the_environment_by_default(monkeypatch, tmp_pat
 
 
 def test_an_extra_folder_cannot_replace_a_library_skill(tmp_path):
+    """Refused at load, not only in validate(): a caller that keys skills by id must never get the extra copy."""
     root = library(tmp_path / "lib", **{"add-two": good()})
     extra = extra_folder(tmp_path / "private", stem="add-two")
-    domains, loaded = load_skills(root, [extra])
-    report = validate(domains, loaded)
-    assert any(e.startswith("add-two: duplicate id") for e in report.errors), report.errors
+    with pytest.raises(DuplicateSkillError, match="'add-two' .* is already loaded"):
+        load_skills(root, [extra])
+    other = extra_folder(tmp_path / "other")  # add-three, twice across two extra folders
+    with pytest.raises(DuplicateSkillError, match="'add-three'"):
+        load_skills(root, [other, extra_folder(tmp_path / "again")])
 
 
 def test_an_extra_skill_must_use_a_library_domain(tmp_path):
@@ -212,10 +215,18 @@ def test_an_extra_skill_must_use_a_library_domain(tmp_path):
 
 def test_a_missing_extra_folder_is_an_error_but_an_empty_one_is_not(tmp_path):
     root = library(tmp_path / "lib", **{"add-two": good()})
-    with pytest.raises(SkillsNotFoundError):
+    with pytest.raises(
+        FileNotFoundError, match="extra skills folder .*missing does not exist.*MATHS_EXTRA_SKILLS_DIRS"
+    ):
         load_skills(root, [tmp_path / "missing"])
     (tmp_path / "empty").mkdir()
     assert [s.id for s in load_skills(root, [tmp_path / "empty"])[1]] == ["add-two"]
+
+
+def test_a_home_relative_extra_folder_is_expanded(monkeypatch, tmp_path):
+    monkeypatch.setenv("HOME", str(tmp_path))
+    monkeypatch.setenv("MATHS_EXTRA_SKILLS_DIRS", "~/private")
+    assert skills_mod.extra_skills_roots() == [tmp_path / "private"]
 
 
 def test_extra_skills_are_copies_too(tmp_path):

@@ -32,8 +32,8 @@ A plain `pip install .` works too. The built package carries the skill library, 
 the clone's root), the library is read in place from `skills/`, so edits show up straight away. A
 plain install holds the library as it was when you installed it, so reinstall after editing `skills/`.
 `MATHS_SKILLS_DIR` points the loader at a different folder either way, and `MATHS_EXTRA_SKILLS_DIRS`
-(folders separated by `:`, or `;` on Windows) adds skills of your own from folders laid out the same way.
-An extra skill joins the library's domains and cannot reuse a library skill's id.
+(folders separated by `os.pathsep`: `:`, or `;` on Windows; `~` is expanded) adds skills of your own from folders laid out the same way.
+An extra skill joins the library's domains; loading refuses one that reuses an id already loaded.
 
 ## Quick start
 

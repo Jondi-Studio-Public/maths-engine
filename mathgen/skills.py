@@ -58,11 +58,19 @@ def extra_skills_roots() -> list[Path]:
 
     An extra folder adds skills that are not in the library -- a site's private skills, say -- laid out the
     same way (``<domain>/<id>.yaml``). Its skills join the main library's domains; the main library's
-    ``domains.yaml`` and ``capability-gates.yaml`` still apply, and an id that is already taken is a
-    validation error, so an extra folder can add skills but never replace one.
+    ``domains.yaml`` and ``capability-gates.yaml`` still apply, and ``load_skills`` refuses an id that is already
+    taken, so an extra folder can add skills but never replace one. ``~`` is expanded.
     """
     raw = os.environ.get("MATHS_EXTRA_SKILLS_DIRS", "")
-    return [Path(p) for p in raw.split(os.pathsep) if p]
+    return [Path(p).expanduser() for p in raw.split(os.pathsep) if p]
+
+
+class DuplicateSkillError(ValueError):
+    """An extra skills folder holds a skill whose id is already in the library (or in an earlier extra folder).
+
+    Raised by ``load_skills`` rather than left to ``validate``, because callers that only load (and key skills
+    by id) would otherwise resolve the id to whichever copy came last.
+    """
 
 
 class SkillsNotFoundError(FileNotFoundError):
@@ -346,17 +354,28 @@ def load_skills(root: Path | None = None, extra_roots: list[Path] | None = None)
 
     Raises ``SkillsNotFoundError`` when the folder is missing or holds no skill files: an empty library is
     always a mistake (a broken install, a wrong ``MATHS_SKILLS_DIR``), never a result. A missing extra folder
-    raises it too; an extra folder that exists but holds no skills is allowed.
+    raises ``FileNotFoundError``; an extra folder that exists but holds no skills is allowed. An extra skill
+    whose id is already loaded raises ``DuplicateSkillError``.
     """
     root = Path(root) if root else skills_root()
     extras = [Path(p) for p in extra_roots] if extra_roots is not None else extra_skills_roots()
     domains, skills = _load_cached(root)
     if not skills:
         raise SkillsNotFoundError(root)
+    seen = {s.id: s.path for s in skills if s.id}
     for extra in extras:
+        extra = extra.expanduser()
         if not extra.is_dir():
-            raise SkillsNotFoundError(extra)
-        skills = skills + _load_cached(extra)[1]
+            raise FileNotFoundError(
+                f"extra skills folder {extra} does not exist (named by MATHS_EXTRA_SKILLS_DIRS or extra_roots)"
+            )
+        more = _load_cached(extra)[1]
+        for s in more:
+            if s.id in seen:
+                raise DuplicateSkillError(f"skill {s.id!r} in {s.path} is already loaded from {seen[s.id]}")
+            if s.id:
+                seen[s.id] = s.path
+        skills = skills + more
     return copy.deepcopy((domains, skills))
 
 
