@@ -42,6 +42,16 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: trigonometry
+  params:
+    kinds:
+    - angle
+    angle_style: elevation_eye
+    angle_lo: 81
+    angle_hi: 150
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: complementary-angle
   description: Finding the complementary angle instead of the one asked for.

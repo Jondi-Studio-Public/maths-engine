@@ -16,7 +16,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: fourier_coefficient_simple
-  params: {}
+  params: {kind: step}
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

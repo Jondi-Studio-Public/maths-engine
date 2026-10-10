@@ -18,7 +18,7 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: determine_the_optimum_assignment_s_by_inspection_for
-  params: {}
+  params: {blocked: 3}
   difficulty: hard
   stages: [6, maintenance]
 misconceptions:

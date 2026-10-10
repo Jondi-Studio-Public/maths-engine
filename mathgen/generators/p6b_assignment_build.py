@@ -22,6 +22,8 @@ def _min_assignment_cost(matrix):
     n = len(matrix)
     best = None
     for perm in permutations(range(n)):
+        if any(matrix[i][perm[i]] is None for i in range(n)):
+            continue  # a blocked (not possible) cell: infeasible assignment
         total = sum(matrix[i][perm[i]] for i in range(n))
         if best is None or total < best:
             best = total
@@ -38,9 +40,12 @@ def _min_assignment_backtracking(matrix, workers_left, tasks_used):
     n = len(matrix)
     best = None
     for t in range(n):
-        if t in tasks_used:
+        if t in tasks_used or matrix[w][t] is None:
             continue
-        cost = matrix[w][t] + _min_assignment_backtracking(matrix, rest, tasks_used | {t})
+        sub = _min_assignment_backtracking(matrix, rest, tasks_used | {t})
+        if sub is None:
+            continue
+        cost = matrix[w][t] + sub
         if best is None or cost < best:
             best = cost
     return best
@@ -68,7 +73,10 @@ def _format_matrix_text(matrix, task_names):
     lines = []
     for i, row in enumerate(matrix):
         worker_num = i + 1
-        costs = [f"Task {task_names[j]} costs ${row[j]}" for j in range(len(row))]
+        costs = [
+            f"Task {task_names[j]} is not possible" if row[j] is None else f"Task {task_names[j]} costs ${row[j]}"
+            for j in range(len(row))
+        ]
         lines.append(f"Worker {worker_num}: {', '.join(costs)}")
     return "; ".join(lines) + "."
 
@@ -125,6 +133,63 @@ def _draw_hard_matrix(rng, n, lo, hi, max_attempts=200):
     )
 
 
+def _allowed_row_greedy(matrix):
+    """Blocked-cell variant: each worker picks their cheapest ALLOWED task."""
+    return sum(min(c for c in row if c is not None) for row in matrix)
+
+
+def _allowed_col_greedy(matrix):
+    """Blocked-cell variant: each task picks its cheapest ALLOWED worker."""
+    n = len(matrix)
+    return sum(min(matrix[i][j] for i in range(n) if matrix[i][j] is not None) for j in range(n))
+
+
+def _allowed_positional(matrix):
+    """Blocked-cell variant of the diagonal default. Rule: the diagonal if all
+    its cells are allowed; else the anti-diagonal if all of those are allowed;
+    else None (the distractor is dropped)."""
+    n = len(matrix)
+    for cells in ([matrix[i][i] for i in range(n)], [matrix[i][n - 1 - i] for i in range(n)]):
+        if all(c is not None for c in cells):
+            return sum(cells)
+    return None
+
+
+def _draw_blocked_matrix(rng, n, lo, hi, blocked, max_attempts=2000):
+    """Draw an n x n matrix with ``blocked`` cells marked None (not possible).
+
+    Accepted only when (a) every assignment achieving the unconstrained optimum
+    (blocked cells' hidden costs included) uses a blocked cell, (b) a feasible
+    assignment exists and its optimum is strictly greater, and (c) the
+    constrained optimum differs from every distractor value, with at least
+    three distinct distractors left. Returns (matrix, unconstrained_optimum,
+    distractor_values).
+    """
+    for _ in range(max_attempts):
+        full = [[rng.randint(lo, hi) for _ in range(n)] for _ in range(n)]
+        cells = rng.sample(range(n * n), blocked)
+        matrix = [[None if (i * n + j) in cells else full[i][j] for j in range(n)] for i in range(n)]
+        constrained = _min_assignment_cost(matrix)
+        if constrained is None:
+            continue  # no feasible perfect matching (also covers an all-blocked row or column)
+        unconstrained = _min_assignment_cost(full)
+        if constrained <= unconstrained:
+            continue  # (b): constrained optimum strictly greater
+        # (a): every unconstrained-optimal assignment uses a blocked cell
+        # (implied by (b), but checked directly).
+        if any(
+            sum(full[i][p[i]] for i in range(n)) == unconstrained and all(matrix[i][p[i]] is not None for i in range(n))
+            for p in permutations(range(n))
+        ):
+            continue
+        values = [unconstrained, _allowed_row_greedy(matrix), _allowed_col_greedy(matrix), _allowed_positional(matrix)]
+        values = [v for v in values if v is not None]
+        if any(v == constrained for v in values) or len(set(values)) < 3:
+            continue  # (c)
+        return matrix, unconstrained, values
+    raise ValueError(f"Failed to draw blocked matrix after {max_attempts} attempts")
+
+
 @generator(
     "determine_the_optimum_assignment_s_by_inspection_for",
     level=11,
@@ -134,9 +199,12 @@ def _draw_hard_matrix(rng, n, lo, hi, max_attempts=200):
         "hard": dict(n=4, lo=4, hi=30),
     },
 )
-def determine_the_optimum_assignment_s_by_inspection_for(rng, n=3, lo=4, hi=20):
+def determine_the_optimum_assignment_s_by_inspection_for(rng, n=3, lo=4, hi=20, blocked=0):
     """Given a worker-task cost matrix, determine the minimum total cost
     to assign every worker to exactly one different task."""
+
+    if blocked:
+        return _blocked_question(rng, n, lo, hi, blocked)
 
     # Draw the matrix
     if n == 4 and lo == 4 and hi == 30:
@@ -190,6 +258,34 @@ def determine_the_optimum_assignment_s_by_inspection_for(rng, n=3, lo=4, hi=20):
     return dict(
         text=text,
         latex=rf"\text{{Cost matrix: }}{n}\times{n}\text{{, costs \${lo}--\${hi}; find min-cost assignment}}",
+        answer=answer,
+        answer_text=answer_text,
+        answer_latex=answer_text,
+        distractors=distractors,
+    )
+
+
+def _blocked_question(rng, n, lo, hi, blocked):
+    """Hard-tier decision: some worker-task pairs are not possible, and the
+    cheapest unconstrained assignment needs one, so the learner must exclude
+    pairs and search the feasible assignments."""
+    matrix, _unconstrained, values = _draw_blocked_matrix(rng, n, lo, hi, blocked)
+    task_names = [chr(ord("A") + i) for i in range(n)]
+    answer = _min_assignment_cost(matrix)
+    _verify_min_assignment(matrix, answer)
+    text = (
+        f"{_format_matrix_text(matrix, task_names)} "
+        f"A worker cannot be assigned a task marked not possible. "
+        f"Each worker is assigned to exactly one task, and each task is assigned to exactly one worker. "
+        f"What is the minimum possible total cost, in dollars, to assign every worker to a different task?"
+    )
+    answer_text = str(answer)
+    check_distinct(answer, *values, msg="every blocked-cell distractor must differ from the answer")
+    distractors = pick_distractors(answer_text, [str(v) for v in values])
+    check(len(distractors) >= 3, "blocked-cell question needs three distractors")
+    return dict(
+        text=text,
+        latex=rf"\text{{Cost matrix: }}{n}\times{n}\text{{ with {blocked} blocked cells; find min-cost feasible assignment}}",
         answer=answer,
         answer_text=answer_text,
         answer_latex=answer_text,

@@ -8,7 +8,7 @@ from fractions import Fraction
 
 from sympy import Rational, sympify
 
-from ..core import generator, check, pick_distractors, rational_text, join_terms
+from ..core import generator, check, check_pairwise_distinct, pick_distractors, rational_text, join_terms
 from .primary_math import _aligned
 
 
@@ -239,6 +239,9 @@ def integer_arithmetic(rng, hi=20, ops=("+", "-", "*", "/")):
     )
 
 
+_RATIO_UNIT_PAIRS = (("m", "cm", 100), ("kg", "g", 1000), ("km", "m", 1000), ("hours", "minutes", 60))
+
+
 @generator(
     "ratio",
     level=5,
@@ -249,6 +252,38 @@ def integer_arithmetic(rng, hi=20, ops=("+", "-", "*", "/")):
     },
 )
 def ratio(rng, kind="simplify", hi=20):
+    if kind == "mixed_units":
+        # Branch before any draw the other kinds make (EXD-001).
+        big, small, f = rng.choice(_RATIO_UNIT_PAIRS)
+        p, q = rng.randint(1, 9), rng.randint(1, 9)
+        while p == q or math.gcd(p, q) != 1:
+            p, q = rng.randint(1, 9), rng.randint(1, 9)
+        k = rng.randint(1, 3)
+        a, b = p * k, q * k * f
+        check(Fraction(a * f, b) == Fraction(p, q))
+        ans_text = f"{p}:{q}"
+
+        def _reduced(x, y):
+            g = math.gcd(x, y)
+            return f"{x // g}:{y // g}"
+
+        # Misconceptions: ignored the units and reduced as written; reversed
+        # the ratio; scaled the big amount by the factor a second time.
+        cands = [_reduced(a, b), f"{q}:{p}", _reduced(a * f * f, b)]
+        vals = [Fraction(int(c.split(":")[0]), int(c.split(":")[1])) for c in cands]
+        check_pairwise_distinct(Fraction(p, q), *vals)
+        return dict(
+            text=f"Write the ratio {a} {big} to {b} {small} in simplest form.",
+            latex=f"{a}\\text{{ {big} }}:{b}\\text{{ {small} }}\\text{{ (simplest form)}}",
+            answer={"p": p, "q": q},
+            answer_text=ans_text,
+            answer_latex=ans_text,
+            working=[
+                f"{a} {big} = {a * f} {small}",
+                f"{a * f}:{b} = {p}:{q} (divide both by {k * f})",
+            ],
+            distractors=pick_distractors(ans_text, cands),
+        )
     if kind == "simplify":
         p, q = rng.randint(1, hi), rng.randint(1, hi)
         while math.gcd(p, q) != 1:
@@ -306,6 +341,68 @@ def ratio(rng, kind="simplify", hi=20):
 _FORMULAS = ("rectangle_area", "triangle_area", "speed", "simple_interest", "perimeter")
 
 
+def _formula_rearrange(rng, hi, kind):
+    """Give the formula's result and all but one input; the learner rearranges
+    to find the missing input. Built forward from integers so the answer is whole."""
+    if kind == "rectangle_area":
+        l, w = rng.randint(2, hi), rng.randint(2, hi)
+        A = l * w
+        text = f"A rectangle has area {A} and length {l}. Use A = l × w to find its width."
+        formula, ans = "A = l × w", w
+        # multiplied instead of dividing; added; subtracted
+        cands = [A * l, A + l, A - l]
+    elif kind == "perimeter":
+        l, w = rng.randint(2, hi), rng.randint(2, hi)
+        P = 2 * (l + w)
+        text = f"A rectangle has perimeter {P} and length {l}. Use P = 2(l + w) to find its width."
+        formula, ans = "P = 2(l + w)", w
+        # subtracted the length once without halving; halved but forgot to subtract; forgot to halve
+        cands = [P - l, Rational(P, 2), P - 2 * l]
+    elif kind == "triangle_area":
+        b = rng.randrange(2, hi, 2) or 2
+        h = rng.randint(2, hi)
+        A = b * h // 2
+        text = f"A triangle has area {A} and base {b}. Use A = ½bh to find its height."
+        formula, ans = "A = ½bh", h
+        # multiplied instead of dividing; divided without doubling; added
+        cands = [A * b, Rational(A, b), A + b]
+    elif kind == "speed":
+        t = rng.randint(2, 10)
+        s = rng.randint(2, max(2, hi // t))
+        text = f"A car travels at {s} km/h for {t} hours. Use speed = distance / time to find the distance it travels (km)."
+        formula, ans = "s = d / t", s * t
+        # divided as if finding speed; added the given values
+        cands = [Rational(s, t), s + t, s * t * t]
+    else:  # simple_interest
+        P = rng.choice([100, 200, 500, 1000])
+        R = rng.choice([2, 3, 4, 5, 10])
+        T = rng.randint(1, 5)
+        I = P * R * T // 100
+        check(Rational(P * R * T, 100) == I)
+        text = (
+            f"Simple interest of £{I} is earned on £{P} over {T} years. Use I = PRT/100 to find the annual rate R (%)."
+        )
+        formula, ans = "I = PRT/100", R
+        # substituted into the formula as if the unknown were the result;
+        # forgot the 100; forgot to divide by the time
+        cands = [Rational(P * T * I, 100), Rational(I, P * T), Rational(100 * I, P)]
+    # generic off-by-one fillers guarantee three distractors after collisions
+    cands = cands + [ans + 1, ans - 1, ans + 2]
+    # whole-number answer, so keep whole-number distractors only (the skill
+    # contract rejects a decimal distractor beside an integer key)
+    texts = [str(int(c)) for c in cands if c == int(c)]
+    distractors = pick_distractors(str(ans), texts)
+    check(len(distractors) == 3 and str(ans) not in distractors)
+    return dict(
+        text=text,
+        latex=formula,
+        answer=ans,
+        answer_text=str(ans),
+        answer_latex=str(ans),
+        distractors=distractors,
+    )
+
+
 @generator(
     "formula_plugin",
     level=10,
@@ -315,8 +412,10 @@ _FORMULAS = ("rectangle_area", "triangle_area", "speed", "simple_interest", "per
         "hard": dict(hi=30),
     },
 )
-def formula_plugin(rng, hi=20, formulas=_FORMULAS):
+def formula_plugin(rng, hi=20, formulas=_FORMULAS, unknown="result"):
     kind = rng.choice(list(formulas))
+    if unknown == "input":
+        return _formula_rearrange(rng, hi, kind)
     if kind == "rectangle_area":
         l, w = rng.randint(2, hi), rng.randint(2, hi)
         ans = l * w

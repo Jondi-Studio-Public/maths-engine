@@ -255,6 +255,57 @@ def _borderline(rng):
     )
 
 
+def _independent_check_failures(n: int, f: int, category: str) -> None:
+    """Re-derives the products from the stated failure count by the opposite
+    route: n*phat via ``n * Fraction(n - f, n)`` and n*(1-phat) via
+    ``n * (1 - Fraction(n - f, n))``, then classifies with
+    :func:`_verify_classify`."""
+    phat = Fraction(n - f, n)
+    prod_p = n * phat
+    prod_q = n * (1 - phat)
+    check(prod_q == f, "from_failures: n*(1-phat) is not the stated failure count")
+    check(_verify_classify(prod_p, prod_q) == category, "from_failures: independent check disagrees with construction")
+
+
+def _from_failures(rng):
+    """Hard (new): the sample is stated as n and x FAILURES while p-hat is
+    the proportion of SUCCESSES, so n*p-hat = n - x and n*(1-p-hat) = x. A
+    learner who treats x as successes swaps the two 'not valid' categories.
+    Exactly one product is below 10 in every draw (so the swap trap is
+    always live); VALID and BOTH_FAIL are therefore never produced here."""
+    for _attempt in range(200):
+        low_is_failures = rng.choice([True, False])
+        low = rng.randint(2, 9)
+        high = rng.randint(10, 30)
+        f, s = (low, high) if low_is_failures else (high, low)
+        n = s + f
+        if f >= 2 and s >= 2 and (s < 10) != (f < 10):
+            break
+    else:
+        raise RuntimeError("p8c_normality_approx_phat/from_failures: no draw produced an asymmetric pair")
+
+    prod_p, prod_q = Fraction(n - f), Fraction(f)
+    category = _classify(prod_p, prod_q)
+    check(category in (CATEGORY_P_FAILS, CATEGORY_Q_FAILS), "from_failures: category must be a single-product failure")
+    _independent_check_failures(n, f, category)
+
+    distractors = pick_distractors(category, [c for c in ALL_CATEGORIES if c != category])
+    text = f"A sample of size n = {n} finds x = {f} failures, and p-hat is the proportion of successes. {RULE_SENTENCE} {_ASK}"
+    working = [
+        f"n×p-hat = n - x = {n} - {f} = {n - f} (compare to 10).",
+        f"n×(1-p-hat) = x = {f} (compare to 10).",
+    ]
+    return dict(
+        text=text,
+        latex=text,
+        answer=category,
+        answer_text=category,
+        answer_latex=latex_answer(category, plain=True),
+        working=working,
+        distractors=distractors,
+    )
+
+
 @generator(
     "p8c_normality_approx_phat",
     level=12,
@@ -273,4 +324,6 @@ def p8c_normality_approx_phat(rng, variant="direct"):
         return _from_counts(rng)
     if variant == "borderline":
         return _borderline(rng)
+    if variant == "from_failures":
+        return _from_failures(rng)
     raise ValueError(f"p8c_normality_approx_phat: unknown variant {variant!r}")

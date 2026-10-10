@@ -206,6 +206,58 @@ def modular_multiplicative_inverse(rng, modulus_hi=19, kind=None):
     )
 
 
+def _cyclic_order_of_sum(rng, modulus_hi):
+    """Hard tier: order of [a] + [b] in Z/nZ, where a + b wraps past n."""
+    for _ in range(500):
+        modulus = rng.randint(8, max(8, modulus_hi))
+        a = rng.randint(1, modulus - 1)
+        b = rng.randint(1, modulus - 1)
+        total = a + b
+        if total < modulus or total % modulus == 0:
+            continue
+        residue = total % modulus
+        expected = modulus // gcd(residue, modulus)
+        order_a = modulus // gcd(a, modulus)
+        order_b = modulus // gcd(b, modulus)
+        lcm_ab = order_a * order_b // gcd(order_a, order_b)
+        rivals = {lcm_ab, order_a + order_b, order_a * order_b, max(order_a, order_b)}
+        if expected in rivals:
+            continue
+        break
+    else:
+        raise AssertionError("no admissible cyclic-sum draw")
+    enumerated = None
+    current = 0
+    for count in range(1, modulus + 1):
+        current = (current + residue) % modulus
+        if current == 0:
+            enumerated = count
+            break
+    check(enumerated == expected, "cyclic-sum order mismatch")
+    check((expected * total) % modulus == 0, "cyclic-sum order fails closure check")
+    check(expected not in rivals, "cyclic-sum answer collides with a misconception")
+    answer_text = str(expected)
+    candidates = [
+        str(v) for v in (lcm_ab, order_a + order_b, order_a * order_b, max(order_a, order_b), modulus, order_a, order_b)
+    ]
+    candidates.extend(str(candidate) for candidate in range(1, 2 * modulus + 1))
+    distractors = pick_distractors(answer_text, candidates)
+    check(all(d != answer_text for d in distractors), "cyclic-sum distractor equals answer")
+    return dict(
+        text=f"In the additive cyclic group Z/{modulus}Z, find the order of the element [{a}] + [{b}].",
+        latex=rf"\text{{In }}\mathbb{{Z}}/{modulus}\mathbb{{Z}},\; "
+        rf"\text{{find }}\operatorname{{ord}}([{a}]+[{b}]).",
+        answer=expected,
+        answer_text=answer_text,
+        answer_latex=answer_text,
+        working=[
+            f"Add first: [{a}] + [{b}] = [{total}] = [{residue}] in Z/{modulus}Z.",
+            f"The order of [{residue}] is {modulus}/gcd({residue}, {modulus}) = {expected}.",
+        ],
+        distractors=distractors,
+    )
+
+
 @generator(
     "cyclic_group_element_order",
     level=16,
@@ -215,8 +267,10 @@ def modular_multiplicative_inverse(rng, modulus_hi=19, kind=None):
         "hard": dict(modulus_hi=24),
     },
 )
-def cyclic_group_element_order(rng, modulus_hi=15):
+def cyclic_group_element_order(rng, modulus_hi=15, kind=None):
     """Find the additive order of [a] in the finite cyclic group Z/nZ."""
+    if kind == "sum":
+        return _cyclic_order_of_sum(rng, modulus_hi)
     modulus = rng.randint(4, modulus_hi)
     value = rng.randint(0, modulus - 1)
     expected = 1 if value == 0 else modulus // gcd(value, modulus)
