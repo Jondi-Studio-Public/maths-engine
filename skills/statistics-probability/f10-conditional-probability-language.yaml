@@ -1,0 +1,32 @@
+id: f10-conditional-probability-language
+name: Read conditional probability language
+domain: statistics-probability
+description: Given a plain-language sentence built on exactly one of four fixed templates ("given", "knowing that", "if ... then" or "of") that names exactly two events, pick the description that states which event is the condition and which is the target, in the fixed form "the probability of the target, given the condition". Nothing is calculated, no formal notation is used, and interpreting the result in context is not asked. easy uses "given" and "knowing that" with no numbers; medium uses "if ... then" and "of"; hard uses all four after a counts line that includes the "both" count, with "also" in the "of" sentences, which invites a joint reading.
+status: active
+placement_eligible: false
+prerequisites:
+- conditional-probability-counts
+answer: mcq
+sources:
+- topic: f10a_conditional_language
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10a_conditional_language
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10a_conditional_language
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swaps-condition-and-target
+  description: Takes the event that is named first, or the one with the bigger count, as the target regardless of the marker word, so condition and target are swapped.
+- id: reads-conditional-as-both-events
+  description: Reads "given", "of" or "if ... then" as a joint statement about both events happening together.
+- id: drops-the-condition
+  description: Describes only the probability of the target event and ignores the condition.
+- id: reports-the-condition-as-the-target
+  description: Describes the probability of the condition event itself instead of the target.
+tags: [acara-f10-v9, statistics-probability, f10a_conditional_language, AC9M10P01]
