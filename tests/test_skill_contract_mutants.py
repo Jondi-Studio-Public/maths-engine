@@ -144,3 +144,28 @@ def test_answer_variety_notices_a_collapsed_answer_pool(monkeypatch):
     _patch_make(monkeypatch, collapse)
     with pytest.raises(AssertionError, match="distinct answers"):
         sc.check_answer_variety(NUMBER)
+
+
+def test_options_quality_notices_a_short_option_list(monkeypatch):
+    sid = "integer-polynomial-quotient-remainder"  # mcq, four options on every draw
+
+    def shorten(q):
+        del q.distractors[1:]
+        return q
+
+    sc.check_options_quality(sid)
+    sc.draws.cache_clear()
+    _patch_make(monkeypatch, shorten)
+    with pytest.raises(AssertionError, match="option_count"):
+        sc.check_options_quality(sid)
+
+
+def test_options_quality_notices_an_answer_always_in_the_middle(monkeypatch):
+    def pad(q):
+        value = float(q.answer_text)
+        q.distractors = [f"{value - 1:.2f}", f"{value + 1:.2f}", f"{value + 2:.2f}"]
+        return q
+
+    _patch_make(monkeypatch, pad)
+    with pytest.raises(AssertionError, match="middle_answer"):
+        sc.check_options_quality(NUMBER)

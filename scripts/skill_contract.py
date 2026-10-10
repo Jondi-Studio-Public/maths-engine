@@ -15,8 +15,13 @@ Families:
  (build topics)
 - variety       enough distinct prompts per source over the seed sweep
 - answers       enough distinct answers per source over the seed sweep (a tier whose answer
-                is nearly always the same can be passed by guessing it). The one family a
-                test runs over the whole library: `tests/test_skill_answer_variety.py`
+                is nearly always the same can be passed by guessing it)
+- option_count  a multiple-choice tier shows the same number of options every time, at least 4
+- middle_answer when every option is a number, the answer is not almost always an inner one
+- probability   a probability's wrong options are probabilities too (none above 1 or below 0)
+
+The last four are the families a test runs over the whole library
+(`tests/test_skill_option_quality.py`), against recorded backlogs that may only shrink.
 - escalation    sources at different difficulties are different question pools
 - grader        the real grader accepts the canonical answer and rejects every
                 distractor and a synthetic wrong answer, plus figure plausibility
@@ -29,6 +34,8 @@ if __name__ == "__main__":
     raise SystemExit("skill_contract.py is a library for tests and other scripts, not a command; import its checks")
 
 import os
+import re
+from fractions import Fraction
 from functools import lru_cache
 from pathlib import Path
 
@@ -213,6 +220,73 @@ def check_answer_variety(skill_id: str) -> None:
     assert not stale, f"{sorted(stale)}: no longer a tier of this skill; remove from {ANSWER_FLOORS_PATH.name}"
 
 
+OPTION_BASELINE_PATH = Path(__file__).resolve().parents[1] / "tests" / "skill_contract_option_baseline.yaml"
+MIN_OPTIONS = 4
+# Chance puts the answer at an end of four sorted options half the time; a tier where it is there in fewer
+# than one draw in five tells a learner to rule out the highest and the lowest.
+MIN_EXTREME_SHARE = 0.2
+# A skill whose answers are all in [0, 1] is held to the probability check when its id or topic says it is one.
+# By name, because nothing in a skill says its answer is a probability.
+_PROBABILITY_RE = re.compile(r"probab|markov|binomial|poisson|relative.freq|determination|sample.space|_pdf_")
+
+
+@lru_cache(maxsize=1)
+def option_baseline() -> dict[str, dict[str, list[str]]]:
+    """family -> skill id -> ["topic/difficulty", ...]: the tiers that failed `option_faults` when its checks
+    were added. Written by `scripts/build_contract_floors.py`."""
+    import yaml
+
+    if not OPTION_BASELINE_PATH.exists():
+        return {}
+    return yaml.safe_load(OPTION_BASELINE_PATH.read_text(encoding="utf-8")) or {}
+
+
+def _option_value(text) -> Fraction | None:
+    try:
+        return Fraction(str(text).strip().replace("\u2212", "-"))
+    except (ValueError, ZeroDivisionError):
+        return None
+
+
+def option_faults(skill_id: str) -> dict[str, set[str]]:
+    """family -> {"topic/difficulty"} for the option families: `option_count`, `middle_answer`, `probability`."""
+    sk = skill(skill_id)
+    faults: dict[str, set[str]] = {"option_count": set(), "middle_answer": set(), "probability": set()}
+    for src, difficulty, qs in draws(skill_id):
+        key = f"{src.topic}/{difficulty}"
+        if sk.answer == "mcq":
+            counts = {1 + len(q.distractors) for q in qs}
+            if len(counts) > 1 or min(counts) < MIN_OPTIONS:
+                faults["option_count"].add(key)
+        numeric = extreme = 0
+        for q in qs:
+            values = [_option_value(q.answer_text), *map(_option_value, q.distractors)]
+            if len(values) >= 3 and None not in values:
+                numeric += 1
+                extreme += values[0] <= min(values[1:]) or values[0] >= max(values[1:])
+        if numeric >= len(qs) // 2 and numeric and extreme < MIN_EXTREME_SHARE * numeric:
+            faults["middle_answer"].add(key)
+        answers = [_option_value(q.answer_text) for q in qs]
+        if _PROBABILITY_RE.search(f"{skill_id} {src.topic}") and all(a is not None and 0 <= a <= 1 for a in answers):
+            for q in qs:
+                if any((v := _option_value(d)) is not None and not 0 <= v <= 1 for d in q.distractors):
+                    faults["probability"].add(key)
+                    break
+    return faults
+
+
+def check_options_quality(skill_id: str) -> None:
+    """No tier has an option fault that is not in the option baseline, and every tier the baseline lists for
+    this skill still has its fault (a fixed tier leaves the file, so it only shrinks)."""
+    found = option_faults(skill_id)
+    for family, tiers in found.items():
+        recorded = set(option_baseline().get(family, {}).get(skill_id, []))
+        assert not tiers - recorded, f"{family}: {sorted(tiers - recorded)}"
+        assert not recorded - tiers, (
+            f"{family}: {sorted(recorded - tiers)} fixed; remove from {OPTION_BASELINE_PATH.name}"
+        )
+
+
 def check_escalation(skill_id: str) -> None:
     """Each tier is its own pool: two tiers drawing the same questions is a label
     change, not an escalation."""
@@ -243,6 +317,7 @@ FAMILIES = {
     "options": check_options,
     "variety": check_variety,
     "answers": check_answer_variety,
+    "options_quality": check_options_quality,
     "escalation": check_escalation,
     "grader": check_grader,
 }

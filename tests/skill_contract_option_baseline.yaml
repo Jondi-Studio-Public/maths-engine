@@ -1,0 +1,906 @@
+# Generated baseline data, do not hand-edit: python scripts/build_contract_floors.py
+# family: {skill: [topic/difficulty]}. The tiers with each option fault over the 60-seed sweep
+# (scripts/skill_contract.py, option_faults): option_count, a multiple-choice tier that does not
+# always show the same number of options, at least 4; middle_answer, all-number options
+# where the answer is the lowest or highest in under 20% of draws; probability, a
+# probability offered a wrong option above 1 or below 0. May only shrink.
+middle_answer:
+  add-within-100:
+  - early_addition/easy
+  angle-degrees-to-radians-decimal:
+  - t4_degrees_to_radians_decimal/easy
+  annulus-cross-section-area:
+  - annulus_cross_section_area/easy
+  - annulus_cross_section_area/hard
+  - annulus_cross_section_area/medium
+  applied-pythagoras-problems:
+  - applied_pythagoras/hard
+  - applied_pythagoras/medium
+  before-and-after-to-10:
+  - before_after/easy
+  bernoulli-mle:
+  - bernoulli_mle/easy
+  - bernoulli_mle/hard
+  - bernoulli_mle/medium
+  calculate-mean:
+  - summary_statistic/easy
+  calculate-median:
+  - exam_median_summary_statistic/exam
+  - summary_statistic/easy
+  calculate-mode:
+  - summary_statistic/easy
+  calculate-overtime:
+  - earnings/easy
+  calculate-range:
+  - summary_statistic/easy
+  calculate-wages:
+  - earnings/easy
+  circle-reverse-from-area:
+  - circle_reverse_from_area/hard
+  combinations:
+  - combinatorics/easy
+  common-difference:
+  - sequence/hard
+  complex-modulus:
+  - complex_number/easy
+  composite-perimeter:
+  - l_shape_perimeter/easy
+  composite-trapezoidal-polynomial:
+  - composite_trapezoidal_polynomial/easy
+  - composite_trapezoidal_polynomial/hard
+  - composite_trapezoidal_polynomial/medium
+  condition-number-diagonal:
+  - condition_number_diagonal/easy
+  - condition_number_diagonal/medium
+  conditional-probability-counts:
+  - conditional_probability_counts/hard
+  count-to-10:
+  - count_objects/easy
+  count-to-5:
+  - count_objects/easy
+  discrete-expected-value:
+  - discrete_expected_value/easy
+  - discrete_expected_value/hard
+  - discrete_expected_value/medium
+  distance-two-points:
+  - distance_two_points/easy
+  - distance_two_points/medium
+  elapsed-time:
+  - elapsed_time/easy
+  equal-groups:
+  - equal_groups/easy
+  estimate-financial-total:
+  - financial_estimation/easy
+  evaluate-powers:
+  - powers/easy
+  - powers/hard
+  - powers/medium
+  explicit-euler-linear-ode:
+  - explicit_euler_linear_ode/easy
+  - explicit_euler_linear_ode/medium
+  f10-addition-facts-related-subtraction:
+  - p19a_add_sub_fact_family/easy
+  - p19a_add_sub_fact_family/hard
+  - p19a_add_sub_fact_family/medium
+  f10-additive-multiplicative-money-model:
+  - additive_multiplicative_money_model/easy
+  - additive_multiplicative_money_model/hard
+  f10-additive-multiplicative-patterns:
+  - additive_multiplicative_patterns/easy
+  - additive_multiplicative_patterns/hard
+  - additive_multiplicative_patterns/medium
+  f10-angle-relationships:
+  - p10e_angle_relationships/easy
+  - p10e_angle_relationships/hard
+  - p10e_angle_relationships/medium
+  f10-angle-turn-right-reference:
+  - angle_turn_right_reference/easy
+  - angle_turn_right_reference/hard
+  - angle_turn_right_reference/medium
+  f10-bracketed-number-equations:
+  - p13a_bracketed_number/easy
+  - p13a_bracketed_number/hard
+  - p13a_bracketed_number/medium
+  f10-circle-measures:
+  - circle_measures/easy
+  - circle_measures/hard
+  f10-decimal-metric-representation:
+  - decimal_metric_representation/easy
+  - decimal_metric_representation/hard
+  - decimal_metric_representation/medium
+  f10-describe-calendar-duration:
+  - describe_calendar_duration/easy
+  - describe_calendar_duration/hard
+  - describe_calendar_duration/medium
+  f10-division-remainder-context:
+  - division_remainder_context/hard
+  f10-equivalent-fractions-related-denominators:
+  - equivalent_fraction_related_denominator/easy
+  - equivalent_fraction_related_denominator/hard
+  - equivalent_fraction_related_denominator/medium
+  f10-exact-approximate-repeated-calculation:
+  - p10e_exact_approx_repeated_calc/easy
+  - p10e_exact_approx_repeated_calc/medium
+  f10-expanded-powers-ten:
+  - p19a_expanded_powers_ten/exam
+  f10-factor-multiple-divisibility-algorithm:
+  - p9e_factor_multiple_divisibility_algorithm/hard
+  f10-fraction-percent-quantity-strategy:
+  - p9e_fraction_percent_quantity_strategy/easy
+  - p9e_fraction_percent_quantity_strategy/hard
+  - p9e_fraction_percent_quantity_strategy/medium
+  f10-fractions-half-quarter-eighth:
+  - fraction_halving/easy
+  - fraction_halving/hard
+  - fraction_halving/medium
+  f10-logarithmic-scales:
+  - p10e_logarithmic_scales/easy
+  - p10e_logarithmic_scales/hard
+  - p10e_logarithmic_scales/medium
+  f10-measurement-error-interpretation:
+  - measurement_error_interpretation/hard
+  f10-mental-mult-div-extension:
+  - mental_mult_div_extension/easy
+  - mental_mult_div_extension/hard
+  - mental_mult_div_extension/medium
+  f10-metric-measure-instrument-estimate:
+  - metric_measure_instrument_estimate/easy
+  - metric_measure_instrument_estimate/hard
+  - metric_measure_instrument_estimate/medium
+  f10-money-dollars-cents-representation:
+  - money_dollars_cents_representation/easy
+  - money_dollars_cents_representation/hard
+  - money_dollars_cents_representation/medium
+  f10-multiply-divide-one-digit-arrays:
+  - multiply_divide_one_digit_arrays/easy
+  f10-parallel-line-angle-theorems:
+  - p11d_parallel_line_angle_theorems/hard
+  f10-parallelogram-area:
+  - parallelogram_area/medium
+  f10-part-part-whole-collections-to-10:
+  - p19a_part_part_whole/easy
+  - p19a_part_part_whole/hard
+  - p19a_part_part_whole/medium
+  f10-partition-collections-equal-groups:
+  - p19a_partition_equal_groups/hard
+  - p19a_partition_equal_groups/medium
+  f10-percentage-equivalence-comparison:
+  - percentage_to_fraction/easy
+  - percentage_to_fraction/hard
+  - percentage_to_fraction/medium
+  f10-polygon-angle-sums:
+  - p13a_polygon_angle_sum/exam
+  f10-probability-complements-compounds:
+  - probability_complements_compounds/easy
+  - probability_complements_compounds/hard
+  - probability_complements_compounds/medium
+  f10-ratio-rate-financial-model:
+  - ratio_rate_financial_model/exam
+  f10-rational-four-operations:
+  - rational_four_operations/hard
+  f10-real-number-applied-problems:
+  - p18a_real_number_applied/exam
+  f10-regular-irregular-area-perimeter:
+  - regular_irregular_area_perimeter/hard
+  f10-round-decimals-accuracy:
+  - p9e_round_decimal_accuracy/hard
+  f10-scientific-notation-measurements:
+  - scientific_notation_measurements/easy
+  f10-square-roots-perfect-squares:
+  - square_roots_perfect_squares/hard
+  f10-subitise-name-to-5:
+  - subitise_to_5/easy
+  - subitise_to_5/hard
+  - subitise_to_5/medium
+  f10-terminating-recurring-decimals:
+  - p9e_terminating_recurring_decimal/medium
+  f10-timetable-itinerary-duration:
+  - timetable_itinerary_duration/medium
+  f10-unit-fractions-combine-whole:
+  - unit_fractions_combine_whole/easy
+  - unit_fractions_combine_whole/hard
+  - unit_fractions_combine_whole/medium
+  f10-unmarked-partial-measurement:
+  - unmarked_partial_measurement/easy
+  - unmarked_partial_measurement/hard
+  - unmarked_partial_measurement/medium
+  f10-volume-surface-area-prisms-cylinders:
+  - volume_surface_area_prisms_cylinders/easy
+  - volume_surface_area_prisms_cylinders/hard
+  fair-sharing:
+  - fair_sharing/easy
+  finite-distribution-variance:
+  - finite_distribution_variance/easy
+  - finite_distribution_variance/hard
+  - finite_distribution_variance/medium
+  finite-sample-space-probability:
+  - finite_sample_space_probability/easy
+  flat-loan-repayment:
+  - flat_loan_repayment/easy
+  fraction-of-quantity:
+  - fraction_of_quantity/easy
+  - fraction_of_quantity/hard
+  - fraction_of_quantity/medium
+  frustum-volume:
+  - frustum_volume/easy
+  - frustum_volume/hard
+  - frustum_volume/medium
+  gradient-descent-quadratic:
+  - gradient_descent_quadratic/easy
+  - gradient_descent_quadratic/hard
+  - gradient_descent_quadratic/medium
+  integer-arithmetic:
+  - addition/easy
+  - division/hard
+  - multiplication/medium
+  - subtraction/medium
+  markov-two-state-step:
+  - markov_two_state_step/easy
+  - markov_two_state_step/medium
+  matrix-rank-small:
+  - matrix_rank_small/easy
+  - matrix_rank_small/hard
+  - matrix_rank_small/medium
+  modular-arithmetic-congruence:
+  - modular_arithmetic/easy
+  - modular_arithmetic/medium
+  moving-average:
+  - moving_average/easy
+  multiplication-facts:
+  - equal_groups/easy
+  multiplication-principle:
+  - combinatorics/easy
+  newton-method-iteration:
+  - newton_method_iteration/easy
+  - newton_method_iteration/hard
+  - newton_method_iteration/medium
+  number-bonds-to-10:
+  - number_bond/easy
+  order-numbers-to-10:
+  - number_sequence/easy
+  percentage-of-quantity:
+  - percentage_quantity/hard
+  permutations:
+  - combinatorics/easy
+  place-value-to-100:
+  - teen_place_value/easy
+  place-value-to-20:
+  - teen_place_value/easy
+  prism-capacity-metric-units:
+  - prism_capacity_conversion/easy
+  pythagoras-truss-chain:
+  - pythagoras_truss_chain/easy
+  - pythagoras_truss_chain/medium
+  pythagorean-hypotenuse:
+  - trigonometry/easy
+  - trigonometry/exam
+  - trigonometry/hard
+  - trigonometry/medium
+  pythagorean-leg:
+  - trigonometry/easy
+  - trigonometry/exam
+  - trigonometry/hard
+  - trigonometry/medium
+  recognise-numerals-to-10:
+  - recognise_numeral/easy
+  rectangle-area:
+  - rectangle_measure/easy
+  - rectangle_measure/medium
+  rectangle-area-perimeter-mixed-units:
+  - rectangle_mixed_unit_area_perimeter/hard
+  - rectangle_mixed_unit_area_perimeter/medium
+  rectangle-perimeter:
+  - rectangle_measure/medium
+  round-decimals:
+  - round_decimal/easy
+  - round_decimal/hard
+  - round_decimal/medium
+  senior-angles-at-the-circumference-of-a-circle-subtended:
+  - angles_same_arc/easy
+  senior-apply-approximation-strategies-for-calculations:
+  - apply_approximation_strategy/medium
+  senior-apply-euler-s-formula-v-f-e-2:
+  - pv0c_euler_planar/easy
+  - pv0c_euler_planar/exam
+  - pv0c_euler_planar/hard
+  - pv0c_euler_planar/medium
+  senior-apply-the-cosine-and-sine-ratios-to-find:
+  - sine_cosine_ratio_triangle/hard
+  senior-calculate-and-interpret-quartiles-deciles-and-percentiles:
+  - p19b_percentile_rank/easy
+  - p19b_percentile_rank/medium
+  senior-calculate-float-times-for-non-critical-activities:
+  - p10c_critical_path_float/easy
+  - p10c_critical_path_float/hard
+  - p10c_critical_path_float/medium
+  senior-calculate-lengths-of-arcs-and-areas-of-sectors:
+  - arc_length_sector_area/hard
+  senior-calculate-perimeters-of-familiar-shapes-including-triangles-squares:
+  - calculate_perimeters_of_familiar_shapes/easy
+  - calculate_perimeters_of_familiar_shapes/hard
+  - calculate_perimeters_of_familiar_shapes/medium
+  senior-calculate-probabilities-and-quantiles-associated-with-a-given:
+  - p13d_normal_dist_prob_quantile/easy
+  - p13d_normal_dist_prob_quantile/hard
+  - p13d_normal_dist_prob_quantile/medium
+  senior-calculate-seasonal-indices-by-using-the-average-percentage:
+  - p13d_seasonal_index/easy
+  - p13d_seasonal_index/exam
+  - p13d_seasonal_index/medium
+  senior-calculate-the-area-between-curves-in-simple-cases:
+  - area_between_curves_simple_cases/easy
+  - area_between_curves_simple_cases/hard
+  - area_between_curves_simple_cases/medium
+  senior-calculate-the-time-or-costs-for-a-journey:
+  - journey_time_or_cost/easy
+  - journey_time_or_cost/medium
+  senior-calculate-total-change-by-integrating-instantaneous-or-marginal:
+  - calculate_total_change_by_integrating_instantaneous_or_marginal/easy
+  - calculate_total_change_by_integrating_instantaneous_or_marginal/hard
+  - calculate_total_change_by_integrating_instantaneous_or_marginal/medium
+  senior-chords-of-equal-length-subtend-equal-angles-at:
+  - chords_equal_length_equal_angles/hard
+  - chords_equal_length_equal_angles/medium
+  senior-complete-calculations-with-rates-including-solving-problems-involving:
+  - p7d_complete_rate_calculations/easy
+  - p7d_complete_rate_calculations/hard
+  senior-consider-constant-and-non-constant-force:
+  - p13b_constant_nonconstant_force/easy
+  - p13b_constant_nonconstant_force/exam
+  - p13b_constant_nonconstant_force/hard
+  - p13b_constant_nonconstant_force/medium
+  senior-consider-similar-problems-involving-compounding-for-example-population:
+  - p10c_population_compounding/hard
+  - p10c_population_compounding/medium
+  senior-convert-between-grams-and-milligrams:
+  - grams_milligrams_convert/easy
+  - grams_milligrams_convert/hard
+  senior-convert-between-units-for-rates-for-example-km:
+  - convert_units_for_rates/hard
+  - convert_units_for_rates/medium
+  senior-convert-units-of-rates-occurring-in-practical-situations:
+  - p13a_convert_rate_units/easy
+  senior-define-and-use-unit-vectors-and-the-perpendicular:
+  - define_and_use_unit_vectors_and_the_perpendicular/medium
+  senior-define-logarithms-as-indices-a-x-b-is:
+  - logarithms_as_indices/hard
+  senior-determine-and-examine-the-n-th-roots-of:
+  - nth_roots_of_unity/hard
+  senior-determine-and-use-the-formulas-for-finding-the:
+  - p11c_set_union_cardinality/easy
+  senior-determine-equations-of-motion-of-a-particle-travelling:
+  - p10a_vector_motion_line_accel/hard
+  senior-determine-the-coordinates-of-the-midpoint-of-two:
+  - midpoint_coordinate_scalar/easy
+  - midpoint_coordinate_scalar/medium
+  senior-determine-the-optimum-assignment-s-by-inspection-for:
+  - determine_the_optimum_assignment_s_by_inspection_for/easy
+  - determine_the_optimum_assignment_s_by_inspection_for/hard
+  - determine_the_optimum_assignment_s_by_inspection_for/medium
+  senior-determine-the-overall-change-in-a-quantity-following:
+  - repeated_percentage_change/hard
+  - repeated_percentage_change/medium
+  senior-determine-the-probabilities-of-occurrence-of-simple-traffic:
+  - traffic_light_probability/medium
+  senior-estimate-the-limit-of-frac-a-h-1:
+  - p12c_estimate_limit_ah/easy
+  senior-examine-examples-of-direct-proportion-and-linearly-related:
+  - p7d_examine_direct_proportion/easy
+  - p7d_examine_direct_proportion/hard
+  - p7d_examine_direct_proportion/medium
+  senior-examine-examples-of-inverse-proportion:
+  - p7d_examine_inverse_proportion/medium
+  senior-examine-examples-of-quadratically-related-variables:
+  - p7d_examine_quadratic_variation/hard
+  - p7d_examine_quadratic_variation/medium
+  senior-examine-examples-of-variable-rates-of-change-of:
+  - p11b_variable_rate_of_change/easy
+  - p11b_variable_rate_of_change/hard
+  - p11b_variable_rate_of_change/medium
+  senior-examine-examples-of-vectors-including-displacement-and-velocity:
+  - examine_examples_of_vectors_including_displacement_and_velocity/easy
+  - examine_examples_of_vectors_including_displacement_and_velocity/hard
+  - examine_examples_of_vectors_including_displacement_and_velocity/medium
+  senior-examine-simple-examples-of-non-uniform-discrete-random:
+  - non_uniform_discrete_random_variable/hard
+  - non_uniform_discrete_random_variable/medium
+  senior-examine-the-area-problem-and-use-sums-of:
+  - p13c_riemann_sum_area/easy
+  senior-find-distances-between-two-places-on-earth-on:
+  - earth_meridian_distance/easy
+  senior-find-distances-between-two-places-on-earth-using:
+  - p13d_great_circle_distance/easy
+  - p13d_great_circle_distance/exam
+  senior-find-instantaneous-rates-of-change:
+  - p13c_instantaneous_rate_context/easy
+  - p13c_instantaneous_rate_context/exam
+  - p13c_instantaneous_rate_context/hard
+  - p13c_instantaneous_rate_context/medium
+  senior-find-the-area-of-irregular-figures-by-decomposition:
+  - find_the_area_of_irregular_figures/easy
+  - find_the_area_of_irregular_figures/hard
+  - find_the_area_of_irregular_figures/medium
+  senior-find-the-slope-of-a-tangent-and-the:
+  - find_the_slope_of_a_tangent_and_the/medium
+  senior-find-the-surface-area-of-familiar-solids-including:
+  - find_surface_area_of_familiar_solids/easy
+  - find_surface_area_of_familiar_solids/hard
+  senior-find-the-surface-area-of-pyramids-such-as:
+  - find_the_surface_area_of_pyramids_such_as/easy
+  - find_the_surface_area_of_pyramids_such_as/exam
+  - find_the_surface_area_of_pyramids_such_as/hard
+  - find_the_surface_area_of_pyramids_such_as/medium
+  senior-find-time-differences-between-two-places-on-earth:
+  - earth_longitude_time_difference/hard
+  - earth_longitude_time_difference/medium
+  senior-identify-contexts-suitable-for-modelling-by-exponential-functions:
+  - p19e_exponential_model_value/easy
+  - p19e_exponential_model_value/exam
+  - p19e_exponential_model_value/hard
+  - p19e_exponential_model_value/medium
+  senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions:
+  - p19e_log_model_solve_input/easy
+  senior-implement-the-statistical-investigation-process-to-answer-questions:
+  - p16a_group_centre_difference/easy
+  - p16a_group_centre_difference/hard
+  senior-implement-the-statistical-investigation-process-to-answer-questions-acmgm093:
+  - p16a_trend_value/easy
+  - p16a_trend_value/exam
+  - p16a_trend_value/hard
+  senior-integrate-by-parts:
+  - integrate_by_parts/easy
+  senior-interpret-the-derivative-as-the-instantaneous-rate-of:
+  - p19f_instantaneous_rate/exam
+  senior-interpret-the-difference-quotient-frac-f-left-x:
+  - p19f_difference_quotient_stated_h/easy
+  senior-investigate-the-effect-of-the-interest-rate-and:
+  - p12b_loan_term_from_repayment/easy
+  senior-recognise-acceleration-as-the-second-derivative-of-position:
+  - p19f_acceleration_second_derivative/easy
+  senior-recognise-and-use-the-additivity-and-linearity-of:
+  - p19f_integral_additivity_linearity/easy
+  senior-review-one-amount-expressed-as-a-percentage-of:
+  - amount_as_percentage_review/easy
+  - amount_as_percentage_review/medium
+  senior-simulate-repeated-random-sampling-for-a-variety-of:
+  - p16b_phat_standardise/easy
+  - p16b_phat_standardise/exam
+  - p16b_phat_standardise/medium
+  senior-simulate-repeated-random-sampling-from-a-variety-of:
+  - p16b_xbar_sigma_standardise/easy
+  - p16b_xbar_sigma_standardise/exam
+  - p16b_xbar_sigma_standardise/hard
+  - p16b_xbar_sigma_standardise/medium
+  senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139:
+  - p16b_xbar_s_standardise/easy
+  - p16b_xbar_s_standardise/exam
+  - p16b_xbar_s_standardise/hard
+  - p16b_xbar_s_standardise/medium
+  senior-solve-cubic-equations-using-technology-and-algebraically-in:
+  - p14a_solve_cubic_technology/medium
+  senior-solve-equations-involving-exponential-functions-using-technology-and:
+  - p14a_solve_exp_technology/easy
+  senior-solve-equations-involving-indices-using-logarithms:
+  - solve_indices_with_logarithms/easy
+  - solve_indices_with_logarithms/medium
+  senior-solve-equations-involving-trigonometric-functions-using-technology-and:
+  - p14a_solve_trig_equation_technology/hard
+  senior-solve-practical-problems-that-involve-finding-the-point:
+  - pv0b_break_even/hard
+  senior-solve-problems-involving-bearings:
+  - bearings_problem/medium
+  senior-solve-problems-involving-displacement-force-and-velocity-involving:
+  - p13b_vector_resultant_angle/hard
+  senior-solve-problems-involving-permutations-and-restrictions-with-or:
+  - p11c_restricted_permutations/easy
+  - p11c_restricted_permutations/hard
+  senior-solve-problems-involving-time-zones-in-australia-and:
+  - australia_timezone_conversion/easy
+  - australia_timezone_conversion/medium
+  senior-solve-problems-relating-to-travelling-east-and-west:
+  - travel_east_west_zone_difference/medium
+  senior-solve-small-scale-network-flow-problems-including-the:
+  - solve_small_scale_network_flow_problems_including_the/hard
+  - solve_small_scale_network_flow_problems_including_the/medium
+  senior-the-angle-at-the-centre-subtended-by-an:
+  - the_angle_at_the_centre_subtended_by_an_arc/hard
+  senior-the-concept-of-an-interval-estimate-for-a:
+  - interval_estimate_proportion_margin/easy
+  - interval_estimate_proportion_margin/medium
+  senior-the-opposite-angles-of-a-cyclic-quadrilateral-are:
+  - the_opposite_angles_of_a_cyclic_quadrilateral_are/hard
+  senior-the-sum-of-the-squares-of-the-lengths:
+  - p11c_parallelogram_diagonal_law/medium
+  senior-use-a-recurrence-relation-to-model-an-annuity:
+  - pv0a_annuity_duration/easy
+  - pv0a_annuity_duration/exam
+  - pv0a_annuity_duration/medium
+  senior-use-addition-of-the-area-of-the-faces:
+  - use_addition_of_the_area_of_the_faces/easy
+  - use_addition_of_the_area_of_the_faces/hard
+  - use_addition_of_the_area_of_the_faces/medium
+  senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear:
+  - p12b_arith_seq_methods/easy
+  - p12b_arith_seq_methods/exam
+  - p12b_arith_seq_methods/hard
+  - p12b_arith_seq_methods/medium
+  senior-use-arithmetic-sequences-to-model-and-analyse-practical:
+  - p12b_arith_seq_general/easy
+  - p12b_arith_seq_general/exam
+  - p12b_arith_seq_general/hard
+  senior-use-ests-and-lsts-to-locate-the-critical:
+  - p10c_critical_path_locate/hard
+  senior-use-exponential-functions-and-their-derivatives-to-solve:
+  - p12c_exp_deriv_apply/exam
+  - p12c_exp_deriv_apply/hard
+  senior-use-factorial-notation:
+  - p11c_factorial_notation/medium
+  senior-use-first-order-linear-recurrence-relations-to-model:
+  - pv0a_recurrence_steady_state/easy
+  - pv0a_recurrence_steady_state/medium
+  senior-use-formulas-to-calculate-areas-of-regular-shapes:
+  - use_formulas_to_calculate_areas/easy
+  - use_formulas_to_calculate_areas/hard
+  - use_formulas_to_calculate_areas/medium
+  senior-use-formulas-to-find-the-volume-of-pyramids:
+  - volume_of_pyramids_and_spheres/easy
+  - volume_of_pyramids_and_spheres/exam
+  - volume_of_pyramids_and_spheres/medium
+  senior-use-forward-and-backward-scanning-to-determine-the:
+  - use_forward_and_backward_scanning_to_determine_the/easy
+  - use_forward_and_backward_scanning_to_determine_the/medium
+  senior-use-geometric-sequences-in-contexts-involving-geometric-growth:
+  - pv0a_geometric_threshold/easy
+  - pv0a_geometric_threshold/exam
+  - pv0a_geometric_threshold/hard
+  - pv0a_geometric_threshold/medium
+  senior-use-geometric-sequences-to-model-and-analyse-numerically:
+  - pv0a_bounce_distance/easy
+  - pv0a_bounce_distance/exam
+  - pv0a_bounce_distance/hard
+  - pv0a_bounce_distance/medium
+  senior-use-leading-digit-approximation-to-obtain-estimates-of:
+  - leading_digit_estimate/hard
+  senior-use-logarithmic-functions-and-their-derivatives-to-solve:
+  - p12c_log_deriv_apply/easy
+  - p12c_log_deriv_apply/exam
+  - p12c_log_deriv_apply/medium
+  senior-use-matrices-for-storing-and-displaying-information-that:
+  - p14a_matrix_table/medium
+  senior-use-minimal-spanning-trees-to-solve-minimal-connector:
+  - use_minimal_spanning_trees_to_solve_minimal_connector/easy
+  - use_minimal_spanning_trees_to_solve_minimal_connector/hard
+  - use_minimal_spanning_trees_to_solve_minimal_connector/medium
+  senior-use-numerical-integration-using-technology-f-left-t:
+  - p13c_exponential_pdf_numint/exam
+  - p13c_exponential_pdf_numint/medium
+  senior-use-ordered-pair-notation-and-column-vector-notation:
+  - use_ordered_pair_notation_and_column_vector_notation/easy
+  senior-use-radicals-and-convert-to-and-from-fractional:
+  - radicals_fractional_indices/hard
+  - radicals_fractional_indices/medium
+  senior-use-rates-to-make-comparisons:
+  - p7d_use_rates_to_compare/medium
+  senior-use-relative-frequencies-and-histograms-obtained-from-data:
+  - p16a_histogram_probability/exam
+  - p16a_histogram_probability/medium
+  senior-use-relative-frequencies-obtained-from-data-as-point:
+  - p16a_relative_frequency_estimate/exam
+  senior-use-relative-frequencies-obtained-from-data-as-point-acmmm060:
+  - p16a_conditional_independence/hard
+  - p16a_conditional_independence/medium
+  senior-use-scales-to-find-distances-such-as-on:
+  - map_scale_distance/easy
+  senior-use-technology-and-a-recurrence-relation-to-model:
+  - p16c_loan_recurrence_balance/easy
+  - p16c_loan_recurrence_balance/exam
+  - p16c_loan_recurrence_balance/hard
+  senior-use-technology-to-investigate-the-effect-of-the:
+  - p16c_compound_effect/exam
+  senior-use-the-coefficient-of-determination-to-assess-the:
+  - p19b_coefficient_determination/exam
+  senior-use-the-critical-path-to-determine-the-minimum:
+  - use_the_critical_path_to_determine_the_minimum/easy
+  - use_the_critical_path_to_determine_the_minimum/hard
+  - use_the_critical_path_to_determine_the_minimum/medium
+  senior-use-the-equation-of-a-fitted-line-to:
+  - use_the_equation_of_a_fitted_line_to/hard
+  - use_the_equation_of_a_fitted_line_to/medium
+  senior-use-the-formula-t-n-r-n-1:
+  - geometric_nth_term_formula/easy
+  - geometric_nth_term_formula/hard
+  senior-use-the-increments-formula-delta-y-cong-frac:
+  - p9c_increments_formula_estimate/easy
+  - p9c_increments_formula_estimate/medium
+  senior-use-the-leibniz-notation-for-the-derivative-frac:
+  - p9c_leibniz_derivative_correspondence/hard
+  senior-use-the-line-of-best-fit-to-make:
+  - p8c_line_best_fit_predict/easy
+  - p8c_line_best_fit_predict/medium
+  senior-use-the-scale-factor-for-two-similar-figures:
+  - similar_figure_scale_factor_length/easy
+  - similar_figure_scale_factor_length/hard
+  - similar_figure_scale_factor_length/medium
+  senior-use-units-of-time-conversions-between-units-fractional:
+  - use_units_of_time_conversions_between_units_fractional/hard
+  - use_units_of_time_conversions_between_units_fractional/medium
+  senior-use-vector-equations-of-curves-in-two-or:
+  - use_vector_equations_of_curves_in_two_or/easy
+  senior-when-two-chords-of-a-circle-intersect-the:
+  - when_two_chords_of_a_circle_intersect_the_product/hard
+  - when_two_chords_of_a_circle_intersect_the_product/medium
+  senior-with-the-aid-of-a-financial-calculator-or:
+  - p12b_reducing_balance_loan/exam
+  - p12b_reducing_balance_loan/medium
+  senior-with-the-aid-of-a-financial-calculator-or-acmgm100:
+  - p12b_annuity_perpetuity/exam
+  - p12b_annuity_perpetuity/hard
+  - p12b_annuity_perpetuity/medium
+  senior-work-with-the-concepts-of-angle-of-elevation:
+  - elevation_depression_problem/exam
+  simple-event-probability:
+  - simple_probability/easy
+  simple-interest:
+  - financial_interest/easy
+  skip-count-2-5-10:
+  - skip_count/easy
+  standard-deviation-from-data:
+  - standard_deviation_from_data/compare_sets
+  - standard_deviation_from_data/context
+  - standard_deviation_from_data/integers
+  - standard_deviation_from_data/non_integer_mean
+  straight-line-angles:
+  - straight_line_angle/easy
+  subtract-within-100:
+  - early_subtraction/easy
+  triangle-area-base-height:
+  - triangle_area_base_height/easy
+  - triangle_area_base_height/hard
+  - triangle_area_base_height/medium
+  ucv1-bifurcation-sign-check:
+  - p13e_bifurcation_sign_check/easy
+  - p13e_bifurcation_sign_check/exam
+  - p13e_bifurcation_sign_check/medium
+  ucv1-condition-number-sensitivity:
+  - p14c_condition_sensitivity/easy
+  - p14c_condition_sensitivity/exam
+  - p14c_condition_sensitivity/hard
+  - p14c_condition_sensitivity/medium
+  ucv1-diagonal-operator-norm:
+  - p15c_diagonal_operator_norm/easy
+  - p15c_diagonal_operator_norm/hard
+  - p15c_diagonal_operator_norm/medium
+  ucv1-double-integral-rectangle:
+  - double_integral_rectangle/easy
+  ucv1-energy-conservation-check:
+  - p14f_energy_conservation_check/easy
+  - p14f_energy_conservation_check/hard
+  - p14f_energy_conservation_check/medium
+  ucv1-ftc-polynomial:
+  - p17a_ftc_inverse/exam
+  - p17a_ftc_inverse/medium
+  ucv1-inclusion-exclusion-two-sets:
+  - inclusion_exclusion_two_sets/easy
+  ucv1-markov-hitting-probability:
+  - p12f_markov_hitting/exam
+  - p12f_markov_hitting/hard
+  ucv1-parametric-curvature:
+  - p13e_parametric_curvature/easy
+  - p13e_parametric_curvature/hard
+  - p13e_parametric_curvature/medium
+  ucv1-poisson-count-probability:
+  - p12e_poisson_count/easy
+  - p12e_poisson_count/exam
+  - p12e_poisson_count/hard
+  - p12e_poisson_count/medium
+  ucv1-ridge-coefficient:
+  - p13f_ridge_coefficient/easy
+  - p13f_ridge_coefficient/hard
+  - p13f_ridge_coefficient/medium
+  ucv1-total-variance-finite:
+  - p14e_total_variance_two_case/exam
+  - p14e_total_variance_two_case/hard
+  - p14e_total_variance_two_case/medium
+  ucv1-tree-spanning-edge-count:
+  - p14b_tree_edge_count/exam
+  - p14b_tree_edge_count/hard
+  ucv1-wave-parameter-relation:
+  - p14f_wave_parameter_relation/easy
+  - p14f_wave_parameter_relation/exam
+  - p14f_wave_parameter_relation/hard
+  unit-pricing:
+  - unit_pricing/easy
+  use-nth-term-rule:
+  - sequence/easy
+  - sequence/hard
+  - sequence/medium
+  z-score:
+  - z_score/easy
+option_count:
+  add-complex-numbers:
+  - complex_number/easy
+  add-within-10:
+  - early_addition/easy
+  add-within-100:
+  - early_addition/easy
+  add-within-20:
+  - early_addition/easy
+  add-within-5:
+  - early_addition/easy
+  before-and-after-to-10:
+  - before_after/easy
+  classify-constant-coefficient-pde:
+  - constant_coefficient_pde_classification/easy
+  - constant_coefficient_pde_classification/hard
+  - constant_coefficient_pde_classification/medium
+  classify-data:
+  - classify_data/easy
+  classify-polynomials:
+  - polynomial_classify/easy
+  - polynomial_classify/hard
+  - polynomial_classify/medium
+  classify-real-numbers:
+  - classify_real_number/easy
+  compare-common-fractions:
+  - compare_common_fractions/easy
+  - compare_common_fractions/hard
+  - compare_common_fractions/medium
+  compare-lengths:
+  - compare_length/easy
+  compare-quantities-to-10:
+  - compare_quantities/easy
+  compare-unit-prices:
+  - p14b_compare_unit_prices/easy
+  - p14b_compare_unit_prices/exam
+  - p14b_compare_unit_prices/medium
+  complex-conjugate:
+  - complex_number/easy
+  equal-groups:
+  - equal_groups/easy
+  f10-compare-measurement-attributes:
+  - compare_measurement_attributes/easy
+  - compare_measurement_attributes/hard
+  - compare_measurement_attributes/medium
+  f10-factors-multiples-divisibility:
+  - factors_multiples_divisibility/easy
+  - factors_multiples_divisibility/hard
+  - factors_multiples_divisibility/medium
+  f10-odd-even-properties:
+  - odd_even_properties/easy
+  - odd_even_properties/hard
+  - odd_even_properties/medium
+  f10-polygon-classification:
+  - p14b_polygon_classification/easy
+  - p14b_polygon_classification/hard
+  f10-position-location-language:
+  - p19a_position_language/easy
+  - p19a_position_language/hard
+  f10-prime-composite-square-properties:
+  - prime_composite_square_properties/easy
+  - prime_composite_square_properties/hard
+  - prime_composite_square_properties/medium
+  f10-prism-cross-sections:
+  - prism_cross_sections/easy
+  - prism_cross_sections/hard
+  - prism_cross_sections/medium
+  f10-quantify-compare-collections-to-20:
+  - quantify_compare_to_20/easy
+  - quantify_compare_to_20/hard
+  - quantify_compare_to_20/medium
+  f10-shape-features-classification:
+  - shape_features_classification/easy
+  f10-shape-sorting-algorithm:
+  - p15d_shape_sorting/easy
+  f10-square-roots-perfect-squares:
+  - square_roots_perfect_squares/easy
+  - square_roots_perfect_squares/medium
+  fair-sharing:
+  - fair_sharing/easy
+  multiplication-facts:
+  - equal_groups/easy
+  multiply-complex-numbers:
+  - complex_number/easy
+  number-bonds-to-10:
+  - number_bond/easy
+  number-bonds-to-5:
+  - number_bond/easy
+  place-value-to-20:
+  - teen_place_value/easy
+  recognise-numerals-to-10:
+  - recognise_numeral/easy
+  recognise-numerals-to-5:
+  - recognise_numeral/easy
+  scientific-notation-ops-to-engineering:
+  - exd_e5_scientific_notation_ops_to_engineering/easy
+  - exd_e5_scientific_notation_ops_to_engineering/medium
+  senior-distinguish-between-causality-and-correlation-through-examples:
+  - causality_correlation_classify/easy
+  - causality_correlation_classify/hard
+  - causality_correlation_classify/medium
+  senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
+  - interpolation_extrapolation_classify/easy
+  - interpolation_extrapolation_classify/hard
+  - interpolation_extrapolation_classify/medium
+  senior-examine-the-three-cases-for-solutions-of-systems:
+  - pv0b_system_cases/easy
+  - pv0b_system_cases/exam
+  - pv0b_system_cases/hard
+  - pv0b_system_cases/medium
+  senior-find-all-solutions-of-mathrm-f-left-mathrm:
+  - trig_equation_all_solutions/easy
+  - trig_equation_all_solutions/hard
+  - trig_equation_all_solutions/medium
+  senior-identify-and-solve-linear-equations:
+  - identify_and_solve_linear_equation/easy
+  - identify_and_solve_linear_equation/hard
+  - identify_and_solve_linear_equation/medium
+  senior-identify-common-usage-of-rates-for-example-km:
+  - p19h_rate_usage_classification/easy
+  - p19h_rate_usage_classification/exam
+  - p19h_rate_usage_classification/hard
+  - p19h_rate_usage_classification/medium
+  senior-identify-contexts-such-as-naturally-occurring-variation-that:
+  - p19d_variation_context/easy
+  - p19d_variation_context/exam
+  senior-identify-possible-non-causal-explanations-for-an-association:
+  - p19b_noncausal_explanation/easy
+  - p19b_noncausal_explanation/exam
+  - p19b_noncausal_explanation/hard
+  - p19b_noncausal_explanation/medium
+  senior-identify-the-dependent-and-independent-variable:
+  - p19b_dependent_variable/easy
+  - p19b_dependent_variable/exam
+  - p19b_dependent_variable/medium
+  senior-recognise-that-a-sequence-generated-by-a-first:
+  - p19e_recurrence_long_term_class/easy
+  - p19e_recurrence_long_term_class/exam
+  - p19e_recurrence_long_term_class/hard
+  - p19e_recurrence_long_term_class/medium
+  senior-review-probability-as-a-measure-of-the-likelihood:
+  - probability_likelihood_compare/easy
+  - probability_likelihood_compare/hard
+  - probability_likelihood_compare/medium
+  senior-review-the-probability-scale-0-leq-p-a:
+  - probability_scale_classify/easy
+  - probability_scale_classify/hard
+  - probability_scale_classify/medium
+  senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
+  - p19e_geometric_limit_class/easy
+  - p19e_geometric_limit_class/exam
+  - p19e_geometric_limit_class/hard
+  - p19e_geometric_limit_class/medium
+  senior-use-ests-and-lsts-to-locate-the-critical:
+  - p10c_critical_path_locate/easy
+  - p10c_critical_path_locate/hard
+  - p10c_critical_path_locate/medium
+  subtract-within-10:
+  - early_subtraction/easy
+  subtract-within-5:
+  - early_subtraction/easy
+  ucv1-convexity-hessian-sign:
+  - p14d_convexity_hessian_sign/easy
+  - p14d_convexity_hessian_sign/exam
+  - p14d_convexity_hessian_sign/hard
+  - p14d_convexity_hessian_sign/medium
+  ucv1-isomorphism-invariant:
+  - p15a_isomorphism_invariant/easy
+  - p15a_isomorphism_invariant/exam
+  - p15a_isomorphism_invariant/hard
+  - p15a_isomorphism_invariant/medium
+  ucv1-linear-oscillator-classification:
+  - p14f_linear_oscillator_classification/easy
+  - p14f_linear_oscillator_classification/exam
+  - p14f_linear_oscillator_classification/hard
+  - p14f_linear_oscillator_classification/medium
+  ucv1-regression-residual-diagnostic:
+  - p14e_residual_diagnostic/easy
+  - p14e_residual_diagnostic/exam
+  - p14e_residual_diagnostic/hard
+  - p14e_residual_diagnostic/medium
+probability:
+  binomial-point-probability:
+  - binomial_probability/easy
+  conditional-probability-counts:
+  - conditional_probability_counts/hard
+  simple-event-probability:
+  - simple_probability/easy

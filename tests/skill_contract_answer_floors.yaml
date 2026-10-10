@@ -1,4 +1,4 @@
-# Generated floor data, do not hand-edit: python scripts/build_answer_floors.py
+# Generated floor data, do not hand-edit: python scripts/build_contract_floors.py
 # skill: {topic/difficulty: distinct answers over the 60-seed sweep}. Tiers below
 # 6 distinct answers, the backlog of tiers a learner can pass by guessing; the
 # answers check holds each at its count and fails once it reaches 6 (remove it).
