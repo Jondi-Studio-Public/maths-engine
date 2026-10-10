@@ -53,22 +53,24 @@ def _kind(text):
     return "parallelogram" if "parallelogram" in text else "ratio"
 
 
-def _axis(text):
-    return "xyz".index(re.search(r"the ([xyz])-coordinate", text).group(1))
+def _n_vector(text):
+    """The stated vector n is the last triple written in every prompt."""
+    return _triples(text)[-1]
 
 
 def _expected_vector(text):
-    pts = _triples(text)
+    pts = _triples(text)[:-1]
     if _kind(text) == "parallelogram":
         a, b, c = pts
         return [Fraction(a[i] + c[i] - b[i]) for i in range(3)]
     a, b = pts
-    m, n = (int(x) for x in re.search(r"(\d+) : (\d+)(?!.*\d : \d)", text).groups())
-    return [Fraction(n * a[i] + m * b[i], m + n) for i in range(3)]
+    m, k = (int(x) for x in re.search(r"(\d+) : (\d+)(?!.*\d : \d)", text).groups())
+    return [Fraction(k * a[i] + m * b[i], m + k) for i in range(3)]
 
 
 def _expected(text):
-    return [_expected_vector(text)[_axis(text)]]
+    n = _n_vector(text)
+    return [sum(x * y for x, y in zip(_expected_vector(text), n))]
 
 
 def _agrees(q, expected):
@@ -142,21 +144,33 @@ def test_grader_rejects_deliberately_wrong_values():
             assert not GRADER(q, wrong).correct, (seed, wrong, q.answer_text)
 
 
-def test_no_reordering_of_the_position_vector_is_graded_correct():
-    """The skill's `list` grader ignores order, so the key is one named coordinate: pasting the whole
-    vector in any order, or any other coordinate on its own, must be wrong."""
+def test_key_is_a_wide_scalar_not_readable_from_the_prompt():
+    from collections import Counter
+
+    answers = Counter()
+    for seed in range(300):
+        q = _exam(seed)
+        assert len(q.answer) == 1 and q.answer_text == str(q.answer[0]), (seed, q.answer)
+        shown = {abs(int(t)) for t in re.findall(r"-?\d+", q.text)}
+        assert abs(q.answer[0]) not in shown, (seed, q.text, q.answer_text)
+        answers[q.answer_text] += 1
+    assert len(answers) >= 100, len(answers)
+    assert max(answers.values()) / 300 <= 0.05, answers.most_common(3)
+
+
+def test_no_component_or_reordering_of_the_position_vector_is_graded_correct():
+    """The `list` grader ignores order; the key is a dot product, so the position vector itself, in any
+    order, or any one of its coordinates, must be wrong."""
     import itertools
 
     bad = []
     for seed in range(150):
         q = _exam(seed)
-        vec = _expected_vector(q.text)
-        assert len(q.answer) == 1 and q.answer_text == str(q.answer[0]), (seed, q.answer)
+        vec = [int(x) for x in _expected_vector(q.text)]
         for perm in itertools.permutations(vec):
-            if GRADER(q, "(" + ", ".join(str(int(x)) for x in perm) + ")").correct:
+            if GRADER(q, "(" + ", ".join(str(x) for x in perm) + ")").correct:
                 bad.append((seed, "whole vector", perm))
-        k = _axis(q.text)
-        for i, x in enumerate(vec):
-            if i != k and x != vec[k] and GRADER(q, str(int(x))).correct:
-                bad.append((seed, "other coordinate", i))
+        for x in vec:
+            if x != q.answer[0] and GRADER(q, str(x)).correct:
+                bad.append((seed, "coordinate", x))
     assert bad == [], bad[:5]
