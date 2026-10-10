@@ -161,3 +161,65 @@ def test_validate_does_not_import_an_application_api_package(monkeypatch, tmp_pa
     domains, loaded = load_skills(root)
     assert validate(domains, loaded).ok
     assert "api" not in __import__("sys").modules
+
+
+# -- extra skill folders ------------------------------------------------------------------------
+
+
+def extra_folder(root, domain="arithmetic", stem="add-three"):
+    (root / domain).mkdir(parents=True)
+    text = good().replace("add-two", stem).replace("domain: arithmetic", f"domain: {domain}")
+    (root / domain / f"{stem}.yaml").write_text(text, encoding="utf-8")
+    return root
+
+
+def test_an_extra_folder_adds_its_skills_to_the_library(tmp_path):
+    root = library(tmp_path / "lib", **{"add-two": good()})
+    extra = extra_folder(tmp_path / "private")
+    domains, loaded = load_skills(root, [extra])
+    assert [s.id for s in loaded] == ["add-two", "add-three"]
+    assert [d.id for d in domains] == ["arithmetic"]
+    assert validate(domains, loaded).ok
+
+
+def test_extra_folders_come_from_the_environment_by_default(monkeypatch, tmp_path):
+    root = library(tmp_path / "lib", **{"add-two": good()})
+    first = extra_folder(tmp_path / "one")
+    second = extra_folder(tmp_path / "two", stem="add-four")
+    monkeypatch.setenv("MATHS_EXTRA_SKILLS_DIRS", f"{first}{__import__('os').pathsep}{second}")
+    assert skills_mod.extra_skills_roots() == [first, second]
+    assert [s.id for s in load_skills(root)[1]] == ["add-two", "add-three", "add-four"]
+    assert [s.id for s in load_skills(root, [])[1]] == ["add-two"]  # an explicit empty list means none
+    monkeypatch.setenv("MATHS_EXTRA_SKILLS_DIRS", "")
+    assert skills_mod.extra_skills_roots() == []
+
+
+def test_an_extra_folder_cannot_replace_a_library_skill(tmp_path):
+    root = library(tmp_path / "lib", **{"add-two": good()})
+    extra = extra_folder(tmp_path / "private", stem="add-two")
+    domains, loaded = load_skills(root, [extra])
+    report = validate(domains, loaded)
+    assert any(e.startswith("add-two: duplicate id") for e in report.errors), report.errors
+
+
+def test_an_extra_skill_must_use_a_library_domain(tmp_path):
+    root = library(tmp_path / "lib", **{"add-two": good()})
+    extra = extra_folder(tmp_path / "private", domain="private-only")
+    domains, loaded = load_skills(root, [extra])
+    assert [d.id for d in domains] == ["arithmetic"]
+    assert "add-three: domain 'private-only' not in domains.yaml" in validate(domains, loaded).errors
+
+
+def test_a_missing_extra_folder_is_an_error_but_an_empty_one_is_not(tmp_path):
+    root = library(tmp_path / "lib", **{"add-two": good()})
+    with pytest.raises(SkillsNotFoundError):
+        load_skills(root, [tmp_path / "missing"])
+    (tmp_path / "empty").mkdir()
+    assert [s.id for s in load_skills(root, [tmp_path / "empty"])[1]] == ["add-two"]
+
+
+def test_extra_skills_are_copies_too(tmp_path):
+    root = library(tmp_path / "lib", **{"add-two": good()})
+    extra = extra_folder(tmp_path / "private")
+    load_skills(root, [extra])[1][1].name = "changed"
+    assert load_skills(root, [extra])[1][1].name == "Add two"
