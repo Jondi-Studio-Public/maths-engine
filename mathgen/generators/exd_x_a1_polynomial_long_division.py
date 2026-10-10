@@ -6,7 +6,8 @@ coefficient of the dividend is generally not a multiple of the divisor's, and th
 remainder carry fractional coefficients. The learner has to keep exact fractions through every step.
 Dividends may be missing interior powers (a zero coefficient), which a column layout has to hold open.
 
-The key is the exact quotient and remainder from ``sympy.div`` over the rationals; the generator
+The learner gives the quotient or the remainder (not the combined form, which equals
+f(x)/g(x) and so cannot be told apart from the question restated). The key is the exact part from ``sympy.div`` over the rationals; the generator
 re-multiplies (divisor x quotient + remainder) to confirm it reproduces the dividend exactly.
 """
 
@@ -68,31 +69,45 @@ def exd_x_a1_polynomial_long_division(rng: random.Random, tier: str = "exam") ->
     dividend, divisor, quotient, remainder = _draw(rng)
     check_equivalent(sympy.expand(divisor * quotient + remainder), dividend, "divisor*quotient+remainder != dividend")
     check(sympy.degree(remainder, x) < sympy.degree(divisor, x), "remainder degree too large")
-    key = quotient + remainder / divisor
     qt, rt, dt = _poly_text(quotient), _poly_text(remainder), _poly_text(divisor)
-    answer_text = f"{qt} + ({rt})/({dt})"
-
-    wrong = {
-        "sign error on the remainder": (quotient - remainder / divisor, f"{qt} - ({rt})/({dt})"),
-        "remainder not divided": (quotient + remainder, f"{qt} + ({rt})"),
-        "remainder dropped": (quotient, qt),
-    }
+    # Ask for ONE part of the division. The combined form quotient + remainder/divisor equals
+    # f(x)/g(x) as an expression, so any answer check by equivalence would accept the question
+    # restated; the quotient alone and the remainder alone are both different from f and from f/g.
+    ask = rng.choice(["quotient", "remainder"])
+    lead = Poly(divisor, x).LC()
+    if ask == "quotient":
+        key, answer_text = quotient, qt
+        wrong = {
+            "remainder term left in the quotient": (
+                quotient + remainder / divisor,
+                f"{qt} + ({rt})/({dt})",
+            ),
+            "remainder added on undivided": (quotient + remainder, f"{qt} + ({rt})"),
+            "quotient scaled by the divisor's leading coefficient": (
+                lead * quotient,
+                _poly_text(sympy.expand(lead * quotient)),
+            ),
+        }
+        request = "Find the quotient q(x) when f(x) is divided by g(x), so that f(x) = g(x)q(x) + r(x) with the degree of r(x) less than the degree of g(x). The quotient may contain fractions."
+    else:
+        key, answer_text = remainder, rt
+        wrong = {
+            "sign error on the remainder": (-remainder, _poly_text(-remainder)),
+            "remainder scaled by the divisor's leading coefficient": (
+                lead * remainder,
+                _poly_text(sympy.expand(lead * remainder)),
+            ),
+            "quotient given instead of the remainder": (quotient, qt),
+        }
+        request = "Find the remainder r(x) when f(x) is divided by g(x), so that f(x) = g(x)q(x) + r(x) with the degree of r(x) less than the degree of g(x). The remainder may contain fractions."
     cands = []
     for label, (value, text) in wrong.items():
         check_distinct(key, value, msg=label)
         cands.append(text)
-    text = (
-        f"Divide f(x) = {_poly_text(dividend)} by g(x) = {dt}. "
-        "Give your answer as a single expression in the form quotient + remainder/divisor. "
-        "The quotient and remainder may contain fractions."
-    )
+    text = f"Let f(x) = {_poly_text(dividend)} and g(x) = {dt}. {request}"
     return dict(
         text=text,
-        latex=(
-            rf"f(x)={sympy.latex(dividend)},\quad g(x)={sympy.latex(divisor)}."
-            r"\ \text{Give your answer as a single expression in the form quotient + remainder/divisor. "
-            r"The quotient and remainder may contain fractions.}"
-        ),
+        latex=rf"f(x)={sympy.latex(dividend)},\quad g(x)={sympy.latex(divisor)}.\ \text{{{request}}}",
         answer=str(key),
         answer_text=answer_text,
         answer_latex=answer_text,

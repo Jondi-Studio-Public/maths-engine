@@ -22,6 +22,8 @@ Distractors (each a named misconception)
     naive-degree         the degree of the expression as written, with the right term count
     naive-degree-adjacent  the same wrong degree with a neighbouring term-count label
     adjacent-type        the right degree with a neighbouring term-count label
+    off-by-one           the right term count with the degree one too high or one too low
+(three of these are drawn per seed)
     variable-denominator (fraction families only) "No - the variable is in the denominator"
 """
 
@@ -140,11 +142,18 @@ def _exam(rng: random.Random) -> dict:
 
     answer_text = _label(degree, terms)
     adjacent = rng.choice(_ADJACENT[terms])
-    candidates = [
+    pool = [
         _label(naive_degree, terms),
         _label(degree, adjacent),
         _label(naive_degree, adjacent),
+        # off-by-one slips: the degree miscounted as one too low or one too high
+        _label(degree + 1, terms),
     ]
+    if degree > 1:
+        pool.append(_label(degree - 1, terms))
+    # Which wrong options appear is drawn per seed, so the key is not always the lowest-degree choice.
+    pool = [o for o in dict.fromkeys(pool) if o != answer_text]
+    candidates = rng.sample(pool, 3 if not is_fraction else 2)
     if is_fraction:
         candidates.insert(0, _NOT_POLY)
 

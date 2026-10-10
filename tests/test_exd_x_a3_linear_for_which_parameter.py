@@ -105,7 +105,9 @@ def _oracle(text: str) -> str:
     raw = eq.group(1).strip().rstrip(".").strip()
     k, x = Symbol("k"), Symbol("x")
     full = sympy.expand(_equation(raw))
-    ks = sympy.solve(sympy.Poly(full, x).nth(2), k)
+    ks = [v for v in sympy.solve(sympy.Poly(full, x).nth(2), k) if v.is_real]
+    if not ks:
+        return "No value of k makes the equation linear"
     assert len(ks) == 1
     xs = sympy.solve(full.subs(k, ks[0]), x)
     assert len(xs) == 1
@@ -130,6 +132,14 @@ def test_exactly_one_option_is_graded_correct_and_options_are_distinct():
 
 
 def test_no_value_option_never_matches_a_linearisable_equation():
+    keys = set()
     for seed in range(100):
         q = _make(seed)
-        assert q.answer_text.startswith("k = ")
+        keys.add(q.answer_text.startswith("k = "))
+        assert q.answer_text.startswith("k = ") == (_oracle(q.text).startswith("k = "))
+    assert keys == {True, False}
+
+
+def test_no_value_is_keyed_on_roughly_a_quarter_of_seeds():
+    n = sum(_make(s).answer_text.startswith("No value") for s in range(400))
+    assert 60 <= n <= 140, n

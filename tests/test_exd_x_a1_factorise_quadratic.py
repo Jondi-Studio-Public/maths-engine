@@ -1,4 +1,4 @@
-"""Exam source of `factorise-quadratic`: two-variable and bracket-substitution quadratics."""
+"""Exam source of `factorise-quadratic`: two-variable quadratics and quadratics in x^2."""
 
 from __future__ import annotations
 
@@ -42,7 +42,9 @@ def test_key_rederived_from_prompt():
         expr = _parse(re.match(r"Factorise (.*)\.$", q.text).group(1))
         factors = sympy.factor_list(sympy.expand(expr))[1]
         assert len(factors) == 2, (seed, q.text)
-        assert all(sympy.Poly(f, *sorted(f.free_symbols, key=str)).total_degree() == 1 for f, _ in factors)
+        degrees = {sympy.Poly(f, *sorted(f.free_symbols, key=str)).total_degree() for f, _ in factors}
+        assert degrees in ({1}, {2}), (seed, q.text)
+        assert ("x^4" in q.text) == (degrees == {2})
         assert sympy.expand(_parse(q.answer_text) - expr) == 0, (seed, q.text, q.answer_text)
         assert "(" in q.answer_text
 
@@ -57,6 +59,18 @@ def test_grader_accepts_key_and_rejects_distractors():
             shown += 1
             assert not grade(q, d).correct, (seed, q.text, d)
     assert shown > 120
+
+
+def test_prompt_typed_back_is_rejected():
+    """The question restated (or its expansion) is not a factorisation and must grade wrong."""
+    grade = GRADERS["expression"]
+    shapes = set()
+    for seed in range(200):
+        q = _exam(seed)
+        prompt_expr = re.match(r"Factorise (.*)\.$", q.text).group(1)
+        shapes.add("x^4" in prompt_expr)
+        assert not grade(q, prompt_expr).correct, (seed, q.text)
+    assert shapes == {True, False}
 
 
 def test_deterministic():

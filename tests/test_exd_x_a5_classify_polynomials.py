@@ -104,3 +104,18 @@ def test_grader_accepts_key_and_rejects_every_distractor():
     assert bad == [], bad[:5]
     assert not GRADERS["mcq"](_exam(0), "").correct
     assert not GRADERS["mcq"](_exam(0), "9").correct
+
+
+def test_key_is_not_always_the_lowest_degree_option():
+    """The correct option should sit at the lowest, middle and highest degree across seeds."""
+    from mathgen import make
+
+    def degree(label):
+        return int(label.split(",")[0].split()[1])
+
+    ranks = set()
+    for seed in range(200):
+        q = make("exd_x_a5_classify_polynomials", seed=seed, difficulty="exam")
+        options = [q.answer_text] + [d for d in q.distractors if d.startswith("Degree")]
+        ranks.add(sorted(degree(o) for o in options).index(degree(q.answer_text)) == 0)
+    assert ranks == {True, False}

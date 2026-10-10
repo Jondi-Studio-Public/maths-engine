@@ -6,9 +6,8 @@ of two integer binomials) but need an extra idea before the usual search for fac
 
 * ``two_variable`` -- a homogeneous quadratic in ``x`` and ``y`` such as ``6x^2 + 5xy - 4y^2``. The
   binomials carry a ``y`` term, so the learner has to see that the single-variable method transfers.
-* ``substitution`` -- a quadratic in a bracket, such as ``2(x + 1)^2 + 5(x + 1) - 3``. The learner must
-  either treat the bracket as a single unknown and substitute back, or expand first; the answer is
-  the pair of simplified binomials in ``x``.
+* ``substitution`` -- a quadratic in ``x^2``, such as ``2x^4 + 5x^2 - 3``. The learner must treat ``x^2`` as
+  a single unknown, factorise, and keep ``x^2`` in each binomial: ``(2x^2 - 1)(x^2 + 3)``.
 
 Both are built backwards from the two binomials, then re-checked with ``sympy.factor_list`` (an independent
 route that knows nothing about the construction).
@@ -94,43 +93,46 @@ def _two_variable(rng: random.Random) -> dict:
 
 
 def _substitution(rng: random.Random) -> dict:
+    """A quadratic in x^2, such as ``2x^4 + 5x^2 - 3``, factorised as ``(2x^2 - 1)(x^2 + 3)``.
+
+    The prompt has no brackets: a prompt with a bracketed substitution (``2(x + 1)^2 + ...``) would be
+    graded correct when typed straight back, because it already has a bracket and equals the key.
+    """
     while True:
         p, q, r, s = _draw_binomials(rng, [1, 2, 3], [1, 2, 3], 6)
-        k = rng.randint(1, 4) * rng.choice([1, -1])
-        # Simplified binomials in x after substituting u = x + k back.
-        q2, s2 = p * k + q, r * k + s
-        if q2 == 0 or s2 == 0 or math.gcd(p, abs(q2)) != 1 or math.gcd(r, abs(s2)) != 1:
+        if p * r == 1 and rng.random() < 0.7:
             continue
-        if p * r == 1:
+        # Each factor a*x^2 + c must be irreducible over the integers, otherwise it could be factorised
+        # further (a negative constant with a*|c| a perfect square is a difference of squares).
+        if any(c < 0 and math.isqrt(a_ * -c) ** 2 == a_ * -c for a_, c in ((p, q), (r, s))):
             continue
         break
-    u = x + k
     a, b, c = p * r, p * s + q * r, q * s
-    bracket = f"(x {'+' if k > 0 else '-'} {abs(k)})"
-    parts = []
-    for coef, tail in ((a, f"{bracket}^2"), (b, bracket), (c, "")):
-        if coef == 0:
-            continue
-        mag = abs(coef)
-        lead = "" if (mag == 1 and tail) else str(mag)
-        piece = f"{lead}{tail}"
-        parts.append(("-" if coef < 0 else "+", piece))
-    text_expr = ("-" if parts[0][0] == "-" else "") + parts[0][1] + "".join(f" {sg} {pc}" for sg, pc in parts[1:])
-    expr = expand(a * u**2 + b * u + c)
-    answer = _pair(p, q2, r, s2)
-    check_equivalent(expr, (p * x + q2) * (r * x + s2), "substitution factors disagree")
-    check_equivalent(sympy.factor(expr), (p * x + q2) * (r * x + s2), "sympy.factor disagrees")
+    if b == 0:
+        return _substitution(rng)
+    text_expr = join_terms([(a, "x^4"), (b, "x^2"), (c, "")])
+    expr = expand(a * x**4 + b * x**2 + c)
+    answer = f"({_binomial(p, q).replace('x', 'x^2')})({_binomial(r, s).replace('x', 'x^2')})"
+    check_equivalent(expr, (p * x**2 + q) * (r * x**2 + s), "factors disagree")
+    factors = sympy.factor_list(expr)[1]
+    check(len(factors) == 2 and all(sympy.Poly(f, x).degree() == 2 for f, _ in factors), "not two quadratic factors")
 
     cands = []
-    for label, cand in (
-        ("did not substitute back", (p, q, r, s)),
-        ("substituted back with wrong sign of k", (p, q - 2 * p * k, r, s - 2 * r * k)),
-        ("flipped one constant", (p, -q2, r, s2)),
+    for label, cand, power in (
+        ("factorised as if x^2 were x", (p, q, r, s), 1),
+        ("kept x^2 in one factor only", (p, q, r, s), None),
+        ("flipped one constant", (p, -q, r, s), 2),
     ):
-        value = expand((cand[0] * x + cand[1]) * (cand[2] * x + cand[3]))
-        if cand[1] != 0 and cand[3] != 0 and value != expr:
+        if power is None:
+            value = expand((p * x**2 + q) * (r * x + s))
+            text_cand = f"({_binomial(p, q).replace('x', 'x^2')})({_binomial(r, s)})"
+        else:
+            value = expand((cand[0] * x**power + cand[1]) * (cand[2] * x**power + cand[3]))
+            text_cand = "(" + _binomial(cand[0], cand[1]).replace("x", f"x^{power}" if power > 1 else "x") + ")("
+            text_cand += _binomial(cand[2], cand[3]).replace("x", f"x^{power}" if power > 1 else "x") + ")"
+        if value != expr:
             check_distinct(expr, value, msg=label)
-            cands.append(_pair(*cand))
+            cands.append(text_cand)
     return dict(
         text=f"Factorise {text_expr}.",
         latex=f"plain:Factorise {text_expr}.",

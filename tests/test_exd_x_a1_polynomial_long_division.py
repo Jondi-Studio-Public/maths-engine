@@ -26,8 +26,12 @@ def _parse(text):
 
 
 def _fg(q):
-    f, g = re.match(r"Divide f\(x\) = (.*) by g\(x\) = (.*?)\. Give", q.text).groups()
+    f, g = re.match(r"Let f\(x\) = (.*) and g\(x\) = (.*?)\. Find the (quotient|remainder)", q.text).groups()[:2]
     return _parse(f), _parse(g)
+
+
+def _ask(q):
+    return re.search(r"Find the (quotient|remainder)", q.text).group(1)
 
 
 def test_prompt_variety_and_new_shapes():
@@ -48,12 +52,28 @@ def test_key_rederived_from_prompt():
         q = _exam(seed)
         f, g = _fg(q)
         quo, rem = sympy.div(Poly(f, x, domain=QQ), Poly(g, x, domain=QQ))
-        expected = quo.as_expr() + rem.as_expr() / g
+        expected = quo.as_expr() if _ask(q) == "quotient" else rem.as_expr()
         assert sympy.simplify(_parse(q.answer_text) - expected) == 0, (seed, q.text, q.answer_text)
         assert sympy.simplify(_parse(q.answer) - expected) == 0
         assert rem.as_expr() != 0
         fractional += any(c.q != 1 for c in quo.all_coeffs())
     assert fractional == 300
+
+
+def test_restating_the_question_is_rejected():
+    """The dividend, f/g, the quotient-plus-remainder form and the wrong part must all grade wrong."""
+    grade = GRADERS["expression"]
+    asked = set()
+    for seed in range(150):
+        q = _exam(seed)
+        f, g = _fg(q)
+        quo, rem = sympy.div(Poly(f, x, domain=QQ), Poly(g, x, domain=QQ))
+        asked.add(_ask(q))
+        wrong = [str(f), f"({f})/({g})", f"{quo.as_expr()} + ({rem.as_expr()})/({g})"]
+        wrong.append(str(rem.as_expr() if _ask(q) == "quotient" else quo.as_expr()))
+        for given in wrong:
+            assert not grade(q, given).correct, (seed, q.text, given)
+    assert asked == {"quotient", "remainder"}
 
 
 def test_grader_accepts_key_and_rejects_distractors():

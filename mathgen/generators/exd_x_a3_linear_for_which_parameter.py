@@ -10,6 +10,9 @@ Three shapes of equation (all with a single bracket pair on each side that produ
   * ``plus``  -- ``(x + p)(x + q) + k*x^2 = e*x + f``
   * ``both``  -- ``(k*x + p)(x + q) = (c*x + r)(x + s) + e*x + f``
 
+About a quarter of seeds are a fourth shape, ``(kx + p)(kx + q) = -m*x^2 + e*x + f``, whose x^2 coefficient
+``k^2 + m`` is never zero for real k; the key is then "No value of k makes the equation linear".
+
 Built BACKWARDS from the integer solution ``x0`` and the integer ``k``; the key is re-derived with SymPy by expanding,
 solving the ``x^2`` coefficient for ``k`` and then solving the remaining linear equation.
 """
@@ -33,7 +36,44 @@ def _nz(rng: random.Random, lo: int, hi: int, *avoid: int) -> int:
     return rng.choice([v for v in range(lo, hi + 1) if v != 0 and v not in avoid])
 
 
+def _draw_no_value(rng: random.Random) -> dict | None:
+    """``(kx + p)(kx + q) = -m*x^2 + e*x + f``: the x^2 coefficient is k^2 + m = 0, which has no real k."""
+    p, q, e, f = _nz(rng, -6, 6), _nz(rng, -6, 6), _nz(rng, -6, 6), _nz(rng, -9, 9)
+    m = rng.randint(1, 5)
+    full = expand((_K * _X + p) * (_K * _X + q) - (-m * _X**2 + e * _X + f))
+    check(not any(v.is_real for v in solve(Poly(full, _X).nth(2), _K)), "a real k would make it linear")
+    lhs_t = f"(kx {_sgn(p)})(kx {_sgn(q)})"
+    rhs_t = join_terms([(-m, "x^2"), (e, "x"), (f, "")])
+    right = "No value of k makes the equation linear"
+    cands = []
+    for kv in (m, -m, 0):
+        c1, c0 = Poly(full, _X).nth(1).subs(_K, kv), Poly(full, _X).nth(0).subs(_K, kv)
+        if c1 != 0:
+            cands.append(f"k = {kv}; x = {rational_text(-c0 / c1)}")
+    out = list(dict.fromkeys(cands))
+    if len(out) < 3:
+        return None
+    text = phrase(
+        rng,
+        [
+            "{eq}. For which value of k is this equation linear in x? Give that value of k and the solution for x.",
+            "The equation {eq} contains a constant k. Find the value of k that makes it linear in x, and solve it for that k.",
+        ],
+        eq=f"{lhs_t} = {rhs_t}",
+    )
+    return dict(
+        text=text,
+        latex="plain:" + text,
+        answer=right,
+        answer_text=right,
+        distractors=out[:3],
+        working=["Expand both sides: the x^2 coefficient is k^2 + " + str(m) + ", which is never zero for real k."],
+    )
+
+
 def _draw(rng: random.Random) -> dict | None:
+    if rng.random() < 0.25:
+        return _draw_no_value(rng)
     shape = rng.choice(["one", "plus", "both"])
     x0 = _nz(rng, -7, 7)
     p, q = _nz(rng, -6, 6), _nz(rng, -6, 6)
@@ -98,7 +138,7 @@ def _draw(rng: random.Random) -> dict | None:
         if kw != k and xv is not None:
             cands.append(f"k = {kw}; x = {rational_text(xv)}")
             break
-    cands.append("No value of k makes the equation linear")
+    cands.append("No value of k makes the equation linear")  # wrong here: a real k always exists
     cands.append(f"k = {k}; x = {rational_text(-x0)}")
     out, seen = [], {right}
     for c in cands:
