@@ -22,11 +22,13 @@ from mathgen.answers import (
     exact_value,
     flatten_distractors,
     kind_accepts,
+    same_value,
     tagged_distractors,
 )
 from mathgen.core import Question, mcq_options, pick_distractors
 from mathgen.grading import GRADERS, grade
 from mathgen.misconceptions import CATALOGUE, describe
+from sympy import Integer, Rational
 
 # -- the contract ------------------------------------------------------------------------------------------------
 
@@ -146,6 +148,101 @@ def test_pick_distractors_keeps_tags_and_drops_collisions():
 def test_exact_value():
     assert exact_value(Fraction(6, 3)) == 2
     assert exact_value(Fraction(-7, 2)) == {"p": -7, "q": 2}
+    assert exact_value(5) == 5
+
+
+def test_exact_value_reads_a_sympy_rational():
+    assert exact_value(Rational(-14, 4)) == {"p": -7, "q": 2}
+    assert exact_value(Integer(9)) == 9
+    assert exact_value(Rational(8, 4)) == 2
+
+
+@pytest.mark.parametrize("number", [0.1, 2.0, True, "3/4", None])
+def test_exact_value_refuses_anything_already_rounded_or_not_a_number(number):
+    """0.1 as a float is 3602879701896397/36028797018963968, not the tenth the generator meant."""
+    with pytest.raises(TypeError):
+        exact_value(number)
+
+
+@pytest.mark.parametrize(
+    "left, right, kind",
+    [
+        (3, 3.0, None),
+        (3, "3", None),
+        (3, {"p": 3, "q": 1}, None),
+        (Rational(1, 2), 0.5, None),
+        (Fraction(7, 2), {"p": 14, "q": 4}, None),
+        ([2, -1], [-1, 2], "list"),
+        ([2, -1], [-1, 2], "set"),
+    ],
+)
+def test_same_value(left, right, kind):
+    assert same_value(left, right, kind)
+
+
+@pytest.mark.parametrize(
+    "left, right, kind",
+    [
+        (16.7, Fraction(50, 3), None),  # a rounded value is not the exact one
+        (0.1, Fraction(1, 3), None),
+        ([2, -1], [-1, 2], "ordered_list"),
+        ([2, -1], [-1, 2], None),
+        ("undefined", 0, None),
+    ],
+)
+def test_not_the_same_value(left, right, kind):
+    assert not same_value(left, right, kind)
+
+
+# -- make() enforces the contract, whatever the generator skipped ----------------------------------------------------
+
+
+def _flatten(answer, answer_text, distractors, **extra):
+    result = {"answer": answer, "answer_text": answer_text, "distractors": distractors, **extra}
+    flatten_distractors(result)
+    return result
+
+
+def test_a_distractor_that_is_the_answer_text_is_refused():
+    with pytest.raises(ValueError, match="answer's own text"):
+        _flatten(5, "x = 5", [Distractor(" x = 5", "answered-zero", 0)])
+
+
+def test_a_string_distractor_that_is_the_answer_text_is_refused_beside_a_tagged_one():
+    with pytest.raises(ValueError, match="answer's own text"):
+        _flatten(5, "x = 5", ["x = 5", Distractor("x = 0", "answered-zero", 0)])
+
+
+def test_a_repeated_distractor_is_refused():
+    """The second would silently overwrite the first's value."""
+    with pytest.raises(ValueError, match="offered twice"):
+        _flatten(5, "5", [Distractor("4", "answered-zero", 4), Distractor("4", "inverted-ratio", 1)])
+
+
+@pytest.mark.parametrize(
+    "answer, value, kind",
+    [(5, 5.0, None), (5, {"p": 10, "q": 2}, None), ({"p": 1, "q": 2}, 0.5, "fraction"), ([1, 2], [2, 1], "list")],
+)
+def test_a_distractor_with_the_answer_value_is_refused(answer, value, kind):
+    with pytest.raises(ValueError, match="answer's own value"):
+        _flatten(answer, "a", [Distractor("b", "answered-zero", value)], answer_kind=kind)
+
+
+def test_an_ordered_answer_may_offer_its_reversal():
+    result = _flatten([1, 2], "1, 2", [Distractor("2, 1", "sign-flip-one-root", [2, 1])], answer_kind="ordered_list")
+    assert result["distractors"] == ["2, 1"]
+
+
+def test_a_rounded_distractor_value_is_not_the_exact_answer():
+    """16.7 is a different answer from 50/3 to a grader that reads its stated precision."""
+    result = _flatten({"p": 50, "q": 3}, "50/3", [Distractor("16.7", "divides-by-final", 16.7)])
+    assert result["distractor_values"] == {"16.7": 16.7}
+
+
+def test_an_empty_distractor_list_is_left_alone():
+    assert _flatten(5, "5", []) == {"answer": 5, "answer_text": "5", "distractors": []}
+    question = flatten_and_make({"distractors": []})
+    assert question.distractors == [] and tagged_distractors(question) == []
 
 
 # -- the catalogue -------------------------------------------------------------------------------------------------

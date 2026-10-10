@@ -114,9 +114,62 @@ class Distractor:
 
 def exact_value(number) -> Any:
     """`number` (an int, Fraction or SymPy Rational) as a JSON value the number and fraction graders read: an int when
-    it is whole, else ``{"p": numerator, "q": denominator}``."""
-    value = Fraction(int(number.p), int(number.q)) if hasattr(number, "p") else Fraction(number)
+    it is whole, else ``{"p": numerator, "q": denominator}``.
+
+    A float is refused: it is already rounded, so its exact value (0.1 is 3602879701896397/36028797018963968) is not
+    the number the generator meant. Give a decimal answer as the float itself, at its stated precision.
+    """
+    if isinstance(number, bool):
+        raise TypeError(f"exact_value needs an int, Fraction or SymPy Rational, got {number!r}")
+    if isinstance(number, (int, Fraction)):
+        value = Fraction(number)
+    elif getattr(number, "is_Rational", False):  # SymPy Rational and Integer
+        value = Fraction(int(number.p), int(number.q))
+    else:
+        raise TypeError(f"exact_value needs an int, Fraction or SymPy Rational, got {type(number).__name__} {number!r}")
     return value.numerator if value.denominator == 1 else {"p": value.numerator, "q": value.denominator}
+
+
+_ORDERLESS_KINDS = frozenset({"list", "set"})
+
+
+def _comparable(value) -> Any:
+    """`value` in a form where two spellings of the same answer compare equal: numbers of every kind as Fractions (a
+    float as the decimal it prints as), a numeric string as its number, other strings stripped, sequences as tuples."""
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, Fraction)):
+        return Fraction(value)
+    if isinstance(value, float):
+        return Fraction(repr(value))
+    if getattr(value, "is_Rational", False):
+        return Fraction(int(value.p), int(value.q))
+    if isinstance(value, str):
+        try:
+            return Fraction(value.replace(" ", ""))
+        except (ValueError, ZeroDivisionError):
+            return value.strip()
+    if isinstance(value, dict):
+        if set(value) == {"p", "q"}:
+            try:
+                return Fraction(value["p"], value["q"])
+            except (TypeError, ZeroDivisionError):
+                pass
+        return tuple(sorted((str(k), _comparable(v)) for k, v in value.items()))
+    if isinstance(value, (list, tuple)):
+        return tuple(_comparable(v) for v in value)
+    return value
+
+
+def same_value(left, right, kind: str | None = None) -> bool:
+    """Whether two answer values are the same answer: 3, 3.0, "3" and {"p": 3, "q": 1} are; for a `list` or `set` kind,
+    [2, -1] and [-1, 2] are too."""
+    a, b = _comparable(left), _comparable(right)
+    if a == b:
+        return True
+    if kind in _ORDERLESS_KINDS and isinstance(a, tuple) and isinstance(b, tuple):
+        return sorted(a, key=repr) == sorted(b, key=repr)
+    return False
 
 
 def flatten_distractors(question: dict) -> None:
@@ -124,8 +177,12 @@ def flatten_distractors(question: dict) -> None:
 
     Each `Distractor` becomes its text in `distractors`, with its misconception in `option_notes`, its value in
     `distractor_values` and its credit in `distractor_credit`, all keyed by the text. A dict whose distractors are all
-    strings is left exactly as it was. Raises `ValueError` for a misconception id the catalogue does not know, and for
-    an option tagged twice with different ids.
+    strings is left exactly as it was.
+
+    The contract is enforced here, so a generator that skips `pick_distractors` cannot break it. Raises `ValueError`
+    when a distractor's text is the answer's text, when two distractors share a text, when a distractor's value is
+    the answer's value, for a misconception id the catalogue does not know, and for an option tagged twice with
+    different ids.
     """
     distractors = question.get("distractors") or []
     if not any(isinstance(d, Distractor) for d in distractors):
@@ -136,11 +193,18 @@ def flatten_distractors(question: dict) -> None:
     notes = dict(question.get("option_notes") or {})
     values = dict(question.get("distractor_values") or {})
     credit = dict(question.get("distractor_credit") or {})
+    answer_text = str(question.get("answer_text", "")).strip()
     for d in distractors:
+        text = d.text if isinstance(d, Distractor) else str(d)
+        if text.strip() == answer_text:
+            raise ValueError(f"distractor {text!r} is the answer's own text")
+        if text in texts:
+            raise ValueError(f"distractor {text!r} is offered twice")
+        texts.append(text)
         if not isinstance(d, Distractor):
-            texts.append(str(d))
             continue
-        texts.append(d.text)
+        if d.value is not None and same_value(d.value, question.get("answer"), question.get("answer_kind")):
+            raise ValueError(f"distractor {d.text!r} has the answer's own value {d.value!r}")
         if d.misconception is not None:
             if d.misconception not in CATALOGUE:
                 raise ValueError(f"distractor {d.text!r}: misconception {d.misconception!r} is not in the catalogue")

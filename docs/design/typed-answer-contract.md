@@ -42,6 +42,12 @@ freely with plain strings. `pick_distractors` keeps them, tag and all. `make()` 
 above (`flatten_distractors`) and rejects an id that is not in the catalogue or an option tagged twice.
 `tagged_distractors(obj)` reassembles them.
 
+`make()` enforces the contract on every question with a tagged distractor, so a generator that skips
+`pick_distractors` cannot break it: a distractor may not repeat the answer's text, another distractor's text, or the
+answer's value (`same_value`, which treats 3, 3.0, "3" and 3/1 as one value, and a reordering as the same answer for the
+`list` and `set` kinds). `exact_value` takes an int, Fraction or SymPy Rational and refuses a float, whose exact value
+is not the decimal it prints as.
+
 `value` is what lets a reply be matched by meaning rather than spelling. Give it for every distractor that has one;
 leave it out only for words with no value (`undefined`, `does not exist`). `credit` is for a right method with a slip
 (1/2 for a rounding error, say); it must be at least 0 and below 1. The engine stores it and does not compute marks.
