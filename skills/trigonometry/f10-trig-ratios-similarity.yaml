@@ -1,0 +1,40 @@
+id: f10-trig-ratios-similarity
+name: Use constant right-triangle ratios to find a side
+domain: trigonometry
+description: Given one acute angle and one known side of a right-angled triangle, use the constant sine, cosine or tangent ratio for that angle (established through similar right triangles) to calculate an unknown side, rounded as the question states.
+status: active
+placement_eligible: false
+prerequisites:
+- right-triangle-angle
+answer: number
+sources:
+- topic: f10_trig_ratios_similarity
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_trig_ratios_similarity
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_trig_ratios_similarity
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-the-difference
+  description: Treats similar triangles additively, adding to the reference side the amount the known side grew by, instead of multiplying by the scale factor (easy tier).
+- id: scales-the-wrong-side
+  description: Applies the scale factor to the third side of the reference triangle rather than the side asked for (easy tier).
+- id: forgets-to-scale
+  description: Reports the reference triangle's side without scaling it up to the larger triangle (easy tier).
+- id: adds-the-scale-factor
+  description: Adds the scale factor to the reference side instead of multiplying by it (easy tier).
+- id: swaps-opposite-and-adjacent
+  description: Mixes up which leg is opposite and which is adjacent to the stated angle, so the wrong ratio (the complementary angle's) is used (medium and hard tiers).
+- id: multiplies-instead-of-divides
+  description: Picks the right ratio but applies it the wrong way round, multiplying where it should divide or the reverse (medium and hard tiers).
+- id: treats-the-known-side-as-the-hypotenuse
+  description: Multiplies the known side by the unknown side's ratio as if the known side were the hypotenuse (medium and hard tiers).
+- id: divides-by-the-unknown-sides-ratio
+  description: Divides the known side by the sine or cosine belonging to the unknown side, instead of forming the ratio the two sides share (medium and hard tiers).
+tags: [f10, trigonometry, right-triangles, similarity, ac9m9sp01, acara-v9-year-9]
