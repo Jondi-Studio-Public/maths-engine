@@ -60,6 +60,15 @@ _PARAMETER = (
 )
 
 
+def _splits(a: int, b: int, c: int) -> bool:
+    """True when a x^2 + b x + c has integer roots, so the quadratic factor would not be fully factorised."""
+    disc = b * b - 4 * a * c
+    if disc < 0:
+        return False
+    root = int(disc**0.5)
+    return root * root == disc and (-b + root) % (2 * a) == 0 and (-b - root) % (2 * a) == 0
+
+
 def _parse(text: str):
     return parse_expr(text, local_dict={"x": x}, transformations=_TRANSFORMS)
 
@@ -129,7 +138,7 @@ def _cubes(rng: random.Random) -> dict:
 def _grouping(rng: random.Random) -> dict:
     m = rng.choice([1, 2, 3])
     p = rng.choice([v for v in range(-9, 10) if v != 0])
-    q = rng.choice([v for v in range(-9, 10) if v != 0 and abs(v) != abs(p)])
+    q = rng.choice([v for v in range(-9, 10) if v != 0 and abs(v) != abs(p) and not _splits(1, 0, v)])
     lin = (m, -p)
     quad = (1, 0, q)
     cubic_text = _cubic_text(_parse(_linear(*lin)) * _parse(_quad(*quad)))
@@ -157,7 +166,7 @@ def _parameter(rng: random.Random) -> dict:
     k = int(expanded.coeff(x, 2))
     # Skip draws where k coincides with the quadratic's own coefficients, so the "k used as the coefficient"
     # slip is a genuinely different factorisation.
-    if k == qq or k == 0:
+    if k == qq or k == 0 or _splits(1, qq, r):
         return _parameter(rng)
     k_symbol = Symbol("k")
     cubic_with_k = x**3 + k_symbol * x**2 + int(expanded.coeff(x, 1)) * x + int(expanded.coeff(x, 0))
