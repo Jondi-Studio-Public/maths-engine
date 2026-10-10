@@ -10,6 +10,9 @@
     print(engine.grade(skill, q, "6√21").correct)   # True
     print(engine.grade(skill, q, "2√3").correct)    # False
 
+A service that grades replies from people it does not trust should call `grade_with_deadline` instead: same
+arguments, but a reply that takes the grader longer than a time limit is graded wrong rather than hanging the call.
+
 Nothing here touches a database, the network or any app code.
 
 For a multiple-choice skill (`skill.answer == "mcq"`), `grade` takes the 0-based index of the chosen option in
@@ -58,3 +61,12 @@ def make_for_skill(skill: Skill, seed: int | None = None, *, source: Source | in
 def grade(skill: Skill, question, given: str) -> GradeResult:
     """Grade `given` against `question` with the grader the skill's answer kind names."""
     return _grade_kind(skill.answer, question, given, skill=skill)
+
+
+def grade_with_deadline(skill: Skill, question, given: str, *, timeout: float | None = None) -> GradeResult:
+    """`grade`, in a worker process that is stopped after `timeout` seconds (2 by default); a reply that runs out of
+    time is graded wrong. Use this for replies from people you do not trust: see `mathgen.grading.deadline`."""
+    from .grading import deadline
+
+    limit = deadline.DEFAULT_TIMEOUT if timeout is None else timeout
+    return deadline.grade_with_deadline(skill.answer, question, given, skill=skill, timeout=limit)
