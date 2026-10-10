@@ -1997,7 +1997,7 @@ def _written_factors(text: str) -> tuple[object, list] | None:
 
 def _keeps_a_common_factor(factor) -> bool:
     try:
-        poly = sympy.Poly(sympy.expand(factor))
+        poly = sympy.Poly(factor)
     except (sympy.PolynomialError, sympy.GeneratorsNeeded, TypeError, ValueError):
         return False
     return poly.domain.is_ZZ and abs(poly.content()) != 1
@@ -2009,7 +2009,7 @@ def _factorised_as_far_as(stripped: str, question) -> bool:
         return True
     constant, factors = given
     try:
-        trivial_constant = sympy.simplify(constant) in (1, -1)
+        trivial_constant = bool(abs(constant).equals(1))
     except (TypeError, ValueError):
         trivial_constant = False
     if len(factors) + (0 if trivial_constant else 1) < 2:
