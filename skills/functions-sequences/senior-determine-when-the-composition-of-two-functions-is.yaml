@@ -21,6 +21,10 @@ sources:
   params: {mode: when_defined}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f2_when_defined
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: ignores-gs-own-domain-restriction
   description: Selects "Defined for all real x", ignoring that g(x) = sqrt(x - a) already restricts the domain to x >= a.

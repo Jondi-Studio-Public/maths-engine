@@ -192,9 +192,11 @@ class TestTanShiftComplementaryIdentitySkillLoading:
         assert skill.placement_eligible is False
         assert skill.prerequisites == ["right-triangle-angle"]
         assert skill.answer == "expression"
-        assert len(skill.sources) == 3
-        assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-        assert [source.topic for source in skill.sources] == ["tan_shift_complementary_identity"] * 3
+        assert len(skill.sources) == 4
+        assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+        assert [source.topic for source in skill.sources] == ["tan_shift_complementary_identity"] * 3 + [
+            "exd_x_f5_tanasym"
+        ]
 
 
 if __name__ == "__main__":

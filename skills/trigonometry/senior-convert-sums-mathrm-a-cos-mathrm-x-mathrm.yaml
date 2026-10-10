@@ -21,6 +21,11 @@ sources:
   params: {variant: sin_form_mixed_sign}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f5_auxsum
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: no-quadrant-correction
   description: Uses atan(b/a) (or atan(a/b) for the sin form) directly without checking the signs of a and b, so alpha lands in the wrong quadrant.

@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_f2_inverse_proportion
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: as-if-direct
   description: 'Treats the relation as directly proportional, multiplying by the scale factor instead of applying the inverse relationship (easy: y2 = y1*t; medium: x2 = x1*y2/y1; hard: multiplies the stated pressure by the combined scale factor t1*t2 instead of dividing, P1*(t1*t2)).'

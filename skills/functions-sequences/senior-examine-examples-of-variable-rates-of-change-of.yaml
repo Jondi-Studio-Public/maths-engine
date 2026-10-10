@@ -21,6 +21,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f2_rate_of_change
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: forgets-to-divide
   description: Reports f(x2) - f(x1), the total change in y, as if it were the rate of change, without dividing by the width of the interval.
