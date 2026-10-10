@@ -16,7 +16,7 @@ import random
 
 from sympy import Symbol, integrate, pi, sqrt
 
-from ..core import check_distinct, check_equivalent, generator, latex_prompt, pick_distractors
+from ..core import check_distinct, check_equivalent, generator, latex_answer, latex_prompt, pick_distractors
 
 _X = Symbol("x", positive=True)
 _Y = Symbol("y", positive=True)
@@ -79,7 +79,7 @@ def _build(rng: random.Random) -> dict:
         "latex": latex_prompt(text),
         "answer": answer_text,
         "answer_text": answer_text,
-        "answer_latex": answer_text,
+        "answer_latex": latex_answer(answer),
         "distractors": distractors,
         "working": [
             f"The curves meet where {c}x^2 = {c * m}x, so x = 0 and x = {m}",

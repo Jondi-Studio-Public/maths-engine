@@ -15,7 +15,7 @@ import random
 
 from sympy import Rational, Symbol, asin, atan, integrate, pi, sqrt
 
-from ..core import check_equivalent, generator, join_terms, latex_prompt, pick_distractors
+from ..core import check_equivalent, generator, join_terms, latex_answer, latex_prompt, pick_distractors
 
 _X = Symbol("x", real=True)
 
@@ -86,7 +86,7 @@ def _pack(text: str, answer, wrong, first_step: str) -> dict:
         "latex": latex_prompt(text),
         "answer": answer_text,
         "answer_text": answer_text,
-        "answer_latex": answer_text,
+        "answer_latex": latex_answer(answer),
         "distractors": pick_distractors(answer_text, [_fmt(w) for w in wrong]),
         "working": [first_step, f"Integrate and substitute the limits: {answer_text}"],
     }
