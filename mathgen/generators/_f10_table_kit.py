@@ -64,13 +64,16 @@ def with_blanks(answer: dict, changes: dict[str, int]) -> dict:
     return {"columns": answer["columns"], "rows": answer["rows"], "blanks": blanks}
 
 
-def finish(answer: dict, wrong_edits: list[tuple[str, dict[str, int]]], max_distractors: int = 3):
+def finish(
+    answer: dict, wrong_edits: list[tuple[str, dict[str, int]]], max_distractors: int = 3, max_value: int | None = None
+):
     """(answer_text, distractors, option_notes) for a table question.
 
     `wrong_edits` is an ordered list of (misconception id, {"r,c": wrong value}). Each is turned into a full
     wrong table in the canonical text format. Edits that change nothing, or that duplicate an earlier
     distractor, are dropped. Every kept distractor is graded by the real `table` grader and must be
-    rejected, and the canonical answer must be accepted: both are checked here, on every candidate."""
+    rejected, and the canonical answer must be accepted: both are checked here, on every candidate.
+    Edits with a negative value, or one above `max_value` when given, are dropped as implausible slips."""
     answer_text = table_answer_text(answer)
     probe = _probe(answer, answer_text)
     check(grade_table(probe, answer_text).correct, "table grader rejects its own canonical answer")
@@ -81,7 +84,7 @@ def finish(answer: dict, wrong_edits: list[tuple[str, dict[str, int]]], max_dist
             break
         if all(answer["blanks"][k] == v for k, v in changes.items()):
             continue
-        if any(v < 0 for v in changes.values()):
+        if any(v < 0 or (max_value is not None and v > max_value) for v in changes.values()):
             continue
         text = table_answer_text(with_blanks(answer, changes))
         if text == answer_text or text in distractors:

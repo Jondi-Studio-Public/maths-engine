@@ -1,0 +1,41 @@
+id: f10-two-way-table-relationship
+name: Complete a two-way table
+domain: statistics-probability
+description: Complete the blank cells of a two-way frequency table of counts for two categorical variables, each with a small named set of categories. Easy tabulates a list of paired observations into a 2 by 2 table with its totals; medium finds missing cells and totals from the given row, column and grand totals; hard also uses one stated condition linking two totals. Comparing proportions and discussing a relationship are not asked.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-probability-complements-compounds
+- conditional-probability-counts
+answer: table
+sources:
+- topic: f10_two_way_table
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_two_way_table
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_two_way_table
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-instead-of-subtracting
+  description: Adds the other known cells to a row or column total instead of subtracting them from it to find a missing cell.
+- id: subtracts-from-the-grand-total
+  description: Finds a missing cell by taking the known cells in its row away from the grand total instead of from that row's total.
+- id: swaps-two-cells
+  description: Writes the count for one cell in another cell of the table, usually the cell beside it or below it.
+- id: leaves-out-a-cell-from-the-total
+  description: Misses one cell when adding a row or column to find its total.
+- id: adds-row-and-column-totals-together
+  description: Finds the grand total by adding the row totals and the column totals together, counting everyone twice.
+- id: miscounts-by-one
+  description: Is one out when counting or adding up a cell, so the cell is one too high or one too low.
+- id: reads-more-as-times
+  description: Treats "N more than" as "N times as many" when using the stated condition about two totals.
+- id: reads-times-as-more
+  description: Treats "twice" or "three times" as "2 more" or "3 more" when using the stated condition about two totals.
+tags: [acara-f10-v9, statistics-probability, f10_two_way_table, AC9M10ST04]
