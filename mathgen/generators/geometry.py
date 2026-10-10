@@ -290,7 +290,11 @@ def _free_angle(rng, style, lo, hi):
     of defaulting to tan, medium tier); "mixed" draws from all three (hard
     tier, also given the widest `lo`/`hi` band of the three tiers).
 
-    `right-triangle-angle.yaml`'s hard source uses `angle_style: mixed`."""
+    `right-triangle-angle.yaml`'s hard source uses `angle_style: elevation_eye`
+    (the opposite side must first be obtained by subtracting the observer's
+    eye height, which changes the numbers that go into the ratio)."""
+    if style == "elevation_eye":
+        return _angle_elevation_eye(rng)
     if style == "legs":
         ratio = "tan"
     elif style == "leg_hyp":
@@ -385,6 +389,56 @@ def _free_angle(rng, style, lo, hi):
 _INEXACT_LEG_LO, _INEXACT_LEG_HI = 6, 28
 _INEXACT_HYP_LO, _INEXACT_HYP_HI = 20, 55
 _INEXACT_MAX_TRIES = 200
+
+
+def _angle_elevation_eye(rng):
+    """Hard tier: angle of elevation of a tower's top from a
+    student's eyes. The opposite side is H - e (tower height less eye height),
+    so the subtraction changes which numbers enter tan; it is not a detour.
+    The yaml's angle_lo/angle_hi are ignored here: H, d and e have their own
+    ranges. Lengths are held in tenths of a metre so H - e has no float noise."""
+    for _ in range(_ANGLE_MAX_TRIES):
+        tower = rng.randint(10, 40)
+        dist = rng.randint(15, 60)
+        eye = rng.choice((1.4, 1.5, 1.6, 1.7, 1.8))
+        eye10 = round(eye * 10)
+        opp10 = tower * 10 - eye10
+        exact = math.degrees(math.atan2(opp10, dist * 10))
+        if not _ANGLE_LO_DEG <= exact <= _ANGLE_HI_DEG:
+            continue
+        ans = round(exact, 1)
+        forgot = round(math.degrees(math.atan2(tower * 10, dist * 10)), 1)
+        added = round(math.degrees(math.atan2(tower * 10 + eye10, dist * 10)), 1)
+        comp = round(90 - ans, 1)
+        if len({ans, forgot, added, comp}) < 4:
+            continue
+        break
+    else:
+        check(False)
+    check(abs(float(N(deg(atan2(Rational(opp10, 10), Integer(dist))))) - ans) < 0.05)
+    opp_text = f"{opp10 // 10}.{opp10 % 10}"
+    # Misconceptions: forgot the eye height; added it instead of subtracting;
+    # complementary angle (flipped the ratio).
+    cands = [f"θ = {forgot}°", f"θ = {added}°", f"θ = {comp}°"]
+    return dict(
+        text=(
+            f"A student whose eyes are {eye} m above the ground stands {dist} m from the base of "
+            f"a vertical tower that is {tower} m tall. Find the angle of elevation of the top of "
+            f"the tower from the student's eyes (1 d.p.)."
+        ),
+        latex=(
+            rf"\text{{eye height }} {eye}\text{{ m, distance }} {dist}\text{{ m, tower }} {tower}"
+            rf"\text{{ m: find the angle of elevation (1 d.p.)}}"
+        ),
+        answer=ans,
+        answer_text=f"θ = {ans}°",
+        answer_latex=rf"\theta = {ans}^\circ",
+        working=[
+            f"opposite = {tower} - {eye} = {opp_text} m",
+            f"θ = tan⁻¹({opp_text}/{dist}) = {ans}°",
+        ],
+        distractors=pick_distractors(f"θ = {ans}°", cands, tolerance=GRADER_TOLERANCE),
+    )
 
 
 def _side_inexact(rng, kind):

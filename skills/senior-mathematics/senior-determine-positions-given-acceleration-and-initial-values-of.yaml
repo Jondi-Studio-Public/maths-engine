@@ -18,7 +18,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: p10a_acceleration_to_position_line
-  params: {}
+  params: {split: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

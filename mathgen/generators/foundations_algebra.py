@@ -20,6 +20,7 @@ from ..core import (
     join_terms,
     check_equivalent,
     check_distinct,
+    pairwise_distinct,
     symbolically_equal,
     phrase,
 )
@@ -390,6 +391,45 @@ def expression_parts(rng, kind="coefficient", hi=9, n_terms=2, max_pow=3):
     )
 
 
+def _expression_from_words_structure(rng, coef_hi, const_hi):
+    """Hard tier: the wording forces a structure decision (reversed
+    subtraction, or a bracketed sum/difference), not just a coefficient and
+    constant. Draws are resampled until every distractor differs in value
+    from the answer."""
+    while True:
+        a = rng.randint(2, coef_hi)
+        b = rng.randint(1, const_hi)
+        tmpl = rng.randint(0, 2)
+        if tmpl == 0:
+            words = f"subtract {a} times a number from {b}"
+            ans_expr = b - a * x
+            # order not reversed; wrong operation; roles of a and b swapped
+            cands = [a * x - b, b + a * x, a - b * x]
+        elif tmpl == 1:
+            words = f"{a} times the sum of a number and {b}"
+            ans_expr = a * (x + b)
+            # bracket dropped; multiplier on the constant only; roles swapped
+            cands = [a * x + b, x + a * b, a + b * x]
+        else:
+            words = f"{a} times the difference between a number and {b}"
+            ans_expr = a * (x - b)
+            cands = [a * x - b, x - a * b, a - b * x]
+        # Resample a draw where a distractor equals the answer or another
+        # distractor (e.g. a == b collapses two of them).
+        if not pairwise_distinct(ans_expr, *cands):
+            continue
+        check_distinct(ans_expr, *cands)
+        ans_str = str(ans_expr)
+        return dict(
+            text=f"Write an expression for: {words}",
+            latex=rf"\text{{{words}}}",
+            answer=ans_str,
+            answer_text=ans_str,
+            answer_latex=latex(ans_expr),
+            distractors=pick_distractors(ans_str, [str(c) for c in cands]),
+        )
+
+
 @generator(
     "expression_from_words",
     level=7,
@@ -399,7 +439,11 @@ def expression_parts(rng, kind="coefficient", hi=9, n_terms=2, max_pow=3):
         "hard": dict(coef_hi=12, const_hi=20),
     },
 )
-def expression_from_words(rng, coef_hi=9, const_hi=15):
+def expression_from_words(rng, coef_hi=9, const_hi=15, kind="linear"):
+    if kind == "structure":
+        # Dispatched BEFORE the shared draws below so the default path's RNG
+        # order is untouched (EXD-001).
+        return _expression_from_words_structure(rng, coef_hi, const_hi)
     a = rng.randint(2, coef_hi)
     b = rng.randint(-const_hi, const_hi) or 1
     tmpl = rng.randint(0, 2)
@@ -935,6 +979,45 @@ def _word_problem_linear_eq_reverse(rng, coef_hi, sol_hi):
     )
 
 
+def _coordinates_fourth_vertex(rng, hi):
+    """Three corners of an axis-parallel rectangle are given; write the fourth.
+    The answer's x (y) is the x (y) value that appears once among the three."""
+    while True:
+        x1, x2 = rng.randint(-hi, hi), rng.randint(-hi, hi)
+        y1, y2 = rng.randint(-hi, hi), rng.randint(-hi, hi)
+        if x1 == x2 or y1 == y2:
+            continue
+        corners = [(x1, y1), (x2, y1), (x2, y2), (x1, y2)]
+        missing = rng.randrange(4)
+        ax, ay = corners[missing]
+        given = [c for i, c in enumerate(corners) if i != missing]
+        rng.shuffle(given)
+        diagonal = corners[(missing + 2) % 4]
+        ans_text = f"({ax}, {ay})"
+        cands = [
+            f"({diagonal[0]}, {diagonal[1]})",  # copied the diagonal vertex
+            f"({ay}, {ax})",  # swapped x and y
+            f"({-ax}, {-ay})",  # reversed both signs
+        ]
+        distractors = pick_distractors(ans_text, cands)
+        if len(distractors) == 3:
+            break
+    listed = [f"{label}({px}, {py})" for label, (px, py) in zip("ABC", given)]
+    text = (
+        f"Three vertices of a rectangle with sides parallel to the axes are "
+        f"{listed[0]}, {listed[1]} and {listed[2]}. "
+        f"Write the coordinates (x, y) of the fourth vertex D."
+    )
+    return dict(
+        text=text,
+        latex=text,
+        answer={"x": ax, "y": ay},
+        answer_text=ans_text,
+        answer_latex=ans_text,
+        distractors=distractors,
+    )
+
+
 @generator(
     "coordinates",
     level=7,
@@ -945,6 +1028,8 @@ def _word_problem_linear_eq_reverse(rng, coef_hi, sol_hi):
     },
 )
 def coordinates(rng, kind="read", hi=9):
+    if kind == "fourth_vertex":
+        return _coordinates_fourth_vertex(rng, hi)
     px = rng.randint(-hi, hi)
     py = rng.randint(-hi, hi)
     while px == 0 and py == 0:

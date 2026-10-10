@@ -21,7 +21,7 @@ sources:
   - 3
   - 4
 - topic: expression_from_words
-  params: {}
+  params: {kind: structure}
   difficulty: hard
   stages:
   - 5

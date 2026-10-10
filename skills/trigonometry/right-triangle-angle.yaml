@@ -34,7 +34,7 @@ sources:
   params:
     kinds:
     - angle
-    angle_style: mixed
+    angle_style: elevation_eye
     angle_lo: 81
     angle_hi: 150
   difficulty: hard

@@ -15,7 +15,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: triangle_area_base_height
-  params: {base_hi: 30, height_hi: 24}
+  params: {base_hi: 30, height_hi: 24, slant: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

@@ -22,6 +22,59 @@ def _expr_text(value) -> str:
     return str(sympy.simplify(value)).replace("**", "^")
 
 
+def _fourier_coefficient_step(rng, n_hi):
+    """Private helper for ``fourier_coefficient_simple(kind="step")``."""
+    x = sympy.symbols("x", real=True)
+    while True:
+        c = rng.randint(1, 4)
+        n = rng.randint(1, n_hi)
+        family = rng.choice(("sine", "cosine"))
+        basis = sympy.sin(n * x) if family == "sine" else sympy.cos(n * x)
+        coefficient = sympy.simplify(2 / sympy.pi * sympy.integrate(c * basis, (x, 0, sympy.pi / 2)))
+        if coefficient != 0:
+            break
+
+    antiderivative = sympy.integrate(c * basis, x)
+    check_equivalent(sympy.diff(antiderivative, x), c * basis, "Fourier step antiderivative check failed")
+    numeric = 2 / pi * float(sympy.N(sympy.Integral(c * basis, (x, 0, sympy.pi / 2)), 30))
+    check(abs(numeric - float(sympy.N(coefficient, 30))) < 1e-10, "Fourier step numerical check failed")
+    # Third route: evaluate the antiderivative at the split point by hand.
+    by_hand = 2 / sympy.pi * (antiderivative.subs(x, sympy.pi / 2) - antiderivative.subs(x, 0))
+    check_equivalent(by_hand, coefficient, "Fourier step endpoint evaluation check failed")
+
+    other = sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)
+    wrong_basis = sympy.simplify(2 / sympy.pi * sympy.integrate(c * other, (x, 0, sympy.pi / 2)))
+    whole = sympy.simplify(2 / sympy.pi * sympy.integrate(c * basis, (x, 0, sympy.pi)))
+    answer_text = _expr_text(coefficient)
+    candidates = [
+        _expr_text(-coefficient),
+        _expr_text(sympy.simplify(coefficient / 2)),
+        _expr_text(wrong_basis),
+        _expr_text(whole),
+        _expr_text(coefficient + 1),
+    ]
+    return dict(
+        text=(
+            f"On [0, π], let f(x) = {c} for 0 ≤ x ≤ π/2 and f(x) = 0 for π/2 < x ≤ π. "
+            f"Compute its exact {family} Fourier coefficient for mode n = {n}. "
+            "Use a_n = 2/π ∫₀^π f(x)cos(nx)dx "
+            "or b_n = 2/π ∫₀^π f(x)sin(nx)dx as appropriate."
+        ),
+        latex=(
+            rf"f(x)={c}\ (0\le x\le\pi/2),\ 0\ (\pi/2<x\le\pi),\quad n={n};\quad "
+            rf"\text{{find the exact {family} coefficient on }}[0,\pi]."
+        ),
+        answer=coefficient,
+        answer_text=answer_text,
+        answer_latex=sympy.latex(coefficient),
+        working=[
+            f"f vanishes on (pi/2, pi], so split the integral and keep only 0 to pi/2 for the {family} coefficient.",
+            f"Evaluate at n*pi/2 (n = {n}, so n mod 4 = {n % 4}) to obtain {answer_text}.",
+        ],
+        distractors=pick_distractors(answer_text, candidates),
+    )
+
+
 @generator(
     "fourier_coefficient_simple",
     level=17,
@@ -31,8 +84,15 @@ def _expr_text(value) -> str:
         "hard": dict(n_hi=10),
     },
 )
-def fourier_coefficient_simple(rng, n_hi=6):
-    """Compute one exact sine/cosine coefficient on [0, pi]."""
+def fourier_coefficient_simple(rng, n_hi=6, kind=None):
+    """Compute one exact sine/cosine coefficient on [0, pi].
+
+    ``kind=None`` (default) is the original x / x^2 question, byte-for-byte.
+    ``kind="step"`` uses a piecewise f (c on [0, pi/2], 0 after), so the
+    integral is split at pi/2 and the answer depends on n mod 4.
+    """
+    if kind == "step":
+        return _fourier_coefficient_step(rng, n_hi)
     x = sympy.symbols("x", real=True)
     n = rng.randint(1, n_hi)
     family = rng.choice(("sine", "cosine"))

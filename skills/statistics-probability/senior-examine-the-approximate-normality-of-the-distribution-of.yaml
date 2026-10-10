@@ -18,7 +18,7 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p8c_normality_approx_phat
-  params: {}
+  params: {variant: from_failures}
   difficulty: hard
   stages: [6, maintenance]
 misconceptions:
