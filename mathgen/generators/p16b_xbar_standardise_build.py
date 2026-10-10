@@ -184,7 +184,11 @@ def _sign_flip_or_alt(
     operation" error), so the key's negation is not always among the options."""
     if rng.random() < 0.5:
         return (mu_d - xbar_key_d) / se_key_d
-    return (xbar_key_d - mu_d) * sqrt_n_d / divisor_d
+    # Every caller passes the population/sample SD (sigma or s) as `divisor_d`, so the SE the learner should
+    # form is divisor/sqrt(n). Multiplying instead of dividing gives the SE divisor*sqrt(n), hence
+    # (xbar - mu)/(divisor*sqrt(n)). (The previous (xbar - mu)*sqrt(n)/divisor IS the key, so it was always
+    # dropped as a collision and the "alt" branch never contributed a distractor.)
+    return (xbar_key_d - mu_d) / (divisor_d * sqrt_n_d)
 
 
 # ---------------------------------------------------------------------------
