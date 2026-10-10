@@ -66,3 +66,23 @@ def test_unicode_minus_on_two_part_key():
     assert "-" in q.answer_text
     assert grade("pair", q, q.answer_text.replace("-", "−")).correct
     assert not grade("pair", q, q.answer_text.replace("-", "−").replace("y = ", "y = 9")).correct
+
+
+class _Key:
+    """The two fields the pair grader reads from a one-equation key."""
+
+    def __init__(self, label, value):
+        self.answer = {label: value}
+        self.answer_text = f"{label} = {value}"
+
+
+@pytest.mark.parametrize("given", ["lambda = 17", "17 = lambda", "+lambda = 17"])
+def test_a_keyword_label_keeps_the_original_verdict(given):
+    # `lambda` is a Python keyword, so the expression parser cannot read it. The
+    # rearrangement branch must stay out of the way instead of rejecting.
+    assert grade("pair", _Key("lambda", 17), given).correct
+
+
+@pytest.mark.parametrize("given", ["lambda = 16", "16 = lambda", "+lambda = 18"])
+def test_a_keyword_label_still_rejects_wrong_values(given):
+    assert not grade("pair", _Key("lambda", 17), given).correct

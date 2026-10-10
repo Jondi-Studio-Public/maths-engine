@@ -697,7 +697,9 @@ def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | 
         return None
     lhs, rhs = _parse_expression(parts[0]), _parse_expression(parts[1])
     if lhs is None or rhs is None:
-        return False
+        # A side the parser cannot read (a Python keyword such as `lambda` as the label,
+        # or stray punctuation): this branch has no verdict, so the original path decides.
+        return None
     try:
         key = sympy.Symbol(label) - expected
         diff = lhs - rhs
