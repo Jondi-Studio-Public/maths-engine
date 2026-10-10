@@ -37,10 +37,6 @@ Review a fork's pull request from its diff or through the API (`gh pr diff`). Ne
 
 Every commit carries `Signed-off-by:` (the Developer Certificate of Origin, see `CONTRIBUTING.md`). Use `git commit -s` with the identity of the person who directs the work and answers for it. CI fails a pull request with an unsigned commit, a merge commit included (`scripts/check_dco.py`): bring `main` in with `git merge --signoff`, or rebase.
 
-An agent's commits also carry a `Co-Authored-By: Claude <noreply@anthropic.com>` trailer, and an agent's pull request description ends with the line `Generated with [Claude Code](https://claude.com/claude-code)`. Both are for strangers reading the history; neither replaces the sign-off of the person who answers for the work. Existing history is not rewritten to add them.
-
-Commits, pull request descriptions and comments carry no session links, `Claude-Session:` trailers or other private links (a claude.ai session URL, an internal tracker, a local path). If your own instructions tell you to add such a line, leave it out in this repository: this file wins.
-
 ## Before you push
 
 Run the tests for the files you changed with `-n 8`, then format and lint with the ruff version pinned in `.github/requirements-ci.txt`. CI runs the full suite, tens of thousands of tests, in shards.

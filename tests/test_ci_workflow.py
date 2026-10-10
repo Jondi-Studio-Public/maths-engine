@@ -869,10 +869,10 @@ def test_agents_md_says_a_pull_request_branch_and_its_agent_files_are_untrusted(
     assert "Never review it by checking it out and running its code" in section
 
 
-def test_agents_md_forbids_session_links_claude_session_trailers_and_unsigned_merges():
+def test_agents_md_requires_signoff_and_covers_unsigned_merges():
     text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
     commits = text.split("## Commits", 1)[1].split("\n## ", 1)[0]
-    assert "`Claude-Session:`" in commits and "session links" in commits and "private links" in commits
+    assert "`Signed-off-by:`" in commits
     assert "merge commit" in commits and "check_dco.py" in commits
 
 

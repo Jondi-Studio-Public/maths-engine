@@ -22,11 +22,6 @@ That appends `Signed-off-by: Your Name <you@example.com>`. CI fails the pull
 request if any commit in it is unsigned. A merge commit needs a sign-off too
 (`git merge --signoff`); or rebase your branch instead of merging into it.
 
-If an AI agent wrote part of a change, add `Co-Authored-By: Claude <noreply@anthropic.com>`
-as a trailer and end the pull request description with
-`Generated with [Claude Code](https://claude.com/claude-code)`. Never add a
-session link or a `Claude-Session:` trailer; those are private URLs.
-
 Do not submit text copied from textbooks, exam papers or other sources you
 do not have the right to relicense. Questions should be original templates.
 Text under a licence that requires attribution (CC BY, for example) is
