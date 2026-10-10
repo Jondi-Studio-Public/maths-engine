@@ -1,0 +1,48 @@
+id: f10-collect-sort-compare-categorical-data
+name: Collect, sort and compare object data
+domain: statistics-probability
+description: Given data supplied as text (a jumbled list of objects, tally marks, a described survey or a list of whole-number readings), sort it into categories, count each category and complete the blank cells of a frequency table, including a comparison of category counts, a total and a derived row on the harder tiers. The data and the question are always given; the learner does not pose a question or draw a graph.
+status: active
+placement_eligible: false
+prerequisites:
+- compare-quantities-to-10
+answer: table
+sources:
+- topic: f10_collect_sort_categorical
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_collect_sort_categorical
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_collect_sort_categorical
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: misses-an-item
+  description: Leaves one item out of a category when sorting and counting, so a count is one too low.
+- id: double-counts-an-item
+  description: Counts one item twice, so a count is one too high.
+- id: swaps-two-categories
+  description: Writes the count of one category in the row of another.
+- id: counts-each-group-as-one
+  description: Reads each group of five tally marks as a single mark and adds the loose marks, instead of counting five for each group.
+- id: miscount-carries-into-comparison
+  description: Miscounts a category by one and then compares from the wrong count, so the comparison cell is wrong as well.
+- id: reports-the-count-as-the-difference
+  description: Writes how many votes a category got in the comparison column instead of how many fewer it got than the most popular category.
+- id: measures-from-the-least-popular
+  description: Compares each category with the least popular category instead of the most popular one named in the column.
+- id: leaves-out-the-boundary
+  description: When adding the frequencies for a phrase such as "3 or more", leaves out the frequency of the value named in the phrase itself.
+- id: includes-the-boundary
+  description: When adding the frequencies for a phrase such as "more than 3", includes the frequency of the value named in the phrase itself.
+- id: counts-the-rows-not-the-data
+  description: Gives the number of rows in the frequency table as the total instead of adding the frequencies.
+- id: adds-the-values-not-the-frequencies
+  description: Adds the values themselves (for example the shoe sizes listed in the rows) to get the total instead of adding how often each occurred.
+- id: miscounts-one-value
+  description: Is one out when counting how many times a value occurs in the list.
+tags: [acara-f10-v9, statistics-probability, f10_collect_sort_categorical, AC9MFST01, AC9M1ST01]
