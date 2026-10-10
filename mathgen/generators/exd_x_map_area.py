@@ -63,14 +63,15 @@ def _build(rng: random.Random) -> dict:
 
     feature = rng.choice(_FEATURES)
     map_name = rng.choice(_MAPS)
+    article = "an" if map_name[0] in "aeiou" else "a"
     if sides:
         text = (
-            f"On a {map_name} with a scale of 1 : {n}, {feature} is a rectangle measuring "
+            f"On {article} {map_name} with a scale of 1 : {n}, {feature} is a rectangle measuring "
             f"{_fixed(sides[0], 1)} cm by {_fixed(sides[1], 1)} cm. What is its real area, in hectares?"
         )
     else:
         text = (
-            f"On a {map_name} with a scale of 1 : {n}, {feature} has an area of {_fixed(map_area, 2)} cm² "
+            f"On {article} {map_name} with a scale of 1 : {n}, {feature} has an area of {_fixed(map_area, 2)} cm² "
             f"on the map. What is its real area, in hectares?"
         )
     answer_text = str(hectares)

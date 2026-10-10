@@ -80,3 +80,12 @@ def _oracle(text):
 def test_both_prompt_forms_occur():
     texts = [_exam(s).text for s in range(60)]
     assert any("measuring" in t for t in texts) and any("has an area of" in t for t in texts)
+
+
+def test_indefinite_article_matches_the_map_name():
+    seen = set()
+    for seed in range(120):
+        text = make("exd_x_map_area", seed=seed, difficulty="exam").text
+        assert " a online map" not in text, text
+        seen.add("an online map" in text)
+    assert seen == {True, False}

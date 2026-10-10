@@ -123,9 +123,9 @@ def exd_x_h5_increments_unknown_coefficient(rng, tier="exam"):
 
 _STEP_POOL = (Fraction(1, 2), Fraction(1, 3), Fraction(1, 4), Fraction(2), Fraction(-1, 2), Fraction(-1, 3))
 _QUOT_PROMPTS = (
-    "y = f(x) = {f}. At x = {p}, x changes by δx = {dx}. Find δy/δx for this change.",
-    "Let y = {f}. When x changes from {p} by δx = {dx}, what is the value of δy/δx?",
-    "For y = {f}, x changes from {p} by δx = {dx}. Calculate the difference quotient δy/δx.",
+    "y = f(x) = {f}. At x = {p}, x changes by δx = {dx}. Find δy/δx for this change, giving your answer as a fraction.",
+    "Let y = {f}. When x changes from {p} by δx = {dx}, what is the value of δy/δx? Give your answer as a fraction.",
+    "For y = {f}, x changes from {p} by δx = {dx}. Calculate the difference quotient δy/δx as a fraction.",
 )
 
 

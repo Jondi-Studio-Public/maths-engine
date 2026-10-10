@@ -56,9 +56,11 @@ def _oracle_check(q) -> None:
         assert hits == [int(q.answer_text)], (text, hits, q.answer_text)
         return
     expr_text = re.search(r"Simplify (.+?) for integers", text).group(1)
-    answer = parse_expr(q.answer_text.replace("^", "**"), transformations=_TRANSFORMS, local_dict={"n": _n})
-    for n_value in range(2, 9):
-        assert _value(expr_text, n_value) == answer.subs(_n, n_value), (text, q.answer_text, n_value)
+    # The simplified polynomial has degree at most 3, so eight values pin it down exactly.
+    poly = sympy.Poly(sympy.interpolate([(v, _value(expr_text, v)) for v in range(2, 10)], _n), _n)
+    term = re.search(r"What is (the constant term|the coefficient of n(?:\^(\d+))?)\?", text)
+    degree = 0 if term.group(1) == "the constant term" else int(term.group(2) or 1)
+    assert poly.coeff_monomial(_n**degree) == int(q.answer_text), (text, q.answer_text, poly)
 
 
 def test_key_matches_independent_oracle_over_300_seeds():
@@ -80,11 +82,21 @@ def test_grader_accepts_key_and_rejects_every_distractor():
     assert bad == [], bad[:3]
 
 
-def test_grader_accepts_an_expanded_equivalent():
-    q = next(q for q in (_exam(s) for s in range(60)) if q.text.startswith("Simplify"))
-    key = parse_expr(q.answer_text.replace("^", "**"), transformations=_TRANSFORMS, local_dict={"n": _n})
-    expanded = str(sympy.expand(key))
-    assert GRADERS["expression"](q, expanded).correct
+def test_restating_the_prompt_expression_is_graded_wrong():
+    grade = GRADERS["expression"]
+    checked = 0
+    for seed in range(200):
+        q = _exam(seed)
+        if not q.text.startswith("Simplify"):
+            continue
+        expr_text = re.search(r"Simplify (.+?) for integers", q.text).group(1)
+        typed = str(sympy.sympify(_factorials_to_calls(expr_text), locals={"n": _n, "factorial": sympy.factorial}))
+        assert not grade(q, typed).correct, (seed, q.text, typed)
+        assert not grade(q, expr_text).correct, (seed, q.text)
+        for d in q.distractors:
+            assert not grade(q, d).correct, (seed, d)
+        checked += 1
+    assert checked >= 100, checked
 
 
 def test_deterministic_and_all_three_kinds_occur():
