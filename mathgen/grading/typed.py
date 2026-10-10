@@ -701,7 +701,7 @@ def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | 
     try:
         key = sympy.Symbol(label) - expected
         diff = lhs - rhs
-        return bool(sympy.expand(diff - key) == 0 or sympy.expand(diff + key) == 0)
+        return bool(symbolically_equal(diff, key) or symbolically_equal(diff, -key))
     except (TypeError, ValueError):
         return False
 
