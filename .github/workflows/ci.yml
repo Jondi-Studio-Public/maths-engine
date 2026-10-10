@@ -43,15 +43,14 @@ defaults:
   run:
     shell: bash # bash -eo pipefail, so a failure inside a pipeline fails the step
 
-# Runners. While this repository is private, GitHub will not start hosted jobs for the organisation, so a
-# run whose event says the repository is private uses the self-hosted runner registered to it. Every other
-# run uses a hosted runner: a public repository never asks for a self-hosted one, and neither does the
-# nightly run, whose event carries no visibility (while the repository is private it cannot start).
+# Runners. Every job runs on a version-pinned GitHub-hosted runner and never on a self-hosted one: a pull
+# request from a fork runs this workflow as its own branch wrote it, and a self-hosted runner would run that
+# code on the maintainer's machine.
 jobs:
   changes:
     # Docs-only pull requests skip the test shards and the speed check, which are
     # about 100 runner-minutes. Pushes to main, nightly and manual runs always run everything.
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     outputs:
       code: ${{ steps.diff.outputs.code }}
@@ -90,7 +89,7 @@ jobs:
     # Developer Certificate of Origin: every commit of a pull request is signed off by its author.
     # A plain script in this repository: no third-party app, no secret, no pull_request_target.
     if: github.event_name == 'pull_request'
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -105,7 +104,7 @@ jobs:
         run: python3 scripts/check_dco.py "$BASE_SHA" "$HEAD_SHA" --pr-author "$PR_AUTHOR"
 
   lint:
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -125,7 +124,7 @@ jobs:
     # release asset (shellcheck publishes no checksum file). The hash is hard-coded rather than
     # fetched from the release because whoever can replace the tarball can replace a checksum
     # file beside it.
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       ACTIONLINT_VERSION: "1.7.12"
@@ -163,7 +162,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.code == 'true'
     name: test (shard ${{ matrix.shard }}/${{ strategy.job-total }})
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -204,7 +203,7 @@ jobs:
   generator-speed:
     needs: changes
     if: needs.changes.outputs.code == 'true'
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -240,7 +239,7 @@ jobs:
     # Why a pinned download and not gitleaks-action: the action needs a paid licence key for
     # organisation repositories. Version and hash are pinned by hand as in the workflows job;
     # the hash is the one in the release's gitleaks_<version>_checksums.txt.
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       GITLEAKS_VERSION: "8.30.1"
@@ -326,7 +325,7 @@ jobs:
     # calls for; a missing, cancelled or unexpectedly skipped job is a failure.
     if: always()
     needs: [changes, dco, lint, workflows, secrets, test, generator-speed]
-    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Require every job to have ended as expected
