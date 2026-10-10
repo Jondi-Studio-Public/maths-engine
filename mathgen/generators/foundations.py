@@ -274,7 +274,7 @@ def ratio(rng, kind="simplify", hi=20):
         check_pairwise_distinct(Fraction(p, q), *vals)
         return dict(
             text=f"Write the ratio {a} {big} to {b} {small} in simplest form.",
-            latex=f"{a}\\text{{ {big} }}:{b}\\text{{ {small} }}",
+            latex=f"{a}\\text{{ {big} }}:{b}\\text{{ {small} }}\\text{{ (simplest form)}}",
             answer={"p": p, "q": q},
             answer_text=ans_text,
             answer_latex=ans_text,
