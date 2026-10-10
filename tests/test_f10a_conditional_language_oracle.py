@@ -93,17 +93,25 @@ def test_key_is_the_target_given_the_condition(tier):
 
 
 @pytest.mark.parametrize("tier", TIERS)
-def test_exactly_one_distractor_of_each_expected_misconception(tier):
+def test_distractors_are_the_expected_misconceptions(tier):
     for seed in range(N_SEEDS):
         q = make(TOPIC, seed=seed, difficulty=tier)
         cond, target = condition_and_target(q.text)
         notes = q.option_notes
         assert notes[f"the probability of {cond}, given {target}"] == "swaps-condition-and-target"
-        assert notes[f"the probability of {target} and {cond} together"] == "reads-conditional-as-both-events"
-        third = [d for d in q.distractors if "together" not in d and "given" not in d]
+        assert (
+            notes[f"the probability of both {target} and {cond}, given nothing else"]
+            == "reads-conditional-as-both-events"
+        )
+        third = [
+            d for d in q.distractors if "nothing else" not in d and d != f"the probability of {cond}, given {target}"
+        ]
         assert len(third) == 1
-        assert notes[third[0]] in ("drops-the-condition", "reports-the-condition-as-the-target")
-        assert third[0] in (f"the probability of {target}", f"the probability of {cond}")
+        assert third[0] in (
+            f"the probability of {target}, given not {cond}",
+            f"the probability of not {target}, given {cond}",
+        )
+        assert notes[third[0]] in ("negates-the-condition", "negates-the-target")
 
 
 def test_hard_counts_line_is_consistent_with_the_sentence():

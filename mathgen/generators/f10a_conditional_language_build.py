@@ -15,15 +15,14 @@ The four templates (the marker word fixes which event is the condition):
 Options are always one key and three distractors, each a named misconception:
 
     key        the probability of <target>, given <condition>
-    swapped    the probability of <condition>, given <target>           (swaps-condition-and-target)
-    joint      the probability of <target> and <condition> together     (reads-conditional-as-both-events)
-    alone      the probability of <target>      (drops-the-condition) or
-               the probability of <condition>   (reports-the-condition-as-the-target)
+    swapped    the probability of <condition>, given <target>            (swaps-condition-and-target)
+    joint      the probability of both <target> and <condition>, given nothing else
+                                                                         (reads-conditional-as-both-events)
+    negated    the probability of <target>, given not <condition>        (negates-the-condition) or
+               the probability of not <target>, given <condition>        (negates-the-target)
 
-The swapped option and the key are the only two that use the word "given", so a learner who has learnt that "given"
-signals a conditional still has to decide the direction; that decision is the skill. Nothing else in the question
-can be used to guess it: which event is named first in the sentence, and which has the larger count, are both
-randomised independently of which is the condition.
+Every option contains "given", so the key cannot be found by spotting that word; the learner must decide which event
+is the condition. The negated options use the complement of one of the same two events, which is not a third event.
 
 Ladder (reasoning escalation, not size):
   easy:   "given" and "knowing that" sentences, with no numbers.
@@ -99,8 +98,8 @@ STEMS = [
 MISCONCEPTIONS = {
     "swapped": "swaps-condition-and-target",
     "joint": "reads-conditional-as-both-events",
-    "target_alone": "drops-the-condition",
-    "condition_alone": "reports-the-condition-as-the-target",
+    "negated_condition": "negates-the-condition",
+    "negated_target": "negates-the-target",
 }
 
 
@@ -109,15 +108,19 @@ def _key(target: str, cond: str) -> str:
 
 
 def _options(rng: random.Random, target: str, cond: str):
+    """The key and three wrong options. All four use the word "given", so the marker word cannot find the key:
+    the learner has to decide which event is the condition. The wrong options reuse only the two named events (the
+    complement of an event is not a third event): the swapped description, the joint reading (both events, with no
+    real condition, so "given nothing else"), and one of the two negations."""
     key = _key(target, cond)
-    third_kind = rng.choice(["target_alone", "condition_alone"])
+    third_kind = rng.choice(["negated_condition", "negated_target"])
     third_text = {
-        "target_alone": f"the probability of {target}",
-        "condition_alone": f"the probability of {cond}",
+        "negated_condition": f"the probability of {target}, given not {cond}",
+        "negated_target": f"the probability of not {target}, given {cond}",
     }[third_kind]
     wrong = [
         (_key(cond, target), MISCONCEPTIONS["swapped"]),
-        (f"the probability of {target} and {cond} together", MISCONCEPTIONS["joint"]),
+        (f"the probability of both {target} and {cond}, given nothing else", MISCONCEPTIONS["joint"]),
         (third_text, MISCONCEPTIONS[third_kind]),
     ]
     return key, wrong

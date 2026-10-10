@@ -128,6 +128,22 @@ def test_target_is_not_predictable_from_sentence_position_across_the_tier(diffic
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
+def test_key_is_not_uniquely_identifiable_by_a_marker_word(difficulty):
+    """No word (or the absence of a word) singles out the key: every option contains "given", and no word is in
+    the key alone or in all three distractors but not the key."""
+    for seed in range(240):
+        q = _make(difficulty, seed)
+        options = [q.answer_text, *q.distractors]
+        assert all(" given " in o for o in options), (seed, options)
+        words = [set(re.findall(r"[a-z]+", o.lower())) for o in options]
+        vocab = set().union(*words)
+        for w in vocab:
+            holders = [i for i, ws in enumerate(words) if w in ws]
+            assert holders != [0], (seed, w, options)
+            assert holders != [1, 2, 3], (seed, w, options)
+
+
+@pytest.mark.parametrize("difficulty", TIERS)
 def test_key_position_and_option_length_do_not_give_it_away(difficulty):
     positions = Counter()
     longest = 0
@@ -137,7 +153,7 @@ def test_key_position_and_option_length_do_not_give_it_away(difficulty):
         lengths = [len(o) for o in (q.answer_text, *q.distractors)]
         longest += len(q.answer_text) == max(lengths) and lengths.count(max(lengths)) == 1
     assert max(positions.values()) / 240 <= 0.40, positions
-    assert longest / 240 <= 0.5, longest
+    assert longest / 240 <= 0.5, longest  # the joint option is always the longest, so the key rarely is
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

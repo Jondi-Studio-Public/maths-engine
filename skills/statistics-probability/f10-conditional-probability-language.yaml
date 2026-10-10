@@ -25,8 +25,8 @@ misconceptions:
   description: Takes the event that is named first, or the one with the bigger count, as the target regardless of the marker word, so condition and target are swapped.
 - id: reads-conditional-as-both-events
   description: Reads "given", "of" or "if ... then" as a joint statement about both events happening together.
-- id: drops-the-condition
-  description: Describes only the probability of the target event and ignores the condition.
-- id: reports-the-condition-as-the-target
-  description: Describes the probability of the condition event itself instead of the target.
+- id: negates-the-condition
+  description: Reads the condition as its opposite, describing the target given that the condition does not happen.
+- id: negates-the-target
+  description: Describes the opposite of the target given the condition.
 tags: [acara-f10-v9, statistics-probability, f10a_conditional_language, AC9M10P01]
