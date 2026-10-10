@@ -134,3 +134,13 @@ def test_shape_notices_a_missing_prerequisite_and_a_duplicate_source():
     finally:
         sk.prerequisites[:] = original[0]
         sk.sources[:] = original[1]
+
+
+def test_answer_variety_notices_a_collapsed_answer_pool(monkeypatch):
+    def collapse(q):
+        q.answer_text = str(q.seed % 3)
+        return q
+
+    _patch_make(monkeypatch, collapse)
+    with pytest.raises(AssertionError, match="distinct answers"):
+        sc.check_answer_variety(NUMBER)

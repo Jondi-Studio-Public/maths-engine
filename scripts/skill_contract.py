@@ -14,6 +14,9 @@ Families:
 - options       a number answer and its distractors share a shape; no text defects
  (build topics)
 - variety       enough distinct prompts per source over the seed sweep
+- answers       enough distinct answers per source over the seed sweep (a tier whose answer
+                is nearly always the same can be passed by guessing it). The one family a
+                test runs over the whole library: `tests/test_skill_answer_variety.py`
 - escalation    sources at different difficulties are different question pools
 - grader        the real grader accepts the canonical answer and rejects every
                 distractor and a synthetic wrong answer, plus figure plausibility
@@ -38,6 +41,10 @@ from scripts.regrade_sweep import _difficulties_for, _tuplify, sweep_skill
 
 SEEDS = int(os.environ.get("MATHS_CONTRACT_SEEDS", "60"))
 MIN_DISTINCT = 20
+# Distinct answers a tier must give over the sweep. Low on purpose: an answer space can be small by design
+# (number bonds to 5, classify an angle), and the point is to catch a tier a learner passes by typing the
+# same answer. Measured 2026-10-10 over 2216 tiers: 297 give 5 or fewer; at 20 it would be 666.
+MIN_DISTINCT_ANSWERS = 6
 
 
 @lru_cache(maxsize=1)
@@ -163,6 +170,49 @@ def check_variety(skill_id: str) -> None:
             assert distinct >= need, f"{key}: only {distinct} distinct prompts over {SEEDS} seeds"
 
 
+ANSWER_FLOORS_PATH = Path(__file__).resolve().parents[1] / "tests" / "skill_contract_answer_floors.yaml"
+
+
+@lru_cache(maxsize=1)
+def answer_floors() -> dict[str, dict[str, int]]:
+    """skill id -> {"topic/difficulty": distinct answers over the sweep}: the tiers below
+    `MIN_DISTINCT_ANSWERS` when the check was added, each the backlog to widen or to rule
+    small by design. Written by `scripts/build_answer_floors.py`."""
+    import yaml
+
+    if not ANSWER_FLOORS_PATH.exists():
+        return {}
+    return yaml.safe_load(ANSWER_FLOORS_PATH.read_text(encoding="utf-8")) or {}
+
+
+def distinct_answers(skill_id: str) -> dict[str, int]:
+    """{"topic/difficulty": distinct `answer_text` over the sweep} for every source and tier; two sources that
+    differ only in params share a key, which holds the smaller count."""
+    out: dict[str, int] = {}
+    for src, difficulty, qs in draws(skill_id):
+        key = f"{src.topic}/{difficulty}"
+        distinct = len({q.answer_text for q in qs})
+        out[key] = min(distinct, out.get(key, distinct))
+    return out
+
+
+def check_answer_variety(skill_id: str) -> None:
+    """>= `MIN_DISTINCT_ANSWERS` distinct answers per source and tier over the sweep. A tier
+    listed in the answer-floors file must keep at least its recorded count, and must leave the
+    file once it reaches the minimum (a stale entry is a failure, so the file only shrinks)."""
+    floors = answer_floors().get(skill_id, {})
+    need = min(MIN_DISTINCT_ANSWERS, SEEDS)
+    counts = distinct_answers(skill_id)
+    for key, distinct in counts.items():
+        if key in floors:
+            assert distinct < need, f"{key}: now {distinct} distinct answers; remove it from {ANSWER_FLOORS_PATH.name}"
+            assert distinct >= floors[key], f"{key}: answers shrank to {distinct}, recorded floor is {floors[key]}"
+        else:
+            assert distinct >= need, f"{key}: only {distinct} distinct answers over {SEEDS} seeds"
+    stale = set(floors) - set(counts)
+    assert not stale, f"{sorted(stale)}: no longer a tier of this skill; remove from {ANSWER_FLOORS_PATH.name}"
+
+
 def check_escalation(skill_id: str) -> None:
     """Each tier is its own pool: two tiers drawing the same questions is a label
     change, not an escalation."""
@@ -192,6 +242,7 @@ FAMILIES = {
     "distractors": check_distractors,
     "options": check_options,
     "variety": check_variety,
+    "answers": check_answer_variety,
     "escalation": check_escalation,
     "grader": check_grader,
 }
