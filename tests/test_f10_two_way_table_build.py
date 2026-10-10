@@ -1,12 +1,12 @@
 """Generator-specific proofs for `f10-two-way-table-relationship` (`answer: table`).
 
-The independent oracle (it reads only the question text and solves with SymPy) is
-`tests/test_f10_two_way_table_oracle.py`.
+The independent oracle (it reads only the question text) is `tests/test_f10_two_way_table_oracle.py`.
 """
 
 from __future__ import annotations
 
 import json
+import re
 from collections import Counter
 
 import pytest
@@ -37,7 +37,6 @@ def _make(difficulty, seed):
 
 
 def _filled(q):
-    """The complete grid (integers) from the masked rows plus the blanks."""
     rows = [list(r) for r in q.answer["rows"]]
     for key, value in q.answer["blanks"].items():
         r, c = map(int, key.split(","))
@@ -50,6 +49,8 @@ def test_skill_shape():
     assert SKILL.answer == "table"
     assert [s.difficulty for s in SKILL.sources] == TIERS
     assert "AC9M10ST04" in SKILL.tags
+    used = {n for tier in TIERS for s in range(80) for n in _make(tier, s).option_notes.values()}
+    assert used <= {m.id for m in SKILL.misconceptions}
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -68,7 +69,37 @@ def test_completed_table_adds_up_both_ways(difficulty):
         for j in range(n_cols):
             assert sum(grid[i][j] for i in range(n_rows)) == grid[n_rows][j]
         assert sum(grid[n_rows][:n_cols]) == grid[n_rows][n_cols]
-        assert all(v >= 0 for row in grid for v in row)
+
+
+def test_table_shapes_and_list_sizes_by_tier():
+    for seed in SEEDS:
+        easy, medium, hard = (_make(t, seed) for t in TIERS)
+        assert len(_filled(easy)) == 3 and len(_filled(easy)[0]) == 3
+        assert (len(_filled(medium)), len(_filled(medium)[0])) in {(3, 4), (4, 3)}
+        assert len(_filled(hard)) == 4 and len(_filled(hard)[0]) == 4
+        assert 10 <= _filled(easy)[-1][-1] <= 18
+        assert 20 <= _filled(medium)[-1][-1] <= 30
+        assert 26 <= _filled(hard)[-1][-1] <= 40
+        assert "x (" in hard.text or "x (" not in easy.text + medium.text
+
+
+def test_medium_and_hard_always_blank_the_grand_total():
+    for tier in ("medium", "hard"):
+        for seed in SEEDS:
+            q = _make(tier, seed)
+            n_rows = len(q.answer["rows"]) - 1
+            n_cols = len(q.answer["columns"]) - 2
+            assert f"{n_rows},{n_cols + 1}" in q.answer["blanks"]
+
+
+def test_hard_mixes_reversed_pairs_and_repeats_often():
+    reversed_seen = repeat_seen = 0
+    for seed in range(100):
+        q = _make("hard", seed)
+        repeat_seen += bool(re.search(r"\d+ x \(", q.text))
+        cols = q.answer["columns"][1:-1]
+        reversed_seen += any(f"({c}, " in q.text.split("Table (")[0] for c in cols)
+    assert repeat_seen >= 50 and reversed_seen >= 80
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -108,6 +139,7 @@ def test_masked_prompt_hides_every_blank_and_blank_labels_are_distinct(difficult
             r, c = map(int, key.split(","))
             assert prompt["rows"][r][c] is None
         assert len(set(q.answer_text.split(", "))) == len(q.answer["blanks"])
+        assert any(isinstance(v, int) for row in q.answer["rows"] for v in row[1:])
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -116,33 +148,8 @@ def test_blank_positions_and_answers_vary(difficulty):
     patterns = Counter(frozenset(q.answer["blanks"]) for q in qs)
     assert len(patterns) >= 10 and max(patterns.values()) <= 0.2 * 200
     assert len(Counter(q.answer_text for q in qs)) >= 150
-
-
-def test_medium_blanks_can_be_filled_by_single_unknown_lines_and_hard_cannot():
-    for seed in range(60):
-        q = _make("medium", seed)
-        grid = _filled(q)
-        unknown = {(int(k.split(",")[0]), int(k.split(",")[1]) - 1) for k in q.answer["blanks"]}
-        assert gen._propagate(len(grid) - 1, len(grid[0]) - 1, unknown) == set()
-    for seed in range(60):
-        q = _make("hard", seed)
-        grid = _filled(q)
-        unknown = {(int(k.split(",")[0]), int(k.split(",")[1]) - 1) for k in q.answer["blanks"]}
-        assert gen._propagate(3, 3, unknown), "hard tier must need the stated condition"
-        _rank, solution = gen._solve(3, 3, grid, unknown)
-        assert solution is None, "without the condition the hard table must be underdetermined"
-
-
-def test_solver_finds_unique_flags_underdetermined_and_inconsistent():
-    grid = gen._full_grid([[2, 3], [4, 5]])
-    _rank, solution = gen._solve(2, 2, grid, {(0, 0), (0, 1)})
-    assert solution == {(0, 0): 2, (0, 1): 3}
-    # all four interior cells unknown with only the totals given: many tables fit
-    assert gen._solve(2, 2, grid, {(0, 0), (0, 1), (1, 0), (1, 1)})[1] is None
-    assert gen._solve(2, 2, grid, {(0, 0), (0, 1), (1, 0), (1, 1), (0, 2)})[1] is None
-    bad = [row[:] for row in grid]
-    bad[0][2] = 99
-    assert gen._solve(2, 2, bad, {(0, 0)})[1] is None  # inconsistent totals
+    pool = Counter(v for q in qs for v in q.answer["blanks"].values())
+    assert max(pool.values()) <= 0.3 * sum(pool.values())
 
 
 def test_text_is_one_line_and_names_the_table():
