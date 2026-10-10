@@ -133,6 +133,8 @@ def test_make_refuses_a_wrong_follow_through(register, change, message):
         (lambda rng: _circle(rng, {1: {"label": "a"}}), "unique"),
         (lambda rng: _circle(rng, {0: {"colour": "red"}}), "unknown keys"),
         (lambda rng: _circle(rng, {0: {"answer_kind": "nonsense"}}), "unknown answer_kind"),
+        (lambda rng: _circle(rng, {0: {"distractors": [Distractor("6.2")]}}), "answer's own text"),
+        (lambda rng: _circle(rng, {0: {"distractors": [Distractor("12.4"), "12.4"]}}), "offered twice"),
     ],
 )
 def test_make_refuses_a_malformed_multi_part_question(register, build, message):
