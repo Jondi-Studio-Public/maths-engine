@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_c1_product
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: multiplied-derivatives
   description: Multiplying the two derivatives together instead of applying the product rule.

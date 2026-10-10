@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_c2_limit_removable
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: stopped-at-undefined
   description: Substituting, reaching 0/0, and stopping there.

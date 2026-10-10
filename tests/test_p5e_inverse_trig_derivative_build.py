@@ -138,9 +138,10 @@ def test_skill_sources_cover_correct_stages():
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-find-and-use-the-derivative-of-the-inverse"), None)
     assert skill is not None
-    assert len(skill.sources) == 3
+    assert len(skill.sources) == 4
+    assert skill.sources[3].difficulty == "exam"
     # Check that all sources have the correct topic
-    for source in skill.sources:
+    for source in skill.sources[:3]:
         assert source.topic == "find_and_use_the_derivative_of_the_inverse"
     # Check stages for each difficulty
     assert set(skill.sources[0].stages) == {0, 1, 2}, "easy stages"

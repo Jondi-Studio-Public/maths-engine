@@ -22,6 +22,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_c3_product_quotient_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: multiplied-derivatives
   description: Multiplies the two factors' derivatives together instead of applying the product rule.

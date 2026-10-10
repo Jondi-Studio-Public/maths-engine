@@ -261,7 +261,7 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == ["differentiate-polynomial"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4
         assert len(skill.misconceptions) >= 1
 
     def test_increments_skill_loads_with_correct_metadata(self):
@@ -271,7 +271,7 @@ class TestSkillsLoad:
         assert skill.answer == "fraction"
         assert skill.prerequisites == ["differentiate-polynomial"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4
         assert len(skill.misconceptions) >= 1
 
     def test_both_skills_sources_cover_all_difficulties(self):
@@ -279,4 +279,4 @@ class TestSkillsLoad:
         for skill_id in (SKILL_4, SKILL_5):
             skill = next(s for s in skills if s.id == skill_id)
             difficulties = {source.difficulty for source in skill.sources}
-            assert difficulties == {"easy", "medium", "hard"}
+            assert difficulties == {"easy", "medium", "hard", "exam"}
