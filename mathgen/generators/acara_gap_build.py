@@ -22,10 +22,16 @@ from ..core import check, generator, pick_distractors
         "hard": dict(base_hi=30, height_hi=24),
     },
 )
-def triangle_area_base_height(rng, base_hi=16, height_hi=16):
-    """Calculate a triangle's area from a supplied base and perpendicular height."""
+def triangle_area_base_height(rng, base_hi=16, height_hi=16, slant=False):
+    """Calculate a triangle's area from a supplied base and perpendicular height.
+
+    With ``slant=True`` the prompt also supplies a slanted side (the hypotenuse
+    of a real Pythagorean triple with the perpendicular height), and the learner
+    must pick the perpendicular height rather than the slant."""
     if base_hi < 2 or height_hi < 2:
         raise ValueError("base_hi and height_hi must be at least 2")
+    if slant:
+        return _triangle_area_slant(rng, base_hi, height_hi)
     base = rng.randint(2, base_hi)
     height = rng.randint(2, height_hi)
     # Keep the scalar answer integral, while still sampling both odd and even
@@ -64,6 +70,65 @@ def triangle_area_base_height(rng, base_hi=16, height_hi=16):
             f"Area = {answer} cm².",
         ],
         distractors=pick_distractors(answer_text, [str(c) for c in candidates]),
+    )
+
+
+_SLANT_TRIPLES = ((3, 4, 5), (4, 3, 5), (5, 12, 13), (12, 5, 13), (8, 15, 17), (15, 8, 17))
+
+
+def _triangle_area_slant(rng, base_hi, height_hi):
+    """Base, slanted side and perpendicular height: area uses the height only."""
+    for _attempt in range(200):
+        offset, rise, side = rng.choice(_SLANT_TRIPLES)
+        k_max = min(height_hi // rise, base_hi // offset)
+        if k_max < 1:
+            continue
+        k = rng.randint(1, k_max)
+        offset, height, slant_side = offset * k, rise * k, side * k
+        base = rng.randint(max(2, offset), base_hi)
+        if base * height % 2:
+            if base < base_hi:
+                base += 1
+            elif base > offset:
+                base -= 1
+            else:
+                continue
+        if base < offset or base * height % 2:
+            continue
+        break
+    else:
+        raise ValueError("no slant triangle fits base_hi and height_hi")
+    check(slant_side > height and offset**2 + height**2 == slant_side**2)
+
+    answer = base * height // 2
+    check(Rational(base * height, 2) == Rational(answer, 1))
+    answer_text = str(answer)
+    slant_area = base * slant_side // 2 if base * slant_side % 2 == 0 else base * slant_side
+    candidates = [
+        slant_area,  # used the slanted side as the height
+        base * height,  # omitted the one-half
+        base + slant_side + height,  # added the lengths
+        base * slant_side,
+        answer + base,
+        answer + height,
+    ]
+    distractors = pick_distractors(answer_text, [str(c) for c in candidates])
+    check(len(distractors) >= 3)
+    return dict(
+        text=(
+            f"A triangle has a base of {base} cm, a slanted side of {slant_side} cm "
+            f"and a perpendicular height of {height} cm. Calculate its area in cm²."
+        ),
+        latex=rf"b={base}\,\mathrm{{cm}},\ s={slant_side}\,\mathrm{{cm}},\ h_\perp={height}\,\mathrm{{cm}}.\ "
+        rf"\text{{Area}}=\square\,\mathrm{{cm}}^2",
+        answer=answer,
+        answer_text=answer_text,
+        answer_latex=answer_text,
+        working=[
+            f"The slanted side is not used: area = ½ × base × perpendicular height = ½ × {base} × {height}.",
+            f"Area = {answer} cm².",
+        ],
+        distractors=distractors,
     )
 
 

@@ -1,0 +1,31 @@
+id: f10-add-subtract-within-20-strategies
+name: Choose strategies for addition and subtraction to 20
+domain: primary-number
+description: Solve an addition or subtraction problem within 20. The numbers are chosen so that a mental strategy (make a ten, a double or near double, add 10 and adjust, go back through ten, think addition) is quicker than counting, and the strategy is named in the prompt in the easier tiers.
+status: active
+placement_eligible: false
+prerequisites: [add-within-20, f10-part-part-whole-collections-to-10, subtract-within-20]
+answer: number
+sources:
+- topic: add_sub_within_20_strategies
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: add_sub_within_20_strategies
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: add_sub_within_20_strategies
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: leftover-dropped
+  description: Makes a ten, or goes back to ten, and stops there, forgetting to add or subtract the part that is left over.
+- id: adjustment-wrong-way
+  description: Adds 10 to add 9 or 8, or doubles a nearby number, then applies the adjustment in the wrong direction or not at all.
+- id: wrong-operation
+  description: Adds when the problem subtracts, or reads a three-number problem with the wrong signs.
+- id: off-by-one
+  description: States a value one more or one less than the correct answer.
+tags: [acara-f10-v9, primary, addition, subtraction, mental-strategies, ac9m1n04]

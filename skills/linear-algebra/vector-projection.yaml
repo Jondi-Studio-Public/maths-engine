@@ -20,7 +20,7 @@ sources:
   - 3
   - 4
 - topic: vector_projection
-  params: {}
+  params: {kind: line_through_points}
   difficulty: hard
   stages:
   - 5

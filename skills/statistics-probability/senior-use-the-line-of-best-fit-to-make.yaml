@@ -19,6 +19,11 @@ sources:
 - topic: p8c_line_best_fit_predict
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_s5_best_fit_from_summary
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-gradient-intercept
   description: Treats the intercept as the gradient and vice versa, computing y = cx + m (or, inverted, x = (y - m) / c; for a predicted change, c * (x2 - x1) instead of m * (x2 - x1)).

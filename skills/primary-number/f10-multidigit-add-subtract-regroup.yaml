@@ -1,0 +1,31 @@
+id: f10-multidigit-add-subtract-regroup
+name: Add and subtract multi-digit numbers by regrouping
+domain: primary-number
+description: Add or subtract two- and three-digit numbers by partitioning, rearranging or regrouping, without a calculator. The numbers are chosen so that the regrouping is controlled, from one regroup in two-digit numbers up to carrying in every column and borrowing through a zero.
+status: active
+placement_eligible: false
+prerequisites: [add-within-100, f10-regroup-zero-place-value, subtract-within-100]
+answer: number
+sources:
+- topic: multidigit_add_sub_regroup
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: multidigit_add_sub_regroup
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: multidigit_add_sub_regroup
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: carry-forgotten
+  description: Writes the ones, tens or hundreds digit of a column total but never adds the carried ten or hundred to the next column.
+- id: smaller-from-larger
+  description: In each column subtracts the smaller digit from the larger, whichever number it belongs to, instead of regrouping.
+- id: borrow-not-paid
+  description: Borrows ten for a column but does not reduce the column it borrowed from, so the answer is too large by a ten or a hundred.
+- id: off-by-one
+  description: States a value one more or one less than the correct answer.
+tags: [acara-f10-v9, primary, addition, subtraction, regrouping, ac9m3n03]

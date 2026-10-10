@@ -21,7 +21,7 @@ sources:
   - 3
   - 4
 - topic: formula_plugin
-  params: {}
+  params: {unknown: input}
   difficulty: hard
   stages:
   - 5

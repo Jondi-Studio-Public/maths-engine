@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_c2_limit_degree_comparison
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: ignored-degree-mismatch
   description: Applying the leading-coefficient ratio when the degrees differ.

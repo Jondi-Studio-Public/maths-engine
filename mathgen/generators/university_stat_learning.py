@@ -9,15 +9,62 @@ uses exact integer/rational arithmetic and the existing answer contracts.
 from __future__ import annotations
 
 from fractions import Fraction
+from itertools import combinations, product
 from math import comb
 
-from ..core import check, generator, pick_distractors, paren_negative
+from ..core import GRADER_TOLERANCE, check, generator, pick_distractors, paren_negative
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict[str, int], str]:
     value = Fraction(value)
     text = str(value.numerator) if value.denominator == 1 else f"{value.numerator}/{value.denominator}"
     return {"p": value.numerator, "q": value.denominator}, text
+
+
+def _hypergeometric_at_least(rng, population_hi):
+    """P(X>=1) by the complement 1 - C(N-K,n)/C(N,n); private helper."""
+    population = rng.randint(10, max(10, population_hi))
+    # Few successes keep the answer well away from 1 (many successes make it N/(N+1)-like).
+    successes = rng.randint(2, min(population - 3, 6))
+    draws = rng.randint(2, min(population - successes, 8))
+    total = comb(population, draws)
+    none_value = Fraction(comb(population - successes, draws), total)
+    answer_value = 1 - none_value
+    summed = sum(
+        Fraction(comb(successes, x) * comb(population - successes, draws - x), total)
+        for x in range(1, min(draws, successes) + 1)
+    )
+    check(summed == answer_value, "hypergeometric at-least-one complement mismatch")
+    check(0 < none_value < 1 and 0 < answer_value < 1, "invalid at-least-one probability")
+
+    one_value = Fraction(comb(successes, 1) * comb(population - successes, draws - 1), total)
+    two_up = answer_value - one_value
+    answer, answer_text = _fraction_payload(answer_value)
+    with_replacement = 1 - (Fraction(population - successes, population)) ** draws
+    alternatives = [
+        _fraction_payload(none_value)[1],
+        _fraction_payload(one_value)[1],
+        _fraction_payload(1 - one_value)[1],
+        _fraction_payload(with_replacement)[1],
+        _fraction_payload(two_up)[1],
+    ]
+    return dict(
+        text=(
+            f"A population has {population} objects, {successes} of them successes. "
+            f"If {draws} objects are drawn without replacement, find the probability "
+            f"that at least one success is drawn, P(X>=1)."
+        ),
+        latex=rf"P(X\ge 1)=1-\frac{{\binom{{{population - successes}}}{{{draws}}}}}{{\binom{{{population}}}{{{draws}}}}}",
+        answer=answer,
+        answer_text=answer_text,
+        answer_latex=answer_text,
+        working=[
+            f"P(X>=1) = 1 - P(X=0) = 1 - C({population - successes},{draws})/C({population},{draws}).",
+            f"C({population - successes},{draws}) = {comb(population - successes, draws)} and C({population},{draws}) = {total}; "
+            f"therefore P(X>=1) = {answer_text}.",
+        ],
+        distractors=pick_distractors(answer_text, alternatives),
+    )
 
 
 @generator(
@@ -29,8 +76,13 @@ def _fraction_payload(value: Fraction) -> tuple[dict[str, int], str]:
         "hard": dict(population_hi=45),
     },
 )
-def hypergeometric_probability(rng, population_hi=24):
-    """Find an exact without-replacement success probability."""
+def hypergeometric_probability(rng, population_hi=24, kind=None):
+    """Find an exact without-replacement success probability.
+
+    ``kind="at_least"`` asks P(X>=1) and needs the complement rule.
+    """
+    if kind == "at_least":
+        return _hypergeometric_at_least(rng, population_hi)
     population = rng.randint(6, population_hi)
     successes = rng.randint(1, population - 1)
     draws = rng.randint(2, population - 2)
@@ -122,6 +174,56 @@ def finite_distribution_variance(rng, outcome_hi=10, weight_hi=6, outcomes=4):
     )
 
 
+def _bernoulli_mle_pooled(rng, n_hi):
+    """Pooled MLE of p from two independent batches: (k1+k2)/(n1+n2)."""
+    while True:
+        n1 = rng.randint(4, n_hi)
+        n2 = rng.randint(4, n_hi)
+        k1 = rng.randint(1, n1 - 1)
+        k2 = rng.randint(1, n2 - 1)
+        total_n, total_k = n1 + n2, k1 + k2
+        estimate = Fraction(total_k, total_n)
+        candidates = [
+            Fraction(k1, n1) / 2 + Fraction(k2, n2) / 2,
+            Fraction(total_k, n1),
+            Fraction(total_k, n2),
+            Fraction(total_n - total_k, total_n),
+            Fraction(total_k, total_n + 1),
+        ]
+        if estimate in (Fraction(k1, n1), Fraction(k2, n2)):
+            continue
+        # Every distractor must differ from the answer and from the others by value.
+        if len(set(candidates + [estimate])) != len(candidates) + 1:
+            continue
+        break
+    # Second route: the pooled log-likelihood score vanishes at the estimate.
+    score = total_k * (1 - estimate) - (total_n - total_k) * estimate
+    check(score == 0 and 0 < estimate < 1, "pooled Bernoulli MLE score does not vanish")
+    check(
+        estimate == Fraction(k1 + k2, n1 + n2) and estimate != candidates[0],
+        "pooled Bernoulli MLE mismatch",
+    )
+    answer, answer_text = _fraction_payload(estimate)
+    alternatives = [_fraction_payload(c)[1] for c in candidates]
+    return dict(
+        text=(
+            f"Batch 1 has {k1} {'success' if k1 == 1 else 'successes'} in {n1} independent Bernoulli trials "
+            f"and batch 2 has {k2} {'success' if k2 == 1 else 'successes'} in {n2} independent trials, "
+            "both with the same success probability p. "
+            "Find the MLE of p from the combined data."
+        ),
+        latex=rf"\hat p=\arg\max_{{0<p<1}}p^{{{total_k}}}(1-p)^{{{total_n - total_k}}}",
+        answer=answer,
+        answer_text=answer_text,
+        answer_latex=answer_text,
+        working=[
+            f"With a common p the likelihood is p^({k1}+{k2})(1−p)^({n1 - k1}+{n2 - k2}), so pool the counts.",
+            f"p-hat = (k1+k2)/(n1+n2) = {total_k}/{total_n} = {answer_text}.",
+        ],
+        distractors=pick_distractors(answer_text, alternatives),
+    )
+
+
 @generator(
     "bernoulli_mle",
     level=14,
@@ -131,8 +233,13 @@ def finite_distribution_variance(rng, outcome_hi=10, weight_hi=6, outcomes=4):
         "hard": dict(n_hi=60),
     },
 )
-def bernoulli_mle(rng, n_hi=25):
-    """Find the Bernoulli maximum-likelihood estimate p-hat = k/n."""
+def bernoulli_mle(rng, n_hi=25, kind=None):
+    """Find the Bernoulli maximum-likelihood estimate p-hat = k/n.
+
+    ``kind="pooled"`` pools two independent batches that share one p.
+    """
+    if kind == "pooled":
+        return _bernoulli_mle_pooled(rng, n_hi)
     n = rng.randint(4, n_hi)
     k = rng.randint(1, n - 1)
     estimate = Fraction(k, n)
@@ -163,6 +270,90 @@ def bernoulli_mle(rng, n_hi=25):
     )
 
 
+_LSQ_CASES: list | None = None
+
+
+def _lsq_cases():
+    """Every (x-set, centred residual vector) with sum(e)=sum(xe)=0, e in -2..2, not all zero."""
+    global _LSQ_CASES
+    if _LSQ_CASES is None:
+        cases = []
+        for n in (4, 5):
+            for xs in combinations(range(9), n):
+                residual_sets = [
+                    es
+                    for es in product(range(-2, 3), repeat=n)
+                    if any(es) and sum(es) == 0 and sum(x * e for x, e in zip(xs, es)) == 0
+                ]
+                if residual_sets:
+                    cases.append((xs, residual_sets))
+        _LSQ_CASES = cases
+    return _LSQ_CASES
+
+
+def _fit_from_sums(n, s_x, s_y, s_xy, s_xx):
+    """Normal equations m=(n Sxy - Sx Sy)/(n Sxx - Sx^2), b=(Sy - m Sx)/n."""
+    m = Fraction(n * s_xy - s_x * s_y, n * s_xx - s_x**2)
+    return m, (s_y - m * s_x) / n
+
+
+def _least_squares_summary(rng, slope, intercept):
+    """Summary-statistics variant: integer fit, points hidden; private helper."""
+    n_points = rng.choice((4, 5))
+    xs, residual_sets = rng.choice([case for case in _lsq_cases() if len(case[0]) == n_points])
+    residuals = rng.choice(residual_sets)
+    x_values = list(xs)
+    y_values = [slope * x + intercept + e for x, e in zip(x_values, residuals)]
+    n = len(x_values)
+    s_x, s_y = sum(x_values), sum(y_values)
+    s_xy = sum(x * y for x, y in zip(x_values, y_values))
+    s_xx = sum(x * x for x in x_values)
+    from_sums = _fit_from_sums(n, s_x, s_y, s_xy, s_xx)
+    x_bar, y_bar = Fraction(s_x, n), Fraction(s_y, n)
+    centred_xx = sum((x - x_bar) ** 2 for x in x_values)
+    fitted_slope = sum((x - x_bar) * (y - y_bar) for x, y in zip(x_values, y_values)) / centred_xx
+    from_points = (fitted_slope, y_bar - fitted_slope * x_bar)
+    check(from_points == from_sums == (slope, intercept), "least-squares summary fit mismatch")
+    check(
+        any(residuals) and sum(residuals) == 0 and sum(x * e for x, e in zip(x_values, residuals)) == 0,
+        "constructed residuals do not preserve fit",
+    )
+
+    answer = {"m": slope, "b": intercept}
+    answer_text = f"m = {slope}, b = {intercept}"
+    candidates = [
+        (intercept, slope),
+        (-slope, intercept),
+        (slope, n * intercept),  # forgot to divide by n in b = (Sy - m Sx)/n
+        (slope + 1, intercept),
+        (slope, intercept + 1),
+        (slope - 1, intercept),
+        (slope, intercept - 1),
+        (slope, -intercept),
+    ]
+    alternatives = [f"m = {m}, b = {b}" for m, b in candidates if abs(m - slope) >= 1 or abs(b - intercept) >= 1]
+    distractors = pick_distractors(answer_text, alternatives, tolerance=GRADER_TOLERANCE)
+    check(len(distractors) == 3, "least-squares summary needs three distractors")
+    return dict(
+        text=(
+            f"A data set of {n} points has sum x = {s_x}, sum y = {s_y}, sum xy = {s_xy}, "
+            f"sum x^2 = {s_xx}. Find the least-squares line y = mx + b."
+        ),
+        latex=(
+            rf"n={n},\ \sum x={s_x},\ \sum y={s_y},\ \sum xy={s_xy},\ \sum x^2={s_xx};"
+            rf"\quad \hat y=\hat m x+\hat b"
+        ),
+        answer=answer,
+        answer_text=answer_text,
+        answer_latex=rf"m={slope},\;b={intercept}",
+        working=[
+            f"m-hat = (n·Sxy − Sx·Sy)/(n·Sxx − Sx²) = ({n}·{s_xy} − {s_x}·{s_y})/({n}·{s_xx} − {s_x}²) = {slope}.",
+            f"b-hat = (Sy − m-hat·Sx)/n = ({s_y} − {paren_negative(slope)}·{s_x})/{n} = {intercept}.",
+        ],
+        distractors=distractors,
+    )
+
+
 @generator(
     "least_squares_line",
     level=15,
@@ -172,12 +363,17 @@ def bernoulli_mle(rng, n_hi=25):
         "hard": dict(coefficient_hi=14, intercept_hi=20),
     },
 )
-def least_squares_line(rng, coefficient_hi=8, intercept_hi=12):
-    """Recover the least-squares slope and intercept from a small data set."""
+def least_squares_line(rng, coefficient_hi=8, intercept_hi=12, kind=None):
+    """Recover the least-squares slope and intercept from a small data set.
+
+    ``kind="summary"`` gives only n, sum x, sum y, sum xy, sum x^2 and asks
+    for the fit via the normal equations (no points to read)."""
     slope = rng.randint(-coefficient_hi, coefficient_hi)
     intercept = rng.randint(-intercept_hi, intercept_hi)
     while slope == intercept:
         intercept = rng.randint(-intercept_hi, intercept_hi)
+    if kind == "summary":
+        return _least_squares_summary(rng, slope, intercept)
     x_values = [0, 1, 2, 3]
     # These centred residuals make a genuinely noisy data set while preserving
     # the constructed least-squares line exactly: sum(e)=sum(xe)=0.

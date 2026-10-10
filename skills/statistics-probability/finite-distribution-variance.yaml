@@ -15,6 +15,11 @@ sources:
 - topic: finite_distribution_variance
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_s1_variance
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-second-moment
   description: Reports E[X²] without subtracting E[X]².

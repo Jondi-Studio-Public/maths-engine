@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_s5_ci_rescale
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-sqrt
   description: Computes the margin as z times phat times (1 - phat) divided by n, never taking the square root.

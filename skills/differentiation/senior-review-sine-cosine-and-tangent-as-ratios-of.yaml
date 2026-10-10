@@ -21,6 +21,11 @@ sources:
   params: {variant: cofunction}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_c4_trig_ratio_expressions
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-wrong-side-pairing
   description: States the ratio for the wrong pair of sides (e.g. gives sine when cosine was asked), which is the same value as the requested ratio for the OTHER acute angle.

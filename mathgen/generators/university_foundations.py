@@ -14,7 +14,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import check, generator, paren_negative, pick_distractors
+from ..core import GRADER_TOLERANCE, check, generator, paren_negative, pick_distractors, rational_text
 from .primary_math import _aligned
 
 
@@ -340,8 +340,11 @@ def _pair_text(x: int, y: int) -> str:
         "hard": dict(component_hi=8, scale_hi=4, orthogonal_hi=4),
     },
 )
-def vector_projection(rng, component_hi=5, scale_hi=3, orthogonal_hi=2):
-    """Find the vector projection of u onto v, with an exact integer answer."""
+def vector_projection(rng, component_hi=5, scale_hi=3, orthogonal_hi=2, kind=None):
+    """Find the vector projection of u onto v, with an exact integer answer.
+
+    ``kind="line_through_points"`` names the line by two points A and B, so the
+    direction v = B - A has to be formed first."""
     while True:
         vx = rng.randint(-component_hi, component_hi)
         vy = rng.randint(-component_hi, component_hi)
@@ -363,6 +366,8 @@ def vector_projection(rng, component_hi=5, scale_hi=3, orthogonal_hi=2):
 
     answer = {"x": expected[0], "y": expected[1]}
     answer_text = _pair_text(*expected)
+    if kind == "line_through_points":
+        return _vector_projection_line(rng, component_hi, (ux, uy), (vx, vy), expected)
     alternatives = [
         _pair_text(ux, uy),
         _pair_text(expected[1], expected[0]),
@@ -378,6 +383,49 @@ def vector_projection(rng, component_hi=5, scale_hi=3, orthogonal_hi=2):
         answer_latex=answer_text,
         working=[f"projᵥu = ((u·v)/(v·v))v = {answer_text}."],
         distractors=pick_distractors(answer_text, alternatives),
+    )
+
+
+def _project_pair_text(u, w) -> str | None:
+    """Text of the projection of u onto the vector w, or None when w is zero."""
+    norm_sq = w[0] * w[0] + w[1] * w[1]
+    if norm_sq == 0:
+        return None
+    k = Fraction(u[0] * w[0] + u[1] * w[1], norm_sq)
+    return f"({rational_text(k * w[0])}, {rational_text(k * w[1])})"
+
+
+def _vector_projection_line(rng, component_hi, u, v, expected):
+    """Project u onto the line through A and B = A + v (v is not stated)."""
+    ax = rng.randint(-component_hi, component_hi)
+    ay = rng.randint(-component_hi, component_hi)
+    bx, by = ax + v[0], ay + v[1]
+    # Second route: rebuild the direction from the stated points and project.
+    dx, dy = bx - ax, by - ay
+    k = Fraction(u[0] * dx + u[1] * dy, dx * dx + dy * dy)
+    check((k * dx, k * dy) == (Fraction(expected[0]), Fraction(expected[1])), "line projection mismatch")
+    answer_text = _pair_text(*expected)
+    candidates = [
+        _project_pair_text(u, (bx, by)),
+        _project_pair_text(u, (ax, ay)),
+        _pair_text(*u),
+        _pair_text(expected[1], expected[0]),
+        _pair_text(-expected[0], expected[1]),
+        _pair_text(expected[0], -expected[1]),
+    ]
+    alternatives = [c for c in candidates if c is not None]
+    a_text, b_text = _pair_text(ax, ay), _pair_text(bx, by)
+    return dict(
+        text=f"Project u = {_pair_text(*u)} onto the line through A = {a_text} and B = {b_text}.",
+        latex=(rf"\operatorname{{proj}}_{{AB}}u,\quad u={_pair_text(*u)},\;A={a_text},\;B={b_text}"),
+        answer={"x": expected[0], "y": expected[1]},
+        answer_text=answer_text,
+        answer_latex=answer_text,
+        working=[
+            f"v = B - A = ({dx}, {dy}).",
+            f"projᵥu = ((u·v)/(v·v))v = {answer_text}.",
+        ],
+        distractors=pick_distractors(answer_text, alternatives, tolerance=GRADER_TOLERANCE),
     )
 
 

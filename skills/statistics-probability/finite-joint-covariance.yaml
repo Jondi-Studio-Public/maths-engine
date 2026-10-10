@@ -20,6 +20,11 @@ sources:
   params: {kind: missing_weight}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_s1_covariance
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgets-centering
   description: Reports E[XY] without subtracting E[X]E[Y].

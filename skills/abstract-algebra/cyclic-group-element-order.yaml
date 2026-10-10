@@ -15,7 +15,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: cyclic_group_element_order
-  params: {}
+  params: {kind: sum}
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

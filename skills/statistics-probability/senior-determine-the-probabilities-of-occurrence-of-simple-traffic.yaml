@@ -21,6 +21,11 @@ sources:
   params: {variant: at_least_one}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_s2_traffic
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: adds-instead-of-multiplies
   description: Adds probabilities instead of multiplying them for independent events.

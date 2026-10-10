@@ -26,7 +26,7 @@ sources:
   - 4
 - topic: ratio
   params:
-    kind: simplify
+    kind: mixed_units
   difficulty: hard
   stages:
   - 5
