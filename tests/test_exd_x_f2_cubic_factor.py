@@ -150,6 +150,9 @@ def test_key_expands_to_the_cubic_with_integer_linear_and_quadratic_factors_over
         assert Poly(lin, x).degree() == 1 and Poly(quad, x).degree() == 2
         assert all(c.is_integer for c in Poly(lin, x).all_coeffs() + Poly(quad, x).all_coeffs())
         assert sympy.expand(lin * quad - cubic) == 0, (seed, q.text, q.answer_text)
+        # no polynomial factor keeps a common whole-number factor, or the factorisation is incomplete
+        for factor in (lin, quad):
+            assert sympy.igcd(*[int(c) for c in Poly(factor, x).all_coeffs()]) == 1, (seed, q.answer_text)
         # "completely": the quadratic factor must not factor further over the integers
         assert len(sympy.factor_list(quad)[1]) == 1 and sympy.factor_list(quad)[1][0][1] == 1, (seed, q.answer_text)
     assert shapes == {"cubes", "grouping", "parameter"}

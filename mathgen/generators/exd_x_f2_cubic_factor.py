@@ -29,6 +29,7 @@ answer. Distractors, each a named slip:
 
 from __future__ import annotations
 
+import math
 import random
 
 from sympy import Symbol, expand
@@ -112,7 +113,8 @@ def _result(text: str, lin, quad, cubic_text: str, candidates: list[tuple], work
 
 def _cubes(rng: random.Random) -> dict:
     m = rng.choice([2, 3, 4, 5])
-    n = rng.randint(1, 6)
+    # m and n coprime: otherwise the linear factor keeps a numeric content and the factorisation is incomplete.
+    n = rng.choice([v for v in range(1, 7) if math.gcd(m, v) == 1])
     plus = rng.random() < 0.5
     sign = 1 if plus else -1
     cubic = (m * x) ** 3 + sign * n**3
@@ -137,7 +139,7 @@ def _cubes(rng: random.Random) -> dict:
 
 def _grouping(rng: random.Random) -> dict:
     m = rng.choice([1, 2, 3])
-    p = rng.choice([v for v in range(-9, 10) if v != 0])
+    p = rng.choice([v for v in range(-9, 10) if v != 0 and math.gcd(m, v) == 1])
     q = rng.choice([v for v in range(-9, 10) if v != 0 and abs(v) != abs(p) and not _splits(1, 0, v)])
     lin = (m, -p)
     quad = (1, 0, q)
