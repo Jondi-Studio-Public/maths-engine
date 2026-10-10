@@ -169,6 +169,6 @@ def test_skill_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert "conditional-probability-counts" in skill.prerequisites
     difficulties = {src.difficulty for src in skill.sources}
-    assert difficulties == set(TIERS)
+    assert difficulties == {*TIERS, "exam"}  # the exam source is covered by this skill's tests/test_exd_x_* file
     all_stages = [stage for src in skill.sources for stage in (src.stages or [])]
     assert 0 in all_stages and "maintenance" in all_stages

@@ -115,5 +115,9 @@ def test_probability_skill_contracts_load_with_expected_shape():
     assert finite_sample.answer == "fraction"
     assert finite_sample.placement_eligible is False
     assert finite_sample.status == "active"
-    assert [source.difficulty for source in finite_sample.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in finite_sample.sources} == {"finite_sample_space_probability"}
+    assert [source.difficulty for source in finite_sample.sources] == ["easy", "medium", "hard", "exam"]
+    # the exam source is covered by this skill's tests/test_exd_x_s2_* file
+    assert {source.topic for source in finite_sample.sources} == {
+        "finite_sample_space_probability",
+        "exd_x_s2_sample_space",
+    }

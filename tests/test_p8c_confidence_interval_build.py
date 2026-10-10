@@ -205,6 +205,10 @@ def test_confidence_interval_skill_contracts_load_with_expected_shape():
         assert skill.answer == "pair"
         assert skill.placement_eligible is False
         assert skill.status == "active"
-        assert {source.topic for source in skill.sources} == {topic}
-        assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-        assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"]]
+        # each skill also carries one exam source, covered by its own tests/test_exd_x_* file
+        base = [source for source in skill.sources if source.difficulty != "exam"]
+        exam = [source for source in skill.sources if source.difficulty == "exam"]
+        assert len(exam) == 1 and exam[0].stages == ["exam"]
+        assert {source.topic for source in base} == {topic}
+        assert [source.difficulty for source in base] == ["easy", "medium", "hard"]
+        assert [source.stages for source in base] == [[6], [6], [6, "maintenance"]]
