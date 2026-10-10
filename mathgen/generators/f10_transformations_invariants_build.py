@@ -27,7 +27,7 @@ behind its first slip (reversal, then size, then angle, then symmetry).
 
 from __future__ import annotations
 
-from ..core import check, generator, pick_distractors
+from ..core import check, generator, latex_answer, pick_distractors
 
 # -- shapes ---------------------------------------------------------------------------------------------
 
@@ -207,7 +207,7 @@ def _result(text, answer, distractors, notes, working):
         latex=f"plain:{text}",
         answer=answer,
         answer_text=answer,
-        answer_latex=answer,
+        answer_latex=latex_answer(answer, plain=True),
         working=working,
         distractors=distractors,
         option_notes=notes,

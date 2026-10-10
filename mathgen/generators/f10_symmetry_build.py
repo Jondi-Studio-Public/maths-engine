@@ -28,7 +28,7 @@ import math
 from dataclasses import dataclass
 from functools import lru_cache
 
-from ..core import check, generator, pick_distractors
+from ..core import check, generator, latex_answer, pick_distractors
 
 _TOL = 1e-7
 
@@ -402,7 +402,7 @@ def _build(rng, text, lines, order, sides, quad, working):
         latex=f"plain:{text}",
         answer={"lines": lines, "order": order},
         answer_text=answer_text,
-        answer_latex=answer_text,
+        answer_latex=latex_answer(answer_text, plain=True),
         working=working,
         distractors=picked,
         option_notes={t: notes[t] for t in picked},
@@ -491,7 +491,7 @@ def _from_exterior_angle(rng):
         latex=f"plain:{text}",
         answer={"lines": lines, "order": order},
         answer_text=answer_text,
-        answer_latex=answer_text,
+        answer_latex=latex_answer(answer_text, plain=True),
         working=working,
         distractors=picked,
         option_notes={t: notes[t] for t in picked},

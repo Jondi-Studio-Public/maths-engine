@@ -22,7 +22,7 @@ labelled value.
 
 from __future__ import annotations
 
-from ..core import check, generator, pick_distractors
+from ..core import check, generator, latex_answer, pick_distractors
 
 _LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -144,7 +144,7 @@ def _forward(rng, cols, rows, top_down, words, n_moves, max_step):
         latex=f"plain:{text}",
         answer=answer,
         answer_text=answer_text,
-        answer_latex=answer_text,
+        answer_latex=latex_answer(answer_text, plain=True),
         working=working,
         distractors=picked_texts,
         option_notes={t: notes[t] for t in picked_texts},
@@ -237,7 +237,7 @@ def _inverse(rng, cols, rows):
         latex=f"plain:{text}",
         answer=answer,
         answer_text=answer_text,
-        answer_latex=answer_text,
+        answer_latex=latex_answer(answer_text, plain=True),
         working=working,
         distractors=picked,
         option_notes={t: notes[t] for t in picked},
