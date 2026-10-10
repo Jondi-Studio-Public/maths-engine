@@ -181,25 +181,45 @@ def find_text_defects(question, *, include_working: bool = False) -> list[str]:
 # correct answers wrong, and a generator stricter than the grader is untested.
 # Keep the two in step by editing this function, never by copying the patterns.
 
-_DECIMAL_PLACES_RE = re.compile(r"(\d+|one|two|three|four)\s+decimal place", re.I)
+# "2 decimal places", "two decimal places", and the abbreviations "(1 d.p.)", "to 2dp", "3 dp". A count
+# that is the upper end of a range ("1-2 dp") or part of a larger number ("0.5 dp") is not a count.
+_DECIMAL_PLACES_RE = re.compile(r"(?<![\d.\-\u2013/])(\d+|one|two|three|four)\s*(?:decimal\s+place|d\.?\s?p\b)", re.I)
 _PLACE_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4}
 _NEAREST_PLACES = {
-    "whole number": 0,
+    "whole": 0,
     "integer": 0,
     "unit": 0,
     "tenth": 1,
     "hundredth": 2,
     "thousandth": 3,
+    # Money to the cent is two places; the rest are a whole number of that unit. Only units a
+    # generator's question text really uses (plus metre) are listed: "ten", "hundred", "half",
+    # "quarter", "multiple", "lower" and so on are not place counts and stay out.
+    "cent": 2,
+    "dollar": 0,
+    "degree": 0,
+    "newton": 0,
+    "minute": 0,
+    "metre": 0,
+    "kilometre": 0,
+    "kilojoule": 0,
+    "nautical": 0,
 }
-_NEAREST_RE = re.compile(r"nearest\s+(whole number|integer|unit|tenth|hundredth|thousandth)", re.I)
+_NEAREST_RE = re.compile(
+    r"nearest\s+(whole|integer|unit|tenth|hundredth|thousandth|cent|dollar|degree|newton|minute|metre|kilometre|"
+    r"kilojoule|nautical)\b",
+    re.I,
+)
 
 
 def requested_rounding(text: str) -> int | None:
     """Decimal places the question asks the learner to round to, or None.
 
-    Covers both phrasings the library uses: "to 2 decimal places" / "to two
-    decimal places", and "to the nearest hundredth". The second was missed at
-    first, and the miss hid a real defect -- "Round 16.201 to the nearest
+    Covers the phrasings the library uses: "to 2 decimal places" / "to two
+    decimal places", the abbreviations "(1 d.p.)" / "2dp", "to the nearest
+    hundredth", "to the nearest cent" (2 places) and "to the nearest degree" and
+    other whole-unit phrasings (0 places). Missing the "nearest hundredth" form
+    first hid a real defect -- "Round 16.201 to the nearest
     hundredth" answered "16.2" instead of "16.20".
 
     Returns None when the text states MORE THAN ONE DISTINCT decimal-place count. A single-value answer (the
@@ -207,18 +227,14 @@ def requested_rounding(text: str) -> int | None:
     never `grade_pair`/`grade_list`) can only ever have ONE precision asked of it; a text with two DIFFERENT
     counts is unambiguous only per-component, which this whole-text-level function cannot resolve, so it
     correctly declines rather than picking one count and silently misapplying it to every number in the
-    answer. A repeated STATEMENT of the SAME count ("x and y, each rounded to 1 decimal place") is not
+    answer. Counts from "nearest ..." phrases and from decimal-place phrases are
+    pooled. A repeated STATEMENT of the SAME count ("x and y, each rounded to 1 decimal place") is not
     ambiguous and still resolves normally.
     """
-    matches = _DECIMAL_PLACES_RE.findall(text or "")
-    if matches:
-        values = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in matches}
-        if len(values) > 1:
-            return None
-        return next(iter(values))
-    match = _NEAREST_RE.search(text or "")
-    if match:
-        return _NEAREST_PLACES[match.group(1).lower()]
+    counts = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DECIMAL_PLACES_RE.findall(text or "")}
+    counts |= {_NEAREST_PLACES[unit.lower()] for unit in _NEAREST_RE.findall(text or "")}
+    if len(counts) == 1:
+        return next(iter(counts))
     return None
 
 
