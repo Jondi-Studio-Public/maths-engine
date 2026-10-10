@@ -91,14 +91,14 @@ def test_both_skills_load_correctly():
     assert arcsin_arctan.answer == "expression"
     assert arcsin_arctan.placement_eligible is False
     assert "integrate-polynomial" in arcsin_arctan.prerequisites
-    assert len(arcsin_arctan.sources) == 3  # easy, medium, hard
+    assert len(arcsin_arctan.sources) == 4  # easy, medium, hard, exam
 
     volumes = skills_dict.get("senior-determine-volumes-of-solids-of-revolution-about-either")
     assert volumes is not None
     assert volumes.answer == "expression"
     assert volumes.placement_eligible is False
     assert "integrate-polynomial" in volumes.prerequisites
-    assert len(volumes.sources) == 3  # easy, medium, hard
+    assert len(volumes.sources) == 4  # easy, medium, hard, exam
 
 
 # --- arcsin/arctan specific tests -------------------------------------------

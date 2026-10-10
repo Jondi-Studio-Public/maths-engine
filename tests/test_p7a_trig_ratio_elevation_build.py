@@ -315,7 +315,7 @@ class TestSkillsLoad:
         assert skill.answer == "fraction"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard"}
+        assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
         assert len(skill.misconceptions) >= 1
 
     def test_skill_b_loads(self):

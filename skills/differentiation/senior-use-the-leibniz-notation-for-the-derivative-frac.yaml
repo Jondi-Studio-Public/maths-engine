@@ -22,6 +22,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_c3_leibniz
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: power-rule-drop
   description: Reports A*p, dropping the factor of 2 from the power rule.

@@ -22,6 +22,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_c4_solids_of_revolution
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-pi
   description: Omitting the pi factor from the disk-method formula.
