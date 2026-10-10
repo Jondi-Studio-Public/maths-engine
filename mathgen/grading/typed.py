@@ -902,7 +902,7 @@ _ARROW_RE = re.compile(r"\s*(?:->|→)\s*")
 # Bounded on both sides, so "316,1564" (no group of exactly three) and the
 # tail of "12,34,567" are not read as grouped numerals.
 _COMMA_GROUP_RE = re.compile(r"(?<![\d,.])\d{1,3}(?:,\d{3})+(?:\.\d+)?(?!\d)")
-_TOP_DELIM_RE = re.compile(r"[,\n]+")
+_TOP_DELIM_RE = re.compile(r"[,;\n]+")
 # Deliberately does NOT include ">"/"＞": a descending chain is a different claim from what an
 # ascending-order skill asks for, so it stays unrecognised and rejected; see
 # `_split_ordered_items`'s docstring for the walkthrough.
@@ -955,7 +955,7 @@ def _split_ordered_items(given: str) -> list[str]:
     One matching bracket pair around the whole answer is removed first, so a
     sequence may be written "(1, 2, 3)" as well as "1, 2, 3".
 
-    Delimiter policy: a comma, newline, or arrow (``->``/``→``) between
+    Delimiter policy: a comma, semicolon, newline, or arrow (``->``/``→``) between
     items is always a separator. A run of internal whitespace is *only*
     treated as a separator when the whole answer contains no comma/newline/
     arrow anywhere (e.g. "Monday Tuesday Wednesday" typed with no commas) --
@@ -1242,6 +1242,16 @@ def _strip_redundant_enclosing_brackets(text: str) -> str:
 # pi, so `_parse_expression` maps it unconditionally.
 
 _MULTIPLICATION_SIGNS = str.maketrans({"·": "*", "×": "*", "⋅": "*"})
+# Square brackets and braces group like round ones on paper ("2[x + 3(x - 1)]", "e^{2x}"). Unread, a brace sent
+# the reply to the spoken-word fallback, which dropped what it could not say: "e^{2x}" was read as 2x and
+# "\sqrt{12}" as 12. LaTeX (a backslash) is not rewritten; it is not read at all.
+_ROUND_BRACKETS = str.maketrans("[]{}", "()()")
+
+
+def _round_brackets(text: str) -> str:
+    return text if "\\" in text else text.translate(_ROUND_BRACKETS)
+
+
 _PI_SYMBOL = sympy.Symbol("π")
 _E_SYMBOL = sympy.Symbol("e")
 _I_SYMBOL = sympy.Symbol("i")
@@ -1483,7 +1493,7 @@ def _parse_expression(given: str):
         return None
     if len(text) > MAX_ANSWER_LENGTH:
         return None  # never run the normalisers or the spoken fallback over a pasted essay
-    candidate = _normalize_learner_notation(text.translate(_MULTIPLICATION_SIGNS))
+    candidate = _normalize_learner_notation(_round_brackets(text).translate(_MULTIPLICATION_SIGNS))
     if candidate is None:
         return None  # no single reading: never guess, never hand it to the spoken fallback
     candidate = _bars_to_abs(candidate)
@@ -1511,11 +1521,12 @@ def _parse_expression(given: str):
     # defence.
     except (sympy.SympifyError, SyntaxError, TokenError, TypeError, ValueError, IndexError):
         pass
-    if "|" in text or not text.isascii():
+    if "|" in text or "\\" in text or any(b in text for b in "[]{}") or not text.isascii():
         # The spoken-word fallback drops the bars and whatever they touch:
         # it read "ln|x| + C" as `x`, and "x²" as `x`. Marking an unreadable
         # answer wrong is bad; grading it as a different expression is worse.
-        # Spoken transcripts are plain ASCII words.
+        # Spoken transcripts are plain ASCII words, with no LaTeX and no brackets
+        # other than round ones.
         return None
     return spoken_to_expr(text)
 
@@ -1908,9 +1919,43 @@ def _expected_expression(question):
     return internal
 
 
+# The constant of integration is written "+ C" in every canonical, and on paper as often "+ c" or "+ K". Read as a
+# different symbol, every such reply was marked wrong. When the expected answer ends in a lone "+ C" and the reply
+# has no C but one of these letters, unknown to the expected answer, the letter is read as C.
+_CONSTANT_SYMBOL = sympy.Symbol("C")
+_CONSTANT_SPELLINGS = frozenset(sympy.Symbol(name) for name in ("c", "k", "K"))
+
+
+def _match_constant_of_integration(given_expr, expected):
+    try:
+        if _CONSTANT_SYMBOL not in sympy.Add.make_args(expected) or _CONSTANT_SYMBOL in given_expr.free_symbols:
+            return given_expr
+        stand_ins = (given_expr.free_symbols - expected.free_symbols) & _CONSTANT_SPELLINGS
+    except (AttributeError, TypeError):
+        return given_expr
+    if len(stand_ins) != 1:
+        return given_expr
+    return given_expr.xreplace({stand_ins.pop(): _CONSTANT_SYMBOL})
+
+
+def _exact_decimals(given_expr, expected):
+    """The reply with each decimal read as the exact number it spells ("x^0.5" as x^(1/2)), when the expected answer
+    has no decimal of its own. sympy keeps a typed decimal as a float, so "x^0.5" and "0.5x" never simplified to
+    match sqrt(x) and x/2: a right answer marked wrong. A decimal that is not the exact value stays wrong."""
+    try:
+        if expected.atoms(sympy.Float):
+            return given_expr
+        floats = given_expr.atoms(sympy.Float)
+    except (AttributeError, TypeError):
+        return given_expr
+    if not floats:
+        return given_expr
+    return given_expr.xreplace({f: sympy.Rational(str(f)) for f in floats})
+
+
 def grade_expression(question, given: str) -> GradeResult:
     canonical = question.answer_text
-    stripped = _strip_label(given)
+    stripped = _round_brackets(_strip_label(given))
 
     # answer_form "line_standard_form" -- graded on its own path,
     # split out here rather than as an `elif` further down: see the banner
@@ -1957,6 +2002,10 @@ def grade_expression(question, given: str) -> GradeResult:
             given_value = float(given_expr)
         except (TypeError, ValueError, OverflowError):  # OverflowError: an integer past the range of a float
             given_value = None
+        # Only a reply that is itself a plain number: "sqrt(12)" is within 0.005 of 2*sqrt(3)'s decimal too,
+        # and must still meet the question's answer_form below.
+        if not given_expr.is_Number:
+            given_value = None
         if given_value is not None and abs(given_value - float(answer_alt)) <= 0.005:
             return GradeResult(correct=True, canonical=canonical, given_normalised=given_normalised)
 
@@ -1974,8 +2023,9 @@ def grade_expression(question, given: str) -> GradeResult:
     if answer_form == "factored":
         # The learner's RAW TEXT must carry a bracket -- the parsed expression
         # cannot show this (see above), so this is a string check on `stripped`,
-        # never on `given_expr`.
-        if "(" not in stripped:
+        # never on `given_expr`. A pair around the whole reply factors nothing:
+        # "(6x + 9)" is the expression the question gave, so it is peeled first.
+        if "(" not in _strip_redundant_enclosing_brackets(stripped):
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
     elif answer_form == "expanded":
         # Peel off one (or, looped, several nested) fully-enclosing redundant bracket pair before
@@ -2014,6 +2064,8 @@ def grade_expression(question, given: str) -> GradeResult:
         # settles the common "these differ" case in microseconds instead of the
         # ~35 ms simplify spends exhausting its rewrites first. It can only ever
         # short-circuit to False, never to True.
+        if expected is not None:
+            given_expr = _exact_decimals(_match_constant_of_integration(given_expr, expected), expected)
         correct = expected is not None and symbolically_equal(expected, given_expr)
     except (sympy.SympifyError, TypeError, ValueError):
         correct = False
@@ -2170,9 +2222,14 @@ def grade_table(question, given: str) -> GradeResult:
 # "and" and "or" separate items; a comma inside brackets belongs to a tuple.
 
 _SET_WORD_SEPARATOR_RE = re.compile(r"\s+(?:and|or)\s+", re.IGNORECASE)
+# The empty set as it is written on paper: "{}" already read as no items, "∅" (and the "Ø" keyboards offer for it)
+# and the words did not.
+_EMPTY_SET_RE = re.compile(r"\s*(?:[∅Øø]|(?:the\s+)?empty\s+set|\{\s*\})\s*", re.IGNORECASE)
 
 
 def _split_set_items(text: str) -> list[str]:
+    if _EMPTY_SET_RE.fullmatch(text or ""):
+        return []
     text = _SET_WORD_SEPARATOR_RE.sub(",", _strip_comma_groups(text or "").strip())
     if text.startswith("{") and text.endswith("}"):
         text = text[1:-1]
@@ -2609,6 +2666,13 @@ def _attach_spaced_sign(kind: str, given: str) -> str:
     return _SPACED_SIGN_RE.sub("-", given) if kind in _SIGNED_VALUE_KINDS else given
 
 
+# Two minus signs on one number: "--3", "- -3", "(3, --6)". The value readers took the second sign and dropped the
+# first, so "--3" was accepted for -3, though it is 3. No answer is written that way, so in the kinds that read
+# values such a reply is wrong; `expression` reads it correctly (as 3) and is left to do so.
+_DOUBLE_SIGN_KINDS = _SIGNED_VALUE_KINDS | {"number"}
+_DOUBLE_SIGN_RE = re.compile(r"-[ \t]*-[ \t]*\.?\d")
+
+
 #: Longest reply `grade` reads at all. The longest answer in the library, table answers included, is a few hundred
 #: characters; this is a bound on the work (about 0.3 s at the limit), not a judgement on any real reply. A
 #: reply shorter than this still reaches its grader, which truncates what it logs (see test_logged_reply_is_truncated).
@@ -2637,6 +2701,8 @@ def grade(kind: str, question, given: str, *, skill=None) -> GradeResult:
         # character: a run that holds a line break is that one line break, any other run one space. Nothing a
         # parser reads is in the width of a gap.
         given = _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, _WHITESPACE_RUN_RE.sub(_one_gap, given)))
+    if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
+        return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     try:
         result = GRADERS[kind](question, given)
     except Exception:
