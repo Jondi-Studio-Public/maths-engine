@@ -20,7 +20,6 @@ middle_answer:
   - before_after/easy
   bernoulli-mle:
   - bernoulli_mle/easy
-  - bernoulli_mle/hard
   - bernoulli_mle/medium
   calculate-mean:
   - summary_statistic/easy
@@ -338,6 +337,7 @@ middle_answer:
   - calculate_total_change_by_integrating_instantaneous_or_marginal/easy
   - calculate_total_change_by_integrating_instantaneous_or_marginal/hard
   - calculate_total_change_by_integrating_instantaneous_or_marginal/medium
+  - exd_x_c4_total_change/exam
   senior-chords-of-equal-length-subtend-equal-angles-at:
   - chords_equal_length_equal_angles/hard
   - chords_equal_length_equal_angles/medium
@@ -375,7 +375,6 @@ middle_answer:
   - midpoint_coordinate_scalar/medium
   senior-determine-the-optimum-assignment-s-by-inspection-for:
   - determine_the_optimum_assignment_s_by_inspection_for/easy
-  - determine_the_optimum_assignment_s_by_inspection_for/hard
   - determine_the_optimum_assignment_s_by_inspection_for/medium
   senior-determine-the-overall-change-in-a-quantity-following:
   - repeated_percentage_change/hard
@@ -576,6 +575,8 @@ middle_answer:
   - p13c_exponential_pdf_numint/medium
   senior-use-ordered-pair-notation-and-column-vector-notation:
   - use_ordered_pair_notation_and_column_vector_notation/easy
+  senior-use-pascal-s-triangle-and-its-properties:
+  - exd_x_s4_pascal/exam
   senior-use-radicals-and-convert-to-and-from-fractional:
   - radicals_fractional_indices/hard
   - radicals_fractional_indices/medium
@@ -604,12 +605,14 @@ middle_answer:
   - use_the_critical_path_to_determine_the_minimum/hard
   - use_the_critical_path_to_determine_the_minimum/medium
   senior-use-the-equation-of-a-fitted-line-to:
+  - exd_x_s5_fitted_line_threshold/exam
   - use_the_equation_of_a_fitted_line_to/hard
   - use_the_equation_of_a_fitted_line_to/medium
   senior-use-the-formula-t-n-r-n-1:
   - geometric_nth_term_formula/easy
   - geometric_nth_term_formula/hard
   senior-use-the-increments-formula-delta-y-cong-frac:
+  - exd_x_c3_increments/exam
   - p9c_increments_formula_estimate/easy
   - p9c_increments_formula_estimate/medium
   senior-use-the-leibniz-notation-for-the-derivative-frac:
@@ -645,6 +648,7 @@ middle_answer:
   skip-count-2-5-10:
   - skip_count/easy
   standard-deviation-from-data:
+  - exd_x_s5_sd_summary/exam
   - standard_deviation_from_data/compare_sets
   - standard_deviation_from_data/context
   - standard_deviation_from_data/integers
@@ -757,6 +761,10 @@ option_count:
   - complex_number/easy
   equal-groups:
   - equal_groups/easy
+  f10-add-subtract-number-sentences:
+  - add_sub_number_sentence/easy
+  - add_sub_number_sentence/hard
+  - add_sub_number_sentence/medium
   f10-compare-measurement-attributes:
   - compare_measurement_attributes/easy
   - compare_measurement_attributes/hard
@@ -857,6 +865,7 @@ option_count:
   - p19e_recurrence_long_term_class/hard
   - p19e_recurrence_long_term_class/medium
   senior-review-probability-as-a-measure-of-the-likelihood:
+  - exd_x_s3_likelihood/exam
   - probability_likelihood_compare/easy
   - probability_likelihood_compare/hard
   - probability_likelihood_compare/medium
@@ -902,5 +911,6 @@ probability:
   - binomial_probability/easy
   conditional-probability-counts:
   - conditional_probability_counts/hard
+  - exd_x_s0_condprob/exam
   simple-event-probability:
   - simple_probability/easy

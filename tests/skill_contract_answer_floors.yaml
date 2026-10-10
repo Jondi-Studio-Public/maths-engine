@@ -108,6 +108,7 @@ fair-sharing:
 finite-sample-space-probability:
   finite_sample_space_probability/easy: 4
 limit-degree-comparison:
+  exd_x_c2_limit_degree_comparison/exam: 3
   limits/easy: 3
   limits/hard: 3
   limits/medium: 3
@@ -166,6 +167,7 @@ senior-distinguish-between-causality-and-correlation-through-examples:
   causality_correlation_classify/hard: 2
   causality_correlation_classify/medium: 1
 senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
+  exd_x_s3_interp/exam: 2
   interpolation_extrapolation_classify/easy: 2
   interpolation_extrapolation_classify/hard: 2
   interpolation_extrapolation_classify/medium: 1
@@ -176,8 +178,9 @@ senior-examine-examples-of-quadratically-related-variables:
 senior-examine-slope-direction-or-gradient-fields-of-a:
   p13b_slope_field_examine/hard: 4
 senior-examine-the-approximate-normality-of-the-distribution-of:
+  exd_x_s3_normality/exam: 4
   p8c_normality_approx_phat/easy: 4
-  p8c_normality_approx_phat/hard: 4
+  p8c_normality_approx_phat/hard: 2
   p8c_normality_approx_phat/medium: 4
 senior-examine-the-relationship-between-the-angle-of-inclination:
   angle_of_inclination_gradient/easy: 3
@@ -250,6 +253,7 @@ senior-recognise-the-need-for-milligrams:
   p19h_need_for_milligrams/hard: 4
   p19h_need_for_milligrams/medium: 4
 senior-review-probability-as-a-measure-of-the-likelihood:
+  exd_x_s3_likelihood/exam: 3
   probability_likelihood_compare/easy: 2
   probability_likelihood_compare/hard: 2
   probability_likelihood_compare/medium: 3
