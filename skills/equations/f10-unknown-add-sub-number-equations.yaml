@@ -1,0 +1,33 @@
+id: f10-unknown-add-sub-number-equations
+name: Find unknowns in additive numerical equations
+domain: equations
+description: Find the missing value in a numerical addition or subtraction equation, using operation properties. The blank is a square and the equation has no story, from one operation against a total to equations with an expression on both sides and three-digit numbers where a property does the work.
+status: active
+placement_eligible: false
+prerequisites: [f10-addition-facts-related-subtraction, one-step-equations]
+answer: number
+sources:
+- topic: unknown_add_sub_equation
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: unknown_add_sub_equation
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: unknown_add_sub_equation
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: same-operation-as-shown
+  description: Applies the operation shown in the equation to the two numbers instead of its inverse (for example adds 27 and 61 for 27 + □ = 61, or takes 18 from 34 for □ - 18 = 34).
+- id: equals-means-the-answer
+  description: Treats the equals sign as "the answer comes next", so gives the value of the complete side, or adds every number shown, instead of making both sides equal.
+- id: restates-a-given-number
+  description: Reports one of the numbers already in the equation as the missing value.
+- id: shifts-the-wrong-way
+  description: When a number on one side is changed to a rounder number, changes the blank by the same amount in the wrong direction (or not at all) instead of the opposite direction that keeps both sides equal.
+- id: off-by-one
+  description: States a value one more or one less than the correct answer, or off by ten.
+tags: [acara-f10-v9, primary, addition, subtraction, equations, unknown-values, ac9m4a01]

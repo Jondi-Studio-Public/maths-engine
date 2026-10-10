@@ -1,0 +1,29 @@
+id: f10-add-subtract-number-sentences
+name: Represent addition and subtraction with number sentences
+domain: equations
+description: Given a one- or two-digit addition or subtraction word problem, select from among 3-5 candidate number sentences, in a stated part-part-whole form with the unknown part or whole shown as a blank, the one that correctly represents the situation. The learner chooses the sentence; they are not asked to find the value of the blank.
+status: active
+placement_eligible: false
+prerequisites: [add-within-100, f10-addition-facts-related-subtraction, subtract-within-100]
+answer: mcq
+sources:
+- topic: add_sub_number_sentence
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: add_sub_number_sentence
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: add_sub_number_sentence
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-quantity-unknown
+  description: Puts the blank on a number the story gives, and the story's unknown number in its place, so the sentence describes a different question (for example a total treated as one of the parts).
+- id: operation-follows-the-verb
+  description: Chooses the operation the story's action suggests ("gave away" means subtract, "was given" means add) without checking which quantity is the whole, so a story with an unknown start or a comparison gets the wrong sentence.
+- id: whole-given-to-a-part
+  description: Writes the whole in a part's place, so a part is larger than the whole it belongs to, or subtracts the larger number from the smaller.
+tags: [acara-f10-v9, primary, addition, subtraction, number-sentences, part-part-whole, ac9m2n04]
