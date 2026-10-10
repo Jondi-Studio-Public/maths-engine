@@ -5,7 +5,7 @@ description: Calculate the cross product of two 3D vectors.
 status: active
 prerequisites:
 - vector-dot-product
-answer: ordered_list
+answer: list
 sources:
 - topic: vectors
   params:
