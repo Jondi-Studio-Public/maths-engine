@@ -1,0 +1,43 @@
+id: f10-congruence-similarity-criteria
+name: Choose the congruence or similarity test for two triangles
+domain: geometry
+description: Given the side lengths, angles and right angle stated for two triangles, choose the one conclusion those facts justify -- congruent by a named test (SSS, SAS, ASA, AAS or RHS), similar by a named test (AA, or sides or SAS in proportion), or neither can be concluded.
+status: active
+placement_eligible: false
+prerequisites: [f10-polygon-classification]
+answer: mcq
+sources:
+- topic: f10c_congruence_criteria
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10c_congruence_criteria
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10c_congruence_criteria
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ssa-accepted
+  description: Accepts two equal sides and an equal angle that is not between them (SSA) as proof of congruence.
+- id: angles-only-congruent
+  description: Accepts three, or two, equal angles as proof of congruence (AAA); equal angles fix the shape, not the size.
+- id: rejects-sufficient-conditions
+  description: Answers that nothing can be concluded when the stated parts do meet a test, usually because the parts are not listed in the textbook order.
+- id: mislabels-the-criterion
+  description: Names a test whose parts are not all stated (for example SAS when there is no angle, or ASA when no side is given), instead of matching the kinds of parts given to the test.
+- id: similar-treated-as-congruent
+  description: Sees matching sides or angles and names a congruence test even though the sides are in proportion but not equal (or no side is given), so the triangles are only similar.
+- id: checks-only-some-ratios
+  description: Claims a test from three stated sides after checking only two of the pairs; the third pair breaks the ratio, so neither congruence nor similarity follows.
+- id: treats-any-angle-as-included
+  description: (Hard tier only) Names SAS when the stated angle is not the angle between the two stated sides (it is opposite one of them), which is the SSA case and proves nothing.
+- id: confuses-rhs-with-sas
+  description: (Hard tier mainly) Names RHS for a right angle between two stated legs, or SAS for a right angle with the hypotenuse and a leg; which one applies depends on where the right angle sits relative to the stated sides.
+- id: skips-the-third-angle
+  description: (Hard tier only) Says nothing can be concluded because the stated angles sit at different vertices, without finding each missing angle from the angle sum, so two triangles with all angles equal are not seen as similar.
+- id: matches-angles-at-wrong-vertices
+  description: (Hard tier only) Calls the triangles similar by AA because both triangles state angles, without checking that the angles at corresponding vertices (after finding the third angle of each) are equal.
+tags: [acara-f10-v9, secondary, geometry, congruence, similarity, triangles, ac9m8sp01, ac9m8sp04]
