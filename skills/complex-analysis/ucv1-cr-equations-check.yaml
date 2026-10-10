@@ -1,0 +1,44 @@
+id: ucv1-cr-equations-check
+name: Check the Cauchy-Riemann equations
+domain: complex-analysis
+description: At a supplied point, decide whether a polynomial complex function satisfies the Cauchy-Riemann equations.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: mcq
+sources:
+- topic: p15e_cr_equations_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15e_cr_equations_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15e_cr_equations_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15e_cr_equations_check
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-both-hold
+  description: Assumes any polynomial u, v pair is automatically holomorphic without checking the equations.
+- id: checks-only-one-equation
+  description: Checks only u_x = v_y (or only u_y = -v_x) and stops, missing that the other equation can independently hold or fail.
+- id: sign-error-in-second-equation
+  description: Tests u_y = v_x instead of the correct u_y = -v_x.
+tags: [university-core-v1, p15e-university-batch, complex-analysis]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis

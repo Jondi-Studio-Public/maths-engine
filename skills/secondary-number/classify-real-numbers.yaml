@@ -1,0 +1,10 @@
+id: classify-real-numbers
+name: Classify rational and irrational numbers
+domain: secondary-number
+description: Decide whether a stated real number is rational or irrational.
+status: active
+prerequisites: [fraction-decimal-percent]
+answer: mcq
+sources: [{topic: classify_real_number, params: {}, difficulty: easy}]
+misconceptions: [{id: all-roots-irrational, description: Assumes every square root is irrational.}]
+tags: [expansion-batch-4, real-numbers]

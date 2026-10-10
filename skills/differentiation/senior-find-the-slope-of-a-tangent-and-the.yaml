@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-slope-of-a-tangent-and-the
+name: Find the slope of a tangent and the equation of the tangent
+domain: differentiation
+description: Given bounded, fully specified inputs, find the slope of a tangent and the equation of the tangent. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: find_the_slope_of_a_tangent_and_the
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: find_the_slope_of_a_tangent_and_the
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: find_the_slope_of_a_tangent_and_the
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: value-not-slope
+  description: Evaluates f(p) instead of f'(p).
+- id: forgot-power-multiply
+  description: Differentiates x**2 as x instead of 2x (forgets the power-rule coefficient).
+- id: dropped-linear-term
+  description: Drops the derivative's constant term entirely.
+- id: wrong-power-rule-in-equation
+  description: Solves as if f'(x) = ax + b (drops the power-rule coefficient when solving, not just when differentiating).
+- id: dropped-coefficient
+  description: Solves 2ax = m - b as if the coefficient on x were 1.
+- id: sign-error
+  description: Reports the negative of the correct x-coordinate.
+- id: tangent-through-origin
+  description: Forgets to solve for the y-intercept (writes the line as if it passed through the origin).
+- id: uses-function-value-as-intercept
+  description: Uses f(p) directly as the y-intercept instead of f(p) - slope*p.
+- id: swapped-slope-and-intercept
+  description: Swaps which computed number is the slope and which is the intercept.
+tags: [acara-senior-v8-4, differentiation, tangent-line, acmmm093]

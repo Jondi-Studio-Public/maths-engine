@@ -1,0 +1,32 @@
+id: f10-part-part-whole-collections-to-10
+name: Partition and combine collections to ten
+domain: early-foundations
+learner_band: early
+description: Given a whole collection size from two to ten and one of its two parts, state the value of the other part.
+status: active
+placement_eligible: false
+prerequisites: [f10-subitise-name-to-5, number-bonds-to-10]
+answer: number
+sources:
+- topic: p19a_part_part_whole
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_part_part_whole
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_part_part_whole
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-instead-of-subtracts
+  description: Adds the whole and the given part together instead of subtracting.
+- id: repeats-the-given-part
+  description: States the given part again as if it were the missing part.
+- id: repeats-the-whole
+  description: States the whole collection size as if it were the missing part.
+- id: off-by-one
+  description: States a value one more or one less than the correct missing part.
+tags: [acara-f10-v9, early, part-part-whole, number-bonds, ac9mfn04]

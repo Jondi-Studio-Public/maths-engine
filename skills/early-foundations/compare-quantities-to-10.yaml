@@ -1,0 +1,17 @@
+id: compare-quantities-to-10
+name: Compare groups to 10
+domain: early-foundations
+placement_order: 50
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Decide which group has more objects, or whether they are equal.
+status: active
+prerequisites: [recognise-numerals-to-10]
+answer: mcq
+sources:
+- topic: compare_quantities
+  params: {hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, comparing, visual]

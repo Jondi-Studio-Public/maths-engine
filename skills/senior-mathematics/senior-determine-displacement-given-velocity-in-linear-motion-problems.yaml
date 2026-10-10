@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-displacement-given-velocity-in-linear-motion-problems
+name: Determine displacement given velocity in linear motion problems
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, determine displacement given velocity in linear motion problems. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: p10a_velocity_to_displacement_line
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10a_velocity_to_displacement_line
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10a_velocity_to_displacement_line
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-constant-of-integration
+  description: Uses the antiderivative G(t) directly as s(t), never solving for the constant of integration against the stated initial position.
+- id: power-rule-no-divide
+  description: Raises each term's power without dividing by the new power when antidifferentiating v(t), then still solves its own (wrong) constant against the stated initial position.
+- id: sign-error-on-constant
+  description: Isolates the constant of integration with the sign flipped (medium/hard tiers only, where the stated instant is nonzero so this is a genuinely different value from the true answer).
+- id: misread-worded-sign
+  description: Treats the worded initial position as if it were always positive, using its magnitude instead of its true sign (hard tier only, only exercisable when the true initial position is negative -- "left of the origin").
+tags: [acara-senior-v8-4, senior-mathematics, integration, motion, acmmm123]

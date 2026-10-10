@@ -1,0 +1,42 @@
+id: stationary-points
+name: Solve f'(x) = 0
+domain: differentiation
+description: Find the stationary points of a function by solving f'(x) = 0.
+status: active
+prerequisites:
+- differentiate-polynomial
+- solve-quadratics-factorable
+answer: list
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - stationary_points
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - stationary_points
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - stationary_points
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-set-zero
+  description: Forgetting to set the derivative equal to zero before solving.
+- id: reported-derivative-not-x
+  description: Reporting the value of f'(x) rather than the x-coordinate.
+tags: []

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-metric-units-of-length-their-abbreviations-conversions
+name: Review metric units of length, their abbreviations, conversions between them, estimation of lengths, and appropriate choices of units
+domain: measurement
+description: Given bounded, fully specified inputs, review metric units of length, their abbreviations, conversions between them, estimation of lengths, and appropriate choices of units. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: review_metric_units_of_length
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: review_metric_units_of_length
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: review_metric_units_of_length
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: conversion-direction
+  description: Multiplies when it should divide (or vice versa).
+- id: assumes-factor-ten
+  description: Applies a factor of 10 (or 10x too small/large) regardless of the actual factor between the two units.
+- id: forgets-to-convert
+  description: Combines the two stated raw numeric values directly, ignoring the unit mismatch (hard tier only).
+- id: converts-wrong-operand
+  description: Converts the other operand instead of the one that actually needs converting (hard tier only).
+tags: [acara-senior-v8-4, measurement, length, acmem090]

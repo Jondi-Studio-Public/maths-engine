@@ -1,0 +1,45 @@
+id: f10-rational-percentage-financial-model
+name: Model rational and percentage financial problems
+domain: financial-discrete
+description: Given a stated rational-number-or-percentage financial context, determine whether a fraction or percentage operation correctly models it and compute the resulting value.
+status: active
+placement_eligible: false
+prerequisites: [f10-fraction-percent-quantity-strategy, f10-rational-percentage-estimation]
+answer: number
+sources:
+- topic: rational_percentage_financial_model
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: rational_percentage_financial_model
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: rational_percentage_financial_model
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: rational_percentage_financial_model
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: operation-swap
+  description: Applies a percentage operation where the question asked for the fraction amount, or vice versa (at any one step of a chain).
+- id: complement
+  description: Reports what is left over (the complement of the base amount) instead of the amount actually asked for.
+- id: decimal-shift
+  description: Shifts the decimal point one place too far (a value ten times too large).
+- id: missed-step
+  description: Applies only the first of two chained operations, reporting an intermediate amount instead of the final one.
+- id: wrong-base
+  description: Applies the second step of a chain to the ORIGINAL amount instead of the running total left after the first step.
+- id: forward-applied
+  description: Applies the forward (spend-then-remain) model to the stated final amount instead of inverting it to recover the starting amount.
+- id: additive-reverse
+  description: "\"Undoes\" a chain of percentage/fraction reductions by adding the rates back together instead of dividing by each complement in turn."
+- id: ignore-fee
+  description: Solves the two cascading deductions correctly but ignores the third, flat, original-amount-based fee entirely.
+- id: wrong-base-cascading
+  description: Assumes a flat, original-amount-based fee also cascades off the running remainder like the other two deductions.
+tags: [acara-f10-v9, financial-discrete, percentages, fractions, financial-modelling, ac9m6n09, ac9m7n09, ac9m8n05]

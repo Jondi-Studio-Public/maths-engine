@@ -1,0 +1,65 @@
+id: combine-like-terms
+name: Combine like terms
+domain: expressions-equivalence
+description: Add or subtract the coefficients of like terms, including positive and negative values, while
+  preserving the common variable part.
+status: active
+prerequisites:
+- identify-like-terms
+- integer-arithmetic
+answer: expression
+sources:
+- topic: like_terms
+  params:
+    kind: signed
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: like_terms
+  params:
+    kind: signed
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: like_terms
+  params:
+    kind: signed
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: like_terms
+    params:
+      kind: positive
+      n_terms: 2
+      coef_hi: 9
+    target_s: 4
+    limit_s: 10
+  - topic: like_terms
+    params:
+      kind: signed
+      n_terms: 3
+      coef_hi: 9
+    target_s: 6
+    limit_s: 15
+  - topic: like_terms
+    params:
+      kind: signed
+      n_terms: 3
+      coef_hi: 15
+    target_s: 7
+    limit_s: 18
+misconceptions:
+- id: added-exponents
+  description: Adding exponents when combining like terms.
+- id: ignored-sign
+  description: Ignoring the sign attached to a term when combining.
+- id: combined-unlike-terms
+  description: Combining constants with variable terms, or unlike variable parts.
+tags: []

@@ -1,0 +1,23 @@
+id: f10-factors-multiples-divisibility
+name: Divisibility classification
+domain: secondary-number
+description: Given two natural numbers, determine whether one divides the other exactly (i.e. whether the second is a multiple of the first, leaving no remainder).
+status: active
+placement_eligible: false
+prerequisites: [list-factors, prime-factorisation]
+answer: mcq
+sources:
+- topic: factors_multiples_divisibility
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: factors_multiples_divisibility
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: factors_multiples_divisibility
+  params: {form: factored}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions: []
+tags: [acara-f10-v9, secondary, factors, ac9m5n02]

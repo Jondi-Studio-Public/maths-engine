@@ -1,0 +1,10 @@
+id: list-factors
+name: List all positive factors
+domain: secondary-number
+description: List every positive whole-number divisor of a given composite number.
+status: active
+prerequisites: [whole-number-division-facts]
+answer: list
+sources: [{topic: factor_list, params: {hi: 60}, difficulty: easy}]
+misconceptions: [{id: factor-pairs-incomplete, description: Stops after finding only one factor pair.}]
+tags: [expansion-batch-4, factors]

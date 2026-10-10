@@ -1,0 +1,47 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-a-spreadsheet-to-display-examples-of-the
+name: Use a spreadsheet to display examples of the above computations when multiple or repeated computations are required; for example, preparing a wage-sheet displaying the weekly earnings of workers in a fast food store where hours of employment and hourly rates of pay may differ, preparing a budget, or investigating the potential cost of owning and operating a car over a year
+domain: arithmetic
+description: Given stated hourly pay rates and hours worked for several workers in a small tabular dataset, compute the stated total weekly wage of one specified worker.
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p16c_worker_wage_table
+  params: {variant: no_overtime}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p16c_worker_wage_table
+  params: {variant: uniform_overtime}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p16c_worker_wage_table
+  params: {variant: per_row_multiplier}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p16c_worker_wage_table
+  params: {variant: cross_row_diff}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-row
+  description: Reads a different worker's row from the wage table instead of the one the question names.
+- id: adds-rate-and-hours
+  description: Adds the hourly rate and the hours worked instead of multiplying them.
+- id: wrong-workers-rate
+  description: Uses the named worker's hours but a different worker's hourly rate.
+- id: forgets-overtime
+  description: Ignores the worker's overtime hours entirely and reports only the ordinary-hours pay.
+- id: overtime-at-ordinary-rate
+  description: Pays the worker's overtime hours at the ordinary rate instead of the stated overtime multiplier.
+- id: wrong-multiplier
+  description: Applies the wrong overtime multiplier (1.5 times instead of 2 times, or vice versa) to a worker's overtime hours.
+- id: summed-not-subtracted
+  description: Adds the two named workers' wages together instead of finding the difference between them.
+- id: forgot-one-workers-overtime
+  description: When comparing two workers' wages, forgets one of the two workers' overtime pay while still including the other's.
+- id: swapped-rates
+  description: Computes each named worker's pay using the other worker's hourly rate.
+tags: [acara-senior-v8-4, arithmetic, spreadsheet, wages, acmgm009]

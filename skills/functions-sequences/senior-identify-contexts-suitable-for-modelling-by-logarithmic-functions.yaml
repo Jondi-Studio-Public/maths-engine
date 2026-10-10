@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions
+name: Identify contexts suitable for modelling by logarithmic functions and use them to solve practical
+  problems
+domain: functions-sequences
+description: 'Given a stated practical scenario modelled by a fully specified logarithmic function, compute the requested numeric value (the input at which the modelled quantity reaches a stated level). The model is fully specified on every tier -- no tier fits a parameter from a data point -- and every tier SOLVES for the input, never evaluates the model at a stated input (that is the sibling skill senior-identify-contexts-suitable-for-modelling-by-exponential-functions). easy solves y = a log10(x) + b for x; medium uses a natural-log model with a negative or fractional coefficient; hard shifts the input inside the log (log10(t + c)); exam solves for the input at two stated target levels and reports the gap between them. Distinct from senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and, which solves a bare log_b(ax+c) = k for an EXACT algebraic x with an integer base 2..10 and no practical context, and from senior-define-logarithms-as-indices-a-x-b-is, which assesses the bare definitional equivalence a^x = b for stated integer powers.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19e_log_model_solve_input
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19e_log_model_solve_input
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19e_log_model_solve_input
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19e_log_model_solve_input
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-to-subtract-the-constant
+  description: Solves 10^(y/a) (or e^(y/a)) instead of subtracting b from y first.
+- id: divides-after-exponentiating
+  description: Computes base^(y - b) and then divides the whole result by a, instead of dividing the exponent (y - b) by a before exponentiating.
+- id: wrong-base
+  description: Uses base e where the model states base 10, or base 10 where the model states base e.
+- id: forgot-the-input-shift
+  description: Solves for the un-shifted value 10^((y-b)/a) instead of subtracting the stated shift c (hard tier).
+- id: reports-one-level-instead-of-the-gap
+  description: States the input at one of the two target levels instead of the gap between them (exam tier).
+tags: [acara-senior-v8-4, functions-sequences, logarithms, p19e_log_model_solve_input, acmmm158]

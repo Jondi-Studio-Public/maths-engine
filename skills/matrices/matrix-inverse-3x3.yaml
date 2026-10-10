@@ -1,0 +1,42 @@
+id: matrix-inverse-3x3
+name: Invert a 3x3 matrix
+domain: matrices
+description: Find the inverse of a 3x3 matrix.
+status: deferred
+deferred_reason: grader
+prerequisites:
+- matrix-inverse-2x2
+answer: list
+sources:
+- topic: matrices
+  params:
+    kinds:
+    - inverse3
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: matrices
+  params:
+    kinds:
+    - inverse3
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: matrices
+  params:
+    kinds:
+    - inverse3
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-transpose-cofactor
+  description: Forgetting to transpose the cofactor matrix.
+- id: global-sign-error
+  description: A global sign error across the whole inverse.
+tags: []

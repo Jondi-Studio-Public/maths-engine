@@ -1,0 +1,29 @@
+id: f10-mental-mult-div-extension
+name: Extend multiplication and division facts mentally
+domain: primary-number
+description: Use a known multiplication or division fact to compute the related larger calculation.
+status: active
+placement_eligible: false
+prerequisites: [multiplication-facts, whole-number-division-facts]
+answer: number
+sources:
+- topic: mental_mult_div_extension
+  params: {variant: scale_a_by_ten}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: mental_mult_div_extension
+  params: {variant: scale_dividend_by_ten}
+  difficulty: medium
+  stages: [3, 4]
+- topic: mental_mult_div_extension
+  params: {variant: scale_product_divide_back}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgets-to-scale
+  description: States the original stated fact's answer unchanged, ignoring the requested scale.
+- id: wrong-power-scale
+  description: Scales by the wrong power of ten -- one zero too many or too few compared to what was asked.
+- id: scales-one-factor-only
+  description: When both factors need scaling, scales only one of them and leaves the other unchanged.
+tags: [acara-f10-v9, primary, multiplication, division, mental-strategies, ac9m4a02]

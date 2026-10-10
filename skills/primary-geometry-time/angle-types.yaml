@@ -1,0 +1,10 @@
+id: angle-types
+name: Classify angles by size
+domain: primary-geometry-time
+description: Classify a stated angle as acute, right, obtuse, straight or reflex.
+status: active
+prerequisites: [compare-lengths]
+answer: mcq
+sources: [{topic: classify_angle, params: {}, difficulty: easy}]
+misconceptions: [{id: ignores-boundaries, description: Confuses the exact 90° and 180° boundary cases.}]
+tags: [expansion-batch-2, primary, angles]

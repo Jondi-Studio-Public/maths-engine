@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-the-concepts-and-language-of-outcomes-sample
+name: Review the concepts and language of outcomes, sample spaces and events
+domain: statistics-probability
+description: Classify a finite set of outcomes as a single outcome, the sample space itself, an event (a set of outcomes), or an invalid subset, given a bounded equally-likely sample space and the set explicitly stated.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: outcomes_sample_classify
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: outcomes_sample_classify
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: outcomes_sample_classify
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: mistakes-event-for-sample-space
+  description: Picks "the sample space" when the truth is "an event", or vice versa.
+- id: mistakes-outcome-for-event
+  description: Picks "a single outcome" when the truth is "an event", or vice versa.
+- id: ignores-invalid-membership
+  description: Treats an invalid subset (containing out-of-range values) as if it were a valid event or sample space.
+tags: [acara-senior-v8-4, statistics-probability, outcomes-sample-space, acmmm049]

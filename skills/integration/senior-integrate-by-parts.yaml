@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-integrate-by-parts
+name: Integrate by parts
+domain: integration
+description: Given bounded, fully specified inputs, integrate by parts. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: integrate_by_parts
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: integrate_by_parts
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: integrate_by_parts
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: sign-error
+  description: Flipping the sign of the ∫v·du term in the by-parts formula.
+- id: dropped-integral-term
+  description: Dropping the ∫v·du term entirely and using only u·v.
+- id: wrong-v-antiderivative
+  description: Computing v without dividing by the inner coefficient.
+- id: swapped-uv
+  description: Swapping the roles of u and v in the by-parts formula, computing v·u - ∫u·dv instead of u·v - ∫v·du.
+- id: only-upper-bound
+  description: Evaluating the antiderivative at the upper bound only, without subtracting the lower bound.
+tags: []

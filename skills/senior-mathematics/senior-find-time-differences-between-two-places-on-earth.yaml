@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-time-differences-between-two-places-on-earth
+name: Find time differences between two places on Earth
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, find time differences between two places on Earth. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: earth_longitude_time_difference
+  params: {mode: same_side}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: earth_longitude_time_difference
+  params: {mode: opposite_side}
+  difficulty: medium
+  stages: [3, 4]
+- topic: earth_longitude_time_difference
+  params: {mode: inverse}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-to-divide
+  description: Reports the longitude separation itself as if it were already the time difference in hours, never dividing by 15.
+- id: inverted-division
+  description: Divides 15 by the longitude separation instead of the longitude separation by 15.
+- id: wrong-side-rule
+  description: Adds the two longitudes' magnitudes when they are on the same side of the prime meridian (should subtract), or subtracts them when they are on opposite sides (should add).
+- id: wrong-direction-sign
+  description: In the inverse (find-the-longitude) question, moves place B's longitude in the opposite direction to the one stated (east instead of west, or vice versa).
+- id: off-by-double
+  description: In the inverse (find-the-longitude) question, multiplies the stated time difference by 30 instead of 15 when converting it back to degrees.
+tags: [acara-senior-v8-4, senior-mathematics, measurement, earth-geometry]

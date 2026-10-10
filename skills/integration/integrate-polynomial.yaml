@@ -1,0 +1,41 @@
+id: integrate-polynomial
+name: Integrate a polynomial
+domain: integration
+description: Integrate a polynomial term by term using the reverse power rule.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: integration
+  params:
+    kinds:
+    - polynomial
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: integration
+  params:
+    kinds:
+    - polynomial
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: integration
+  params:
+    kinds:
+    - rewrite_condition
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: raised-power-no-divide
+  description: Raising the power without dividing by the new power.
+- id: differentiated-instead
+  description: Differentiating instead of integrating.
+tags: []

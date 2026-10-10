@@ -1,0 +1,46 @@
+id: vector-cross-product
+name: Cross product
+domain: vectors
+description: Calculate the cross product of two 3D vectors.
+status: active
+prerequisites:
+- vector-dot-product
+answer: list
+sources:
+- topic: vectors
+  params:
+    kinds:
+    - cross
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: vectors
+  params:
+    kinds:
+    - cross
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: vectors
+  params:
+    kinds:
+    - cross_sum
+    hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-order-sign
+  description: Computing v x u instead of u x v (sign flipped).
+- id: forgot-cofactor-sign
+  description: Forgetting the minus sign on the middle cofactor.
+- id: forgot-to-add-first
+  description: Crossing one addend with v directly, forgetting to add the other vector first.
+- id: crossed-wrong-pair
+  description: Crossing the wrong pair of vectors (the two addends) instead of the sum with v.
+tags: []

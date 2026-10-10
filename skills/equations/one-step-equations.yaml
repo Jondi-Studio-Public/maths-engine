@@ -1,0 +1,84 @@
+id: one-step-equations
+name: Solve one-step linear equations
+domain: equations
+description: Solve equations that need a single inverse operation, with integer, signed, fractional or
+  decimal coefficients.
+status: active
+prerequisites:
+- inverse-operations
+- integer-arithmetic
+- fraction-arithmetic
+- decimal-arithmetic
+answer: number
+sources:
+- topic: linear_equation
+  params:
+    a_fixed: 1
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params:
+    b_zero: true
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params:
+    allow_negative: true
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params:
+    kind: division_form
+    allow_negative: true
+    coef_hi: 15
+    sol_hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: linear_equation
+    params:
+      a_fixed: 1
+      sol_hi: 9
+      b_hi: 9
+    target_s: 4
+    limit_s: 10
+  - topic: linear_equation
+    params:
+      b_zero: true
+      coef_hi: 9
+      sol_hi: 9
+    target_s: 5
+    limit_s: 12
+  - topic: linear_equation
+    params:
+      a_fixed: 1
+      allow_negative: true
+      sol_hi: 9
+      b_hi: 9
+    target_s: 6
+    limit_s: 15
+misconceptions:
+- id: wrong-inverse
+  description: Multiplying when division is required, or vice versa.
+- id: one-side-only
+  description: Applying the inverse operation to only one side of the equation.
+- id: rejects-negative-solution
+  description: Assuming a negative solution must be wrong.
+- id: premature-rounding
+  description: Rounding a fractional or decimal answer before finishing.
+- id: divided-instead-of-multiplied
+  description: Dividing by the coefficient under x/a instead of multiplying both sides by it, the
+    opposite undo-operation from every other one-step shape.
+tags: []

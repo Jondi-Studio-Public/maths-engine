@@ -1,0 +1,48 @@
+id: jacobian-two-variable
+name: Evaluate a 2-variable Jacobian
+domain: multivariable-and-vector-calculus
+description: Evaluate the 2 by 2 Jacobian matrix of a polynomial map from two variables to two outputs at a point.
+status: active
+prerequisites: [partial-derivative-y]
+answer: mcq
+sources:
+- topic: jacobian_two_variable
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: jacobian_two_variable
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: jacobian_two_variable
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: transposed-jacobian
+  description: Places the x and y partial derivatives in transposed positions.
+- id: origin-substitution
+  description: Differentiates correctly but substitutes the origin instead of the stated point.
+tags: [university-core-v1, university-foundation-pilot, multivariable-calculus]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

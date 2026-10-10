@@ -1,0 +1,30 @@
+id: rectangle-perimeter
+name: Calculate rectangle perimeter
+domain: measurement
+placement_order: 40
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Calculate the perimeter of a rectangle from its length and width.
+status: active
+prerequisites: [add-within-100]
+answer: number
+sources:
+- topic: rectangle_measure
+  params: {kind: perimeter, side_hi: 10}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: rectangle_measure
+  params: {kind: perimeter, side_hi: 20}
+  stages: [3, 4]
+  difficulty: medium
+- topic: rectangle_measure
+  params: {kind: perimeter, side_hi: 25, find_side: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: adds-two-sides
+  description: Adds only the length and width instead of all four sides.
+- id: uses-area
+  description: Multiplies length by width and reports an area.
+tags: [primary, measurement, perimeter, acara-v9-year-5]

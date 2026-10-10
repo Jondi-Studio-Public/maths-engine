@@ -1,0 +1,31 @@
+id: f10-exponent-laws-integer-variable
+name: Apply integer exponent laws to variables
+domain: secondary-number
+description: Simplify numerical and algebraic expressions using integer exponent laws, including negative exponents where defined.
+status: active
+placement_eligible: false
+prerequisites: [f10-exponent-laws-positive-zero, logarithm-laws]
+answer: expression
+sources:
+- topic: exponent_laws_integer_variable
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: exponent_laws_integer_variable
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: exponent_laws_integer_variable
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: multiplies-instead-of-adds
+  description: Multiplies the two exponents together instead of adding them when applying the product law (or, on the power-of-a-power tier, adds where the outer power should multiply).
+- id: applies-wrong-law
+  description: Subtracts exponents when the product law calls for addition, or adds them when the quotient law calls for subtraction -- confuses which of the two laws the question is asking for.
+- id: drops-the-negative-sign
+  description: Treats a negative exponent as if it were positive when combining terms, reporting the sum or difference of the exponents' magnitudes instead of their signed values.
+- id: power-of-power-adds-instead-of-multiplies
+  description: Adds the outer power to the inner exponent instead of multiplying them when applying the power-of-a-power law.
+tags: [acara-f10-v9, secondary, exponents, variables]

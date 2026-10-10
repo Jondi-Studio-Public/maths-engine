@@ -1,0 +1,49 @@
+id: propositional-truth-evaluation
+name: Evaluate a propositional formula
+domain: logic-computability-and-information
+description: Evaluate a small proposition from assigned truth values using negation, conjunction, disjunction and implication.
+status: active
+prerequisites: []
+answer: mcq
+sources:
+- topic: propositional_truth_value
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: propositional_truth_value
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: propositional_truth_value
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: implication-converse
+  description: Treating p implies q as equivalent to q implies p.
+- id: precedence-error
+  description: Grouping a negation or binary connective incorrectly.
+tags: [university-core-v1, university-foundation-pilot, logic]
+framework_areas:
+- logic-computability-and-information
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information

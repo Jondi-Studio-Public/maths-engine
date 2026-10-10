@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-demonstrate-an-understanding-of-the-elementary-ideas-and
+name: Demonstrate an understanding of the elementary ideas and notation of ratio
+domain: arithmetic
+description: Given two whole-number quantities, express their ratio in simplest
+  whole-number a:b form.
+status: active
+placement_eligible: false
+prerequisites:
+- order-of-operations
+answer: fraction
+sources:
+- topic: p19i_ratio_simplest_form
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p19i_ratio_simplest_form
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p19i_ratio_simplest_form
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p19i_ratio_simplest_form
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: swaps-the-two-terms
+  description: Reports the ratio with its two terms reversed (b:a instead of a:b).
+- id: unreduced-wrong-pair
+  description: On the medium tier, forms the ratio from the wrong pair of counts
+    (one relevant count with the irrelevant third quantity) instead of the two
+    counts the question actually asks to compare.
+- id: denominator-as-term
+  description: On the hard tier, uses the stated fraction's denominator directly
+    as one ratio term instead of deriving the actual boys count from the total.
+- id: wrong-power-of-ten
+  description: On the exam tier, clears one decimal by the wrong power of 10 (100
+    instead of 10), producing a genuinely different ratio.
+tags: []

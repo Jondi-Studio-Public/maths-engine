@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-factorise-cubic-polynomials-in-cases-where-a-linear
+name: Factorise cubic polynomials in cases where a linear factor is easily obtained
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, factorise cubic polynomials in cases where a linear factor is easily obtained. Return the resulting value, expression, relation, or classification. The canonical answer is always the factored (x - p)(x^2 + qx + r) form (monic tiers) or a(x - p)(x^2 + qx + r) (hard, non-monic) -- never a list of roots and never the solved equation, which is the scope of the sibling skill senior-solve-cubic-equations-using-technology-and-algebraically-in. Only the (linear)(quadratic) split is graded; no further factorisation of the quadratic factor is required or assessed.'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: expression
+sources:
+- topic: factorise_cubic_linear_factor
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: factorise_cubic_linear_factor
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: factorise_cubic_linear_factor
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: sign-error-on-linear-factor
+  description: States (x + p) instead of (x - p) in the linear factor.
+- id: swapped-quadratic-coefficients
+  description: Swaps the linear and constant coefficients within the quadratic factor.
+- id: wrong-constant-in-quadratic
+  description: States a quadratic-factor constant one unit away from the correct value.
+- id: scalar-factor-omitted
+  description: Drops the leading scalar a entirely (hard, non-monic tier only).
+tags: [acara-senior-v8-4, functions-sequences, polynomials, factorise_cubic_linear_factor, acmmm018]

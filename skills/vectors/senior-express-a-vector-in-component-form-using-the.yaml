@@ -1,0 +1,34 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-express-a-vector-in-component-form-using-the
+name: Express a vector in component form using the unit vectors
+domain: vectors
+description: Given bounded, fully specified inputs, express a vector in component form using the unit vectors. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: express_a_vector_in_component_form_using_the
+  params: {variant: single_leg_positive}
+  difficulty: easy
+  stages: [6]
+- topic: express_a_vector_in_component_form_using_the
+  params: {variant: single_leg_signed}
+  difficulty: medium
+  stages: [6]
+- topic: express_a_vector_in_component_form_using_the
+  params: {variant: two_leg}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-axis-component
+  description: Reports the other axis's coefficient instead of the one asked for.
+- id: sign-ignored
+  description: Reports the unsigned magnitude, ignoring the stated direction (medium/hard tiers only -- always equals the answer at easy tier by construction, so never offered there).
+- id: adds-both-components-together
+  description: Sums the i- and j-coefficients together instead of reporting the one asked for (easy/medium tiers).
+- id: dropped-the-second-leg
+  description: Reports only the first leg's own coefficient, ignoring the second movement entirely (hard tier).
+tags: [acara-senior-v8-4, vectors, component-form, unit-vectors, acmsm016]

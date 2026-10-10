@@ -1,0 +1,51 @@
+id: cosine-rule
+name: Cosine rule for a side
+domain: trigonometry
+description: Use the cosine rule to find a missing side when two sides and the included angle are known.
+status: active
+prerequisites:
+- sine-rule
+answer: number
+sources:
+- topic: trigonometry
+  params:
+    kinds:
+    - cosine_rule
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: trigonometry
+  params:
+    kinds:
+    - cosine_rule
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: trigonometry
+  params:
+    kinds:
+    - cosine_rule
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: cosine_rule_angle
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-error-cosine-term
+  description: A sign error on the -2ab cos(C) term.
+- id: degrees-radians-confusion
+  description: Mixing degrees and radians in the cosine.
+- id: wrong-side-opposite
+  description: Finding the angle opposite the wrong side (mislabelling which side is "included").
+- id: sine-rule-misapplied-to-sss
+  description: Applying the sine-rule ratio to SSS data, which has no given angle to anchor it.
+tags: []

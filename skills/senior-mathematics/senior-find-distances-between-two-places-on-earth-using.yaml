@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-distances-between-two-places-on-earth-using
+name: Find distances between two places on Earth using appropriate technology
+domain: senior-mathematics
+description: Find the great-circle distance between two places on Earth with different longitudes, given the latitude and longitude of each.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p13d_great_circle_distance
+  params: {mode: same_hemisphere}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13d_great_circle_distance
+  params: {mode: opposite_hemisphere}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13d_great_circle_distance
+  params: {mode: combined_km}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13d_great_circle_distance
+  params: {mode: inverse_longitude}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: meridian-formula-ignores-longitude
+  description: Applies the same-longitude meridian-arc formula (a plain latitude difference in arcminutes), ignoring that the two places are on different longitudes entirely.
+- id: wrong-hemisphere-sign
+  description: Flips the sign of one latitude before applying the spherical law of cosines, treating a place in one hemisphere as if it were in the other.
+- id: forgot-arcminute-conversion
+  description: Reports the central angle in degrees, never multiplied by 60 into nautical miles, so the distance is far too small.
+- id: forgot-km-conversion
+  description: Reports the nautical-mile figure as if it were already in kilometres.
+- id: forgot-nm-to-km-inversion
+  description: On the exam (inverse) tier, treats the given kilometre distance as if it were already in nautical miles, skipping the ÷1.852 step before inverting the formula.
+- id: reports-central-angle-as-longitude-difference
+  description: On the exam (inverse) tier, reports the central angle itself as the longitude difference, never inverting the spherical law of cosines at all.
+tags: [acara-senior-v8-4, senior-mathematics, measurement, earth-geometry, great-circle]

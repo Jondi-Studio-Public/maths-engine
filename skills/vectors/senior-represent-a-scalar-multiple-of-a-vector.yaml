@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-represent-a-scalar-multiple-of-a-vector
+name: Represent a scalar multiple of a vector
+domain: vectors
+description: Given bounded, fully specified inputs, represent a scalar multiple of a vector. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: represent_a_scalar_multiple_of_a_vector
+  params: {variant: forward_positive}
+  difficulty: easy
+  stages: [6]
+- topic: represent_a_scalar_multiple_of_a_vector
+  params: {variant: forward_signed}
+  difficulty: medium
+  stages: [6]
+- topic: represent_a_scalar_multiple_of_a_vector
+  params: {variant: inverse}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: added-instead-of-multiplied
+  description: Adds the scalar to the component instead of multiplying by it (easy/medium tiers).
+- id: used-original-vector
+  description: Reports the un-scaled component, forgetting to multiply by the scalar (easy/medium tiers).
+- id: wrong-axis-scalar
+  description: Multiplies the scalar by the other component instead of the one asked for (easy/medium tiers).
+- id: added-instead-of-divided
+  description: Subtracts the scalar from the product instead of dividing by it (hard tier).
+- id: used-product-directly
+  description: Reports the scaled product itself, ignoring the scalar, as if it were the original component (hard tier).
+tags: [acara-senior-v8-4, vectors, scalar-multiple, acmsm012]

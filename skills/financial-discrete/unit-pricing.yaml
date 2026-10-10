@@ -1,0 +1,10 @@
+id: unit-pricing
+name: Calculate a unit price
+domain: financial-discrete
+description: Divide a pack price by its quantity to calculate price per item.
+status: active
+prerequisites: [ratio-rate-proportion]
+answer: number
+sources: [{topic: unit_pricing, params: {}, difficulty: easy}]
+misconceptions: [{id: reverses-rate, description: Divides quantity by price.}]
+tags: [expansion-batch-5, rates]

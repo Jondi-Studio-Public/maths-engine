@@ -1,0 +1,33 @@
+id: f10-polygon-classification
+name: Classify polygons by side and angle properties
+domain: geometry
+description: Classify a triangle or quadrilateral from its stated side lengths, angle measures and parallel-side relationships (for example, as scalene, isosceles, equilateral, right-angled, or as a parallelogram, rectangle, rhombus, trapezium or square).
+status: active
+placement_eligible: false
+prerequisites: [f10-polygon-angle-sums, f10-shape-features-classification]
+answer: mcq
+sources:
+- topic: p14b_polygon_classification
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14b_polygon_classification
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14b_polygon_classification
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14b_polygon_classification
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: partial-property-match
+  description: Picks a class satisfying only part of the stated properties (e.g. calls a shape with all sides equal but no stated right angles a "square" instead of "rhombus" -- ignores the missing angle fact).
+- id: confuses-parallel-with-equal
+  description: Confuses "opposite sides parallel" with "opposite sides equal" (picks parallelogram when only equal-length is stated, or vice versa).
+- id: less-specific-class-despite-support
+  description: (Exam tier only) Picks the less-specific class when a more-specific one is fully supported by the stated facts (e.g. rhombus instead of square when right angles are also stated).
+tags: [f10, geometry, polygons, classification, triangles, quadrilaterals, acara-v9-year-7]

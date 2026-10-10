@@ -1,0 +1,37 @@
+id: domain-and-range-intro
+name: Identify domain and range in simple contexts
+domain: functions-sequences
+description: Identify allowed inputs and resulting outputs from tables, graphs, rules and practical constraints.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- function-concept
+- inequality-symbols
+answer: mcq
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Confusing domain with horizontal axis labels only
+- id: misconception-2
+  description: Ignoring restrictions imposed by a context
+tags: []

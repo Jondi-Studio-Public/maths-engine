@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-consider-similar-problems-involving-compounding-for-example-population
+name: Consider similar problems involving compounding; for example, population growth
+domain: financial-discrete
+description: Given bounded, fully specified inputs, consider similar problems involving compounding; for example, population growth. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p10c_population_compounding
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10c_population_compounding
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10c_population_compounding
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: simple-growth-not-compound
+  description: Treats a compounding rate as simple (linear) growth or decline instead, adding or subtracting a flat percentage of the starting/final value once per period instead of compounding it.
+- id: applied-once-not-n-times
+  description: Applies the growth or decay multiplier only once regardless of how many periods the question states.
+- id: wrong-direction-multiplier
+  description: Applies the growth multiplier to a declining quantity instead of the decay multiplier, or vice versa.
+- id: multiplied-instead-of-divided
+  description: When asked for the original quantity before growth occurred, multiplies the final value by the compounding factor again instead of dividing by it.
+tags: [acara-senior-v8-4, financial-discrete, compounding, population, acmem170]

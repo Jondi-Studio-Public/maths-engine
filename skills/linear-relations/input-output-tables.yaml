@@ -1,0 +1,35 @@
+id: input-output-tables
+name: Generate and interpret input-output tables
+domain: linear-relations
+description: Use a rule to generate paired values and infer a rule from a simple table.
+status: active
+prerequisites:
+- apply-a-rule-to-inputs
+answer: number
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Applying the rule inconsistently to different rows
+- id: misconception-2
+  description: Treating input and output columns as interchangeable
+tags: []

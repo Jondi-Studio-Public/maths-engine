@@ -1,0 +1,55 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-simulate-repeated-random-sampling-for-a-variety-of
+name: Simulate repeated random sampling and standardise the sample proportion
+domain: statistics-probability
+description: 'The generator runs a REAL, seeded simulation of k = 5 to 8 independent samples of n
+  Bernoulli(p) trials for a stated true proportion p and sample size n; the learner reads off the
+  reported sample proportion p-hat for a stated one of the samples and computes the standardised
+  value z = (p-hat - p) / sqrt(p-hat(1 - p-hat)/n), using p-hat''s own standard error (always
+  stated in the prompt as a convention, never assumed memorised). Four tiers: easy prints p-hat
+  directly per sample; medium prints the number of successes x per sample instead, requiring
+  p-hat = x/n first; hard names two samples on opposite sides of p and asks which has the
+  standardised value further from 0, construct-to-target so a larger raw distance from p does not
+  always mean a larger standardised value; exam never prints p as a number, giving instead a
+  stated chance model (a spinner, a fair die, a well-shuffled deck) the learner must turn into an
+  exact fraction p first. This is NOT the neighbouring senior-use-the-approximate-confidence-interval-left-widehat-p
+  (ACMMM178, computes interval bounds from p-hat and n, no true p) or
+  senior-examine-the-approximate-normality-of-the-distribution-of (ACMMM175, classifies n*p-hat >=
+  10, never standardises): this is the only sibling that states a true p AND standardises a
+  printed simulated sample statistic.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: p16b_phat_standardise
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p16b_phat_standardise
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p16b_phat_standardise
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16b_phat_standardise
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: se-uses-p
+  description: Computes the standard error using p instead of p-hat's own value, sqrt(p(1-p)/n) instead of sqrt(p-hat(1-p-hat)/n).
+- id: omits-n
+  description: Divides by p-hat(1-p-hat) alone, never by n, inside the square root.
+- id: omits-sqrt
+  description: Divides by p-hat(1-p-hat)/n directly, never taking the square root.
+- id: reversed-difference
+  description: Computes (p - p-hat)/SE instead of (p-hat - p)/SE, flipping the sign.
+- id: other-sample
+  description: On the hard tier, reports the other named sample's standardised value instead of the one further from 0.
+- id: count-not-proportion
+  description: On the medium/exam tiers, uses the raw count x in place of p-hat in the numerator, never dividing by n first.
+tags: [acara-senior-v8-4, statistics-probability, sampling-distribution, standardise, p-hat, acmmm176]

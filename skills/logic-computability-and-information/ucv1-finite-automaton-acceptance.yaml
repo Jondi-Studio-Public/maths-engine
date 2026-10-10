@@ -1,0 +1,45 @@
+id: ucv1-finite-automaton-acceptance
+name: Evaluate a finite automaton on a supplied word
+domain: logic-computability-and-information
+description: Decide whether a deterministic finite automaton accepts a supplied finite word by following its transition table, stating both the verdict and the state the run ends in.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15d_automaton_acceptance
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15d_automaton_acceptance
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15d_automaton_acceptance
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15d_automaton_acceptance
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-ending-state
+  description: Correctly recognises whether the word is accepted but reports the wrong state the run ends in (or vice versa).
+- id: ignores-total-trace
+  description: Stops tracing at an intermediate state instead of following the whole word, reporting the verdict for a partial trace.
+tags: [university-core-v1, logic-computability-and-information, automata, finite-automaton]
+framework_areas: [logic-computability-and-information]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information

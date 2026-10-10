@@ -1,0 +1,64 @@
+id: circle-area-to-diameter-and-circumference
+name: Find a circle's diameter and circumference from its area
+domain: measurement
+description: Given ONE circle's area (stated to 2 decimal places), find two independently
+  graded answers in one question -- diameter (2 x radius, always exact) and circumference
+  (2 x pi x radius, stated to 1 decimal place) -- working BACKWARDS through a square root
+  (radius = sqrt(area / pi)). The radius is drawn directly, from integers 2-20, and every
+  canonical quantity is computed from that exact radius using true pi
+  (Fraction(math.pi)), never by re-deriving from the rounded displayed area; the round-trip
+  from the rounded displayed area back through the square root to the canonical
+  diameter/circumference is proved clean for every one of the 19 possible radii
+  (an exam-style item).
+status: active
+placement_eligible: false
+prerequisites:
+- f10-circle-measures
+answer: pair
+sources:
+- topic: exd_e5_circle_area_to_diameter_and_circumference
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e5_circle_area_to_diameter_and_circumference
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e5_circle_area_to_diameter_and_circumference
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e5_circle_area_to_diameter_and_circumference
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: reports-radius-as-diameter
+  description: Reports the radius (not doubled) as the diameter answer, skipping the
+    x2 step entirely. Always exercisable; the resulting value differs from the true
+    diameter by exactly the radius, at least 2 at this skill's radius floor.
+- id: circumference-direct-from-area
+  description: Computes circumference directly from the DISPLAYED area using the wrong
+    formula (circumference = 2 x pi x area) instead of going through the radius/diameter
+    at all. Always exercisable and never coincidentally close -- this is dimensionally
+    wrong (multiplies an area-scale quantity by 2 x pi rather than a length-scale one),
+    so it is always far larger than the true circumference.
+- id: diameter-formula-on-radius
+  description: Uses the diameter-based circumference formula on the radius instead
+    (circumference = pi x radius instead of pi x diameter), exactly half the true
+    circumference. Always exercisable; the two never coincide at this skill's radius
+    range.
+tags: [measurement, multi-part, circle, reverse-from-area]

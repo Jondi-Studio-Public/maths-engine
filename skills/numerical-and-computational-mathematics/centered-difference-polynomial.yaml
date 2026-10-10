@@ -1,0 +1,37 @@
+id: centered-difference-polynomial
+name: Apply a centred finite difference
+domain: numerical-and-computational-mathematics
+description: Compute a centred finite-difference derivative estimate for a cubic polynomial at a stated point.
+status: active
+prerequisites: [differentiate-polynomial]
+answer: fraction
+sources:
+- topic: centered_difference_polynomial
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: centered_difference_polynomial
+  difficulty: medium
+  stages: [3, 4]
+- topic: centered_difference_polynomial
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: returns-exact-derivative
+  description: Reports f'(x) and ignores the finite-difference step h.
+- id: uses-forward-difference
+  description: Uses f(x+h)-f(x) instead of the centred formula.
+tags: [university-core-v1, numerical-methods, scientific-computing]
+framework_areas: [numerical-and-computational-mathematics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics

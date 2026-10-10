@@ -1,0 +1,29 @@
+id: f10-multidigit-multiplication
+name: Multi-digit multiplication
+domain: primary-number
+description: Solve a multi-digit multiplication problem.
+status: active
+placement_eligible: false
+prerequisites: [multiplication-facts, place-value-to-100]
+answer: number
+sources:
+- topic: multidigit_multiplication
+  params: {a_range: [10, 99], b_range: [2, 9], max_total_carries: 1}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: multidigit_multiplication
+  params: {a_range: [10, 99], b_range: [10, 99]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: multidigit_multiplication
+  params: {a_range: [100, 999], b_range: [10, 99], min_carry_per_partial: 1}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: dropped-carry
+  description: Multiplies digit by digit but drops the carry between place-value columns, instead of regrouping it into the next column.
+- id: place-value-shift-error
+  description: Multiplies correctly by the tens digit of the second factor but forgets to shift that partial product left by one place, leaving it a factor of 10 too small.
+- id: transposed-digits
+  description: Transposes two digits of one factor before multiplying, e.g. reads 63 as 36.
+tags: [acara-f10-v9, primary, multiplication, ac9m5n06]

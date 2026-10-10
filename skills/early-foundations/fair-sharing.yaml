@@ -1,0 +1,17 @@
+id: fair-sharing
+name: Share equally
+domain: early-foundations
+placement_order: 240
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Divide a small collection fairly into equal groups.
+status: active
+prerequisites: [equal-groups]
+answer: mcq
+sources:
+- topic: fair_sharing
+  params: {groups_hi: 5, each_hi: 5}
+  difficulty: easy
+misconceptions: []
+tags: [age-6, division]

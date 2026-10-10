@@ -1,0 +1,35 @@
+id: f10-metric-measure-instrument-estimate
+name: Estimate and read measured values from metric instruments
+domain: measurement
+description: Given a description of a metric instrument's labelled markings for length, mass or capacity, where a stated value falls among them (using a stated familiar-item benchmark if needed for estimation), choose the suitable metric unit and state the measured value.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-capacity, convert-metric-length, convert-metric-mass]
+answer: number
+sources:
+- topic: metric_measure_instrument_estimate
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: metric_measure_instrument_estimate
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: metric_measure_instrument_estimate
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: off_by_one_mark
+  description: Reads an adjacent mark instead of the correct mark.
+- id: wrong_major_spacing
+  description: Misreads the spacing between major marks (e.g., uses M+1 instead of M).
+- id: reads_previous_mark_only
+  description: For medium tier, ignores the minor divisions and reads only the major mark position.
+- id: confuses_major_minor
+  description: For medium tier, uses the major mark spacing instead of the minor division value when calculating past a mark.
+- id: wrong_direction
+  description: For before_mark trap, adds minor divisions instead of subtracting.
+- id: off_by_one_count
+  description: For benchmark_estimate, counts one more or one fewer items than the correct amount.
+tags: [acara-f10-v9, measurement, metric, instrument-reading]

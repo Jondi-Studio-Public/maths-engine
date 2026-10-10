@@ -1,0 +1,94 @@
+[build-system]
+# 77.0.3 is the first setuptools that reads `license` as an SPDX expression and `license-files` (PEP 639).
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Not `mathgen`: that name on PyPI belongs to an unrelated project. The import package and the
+# command are still `mathgen`.
+name = "maths-engine"
+version = "0.1.0"
+description = "Maths question generators with verified answers, deterministic graders and a skill library."
+readme = "README.md"
+requires-python = ">=3.12" # generators use 3.12-only f-string syntax
+# Code is MIT; the skill definitions in skills/ are CC BY 4.0, and some quote ACARA text, also CC BY 4.0 (see NOTICE).
+license = "MIT AND CC-BY-4.0"
+license-files = ["LICENSE", "LICENSE-CONTENT", "NOTICE"]
+authors = [{ name = "Jondi Haynes" }]
+keywords = ["mathematics", "education", "question-generator", "grading", "sympy", "curriculum"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Education",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+# Floors are the oldest releases the generators were checked against: sympy 1.12.0 cannot parse one
+# generator's output (p11c_factorial_notation), and pyyaml 6.0.0 does not build on Python 3.12.
+dependencies = ["sympy>=1.12.1", "numpy>=1.26", "pyyaml>=6.0.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-xdist>=3.5", "mpmath>=1.3"]
+
+[project.urls]
+Homepage = "https://github.com/Jondi-Studio-Public/maths-engine"
+Source = "https://github.com/Jondi-Studio-Public/maths-engine"
+Issues = "https://github.com/Jondi-Studio-Public/maths-engine/issues"
+
+[project.scripts]
+mathgen = "mathgen.__main__:main"
+
+# The skill library lives in `skills/` at the repository root (tests and scripts read it there). The wheel
+# carries the same files as the package `mathgen._skills`: setuptools maps that package onto `skills/`, so
+# there is one copy in the repository. `mathgen/_paths.py` finds whichever layout it is running from. Keep
+# this list equal to every folder under mathgen/ with an __init__.py (tests/public/test_packaging.py checks).
+[tool.setuptools]
+packages = ["mathgen", "mathgen.generators", "mathgen.grading", "mathgen._skills"]
+# Only the `package-data` globs below go in the wheel; the default (true) makes setuptools treat every
+# domain folder under skills/ as a package it must be told about, and warn about each one.
+include-package-data = false
+
+[tool.setuptools.package-dir]
+"mathgen._skills" = "skills"
+
+[tool.setuptools.package-data]
+"mathgen._skills" = ["*.yaml", "*/*.yaml"]
+
+[tool.pytest.ini_options]
+# Tests import `scripts.*` and `tests.*` from the repository root; a bare `pytest` does not put it on
+# sys.path the way `python -m pytest` does.
+pythonpath = ["."]
+
+# Ruff configuration: format, then lint.
+[tool.ruff]
+# 120, not ruff's 88: the code was written wide, and 120 rewrote the fewest lines.
+line-length = 120
+
+[tool.ruff.lint]
+# Named, not left to ruff's default: ruff 0.16 widened its default set, which would have
+# turned on about 7,000 new findings at once.
+select = ["E4", "E7", "E9", "F"]
+# ruff's former default rule set (E4, E7, E9, F) minus the rules the code broke when lint was
+# added. Every other default rule, including
+# undefined names and syntax errors, gates. To retire one: run
+# `ruff check --select <code> --fix .` (or fix by hand), then delete its line here.
+ignore = [
+  "F401", # unused-import: 160 files
+  "F841", # unused-variable: 111 files
+  "F541", # f-string-missing-placeholders: 49 files
+  "E741", # ambiguous-variable-name (l, O, I): 43 files
+  "E402", # module-import-not-at-top-of-file: 28 files, mostly sys.path set-up in scripts
+  "E712", # true-false-comparison: 18 files
+  "E731", # lambda-assignment: 13 files
+  "F811", # redefined-while-unused: 7 files
+  "E401", # multiple-imports-on-one-line: 6 files
+  "E702", # multiple-statements-on-one-line-semicolon: 4 files
+  "E722", # bare-except: 4 files
+  "E701", # multiple-statements-on-one-line-colon: 3 files
+  "F402", # import-shadowed-by-loop-var: 1 file
+]

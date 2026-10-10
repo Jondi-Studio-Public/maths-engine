@@ -1,0 +1,45 @@
+id: matrix-determinant-3x3
+name: 3x3 determinant
+domain: matrices
+description: Calculate the determinant of a 3x3 matrix by cofactor expansion.
+status: active
+prerequisites:
+- matrix-determinant-2x2
+answer: number
+sources:
+- topic: matrices
+  params:
+    kinds:
+    - determinant3
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: matrices
+  params:
+    kinds:
+    - determinant3
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: matrices
+  params:
+    kinds:
+    - determinant3_product
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: all-plus-expansion
+  description: Forgetting to negate the middle cofactor in the expansion.
+- id: diagonal-only
+  description: Summing only the leading diagonal.
+- id: summed-not-multiplied-determinants
+  description: Adding det(A) and det(B) instead of multiplying them when finding det(AB).
+- id: ignored-second-matrix
+  description: Computing det(A) alone and ignoring B (or vice versa) when asked for det(AB).
+tags: []

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-between-metric-units-of-area-and-other
+name: Convert between metric units of area and other area units
+domain: measurement
+description: Given bounded, fully specified inputs, convert between metric units of area and other area units. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: convert_between_metric_units_of_area
+  params: {mode: m2_ha}
+  difficulty: easy
+  stages: [6]
+- topic: convert_between_metric_units_of_area
+  params: {mode: ha_km2}
+  difficulty: medium
+  stages: [6]
+- topic: convert_between_metric_units_of_area
+  params: {mode: combine}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: confuses-hectare-and-km-factor
+  description: Swaps the two facts in this skill's own family, applying the m2<->km2 factor of 1,000,000 where the m2<->ha factor of 10,000 is correct, or applying the m2<->ha factor of 10,000 where the ha<->km2 factor of 100 is correct (or vice versa in each case).
+- id: conversion-direction
+  description: Multiplies when it should divide, or divides when it should multiply, when converting between two area units.
+- id: forgets-to-convert
+  description: Combines two stated areas given in different units directly, without converting either one first.
+- id: converts-wrong-operand
+  description: Converts the operand that was already stated in the target unit instead of the one that actually needed converting.
+tags: [acara-senior-v8-4, measurement, area, hectares, acmem023]

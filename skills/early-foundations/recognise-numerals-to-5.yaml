@@ -1,0 +1,17 @@
+id: recognise-numerals-to-5
+name: Recognise numerals 0 to 5
+domain: early-foundations
+placement_order: 20
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Match a spoken or shown number to its written numeral.
+status: active
+prerequisites: [count-to-5]
+answer: mcq
+sources:
+- topic: recognise_numeral
+  params: {lo: 0, hi: 5}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, numerals]

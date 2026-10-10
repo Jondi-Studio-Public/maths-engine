@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-commonly-used-probability-statements-including-possible-probable
+name: Interpret commonly used probability statements, including 'possible', 'probable', 'likely', 'certain'
+domain: statistics-probability
+description: 'Given a stated probability value or a description that resolves to one (a percentage, an "N times out of M" rate, or a stated complement), classify it using this skill''s own explicit, disjoint convention -- restated verbatim in every rendered prompt -- for possible (0 < P <= 0.3), probable (0.3 < P <= 0.55), likely (0.55 < P < 0.9), or certain (P >= 0.9), so the classification is deterministic from the stated ranges, never from connotation ("probable" and "likely" are near-synonyms otherwise). Never a bare open-response justification -- a bare mcq classification among the four terms. Boundary against four named neighbours: senior-review-probability-as-a-measure-of-the-likelihood compares TWO events'' probabilities and never labels a single probability against a scale; senior-review-the-probability-scale-0-leq-p-a classifies a sample-space-and-rule event into a three-way P=0/P=1/between split, never the four-term vocabulary, and never reads a stated probability value against explicit ranges; f10-probability-scale-and-expectation goes the REVERSE direction (a likelihood WORD from a different five-word set mapped to a fixed numeric anchor); f10-chance-language-and-outcomes classifies a raw favourable/total item-count bag-draw scenario, with no stated probability value, into a different four-word set.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: mcq
+sources:
+- topic: p19c_probability_language_classify
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_probability_language_classify
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_probability_language_classify
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_probability_language_classify
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-connotation-not-stated-ranges
+  description: Picks between "probable" and "likely" (or any adjacent pair) by everyday connotation rather than checking the value against the ranges stated in the prompt.
+- id: ignores-boundary-inclusivity
+  description: Misclassifies a value exactly at the edge of the range it belongs to, treating the boundary as belonging to the neighbouring category.
+- id: skips-the-computation-step
+  description: At medium/hard tiers, classifies the stated raw number (a percentage integer, a rate's numerator, or a stated complement) directly instead of first converting it to the probability the question actually asks about.
+tags: [acara-senior-v8-4, statistics-probability, probability-language, acmem148]

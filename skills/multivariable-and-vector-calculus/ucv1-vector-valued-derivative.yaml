@@ -1,0 +1,35 @@
+id: ucv1-vector-valued-derivative
+name: Differentiate a vector-valued curve
+domain: multivariable-and-vector-calculus
+description: Differentiate each component of a supplied two-component polynomial curve at a stated parameter.
+status: active
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+answer: pair
+sources:
+- topic: p14d_vector_curve_derivative
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14d_vector_curve_derivative
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14d_vector_curve_derivative
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14d_vector_curve_derivative
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-to-differentiate
+  description: Returns the original function evaluated at t0, (x(t0), y(t0)), instead of the derivative.
+- id: swapped-components
+  description: Returns the pair in the wrong order, (y'(t0), x'(t0)).
+- id: sign-error
+  description: Negates one component of the correct derivative pair.
+- id: product-rule-forgot-one-factor
+  description: At the exam tier, differentiates a product component (t - p1)(t - q1) as if only one factor mattered, reporting (t - q1) alone instead of the full product-rule sum (t - q1) + (t - p1).
+tags: [university-core-v1, multivariable-and-vector-calculus, p14d_vector_curve_derivative]

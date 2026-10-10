@@ -1,0 +1,17 @@
+id: gradient-from-graph
+name: Determine gradient from a graph
+domain: linear-relations
+description: Choose two appropriate points and calculate the gradient of a straight line.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- rate-of-change
+- plot-linear-points
+answer: fraction
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Counting grid squares without considering axis scale
+- id: misconception-2
+  description: Selecting points not on the line
+tags: []

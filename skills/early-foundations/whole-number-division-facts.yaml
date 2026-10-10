@@ -1,0 +1,17 @@
+id: whole-number-division-facts
+name: Whole-number division facts
+domain: early-foundations
+placement_order: 290
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Use multiplication facts to divide into equal groups without remainders.
+status: active
+prerequisites: [multiplication-facts]
+answer: mcq
+sources:
+- topic: fair_sharing
+  params: {groups_hi: 10, each_hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-7, division]

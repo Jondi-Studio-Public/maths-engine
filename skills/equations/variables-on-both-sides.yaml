@@ -1,0 +1,67 @@
+id: variables-on-both-sides
+name: Solve equations with variables on both sides
+domain: equations
+description: Collect variable terms and constants to solve linear equations with variables on both sides.
+status: active
+prerequisites:
+- two-step-equations
+- combine-like-terms
+answer: number
+sources:
+- topic: linear_equation
+  params:
+    kind: both_sides
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params:
+    kind: both_sides
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params:
+    kind: both_sides_bracket
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: linear_equation
+    params:
+      kind: both_sides
+      coef_hi: 3
+      sol_hi: 6
+    target_s: 8
+    limit_s: 20
+  - topic: linear_equation
+    params:
+      kind: both_sides
+      coef_hi: 4
+      sol_hi: 9
+    target_s: 9
+    limit_s: 22
+  - topic: linear_equation
+    params:
+      kind: both_sides
+      coef_hi: 5
+      sol_hi: 9
+      allow_negative: true
+    target_s: 10
+    limit_s: 25
+misconceptions:
+- id: misconception-1
+  description: Moving a term by changing its sign without an operation
+- id: misconception-2
+  description: Collecting terms on opposite sides as though adjacent
+- id: misconception-3
+  description: Distributing the leading coefficient onto the variable inside a bracket but not onto the constant term
+- id: misconception-4
+  description: Collecting the variable terms onto the wrong side, flipping the sign of the solved equation
+tags: []

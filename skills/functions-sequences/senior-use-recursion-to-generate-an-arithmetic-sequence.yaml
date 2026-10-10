@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-recursion-to-generate-an-arithmetic-sequence
+name: Use recursion to generate an arithmetic sequence
+domain: functions-sequences
+description: Generate the next k terms of an arithmetic sequence by iteratively applying the recursive rule t(n+1) = t(n) + d from a stated first term. The graded answer is exactly the k terms AFTER t1, never including t1 itself. This skill is distinguished from the existing active catalog skill "generate-sequence-from-rule" which generates from a CLOSED-FORM rule by substituting term positions directly; this skill generates by applying a RECURSIVE rule iteratively from a stated first term, a genuinely different mechanism.
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: ordered_list
+sources:
+- topic: arithmetic_recursion_generate
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: arithmetic_recursion_generate
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: arithmetic_recursion_generate
+  params: {variant: from_two_terms}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: repeats-the-first-step-constant
+  description: States the same single step repeated, never accumulating the common difference.
+- id: off-by-one-shift-includes-t1
+  description: Accidentally includes t1 itself as the first generated term, shifting the whole window back by one position.
+- id: reverses-the-order
+  description: Returns the correct terms in reversed order instead of the correct sequence.
+tags: [acara-senior-v8-4, functions-sequences, recursion, sequences, acmgm067]

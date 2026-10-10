@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-simple-examples-of-non-uniform-discrete-random
+name: Examine simple examples of non-uniform discrete random variables
+domain: statistics-probability
+description: 'Given a non-uniform discrete random variable presented as a probability distribution table (outcomes and probabilities with a common denominator), solve for either a missing probability using the complement rule or the expected value using a weighted mean. Answers are exact fractions. The skill distinguishes between uniform (all equal probabilities) and non-uniform distributions by construction, requiring reasoning about probability complements and weighted means in non-equiprobable settings.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: fraction
+sources:
+- topic: non_uniform_discrete_random_variable
+  difficulty: easy
+  stages: [6]
+- topic: non_uniform_discrete_random_variable
+  difficulty: medium
+  stages: [6]
+- topic: non_uniform_discrete_random_variable
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: assumes-uniform-distribution
+  description: Treats all outcomes as equally likely, computing 1/k instead of using the stated probabilities.
+- id: forgets-complement-step
+  description: Computes the sum of other probabilities correctly but forgets to take the complement to find the missing probability.
+- id: ignores-probabilities-for-expectation
+  description: Computes arithmetic mean of outcomes instead of weighted mean, ignoring probability weights.
+- id: uses-mode-instead-of-mean
+  description: Reports the most likely outcome (mode) as the expected value instead of computing the weighted average.
+- id: off-by-one-error
+  description: Makes an arithmetic error of exactly 1 in the final numerator, possibly from miscounting or mis-summing.
+tags: [acara-senior-v8-4, statistics-probability, non_uniform_discrete_random_variable, discrete-random-variables, acmmm139]

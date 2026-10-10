@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-estimate-the-mass-of-different-objects
+name: Estimate the mass of different objects
+domain: measurement
+description: Given bounded, fully specified inputs, estimate the mass of different objects. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: mcq
+sources:
+- topic: estimate_mass_reference
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: estimate_mass_reference
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: estimate_mass_reference
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: picks-ten-times-too-large
+  description: Selects the option that is exactly ten times the plausible estimate, as if an extra zero had been added during unit conversion.
+- id: picks-ten-times-too-small
+  description: Selects the option that is exactly one tenth of the plausible estimate, as if a zero had been dropped during unit conversion.
+- id: picks-hundred-times-too-large
+  description: Selects the option that is exactly a hundred times the plausible estimate, confusing the asked unit with one two metric steps removed (e.g. grams where kilograms was asked, or the reverse).
+tags: [acara-senior-v8-4, measurement, estimation, mass, acmem026]

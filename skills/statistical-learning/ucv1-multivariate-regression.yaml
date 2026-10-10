@@ -1,0 +1,57 @@
+id: ucv1-multivariate-regression
+name: Fit a two-feature linear regression
+domain: statistical-learning
+description: Compute coefficients [b0, b1, b2] for a supplied two-feature design
+  y = b0 + b1*x1 + b2*x2 with an invertible Gram matrix, solving (X^T X) b = X^T y.
+  Presentation ranges from raw (x1, x2, y) data to the Gram matrix X^T X / X^T y
+  given directly. Answers are graded positionally, order matters -- a transposed
+  [b0, b2, b1] is a different, wrong answer.
+status: active
+placement_eligible: false
+prerequisites: [least-squares-line]
+answer: ordered_list
+sources:
+- topic: p14e_multivariate_regression
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14e_multivariate_regression
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14e_multivariate_regression
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14e_multivariate_regression
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: wrong-order
+  description: Reports [b0, b2, b1], swapping the two feature slopes -- exactly
+    the mistake the order-sensitive grader exists to catch.
+- id: ignores-one-feature
+  description: Solves as if the model were y = b0 + b1*x1 only, dropping x2's
+    column from the system entirely and reporting b2 = 0.
+- id: off-diagonal-ignored
+  description: 'Non-orthogonal/Gram tiers only: solves as if the Gram matrix were
+    diagonal, dividing each cross-product entry by the matching diagonal entry
+    and ignoring the off-diagonal (feature-correlation) terms.'
+- id: sign-flip
+  description: Negates one coefficient, a plausible sign-tracking slip during
+    elimination.
+- id: omits-mean-adjustment
+  description: 'Exam tier only: reports b0 = ybar directly, skipping the derived
+    combination step b0 = ybar - b1*x1bar - b2*x2bar that recovers the intercept
+    of the original (uncentred) model.'
+tags: [university-core-v1, statistical-learning, regression]

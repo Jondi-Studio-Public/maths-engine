@@ -1,0 +1,10 @@
+id: expected-frequency
+name: Calculate expected frequency
+domain: statistics-probability
+description: Multiply a stated event probability by a number of trials to calculate expected frequency.
+status: active
+prerequisites: [probability-representations, multiplication-facts]
+answer: number
+sources: [{topic: expected_frequency, params: {}, difficulty: easy}]
+misconceptions: [{id: divides-trials-only, description: Divides by the denominator but ignores the numerator.}]
+tags: [expansion-batch-3, probability]

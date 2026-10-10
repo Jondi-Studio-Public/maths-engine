@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-the-ratios-frac-f-left-x-h
+name: Interpret the ratios (f(x+h)-f(x))/h and δy/δx as the slope of a chord
+domain: linear-relations
+description: Given the graph of y = f(x) with a chord drawn between two points of the curve at stated x-values (each at a grid intersection, coordinates not labelled), state the slope of the chord. The ratio (f(x+h)-f(x))/h, including a negative h, is that slope.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rate-of-change]
+answer: fraction
+sources:
+- topic: pv1b_chord_slope
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1b_chord_slope
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1b_chord_slope
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1b_chord_slope
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: tangent-slope-at-first-point
+  description: Reads the slope of the line that only touches the curve at the first point (the tangent) instead of the chord that meets the curve again at the second stated x-value.
+- id: reciprocal
+  description: Divides run by rise instead of rise by run.
+- id: sign-flipped
+  description: Gives the slope with the wrong sign, for example flipping it because h is negative or because the curve heads the other way at one end.
+- id: rise-only
+  description: Gives the change in height between the two points without dividing by the change in x.
+- id: curve-height-difference-over-wrong-run
+  description: Divides the change in height by the wrong run, such as the second x-value, instead of the difference of the two x-values.
+- id: average-of-heights
+  description: Averages the two heights of the curve instead of finding how fast it changes between them.
+tags: [senior, mathematical-methods, chord, secant, difference-quotient, figure, acara-v8-4]

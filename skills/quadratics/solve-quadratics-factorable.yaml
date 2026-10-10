@@ -1,0 +1,45 @@
+id: solve-quadratics-factorable
+name: Solve a factorable quadratic
+domain: quadratics
+description: Solve a quadratic equation with integer roots by factorising.
+status: active
+prerequisites:
+- expand-single-brackets
+answer: list
+sources:
+- topic: quadratic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: quadratic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: quadratic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: quadratic
+  params: {kind: factor_nonmonic}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sign-flip-both-roots
+  description: Flipping the sign of both roots when factorising.
+- id: sign-flip-one-root
+  description: Flipping the sign of only one root.
+- id: nonmonic-ignores-a
+  description: For a non-monic ax^2 + bx + c = 0, ignoring the leading
+    coefficient a entirely and solving x^2 + bx + c = 0 with the same
+    (undivided) b and c instead of dividing the whole equation through by a
+    first.
+tags: []

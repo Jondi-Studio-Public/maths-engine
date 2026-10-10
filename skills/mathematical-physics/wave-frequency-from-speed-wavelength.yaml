@@ -1,0 +1,37 @@
+id: wave-frequency-from-speed-wavelength
+name: Compute frequency from wave speed and wavelength
+domain: mathematical-physics
+description: Use v = fλ to compute a wave frequency from speed and wavelength.
+status: active
+prerequisites:
+- ratio-rate-proportion
+answer: number
+sources:
+- topic: wave_frequency_from_speed_wavelength
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: wave_frequency_from_speed_wavelength
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: wave_frequency_from_speed_wavelength
+  params: {kind: solve_for_wavelength}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: multiplies-speed-wavelength
+  description: Multiplies v and λ instead of rearranging to f = v/λ.
+- id: reverses-wave-ratio
+  description: Uses λ/v, giving the reciprocal units.
+tags: [university-core-v1, mathematical-physics]
+framework_areas: [mathematical-physics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics

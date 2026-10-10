@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-the-derivative-f-left-x-right-as
+name: Define the derivative f'(x) as lim_(h->0) (f(x+h)-f(x))/h
+domain: differentiation
+description: Given bounded, fully specified inputs, define the derivative f'(x) as lim_(h->0) (f(x+h)-f(x))/h. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: define_the_derivative_f_left_x_right_as
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: define_the_derivative_f_left_x_right_as
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: define_the_derivative_f_left_x_right_as
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-to-divide-by-h
+  description: Reports f(x+h)-f(x) without dividing by h.
+- id: dropped-h-term
+  description: Drops the term containing h before it has actually been taken to the limit.
+- id: sign-error-on-difference
+  description: Computes (f(x)-f(x+h))/h, the numerator order reversed.
+- id: forgot-to-take-limit
+  description: Keeps the term containing h instead of letting it vanish as h approaches 0.
+- id: dropped-linear-term
+  description: Drops the derivative's constant (linear coefficient) term entirely.
+- id: forgot-power-multiply
+  description: Differentiates x**2 as x instead of 2x (forgets the power-rule coefficient).
+tags: [acara-senior-v8-4, differentiation, first-principles, limits, acmmm082]

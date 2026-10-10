@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-formulas-to-find-the-volume-and-capacity
+name: Use formulas to find the volume and capacity of regular objects such as cubes, rectangular and triangular prisms and cylinders
+domain: measurement
+description: Given bounded, fully specified inputs, use formulas to find the volume and capacity of regular objects such as cubes, rectangular and triangular prisms and cylinders. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: use_formulas_to_find_the_volume
+  params: {mode: cube}
+  difficulty: easy
+  stages: [6]
+- topic: use_formulas_to_find_the_volume
+  params: {mode: triangular_or_rectangular}
+  difficulty: medium
+  stages: [6]
+- topic: use_formulas_to_find_the_volume
+  params: {mode: two_volume_difference}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits-half-factor
+  description: Drops the 1/2 factor when computing a triangular prism's volume, treating the triangular cross-section as a full rectangle (computing base × height × length instead of 1/2 × base × height × length).
+- id: uses-two-dimensions-only
+  description: Uses only two of the three independently stated dimensions, forgetting to multiply by the third (e.g. computing the cross-sectional area of a prism but forgetting to multiply by its length, or computing the base area of a prism without multiplying by height).
+- id: wrong-shape-formula
+  description: Applies a different shape's formula to the stated dimensions (e.g. applies a triangular-prism formula with the 1/2 factor to a rectangular prism, or vice versa).
+- id: add-instead-of-subtract
+  description: Sums two objects' volumes instead of finding the difference when a comparison question asks for the difference.
+tags: [acara-senior-v8-4, measurement, volume, prisms, acmem103]

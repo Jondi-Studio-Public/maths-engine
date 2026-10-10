@@ -1,0 +1,29 @@
+id: f10-round-decimals-accuracy
+name: Round decimals to an accuracy implied by context
+domain: primary-number
+description: Round a decimal value to the number of decimal places appropriate to a described real-world context, where the accuracy is not stated but must be inferred from the context.
+status: active
+placement_eligible: false
+prerequisites: [f10-estimate-counts-and-check-reasonableness, round-decimals]
+answer: number
+sources:
+- topic: p9e_round_decimal_accuracy
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9e_round_decimal_accuracy
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9e_round_decimal_accuracy
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-accuracy
+  description: Rounds correctly but to a different context-implied place than the one this context actually uses (e.g. the nearest tenth instead of the nearest hundredth).
+- id: truncation
+  description: Drops the digits after the rounding place without applying the half-up rule, instead of rounding.
+- id: wrong-direction-on-boundary
+  description: When the digit after the rounding place is exactly 5, rounds down instead of up.
+tags: [acara-f10-v9, primary, decimals, rounding, ac9m7n05]

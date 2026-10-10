@@ -1,0 +1,29 @@
+id: f10-angle-turn-right-reference
+name: Express turns as right angles
+domain: primary-geometry-time
+description: Express a stated everyday turn (quarter, half, three-quarter or full turn) as a number of right angles.
+status: active
+placement_eligible: false
+prerequisites: [angle-types]
+answer: number
+sources:
+- topic: angle_turn_right_reference
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: angle_turn_right_reference
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: angle_turn_right_reference
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: confuses-half-and-quarter
+  description: Swaps the half (2) and quarter (1) values when building the answer, mistakenly using one for the other.
+- id: off-by-one
+  description: States a right-angle count one more or one less than the correct value.
+- id: forgets-to-subtract
+  description: In the hard (inverse) tier, reports the total T itself instead of the second turn's contribution T minus the first turn.
+tags: [f10, measurement, angles, rotation, acara-v9-year-2, acara-v9-year-3]

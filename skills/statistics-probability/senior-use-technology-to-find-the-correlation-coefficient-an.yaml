@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-technology-to-find-the-correlation-coefficient-an
+name: Use technology to find the correlation coefficient
+domain: statistics-probability
+description: 'Given a small, fully stated bivariate data set (5 to 8 pairs, printed in the prompt), find Pearson''s product-moment correlation coefficient r between two stated variables, to 3 decimal places -- a calculator is allowed; no formula is asked for by hand. Four tiers: direct computation from one printed pair of columns; the variable of interest constructed as the DIFFERENCE of two printed columns before correlating; strength (|r|) compared between two data sets sharing the same variable names in different settings, with its sign reported; and a frequency-weighted data set where repeated observations must be counted the stated number of times. Distinct from senior-distinguish-between-causality-and-correlation-through-examples (ACMEM145/ACMGM100), which never computes r and only quotes an approximate value as context for a causation-versus-correlation judgement.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: p16b_correlation_r
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p16b_correlation_r
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p16b_correlation_r
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16b_correlation_r
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: negated
+  description: Reports -r instead of r (a sign error), only offered when it clears the grader by construction.
+- id: r-squared
+  description: Reports r squared (the coefficient of determination) instead of r itself.
+- id: mispaired
+  description: Computes r after the y column has been read in the wrong order against x, losing the true pairing.
+- id: raw-column
+  description: On the medium tier, reports r between x and one of the two RAW printed columns instead of the derived variable.
+- id: other-set
+  description: On the hard tier, reports the correlation coefficient of the WEAKER data set instead of the stronger one.
+- id: ignores-counts
+  description: On the exam tier, reports r of the distinct pairs only, ignoring each pair's stated frequency.
+tags: [acara-senior-v8-4, statistics-probability, correlation, pearson-r, acmem144]

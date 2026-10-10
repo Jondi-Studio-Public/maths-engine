@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations
+name: Ascertain the reasonableness of answers to arithmetic calculations
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, ascertain the reasonableness of answers to arithmetic calculations. Return the resulting value, expression, relation, or classification. Given a calculation and its stated (proposed) result, judge whether the stated result is reasonable, or -- if not -- whether it is too large, too small, or has the wrong sign. The answer is always a verdict on magnitude and sign, never a recomputation: every wrong stated answer is a gross error (a factor of ten or a sign flip), the kind caught by eyeballing size alone.'
+status: active
+placement_eligible: false
+prerequisites:
+- order-of-operations
+answer: mcq
+sources:
+- topic: reasonableness_verdict
+  difficulty: easy
+  stages: [6]
+- topic: reasonableness_verdict
+  difficulty: medium
+  stages: [6]
+- topic: reasonableness_verdict
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: trusts-a-stated-answer-without-checking-magnitude
+  description: Accepts a stated result as reasonable without comparing its order of magnitude to the operands, missing a x10 or x0.1 error.
+- id: confuses-too-large-with-too-small
+  description: Detects that a stated answer's magnitude is wrong but picks the opposite direction, calling an answer that is x10 too large "too small" or vice versa.
+- id: mistakes-a-sign-error-for-a-magnitude-error
+  description: Sees a negative stated answer where the true result is positive and classifies it as "too small" rather than recognising the wrong-sign case specifically.
+- id: judges-multiplicative-magnitude-additively
+  description: At the multiplication tier, expects the stated answer to be "roughly the sum" of the operands rather than reasoning about the product's own order of magnitude.
+- id: ignores-order-of-operations-before-judging
+  description: At the three-operand tier, evaluates the operations left-to-right instead of respecting order of operations, so the "true" result used for the reasonableness judgement is itself wrong.
+tags: [acara-senior-v8-4, arithmetic, reasonableness_verdict, reasonableness-of-answers, acmem003]

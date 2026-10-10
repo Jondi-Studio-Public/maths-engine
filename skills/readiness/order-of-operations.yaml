@@ -1,0 +1,59 @@
+id: order-of-operations
+name: Apply order of operations
+domain: readiness
+placement_order: 40
+description: Evaluate numerical expressions using brackets, exponents and the four operations in the correct
+  order.
+status: active
+prerequisites: []
+answer: number
+sources:
+- topic: order_of_operations
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: order_of_operations
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: order_of_operations
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: order_of_operations
+    params:
+      terms: 3
+      hi: 9
+      use_brackets: false
+    target_s: 6
+    limit_s: 15
+  - topic: order_of_operations
+    params:
+      terms: 3
+      hi: 9
+      use_brackets: true
+    target_s: 8
+    limit_s: 18
+  - topic: order_of_operations
+    params:
+      terms: 4
+      hi: 9
+      use_brackets: true
+    target_s: 10
+    limit_s: 22
+misconceptions:
+- id: misconception-1
+  description: Working strictly from left to right
+- id: misconception-2
+  description: Treating multiplication as always preceding division
+tags: []

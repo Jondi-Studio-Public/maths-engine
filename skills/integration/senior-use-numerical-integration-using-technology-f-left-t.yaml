@@ -1,0 +1,46 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-numerical-integration-using-technology-f-left-t
+name: 'Use numerical integration using technology \(f\left(t\right)=\lambda e^{-\lambda t}\) for
+  \(t\geq0\) of the exponential random variable with parameter \(\lambda>0,\)'
+domain: integration
+description: 'Given a stated rate parameter lambda greater than zero and stated finite integration
+  bounds, use numerical integration by technology to compute the value of the definite integral of
+  the exponential probability density function f(t) = lambda * e^(-lambda * t) for t >= 0 between
+  those bounds, to a stated precision. This skill covers only the first of the two clauses of the
+  descriptor ACMSM127: the separate "use the exponential random variables and associated
+  probabilities and quantiles to model data and solve practical problems" clause is excluded
+  entirely -- no scenario, dataset or word problem is ever presented, at any difficulty including
+  the exam tier.'
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: number
+sources:
+- topic: p13c_exponential_pdf_numint
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13c_exponential_pdf_numint
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13c_exponential_pdf_numint
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13c_exponential_pdf_numint
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-sign
+  description: Evaluates e^(-lambda*b) - e^(-lambda*a) instead of e^(-lambda*a) - e^(-lambda*b), the negative of the true answer.
+- id: forgot-lower-bound
+  description: Computes 1 - e^(-lambda*b) even though the lower bound a is stated and nonzero, omitting the lower-bound term entirely.
+- id: sign-error-in-exponent
+  description: Uses lambda*t instead of -lambda*t inside the exponential, evaluating e^(lambda*b) - e^(lambda*a).
+- id: dropped-second-interval
+  description: On the exam tier, reports only one of the two stated disjoint sub-intervals' integrals instead of their sum.
+tags: [acara-senior-v8-4, integration, exponential-distribution, acmsm127]

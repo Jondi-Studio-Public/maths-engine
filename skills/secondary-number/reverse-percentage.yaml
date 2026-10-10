@@ -1,0 +1,10 @@
+id: reverse-percentage
+name: Reverse a percentage increase
+domain: secondary-number
+description: Recover an original value from a final value after a stated percentage increase.
+status: active
+prerequisites: [percentage-change]
+answer: number
+sources: [{topic: percentage_change, params: {reverse: true}, difficulty: easy}]
+misconceptions: [{id: subtracts-percent, description: Subtracts the stated percentage of the final value.}]
+tags: [expansion-batch-4, percentages]

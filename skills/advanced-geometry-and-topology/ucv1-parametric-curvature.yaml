@@ -1,0 +1,36 @@
+id: ucv1-parametric-curvature
+name: Compute curvature of a planar parametric curve
+domain: advanced-geometry-and-topology
+description: Evaluate curvature of a supplied polynomial parametric curve at a stated parameter where the denominator is nonzero.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: number
+sources:
+- topic: p13e_parametric_curvature
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13e_parametric_curvature
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13e_parametric_curvature
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13e_parametric_curvature
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: drops-absolute-value
+  description: Reports the signed numerator x'y'' - y'x'' divided by the denominator instead of its absolute value -- only exercisable when the true numerator is negative.
+- id: wrong-power
+  description: Uses (x'^2+y'^2)^1 or (x'^2+y'^2)^2 in the denominator instead of the correct (x'^2+y'^2)^(3/2).
+- id: swaps-derivative-order
+  description: Computes y'x'' - x'y'' (the sign-flipped cross term) instead of x'y'' - y'x'' -- only offered when it produces a value genuinely different from the correct answer (curvature's own absolute value often makes the two coincide).
+- id: evaluates-at-wrong-point
+  description: Substitutes t = 0 instead of the stated evaluation point when computing the derivatives -- only exercisable when the resulting value is still exactly expressible at the stated precision.
+tags: [university-core-v1, advanced-geometry-and-topology, p13e_parametric_curvature]

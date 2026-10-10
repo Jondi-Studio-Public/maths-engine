@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-the-difference-quotient-frac-f-left-x
+name: Interpret the difference quotient \(\frac{f\left(x+h\right)-f(x)}h\) as the average rate of change of a function \(f\)
+domain: functions-sequences
+description: Given a stated function f, a value x and a step h, compute the difference quotient (f(x+h)-f(x))/h as the average rate of change of f over the interval from x to x+h. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: p19f_difference_quotient_stated_h
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19f_difference_quotient_stated_h
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19f_difference_quotient_stated_h
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19f_difference_quotient_stated_h
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-to-divide-by-h
+  description: Reports the numerator f(x+h)-f(x) alone, without dividing by h.
+- id: sign-error
+  description: Negates the difference quotient, as if computing (f(x)-f(x+h))/h instead of (f(x+h)-f(x))/h.
+- id: used-h-as-if-limit-were-taken
+  description: Reports 2*A*p+B, the h->0 limiting value, instead of the actual stated-h quotient 2*A*p+B+A*h.
+tags: [acara-senior-v8-4, differentiation, difference-quotient, acmmm077]

@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-vector-and-cartesian-equations-of-a-plane
+name: Determine vector and Cartesian equations of a plane and of regions in a plane
+domain: vectors
+description: Given bounded, fully specified inputs, determine vector and Cartesian equations of
+  a plane and of regions in a plane. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+  - vector-addition
+answer: number
+sources:
+  - topic: determine_vector_and_cartesian_equations_of_a_plane
+    params: {}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: determine_vector_and_cartesian_equations_of_a_plane
+    params: {}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: determine_vector_and_cartesian_equations_of_a_plane
+    params: {}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: forgot-last-term
+    description: (Easy/medium tier) Omits the last term of the dot product, computing only ax + by.
+  - id: sign-error-middle-term
+    description: (Easy/medium tier) Negates the middle term instead of adding it.
+  - id: sum-not-dot-product
+    description: (Easy/medium tier) Adds all components instead of computing the dot product.
+  - id: forgot-to-divide
+    description: (Hard tier) Computes the numerator but forgets to divide by z0.
+  - id: negated-answer
+    description: (Hard tier) Reports the negative of the correct value.
+  - id: off-by-one
+    description: (Hard tier) Reports one more or one less than the correct value.
+tags: [acara-senior-v8-4, vectors, acmsm108]

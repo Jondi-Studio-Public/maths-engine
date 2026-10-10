@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-angles-at-the-circumference-of-a-circle-subtended
+name: Angles at the circumference of a circle subtended by the same arc are equal
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, Angles at the circumference of a circle subtended by the same arc are equal. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: angles_same_arc
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: angles_same_arc
+  params: {variant: triangle_sum}
+  difficulty: medium
+  stages: [3, 4]
+- topic: angles_same_arc
+  params: {variant: algebraic}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: assumes-supplementary
+  description: Treats angles on opposite arcs as supplementary (180 - x) instead of equal (x), or uses supplementary relationship in intermediate steps.
+- id: halves-the-angle
+  description: Applies the inscribed-angle-is-half-central-angle theorem incorrectly to the same-arc theorem, computing x/2 instead of x.
+- id: sign-error-in-the-equation
+  description: Makes an algebraic sign error when solving the equality equation (e.g., subtracting instead of adding), leading to the wrong value for x.
+tags: [acara-v8-4-specialist, circle-geometry]

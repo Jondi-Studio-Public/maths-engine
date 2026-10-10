@@ -1,0 +1,32 @@
+id: f10-decimal-metric-representation
+name: Choose decimal representations of metric measures
+domain: measurement
+description: Convert a metric measurement and choose a decimal representation that is appropriate for the context and precision required.
+status: active
+placement_eligible: false
+prerequisites:
+  - convert-metric-capacity
+  - convert-metric-length
+  - convert-metric-mass
+answer: number
+sources:
+  - topic: decimal_metric_representation
+    params: {}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: decimal_metric_representation
+    params: {}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: decimal_metric_representation
+    params: {}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: truncates_instead_of_rounds
+    description: Drops extra digits without rounding, truncating instead of applying half-up rounding.
+  - id: wrong_conversion_factor
+    description: Uses an adjacent power-of-ten conversion factor (e.g. dividing by 100 instead of 1000).
+  - id: decimal_place_shift
+    description: Reports the correct digits with the decimal point shifted one place.
+tags: [measurement, decimals, metric-conversion, acara-v9-year-6]

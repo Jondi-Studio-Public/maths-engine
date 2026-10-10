@@ -1,0 +1,19 @@
+id: define-variables
+name: Identify unknowns and define variables
+domain: language-formulas
+description: Choose meaningful variables for unknown or changing quantities in a problem.
+status: active
+prerequisites:
+- variable-concept
+answer: mcq
+sources:
+- topic: define_variable
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2, 3, 4, 5, 6, maintenance]
+misconceptions:
+- id: misconception-1
+  description: Using the same variable for different quantities
+- id: misconception-2
+  description: Defining a variable without stating what it measures
+tags: []

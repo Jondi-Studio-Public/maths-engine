@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-quantifiers-for-all-and-there-exists
+name: Use the quantifiers 'for all' and 'there exists'
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use the quantifiers 'for all' and 'there exists'. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: quantifier_forall_exists_evaluate
+  params: {variant: exists}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: quantifier_forall_exists_evaluate
+  params: {variant: forall}
+  difficulty: medium
+  stages: [3, 4]
+- topic: quantifier_forall_exists_evaluate
+  params: {variant: select_quantifier}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swaps-truth-value
+  description: Reports the negation of the correct True/False value, for example after mis-evaluating the predicate on one element of the set.
+- id: doubts-explicit-domain
+  description: Selects "Cannot be determined from the given information" despite the domain and predicate being fully and explicitly stated in the question.
+- id: doubts-well-defined
+  description: Selects "The question is not well-defined" despite the domain and predicate being fully and explicitly stated in the question.
+- id: overclaims-for-all
+  description: At the hard tier, selects "'for all' only" -- but a non-empty set with every element satisfying the predicate also makes "there exists" true, so this option is never correct.
+- id: confuses-both-and-neither
+  description: At the hard tier, swaps "Both" and "Neither" when some elements pass and some fail the predicate.
+tags: [acara-v8-4-specialist, logic, quantifiers]

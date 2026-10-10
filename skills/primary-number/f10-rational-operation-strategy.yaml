@@ -1,0 +1,29 @@
+id: f10-rational-operation-strategy
+name: Solve multi-step problems with signed integers and rational numbers
+domain: primary-number
+description: Solve a multi-step four-operation problem whose operands include negative integers or negative rational numbers.
+status: active
+placement_eligible: false
+prerequisites: [decimal-arithmetic, fraction-arithmetic, integer-arithmetic]
+answer: number
+sources:
+- topic: rational_operation_strategy
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: rational_operation_strategy
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: rational_operation_strategy
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: sign-error
+  description: Drops or flips a negative sign on one operand.
+- id: wrong-operation-order
+  description: Applies the operations in a different order than stated, changing the running total.
+- id: stops-one-step-early
+  description: Evaluates only the first n-1 steps and reports that intermediate value as the final answer.
+tags: [acara-f10-v9, primary, rational-numbers, integers, decimals, fractions, four-operations, signed, negative, ac9m8n04]

@@ -1,0 +1,65 @@
+id: rectangle-area-perimeter-three-units
+name: Find a rectangle's perimeter and area in three units from its mm side lengths
+domain: measurement
+description: Given ONE rectangle whose two side lengths are stated in mm, find three
+  independently graded answers in one question -- perimeter_mm (the perimeter, in mm,
+  native unit, no conversion), area_cm2 (the area converted mm² -> cm², divide by 100)
+  and area_m2 (the area converted mm² -> m², divide by 1,000,000). The phrase "one rectangle in mm -> area and perimeter in mm², cm², m²" is read this way, because a squared-perimeter
+  reading is not sensible -- perimeter stays in its native mm unit and only the two area
+  answers carry a unit conversion (an exam-style item). Side lengths are drawn
+  1200-9000 mm (genuinely metre-scale panel/room dimensions) specifically so the raw
+  area_m2 never falls below 1.44 m², clear of the fixed 0.051 pair-answer tolerance.
+status: active
+placement_eligible: false
+prerequisites:
+- rectangle-area
+- rectangle-perimeter
+- convert-metric-length
+- senior-use-metric-units-of-area-their-abbreviations-conversions
+answer: pair
+sources:
+- topic: exd_e5_rectangle_area_perimeter_three_units
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e5_rectangle_area_perimeter_three_units
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e5_rectangle_area_perimeter_three_units
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e5_rectangle_area_perimeter_three_units
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mm2-to-cm2-uses-ten
+  description: Divides the mm² area by 10 instead of 100 when converting to cm² -- the
+    classic linear-conversion-factor error applied to a squared unit. Always exercisable;
+    the resulting value differs from the true area_cm2 by roughly a factor of 10.
+- id: perimeter-area-formula-swap
+  description: Computes perimeter_mm using the area formula (length x width) instead of
+    the perimeter formula (2 x (length + width)). Always exercisable; the two formulas
+    never coincide at this skill's side-length range.
+- id: mm2-to-m2-linear-factor
+  description: Forgets the squared-unit conversion factor for area_m2 entirely and divides
+    the mm² area by 1,000 (the LINEAR mm-to-m factor) instead of 1,000,000 (the correct
+    SQUARED factor), treating an area conversion as if it were a linear one. Always
+    exercisable; the resulting value differs from the true area_m2 by roughly a factor of
+    1,000.
+tags: [measurement, multi-part, unit-conversion]

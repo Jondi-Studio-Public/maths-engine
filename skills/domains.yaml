@@ -1,0 +1,184 @@
+# Ordered list of domains, grouped into bands; `band` only groups the headings in a skill listing.
+bands:
+- id: primary
+  name: Primary
+- id: secondary
+  name: Secondary
+- id: senior
+  name: Senior
+- id: university
+  name: University Mathematics
+- id: applied
+  name: Applied & Engineering
+domains:
+- id: early-foundations
+  name: Early Foundations
+  band: primary
+- id: primary-number
+  name: Primary Number
+  band: primary
+- id: measurement
+  name: Measurement
+  band: primary
+- id: primary-geometry-time
+  name: Primary Geometry, Time & Money
+  band: primary
+- id: statistics-probability
+  name: Statistics & Probability
+  band: primary
+- id: readiness
+  name: Readiness
+  band: secondary
+- id: secondary-number
+  name: Secondary Number
+  band: secondary
+- id: language-formulas
+  name: Language & Formulas
+  band: secondary
+- id: expressions-equivalence
+  name: Expressions & Equivalence
+  band: secondary
+- id: equations
+  name: Equations
+  band: secondary
+- id: inequalities
+  name: Inequalities
+  band: secondary
+- id: linear-relations
+  name: Linear Relations
+  band: secondary
+- id: functions-sequences
+  name: Functions & Sequences
+  band: secondary
+- id: financial-discrete
+  name: Financial & Discrete Mathematics
+  band: senior
+- id: linear-systems
+  name: Linear Systems
+  band: secondary
+- id: quadratics
+  name: Quadratics
+  band: secondary
+- id: trigonometry
+  name: Trigonometry
+  band: secondary
+- id: vectors
+  name: Vectors
+  band: senior
+- id: matrices
+  name: Matrices
+  band: senior
+- id: senior-mathematics
+  name: Senior Mathematics
+  band: senior
+- id: differentiation
+  name: Differentiation
+  band: senior
+- id: integration
+  name: Integration
+  band: senior
+- id: limits
+  name: Limits
+  band: senior
+- id: differential-equations
+  name: Differential Equations
+  band: senior
+- id: partial-derivatives
+  name: Partial Derivatives
+  band: senior
+- id: arithmetic
+  name: Senior Numeracy
+  band: senior
+- id: proof-and-foundations
+  name: Proof & Foundations
+  band: university
+- id: logic-computability-and-information
+  name: Logic, Computability & Information
+  band: university
+- id: number-theory
+  name: Number Theory
+  band: university
+- id: discrete-mathematics
+  name: Discrete Mathematics
+  band: university
+- id: linear-algebra
+  name: Linear Algebra
+  band: university
+- id: abstract-algebra
+  name: Abstract Algebra
+  band: university
+- id: advanced-algebra
+  name: Advanced Algebra
+  band: university
+- id: single-variable-calculus
+  name: Single-Variable Calculus
+  band: university
+- id: real-analysis
+  name: Real Analysis
+  band: university
+- id: multivariable-and-vector-calculus
+  name: Multivariable & Vector Calculus
+  band: university
+- id: ordinary-differential-equations
+  name: Ordinary Differential Equations
+  band: university
+- id: fourier-analysis-and-pdes
+  name: Fourier Analysis & PDEs
+  band: university
+- id: advanced-pdes-and-dynamics
+  name: Advanced PDEs & Dynamics
+  band: university
+- id: modelling-and-dynamical-systems
+  name: Modelling & Dynamical Systems
+  band: university
+- id: complex-analysis
+  name: Complex Analysis
+  band: university
+- id: metric-spaces-and-topology
+  name: Metric Spaces & Topology
+  band: university
+- id: functional-and-linear-analysis
+  name: Functional & Linear Analysis
+  band: university
+- id: measure-and-advanced-probability
+  name: Measure & Advanced Probability
+  band: university
+- id: geometry
+  name: Geometry
+  band: secondary
+- id: advanced-geometry-and-topology
+  name: Advanced Geometry & Topology
+  band: university
+- id: probability
+  name: Probability
+  band: university
+- id: statistics
+  name: Statistics
+  band: university
+- id: statistical-learning
+  name: Statistical Learning
+  band: university
+- id: stochastic-processes
+  name: Stochastic Processes
+  band: university
+- id: optimisation
+  name: Optimisation
+  band: university
+- id: numerical-and-computational-mathematics
+  name: Numerical & Computational Mathematics
+  band: university
+- id: advanced-scientific-computing
+  name: Advanced Scientific Computing
+  band: university
+- id: mathematical-physics
+  name: Mathematical Physics
+  band: university
+- id: research-and-mathematical-communication
+  name: Research & Mathematical Communication
+  band: university
+- id: engineering-mechanics
+  name: Engineering Mechanics
+  band: applied
+- id: structural-analysis
+  name: Structural Analysis
+  band: applied

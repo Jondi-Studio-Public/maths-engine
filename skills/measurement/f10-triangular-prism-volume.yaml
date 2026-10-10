@@ -1,0 +1,29 @@
+id: f10-triangular-prism-volume
+name: Calculate triangular prism volume
+domain: measurement
+description: Calculate the volume of a right triangular prism from its triangular cross-section and length, with units.
+status: active
+placement_eligible: false
+prerequisites: [rectangular-prism-volume, triangle-area-base-height]
+answer: number
+sources:
+- topic: triangular_prism_volume
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: triangular_prism_volume
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: triangular_prism_volume
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: omits_half_factor
+  description: Treats the triangular prism like a rectangular prism, multiplying base × height × length without halving for the triangle.
+- id: uses_slant_side
+  description: Uses the slant side of the triangle instead of the perpendicular height in area calculations.
+- id: wrong_inverse_operation
+  description: Forgets to account for the half-factor when rearranging the formula to find a missing dimension.
+tags: [measurement, volume, acara-v9-year-7-year-8]

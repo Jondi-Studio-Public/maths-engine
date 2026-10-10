@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-involving-time-zones-in-australia-and
+name: Solve problems involving time zones in Australia and in neighbouring nations, making any necessary allowances for daylight saving
+domain: senior-mathematics
+description: Given each named place's standard UTC offset and an explicit sentence stating whether it is currently observing daylight saving, work out the magnitude of the current time difference between two Australian and/or neighbouring places, applying the daylight-saving allowance yourself where it applies.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: australia_timezone_conversion
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: australia_timezone_conversion
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: australia_timezone_conversion
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores-dst
+  description: Omits the +1 hour allowance for a place that is currently observing daylight saving, treating its standard offset as the effective one.
+- id: wrong-dst-table-entry
+  description: Applies the daylight-saving allowance to a place that does not observe it, or omits it from a place that does -- confuses which of the two named places is currently observing daylight saving.
+- id: dst-sign-flip
+  description: Subtracts the one-hour daylight-saving allowance instead of adding it for a place that is currently observing it.
+tags: [acara-senior-v8-4, essential-mathematics, time-zones, earth-geometry]

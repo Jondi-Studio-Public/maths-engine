@@ -1,0 +1,31 @@
+id: significant-figures
+name: Round to significant figures
+domain: secondary-number
+description: Round a value to a stated number of significant figures, keeping leading zeros non-significant and trailing zeros before the decimal point in place to preserve magnitude.
+status: active
+placement_eligible: false
+prerequisites: [round-decimals]
+answer: number
+sources:
+- topic: significant_figures
+  params: {variant: plain}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: significant_figures
+  params: {variant: small_value}
+  difficulty: medium
+  stages: [3, 4]
+- topic: significant_figures
+  params: {variant: large_trailing_zero}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-leading-zeros
+  description: Treats a leading zero after the decimal point as if it were already significant, so one fewer real digit is kept than the requested count.
+- id: rounds-to-decimal-places-instead
+  description: Applies the stated significant-figure count as a decimal-place count instead, the confusion round-decimals' own rule invites.
+- id: drops-magnitude
+  description: On a value whose requested significant-figure count is fewer than its integer digit count, keeps only the leading digits with no zero padding, losing the value's magnitude.
+- id: rounds-wrong-direction
+  description: Rounds the opposite way from what the next digit calls for.
+tags: [secondary, number, rounding, engineering-syllabus]

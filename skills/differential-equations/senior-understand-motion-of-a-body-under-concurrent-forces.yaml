@@ -1,0 +1,58 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-motion-of-a-body-under-concurrent-forces
+name: Understand motion of a body under concurrent forces
+domain: differential-equations
+description: Given two or more force vectors, stated by magnitude and direction,
+  acting concurrently on a body of stated mass, compute the resultant force's
+  magnitude and direction (or the resulting acceleration's magnitude and
+  direction).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: p19g_concurrent_forces_resultant
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19g_concurrent_forces_resultant
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19g_concurrent_forces_resultant
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19g_concurrent_forces_resultant
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: one-dimensional-signed-addition
+  description: Treats the concurrent forces as if they acted along a single line,
+    summing their bare magnitudes (1-D signed addition) and keeping only the first
+    force's own stated direction, instead of resolving each force into components
+    and recombining -- the exact boundary this skill draws against
+    senior-examine-momentum-force-resultant-force-action-and-reaction.
+- id: ignores-a-force
+  description: Drops one of the stated forces entirely before resolving into
+    components (the second force on the two-force tiers, or the third force on
+    the three-force tier).
+- id: wrong-quadrant-direction
+  description: Finds the direction with a bare inverse tangent of Fy/Fx and does
+    not adjust for the quadrant Fx and Fy actually place the resultant in, giving
+    a direction up to 180 degrees out whenever Fx is negative.
+- id: swapped-magnitude-and-direction
+  description: Reports the direction value where the magnitude belongs and the
+    magnitude value where the direction belongs.
+- id: forgot-divide-by-mass
+  description: On the three-force tier, reports the resultant force's own
+    magnitude and direction (in newtons) instead of dividing by the stated mass
+    to give the resulting acceleration.
+- id: sign-error-inverse-resolution
+  description: On the exam tier, solves the linear equation for the unknown
+    force's magnitude with the known force's component added instead of
+    subtracted (or vice versa), reaching a different, incorrect magnitude for
+    the unknown force before resolving the final resultant.
+tags: [acara-senior-v8-4, differential-equations, mechanics, acmsm135]

@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-seasonal-indices-by-using-the-average-percentage
+name: Calculate seasonal indices by using the average percentage method
+domain: arithmetic
+description: 'Given quarterly data across two years for one named quarter, apply the average percentage method (each year''s own percentage-of-year-mean for that quarter, then the average of those percentages across years) to find the quarter''s (unadjusted) seasonal index, to 1 decimal place. Also inverts the method (find a missing raw value given the stated index) and applies the four-quarters-sum-to-400 adjustment step.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p13d_seasonal_index
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p13d_seasonal_index
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p13d_seasonal_index
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p13d_seasonal_index
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: averages-raw-values-not-percentages
+  description: Averages the raw quarter values across years directly, skipping the percentage-of-year-mean step entirely.
+- id: divides-by-seasons-not-years
+  description: Divides the summed percentages by the number of seasons (4) instead of the number of years given (2) when averaging.
+- id: uses-overall-mean-not-years-own-mean
+  description: Uses the average of the two years' own means as a single overall denominator in the percentage step, instead of each year's own mean.
+- id: forgets-the-adjustment-step
+  description: On the exam tier, reports the unadjusted fourth-quarter index instead of scaling it so all four quarters sum to exactly 400.
+tags: [acara-senior-v8-4, arithmetic, seasonal-index, p13d_seasonal_index, ACMGM090]

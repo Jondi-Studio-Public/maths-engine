@@ -1,0 +1,48 @@
+id: ucv1-heat-equation-mode
+name: Compute one separated heat-equation mode
+domain: fourier-analysis-and-pdes
+description: Compute one supplied separated Fourier mode satisfying stated one-dimensional heat-equation boundary conditions.
+status: active
+placement_eligible: false
+prerequisites:
+- fourier-coefficient-simple
+answer: expression
+sources:
+- topic: p13e_heat_equation_mode
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13e_heat_equation_mode
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13e_heat_equation_mode
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13e_heat_equation_mode
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-family
+  description: Uses sin when the boundary condition is Neumann, or cos when it is Dirichlet.
+- id: drops-the-square
+  description: Leaves n unsquared in the decay exponent.
+- id: drops-alpha
+  description: Omits alpha from the decay factor.
+- id: wrong-coefficient
+  description: Uses 1 instead of the stated coefficient (medium/hard/exam only).
+- id: uses-wrong-candidate
+  description: Reports the decoy candidate's eigenfunction family (exam tier only).
+tags: [university-core-v1, heat-equation]
+framework_areas: [fourier-analysis-and-pdes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes

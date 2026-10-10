@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-examples-of-direct-proportion-and-linearly-related
+name: Examine examples of direct proportion and linearly related variables
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, examine examples of direct proportion and linearly related variables. Return the resulting value, expression, relation, or classification. Specifically: given a stated relation y = kx and one data point, compute a second value for a new input, the new input for a second value, or (named-law framing) the resulting value after the input is scaled twice in succession, inferring that the output multiplies (rather than divides) from the stated relation itself. Excludes classifying an unlabelled table of values as direct, inverse or quadratic from the data alone; the relation type and its formula are always stated. Excludes a general linear relation with a nonzero y-intercept (y = mx + c, c != 0), which belongs to the existing linear-relations domain skills.'
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: p7d_examine_direct_proportion
+  params:
+    variant: find_y2
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p7d_examine_direct_proportion
+  params:
+    variant: find_x2
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p7d_examine_direct_proportion
+  params:
+    variant: scale_factor
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: as-if-inverse
+  description: 'Treats the relation as inversely proportional, dividing by the scale factor instead of multiplying (easy: y2 = y1/t; medium: x2 = x1/t; hard: divides the stated force by the combined scale factor t1*t2 instead of multiplying, F1/(t1*t2)).'
+- id: as-if-quadratic
+  description: 'Treats the relation as quadratically related, applying the square of the scale factor instead of the scale factor itself (easy/medium: an extra factor of t; hard: applies the square of the combined scale factor, F1*(t1*t2)^2).'
+- id: no-change
+  description: 'Forgets the value changes and answers the stated "before" value unchanged (easy: y1; medium: x1; hard: F1, the stated force, ignoring both scaling steps).'
+tags: []

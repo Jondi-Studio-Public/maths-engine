@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-the-coefficients-and-the-degree-of-a
+name: Identify the coefficients and the degree of a polynomial
+domain: functions-sequences
+description: 'Given a stated polynomial in one variable, state its degree and the coefficient of
+  its highest-degree (leading) term. Narrower than the descriptor "identify the coefficients and the degree",
+  keeping only the one pairing that fits a single grader kind and stays genuinely useful -- the leading
+  coefficient and the degree together describe the polynomial''s end behaviour. The full per-term
+  coefficient list is never asked for.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: p19e_poly_degree_leading
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19e_poly_degree_leading
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19e_poly_degree_leading
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19e_poly_degree_leading
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-degree-and-coefficient
+  description: Reports the leading coefficient in the degree slot and the degree in the coefficient slot.
+- id: first-written-term
+  description: Reads off the power and coefficient of whichever term is written first, instead of the term with the highest power (only a genuine trap once the terms are not already written in descending order).
+- id: term-count-as-degree
+  description: Reports the number of displayed terms (or factors) as if it were the degree.
+- id: sign-error-on-leading-coefficient
+  description: Correct degree, but a sign error on the leading coefficient.
+- id: sum-of-leading-coefficients
+  description: 'Hard tier (product of factors): sums the factors'' leading coefficients instead of multiplying them, and/or reports the largest single factor''s degree instead of the sum of the factors'' degrees.'
+- id: cancelled-term
+  description: 'Exam tier: reports the power and coefficient of the term that appeared to lead before like terms were combined, not noticing it cancelled to zero.'
+tags: []

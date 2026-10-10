@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-the-natural-logarithm-ln-x-log-ex
+name: Define the natural logarithm (ln x = log e x)
+domain: functions-sequences
+description: Given bounded, fully specified inputs, define the natural logarithm \(\ln x=\log_ex\). Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: natural_logarithm_define
+  params: {variant: ln_of_e_power}
+  difficulty: easy
+  stages: [6]
+- topic: natural_logarithm_define
+  params: {variant: ln_general}
+  difficulty: medium
+  stages: [6]
+- topic: natural_logarithm_define
+  params: {variant: e_to_the_k}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: treats-e-to-the-k-as-the-answer
+  description: Forgets to apply ln, states the numeric value of e^k itself (easy tier only).
+- id: states-eulers-number-regardless-of-k
+  description: Confuses e's own value with the answer, returns a constant 2.718 (easy tier only).
+- id: uses-log-base-10-instead-of-e
+  description: Confuses natural log with common log, computes log base 10 instead of base e (medium tier only).
+- id: off-by-a-sign
+  description: Negates the result (medium tier only).
+- id: uses-k-directly-ignoring-the-exponentiation
+  description: States the given ln(x) value as if it were x itself (hard tier only).
+- id: multiplies-e-by-k-instead-of-exponentiating
+  description: Treats a power as a product, computes e*k instead of e^k (hard tier only).
+tags: [acara-senior-v8-4, functions-sequences, logarithms, natural-logarithm, acmmm159]

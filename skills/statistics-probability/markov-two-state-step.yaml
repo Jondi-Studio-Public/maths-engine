@@ -1,0 +1,37 @@
+id: markov-two-state-step
+name: Take one step in a two-state Markov chain
+domain: statistics-probability
+description: Compute the probability of state 1 after one transition from an initial distribution.
+status: active
+prerequisites:
+- simple-event-probability
+answer: fraction
+sources:
+- topic: markov_two_state_step
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: markov_two_state_step
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: markov_two_state_step
+  params: {kind: find_initial}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores-initial-state
+  description: Reports a transition probability without weighting by the initial distribution.
+- id: uses-wrong-row
+  description: Uses the probability of leaving state 1 as the probability of entering it.
+tags: [university-core-v1, probability, stochastic-processes]
+framework_areas: [probability, stochastic-processes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: stochastic-processes

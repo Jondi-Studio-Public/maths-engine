@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-small-scale-network-flow-problems-including-the
+name: Solve small-scale network flow problems including the maximum-flow minimum-cut theorem
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, solve small-scale network flow problems including the use of the ''maximum-flow minimum-cut'' theorem; for example, determining the maximum volume of oil that can flow through a network of pipes from an oil storage tank (the source) to a terminal (the sink). Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: solve_small_scale_network_flow_problems_including_the
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: solve_small_scale_network_flow_problems_including_the
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: solve_small_scale_network_flow_problems_including_the
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: sum-all-source-outgoing
+  description: Sums all of the source node's outgoing pipe capacities, ignoring downstream bottlenecks.
+- id: sum-all-sink-incoming
+  description: Sums all of the sink node's incoming pipe capacities, ignoring upstream bottlenecks.
+- id: minimum-pipe-capacity
+  description: Chooses the single smallest pipe capacity in the network, over-conservative and ignoring the ability to split flow across independent paths.
+tags: [acara-senior-v8-4, financial-discrete, networks, solve_small_scale_network_flow_problems_including_the, ACMGM109]

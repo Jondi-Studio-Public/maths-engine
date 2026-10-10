@@ -1,0 +1,60 @@
+id: mean-median-mode-one-set
+name: Find the mean, median and mode of one data set
+domain: statistics-probability
+description: Given ONE 8-12 value data set (values 1-60, with repeats), find the mean (to 1
+  decimal digit), the median and the mode in a single question -- three independently graded
+  answers. The median averages the two sorted middle values when the count is even (hard/exam);
+  a single sorted middle value when the count is odd (easy/medium). This is the COMBINED,
+  three-answer skill (an exam-style item); `calculate-mean`, `calculate-median` and
+  `calculate-mode` remain separate, single-answer skills and are unaffected.
+status: active
+placement_eligible: false
+prerequisites:
+- order-numbers-to-10
+- whole-number-division-facts
+answer: pair
+sources:
+- topic: exd_e5_mean_median_mode_one_set
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e5_mean_median_mode_one_set
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e5_mean_median_mode_one_set
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e5_mean_median_mode_one_set
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mean-wrong-divisor
+  description: Divides the total by one fewer than the number of observations (n - 1) instead of
+    n. Always exercisable -- the data set is constructed so this always differs from the true
+    mean by more than 1.
+- id: median-does-not-sort
+  description: Picks the middle value(s) of the data set in the order it was PRESENTED rather
+    than sorting first. Genuinely different from the true median whenever the drawn presentation
+    order differs from sorted order at the relevant position(s); honestly dropped on the rare seed
+    where they coincide.
+- id: mode-chooses-largest
+  description: Reports the largest VALUE in the data set instead of the most FREQUENT one.
+    Genuinely different whenever the mode value is not itself also the maximum of the set;
+    honestly dropped on the seed where they coincide.
+tags: [statistics, multi-part]

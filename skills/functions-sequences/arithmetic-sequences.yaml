@@ -1,0 +1,39 @@
+id: arithmetic-sequences
+name: Recognise arithmetic sequences
+domain: functions-sequences
+description: Identify sequences with a constant additive difference.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- integer-arithmetic
+answer: mcq
+sources:
+- topic: sequence
+  params:
+    kind: common_diff
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sequence
+  params:
+    kind: common_diff
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sequence
+  params:
+    kind: common_diff
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Judging from only one pair of terms
+- id: misconception-2
+  description: Confusing a constant ratio with a constant difference
+tags: []

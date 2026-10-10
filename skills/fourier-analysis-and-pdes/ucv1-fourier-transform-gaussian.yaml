@@ -1,0 +1,52 @@
+id: ucv1-fourier-transform-gaussian
+name: Transform a Gaussian in a fixed convention
+domain: fourier-analysis-and-pdes
+description: Return the Fourier transform of a supplied Gaussian under the repository's stated transform convention.
+status: active
+placement_eligible: false
+prerequisites:
+- fourier-coefficient-simple
+answer: expression
+sources:
+- topic: p15e_fourier_transform_gaussian
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15e_fourier_transform_gaussian
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15e_fourier_transform_gaussian
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15e_fourier_transform_gaussian
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgets-the-sqrt-factor
+  description: Omits the sqrt(pi/a) (or convention-appropriate) prefactor entirely.
+- id: wrong-exponent-denominator
+  description: Uses a denominator of 2a instead of 4a inside the exponent.
+- id: keeps-original-a-in-exponent
+  description: Uses the original a inside the transform's exponent instead of inverting it.
+- id: inverts-a-in-prefactor
+  description: Inverts a inside the prefactor's square root instead of the exponent (medium tier only).
+- id: wrong-convention-constant
+  description: Uses the ordinary-convention prefactor when the unitary convention was stated, or vice versa (hard/exam only).
+- id: forgets-the-2-pi-substitution
+  description: Uses the angular variable w in place of the frequency variable f without substituting w = 2*pi*f (exam tier only).
+- id: halves-the-2-pi-substitution
+  description: Substitutes w = pi*f instead of w = 2*pi*f (exam tier only).
+tags: [university-core-v1, p15e-university-batch, fourier]
+framework_areas: [fourier-analysis-and-pdes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes

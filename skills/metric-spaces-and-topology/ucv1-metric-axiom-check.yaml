@@ -1,0 +1,33 @@
+id: ucv1-metric-axiom-check
+name: Check metric axioms on a finite distance table
+domain: metric-spaces-and-topology
+description: Decide which metric axiom fails, if any, for a supplied finite symmetric distance table.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15b_metric_axiom_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15b_metric_axiom_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15b_metric_axiom_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15b_metric_axiom_check
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-symmetry-suffices
+  description: Treats a symmetric table as automatically satisfying every metric axiom, without separately checking d(x, x) = 0, positivity for distinct points, or the triangle inequality.
+- id: overlooks-diagonal-entries
+  description: Never inspects the diagonal d(x, x) values, so a table with a nonzero self-distance is misclassified as satisfying the identity axiom.
+- id: eyeballs-triangle-inequality
+  description: Compares the relative sizes of d(x, z), d(x, y) and d(y, z) informally rather than actually adding d(x, y) + d(y, z), so a near-miss violation (the sum exceeded by exactly 1) is missed, or a satisfied inequality is wrongly flagged as broken.
+tags: [university-core-v1, metric-spaces-and-topology, p15b_metric_axiom_check]

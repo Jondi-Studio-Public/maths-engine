@@ -1,0 +1,39 @@
+id: simplify-multi-operation-expressions
+name: Simplify multi-operation expressions
+domain: expressions-equivalence
+description: Simplify linear expressions containing several operations, brackets and rational coefficients.
+status: active
+prerequisites:
+- simplify-bracketed-expressions
+- fraction-arithmetic
+answer: expression
+sources:
+- topic: simplify_expression
+  params:
+    kind: multi
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: simplify_expression
+  params:
+    kind: multi
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: simplify_expression
+  params:
+    kind: multi
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Cancelling across addition
+- id: misconception-2
+  description: Applying arithmetic operations to unlike terms
+tags: []

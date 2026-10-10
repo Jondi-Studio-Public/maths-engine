@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156
+name: 'Read the vertical asymptote of y = log_a(x + c) off its graph'
+domain: functions-sequences
+description: 'Given the graph of y = log_a(x + c) (a > 1) on a labelled integer grid with c an integer and no asymptote drawn, state the equation of its vertical asymptote, x = -c, by reading the gridline the curve runs down along. The values of a and c are never printed.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: pv1e_log_asymptote
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1e_log_asymptote
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1e_log_asymptote
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1e_log_asymptote
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: x-intercept
+  description: 'Gives x = -c + 1, the x-intercept one square to the right of the asymptote, instead of the line the curve runs down along.'
+- id: sign-flipped
+  description: 'Gives x = c, writing the asymptote on the wrong side of the y-axis (the sign slip of reading log_a(x + c)).'
+- id: y-axis
+  description: 'Gives x = 0, taking the y-axis as the asymptote of a curve that runs down along another gridline.'
+- id: off-by-one
+  description: 'Gives x = -c - 1, reading the asymptote one square to the left of its gridline.'
+- id: off-by-two
+  description: 'Gives x = -c + 2, reading the asymptote two squares to the right of its gridline.'
+- id: squares-not-units
+  description: 'Counts squares across instead of using the horizontal scale, giving x = -c/2 when one square is 2 units.'
+tags: [acara-senior-v8-4, functions-sequences, logarithm, asymptote, graph, acmmm156, figure]

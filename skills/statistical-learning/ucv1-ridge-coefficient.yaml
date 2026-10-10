@@ -1,0 +1,53 @@
+id: ucv1-ridge-coefficient
+name: Compute a one-feature ridge coefficient
+domain: statistical-learning
+description: Compute the closed-form ridge coefficient beta = Sxy / (Sxx + lambda)
+  for a supplied centred one-feature dataset (mean-zero x, mean-zero y, no
+  intercept fitted) and a stated penalty lambda >= 2. lambda never draws 0 or 1,
+  so the answer is always genuinely distinct from the unpenalised OLS slope.
+status: active
+placement_eligible: false
+prerequisites: [least-squares-line]
+answer: fraction
+sources:
+- topic: p13f_ridge_coefficient
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p13f_ridge_coefficient
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p13f_ridge_coefficient
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p13f_ridge_coefficient
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: omits-lambda
+  description: Reports the zero-penalty OLS value Sxy/Sxx, ignoring the penalty
+    entirely.
+- id: subtracts-lambda
+  description: Computes Sxy/(Sxx-lambda) instead of Sxy/(Sxx+lambda).
+- id: adds-lambda-to-numerator
+  description: Computes (Sxy+lambda)/Sxx instead of adding lambda to the
+    denominator.
+- id: uses-lambda-squared
+  description: Computes Sxy/(Sxx+lambda^2) instead of Sxy/(Sxx+lambda).
+- id: wrong-sum
+  description: 'Hard tier only: computes sum(x_i^2) correctly but sum(y_i*y_i)
+    instead of sum(x_i*y_i) for the numerator, a plausible mix-up when given
+    raw (x, y) pairs.'
+tags: [university-core-v1, statistical-learning, regression]

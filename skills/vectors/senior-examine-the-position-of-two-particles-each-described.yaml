@@ -1,0 +1,59 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-position-of-two-particles-each-described
+name: Examine the position of two particles each described as a vector function of time,
+  and determine if their paths cross or if the particles meet
+domain: vectors
+description: 'Given two particles whose position vectors are stated as vector functions
+  of time, r_A(t) and r_B(t) in the plane, determine whether the particles meet -- occupy
+  the same position at the same time -- choosing from four offered options: a genuine
+  meeting (with its point and time), the paths crossing in space but at different times
+  for each particle, the paths never crossing at all, or (exam tier only) a genuine meeting
+  that falls outside a stated time window. Easy uses small integers, drawing a genuine
+  never-intersect (parallel, distinct paths) case alongside meet and cross-at-different-times.
+  Medium may share one velocity component between the two particles (forcing genuine
+  per-component reasoning) and shares the same three live verdicts with easy. Hard allows
+  fractional/negative coefficients with both no-flavours live. Exam adds a stated time window
+  0 <= t <= T, so a genuine meeting occurring only for
+  t > T must be correctly reported as outside the window. Never asks for the meeting
+  time/position as a second graded value on a non-meeting instance (vector-addition, the
+  active prerequisite, only adds/subtracts two given vectors and never solves a
+  component-wise time-consistency system).'
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: mcq
+sources:
+- topic: p19g_particles_meet_mcq
+  difficulty: easy
+  stages: [6]
+- topic: p19g_particles_meet_mcq
+  difficulty: medium
+  stages: [6]
+- topic: p19g_particles_meet_mcq
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19g_particles_meet_mcq
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-crossing-paths-means-meeting
+  description: Sees that the two lines cross at some point in space and concludes the
+    particles meet, without checking that each particle is there at the SAME time.
+- id: assumes-particles-never-meet-because-directions-differ
+  description: Sees the two velocity vectors point in visibly different directions and
+    concludes the particles never meet, missing that non-parallel paths always cross
+    somewhere in space and may well cross at the same time.
+- id: misses-that-parallel-velocities-forbid-any-crossing
+  description: Does not recognise that parallel (proportional) velocity vectors mean the
+    two paths, if distinct, can never cross at all -- tries to solve for a meeting time
+    anyway and mishandles the resulting always-true or always-false equation.
+- id: reads-a-genuine-meeting-time-outside-the-window-as-a-meeting
+  description: At the exam tier, finds the real solution t0 of r_A(t) = r_B(t) but reports
+    "yes, they meet" without checking t0 against the stated window 0 <= t <= T.
+- id: mislabels-a-shared-velocity-component-as-full-parallelism
+  description: At the medium/hard tier, sees the two velocity vectors share one coordinate
+    (say, equal x-components) and assumes the vectors are fully parallel, missing that the
+    OTHER coordinate still differs and the paths are not actually parallel at all.
+tags: [acara-senior-v8-4, vectors, p19g_particles_meet_mcq, particles-meet, acmsm106]

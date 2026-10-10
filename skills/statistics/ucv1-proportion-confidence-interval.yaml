@@ -1,0 +1,70 @@
+id: ucv1-proportion-confidence-interval
+name: Recover a sample from a proportion confidence interval
+domain: statistics
+description: Given a stated normal-approximation confidence interval for a Bernoulli
+  proportion (and, from medium on, its critical value z), recover the sample that
+  produced it -- the centre and half-width, the sample size and success count, or
+  the sample size a tighter target margin would need. The forward direction (build
+  the interval from n and k) is the shipping neighbour
+  senior-use-the-approximate-confidence-interval-left-widehat-p (ACMMM178); this
+  skill never asks for that, and no tier's answer is ever an interval bound.
+status: active
+placement_eligible: false
+prerequisites: [bernoulli-mle]
+answer: pair
+sources:
+- topic: proportion_confidence_interval_inverse
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: proportion_confidence_interval_inverse
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: proportion_confidence_interval_inverse
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: proportion_confidence_interval_inverse
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: margin-as-full-width
+  description: Uses the full width of the interval as the margin instead of its
+    half-width, doubling the margin (easy) or quartering the recovered sample size
+    (medium/hard, since margin enters n as its square).
+- id: bound-as-p-hat
+  description: Reads one printed bound as if it were p_hat itself instead of the
+    interval's midpoint, leaving margin correct but the centre wrong. Only
+    exercisable at easy, which prints both bounds and no separate p_hat.
+- id: missing-z-squared
+  description: Uses z instead of z^2 when inverting the margin formula for n,
+    understating the required sample size.
+- id: missing-complement
+  description: Omits the (1 - p_hat) complement factor when inverting for n,
+    distorting the recovered sample size.
+- id: no-square-root-inversion
+  description: Treats the margin formula as linear in n rather than in its square
+    root, producing a badly wrong sample size.
+- id: bound-substituted-for-p-hat
+  description: On the hard tier (p_hat and one bound stated separately),
+    substitutes the printed bound for p_hat inside the variance term instead of
+    the stated p_hat -- "the wrong side" of the interval.
+- id: rounds-margin-target-down
+  description: On the exam tier, rounds the smallest-sample-size computation down
+    instead of up, understating the sample size a tighter target margin needs.
+- id: linear-margin-rescale
+  description: On the exam tier, assumes the required sample size scales linearly
+    with the ratio of margins rather than with its square (forgets margin scales
+    as 1/sqrt(n)).
+tags: [university-core-v1, statistics]

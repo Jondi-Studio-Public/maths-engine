@@ -1,0 +1,31 @@
+id: f10-position-location-language
+name: Describe position and location in familiar space
+domain: primary-geometry-time
+description: Given a stated linear arrangement of named objects or people, choose the correct positional-language term (for example above, below, next to, between, in front of, behind) describing one object's position relative to another, from a small set of offered options.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19a_position_language
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_position_language
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_position_language
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-direction
+  description: Picks the opposite directional term (above for below, in front of for behind, left for right) from the true relation between the named pair.
+- id: adjacency-overgeneralised
+  description: Picks "next to" for a pair that is not actually adjacent in the stated arrangement.
+- id: reversed-listing-misread
+  description: (hard) Reads the stated listing order literally without inverting it, even though the arrangement was listed in the direction opposite to the offered terms' natural sense.
+- id: single-referent-between
+  description: (hard) Picks a "between" option whose referent pair does not actually bracket the target's stated position.
+tags: [acara-f10-v9, primary, geometry, position, ac9mfsp02]

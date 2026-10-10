@@ -1,0 +1,21 @@
+id: max-bending-moment-udl
+name: M_max for a UDL
+domain: structural-analysis
+description: Find the maximum bending moment for a simply supported beam under a uniformly distributed
+  load.
+status: active
+prerequisites:
+- beam-reactions-point-load
+answer: number
+sources:
+- topic: structural
+  params:
+    kinds:
+    - max_bm_udl
+  difficulty: easy
+misconceptions:
+- id: wrong-formula-fixed-end
+  description: Using the fixed-end formula wL^2/12 instead of wL^2/8.
+- id: forgot-square-span
+  description: Forgetting to square the span.
+tags: []

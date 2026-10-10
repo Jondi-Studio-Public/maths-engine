@@ -1,0 +1,26 @@
+id: triangle-area-base-height
+name: Calculate triangle area from base and height
+domain: measurement
+description: Calculate a triangle's area from a supplied base and perpendicular height.
+status: active
+prerequisites: [rectangle-area, fraction-of-quantity]
+answer: number
+sources:
+- topic: triangle_area_base_height
+  params: {base_hi: 8, height_hi: 8}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: triangle_area_base_height
+  params: {base_hi: 16, height_hi: 16}
+  difficulty: medium
+  stages: [3, 4]
+- topic: triangle_area_base_height
+  params: {base_hi: 30, height_hi: 24}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: omits-half
+  description: Multiplies the base by the perpendicular height without taking half.
+- id: uses-perimeter
+  description: Adds the supplied measurements instead of using the triangle-area formula.
+tags: [acara-gap-build, area, acara-v9-year-7]

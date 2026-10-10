@@ -1,0 +1,48 @@
+id: standard-deviation-from-data
+name: Calculate the sample standard deviation of a data set
+domain: statistics-probability
+description: >-
+  Calculate the SAMPLE standard deviation (divide the sum of squared
+  deviations by n-1, never n) of a small (5-8 value) data set, working
+  through the mean and the variance as steps. Every question states "sample
+  standard deviation" explicitly and asks for the answer to 2 decimal
+  places. Four tiers of genuine reasoning escalation: whole numbers whose
+  mean is itself a whole number; whole numbers whose mean is not a whole
+  number, forcing decimal arithmetic on every deviation; a data set given in
+  a measurement context with a unit and one-decimal-place readings; and two
+  labelled data sets given together, asking for the sample standard
+  deviation of one named set.
+status: active
+prerequisites: [calculate-mean]
+answer: number
+sources:
+# `difficulty` names one of the topic's own registered presets (see
+# mathgen/generators/sample_standard_deviation.py), each of which just sets
+# the matching `variant` -- kept explicit in `params` too so the question a
+# reader of this file sees is never hidden behind the preset name alone.
+- topic: standard_deviation_from_data
+  params: {variant: integers}
+  difficulty: integers
+  stages: [0, 1]
+- topic: standard_deviation_from_data
+  params: {variant: non_integer_mean}
+  difficulty: non_integer_mean
+  stages: [2, 3]
+- topic: standard_deviation_from_data
+  params: {variant: context}
+  difficulty: context
+  stages: [4, 5]
+- topic: standard_deviation_from_data
+  params: {variant: compare_sets}
+  difficulty: compare_sets
+  stages: [6, maintenance]
+misconceptions:
+- id: population-divisor
+  description: Divides the sum of squared deviations by n instead of n-1, reporting the population standard deviation.
+- id: reports-variance
+  description: Reports the variance, forgetting to take the final square root.
+- id: forgot-divide
+  description: Takes the square root of the raw sum of squared deviations without dividing by n-1 (or n) first.
+- id: wrong-data-set
+  description: Computes the standard deviation of the other labelled data set instead of the one asked for.
+tags: [statistics, standard-deviation, spread]

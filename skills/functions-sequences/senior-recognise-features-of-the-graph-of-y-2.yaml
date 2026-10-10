@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-features-of-the-graph-of-y-2
+name: 'Recognise features of the graph of \(y^2=x\) including its parabolic shape and its axis of symmetry'
+domain: functions-sequences
+description: Given a sideways parabola (y-k)^2 = x drawn on an integer grid, write the equation y = k of its axis of symmetry, by reading a marked vertex, locating an unmarked one, or using the midpoint of two marked points that share an x. Never asks for the vertex pair, an intercept or an upright parabola.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: pv1d_parabola_axis_y
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1d_parabola_axis_y
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1d_parabola_axis_y
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1d_parabola_axis_y
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-flipped-axis
+  description: Reads the height of the vertex or of the midpoint with the wrong sign, giving y = -k.
+- id: x-axis-as-axis
+  description: Gives y = 0, taking the x-axis (the line the parabola opens along) for the axis of symmetry.
+- id: one-grid-line-out
+  description: Gives a height one grid line above or below the true axis.
+- id: point-height-as-axis
+  description: Gives the height of a single marked point on the curve as the axis instead of the height midway between two mirror-image points.
+- id: wrong-pair-midpoint
+  description: Takes the midpoint of two marked points that are not mirror images (they do not share an x) as the axis.
+tags: [acara-senior-v8-4, functions-sequences, parabola, axis-of-symmetry, graph, acmmm021]

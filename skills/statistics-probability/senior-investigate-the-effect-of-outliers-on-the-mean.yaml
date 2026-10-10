@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-investigate-the-effect-of-outliers-on-the-mean
+name: Investigate the effect of outliers on the mean
+domain: statistics-probability
+description: Given a stated, generated dataset (a small business's daily profit or loss, $) with a designated outlier, compute the difference between the dataset's mean with the outlier included and its mean with the outlier removed (mean-with minus mean-without, stated to 1 decimal place). Both means are exact integers by construction, so no rounding ever enters the computation. Never computes the median; only the effect of the outlier on the mean is assessed.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+capability_gates: [authentic_data, modelling]
+answer: number
+sources:
+- topic: p12d_outlier_effect_mean
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p12d_outlier_effect_mean
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p12d_outlier_effect_mean
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12d_outlier_effect_mean
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reversed-sign
+  description: Reports mean-without minus mean-with, the negation of the correct answer. The dataset is constructed so the true difference is never zero.
+- id: wrong-denominator
+  description: Computes the mean without the outlier by dividing by n instead of n - 1, forgetting to shrink the denominator after removing the outlier.
+- id: removes-the-wrong-value
+  description: On the hard/exam tiers, where a second extreme value is present but not designated, computes the difference using that OTHER extreme value instead of the stated outlier.
+tags: [acara-senior-v8-4, statistics-probability, p12d_outlier_effect_mean, ACMEM052]

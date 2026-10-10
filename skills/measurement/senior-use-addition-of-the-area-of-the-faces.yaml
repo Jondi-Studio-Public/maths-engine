@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-addition-of-the-area-of-the-faces
+name: Use addition of the area of the faces of solids to find the surface area of irregular solids
+domain: measurement
+description: Given bounded, fully specified inputs, use addition of the area of the faces of solids to find the surface area of irregular solids. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: use_addition_of_the_area_of_the_faces
+  params: {mode: rectangles_and_squares}
+  difficulty: easy
+  stages: [6]
+- topic: use_addition_of_the_area_of_the_faces
+  params: {mode: mixed_shapes}
+  difficulty: medium
+  stages: [6]
+- topic: use_addition_of_the_area_of_the_faces
+  params: {mode: excluded_face}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits_last_face
+  description: Fails to include the last listed face in the total surface area sum.
+- id: double_counts_first_face
+  description: Includes the first face twice instead of once when computing the total.
+- id: confuses_square_side_for_area
+  description: For a square face, uses the side length instead of the area (e.g., uses side s instead of s²).
+- id: forgets_half_on_triangles
+  description: Forgets the 1/2 factor when computing the areas of triangular faces (treats a triangle with base and height as a full rectangle).
+- id: includes_the_excluded_face
+  description: Includes an explicitly excluded face in the total surface area (the reading-comprehension trap for hard tier).
+- id: omits_last_included_face
+  description: Fails to include the last face that is part of the solid (when a face is explicitly excluded, hard tier).
+- id: forgets_half_on_one_triangle
+  description: Forgets the 1/2 factor on only one triangular face while correctly computing the other.
+tags: [acara-senior-v8-4, measurement, surface-area, addition-of-faces, acmem097]

@@ -1,0 +1,30 @@
+id: percentage-discount
+name: Calculate a percentage discount
+domain: primary-number
+placement_order: 70
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Calculate the final price after applying a common percentage discount to a whole-dollar price.
+status: active
+prerequisites: [percentage-of-quantity, subtract-within-100]
+answer: number
+sources:
+- topic: percentage_quantity
+  params: {kind: discount, percents: [10, 50], units_hi: 10}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: percentage_quantity
+  params: {kind: discount, percents: [10, 20, 25, 50], units_hi: 15}
+  stages: [3, 4]
+  difficulty: medium
+- topic: percentage_quantity
+  params: {kind: discount, percents: [10, 20, 25, 50, 75], units_hi: 20, quantity_hi: 300, chained: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: gives-discount-only
+  description: Reports the amount saved rather than the final sale price.
+- id: adds-discount
+  description: Adds the discount to the original price.
+tags: [primary, percentages, money, acara-v9-year-6]

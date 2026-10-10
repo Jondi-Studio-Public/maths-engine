@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-the-derivative-as-the-slope-or-gradient
+name: Read f'(x) off a drawn tangent
+domain: differentiation
+description: Given the graph of y = f(x) on a labelled integer grid with the tangent at a stated x drawn through grid intersections (coordinates not labelled), state f'(x) at that point by reading the tangent's rise over run off the grid. The rule for f is never shown.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+answer: fraction
+sources:
+- topic: pv1b_tangent_slope
+  params: {variant: rising}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1b_tangent_slope
+  params: {variant: sign_and_zero}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1b_tangent_slope
+  params: {variant: cubic_crossing}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1b_tangent_slope
+  params: {variant: tangent_or_secant}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reciprocal-slope
+  description: Reads run over rise instead of rise over run, giving the reciprocal of the tangent's gradient.
+- id: sign-flipped
+  description: Gets the size of the gradient right but the wrong sign, misreading whether the tangent rises or falls to the right.
+- id: f-of-a
+  description: Gives the height of the curve at the stated x (the y-coordinate of the touch point) instead of the gradient of the tangent there.
+- id: chord-slope
+  description: Reads the gradient of a line or chord joining the touch point to another point on the curve (the other crossing, or the secant) instead of the tangent's gradient.
+- id: x-coordinate-a
+  description: Gives the stated x-value back as the answer instead of reading a gradient.
+tags: [acara-senior-v8-4, differentiation, tangent, gradient, acmmm085, figure]

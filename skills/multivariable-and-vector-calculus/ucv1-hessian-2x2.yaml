@@ -1,0 +1,35 @@
+id: ucv1-hessian-2x2
+name: Evaluate a two-variable Hessian
+domain: multivariable-and-vector-calculus
+description: Compute the 2-by-2 Hessian matrix of a supplied polynomial map at a supplied point.
+status: active
+placement_eligible: false
+prerequisites: [jacobian-two-variable]
+answer: ordered_list
+sources:
+- topic: p12f_hessian_2x2
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12f_hessian_2x2
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12f_hessian_2x2
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12f_hessian_2x2
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: diagonal-swap
+  description: Reports the two diagonal entries transposed (f_yy, f_xy, f_yx, f_xx instead of f_xx, f_xy, f_yx, f_yy).
+- id: off-diagonal-sign-error
+  description: Reports the negation of both off-diagonal entries, a common differentiation sign slip on the mixed partial.
+- id: first-derivative-instead-of-second
+  description: Reports the JACOBIAN values (f_x, f_x, f_y, f_y) instead of the Hessian's second partial derivatives.
+- id: point-ignored
+  description: At medium/hard, reports the easy-tier-style constant Hessian as if the cubic term were absent, ignoring the evaluation point's contribution.
+tags: [university-core-v1, multivariable-and-vector-calculus, p12f_hessian_2x2]

@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-distances-between-two-places-on-earth-on
+name: Find distances between two places on Earth on the same longitude
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, find distances between two places on Earth on the same longitude. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: earth_meridian_distance
+  params: {mode: same_hemisphere}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: earth_meridian_distance
+  params: {mode: opposite_hemisphere}
+  difficulty: medium
+  stages: [3, 4]
+- topic: earth_meridian_distance
+  params: {mode: combined_km}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-hemisphere-rule
+  description: Subtracts the two latitudes when they are in opposite hemispheres (should add the magnitudes), or adds them when they are in the same hemisphere (should subtract).
+- id: forgot-arcminute-conversion
+  description: Reports the angular separation in degrees, never multiplied by 60 into arcminutes, so the distance is far too small.
+- id: halves-the-constant
+  description: Multiplies the angular separation in degrees by 30 instead of 60, halving the true distance.
+- id: forgot-unit-conversion
+  description: Reports the nautical-mile figure as if it were already in kilometres.
+- id: confuses-nm-with-statute-mile
+  description: Multiplies the nautical-mile figure by 1.609 (the statute-mile-to-km factor) instead of 1.852.
+- id: misreads-minutes-as-hundredths
+  description: Reads "48 minutes" of latitude as ".48" of a degree instead of ".8" of a degree, starting from the wrong decimal latitude.
+tags: [acara-senior-v8-4, senior-mathematics, measurement, earth-geometry]

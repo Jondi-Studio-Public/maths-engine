@@ -1,0 +1,44 @@
+id: intercept
+name: Interpret the vertical intercept
+domain: linear-relations
+description: Identify and interpret the output value when the input is zero.
+status: active
+prerequisites:
+- independent-dependent-variables
+- plot-linear-points
+answer: number
+sources:
+- topic: linear_from_table
+  params:
+    kind: intercept
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_from_table
+  params:
+    kind: intercept
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_from_table
+  params:
+    kind: intercept_context
+    hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Confusing x- and y-intercepts
+- id: misconception-2
+  description: Assuming the intercept is always zero
+- id: misconception-3
+  description: In a worded rate-plus-flat-fee scenario, reporting the per-day rate instead of the flat fee
+- id: misconception-4
+  description: In a worded rate-plus-flat-fee scenario, reporting the total cost after some number of days instead of the flat fee itself
+tags: []

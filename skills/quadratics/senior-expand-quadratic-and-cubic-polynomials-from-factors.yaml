@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-expand-quadratic-and-cubic-polynomials-from-factors
+name: Expand quadratic and cubic polynomials from factors
+domain: quadratics
+description: Expand quadratic and cubic polynomials given as products of factors. Distribute and combine terms to produce the fully expanded standard form.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: expression
+sources:
+- topic: expand_quadratic_and_cubic_polynomials_from_factors
+  params:
+    variant: two_monic
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: expand_quadratic_and_cubic_polynomials_from_factors
+  params:
+    variant: three_monic
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: expand_quadratic_and_cubic_polynomials_from_factors
+  params:
+    variant: non_monic_cubic
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-flip-one-factor-expansion
+  description: A sign error on one of the factors only.
+- id: dropped-cross-term
+  description: Omitting the linear cross-term in a product expansion.
+- id: sign-flip-constant-only-expansion
+  description: A sign error on the constant term only.
+- id: sign-flip-all-factors-expansion
+  description: A sign error on all factors.
+- id: dropped-linear-cross-term-cubic
+  description: Omitting one quadratic term in a three-factor expansion.
+- id: sign-flip-non-monic-coefficient
+  description: A sign error on the coefficient in the non-monic factor.
+- id: sign-flip-one-root-expansion
+  description: A sign error on one root in the non-monic expansion.
+- id: dropped-constant-from-expansion
+  description: Omitting the constant term from the expansion.
+tags: []

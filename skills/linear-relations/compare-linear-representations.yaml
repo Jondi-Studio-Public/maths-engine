@@ -1,0 +1,18 @@
+id: compare-linear-representations
+name: Compare linear relationships across representations
+domain: linear-relations
+description: Compare rates, intercepts and values when relationships are shown as tables, graphs, equations
+  or contexts.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- equation-from-table
+- equation-from-graph
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Comparing only appearance rather than scale and values
+- id: misconception-2
+  description: Assuming different representations describe different relationships
+tags: []

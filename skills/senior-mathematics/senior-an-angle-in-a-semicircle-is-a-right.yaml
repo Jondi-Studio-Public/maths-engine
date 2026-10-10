@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-an-angle-in-a-semicircle-is-a-right
+name: An angle in a semicircle is a right angle
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, An angle in a semicircle is a right angle. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: angle_in_semicircle
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: angle_in_semicircle
+  params: {variant: difference}
+  difficulty: medium
+  stages: [3, 4]
+- topic: angle_in_semicircle
+  params: {variant: ratio}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgets-right-angle
+  description: Uses 180 degrees instead of 90 degrees as the base total, forgetting that angle ACB is already 90 degrees.
+- id: swaps-the-angles
+  description: Reports the given angle (BAC) instead of the requested angle (ABC).
+- id: sign-or-direction-error
+  description: Adds instead of subtracts (or divides by wrong part in ratio), getting the supplementary or wrong structural formula.
+tags: [acara-v8-4-specialist, circle-geometry]

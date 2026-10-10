@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-the-coordinates-of-the-midpoint-of-two
+name: Determine the coordinates of the midpoint of two points
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, determine the coordinates of the midpoint of two points. Return the resulting value, expression, relation, or classification. Specifically: state one named coordinate (x or y) of the midpoint of two supplied points, or solve for the corresponding coordinate of a missing endpoint given the midpoint and the other endpoint. Excludes stating the full ordered-pair midpoint (the existing AC9M9A03 skill midpoint-two-points already covers that) and excludes any geometric proof, gradient or distance content.'
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: midpoint_coordinate_scalar
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: midpoint_coordinate_scalar
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: midpoint_coordinate_scalar
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Forgot to halve when computing the average (states p1 + p2 instead of (p1 + p2)/2)
+- id: misconception-2
+  description: Used only one endpoint, ignoring the other point entirely
+- id: misconception-3
+  description: Subtracted instead of averaged the two coordinates
+- id: misconception-4
+  description: (hard tier) States the same endpoint again instead of solving for the other
+- id: misconception-5
+  description: (hard tier) Forgot to double when solving for the other endpoint (states m - x1 instead of 2*m - x1)
+tags: []

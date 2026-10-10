@@ -1,0 +1,30 @@
+id: f10-number-algorithms-decisions
+name: Trace algorithms with decisions on stated inputs
+domain: functions-sequences
+description: Given a stated finite algorithm of numeric operations and decisions and one or more stated starting inputs, trace the algorithm step by step and list the resulting numeric output(s) it generates.
+status: active
+placement_eligible: false
+prerequisites:
+- order-of-operations
+answer: list
+sources:
+- topic: number_algorithms_decisions
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: number_algorithms_decisions
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: number_algorithms_decisions
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-branches
+  description: Applies the wrong branch's operation(s) to each input (even inputs get the odd-rule's operations and vice versa).
+- id: wrong-order-of-operations
+  description: Performs the two operations in a branch in the wrong order (hard tier only).
+- id: one-input-skipped
+  description: Omits the last input's output entirely from the result list.
+tags: [acara-f10-v9, functions-sequences, algorithms, ac9m3n07, ac9m4n09, ac9m6a03]

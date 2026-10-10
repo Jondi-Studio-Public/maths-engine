@@ -1,0 +1,48 @@
+Content licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Applies to: the skill definitions under skills/ (the YAML files and
+skills/domains.yaml): skill names, descriptions, answer and distractor
+definitions, misconceptions, tags and prerequisite links.
+
+Does NOT apply to: the Python code (see LICENSE, MIT). It also does not change
+the terms of the Australian Curriculum material quoted or adapted in this
+repository, which stays under ACARA's own CC BY 4.0 licence (see NOTICE).
+That material is the `name` and `description` fields of the skill files whose
+ids start with "senior-" (adapted and modified from the Australian Curriculum
+content descriptions), plus any Australian Curriculum descriptor text quoted
+elsewhere, including in code comments, docstrings and tests. Each "senior-"
+skill file begins with a comment saying so.
+
+Copyright (c) 2026 Jondi Haynes
+
+You are free to:
+
+  Share: copy and redistribute the material in any medium or format.
+  Adapt: remix, transform, and build upon the material for any purpose,
+  even commercially.
+
+Under the following terms:
+
+  Attribution: you must give appropriate credit, provide a link to the
+  licence, and indicate if changes were made. You may do so in any reasonable
+  manner, but not in any way that suggests the licensor endorses you or your
+  use.
+
+  No additional restrictions: you may not apply legal terms or technological
+  measures that legally restrict others from doing anything the licence
+  permits.
+
+Suggested credit: "Skill definitions from mathgen (Jondi Haynes), CC BY 4.0",
+with a link to this repository and to the licence. If you reuse a "senior-"
+skill, also keep the Australian Curriculum attribution in NOTICE.
+
+This summary is not the licence. The human-readable deed is at:
+
+  https://creativecommons.org/licenses/by/4.0/
+
+and the full legal code is at:
+
+  https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+The material is provided as is, without warranties of any kind (see section 5
+of the legal code).

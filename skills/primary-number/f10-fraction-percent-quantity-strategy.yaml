@@ -1,0 +1,35 @@
+id: f10-fraction-percent-quantity-strategy
+name: Choose strategies for familiar fraction and percentage quantities
+domain: primary-number
+description: Calculate a commonly used percentage, decimal or fraction of a whole-number amount.
+status: active
+placement_eligible: false
+prerequisites: [fraction-of-quantity, percentage-discount, percentage-of-quantity]
+answer: number
+sources:
+- topic: p9e_fraction_percent_quantity_strategy
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9e_fraction_percent_quantity_strategy
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9e_fraction_percent_quantity_strategy
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: percent-as-decimal-digits
+  description: Multiplies by the bare percent number instead of percent/100 (e.g. quantity x 37.5 instead of quantity x 0.375).
+- id: decimal-place-shift
+  description: Shifts the decimal point one place (treats 0.375 as 3.75 or 0.0375).
+- id: ignores-numerator
+  description: Finds one unit fraction (quantity / denominator) without multiplying by the numerator.
+- id: wrong-benchmark
+  description: Substitutes the nearest quarter or half for an eighths-family value (e.g. answers as if the value were 1/2 when it is actually 3/8).
+- id: extra-group
+  description: Counts one extra unit-fraction group beyond the true quantity (off-by-one-group in the too-high direction).
+- id: missing-group
+  description: Counts one fewer unit-fraction group than the true quantity (off-by-one-group in the too-low direction).
+tags: [acara-f10-v9, primary, fractions, percentages, ac9m6n07]

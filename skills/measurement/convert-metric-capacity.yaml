@@ -1,0 +1,30 @@
+id: convert-metric-capacity
+name: Convert metric capacity units
+domain: measurement
+placement_order: 30
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Convert exactly between millilitres and litres.
+status: active
+prerequisites: [decimal-place-value]
+answer: number
+sources:
+- topic: metric_conversion
+  params: {kind: capacity, max_steps: 1, value_hi: 12}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: metric_conversion
+  params: {kind: capacity, max_steps: 1, value_hi: 20}
+  stages: [3, 4]
+  difficulty: medium
+- topic: metric_conversion
+  params: {kind: capacity, max_steps: 1, value_hi: 30, combine: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: conversion-direction
+  description: Reverses multiplication and division by one thousand.
+- id: confuses-capacity-mass
+  description: Treats millilitres and litres as mass units rather than capacity units.
+tags: [primary, measurement, metric, acara-v9-year-6]

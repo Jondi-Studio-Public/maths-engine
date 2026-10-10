@@ -1,0 +1,45 @@
+id: ucv1-second-order-characteristic-roots
+name: Solve a constant-coefficient second-order ODE
+domain: ordinary-differential-equations
+description: Return the characteristic roots for a supplied homogeneous second-order constant-coefficient ODE.
+status: active
+placement_eligible: false
+prerequisites: [solve-ode-separable-poly]
+answer: pair
+sources:
+- topic: p12e_characteristic_roots
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12e_characteristic_roots
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12e_characteristic_roots
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12e_characteristic_roots
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-flip-on-b
+  description: Solves r^2 - b*r + c = 0 instead of r^2 + b*r + c = 0, producing the negated roots (or, for the complex tier, a negated real part with the imaginary part unchanged).
+- id: drops-discriminant-sqrt
+  description: Offers -b/2 for both labelled values, as if the discriminant were always zero -- only exercisable on easy/hard, since it IS the correct answer on medium's repeated-root tier.
+- id: coefficients-as-roots
+  description: On easy, reports the coefficients b and c directly, sorted into the smaller/larger labels, as if they were the roots -- skips solving the characteristic equation entirely.
+- id: forgets-to-halve
+  description: On medium, reports the raw coefficient b for both labels instead of dividing by -2, forgetting the final step of the repeated-root formula.
+- id: real-part-only
+  description: For the complex tier, reports the real part for both real_part and imaginary_part, as if the roots were real.
+- id: wrong-sign-on-imaginary-part
+  description: For the complex tier, reports the imaginary part with the wrong sign.
+- id: forgets-negative-on-b
+  description: For the exam tier (roots given, find b and c), computes b = r1 + r2 instead of b = -(r1 + r2), dropping Vieta's negative sign.
+- id: sign-flip-on-c
+  description: For the exam tier, computes c = -(r1*r2) instead of c = r1*r2.
+- id: sum-difference-confusion
+  description: For the exam tier, computes b from r2 - r1 instead of r1 + r2.
+tags: [university-core-v1, ordinary-differential-equations, p12e_characteristic_roots]

@@ -1,0 +1,35 @@
+id: f10-compound-outcomes-replacement
+name: Enumerate compound outcomes with replacement rules
+domain: statistics-probability
+description: >-
+  List all outcomes for a two-stage event with or without replacement and assign
+  probabilities using an appropriate representation.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-probability-complements-compounds
+- multiplication-principle
+answer: ordered_list
+sources:
+- topic: p11d_compound_outcomes_replacement
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11d_compound_outcomes_replacement
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11d_compound_outcomes_replacement
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: no-replacement-values
+  description: Computes each two-stage probability as if the second draw did not replace the first, using (count - 1) and (total - 1) on the second draw.
+- id: swapped-colour-probabilities
+  description: Swaps which colour has which single-draw probability throughout the whole calculation, as if the two colours' counts were mixed up.
+tags:
+- acara-f10-v9
+- statistics-probability
+- p11d_compound_outcomes_replacement
+- ac9m9p01

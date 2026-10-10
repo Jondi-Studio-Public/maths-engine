@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-line-of-best-fit-by-eye
+name: Find the line of best fit by eye
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, find the line of best fit by eye. Return the resulting value, expression, relation, or classification. A small integer scatter dataset and four candidate line equations are stated in the question text; the correct candidate is the one with the strictly smallest sum of squared residuals AND the strictly smallest sum of absolute residuals against the stated points, each separated from its runner-up by a real margin -- never a hidden generating line the learner cannot see, and never a free-hand drawing judgement.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: mcq
+sources:
+- topic: p8c_line_best_fit_by_eye
+  params: {variant: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p8c_line_best_fit_by_eye
+  params: {variant: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p8c_line_best_fit_by_eye
+  params: {variant: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-sign-gradient
+  description: Picks a line sloping the wrong way, ignoring whether the data trends up or down.
+- id: right-gradient-wrong-intercept
+  description: Picks a line parallel to the true trend but offset by a constant, ignoring where the data actually sits.
+- id: overreacts-to-outlier
+  description: Picks a line dragged toward a single standout point at the expense of the rest of the data.
+tags: [acara-senior-v8-4, statistics-probability, line-of-best-fit, scatter, acmem141]

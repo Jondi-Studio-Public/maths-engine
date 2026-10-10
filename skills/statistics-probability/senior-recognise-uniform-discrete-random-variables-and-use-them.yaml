@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-uniform-discrete-random-variables-and-use-them
+name: Recognise uniform discrete random variables and use them to model random phenomena with equally likely outcomes
+domain: statistics-probability
+description: Given a stated random phenomenon with n equally likely discrete outcomes, compute the probability of any one specified outcome under the uniform discrete model. n is always DERIVED from a described context (a count of items, an arithmetic product of sub-divisions, or a choice between a uniform and a non-uniform phenomenon), never handed directly as a bare number to plug in. Never presents a probability-distribution table with unequal given fractions (that is the shipping senior-examine-simple-examples-of-non-uniform-discrete-random skill's own stimulus shape) and never asks "are these outcomes equally likely?" as its graded question (that is the shipping f10-random-equal-likelihood-outcomes skill's own graded question, a classification that never computes a probability value).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: fraction
+sources:
+- topic: p19c_uniform_discrete_outcome
+  params: {variant: stated_count}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_uniform_discrete_outcome
+  params: {variant: derived_count}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_uniform_discrete_outcome
+  params: {variant: hard_read}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_uniform_discrete_outcome
+  params: {variant: uniform_vs_nonuniform}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-fewer-outcomes
+  description: Divides by one fewer than the actual number of outcomes, 1/(n-1), instead of 1/n.
+- id: off-by-one-more-outcomes
+  description: Divides by one more than the actual number of outcomes, 1/(n+1), instead of 1/n.
+- id: assumes-two-outcomes
+  description: Assumes exactly two possible outcomes and doubles the count, 2/n, regardless of how many outcomes are actually described.
+tags:
+- acara-v8-4-methods
+- statistics-probability
+- uniform-discrete-random-variable
+- acmmm138

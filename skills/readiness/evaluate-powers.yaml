@@ -1,0 +1,56 @@
+id: evaluate-powers
+name: Evaluate powers
+domain: readiness
+placement_order: 70
+description: Evaluate an integer raised to a whole-number exponent.
+status: active
+prerequisites:
+- order-of-operations
+answer: number
+sources:
+- topic: powers
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: powers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: powers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: powers
+    params:
+      base_hi: 5
+      exp_hi: 2
+    target_s: 3
+    limit_s: 8
+  - topic: powers
+    params:
+      base_hi: 9
+      exp_hi: 2
+    target_s: 4
+    limit_s: 10
+  - topic: powers
+    params:
+      base_hi: 12
+      exp_hi: 3
+    target_s: 6
+    limit_s: 15
+misconceptions:
+- id: multiplied-base-exponent
+  description: Multiplying the base by the exponent instead of repeated multiplication.
+- id: off-by-one-power
+  description: Multiplying one factor too few or too many.
+tags: []

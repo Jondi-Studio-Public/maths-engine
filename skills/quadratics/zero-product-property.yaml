@@ -1,0 +1,38 @@
+id: zero-product-property
+name: Solve a factored equation with the null factor law
+domain: quadratics
+description: Given a product of linear factors already set equal to zero, state every solution by applying the null factor law, without factorising anything first.
+status: active
+placement_eligible: false
+prerequisites:
+- two-step-equations
+answer: list
+sources:
+- topic: zero_product_property
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: zero_product_property
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: zero_product_property
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-flip-both-roots
+  description: Flipping the sign of both roots when applying the null factor law.
+- id: sign-flip-one-root
+  description: Flipping the sign of only one root.
+- id: forgot-to-divide-by-coefficient
+  description: On a non-monic factor ax + b = 0, states the root as -b instead of -b/a. Not exercisable at the easy tier, where every factor is monic.
+tags: []

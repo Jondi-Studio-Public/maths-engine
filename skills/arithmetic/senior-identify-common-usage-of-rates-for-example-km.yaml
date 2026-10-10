@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-common-usage-of-rates-for-example-km
+name: Identify common usage of rates; for example, km/h as a rate to describe speed, beats/minute as a rate to describe pulse
+domain: arithmetic
+description: Given a named real-world activity or quantity, such as one describing speed or pulse, identify which listed rate unit is the one commonly used to describe it.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19h_rate_usage_classification
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19h_rate_usage_classification
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19h_rate_usage_classification
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19h_rate_usage_classification
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-speed-and-non-speed-rate
+  description: Picks the wrong unit convention for the quantity -- swaps km/h and m/s ignoring the named reporting context (public display or broadcast versus an SI-unit scientific document), swaps pulse with breathing rate, or picks a scale alternative (per hour, per second, mL) instead of the conventional per-minute or per-hour unit.
+- id: picks-wrong-clause-in-two-quantity-item
+  description: On the hard tier, answers using the quantity that is NOT the one the question states is graded, when two quantities of the same scenario are named in one item.
+- id: matches-wrong-named-source-in-exam-item
+  description: On the exam tier, where one report states three figures from three named sources (always both km/h and m/s conventions live in the same item, plus one non-speed quantity), answers with the unit for a different named source's figure than the one the question asks about -- or defaults to whichever of km/h or m/s "sounds right" for the topic instead of checking which source is actually named.
+tags: [acara-senior-v8-4, arithmetic, units, rates, speed, pulse, breathing, flow, acmem014]

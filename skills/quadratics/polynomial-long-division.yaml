@@ -1,0 +1,39 @@
+id: polynomial-long-division
+name: Divide a polynomial by a non-monic divisor
+domain: quadratics
+description: Perform polynomial long division by a non-monic linear or quadratic divisor and state the result as a single expression, quotient + remainder/divisor.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-single-brackets
+- combine-like-terms
+answer: expression
+sources:
+- topic: polynomial_long_division
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: polynomial_long_division
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: polynomial_long_division
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-error-on-remainder
+  description: Flips the sign of the remainder term.
+- id: remainder-not-over-divisor
+  description: Adds the remainder to the quotient instead of dividing it by the divisor, dropping the required "/divisor" step of the format.
+- id: dropped-remainder
+  description: States the quotient alone, with no remainder term at all.
+tags: []

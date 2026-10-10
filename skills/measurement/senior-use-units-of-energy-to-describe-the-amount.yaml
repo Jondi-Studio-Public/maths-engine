@@ -1,0 +1,47 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-units-of-energy-to-describe-the-amount
+name: Use units of energy to describe the amount of energy in activity, such as kilojoules
+domain: measurement
+description: Given an activity's energy-use rate stated in kilojoules per unit time and a duration for that activity, compute the total energy used in kilojoules.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: p19h_energy_kj_amount
+  params: {mode: kj_easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19h_energy_kj_amount
+  params: {mode: kj_medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19h_energy_kj_amount
+  params: {mode: kj_hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19h_energy_kj_amount
+  params: {mode: kj_exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: added-instead-of-multiplied
+  description: Adds the rate (in kJ per minute) and the duration (in minutes) instead of multiplying them.
+- id: reported-the-rate-not-the-total
+  description: Reports the bare energy-use rate itself as if it were already the total energy used, never multiplying by the duration.
+- id: wrong-duration-assumed
+  description: Multiplies by a duration a few minutes longer or shorter than the one actually stated.
+- id: wrong-conversion-factor
+  description: Divides the per-hour rate by 30, 10 or 100 instead of 60 when converting it to a per-minute rate, or rounds the time up to whole hours.
+- id: decimal-place-slip
+  description: Lands a factor of ten too large or too small by misplacing the decimal point in the product.
+- id: used-only-one-activity
+  description: On the two-activity hard tier, reports only one activity's own energy use instead of the combined total of both.
+- id: combined-before-multiplying
+  description: On the two-activity hard tier, adds the two rates and the two durations first and multiplies the sums, or swaps the two durations.
+- id: forgot-the-hour-or-minute-part-of-the-duration
+  description: On the exam tier, uses only the minutes part or only the whole-hour part of a mixed hours-and-minutes duration.
+- id: base-100-time-conversion
+  description: On the exam tier, treats an hour as 100 minutes, a minute as 100 seconds, or the minutes as a decimal fraction of an hour.
+tags: [acara-senior-v8-4, measurement, energy, activity, p19h_energy_kj_amount, ACMEM033]

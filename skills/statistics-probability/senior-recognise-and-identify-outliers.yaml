@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-and-identify-outliers
+name: Recognise and identify outliers
+domain: statistics-probability
+description: 'Given a stated small numeric dataset and its computed lower and upper quartiles (Q1, Q3, stated in the prompt, never computed there), identify the single value that lies more than 1.5 times the interquartile range (IQR = Q3 - Q1) below Q1 or above Q3 -- the standard 1.5*IQR fence rule. Every dataset is constructed with exactly one such value. Four tiers: a clearly-beyond-fence outlier in an already-sorted list (always below Q1); unsorted data with the outlier drawn low or high and a "beyond 1*IQR but within 1.5*IQR" decoy on the SAME side; a decoy within 1 unit of the OPPOSITE fence while the true outlier sits past the other; and a value sitting EXACTLY on a fence (not an outlier, since "more than" is strict). Distinct from f10-boxplot-distribution, which computes Q1/Q3 itself and stops, and from senior-investigate-the-effect-of-outliers-on-the-mean, which is handed the outlier already and never applies the fence rule.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: list
+sources:
+- topic: p19b_outlier_fence
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_outlier_fence
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_outlier_fence
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_outlier_fence
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: opposite-extreme
+  description: Offers the most extreme non-outlier value on the side OPPOSITE the true outlier (on hard/exam this value sits within 1 unit of, or exactly on, that side's own fence).
+- id: near-quartile-value
+  description: Offers a value near the SAME quartile as the true outlier (on medium, deliberately placed beyond 1 times IQR but within 1.5 times IQR of that quartile).
+- id: inner-filler-value
+  description: Offers an ordinary value between the relevant quartile and the extreme end of the data on the non-outlier side.
+tags: [acara-senior-v8-4, statistics-probability, outliers, quartiles, iqr, acmem047]

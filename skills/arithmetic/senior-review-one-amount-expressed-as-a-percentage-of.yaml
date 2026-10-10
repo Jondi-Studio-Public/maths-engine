@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-one-amount-expressed-as-a-percentage-of
+name: Review one amount expressed as a percentage of another
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, review one amount expressed as a percentage of another. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: amount_as_percentage_review
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: amount_as_percentage_review
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: amount_as_percentage_review
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: swaps-the-base
+  description: Computes B/A x 100 instead of A/B x 100, dividing by the wrong quantity.
+- id: forgets-times-100
+  description: Reports the raw ratio A/B without multiplying by 100 to convert it to a percentage.
+- id: subtracts-instead-of-dividing
+  description: Reports the difference between the two amounts as if that were the percentage.
+- id: caps-at-100-percent
+  description: When one amount exceeds the other, reports 100 unconditionally, as if a percentage of another amount could never exceed 100%.
+tags: [acara-senior-v8-4, arithmetic, amount_as_percentage_review, ACMEM062]

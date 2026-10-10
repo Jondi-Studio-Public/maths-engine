@@ -1,0 +1,126 @@
+# Capability gate registry: the named capabilities a skill may depend on, each with a status.
+#
+# A skill that cites a gate here may not go live until that gate's status is
+# "passed" -- fail closed.
+#
+# `status` allowed values: not_benchmarked | benchmarking | passed | failed. `fail_closed` must always
+# be true -- this is an invariant, not a per-gate choice; it is spelled out on every row so a reviewer
+# can see it without having to trust the loader.
+#
+# `technology` and `visual` are spelling aliases of `technology_use` and `visual_construction`, not
+# separate rows -- see `mathgen/capabilities.py::canonical_gate_id`.
+#
+# `figure_stimulus` is for skills that show a figure and take a typed or picked answer;
+# `visual_construction` is for answers the learner draws.
+
+- id: algorithm
+  name: Algorithm design and authoring
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: assessment_contract
+  name: Shared rubric/evaluator assessment platform
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: authentic_data
+  name: Authentic/versioned data handling
+  owner: unassigned
+  status: passed
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: communication
+  name: Mathematical communication marking
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: figure_stimulus
+  name: Figure rendering in the question (typed or picked answer)
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: formal_verification
+  name: Formal/mechanised proof verification
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: investigation
+  name: Investigation reporting
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: modelling
+  name: Modelling and assumption evaluation
+  owner: unassigned
+  status: passed
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: proof
+  name: Proof and deductive reasoning marking
+  owner: unassigned
+  status: passed
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: reasoning
+  name: Reasoning and justification marking
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: safety_gate
+  name: Safety-sensitive content gate
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: simulation
+  name: Simulation execution
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: technology_use
+  name: Permitted-tool/technology use
+  owner: unassigned
+  status: passed
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true
+
+- id: visual_construction
+  name: Visual construction rendering and marking
+  owner: unassigned
+  status: not_benchmarked
+  benchmark_suite: null
+  threshold: null
+  fail_closed: true

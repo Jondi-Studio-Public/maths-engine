@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-bernoulli-random-variables-and-associated-probabilities-to
+name: Use Bernoulli random variables and associated probabilities
+domain: statistics-probability
+description: 'Given a stated two-outcome scenario (with context) and a stated probability of success p (or, at the hard/exam tiers, a stated probability of FAILURE q, forcing the learner to identify p = 1 - q), compute the probability of one specific, stated, ORDERED sequence of independent Bernoulli trials -- a plain product of p/(1-p) factors in the stated order, never a combinatorial count of unordered outcomes (that is the neighbouring skill binomial-point-probability''s own kernel) and never the expected value or variance of the Bernoulli random variable itself (that is the neighbouring skill senior-use-a-bernoulli-random-variable-as-a-model''s own kernel, ACMMM143 -- this skill deliberately excludes the expected-value deliverable that the broader "model data and solve practical problems" wording would also permit, so the two skills stay distinguishable to a learner).'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: p12d_bernoulli_sequence
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p12d_bernoulli_sequence
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p12d_bernoulli_sequence
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12d_bernoulli_sequence
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: treats-as-unordered
+  description: Multiplies the correct sequence product by the binomial coefficient nCr for the number of successes in the sequence, as if the question asked for an unordered count (the binomial-point-probability trap).
+- id: swaps-p-and-q
+  description: At the hard/exam tiers, uses p where q was actually stated (or vice versa), never performing the p = 1 - q conversion.
+- id: drops-one-factor
+  description: Reports the product of all but one of the stated trial outcomes (an off-by-one-trial error).
+tags: [acara-senior-v8-4, statistics-probability, bernoulli, acmmm146]

@@ -1,0 +1,50 @@
+id: ucv1-double-integral-rectangle
+name: Evaluate a rectangular double integral
+domain: multivariable-and-vector-calculus
+description: Evaluate a supplied separable polynomial f(x, y) = g(x) h(y) over an
+  axis-aligned rectangle by iterated integration -- factor into the two
+  one-variable integrals and multiply. Never a change of variables, never a
+  non-rectangular region, never a non-separable integrand.
+status: active
+placement_eligible: false
+prerequisites: [integrate-polynomial]
+answer: number
+sources:
+- topic: double_integral_rectangle
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: double_integral_rectangle
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: double_integral_rectangle
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sum-instead-of-product
+  description: Adds the two one-variable integrals instead of multiplying them.
+- id: forgets-lower-bound
+  description: Evaluates each antiderivative only at its upper bound and multiplies
+    those two values, never subtracting the lower-bound value.
+- id: corner-value-times-area
+  description: Treats the double integral as a single Riemann rectangle at one
+    corner of the domain times the rectangle's area, instead of actually
+    integrating.
+- id: integrates-one-variable-only
+  description: Integrates one factor correctly but treats the other as constant,
+    multiplying by the interval's width instead of integrating it.
+- id: drops-half-factor
+  description: Skips the one-half from the power rule when integrating a bare
+    linear factor, at the easy tier where the rectangle is anchored at the
+    origin.
+tags: [university-core-v1, multivariable-calculus, integration]

@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-pascal-s-triangle-and-its-properties
+name: Use Pascal’s triangle and its properties
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use Pascal’s triangle and its properties. Return the resulting value, expression, relation, or classification. This skill assesses direct entry lookup in Pascal''s triangle, application of the additive recurrence rule to find entries, and inverse application to find missing parent values.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: pascals_triangle_properties
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: pascals_triangle_properties
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: pascals_triangle_properties
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: off-by-one-k
+  description: Uses an adjacent position k+1 or k-1 instead of the correct position k.
+- id: permutation-not-combination
+  description: Computes P(n,k) treating order as mattering, instead of C(n,k) for combinations.
+- id: subtracts-instead-of-adds
+  description: Subtracts the two parent values instead of adding them.
+- id: reports-one-parent-only
+  description: Reports one parent value instead of computing the child via the recurrence.
+- id: adds-instead-of-subtracts
+  description: Adds parent values instead of subtracting to find the missing parent.
+- id: reports-given-parent-as-the-answer
+  description: Reports the given parent value instead of computing the missing parent via subtraction.
+tags: [acara-senior-v8-4, statistics-probability, pascals-triangle, combinatorics, acmmm048]

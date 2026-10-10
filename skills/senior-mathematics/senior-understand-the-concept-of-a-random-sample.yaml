@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-concept-of-a-random-sample
+name: Understand the concept of a random sample
+domain: senior-mathematics
+description: 'Given a described method for selecting individuals from a stated population, judge whether that method constitutes a valid random sample -- every member of the stated population has an equal, independent chance of selection. The mcq always offers exactly one "valid" option and three distinct named-flaw "not valid" options (convenience sample, self-selection/volunteer bias, systematic selection with no genuine random start, or exclusion of part of the population), never a bare "not valid". This is NOT the neighbouring senior-simulate-repeated-random-sampling-from-a-variety-of (ACMMM176), which simulates FROM an already-valid random sample and never judges whether a selection method itself is valid; and it is NOT the co-built senior-identify-the-target-population-to-be-surveyed (ACMEM132), which judges WHAT the population description should be, never whether a selection method from an already-identified population is valid. Four tiers: easy presents a single, clearly-one-flaw-or-clearly-valid method; medium buries a plausible-sounding step around the actual flaw, or presents a superficially suspicious but genuinely valid stratified method; hard names candidate flaws through the full option set and includes the systematic-looking-but-valid "every kth name on a freshly shuffled list" case alongside its genuinely-systematic "unshuffled" twin; exam combines the scenario into a three-step numbered survey design, a genuine new shape over hard.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19d_random_sample_valid
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19d_random_sample_valid
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19d_random_sample_valid
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19d_random_sample_valid
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-technology-means-random
+  description: Assumes any method involving a computer, list, or number is automatically random, missing that a step (e.g. skipping already-surveyed names) still excludes part of the population.
+- id: mistakes-large-turnout-for-randomness
+  description: Judges a self-selected or convenience sample valid because many people responded, confusing sample size with selection fairness.
+- id: mistakes-systematic-order-for-randomness
+  description: Judges a systematic, fixed-order selection (e.g. every 7th name on the original unshuffled register) as valid because it "looks random" or evenly spread, missing that it lacks a genuine random start.
+tags: [acara-senior-v8-4, senior-mathematics, sampling, random-sample, acmmm171]

@@ -1,0 +1,48 @@
+id: f10-quadratic-algebra-expansion
+name: Expand a binomial product into a trinomial
+domain: quadratics
+description: Expand a binomial product of two linear binomial factors into a trinomial in standard form. Never factorises a quadratic -- that content already belongs to the existing solve-quadratics-factorable skill.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-single-brackets
+- factor-common-numerical-factor
+answer: expression
+sources:
+- topic: expand_binomial_product_monic
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: expand_binomial_product_monic
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: expand_binomial_product_monic
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: added-not-multiplied-constant
+  description: Added the two constants instead of multiplying them for the constant term.
+- id: multiplied-not-added-linear
+  description: Multiplied the two constants instead of adding them for the linear coefficient.
+- id: sign-error-one-factor
+  description: Treated a "minus" factor as a "plus" factor, dropping a sign.
+- id: dropped-middle-term
+  description: Omitted the FOIL cross-terms, producing a binomial instead of a trinomial.
+- id: forgot-to-double
+  description: On a perfect-square product, wrote the middle term as ax instead of 2ax.
+- id: assumed-nonzero-middle-term
+  description: On a difference-of-squares product, wrongly included a nonzero middle term.
+tags: []

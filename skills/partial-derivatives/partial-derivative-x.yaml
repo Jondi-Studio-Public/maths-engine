@@ -1,0 +1,35 @@
+id: partial-derivative-x
+name: df/dx
+domain: partial-derivatives
+description: Find the partial derivative of a two-variable function with respect to x.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: partial_derivatives
+  params: {kinds: [dx]}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: partial_derivatives
+  params: {kinds: [dx]}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: partial_derivatives
+  params: {kinds: [dx]}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-variable
+  description: Differentiating with respect to y instead of x.
+- id: summed-both-partials
+  description: Differentiating with respect to both variables and summing.
+tags: []

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-eview-metric-units-of-mass-and-weight-their
+name: Review metric units of mass (and weight), their abbreviations, conversions between them, and appropriate choices of units
+domain: measurement
+description: Given bounded, fully specified inputs, review metric units of mass (and weight), their abbreviations, conversions between them, and appropriate choices of units. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: mcq
+sources:
+- topic: review_metric_units_of_mass
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: review_metric_units_of_mass
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: review_metric_units_of_mass
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-unit-scale
+  description: Picks a unit one or more steps away on the metric mass ladder (mg, g, kg, t) from the object's own natural scale.
+- id: picks-ten-times-too-large
+  description: Selects the option that is exactly ten times the correct relation or equivalence value, as if an extra zero had been added.
+- id: picks-ten-times-too-small
+  description: Selects the option that is exactly one tenth of the correct relation or equivalence value, as if a zero had been dropped.
+- id: picks-hundred-times-too-large
+  description: Selects the option that is exactly a hundred times the correct relation or equivalence value, confusing how many ladder steps apart the two units are.
+tags: [acara-senior-v8-4, measurement, units, mass, acmem098]

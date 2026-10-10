@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-area-problem-and-use-sums-of
+name: Examine the area problem, and use sums of the form \(\sum\nolimits_if\left(x_i\right)\;\delta x_i\)
+  as area under the curve \(y=f(x)\)
+domain: integration
+description: Given bounded, fully specified inputs, examine the area problem, and use sums of
+  the form \(\sum\nolimits_if\left(x_i\right)\;\delta x_i\) as area under the curve \(y=f(x)\).
+  Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: fraction
+sources:
+- topic: p13c_riemann_sum_area
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13c_riemann_sum_area
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13c_riemann_sum_area
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13c_riemann_sum_area
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-endpoint-for-stated-rule
+  description: Computes a left Riemann sum with right endpoints, or a right Riemann sum with left
+    endpoints -- collapses to the OTHER named rule's value.
+- id: reuses-endpoint-not-midpoint
+  description: Uses the midpoint rule's own strip widths but evaluates f at an endpoint instead of
+    recomputing it at the midpoint.
+- id: shared-width-on-non-uniform-partition
+  description: On a non-uniform partition, sums using one shared average width instead of each
+    strip's own delta_x_i.
+- id: off-by-one-rectangle
+  description: Drops one or more trailing rectangles or breakpoint intervals when summing (a
+    miscount of how many strips the partition has), instead of using every one.
+tags: [acara-senior-v8-4, integration, riemann-sum, acmmm124]

@@ -1,0 +1,57 @@
+id: ucv1-stochastic-euler-step
+name: Compute one stochastic Euler update
+domain: stochastic-processes
+description: Compute one Euler-Maruyama update for a supplied scalar drift, diffusion,
+  step and noise value. The diffusion coefficient is a stated constant (additive
+  noise) at the easy and medium tiers, and a stated function of the current value,
+  sigma(Y) = k*Y (multiplicative noise), at the hard and exam tiers. Every noise
+  value is a fixed, stated rational number given in the question text -- never
+  sampled or simulated.
+status: active
+placement_eligible: false
+prerequisites: [explicit-euler-linear-ode]
+answer: fraction
+sources:
+- topic: p13f_stochastic_euler
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p13f_stochastic_euler
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p13f_stochastic_euler
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p13f_stochastic_euler
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: omits-diffusion
+  description: Reports the deterministic-only Euler value (the answer
+    explicit-euler-linear-ode would give for the same lambda, forcing, Y0, h),
+    dropping the diffusion term entirely.
+- id: omits-step-size-on-diffusion
+  description: Computes sigma*h*dW instead of sigma*dW, treating the diffusion
+    term as if it scaled with the step size the way the drift term does.
+- id: wrong-sign-diffusion
+  description: Subtracts the diffusion term instead of adding it.
+- id: uses-dW-as-h
+  description: Substitutes the stated noise value dW in place of h in the
+    deterministic drift term.
+- id: forgets-Y0-scaling-in-diffusion
+  description: 'Hard/exam tiers only: at multiplicative noise, uses the constant
+    k in place of the correctly-scaled sigma(Y) = k*Y, as if the noise were
+    additive.'
+tags: [university-core-v1, stochastic-processes, numerical-methods]

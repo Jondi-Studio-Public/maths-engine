@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-cubic-equations-using-technology-and-algebraically-in
+name: Solve cubic equations using technology, and algebraically in cases where a linear factor is easily obtained
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, solve cubic equations using technology, and algebraically in cases where a linear factor is easily obtained. Return the resulting value, expression, relation, or classification. Every prompt names "the largest real root" (except the exam tier, which names the physically valid root in a stated domain), to 3 decimal places -- a real cubic always has at least one real root, so this naming is always well-defined and unique. The canonical answer is always a single numeric root value, never a factorisation and never a list of roots -- distinct from the shipping neighbour senior-factorise-cubic-polynomials-in-cases-where-a-linear, whose own canonical answer is always the factored (x - p)(x^2 + qx + r) expression and never a root.'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: number
+sources:
+- topic: p14a_solve_cubic_technology
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p14a_solve_cubic_technology
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p14a_solve_cubic_technology
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p14a_solve_cubic_technology
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: names-a-smaller-root
+  description: States one of the other real roots instead of the largest one (easy/medium/hard tiers).
+- id: misapplied-rational-root-theorem
+  description: Tests only integer divisors of the constant term, ignoring the leading coefficient, and reports that integer as the root (medium tier).
+- id: negated-root
+  description: States the negation of the correct real root (medium tier).
+- id: transcribed-sign-error
+  description: Recomputes the root of a cubic with one coefficient's sign flipped (hard tier, single-real-root draws).
+- id: ignores-the-stated-domain
+  description: Reports a mathematically valid root of the cubic that lies outside the stated physical domain (exam tier).
+tags: [acara-senior-v8-4, functions-sequences, cubics, p14a_solve_cubic_technology, acmmm019]

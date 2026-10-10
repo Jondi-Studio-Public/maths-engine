@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-between-cartesian-and-polar-form
+name: Convert between Cartesian and polar form
+domain: senior-mathematics
+description: |
+  Given bounded, fully specified inputs, convert between Cartesian and polar form.
+  Return the resulting value, expression, relation, or classification. All angles are
+  in degrees, 0 to 360 (never radians). At the easy/medium/hard tiers, r values are
+  always exact integers (never irrational/surd): axis-aligned points, Pythagorean
+  triple legs, or their scaled multiples only. The exam tier is the one deliberate
+  exception: it draws a point NOT from a Pythagorean triple, so r is a genuine surd
+  reported to 2 decimal places (theta to 1 decimal place), or reverses the direction
+  with an obtuse theta (90 to 180 degrees).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+  - topic: cartesian_polar_convert
+    params: {variant: axis}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: cartesian_polar_convert
+    params: {variant: triple}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: cartesian_polar_convert
+    params: {variant: reverse}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+  - topic: cartesian_polar_convert
+    params: {variant: exam}
+    difficulty: exam
+    stages: [exam]
+misconceptions:
+  - id: swaps-r-and-theta
+    description: Reports (theta, r) instead of (r, theta) — confuses the order of polar components.
+  - id: wrong-quadrant
+    description: For non-first-quadrant points, uses atan2(abs(y), abs(x)) ignoring signs — reports the first-quadrant angle instead of the true quadrant-aware angle.
+  - id: degrees-radians-confusion
+    description: Reports theta as the raw radian value (e.g., 0.93 instead of 53) where a degree value was required.
+  - id: swaps-sin-and-cos
+    description: For polar-to-Cartesian conversion, computes (r*sin(theta), r*cos(theta)) instead of (r*cos(theta), r*sin(theta)).
+tags: [complex-numbers, trigonometry, acara-v8-4, ACMSM081]

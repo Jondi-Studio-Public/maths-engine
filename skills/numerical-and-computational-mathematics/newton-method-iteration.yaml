@@ -1,0 +1,48 @@
+id: newton-method-iteration
+name: Perform one Newton iteration
+domain: numerical-and-computational-mathematics
+description: Perform one exact Newton-method update for a polynomial from a stated starting value.
+status: active
+prerequisites: [differentiate-polynomial]
+answer: fraction
+sources:
+- topic: newton_method_iteration
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: newton_method_iteration
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: newton_method_iteration
+  params: {kind: cubic}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgets-derivative
+  description: Subtracts f(x0) without dividing by f'(x0).
+- id: wrong-sign-update
+  description: Adds the Newton correction instead of subtracting it.
+tags: [university-core-v1, university-foundation-pilot, numerical-methods]
+framework_areas: [numerical-and-computational-mathematics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics

@@ -1,0 +1,41 @@
+id: limit-removable
+name: Limit at a removable singularity
+domain: limits
+description: Evaluate a limit at a point where direct substitution gives 0/0.
+status: active
+prerequisites:
+- apply-a-rule-to-inputs
+answer: number
+sources:
+- topic: limits
+  params:
+    kinds:
+    - removable
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: limits
+  params:
+    kinds:
+    - removable
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: limits
+  params:
+    kinds:
+    - quad_over_quad
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: stopped-at-undefined
+  description: Substituting, reaching 0/0, and stopping there.
+- id: answered-zero
+  description: Seeing the zero numerator and answering zero.
+tags: []

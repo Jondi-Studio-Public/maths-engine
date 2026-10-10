@@ -1,0 +1,47 @@
+# Weekly, grouped dependency updates for the two things CI cannot pin itself:
+#   github-actions  the full-SHA pins in .github/workflows/ (Dependabot updates the SHA and the
+#                   "# vX.Y.Z" comment together)
+#   pip             the exact versions in .github/requirements-ci.txt
+#
+# Minor and patch updates arrive as one pull request per ecosystem. A major update arrives on its
+# own, so it gets its own review. Every one of these pull requests is a change under .github/ and
+# needs the maintainer's review before it merges (.github/CODEOWNERS); green CI alone is not enough.
+#
+# Not covered, so bump by hand: the actionlint, shellcheck and gitleaks downloads in ci.yml
+# (version and SHA-256 together), and the loose ranges in pyproject.toml.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 7 # let a new release settle before proposing it
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ["*"]
+        update-types: [minor, patch]
+
+  - package-ecosystem: pip
+    directory: /.github
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    cooldown:
+      default-days: 7
+    commit-message:
+      prefix: ci
+    ignore:
+      # SymPy 1.14 requires mpmath<1.4, so an mpmath 1.4 pin cannot install. When a SymPy
+      # release allows it, raise this bound to match.
+      - dependency-name: mpmath
+        versions: [">=1.4"]
+    groups:
+      ci-python-packages:
+        patterns: ["*"]
+        update-types: [minor, patch]

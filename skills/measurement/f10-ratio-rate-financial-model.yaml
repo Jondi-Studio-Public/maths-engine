@@ -1,0 +1,45 @@
+id: f10-ratio-rate-financial-model
+name: Model ratio and rate practical problems
+domain: measurement
+description: Given a stated ratio-or-rate financial context, determine whether a ratio or rate representation correctly models it and solve for the resulting value.
+status: active
+placement_eligible: false
+prerequisites: [ratio-rate-proportion, f10-circle-and-prism-duration-rates]
+answer: number
+sources:
+- topic: ratio_rate_financial_model
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ratio_rate_financial_model
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ratio_rate_financial_model
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ratio_rate_financial_model
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: representation-swap
+  description: Reads a ratio split as a rate (or a rate as a ratio), computing with the wrong representation's formula.
+- id: part-swap
+  description: Uses the wrong share of a ratio split (e.g. the smaller share instead of the larger one asked for).
+- id: rate-inversion
+  description: Divides by the rate instead of multiplying, or vice versa.
+- id: decimal-shift
+  description: Shifts the decimal point one place too far (a value ten times too large).
+- id: ignores-quantity
+  description: Reports the stated per-unit rate itself as the total cost, ignoring the quantity entirely.
+- id: misapplies-total-parts
+  description: Treats only two of a three-way ratio's parts as the whole, ignoring that a third share also exists.
+- id: forgets-adjustment
+  description: Computes the rate x quantity total correctly but ignores a further flat adjustment (discount or surcharge).
+- id: wrong-sign-adjustment
+  description: Applies a flat adjustment in the wrong direction (adds a discount instead of subtracting it, or vice versa).
+- id: naive-uncorrected
+  description: Applies the named representation to the full headline figure without first removing a flat fee or free-unit correction the scenario actually requires.
+tags: [acara-f10-v9, measurement, ratio, rate, financial-modelling, ac9m7m06, ac9m8m07]

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-f-left-x-right-given-f-x
+name: Determine f(x), given f'(x) and an initial condition f(a) = b
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, determine f(x), given f'(x) and an initial condition f(a) = b. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: p10a_antiderivative_given_fprime
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10a_antiderivative_given_fprime
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10a_antiderivative_given_fprime
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-constant
+  description: Reports G(x), the antiderivative without solving for the constant of integration (equivalent to using C = 0).
+- id: power-rule-no-divide
+  description: Raises each term's power without dividing by the new power, then still correctly solves its own constant against the same initial condition.
+- id: sign-error-on-constant
+  description: Isolates the constant of integration with the sign flipped (not offered at the easy tier, where the initial-condition point a = 0 makes G(a) = 0 identically and the sign-flipped candidate collapses onto the true answer, never a distinct wrong value).
+- id: ignored-negative-base-sign
+  description: Substitutes the magnitude of the negative initial-condition point in place of its actual (negative) value when solving for the constant (hard tier only, exploiting the forced-negative a).
+tags: [acara-senior-v8-4, senior-mathematics, antidifferentiation, acmmm122]

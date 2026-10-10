@@ -1,0 +1,41 @@
+id: differentiate-chain-rule
+name: Chain rule
+domain: differentiation
+description: Differentiate a composite polynomial or power function using the chain rule.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - chain
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - chain
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - chain_quadratic
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-inner-derivative
+  description: Differentiates the outer function only.
+- id: inner-derivative-only
+  description: Differentiates the inner function only.
+tags: []

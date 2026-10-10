@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-examples-of-quadratically-related-variables
+name: Examine examples of quadratically related variables
+domain: quadratics
+description: Examine examples of quadratically related variables. Given a stated relation y = kx^2 and one data point, compute a new dependent value, solve for a new positive independent value, or find the scale factor a named quadratic law (such as kinetic energy) applies to a scaled input.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: number
+sources:
+- topic: p7d_examine_quadratic_variation
+  params:
+    variant: quadratic_forward
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p7d_examine_quadratic_variation
+  params:
+    variant: quadratic_inverse_solve
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p7d_examine_quadratic_variation
+  params:
+    variant: kinetic_energy_scale_factor
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: as-if-direct
+  description: Treating the quadratic relation as if it were direct proportion (exponent 1) instead of quadratic (exponent 2).
+- id: as-if-inverse
+  description: Treating the quadratic relation as if it were inverse proportion (exponent -1) instead of quadratic (exponent 2).
+- id: no-change
+  description: Assuming the dependent (or independent) quantity does not change at all, forgetting the quadratic scaling should apply.
+- id: forgot-to-square
+  description: Answering with the scale factor itself rather than its square, forgetting that a quadratically related quantity scales with the square of the input.
+- id: cubic-confusion
+  description: Answering with the scale factor cubed, over-applying the exponent by one more power than the relation states.
+- id: generic-doubling
+  description: A generic doubling of the scale factor, unrelated to the quadratic relation stated in the question.
+tags: []

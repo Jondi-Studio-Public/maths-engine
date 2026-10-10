@@ -1,0 +1,34 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-examples-of-vectors-including-displacement-and-velocity
+name: Examine examples of vectors including displacement and velocity
+domain: vectors
+description: Given bounded, fully specified inputs, examine examples of vectors including displacement and velocity. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: examine_examples_of_vectors_including_displacement_and_velocity
+  params: {variant: single_leg}
+  difficulty: easy
+  stages: [6]
+- topic: examine_examples_of_vectors_including_displacement_and_velocity
+  params: {variant: velocity_with_red_herring}
+  difficulty: medium
+  stages: [6]
+- topic: examine_examples_of_vectors_including_displacement_and_velocity
+  params: {variant: two_leg_journey}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: added-instead-of-pythagoras
+  description: Adds the two perpendicular legs directly instead of taking the square root of the sum of squares.
+- id: forgot-one-leg
+  description: Reports a single leg (or leg-total) as if it were the full magnitude.
+- id: multiplies-by-the-irrelevant-number
+  description: Multiplies the magnitude by an irrelevant stated number (e.g. elapsed time), medium tier only.
+- id: dropped-the-second-leg
+  description: Computes the magnitude using only the first leg of a two-leg journey, ignoring the second entirely, hard tier only.
+tags: [acara-senior-v8-4, vectors, displacement, velocity, magnitude, acmsm010]

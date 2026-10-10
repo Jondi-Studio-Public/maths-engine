@@ -1,0 +1,45 @@
+id: ucv1-derivative-definition
+name: Evaluate a derivative from its difference quotient
+domain: single-variable-calculus
+description: Evaluate a supplied polynomial derivative at a supplied point from an
+  exact difference-quotient limit. The question states the limit definition
+  f'(a) = lim(h->0) [f(a+h) - f(a)] / h directly and asks for the number f'(a);
+  never a proof obligation, never the derivative as an expression -- that shape is
+  differentiate-polynomial.
+status: active
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+answer: number
+sources:
+- topic: derivative_definition
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: derivative_definition
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: derivative_definition
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: evaluates-function-not-derivative
+  description: Reports f(a) instead of f'(a).
+- id: off-by-one-point
+  description: Reports the correct derivative formula evaluated at a + 1 instead
+    of a.
+- id: h-not-taken-to-zero
+  description: Uses the difference quotient at h = 1 instead of taking the limit,
+    i.e. f(a+1) - f(a) rather than the true derivative.
+- id: drops-linear-term
+  description: Uses the derivative formula with its own linear coefficient dropped.
+tags: [university-core-v1, single-variable-calculus, differentiation]

@@ -1,0 +1,52 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-relationship-between-the-graph-of-y
+name: 'Find the vertical asymptotes of 1/f from the graph of f'
+domain: functions-sequences
+description: 'Given the graph of y = f(x), a straight line or a parabola on a labelled integer grid with every x-intercept at an integer, list the x-values at which the graph of y = 1/f(x) has vertical asymptotes. Neither f nor the graph of 1/f is ever shown; the learner reads the zeros of f.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation]
+answer: list
+sources:
+- topic: pv1e_reciprocal_zeros
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1e_reciprocal_zeros
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1e_reciprocal_zeros
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1e_reciprocal_zeros
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-flipped
+  description: 'Lists the zeros with their signs reversed, reading to the wrong side of the y-axis.'
+- id: y-intercept
+  description: 'Gives the value where the graph meets the y-axis instead of the x-values where it meets the x-axis.'
+- id: gradient
+  description: 'Gives the gradient of the line instead of the x-value where it crosses the x-axis.'
+- id: off-by-one
+  description: 'Reads the zero one square away from where the graph meets the axis.'
+- id: only-one-zero
+  description: 'Lists only one of the two points where the parabola crosses the x-axis.'
+- id: vertex-x
+  description: 'Gives the x-value of the turning point (the axis of symmetry) instead of the zeros.'
+- id: zeros-and-vertex
+  description: 'Lists the zeros and also the x-value of the turning point, which is not a zero of f.'
+- id: y-axis
+  description: 'Gives x = 0, the line of the y-axis, for a parabola that touches the x-axis elsewhere.'
+- id: omits-origin
+  description: 'Leaves out the zero at the origin, listing only the other point where the graph meets the x-axis.'
+- id: origin-only
+  description: 'Lists only the zero at the origin and misses the second zero.'
+tags: [acara-senior-v8-4, functions-sequences, reciprocal, asymptote, zeros, graph, acmsm099, figure]

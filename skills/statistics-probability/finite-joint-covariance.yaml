@@ -1,0 +1,38 @@
+id: finite-joint-covariance
+name: Compute covariance from a finite joint distribution
+domain: statistics-probability
+description: Compute the exact covariance of two variables from a finite 2-by-2 joint distribution.
+status: active
+prerequisites:
+- calculate-mean
+- simple-event-probability
+answer: fraction
+sources:
+- topic: finite_joint_covariance
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: finite_joint_covariance
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: finite_joint_covariance
+  params: {kind: missing_weight}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgets-centering
+  description: Reports E[XY] without subtracting E[X]E[Y].
+- id: multiplies-means-only
+  description: Reports E[X]E[Y] rather than the covariance difference.
+tags: [university-core-v1, probability, statistics]
+framework_areas: [probability, statistics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: statistics

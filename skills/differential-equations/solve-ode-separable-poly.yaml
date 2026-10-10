@@ -1,0 +1,41 @@
+id: solve-ode-separable-poly
+name: dy/dx = polynomial
+domain: differential-equations
+description: Solve a first-order differential equation by direct integration.
+status: active
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: differential_equation
+  params:
+    kinds:
+    - separable_poly
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differential_equation
+  params:
+    kinds:
+    - separable_poly
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differential_equation
+  params:
+    kinds:
+    - separable_poly
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: raised-power-ode
+  description: Raising powers without dividing when integrating.
+- id: forgot-constant
+  description: Forgetting the constant of integration.
+tags: []

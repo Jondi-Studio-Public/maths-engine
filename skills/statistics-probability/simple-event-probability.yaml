@@ -1,0 +1,10 @@
+id: simple-event-probability
+name: Calculate a simple event probability
+domain: statistics-probability
+description: Express the probability of drawing one category from a collection as a simplified fraction.
+status: active
+prerequisites: [fraction-of-quantity]
+answer: fraction
+sources: [{topic: simple_probability, params: {}, difficulty: easy}]
+misconceptions: [{id: favourable-over-other, description: Divides favourable outcomes by unfavourable outcomes instead of total outcomes.}]
+tags: [expansion-batch-3, probability]

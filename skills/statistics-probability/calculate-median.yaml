@@ -1,0 +1,17 @@
+id: calculate-median
+name: Calculate the median
+domain: statistics-probability
+description: Order a small odd-sized data set and identify its middle value.
+status: active
+prerequisites: [order-numbers-to-10]
+answer: number
+sources:
+- topic: summary_statistic
+  params: {kind: median, count: 5, hi: 30}
+  difficulty: easy
+- topic: exam_median_summary_statistic
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions: [{id: does-not-order, description: Selects the middle listed value without ordering the data.}]
+tags: [expansion-batch-3, statistics]

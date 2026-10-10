@@ -1,0 +1,65 @@
+id: two-step-equations
+name: Solve two-step linear equations
+domain: equations
+description: Solve equations requiring two inverse operations and explain the order used.
+status: active
+prerequisites:
+- one-step-equations
+answer: number
+sources:
+- topic: linear_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params: {kind: division_two_step}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: linear_equation
+    params:
+      coef_hi: 5
+      sol_hi: 9
+      b_hi: 9
+    target_s: 8
+    limit_s: 20
+  - topic: linear_equation
+    params:
+      coef_hi: 9
+      sol_hi: 12
+      b_hi: 15
+    target_s: 9
+    limit_s: 22
+  - topic: linear_equation
+    params:
+      coef_hi: 9
+      sol_hi: 12
+      b_hi: 15
+      allow_negative: true
+    target_s: 10
+    limit_s: 25
+misconceptions:
+- id: misconception-1
+  description: Undoing operations in the wrong structural order
+- id: misconception-2
+  description: Combining unrelated terms across the equals sign
+- id: divided-instead-of-multiplied-final-step
+  description: Dividing by the coefficient under x/a instead of multiplying both sides by it at the
+    final step, the opposite undo-operation from the standard a*x + b = c shape.
+- id: added-instead-of-subtracted-first-step
+  description: Adding the constant term instead of subtracting it as the first step of a two-step
+    equation, a sign error before the second (multiply/divide) step is even reached.
+tags: []

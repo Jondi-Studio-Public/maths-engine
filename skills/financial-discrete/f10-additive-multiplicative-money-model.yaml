@@ -1,0 +1,31 @@
+id: f10-additive-multiplicative-money-model
+name: Model additive and multiplicative money situations
+domain: financial-discrete
+description: Given a stated additive-or-multiplicative money situation, determine which of addition, subtraction, multiplication or division correctly models it and compute the resulting value.
+status: active
+placement_eligible: false
+prerequisites: [money-change, f10-multiply-divide-one-digit-arrays]
+answer: number
+sources:
+- topic: additive_multiplicative_money_model
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: additive_multiplicative_money_model
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: additive_multiplicative_money_model
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-operation-swap
+  description: Applies a different plausible operation than the one the situation calls for (e.g. adds when the situation is multiplicative, or multiplies when it is additive), producing the value that other operation would give.
+- id: reversed-order
+  description: For a subtraction or division situation, computes with the two operands swapped, which changes the value.
+- id: off-by-one-step
+  description: On a two-step (medium/hard) situation, applies only one of the two required steps instead of both.
+- id: surface-cue-trap
+  description: On a hard-tier situation, follows the misleading surface word (an "each"/"more"/"twice"/"shared equally" cue that normally signals a different operation) instead of the operation the situation actually requires.
+tags: [acara-f10-v9, primary, money, financial-discrete, operation-choice, ac9m2n06]

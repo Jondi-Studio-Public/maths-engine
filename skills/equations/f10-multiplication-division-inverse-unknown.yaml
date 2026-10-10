@@ -1,0 +1,33 @@
+id: f10-multiplication-division-inverse-unknown
+name: Use the inverse multiplication-division relationship to find missing values
+domain: equations
+description: Given a numerical multiplication or division equation with one missing value, use the inverse multiplication-division relationship to find the missing value.
+status: active
+placement_eligible: false
+prerequisites:
+- multiplication-facts
+- whole-number-division-facts
+answer: number
+sources:
+- topic: multiplication_division_inverse_unknown
+  params: {shape_choices: ["a_times_missing_equals_c", "missing_times_b_equals_c"]}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: multiplication_division_inverse_unknown
+  params: {shape_choices: ["a_times_missing_equals_c", "missing_times_b_equals_c", "c_div_a_equals_missing", "c_div_missing_equals_a"]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: multiplication_division_inverse_unknown
+  params: {shape_choices: ["a_times_missing_equals_c", "missing_times_b_equals_c", "c_div_a_equals_missing", "c_div_missing_equals_a", "three_factor_product"]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: same-operation-not-inverse
+  description: Applies the shown operation instead of its inverse (e.g. for a × ? = c, multiplies a × c instead of dividing c ÷ a). Applicable to multiplication shapes only.
+- id: wrong-role-swap
+  description: For a division shape, divides the two given numbers in the wrong order (e.g. a ÷ c instead of c ÷ a). Applicable to division shapes only.
+- id: adjacent-fact-slip
+  description: Reports the answer for a neighbouring off-by-one fact (e.g. b+1 or b-1 instead of the correct factor or quotient).
+- id: single-factor-divide
+  description: When both factors on one side are known, divides by only one of them instead of their product.
+tags: [acara-f10-v9, primary, algebra, equations, inverse-operations, ac9m5a01, ac9m5a02]

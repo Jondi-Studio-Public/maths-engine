@@ -1,0 +1,48 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-apply-euler-s-formula-v-f-e-2
+name: Apply Euler’s formula, \(v+f-e=2\), to solve problems relating to planar graphs
+domain: financial-discrete
+description: >-
+  Given the numbers of any two of the vertices, edges and faces of a stated connected planar graph
+  (or a convex polyhedron, whose skeleton is one), find the third using Euler's formula v + f - e = 2.
+  easy states v and e and asks for f; medium states f and one of v/e and asks for the other; hard
+  states a degree list, so the learner must count v from the list and get e from the handshake lemma
+  before applying the formula; exam states a face-length list (with the "every edge borders two
+  different faces" convention), so the learner counts f and gets e from the face-length sum before
+  solving for v. This is not the numerical `explicit-euler` ODE-stepping skills (a different Euler,
+  no counting involved) and not a graph-drawing or graph-colouring skill -- every graph here is fully
+  described by its counts, and the answer is one whole number.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: pv0c_euler_planar
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv0c_euler_planar
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv0c_euler_planar
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0c_euler_planar
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-outer-face
+  description: For a plane graph, forgets that the count of faces includes the outer, unbounded region, so is off by one on whichever quantity is unknown.
+- id: forgot-constant
+  description: Uses v + f - e = 0 instead of v + f - e = 2, dropping the constant on the right-hand side.
+- id: sign-error
+  description: Rearranges with a sign error (v - f + e = 2, or e + f - v = 2) instead of v + f - e = 2, giving a different value for the unknown.
+- id: degree-sum-as-edges
+  description: On the hard tier, uses the sum of the stated degrees directly as the number of edges instead of halving it (the handshake lemma).
+- id: face-sum-as-edges
+  description: On the exam tier, uses the sum of the stated face lengths directly as the number of edges instead of halving it (each edge borders exactly two faces).
+tags: [acara-v8-4-general, graph-theory]

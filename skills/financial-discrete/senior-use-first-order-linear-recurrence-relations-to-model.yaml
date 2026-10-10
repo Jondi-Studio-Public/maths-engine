@@ -1,0 +1,58 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-first-order-linear-recurrence-relations-to-model
+name: Use first-order linear recurrence relations to model and analyse (numerically or graphically
+  only) practical problems; for example, investigating the growth of a trout population in a lake
+  recorded at the end of each year and where limited recreational fishing is permitted, or the
+  amount owing on a reducing balance loan after each payment is made
+domain: financial-discrete
+description: Given a first-order linear recurrence u(n+1) = a*u(n) + b with 0 < a < 1 modelling a
+  stated non-financial quantity (a fixed fraction lost, a fixed amount added each period), find by
+  iterating the long-term value the sequence settles to, to the stated precision.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: pv0a_recurrence_steady_state
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv0a_recurrence_steady_state
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv0a_recurrence_steady_state
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv0a_recurrence_steady_state
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: divides-by-retained-fraction
+  description: Divides the fixed amount added each period by the retained fraction a instead of
+    the eliminated fraction (1 - a), reporting b/a instead of b/(1 - a).
+- id: reports-added-amount
+  description: Reports the fixed amount added each period as if it were itself the long-term
+    steady-state value.
+- id: one-period-ahead
+  description: Reports the value after one application of the recurrence from the given starting
+    value, mistaking a single step for the long-term value.
+- id: two-periods-ahead
+  description: Reports the value after two applications of the recurrence from the given starting
+    value, mistaking two steps for the long-term value.
+- id: wrong-cycle-point
+  description: Reports the steady-state value at the point in the cycle the recurrence's own u(n)
+    was given at, when the question asks for the value at the other point in the same cycle.
+- id: rate-and-dose-swapped
+  description: Recovers the rate and the fixed amount added using the reciprocal of the correct
+    ratio of consecutive differences, swapping which recorded difference plays which role.
+- id: simple-difference-for-added-amount
+  description: Takes the fixed amount added each period to be the plain difference between two
+    consecutive recorded values, ignoring the multiplicative loss each period.
+- id: mistakes-recorded-value-for-longterm
+  description: Reports one of the recorded values itself as the long-term steady-state value,
+    instead of computing it from the recurrence's own constants.
+tags: [acara-senior-v8-4, financial-discrete, recurrence, steady-state, acmgm077]

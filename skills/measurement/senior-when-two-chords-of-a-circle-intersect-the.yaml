@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-when-two-chords-of-a-circle-intersect-the
+name: When two chords of a circle intersect, the product of the lengths of the intervals on one chord equals the product of the lengths of the intervals on the other chord
+domain: measurement
+description: Given bounded, fully specified inputs, When two chords of a circle intersect, the product of the lengths of the intervals on one chord equals the product of the lengths of the intervals on the other chord. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: when_two_chords_of_a_circle_intersect_the_product
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: when_two_chords_of_a_circle_intersect_the_product
+  params: {variant: convert}
+  difficulty: medium
+  stages: [3, 4]
+- topic: when_two_chords_of_a_circle_intersect_the_product
+  params: {variant: quadratic}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-instead-of-multiplies
+  description: Treats AP + PB as equal to CP + PD instead of applying the product rule.
+- id: pairs-the-wrong-two-lengths
+  description: Pairs a segment with the wrong chord's segment (e.g. AP with CP) instead of pairing the two intervals on the same chord.
+- id: forgets-to-convert
+  description: On the medium tier, uses the mismatched-unit length's raw number directly instead of converting it to the other lengths' unit first.
+tags: [acara-v8-4-specialist, circle-geometry, measurement]

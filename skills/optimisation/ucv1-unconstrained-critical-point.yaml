@@ -1,0 +1,33 @@
+id: ucv1-unconstrained-critical-point
+name: Find a quadratic critical point
+domain: optimisation
+description: Solve the zero-gradient equations for a supplied two-variable quadratic and return its critical point.
+status: active
+placement_eligible: false
+prerequisites: [jacobian-two-variable]
+answer: pair
+sources:
+- topic: p14d_critical_point
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14d_critical_point
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14d_critical_point
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14d_critical_point
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-coordinates
+  description: Reports the critical point with x and y swapped, (y0, x0) instead of (x0, y0).
+- id: sign-error-x
+  description: Reports the critical point with only the x-coordinate negated.
+- id: sign-error-y
+  description: Reports the critical point with only the y-coordinate negated.
+tags: [university-core-v1, optimisation, p14d_critical_point]

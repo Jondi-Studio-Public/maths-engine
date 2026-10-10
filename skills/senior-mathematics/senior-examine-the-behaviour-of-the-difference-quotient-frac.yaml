@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-behaviour-of-the-difference-quotient-frac
+name: Examine the behaviour of the difference quotient (f(x+h)-f(x))/h as h->0
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, examine the behaviour of the difference quotient (f(x+h)-f(x))/h as h->0. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p9c_difference_quotient_behaviour
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9c_difference_quotient_behaviour
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9c_difference_quotient_behaviour
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reads-off-least-converged-value
+  description: Reports the least-converged displayed value Q(0.1) instead of the value the sequence approaches as h -> 0.
+- id: sign-error-on-difference
+  description: Negates the limit, as if computing (f(p)-f(p+h))/h instead of (f(p+h)-f(p))/h.
+- id: forgot-power-multiply
+  description: Differentiates A*x^2 as A*x instead of 2*A*x, dropping the power-rule coefficient of 2.
+- id: dropped-linear-term
+  description: Drops the linear coefficient B entirely from the limiting value.
+tags: [acara-senior-v8-4, differentiation, first-principles, limits, acmmm081]

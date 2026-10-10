@@ -1,0 +1,17 @@
+id: add-within-20
+name: Add within 20
+domain: early-foundations
+placement_order: 170
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Add numbers with totals up to twenty.
+status: active
+prerequisites: [place-value-to-20]
+answer: mcq
+sources:
+- topic: early_addition
+  params: {total_hi: 20}
+  difficulty: easy
+misconceptions: []
+tags: [age-6, addition]

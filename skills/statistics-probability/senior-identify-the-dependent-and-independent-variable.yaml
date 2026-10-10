@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-the-dependent-and-independent-variable
+name: Identify the dependent and independent variable
+domain: statistics-probability
+description: 'Given a described pair of variables from an experiment or study context, identify which one is the dependent variable; naming it fixes the other of the pair as independent. The pair alone gives only one distractor, so the stimulus also names one or two further quantities from the same context that are neither: a controlled (held-constant) quantity, and/or a second recorded-but-irrelevant quantity. Four tiers: an explicit-manipulation experiment with one controlled quantity named; an observational study where the learner decides from the stated research aim which variable depends on the other; a neutral-verb study naming both a controlled and an irrelevant recorded quantity; and an exam tier whose controlled quantity is a baseline/pre-existing value in the same domain as the dependent variable, so the learner must separate what the study measures as its outcome from what it merely holds fixed.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19b_dependent_variable
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_dependent_variable
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_dependent_variable
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_dependent_variable
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swaps-dependent-independent
+  description: Selects the independent variable, mistaking the manipulated/explanatory quantity for the measured outcome.
+- id: confuses-controlled-with-dependent
+  description: Selects a quantity the researcher deliberately held constant, mistaking "also named" for "also measured as an outcome".
+- id: picks-irrelevant-recorded-quantity
+  description: Selects a quantity that was recorded but plays no role in the relationship under investigation.
+- id: mistakes-baseline-for-outcome
+  description: On the exam tier, selects a baseline/pre-existing value in the same domain as the dependent variable, mistaking a held-constant starting value for the outcome itself.
+tags: [acara-senior-v8-4, statistics-probability, p19b_dependent_variable, dependent-independent-variable, acmem140]

@@ -1,0 +1,29 @@
+id: f10-coordinate-movement
+name: Determine coordinate change from movement
+domain: primary-geometry-time
+description: Given a point's coordinates before and after a supplied movement in the Cartesian plane, state the change in each coordinate.
+status: active
+placement_eligible: false
+prerequisites: [coordinate-plane-readiness]
+answer: pair
+sources:
+- topic: coordinate_movement
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: coordinate_movement
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: coordinate_movement
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-coordinates
+  description: Reports the change in x and y coordinates swapped; states dy as the change in x and dx as the change in y.
+- id: wrong-direction
+  description: Reports the negated change; subtracts the start point from the end point instead, giving (start - end) instead of (end - start).
+- id: ignores-first-leg
+  description: (hard tier only) Tracks only the second movement and ignores the first; reports the change from the intermediate point to the end instead of the total change from start to end.
+tags: [acara-f10-v9, primary, geometry, coordinate, ac9m6sp02]

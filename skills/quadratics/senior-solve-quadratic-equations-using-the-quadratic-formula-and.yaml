@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-quadratic-equations-using-the-quadratic-formula-and
+name: Solve quadratic equations using the quadratic formula and by completing the square
+domain: quadratics
+description: Solve non-factorable quadratic equations using the quadratic formula, expressing the roots exactly in surd form. This skill demonstrates the mathematical equivalence of the quadratic formula method and the completing-the-square method, both of which yield exact algebraic solutions required in senior Mathematical Methods.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: expression
+sources:
+- topic: solve_quadratic_equations_using_the_quadratic_formula_and
+  params:
+    variant: monic_squarefree
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: solve_quadratic_equations_using_the_quadratic_formula_and
+  params:
+    variant: monic_surd_simplifies
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: solve_quadratic_equations_using_the_quadratic_formula_and
+  params:
+    variant: non_monic_surd_simplifies
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-sign-b
+  description: Using +b instead of -b in the numerator of the quadratic formula.
+- id: forgot-double-a
+  description: Forgetting to double a in the denominator of the quadratic formula.
+- id: half-divided-surd
+  description: Dividing the -b term by 2a but forgetting to also divide the sqrt(D) term by 2a.
+tags: []

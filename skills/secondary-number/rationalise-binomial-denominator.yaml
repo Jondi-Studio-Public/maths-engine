@@ -1,0 +1,62 @@
+id: rationalise-binomial-denominator
+name: Rationalise a binomial denominator
+domain: secondary-number
+description: Rationalise a fraction whose denominator is a two-term surd expression a +/- sqrt(b) by multiplying
+  numerator and denominator by the conjugate a -/+ sqrt(b), giving a single simplified expression with a
+  rational denominator. Confined to binomial denominators -- a monomial surd denominator is already rationalised
+  by sympy on parse and is not this skill's scope.
+status: active
+placement_eligible: false
+prerequisites:
+- simplify-surds
+- difference-of-squares
+answer: expression
+sources:
+- topic: t1_rationalise_binomial
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: t1_rationalise_binomial
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: t1_rationalise_binomial
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: t1_rationalise_binomial_sum
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: kept-same-sign
+  description: Multiplies numerator and denominator by a + sqrt(b) again instead of the conjugate a - sqrt(b)
+    (or the reverse when the denominator is a - sqrt(b)) -- a "forgot to flip the sign" error that leaves the
+    denominator still carrying a surd.
+- id: forgot-numerator
+  description: Multiplies the denominator by the conjugate correctly (so the denominator is rationalised) but
+    leaves the original numerator untouched, stating just the plain rational number c/D as if only the
+    denominator needed the conjugate.
+- id: wrong-denominator-formula
+  description: Uses a + b in place of the difference-of-squares identity a^2 - b when clearing the denominator,
+    with the numerator otherwise correctly multiplied by the conjugate.
+- id: half-rationalised
+  description: At the exam tier (a sum of two binomial-denominator fractions), applies the conjugate to only
+    one of the two fractions and adds the other one's original, un-rationalised form straight in -- the same
+    real number, but not a single expression with a rational denominator.
+- id: wrong-conjugate-sign-one-term
+  description: At the exam tier, uses the wrong conjugate sign on one of the two terms (multiplies by the same
+    binomial again instead of its conjugate) while combining the two fractions otherwise correctly.
+- id: mismatched-denominator
+  description: At the exam tier, combines the two already-rationalised fractions by adding their numerators
+    over just one of the two denominators, forgetting to form the common denominator D1 x D2.
+tags: []

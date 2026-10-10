@@ -1,0 +1,34 @@
+id: f10-partition-collections-equal-groups
+name: Partition collections into equal groups
+domain: early-foundations
+learner_band: early
+description: Given a collection of up to 120 objects and a stated number of equal groups to partition it into, determine the size of each group using known number facts or skip counting.
+status: active
+placement_eligible: false
+prerequisites: [equal-groups, skip-count-2-5-10]
+answer: number
+sources:
+- topic: p19a_partition_equal_groups
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_partition_equal_groups
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_partition_equal_groups
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reverse-direction
+  description: States the given number of groups as if it were the computed group size, confusing which stated quantity the answer must be.
+- id: restates-total
+  description: Reports the total minus the number of groups (or the total itself) instead of dividing the total by the number of groups.
+- id: tens-only
+  description: (medium/hard) Reports only the whole-bundle (tens) component of the group size and forgets to add the loose-ones component.
+- id: unbundling-dropped
+  description: (hard) Drops the one leftover bundle instead of unbundling it into ten loose ones, so the group size is short by the ten's own share.
+- id: off-by-skip
+  description: States a group size one skip-count step (the number of groups) more or fewer than the correct value.
+tags: [acara-f10-v9, early, partition, skip-counting, ac9m1n03]

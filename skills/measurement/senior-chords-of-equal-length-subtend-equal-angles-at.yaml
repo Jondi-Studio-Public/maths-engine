@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-chords-of-equal-length-subtend-equal-angles-at
+name: Chords of equal length subtend equal angles at the centre
+domain: measurement
+description: 'Given bounded, fully specified inputs, Chords of equal length subtend equal angles at the centre and conversely chords subtending equal angles at the centre of a circle have the same length. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: chords_equal_length_equal_angles
+  params: {mode: forward}
+  difficulty: easy
+  stages: [6]
+- topic: chords_equal_length_equal_angles
+  params: {mode: converse}
+  difficulty: medium
+  stages: [6]
+- topic: chords_equal_length_equal_angles
+  params: {mode: chained}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: half-angle
+  description: States half the angle instead of the full equal angle.
+- id: supplementary
+  description: States 180 minus the angle instead of the equal angle.
+- id: assumes-right-angle
+  description: Assumes the angle is a right angle (90 degrees) regardless of the stated value.
+- id: confuses-direction
+  description: Treats equal angle as requiring halved length instead of equal length.
+- id: doubles-length
+  description: Assumes equal angle means double length instead of equal length.
+- id: off-by-one-length
+  description: States a length that is off by one unit instead of the correct length.
+tags: [acara-senior-v8-4, measurement, chords, chords_equal_length_equal_angles, ACMSM033]

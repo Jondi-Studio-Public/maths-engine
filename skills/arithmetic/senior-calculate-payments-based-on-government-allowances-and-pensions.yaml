@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-payments-based-on-government-allowances-and-pensions
+name: Calculate payments based on government allowances and pensions
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, calculate payments based on government allowances and pensions. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p10c_government_allowance
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p10c_government_allowance
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p10c_government_allowance
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgot-dependent-supplement
+  description: Drops the dependent-child term from the payment entirely.
+- id: forgot-unit-conversion
+  description: 'Medium tier: uses the stated weekly supplement directly instead of converting it to a fortnightly amount.'
+- id: reduction-on-full-income
+  description: 'Hard tier: applies the income-test taper to the whole fortnightly income instead of only the amount above the income-free threshold.'
+- id: added-instead-of-subtracted-reduction
+  description: 'Hard tier: adds the income-test reduction to the payment instead of subtracting it.'
+tags: [acara-senior-v8-4, arithmetic, government-allowances, p10c_government_allowance, ACMGM003]

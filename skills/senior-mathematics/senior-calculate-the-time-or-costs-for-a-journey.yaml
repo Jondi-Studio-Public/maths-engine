@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-the-time-or-costs-for-a-journey
+name: Calculate the time or costs for a journey
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, calculate the time or costs for a journey from distances estimated from maps. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: journey_time_or_cost
+  params: {variant: time}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: journey_time_or_cost
+  params: {variant: round_trip_cost}
+  difficulty: medium
+  stages: [3, 4]
+- topic: journey_time_or_cost
+  params: {variant: fuel_cost}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: inverts-the-ratio
+  description: Computes speed divided by distance times sixty instead of the correct ratio.
+- id: forgets-the-minutes-conversion
+  description: Reports the time in hours instead of converting to minutes.
+- id: forgets-round-trip
+  description: Calculates the cost of a one-way journey instead of a round trip.
+- id: adds-a-flat-fee-error
+  description: Adds an extra flat fee equal to the one-way distance instead of just doubling the distance.
+- id: skips-the-per-100-scaling
+  description: Treats the fuel consumption rate as litres per kilometre instead of per 100 kilometres.
+- id: prices-the-distance-not-the-fuel
+  description: Multiplies distance by price without calculating the litres of fuel used.
+tags: [acara-senior-v8-4, measurement, time, money]

@@ -1,0 +1,31 @@
+id: f10-estimate-counts-and-check-reasonableness
+name: Estimate counts and check reasonableness
+domain: primary-number
+description: Estimate the result of a whole-number addition, subtraction or multiplication by rounding each operand to a stated place and computing.
+status: active
+placement_eligible: false
+prerequisites: [estimate-financial-total, round-decimals]
+answer: number
+sources:
+- topic: estimate_counts_and_check_reasonableness
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: estimate_counts_and_check_reasonableness
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: estimate_counts_and_check_reasonableness
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: rounds-down-always
+  description: Floors every operand to the stated place instead of applying half-up rounding.
+- id: uses-unrounded-operands
+  description: Computes the operation on the raw, unrounded operands.
+- id: wrong-place-value
+  description: Rounds to one place coarser than instructed (e.g. nearest 100 when told nearest 10).
+- id: same-place-for-both
+  description: On hard tier, applies only the first stated place to both operands, ignoring the second operand's own different stated place.
+tags: [primary, estimation, rounding, acara-f10-v9, ac9m6n08]

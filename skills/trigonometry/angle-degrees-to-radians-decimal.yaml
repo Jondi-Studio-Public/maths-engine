@@ -1,0 +1,33 @@
+id: angle-degrees-to-radians-decimal
+name: Convert degrees to radians (decimal answer)
+domain: trigonometry
+description: 'Convert an angle given in degrees to its radian value, rounded to a stated number of decimal places. Three tiers: a whole-number degree value (easy); a signed, one-decimal-place degree value (medium); and a degrees-and-minutes (DMS) angle, e.g. 63°28'', converted to radians (hard). This is the decimal-answer half of an exam-style item''s degree-radian conversion questions; a separate skill covers the exact pi-form answer and another covers the reverse (radians to DMS) direction, split because each declares a genuinely different grader kind.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: t4_degrees_to_radians_decimal
+  params: {variant: forward_whole}
+  difficulty: easy
+  stages: [6]
+- topic: t4_degrees_to_radians_decimal
+  params: {variant: forward_signed}
+  difficulty: medium
+  stages: [6]
+- topic: t4_degrees_to_radians_decimal
+  params: {variant: dms_forward}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: drops-the-pi-factor
+  description: Treats degrees divided by 180 as the radian value directly, without multiplying by pi.
+- id: uses-90-instead-of-180
+  description: Uses 90 instead of 180 as the conversion base, doubling the correct radian value.
+- id: drops-the-negative-sign
+  description: Converts the magnitude of a negative degree value only, discarding its sign.
+- id: forgets-the-minutes-component
+  description: Converts only the whole-degree part of a degrees-and-minutes angle, ignoring the minutes entirely.
+- id: misreads-minutes-as-hundredths
+  description: Misreads the minutes component of a DMS angle as hundredths of a degree instead of sixtieths.
+tags: [trigonometry, angle-measure, radians]

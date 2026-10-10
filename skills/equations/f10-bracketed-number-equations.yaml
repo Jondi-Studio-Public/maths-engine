@@ -1,0 +1,52 @@
+id: f10-bracketed-number-equations
+name: Solve numerical equations with brackets
+domain: equations
+description: Given a numerical equation containing brackets, multiple arithmetic
+  operations and a single numeric blank standing for the unknown value (never a
+  letter variable), find the value of the blank using order of operations and
+  inverse operations.
+status: active
+placement_eligible: false
+prerequisites:
+- order-of-operations
+- two-step-equations
+answer: number
+sources:
+- topic: p13a_bracketed_number
+  params:
+    shape: isolate
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p13a_bracketed_number
+  params:
+    shape: outer_add
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p13a_bracketed_number
+  params:
+    shape: leading_subtract
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Isolates the bracket's own value and reports it as the final answer,
+    forgetting the last add/subtract step needed to reach the blank
+- id: misconception-2
+  description: A sign or operation error, e.g. adding instead of subtracting, or
+    (when the bracket term is subtracted from a leading constant) computing the
+    bracket's value as the leading constant minus the total instead of the total
+    subtracted from the leading constant
+- id: misconception-3
+  description: An order-of-operations slip -- re-applies the outer multiplier to
+    a term that was already isolated, divides before fully accounting for an outer
+    additive term, or drops a leading constant entirely instead of moving it to
+    the other side
+tags: []

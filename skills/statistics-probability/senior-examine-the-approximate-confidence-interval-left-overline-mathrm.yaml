@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-approximate-confidence-interval-left-overline-mathrm
+name: Examine the approximate confidence interval for a population mean
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, examine the approximate confidence interval (x-bar - z*s/sqrt(n), x-bar + z*s/sqrt(n)), as an interval estimate for mu, the population mean, where z is the appropriate quantile for the standard normal distribution. Returns both interval bounds, in the sampled quantity''s own unit, rounded to 1 decimal place. Three tiers: direct substitution given the sample mean, sample standard deviation and sample size, with z stated via a named confidence level; the same substitution given the sample VARIANCE instead of the standard deviation, requiring a square root first; and that same derivation combined with a z value that must be selected from a three-row lookup table given inline, rather than stated directly.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: pair
+sources:
+- topic: p8c_confidence_interval_mean
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p8c_confidence_interval_mean
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p8c_confidence_interval_mean
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits-sqrt-n
+  description: Computes the margin as z times s, never dividing by the square root of n.
+- id: omits-z
+  description: Computes the margin as s divided by the square root of n, forgetting to multiply by z.
+- id: one-sided-margin
+  description: Reports (center, center + 2*margin), only ever adding the margin and never subtracting it.
+tags: [acara-senior-v8-4, statistics-probability, confidence-interval, mean, acmsm141]

@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-turning-points-and-zeros-of-quadratics-and
+name: Find turning points and zeros of quadratics and understand the role of the discriminant
+domain: quadratics
+description: Given a quadratic in the form ax^2+bx+c with a, b, c stated integers, compute its discriminant b^2-4ac and state the number of real zeros (0, 1 or 2) it implies. Never asks for the turning point or the zeros themselves -- that content already belongs to quadratic-vertex (this skill's own prerequisite) and to solve-quadratics-formula / factorise-quadratic. The quadratic is always presented literally as ax^2+bx+c, in that term order; never rearranged, never in vertex form.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: pair
+sources:
+- topic: p19e_discriminant_zero_count
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19e_discriminant_zero_count
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19e_discriminant_zero_count
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19e_discriminant_zero_count
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-error-forgot-minus
+  description: Computes b^2 + 4ac instead of b^2 - 4ac (forgets the discriminant's own minus sign in front of 4ac).
+- id: forgot-to-square-b
+  description: Computes b - 4ac instead of b^2 - 4ac (uses b directly instead of b squared).
+- id: sign-error-on-b-squared
+  description: Computes -b^2 - 4ac instead of b^2 - 4ac (a sign error on the b^2 term itself).
+- id: right-discriminant-wrong-count
+  description: Reports the correct discriminant value but the wrong zero count for it -- most often offering 2 for a discriminant of exactly 0, or 1 for a negative discriminant.
+- id: swapped-discriminant-and-count
+  description: Reports the zero count in the discriminant's slot and the discriminant value in the count's slot.
+tags: []

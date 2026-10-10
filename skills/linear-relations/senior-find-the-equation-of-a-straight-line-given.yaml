@@ -1,0 +1,55 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-equation-of-a-straight-line-given
+name: Find the equation of a straight line given sufficient information; parallel and perpendicular lines
+domain: linear-relations
+description: Given bounded, fully specified inputs, find the equation of a straight line given sufficient information; parallel and perpendicular lines. Never given the information as a table or graph; the input is written in prose/coordinate form. This skill goes further than rate-of-change (which computes only the gradient value) — the full equation (both gradient and intercept) is produced, plus parallel/perpendicular construction.
+status: active
+placement_eligible: false
+prerequisites:
+- rate-of-change
+answer: expression
+sources:
+- topic: find_the_equation_of_a_straight_line_given
+  params:
+    variant: two_points
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: find_the_equation_of_a_straight_line_given
+  params:
+    variant: parallel
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: find_the_equation_of_a_straight_line_given
+  params:
+    variant: perpendicular
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: find_the_equation_of_a_straight_line_given
+  params:
+    variant: standard_form
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: reversed-rise-run
+  description: Reversing rise and run when computing gradient from two points
+- id: used-total-not-change
+  description: Using total values (y/x) instead of the change between two points ((y2-y1)/(x2-x1)) when computing gradient
+- id: swapped-intercept-sign
+  description: Negating the intercept but keeping the gradient
+- id: used-perpendicular-gradient
+  description: Using the perpendicular gradient (-1/m) when a parallel line (same gradient) is required
+- id: reused-reference-intercept
+  description: Keeping the reference line's intercept instead of computing the new intercept for the given point
+- id: used-same-gradient
+  description: Using the same gradient instead of the perpendicular gradient
+tags: []

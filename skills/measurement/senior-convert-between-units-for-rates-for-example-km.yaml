@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-between-units-for-rates-for-example-km
+name: Convert between units for rates
+domain: measurement
+description: 'Given bounded, fully specified inputs, convert between units for rates; for example, km/h to m/s. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: convert_units_for_rates
+  params: {mode: kmh_to_ms}
+  difficulty: easy
+  stages: [6]
+- topic: convert_units_for_rates
+  params: {mode: ms_to_kmh}
+  difficulty: medium
+  stages: [6]
+- topic: convert_units_for_rates
+  params: {mode: km_per_min_to_ms}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: inverts-factor
+  description: Multiplies by the reciprocal of the correct conversion factor.
+- id: wrong-constant
+  description: Uses 3 instead of 3.6 as the conversion constant.
+- id: forgets-time-conversion
+  description: Converts distance units but forgets to convert time units.
+- id: forgets-distance-conversion
+  description: Converts time units but forgets to convert distance units.
+tags: [acara-senior-v8-4, measurement, rates, convert_units_for_rates, ACMEM072]

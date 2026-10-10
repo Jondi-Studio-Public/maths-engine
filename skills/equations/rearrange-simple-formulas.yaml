@@ -1,0 +1,51 @@
+id: rearrange-simple-formulas
+name: Rearrange simple formulas
+domain: equations
+description: Use equivalent operations to make a specified variable the subject of a simple formula.
+status: active
+prerequisites:
+- variables-on-both-sides
+- use-formulas
+answer: expression
+sources:
+- topic: rearrange
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: rearrange
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: rearrange
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: rearrange_powers_roots
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Changing a term's side without applying an operation
+- id: misconception-2
+  description: Treating variable labels as units that cannot move
+- id: misconception-3
+  description: Taking a square root and keeping both signs implicitly, offering the negative root when only the positive root is physically meaningful
+- id: misconception-4
+  description: Isolating a squared or rooted term and stopping before undoing the power or root
+- id: misconception-5
+  description: Squaring or rooting only one side of the equation and carrying the error through the rest of the rearrangement
+- id: misconception-6
+  description: Multiplying by a factor instead of dividing by it (or vice versa) when isolating the target
+tags: []

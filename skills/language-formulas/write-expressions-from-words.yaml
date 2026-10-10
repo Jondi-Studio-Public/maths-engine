@@ -1,0 +1,35 @@
+id: write-expressions-from-words
+name: Translate words into expressions
+domain: language-formulas
+description: Represent verbal descriptions of quantities and operations as algebraic expressions.
+status: active
+prerequisites:
+- read-expressions
+answer: expression
+sources:
+- topic: expression_from_words
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: expression_from_words
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: expression_from_words
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reversing order in subtraction or division
+- id: misconception-2
+  description: Adding an equals sign when only an expression is required
+tags: []

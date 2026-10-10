@@ -1,0 +1,49 @@
+id: ucv1-product-measure-rectangle
+name: Compute a product measure on a rectangle
+domain: measure-and-advanced-probability
+description: Compute the product measure of two supplied measurable finite sets from their component measures.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: fraction
+sources:
+- topic: p15c_product_measure_rectangle
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15c_product_measure_rectangle
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15c_product_measure_rectangle
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15c_product_measure_rectangle
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sums-instead-of-multiplies
+  description: Adds mu(A) and nu(B) instead of multiplying them.
+- id: forgets-one-factor
+  description: Reports mu(A) or nu(B) alone, forgetting to multiply by the other factor.
+- id: uses-whole-spaces
+  description: Uses the total measure of X and Y instead of the stated subsets A and B.
+- id: double-counts-overlap
+  description: On the exam tier, where A is presented as a union of two overlapping index lists, sums the overlapping element's weight twice instead of once.
+tags: [university-core-v1, measure-theory, p15c_product_measure_rectangle]
+framework_areas: [measure-and-advanced-probability]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability

@@ -1,0 +1,17 @@
+id: number-bonds-to-10
+name: Make 10
+domain: early-foundations
+placement_order: 130
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Recall pairs of numbers that combine to make ten.
+status: active
+prerequisites: [subtract-within-5]
+answer: mcq
+sources:
+- topic: number_bond
+  params: {total: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, number-bonds]

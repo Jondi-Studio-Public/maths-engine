@@ -1,0 +1,46 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-piece-wise-linear-and-step-graphs-used
+name: Read the charge off a step graph
+domain: linear-relations
+description: Given a step graph drawn on a labelled integer grid (for example a postage-by-weight charging scheme) with each step's open and closed ends shown, state the charge that applies at a stated input, using the filled circle where the input sits at the end of a step. Reading a value only; no gradient is involved.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rate-of-change]
+answer: fraction
+sources:
+- topic: pv1b_step_graph
+  params: {variant: interior}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1b_step_graph
+  params: {variant: boundary}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1b_step_graph
+  params: {variant: two_reads}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1b_step_graph
+  params: {variant: reverse}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: adjacent-step-above
+  description: Reads the step above the one that applies, the next charge up, instead of the step the input falls in or the filled circle selects.
+- id: adjacent-step-below
+  description: Reads the step below the one that applies, the previous charge, instead of the step the input falls in or the filled circle selects.
+- id: interpolated
+  description: Treats the steps as a ramp and reads a value between two steps, when a step graph only ever takes the height of one step.
+- id: input-echo
+  description: Gives the stated input (or, on the reverse question, the stated charge) back as the answer instead of reading across the graph.
+- id: sum-of-steps
+  description: On the two-input question, reads one of the two inputs from the neighbouring step and adds the wrong pair of charges.
+- id: read-combined-input
+  description: Adds the two inputs first and reads a single charge at the combined value, instead of reading each input and adding the charges.
+- id: open-end
+  description: On the reverse question, gives the open left end of the step at that charge, a value that does not earn the charge, instead of the closed right end that does.
+tags: [acara-senior-v8-4, linear-relations, step-graph, piecewise, acmgm047, figure]

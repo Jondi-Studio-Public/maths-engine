@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-deseasonalise-a-time-series-by-using-a-seasonal
+name: Deseasonalise a time series by using a seasonal index, including the use of spreadsheets to implement this process
+domain: senior-mathematics
+description: 'Given a stated actual value and a seasonal index (as a bare percentage number, or a stated percentage change from the 100 baseline), compute the deseasonalised value (actual divided by index/100). Also inverts the operation (find the actual value given the deseasonalised value and index) and composes two deseasonalisations with a follow-on percentage-change comparison.'
+status: active
+placement_eligible: false
+prerequisites: []
+capability_gates: [technology_use]
+answer: number
+sources:
+- topic: p13d_deseasonalise
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p13d_deseasonalise
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p13d_deseasonalise
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p13d_deseasonalise
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: multiplies-instead-of-dividing
+  description: Multiplies by index/100 instead of dividing (or, on the hard tier which inverts the operation, divides instead of multiplying).
+- id: uses-raw-index-as-divisor
+  description: Divides (or multiplies) by the raw index number itself instead of converting it to a proportion first (a factor-of-100 error), e.g. dividing by 108 instead of 1.08.
+- id: misreads-percentage-change-as-index
+  description: On the medium tier, reads "15% above" as the index itself (uses 15 instead of 115).
+- id: uses-actual-values-for-the-change
+  description: On the exam tier, reports the percentage change between the two ACTUAL values instead of the two deseasonalised values, skipping the deseasonalising step for the comparison.
+tags: [acara-senior-v8-4, senior-mathematics, seasonal-index, p13d_deseasonalise, ACMGM091]

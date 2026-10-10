@@ -1,0 +1,29 @@
+id: f10-decimal-add-subtract-estimate
+name: Estimate decimal addition and subtraction
+domain: primary-number
+description: Estimate the result of a decimal addition or subtraction by rounding the decimals to a stated place. Every question states the rounding place explicitly and asks for the rounded-then-combined estimate, never the exact computed value.
+status: active
+placement_eligible: false
+prerequisites: [decimal-arithmetic, round-decimals]
+answer: number
+sources:
+- topic: decimal_estimate_add_subtract
+  params: {variant: two_place_round_whole}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: decimal_estimate_add_subtract
+  params: {variant: two_place_round_tenth}
+  difficulty: medium
+  stages: [3, 4]
+- topic: decimal_estimate_add_subtract
+  params: {variant: three_place_round_whole}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: rounds-only-one-operand
+  description: Rounds only the first operand to the stated place and leaves every other operand exact before combining.
+- id: rounds-to-a-coarser-place
+  description: Rounds every operand to a place one step coarser than the one the question states (e.g. nearest ten instead of the stated nearest whole number).
+- id: computes-exact-result-instead-of-estimating
+  description: Computes the true, unrounded sum/difference/chain instead of the rounded-then-combined estimate the question asks for.
+tags: [acara-f10-v9, primary, decimals, estimation, rounding, ac9m6n04]

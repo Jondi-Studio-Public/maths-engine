@@ -1,0 +1,49 @@
+id: finite-set-operations
+name: Compute finite set operations
+domain: discrete-mathematics
+description: Compute union, intersection, difference or symmetric difference for explicitly listed finite sets.
+status: active
+prerequisites: []
+answer: list
+sources:
+- topic: finite_set_operations
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: finite_set_operations
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: finite_set_operations
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: reversed-difference
+  description: Computing B minus A when the question asks for A minus B.
+- id: union-intersection-confusion
+  description: Keeping only common elements for a union or all elements for an intersection.
+tags: [university-core-v1, university-foundation-pilot, sets]
+framework_areas:
+- discrete-mathematics
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: discrete-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: discrete-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: discrete-mathematics

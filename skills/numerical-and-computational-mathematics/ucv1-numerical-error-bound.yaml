@@ -1,0 +1,35 @@
+id: ucv1-numerical-error-bound
+name: Compute a deterministic numerical error bound
+domain: numerical-and-computational-mathematics
+description: Compute the absolute and relative error bound for a supplied approximation and certified interval.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: p14d_numerical_error_bound
+  params: {variant: midpoint}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14d_numerical_error_bound
+  params: {variant: offcentre}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14d_numerical_error_bound
+  params: {variant: fraction_near_miss}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14d_numerical_error_bound
+  params: {variant: centre_radius}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-closer-endpoint
+  description: Reports min(ahat - lo, hi - ahat) instead of max(...) -- takes the closer endpoint's distance as the worst-case bound instead of the farther one. Not exercisable on easy, where ahat is exactly the midpoint and min == max.
+- id: width-only
+  description: Reports the certified interval's width (or half-width) alone, ignoring where ahat actually sits inside it.
+- id: wrong-denominator
+  description: Computes the relative bound by dividing the absolute bound by hi instead of by ahat -- a plain wrong-endpoint slip. Offered on the easy tier only.
+- id: textbook-relative-error-uses-worst-case-true-value
+  description: Computes the relative bound by dividing the absolute bound by lo, the endpoint closest to 0 -- i.e. by the smallest possible |true value| in the certified interval, which is the textbook definition of relative error (|error| / |true value|) applied rigorously to an interval rather than a known value. A legitimate reading of "relative error" in general, but excluded by this skill's own stated convention (relative error bound = absolute error bound / |ahat|), which the prompt now states explicitly so exactly one answer is correct.
+tags: [university-core-v1, numerical-and-computational-mathematics, p14d_numerical_error_bound]

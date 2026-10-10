@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-formula-t-n-r-n-1
+name: Use the formula t_n = r^(n-1) * t_1 for geometric sequences
+domain: functions-sequences
+description: Given bounded, fully specified inputs, use the formula \(t_n=r^{n-1}t_1\). Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: geometric_nth_term_formula
+  params: {variant: find_t_n}
+  difficulty: easy
+  stages: [6]
+- topic: geometric_nth_term_formula
+  params: {variant: find_r}
+  difficulty: medium
+  stages: [6]
+- topic: geometric_nth_term_formula
+  params: {variant: find_n}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: adds-instead-of-multiplying-repeatedly
+  description: Confuses geometric with arithmetic sequence, uses t1 + r*(n-1) (easy tier only).
+- id: off-by-one-exponent
+  description: Uses n instead of n-1 in the exponent, computes r^n * t1 (easy and hard tiers).
+- id: forgets-t1-factor
+  description: Drops the t1 multiplier (easy and hard tiers).
+- id: uses-the-full-ratio-without-taking-the-root
+  description: Forgets to invert the power, uses t_n/t1 directly as r (medium tier only).
+- id: off-by-one-ratio
+  description: Uses r+1 instead of r (medium tier only).
+- id: ignores-the-sign
+  description: Drops the negative sign entirely, computes the positive-r version (hard tier only, may collide when n-1 is even).
+tags: [acara-senior-v8-4, functions-sequences, geometric-sequences, nth-term, acmmm073]

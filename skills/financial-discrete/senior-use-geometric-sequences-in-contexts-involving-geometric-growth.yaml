@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-geometric-sequences-in-contexts-involving-geometric-growth
+name: Use geometric sequences in contexts involving geometric growth or decay, such as compound interest
+domain: financial-discrete
+description: Given a geometric growth or decay context with a stated first value and rate per period, find the first whole period in which the value passes a stated threshold.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: pv0a_geometric_threshold
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv0a_geometric_threshold
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv0a_geometric_threshold
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv0a_geometric_threshold
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-under
+  description: Reports one period fewer than the true first period at which the value passes the stated threshold (a floor instead of the first period past it).
+- id: off-by-one-over
+  description: Reports one period more than the true first period at which the value passes the stated threshold.
+- id: linear-not-geometric
+  description: Treats the growth or decay as a constant amount added or removed each period (a simple-interest-style linear model) instead of compounding by the stated rate.
+- id: wrong-period-convention
+  description: Confuses whether the stated first value is period 0 (now, before any growth or decay) or period 1 (the value at the end of the first period), off by one period as a result.
+- id: ignored-rate-change
+  description: Applies the original rate for every period, never switching to the second stated rate for the later periods.
+- id: new-rate-from-start
+  description: Applies the later, changed rate to the entire sequence from period 1, instead of only from the stated period onward.
+tags: [acara-senior-v8-4, financial-discrete, geometric, growth, decay, acmmm076]

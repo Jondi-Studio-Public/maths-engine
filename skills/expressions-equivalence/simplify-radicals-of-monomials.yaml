@@ -1,0 +1,58 @@
+id: simplify-radicals-of-monomials
+name: Simplify a quotient of radicals of monomials
+domain: expressions-equivalence
+description: Simplify a cube root of a monomial divided by a square root of a monomial (an exam-style item)
+  to a bare monomial fraction -- a coefficient, zero or more numerator variable powers, and at most one
+  denominator variable power. Every question is constructed so every coefficient is a perfect power and every
+  exponent divides its own root index exactly (forward construction, the answer is drawn
+  first, then the two radicands are raised from it). Every variable in this skill's questions represents a
+  positive quantity -- this scope is required so the cube/square root extraction is unambiguous (the same scope
+  simplify-algebraic-fractions' own description discloses for its own reduction step); this skill's grading
+  itself never relies on that assumption, since the final canonical answer never contains a root.
+status: active
+placement_eligible: false
+prerequisites:
+- simplify-surds
+answer: expression
+sources:
+- topic: exd_e2_simplify_radicals_of_monomials
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e2_simplify_radicals_of_monomials
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e2_simplify_radicals_of_monomials
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e2_simplify_radicals_of_monomials
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: wrong-root-index
+  description: Applies the wrong root's divisor to a variable's own exponent -- halves the cube-root radicand's
+    exponent instead of dividing it by 3, and thirds the square-root radicand's exponent instead of halving it --
+    while leaving the coefficient correctly extracted.
+- id: forgot-the-divide
+  description: Reports the cube-root part's own simplification alone, never applying the square root divisor at
+    all -- both the coefficient and every variable's exponent are left at their un-divided cube-root value.
+- id: sign-or-placement-error
+  description: On a hard or exam question (the only tiers with a denominator variable at all), places the one
+    variable that belongs under the fraction bar into the numerator instead.
+tags: []

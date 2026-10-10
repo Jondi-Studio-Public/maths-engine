@@ -1,0 +1,60 @@
+id: one-step-inequalities
+name: Solve one-step linear inequalities
+domain: inequalities
+description: Solve one-step inequalities using equality-preserving operations.
+status: deferred
+deferred_reason: grader
+prerequisites:
+- inverse-operations
+- inequality-solutions-number-line
+answer: inequality
+sources:
+- topic: inequality
+  params:
+    kind: one_step
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: inequality
+  params:
+    kind: one_step
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: inequality
+  params:
+    kind: one_step
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: inequality
+    params:
+      kind: one_step
+      hi: 6
+    target_s: 6
+    limit_s: 15
+  - topic: inequality
+    params:
+      kind: one_step
+      hi: 9
+    target_s: 7
+    limit_s: 18
+  - topic: inequality
+    params:
+      kind: one_step
+      hi: 12
+    target_s: 8
+    limit_s: 20
+misconceptions:
+- id: misconception-1
+  description: Treating an inequality exactly like an equation without interpreting the set
+- id: misconception-2
+  description: Giving a single value instead of a range
+tags: []

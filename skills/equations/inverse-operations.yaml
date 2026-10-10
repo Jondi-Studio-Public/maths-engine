@@ -1,0 +1,37 @@
+id: inverse-operations
+name: Use inverse operations
+domain: equations
+description: Identify and use inverse operation pairs to undo operations while preserving equality.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- meaning-of-equality
+- arithmetic-properties
+answer: mcq
+sources:
+- topic: linear_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Using the same operation rather than its inverse
+- id: misconception-2
+  description: Undoing operations in an arbitrary order
+tags: []

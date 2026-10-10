@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-volumes-of-solids-of-revolution-about-either
+name: Determine volumes of solids of revolution about either axis
+domain: integration
+description: Given bounded, fully specified inputs, determine volumes of solids of revolution about either axis. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: determine_volumes_of_solids_of_revolution_about_either
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: determine_volumes_of_solids_of_revolution_about_either
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: determine_volumes_of_solids_of_revolution_about_either
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-pi
+  description: Omitting the pi factor from the disk-method formula.
+- id: forgot-square
+  description: Integrating the curve itself instead of its square.
+- id: only-upper-bound
+  description: Evaluating the volume integral at the upper bound only.
+- id: used-x-axis-formula
+  description: Applying the x-axis disk formula to a y-axis rotation.
+- id: wrong-power
+  description: Using the squared curve directly as the antiderivative without integrating.
+tags: []

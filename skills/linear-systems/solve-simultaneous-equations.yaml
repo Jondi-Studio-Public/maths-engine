@@ -1,0 +1,35 @@
+id: solve-simultaneous-equations
+name: Solve a 2x2 linear system
+domain: linear-systems
+description: Solve a pair of simultaneous linear equations in two unknowns.
+status: active
+prerequisites:
+- variables-on-both-sides
+answer: pair
+sources:
+- topic: simultaneous
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: simultaneous
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: simultaneous
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: swapped-pair
+  description: Swapping the x and y values in the final answer.
+- id: sign-error-one-unknown
+  description: A sign error solving for one of the two unknowns.
+tags: []

@@ -1,0 +1,30 @@
+id: f10-number-represent-order-to-20
+name: Represent and order numbers to 20
+domain: early-foundations
+learner_band: early
+description: Given a stated set of whole numbers, including zero, up to 20, arrange them in order.
+status: active
+placement_eligible: false
+prerequisites: [recognise-numerals-to-10, order-numbers-to-10]
+answer: ordered_list
+sources:
+- topic: order_to_twenty
+  params: {count: [3, 4], min_gap: 4, force_zero: false, min_close_pairs: 0}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: order_to_twenty
+  params: {count: 4, force_zero: false, min_close_pairs: 1}
+  difficulty: medium
+  stages: [3, 4]
+- topic: order_to_twenty
+  params: {count: 5, force_zero: true, min_close_pairs: 2}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the numbers from largest to smallest instead of smallest to largest.
+- id: adjacent-swap
+  description: Orders the numbers correctly overall but swaps the two middle values, as if two neighbouring values did not need comparing.
+- id: zero-placed-last
+  description: Treats zero as if it were not a real quantity and places it at the end of the sequence regardless of its actual value.
+tags: [acara-f10-v9, early, ordering, ac9mfn01]

@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-implication-converse-equivalence-negation-contrapositive
+name: Use implication, converse, equivalence, negation, contrapositive
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use implication, converse, equivalence, negation, contrapositive. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: implication_transform_identify
+  params: {variant: converse}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: implication_transform_identify
+  params: {variant: equivalence_check}
+  difficulty: medium
+  stages: [3, 4]
+- topic: implication_transform_identify
+  params: {variant: negation_truth}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: confuses-converse-and-contrapositive
+  description: Offers the contrapositive (swap and negate both clauses) when the converse (swap only) is asked for.
+- id: assumes-converse-is-equivalent
+  description: Believes the converse or the negation is always logically equivalent to the original implication, when only the contrapositive is.
+- id: treats-original-as-its-own-converse
+  description: Picks the original implication itself when asked for its converse, not noticing that the hypothesis and conclusion were never swapped.
+tags: [acara-v8-4-specialist, propositional-logic]

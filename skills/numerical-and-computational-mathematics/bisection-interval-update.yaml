@@ -1,0 +1,38 @@
+id: bisection-interval-update
+name: Perform one bisection interval update
+domain: numerical-and-computational-mathematics
+description: Update a positive root bracket for x squared minus c by one bisection step.
+status: active
+prerequisites: [solve-quadratics-formula]
+answer: pair
+sources:
+- topic: bisection_interval_update
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: bisection_interval_update
+  difficulty: medium
+  stages: [3, 4]
+- topic: bisection_interval_update
+  params: {reversed_sign: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: keeps-wrong-half
+  description: Keeps the half interval that does not contain the positive root.
+- id: fails-to-halve-width
+  description: Reports the midpoint or original interval instead of the updated bracket.
+tags: [university-core-v1, numerical-methods, scientific-computing]
+framework_areas: [numerical-and-computational-mathematics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics

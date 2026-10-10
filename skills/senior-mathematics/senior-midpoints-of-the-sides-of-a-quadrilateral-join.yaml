@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-midpoints-of-the-sides-of-a-quadrilateral-join
+name: Midpoints of the sides of a quadrilateral join to form a parallelogram
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, Midpoints of the sides of a quadrilateral join to form a parallelogram. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: midpoints_of_the_sides_of_a_quadrilateral_join
+  params: {variant: easy, coord_lo: 0, coord_hi: 6}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: midpoints_of_the_sides_of_a_quadrilateral_join
+  params: {variant: medium, coord_lo: -8, coord_hi: 8}
+  difficulty: medium
+  stages: [3, 4]
+- topic: midpoints_of_the_sides_of_a_quadrilateral_join
+  params: {variant: hard, coord_lo: -14, coord_hi: 14}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-sign-combination
+  description: Adds and subtracts the wrong pair of vertices when applying the parallelogram vector relation (e.g. P + Q - R instead of P + R - Q), picking the wrong vertex to subtract.
+- id: swaps-x-and-y
+  description: Swaps the x- and y-coordinates of the final computed answer.
+- id: reports-a-given-midpoint
+  description: Reports the coordinates of one of the midpoints already stated in the question instead of computing the one actually asked for.
+tags: [acara-v8-4-specialist, coordinate-geometry]

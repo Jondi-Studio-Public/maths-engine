@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-and-use-basic-linear-transformations-dilations-of
+name: 'Define and use basic linear transformations: dilations of the form (x,y) -> (lambda1 x, lambda2
+  y), rotations about the origin and reflection in a line which passes through the origin, and the
+  representations of these transformations by 2x2 matrices'
+domain: matrices
+description: |
+  Given bounded, fully specified inputs, define and use basic linear transformations: dilations of the
+  form (x, y) -> (lambda1 x, lambda2 y), rotations about the origin and reflection in a line which
+  passes through the origin, and the representations of these transformations by 2x2 matrices. Return
+  the resulting image point.
+  Boundary: this skill grades the image point produced by applying a stated
+  transformation to a supplied point. Every question shows the transformation's own 2x2 matrix
+  explicitly in `working`, satisfying "the representations of these transformations by 2x2 matrices" as
+  shown reasoning, but the matrix itself is never a separately typed/graded answer -- `answer` is
+  always the resulting coordinate pair.
+status: active
+placement_eligible: false
+prerequisites:
+  - matrix-multiplication
+answer: pair
+sources:
+  - topic: linear_transform_dilation_rotation_reflection
+    params: {variant: dilation}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: linear_transform_dilation_rotation_reflection
+    params: {variant: rotation}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: linear_transform_dilation_rotation_reflection
+    params: {variant: reflection}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: swapped-lambda
+    description: For a dilation, applies lambda2 to x and lambda1 to y instead of lambda1 to x and lambda2 to y.
+  - id: same-factor
+    description: For a dilation, applies the same factor lambda1 to both x and y instead of the distinct lambda1, lambda2.
+  - id: sign-flip-first
+    description: For a dilation, negates lambda1's effect on x while leaving lambda2's effect on y unchanged.
+  - id: identity
+    description: Reports the original point unchanged, as if no rotation or reflection had been applied.
+  - id: swapped-coords
+    description: For a rotation, reports (y, x) instead of applying the rotation matrix.
+  - id: wrong-rotation
+    description: Applies the rotation rule for a different angle than the one stated.
+  - id: wrong-line
+    description: Reflects in a different line than the one stated (its own paired line, e.g. y = x instead of the x-axis).
+  - id: point-reflection
+    description: Treats a reflection as a 180 degree rotation about the origin, reporting (-x, -y).
+tags: [linear-transformations, acara-v8-4, ACMSM055]

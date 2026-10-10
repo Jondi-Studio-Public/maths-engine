@@ -1,0 +1,32 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-ordered-pair-notation-and-column-vector-notation
+name: Use ordered pair notation and column vector notation to represent a vector
+domain: vectors
+description: Given bounded, fully specified inputs, use ordered pair notation and column vector notation to represent a vector. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: use_ordered_pair_notation_and_column_vector_notation
+  params: {variant: forward_positive}
+  difficulty: easy
+  stages: [6]
+- topic: use_ordered_pair_notation_and_column_vector_notation
+  params: {variant: forward_signed}
+  difficulty: medium
+  stages: [6]
+- topic: use_ordered_pair_notation_and_column_vector_notation
+  params: {variant: inverse}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Computes the vector from B to A instead of from A to B (or, on the inverse tier, subtracts the given component instead of adding it).
+- id: wrong-axis
+  description: Reports the other axis's own difference (or, on the inverse tier, adds the given component to the wrong coordinate of A).
+- id: endpoint-only
+  description: Reports the raw coordinate of the endpoint, ignoring the starting point entirely.
+tags: [acara-senior-v8-4, vectors, vector-notation, column-vector, acmsm014]

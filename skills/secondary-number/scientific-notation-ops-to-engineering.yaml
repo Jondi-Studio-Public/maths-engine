@@ -1,0 +1,58 @@
+id: scientific-notation-ops-to-engineering
+name: Combine scientific-notation values and convert to engineering notation
+domain: secondary-number
+description: Multiply or divide two scientific-notation values (4-significant-figure coefficients,
+  either may be negative from the hard tier up) and re-express the result in engineering notation
+  (coefficient with magnitude 1 up to but not including 1000, exponent a multiple of three).
+status: active
+placement_eligible: false
+prerequisites:
+- scientific-notation
+- engineering-notation
+answer: mcq
+sources:
+- topic: exd_e5_scientific_notation_ops_to_engineering
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e5_scientific_notation_ops_to_engineering
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e5_scientific_notation_ops_to_engineering
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e5_scientific_notation_ops_to_engineering
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: left-in-scientific-form
+  description: Offers the scientific-notation product/quotient itself, before converting it into
+    engineering notation -- stops after chain part 1. Only exercisable when the scientific-notation
+    exponent is not already a multiple of three (roughly two draws in three); when it already is,
+    the unconverted form is textually identical to the answer, so it is honestly dropped that seed
+    rather than offered.
+- id: wrong-multiple-of-three-shift
+  description: Shifts the exponent to a neighbouring multiple of three (three too high or three too
+    low) instead of the correct one, keeping the same mantissa digits -- both directions offered.
+- id: sign-error-on-mantissa
+  description: Flips (or drops) the sign of the engineering-notation mantissa. Only exercisable once
+    negatives exist in the given values, which is the hard and exam tiers only -- the sibling
+    engineering-notation skill's own sign-error-on-exponent misconception is the precedent for this
+    shape of distractor, written here for the mantissa's sign instead of the exponent's.
+tags: [secondary, number, indices, engineering-syllabus]

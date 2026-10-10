@@ -1,0 +1,18 @@
+id: graph-y-mx
+name: Graph proportional linear relations
+domain: linear-relations
+description: Graph relations of the form y = mx and connect gradient with constant proportionality.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- rate-of-change
+- plot-linear-points
+- ratio-rate-proportion
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Adding an unstated intercept
+- id: misconception-2
+  description: Plotting gradient as a coordinate pair without generating points
+tags: []

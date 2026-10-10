@@ -1,0 +1,10 @@
+id: add-complex-numbers
+name: Add complex numbers
+domain: senior-mathematics
+description: Add complex numbers in Cartesian form by combining real and imaginary parts.
+status: active
+prerequisites: [complex-imaginary-part]
+answer: mcq
+sources: [{topic: complex_number, params: {kind: add}, difficulty: easy}]
+misconceptions: [{id: mixes-components, description: Combines a real part with an imaginary coefficient.}]
+tags: [expansion-batch-6, complex-numbers, acara-v8-4]

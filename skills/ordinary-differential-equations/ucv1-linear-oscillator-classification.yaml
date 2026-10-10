@@ -1,0 +1,36 @@
+id: ucv1-linear-oscillator-classification
+name: Classify a linear oscillator regime
+domain: ordinary-differential-equations
+description: Classify a supplied second-order linear oscillator as underdamped, critically damped or overdamped from its coefficients.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-harmonic-angular-frequency
+answer: mcq
+sources:
+- topic: p14f_linear_oscillator_classification
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14f_linear_oscillator_classification
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14f_linear_oscillator_classification
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14f_linear_oscillator_classification
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: discriminant-sign-flip
+  description: Computes 4mk - b^2 instead of b^2 - 4mk, so the whole classification is reversed between underdamped and overdamped.
+- id: treats-small-discriminant-as-zero
+  description: Rounds a small nonzero discriminant to zero, calling an underdamped or overdamped case critically damped.
+- id: assumes-any-damping-below-critical-is-critical
+  description: Classifies as critically damped whenever b is below the critical value, missing the exact equality b^2 = 4mk that defines the boundary.
+- id: assumes-any-damping-above-critical-is-critical
+  description: Classifies as critically damped whenever b is above the critical value, missing the exact equality b^2 = 4mk that defines the boundary.
+tags: [university-core-v1, ordinary-differential-equations, p14f_linear_oscillator_classification]

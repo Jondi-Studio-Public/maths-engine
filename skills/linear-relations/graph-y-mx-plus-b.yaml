@@ -1,0 +1,18 @@
+id: graph-y-mx-plus-b
+name: Graph linear relations in slope-intercept form
+domain: linear-relations
+description: Graph y = mx + b using a table, intercept and gradient, or digital tools.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- graph-y-mx
+- intercept
+- gradient-from-graph
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Swapping gradient and intercept
+- id: misconception-2
+  description: Changing the intercept while applying the gradient
+tags: []

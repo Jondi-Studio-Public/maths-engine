@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-distinction-between-functions-and-relations-and
+name: Recognise the distinction between functions and relations, and the vertical line test
+domain: functions-sequences
+description: 'Given a described relation -- a set of ordered pairs, an equation, or a description of its graph -- classify it as a function or not a function by applying the vertical line test. Every draw offers four options: "Function: every x-value has exactly one y-value" and three "Not a function: x = ..., gives two different y-values, ..." claims, each checked directly against the relation so exactly one option is ever true. easy: a set of 4-6 ordered pairs, the failure (when not a function) being one repeated x with two distinct y-values. medium: equations -- y = a polynomial of x is always a function, x = y^2 + c or x = k is never one; the learner picks the x-value where the vertical line meets the relation twice. hard: near-miss traps -- repeated y-values at distinct x (still a function), a duplicate identical pair listed twice (still a function), y^2 = x + c and a circle x^2 + y^2 = r^2 (never functions, including the tangent point where a circle happens to touch a vertical line at only one y). exam: relations described in words, including a restricted branch (a semicircle, or "y >= 0" on a circle) that IS a function versus the unrestricted circle, vertical line, or a parabola opening sideways, which are not. Never a bare yes/no question and never added to GENUINE_TWO_OPTION_TOPICS -- this is a genuine 4-way mcq with 3 distractors every draw. Distinct from senior-examine-examples-of-quadratically-related-variables, which examines how one quadratically-related variable changes with another rather than classifying a relation''s function-ness, and from generate-sequence-from-rule, which generates further terms of a discrete sequence rather than applying the vertical line test to a continuous relation.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19e_function_or_relation
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19e_function_or_relation
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19e_function_or_relation
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19e_function_or_relation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-repeated-y-breaks-function
+  description: Believes any repeated y-value across different x-values makes a relation "not a function", missing that the vertical line test cares only about repeated x-values, not repeated y-values.
+- id: assumes-duplicate-listing-breaks-function
+  description: Sees the same ordered pair listed twice in a set and treats it as a genuine x-value collision, missing that a duplicate of an IDENTICAL pair contributes no second y-value at that x.
+- id: misses-tangent-single-point
+  description: Assumes every vertical line through a circle meets it twice, missing that the two tangent lines (at x = +-r) meet the circle at exactly one point each.
+- id: treats-restricted-branch-as-whole-curve
+  description: Ignores a stated domain restriction (e.g. "y >= 0" on a circle, or "the upper semicircle") and classifies the relation as if the whole unrestricted curve were being tested.
+tags: [acara-senior-v8-4, functions-sequences, functions, relations, vertical-line-test, acmmm027]

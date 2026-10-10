@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-and-use-the-recursive-definition-of-a
+name: 'Recognise and use the recursive definition of a geometric sequence:\(t_{n+1}=rt_n\)'
+domain: functions-sequences
+description: Given the first several terms of a geometric sequence, state its recursive definition -- the first term and the rule t(n+1) = r times t(n). Never given t1 or r up front (that direction is the existing active catalog skill "senior-use-recursion-to-generate-a-geometric-sequence", which generates the next terms from a stated first term and rule); here only the terms are shown and the learner infers the first term and the common ratio r from them, a genuinely different cognitive operation.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: geometric_recursive_definition_state
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: geometric_recursive_definition_state
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: geometric_recursive_definition_state
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: off-by-one-first-term
+  description: Reports the second given term as if it were the first term, shifting the whole window forward by one position.
+- id: adds-instead-of-multiplies
+  description: Treats the ratio between the first two given terms as if it were a common difference rather than a common ratio.
+- id: uses-magnitude-only-r
+  description: Reports the common ratio's magnitude, dropping the sign, missing that the sequence alternates.
+tags: [acara-senior-v8-4, functions-sequences, recursion, sequences, acmmm072]

@@ -1,0 +1,31 @@
+id: f10-measurement-error-interpretation
+name: Interpret and calculate measurement errors
+domain: measurement
+description: Given a measured value and its true or accepted value, calculate the absolute, relative, or percentage error.
+status: active
+placement_eligible: false
+prerequisites: [f10-estimate-counts-and-check-reasonableness]
+answer: number
+sources:
+- topic: measurement_error_interpretation
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: measurement_error_interpretation
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: measurement_error_interpretation
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses_signed_difference
+  description: For absolute error, reports the signed difference instead of the absolute value.
+- id: swapped_numerator_denominator
+  description: For relative or percentage error, divides by the measured value instead of the true value.
+- id: omits_percent_scaling
+  description: For percentage error, reports the relative decimal value instead of the percentage integer.
+- id: wrong_error_type
+  description: For hard tier, computes one of the other error types instead of the one asked for.
+tags: [acara-f10-v9, measurement, error, measurement-accuracy]

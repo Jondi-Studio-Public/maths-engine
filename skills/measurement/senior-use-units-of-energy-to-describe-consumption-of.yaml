@@ -1,0 +1,47 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-units-of-energy-to-describe-consumption-of
+name: Use units of energy to describe consumption of electricity, such as kilowatt hours
+domain: measurement
+description: Given a stated electrical appliance's power (in kilowatts or watts) and a stated run time (in hours or minutes), compute the energy consumed in kilowatt-hours, including the combined energy of two appliances.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: p19h_energy_kwh_consumption
+  params: {mode: kwh_easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19h_energy_kwh_consumption
+  params: {mode: kwh_medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19h_energy_kwh_consumption
+  params: {mode: kwh_hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19h_energy_kwh_consumption
+  params: {mode: kwh_exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: added-instead-of-multiplied
+  description: Adds the power (in kW) and the duration (in hours) instead of multiplying them.
+- id: divided-instead-of-multiplied
+  description: Divides the power by the duration (or the duration by the power) instead of multiplying them.
+- id: wrong-duration-assumed
+  description: Multiplies by a duration a few hours longer or shorter than the one actually stated, as if miscounting or rounding the run time.
+- id: wrong-conversion-factor
+  description: Divides a watt value by 100 (or 10000) instead of 1000 when converting to kilowatts.
+- id: decimal-place-slip
+  description: Lands a factor of ten too large or too small by misplacing the decimal point in the product.
+- id: used-only-one-appliance
+  description: On the two-appliance tiers, reports only one appliance's own energy use instead of the combined total of both.
+- id: combined-before-multiplying
+  description: On the two-appliance tiers, adds the two powers and the two durations first and multiplies the sums, instead of multiplying each appliance separately.
+- id: used-one-duration-for-both
+  description: On the two-appliance tiers, multiplies both appliances' powers by the same run time (or swaps the two run times).
+- id: forgot-time-unit-conversion
+  description: On the exam tier, uses a run time stated in minutes as if it were hours, or divides it by 100 or 30 instead of 60.
+tags: [acara-senior-v8-4, measurement, energy, electricity, p19h_energy_kwh_consumption, ACMEM031]

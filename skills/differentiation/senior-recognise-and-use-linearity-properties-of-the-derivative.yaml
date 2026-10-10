@@ -1,0 +1,51 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-and-use-linearity-properties-of-the-derivative
+name: Recognise and use linearity properties of the derivative
+domain: differentiation
+description: 'Given two differentiable functions f and g whose derivatives f''(x) and
+  g''(x) are stated as expressions, and constants a and b, compute the derivative of
+  a*f(x) + b*g(x) as a*f''(x) + b*g''(x). Easy draws a, b as positive small integers with
+  f''(x)/g''(x) already simplified. Medium allows a or b negative. Hard hands f''(x)/g''(x)
+  in an UNSIMPLIFIED form (e.g. "3x + 2x" instead of "5x"), so the learner must simplify
+  before combining. Exam states the combination in WORDS instead of bare a/b (e.g. "h(x)
+  is twice f(x) minus three times g(x)"), so the learner must translate English into the
+  coefficients before applying linearity. Never hands a bare polynomial to differentiate
+  from scratch (differentiate-polynomial), never uses the first-principles limit definition
+  (senior-define-the-derivative-f-left-x-right-as), and never composes or multiplies two
+  functions (senior-apply-the-product-quotient-and-chain-rule-to) -- this skill only scales
+  and adds two already-given derivatives.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: p19f_derivative_linearity
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19f_derivative_linearity
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19f_derivative_linearity
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19f_derivative_linearity
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dropped-a-coefficient
+  description: Reports f'(x) + b*g'(x), silently treating the coefficient a as 1 instead
+    of applying the stated value.
+- id: sign-error-on-one-term
+  description: Flips the sign of one of the two scaled terms, e.g. reporting a*f'(x) -
+    b*g'(x) when both terms should add.
+- id: swapped-coefficients
+  description: Reports b*f'(x) + a*g'(x), applying each constant to the wrong derivative.
+- id: exam-translation-slip
+  description: At the exam tier, reads the stated English combination with the wrong
+    sign (e.g. reads "minus" as "plus"), dropping the sign the words state.
+tags: [acara-senior-v8-4, differentiation, derivative-linearity, acmmm090]

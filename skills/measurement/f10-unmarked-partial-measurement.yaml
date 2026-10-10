@@ -1,0 +1,29 @@
+id: f10-unmarked-partial-measurement
+name: Interpret readings on partially marked or unmarked metric scales
+domain: measurement
+description: Given a description of a reading that falls between two labelled marks on a partially marked or unmarked metric scale for length, mass or capacity, including the marks' known values and the number of equal subdivisions between them, interpret the reading and state the measured value using an appropriate unit.
+status: active
+placement_eligible: false
+prerequisites: [f10-metric-measure-instrument-estimate]
+answer: number
+sources:
+- topic: unmarked_partial_measurement
+  params: {mode: "from_lower_mark"}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: unmarked_partial_measurement
+  params: {mode: "from_upper_mark"}
+  difficulty: medium
+  stages: [3, 4]
+- topic: unmarked_partial_measurement
+  params: {mode: "forced_direction_trap"}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-direction
+  description: Applies the opposite direction from what the question states (adds from the upper mark, or subtracts from the lower mark, instead of the stated one).
+- id: uses-major-spacing
+  description: Uses the full major interval as if it were the subdivision size, instead of the interval divided by the number of subdivisions (ignores that there are multiple subdivisions).
+- id: off-by-one-division
+  description: Uses one more or one fewer subdivision than the stated count, instead of the exact number stated.
+tags: [acara-f10-v9, measurement, scales, partial-unmarked]

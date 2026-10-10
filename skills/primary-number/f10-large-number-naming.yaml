@@ -1,0 +1,33 @@
+id: f10-large-number-naming
+name: Order large natural numbers
+domain: primary-number
+description: Order a set of distinct natural numbers greater than 10,000 from smallest to largest.
+status: active
+placement_eligible: false
+prerequisites: [place-value-to-100]
+answer: ordered_list
+sources:
+- topic: large_number_ordering
+  params: {digit_lengths: [5]}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: large_number_ordering
+  params: {digit_lengths: [6]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: large_number_ordering
+  params: {digit_lengths: [5, 6, 7]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the numbers from largest to smallest instead of smallest to largest.
+- id: digit-count-only
+  description: Groups numbers by digit count but never compares values within a group of the same length, leaving same-length numbers in whatever order they were shown.
+- id: first-digit-only
+  description: Orders numbers by comparing only their first digit, ignoring the rest of each number and its overall digit count.
+- id: text-sort-ignores-length
+  description: Sorts the numerals as plain text without accounting for differing digit counts, so a shorter number with a larger leading digit wrongly outranks a longer number.
+- id: adjacent-swap
+  description: Orders the numbers correctly overall but swaps the two middle values, as if two neighbouring magnitudes did not need comparing once roughly placed.
+tags: [acara-f10-v9, primary, place-value, ordering, ac9m3n01]

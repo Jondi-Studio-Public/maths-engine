@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow
+name: Use the symbols for implication (\(\Rightarrow\)), equivalence (\(\Longleftrightarrow\)), and equality (\(=\))
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use the symbols for implication (\(\Rightarrow\)), equivalence (\(\Longleftrightarrow\)), and equality (\(=\)). Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: implication_equivalence_symbol_classify
+  params: {classes: ["=", "⇔"]}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: implication_equivalence_symbol_classify
+  params: {classes: ["⇒", "⇔"]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: implication_equivalence_symbol_classify
+  params: {classes: ["⇒", "⇔", "=", "unrelated"]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: picks-implication-for-a-biconditional
+  description: Chooses "⇒" when both directions actually hold, missing that a mutual implication is a "⇔".
+- id: assumes-any-related-pair-is-biconditional
+  description: Chooses "⇔" for a pair that only implies in one direction, without checking the reverse direction.
+- id: forces-a-symbol-onto-an-unrelated-pair
+  description: Picks one of ⇒/⇔/= for two statements with no logical connection, instead of recognising that none applies.
+tags: [acara-v8-4-specialist, propositional-logic]

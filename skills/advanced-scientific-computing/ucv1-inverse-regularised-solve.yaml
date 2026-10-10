@@ -1,0 +1,56 @@
+id: ucv1-inverse-regularised-solve
+name: Solve a tiny regularised inverse problem
+domain: advanced-scientific-computing
+description: Solve the exact regularised normal equations (A^T A + lambda*I)x =
+  A^T b for a supplied tiny matrix A (m x 2, m in {2, 3, 4}), vector b and a
+  stated ridge penalty lambda >= 1, returning the pair x = (x1, x2). The
+  two-variable case of ucv1-ridge-coefficient's single-feature ridge
+  coefficient.
+status: active
+prerequisites: [matrix-rank-small]
+answer: pair
+sources:
+- topic: p14c_inverse_regularised_solve
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14c_inverse_regularised_solve
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14c_inverse_regularised_solve
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14c_inverse_regularised_solve
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: omits-lambda
+  description: Solves the plain (unregularised) normal equations A^T A x =
+    A^T b, ignoring the penalty entirely.
+- id: adds-lambda-once
+  description: Adds lambda to only one diagonal entry of A^T A instead of
+    both.
+- id: swaps-x1-x2
+  description: Reports the solved pair in the wrong order.
+- id: forgets-transpose
+  description: 'Easy tier only (square A): uses A in place of A^T A, i.e.
+    solves A x = b directly.'
+- id: wrong-row-division
+  description: 'Exam tier only: recovers lambda from row 1''s equation but
+    divides by x2 instead of x1.'
+- id: flips-lambda-sign
+  description: 'Exam tier only: reports the recovered penalty with the
+    wrong sign.'
+tags: [university-core-v1, scientific-computing, inverse-problems]

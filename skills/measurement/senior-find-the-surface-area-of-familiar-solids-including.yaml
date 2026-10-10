@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-surface-area-of-familiar-solids-including
+name: Find the surface area of familiar solids, including cubes, rectangular and triangular prisms, spheres and cylinders
+domain: measurement
+description: Given bounded, fully specified inputs, find the surface area of familiar solids, including cubes, rectangular and triangular prisms, spheres and cylinders. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: find_surface_area_of_familiar_solids
+  params: {mode: cube}
+  difficulty: easy
+  stages: [6]
+- topic: find_surface_area_of_familiar_solids
+  params: {mode: rectangular_prism}
+  difficulty: medium
+  stages: [6]
+- topic: find_surface_area_of_familiar_solids
+  params: {mode: triangular_prism}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits_a_face
+  description: Omits one face when summing the total surface area (the single most common surface-area error).
+- id: uses_volume_formula
+  description: Computes the solid's volume (s^3) instead of its surface area.
+- id: treats_each_faces_area_as_its_perimeter
+  description: Sums the perimeters of the faces instead of their areas.
+- id: omits_a_pair_of_faces
+  description: Omits one of the three congruent face-pairs of a rectangular prism.
+- id: forgets_factor_of_2
+  description: Forgets to double each face-pair's area.
+- id: wrong_shape_formula
+  description: Applies a different solid family member's surface area formula to the given solid.
+- id: forgets_half_on_triangular_ends
+  description: Forgets the 1/2 factor when computing the triangular ends' area.
+- id: omits_one_triangular_end
+  description: Counts only one of the prism's two triangular ends instead of both.
+tags: [acara-senior-v8-4, measurement, surface-area, flat-faced-solids, acmem095]

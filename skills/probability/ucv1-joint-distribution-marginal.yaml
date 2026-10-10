@@ -1,0 +1,52 @@
+id: ucv1-joint-distribution-marginal
+name: Compute marginals from a joint distribution
+domain: probability
+description: Compute one marginal probability and one conditional probability from a supplied finite joint table.
+status: active
+placement_eligible: false
+prerequisites:
+- conditional-probability-counts
+answer: fraction
+sources:
+- topic: p13e_joint_distribution_marginal
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13e_joint_distribution_marginal
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13e_joint_distribution_marginal
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13e_joint_distribution_marginal
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: numerator-only
+  description: Offers a single joint cell instead of summing the whole row (or column) for a marginal.
+- id: forgets-division
+  description: Offers the raw joint probability where a conditional was asked, never dividing by the marginal.
+- id: wrong-axis
+  description: Sums the wrong axis (row instead of column, or vice versa) for the conditioning marginal.
+- id: complement-slip
+  description: Offers 1 minus the correct probability.
+- id: wrong-missing-cell
+  description: Recovers the missing cell as (sum of the other five) minus 1 instead of 1 minus that sum, then carries the error through (exam tier only).
+tags: [university-core-v1, probability]
+framework_areas: [probability]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

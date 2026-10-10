@@ -1,0 +1,24 @@
+id: f10-square-roots-perfect-squares
+name: Perfect squares and square roots
+domain: secondary-number
+description: Given a stated natural number, determine whether it is a perfect square and, if it is, state its square root.
+status: active
+placement_eligible: false
+prerequisites: [evaluate-powers]
+answer: mcq
+sources:
+- topic: square_roots_perfect_squares
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: square_roots_perfect_squares
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: square_roots_perfect_squares
+  params: {power_form: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression: Easy and medium state the number in digits and ask whether it is a perfect square. Hard states it as a product of prime powers, so the learner must decide from the parity of the exponents (all even means a square) rather than by recognising or computing a square.
+misconceptions: []
+tags: [acara-f10-v9, secondary, square-roots]

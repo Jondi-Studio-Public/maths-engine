@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-the-angle-at-the-centre-subtended-by-an
+name: The angle at the centre subtended by an arc of a circle is twice the angle at the circumference subtended by the same arc
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, The angle at the centre subtended by an arc of a circle is twice the angle at the circumference subtended by the same arc. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: the_angle_at_the_centre_subtended_by_an_arc
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: the_angle_at_the_centre_subtended_by_an_arc
+  params: {variant: split}
+  difficulty: medium
+  stages: [3, 4]
+- topic: the_angle_at_the_centre_subtended_by_an_arc
+  params: {variant: reflex}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reports-central-angle-itself
+  description: Reports the stated central angle directly instead of halving it to get the circumference angle.
+- id: doubles-instead-of-halving
+  description: Doubles the stated central angle instead of halving it, inverting the theorem's relationship.
+- id: uses-wrong-arc
+  description: On the hard tier, computes (360 - reflex angle) / 2 -- the value that would be correct if P were on the major arc instead of the minor arc as stated.
+tags: [acara-v8-4-specialist, circle-geometry]

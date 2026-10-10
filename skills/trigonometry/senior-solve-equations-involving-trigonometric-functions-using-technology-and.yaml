@@ -1,0 +1,50 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-equations-involving-trigonometric-functions-using-technology-and
+name: Solve equations involving trigonometric functions using technology, and algebraically in simple
+  cases
+domain: trigonometry
+description: 'Given bounded, fully specified inputs, solve equations involving trigonometric functions
+  using technology, and algebraically in simple cases. Return the resulting value, expression, relation,
+  or classification. Every question is a general trigonometric EQUATION over a stated interval that can
+  hold two or more solutions (sin(x)=k, a*trig(bx)+c=d) -- never an inverse-trig lookup of a right triangle''s
+  own side ratio (that shape belongs to the prerequisite skill, right-triangle-angle). Four tiers, each
+  a genuine change of decision: a direct sin(x)=k or cos(x)=k with exactly two solutions in [0, 360),
+  named "the smaller/larger solution"; the same equation with a coefficient the learner must isolate first;
+  a multi-period trig(bx)=k with b>=2 holding more than two solutions, named by a verified ordinal; and,
+  on the exam tier, an applied periodic-quantity context (tide height) with every constant stated and the
+  target value kept away from every standard angle, so the solve is a genuine technology decimal solve.'
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+capability_gates: [technology_use]
+answer: number
+sources:
+- topic: p14a_solve_trig_equation_technology
+  params: {variant: direct}
+  difficulty: easy
+  stages: [4, 5, 6]
+- topic: p14a_solve_trig_equation_technology
+  params: {variant: coefficient}
+  difficulty: medium
+  stages: [5, 6]
+- topic: p14a_solve_trig_equation_technology
+  params: {variant: multi_period}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p14a_solve_trig_equation_technology
+  params: {variant: technology_applied}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-ordinal
+  description: Offers a different, adjacent member of the same verified solution list -- a genuine root of the equation, just not the one asked for.
+- id: sign-flip
+  description: Reads the stated k with the wrong sign and reports the corresponding base solution of trig(x) = -k instead.
+- id: forgot-divide-by-a
+  description: Forgets the final division (or division after subtracting c) that isolates the trig ratio, solving trig(x) = d directly instead of trig(x) = d/a.
+- id: forgot-divide-by-b
+  description: Reports the un-recovered b*x angle itself, forgetting to divide back by b to reach x (or t).
+- id: degrees-as-radians
+  description: Computes the correct angle but reports the internal radian value as if it were already in degrees (or hours).
+tags: [acara-senior-v8-4, trigonometry, trigonometric-equations, technology, acmmm043]

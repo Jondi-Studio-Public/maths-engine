@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-momentum-force-resultant-force-action-and-reaction
+name: Examine momentum, force, resultant force, action and reaction
+domain: differential-equations
+description: Given bounded, fully specified inputs, examine momentum, force, resultant
+  force, action and reaction. Return the resulting value, expression, relation, or
+  classification.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+answer: number
+sources:
+- topic: p13b_momentum_force_reaction
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13b_momentum_force_reaction
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13b_momentum_force_reaction
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13b_momentum_force_reaction
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-direction-sign
+  description: Reports the unsigned magnitude of the momentum or resultant force,
+    dropping the stated direction sign entirely.
+- id: ignores-one-force
+  description: Uses only one of the two applied forces' magnitude, ignoring the other,
+    when finding the resultant force.
+- id: forgot-friction-in-net-force
+  description: On the three-force/acceleration tier, ignores the resisting friction
+    force entirely and computes acceleration from the two applied forces alone.
+- id: sign-error-on-friction
+  description: On the three-force/acceleration tier, applies the friction force in
+    the same direction as the net of the two applied forces instead of opposing it.
+- id: forgot-divide-by-mass
+  description: On the three-force/acceleration tier, reports the net force in newtons
+    as if it were the acceleration, forgetting to divide by the mass.
+- id: wrong-conservation-denominator
+  description: On the momentum-conservation tier, uses the difference of the two masses
+    instead of their sum in the denominator of the conservation equation.
+- id: forgot-one-momentum-term
+  description: On the momentum-conservation tier, omits one object's momentum term
+    (mass times velocity) from the numerator of the conservation equation.
+tags: [acara-senior-v8-4, differential-equations, mechanics, acmsm133]

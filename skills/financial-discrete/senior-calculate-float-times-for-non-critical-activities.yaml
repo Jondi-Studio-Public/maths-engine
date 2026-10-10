@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-float-times-for-non-critical-activities
+name: Calculate float times for non-critical activities
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, calculate float times for non-critical activities. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p10c_critical_path_float
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p10c_critical_path_float
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p10c_critical_path_float
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: reports-lst-not-float
+  description: Reports the queried activity's raw latest start time (LST) instead of LST minus EST (forgets to subtract).
+- id: wrong-branch-zero
+  description: Reports 0, as if the queried activity were on the critical path.
+- id: omitted-intermediate-duration
+  description: Computes the direct path-sum float but drops one intermediate activity's duration along the way to the merge point.
+- id: reversed-sign
+  description: Computes the two path sums' difference with the operands swapped (the negative of the true float).
+tags: [acara-senior-v8-4, financial-discrete, networks, p10c_critical_path_float, ACMGM108]

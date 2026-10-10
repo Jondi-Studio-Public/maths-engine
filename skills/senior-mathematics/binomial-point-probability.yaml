@@ -1,0 +1,10 @@
+id: binomial-point-probability
+name: Calculate a binomial point probability
+domain: senior-mathematics
+description: Calculate the probability of exactly x successes in a binomial distribution.
+status: active
+prerequisites: [combinations, simple-event-probability]
+answer: number
+sources: [{topic: binomial_probability, params: {}, difficulty: easy}]
+misconceptions: [{id: omits-combinations, description: Omits the binomial coefficient.}]
+tags: [expansion-batch-6, probability, acara-v8-4]

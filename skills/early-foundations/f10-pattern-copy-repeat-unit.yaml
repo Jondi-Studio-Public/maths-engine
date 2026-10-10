@@ -1,0 +1,30 @@
+id: f10-pattern-copy-repeat-unit
+name: Identify the repeating unit in a pattern
+domain: early-foundations
+learner_band: early
+description: Given a repeating pattern presented with objects, shapes, symbols or numbers, identify and state the smallest repeating unit.
+status: active
+placement_eligible: false
+prerequisites: [continue-patterns]
+answer: ordered_list
+sources:
+- topic: pattern_repeat_unit
+  params: {unit_length: 2, shape: distinct, full_repeats: [3, 4]}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pattern_repeat_unit
+  params: {unit_length: 3, shape: distinct, full_repeats: [2, 3]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pattern_repeat_unit
+  params: {unit_length: 3, shape: trap, full_repeats: [2, 3]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: assumes-period-two
+  description: Assumes the repeating unit is always 2 items long and states the first two displayed items as the unit, regardless of the pattern's true unit length.
+- id: wrong-offset-rotation
+  description: States a genuine rotation of the true repeating unit, starting from the wrong item in the cycle (e.g. "blue, red" instead of "red, blue").
+- id: unit-too-long
+  description: States a unit longer than the true smallest repeating chunk (an exact multiple of it), failing to find the smallest repeating unit.
+tags: [acara-f10-v9, early, patterns, ac9m1a02]

@@ -1,0 +1,29 @@
+id: f10-time-units-and-nearest-minute
+name: Convert time units
+domain: primary-geometry-time
+description: Convert a stated duration between days, hours, minutes and seconds.
+status: active
+placement_eligible: false
+prerequisites: [convert-time-systems, tell-time-to-hour]
+answer: number
+sources:
+- topic: time_units_and_nearest_minute
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: time_units_and_nearest_minute
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: time_units_and_nearest_minute
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-factor
+  description: Uses 100 instead of 60 (or 10 instead of 24) as the conversion factor.
+- id: forgot-to-convert
+  description: Reports the original stated value unchanged, relabeled in the target unit.
+- id: drops-one-part
+  description: Converts and reports only the larger unit's contribution, ignoring the smaller unit.
+tags: [acara-f10-v9, primary, time, conversion, ac9m3m03, ac9m3m04]

@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-geometric-sequences-to-model-and-analyse-numerically
+name: Use geometric sequences to model and analyse numerically the height of a bouncing ball
+domain: financial-discrete
+description: Given a ball dropped from a stated height that rebounds to a stated fraction of its previous height, find the total vertical distance it travels up to a stated bounce.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: pv0a_bounce_distance
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv0a_bounce_distance
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv0a_bounce_distance
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv0a_bounce_distance
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: no-doubling
+  description: Sums each rebound's height once (the plain geometric sum of the heights) instead of counting the upward and downward travel of every rebound.
+- id: drop-doubled
+  description: Counts the initial drop twice as well as every rebound twice, instead of counting the initial drop only once.
+- id: one-bounce-too-many
+  description: Continues summing one rebound (or one impact) past the stated endpoint.
+- id: impact-top-confusion
+  description: Reports the total to the top of the rebound when the impact total was asked for, or vice versa.
+- id: first-rebound-as-drop-height
+  description: Treats the first stated rebound height itself as the original drop height, instead of working back to it using the inferred rebound fraction.
+- id: threshold-off-by-one
+  description: Sums to one rebound before or after the true first rebound that crosses the stated threshold.
+tags: [acara-senior-v8-4, financial-discrete, geometric, bouncing-ball, acmgm074]

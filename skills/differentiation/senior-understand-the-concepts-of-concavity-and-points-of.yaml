@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-concepts-of-concavity-and-points-of
+name: Understand the concepts of concavity and points of inflection and their relationship with the second derivative
+domain: differentiation
+description: Given a cubic function with exactly one point of inflection (by construction, on every question), find that point's x-value -- where the second derivative equals zero and changes sign -- and state whether concavity changes from concave up to concave down or from concave down to concave up there. The graded answer is the x-value followed by the concavity-change phrase, typed as two items separated by a comma (e.g. "3, concave up to concave down") -- graded as an ordered_list because a pair grader cannot compare a text direction component.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: ordered_list
+sources:
+- topic: p19f_concavity_inflection
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19f_concavity_inflection
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19f_concavity_inflection
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19f_concavity_inflection
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: solves-first-derivative-instead-of-second
+  description: Solves f'(x) = 0 (a stationary point) instead of f''(x) = 0 (the point of inflection) -- confuses this skill with the second-derivative test skill, the sharpest distractor risk for this skill.
+- id: flipped-concavity-direction
+  description: Reports the correct x-value but the wrong direction -- flips concave-up-to-down and concave-down-to-up, the natural sign-convention error for this skill.
+- id: sign-error-on-inflection-x-value
+  description: Reports the correct direction but the wrong x-value -- a sign error solving the linear equation 6*A*x + 2*B = 0 (reports the negative of the true inflection point).
+tags: [acara-senior-v8-4, differentiation, concavity, inflection, ordered_structures, acmmm110]

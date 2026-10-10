@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-equation-of-a-fitted-line-to
+name: Use the equation of a fitted line to make predictions
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use the equation of a fitted line to make predictions. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: number
+sources:
+- topic: use_the_equation_of_a_fitted_line_to
+  difficulty: easy
+  stages: [6]
+- topic: use_the_equation_of_a_fitted_line_to
+  difficulty: medium
+  stages: [6]
+- topic: use_the_equation_of_a_fitted_line_to
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgets-intercept
+  description: Computes m*x without adding the constant c.
+- id: swaps-slope-intercept
+  description: Swaps the roles of slope and intercept, computing c*x + m instead of m*x + c.
+- id: adds-instead-of-multiplies
+  description: Adds the slope to x instead of multiplying, computing m + x + c instead of m*x + c.
+- id: off-by-one-input
+  description: Uses x+1 instead of x in the substitution, computing m*(x+1) + c.
+- id: forgets-to-subtract-intercept
+  description: Solves by dividing y by m without first subtracting c.
+- id: swaps-operation-order
+  description: Solves by computing (y - m) / c instead of (y - c) / m.
+- id: sign-error
+  description: Solves by adding c instead of subtracting, computing (y + c) / m.
+tags: [acara-senior-v8-4, statistics-probability, use_the_equation_of_a_fitted_line_to, fitted-line, prediction, acmgm061]

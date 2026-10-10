@@ -1,0 +1,48 @@
+id: discrete-expected-value
+name: Compute a finite discrete expectation
+domain: probability
+description: Compute the exact expected value of a finite discrete random variable from its outcomes and probabilities.
+status: active
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: discrete_expected_value
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: discrete_expected_value
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: discrete_expected_value
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: unweighted-average
+  description: Averages the listed outcomes without weighting by their probabilities.
+- id: largest-outcome
+  description: Uses the largest possible outcome instead of the probability-weighted mean.
+tags: [university-core-v1, university-foundation-pilot, probability]
+framework_areas: [probability]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

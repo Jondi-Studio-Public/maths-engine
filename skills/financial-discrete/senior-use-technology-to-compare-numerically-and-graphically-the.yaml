@@ -1,0 +1,47 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-technology-to-compare-numerically-and-graphically-the
+name: Use technology to compare , numerically and graphically, the growth of simple interest and compound
+  interest loans and investments
+domain: financial-discrete
+description: Given a principal, a simple interest rate and a compound interest rate, find the first whole
+  year in which the compound-interest balance exceeds the simple-interest balance. easy keeps the same
+  principal and annual compounding on both sides; medium compounds the compound side monthly or quarterly
+  at a stated nominal rate; hard starts the compound side with LESS principal, so it no longer cancels; exam
+  states neither rate directly, recovering both from stated growth data instead. Every prompt states a 40-year
+  horizon the crossover always lies inside. This skill does not cover reading the comparison from a graph
+  (the graphical comparison is dropped) and never asks for a single account's balance, which is the
+  neighbouring skills simple-interest and compound-interest.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: pv0b_interest_crossover
+  params: {mode: same_principal}
+  difficulty: easy
+  stages: [6]
+- topic: pv0b_interest_crossover
+  params: {mode: nominal_compounding}
+  difficulty: medium
+  stages: [6]
+- topic: pv0b_interest_crossover
+  params: {mode: different_principals}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0b_interest_crossover
+  params: {mode: recovered_rates}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: one-year-early
+  description: Reports the last year the simple-interest amount was still ahead (n - 1) instead of the first year compound overtakes it.
+- id: one-year-late
+  description: Reports one year after the true crossover (n + 1).
+- id: interest-in-year-exceeds
+  description: Compares the interest EARNED during a single year rather than the accumulated balances, reporting the first year the compound account's own yearly interest exceeds the simple account's constant yearly interest.
+- id: annual-compounding-assumed
+  description: Ignores the stated compounding frequency and computes the crossover as if the nominal rate compounded annually.
+- id: principals-cancelled
+  description: Ignores that the two principals differ and computes the crossover as if both accounts started with the same amount.
+tags: [acara-v8-4-essential, financial-discrete, interest-crossover]

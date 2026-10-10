@@ -1,0 +1,34 @@
+id: ucv1-isomorphism-invariant
+name: Compare a finite-group invariant
+domain: abstract-algebra
+description: Use supplied element orders and group sizes to reject or retain a claimed isomorphism between two finite groups.
+status: active
+placement_eligible: false
+prerequisites:
+- cyclic-group-element-order
+answer: mcq
+sources:
+- topic: p15a_isomorphism_invariant
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15a_isomorphism_invariant
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15a_isomorphism_invariant
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15a_isomorphism_invariant
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ignores-size-mismatch
+  description: Compares element-order profiles without first checking |G| = |H|, potentially retaining a claim between groups of different sizes.
+- id: assumes-same-size-means-isomorphic
+  description: Retains the claim as soon as |G| = |H|, without checking whether the element-order counts actually agree.
+- id: mistallies-a-supplied-list
+  description: At the hard/exam tiers, mistallies the unsorted element-order list (miscounts how many elements have a given order), leading to the wrong retain/reject decision.
+tags: [university-core-v1, abstract-algebra, p15a_isomorphism_invariant]

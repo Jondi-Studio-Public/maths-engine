@@ -1,0 +1,27 @@
+id: f10-shape-features-classification
+name: Classify shape features
+domain: primary-geometry-time
+description: State a named familiar shape's number of sides, or whether it is curved or straight-sided.
+status: active
+placement_eligible: false
+prerequisites: [name-basic-shapes]
+answer: mcq
+sources:
+- topic: shape_features_classification
+  params: {mode: curved_straight}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: shape_features_classification
+  params: {mode: forward_sides}
+  difficulty: medium
+  stages: [3, 4]
+- topic: shape_features_classification
+  params: {mode: inverse_sides}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: curved-vs-straight-confusion
+  description: In the easy tier, assumes the opposite curved/straight property for a named shape.
+- id: confuses-different-shape-count
+  description: In the medium and hard tiers, names or counts the features of a different shape instead of the asked one.
+tags: [f10, geometry, shapes, classification, acara-v9-foundation, acara-v9-year-1, acara-v9-year-2, acara-v9-year-3]

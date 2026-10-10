@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-the-conditions-for-similarity-of-two-dimensional
+name: Review the conditions for similarity of two-dimensional figures including similar triangles
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, review the conditions for similarity of two-dimensional figures including similar triangles. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: similarity_conditions_classify
+  params: {mode: aaa}
+  difficulty: easy
+  stages: [6]
+- topic: similarity_conditions_classify
+  params: {mode: sss}
+  difficulty: medium
+  stages: [6]
+- topic: similarity_conditions_classify
+  params: {mode: sas}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: assumes-aaa-sufficient-without-checking-sides
+  description: Picks the AAA option on the SSS/SAS tiers, where only side data (and, on SAS, one angle) is given -- no second angle is ever stated for AAA to apply.
+- id: ignores-included-angle-requirement
+  description: On the SAS tier, checks only that the two given sides are proportional and ignores whether the given angle is actually the included one, or ignores an angle mismatch between the two triangles.
+- id: assumes-any-proportional-sides-similar
+  description: On the SSS tier, checks two of the three side ratios and assumes similarity even when the third pair does not match.
+- id: treats-one-matching-angle-as-sufficient
+  description: Assumes a single matching angle, without checking the rest, is enough to establish similarity.
+tags: [acara-v8-4-general, senior-mathematics, similarity, similarity_conditions_classify, acmgm021]

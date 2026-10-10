@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-and-use-logarithmic-scales-such-as-decibels
+name: Interpret and use logarithmic scales such as decibels in acoustics, the Richter Scale for earthquake
+  magnitude, octaves in music, pH in chemistry
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs for one named logarithmic scale (decibels, the Richter Scale, octaves, or pH) and its stated formula, compute the resulting value on that scale. Every prompt states the formula and every reference constant (I0 = 1 x 10^-12 W/m^2 for decibels, the reference amplitude A0 for the Richter Scale, the reference frequency f0 for octaves, the definition pH = -log10[H+]). FORWARD computation only, every tier: never "given pH find [H+]". easy: the input is an exact power of the base (I = I0 x 10^k, [H+] = 10^-k, f = f0 x 2^n), giving an integer answer directly from the definition of a log. medium: the input is a mantissa times a power of the base (a non-power ratio), so the learner splits log(mantissa x 10^k) or uses a calculator; answer to 1 or 2 decimal places. hard: the input is stated as a ratio or combination the learner must form first -- a multiple of the threshold/reference value, an amplitude requiring division by a stated reference in matching units, or a non-power frequency ratio. exam: two inputs on the same scale are stated and the question asks for the DIFFERENCE in scale value between them -- still a single computed scale value, via log(x1 / x2), always positive. Distinct from the active F-10 skill f10-logarithmic-scales, which grades an ABSTRACT scale with two labelled reference values and a fractional scale-position and never names a formula or a real scale; and from senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and, which solves a bare log_b(ax+c) = k for an exact algebraic x with an integer base, never a practical named scale.'
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: p19e_named_log_scale_value
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19e_named_log_scale_value
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19e_named_log_scale_value
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19e_named_log_scale_value
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-natural-log-not-log10
+  description: Uses the natural logarithm (ln) in place of log10 (decibels, Richter, pH) or log2 (octaves), which are all base-specific formulas.
+- id: drops-the-decibel-factor-of-ten
+  description: Computes log10(I / I0) without multiplying by the leading factor of 10 in the decibel formula L = 10 log10(I / I0).
+- id: sign-error-on-ph
+  description: Computes log10[H+] directly, forgetting the negative sign in pH = -log10[H+], and reports a negative pH for a normal aqueous solution.
+- id: inverts-the-ratio
+  description: Computes log(reference / input) instead of log(input / reference), giving the negative of the correct scale value.
+- id: forgets-to-form-the-ratio-first
+  description: Plugs the stated multiplier or raw quantity directly into the formula without first dividing by the stated reference value (hard tier).
+- id: reports-the-ratio-not-the-log-difference
+  description: Reports the ratio between the two stated inputs (or their raw values) instead of computing the actual difference in scale value via a logarithm (exam tier).
+tags: [acara-senior-v8-4, functions-sequences, logarithms, logarithmic-scales, decibels, richter-scale,
+  octaves, ph, acmmm154]

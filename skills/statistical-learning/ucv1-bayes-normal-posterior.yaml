@@ -1,0 +1,56 @@
+id: ucv1-bayes-normal-posterior
+name: Compute a conjugate normal posterior
+domain: statistical-learning
+description: Compute the posterior mean and variance for a supplied normal-normal
+  conjugate update -- prior N(mu0, tau0^2) on an unknown mean, a known data variance
+  sigma^2, a sample size n and a sample mean x-bar, all stated directly in the
+  prompt (never raw data). precision1 = 1/tau0^2 + n/sigma^2; tau1^2 = 1/precision1;
+  mu1 = tau1^2*(mu0/tau0^2 + n*x-bar/sigma^2). Every quantity is an exact fraction.
+status: active
+placement_eligible: false
+prerequisites: [bernoulli-mle]
+answer: pair
+sources:
+- topic: p14e_normal_normal_posterior
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14e_normal_normal_posterior
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14e_normal_normal_posterior
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14e_normal_normal_posterior
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: doesnt-shrink
+  description: Reports the prior variance tau0^2 unchanged as tau1^2, ignoring
+    the data entirely for the variance component.
+- id: forgot-n
+  description: Computes precision1 = 1/tau0^2 + 1/sigma^2, omitting the sample
+    size n multiplying the data precision -- a common "one observation" slip
+    that also corrupts mu1 through the same missing n.
+- id: swapped-precision-weights
+  description: Computes mu1 using tau0^2/n in place of n/sigma^2, mixing up
+    which precision belongs to which term.
+- id: reports-precision-not-variance
+  description: Returns precision1 itself (the reciprocal) instead of tau1^2 =
+    1/precision1, a units/inversion slip.
+- id: unweighted-average
+  description: Reports mu1 as (mu0 + x-bar) / 2, ignoring both precisions
+    entirely.
+tags: [university-core-v1, statistical-learning, bayesian]

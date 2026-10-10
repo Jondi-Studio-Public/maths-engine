@@ -1,0 +1,37 @@
+id: ucv1-field-extension-degree
+name: Compute the degree of a field extension of Q of degree at most 4
+domain: advanced-algebra
+description: Given a rational polynomial of degree at most 4 and a specified root alpha, or two rational numbers a and b, return [Q(alpha):Q] or [Q(sqrt a, sqrt b):Q] by deciding reducibility over Q.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p17a_field_extension_degree
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p17a_field_extension_degree
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p17a_field_extension_degree
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p17a_field_extension_degree
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumed-irreducible
+  description: Reports a factorable polynomial's own full degree instead of the named root's degree, having never tested for a rational root or a hidden quadratic factorisation.
+- id: trusts-the-rational-root-test
+  description: Since the rational-root test finds nothing, assumes the polynomial is irreducible, missing a quartic that factors into two irreducible quadratics with no rational root at all (the biquadratic disguise).
+- id: every-extension-is-quadratic
+  description: Defaults to degree 2 for any factor that is not linear, regardless of the actual degree of the irreducible factor the named root belongs to.
+- id: picks-the-wrong-named-root
+  description: Reports the degree of a different root of the same polynomial than the one the question actually named (the largest real root's degree when asked for the smallest, or vice versa).
+- id: assumes-two-independent-radicals-always-multiply-degrees
+  description: For [Q(sqrt a, sqrt b):Q] or alpha = sqrt(a) + sqrt(b), always answers 4, missing the case where sqrt(ab) is itself rational and the extension collapses to degree 2.
+tags: [university-core-v1, advanced-algebra, p17a_field_extension_degree]

@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-linear-equations
+name: Solve linear equations
+domain: linear-relations
+description: Solve a linear equation in one variable whose coefficients include algebraic fractions, with the unknown appearing on both sides. Every equation this skill generates is already known to be linear -- it never asks the learner to judge linearity (senior-identify-and-solve-linear-equations covers that) and never reads a solution off a graph (the deferred solve-linear-equations-graphically covers that).
+status: active
+placement_eligible: false
+prerequisites:
+- rate-of-change
+answer: fraction
+sources:
+- topic: solve_linear_equation_fraction_both_sides
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: solve_linear_equation_fraction_both_sides
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: solve_linear_equation_fraction_both_sides
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-side-collection
+  description: Collected the unknown terms on the wrong side when isolating x, flipping the sign of the whole coefficient (subtracted where the correct move was to add, or vice versa)
+- id: partial-clear-denominator
+  description: Cleared the denominator on only part of the equation -- distributing the cleared multiplier to some terms but not every fraction term -- leaving a term that should have been cleared still effectively divided
+- id: sign-error-clearing-denominator
+  description: Distributed a negative sign incorrectly across a numerator while combining fraction terms over a common denominator, leaving one term's sign unflipped
+tags: []

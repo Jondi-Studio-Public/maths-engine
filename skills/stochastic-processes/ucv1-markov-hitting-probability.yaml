@@ -1,0 +1,68 @@
+id: ucv1-markov-hitting-probability
+name: Compute a two-state Markov hitting probability
+domain: stochastic-processes
+description: Compute the probability of reaching a target state within two transitions
+  for a supplied two-state transition matrix. The chain always starts in the
+  non-target state s; the target-state return probability q is part of the
+  supplied matrix but is never needed to compute any of this skill's own
+  questions -- recognising which entry matters is part of the skill.
+status: active
+placement_eligible: false
+prerequisites: [markov-two-state-step]
+answer: fraction
+sources:
+- topic: p12f_markov_hitting
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p12f_markov_hitting
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p12f_markov_hitting
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p12f_markov_hitting
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: uses-q-in-place-of-or-alongside-p
+  description: The primary misconception, exercisable at every tier -- computes
+    p + (1-p)*(1-q) at the easy tier, or (1-p)*(1-q) at the medium/hard tiers,
+    instead of the correct p-only formula for each tier's own event, conflating
+    a reachability event with "IN state t at step 2" (a genuinely different
+    quantity that does depend on q).
+- id: multiplies-instead-of-unions
+  description: Reports p*p (easy/hard) instead of the correct union/first-passage
+    formula, treating "within 2" or "first at 2" as a naive product that ignores
+    the step-1 case.
+- id: swaps-p-and-q
+  description: Reports the correct formula with p and q's roles reversed (e.g.
+    q*(2-q) at the easy tier), as if the chain had started in t.
+- id: off-by-one-transition
+  description: 'Easy tier: reports p alone. Hard tier: reports p alone, treating
+    "first reached at transition 2" as if it were transition 1.'
+- id: forgets-complement-in-never-reach
+  description: 'Medium tier only: reports 1 - (1-p)^2 instead of (1-p)^2, computing
+    the complement of what was asked.'
+- id: reports-the-other-root
+  description: 'Exam tier only: reports 1 + sqrt(1-h) = 2-p, the algebraically
+    valid but out-of-range root of p*(2-p)=h (always > 1, never a probability).'
+- id: confuses-p-with-1-minus-p
+  description: 'Exam tier only: reports 1-p instead of p, the quantity recovered
+    partway through the inversion (sqrt(1-h)) rather than the final answer.'
+- id: copies-h-directly
+  description: 'Exam tier only: reports the given h itself instead of solving
+    for p.'
+tags: [university-core-v1, stochastic-processes, probability]

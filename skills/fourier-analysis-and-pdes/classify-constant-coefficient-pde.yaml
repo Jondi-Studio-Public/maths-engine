@@ -1,0 +1,38 @@
+id: classify-constant-coefficient-pde
+name: Classify a constant-coefficient second-order PDE
+domain: fourier-analysis-and-pdes
+description: Classify a two-variable constant-coefficient PDE using its discriminant.
+status: active
+prerequisites:
+- partial-derivative-x
+- partial-derivative-y
+answer: mcq
+sources:
+- topic: constant_coefficient_pde_classification
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: constant_coefficient_pde_classification
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: constant_coefficient_pde_classification
+  params: {kind: rearranged}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-discriminant-sign
+  description: Reverses the sign convention for B² − 4AC.
+- id: ignores-mixed-term
+  description: Classifies from A and C without accounting for the mixed derivative coefficient.
+tags: [university-core-v1, pde]
+framework_areas: [fourier-analysis-and-pdes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes

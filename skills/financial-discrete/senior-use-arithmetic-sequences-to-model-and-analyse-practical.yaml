@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-arithmetic-sequences-to-model-and-analyse-practical
+name: Use arithmetic sequences to model and analyse practical situations
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, use arithmetic sequences to model and analyse practical situations involving linear growth or decay -- for example, calculating the value of an office photocopier at the end of each year using the straight-line method of depreciation, the volume of water in a draining tank, or a venue''s growing seating capacity. Return the resulting value, expression, relation, or classification. The model is never stated directly: the learner reads two values from a small practical table and must infer the common difference (dividing by the gap between periods when the two given periods are not adjacent) before predicting forward -- a genuinely different task from the neighbouring skill senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear, which states the algebraic model outright.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p12b_arith_seq_general
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p12b_arith_seq_general
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p12b_arith_seq_general
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12b_arith_seq_general
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumed-adjacent-periods
+  description: Treats the two stated table periods as adjacent (gap = 1) and never divides by the true gap between them when they are not adjacent, so the wrong common difference is used throughout.
+- id: extrapolated-backward
+  description: Predicts a value before the first stated period rather than forward from the later stated period.
+- id: ignored-target-distance
+  description: Applies the common difference once regardless of how many periods ahead the target period actually is.
+tags: [acara-senior-v8-4, financial-discrete, sequences, arithmetic-sequence, acmgm070]

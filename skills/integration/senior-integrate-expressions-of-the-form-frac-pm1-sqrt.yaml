@@ -1,0 +1,34 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-integrate-expressions-of-the-form-frac-pm1-sqrt
+name: 'Integrate expressions of the form 1/sqrt(a^2 - x^2) and a/(a^2 + x^2)'
+domain: integration
+description: Given bounded, fully specified inputs, integrate expressions of the form 1/sqrt(a^2 - x^2) and a/(a^2 + x^2). Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: integrate_expressions_of_the_form_frac_pm1_sqrt
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: integrate_expressions_of_the_form_frac_pm1_sqrt
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: integrate_expressions_of_the_form_frac_pm1_sqrt
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: extra-factor-a
+  description: Multiplying the final result by a, mistakenly believing it does not cancel.
+- id: sign-flip
+  description: Evaluating the bounds swapped, flipping the sign of the result.
+- id: dropped-k
+  description: Dropping the leading coefficient k.
+- id: only-upper-bound
+  description: Evaluating the antiderivative at the upper bound only.
+tags: []

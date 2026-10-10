@@ -1,0 +1,41 @@
+id: limit-at-infinity
+name: Limit as x tends to infinity
+domain: limits
+description: Evaluate a limit of a rational function as x tends to infinity.
+status: active
+prerequisites:
+- limit-removable
+answer: fraction
+sources:
+- topic: limits
+  params:
+    kinds:
+    - infinity
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: limits
+  params:
+    kinds:
+    - infinity
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: limits
+  params:
+    kinds:
+    - infinity
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: assumed-infinite
+  description: Assuming the limit itself is infinite because x tends to infinity.
+- id: inverted-ratio
+  description: Inverting the ratio of leading coefficients.
+tags: []

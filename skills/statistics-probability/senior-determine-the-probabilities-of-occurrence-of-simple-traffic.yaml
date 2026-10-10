@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-the-probabilities-of-occurrence-of-simple-traffic
+name: Determine probabilities in simple traffic-light problems
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, determine the probabilities of occurrence of simple traffic-light problems. This skill assesses the computation of probabilities for independent events using the product rule, the sum rule for mutually exclusive outcomes, and the complement rule. Three tiers: both of two lights green (product rule); exactly one of two lights green (sum of products); at least one of three lights green (complement rule over products).'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: traffic_light_probability
+  params: {variant: both_green}
+  difficulty: easy
+  stages: [6]
+- topic: traffic_light_probability
+  params: {variant: exactly_one}
+  difficulty: medium
+  stages: [6]
+- topic: traffic_light_probability
+  params: {variant: at_least_one}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: adds-instead-of-multiplies
+  description: Adds probabilities instead of multiplying them for independent events.
+- id: forgets-second-event
+  description: Reports the probability of a single light instead of both.
+- id: confuses-complement-events
+  description: Computes "both green" instead of "exactly one green" in the two-light case.
+- id: wrong-complement
+  description: Computes "not both green" (1 - p1*p2) instead of "exactly one green".
+- id: all-events-instead-of-at-least-one
+  description: Computes the product of all three probabilities instead of the complement.
+- id: missing-complement-operator
+  description: Reports the product of complements without applying the final 1 - step.
+tags: [acara-senior-v8-4, statistics-probability, traffic-light, probability, rules, acmem158]

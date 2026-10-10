@@ -1,0 +1,37 @@
+id: function-concept
+name: Understand the function concept
+domain: functions-sequences
+description: Understand a function as a rule assigning exactly one output to each permitted input.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- input-output-tables
+- independent-dependent-variables
+answer: mcq
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Believing each output must have only one input
+- id: misconception-2
+  description: Treating any collection of points as a function
+tags: []

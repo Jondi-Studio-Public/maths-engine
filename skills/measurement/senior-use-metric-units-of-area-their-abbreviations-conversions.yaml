@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-metric-units-of-area-their-abbreviations-conversions
+name: Use metric units of area, their abbreviations, conversions between them, and appropriate choices of units
+domain: measurement
+description: Convert an area measurement between metric units.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: use_metric_units_of_area
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: use_metric_units_of_area
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: use_metric_units_of_area
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-linear-factor
+  description: Applies the linear length factor instead of its square (e.g. multiplies/divides by 100 instead of 10,000 when converting cm²<->m²).
+- id: conversion-direction
+  description: Multiplies when it should divide, or divides when it should multiply, when converting between two area units.
+- id: forgets-to-convert
+  description: Combines two stated areas given in different units directly, without converting either one first (hard tier only).
+- id: converts-wrong-operand
+  description: Converts the operand that was already stated in the target unit instead of the one that actually needed converting (hard tier only).
+tags: [acara-senior-v8-4, measurement, area, acmem021]

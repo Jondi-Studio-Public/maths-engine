@@ -1,0 +1,48 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-consider-constant-and-non-constant-force
+name: Consider constant and non-constant force
+domain: differential-equations
+description: Given bounded, fully specified inputs, consider constant and non-constant
+  force. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+answer: number
+sources:
+- topic: p13b_constant_nonconstant_force
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13b_constant_nonconstant_force
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13b_constant_nonconstant_force
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13b_constant_nonconstant_force
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-v-squared-with-v
+  description: Reports the value of v-squared (2*a*s, or u-squared plus 2*a*s) instead
+    of taking the square root to find v.
+- id: forgot-initial-speed-term
+  description: On the nonzero-initial-speed tiers, drops the initial speed's own
+    contribution (u-squared) from the SUVAT relation entirely.
+- id: sign-flip
+  description: Reports the negative of the correct speed or displacement.
+- id: treats-non-constant-force-as-constant
+  description: On the non-constant-force tiers, treats the force (and hence the
+    acceleration) as if it were constant -- either fixed at its value at x = 0
+    (giving zero) or fixed at its value at the final position -- instead of
+    integrating v*dv/dx = a(x).
+- id: wrong-suvat-form
+  description: On the exam tier, solves for the displacement using the constant-acceleration
+    SUVAT form (v-squared = u-squared + 2*a*x with a fixed) instead of the correct
+    non-constant relation v-squared = u-squared + (k/m)*x-squared.
+tags: [acara-senior-v8-4, differential-equations, mechanics, acmsm134]

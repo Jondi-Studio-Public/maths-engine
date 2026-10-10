@@ -1,0 +1,41 @@
+id: differentiate-trig
+name: Differentiate sin and cos
+domain: differentiation
+description: Differentiate combinations of sine and cosine functions.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - trig
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - trig
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - trig
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: dropped-inner-factor
+  description: Dropping the inner-derivative factor on sin/cos terms.
+- id: sign-error-cos-derivative
+  description: A sign error on the derivative of cosine.
+tags: []

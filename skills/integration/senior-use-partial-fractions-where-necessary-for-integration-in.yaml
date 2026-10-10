@@ -1,0 +1,32 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-partial-fractions-where-necessary-for-integration-in
+name: Use partial fractions where necessary for integration in simple cases
+domain: integration
+description: Given bounded, fully specified inputs, use partial fractions where necessary for integration in simple cases. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: use_partial_fractions_where_necessary_for_integration_in
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: use_partial_fractions_where_necessary_for_integration_in
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: use_partial_fractions_where_necessary_for_integration_in
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-residues
+  description: Swapping which residue goes with which linear factor.
+- id: wrong-same-coefficient
+  description: Using the same residue or coefficient for every linear factor instead of solving for each one independently.
+- id: only-upper-bound
+  description: Evaluating the antiderivative at the upper bound only, without subtracting the lower bound.
+tags: []

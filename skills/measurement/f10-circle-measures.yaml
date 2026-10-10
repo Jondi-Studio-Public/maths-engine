@@ -1,0 +1,29 @@
+id: f10-circle-measures
+name: Calculate circle circumference and area
+domain: measurement
+description: Use radius or diameter and π to calculate or interpret a circle's circumference or area with appropriate units.
+status: active
+placement_eligible: false
+prerequisites: [pythagorean-hypotenuse]
+answer: number
+sources:
+- topic: circle_measures
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: circle_measures
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: circle_measures
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: confuses_formula
+  description: Computes the answer using the other formula (area when circumference was asked, or vice versa).
+- id: omits_pi_factor
+  description: Drops the π factor entirely from the calculation.
+- id: uses_diameter_as_radius
+  description: Uses the diameter value as the radius instead of dividing by 2 first.
+tags: [measurement, circles, acara-v9-year-7-8]

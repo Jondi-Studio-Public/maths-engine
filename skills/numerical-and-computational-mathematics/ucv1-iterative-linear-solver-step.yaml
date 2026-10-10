@@ -1,0 +1,59 @@
+id: ucv1-iterative-linear-solver-step
+name: Perform one iterative linear-solver step
+domain: numerical-and-computational-mathematics
+description: Compute one Gauss-Seidel update for a supplied diagonally dominant
+  two-variable linear system, starting from a stated point (x0, y0). The second
+  equation's update uses the just-computed x1, not x0, which is the boundary
+  against the Jacobi update in jacobi-iteration-2x2.
+status: active
+prerequisites: [jacobi-iteration-2x2]
+answer: pair
+sources:
+- topic: p14c_iterative_linear_solver_step
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14c_iterative_linear_solver_step
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14c_iterative_linear_solver_step
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14c_iterative_linear_solver_step
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: uses-jacobi-method
+  description: Computes the Jacobi update instead of Gauss-Seidel -- both
+    equations use the old (x0, y0) rather than the just-computed x1 in the
+    second equation.
+- id: wrong-variable-order
+  description: Solves y first using x0, then solves x using the new y1,
+    reversing the stated update order.
+- id: forgets-diagonal-divide
+  description: Omits dividing by the diagonal coefficient (a11 or a22) after
+    subtracting the off-diagonal term.
+- id: sign-error-on-off-diagonal
+  description: Adds instead of subtracts the off-diagonal term when updating
+    x1 or y1.
+- id: stopped-after-one-step
+  description: 'Hard tier only: reports (x1, y1) after a single Gauss-Seidel
+    iteration instead of chaining a second iteration to get (x2, y2).'
+- id: ignores-dominance-order
+  description: 'Exam tier only: treats whichever equation is printed first as
+    the x-equation regardless of which one actually has the larger-magnitude
+    x-coefficient -- the habit every lower tier rewards, since they always
+    print the x-dominant equation first.'
+tags: [university-core-v1, numerical-methods, scientific-computing]

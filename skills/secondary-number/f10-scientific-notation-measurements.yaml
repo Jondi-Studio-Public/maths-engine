@@ -1,0 +1,29 @@
+id: f10-scientific-notation-measurements
+name: Solve measurement problems in scientific notation
+domain: secondary-number
+description: Given a measurement, time-scale or interval problem in which the given quantities are expressed in scientific notation, compute the numeric solution requested.
+status: active
+placement_eligible: false
+prerequisites: [f10-powers-ten-multiply-divide, scientific-notation]
+answer: number
+sources:
+- topic: scientific_notation_measurements
+  params: {variant: multiply_rate_time}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: scientific_notation_measurements
+  params: {variant: divide_distance_speed}
+  difficulty: medium
+  stages: [3, 4]
+- topic: scientific_notation_measurements
+  params: {variant: compare_magnitude}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-power-combination
+  description: Combines the coefficients or powers of ten with the wrong operation for the step being performed -- adds the coefficients instead of multiplying them (easy tier), or adds the exponents instead of subtracting them when dividing, or uses one quantity's own coefficient directly instead of dividing the two coefficients (medium tier).
+- id: off-by-one-order-of-magnitude
+  description: Misplaces the decimal point by one power of ten, over- or under-stating the result by a factor of ten.
+- id: inverts-comparison-ratio
+  description: In the magnitude-comparison question, divides the larger coefficient by the smaller one directly instead of accounting for which quantity's exponent makes it the larger overall value, reporting the ratio inverted (hard tier only).
+tags: [acara-f10-v9, secondary, scientific-notation, measurement, ac9m9m02]

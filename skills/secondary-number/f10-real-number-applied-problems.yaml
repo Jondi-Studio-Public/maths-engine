@@ -1,0 +1,83 @@
+id: f10-real-number-applied-problems
+name: Solve applied problems with real numbers
+domain: secondary-number
+description: Given a bounded applied problem stated in terms of rational and/or irrational real numbers (e.g.
+  involving square roots or pi), compute the requested numeric or exact-form answer. Confined to composite
+  perimeter/length problems that genuinely combine a rational and an irrational quantity, or ask the learner
+  to work backward from a stated exact total.
+status: active
+placement_eligible: false
+prerequisites:
+- classify-real-numbers
+answer: expression
+sources:
+- topic: p18a_real_number_applied
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p18a_real_number_applied
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p18a_real_number_applied
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p18a_real_number_applied
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: uses-diameter-not-radius
+  description: On the easy composite-perimeter question, uses the semicircle's diameter as if it were the
+    radius in the pi term (pi x diameter instead of pi x radius), doubling the irrational part of the answer.
+- id: uses-area-formula
+  description: On the easy composite-perimeter question, uses the area formula (pi x radius^2) in place of
+    the arc-length formula (pi x radius), producing a dimensionally wrong irrational coefficient.
+- id: drops-rational-part-easy
+  description: On the easy composite-perimeter question, reports only the semicircular arc's length (b*pi),
+    forgetting to add the rectangle's straight sides.
+- id: treats-diagonal-as-one-side
+  description: On the medium diagonal-path question, treats the rectangle's longer side as if it were also
+    the length of the diagonal, dropping the square root entirely.
+- id: adds-squares-without-rooting
+  description: On the medium diagonal-path question, adds the squares of the two sides (as Pythagoras'
+    theorem requires) but forgets to take the final square root.
+- id: only-one-side-plus-diagonal
+  description: On the medium diagonal-path question, adds the correctly-derived diagonal to only one of the
+    two adjacent sides, dropping the other.
+- id: rounds-pi-early
+  description: On the hard rounded-decimal question, substitutes a fixed rational approximation of pi (22/7
+    or 3.14) for its true value, instead of carrying true pi through the whole calculation and rounding only
+    the final total.
+- id: uses-full-circle-not-semicircle
+  description: On the hard rounded-decimal question, doubles the semicircular arc's contribution as if the
+    curved end were a full circle rather than a semicircle.
+- id: drops-rational-part-hard
+  description: On the hard rounded-decimal question, reports only the semicircular arc's rounded length,
+    forgetting to add the two straight sides.
+- id: forgets-to-halve
+  description: On the exam reverse question, reports the stated rational part R directly as the straight-side
+    length L, forgetting that R is the combined length of BOTH straight sides (R = 2L).
+- id: subtracts-pi-coefficient
+  description: On the exam reverse question, subtracts the stated pi-coefficient C from the rational part R
+    before halving, as if the semicircular term still needed to be removed from R (it is already exact and
+    separate).
+- id: halves-then-subtracts-coefficient
+  description: On the exam reverse question, correctly halves the rational part R but then also subtracts
+    the pi-coefficient C, double-counting a correction that the exact total already accounts for.
+tags:
+- acara-f10-v9
+- secondary-number
+- ac9m9n01
+- real-numbers
+- applied

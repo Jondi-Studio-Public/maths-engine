@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-which-type-of-graph-is-best-used
+name: Determine which type of graph is best used to display a dataset
+domain: statistics-probability
+description: Given a short description of a dataset (the kind of variable and how many variables are recorded), select from four labelled display types the one best suited to it. easy names the type directly; medium withholds it; hard disguises numeric labels as measurements or a time axis as a second numeric variable; exam extracts the variables from a stated research purpose. Distinct from senior-use-relative-frequencies-and-histograms-obtained-from-data, which hands the learner an already-built display and asks for a probability from it -- this skill never shows a display, only a description, and the decision is which display to draw, not what a display shows.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: mcq
+sources:
+- topic: pv0c_choose_display
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv0c_choose_display
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv0c_choose_display
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0c_choose_display
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: picks-by-familiarity-not-variable-type
+  description: Chooses whichever display is most familiar (usually a column graph or pie chart) instead of matching the display to the stated variable type and count.
+- id: treats-a-numeric-label-as-a-measurement
+  description: Sees a numeric-looking value (a postcode, jersey number, room number or ID number) and assumes it needs a numerical display, missing that it is a categorical label with no meaningful magnitude or order.
+- id: misses-the-time-axis
+  description: Given one numerical variable recorded at regular time points, chooses a scatterplot or histogram instead of a line graph, missing that the individuals ARE the time points, not two independent measured quantities.
+- id: confuses-paired-measurements-with-grouped-comparison
+  description: Given two numerical variables measured on the same individuals (a scatterplot), instead treats the data as one variable compared between two groups and picks a back-to-back stem-and-leaf plot, or the reverse.
+tags: [acara-senior-v8-4, statistics-probability, pv0c_choose_display, ACMEM040]

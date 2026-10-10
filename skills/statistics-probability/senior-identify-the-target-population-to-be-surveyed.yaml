@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-the-target-population-to-be-surveyed
+name: Identify the target population to be surveyed
+domain: statistics-probability
+description: 'Given a stated survey scenario and its research question, choose the correct description of the target population from the offered options -- matching the research question exactly, neither narrower nor broader. Options always include exactly one correct description plus at least two distinct named-error wrong options (too narrow: a proper subset; too broad: a proper superset; and, when a sample is drawn in the scenario, sample-confusion: the surveyed group offered as if it were the population). This is NOT the co-built senior-understand-the-concept-of-a-random-sample (ACMMM171), which judges whether a SELECTION METHOD from an already-identified population is valid, never what the population description should be. Four tiers: easy is a direct restatement of the stated population; medium introduces a drawn sample and offers "the group who were surveyed" as a sample-confusion distractor; hard has a qualifying clause that narrows or widens what looks like the obvious population at first read, construct-to-target so the correct answer is sometimes the obvious population and sometimes the qualified subset; exam combines that qualifying clause with a described sampling frame that itself under-covers the true target population, a genuine new shape over hard.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+capability_gates: [authentic_data]
+sources:
+- topic: p19d_target_population
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19d_target_population
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19d_target_population
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19d_target_population
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-sample-for-population
+  description: Selects the surveyed group itself (the sample) as the target population, rather than the whole group the research question is actually about.
+- id: ignores-qualifying-clause
+  description: Picks the "obvious" unqualified population, missing a qualifying clause in the research question (e.g. "who intend to vote") that actually narrows the true target population.
+- id: matches-the-sampling-frame-not-the-question
+  description: Selects the group that was actually reachable via the described sampling frame (e.g. app users), rather than the true target population the research question names.
+tags: [acara-senior-v8-4, statistics-probability, sampling, target-population, acmem132]

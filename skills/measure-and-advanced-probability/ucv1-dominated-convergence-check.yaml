@@ -1,0 +1,47 @@
+id: ucv1-dominated-convergence-check
+name: Check a dominated-convergence hypothesis
+domain: measure-and-advanced-probability
+description: For a finite supplied sequence of functions on a finite sample space and a stated bound, decide which dominated-convergence hypothesis (pointwise convergence or domination) fails, or that all are met -- on a finite sample space the bound's integrability is never genuinely in question, and is offered only as a permanently-wrong option.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15d_dominated_convergence
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15d_dominated_convergence
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15d_dominated_convergence
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15d_dominated_convergence
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: mistakes-a-large-bound-for-non-integrable
+  description: Picks "the bound is not integrable" when every stated bound value is finite -- on this finite sample space with counting measure a finite list of finite values is always integrable, so this option is never correct.
+- id: checks-only-last-term
+  description: Compares only the very last function value to the previous one instead of the whole stated tail, missing an earlier instability.
+- id: domination-checked-at-one-point-only
+  description: Confirms the bound holds at one sample point and assumes it holds everywhere, missing a violation at another stated point.
+tags: [university-core-v1, measure-and-advanced-probability, measure-theory, convergence]
+framework_areas: [measure-and-advanced-probability]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability

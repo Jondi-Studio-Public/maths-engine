@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-forward-and-backward-scanning-to-determine-the
+name: Use forward and backward scanning to determine the EST and LST
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, use forward and backward scanning to determine the earliest starting time (EST) and latest starting times (LST) for each activity in the project. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: use_forward_and_backward_scanning_to_determine_the
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: use_forward_and_backward_scanning_to_determine_the
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: use_forward_and_backward_scanning_to_determine_the
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: predecessor-es-instead-of-ef
+  description: Gives the predecessor's earliest start instead of its earliest finish (forgets to add duration).
+- id: ef-instead-of-es
+  description: Gives the activity's earliest finish instead of earliest start.
+- id: activity-duration-only
+  description: Gives only the activity's duration, ignoring the network before it.
+- id: sum-instead-of-max-at-merge
+  description: Sums the two predecessors' finish times instead of taking the maximum.
+- id: min-instead-of-max-at-merge
+  description: Takes the minimum finish time of two predecessors instead of the maximum.
+- id: es-instead-of-ls
+  description: Gives the activity's earliest start instead of its latest start (skips backward scan).
+- id: lf-instead-of-ls
+  description: Gives the activity's latest finish instead of latest start (forgets to subtract duration).
+- id: max-instead-of-min-for-successors
+  description: Takes the maximum latest start of successors instead of the minimum.
+tags: [acara-senior-v8-4, financial-discrete, networks, use_forward_and_backward_scanning_to_determine_the, ACMGM105]

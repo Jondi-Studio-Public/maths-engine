@@ -1,0 +1,53 @@
+id: ucv1-coordinate-basis
+name: Coordinates in a supplied two-dimensional basis
+domain: linear-algebra
+description: Compute the ordered coordinates of a supplied vector in a supplied independent
+  two-dimensional basis (and, at the exam tier, reconstruct the vector from its stated
+  coordinates).
+status: active
+placement_eligible: false
+prerequisites: [matrix-multiplication]
+answer: pair
+sources:
+- topic: p13f_coordinate_basis
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p13f_coordinate_basis
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p13f_coordinate_basis
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p13f_coordinate_basis
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: swaps-c1-c2
+  description: Reports (c2, c1) instead of (c1, c2) -- swaps which coordinate goes with
+    which basis vector. At the exam tier this becomes computing v with the coefficients
+    swapped (c2*b1 + c1*b2 instead of c1*b1 + c2*b2).
+- id: uses-v-directly
+  description: Reports (vx, vy) unchanged, as if the basis were the standard basis. At
+    the exam tier this becomes reporting the given (c1, c2) unchanged as if it were
+    already the vector v.
+- id: forgets-divide-by-D
+  description: Reports the unnormalised Cramer numerators (vx*b2y - vy*b2x, b1x*vy -
+    b1y*vx) without dividing by D. Not exercisable at the easy tier, where D = 1 makes
+    this identical to the correct answer.
+- id: wrong-sign-D
+  description: Divides by -D instead of D, negating both coordinates. Not exercisable
+    at the exam tier, which involves no division.
+tags: [university-core-v1, linear-algebra]

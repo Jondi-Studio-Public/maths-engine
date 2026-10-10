@@ -1,0 +1,10 @@
+id: scientific-notation
+name: Write numbers in scientific notation
+domain: secondary-number
+description: Represent a very large or small terminating decimal as a coefficient from one to ten times a power of ten.
+status: active
+prerequisites: [decimal-place-value, evaluate-powers]
+answer: mcq
+sources: [{topic: scientific_notation, params: {}, difficulty: easy}, {topic: scientific_notation_operate, params: {}}]
+misconceptions: [{id: exponent-direction, description: Reverses the sign or direction of the power of ten.}, {id: skips-renormalisation, description: Leaves the coefficient outside one to ten after adding, subtracting, multiplying or dividing.}, {id: wrong-exponent-rule, description: Applies the wrong exponent rule for the operation (e.g. adds exponents when adding/subtracting, or uses the wrong sign when multiplying/dividing).}, {id: wrong-common-exponent, description: Combines the coefficients correctly but attaches the other operand's exponent instead of the common one when adding or subtracting.}]
+tags: [expansion-batch-4, indices]

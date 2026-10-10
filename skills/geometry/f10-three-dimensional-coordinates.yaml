@@ -1,0 +1,29 @@
+id: f10-three-dimensional-coordinates
+name: Determine displacement in three-dimensional coordinates
+domain: geometry
+description: Given two stated points in a three-dimensional coordinate system, determine the displacement (the change in each coordinate) from one point to the other.
+status: active
+placement_eligible: false
+prerequisites: [f10-coordinate-movement]
+answer: pair
+sources:
+- topic: p11d_three_dimensional_coordinates
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11d_three_dimensional_coordinates
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11d_three_dimensional_coordinates
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-coordinates
+  description: Reports the change in coordinates cyclically permuted -- states dz as the change in x, dx as the change in y, and dy as the change in z.
+- id: wrong-direction
+  description: Reports the negated change; subtracts the end point from the start point instead, giving (start - end) instead of (end - start).
+- id: ignores-first-leg
+  description: (hard tier only) Tracks only the second movement and ignores the first; reports the change from the intermediate point B to the end C instead of the total change from A to C.
+tags: [acara-f10-v9, secondary, geometry, coordinate, three-dimensional, ac9m8sp03]

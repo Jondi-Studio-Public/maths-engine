@@ -1,0 +1,46 @@
+id: modular-multiplicative-inverse
+name: Find a modular multiplicative inverse
+domain: number-theory
+description: Find the least positive inverse of a unit modulo a small positive modulus.
+status: active
+prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]
+answer: number
+sources:
+- topic: modular_multiplicative_inverse
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: modular_multiplicative_inverse
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: modular_multiplicative_inverse
+  params: {kind: solve_congruence, modulus_hi: 31}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses-additive-inverse
+  description: Finds a value whose sum with the input is 0 modulo m instead of a multiplicative inverse.
+- id: ignores-modulus
+  description: Returns an ordinary reciprocal or a value that does not satisfy the congruence.
+- id: forgets-to-multiply-by-b
+  description: Correctly finds the inverse of the coefficient but reports it directly, forgetting to multiply by b to solve ax ≡ b (mod m).
+- id: multiplies-by-coefficient-not-inverse
+  description: Multiplies the coefficient by b directly instead of multiplying the coefficient's inverse by b.
+- id: wrong-residue-for-b
+  description: Reduces b incorrectly (e.g. by one too many or too few) before multiplying by the inverse.
+tags: [university-core-v1, university-algebra-batch, number-theory]
+framework_areas: [number-theory]
+alignments:
+- source_id: mit-degree-chart
+  status: candidate
+  framework: university-core-v1
+  area: number-theory
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: number-theory
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: number-theory

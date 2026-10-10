@@ -1,0 +1,18 @@
+id: equation-from-graph
+name: Determine a linear equation from a graph
+domain: linear-relations
+description: Find the gradient and intercept of a straight-line graph and write its equation.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- gradient-from-graph
+- intercept
+- graph-y-mx-plus-b
+answer: pair
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Reading intercept from the wrong axis
+- id: misconception-2
+  description: Using a visually estimated gradient without axis scale
+tags: []

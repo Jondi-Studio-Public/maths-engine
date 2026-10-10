@@ -1,0 +1,38 @@
+id: autonomous-equilibrium-stability
+name: Classify a one-dimensional equilibrium by derivative sign
+domain: differential-equations
+description: Determine whether a hyperbolic equilibrium of x' = f(x) attracts or repels nearby solutions.
+status: active
+prerequisites:
+- solve-ode-separable-poly
+- differentiate-polynomial
+answer: mcq
+sources:
+- topic: autonomous_equilibrium_stability
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: autonomous_equilibrium_stability
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: autonomous_equilibrium_stability
+  params: {kind: logistic}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reverses-attraction
+  description: Calls a negative derivative repelling and a positive derivative attracting.
+- id: forgets-equilibrium-condition
+  description: Classifies a point without first checking that f(x*) = 0.
+tags: [university-core-v1, dynamics]
+framework_areas: [ordinary-differential-equations, modelling-and-dynamical-systems]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: ordinary-differential-equations
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: modelling-and-dynamical-systems

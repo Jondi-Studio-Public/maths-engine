@@ -1,0 +1,46 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-coefficient-of-determination-to-assess-the
+name: Use the coefficient of determination to assess the strength of a linear association in terms of the explained variation
+domain: statistics-probability
+description: 'Given a stated correlation coefficient r for two variables, compute the coefficient of determination r^2 and report it as a decimal or percentage -- the proportion (or percentage) of variation explained. r is always GIVEN, never computed from data. Four tiers: a positive r reported as a decimal; a negative r reported as the percentage of variation explained (the sign vanishes on squaring); two explanatory variables'' r values compared by |r| (not signed r) to find which explains MORE of the variation in the same response variable; and, at the exam tier, a difference of two r^2 values (in percentage points) between two described least-squares models. Distinct from senior-use-technology-to-find-the-correlation-coefficient-an (ACMEM144), which COMPUTES r itself from a printed bivariate data set and never squares it -- one of its own misconceptions is a learner wrongly reporting r^2 there instead of r, confirming the two operations are already treated as distinct.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: number
+sources:
+- topic: p19b_coefficient_determination
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_coefficient_determination
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_coefficient_determination
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_coefficient_determination
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reports-r-not-r-squared
+  description: Reports the stated r itself (as a decimal or percentage) instead of squaring it.
+- id: doubles-instead-of-squares
+  description: Computes 2r (or 2|r|) instead of r^2.
+- id: takes-square-root
+  description: Computes sqrt(|r|) instead of r^2 -- the inverse operation.
+- id: keeps-sign-after-squaring
+  description: Squares a negative r but reports the result with the sign kept, as if squaring preserved it.
+- id: reports-unexplained-share
+  description: Reports 1 - r^2 (the UNexplained proportion of variation) instead of r^2 (the explained proportion).
+- id: compares-signed-r
+  description: On the hard tier, picks the explanatory variable with the larger SIGNED r instead of the larger |r|, so a negative-but-stronger variable is missed in favour of a weaker positive one.
+- id: picks-one-model
+  description: On the exam tier, reports one model's own r^2 (as a percentage) instead of the DIFFERENCE between the two models' r^2 values.
+- id: forgets-to-square-before-differencing
+  description: On the exam tier, subtracts the two stated |r| values directly (as a percentage) instead of squaring each first.
+tags: [acara-senior-v8-4, statistics-probability, coefficient-of-determination, r-squared, acmgm060]

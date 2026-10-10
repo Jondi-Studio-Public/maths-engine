@@ -1,0 +1,36 @@
+id: identify-like-terms
+name: Identify like terms
+domain: expressions-equivalence
+description: Determine which terms have identical variable parts and can be combined.
+status: active
+prerequisites:
+- constants-coefficients-terms
+- algebraic-notation
+answer: mcq
+sources:
+- topic: like_terms_select
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: like_terms_select
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: like_terms_select
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Combining terms that merely share one variable
+- id: misconception-2
+  description: Treating x and x squared as like terms
+tags: []

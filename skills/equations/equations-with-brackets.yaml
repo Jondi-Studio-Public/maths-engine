@@ -1,0 +1,83 @@
+id: equations-with-brackets
+name: Solve linear equations containing brackets
+domain: equations
+description: Expand or otherwise reason about brackets before solving a linear equation.
+status: active
+prerequisites:
+- two-step-equations
+- expand-single-brackets
+answer: number
+sources:
+- topic: linear_equation
+  params:
+    kind: brackets
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params:
+    kind: brackets
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params:
+    kind: brackets_leading
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: linear_equation
+  params:
+    kind: double_brackets
+  difficulty: exam
+  stages:
+  - exam
+mental:
+  levels:
+  - topic: linear_equation
+    params:
+      kind: brackets
+      coef_hi: 3
+      sol_hi: 6
+      b_hi: 6
+    target_s: 8
+    limit_s: 20
+  - topic: linear_equation
+    params:
+      kind: brackets
+      coef_hi: 4
+      sol_hi: 9
+      b_hi: 9
+    target_s: 9
+    limit_s: 22
+  - topic: linear_equation
+    params:
+      kind: brackets
+      coef_hi: 5
+      sol_hi: 9
+      b_hi: 9
+      allow_negative: true
+    target_s: 10
+    limit_s: 25
+misconceptions:
+- id: misconception-1
+  description: Expanding only one term in brackets
+- id: misconception-2
+  description: Dividing by a bracket without preserving equivalence
+- id: misconception-3
+  description: Moving a leading constant term to the other side of the equation
+    with the wrong sign
+- id: misconception-4
+  description: Distributing the multiplier onto x but not onto the bracket's
+    other term
+- id: misconception-5
+  description: Ignoring a leading constant term outside the bracket entirely
+- id: misconception-6
+  description: With brackets on both sides, distributing each multiplier onto
+    x only and leaving the bracket's other term unmultiplied
+tags: []

@@ -1,0 +1,33 @@
+id: f10-shape-sorting-algorithm
+name: Trace a shape-sorting procedure
+domain: geometry
+description: Given a stated shape-sorting procedure (a finite sequence of attribute-based tests and decisions, with procedure-defined bin labels) and a shape's stated facts (side lengths, and a right-angle or parallel-sides fact where the procedure needs one), trace the procedure and state the resulting classification.
+status: active
+placement_eligible: false
+prerequisites: [f10-polygon-classification]
+answer: mcq
+sources:
+- topic: p15d_shape_sorting
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15d_shape_sorting
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15d_shape_sorting
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15d_shape_sorting
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: skips-a-test
+  description: Jumps straight to a bin from the shape's familiar geometric name instead of following the stated tests in order.
+- id: misreads-a-branch
+  description: Follows the wrong branch (yes instead of no, or vice versa) at one test, landing in a neighbouring bin.
+- id: stops-at-wrong-test
+  description: Stops tracing at an earlier test's bin without continuing to the next test the procedure sends it to.
+tags: [f10, geometry, algorithm, classification, acara-v9-year-7]

@@ -1,0 +1,56 @@
+id: solve-ode-exponential
+name: dy/dx = ky
+domain: differential-equations
+description: Solve a first-order exponential-growth differential equation.
+status: active
+prerequisites:
+- solve-ode-separable-poly
+answer: expression
+sources:
+- topic: differential_equation
+  params:
+    kinds:
+    - exponential
+    ic_mode: zero
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differential_equation
+  params:
+    kinds:
+    - exponential
+    ic_mode: nonzero
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differential_equation
+  params:
+    kinds:
+    - exponential
+    ic_mode: word_problem
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: differential_equation
+  params:
+    kinds:
+    - exponential
+    ic_mode: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: used-ic-without-solving-c
+  description: Used the stated value (or, at the exam tier, the stated rate)
+    directly as the constant instead of solving for it against a nonzero x0.
+- id: dropped-k-exponent
+  description: Dropping k from the exponent.
+- id: added-instead-of-multiplied
+  description: Adding the initial value to the exponential term instead of
+    multiplying by it.
+tags: []

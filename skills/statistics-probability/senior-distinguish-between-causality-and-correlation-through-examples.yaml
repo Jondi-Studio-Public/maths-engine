@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-distinguish-between-causality-and-correlation-through-examples
+name: Distinguish between causality and correlation through examples
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, distinguish between causality and correlation through examples. Return the resulting value, expression, relation, or classification. This skill assesses the distinction directly: causation requires random assignment (controlled experiment), correlation requires an observational study with a named confounding variable. A binary classification with two real answer categories (causation vs. correlation only) and no third-party "no relationship" category or "unknown" outcome.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: mcq
+sources:
+- topic: causality_correlation_classify
+  difficulty: easy
+  stages: [6]
+- topic: causality_correlation_classify
+  difficulty: medium
+  stages: [6]
+- topic: causality_correlation_classify
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: conflates-correlation-with-causation
+  description: Assumes that a strong correlation implies causation without random assignment.
+- id: ignores-confounding-variables
+  description: Fails to recognise that a named third variable can explain an observed association.
+- id: demands-perfect-correlation
+  description: Believes causation requires perfect correlation (r = 1.0).
+- id: overlooks-random-assignment-necessity
+  description: Thinks random assignment is optional or that description alone proves causation.
+- id: assumes-both-are-always-possible
+  description: Selects "both" when a study shows only one structural marker, misreading "both supported equally" as "both present".
+tags: [acara-senior-v8-4, statistics-probability, causality_correlation_classify, causality-correlation, acmem147]

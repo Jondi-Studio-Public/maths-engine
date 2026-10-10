@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-units-of-rates-occurring-in-practical-situations
+name: Convert units of rates occurring in practical situations to solve problems
+domain: measurement
+description: 'Given bounded, fully specified inputs, convert units of rates occurring in practical situations to solve problems. Return the resulting value, expression, relation, or classification. Specifically: given a practical scenario whose rate is quoted in one unit and whose other stated quantity or requirement is expressed in a different, incompatible unit, convert the rate to a compatible unit as an intermediate step, then use the converted rate to compute a further practical quantity (a time, a distance, a total cost or a total consumption) that is never itself the converted rate.'
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: p13a_convert_rate_units
+  params: {mode: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p13a_convert_rate_units
+  params: {mode: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p13a_convert_rate_units
+  params: {mode: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p13a_convert_rate_units
+  params: {mode: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: skips-unit-conversion
+  description: Uses the rate in its original unit against a quantity stated in a different unit, without converting first.
+- id: wrong-conversion-direction
+  description: Multiplies by the conversion factor where dividing was needed, or vice versa.
+- id: stops-after-converting
+  description: Converts the rate correctly but reports the bare converted rate itself, never completing the further computation (distance/time/consumption/cost) the question actually asks for.
+- id: incomplete-compound-reduction
+  description: On the hard tier, performs only one of the two required reduction/conversion steps -- drops the internal compound-unit reduction, or drops the cross-unit conversion.
+- id: single-rate-only
+  description: On the exam tier, uses only one of the two independent rates, omitting the price or the consumption rate entirely from the final computation.
+tags: [acara-senior-v8-4, measurement, rates, p13a_convert_rate_units, ACMEM015]

@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-possible-non-causal-explanations-for-an-association
+name: Identify possible non-causal explanations for an association, including coincidence and confounding due to a common response to another variable, and communicate these explanations in a systematic and concise manner
+domain: statistics-probability
+description: 'Given a description of an observed association between two variables together with a plausible confounding or coincidental circumstance, classify the most plausible non-causal explanation as coincidence, confounding due to a common response to another variable, or a common cause. The "communicate these explanations in a systematic and concise manner" clause of the descriptor is not assessed (an open explanatory deliverable with no stated content to write). Because these labels overlap in common textbook usage unless defined, every question states the three definitions ONCE, after the scenario, and offers the three short labels (Coincidence, Common cause, Confounding) as its fixed multiple-choice options -- the scenario itself never states a category''s own definitional wording, only plain facts: every scenario opens by stating the observed association between the two variables, then states either that no known factor links them (coincidence), that a third variable drives increases in both (common cause), or that a third variable moves alongside the explanatory variable and is also known to affect the response directly (confounding). Four tiers: the mechanism stated plainly; the mechanism given as separate context facts the learner must connect; an added irrelevant (but plausible, study-meta) named variable that plays no role; and an exam tier where the live decision is whether the explanatory variable could plausibly have a direct effect on the response, separating common cause from confounding. Distinct from senior-distinguish-between-causality-and-correlation-through-examples (ACMEM147), whose own kernel is a binary study-design classification (random assignment supports causation; an observational study with a named confounder supports only correlation), not a three-way classification of WHICH non-causal mechanism explains a given association.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19b_noncausal_explanation
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_noncausal_explanation
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_noncausal_explanation
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_noncausal_explanation
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-coincidence-by-default
+  description: Selects coincidence whenever no manipulation is mentioned, without checking the scenario for a stated third-variable mechanism.
+- id: confuses-common-cause-with-confounding
+  description: Selects common cause when the scenario in fact states that the explanatory variable could plausibly affect the response directly (confounding), or vice versa.
+- id: ignores-irrelevant-named-variable
+  description: On the hard tier, selects the explanation associated with a variable that was named but plays no role in the association.
+- id: misreads-common-response-as-common-cause
+  description: Reads "confounding due to a common response to another variable" as identical to common cause, missing that confounding requires the explanatory variable to still plausibly affect the response.
+tags: [acara-senior-v8-4, statistics-probability, p19b_noncausal_explanation, non-causal-explanation, confounding, acmgm065]

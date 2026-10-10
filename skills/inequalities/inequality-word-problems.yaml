@@ -1,0 +1,40 @@
+id: inequality-word-problems
+name: Model and solve inequality word problems
+domain: inequalities
+description: Create, solve and interpret inequalities representing limits, minimums and maximums.
+status: deferred
+deferred_reason: grader
+prerequisites:
+- define-variables
+- two-step-inequalities
+answer: inequality
+sources:
+- topic: inequality
+  params:
+    kind: word
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: inequality
+  params:
+    kind: word
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: inequality
+  params:
+    kind: word
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Using equality when the context gives a range
+- id: misconception-2
+  description: Failing to round or restrict values appropriately in context
+tags: []

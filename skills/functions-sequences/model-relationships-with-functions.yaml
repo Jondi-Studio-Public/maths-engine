@@ -1,0 +1,17 @@
+id: model-relationships-with-functions
+name: Model relationships with functions
+domain: functions-sequences
+description: Choose and communicate a function representation that describes a practical relationship.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- compare-functions-representations
+- linear-models
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Choosing a rule without checking it against the context
+- id: misconception-2
+  description: Assuming correlation or a pattern proves a causal relationship
+tags: []

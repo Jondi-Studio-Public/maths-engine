@@ -1,0 +1,44 @@
+id: pythagoras-truss-chain
+name: Chained Pythagoras through a truss
+domain: trigonometry
+description: Track one computed length through 2-3 dependent right-angled triangles in a labelled truss, where each triangle's found leg feeds the next triangle's given leg. Not the theorem itself -- the learner already has pythagorean-hypotenuse and pythagorean-leg for single-step Pythagoras.
+status: active
+placement_eligible: false
+prerequisites:
+- pythagorean-hypotenuse
+- pythagorean-leg
+answer: number
+sources:
+- topic: pythagoras_truss_chain
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: pythagoras_truss_chain
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: pythagoras_truss_chain
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: symmetric_truss
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: stopped-at-intermediate
+  description: Reports the shared leg carried from the previous stage instead of the actually-asked-for value. Only exercisable when the target is the final hypotenuse; when the target is itself an intermediate leg, this collapses to the answer and is not offered. At exam, on the symmetric truss (topic symmetric_truss), the same misconception reads as reporting the half-span (or, when a web is asked for, the top chord) instead of completing the calculation for the requested member.
+- id: added-instead-of-pythagoras
+  description: Sums the two given lengths of the final triangle instead of applying Pythagoras when the target is the final hypotenuse; adds instead of subtracting before the root when the target is an intermediate leg. At exam, on the symmetric truss, this is summing the half-span and apex height instead of finding the chord's hypotenuse, or summing the new triangle's two legs instead of applying Pythagoras when the apex web is asked for; not exercisable when the perpendicular web is asked for, since that route is a similar-triangles ratio rather than a Pythagoras application.
+- id: wrong-stage-value
+  description: Reports a different stage's computed or given value than the one actually asked for. At easy/medium, where the target is always the final hypotenuse, this is the first triangle's own hypotenuse; at hard, where the target varies, it is one of the other two chain quantities. At exam, on the symmetric truss, this is reporting one of the OTHER two truss quantities (chord/apex web/perpendicular web) -- or, for the perpendicular web, the raw horizontal panel offset or the full apex height -- instead of the one actually asked for.
+tags: []

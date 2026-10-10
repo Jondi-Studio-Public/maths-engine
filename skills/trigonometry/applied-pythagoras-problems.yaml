@@ -1,0 +1,49 @@
+id: applied-pythagoras-problems
+name: Apply Pythagoras' theorem to real-world problems
+domain: trigonometry
+description: Solve Pythagoras word problems drawn from four real scenarios -- a ladder leaning against a wall, a walking displacement inferred from directional language ("north"/"east"), the altitude of an equilateral triangle, and the space diagonal of a rectangular solid -- by first extracting or deriving the right triangle from the context, not by recognising a triangle already labelled with legs and a hypotenuse.
+status: active
+placement_eligible: false
+prerequisites:
+- pythagorean-hypotenuse
+- pythagorean-leg
+answer: number
+sources:
+- topic: applied_pythagoras
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: applied_pythagoras
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: applied_pythagoras
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: added-not-subtracted
+  description: Treats the given leg of the ladder problem as if it were also hypotenuse-independent and adds it, computing sqrt(ladder^2 + given^2) instead of sqrt(ladder^2 - given^2). Only exercisable at the easy (ladder) tier.
+- id: forgot-sqrt-ladder
+  description: Reports ladder^2 - given^2 un-rooted, forgetting to take the square root. Only exercisable at the easy (ladder) tier.
+- id: linear-sum-displacement
+  description: Adds the two walked distances (p + q) instead of finding the resultant straight-line distance sqrt(p^2 + q^2). Only exercisable at the medium (displacement) tier.
+- id: one-leg-only-displacement
+  description: Reports just one of the two walked distances as if it were the resultant straight-line distance. Only exercisable at the medium (displacement) tier.
+- id: area-formula-confusion
+  description: Computes the equilateral-triangle area formula (side^2 * sqrt(3) / 4) instead of the altitude formula (side * sqrt(3) / 2), a realistic mix-up between two similarly-shaped formulas both involving sqrt(3). Only exercisable at the hard tier, and only on the seeds where hard's random coin flip draws the equilateral_altitude variant rather than rect_solid_diagonal.
+- id: stopped-at-half-base
+  description: Reports the half-base length used partway through the correct method, instead of completing the Pythagoras step to find the altitude. Only exercisable at the hard tier, and only on the seeds where hard's random coin flip draws the equilateral_altitude variant rather than rect_solid_diagonal.
+- id: forgot-third-dimension
+  description: Reports the 2-D face diagonal sqrt(length^2 + width^2), ignoring the height entirely, instead of the 3-D space diagonal. Only exercisable at the hard tier, and only on the seeds where hard's random coin flip draws the rect_solid_diagonal variant rather than equilateral_altitude.
+- id: summed-edges
+  description: Adds the three edge lengths (length + width + height) instead of computing the space diagonal. Only exercisable at the hard tier, and only on the seeds where hard's random coin flip draws the rect_solid_diagonal variant rather than equilateral_altitude.
+tags: []

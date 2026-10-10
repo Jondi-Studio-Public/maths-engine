@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-scales-to-find-distances-such-as-on
+name: Use scales to find distances, such as on maps; for example, road maps, street maps, bushwalking maps, online maps and cadastral maps
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use scales to find distances, such as on maps; for example, road maps, street maps, bushwalking maps, online maps and cadastral maps. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: map_scale_distance
+  params: {mode: verbal_forward}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: map_scale_distance
+  params: {mode: ratio_forward}
+  difficulty: medium
+  stages: [3, 4]
+- topic: map_scale_distance
+  params: {mode: ratio_reverse}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: divides-instead-of-multiplies
+  description: Applies a forward scale by dividing the map distance by the scale value instead of multiplying.
+- id: multiplies-instead-of-divides
+  description: Applies a reverse (real-world-to-map) scale by multiplying instead of dividing.
+- id: forgets-unit-conversion
+  description: Reports the ratio-scaled centimetre figure, or an intermediate metre figure, without completing the remaining conversion to the requested unit -- off by a factor of 100 or 1000.
+- id: misreads-ratio-direction
+  description: 'Treats a ratio scale "1 : n" as "n : 1", inverting which side of the ratio is the map and which is the real world.'
+tags: [acara-senior-v8-4, measurement, scale, maps]

@@ -1,0 +1,46 @@
+id: vector-dot-product
+name: Dot product
+domain: vectors
+description: Calculate the dot product of two 3D vectors.
+status: active
+prerequisites:
+- integer-arithmetic
+answer: number
+sources:
+- topic: vectors
+  params:
+    kinds:
+    - dot
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: vectors
+  params:
+    kinds:
+    - dot
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: vectors
+  params:
+    kinds:
+    - dot_sum
+    hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: dropped-negative
+  description: Dropping negative signs on components.
+- id: added-not-multiplied
+  description: Adding corresponding components instead of multiplying.
+- id: forgot-second-vector
+  description: Forgot to add the second vector before taking the dot product.
+- id: multiplied-dot-products
+  description: Multiplied the two partial dot products together instead of adding them.
+tags: []

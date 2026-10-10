@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-estimate-the-limit-of-frac-a-h-1
+name: 'Estimate the limit of (a^h-1)/h as h->0 using technology, for various values of a>0'
+domain: differentiation
+description: 'Given bounded, fully specified inputs, estimate the limit of (a^h-1)/h as h->0 using technology, for various values of a>0. Return the resulting value, expression, relation, or classification. Presents a table of (a^h-1)/h at decreasing positive h for a stated a, computed as a learner''s own calculator would show it, and asks the learner to estimate the limit from the table''s trend as an MCQ over rounded numerals -- never an exact closed-form value, which the learner never sees or types. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.'
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: mcq
+sources:
+- topic: p12c_estimate_limit_ah
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12c_estimate_limit_ah
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12c_estimate_limit_ah
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12c_estimate_limit_ah
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reads-first-coarsest-row-not-the-trend
+  description: Reports the table's own h=0.1 row value as the limit instead of extrapolating the trend toward the smallest-h row, mistaking a nearby approximation for the limit itself.
+- id: confuses-difference-quotient-with-h-equals-1
+  description: Reports a - 1 (the value of (a^h-1)/h at h=1) instead of extrapolating the table's own trend as h -> 0, mistaking a finite-difference estimate at h=1 for the limit.
+- id: sign-error-on-the-estimate
+  description: Reports the negative of the correct rounded estimate, a sign slip that a learner who has not checked the table's own trend direction (positive for a>1, negative for a<1) would not catch.
+- id: assumes-limit-is-always-positive
+  description: For a in (0,1), expects a positive limit by analogy with the a>1 case, missing that the table's own values trend to a negative number.
+- id: exam-compares-a-values-not-magnitudes
+  description: 'Exam tier: assumes the side with the larger a always has the larger-magnitude estimated limit, without checking that one side''s limit is negative -- fails when the negative side''s magnitude is actually larger.'
+tags: [acara-senior-v8-4, differentiation, p12c_estimate_limit_ah, limits, acmmm098]

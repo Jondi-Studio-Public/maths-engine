@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-obtain-a-scale-factor-and-use-it-to
+name: Obtain a scale factor and use it to solve area scaling problems
+domain: measurement
+description: Given bounded, fully specified inputs, obtain a scale factor and use it to solve scaling problems involving the calculation of the areas of similar figures. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: scale_factor_similar_areas
+  params: {mode: direct_ratio}
+  difficulty: easy
+  stages: [6]
+- topic: scale_factor_similar_areas
+  params: {mode: derive_from_lengths}
+  difficulty: medium
+  stages: [6]
+- topic: scale_factor_similar_areas
+  params: {mode: derive_length_from_areas}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-linear-factor
+  description: Forgets to square the scale factor ratio, applying the linear ratio directly to the area instead of the squared ratio (computes p:q instead of p²:q²).
+- id: confuses-which-ratio-term-is-b
+  description: Squares the wrong term of the scale factor ratio, applying q to the area instead of p (uses q² instead of p² as the numerator of the area scale factor).
+- id: forgets-to-scale
+  description: Misinterprets "similar" to mean "equal area", assuming Figure B's area is the same as Figure A's area rather than applying the scale factor.
+- id: swaps-p-and-q
+  description: Reverses the scale factor ratio when computing the corresponding length, using q instead of p as the factor (hard tier only).
+- id: confuses-area-for-length
+  description: Confuses a stated area of one figure with the length of a side of another, or vice versa (hard tier only).
+tags: [acara-senior-v8-4, measurement, scale-factor, similar-figures, acmgm024]

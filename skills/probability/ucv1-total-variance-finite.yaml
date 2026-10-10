@@ -1,0 +1,58 @@
+id: ucv1-total-variance-finite
+name: Apply the law of total variance
+domain: probability
+description: Compute total variance from supplied conditional means and conditional
+  variances for two cases.
+status: active
+placement_eligible: false
+prerequisites: [finite-distribution-variance]
+answer: fraction
+sources:
+- topic: p14e_total_variance_two_case
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14e_total_variance_two_case
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14e_total_variance_two_case
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14e_total_variance_two_case
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: drops-the-within-term
+  description: Returns only Var(E[Y|X]), omitting E[Var(Y|X)] entirely -- the
+    "total variance = variance of the conditional means" confusion. Not
+    exercisable at the exam tier, whose own inversion equation has no
+    dependence on the withheld conditional variance under this confusion.
+- id: drops-the-between-term
+  description: Returns only E[Var(Y|X)], omitting Var(E[Y|X)) entirely -- the
+    "total variance = average conditional variance" confusion, the more
+    common one.
+- id: unweighted-EY
+  description: Computes Var(E[Y|X]) using the unweighted average (mu1+mu2)/2
+    in place of the correct E[Y] = p1*mu1 + p2*mu2 inside the squared-deviation
+    term.
+- id: swapped-weights
+  description: Applies p2 to case 1's terms and p1 to case 2's, a transposition
+    slip. Collides with the correct answer whenever p1 = p2 (the easy tier's
+    symmetric split), where it is dropped rather than offered.
+- id: counts-not-divided
+  description: On the hard tier (and the exam tier when the population is given
+    as counts), uses the raw counts n1, n2 directly as if they were
+    probabilities, skipping the /N step.
+tags: [university-core-v1, probability]

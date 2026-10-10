@@ -1,0 +1,29 @@
+id: f10-number-represent-order-to-1000
+name: Order numbers to 1000
+domain: primary-number
+description: Given a stated set of distinct whole numbers up to 1000, arrange them in order from smallest to largest.
+status: active
+placement_eligible: false
+prerequisites: [place-value-to-100, order-numbers-to-10]
+answer: ordered_list
+sources:
+- topic: order_to_1000
+  params: {count: [3, 4], digit_lengths: [3], min_gap: 100, min_same_hundreds_pairs: 0}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: order_to_1000
+  params: {count: 4, digit_lengths: [3], min_same_hundreds_pairs: 1}
+  difficulty: medium
+  stages: [3, 4]
+- topic: order_to_1000
+  params: {count: 5, digit_lengths: [2, 3], min_same_hundreds_pairs: 1}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the numbers from largest to smallest instead of smallest to largest.
+- id: adjacent-swap
+  description: Orders the numbers correctly overall but swaps the two middle values, as if two neighbouring values did not need comparing.
+- id: leading-digit-only
+  description: Orders numbers by comparing only their first digit, ignoring the rest of each number and its overall digit count -- so a shorter number with a larger leading digit is wrongly ranked above a longer number with a smaller leading digit.
+tags: [acara-f10-v9, primary, place-value, ordering, ac9m2n01]

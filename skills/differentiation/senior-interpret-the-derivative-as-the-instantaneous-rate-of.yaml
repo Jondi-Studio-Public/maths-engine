@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-the-derivative-as-the-instantaneous-rate-of
+name: Interpret the derivative as the instantaneous rate of change
+domain: differentiation
+description: Given a function and a stated value of x, compute the instantaneous rate of change of the function at that value (its derivative evaluated there). Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: number
+sources:
+- topic: p19f_instantaneous_rate
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19f_instantaneous_rate
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19f_instantaneous_rate
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19f_instantaneous_rate
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: evaluated-function-value
+  description: Reports f(x) at the stated point instead of f'(x), the value rather than the rate of change.
+- id: dropped-power-rule-coefficient
+  description: Differentiates the leading term without multiplying by its power (e.g. A*x^3 as A*x^2 instead of 3*A*x^2).
+- id: used-wrong-point
+  description: Evaluates the derivative at the un-adjusted point instead of the derived evaluation point (exam tier only).
+- id: sign-error
+  description: Negates the correctly computed instantaneous rate of change.
+tags: [acara-senior-v8-4, differentiation, instantaneous-rate, acmmm084]

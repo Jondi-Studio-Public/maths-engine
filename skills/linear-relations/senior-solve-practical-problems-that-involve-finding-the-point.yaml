@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-practical-problems-that-involve-finding-the-point
+name: Solve practical problems that involve finding the point of intersection of two straight-line graphs;
+  for example, determining the break-even point where cost and revenue are represented by linear equations
+domain: linear-relations
+description: From a stated fixed cost, cost per unit and selling price per unit, find the break-even quantity
+  at which total cost equals total revenue -- the intersection of the cost line C = F + vq and the revenue
+  line R = pq. easy states F, v and p directly for a whole-number break-even; medium keeps the same three
+  givens but the exact break-even is not whole, so the smallest whole number of units for a profit must be
+  rounded up; hard recovers v and F from two (quantity, total cost) points instead of stating them; exam
+  adds a percentage sales fee that reduces the per-unit margin. This skill does not cover reading the
+  intersection from a graph (the graphical method is dropped) and never hands over the two linear equations
+  ready-formed, which is the neighbouring skill solve-simultaneous-equations.
+status: active
+placement_eligible: false
+prerequisites: [rate-of-change]
+answer: number
+sources:
+- topic: pv0b_break_even
+  params: {mode: stated}
+  difficulty: easy
+  stages: [6]
+- topic: pv0b_break_even
+  params: {mode: round_up}
+  difficulty: medium
+  stages: [6]
+- topic: pv0b_break_even
+  params: {mode: two_points}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0b_break_even
+  params: {mode: percentage_fee}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ignores-unit-cost
+  description: Computes F/p, ignoring the unit cost entirely, as if all revenue were profit.
+- id: adds-unit-cost
+  description: Computes F/(p + v), adding the unit cost to the price instead of subtracting it from the price.
+- id: rounds-down
+  description: Rounds the exact non-integer break-even DOWN to the nearest whole unit instead of up, missing that a profit needs strict inequality.
+- id: average-cost-as-unit-cost
+  description: Uses the average total cost per unit at one of the two stated points (which already includes a share of the fixed cost) as if it were the marginal unit cost.
+- id: fee-ignored
+  description: Solves the break-even as if there were no percentage fee, ignoring the reduced margin.
+- id: fee-on-cost
+  description: Applies the percentage fee to the unit cost instead of the selling price.
+tags: [acara-v8-4-general, linear-relations, break-even]

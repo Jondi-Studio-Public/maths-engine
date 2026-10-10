@@ -1,0 +1,17 @@
+id: compare-lengths
+name: Compare lengths
+domain: early-foundations
+placement_order: 190
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Compare two objects and identify which is longer.
+status: active
+prerequisites: [compare-quantities-to-10]
+answer: mcq
+sources:
+- topic: compare_length
+  params: {}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, measurement, visual]

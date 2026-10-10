@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-and-use-inverses-of-linear-transformations-and
+name: Recover the original point under an inverse linear transformation
+domain: matrices
+description: Given bounded, fully specified inputs, define and use inverses of linear transformations and the relationship with the matrix inverse. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-multiplication
+answer: pair
+sources:
+- topic: linear_transform_inverse
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: linear_transform_inverse
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: linear_transform_inverse
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forward-not-inverse
+  description: Reapplies the stated transformation to the image instead of inverting it to recover the original point.
+- id: swapped-lambda
+  description: Divides by the dilation factors in the wrong order, swapping which factor undoes which coordinate.
+- id: sign-flip
+  description: Negates the x-coordinate of the otherwise-correctly-recovered original point.
+- id: swapped-coords
+  description: Swaps the x and y coordinates of the otherwise-correctly-recovered original point.
+- id: sign-flip-both
+  description: Negates both coordinates of the otherwise-correctly-recovered original point.
+- id: point-reflection
+  description: Treats the image as though it came from a 180 degree rotation about the origin, negating both coordinates, instead of reflecting.
+- id: wrong-line
+  description: Reflects the image in a different line (the other line from the same paired-line set) instead of the stated line of reflection.
+- id: identity
+  description: Reports the image point unchanged, as if the reflection had no effect.
+tags: [acara-senior-v8-4, matrices, linear-transformations, acmsm058]

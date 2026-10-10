@@ -1,0 +1,30 @@
+id: compare-common-fractions
+name: Compare common fractions
+domain: primary-number
+placement_order: 20
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Compare proper fractions, including equivalent fractions, using less than, equal to or greater than.
+status: active
+prerequisites: [whole-number-division-facts]
+answer: mcq
+sources:
+- topic: compare_common_fractions
+  params: {max_den: 6, include_equal: true}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: compare_common_fractions
+  params: {max_den: 10, include_equal: true}
+  stages: [3, 4]
+  difficulty: medium
+- topic: compare_common_fractions
+  params: {max_den: 12, include_equal: true, benchmark: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: larger-denominator-means-larger
+  description: Treating a larger denominator as evidence that the fraction is larger.
+- id: compares-parts-separately
+  description: Comparing numerators and denominators independently rather than comparing fraction values.
+tags: [primary, fractions, acara-v9-year-6]

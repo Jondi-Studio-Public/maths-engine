@@ -1,0 +1,20 @@
+id: moment-of-a-force
+name: Moment = Fd
+domain: engineering-mechanics
+description: Calculate the moment of a force about a pivot.
+status: active
+prerequisites:
+- ratio-rate-proportion
+answer: number
+sources:
+- topic: engineering
+  params:
+    kinds:
+    - moment
+  difficulty: easy
+misconceptions:
+- id: added-force-distance
+  description: Adding force and distance instead of multiplying.
+- id: ignored-distance
+  description: Ignoring the distance entirely.
+tags: []

@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-implement-the-statistical-investigation-process-to-answer-questions-acmgm093
+name: Implement the statistical investigation process to answer questions that involve the analysis of time series data
+domain: statistics-probability
+description: Given a stated, generated time-series dataset (with context), compute a linear trend value at a stated point in the series. Never asks for a moving average -- that half of the descriptor is covered by the moving-average skill. Return the resulting value.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: p16a_trend_value
+  params: {variant: direct}
+  difficulty: easy
+  stages: [6]
+- topic: p16a_trend_value
+  params: {variant: period_label}
+  difficulty: medium
+  stages: [6]
+- topic: p16a_trend_value
+  params: {variant: two_points}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16a_trend_value
+  params: {variant: seasonal_two_point}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-error-on-slope
+  description: Subtracts the slope term instead of adding it (or vice versa) when evaluating the trend equation.
+- id: off-by-one-period
+  description: Evaluates the trend at a period one before or after the one stated.
+- id: swaps-intercept-and-slope
+  description: Swaps the roles of the intercept and the slope when substituting into the trend equation.
+tags: [acara-v8-4-general, statistics-probability, time-series, linear-trend, acmgm093]

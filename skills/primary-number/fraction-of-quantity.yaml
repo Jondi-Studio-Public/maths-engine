@@ -1,0 +1,30 @@
+id: fraction-of-quantity
+name: Find a fraction of a quantity
+domain: primary-number
+placement_order: 10
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Find a proper fraction of a whole-number quantity when the result is a whole number.
+status: active
+prerequisites: [whole-number-division-facts]
+answer: number
+sources:
+- topic: fraction_of_quantity
+  params: {max_den: 5, quantity_hi: 40}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: fraction_of_quantity
+  params: {max_den: 8, quantity_hi: 80}
+  stages: [3, 4]
+  difficulty: medium
+- topic: fraction_of_quantity
+  params: {max_den: 12, quantity_hi: 144, find_whole: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: divides-by-numerator
+  description: Dividing by the numerator instead of the denominator.
+- id: ignores-numerator
+  description: Finding one unit fraction but not multiplying by the numerator.
+tags: [primary, fractions, acara-v9-year-6]

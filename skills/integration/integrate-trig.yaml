@@ -1,0 +1,41 @@
+id: integrate-trig
+name: Integrate sin and cos
+domain: integration
+description: Integrate combinations of sine and cosine functions.
+status: active
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: integration
+  params:
+    kinds:
+    - trig
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: integration
+  params:
+    kinds:
+    - trig
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: integration
+  params:
+    kinds:
+    - phase
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-divide-by-b
+  description: Forgetting to divide by the inner coefficient.
+- id: wrong-sign-family
+  description: Using the wrong sign for the sin/cos family.
+tags: []

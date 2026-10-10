@@ -1,0 +1,62 @@
+id: prism-capacity-three-units
+name: Find a rectangular prism's capacity in cubic metres, cubic centimetres and litres
+domain: measurement
+description: Given ONE rectangular prism's three dimensions in MIXED units (length in
+  m, width in cm, height in mm), find its capacity in cubic metres (m3), cubic
+  centimetres (cm3) and litres (L) in a single question -- three independently graded
+  answers. The learner must convert every dimension to a common unit before
+  multiplying; that conversion is the reasoning content of the skill, not incidental
+  (an exam-style item).
+status: active
+placement_eligible: false
+prerequisites:
+- rectangular-prism-volume
+- convert-metric-length
+- convert-metric-capacity
+answer: pair
+sources:
+- topic: exd_e5_prism_capacity_three_units
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e5_prism_capacity_three_units
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e5_prism_capacity_three_units
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e5_prism_capacity_three_units
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: wrong-order-of-magnitude
+  description: Converts cm3 to m3 by dividing by 1000 (the litres factor) instead of
+    1,000,000, landing on the same number as the correct litres answer. Always
+    exercisable -- the prism is constructed so volume_cm3 is always in the millions,
+    keeping this thousands away from the true m3 value.
+- id: reports-unconverted-volume
+  description: Multiplies the three dimensions' raw stated numbers directly (the
+    metre-number, the centimetre-number and the millimetre-number), skipping the
+    unit-conversion step entirely, and reports that as the cm3 answer. Always a tenth
+    of the true cm3 value by this skill's fixed construction.
+- id: confuses-L-and-cm3-factor
+  description: Reports the cm3 figure again under the L label, treating the two units
+    as numerically interchangeable. Always wrong by roughly a thousandfold, since L is
+    always cm3 / 1000.
+tags: [measurement, capacity, conversion, multi-part]

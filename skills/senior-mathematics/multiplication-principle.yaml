@@ -1,0 +1,10 @@
+id: multiplication-principle
+name: Apply the multiplication principle
+domain: senior-mathematics
+description: Count outcomes from successive independent choices by multiplying the numbers of options.
+status: active
+prerequisites: [multiplication-facts]
+answer: number
+sources: [{topic: combinatorics, params: {kind: multiplication}, difficulty: easy}]
+misconceptions: [{id: adds-options, description: Adds the option counts instead of multiplying.}]
+tags: [expansion-batch-6, combinatorics, acara-v8-4]

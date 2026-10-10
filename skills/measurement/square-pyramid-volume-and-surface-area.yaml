@@ -1,0 +1,73 @@
+id: square-pyramid-volume-and-surface-area
+name: Find the volume and total surface area of a square-based pyramid from its base side and perpendicular height
+domain: measurement
+description: Given ONE square-based pyramid's base side and PERPENDICULAR height (never a
+  slant height), find two independently graded answers -- volume and total surface area
+  (base square plus four congruent lateral triangular faces) -- deriving the slant height
+  via Pythagoras internally. DISTINCT from
+  senior-find-the-surface-area-of-pyramids-such-as -- that skill is surface-area-only and
+  covers general (square/rectangular/right-triangle) base shapes; this skill is a new,
+  separate, COMBINED volume-and-surface-area pairing restricted specifically to a square
+  base (an exam-style item). The base side and perpendicular height are always drawn
+  as the two legs of a curated Pythagorean triple, so the slant height, the volume and the
+  surface area are all exact values with zero rounding at every tier.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-formulas-to-find-the-volume-of-pyramids
+- pythagorean-hypotenuse
+answer: pair
+sources:
+- topic: exd_e5_square_pyramid_volume_and_surface_area
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e5_square_pyramid_volume_and_surface_area
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e5_square_pyramid_volume_and_surface_area
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e5_square_pyramid_volume_and_surface_area
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: uses-apex-height-as-slant-height
+  description: Plugs the given perpendicular (apex) height straight into the surface-area
+    formula instead of first deriving the slant height via Pythagoras. Exercisable against
+    the surface_area part only; the volume part is unaffected since it uses the
+    perpendicular height directly and correctly. Always exercisable -- the slant height is
+    always strictly greater than the perpendicular height, so the resulting surface area
+    always differs from the true value by construction.
+- id: omits-base-square
+  description: Sums only the four triangular lateral faces and omits the base square from
+    the total surface area. Exercisable against the surface_area part only. Always
+    exercisable -- the resulting value is always short of the true surface area by exactly
+    the base area, which is always positive.
+- id: no-half-factor-on-laterals
+  description: Uses side times slant height per triangular face instead of one-half times
+    side times slant height, doubling the lateral area. Exercisable against the
+    surface_area part only. Always exercisable -- the resulting value always exceeds the
+    true surface area by exactly the (positive) lateral area.
+- id: no-third-factor-on-volume
+  description: Uses base-area times height instead of one-third times base-area times
+    height for the volume, treating the pyramid as a prism. Exercisable against the volume
+    part only. Always exercisable -- the resulting value is always exactly three times the
+    true volume, which is always positive.
+tags: [measurement, multi-part, pyramids, volume, surface-area]

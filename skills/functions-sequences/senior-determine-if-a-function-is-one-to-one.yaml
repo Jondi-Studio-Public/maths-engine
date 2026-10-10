@@ -1,0 +1,26 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-if-a-function-is-one-to-one
+name: Determine if a function is one-to-one
+domain: functions-sequences
+description: Given a bounded, fully specified quadratic or absolute-value function, determine if it is one-to-one by identifying its critical point (axis of symmetry or kink point) — the value beyond which the function stops being one-to-one on one side.
+status: active
+placement_eligible: false
+prerequisites:
+  - function-notation
+answer: number
+sources:
+  - topic: determine_if_one_to_one
+    params: {}
+    difficulty: easy
+    stages: [1, 2, 3]
+misconceptions:
+  - id: reports-negative-of-h
+    description: Reports -h (the negation of the correct axis of symmetry)
+  - id: reports-y-intercept
+    description: States f(0) or other evaluations at specific points instead of the critical point
+  - id: reports-k-instead-of-h
+    description: Confuses a vertical shift parameter with the critical point
+  - id: sign-error-on-h
+    description: Reports -h instead of the axis of symmetry or kink point
+tags: []

@@ -1,0 +1,33 @@
+id: rectangle-area-perimeter-mixed-units
+name: Find a rectangle's area or perimeter from sides in different units
+domain: measurement
+description: Given a rectangle's length and width stated in DIFFERENT metric units
+  (mm & cm, or cm & m), reconcile them to a common unit and find the requested
+  area or perimeter in a stated target unit and precision.
+status: active
+placement_eligible: false
+prerequisites: [rectangle-area, rectangle-perimeter, convert-metric-length]
+answer: number
+sources:
+- topic: rectangle_mixed_unit_area_perimeter
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: rectangle_mixed_unit_area_perimeter
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: rectangle_mixed_unit_area_perimeter
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: no-conversion-before-computing
+  description: Adds or multiplies the two raw numbers directly, ignoring that they are stated in different units.
+- id: linear-factor-on-area
+  description: Converts the final area using the linear conversion factor instead of its square (e.g. treats 1 m^2 = 100 cm^2 instead of 10,000 cm^2). Not applicable to the perimeter-only easy tier.
+- id: partial-conversion
+  description: Converts only one of the two sides before computing, leaving the other in its original unit. Only distinct from no-conversion-before-computing when both sides need converting to reach the target unit (the hard tier).
+- id: wrong-direction-conversion
+  description: Inverts the conversion direction (divides where a multiplication was needed, or vice versa), the same error convert-metric-length already names. Added beyond this skill's three core misconceptions to keep a distractor reliably available at every tier, since partial-conversion collapses at easy/medium.
+tags: [measurement, area, perimeter, conversion]

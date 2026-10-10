@@ -1,0 +1,50 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-and-use-the-additivity-and-linearity-of
+name: Recognise and use the additivity and linearity of definite integrals
+domain: senior-mathematics
+description: 'Given stated definite-integral VALUES (for example the integral of f over
+  [a, b] and over [b, c], or of f and g over the same interval, together with stated
+  scalar multipliers), compute a combined definite-integral value using additivity or
+  linearity, without evaluating f or g directly. Every "integral value" is drawn directly
+  as a stated integer; this skill never constructs or integrates a real function. Easy is
+  pure additivity, forward direction, both stated values positive. Medium is pure
+  linearity with one scalar. Hard is full linearity with both scalars nonzero and at least
+  one negative, or additivity in the inverse (subtraction) direction with a negative
+  stated value. Exam combines additivity and linearity in one question, across three
+  stated integral values over two adjacent intervals and two functions. Never integrates
+  a stated polynomial from scratch (definite-integral, integrate-polynomial,
+  senior-calculate-total-change-by-integrating-instantaneous-or-marginal) -- this skill
+  only combines already-evaluated integral values.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19f_integral_additivity_linearity
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19f_integral_additivity_linearity
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19f_integral_additivity_linearity
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19f_integral_additivity_linearity
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-combining-rule
+  description: Applies the wrong operation for the additivity design -- adds when the
+    question needs subtraction (the inverse direction), or subtracts when it needs addition.
+- id: dropped-scalar-multiplier
+  description: Reports I_f + I_g instead of k*I_f + m*I_g, dropping one or both scalar
+    multipliers the linearity design states.
+- id: swapped-interval-order
+  description: Reports I_ab - I_bc instead of I_ab + I_bc in an additivity chain, a sign
+    confusion over which interval's value is subtracted.
+tags: [acara-senior-v8-4, senior-mathematics, integral-additivity, acmmm128]

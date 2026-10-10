@@ -1,0 +1,17 @@
+id: calculate-mean
+name: Calculate the arithmetic mean
+domain: statistics-probability
+description: Calculate the arithmetic mean of a small whole-number data set.
+status: active
+prerequisites: [whole-number-division-facts]
+answer: number
+sources:
+- topic: summary_statistic
+  params: {kind: mean}
+  difficulty: easy
+- topic: exam_mean_summary_statistic
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions: [{id: forgets-divide, description: Reports the total without dividing by the number of observations.}]
+tags: [expansion-batch-3, statistics]

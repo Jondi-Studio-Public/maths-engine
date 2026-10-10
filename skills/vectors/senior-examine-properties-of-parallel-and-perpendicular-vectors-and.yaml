@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-properties-of-parallel-and-perpendicular-vectors-and
+name: Examine properties of parallel and perpendicular vectors and determine if two vectors are parallel or perpendicular
+domain: vectors
+description: Given bounded, fully specified inputs, examine properties of parallel and perpendicular vectors and determine if two vectors are parallel or perpendicular. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: examine_properties_of_parallel_and_perpendicular_vectors_and
+  params: {variant: perpendicular}
+  difficulty: easy
+  stages: [6]
+- topic: examine_properties_of_parallel_and_perpendicular_vectors_and
+  params: {variant: parallel}
+  difficulty: medium
+  stages: [6]
+- topic: examine_properties_of_parallel_and_perpendicular_vectors_and
+  params: {variant: recover_scalar}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: dropped-the-sign
+  description: Reports the missing component without applying the required sign flip (easy tier).
+- id: swapped-components-of-u
+  description: Uses the wrong coordinate of u in the perpendicular formula (easy tier).
+- id: used-given-coordinate-directly
+  description: Reports the given coordinate of v itself, ignoring the perpendicular relationship (easy tier).
+- id: wrong-component-of-u-used
+  description: Scales the wrong coordinate of u instead of the one that corresponds to the missing coordinate (medium tier).
+- id: assumed-k-equals-one
+  description: Reports the un-scaled coordinate of u, as if the scalar were 1 (medium tier).
+- id: used-negative-scale
+  description: Reports the negated correct value (medium tier).
+- id: subtracted-instead-of-divided
+  description: Subtracts instead of dividing to recover the scalar (hard tier).
+- id: confused-k-with-a-component
+  description: Reports a coordinate of u directly as if it were the scalar (hard tier).
+tags: [acara-senior-v8-4, vectors, parallel, perpendicular, acmsm021]

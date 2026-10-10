@@ -1,0 +1,29 @@
+id: circle-reverse-from-area
+name: Find a circle's radius, diameter or circumference from its area
+domain: measurement
+description: Given a circle's area (stated to 2 decimal places), find its radius, diameter or circumference to 1 decimal place -- the inverse of f10-circle-measures.
+status: active
+placement_eligible: false
+prerequisites: [f10-circle-measures]
+answer: number
+sources:
+- topic: circle_reverse_from_area
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: circle_reverse_from_area
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: circle_reverse_from_area
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgets_square_root
+  description: Reports area divided by pi directly as the radius, skipping the square root entirely (propagated through the rest of the formula at medium/hard).
+- id: omits_pi_division
+  description: Reports the square root of the area directly as the radius, skipping the division by pi.
+- id: reports_diameter_as_circumference
+  description: For the circumference question, reports the diameter (2 x radius) instead of applying the circumference formula (2 x pi x radius).
+tags: [measurement, circles]

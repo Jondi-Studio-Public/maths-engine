@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-work-with-the-concepts-of-angle-of-elevation
+name: Work with the concepts of angle of elevation and angle of depression
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, work with the concepts of angle of elevation and angle of depression. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: elevation_depression_problem
+  params: {variant: elevation}
+  difficulty: easy
+  stages: [6]
+- topic: elevation_depression_problem
+  params: {variant: depression}
+  difficulty: medium
+  stages: [6]
+- topic: elevation_depression_problem
+  params: {variant: two_observation}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: elevation_depression_problem
+  params: {variant: twin_base_distance}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swaps-tan-for-sin-or-cos
+  description: Uses the sine or cosine ratio where the tangent ratio was needed for the height/distance relationship.
+- id: missing-alternate-angle-correction
+  description: On the medium tier, fails to recognise that the angle of depression from the top equals the angle of elevation from the ground point, or otherwise misapplies the given angle.
+- id: inverts-the-ratio
+  description: Divides by the wrong quantity (e.g. distance/height instead of height/distance), inverting the required ratio.
+- id: single-observation-shortcut
+  description: On the hard or exam tier, reports the height (hard tier) or one observer's own distance to the base (exam tier) implied by only one observation point, instead of solving the two-triangle system together.
+- id: opposite-sides-misreading
+  description: On the hard or exam tier, treats the two observation points as being on opposite sides of the tower rather than collinear on the same side, which the question states explicitly -- summing instead of subtracting (hard tier sums the cotangents, exam tier sums the two base distances).
+tags: [acara-v8-4-essential, senior-mathematics, trigonometry, angle-of-elevation, acmem118]

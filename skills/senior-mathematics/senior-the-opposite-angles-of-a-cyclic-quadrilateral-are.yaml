@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-the-opposite-angles-of-a-cyclic-quadrilateral-are
+name: The opposite angles of a cyclic quadrilateral are supplementary
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, The opposite angles of a cyclic quadrilateral are supplementary. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: the_opposite_angles_of_a_cyclic_quadrilateral_are
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: the_opposite_angles_of_a_cyclic_quadrilateral_are
+  params: {variant: linear_pair}
+  difficulty: medium
+  stages: [3, 4]
+- topic: the_opposite_angles_of_a_cyclic_quadrilateral_are
+  params: {variant: two_pair_chain}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses-360-instead-of-180
+  description: Confuses the quadrilateral's full angle-sum (360 degrees) with the pair-supplement rule (180 degrees) that applies to a single pair of opposite angles.
+- id: reports-non-requested-angle
+  description: Reports a different angle than the one asked for -- the given angle instead of its opposite, or the other pair's evaluated angle -- instead of tracing through to the requested angle.
+- id: drops-difference-relationship
+  description: On the hard tier, ignores the stated angle-difference relationship between the other pair of opposite angles (as if it were zero) and reports an angle from the pair that was not asked about.
+tags: [acara-v8-4-specialist, circle-geometry]

@@ -1,0 +1,49 @@
+id: ucv1-manifold-chart-jacobian
+name: Compute a local chart Jacobian
+domain: advanced-geometry-and-topology
+description: Compute the Jacobian matrix of a supplied two-dimensional chart at a stated point, in row-major order, followed by its exact determinant -- a zero determinant reports that the chart fails to be locally nonsingular there.
+status: active
+placement_eligible: false
+prerequisites: [jacobian-two-variable]
+answer: ordered_list
+sources:
+- topic: p15d_chart_jacobian
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15d_chart_jacobian
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15d_chart_jacobian
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15d_chart_jacobian
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: origin-substitution
+  description: Differentiates correctly but substitutes the origin instead of the stated point.
+- id: entry-off-by-one
+  description: One matrix entry is off by one, so the reported determinant does not match the reported entries.
+- id: transposed-jacobian
+  description: Reports du/dx, dv/dx, du/dy, dv/dy -- the two middle entries swapped -- instead of the stated row-major order.
+- id: swapped-rows
+  description: Reports the second row's entries before the first row's, and the determinant's sign flipped to match.
+tags: [university-core-v1, advanced-geometry-and-topology, differential-geometry, jacobian, chart]
+framework_areas: [advanced-geometry-and-topology]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: advanced-geometry-and-topology
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: advanced-geometry-and-topology
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: advanced-geometry-and-topology

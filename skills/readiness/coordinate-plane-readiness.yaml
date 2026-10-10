@@ -1,0 +1,39 @@
+id: coordinate-plane-readiness
+name: Read and plot coordinates
+domain: readiness
+placement_order: 80
+description: Interpret ordered pairs and plot points in all four quadrants of the Cartesian plane.
+status: active
+prerequisites:
+- integer-arithmetic
+answer: pair
+sources:
+- topic: coordinates
+  params:
+    kind: read
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: coordinates
+  params:
+    kind: read
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: coordinates
+  params:
+    kind: read
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reversing x- and y-coordinates
+- id: misconception-2
+  description: Using the sign to choose an axis rather than a direction
+tags: []

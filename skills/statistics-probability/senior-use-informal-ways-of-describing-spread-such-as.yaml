@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-informal-ways-of-describing-spread-such-as
+name: Use informal ways of describing spread, such as spread out/dispersed, tightly packed, clusters, gaps, more/less dense regions, outliers
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use informal ways of describing spread, such as spread out/dispersed, tightly packed, clusters, gaps, more/less dense regions, outliers. Return the resulting value, expression, relation, or classification. This skill assesses the application of stated numeric rules that bind each informal term to an unambiguous criterion. Every question states its own threshold rule in the question text; no undefined "spread out" judgement is ever asked for. No item asks a learner to choose an interpretation of "informal" -- every informal descriptor in the skill''s scope is defined by construction as a numeric rule, and that rule is stated in the question itself.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: mcq
+sources:
+- topic: use_informal_ways_of_describing_spread_such_as
+  difficulty: easy
+  stages: [6]
+- topic: use_informal_ways_of_describing_spread_such_as
+  difficulty: medium
+  stages: [6]
+- topic: use_informal_ways_of_describing_spread_such_as
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: ignores-stated-rule
+  description: Fails to read or apply the stated numeric threshold rule when classifying the data set.
+- id: confuses-range-with-density
+  description: Thinks "tightly packed" means high value density (many values close together) rather than all values within a stated range.
+- id: misses-all-pairs-check
+  description: For outlier detection, checks only if a value is far from the mean or from one other value, not from every other value.
+- id: lone-outlier-vs-cluster
+  description: Confuses a gap with one isolated value on one side (lone outlier) with a genuine gap between two clusters.
+- id: misinterprets-cluster-definition
+  description: Fails to recognize that a gap between clusters requires at least two values on each side of the gap.
+tags: [acara-senior-v8-4, statistics-probability, use_informal_ways_of_describing_spread_such_as, acmem054]

@@ -1,0 +1,31 @@
+id: f10-unit-fractions-combine-whole
+name: Represent and combine unit fractions to complete a whole
+domain: primary-number
+description: Represent listed unit fractions and their multiples and combine same-denominator fractions to complete a whole.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-fractions-half-quarter-eighth
+- fraction-arithmetic
+answer: fraction
+sources:
+- topic: unit_fractions_combine_whole
+  params: {shape: "multiple"}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: unit_fractions_combine_whole
+  params: {shape: "complete_the_whole"}
+  difficulty: medium
+  stages: [3, 4]
+- topic: unit_fractions_combine_whole
+  params: {shape: "complete_two_parts"}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: denominator-inflation
+  description: For the multiple shape, incorrectly scales the denominator by k as well (e.g. k/d*k instead of k/d), which reduces to 1/d, a different value from k/d when k ≠ 1.
+- id: reports-amount-used
+  description: For the complete-the-whole shape, reports the amount already used (n/d) instead of the amount still needed (remaining = 1 - n/d).
+- id: off-by-one-part
+  description: Reports one part more or fewer than the correct amount (e.g. (d-n-1)/d or (d-n+1)/d instead of (d-n)/d).
+tags: [acara-f10-v9, primary, number, fractions, unit-fractions, ac9m3n02]

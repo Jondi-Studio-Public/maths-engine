@@ -1,0 +1,60 @@
+id: rectangular-frustum-volume
+name: Find the volume of a rectangular frustum
+domain: measurement
+description: Find the volume of a rectangular frustum (a rectangular pyramid with its apex sliced
+  off by a plane parallel to the base) via the removed-apex construction -- the full pyramid's
+  volume minus the removed small pyramid's volume, recovered by similar triangles. Four tiers
+  escalate the reasoning, not the number range -- easy applies the relation directly from a given
+  bottom, top and height; medium derives the top rectangle from a stated linear scale ratio; hard
+  derives the frustum height from a given total apex height via similar triangles; the exam tier
+  stacks both derivations and states the answer to 2 decimal places.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-formulas-to-find-the-volume-of-pyramids
+answer: number
+sources:
+- topic: rectangular_frustum_volume
+  params:
+    mode: direct
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: rectangular_frustum_volume
+  params:
+    mode: scale_factor
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: rectangular_frustum_volume
+  params:
+    mode: apex_height
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: rectangular_frustum_volume
+  params:
+    mode: apex_height_decimal
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: omits-apex-removal
+  description: Uses the whole big pyramid's volume, (1/3) x base area x total apex height,
+    without subtracting the removed small pyramid at the top -- always strictly greater than the
+    true frustum volume.
+- id: treats-as-prism
+  description: Ignores the taper entirely and multiplies the base area by the frustum height, as
+    if the solid were a prism rather than a frustum -- always strictly greater than the true
+    volume.
+- id: uses-mean-area-slab
+  description: Uses the arithmetic mean of the two face areas times the height, h x (A1 + A2) / 2,
+    instead of the true h/3 x (A1 + A2 + sqrt(A1*A2)) relation -- close for a shallow frustum but
+    always strictly greater than the true volume, since the arithmetic mean of two different areas
+    always exceeds their geometric mean.
+tags: []

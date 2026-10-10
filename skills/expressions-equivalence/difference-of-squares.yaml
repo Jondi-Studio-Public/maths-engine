@@ -1,0 +1,61 @@
+id: difference-of-squares
+name: Expand or factorise special products
+domain: expressions-equivalence
+description: Recognise and apply the special products a^2 - b^2, (a + b)^2 and (a - b)^2 by pattern -- both
+  expanding and factorising -- without multiplying out term by term or general trinomial factorising.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-single-brackets
+- factor-common-numerical-factor
+answer: expression
+sources:
+- topic: difference_of_squares
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: difference_of_squares
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: difference_of_squares
+  params:
+    kind: two_var
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: dropped-middle-term
+  description: On an expand question that is genuinely a perfect square, writes a^2 - b^2 as if it were a
+    difference of squares, omitting the middle term.
+- id: sign-error-middle-term
+  description: On an expand question, gives the middle term the wrong sign, confusing (a + b)^2 with (a - b)^2.
+- id: forgot-to-double
+  description: On an expand question, writes the middle term as ab instead of 2ab.
+- id: assumed-perfect-square
+  description: On an expand question that is genuinely a difference of squares, wrongly includes a nonzero
+    middle term as if it were a perfect square. Only exercisable when the question is a genuine difference
+    of squares, since the three misconceptions above are only exercisable when it is genuinely a perfect square.
+- id: sign-error-constant
+  description: On an expand question that is genuinely a difference of squares, gives the constant term as
+    +b^2 instead of -b^2.
+- id: wrong-sign-in-factor
+  description: On a factorise question, gives one factor the wrong sign -- e.g. (a - b)(a - b) instead of
+    (a + b)(a - b) for a genuine difference of squares, or the reverse for a genuine perfect square.
+- id: treated-sum-as-factorable
+  description: On a factorise question that is genuinely a difference of squares, offers (a + b)(a + b) as if
+    a sum of squares could be factorised the same way. Only offered when the question is genuinely a
+    difference of squares.
+- id: sign-error-both-factors
+  description: On a factorise question that is genuinely a perfect square, flips the sign on both factors,
+    landing on the other perfect square. Only exercisable when the question is genuinely a perfect square.
+- id: wrong-constant-value
+  description: On a factorise question, uses a constant one more than the correct value in both factors.
+tags: []

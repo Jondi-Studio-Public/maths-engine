@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-unit-circle-definition-of-cos-theta
+name: Understand the unit circle definition of \(\cos\theta,\;\sin\theta\)
+domain: trigonometry
+description: "Given theta as a stated standard angle (an integer multiple of pi/6 or pi/4), state the exact coordinates (cos theta, sin theta) of the corresponding point on the unit circle, as one typed ordered pair in simplified surd form."
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: p19g_unit_circle_coordinates
+  params: {variant: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19g_unit_circle_coordinates
+  params: {variant: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19g_unit_circle_coordinates
+  params: {variant: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19g_unit_circle_coordinates
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-cos-sin
+  description: Reports the coordinates in the order (sin theta, cos theta) instead of (cos theta, sin theta).
+- id: sign-flipped-cos
+  description: Reports the correct sin theta but the wrong sign for cos theta.
+- id: sign-flipped-sin
+  description: Reports the correct cos theta but the wrong sign for sin theta.
+- id: wrong-quadrant-sign
+  description: Reports both coordinates with the wrong sign, as if theta were in the opposite quadrant.
+- id: wrong-standard-angle
+  description: Reports the coordinate pair for a different standard angle entirely, rather than the one actually stated.
+tags: [acara-senior-v8-4, trigonometry, unit-circle, coordinates, acmmm029]

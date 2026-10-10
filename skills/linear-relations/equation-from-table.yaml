@@ -1,0 +1,44 @@
+id: equation-from-table
+name: Determine a linear equation from a table
+domain: linear-relations
+description: Find the gradient and intercept of a linear relationship represented by a table.
+status: active
+prerequisites:
+- rate-of-change
+- intercept
+answer: pair
+sources:
+- topic: linear_from_table
+  params:
+    kind: equation
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_from_table
+  params:
+    kind: equation
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_from_table
+  params:
+    kind: equation_context
+    hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Using the first output as the intercept when the first input is not zero
+- id: misconception-2
+  description: Assuming every table is linear
+- id: misconception-3
+  description: In a worded rate-plus-flat-fee scenario, swapping which number is the rate and which is the fixed fee
+- id: misconception-4
+  description: In a worded rate-plus-flat-fee scenario, writing the equation from only the rate or only the flat fee, dropping the other term entirely
+tags: []

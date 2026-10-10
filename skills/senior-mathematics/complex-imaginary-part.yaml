@@ -1,0 +1,10 @@
+id: complex-imaginary-part
+name: Identify a complex number's imaginary coefficient
+domain: senior-mathematics
+description: Identify the signed coefficient of i in a complex number in Cartesian form.
+status: active
+prerequisites: [complex-real-part]
+answer: number
+sources: [{topic: complex_number, params: {kind: imaginary_part}, difficulty: easy}]
+misconceptions: [{id: loses-sign, description: Reports the magnitude but loses a negative sign.}]
+tags: [expansion-batch-6, complex-numbers, acara-v8-4]

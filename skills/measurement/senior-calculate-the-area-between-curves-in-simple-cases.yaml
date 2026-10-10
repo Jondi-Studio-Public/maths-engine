@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-the-area-between-curves-in-simple-cases
+name: Calculate the area between curves in simple cases
+domain: measurement
+description: Given bounded, fully specified inputs, calculate the area between curves in simple cases. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: area_between_curves_simple_cases
+  params: {mode: "line_and_line"}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: area_between_curves_simple_cases
+  params: {mode: "line_and_parabola"}
+  difficulty: medium
+  stages: [3, 4]
+- topic: area_between_curves_simple_cases
+  params: {mode: "unordered_line_and_line"}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-order
+  description: Computes the area as negative (integrates g(x) - f(x) instead of f(x) - g(x)).
+- id: forgets-linear-term
+  description: Omits the linear term when integrating (for the parabola tier, omits c*b).
+- id: swaps-power-rule-exponent
+  description: Applies the wrong exponent when integrating (integrates x² as x³ instead of x³/3).
+tags: [acara-senior-v8-4, measurement, calculus, integration, area]

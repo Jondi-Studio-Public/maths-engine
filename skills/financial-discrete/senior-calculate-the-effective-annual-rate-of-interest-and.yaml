@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-the-effective-annual-rate-of-interest-and
+name: Calculate the effective annual rate of interest and use the results to compare investment returns and cost of loans when interest is paid or charged daily, monthly, quarterly or six-monthly
+domain: financial-discrete
+description: Given a stated nominal annual interest rate and two named compounding frequencies (from daily, monthly, quarterly or six-monthly), calculate the effective annual rate of interest, EAR = (1 + r/n)^n - 1, for each frequency. The answer is the ordered pair (EAR at frequency 1, EAR at frequency 2), each a percentage to a stated decimal precision. This skill is distinguished from the existing active catalog skills "simple-interest" (flat, non-compounding interest -- never this compounding formula) and "senior-investigate-the-effect-of-the-interest-rate-and" (computes a flat-loan repayment TERM/period, never an effective rate).
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: ordered_list
+sources:
+- topic: p19i_effective_annual_rate
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19i_effective_annual_rate
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19i_effective_annual_rate
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19i_effective_annual_rate
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-ears
+  description: Reports the EAR at frequency 1 for frequency 2 and vice versa.
+- id: wrong-compounding-count
+  description: Uses the wrong number of compounding periods for a named frequency, for example n=30 for "daily" instead of 365, or n=6 for "six-monthly" instead of 2.
+- id: simple-interest-not-compounding
+  description: Computes simple (non-compounding) interest -- reports the bare nominal rate itself for both frequencies -- instead of applying the compounding EAR formula.
+- id: skips-nominal-rate-recovery
+  description: At the exam tier, uses the stated per-period rate directly as if it were already the nominal annual rate, skipping the step of recovering the nominal annual rate before applying it at the second, differently-named frequency.
+tags: [acara-senior-v8-4, financial-discrete, interest, compounding, acmgm095]

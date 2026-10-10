@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-and-use-location-of-complex-conjugates-in
+name: Understand and use location of complex conjugates in the complex plane
+domain: senior-mathematics
+description: |
+  Given a complex number plotted as the point (x, y) in the complex plane, state the
+  coordinates of the point representing its complex conjugate, (x, -y). The point is
+  given directly, via a worded description of its position, or (hard/exam tiers) via
+  the conjugate's own plotted point with the original asked for instead. y = 0 is
+  excluded by construction (a real number's conjugate reflects to the identical
+  point, a degenerate case for a skill about location). Boundary against
+  complex-conjugate (senior-mathematics, an mcq over complex numbers written in
+  "a + bi" symbolic form): this skill never writes a complex number in a + bi form
+  anywhere -- every question and answer here is a plotted point / typed coordinate
+  pair, graded as answer: pair, never a choice among offered strings.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+  - topic: p19g_complex_conjugate_coordinate
+    params: {variant: direct}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: p19g_complex_conjugate_coordinate
+    params: {variant: mixed_sign_fraction}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: p19g_complex_conjugate_coordinate
+    params: {variant: worded}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+  - topic: p19g_complex_conjugate_coordinate
+    params: {variant: backward}
+    difficulty: exam
+    stages: [exam]
+misconceptions:
+  - id: negates-both-coordinates
+    description: Negates both coordinates (-x, -y), reflecting through the origin instead of the real axis.
+  - id: negates-neither-coordinate
+    description: States the given point unchanged (x, y), performing no reflection at all.
+  - id: negates-x-instead-of-y
+    description: Negates x instead of y (-x, y), reflecting through the imaginary axis instead of the real axis.
+tags: [complex-numbers, acara-v8-4, ACMSM073]

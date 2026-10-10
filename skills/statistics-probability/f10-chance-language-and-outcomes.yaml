@@ -1,0 +1,32 @@
+id: f10-chance-language-and-outcomes
+name: Classify chance events by likelihood
+domain: statistics-probability
+description: Given a chance scenario described as an explicit, quantitatively stated
+  collection of categorised items (for example, a bag containing a stated count of
+  each colour of counter, or a set of equally-sized spinner sectors each labelled
+  with a stated category), and one named event defined as a stated subset of those
+  categories, classify the event using raw favourable-versus-total item counts as
+  certain (every item is favourable), impossible (no item is favourable), likely
+  (more than half the items are favourable), or unlikely (fewer than half the items
+  are favourable); the scenario is always constructed so the favourable count is
+  never exactly half the total.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: mcq
+sources:
+- topic: chance_outcome_classify
+  params: {}
+  difficulty: easy
+misconceptions:
+- id: confuses_extreme_with_middle
+  description: Treats middle counts as certain or impossible rather than likely/unlikely.
+- id: uses_inverse_count
+  description: Classifies based on unfavourable count instead of favourable count.
+- id: ignores_total_count
+  description: Classifies based on whether count is large in absolute terms, not relative
+    to total.
+tags:
+- f10-chance-language-and-outcomes
+- probability

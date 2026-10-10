@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-relative-frequencies-obtained-from-data-to-obtain
+name: Use relative frequencies obtained from data to obtain point estimates of probabilities associated with a discrete random variable
+domain: statistics-probability
+description: From a frequency table of observed values of a discrete random variable, produce the estimated probability distribution as an ordered list of P(X = x), one per value, in the order the prompt states. The graded value is always the full distribution list, never a single probability.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: ordered_list
+sources:
+- topic: p16a_estimated_distribution
+  params: {variant: direct}
+  difficulty: easy
+  stages: [6]
+- topic: p16a_estimated_distribution
+  params: {variant: direct_wide}
+  difficulty: medium
+  stages: [6]
+- topic: p16a_estimated_distribution
+  params: {variant: missing_frequency}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16a_estimated_distribution
+  params: {variant: two_missing_ratio}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reverses-the-order
+  description: Lists the probabilities in decreasing order of x instead of the stated increasing order.
+- id: off-by-one-shift
+  description: Pairs each frequency with the wrong value of x, shifted by one position.
+- id: wrong-total
+  description: Divides each frequency by a total that does not match the stated total number of observations.
+tags: [acara-v8-4-methods, statistics-probability, discrete-random-variable, estimated-distribution, acmmm137]

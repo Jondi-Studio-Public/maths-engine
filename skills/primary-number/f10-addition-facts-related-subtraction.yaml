@@ -1,0 +1,31 @@
+id: f10-addition-facts-related-subtraction
+name: Derive related addition and subtraction facts
+domain: primary-number
+description: Given a known addition fact through 20 and one of its two addends, state the value of the related subtraction fact formed by subtracting that addend from the sum.
+status: active
+placement_eligible: false
+prerequisites: [add-within-20, number-bonds-to-10, subtract-within-20]
+answer: number
+sources:
+- topic: p19a_add_sub_fact_family
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_add_sub_fact_family
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_add_sub_fact_family
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: names-subtracted-addend
+  description: States the addend that was subtracted instead of the addend left over.
+- id: restates-the-sum
+  description: States the fact's own sum, as if the subtraction had done nothing.
+- id: adds-instead-of-subtracts
+  description: Adds the subtracted addend to the sum instead of subtracting it.
+- id: off-by-one
+  description: States a value one more or one less than the correct related-fact value.
+tags: [acara-f10-v9, primary, addition, subtraction, fact-families]

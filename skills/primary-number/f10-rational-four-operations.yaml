@@ -1,0 +1,29 @@
+id: f10-rational-four-operations
+name: Combine three number representations using four operations
+domain: primary-number
+description: Evaluate an expression that combines a fraction, a decimal and a percentage by first converting to a common representation.
+status: active
+placement_eligible: false
+prerequisites: [decimal-arithmetic, fraction-arithmetic, percentage-of-quantity]
+answer: number
+sources:
+- topic: rational_four_operations
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: rational_four_operations
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: rational_four_operations
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: mixed-representation-error
+  description: Keeps one term in its original representation instead of converting -- e.g. adds the fraction's numerator directly to the decimal, treating 1/4 + 0.5 as 1.5 (i.e. 1 + 0.5, dropping the denominator).
+- id: percent-computed-wrong
+  description: At medium, applies a different benchmark percentage than the one stated. At hard, rounds the non-benchmark percentage to the nearest multiple of 10 before computing (e.g. computes 72% as if it were 70%).
+- id: percent-as-whole-number
+  description: Treats the stated percentage X% as the literal integer X instead of X/100 (e.g. reads 35% of a value as +35 instead of +0.35 * value).
+tags: [acara-f10-v9, primary, rational-numbers, fractions, decimals, percentages, four-operations, ac9m7n06]

@@ -1,0 +1,29 @@
+id: f10-compare-order-measure-attributes
+name: Order objects or events by measurement attributes
+domain: measurement
+description: Directly or indirectly compare two or more objects or events by a stated attribute (length, mass, capacity or duration) and arrange them in order from least to greatest.
+status: active
+placement_eligible: false
+prerequisites: [compare-lengths]
+answer: ordered_list
+sources:
+- topic: compare_order_measure_attributes
+  params: {N: 3, hard_shuffle: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: compare_order_measure_attributes
+  params: {N: 4, hard_shuffle: false}
+  difficulty: medium
+  stages: [3, 4]
+- topic: compare_order_measure_attributes
+  params: {N: 5, hard_shuffle: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Arranges items from greatest to smallest instead of smallest to greatest.
+- id: adjacent-swap
+  description: Swaps the two middle items while keeping the rest in correct order.
+- id: first-last-swap
+  description: (Hard tier only) Swaps the first and last items while keeping the middle items unchanged.
+tags: [f10, measurement, ordering, length, mass, capacity, duration, acara-v9-year-1]

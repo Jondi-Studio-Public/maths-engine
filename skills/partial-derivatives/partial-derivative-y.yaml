@@ -1,0 +1,35 @@
+id: partial-derivative-y
+name: df/dy
+domain: partial-derivatives
+description: Find the partial derivative of a two-variable function with respect to y.
+status: active
+prerequisites:
+- partial-derivative-x
+answer: expression
+sources:
+- topic: partial_derivatives
+  params: {kinds: [dy]}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: partial_derivatives
+  params: {kinds: [dy]}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: partial_derivatives
+  params: {kinds: [dy]}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-variable-y
+  description: Differentiating with respect to x instead of y.
+- id: took-mixed-partial
+  description: Taking the mixed partial instead of the simple partial.
+tags: []

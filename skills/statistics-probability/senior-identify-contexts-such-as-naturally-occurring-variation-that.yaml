@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-contexts-such-as-naturally-occurring-variation-that
+name: Identify contexts such as naturally occurring variation that are suitable for modelling by normal random variables
+domain: statistics-probability
+description: 'Given several short described measured-quantity contexts, choose which ONE is best modelled by a normal random variable -- a naturally occurring, continuous physical measurement subject to many small independent influences, roughly symmetric about its mean. Every other offered context is genuinely not normal, drawn from at least two of three distinct wrong-context classes on every draw: discrete-count/Poisson-like (e.g. the number of emails an office receives in an hour), strictly non-negative/skewed (e.g. the time until a lightbulb fails), or bounded/clustered-at-a-boundary (e.g. the number of heads in 3 coin tosses). This is NOT the neighbouring senior-examine-the-approximate-normality-of-the-distribution-of (ACMMM175), which diagnoses the normality of an ACTUAL sampling distribution of p-hat given a stated n and x -- a computed check on numbers already given, never a real-world-context judgement; and it is NOT senior-understand-the-concept-of-a-random-sample (ACMMM171), which judges selection-method validity, never a quantity''s distributional shape. Four tiers: easy offers 3 contexts (one obviously normal, one discrete-count, one skewed); medium offers 4 (a less-familiar normal context alongside discrete-count, skewed, and bounded wrong options); hard offers 4-5, sometimes including a near-miss continuous-but-uniform context (e.g. waiting time for a bus on a fixed schedule) that looks measurement-like but is not normal; exam wraps every option in an extra, orthogonal data-collection clause the learner must read past to see what is actually being measured, a genuine new prompt shape over hard.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19d_variation_context
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19d_variation_context
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19d_variation_context
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19d_variation_context
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-discrete-count-with-normal
+  description: Treats a discrete count over an open-ended time window (e.g. the number of emails received in an hour) as normal because "it varies a lot," missing that it is Poisson-like and cannot take negative or fractional values.
+- id: confuses-skewed-nonnegative-with-normal
+  description: Treats a strictly non-negative, right-skewed quantity (e.g. time until a lightbulb fails, household income) as normal because it "has an average," missing that such quantities cannot be symmetric about their mean.
+- id: pattern-matches-continuous-sounding-wording-on-a-uniform-quantity
+  description: Selects a near-miss context that sounds like a continuous measurement (e.g. waiting time for a bus arriving on a fixed schedule) as normal, missing that it is uniformly distributed over a bounded interval, not normal.
+tags: [acara-senior-v8-4, statistics-probability, normal-distribution, variation, acmmm168]

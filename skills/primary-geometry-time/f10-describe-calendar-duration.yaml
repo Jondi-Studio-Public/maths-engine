@@ -1,0 +1,31 @@
+id: f10-describe-calendar-duration
+name: Describe calendar duration
+domain: primary-geometry-time
+description: Determine the number of days between two stated calendar dates.
+status: active
+placement_eligible: false
+prerequisites: [tell-time-to-hour]
+answer: number
+sources:
+- topic: describe_calendar_duration
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: describe_calendar_duration
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: describe_calendar_duration
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: off-by-one-inclusive
+  description: Counts both start and end dates as whole days (adds 1).
+- id: off-by-one-exclusive
+  description: Counts only days strictly between the two dates, excluding both endpoints (subtracts 1).
+- id: ignores-month-boundary
+  description: Naively subtracts day-of-month numbers, ignoring month boundaries.
+- id: ignores-year-boundary
+  description: Treats dates as if in the same year when crossing a year boundary.
+tags: [acara-f10-v9, primary, time, calendar, ac9m1m03, ac9m2m03]

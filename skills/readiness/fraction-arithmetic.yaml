@@ -1,0 +1,74 @@
+id: fraction-arithmetic
+name: Operate with fractions
+domain: readiness
+placement_order: 30
+description: Perform the four operations with fractions and simplify results.
+status: active
+prerequisites: []
+answer: fraction
+sources:
+- topic: fractions
+  params:
+    ops:
+    - +
+    - '-'
+    - '*'
+    - /
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fractions
+  params:
+    ops:
+    - +
+    - '-'
+    - '*'
+    - /
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fractions
+  params:
+    ops:
+    - +
+    - '-'
+    - '*'
+    - /
+    three_term: true
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: fractions
+    params:
+      max_den: 4
+    target_s: 6
+    limit_s: 15
+  - topic: fractions
+    params:
+      max_den: 4
+      ops:
+      - +
+      - '-'
+    target_s: 8
+    limit_s: 20
+  - topic: fractions
+    params:
+      max_den: 5
+      ops:
+      - +
+      - '-'
+    target_s: 10
+    limit_s: 25
+misconceptions:
+- id: misconception-1
+  description: Adding denominators when adding fractions
+- id: misconception-2
+  description: Dividing fractions without using the reciprocal
+tags: []

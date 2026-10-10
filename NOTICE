@@ -1,0 +1,131 @@
+NOTICE
+
+This project combines three kinds of material under different terms.
+
+1. Code (mathgen/, scripts/, tests/) and everything else in the repository
+   that items 2 and 3 do not cover: MIT licence. See LICENSE.
+   Copyright (c) 2026 Jondi Haynes.
+
+2. Skill definitions (skills/): CC BY 4.0. See LICENSE-CONTENT.
+   Copyright (c) 2026 Jondi Haynes.
+
+3. Australian Curriculum material quoted or adapted in some skill files, and
+   quoted in many code comments, docstrings and tests: ACARA's own CC BY 4.0
+   licence, with the attribution below. This licence applies to the ACARA
+   text itself, wherever it appears, and is not changed by the licences
+   above. A code comment, docstring or test that quotes ACARA text is
+   otherwise MIT; the quoted words stay under CC BY 4.0 on ACARA's terms.
+
+----------------------------------------------------------------------------
+Australian Curriculum attribution
+----------------------------------------------------------------------------
+
+Senior secondary curriculum descriptors in this package are derived from the
+Australian Curriculum (Senior Secondary Version 8.4). F-10 (Version 9.0)
+skills use ACARA codes as tags; their names and descriptions are this
+project's own wording (see "Which files carry ACARA text" below).
+
+(c) Australian Curriculum, Assessment and Reporting Authority (ACARA) 2010 to
+present, unless otherwise indicated. This material was downloaded from the
+Australian Curriculum website (https://www.australiancurriculum.edu.au)
+(accessed 8 September 2026) and was modified. The four senior secondary
+mathematics subject pages (Version 8.4) were downloaded from the archived
+Version 8 site, https://v8.australiancurriculum.edu.au (accessed 8 September
+2026). The senior secondary skill names and descriptions derived from ACARA
+descriptors were changed as follows:
+
+  - most names have the initial letter capitalised and the final full stop
+    dropped;
+  - curly quotation marks are straightened;
+  - where a descriptor has several clauses or examples, the name is shortened
+    (some names stop part-way through the descriptor);
+  - mathematical notation is simplified to plain text, for example
+    \(x^2\) becomes x^2 and \(\frac{a}{b}\) becomes a/b; some names still
+    keep the original LaTeX notation;
+  - some names are reworded in this project's own words, keeping the topic
+    of the descriptor; a few carry small transcription slips (punctuation,
+    stray spacing, a dropped letter or a dropped word);
+  - in many descriptions the descriptor, lower-cased, is embedded in a
+    template sentence ("Given bounded, fully specified inputs, ...");
+    other descriptions are this project's own wording.
+
+The material is licensed under CC BY 4.0 Attribution 4.0 International Deed
+(https://creativecommons.org/licenses/by/4.0/). Version updates are tracked
+in the 'Curriculum version history' section on the 'About the Australian
+Curriculum' page of the Australian Curriculum website.
+
+ACARA does not endorse any product that uses the Australian Curriculum or make
+any representations as to the quality of such products. Any product that uses
+material published on the Australian Curriculum website should not be taken
+to be affiliated with ACARA or have the sponsorship or approval of ACARA. This
+package is not affiliated with, sponsored or approved by ACARA. It is up to
+each person to make their own assessment of this package, taking into account
+matters including, but not limited to, the version number and the degree to
+which the materials align with the content descriptions and achievement
+standards (where relevant). Where this package claims alignment, it aligns
+with the content descriptions and achievement standards, not the elaborations.
+
+ACARA material is provided as is, without warranties of any kind. The CC BY
+4.0 legal code is at https://creativecommons.org/licenses/by/4.0/legalcode.en.
+
+Which files carry ACARA text:
+
+  - Skill files for the senior secondary curriculum (ids starting
+    "senior-"): the name, and in many files the description, are modified
+    ACARA descriptors as described above. Each of these files starts with a
+    comment saying so. The ids and file names of these skills are lowercase
+    slugs of the (shortened) descriptor, and some carry a tag that is a short
+    hyphenated phrase from it.
+  - Code comments, docstrings and tests: many quote ACARA descriptor words
+    (Version 8.4, and in a few places Version 9.0), for example to say which
+    descriptor a generator or test is for. Quotes may be shortened or
+    re-cased. The quoted words are ACARA's, remain under CC BY 4.0 on ACARA's
+    terms, and are credited by this NOTICE.
+  - Codes: ACARA content description codes (for example ACMSM104 and
+    AC9M2N03) appear as tags, in lower case or upper case (acmsm104,
+    ac9m2n03, ACMSM072).
+    Codes also appear in the ids and descriptions of some senior secondary
+    skills, and in code comments and tests. A code is an identifier, not
+    curriculum text.
+  - F-10 skills (ids starting "f10-" and a few others tagged acara-f10-v9):
+    names and descriptions are this project's own wording. They may share
+    ordinary phrases with the curriculum (for example "Represent and order
+    numbers to 120"), and carry ACARA codes in tags only.
+
+Everything else in this package, including generated questions, answers,
+distractors, misconceptions, skill structure and mappings, is the project's
+own work and is not ACARA material.
+
+----------------------------------------------------------------------------
+Exclusions: what this package does not contain
+----------------------------------------------------------------------------
+
+The CC BY licence on the Australian Curriculum website does not cover, and
+this package does not include:
+
+  - the ACARA, Australian Curriculum, Australian Government or Education
+    Services Australia logos, or other trade-mark protected material;
+  - the design of the Australian Curriculum website;
+  - photographs, videos, or resources used to support teachers implementing
+    the curriculum;
+  - the National Literacy Learning Progressions (CC BY-NC 4.0);
+  - material owned by third parties and reproduced on the website with
+    permission.
+
+Aboriginal and Torres Strait Islander cultural content from curriculum
+elaborations or examples is not included.
+
+----------------------------------------------------------------------------
+Other
+----------------------------------------------------------------------------
+
+Some skills carry an "alignments" field. Each entry holds a source id naming a
+university course list or catalogue (for example "mit-subject-catalogue"), a
+status, a framework id and a short topic area slug such as "abstract-algebra".
+It carries no text from those sources: only these identifiers, written by this
+project. The framework id refers to a framework file that is not part of this
+repository. The institutions are not affiliated with this project.
+
+Runtime dependencies are installed separately and keep their own licences:
+SymPy (BSD-3-Clause), NumPy (BSD-3-Clause), mpmath (BSD-3-Clause), PyYAML
+(MIT).

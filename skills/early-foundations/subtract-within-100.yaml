@@ -1,0 +1,17 @@
+id: subtract-within-100
+name: Subtract within 100
+domain: early-foundations
+placement_order: 270
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Subtract two whole numbers within one hundred.
+status: active
+prerequisites: [add-within-100]
+answer: mcq
+sources:
+- topic: early_subtraction
+  params: {total_hi: 100}
+  difficulty: easy
+misconceptions: []
+tags: [age-7, subtraction]

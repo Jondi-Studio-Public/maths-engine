@@ -1,0 +1,17 @@
+id: subtract-within-10
+name: Subtract within 10
+domain: early-foundations
+placement_order: 150
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Subtract one small number from another within ten.
+status: active
+prerequisites: [add-within-10]
+answer: mcq
+sources:
+- topic: early_subtraction
+  params: {total_hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, subtraction]

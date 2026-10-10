@@ -1,0 +1,28 @@
+id: f10-quantify-compare-collections-to-20
+name: Quantify and compare collections to 20
+domain: early-foundations
+learner_band: early
+description: Given two named collections (counts, or two named sub-groups to combine first), decide which has more, which has fewer, or whether they are equal.
+status: active
+placement_eligible: false
+prerequisites: [compare-quantities-to-10, count-to-10, f10-number-represent-order-to-20]
+answer: mcq
+sources:
+- topic: quantify_compare_to_20
+  params: {mode: direct, hi: 20, min_gap: 5, equal_fraction: 0.0}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: quantify_compare_to_20
+  params: {mode: direct, hi: 20, max_gap: 2, equal_fraction: 0.3}
+  difficulty: medium
+  stages: [3, 4]
+- topic: quantify_compare_to_20
+  params: {mode: partition, hi: 20, equal_fraction: 0.0}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-comparison
+  description: States that the other collection has more, as if the two collections' totals were reversed. Exercisable whenever the true comparison is directional (the two totals are unequal).
+- id: forgets-to-combine
+  description: For a partitioned collection (hard tier only), reads only the first-named sub-group's count and compares that partial count against the other collection's total, instead of combining both sub-groups first. Its resulting label is always one of the same three fixed options, so it is a genuinely distinct wrong answer only on the subset of hard questions where the partial count's comparison outcome differs from the true, combined-total outcome (a real, non-empty subset, confirmed directly against the generator).
+tags: [acara-f10-v9, early, comparing, ac9mfn03]

@@ -1,0 +1,17 @@
+id: calculate-mode
+name: Calculate the mode
+domain: statistics-probability
+description: Identify the unique most frequent value in a small data set.
+status: active
+prerequisites: [order-numbers-to-10]
+answer: number
+sources:
+- topic: summary_statistic
+  params: {kind: mode, hi: 30}
+  difficulty: easy
+- topic: exam_mode_summary_statistic
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions: [{id: chooses-largest, description: Chooses the largest value rather than the most frequent.}]
+tags: [expansion-batch-3, statistics]

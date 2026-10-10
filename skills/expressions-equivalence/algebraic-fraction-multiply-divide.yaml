@@ -1,0 +1,57 @@
+id: algebraic-fraction-multiply-divide
+name: Multiply and divide algebraic fractions
+domain: expressions-equivalence
+description: Multiply or divide two (exam tier, up to three) algebraic fractions and reduce to a single term.
+  Every draw is confined so the fully-cancelled answer is always a monomial numerator (a coefficient and, at
+  most, one surviving variable power) over a bare positive integer denominator -- it never itself contains a
+  fraction inside a fraction or a leftover bracket (an exam-style item).
+status: active
+placement_eligible: false
+prerequisites:
+- simplify-algebraic-fractions
+answer: expression
+sources:
+- topic: exd_e2_algebraic_fraction_mul_div
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e2_algebraic_fraction_mul_div
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e2_algebraic_fraction_mul_div
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e2_algebraic_fraction_mul_div
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: forgot-to-invert
+  description: On a divide question (medium, hard and exam tiers -- not exercisable on the easy tier, which is
+    multiply-only), multiplies the second fraction straight through instead of inverting it first, leaving a
+    variable at a higher, un-cancelled power instead of the correct combination.
+- id: dropped-a-variable-power
+  description: Cancels a variable's power fully when it should instead combine/subtract exponents correctly --
+    on the single-variable tiers (easy, medium), fails to cancel the shared variable at all and leaves it in
+    the answer; on the two-variable tiers (hard, exam), treats the surviving variable as if it also cancelled
+    completely instead of combining to its true power.
+- id: coefficient-not-reduced
+  description: Correct variable part, but the numeric coefficient carries an extra un-cancelled factor left
+    over from one fraction's own internal common factor -- a genuinely different rational number from the
+    correct coefficient, not merely an unreduced spelling of the same value.
+tags: []

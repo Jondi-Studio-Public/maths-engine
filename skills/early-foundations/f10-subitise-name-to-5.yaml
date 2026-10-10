@@ -1,0 +1,30 @@
+id: f10-subitise-name-to-5
+name: Subitise and name collections to five
+domain: early-foundations
+learner_band: early
+description: Given a concrete or virtual collection of at most five objects, identify its cardinality without counting each object and state the number.
+status: active
+placement_eligible: false
+prerequisites: [count-to-5]
+answer: number
+sources:
+- topic: subitise_to_5
+  params: {mode: canonical, count_range: [1, 5]}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: subitise_to_5
+  params: {mode: scattered, count_range: [1, 5]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: subitise_to_5
+  params: {mode: clustered, count_range: [3, 5]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: undercount-by-one
+  description: States a count one less than the true number of objects shown.
+- id: overcount-by-one
+  description: States a count one more than the true number of objects shown.
+- id: miscounts-one-cluster
+  description: Notices only one of the two visually separated sub-groups (typically the smaller one) and states its size alone, forgetting to combine it with the other sub-group.
+tags: [acara-f10-v9, early, subitising, ac9mfn02]

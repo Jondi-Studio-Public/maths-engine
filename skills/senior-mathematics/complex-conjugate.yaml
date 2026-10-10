@@ -1,0 +1,10 @@
+id: complex-conjugate
+name: Find a complex conjugate
+domain: senior-mathematics
+description: Reverse the sign of the imaginary part to form a complex conjugate.
+status: active
+prerequisites: [complex-imaginary-part]
+answer: mcq
+sources: [{topic: complex_number, params: {kind: conjugate}, difficulty: easy}]
+misconceptions: [{id: negates-both-parts, description: Negates both the real and imaginary parts.}]
+tags: [expansion-batch-6, complex-numbers, acara-v8-4]

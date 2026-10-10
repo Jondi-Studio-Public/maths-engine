@@ -1,0 +1,54 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-apply-the-product-quotient-and-chain-rule-to
+name: Apply the product, quotient and chain rule to differentiate transcendental functions
+domain: differentiation
+description: Given bounded, fully specified inputs, apply the product, quotient and chain rule to differentiate functions such as x*e^x, tan(x), 1/x^n, x*sin(x), e^(-x)*sin(x) and f(ax+b). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: apply_the_product_quotient_and_chain_rule_to
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: apply_the_product_quotient_and_chain_rule_to
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: apply_the_product_quotient_and_chain_rule_to
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: multiplied-derivatives
+  description: Multiplies the two factors' derivatives together instead of applying the product rule.
+- id: dropped-first-term
+  description: Differentiates only the second factor, dropping the first product-rule term.
+- id: dropped-second-term
+  description: Differentiates only the first factor, dropping the second product-rule term.
+- id: quotient-numerator-swapped
+  description: Swaps the numerator order in the quotient rule (a sign error).
+- id: quotient-forgot-square
+  description: Forgets to square the denominator in the quotient rule.
+- id: used-product-instead-of-quotient
+  description: Multiplies the two derivatives together instead of applying the quotient rule.
+- id: quotient-forgot-negative-sign
+  description: Drops the negative sign that results from differentiating a negative power.
+- id: power-rule-on-negative-exponent-misapplied
+  description: Applies the power rule as if the exponent were positive, ignoring that x^-n is a reciprocal.
+- id: chain-forgot-inner-derivative
+  description: Forgets the inner-function derivative (chain-rule factor) entirely.
+- id: chain-swapped-sin-cos-sign
+  description: Differentiates sin as if it were cos, or vice versa, with the wrong sign.
+- id: chain-confused-with-product
+  description: Multiplies by the inner function itself instead of its derivative, confusing the chain rule with the product rule.
+- id: product-chain-forgot-exponential-inner-factor
+  description: In a combined product+chain question, forgets the chain-rule factor on the exponential factor's own derivative.
+- id: product-chain-forgot-trig-inner-factor
+  description: In a combined product+chain question, forgets the chain-rule factor on the trigonometric factor's own derivative.
+- id: product-chain-multiplied-derivatives
+  description: Multiplies the two factors' derivatives together instead of applying the product rule.
+tags: [acara-senior-v8-4, differentiation, product-rule, quotient-rule, chain-rule, acmmm106]

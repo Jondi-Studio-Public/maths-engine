@@ -1,0 +1,49 @@
+id: pythagorean-leg
+name: Find a leg
+domain: trigonometry
+description: Use the Pythagorean theorem to find a missing leg given the hypotenuse and the other leg.
+status: active
+prerequisites:
+- pythagorean-hypotenuse
+answer: number
+sources:
+- topic: trigonometry
+  params:
+    kinds:
+    - side_leg
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: trigonometry
+  params:
+    kinds:
+    - side_leg
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: trigonometry
+  params:
+    kinds:
+    - side_leg
+    exact_triple: false
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: trigonometry
+  params:
+    kinds:
+    - side_leg
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: forgot-sqrt-leg
+  description: Forgetting to take the square root when solving for a leg.
+- id: added-instead-subtracted
+  description: Adding the squares instead of subtracting.
+tags: []

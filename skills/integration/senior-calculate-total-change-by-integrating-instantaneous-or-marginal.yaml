@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-total-change-by-integrating-instantaneous-or-marginal
+name: Calculate total change by integrating instantaneous or marginal rate of change
+domain: integration
+description: Given bounded, fully specified inputs, calculate total change by integrating instantaneous or marginal rate of change. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: calculate_total_change_by_integrating_instantaneous_or_marginal
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: calculate_total_change_by_integrating_instantaneous_or_marginal
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: calculate_total_change_by_integrating_instantaneous_or_marginal
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: sign-error
+  description: Evaluating the bounds swapped, flipping the sign of the result.
+- id: wrong-power-rule
+  description: Raising the power without halving when integrating the rate function.
+- id: rate-times-duration
+  description: Multiplying the endpoint rate by the duration instead of integrating a changing rate.
+- id: only-upper-bound
+  description: Evaluating the antiderivative at the upper bound only, without subtracting the lower bound.
+- id: added-initial-amount
+  description: Adding a stated initial amount to the total change, answering the final amount instead of the change.
+tags: []

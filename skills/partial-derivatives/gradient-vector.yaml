@@ -1,0 +1,37 @@
+id: gradient-vector
+name: Gradient vector
+domain: partial-derivatives
+description: Find the gradient vector of a two-variable function.
+status: deferred
+deferred_reason: grader
+prerequisites:
+- partial-derivative-x
+- partial-derivative-y
+answer: list
+sources:
+- topic: partial_derivatives
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: partial_derivatives
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: partial_derivatives
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: swapped-components
+  description: Swapping the two components of the gradient vector.
+- id: same-variable-both
+  description: Using the same variable for both components.
+tags: []

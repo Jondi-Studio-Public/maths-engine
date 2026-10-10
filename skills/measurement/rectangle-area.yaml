@@ -1,0 +1,30 @@
+id: rectangle-area
+name: Calculate rectangle area
+domain: measurement
+placement_order: 50
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Calculate the area of a rectangle from its length and width using square units.
+status: active
+prerequisites: [multiplication-facts]
+answer: number
+sources:
+- topic: rectangle_measure
+  params: {kind: area, side_hi: 6}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: rectangle_measure
+  params: {kind: area, side_hi: 10}
+  stages: [3, 4]
+  difficulty: medium
+- topic: rectangle_measure
+  params: {kind: area, side_hi: 12, find_side: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: uses-perimeter
+  description: Adds the sides instead of multiplying length by width.
+- id: omits-square-units
+  description: Treats area as a one-dimensional length rather than a count of square units.
+tags: [primary, measurement, area, acara-v9-year-6]

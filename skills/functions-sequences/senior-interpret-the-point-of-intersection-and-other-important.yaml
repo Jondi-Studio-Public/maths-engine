@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-the-point-of-intersection-and-other-important
+name: Interpret the point of intersection and other important features of given graphs of two linear functions
+  drawn from practical contexts; for example
+domain: functions-sequences
+description: 'Two straight lines, labelled A and B, are drawn on one labelled grid and the learner types the
+  ordered pair (x, y) where they meet. No equation, coordinate or rate is ever printed, and the crossing is
+  a grid intersection that is not one of the points each line is drawn through, so it is found, not read off
+  a marked point. Tier ladder by decision: easy puts the crossing in quadrant I with both axes drawn and
+  equal scales, so the decision is finding the one point both lines share; medium puts a negative or zero
+  coordinate in the crossing, or draws one line horizontal, so the decision is reading signs and a constant
+  y correctly; hard uses unequal axis scales (2 or 5 real units per grid step on one axis), so the decision
+  is carrying the axis scale into the coordinates rather than counting squares; exam sets the lines in a
+  context (two hire, class, phone, saving or printing plans) with axis labels and units and asks where the
+  two plans agree, so the decision is mapping each coordinate to the quantity on its own axis. This skill
+  reads the crossing off two drawn lines with no equations; the algebraic find-the-break-even skill is
+  senior-solve-practical-problems-that-involve-finding-the-point.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation]
+answer: pair
+sources:
+- topic: pv1a_intersection
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv1a_intersection
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv1a_intersection
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv1a_intersection
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-coordinates
+  description: Writes the coordinates in the wrong order, (y, x) instead of (x, y).
+- id: y-intercept-of-a-line
+  description: Gives the point where one of the lines meets the y-axis instead of where the two lines meet each other.
+- id: x-intercept-of-a-line
+  description: Gives the point where one of the lines meets the x-axis instead of where the two lines meet each other.
+- id: neighbouring-grid-point
+  description: Reads the crossing one grid line off, giving a neighbouring grid intersection instead of the crossing itself.
+- id: a-point-one-line-passes-through
+  description: Gives a grid point that one line passes through, taking it for the crossing without checking the other line.
+- id: grid-squares-not-axis-units
+  description: Counts grid squares from the origin instead of reading the numbers on the axes when the two axes do not use the same scale.
+tags: [acara-v8-4-essential, functions-sequences, figure-stimulus]

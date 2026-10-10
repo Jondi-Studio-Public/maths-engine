@@ -1,0 +1,38 @@
+id: condition-number-diagonal
+name: Compute a diagonal matrix condition number
+domain: numerical-and-computational-mathematics
+description: Compute the 2-norm condition number of a nonsingular positive 2 by 2 diagonal matrix.
+status: active
+prerequisites: [matrix-determinant-2x2]
+answer: fraction
+sources:
+- topic: condition_number_diagonal
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: condition_number_diagonal
+  difficulty: medium
+  stages: [3, 4]
+- topic: condition_number_diagonal
+  params: {size: 3}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reciprocal-condition-number
+  description: Divides the smaller diagonal entry by the larger one.
+- id: uses-sum-instead-of-ratio
+  description: Adds the diagonal entries instead of forming the norm ratio.
+tags: [university-core-v1, numerical-methods, scientific-computing]
+framework_areas: [numerical-and-computational-mathematics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics

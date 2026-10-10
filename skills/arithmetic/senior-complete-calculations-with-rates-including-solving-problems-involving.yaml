@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-complete-calculations-with-rates-including-solving-problems-involving
+name: Complete calculations with rates, including solving problems involving direct proportion in terms of rate
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, complete calculations with rates, including solving problems involving direct proportion in terms of rate. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p7d_complete_rate_calculations
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p7d_complete_rate_calculations
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p7d_complete_rate_calculations
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: added-rate-and-quantity
+  description: Adds the rate and the quantity/time instead of multiplying them.
+- id: extra-unit-of-quantity
+  description: Multiplies the rate by one extra unit of quantity/time.
+- id: rate-only
+  description: Gives the rate alone, forgetting to multiply by the quantity/time.
+- id: known-value-as-unknown
+  description: Gives the known total, rate or quantity/time back instead of solving for the actual unknown.
+- id: multiplied-total-by-known
+  description: Multiplies the total by the known rate or quantity/time instead of dividing.
+- id: ignored-one-worker
+  description: Computes the combined time using only one tap or worker's rate, ignoring the other entirely.
+- id: multiplied-rates-instead-of-added
+  description: Multiplies the two rates instead of adding them before dividing the shared total.
+tags: [acara-senior-v8-4, arithmetic, rates, p7d_complete_rate_calculations, ACMEM073]

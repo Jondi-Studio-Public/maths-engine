@@ -1,0 +1,17 @@
+id: count-to-5
+name: Count objects to 5
+domain: early-foundations
+placement_order: 10
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Touch and count a small group of objects, one object at a time.
+status: active
+prerequisites: []
+answer: mcq
+sources:
+- topic: count_objects
+  params: {lo: 1, hi: 5}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, counting, visual]

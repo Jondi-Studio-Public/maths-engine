@@ -1,0 +1,35 @@
+id: compare-unit-prices
+name: Compare unit prices
+domain: arithmetic
+description: Compare two supplied pack prices by unit cost and select the cheaper option, including ties.
+status: active
+placement_eligible: false
+prerequisites:
+- ratio-rate-proportion
+- unit-pricing
+answer: mcq
+sources:
+- topic: p14b_compare_unit_prices
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p14b_compare_unit_prices
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p14b_compare_unit_prices
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p14b_compare_unit_prices
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: picks-lower-total-price
+  description: Picks the pack with the lower total sticker price instead of the lower unit price -- assuming the bigger pack (or the cheaper-looking sticker price) must be the better value.
+- id: compares-without-converting-units
+  description: Compares the two packs' raw prices or quantities without first converting them onto a common unit, when the units are mismatched (mL vs L, g vs kg, item vs dozen).
+- id: rounds-before-comparing-declares-false-tie
+  description: Rounds each pack's unit price to the nearest cent before comparing, so two prices that are exactly unequal (by a fraction of a cent) are wrongly declared a tie.
+tags: [acara-senior-v8-4, arithmetic, unit-price, comparison, ACMEM016, ACMGM005, p14b_compare_unit_prices]

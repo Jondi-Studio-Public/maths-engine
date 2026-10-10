@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-practical-problems-involving-the-trigonometry-of-right
+name: Solve practical problems involving the trigonometry of right-angled and non-right-angled triangles, including problems involving angles of elevation and depression and the use of bearings in navigation
+domain: trigonometry
+description: Given bounded, fully specified inputs, solve practical problems involving the trigonometry of right-angled and non-right-angled triangles, including problems involving angles of elevation and depression and the use of bearings in navigation. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: number
+sources:
+- topic: p14a_practical_triangle
+  params: {variant: direct_angles}
+  difficulty: easy
+  stages: [6]
+- topic: p14a_practical_triangle
+  params: {variant: swap_orientation}
+  difficulty: medium
+  stages: [6]
+- topic: p14a_practical_triangle
+  params: {variant: cosine_rule_sas}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p14a_practical_triangle
+  params: {variant: bearings_ground_triangle}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: tan-applied-to-baseline
+  description: Applies the elevation tangent ratio directly to the stated ground baseline PQ instead of the leg (PT or QT) derived from solving the non-right ground triangle first.
+- id: sine-cosine-swap-in-ground-triangle
+  description: Swaps sine and cosine when applying the sine rule to the ground triangle, using cos of the stated angle where sin was required.
+- id: wrong-vertex-in-sine-rule
+  description: Pairs the stated angle with the wrong side in the sine rule, deriving the OTHER leg of the ground triangle (PT instead of QT, or vice versa) and applying the elevation ratio to it instead of the correct leg.
+- id: cosine-rule-sign-error
+  description: On the hard tier, adds instead of subtracts the 2*PQ*QT*cos(angle) term when applying the cosine rule (SAS) to the ground triangle.
+- id: cosine-rule-missing-factor-of-two
+  description: On the hard tier, omits the factor of 2 in the cosine rule's 2*PQ*QT*cos(angle) term.
+tags: [acara-v8-4-general, trigonometry, sine-rule, cosine-rule, bearings, angle-of-elevation, acmgm037]

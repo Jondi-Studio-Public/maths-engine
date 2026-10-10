@@ -1,0 +1,204 @@
+# Generated floor data, do not hand-edit.
+# skill: {topic/difficulty: distinct prompts over the 60-seed sweep}. Tiers whose pool is finite
+# and below 20; the variety check holds each at its floor and fails once it reaches 20 (remove it).
+# May only shrink or rise.
+add-within-5:
+  early_addition/easy: 19
+angle-degrees-radians-pi-form:
+  t4_degrees_radians_pi_form/easy: 16
+  t4_degrees_radians_pi_form/medium: 15
+angle-types:
+  classify_angle/easy: 10
+australian-coin-values:
+  australian_coins/easy: 6
+before-and-after-to-10:
+  before_after/easy: 17
+bisection-interval-update:
+  bisection_interval_update/easy: 9
+classify-data:
+  classify_data/easy: 3
+classify-real-numbers:
+  classify_real_number/easy: 5
+combinations:
+  combinatorics/easy: 18
+compare-lengths:
+  compare_length/easy: 2
+complex-modulus:
+  complex_number/easy: 3
+condition-number-diagonal:
+  condition_number_diagonal/easy: 18
+continue-patterns:
+  repeating_pattern/easy: 4
+count-to-5:
+  count_objects/easy: 19
+define-variables:
+  define_variable/easy: 3
+equal-groups:
+  equal_groups/easy: 19
+evaluate-powers:
+  powers/easy: 8
+f10-angle-turn-right-reference:
+  angle_turn_right_reference/easy: 4
+  angle_turn_right_reference/hard: 16
+  angle_turn_right_reference/medium: 16
+f10-circle-measures:
+  circle_measures/easy: 13
+  circle_measures/medium: 13
+f10-compare-measurement-attributes:
+  compare_measurement_attributes/easy: 4
+  compare_measurement_attributes/hard: 12
+  compare_measurement_attributes/medium: 4
+f10-decimal-notation-tenths-hundredths:
+  decimal_tenths_hundredths_compose/easy: 17
+f10-fractions-half-quarter-eighth:
+  fraction_halving/easy: 2
+  fraction_halving/hard: 4
+  fraction_halving/medium: 2
+f10-logarithmic-scales:
+  p10e_logarithmic_scales/easy: 10
+f10-odd-even-properties:
+  odd_even_properties/easy: 4
+  odd_even_properties/medium: 8
+f10-percentage-equivalence-comparison:
+  percentage_to_fraction/easy: 5
+  percentage_to_fraction/hard: 12
+  percentage_to_fraction/medium: 12
+f10-prism-cross-sections:
+  prism_cross_sections/easy: 10
+f10-probability-scale-and-expectation:
+  probability_scale_estimate/easy: 5
+f10-shape-features-classification:
+  shape_features_classification/easy: 4
+  shape_features_classification/hard: 4
+  shape_features_classification/medium: 5
+f10-square-roots-perfect-squares:
+  square_roots_perfect_squares/easy: 12
+f10-unit-fractions-combine-whole:
+  unit_fractions_combine_whole/easy: 6
+  unit_fractions_combine_whole/medium: 16
+fair-sharing:
+  fair_sharing/easy: 19
+fourier-coefficient-simple:
+  fourier_coefficient_simple/easy: 12
+logarithm-laws:
+  logarithm_law/easy: 3
+max-bending-moment-udl:
+  structural/easy: 16
+name-basic-shapes:
+  shape_names/easy: 4
+number-bonds-to-10:
+  number_bond/easy: 11
+number-bonds-to-5:
+  number_bond/easy: 6
+order-numbers-to-10:
+  number_sequence/easy: 8
+percentage-discount:
+  percentage_quantity/easy: 18
+percentage-of-quantity:
+  percentage_quantity/easy: 18
+permutations:
+  combinatorics/easy: 18
+prime-factorisation-exponent:
+  prime_factorisation_exponent/easy: 11
+probability-representations:
+  probability_representation/easy: 1
+propositional-formula-equivalence:
+  propositional_formula_equivalence/easy: 4
+  propositional_formula_equivalence/hard: 8
+  propositional_formula_equivalence/medium: 8
+propositional-truth-evaluation:
+  propositional_truth_value/easy: 16
+pythagorean-hypotenuse:
+  trigonometry/easy: 6
+  trigonometry/medium: 18
+pythagorean-leg:
+  trigonometry/easy: 6
+  trigonometry/medium: 18
+rearrange-simple-formulas:
+  rearrange/easy: 8
+  rearrange/hard: 2
+  rearrange/medium: 4
+  rearrange_powers_roots/hard: 7
+recognise-numerals-to-10:
+  recognise_numeral/easy: 11
+recognise-numerals-to-5:
+  recognise_numeral/easy: 6
+recurring-decimal-to-fraction:
+  recurring_decimal_fraction/None: 8
+senior-an-angle-in-a-semicircle-is-a-right:
+  angle_in_semicircle/hard: 12
+  angle_in_semicircle/medium: 15
+senior-apply-the-cosine-and-sine-ratios-to-find:
+  sine_cosine_ratio_triangle/medium: 10
+senior-convert-between-grams-and-milligrams:
+  grams_milligrams_convert/easy: 19
+senior-convert-between-units-for-rates-for-example-km:
+  convert_units_for_rates/hard: 4
+senior-define-and-use-unit-vectors-and-the-perpendicular:
+  define_and_use_unit_vectors_and_the_perpendicular/easy: 17
+senior-define-logarithms-as-indices-a-x-b-is:
+  logarithms_as_indices/easy: 9
+  logarithms_as_indices/hard: 9
+  logarithms_as_indices/medium: 16
+senior-define-the-imaginary-number-i-as-a-root:
+  imaginary_number_i_root/easy: 19
+senior-define-the-natural-logarithm-ln-x-log-ex:
+  natural_logarithm_define/easy: 4
+  natural_logarithm_define/hard: 6
+  natural_logarithm_define/medium: 17
+senior-determine-and-examine-the-n-th-roots-of:
+  nth_roots_of_unity/easy: 17
+  nth_roots_of_unity/hard: 12
+senior-determine-if-a-function-is-one-to-one:
+  determine_if_one_to_one/easy: 17
+senior-distinguish-between-causality-and-correlation-through-examples:
+  causality_correlation_classify/medium: 15
+senior-examine-the-relationship-between-the-angle-of-inclination:
+  angle_of_inclination_gradient/easy: 3
+  angle_of_inclination_gradient/medium: 6
+senior-find-all-solutions-of-mathrm-f-left-mathrm:
+  trig_equation_all_solutions/easy: 18
+  trig_equation_all_solutions/hard: 16
+senior-find-and-use-the-derivative-of-the-inverse:
+  find_and_use_the_derivative_of_the_inverse/easy: 3
+  find_and_use_the_derivative_of_the_inverse/medium: 12
+senior-find-and-use-the-inverse-trigonometric-functions-arcsine:
+  find_and_use_the_inverse_trigonometric_functions_arcsine/easy: 12
+  find_and_use_the_inverse_trigonometric_functions_arcsine/medium: 11
+senior-find-distances-between-two-places-on-earth-on:
+  earth_meridian_distance/easy: 11
+  earth_meridian_distance/hard: 19
+  earth_meridian_distance/medium: 10
+senior-find-time-differences-between-two-places-on-earth:
+  earth_longitude_time_difference/easy: 14
+  earth_longitude_time_difference/medium: 12
+senior-solve-quadratic-equations-using-the-quadratic-formula-and:
+  solve_quadratic_equations_using_the_quadratic_formula_and/easy: 10
+  solve_quadratic_equations_using_the_quadratic_formula_and/medium: 18
+senior-use-formulas-to-find-the-volume-and-capacity:
+  use_formulas_to_find_the_volume/easy: 11
+senior-use-pascal-s-triangle-and-its-properties:
+  pascals_triangle_properties/easy: 7
+senior-use-radicals-and-convert-to-and-from-fractional:
+  radicals_fractional_indices/easy: 10
+  radicals_fractional_indices/hard: 10
+  radicals_fractional_indices/medium: 14
+senior-use-recursion-to-generate-a-geometric-sequence:
+  geometric_recursion_generate/hard: 10
+senior-use-units-of-energy-used-for-foods-including:
+  food_energy_conversion/easy: 19
+  food_energy_conversion/medium: 18
+senior-y-tan-x-c-and-the-relationships-sin:
+  tan_shift_complementary_identity/easy: 7
+  tan_shift_complementary_identity/hard: 7
+  tan_shift_complementary_identity/medium: 7
+simple-harmonic-angular-frequency:
+  simple_harmonic_angular_frequency/easy: 9
+subtract-within-5:
+  early_subtraction/easy: 18
+tell-time-to-hour:
+  clock_hours/easy: 12
+variable-concept:
+  variable_concept/easy: 3
+wave-frequency-from-speed-wavelength:
+  wave_frequency_from_speed_wavelength/easy: 18

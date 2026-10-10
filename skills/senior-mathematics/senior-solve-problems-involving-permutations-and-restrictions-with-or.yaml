@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-involving-permutations-and-restrictions-with-or
+name: Solve problems involving permutations and restrictions with or without repeated objects
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, solve problems involving permutations and restrictions with or without repeated objects. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p11c_restricted_permutations
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11c_restricted_permutations
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11c_restricted_permutations
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores-restriction
+  description: Ignores the restriction entirely and reports the plain n! (or n!/repeat! at the hard tier).
+- id: wrong-method-for-restriction
+  description: Applies the together (block) method when the restriction is apart, or the apart (total minus together) method when the restriction is together (not offered at the hard tier, where at n = 6 it numerically equals forgets-repeated-object-division, 240).
+- id: omits-block-order-factor
+  description: Omits (or double-applies) the internal k! block-ordering factor for the two objects that must stand together.
+- id: forgets-repeated-object-division
+  description: At the hard tier, forgets to divide by the repeated object's own factorial, treating every object as distinct.
+tags: [acara-senior-v8-4, senior-mathematics, combinatorics, acmsm004]

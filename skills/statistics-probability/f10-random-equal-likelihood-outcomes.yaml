@@ -1,0 +1,40 @@
+id: f10-random-equal-likelihood-outcomes
+name: Classify equally and unequally likely outcomes
+domain: statistics-probability
+description: >-
+  Given a chance-generating device or collection described with an explicit quantitative
+  structure (for example, the size of each sector of a spinner, or the count of each
+  labelled item in a collection) together with its full list of distinct possible outcomes,
+  classify whether those outcomes are equally likely (every distinct outcome corresponds
+  to the same total share of the structure) or not equally likely (at least one distinct
+  outcome corresponds to a different share).
+status: active
+placement_eligible: false
+prerequisites:
+- f10-chance-language-and-outcomes
+answer: mcq
+sources:
+- topic: random_equal_likelihood_outcomes
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: random_equal_likelihood_outcomes
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: random_equal_likelihood_outcomes
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-labels-not-sectors
+  description: Counts the number of distinct labels rather than comparing sector counts, so a spinner with 3 labels and unequal sectors is marked as equally likely.
+- id: eyeballs-visual-balance
+  description: Judges balance by approximate visual balance rather than counting exact sector sizes or item counts.
+- id: ignores-minority-imbalance
+  description: Notices only the majority outcome's count and ignores whether all outcomes have the same count.
+tags:
+- acara-f10-v9
+- statistics-probability
+- random_equal_likelihood_outcomes
+- ac9m5p01

@@ -1,0 +1,38 @@
+id: lagrange-constrained-point
+name: Find a closest point with one linear constraint
+domain: optimisation
+description: Find the point on a non-axis-aligned line closest to a specified target point.
+status: active
+prerequisites:
+- differentiate-polynomial
+- vector-dot-product
+answer: pair
+sources:
+- topic: lagrange_constrained_point
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: lagrange_constrained_point
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: lagrange_constrained_point
+  params: {kind: slope_form}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reports-target
+  description: Returns the unconstrained target point without enforcing the line constraint.
+- id: wrong-normal-direction
+  description: Moves along the line instead of along its normal direction.
+tags: [university-core-v1, optimisation, multivariable-calculus]
+framework_areas: [multivariable-and-vector-calculus, optimisation]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: optimisation

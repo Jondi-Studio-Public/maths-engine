@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-cartesian-form
+name: Review Cartesian form
+domain: senior-mathematics
+description: |
+  Given bounded, fully specified inputs, review Cartesian form. Return the resulting value,
+  expression, relation, or classification. Built as equating real and imaginary parts:
+  z = x + yi (the unknowns are the two real numbers x and y) satisfies a stated complex
+  equation, and the learner separates it into its real and imaginary components (two
+  simultaneous real equations) and solves. Boundary: not extraction
+  (complex-real-part/complex-imaginary-part), not arithmetic-for-its-own-sake
+  (add-complex-numbers/multiply-complex-numbers), not plotting
+  (senior-consider-complex-numbers-as-points-in-a-plane), and not conversion
+  (senior-convert-between-cartesian-and-polar-form). Every equation stays in the z, z-bar
+  (conjugate), Re(z), Im(z) family -- never a complex number multiplying z, which is
+  ACMSM070's separate, unbuilt arithmetic-division row.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+  - topic: p11c_cartesian_form_equating
+    params: {mode: easy}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: p11c_cartesian_form_equating
+    params: {mode: medium}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: p11c_cartesian_form_equating
+    params: {mode: hard}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: drops-sign-across-equals
+    description: Drops or flips the imaginary unit's sign when moving a term across the equals sign while separating real and imaginary parts.
+  - id: forgets-conjugate-sign-flip
+    description: 'Hard tier: treats the conjugate z-bar as x + yi (i.e. as z again) instead of x - yi, so the imaginary-part equation uses the wrong coefficient.'
+  - id: copies-one-solution-into-both
+    description: Solves only one of the two simultaneous real equations and reports that same value for both x and y.
+  - id: swaps-x-and-y
+    description: Swaps which solved value is x and which is y.
+tags: [acara-v8-4, senior-mathematics, complex-numbers, p11c_cartesian_form_equating, ACMSM078]

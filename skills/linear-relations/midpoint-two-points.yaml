@@ -1,0 +1,33 @@
+id: midpoint-two-points
+name: Calculate the midpoint of two Cartesian points
+domain: linear-relations
+description: Calculate the exact midpoint ordered pair of two supplied Cartesian points.
+status: active
+placement_eligible: false
+prerequisites:
+- coordinate-plane-readiness
+- integer-arithmetic
+answer: pair
+sources:
+- topic: midpoint_two_points
+  params: {coord_lo: 0, coord_hi: 6}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: midpoint_two_points
+  params: {coord_lo: -8, coord_hi: 8}
+  difficulty: medium
+  stages: [3, 4]
+- topic: midpoint_two_points
+  params: {kind: find_endpoint, coord_lo: -14, coord_hi: 14}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: subtract-instead-of-average
+  description: Subtracts the two points' coordinates instead of averaging them.
+- id: halve-one-coordinate
+  description: Halves one coordinate's sum but forgets to halve the other, leaving it as the raw sum.
+- id: omits-division
+  description: Sums each pair of coordinates and stops, never dividing by two.
+- id: averages-known-point-and-midpoint
+  description: When finding the other endpoint from one endpoint and the midpoint, averages the known point and the midpoint instead of reflecting the midpoint through the known point (B = 2M - A).
+tags: [acara-f10-v9, coordinate-geometry, ac9m9a03]

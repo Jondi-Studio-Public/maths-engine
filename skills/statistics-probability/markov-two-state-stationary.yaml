@@ -1,0 +1,37 @@
+id: markov-two-state-stationary
+name: Find a two-state stationary probability
+domain: statistics-probability
+description: Find the stationary probability of state 1 for an irreducible two-state Markov chain.
+status: active
+prerequisites:
+- markov-two-state-step
+answer: fraction
+sources:
+- topic: markov_two_state_stationary
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: markov_two_state_stationary
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: markov_two_state_stationary
+  params: {kind: find_transition}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reports-transition
+  description: Reports P(0 to 1) instead of the long-run state probability.
+- id: swaps-transition-rates
+  description: Uses the state-0 stationary probability or swaps the two transition rates.
+tags: [university-core-v1, probability, stochastic-processes]
+framework_areas: [probability, stochastic-processes]
+alignments:
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-part-b
+  status: candidate
+  framework: university-core-v1
+  area: stochastic-processes

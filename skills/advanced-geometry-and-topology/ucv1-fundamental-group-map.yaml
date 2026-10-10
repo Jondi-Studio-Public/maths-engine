@@ -1,0 +1,35 @@
+id: ucv1-fundamental-group-map
+name: Identify a simple fundamental-group map
+domain: advanced-geometry-and-topology
+description: Select the induced map on the fundamental group for one supplied circle or interval map from finite labelled options.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15b_fundamental_group_map
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15b_fundamental_group_map
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15b_fundamental_group_map
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15b_fundamental_group_map
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-drop
+  description: Reports multiplication by |n| instead of n, dropping the sign of a negative-degree circle map.
+- id: assumes-every-self-map-is-degree-one
+  description: Reports "multiplication by 1" for every circle self-map regardless of its actual exponent, treating S^1 -> S^1 as automatically the identity on pi_1.
+- id: adds-instead-of-multiplies-degrees
+  description: On the exam tier's composition, adds the two exponents (a + b) instead of multiplying them (a * b) to get the composite's induced map.
+- id: forgets-contractible-implies-zero
+  description: Assigns a nonzero multiplication map to a map that factors through a contractible space (an interval), missing that pi_1 of a point is trivial and so the induced map must be zero regardless of the two factor maps involved.
+tags: [university-core-v1, advanced-geometry-and-topology, p15b_fundamental_group_map]

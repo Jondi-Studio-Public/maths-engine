@@ -1,0 +1,10 @@
+id: composite-perimeter
+name: Calculate an L-shape perimeter
+domain: primary-geometry-time
+description: Add all boundary lengths of a rectilinear L-shape to calculate its perimeter.
+status: active
+prerequisites: [rectangle-perimeter]
+answer: number
+sources: [{topic: l_shape_perimeter, params: {side_hi: 20}, difficulty: easy}]
+misconceptions: [{id: omits-indented-sides, description: Omits the two sides around the indentation.}]
+tags: [expansion-batch-2, primary, perimeter]

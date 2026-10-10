@@ -1,0 +1,35 @@
+id: f10-terminating-recurring-decimals
+name: Classify terminating and recurring decimals
+domain: secondary-number
+description: Identify whether a decimal terminates or recurs and convert it to an equivalent fraction in lowest terms.
+status: active
+placement_eligible: false
+prerequisites: [fraction-decimal-percent, recurring-decimal-to-fraction]
+answer: fraction
+sources:
+- topic: p9e_terminating_recurring_decimal
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9e_terminating_recurring_decimal
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9e_terminating_recurring_decimal
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: treats-recurring-as-terminating
+  description: Reads the shown finite digits (dropping the ellipsis) as the exact value and reduces that.
+- id: misclassifies-terminating-as-recurring
+  description: Applies the repeating-block formula to a terminating decimal.
+- id: ignores-non-repeating-lead
+  description: Applies the pure-repeat formula without separating out the non-repeating lead digits.
+- id: wrong-repeat-length
+  description: Treats a two-digit repeating block as if it were single-digit (denominator 9 instead of 99).
+- id: misplaces-decimal-point
+  description: Answers with the true value divided by 10, as if the decimal point were one place further left.
+- id: wrong-denominator-by-one
+  description: Answers with the numerator over a denominator that is one more than the true reduced denominator.
+tags: [acara-f10-v9, secondary, real-numbers, decimals, fractions, ac9m8n03]

@@ -1,0 +1,29 @@
+id: f10-odd-even-properties
+name: Use odd and even number properties
+domain: primary-number
+description: Predict whether the result of a stated addition, subtraction or multiplication of numbers with given parities is odd or even.
+status: active
+placement_eligible: false
+prerequisites: [multiplication-facts]
+answer: mcq
+sources:
+- topic: odd_even_properties
+  params: {ops: ['+'], chained: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: odd_even_properties
+  params: {ops: ['-', '*'], chained: false}
+  difficulty: medium
+  stages: [3, 4]
+- topic: odd_even_properties
+  params: {ops: ['+', '-', '*'], chained: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-operation-rule
+  description: Applies a different operation's parity rule than the one stated -- e.g. treats a multiplication as if it were an addition.
+- id: two-odds-always-odd
+  description: Assumes any operation on two odd numbers always gives an odd result, rather than applying the correct rule for the stated operation.
+- id: stops-after-first-step
+  description: For the chained (hard) tier, only evaluates the first operation and reports its result's parity, without applying the second operation to reach the final result.
+tags: [acara-f10-v9, primary, number-properties, ac9m4n02]

@@ -1,0 +1,37 @@
+id: jacobi-iteration-2x2
+name: Perform one 2 by 2 Jacobi iteration
+domain: numerical-and-computational-mathematics
+description: Apply one exact Jacobi update to a diagonally dominant two-variable linear system.
+status: active
+prerequisites: [matrix-solve-system]
+answer: pair
+sources:
+- topic: jacobi_iteration_2x2
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: jacobi_iteration_2x2
+  difficulty: medium
+  stages: [3, 4]
+- topic: jacobi_iteration_2x2
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses-old-coordinate-in-wrong-row
+  description: Uses the new x value while computing y in the same Jacobi iteration.
+- id: solves-system-instead-of-updating
+  description: Reports the exact solution rather than the requested single update.
+tags: [university-core-v1, numerical-methods, scientific-computing]
+framework_areas: [numerical-and-computational-mathematics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics

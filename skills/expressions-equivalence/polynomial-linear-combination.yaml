@@ -1,0 +1,61 @@
+id: polynomial-linear-combination
+name: Combine polynomials with fixed multipliers
+domain: expressions-equivalence
+description: Given three single-variable polynomials P, Q and R and three fixed integer multipliers, find
+  m1*P + m2*Q - m3*R (the first two additive, the last subtractive, matching the assessment's own worked
+  example 2P + 3Q - 5R). The skill is coefficient handling under a nontrivial multiplier on every polynomial,
+  escalating to three nontrivial multipliers together with the same degree-alignment trap as
+  add-subtract-polynomials. answer_form="expanded" is required on every question. Known, disclosed grading
+  gap -- the grader does not currently reject an uncombined-like-terms typed answer, because sympy combines
+  terms at parse time; out of scope here. The exam source is
+  genuinely two-variable P, Q, R (xy, x^2, y^2 and lower-degree/constant terms), multipliers up to 5, and the
+  subtracted slot itself varies across P/Q/R rather than always being fixed -- a real escalation in kind over
+  hard (which terms are "like" now depends on BOTH exponents, not one), not just bigger numbers.
+status: active
+placement_eligible: false
+prerequisites:
+- combine-like-terms
+- expand-single-brackets
+answer: expression
+sources:
+- topic: polynomial_linear_combination
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: polynomial_linear_combination
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: polynomial_linear_combination
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: polynomial_linear_combination
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sign-error-on-subtraction
+  description: Does not distribute the minus sign across the subtracted polynomial's terms -- computes
+    m1*P + m2*Q + m3*R instead of m1*P + m2*Q - m3*R. At the exam source, "the subtracted polynomial" is
+    whichever of P, Q, R the question drew as negative (not always R).
+- id: linear-combination-only
+  description: Uses multiplier 1 for every polynomial regardless of the drawn multipliers -- computes
+    P + Q - R when the question asked for m1*P + m2*Q - m3*R. Exercisable whenever any multiplier is not 1,
+    which is every question in this skill (fixed at (2, 1, 1) even at easy tier).
+- id: coefficient-drop
+  description: At hard tier and the exam source, one polynomial is missing a power (by degree, or -- at the
+    exam source's genuinely two-variable P, Q, R -- one specific exponent pair among x^2, xy, y^2) that
+    another has. Treats that missing coefficient as if it also carried the nonzero coefficient from a
+    neighbouring position, instead of zero, before the multiplier is applied. Only exercisable at hard tier
+    and the exam source, where a missing power/monomial is forced on every question.
+tags: []

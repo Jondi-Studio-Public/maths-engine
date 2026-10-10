@@ -1,0 +1,55 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-relationship-between-fractions-and-ratio
+name: Understand the relationship between fractions and ratio
+domain: arithmetic
+description: Given a stated two-term ratio a:b, express the fraction of the whole
+  that one named term represents (a/(a+b) or b/(a+b)).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: fraction
+sources:
+- topic: p19i_ratio_fraction_share
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p19i_ratio_fraction_share
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p19i_ratio_fraction_share
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p19i_ratio_fraction_share
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: numerator-denominator-swapped
+  description: Offers the flipped fraction (the whole over the named term's count)
+    instead of the named term's count over the whole.
+- id: wrong-named-term
+  description: Uses the OTHER named term's count as the numerator instead of the
+    one actually asked about.
+- id: irrelevant-number-as-numerator
+  description: On the exam tier, copies an irrelevant third stated number into the
+    numerator instead of the correct named term's count.
+- id: ratio-as-fraction-directly
+  description: Treats the stated ratio a:b as the fraction a/b directly, instead
+    of a/(a+b).
+tags: []

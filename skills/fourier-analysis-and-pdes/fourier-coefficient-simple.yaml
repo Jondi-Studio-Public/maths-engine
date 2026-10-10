@@ -1,0 +1,37 @@
+id: fourier-coefficient-simple
+name: Compute a simple Fourier coefficient
+domain: fourier-analysis-and-pdes
+description: Compute one exact sine or cosine coefficient for x or x² on [0, π].
+status: active
+prerequisites:
+- integrate-trig
+answer: expression
+sources:
+- topic: fourier_coefficient_simple
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fourier_coefficient_simple
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fourier_coefficient_simple
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-parity-sign
+  description: Loses the alternating sign caused by evaluating sine or cosine at nπ.
+- id: missing-normalisation
+  description: Omits the factor 2/π from the Fourier coefficient definition.
+tags: [university-core-v1, fourier]
+framework_areas: [fourier-analysis-and-pdes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes

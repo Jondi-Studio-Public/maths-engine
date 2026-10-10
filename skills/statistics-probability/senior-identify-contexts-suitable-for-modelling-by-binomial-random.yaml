@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-contexts-suitable-for-modelling-by-binomial-random
+name: Identify contexts suitable for modelling by binomial random variables
+domain: statistics-probability
+description: 'Given a stated random-phenomenon context, identify whether it is suited to modelling by a binomial random variable (a fixed number of independent trials, each with the same two possible outcomes and the same success probability) or not, and, if not, which single one of those four conditions it fails. Never computes a probability -- boundary against binomial-point-probability, which takes n, p and x as GIVEN and computes the point probability once a model is already assumed. Boundary against the sibling senior-identify-contexts-suitable-for-modelling-by-bernoulli-random: a binomial-suited scenario always names a FIXED number of repeats and asks about a count of successes across them, while a Bernoulli-suited scenario always describes exactly ONE trial.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19c_binomial_suitability
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_binomial_suitability
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_binomial_suitability
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_binomial_suitability
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reports-suited-but-not-fixed
+  description: Reports "Suited to a binomial model" when the number of trials is not fixed in advance (e.g. a process repeated until it first succeeds).
+- id: reports-suited-but-not-independent
+  description: Reports "Suited to a binomial model" when the trials are drawn without replacement from a small population, so the trial-to-trial probability genuinely changes.
+- id: reports-suited-but-not-constant-p
+  description: Reports "Suited to a binomial model" when the stated success probability differs between two named sub-groups of trials rather than staying constant.
+- id: reports-suited-but-not-two-outcomes
+  description: Reports "Suited to a binomial model" when each trial's outcome is a continuous measurement or one of more than two categories, rather than exactly two.
+- id: pattern-matches-without-replacement
+  description: At the exam tier, reports "Not suited -- the trials are not independent" purely because the scenario says "without replacement", without checking whether the sampled population is large enough for the dependence to be negligible.
+tags: [acara-senior-v8-4, statistics-probability, binomial, acmmm148]

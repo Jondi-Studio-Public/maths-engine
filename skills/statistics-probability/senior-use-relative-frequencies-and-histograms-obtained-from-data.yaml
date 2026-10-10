@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-relative-frequencies-and-histograms-obtained-from-data
+name: Use relative frequencies and histograms obtained from data to estimate probabilities associated with a continuous random variable
+domain: statistics-probability
+description: From a histogram's class frequencies for a continuous random variable, estimate the probability that the variable falls in a stated interval. The interval is aligned to class boundaries on the easy/medium/hard tiers; the exam tier requires assuming the variable is uniformly distributed within a class to interpolate a partial-class probability, the genuinely new step a continuous variable needs that a discrete one never does.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: p16a_histogram_probability
+  params: {variant: single_class}
+  difficulty: easy
+  stages: [6]
+- topic: p16a_histogram_probability
+  params: {variant: union_classes}
+  difficulty: medium
+  stages: [6]
+- topic: p16a_histogram_probability
+  params: {variant: tail}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16a_histogram_probability
+  params: {variant: interpolate}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: complement-of-intended-event
+  description: Reports the probability of the complementary interval instead of the one asked for.
+- id: single-class-when-union-asked
+  description: Uses only one of the classes when the stated interval spans several classes.
+- id: ignores-the-data
+  description: Assumes every class is equally likely, ignoring the recorded frequencies entirely.
+- id: skips-the-interpolation-step
+  description: On the exam tier, treats a class the cutoff falls inside as either wholly included or wholly excluded instead of interpolating a partial-class probability.
+tags: [acara-v8-4-methods, statistics-probability, histogram, continuous-random-variable, acmmm164]

@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-notation-int-f-left-x-right
+name: 'Use the notation \(\int f\left(x\right)dx\) for anti-derivatives or indefinite integrals'
+domain: differentiation
+description: Given bounded, fully specified inputs, use the notation \(\int f\left(x\right)dx\)
+  for anti-derivatives or indefinite integrals. Return the resulting value, expression, relation,
+  or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: p13c_antideriv_notation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13c_antideriv_notation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13c_antideriv_notation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13c_antideriv_notation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dropped-constant-of-integration
+  description: Writes F(x) with no "+ C", omitting the arbitrary constant the indefinite-integral
+    notation requires.
+- id: answered-integrand-not-antiderivative
+  description: Writes f(x) (the given derivative) itself, plus C, instead of F(x) + C -- confuses
+    which side of the notation d/dx(F(x)) = f(x) the question is asking for.
+- id: differentiation-slip-carried-into-notation
+  description: On the hard/exam tiers (F non-polynomial), mis-differentiates F when attempting to
+    re-derive it and writes that wrong value + C instead of the stated F(x) + C.
+- id: dropped-linear-term-or-coefficient
+  description: On the exam tier, drops one of the two combined antiderivative terms entirely, or
+    drops both scalar coefficients from the linear combination.
+tags: [acara-senior-v8-4, differentiation, integration-notation, acmmm115]

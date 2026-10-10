@@ -1,0 +1,40 @@
+id: identity-and-no-solution
+name: Recognise identities and equations with no solution
+domain: equations
+description: Distinguish equations with one solution, no solution or infinitely many solutions.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- variables-on-both-sides
+- recognise-equivalent-expressions
+answer: mcq
+sources:
+- topic: linear_equation
+  params:
+    kind: both_sides
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params:
+    kind: both_sides
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params:
+    kind: both_sides
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Treating 0 = 0 as x = 0
+- id: misconception-2
+  description: Stopping at a false statement without interpreting no solution
+tags: []

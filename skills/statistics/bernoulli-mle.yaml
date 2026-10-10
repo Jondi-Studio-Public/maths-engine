@@ -1,0 +1,33 @@
+id: bernoulli-mle
+name: Estimate a Bernoulli probability by maximum likelihood
+domain: statistics
+description: Compute p-hat = k/n for independent Bernoulli observations.
+status: active
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: bernoulli_mle
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: bernoulli_mle
+  difficulty: medium
+  stages: [3, 4]
+- topic: bernoulli_mle
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-failures
+  description: Uses the failure proportion (n-k)/n instead of the success proportion.
+- id: off-by-one-denominator
+  description: Divides by n+1 or n-1 rather than the number of observations n.
+tags: [university-core-v1, statistics]
+framework_areas: [statistics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: statistics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: statistics

@@ -1,0 +1,33 @@
+id: ucv1-convexity-hessian-sign
+name: Classify a quadratic by its Hessian sign
+domain: optimisation
+description: Classify a supplied two-variable quadratic as convex, concave or indefinite from its Hessian eigenvalue signs.
+status: active
+placement_eligible: false
+prerequisites: [two-by-two-eigenvalues]
+answer: mcq
+sources:
+- topic: p14d_convexity_hessian_sign
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14d_convexity_hessian_sign
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14d_convexity_hessian_sign
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14d_convexity_hessian_sign
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: always-uses-diagonal-sign
+  description: Classifies from the signs of a and b alone (2a, 2b) without checking det(H) = 4ab - c^2, so a coupled quadratic with a positive-looking diagonal but det(H) < 0 is misclassified as convex/concave instead of indefinite.
+- id: ignores-cross-term-magnitude
+  description: Notices the sign of the cross term c but not its magnitude relative to a*b, so a near-miss determinant (4ab close to c^2) is classified by eyeballing rather than computing det(H).
+- id: ignores-one-cross-term
+  description: On the exam tier, where f is presented from a non-symmetric matrix with the x*y and y*x terms shown separately (A12 and A21), reads only one of the two cross-term coefficients as if it were the whole Hessian off-diagonal entry instead of their sum A12 + A21, so det(H) is computed from the wrong (unsymmetrised) cross term.
+tags: [university-core-v1, optimisation, p14d_convexity_hessian_sign]

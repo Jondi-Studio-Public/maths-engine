@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-relationship-between-volume-and-capacity
+name: Understand the relationship between volume and capacity
+domain: measurement
+description: Given a volume stated in cubic centimetres or cubic metres, convert it to its equivalent capacity in millilitres or litres.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19h_volcap_general_relationship
+  params: {mode: vc_general_easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19h_volcap_general_relationship
+  params: {mode: vc_general_medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19h_volcap_general_relationship
+  params: {mode: vc_general_hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19h_volcap_general_relationship
+  params: {mode: vc_general_exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: applied-a-tenfold-factor
+  description: Multiplies the stated volume by 100 instead of applying the correct capacity conversion.
+- id: applied-the-wrong-metric-factor
+  description: Multiplies the stated volume by 1000 (a mL-to-L-style factor) when converting cm^3 to mL, where no factor at all is needed.
+- id: applied-the-cubic-linear-factor
+  description: Multiplies by 1,000,000 (the m^3-to-cm^3 factor) when converting a volume to a capacity, instead of the correct factor for that pair of units.
+- id: forgot-the-m3-to-L-conversion
+  description: Reports a volume stated in cubic metres directly as the answer in litres, without applying the x1000 conversion.
+- id: computed-area-not-volume
+  description: On the hard/exam tiers, multiplies only two of the three given dimensions instead of all three, computing an area rather than a volume.
+- id: summed-the-dimensions
+  description: On the hard/exam tiers, adds the given dimensions together instead of multiplying them to find the volume.
+- id: computed-volume-then-overscaled
+  description: On the hard tier, correctly computes the volume from its dimensions but then multiplies the result by 1000 as if it still needed a further capacity conversion.
+- id: summed-dimensions-then-scaled
+  description: On the exam tier, adds the three given dimensions together instead of multiplying them, then applies the correct x1000 factor to that wrong total.
+tags: [acara-senior-v8-4, measurement, volume, capacity, p19h_volcap_general_relationship, ACMEM028]

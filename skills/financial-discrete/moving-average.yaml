@@ -1,0 +1,10 @@
+id: moving-average
+name: Calculate a moving average
+domain: financial-discrete
+description: Calculate the arithmetic mean for a stated moving window of time-series observations.
+status: active
+prerequisites: [calculate-mean]
+answer: number
+sources: [{topic: moving_average, params: {window: 3}, difficulty: easy}]
+misconceptions: [{id: divides-wrong-count, description: Divides by the full series length instead of the window size.}]
+tags: [expansion-batch-5, time-series]

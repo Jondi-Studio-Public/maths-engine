@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-technology-and-a-recurrence-relation-to-model
+name: Use technology and a recurrence relation to model a reducing balance loan
+domain: financial-discrete
+description: Given a stated loan principal, interest rate and regular repayment amount, use the loan's recurrence relation to compute the outstanding balance after a stated number of compounding periods.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p16c_loan_recurrence_balance
+  params: {variant: forward}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p16c_loan_recurrence_balance
+  params: {variant: lump_sum}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p16c_loan_recurrence_balance
+  params: {variant: find_n}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p16c_loan_recurrence_balance
+  params: {variant: rate_change}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-repayment
+  description: Applies the growth factor to the balance every period but never subtracts the regular repayment.
+- id: wrong-order
+  description: Subtracts the repayment from the balance before applying growth for that period, instead of after.
+- id: linear-not-compound
+  description: Treats the loan as repaid by simple subtraction of the total scheduled repayments, applying no interest at all.
+- id: lump-sum-omitted
+  description: Forgets an extra one-off repayment stated for a specific period and computes as if only the regular repayment was ever made.
+- id: lump-sum-wrong-period
+  description: Applies the extra one-off repayment at the wrong period (the last period) instead of the period the question states.
+- id: off-by-one-period
+  description: Reports one period more or fewer than the true first period at which the balance falls to or below the stated target.
+- id: ignores-compounding-in-search
+  description: Estimates the number of periods needed using simple, non-compounding division of the amount to be paid off by the repayment, ignoring that interest is still charged each period.
+- id: ignored-rate-change
+  description: Applies the original interest rate for every period of the loan, never switching to the new rate stated for the later periods.
+- id: new-rate-from-start
+  description: Applies the later, changed interest rate to the entire loan from period 1, instead of only from the stated period onward.
+- id: resets-balance-at-rate-change
+  description: Treats the loan as starting fresh at the original principal when the rate changes, instead of carrying the balance already reduced by the first phase forward into the second.
+tags: [acara-senior-v8-4, financial-discrete, recurrence, loans, acmem174]

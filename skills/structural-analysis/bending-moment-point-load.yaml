@@ -1,0 +1,20 @@
+id: bending-moment-point-load
+name: M under a point load
+domain: structural-analysis
+description: Find the bending moment at the point of application of a point load.
+status: active
+prerequisites:
+- beam-reactions-point-load
+answer: number
+sources:
+- topic: structural
+  params:
+    kinds:
+    - bending_moment_point_load
+  difficulty: easy
+misconceptions:
+- id: used-wrong-reaction
+  description: Using the wrong support reaction in the moment calculation.
+- id: used-full-span
+  description: Using the full span instead of the distance to the load.
+tags: []

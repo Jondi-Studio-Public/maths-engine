@@ -1,0 +1,34 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-increments-formula-delta-y-cong-frac
+name: 'Use the increments formula: δy ≅ dy/dx × δx'
+domain: differentiation
+description: Given bounded, fully specified inputs, use the increments formula δy ≅ dy/dx × δx to estimate the change in the dependent variable y resulting from changes in the independent variable x. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: fraction
+sources:
+- topic: p9c_increments_formula_estimate
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9c_increments_formula_estimate
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9c_increments_formula_estimate
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: used-exact-change-not-approx
+  description: Reports the true exact change f(x0+δx) - f(x0) instead of the linear estimate.
+- id: forgot-to-multiply-by-dx
+  description: Reports the derivative value (plus f(x0) at the hard tier) without multiplying by δx.
+- id: sign-error-on-dx
+  description: Uses the negative of the stated δx in the increments formula.
+- id: forgot-to-add-f-of-x0
+  description: Reports just the estimated increment, omitting the addition of f(x0) when asked for the new value.
+tags: [acara-senior-v8-4, differentiation, increments-formula, acmmm107]

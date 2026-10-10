@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-and-interpret-quartiles-deciles-and-percentiles
+name: Calculate and interpret quartiles, deciles and percentiles
+domain: statistics-probability
+description: 'Given an ordered numeric data set of size n = 20 and a stated percentile, decile or quartile level P chosen so that P/100 * n is an exact whole number k, state the data value at rank k in the sorted data (no interpolation). Four tiers, escalating by representation and level-naming, never by size: a sorted raw list with the percentile level stated directly; an unsorted raw list with the level named as a decile or quartile (converted to a percentile/rank first); a frequency table (value: count), where the rank is located by accumulating counts; and a CUMULATIVE frequency table (value: running total), where the running totals must be read correctly rather than re-accumulated. Distinct from f10-boxplot-distribution (an exclusive-method Q1/Q3 pair plus IQR) and senior-complete-a-five-number-summary-for-different-datasets (a fixed nine-value five-number summary): this skill takes ANY level P and returns ONE value by the exact-rank convention; neither neighbour does.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: p19b_percentile_rank
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_percentile_rank
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_percentile_rank
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_percentile_rank
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: adjacent-rank-plus-one
+  description: Reports the value one rank above the correct one (k+1 instead of k).
+- id: adjacent-rank-minus-one
+  description: Reports the value one rank below the correct one (k-1 instead of k).
+- id: rank-from-top
+  description: Reports the value found by counting the rank from the top of the data instead of the bottom (rank n-k+1).
+- id: rank-as-value
+  description: Reports the numeric rank k itself as though it were the data value.
+- id: percentile-as-rank
+  description: Treats the stated level P as if it were itself the rank position, rather than converting P to the rank k = P/100 * n, only offered when that differs from k.
+- id: cumulative-as-frequency
+  description: On the exam tier, misreads the stated CUMULATIVE counts as if they were each value's own individual frequency.
+tags: [acara-senior-v8-4, statistics-probability, percentiles, deciles, quartiles, acmem053]

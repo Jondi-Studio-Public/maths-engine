@@ -1,0 +1,31 @@
+id: f10-decimal-notation-tenths-hundredths
+name: Compose a decimal from tenths and hundredths
+domain: primary-number
+description: Name, represent and extend decimals to hundredths using place value and standard decimal notation, by composing a decimal numeral from stated tenths and/or hundredths quantities (e.g. "write 3 tenths and 7 hundredths as a decimal" -> 0.37). The reverse of decimal-place-value's own operation (which decomposes a given decimal into a named digit's place value); this skill never asks for a digit's place value in an already-stated decimal.
+status: active
+placement_eligible: false
+prerequisites: [decimal-place-value, fraction-decimal-percent]
+answer: number
+sources:
+- topic: decimal_tenths_hundredths_compose
+  params: {variant: single_place}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: decimal_tenths_hundredths_compose
+  params: {variant: both_places}
+  difficulty: medium
+  stages: [3, 4]
+- topic: decimal_tenths_hundredths_compose
+  params: {variant: forced_trap}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: leading-zero-drop
+  description: Writes a stated hundredths-only quantity into the tenths place instead, dropping the required leading zero (e.g. 5 hundredths written as 0.5 instead of 0.05).
+- id: regrouping-failure
+  description: Writes a two-digit tenths count as if its digits were the decimal's own tenths and hundredths digits directly, without carrying the extra whole unit out of the tenths place (e.g. 12 tenths written as 0.12 instead of 1.2).
+- id: place-swap
+  description: Transposes the tenths and hundredths digits (e.g. 0.37 written as 0.73).
+- id: drops-decimal-point
+  description: Reports the bare stated digit(s) as an integer, with no decimal point at all (e.g. 5 tenths answered as 5 instead of 0.5).
+tags: [acara-f10-v9, primary, decimals, place-value, ac9m4n01]

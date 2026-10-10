@@ -1,0 +1,40 @@
+id: solve-quadratics-formula
+name: Quadratic formula
+domain: quadratics
+description: Use the quadratic formula to solve a quadratic whose roots are not clean integers.
+status: active
+prerequisites:
+- solve-quadratics-factorable
+answer: list
+sources:
+- topic: quadratic
+  params:
+    kind: formula
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: quadratic
+  params:
+    kind: formula
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: quadratic
+  params:
+    kind: formula_rearrange
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-sign-b
+  description: Using +b instead of -b in the formula.
+- id: forgot-double-a
+  description: Forgetting to double a in the denominator.
+- id: discriminant-sign-error
+  description: Adding instead of subtracting inside the discriminant.
+tags: []

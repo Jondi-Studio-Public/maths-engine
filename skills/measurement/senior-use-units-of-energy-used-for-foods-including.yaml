@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-units-of-energy-used-for-foods-including
+name: Use units of energy used for foods, including calories
+domain: measurement
+description: Given bounded, fully specified inputs, use units of energy used for foods, including calories. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: food_energy_conversion
+  params: {mode: cal_to_kj}
+  difficulty: easy
+  stages: [6]
+- topic: food_energy_conversion
+  params: {mode: kj_to_cal}
+  difficulty: medium
+  stages: [6]
+- topic: food_energy_conversion
+  params: {mode: two_item_total}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgot-to-convert
+  description: States the given Calorie (or kilojoule) figure itself, formatted the same way as the true answer, as if no conversion were needed at all.
+- id: divided-instead-of-multiplied
+  description: Divides a Calorie count by 4.2 instead of multiplying it, when converting Calories to kilojoules.
+- id: used-a-rounder-factor
+  description: Uses 4 instead of 4.2 as the Calorie-to-kilojoule conversion factor, dropping the point-two.
+- id: multiplied-instead-of-divided
+  description: Multiplies a kilojoule figure by 4.2 instead of dividing it, when converting kilojoules to Calories.
+- id: only-converted-one-item
+  description: When totalling two food items' Calories from their stated kilojoule figures, converts only the first item and adds the second item's raw kilojoule figure unconverted.
+- id: summed-the-kJ-and-forgot-to-convert-at-all
+  description: Adds the two stated kilojoule figures together and reports the raw kilojoule total as if it were already the combined Calorie total.
+tags: [acara-senior-v8-4, measurement, energy, food, acmem032]

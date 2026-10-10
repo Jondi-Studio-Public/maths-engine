@@ -1,0 +1,40 @@
+id: cyclic-group-element-order
+name: Find an element order in a small cyclic group
+domain: abstract-algebra
+description: Compute the additive order of an element of the finite cyclic group Z modulo n by repeated addition.
+status: active
+prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]
+answer: number
+sources:
+- topic: cyclic_group_element_order
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: cyclic_group_element_order
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: cyclic_group_element_order
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: confuses-element-with-order
+  description: Reports the residue a rather than the first positive number of additions returning to zero.
+- id: uses-group-size-always
+  description: Reports n for every element, ignoring that different elements can have different orders.
+tags: [university-core-v1, university-algebra-batch, abstract-algebra]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-degree-chart
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

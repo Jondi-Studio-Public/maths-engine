@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-leibniz-notation-for-the-derivative-frac
+name: 'Use the Leibniz notation for the derivative: dy/dx = lim_(δx->0) δy/δx and the correspondence dy/dx = f''(x)'
+domain: differentiation
+description: Given bounded, fully specified inputs, use the Leibniz notation for the derivative dy/dx = lim_(δx->0) δy/δx and the correspondence dy/dx = f'(x) where y = f(x). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: number
+sources:
+- topic: p9c_leibniz_derivative_correspondence
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9c_leibniz_derivative_correspondence
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9c_leibniz_derivative_correspondence
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: power-rule-drop
+  description: Reports A*p, dropping the factor of 2 from the power rule.
+- id: sign-error
+  description: Reports the negative of the correct derivative value.
+- id: dropped-linear-term
+  description: Drops the linear coefficient B from the derivative formula before evaluating.
+- id: confuses-derivative-with-value
+  description: Reports f(p), the function's value at the point, instead of its derivative there.
+- id: evaluates-instead-of-solves
+  description: Plugs the stated derivative value T into the derivative formula as if T were the point, instead of solving for the point that produces T.
+- id: sign-error-on-solve
+  description: Solves the correspondence equation with the stated derivative value negated.
+- id: ignored-b-in-solve
+  description: Drops the linear coefficient B from the equation before solving for the point.
+tags: [acara-senior-v8-4, differentiation, leibniz-notation, acmmm083]

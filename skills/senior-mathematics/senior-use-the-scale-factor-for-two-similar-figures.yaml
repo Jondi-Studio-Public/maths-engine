@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-scale-factor-for-two-similar-figures
+name: Use the scale factor for two similar figures to solve linear scaling problems
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use the scale factor for two similar figures to solve linear scaling problems. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: similar_figure_scale_factor_length
+  params: {mode: direct_ratio}
+  difficulty: easy
+  stages: [6]
+- topic: similar_figure_scale_factor_length
+  params: {mode: derive_from_pair}
+  difficulty: medium
+  stages: [6]
+- topic: similar_figure_scale_factor_length
+  params: {mode: derive_perimeter}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-squared-factor
+  description: Applies k^2 instead of k to a length or perimeter -- the signature trap given the neighbouring area/volume scale-factor skills, especially live on the hard/perimeter tier where a learner who has just been taught k^2/k^3 scaling applies the wrong exponent to a linear quantity.
+- id: swaps-p-and-q
+  description: Applies the reciprocal of the scale factor instead of the scale factor itself.
+- id: forgets-to-scale
+  description: Reports Figure A's own stated value (the given side, second side, or perimeter) unchanged, as if it already were Figure B's value.
+tags: [acara-v8-4-general, senior-mathematics, similarity, similar_figure_scale_factor_length, acmgm022]

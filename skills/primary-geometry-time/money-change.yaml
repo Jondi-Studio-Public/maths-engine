@@ -1,0 +1,10 @@
+id: money-change
+name: Calculate Australian money change
+domain: primary-geometry-time
+description: Calculate change from a whole-dollar payment for a price stated to the nearest five cents.
+status: active
+prerequisites: [australian-coin-values, subtract-within-100]
+answer: number
+sources: [{topic: money_change, params: {price_hi: 80}, difficulty: easy}]
+misconceptions: [{id: adds-price, description: Adds the price and payment instead of subtracting.}]
+tags: [expansion-batch-2, primary, money]

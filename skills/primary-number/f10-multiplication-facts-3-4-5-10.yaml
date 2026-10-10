@@ -1,0 +1,33 @@
+id: f10-multiplication-facts-3-4-5-10
+name: Derive multiplication and division fact families
+domain: primary-number
+description: Given a multiplication fact within the 3, 4, 5 or 10 times tables, state the fact's product and the quotient of one specified related division fact derived from it.
+status: active
+placement_eligible: false
+prerequisites:
+- multiplication-facts
+- whole-number-division-facts
+answer: pair
+sources:
+- topic: p19a_mult_fact_family
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_mult_fact_family
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_mult_fact_family
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-factor
+  description: Reports the quotient as the OTHER family member instead of the one the fact or wording actually specifies -- the classic partitive/quotitive-divisor confusion, with the correct product.
+- id: adjacent-fact
+  description: Reports the product and quotient of the neighbouring fact (one more group than asked for) as if it answered the question asked.
+- id: swapped
+  description: Exchanges the product and the quotient.
+- id: quotient-off-by-one
+  description: Reports the correct product with the quotient shifted by one.
+tags: [acara-f10-v9, primary, multiplication, division, fact-families, ac9m3a03]

@@ -1,0 +1,56 @@
+id: modular-arithmetic-congruence
+name: Reduce an integer modulo a modulus
+domain: number-theory
+description: Find the least non-negative representative of an integer's (or a sum of two integers') congruence class modulo a positive modulus.
+status: active
+prerequisites: [whole-number-division-facts]
+answer: number
+sources:
+- topic: modular_arithmetic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: modular_arithmetic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: modular_arithmetic
+  params: {kind: sum_congruence}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: unreduced-representative
+  description: Returning the original integer instead of a least non-negative residue.
+- id: negative-remainder
+  description: Reporting a negative remainder for a negative representative.
+- id: wrong-modulus
+  description: Reducing by a nearby number rather than the stated modulus.
+- id: reduced-addends-separately
+  description: Reduced each addend modulo the modulus separately, then added the two residues without re-reducing the sum.
+- id: one-addend-left-unreduced
+  description: Reduced only one of the two addends and added the other unreduced.
+- id: dropped-second-addend
+  description: Reduced only the first addend and never added the second one at all.
+tags: [university-core-v1, university-foundation-pilot, number-theory]
+framework_areas: [number-theory]
+alignments:
+- source_id: mit-degree-chart
+  status: candidate
+  framework: university-core-v1
+  area: number-theory
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: number-theory
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: number-theory

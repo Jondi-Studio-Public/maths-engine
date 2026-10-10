@@ -1,0 +1,10 @@
+id: shortest-network-path
+name: Find a shortest network path
+domain: financial-discrete
+description: Compare route weights in a small text-defined network to find the shortest distance.
+status: active
+prerequisites: [add-within-100]
+answer: number
+sources: [{topic: shortest_path, params: {}, difficulty: easy}]
+misconceptions: [{id: fewest-edges, description: Chooses the route with the fewest edges without adding weights.}]
+tags: [expansion-batch-5, networks]

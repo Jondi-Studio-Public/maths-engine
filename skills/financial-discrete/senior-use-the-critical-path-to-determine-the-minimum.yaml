@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-critical-path-to-determine-the-minimum
+name: Use the critical path to determine the minimum time to complete the project
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, use the critical path to determine the minimum time for a project to be completed. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: use_the_critical_path_to_determine_the_minimum
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: use_the_critical_path_to_determine_the_minimum
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: use_the_critical_path_to_determine_the_minimum
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: stops-one-activity-early
+  description: Computes the finish time of a non-sink activity instead of the true sink.
+- id: omits-first-activity
+  description: Forgets to include the first activity's duration (starts the chain from a later activity).
+- id: double-counts-activity
+  description: Double-counts an activity's duration in the total.
+- id: sums-all-durations
+  description: Sums all activities' durations without accounting for parallel paths.
+- id: takes-shorter-path
+  description: Uses the shorter (non-critical) branch instead of the longer one where paths merge.
+- id: forgets-to-add-merge-activity
+  description: Omits the duration of an activity that comes after a merge point.
+- id: single-path-instead-of-sink
+  description: Traces one path to a non-sink activity instead of following all paths to the true project sink.
+tags: [acara-senior-v8-4, financial-discrete, networks, use_the_critical_path_to_determine_the_minimum, ACMGM107]

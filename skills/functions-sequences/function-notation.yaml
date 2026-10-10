@@ -1,0 +1,36 @@
+id: function-notation
+name: Use function notation
+domain: functions-sequences
+description: Interpret and evaluate expressions such as f(x), and distinguish function notation from multiplication.
+status: active
+prerequisites:
+- function-concept
+- apply-a-rule-to-inputs
+answer: number
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reading f(x) as f multiplied by x
+- id: misconception-2
+  description: Replacing f rather than the input variable
+tags: []

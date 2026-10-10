@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-compare-the-characteristics-of-the-shape-of-histograms
+name: Compare the characteristics of the shape of histograms using symmetry, skewness and bimodality
+domain: statistics-probability
+description: 'Given a histogram''s class-frequency data or a description of its shape, classify that shape as symmetric, skewed left, skewed right, or bimodal, from four options offered on every draw. Every prompt states the skewed-right/positively-skewed convention (longer tail towards larger values) so the classic sign confusion is removed by construction, not assumed. Four tiers: a verbal description of the shape that never uses the answer''s own words; a class-frequency table printed in class order; the same table with its rows shuffled out of class order, so the classes must be reordered first; and two histograms, where the learner must first decide which one the prompt''s stated comparison (wider range, or larger total) picks out before classifying it. Distinct from senior-use-relative-frequencies-and-histograms-obtained-from-data, which uses the same class-frequency data to estimate a probability rather than classify the shape of the distribution itself.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: mcq
+sources:
+- topic: p19b_histogram_shape
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_histogram_shape
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_histogram_shape
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_histogram_shape
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: skew-direction-confusion
+  description: Picks the opposite skew direction (right for left, or left for right), the classic positively/negatively-skewed sign confusion the prompt's own convention sentence is meant to remove.
+- id: skewed-as-symmetric
+  description: Reads a skewed table as symmetric, missing that the tail's fall-off is one-sided rather than mirrored on both sides.
+- id: symmetric-as-skewed
+  description: Reads a genuinely symmetric table as skewed, over-reading a small (<=1) mirror difference as a real one-sided tail.
+- id: skewed-as-bimodal
+  description: Mistakes a single-peaked skewed distribution's tail for a second cluster, calling it bimodal when there is only one real peak.
+- id: reads-unsorted-order
+  description: On the hard tier, judges the shape from the shuffled row order as printed, instead of reordering the classes by their lower bound first.
+- id: wrong-histogram-in-exam
+  description: On the exam tier, classifies the OTHER histogram instead of the one picked out by the stated comparison (wider range, or larger total).
+tags: [acara-senior-v8-4, statistics-probability, histogram, shape, skewness, bimodality, acmem060]

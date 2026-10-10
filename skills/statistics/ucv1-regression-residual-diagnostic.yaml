@@ -1,0 +1,48 @@
+id: ucv1-regression-residual-diagnostic
+name: Diagnose a small regression residual
+domain: statistics
+description: Given a fitted line and one observed point, compute its residual and select
+  the correct residual interpretation.
+status: active
+placement_eligible: false
+prerequisites: [least-squares-line]
+answer: mcq
+sources:
+- topic: p14e_residual_diagnostic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14e_residual_diagnostic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14e_residual_diagnostic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14e_residual_diagnostic
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: reversed-sign-reading
+  description: Reads the residual's sign backwards, calling a point that is above the
+    line "below the line" (or vice versa).
+- id: on-mistaken-for-off
+  description: Treats a point that lies exactly on the line (residual zero) as though
+    it were above or below it, or treats an off-line point as though it were exactly
+    on the line.
+- id: wrong-named-point
+  description: Computes the residual for the point the question did NOT name, reading
+    the other point's coordinates instead. Only exercisable at the hard tier, which is
+    the only tier naming one of two listed points.
+tags: [university-core-v1, statistics]

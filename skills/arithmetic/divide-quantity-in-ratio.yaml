@@ -1,0 +1,54 @@
+id: divide-quantity-in-ratio
+name: Divide a quantity in a ratio
+domain: arithmetic
+description: Divide a supplied quantity into two shares in a supplied whole-number
+  ratio.
+status: active
+placement_eligible: false
+prerequisites:
+- fraction-of-quantity
+- ratio-rate-proportion
+answer: pair
+sources:
+- topic: p13a_divide_ratio
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p13a_divide_ratio
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p13a_divide_ratio
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p13a_divide_ratio
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ignores-the-ratio
+  description: Splits the quantity into two equal halves instead of using the
+    stated ratio.
+- id: swapped-ratio-terms
+  description: Attaches the wrong ratio term to the wrong share -- on the hard
+    tier, reports the second share as equal to the first (given) share instead
+    of solving for it separately.
+- id: off-by-one-denominator
+  description: Divides using one more part than the ratio actually has (or, on
+    the medium tier, divides the difference by the ratio's sum instead of its
+    difference).
+tags: []

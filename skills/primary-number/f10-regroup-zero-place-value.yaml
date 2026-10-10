@@ -1,0 +1,29 @@
+id: f10-regroup-zero-place-value
+name: Regroup and rename multi-digit place value
+domain: primary-number
+description: Given a two- or three-digit number expressed in a non-standard grouping (e.g. as a stated count of hundreds, tens and ones that is not already in standard form, including a grouping that implies a zero digit in one place), regroup or rename it into its standard hundreds, tens and ones counts.
+status: active
+placement_eligible: false
+prerequisites: [place-value-to-100]
+answer: pair
+sources:
+- topic: p19a_regroup_place_value
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_regroup_place_value
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_regroup_place_value
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-not-regrouped
+  description: Reports the stated (non-standard) counts directly as the hundreds, tens and ones digits, without carrying any overflow into the next place.
+- id: carry-dropped
+  description: Carries an overflow into the next place but forgets to add it, leaving that place one short of the correct regrouped count.
+- id: carry-into-wrong-place
+  description: Applies a tens-to-hundreds carry an extra time, adding an extra hundred while only removing one unit from the tens place.
+tags: [acara-f10-v9, primary, place-value, regrouping, ac9m2n02]

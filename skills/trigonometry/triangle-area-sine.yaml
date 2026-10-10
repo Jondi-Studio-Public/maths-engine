@@ -1,0 +1,41 @@
+id: triangle-area-sine
+name: Area = 1/2 ab sin C
+domain: trigonometry
+description: Find the area of a triangle from two sides and the included angle.
+status: active
+prerequisites:
+- sine-rule
+answer: number
+sources:
+- topic: trigonometry
+  params:
+    kinds:
+    - triangle_area
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: trigonometry
+  params:
+    kinds:
+    - triangle_area
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: trigonometry
+  params:
+    kinds:
+    - triangle_area_reverse
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-angle-used
+  description: Using an angle that is not between the two given sides.
+- id: forgot-half
+  description: Forgetting the factor of one half.
+tags: []

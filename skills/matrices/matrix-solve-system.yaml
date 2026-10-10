@@ -1,0 +1,48 @@
+id: matrix-solve-system
+name: Solve Ax = b
+domain: matrices
+description: Solve a linear system given in matrix form Ax = b.
+status: active
+prerequisites:
+- solve-simultaneous-equations
+answer: pair
+sources:
+- topic: matrices
+  params:
+    kinds:
+    - system
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: matrices
+  params:
+    kinds:
+    - system
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: matrices
+  params:
+    kinds:
+    - system_context
+    hi: 6
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: swapped-pair-matrix
+  description: Swapping the x and y values in the solution.
+- id: sign-error-matrix-solve
+  description: A sign error solving for one unknown.
+- id: reversed-roles-system-context
+  description: Set up the system with the two items' roles reversed, solving A^T
+    x = b instead of A x = b.
+- id: single-equation-assumed-value
+  description: Used only one of the two purchase statements, solving a single
+    equation and treating the other item's price as already known (assumed 0).
+tags: []

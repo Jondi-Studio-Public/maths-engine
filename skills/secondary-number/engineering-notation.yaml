@@ -1,0 +1,37 @@
+id: engineering-notation
+name: Write numbers in engineering notation
+domain: secondary-number
+description: Re-express an already scientific-notation quantity so the power of ten is a multiple of three and the coefficient runs from 1 up to (not including) 1000, naming the matching SI prefix.
+status: active
+placement_eligible: false
+prerequisites: [scientific-notation]
+answer: mcq
+sources:
+- topic: engineering_notation
+  params: {variant: large_positive}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: engineering_notation
+  params: {variant: small_value}
+  difficulty: medium
+  stages: [3, 4]
+- topic: engineering_notation
+  params: {variant: wide_exponent}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: engineering_notation
+  params: {variant: sum_difference}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: scientific-notation-exponent-grouping
+  description: Leaves the coefficient at a single digit before the point instead of regrouping to a multiple-of-three exponent, the scientific-notation habit this skill must break.
+- id: mantissa-out-of-range
+  description: Pairs the multiple-of-three exponent with the original scientific-notation coefficient, never shifting it into the engineering coefficient's own [1, 1000) range.
+- id: wrong-si-prefix
+  description: Groups the number correctly but names the wrong SI prefix for that power of ten.
+- id: sign-error-on-exponent
+  description: Flips the sign of the exponent (and its SI prefix), confusing a positive power of ten with its negative counterpart.
+- id: ignores-smaller-term
+  description: On the exam-tier sum/difference source, combines two far-apart-exponent scientific-notation values by taking only the numerically dominant term and discarding the smaller one entirely, instead of aligning exponents and adding exactly.
+tags: [secondary, number, indices, engineering-syllabus]

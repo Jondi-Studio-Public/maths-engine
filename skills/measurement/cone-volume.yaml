@@ -1,0 +1,31 @@
+id: cone-volume
+name: Find the volume of a cone
+domain: measurement
+description: Given bounded, fully specified inputs (radius or diameter, and height or slant height), use V = (1/3) x pi x r^2 x h to find a cone's volume.
+status: active
+placement_eligible: false
+prerequisites: [senior-use-formulas-to-find-the-volume-of-pyramids]
+answer: number
+sources:
+- topic: cone_volume
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: cone_volume
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: cone_volume
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits_one_third_factor
+  description: Treats the cone as a cylinder, computing pi x r^2 x h without applying the 1/3 factor.
+- id: uses_diameter_as_radius
+  description: Uses a given diameter directly in the formula instead of halving it to the radius first. Not applicable to the easy tier, where the radius is already given directly.
+- id: squares_wrong_dimension
+  description: Squares the height instead of the radius when computing the volume.
+- id: uses_slant_height_as_height
+  description: Uses the given slant height directly as the height instead of deriving the height via Pythagoras (hard tier only, where the height is not given directly).
+tags: [measurement, volume]

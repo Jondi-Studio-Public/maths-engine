@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-technology-to-investigate-the-effect-of-the
+name: Use technology to investigate the effect of the interest rate and the number of compounding periods on the future value of a loan or investment
+domain: financial-discrete
+description: Given a stated principal, interest rate and number of compounding periods, compute the future value of the compound-interest loan or investment.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p16c_compound_effect
+  params: {variant: annual_vs_semi}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p16c_compound_effect
+  params: {variant: quarterly_vs_monthly}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p16c_compound_effect
+  params: {variant: rate_effect}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p16c_compound_effect
+  params: {variant: percent_effect}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ignores-frequency-effect
+  description: Assumes compounding more often makes no difference to the future value, and reports zero difference between the two compounding frequencies.
+- id: sign-flip
+  description: Reports the difference the wrong way around (the less-frequently-compounded future value minus the more-frequently-compounded one) as a negative amount.
+- id: wrong-reference-scenario
+  description: Compares the stated scenario against the wrong number of years of compounding instead of the same number of years used on both sides.
+- id: assumes-rate-has-no-effect
+  description: Assumes a higher interest rate makes no difference to the future value, and reports zero difference between the two rates.
+- id: linear-rate-effect
+  description: Treats the effect of the rate change as simple, non-compounding growth applied once over the whole term, rather than compounding it.
+- id: wrong-percentage-base
+  description: Expresses the percentage difference between the two future values against the wrong base value (the total of both, or the larger value) instead of the smaller future value.
+tags: [acara-senior-v8-4, financial-discrete, compounding, effect, acmem173]

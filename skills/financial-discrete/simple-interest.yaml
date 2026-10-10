@@ -1,0 +1,10 @@
+id: simple-interest
+name: Calculate simple interest
+domain: financial-discrete
+description: Calculate simple interest from principal, annual rate and whole years.
+status: active
+prerequisites: [percentage-of-quantity]
+answer: number
+sources: [{topic: financial_interest, params: {kind: simple}, difficulty: easy}]
+misconceptions: [{id: omits-time, description: Calculates one year's interest and ignores the number of years.}]
+tags: [expansion-batch-5, finance]

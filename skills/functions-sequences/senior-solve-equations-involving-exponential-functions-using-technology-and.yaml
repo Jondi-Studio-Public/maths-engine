@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-equations-involving-exponential-functions-using-technology-and
+name: Solve equations involving exponential functions using technology, and algebraically in simple cases
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, solve equations involving exponential functions using technology, and algebraically in simple cases. Return the resulting value, expression, relation, or classification. Base e throughout; every tier''s equation carries an additive constant on the exponential term (A*e^(kx) + c = d at minimum) before it can be isolated -- the shipping neighbour senior-solve-equations-involving-indices-using-logarithms (a^x = b, or a variant with a coefficient or linear exponent) never carries that extra additive-isolation step at any of its tiers. Answers are decimal-valued to 3 decimal places.'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: number
+sources:
+- topic: p14a_solve_exp_technology
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p14a_solve_exp_technology
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p14a_solve_exp_technology
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p14a_solve_exp_technology
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-additive-constant
+  description: Takes the logarithm of the RHS directly, without first subtracting the additive constant (easy/medium tiers).
+- id: forgot-leading-coefficient
+  description: Takes the logarithm of the RHS-minus-constant directly, without first dividing by the leading coefficient (easy/medium tiers).
+- id: sign-error-on-exponent-coefficient
+  description: Solves with the sign of the exponent's own coefficient flipped (easy tier).
+- id: ignores-linear-exponent-shift
+  description: Solves ignoring the constant shift inside the exponent entirely (medium tier).
+- id: treats-hidden-quadratic-as-linear
+  description: Solves the hidden quadratic in e^x as if it were linear, ignoring the squared term (hard tier).
+- id: reports-smaller-solution
+  description: States the smaller of the two valid solutions for x instead of the larger one (hard tier).
+- id: ignores-linear-term-in-transcendental-equation
+  description: Solves e^x = a, ignoring the linear term in x entirely (exam tier).
+- id: uses-small-x-linear-approximation
+  description: Approximates e^x by 1 + x rather than solving numerically (exam tier).
+tags: [acara-senior-v8-4, functions-sequences, exponentials, p14a_solve_exp_technology, acmmm067]

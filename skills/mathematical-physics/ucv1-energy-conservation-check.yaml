@@ -1,0 +1,48 @@
+id: ucv1-energy-conservation-check
+name: Check mechanical energy across two supplied states
+domain: mathematical-physics
+description: Compute the difference in kinetic-plus-potential energy between two supplied states of a one-dimensional oscillator.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-harmonic-angular-frequency
+answer: number
+sources:
+- topic: p14f_energy_conservation_check
+  params: {variant: direct, mk_hi: 4, xv_hi: 4, allow_negative: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14f_energy_conservation_check
+  params: {variant: direct, mk_hi: 8, xv_hi: 6, allow_negative: true}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14f_energy_conservation_check
+  params: {variant: implicit, mk_hi: 8, xv_hi: 6}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14f_energy_conservation_check
+  params: {variant: inverse, mk_hi: 8, xv_hi: 14}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: drops-the-half
+  description: Reports E = k*x^2 + m*v^2, forgetting both factors of 1/2.
+- id: sign-flip
+  description: Reports E1 - E2 instead of the required E2 - E1.
+- id: swapped-roles
+  description: Uses m where k belongs and vice versa in the energy formula.
+- id: single-state-only
+  description: Reports just state 2's energy, forgetting to subtract state 1's.
+- id: wrong-branch
+  description: On the hard tier, assumes the wrong term (displacement or velocity) vanishes at the described turning point or equilibrium-crossing state.
+tags: [university-core-v1, mathematical-physics]
+framework_areas: [mathematical-physics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics

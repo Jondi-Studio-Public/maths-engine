@@ -1,0 +1,37 @@
+id: ucv1-recurrence-two-step
+name: Evaluate a second-order recurrence
+domain: discrete-mathematics
+description: Compute the next term of a supplied second-order linear recurrence from two initial values.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p12e_recurrence_two_step
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12e_recurrence_two_step
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12e_recurrence_two_step
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12e_recurrence_two_step
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-index
+  description: Returns the wrong term -- the immediately preceding term instead of the requested one (forward), or the later given term instead of the earlier one being solved for (inverse).
+- id: swaps-coefficients
+  description: Swaps which coefficient multiplies which preceding term, computing q*a_(n-1) + p*a_(n-2) instead of p*a_(n-1) + q*a_(n-2) (or the analogous swap when solving the inverse).
+- id: drops-one-term
+  description: Computes p*a_(n-1) only, ignoring the q*a_(n-2) contribution entirely.
+- id: sign-flip
+  description: Forgets that q is negative and applies the wrong sign in the recurrence -- only exercisable when the drawn q is negative.
+- id: uses-wrong-pair
+  description: At the exam tier, applies the (p, q) pair that is NOT consistent with the three given terms, instead of first checking which pair is consistent.
+tags: [university-core-v1, discrete-mathematics, p12e_recurrence_two_step]

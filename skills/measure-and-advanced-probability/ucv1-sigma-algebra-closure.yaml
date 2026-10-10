@@ -1,0 +1,47 @@
+id: ucv1-sigma-algebra-closure
+name: Check closure of a finite sigma-algebra candidate
+domain: measure-and-advanced-probability
+description: Decide whether a supplied finite family of subsets is closed under complement and finite union.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15c_sigma_algebra_closure
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15c_sigma_algebra_closure
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15c_sigma_algebra_closure
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15c_sigma_algebra_closure
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: checks-complement-only
+  description: Confirms every set's complement is present but never checks that pairwise unions stay in the family, so a family that fails union is misclassified as closed under both.
+- id: checks-union-only
+  description: Confirms every pairwise union stays in the family but never checks each set's complement, so a family that fails complement is misclassified as closed under both.
+- id: misses-near-miss-complement
+  description: On the hard and exam tiers, where the extra set differs from a legitimate family member by exactly one element, assumes that near-identical set is itself present (or its complement is) without checking element by element, so a near-miss failure is missed.
+tags: [university-core-v1, measure-theory, p15c_sigma_algebra_closure]
+framework_areas: [measure-and-advanced-probability]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: measure-and-advanced-probability

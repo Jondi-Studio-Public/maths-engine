@@ -1,0 +1,38 @@
+id: explicit-euler-linear-ode
+name: Take one explicit Euler ODE step
+domain: numerical-and-computational-mathematics
+description: Compute one exact explicit Euler update for a first-order linear differential equation.
+status: active
+prerequisites: [solve-ode-separable-poly]
+answer: fraction
+sources:
+- topic: explicit_euler_linear_ode
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: explicit_euler_linear_ode
+  difficulty: medium
+  stages: [3, 4]
+- topic: explicit_euler_linear_ode
+  params: {steps: 2}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: omits-step-size
+  description: Adds the initial slope without multiplying by h.
+- id: uses-backward-sign
+  description: Subtracts the Euler increment rather than adding it.
+tags: [university-core-v1, numerical-methods, scientific-computing]
+framework_areas: [numerical-and-computational-mathematics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: numerical-and-computational-mathematics

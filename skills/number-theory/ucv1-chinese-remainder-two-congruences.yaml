@@ -1,0 +1,31 @@
+id: ucv1-chinese-remainder-two-congruences
+name: Solve two coprime congruences
+domain: number-theory
+description: Find the least non-negative solution to two supplied coprime linear congruences.
+status: active
+placement_eligible: false
+prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]
+answer: number
+sources:
+- topic: chinese_remainder_two_congruences
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: chinese_remainder_two_congruences
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: chinese_remainder_two_congruences
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: first-congruence-only
+  description: Reports the least residue satisfying only the first congruence, ignoring the second entirely.
+- id: second-congruence-only
+  description: Reports the least residue satisfying only the second congruence, ignoring the first entirely.
+- id: adds-remainders
+  description: Adds the two given remainders together modulo the product of the moduli instead of solving the system.
+- id: sign-flip
+  description: Reads a negative remainder's digits as if they were positive instead of first reducing it to its least non-negative residue.
+tags: [university-core-v1, number-theory, chinese_remainder_two_congruences]

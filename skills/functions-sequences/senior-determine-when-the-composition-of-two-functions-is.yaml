@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-when-the-composition-of-two-functions-is
+name: Determine when the composition of two functions is defined
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, determine when the composition of two functions is defined. Return the resulting value, expression, relation, or classification. This skill assesses identifying the domain restriction of f(g(x)) for the same supplied reciprocal function f(x) = 1/(x - k) and square-root function g(x) = sqrt(x - a) -- recognising whether g''s own range can ever reach f''s excluded value -- and never asks the learner to compute the composed expression itself (see the sibling senior-find-the-composition-of-two-functions skill).'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: mcq
+sources:
+- topic: function_composition
+  params: {mode: when_defined}
+  difficulty: easy
+  stages: [6]
+- topic: function_composition
+  params: {mode: when_defined}
+  difficulty: medium
+  stages: [6]
+- topic: function_composition
+  params: {mode: when_defined}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: ignores-gs-own-domain-restriction
+  description: Selects "Defined for all real x", ignoring that g(x) = sqrt(x - a) already restricts the domain to x >= a.
+- id: flips-the-inequality-direction
+  description: States the domain restriction as x <= a instead of x >= a.
+- id: applies-the-exclusion-formula-regardless-of-sign
+  description: Excludes x = a + k^2 even when k is negative, forgetting that sqrt(x - a) (always >= 0) can never equal a negative k.
+- id: sign-error-solving-for-x
+  description: Solves sqrt(x - a) = k with a sign error, excluding x = a - k^2 instead of the correct x = a + k^2.
+tags: [acara-senior-v8-4, functions-sequences, function-composition, acmsm092]

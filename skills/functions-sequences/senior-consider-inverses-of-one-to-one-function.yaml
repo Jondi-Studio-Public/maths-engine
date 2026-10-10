@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-consider-inverses-of-one-to-one-function
+name: Consider inverses of one-to-one function
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, consider inverses of one-to-one function. Return the resulting value, expression, relation, or classification. This skill assesses the algebraic derivation of the inverse expression only, always for a function already guaranteed one-to-one by construction (linear with nonzero slope, or a translated reciprocal), and never asks the learner to establish one-to-one-ness itself.'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: expression
+sources:
+- topic: inverse_one_to_one_function
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: inverse_one_to_one_function
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: inverse_one_to_one_function
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: unchanged-function
+  description: States the original function f(x) unchanged, never inverting at all.
+- id: sign-error-on-shift
+  description: Flips the sign of an additive constant when rearranging (e.g., (x + b)/a instead of (x - b)/a).
+- id: forgot-the-coefficient
+  description: Drops the division by the leading coefficient when inverting a linear function.
+- id: forgot-the-shift
+  description: Omits the additive translation term in a reciprocal inverse function (hard tier only).
+tags: [acara-senior-v8-4, functions-sequences, inverse-functions, acmsm095]

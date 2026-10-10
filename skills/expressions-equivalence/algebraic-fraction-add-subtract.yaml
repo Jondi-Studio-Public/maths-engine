@@ -1,0 +1,58 @@
+id: algebraic-fraction-add-subtract
+name: Add and subtract algebraic fractions
+domain: expressions-equivalence
+description: Combine two (exam tier, up to three) algebraic fractions with a single-variable linear numerator
+  over an integer denominator into one fraction over a common denominator. Every draw is confined so a
+  genuine LCD (not the naive product of the denominators) is required from the hard tier up, and so the
+  combined x-coefficient never cancels to zero (an exam-style item).
+status: active
+placement_eligible: false
+prerequisites:
+- fraction-arithmetic
+- simplify-algebraic-fractions
+answer: expression
+sources:
+- topic: exd_e2_algebraic_fraction_add_sub
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: exd_e2_algebraic_fraction_add_sub
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: exd_e2_algebraic_fraction_add_sub
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_e2_algebraic_fraction_add_sub
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: common-denominator-error
+  description: States the answer over the PRODUCT of the denominators instead of the true lowest common
+    denominator, keeping the correctly-scaled numerator but the wrong (larger) working denominator. Only
+    exercisable on the hard and exam tiers, where the product genuinely exceeds the LCD -- on easy/medium the
+    denominators are coprime, so the product already equals the LCD and this would be a coincidental duplicate
+    of the correct answer, so it is never offered there.
+- id: forgot-to-distribute-the-sign
+  description: On a subtraction, applies the "-" to the second (or third) fraction's x-term but not its
+    constant term, leaving that constant with the wrong sign. Not exercisable on the easy tier, which is
+    addition-only.
+- id: added-denominators
+  description: States the answer over the SUM of the denominators, d1 + d2 (+ d3), instead of the true common
+    denominator -- a genuinely different value on every tier.
+tags: []

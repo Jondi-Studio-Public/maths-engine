@@ -1,0 +1,59 @@
+id: use-nth-term-rule
+name: Use an nth-term rule
+domain: functions-sequences
+description: Find specified term values and determine whether a value appears in a sequence.
+status: active
+prerequisites:
+- nth-term-rule
+- one-step-equations
+answer: number
+sources:
+- topic: sequence
+  params:
+    kind: use_rule
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sequence
+  params:
+    kind: use_rule
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sequence
+  params:
+    kind: use_rule_inverse
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: sequence
+    params:
+      kind: use_rule
+      hi: 5
+    target_s: 8
+    limit_s: 20
+  - topic: sequence
+    params:
+      kind: use_rule
+      hi: 9
+    target_s: 10
+    limit_s: 22
+  - topic: sequence
+    params:
+      kind: use_rule
+      hi: 12
+    target_s: 12
+    limit_s: 28
+misconceptions:
+- id: misconception-1
+  description: Substituting the term value for n
+- id: misconception-2
+  description: Assuming a non-integer position is a valid term number
+tags: []

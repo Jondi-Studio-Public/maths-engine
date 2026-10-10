@@ -1,0 +1,39 @@
+id: generate-sequence-from-rule
+name: Generate a sequence from a rule
+domain: functions-sequences
+description: Substitute term positions into a rule to generate sequence values.
+status: active
+prerequisites:
+- apply-a-rule-to-inputs
+- arithmetic-sequences
+answer: number
+sources:
+- topic: function_evaluation
+  params:
+    a_lo: 0
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params:
+    a_lo: 0
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params:
+    a_lo: 0
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Using the previous term when the rule is explicit
+- id: misconception-2
+  description: Starting term position at zero without being told
+tags: []

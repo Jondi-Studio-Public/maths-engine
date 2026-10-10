@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-vector-equations-of-curves-in-two-or
+name: Use vector equations of curves in two or three dimensions involving a parameter, and determine a ‘corresponding’ Cartesian equation in the two-dimensional case
+domain: vectors
+description: Given bounded, fully specified inputs, use vector equations of curves in two or three dimensions involving a parameter, and determine a ‘corresponding’ Cartesian equation in the two-dimensional case. Return the resulting value, expression, relation, or classification. This skill is restricted to two-dimensional curves of the family x(t) = a*t (+ p), y(t) = b/t (+ c), which have Cartesian relations of the form xy = constant or y = constant/x + offset. The skill eliminates the parameter to find the constant in the relation, or evaluates the relation at a stated point.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: use_vector_equations_of_curves_in_two_or
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: use_vector_equations_of_curves_in_two_or
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: use_vector_equations_of_curves_in_two_or
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-instead-of-multiplies
+  description: Adds the coefficients instead of multiplying them (reports a + b instead of a*b).
+- id: squares-wrong-variable
+  description: Squares the wrong coefficient (reports b^2 instead of a*b).
+- id: off-by-one-product
+  description: Reports the product plus one (a*b + 1 instead of a*b).
+- id: sign-dropped
+  description: Reports the absolute value of the product, ignoring the sign (medium tier only; only exercisable when a*b < 0).
+- id: forgot-offset
+  description: Ignores the constant offset in the y component, evaluating only the base rational part (hard tier).
+- id: sign-error-offset
+  description: Applies the sign of the offset incorrectly (hard tier).
+- id: off-by-one-on-m
+  description: Reports m+1 instead of m when combining with the offset (hard tier).
+tags: [acara-senior-v8-4, vectors, parametric-curves, cartesian-elimination, acmsm104]

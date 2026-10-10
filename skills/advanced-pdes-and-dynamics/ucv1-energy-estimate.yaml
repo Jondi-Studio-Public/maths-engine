@@ -1,0 +1,40 @@
+id: ucv1-energy-estimate
+name: Compute a fixed PDE energy estimate
+domain: advanced-pdes-and-dynamics
+description: For a supplied single separated heat-equation mode on a stated interval, with its boundary conditions and the sign of the diffusion coefficient stated in the question, evaluate the energy E(t), the integral of the square of the solution over the interval, as a closed-form expression in t.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-heat-equation-mode
+answer: expression
+sources:
+- topic: p18a_energy_estimate
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p18a_energy_estimate
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p18a_energy_estimate
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p18a_energy_estimate
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-square
+  description: Uses the amplitude A instead of A^2 in the energy formula.
+- id: missing-half
+  description: Uses L instead of L/2 for the integral of sin^2/cos^2 over the interval.
+- id: exponent-not-doubled
+  description: Leaves the decay exponent as -k*lambda*t instead of doubling it to -2*k*lambda*t when squaring the mode.
+- id: lambda-unsquared
+  description: Uses m*pi/L instead of (m*pi/L)^2 for lambda (m = n, or n + 1/2 for a mixed condition).
+- id: lambda-no-pi
+  description: Uses (m/L)^2 instead of (m*pi/L)^2 for lambda, dropping pi^2.
+- id: half-wrongly-applied
+  description: Applies the L/2 factor to the n = 0 Neumann constant mode, where the correct energy is A^2*L with no half factor.
+tags: [university-core-v1, advanced-pdes-and-dynamics, p18a_energy_estimate]

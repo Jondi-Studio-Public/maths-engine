@@ -1,0 +1,17 @@
+id: order-numbers-to-10
+name: Put numbers in order to 10
+domain: early-foundations
+placement_order: 60
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Continue the counting sequence and put small numbers in order.
+status: active
+prerequisites: [recognise-numerals-to-10]
+answer: mcq
+sources:
+- topic: number_sequence
+  params: {hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, ordering]

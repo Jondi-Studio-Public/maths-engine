@@ -1,0 +1,37 @@
+id: convex-quadratic-minimum
+name: Find a convex quadratic minimum
+domain: optimisation
+description: Find the minimising input and minimum value of a univariate quadratic with positive leading coefficient.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: pair
+sources:
+- topic: convex_quadratic_minimum
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: convex_quadratic_minimum
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: convex_quadratic_minimum
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forget-factor-two
+  description: Uses -b/a instead of -b/(2a) for the minimising input.
+- id: evaluates-at-zero
+  description: Reports the constant term instead of evaluating at the minimiser.
+tags: [university-core-v1, optimisation, calculus]
+framework_areas: [optimisation]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: optimisation
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: optimisation

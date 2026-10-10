@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-estimate-the-areas-of-different-shapes
+name: Estimate the areas of different shapes
+domain: measurement
+description: Given bounded, fully specified inputs, estimate the areas of different shapes. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: mcq
+sources:
+- topic: estimate_area_reference
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: estimate_area_reference
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: estimate_area_reference
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: picks-ten-times-too-large
+  description: Selects the option that is exactly ten times the plausible estimate, as if an extra zero had been added during unit conversion.
+- id: picks-ten-times-too-small
+  description: Selects the option that is exactly one tenth of the plausible estimate, as if a zero had been dropped during unit conversion.
+- id: picks-hundred-times-too-large
+  description: Selects the option that is exactly a hundred times the plausible estimate. In the micro-to-square-metres direction (a small object asked in square metres) this exactly matches the error of applying a linear x100 length-conversion factor instead of the correct squared x10 000 area factor; in the macro-to-square-centimetres direction the linear-factor error (x100) is not itself offered as an option, so the x100 distractor there is a plain order-of-magnitude misjudgement rather than that specific slip.
+tags: [acara-senior-v8-4, measurement, estimation, area, acmem022]

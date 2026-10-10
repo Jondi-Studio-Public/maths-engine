@@ -1,0 +1,20 @@
+id: beam-equilibrium-seesaw
+name: Balance moments
+domain: engineering-mechanics
+description: Find the force needed to balance moments on a simple pivot.
+status: active
+prerequisites:
+- moment-of-a-force
+answer: number
+sources:
+- topic: engineering
+  params:
+    kinds:
+    - equilibrium
+  difficulty: easy
+misconceptions:
+- id: assumed-equal-force
+  description: Assuming the same force balances regardless of distance.
+- id: flipped-distance-ratio
+  description: Flipping the distance ratio when solving for the force.
+tags: []

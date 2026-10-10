@@ -1,0 +1,29 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-probability-as-a-measure-of-the-likelihood
+name: Review probability as a measure of ‘the likelihood of occurrence’ of an event
+domain: statistics-probability
+description: Compare the likelihood of two events given their probabilities as fractions or counts, determining which is more likely or whether they are equally likely.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: probability_likelihood_compare
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: probability_likelihood_compare
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: probability_likelihood_compare
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: reverses-the-comparison
+  description: Picks the option naming the other event as more likely than the truth, or vice versa.
+- id: ignores-the-computed-probability
+  description: On the hard tier, compares the raw count directly instead of first computing the probability fraction.
+tags: [acara-senior-v8-4, statistics-probability, probability-likelihood, acmmm052]

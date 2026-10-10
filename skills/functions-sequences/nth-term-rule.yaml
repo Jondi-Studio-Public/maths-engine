@@ -1,0 +1,39 @@
+id: nth-term-rule
+name: Find a linear nth-term rule
+domain: functions-sequences
+description: Use the common difference and first term to derive a rule for the nth term.
+status: active
+prerequisites:
+- common-difference
+- write-expressions-from-words
+answer: expression
+sources:
+- topic: sequence
+  params:
+    kind: nth_term_rule
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sequence
+  params:
+    kind: nth_term_rule
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sequence
+  params:
+    kind: nth_term_rule_nonconsecutive
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Using only the common difference as the rule
+- id: misconception-2
+  description: Confusing term value with term position
+tags: []

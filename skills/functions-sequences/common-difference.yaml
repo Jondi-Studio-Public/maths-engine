@@ -1,0 +1,58 @@
+id: common-difference
+name: Determine the common difference
+domain: functions-sequences
+description: Calculate and interpret the constant difference between consecutive terms.
+status: active
+prerequisites:
+- arithmetic-sequences
+answer: number
+sources:
+- topic: sequence
+  params:
+    kind: common_diff
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sequence
+  params:
+    kind: common_diff
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sequence
+  params:
+    kind: common_diff_nonconsecutive
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: sequence
+    params:
+      kind: common_diff
+      hi: 9
+    target_s: 4
+    limit_s: 10
+  - topic: sequence
+    params:
+      kind: common_diff
+      hi: 15
+    target_s: 5
+    limit_s: 12
+  - topic: sequence
+    params:
+      kind: common_diff
+      hi: 20
+    target_s: 6
+    limit_s: 15
+misconceptions:
+- id: misconception-1
+  description: Subtracting in inconsistent directions
+- id: misconception-2
+  description: Using the first term as the common difference
+tags: []

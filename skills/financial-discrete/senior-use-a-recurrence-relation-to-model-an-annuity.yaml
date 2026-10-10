@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-a-recurrence-relation-to-model-an-annuity
+name: Use a recurrence relation to model an annuity, and investigate the effect of the amount invested, the interest rate and the withdrawal on its duration
+domain: financial-discrete
+description: Given an annuity's opening balance, interest rate per period and fixed withdrawal per period, iterate the recurrence A(n+1) = A(n)(1 + r) - d to find how many full withdrawals the annuity pays before its balance falls below one withdrawal.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: pv0a_annuity_duration
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv0a_annuity_duration
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv0a_annuity_duration
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv0a_annuity_duration
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-over
+  description: Counts the final withdrawal that could not be paid in full as if it were a full withdrawal, reporting one more than the true count.
+- id: off-by-one-under
+  description: Stops one withdrawal early, treating the last successful full withdrawal as if it had not been paid.
+- id: ignores-compounding-in-count
+  description: Estimates the number of withdrawals by dividing the opening balance by the withdrawal amount alone, ignoring that interest is credited every period.
+- id: annual-rate-used-per-period
+  description: Uses the stated annual (per-annum) rate directly as the per-period rate, without dividing it by the number of compounding periods per year.
+- id: effect-reports-one-scenario
+  description: Reports the total number of full withdrawals for one of the two compared scenarios instead of the difference between the two durations.
+- id: effect-off-by-one
+  description: Reports the correct difference between the two durations plus or minus one withdrawal.
+- id: exam-ignored-change
+  description: Applies the original withdrawal amount or interest rate for the whole life of the annuity, never switching to the changed value stated for later withdrawals.
+- id: exam-restarts-at-opening-balance
+  description: Treats the phase after the change as if it restarted from the annuity's original opening balance, instead of carrying forward the balance already reduced by the withdrawals made before the change.
+tags: [acara-senior-v8-4, financial-discrete, recurrence, annuity, acmgm099]

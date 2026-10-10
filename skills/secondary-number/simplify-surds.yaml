@@ -1,0 +1,53 @@
+id: simplify-surds
+name: Simplify surds
+domain: secondary-number
+description: Simplify a surd expression by extracting the largest perfect-square factor of each radicand -- a
+  single surd, a sum of two surds that combine into one term, or a subtraction of two coefficiented surds --
+  answered in the form a√b. Confined to numeric radicands.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-square-roots-perfect-squares
+- prime-factorisation
+answer: expression
+sources:
+- topic: t1_simplify_surds
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: t1_simplify_surds
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: t1_simplify_surds
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: extracts-without-rooting
+  description: On a single-surd question, pulls the perfect-square factor out of the radicand but forgets to
+    take its square root, stating k*k as the coefficient instead of k (e.g. 25√2 for a correct 5√2).
+- id: drops-the-radical
+  description: On a single-surd question, states just the extracted coefficient k, dropping the remaining √m
+    entirely (e.g. 5 instead of 5√2).
+- id: adds-radicands
+  description: On a sum-of-two-surds question, computes √(r1 + r2) as if the two radicands could be added
+    inside a single root before simplifying, instead of extracting each surd's own square-free part first.
+- id: forgets-to-combine
+  description: On a sum-of-two-surds question, extracts both surds correctly but states only the larger of the
+    two already-extracted terms, never finishing the addition.
+- id: adds-instead-of-subtracts
+  description: On a subtraction-of-two-coefficiented-surds question, adds the two extracted-and-scaled terms
+    instead of subtracting them.
+- id: forgot-existing-coefficient
+  description: On a subtraction-of-two-coefficiented-surds question, extracts each surd's square-free part
+    correctly but drops one of the two pre-existing leading coefficients before combining.
+tags: []

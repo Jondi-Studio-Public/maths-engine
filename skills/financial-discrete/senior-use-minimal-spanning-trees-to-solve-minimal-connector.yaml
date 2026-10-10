@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-minimal-spanning-trees-to-solve-minimal-connector
+name: Use minimal spanning trees to solve minimal connector problems
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, use minimal spanning trees to solve minimal connector problems; for example, minimising the length of cable needed to provide power from a single power station to substations in several towns. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: use_minimal_spanning_trees_to_solve_minimal_connector
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: use_minimal_spanning_trees_to_solve_minimal_connector
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: use_minimal_spanning_trees_to_solve_minimal_connector
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: sum-all-edges
+  description: Sums the cost of all listed cable options instead of finding the minimum spanning tree.
+- id: naive-smallest-no-cycle-check
+  description: Sums the globally smallest (n_towns-1) edge weights without checking whether they form a connected acyclic subgraph.
+- id: minus-max-edge
+  description: Subtracts the most expensive edge in the MST from the total, leaving one town unconnected.
+tags: [acara-senior-v8-4, financial-discrete, networks, use_minimal_spanning_trees_to_solve_minimal_connector, ACMGM103]

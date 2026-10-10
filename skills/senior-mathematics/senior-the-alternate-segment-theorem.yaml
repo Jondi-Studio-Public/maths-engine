@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-the-alternate-segment-theorem
+name: The alternate segment theorem
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, The alternate segment theorem. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: alternate_segment_theorem
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: alternate_segment_theorem
+  params: {variant: composed}
+  difficulty: medium
+  stages: [3, 4]
+- topic: alternate_segment_theorem
+  params: {variant: algebraic}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: assumes-supplementary
+  description: Believes the tangent-chord angle and the inscribed angle in the alternate segment are supplementary (180 - x) instead of equal.
+- id: assumes-complementary
+  description: Believes the tangent-chord angle and the inscribed angle in the alternate segment are complementary (90 - x), confusing this theorem with the unrelated right-angle-in-a-semicircle theorem.
+- id: swaps-requested-angle
+  description: On the medium tier, reports one of the two given triangle angles (QTP or TPQ) instead of the derived tangent-chord angle.
+- id: sign-error-in-algebra
+  description: On the hard tier, isolates x from the equality of the two linear expressions with a sign error, giving a different, still-plausible numeric angle.
+tags: [acara-v8-4-specialist, circle-geometry]

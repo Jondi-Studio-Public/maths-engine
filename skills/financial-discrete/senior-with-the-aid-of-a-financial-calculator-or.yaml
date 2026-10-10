@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-with-the-aid-of-a-financial-calculator-or
+name: With the aid of a financial calculator or computer-based financial software, solve problems involving
+  reducing balance loans; for example, determining the monthly repayments required to pay off a housing
+  loan
+domain: financial-discrete
+description: Given bounded, fully specified inputs, with the aid of a financial calculator or computer-based
+  financial software, solve problems involving reducing balance loans; for example, determining the monthly
+  repayments required to pay off a housing loan. Return the resulting value, expression, relation, or
+  classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes
+  outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p12b_reducing_balance_loan
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12b_reducing_balance_loan
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12b_reducing_balance_loan
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12b_reducing_balance_loan
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: flat-not-reducing-interest
+  description: Uses flat interest (on the original principal every period) instead of compounding periodic
+    interest on the reducing balance, confusing this skill with a flat-loan-repayment shape.
+- id: annual-rate-as-periodic
+  description: Uses the stated ANNUAL interest rate directly as the periodic (monthly) rate, forgetting to
+    divide by the number of compounding periods per year.
+- id: years-not-months
+  description: Uses the loan term in whole YEARS as the number of repayment periods instead of converting
+    to MONTHS, an off-by-one-unit error on n.
+tags: [acara-senior-v8-4, financial-discrete, loans, amortisation, acmgm098]

@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-factorial-notation
+name: Use factorial notation
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use factorial notation. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: p11c_factorial_notation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11c_factorial_notation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11c_factorial_notation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: combines-before-factorialising
+  description: At the easy tier, computes (a + b)!, (a - b)! or (a x b)! instead of a! + b!, a! - b! or a! x b! -- combines the two operands first, then applies a single factorial to the combination, instead of factorialising each operand separately (only offered when the combined value stays under 1000; withheld, never clamped, otherwise).
+- id: wrong-operator
+  description: At the easy tier, applies the wrong operator to the two already-correct factorial values -- most often + swapped for x or vice versa.
+- id: forgets-one-factorial
+  description: At the easy tier, forgets to apply the factorial to one of the two operands, combining a! with a bare b (or a bare a with b!). At medium/hard, offers the ratio's smaller/single remaining factor alone, forgetting one factor at the edge of the product.
+- id: adds-extra-factor
+  description: Multiplies in one extra consecutive factor at the hard tier -- the opposite edge error to forgets-one-factorial's edge-dropping.
+- id: ratio-as-factorial
+  description: Treats n!/m! as (n/m)!, evaluating the factorial of the quotient instead of telescoping the ratio (only a coherent numeric mistake at the medium tier when n/m is a whole number -- one (n, k) pair in 24).
+- id: no-cancellation
+  description: Reports n! outright at the medium tier, or the ratio's own denominator factorial term unchanged at the hard tier, applying no cancellation at all.
+tags: [acara-senior-v8-4, senior-mathematics, combinatorics, acmsm003]

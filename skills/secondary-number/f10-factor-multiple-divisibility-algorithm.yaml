@@ -1,0 +1,37 @@
+id: f10-factor-multiple-divisibility-algorithm
+name: Trace a factors/multiples/divisibility algorithm
+domain: secondary-number
+description: Given a stated finite algorithm (a sequence of tests and decisions) for exploring factors, multiples or divisibility, and a stated natural-number input, trace the algorithm and state its final numeric output -- a count or a step count, never a yes/no verdict (a boolean output is deliberately not used here, because a boolean output over factors/multiples/divisibility would collide with the existing f10-factors-multiples-divisibility skill from the learner's chair) and never a GCD/LCM/Euclidean-reduction result (that is the separate euclidean-algorithm-gcd skill).
+status: active
+placement_eligible: false
+prerequisites:
+- list-factors
+- prime-factorisation
+answer: number
+sources:
+- topic: p9e_factor_multiple_divisibility_algorithm
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9e_factor_multiple_divisibility_algorithm
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9e_factor_multiple_divisibility_algorithm
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: range-includes-zero
+  description: Treats 0 as if it were in the range 1 to R (0 is divisible by everything), overcounting the true count by one.
+- id: complement-count
+  description: Counts the numbers that FAIL the divisibility test instead of the numbers that pass (R minus the correct count).
+- id: single-condition-count
+  description: Evaluates only the first stated divisor's count, ignoring the second stated divisor entirely.
+- id: and-or-confusion
+  description: Computes the OR-count when the question asked AND, or the AND-count when the question asked OR.
+- id: reports-final-value-not-steps
+  description: Reports the final odd value the algorithm reaches instead of the number of halving steps taken to reach it.
+- id: off-by-one-step-count
+  description: Reports one halving step too many or too few in the traced sequence.
+tags: [acara-f10-v9, secondary, factors, algorithm, ac9m5n10]

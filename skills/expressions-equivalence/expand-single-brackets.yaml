@@ -1,0 +1,63 @@
+id: expand-single-brackets
+name: Expand a single bracket
+domain: expressions-equivalence
+description: Use the distributive property to expand expressions of the form a(bx + c), including signed
+  and fractional coefficients.
+status: active
+prerequisites:
+- arithmetic-properties
+- algebraic-notation
+- integer-arithmetic
+answer: expression
+sources:
+- topic: expand_bracket
+  params:
+    kind: single
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: expand_bracket
+  params:
+    kind: single
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: expand_bracket
+  params:
+    kind: single_trinomial
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: expand_bracket
+    params:
+      kind: single
+      hi: 6
+    target_s: 6
+    limit_s: 15
+  - topic: expand_bracket
+    params:
+      kind: single
+      hi: 9
+    target_s: 7
+    limit_s: 18
+  - topic: expand_bracket
+    params:
+      kind: single
+      hi: 12
+    target_s: 8
+    limit_s: 20
+misconceptions:
+- id: partial-distribution
+  description: Multiplying the variable term but not the constant term (or vice versa).
+- id: lost-negative
+  description: Losing a negative sign that sits outside the bracket.
+- id: sign-error-subtraction
+  description: Mishandling the sign when the bracket is subtracted.
+tags: []

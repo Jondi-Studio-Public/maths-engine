@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-rates-and-percentages
+name: Review rates and percentages
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, review rates and percentages. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: rate_percentage_combined
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: rate_percentage_combined
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: rate_percentage_combined
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: ignores-the-rate-step
+  description: Applies the percentage adjustment to the bare hourly rate instead of the rate-times-hours subtotal.
+- id: reports-subtotal-only
+  description: Reports the rate-times-hours subtotal and forgets the percentage adjustment entirely.
+- id: wrong-direction
+  description: Adds the percentage adjustment instead of subtracting it (hard tier's discount framing).
+tags: [acara-senior-v8-4, arithmetic, rate_percentage_combined, ACMGM001]

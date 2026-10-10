@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-integrate-using-the-trigonometric-identities-mathrm-s-mathrm
+name: 'Integrate using the trigonometric identities \(\mathrm sin^2x=\frac12(1-\cos 2x)\), \(\cos^2x=\frac12(1+\cos
+  2x)\) and \(1+\tan^2x=\sec^2x\)'
+domain: integration
+description: Given bounded, fully specified inputs, integrate using the trigonometric identities
+  \(\mathrm sin^2x=\frac12(1-\cos 2x)\), \(\cos^2x=\frac12(1+\cos 2x)\) and \(1+\tan^2x=\sec^2x\).
+  Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: p13c_trig_identity_integrate
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13c_trig_identity_integrate
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13c_trig_identity_integrate
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13c_trig_identity_integrate
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dropped-power-reduction-half-factor
+  description: Uses the un-halved identity sin^2 x = 1 - cos 2x (or cos^2 x = 1 + cos 2x), forgetting
+    the 1/2 factor and doubling the whole power-reduction contribution to the antiderivative.
+- id: sign-error-on-cos-2kx-term
+  description: Swaps the sin^2/cos^2 identity signs, writing + where - is needed or vice versa.
+- id: dropped-inner-derivative-factor
+  description: Forgets the 1/k chain-rule factor when integrating sin(2kx), cos(2kx) or tan(kx).
+- id: dropped-minus-x-term
+  description: Applies 1 + tan^2 x = sec^2 x but forgets the "- x" term, integrating only sec^2(kx)
+    and omitting the -1 half of the identity.
+- id: dropped-constant-of-integration
+  description: Writes the antiderivative with no "+ C", omitting the arbitrary constant of integration.
+tags: [acara-senior-v8-4, integration, trigonometric-identities, acmsm116]

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-recursion-to-generate-a-geometric-sequence
+name: Use recursion to generate a geometric sequence
+domain: functions-sequences
+description: Generate the next k terms of a geometric sequence by iteratively applying the recursive rule t(n+1) = t(n) * r from a stated first term. The graded answer is exactly the k terms AFTER t1, never including t1 itself. This skill covers three qualitatively different multiplicative behaviours (integer growth, signed/alternating ratios, and fractional decay), aligned with the curriculum topic "Growth and decay in sequences". Generating terms from a recursive rule is a plain list deliverable (a sequence of symbolic/numeric values), not a rendered or constructed artefact. This skill is distinguished from the existing active catalog skill "senior-use-the-formula-t-n-r-n-1" which generates from a CLOSED-FORM rule by direct substitution; this skill generates by applying a RECURSIVE rule iteratively from a stated first term, a genuinely different mechanism.
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: ordered_list
+sources:
+- topic: geometric_recursion_generate
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: geometric_recursion_generate
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: geometric_recursion_generate
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: adds-instead-of-multiplying
+  description: Treats the common ratio as a common difference (arithmetic operation instead of geometric).
+- id: off-by-one-shift-includes-t1
+  description: Accidentally includes t1 itself as the first generated term, shifting the whole window back by one position.
+- id: reverses-the-order
+  description: Returns the correct terms in reversed order instead of the correct sequence.
+- id: treats-the-ratio-as-a-multiplier-not-a-divisor
+  description: For fractional decay, forgets this is decay and uses the denominator as a multiplier (grows instead of shrinking).
+tags: [acara-senior-v8-4, functions-sequences, recursion, sequences, geometric, acmgm071]

@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-implicit-differentiation-to-determine-the-gradient-of
+name: Use implicit differentiation to determine the gradient of curves whose equations are given in implicit
+  form
+domain: differential-equations
+description: Given bounded, fully specified inputs, use implicit differentiation to determine
+  the gradient of curves whose equations are given in implicit form. Return the resulting value,
+  expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+answer: expression
+sources:
+- topic: p12c_implicit_diff_gradient
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12c_implicit_diff_gradient
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12c_implicit_diff_gradient
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12c_implicit_diff_gradient
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-error-isolating-yprime
+  description: Reports the negative of the correct dy/dx, a sign error moving terms across the equals sign.
+- id: forgot-yprime-factor
+  description: Differentiates the y-term without the chain-rule factor y', dropping y from the denominator entirely.
+- id: dropped-coefficient
+  description: Drops a coefficient when isolating dy/dx.
+- id: forgot-product-rule
+  description: On medium/hard/exam tiers (a cross term), applies only one part of the product rule
+    to a term like B*x*y, dropping either the "+By" or the "+Bx*y'" piece.
+- id: forgot-chain-rule-on-power-term
+  description: Differentiates a y**2 or y**3 term without its chain-rule factor y', so that term's
+    contribution never joins the y'-bearing side of the equation.
+tags: [acara-senior-v8-4, differential-equations, implicit-differentiation, acmsm128]

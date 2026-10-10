@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-three-cases-for-solutions-of-systems
+name: Examine the three cases for solutions of systems of equations
+domain: vectors
+description: 'Given a system of three linear equations in three variables, or its row-reduced
+  form, classify it as having exactly one solution, no solution, or infinitely many solutions.
+  Easy reads the decisive bottom row of a given echelon augmented matrix directly. Medium spots
+  a VISIBLE dependency (proportional left sides, or a third equation exactly the sum/difference
+  of the other two) in a full system and compares the corresponding right-hand sides; unique
+  systems are built to look similar with no giveaway. Hard uses the same decision with NO
+  visible dependency, so the learner must eliminate fully (or compute rank/determinant) before
+  testing consistency. Exam carries a real parameter k under a stated condition (k ≠ c, k = c,
+  or for every value of k), reasoning about expressions in k rather than a single substitution.
+  Never asks for the solution itself (matrix-solve-system, solve-simultaneous-equations solve;
+  this skill classifies) and never draws or requires a figure (the geometric interpretation
+  appears only as a fixed, class-true description of the named case).'
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: mcq
+sources:
+- topic: pv0b_system_cases
+  difficulty: easy
+  stages: [6]
+- topic: pv0b_system_cases
+  difficulty: medium
+  stages: [6]
+- topic: pv0b_system_cases
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0b_system_cases
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-three-equations-always-gives-a-unique-solution
+  description: Treats "three equations, three unknowns" as automatically solvable, missing that a
+    dependency between the equations can leave no solution or infinitely many.
+- id: confuses-an-all-zero-row-with-a-unique-solution
+  description: Sees a fully-reduced echelon form with a bottom row of all zeros and reads it as
+    "the system is solved" rather than recognising the row is uninformative (no solution or
+    infinitely many, depending on the constant).
+- id: misreads-a-nonzero-constant-with-a-zero-row-as-consistent
+  description: Sees a bottom echelon row [0 0 0 | c] with c ≠ 0 and calls the system consistent,
+    missing that this row states the contradiction 0 = c.
+- id: mistakes-a-near-multiple-for-an-exact-dependency
+  description: At the medium/hard tier, sees two equations that look similar (close coefficients)
+    and assumes a dependency without checking the proportionality is exact.
+- id: substitutes-a-single-k-value-instead-of-reasoning-about-the-condition
+  description: At the exam tier, tests only one value of k (often the excluded/critical one) rather
+    than confirming the classification holds for every k satisfying the stated condition.
+tags: [acara-senior-v8-4, vectors, pv0b_system_cases, system-cases, acmsm110]

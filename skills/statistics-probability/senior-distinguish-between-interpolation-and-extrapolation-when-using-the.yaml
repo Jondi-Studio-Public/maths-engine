@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-distinguish-between-interpolation-and-extrapolation-when-using-the
+name: Distinguish between interpolation and extrapolation when using the fitted line to make predictions, recognising the potential dangers of extrapolation
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, distinguish between interpolation and extrapolation when using the fitted line to make predictions, recognising the potential dangers of extrapolation. Return the resulting value, expression, relation, or classification. This skill assesses the distinction directly: interpolation means the prediction point lies within the range of the collected data; extrapolation means it lies outside that range. A binary classification with two real answer categories (interpolation vs. extrapolation) and no third-party "both apply" category or "cannot determine" outcome. The boundary is inclusive: a prediction at the exact minimum or maximum x-value is interpolation.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: mcq
+sources:
+- topic: interpolation_extrapolation_classify
+  difficulty: easy
+  stages: [6]
+- topic: interpolation_extrapolation_classify
+  difficulty: medium
+  stages: [6]
+- topic: interpolation_extrapolation_classify
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: confuses-direction-with-distance
+  description: Thinks "extrapolation" means predicting in a particular direction (left or right) rather than outside the data range.
+- id: excludes-boundaries-from-interpolation
+  description: Believes a prediction at exactly xmin or xmax is extrapolation (fails to recognise inclusive boundary).
+- id: assumes-both-always-apply
+  description: Selects "both" when a single prediction point is presented, misinterpreting the statement.
+- id: ignores-stated-range
+  description: Fails to extract or use the stated data range (or table-derived range) when classifying the prediction.
+- id: confuses-small-distance-with-interpolation
+  description: Thinks being "close to the data" or having a small margin is what defines interpolation, rather than the binary inside/outside rule.
+tags: [acara-senior-v8-4, statistics-probability, interpolation_extrapolation_classify, interpolation-extrapolation, acmgm062]

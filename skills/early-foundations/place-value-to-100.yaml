@@ -1,0 +1,17 @@
+id: place-value-to-100
+name: Tens and ones to 100
+domain: early-foundations
+placement_order: 250
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Identify the tens and ones digits in a two-digit number.
+status: active
+prerequisites: [fair-sharing]
+answer: mcq
+sources:
+- topic: teen_place_value
+  params: {hi: 99}
+  difficulty: easy
+misconceptions: []
+tags: [age-7, place-value]

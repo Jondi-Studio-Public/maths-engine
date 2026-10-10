@@ -1,0 +1,36 @@
+id: ucv1-syntactic-semantic-separation
+name: Distinguish syntax from semantic truth
+domain: logic-computability-and-information
+description: For a supplied propositional expression and interpretation, classify it as ill-formed, well-formed and true, well-formed but false, or syntactically derivable via modus ponens yet false under the interpretation.
+status: active
+placement_eligible: false
+prerequisites:
+- propositional-truth-evaluation
+answer: mcq
+sources:
+- topic: p15b_syntactic_semantic_separation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15b_syntactic_semantic_separation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15b_syntactic_semantic_separation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15b_syntactic_semantic_separation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-well-formed-because-evaluable
+  description: Tries to evaluate a malformed string by guessing at a plausible parse, and reports true/false instead of recognising it is not a formula at all.
+- id: assumes-derivable-means-true
+  description: Sees premises and a modus-ponens derivation and reports the derivable-but-false option automatically, without checking the interpretation -- missing that the same derivation context also appears attached to draws where the conclusion is actually true.
+- id: evaluates-the-premises-instead-of-the-conclusion
+  description: Checks whether the stated premises are true under the interpretation (irrelevant to syntactic derivability) instead of checking the derived conclusion's own truth value.
+- id: misreads-negation-scope
+  description: Applies a leading negation to only the first atom of a longer subformula instead of the whole parenthesised group it prefixes.
+tags: [university-core-v1, logic-computability-and-information, p15b_syntactic_semantic_separation]

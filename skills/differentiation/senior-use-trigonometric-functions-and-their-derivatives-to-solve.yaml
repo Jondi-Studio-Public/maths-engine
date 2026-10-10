@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-trigonometric-functions-and-their-derivatives-to-solve
+name: Use trigonometric functions and their derivatives to solve practical problems
+domain: differentiation
+description: Given bounded, fully specified inputs, use trigonometric functions and their derivatives
+  to solve practical problems. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: number
+sources:
+- topic: p12c_trig_deriv_apply
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12c_trig_deriv_apply
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12c_trig_deriv_apply
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12c_trig_deriv_apply
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: evaluates-value-not-rate
+  description: Evaluates H(t) (the modelled quantity's value) instead of dH/dt (its rate of change).
+- id: dropped-chain-rule-factor
+  description: Differentiates a*sin(bt) as a*cos(bt), dropping the chain-rule factor b.
+- id: sign-error-on-derivative
+  description: Reports the negative of the correct rate of change.
+- id: solves-value-equation-not-rate-equation
+  description: On hard/exam tiers, solves H(t) = target instead of dH/dt = target, forgetting to
+    divide the inverse-cosine angle by b when isolating t.
+- id: sign-error-on-target
+  description: On hard tier, looks up arccos(-k) instead of arccos(k), a sign error on the stated target.
+- id: ignores-trig-evaluation
+  description: On medium tier, reports a*b directly, as if cos(bt) were always 1.
+tags: [acara-senior-v8-4, differentiation, trigonometric-derivatives, acmmm103]

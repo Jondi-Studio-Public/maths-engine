@@ -1,0 +1,35 @@
+id: ucv1-gram-schmidt-2d
+name: Orthonormalise two vectors
+domain: linear-algebra
+description: Apply one Gram-Schmidt step to two supplied independent two-dimensional vectors and return the orthonormal pair.
+status: active
+placement_eligible: false
+prerequisites: [vector-projection]
+answer: ordered_list
+sources:
+- topic: p12f_gram_schmidt_2d
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12f_gram_schmidt_2d
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12f_gram_schmidt_2d
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12f_gram_schmidt_2d
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgets-to-normalise-e2
+  description: Reports n times u_perp (or u_perp itself) instead of the unit vector, skipping the final division by the magnitude.
+- id: uses-raw-v-for-e2
+  description: Reports v normalised directly (v/|v|) instead of the orthogonalised-then-normalised vector, skipping the projection subtraction entirely.
+- id: wrong-rotation-direction-for-u_perp
+  description: Rotates u clockwise instead of counter-clockwise to build the perpendicular direction, flipping e2's sign incorrectly.
+- id: swapped-e1-e2
+  description: Reports the orthonormal pair in the wrong order, e2 before e1.
+tags: [university-core-v1, linear-algebra, p12f_gram_schmidt_2d]

@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-the-surface-areas-of-standard-three-dimensional
+name: Calculate the surface areas of standard three-dimensional objects such as spheres, rectangular prisms, cylinders, cones, pyramids and composites in practical situations; for example, the surface area of a cylindrical food container
+domain: measurement
+description: Given bounded, fully specified inputs, calculate the surface areas of standard three-dimensional objects such as spheres, rectangular prisms, cylinders, cones, pyramids and composites in practical situations; for example, the surface area of a cylindrical food container. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: expression
+sources:
+- topic: calculate_surface_areas_of_standard_solids
+  params: {mode: sphere}
+  difficulty: easy
+  stages: [6]
+- topic: calculate_surface_areas_of_standard_solids
+  params: {mode: cone}
+  difficulty: medium
+  stages: [6]
+- topic: calculate_surface_areas_of_standard_solids
+  params: {mode: composite}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: radius_treated_as_diameter
+  description: Treats the given radius as if it were the diameter, halving it before squaring (or vice versa).
+- id: uses_hemisphere_formula
+  description: Computes only half the sphere's curved surface area instead of the full sphere.
+- id: omits_squaring
+  description: Uses the radius linearly (4*pi*r) instead of squaring it (4*pi*r^2).
+- id: omits_base_circle
+  description: Computes only the cone's lateral surface area, omitting the base circle.
+- id: omits_lateral_surface
+  description: Computes only the cone's base circle area, omitting the lateral surface.
+- id: swaps_radius_and_slant_height
+  description: Confuses which given length is the radius and which is the slant height.
+- id: includes_the_shared_interface_circle
+  description: Adds the internal circle where the hemisphere and cone meet as if it were still an external face.
+- id: uses_full_sphere_instead_of_hemisphere
+  description: Uses the full sphere's curved surface area instead of halving it for the hemisphere.
+- id: confuses_hemisphere_curved_with_its_flat_circle
+  description: Uses the flat circle's area (pi*r^2) instead of the hemisphere's curved surface area (2*pi*r^2).
+tags: [acara-senior-v8-4, measurement, surface-area, curved-solids, acmgm020]

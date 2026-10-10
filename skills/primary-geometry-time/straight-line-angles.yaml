@@ -1,0 +1,10 @@
+id: straight-line-angles
+name: Find a missing angle on a straight line
+domain: primary-geometry-time
+description: Use the 180-degree angle sum on a straight line to find one missing adjacent angle.
+status: active
+prerequisites: [angle-types]
+answer: number
+sources: [{topic: straight_line_angle, params: {}, difficulty: easy}]
+misconceptions: [{id: uses-360, description: Subtracts from 360° instead of 180°.}]
+tags: [expansion-batch-2, primary, angles]

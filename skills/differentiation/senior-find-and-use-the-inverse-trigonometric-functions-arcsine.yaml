@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-and-use-the-inverse-trigonometric-functions-arcsine
+name: 'Find and use the inverse trigonometric functions: arcsine, arccosine and arctangent'
+domain: differentiation
+description: 'Given bounded, fully specified inputs, find and use the inverse trigonometric functions: arcsine, arccosine and arctangent. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.'
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: find_and_use_the_inverse_trigonometric_functions_arcsine
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: find_and_use_the_inverse_trigonometric_functions_arcsine
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: find_and_use_the_inverse_trigonometric_functions_arcsine
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: cofunction-swap
+  description: Confuses the angle with its complementary (cofunction) angle.
+- id: wrong-standard-angle
+  description: Reports a different standard angle from the 30-45-60 family.
+- id: sign-or-branch-error
+  description: Reports the value with the wrong sign or from the wrong branch.
+- id: treats-acos-as-odd
+  description: For arccos of a negative input, negates the positive-input result instead of using pi minus it.
+- id: forgot-to-apply-identity
+  description: Returns the original stated ratio unchanged instead of computing the requested trigonometric ratio of the angle.
+- id: used-wrong-ratio-of-the-triangle
+  description: Uses a different side ratio of the right triangle than the one requested (e.g. tangent instead of sine).
+- id: inverted-the-ratio
+  description: Reports the reciprocal of the correct ratio.
+tags: [acara-senior-v8-4, differentiation, inverse-trigonometric-functions, acmsm119]

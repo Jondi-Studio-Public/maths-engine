@@ -1,0 +1,39 @@
+id: inequality-symbols
+name: Interpret inequality symbols
+domain: inequalities
+description: Interpret <, >, ≤ and ≥ as relationships between quantities.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- integer-arithmetic
+answer: mcq
+sources:
+- topic: inequality
+  params:
+    kind: one_step
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: inequality
+  params:
+    kind: one_step
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: inequality
+  params:
+    kind: one_step
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reading the symbol from the wrong direction
+- id: misconception-2
+  description: Treating strict and inclusive inequalities as interchangeable
+tags: []

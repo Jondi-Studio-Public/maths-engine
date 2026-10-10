@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+name: Understand the unit circle definition of \(\cos\theta,\;\sin\theta\) and \(\tan\theta\)
+domain: trigonometry
+description: "Use the unit-circle definition tan(theta) = sin(theta) / cos(theta) to evaluate tan(theta) for a stated terminal point on the unit circle, or state that it is undefined where cos(theta) = 0."
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: unit_circle_tan_evaluate
+  params: {variant: quadrant_one}
+  difficulty: easy
+  stages: [6]
+- topic: unit_circle_tan_evaluate
+  params: {variant: signed_quadrant}
+  difficulty: medium
+  stages: [6]
+- topic: unit_circle_tan_evaluate
+  params: {variant: mixed_with_quadrantal}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: swapped-coordinate-ratio
+  description: Treats the x-coordinate as sin(theta) and the y-coordinate as cos(theta), computing x/y instead of y/x.
+- id: reports-y-coordinate-alone
+  description: Reports sin(theta) (the y-coordinate) directly instead of dividing by cos(theta).
+- id: sign-flipped-tan
+  description: Computes the correct magnitude but with the wrong sign.
+- id: drops-the-sign
+  description: Reports the unsigned magnitude of tan(theta), ignoring that the coordinates' signs determine whether tan is positive or negative.
+- id: confuses-zero-and-undefined
+  description: Swaps "tan(theta) = 0" and "tan(theta) is undefined" at the quadrantal angles, offering 0 where cos(theta) = 0 or "undefined" where sin(theta) = 0.
+- id: reports-bare-coordinate
+  description: Reports the x- or y-coordinate directly as the answer instead of computing the sin/cos ratio.
+tags: [acara-senior-v8-4, trigonometry, unit-circle, tan, acmmm034]

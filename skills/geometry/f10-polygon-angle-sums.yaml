@@ -1,0 +1,35 @@
+id: f10-polygon-angle-sums
+name: Use polygon interior angle sums
+domain: geometry
+description: Given a stated polygon (by its number of sides) and all interior angles except one, determine the size of the unknown angle in degrees using the polygon's interior angle sum.
+status: active
+placement_eligible: false
+prerequisites: [f10-parallel-line-angle-theorems]
+answer: number
+sources:
+- topic: p13a_polygon_angle_sum
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13a_polygon_angle_sum
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13a_polygon_angle_sum
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13a_polygon_angle_sum
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-sum-formula
+  description: Uses n x 180 instead of (n - 2) x 180 for the interior angle sum (forgets the "-2").
+- id: grouped-angle-counted-once
+  description: (Medium/exam tiers only) Reads "g of the angles measure v degrees each" as one angle of value v instead of g angles, so subtracts v once instead of g x v.
+- id: wrong-adjacent-side-count
+  description: (Hard/exam tiers only) Looks up an adjacent wrong side count for the named polygon (e.g. reads "hexagon" as n=5), then applies the sum formula to that wrong n.
+- id: omits-one-known-angle
+  description: Omits one of the individually-listed known angles from the subtraction.
+tags: [f10, geometry, angles, polygon, interior-angle-sum, acara-v9-year-7]

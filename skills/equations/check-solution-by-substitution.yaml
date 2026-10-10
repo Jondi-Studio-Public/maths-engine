@@ -1,0 +1,37 @@
+id: check-solution-by-substitution
+name: Check equation solutions by substitution
+domain: equations
+description: Verify a proposed solution by substituting it into the original equation.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- solution-and-solution-set
+- apply-a-rule-to-inputs
+answer: mcq
+sources:
+- topic: linear_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Checking against a transformed equation only
+- id: misconception-2
+  description: Checking one side but not comparing both sides
+tags: []

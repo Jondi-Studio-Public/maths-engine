@@ -1,0 +1,38 @@
+id: quadratic-vertex
+name: Turning point
+domain: quadratics
+description: Find the vertex (turning point) of a quadratic by completing the square.
+status: active
+prerequisites:
+- solve-quadratics-factorable
+answer: pair
+sources:
+- topic: quadratic
+  params:
+    kind: vertex
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: quadratic
+  params:
+    kind: vertex
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: quadratic
+  params:
+    kind: vertex
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-negate-h
+  description: Forgetting to negate h when reading the vertex x-coordinate.
+- id: sign-error-k
+  description: A sign error on the vertex y-coordinate only.
+tags: []

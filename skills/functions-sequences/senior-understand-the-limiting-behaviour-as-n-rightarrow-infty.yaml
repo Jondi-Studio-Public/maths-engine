@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-limiting-behaviour-as-n-rightarrow-infty
+name: Understand the limiting behaviour as \(n\rightarrow\infty\)
+domain: functions-sequences
+description: Given a geometric sequence's first term and common ratio r, classify the limiting behaviour of the sequence as n tends to infinity as converging to zero, diverging to infinity, or neither (oscillating/no limit). The first term is always stated positive to keep "diverges to +infinity" unambiguous. r is given directly (easy), inferred from the first few terms (medium), read from an explicit or recursive rule with r close in magnitude to 1 (hard), or recovered from two non-consecutive terms via r^3 = t5/t2 (exam). Distinct from limit-at-infinity (domain limits), which evaluates the limit of a stated rational function of a continuous variable x, never a discrete geometric sequence's term-by-term limit; from senior-use-recursion-to-generate-a-geometric-sequence, which generates further terms rather than classifying long-term behaviour; and from senior-use-geometric-sequences-in-contexts-involving-geometric-growth, which models a growth context rather than classifying the limit as n tends to infinity.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19e_geometric_limit_class
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19e_geometric_limit_class
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19e_geometric_limit_class
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19e_geometric_limit_class
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-ratio-bounded-converges
+  description: Assumes any common ratio near 1 in magnitude converges to 0 without checking whether |r| < 1, overestimating which sequences converge.
+- id: ignores-sign-of-ratio
+  description: Focuses on the magnitude of r only, missing that r <= -1 makes the sequence oscillate in sign rather than diverge to +infinity the way a positive ratio of the same magnitude would.
+- id: treats-oscillation-as-neither
+  description: Sees terms alternating in sign and assumes the sequence has no clear trend, misclassifying a shrinking oscillation (|r| < 1 with r negative, e.g. r = -0.9) as "neither" instead of recognising it still converges to 0.
+tags: [acara-senior-v8-4, functions-sequences, sequences, limits, acmmm074]

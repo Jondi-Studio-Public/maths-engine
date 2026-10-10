@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-relating-to-travelling-east-and-west
+name: Solve problems relating to travelling east and west, incorporating time zone changes
+domain: senior-mathematics
+description: Given a travel journey's departure and arrival local clock times, its direction (east/west), flight duration and an explicit calendar-day label, find the magnitude of the time-zone difference between the two places.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: travel_east_west_zone_difference
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: travel_east_west_zone_difference
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: travel_east_west_zone_difference
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: omits-day-adjustment
+  description: Reconstructs the offset from the two clock times without accounting for the stated calendar-day label at all, as if the arrival were always on the same day as departure.
+- id: reports-duration-not-offset
+  description: States the flight duration, in hours, as if it were the time-zone difference.
+- id: off-by-rounding
+  description: Rounds a half-hour time-zone difference to the nearest whole hour.
+- id: day-term-sign-flip
+  description: Applies the calendar-day adjustment with the opposite sign, as if the day before were the day after or vice versa.
+- id: off-by-one-hour
+  description: Miscounts the reconstructed difference by a whole hour, over or under the correct value.
+tags: [acara-senior-v8-4, measurement, time-zones, essential-mathematics]

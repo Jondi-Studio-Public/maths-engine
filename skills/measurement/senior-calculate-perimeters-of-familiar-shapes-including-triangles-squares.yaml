@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-perimeters-of-familiar-shapes-including-triangles-squares
+name: Calculate perimeters of familiar shapes, including triangles, squares, rectangles, polygons, circles, arc lengths, and composites of these
+domain: measurement
+description: Given bounded, fully specified inputs, calculate perimeters of familiar shapes, including triangles, squares, rectangles, polygons, circles, arc lengths, and composites of these. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: calculate_perimeters_of_familiar_shapes
+  params: {mode: rectangle_or_square}
+  difficulty: easy
+  stages: [6]
+- topic: calculate_perimeters_of_familiar_shapes
+  params: {mode: triangle_or_polygon}
+  difficulty: medium
+  stages: [6]
+- topic: calculate_perimeters_of_familiar_shapes
+  params: {mode: composite}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-area-formula
+  description: Multiplies two of the shape's dimensions together (an area computation) instead of summing every side.
+- id: omits-a-side
+  description: Drops one side from the polygon or composite sum, undercounting the perimeter.
+- id: double-counts-shared-edge
+  description: Adds the full perimeter of each sub-shape in a composite separately, counting the internal shared edge between them twice instead of excluding it entirely.
+tags: [acara-senior-v8-4, measurement, perimeter, acmem091]

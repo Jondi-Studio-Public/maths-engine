@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-notation-frac-delta-y-delta-x
+name: Use the notation δy/δx for the difference quotient (f(x+h)-f(x))/h where y=f(x)
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use the notation δy/δx for the difference quotient (f(x+h)-f(x))/h where y=f(x). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: fraction
+sources:
+- topic: p9c_delta_y_delta_x_notation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9c_delta_y_delta_x_notation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9c_delta_y_delta_x_notation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-to-divide
+  description: Reports δy = f(p+δx)-f(p) alone, without dividing by δx.
+- id: reciprocal-error
+  description: Reports δx/δy, the reciprocal of the difference quotient, instead of δy/δx.
+- id: sign-error
+  description: Computes (f(p)-f(p+δx))/δx, the numerator order reversed.
+- id: ignored-delta-x-sign
+  description: Uses the magnitude |δx| instead of the stated negative δx, losing the sign of the change.
+tags: [acara-senior-v8-4, differentiation, notation, acmmm079]

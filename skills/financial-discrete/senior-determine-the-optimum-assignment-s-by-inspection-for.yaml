@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-the-optimum-assignment-s-by-inspection-for
+name: Determine the optimum assignment(s) by inspection for
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, determine the optimum assignment(s), by inspection for small-scale problems, or by use of the Hungarian algorithm for larger problems. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: determine_the_optimum_assignment_s_by_inspection_for
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: determine_the_optimum_assignment_s_by_inspection_for
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: determine_the_optimum_assignment_s_by_inspection_for
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: row-greedy-ignores-conflicts
+  description: Each worker independently picks their cheapest task, ignoring that multiple workers might pick the same task (infeasible assignment).
+- id: column-greedy-ignores-conflicts
+  description: Each task independently picks its cheapest worker, ignoring that multiple tasks might claim the same worker (infeasible assignment).
+- id: diagonal-default-unchecked
+  description: Assumes the default assignment (worker i does task i) is optimal without checking other permutations.
+tags: [acara-senior-v8-4, financial-discrete, networks, determine_the_optimum_assignment_s_by_inspection_for, ACMGM111]

@@ -1,0 +1,41 @@
+id: f10-probability-complements-compounds
+name: Calculate complementary event probabilities
+domain: statistics-probability
+description: >-
+  Given the probability of one event in a complementary pair, expressed as a fraction,
+  compute the probability of the complementary event as one minus the given probability,
+  expressed as a fraction in lowest terms.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-probability-scale-and-expectation
+- multiplication-principle
+answer: fraction
+sources:
+- topic: probability_complements_compounds
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: probability_complements_compounds
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: probability_complements_compounds
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-to-complement
+  description: States the probability of the original event instead of its complement.
+- id: misreads-numerator
+  description: Adjusts the numerator by ±1 before complementing, changing the first step without correct application of the complement rule.
+- id: adds-instead
+  description: Adds the probability to 1 instead of subtracting it from 1.
+- id: reciprocal
+  description: Swaps numerator and denominator instead of applying the complement rule.
+tags:
+- acara-f10-v9
+- statistics-probability
+- probability_complements_compounds
+- ac9m8p01
+- ac9m8p02

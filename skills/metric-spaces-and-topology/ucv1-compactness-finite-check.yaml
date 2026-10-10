@@ -1,0 +1,33 @@
+id: ucv1-compactness-finite-check
+name: Check compactness in a finite space
+domain: metric-spaces-and-topology
+description: For a supplied finite open cover of a finite topological space, decide which listed subfamily is itself an open subcover.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15b_compactness_subcover_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15b_compactness_subcover_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15b_compactness_subcover_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15b_compactness_subcover_check
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-every-listed-set-is-needed
+  description: Selects the full cover rather than checking whether a smaller listed subfamily already covers X, missing that one member is redundant.
+- id: drops-a-load-bearing-set
+  description: Removes a set that is the only one covering some point of X, producing a subfamily that misses that point.
+- id: judges-by-size-alone
+  description: On the exam tier, picks a subfamily by its SIZE (assuming smaller is always the intended minimal cover) without checking that it actually covers X, so a same-size non-covering subfamily is chosen over the genuinely covering one.
+tags: [university-core-v1, metric-spaces-and-topology, p15b_compactness_subcover_check]

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-calculating-a-percentage-of-a-given-amount
+name: Review calculating a percentage of a given amount
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, review calculating a percentage of a given amount. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: percentage_of_amount_review
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: percentage_of_amount_review
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: percentage_of_amount_review
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: divides-by-ten-not-hundred
+  description: Treats the percent as if dividing by 10 instead of 100, giving a result ten times too large.
+- id: subtracts-the-percentage-amount
+  description: Reports the amount minus the percentage amount instead of the percentage amount itself.
+- id: forgets-to-apply-percent-to-sum
+  description: Reports the raw summed total of the two amounts instead of the percentage of that total.
+- id: caps-at-the-whole-amount
+  description: For a percent over 100, reports the original amount itself, as if a percentage could never exceed 100% of the whole.
+tags: [acara-senior-v8-4, arithmetic, percentage_of_amount_review, ACMEM061]

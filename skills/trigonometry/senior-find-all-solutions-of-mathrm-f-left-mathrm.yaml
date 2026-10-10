@@ -1,0 +1,29 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-all-solutions-of-mathrm-f-left-mathrm
+name: Find all solutions of \(\mathrm f\left(\mathrm a\left(\mathrm x-\mathrm b\right)\right)=\mathrm c\) where \(f\) is one of \(\sin\), \(\cos\) or \(\tan\)
+domain: trigonometry
+description: Find all solutions, in a stated bounded domain, of f(a(x-b)) = c where f is sin, cos or tan, using the reference-angle/CAST method.
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: mcq
+sources:
+- topic: trig_equation_all_solutions
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: trig_equation_all_solutions
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: trig_equation_all_solutions
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-quadrant-cast
+  description: Applies the opposite CAST-rule sign branch, selecting solutions from the wrong quadrants.
+- id: misses-solutions-from-extra-periods-or-drops-one
+  description: On easy/medium, picks only one solution; on hard, forgets that the coefficient a=2 requires checking multiple periods within the domain.
+tags: [acara-senior-v8-4, trigonometry, trig-equations, acmsm042]

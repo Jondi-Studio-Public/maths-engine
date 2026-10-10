@@ -1,0 +1,31 @@
+id: ucv1-inclusion-exclusion-two-sets
+name: Count a union of two finite sets
+domain: discrete-mathematics
+description: Compute the cardinality of the union of two finite sets from the two set sizes and their intersection size.
+status: active
+placement_eligible: false
+prerequisites: [finite-set-operations]
+answer: number
+sources:
+- topic: inclusion_exclusion_two_sets
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: inclusion_exclusion_two_sets
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: inclusion_exclusion_two_sets
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgets-overlap
+  description: Adds the two set sizes directly, double-counting the intersection.
+- id: double-subtracts-overlap
+  description: Subtracts the overlap twice, as if computing the symmetric difference instead of the union.
+- id: swaps-union-and-intersection
+  description: Given the union size, reports it back unchanged as if it were the intersection size.
+- id: ignores-neither
+  description: Substitutes the total population directly for the union size instead of first subtracting the count in neither set.
+tags: [university-core-v1, discrete-mathematics, inclusion_exclusion_two_sets]

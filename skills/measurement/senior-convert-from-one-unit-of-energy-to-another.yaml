@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-from-one-unit-of-energy-to-another
+name: Convert from one unit of energy to another
+domain: measurement
+description: Given bounded, fully specified inputs, convert from one unit of energy to another. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: convert_energy_units
+  params: {mode: j_kj}
+  difficulty: easy
+  stages: [6]
+- topic: convert_energy_units
+  params: {mode: kj_mj}
+  difficulty: medium
+  stages: [6]
+- topic: convert_energy_units
+  params: {mode: kwh_kj}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-power-of-ten
+  description: Uses 100 or 10,000 instead of 1000 when converting between J and kJ or kJ and MJ (adjacent metric-prefix confusion).
+- id: direction-inversion
+  description: Multiplies when it should divide, or divides when it should multiply, when converting between energy units.
+- id: kwh-as-plain-kilo
+  description: Treats kWh as if it were just 1000x some base unit (confusing the kWh energy unit's actual physical factor of 3600 with its superficially kilo-prefixed name), using factor 1000 instead of the correct 3600.
+tags: [acara-senior-v8-4, measurement, energy, acmem034]

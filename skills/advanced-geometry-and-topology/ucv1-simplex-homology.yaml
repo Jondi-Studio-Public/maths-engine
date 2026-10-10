@@ -1,0 +1,35 @@
+id: ucv1-simplex-homology
+name: Compute homology of a tiny simplicial complex
+domain: advanced-geometry-and-topology
+description: Compute the Betti-number list of a supplied triangle, boundary triangle or single edge using its boundary matrices.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: ordered_list
+sources:
+- topic: p15b_simplex_homology
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15b_simplex_homology
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15b_simplex_homology
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15b_simplex_homology
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: drops-b0
+  description: Reports 0 for b0 (the number of connected components), forgetting that a nonempty complex always has at least one connected component.
+- id: off_by_one_b1
+  description: Reports b1 one too high or one too low, from an arithmetic slip in (edges - rank(d1)) - rank(d2) rather than recomputing the ranks.
+- id: thinks_a_face_creates_a_2_dim_hole
+  description: Reports b2 = 1 (or b1 unreduced) for the filled triangle, treating the single 2-face as if it were a hollow shell rather than a filled-in disc, missing that the face's boundary exactly kills the 1-dimensional cycle.
+- id: miscounts_components_from_the_matrix
+  description: On the matrix tiers, misreads rank(d1) from the relabelled or reoriented matrix (rather than actually computing it), producing a b0 that does not match the true number of connected components.
+tags: [university-core-v1, advanced-geometry-and-topology, p15b_simplex_homology]

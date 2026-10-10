@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-introduce-cartesian-coordinates-for-three-dimensional-space-including
+name: Introduce Cartesian coordinates for three-dimensional space, including plotting points and
+  the equations of spheres
+domain: vectors
+description: Given the equation of a sphere in centre-radius form, or in expanded form that needs
+  completing the square, state its centre coordinates and radius as the ordered 4-tuple (a, b, c,
+  r). easy reads centre-radius form directly (flip the printed signs, take the square root);
+  medium first rewrites a common-factor, moved-constant or split-sides variant into standard form;
+  hard completes the square from an expanded equation with an integer centre and radius; exam
+  divides through by a leading coefficient first, sometimes landing on a half-integer centre.
+  Plotting points in three dimensions is not assessed -- no honest two-dimensional drawn answer
+  exists for it -- and every sphere's equation is always supplied, never built from a diameter's
+  endpoints or a point known to lie on the sphere; this skill is not
+  senior-determine-vector-and-cartesian-equations-of-a-plane (a different surface, a different
+  equation family) and not f10-three-dimensional-coordinates (which subtracts two given points --
+  no equation, no centre, no radius).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: ordered_list
+sources:
+- topic: pv0c_sphere_centre_radius
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: pv0c_sphere_centre_radius
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: pv0c_sphere_centre_radius
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0c_sphere_centre_radius
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: centre-sign-flipped
+  description: Reports (a, b, c) with every sign kept as printed instead of flipped, e.g. reading
+    (x - 2) as centre coordinate -2 instead of 2.
+- id: r-squared-for-r
+  description: Reports r^2 (the number printed on the right of a centre-radius equation) in place
+    of r, skipping the final square root.
+- id: coefficient-not-halved
+  description: (hard/exam) Reads the expanded equation's D, E, F coefficients straight as the
+    centre coordinates without halving them, e.g. reporting 2a instead of a.
+- id: constant-sign-error
+  description: (hard/exam) Computes r^2 as a^2+b^2+c^2+G instead of a^2+b^2+c^2-G, using the wrong
+    sign on the constant term when completing the square.
+- id: not-divided-by-k
+  description: (exam) Reads the centre and radius straight off an equation with a common leading
+    coefficient k without dividing through by k first.
+tags: [acara-senior-v8-4, vectors, acmsm103]

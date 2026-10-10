@@ -1,0 +1,20 @@
+id: read-expressions
+name: Read and describe expressions
+domain: language-formulas
+description: Describe an expression using mathematical language and identify its operation structure.
+status: active
+prerequisites:
+- constants-coefficients-terms
+- algebraic-notation
+answer: mcq
+sources:
+- topic: read_expression
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2, 3, 4, 5, 6, maintenance]
+misconceptions:
+- id: misconception-1
+  description: Describing only the visible left-to-right order
+- id: misconception-2
+  description: Ignoring brackets when describing structure
+tags: []

@@ -1,0 +1,31 @@
+id: f10-decimal-order-numberline
+name: Order multi-place decimals
+domain: primary-number
+description: Order a supplied set of decimals with more than two decimal places, including values greater than one, from smallest to largest.
+status: active
+placement_eligible: false
+prerequisites: [decimal-place-value, f10-number-represent-order-to-120]
+answer: ordered_list
+sources:
+- topic: p9e_decimal_order_numberline
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9e_decimal_order_numberline
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9e_decimal_order_numberline
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the decimals from largest to smallest instead of smallest to largest.
+- id: longer-is-bigger
+  description: Reads the digits after the decimal point as if they were a whole number, ignoring place value, so a decimal with more digits after the point is wrongly ranked bigger (e.g. treats 0.45 as bigger than 0.5 because 45 > 5).
+- id: shorter-is-bigger
+  description: The mirror misconception -- treats a decimal with fewer digits after the point as bigger regardless of its digits (e.g. treats 0.5 as bigger than 0.45).
+- id: adjacent-swap
+  description: Orders the decimals correctly overall but swaps one neighbouring pair, as if two adjacent values did not need comparing once roughly placed.
+tags: [acara-f10-v9, primary, decimals, ordering, ac9m5n01]

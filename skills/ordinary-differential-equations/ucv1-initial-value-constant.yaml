@@ -1,0 +1,62 @@
+id: ucv1-initial-value-constant
+name: Apply an initial condition to a first-order solution
+domain: ordinary-differential-equations
+description: Determine the integration constant in a supplied first-order separable
+  solution from one initial condition. F(x) is always supplied already-integrated; the
+  learner never derives it from an ODE here (that is solve-ode-separable-poly's own
+  graded operation).
+status: active
+placement_eligible: false
+prerequisites: [solve-ode-separable-poly]
+answer: fraction
+sources:
+- topic: p13f_initial_value_constant
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p13f_initial_value_constant
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p13f_initial_value_constant
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p13f_initial_value_constant
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: forgets-to-subtract
+  description: Reports C = y0 unconditionally, ignoring F(x0). Correct only by
+    accident at the easy tier (where x0 = 0 makes F(x0) = 0 regardless), so it is only
+    exercised as a genuine distractor at medium, hard and exam.
+- id: sign-error-on-F
+  description: Reports C = y0 + F(x0) instead of y0 - F(x0). Same accident-of-x0=0
+    caveat as forgets-to-subtract at the easy tier.
+- id: substitutes-into-wrong-term
+  description: Evaluates F at y0 instead of x0. Only exercisable when x0 != y0,
+    enforced on every draw.
+- id: drops-a-term-of-F
+  description: Omits one term of F(x) when substituting (e.g. forgets the quadratic
+    term). Only exercisable when F has at least 2 nonzero terms and x0 != 0, so it is
+    never offered at the easy tier.
+- id: reports-F-as-C
+  description: Reports C = F(x0), ignoring the initial condition y0 entirely and
+    treating the evaluated antiderivative as if it were the constant. Exercisable at
+    every tier including easy (where F(x0) = 0, virtually always distinct from a
+    nonzero y0).
+- id: double-subtracts-F
+  description: Reports C = y0 - 2*F(x0), subtracting F(x0) twice. Collapses to the
+    answer at x0 = 0 (2*0 = 0), so it is not offered at the easy tier, but is a
+    genuine distractor at medium, hard and exam.
+tags: [university-core-v1, ordinary-differential-equations]

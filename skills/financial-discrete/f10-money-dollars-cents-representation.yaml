@@ -1,0 +1,35 @@
+id: f10-money-dollars-cents-representation
+name: Represent dollars and cents equivalently
+domain: financial-discrete
+description: Convert a stated dollars/cents money amount into its single equivalent numeral value in the other unit.
+status: active
+placement_eligible: false
+prerequisites: [australian-coin-values, money-change]
+answer: number
+sources:
+- topic: money_dollars_cents_representation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: money_dollars_cents_representation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: money_dollars_cents_representation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: leading-zero-drop
+  description: For cents -> dollars, drops the required tenths-place zero (e.g. 45 cents reported as 4.50 instead of 0.45).
+- id: forgot-the-dollars
+  description: For dollars -> cents, reports only the cents remainder and ignores the whole-dollar part entirely.
+- id: off-by-one-dollar
+  description: For dollars -> cents, an extra or missing whole dollar (100 cents off the correct total).
+- id: regrouping-failure
+  description: For dollars -> cents, drops the tens-of-cents zero when the cents part is a single digit (e.g. $3.05 read as 35 cents instead of 305).
+- id: bare-digits-as-dollars
+  description: For cents -> dollars, reports the raw cents count as if it were already a dollar figure, with no conversion at all.
+- id: div-by-ten
+  description: For cents -> dollars, moves the decimal point the wrong way (divides by 10 again instead of by 100).
+tags: [acara-f10-v9, primary, money, financial-discrete, ac9m3m06]

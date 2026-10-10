@@ -1,0 +1,35 @@
+id: distance-two-points
+name: Calculate the distance between two Cartesian points
+domain: linear-relations
+description: Calculate the exact Euclidean distance between two supplied Cartesian points.
+status: active
+placement_eligible: false
+prerequisites:
+- coordinate-plane-readiness
+- pythagorean-hypotenuse
+answer: expression
+sources:
+- topic: distance_two_points
+  params: {coord_hi: 6, leg_hi: 6, allow_negative: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: distance_two_points
+  params: {coord_hi: 10, leg_hi: 12, allow_negative: true}
+  difficulty: medium
+  stages: [3, 4]
+- topic: distance_two_points
+  params: {kind: perimeter, coord_hi: 16, leg_hi: 24, allow_negative: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-square-root
+  description: Reports dx² + dy² as the answer, forgetting to take the square root.
+- id: summed-differences
+  description: Adds the horizontal and vertical differences (Manhattan distance) instead of applying Pythagoras.
+- id: ignores-one-dimension
+  description: Uses only one coordinate's difference and ignores the other axis entirely.
+- id: sqrt-without-squaring
+  description: Remembers the square root but forgets to square the differences first, taking √(dx + dy).
+- id: missed-a-side
+  description: When finding a triangle's perimeter, sums only two of the three side lengths, forgetting to close the triangle back to the first point.
+tags: [acara-f10-v9, coordinate-geometry, ac9m9a03]

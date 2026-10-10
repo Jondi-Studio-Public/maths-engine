@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-simple-polynomial-equations
+name: Solve simple polynomial equations
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, solve simple polynomial equations. Return the resulting value, expression, relation, or classification. Every question is a monic quadratic in z with a non-real complex-conjugate root pair; the learner types the root with positive imaginary part, a complex value in the form a + bi (never a sum, product, or coefficient built from a stated root pair -- that is the scope of the sibling skill senior-consider-conjugate-roots-for-polynomials-with-real-coefficients, ACMSM090, which only ever asks for a real number). Never cubic or higher-degree, never factorisation or graphing.'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: expression
+sources:
+- topic: simple_polynomial_equation
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: simple_polynomial_equation
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: simple_polynomial_equation
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: states-conjugate-root
+  description: States the conjugate root (negative imaginary part) instead of the root with positive imaginary part.
+- id: sign-error-on-real-part
+  description: Flips the sign of the real part of the root.
+- id: forgets-real-shift
+  description: States only the imaginary part, forgetting the real shift p (medium/hard, where p != 0).
+- id: off-by-one-imaginary-part
+  description: States an imaginary part one unit away from the correct value.
+tags: [acara-senior-v8-4, functions-sequences, complex-numbers, simple_polynomial_equation, acmsm091]

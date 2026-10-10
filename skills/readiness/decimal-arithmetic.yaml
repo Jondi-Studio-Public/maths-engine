@@ -1,0 +1,79 @@
+id: decimal-arithmetic
+name: Operate with decimals
+domain: readiness
+placement_order: 20
+description: Perform the four operations with terminating decimals and estimate reasonableness.
+status: active
+prerequisites: []
+answer: number
+sources:
+- topic: decimals
+  params:
+    ops:
+    - +
+    - '-'
+    - '*'
+    - /
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: decimals
+  params:
+    ops:
+    - +
+    - '-'
+    - '*'
+    - /
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: decimals
+  params:
+    ops:
+    - +
+    - '-'
+    - '*'
+    - /
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: decimals
+    params:
+      dp: 1
+      hi: 9
+      ops:
+      - +
+      - '-'
+    target_s: 5
+    limit_s: 12
+  - topic: decimals
+    params:
+      dp: 1
+      hi: 20
+      ops:
+      - +
+      - '-'
+    target_s: 6
+    limit_s: 15
+  - topic: decimals
+    params:
+      dp: 2
+      hi: 20
+      ops:
+      - +
+      - '-'
+    target_s: 8
+    limit_s: 20
+misconceptions:
+- id: misconception-1
+  description: Aligning digits rather than decimal points
+- id: misconception-2
+  description: Ignoring place value when multiplying or dividing
+tags: []

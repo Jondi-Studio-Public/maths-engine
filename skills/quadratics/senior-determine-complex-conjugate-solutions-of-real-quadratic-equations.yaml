@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-complex-conjugate-solutions-of-real-quadratic-equations
+name: Determine complex conjugate solutions of real quadratic equations
+domain: quadratics
+description: Given a real quadratic equation with a negative discriminant, state the complex-valued solution with the positive imaginary part, in p + qi form. At the hard tier, one complex root and the equation's b coefficient are given, c is withheld, and the learner reasons via the conjugate-root theorem and Vieta's product relation to find the value of c. Complement to senior-consider-conjugate-roots-for-polynomials-with-real-coefficients, which always gives both coefficients and asks for the (always real) sum or product of the roots -- this skill's hard tier runs the reverse direction, root given, coefficient sought.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: expression
+sources:
+- topic: quadratic_complex_conjugate_solutions
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: quadratic_complex_conjugate_solutions
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: quadratic_complex_conjugate_solutions
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-error-real-part
+  description: Stated -p + qi instead of p + qi (sign error on the real part).
+- id: sign-error-imaginary-part
+  description: Stated p - qi instead of p + qi -- the other genuine root of the equation, offered because the question asks for the specific one with positive imaginary part.
+- id: forgot-to-divide-by-2a
+  description: Divided by 2 instead of 2a when the leading coefficient is not 1.
+- id: swapped-real-and-imaginary
+  description: Reported q + pi instead of p + qi.
+- id: forgot-i-squared-negative
+  description: 'Hard tier: computed p^2 - q^2 (as if for a real difference of squares) instead of p^2 + q^2, forgetting that squaring qi introduces a sign flip.'
+- id: forgot-imaginary-part-contribution
+  description: 'Hard tier: used only p^2 for c, forgetting to add the imaginary part''s square.'
+- id: forgot-real-part-contribution
+  description: 'Hard tier: used only q^2 for c, forgetting to add the real part''s square.'
+- id: confused-b-and-c
+  description: 'Hard tier: reported the value of b instead of computing c.'
+tags: []

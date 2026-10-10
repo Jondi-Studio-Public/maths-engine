@@ -1,0 +1,38 @@
+# The maintainer reviews every change. A pull request can neuter CI without touching a path that
+# any list could name: a root conftest.py (a pytest_sessionfinish hook that sets the exit status),
+# a pytest.ini, tox.ini or setup.cfg with addopts, a pytest.py module that shadows pytest, a ruff
+# config that excludes everything, a .gitignore line that makes ruff skip a file, a .gitattributes
+# that hides a diff from the secret scan. So the first rule is a catch-all. It must stay first and
+# must name the same owner as every later rule, because the last matching rule wins. The ruleset
+# requires a code-owner review (see AGENTS.md), and green CI is never a substitute for it.
+*                    @jondihaynes
+
+# The rules below match nothing the catch-all does not already cover. They stay as documentation of
+# what decides what green means, what the project ships, and under what licence.
+/.github/            @jondihaynes
+/scripts/            @jondihaynes
+/tests/              @jondihaynes
+/pyproject.toml      @jondihaynes
+/AGENTS.md           @jondihaynes
+/SECURITY.md         @jondihaynes
+/NOTICE              @jondihaynes
+/LICENSE*            @jondihaynes
+
+# Files that change how pytest and ruff run, what ruff skips, or what the secret scan can see.
+conftest.py          @jondihaynes
+/pytest.py           @jondihaynes
+/pytest.ini          @jondihaynes
+/tox.ini             @jondihaynes
+/setup.cfg           @jondihaynes
+/ruff.toml           @jondihaynes
+/.ruff.toml          @jondihaynes
+.gitignore           @jondihaynes
+.gitattributes       @jondihaynes
+
+# The secret scan reads these two from the base branch, so a change to them is a change to the scan.
+/.gitleaks.toml      @jondihaynes
+/.gitleaksignore     @jondihaynes
+
+# The code that turns an answer typed by a learner into something that is evaluated. A mistake
+# here is remote code execution (SECURITY.md lists it as in scope).
+/mathgen/grading/    @jondihaynes

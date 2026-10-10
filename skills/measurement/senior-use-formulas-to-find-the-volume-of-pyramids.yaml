@@ -1,0 +1,46 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-formulas-to-find-the-volume-of-pyramids
+name: Use formulas to find the volume of pyramids and spheres
+domain: measurement
+description: Given bounded, fully specified inputs, use formulas to find the volume of pyramids
+  and spheres. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: expression
+sources:
+- topic: volume_of_pyramids_and_spheres
+  params: {mode: square_pyramid}
+  difficulty: easy
+  stages: [6]
+- topic: volume_of_pyramids_and_spheres
+  params: {mode: rectangular_pyramid}
+  difficulty: medium
+  stages: [6]
+- topic: volume_of_pyramids_and_spheres
+  params: {mode: sphere}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: volume_of_pyramids_and_spheres
+  params: {mode: sphere_decimal}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: omits_one_third_factor
+  description: Treats a pyramid as a prism, computing base area × height without applying the 1/3 factor.
+- id: confuses_perimeter_with_base_area
+  description: Uses the square base's perimeter (4 × side) instead of its area (side²) when computing a square-based pyramid's volume.
+- id: squares_wrong_dimension
+  description: Squares the height instead of the base edge length when computing a square-based pyramid's volume.
+- id: uses_prism_half_factor
+  description: Applies the triangular prism's 1/2 factor instead of the pyramid's 1/3 factor (wrong-shape-formula).
+- id: omits_a_dimension
+  description: Uses only two of a rectangular-based pyramid's three independently stated dimensions, dropping one entirely.
+- id: uses_diameter_as_radius
+  description: Cubes the sphere's diameter directly instead of halving it to the radius first.
+- id: uses_4_instead_of_4_thirds
+  description: Uses 4 instead of 4/3 as the sphere volume coefficient, omitting the /3.
+- id: confuses_sphere_with_circle_area
+  description: Squares the radius instead of cubing it, confusing the sphere volume formula with a circle's area formula.
+tags: [acara-senior-v8-4, measurement, volume, pyramids, spheres, acmem104]

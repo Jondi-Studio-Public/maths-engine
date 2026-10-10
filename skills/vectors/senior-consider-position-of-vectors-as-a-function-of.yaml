@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-consider-position-of-vectors-as-a-function-of
+name: Consider position of vectors as a function of time
+domain: vectors
+description: Given bounded, fully specified inputs, consider position of vectors as a function of time. Return the resulting value, expression, relation, or classification. This skill is restricted to two-dimensional position vectors (never three-component vectors). The skill evaluates a stated position vector at a stated time, or finds the displacement between two stated times by direct substitution and subtraction. This skill does not differentiate or integrate—all rate-of-change content is reserved for the related skill on differentiate-and-integrate-a-vector-function-with-respect (ACMSM113).
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: pair
+sources:
+- topic: consider_position_of_vectors_as_a_function_of
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: consider_position_of_vectors_as_a_function_of
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: consider_position_of_vectors_as_a_function_of
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: dropped-constant
+  description: Forgets to add the constant term when evaluating a linear component (easy tier).
+- id: swapped-components
+  description: Reports the x and y components in the wrong order (any tier).
+- id: sign-error-on-t
+  description: Substitutes negative t instead of the stated positive value (any tier).
+- id: forgot-square
+  description: Forgets to square t in the quadratic term, treating t^2 as just t (medium tier).
+- id: reported-position-not-displacement
+  description: Reports the position at the end time instead of computing the displacement (hard tier).
+- id: wrong-direction
+  description: Computes displacement in the opposite direction, subtracting the end time from the start time (hard tier).
+tags: [acara-senior-v8-4, vectors, position-vector-function, time-evaluation, acmsm111]

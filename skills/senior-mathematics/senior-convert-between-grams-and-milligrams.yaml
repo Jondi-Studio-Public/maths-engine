@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-between-grams-and-milligrams
+name: Convert between grams and milligrams
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, convert between grams and milligrams. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: grams_milligrams_convert
+  params: {variant: g_to_mg}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grams_milligrams_convert
+  params: {variant: mg_to_g}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grams_milligrams_convert
+  params: {variant: mixed_unit_total}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: factor-of-100-error
+  description: Uses one hundred as the conversion factor instead of one thousand.
+- id: wrong-direction
+  description: Divides when multiplying is needed or vice versa.
+- id: forgets-to-convert-the-grams-component
+  description: Adds raw digits without converting the grams component to the target unit.
+- id: converts-the-wrong-component
+  description: Converts the milligrams instead of the grams component when finding a total in milligrams.
+tags: [acara-senior-v8-4, measurement, mass, metric]

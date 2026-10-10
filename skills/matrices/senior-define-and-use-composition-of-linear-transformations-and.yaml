@@ -1,0 +1,34 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-and-use-composition-of-linear-transformations-and
+name: Compose two linear transformations using their matrix product
+domain: matrices
+description: Given bounded, fully specified inputs, define and use composition of linear transformations and the corresponding matrix products. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-multiplication
+answer: pair
+sources:
+- topic: linear_transform_composition
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: linear_transform_composition
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: linear_transform_composition
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: only-second
+  description: Applies only the second stated transformation to the point, skipping the first transformation entirely.
+- id: only-first
+  description: Applies only the first stated transformation to the point, never applying the second.
+- id: added-not-composed
+  description: Adds the two dilation factors coordinate-wise instead of composing the two transformations via a matrix product (or, equivalently, sequential application).
+- id: reversed-order
+  description: Applies the two stated transformations in the opposite order from the one the question stated, exploiting the fact that a dilation/rotation or rotation/reflection pair generally does not commute.
+tags: [acara-senior-v8-4, matrices, linear-transformations, acmsm057]

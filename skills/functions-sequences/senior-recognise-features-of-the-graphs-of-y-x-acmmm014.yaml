@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-features-of-the-graphs-of-y-x-acmmm014
+name: 'Read the end behaviour of y = x^n off its graph'
+domain: functions-sequences
+description: 'A curve y = x^n, with n a positive whole number, n = -1 or n = 1/2 and never printed, is drawn on a labelled integer grid, and the learner picks what y does as x tends to infinity or as x tends to negative infinity, whichever the question names: increases without bound, decreases without bound or approaches a fixed value. The class is drawn first, about a third each, then an (n, end) of that class (n = 1/2 is asked at the right end only). Tier ladder by decision: easy draws n = 1, 2, 3 or -1 in a centred window with both ends in view, so the decision is reading the named end, and an odd power at the left end is the one that decreases; medium adds n = 4, 5 and n = 1/2, whose bend looks like levelling off while it keeps rising; hard draws only the half of the curve on the named side of the y-axis, so there is no mirror half to compare with and an even power at the left end falls toward the origin read left to right yet increases as x tends to negative infinity; exam moves that half-curve a unit or two off the y-axis so no y-axis is drawn and the curve is a fragment read against the numbers on the grid edges.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: pv1e_power_end_behaviour
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1e_power_end_behaviour
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1e_power_end_behaviour
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1e_power_end_behaviour
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reads-the-other-end
+  description: 'Reads the behaviour at the opposite end of the curve, for example the falling lower-left arm of an odd power when asked about x tending to infinity.'
+- id: reads-left-to-right-at-the-left-end
+  description: 'Reads the curve left to right at the left end, so an even power that falls toward the origin looks like it decreases, when as x tends to negative infinity it increases without bound.'
+- id: reads-a-bend-as-levelling-off
+  description: 'Takes a curve that bends or flattens (a square root, or any power far from the origin) as approaching a fixed value, when it keeps increasing or decreasing without bound.'
+- id: reads-approach-as-falling
+  description: 'Takes the branch of y = 1/x creeping toward the x-axis as heading down without bound, instead of approaching the fixed value 0.'
+- id: reads-the-branch-beside-the-axis-as-the-end
+  description: 'Takes the branch of y = 1/x rising beside the y-axis as the end behaviour, instead of reading the far end where it levels off.'
+tags: [acara-senior-v8-4, functions-sequences, power-function, end-behaviour, graph, acmmm014, figure]

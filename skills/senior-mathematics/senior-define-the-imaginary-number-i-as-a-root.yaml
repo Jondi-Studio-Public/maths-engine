@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-the-imaginary-number-i-as-a-root
+name: Define the imaginary number i as a root of the equation x^2=-1
+domain: senior-mathematics
+description: |
+  Given bounded, fully specified inputs, define the imaginary number i as a root of the
+  equation x^2=-1. Return the resulting value, expression, relation, or classification.
+  Closed-form only: every answer is drawn from {1, -1, i, -i} or, at the easy tier, k*i
+  for a perfect-square radicand -- no general complex arithmetic is assessed by this skill
+  (that belongs to senior-solve-simple-polynomial-equations and the two n-th-roots
+  skills). The learner-typed form is always lowercase i; capital I is not accepted, so
+  the question text always shows lowercase i.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+  - topic: imaginary_number_i_root
+    params: {}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: imaginary_number_i_root
+    params: {}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: imaginary_number_i_root
+    params: {}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: dropped-imaginary-unit-kept-sign
+    description: Reports k instead of ki -- treats sqrt(-k^2) as sqrt(k^2), dropping the imaginary unit entirely.
+  - id: dropped-imaginary-unit-flipped-sign
+    description: Reports -k instead of ki -- takes the negative root before applying the imaginary unit.
+  - id: sign-flip-on-i
+    description: Reports -ki instead of ki (or vice versa) -- correct magnitude, wrong sign on the imaginary unit.
+  - id: mod4-off-by-one-plus
+    description: Reduces the exponent by (n+1) % 4 instead of n % 4 when evaluating i^n.
+  - id: mod4-off-by-one-minus
+    description: Reduces the exponent by (n-1) % 4 instead of n % 4 when evaluating i^n.
+  - id: exponent-treated-as-positive
+    description: For a negative exponent, reduces abs(n) % 4 instead of the correctly-signed n % 4 -- ignores that i^-1 = 1/i = -i.
+tags: [acara-senior-v8-4, senior-mathematics, complex-numbers, ACMSM067]

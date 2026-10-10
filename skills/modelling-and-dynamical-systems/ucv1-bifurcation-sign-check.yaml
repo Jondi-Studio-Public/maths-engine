@@ -1,0 +1,38 @@
+id: ucv1-bifurcation-sign-check
+name: Detect a one-parameter equilibrium bifurcation
+domain: modelling-and-dynamical-systems
+description: For a supplied scalar equilibrium equation, identify the parameter value where the number of real equilibria changes.
+status: active
+placement_eligible: false
+prerequisites:
+- autonomous-equilibrium-stability
+answer: number
+sources:
+- topic: p13e_bifurcation_sign_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13e_bifurcation_sign_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13e_bifurcation_sign_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13e_bifurcation_sign_check
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: drops-the-four
+  description: Reports r* = b^2/a, forgetting the factor of 4 in the discriminant.
+- id: sign-flip
+  description: Reports r* = -b^2/(4a).
+- id: swaps-coefficients
+  description: Reports r* = a^2/(4b), swapping which coefficient is squared.
+- id: uses-wrong-candidate
+  description: On the exam tier, reports the decoy candidate value of r instead of the one that actually zeroes the discriminant.
+- id: wrong-root-sign
+  description: On the hard tier, reports the negative threshold -2*sqrt(ac) instead of the positive value asked for.
+tags: [university-core-v1, dynamics]

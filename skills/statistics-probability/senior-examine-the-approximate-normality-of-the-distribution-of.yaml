@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-approximate-normality-of-the-distribution-of
+name: Examine the approximate normality of the distribution of p-hat
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs (a sample size n and a sample proportion p-hat, stated directly or via raw counts), examine the approximate normality of the distribution of p-hat for large samples. Returns a 4-way classification -- valid (both n×p-hat and n×(1-p-hat) at least 10), or not valid because n×p-hat is less than 10, n×(1-p-hat) is less than 10, or both are less than 10 -- using the standard bounded rule, stated explicitly in every question''s own text rather than assumed memorised. This is a diagnostic classification, never an interval computation: it never produces interval bounds, which is the full computation the neighbouring senior-use-the-approximate-confidence-interval-left-widehat-p skill (ACMMM178) performs once the approximation already holds. Three tiers: direct substitution given a stated sample proportion, confidently clear of the threshold either way; the same substitution given raw counts (x successes out of n) instead of the proportion directly, requiring a division first; and that same counts-based derivation constructed so that at least one of the two products lands within 1-2 of the threshold of 10 (never exactly on it), forcing genuine arithmetic care.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: mcq
+sources:
+- topic: p8c_normality_approx_phat
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p8c_normality_approx_phat
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p8c_normality_approx_phat
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: checks-only-one-condition
+  description: Checks only one of n×p-hat or n×(1-p-hat) against the threshold of 10 and ignores the other, picking a category true for only one condition.
+- id: reverses-the-inequality
+  description: Treats "at least 10" as "at most 10", inverting which side of the threshold counts as valid.
+- id: assumes-validity-without-checking
+  description: Assumes the normal approximation is always valid for a "large" sample without computing either product against the stated threshold.
+tags: [acara-senior-v8-4, statistics-probability, normality-approximation, proportion, acmmm175]

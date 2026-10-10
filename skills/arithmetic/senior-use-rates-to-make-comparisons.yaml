@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-rates-to-make-comparisons
+name: Use rates to make comparisons
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, use rates to make comparisons. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p7d_use_rates_to_compare
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p7d_use_rates_to_compare
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p7d_use_rates_to_compare
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: sum-instead-of-difference
+  description: Adds the two rates instead of finding their difference.
+- id: reports-larger-rate-only
+  description: Reports the larger rate alone instead of the difference between the two.
+- id: reports-smaller-rate-only
+  description: Reports the smaller rate alone instead of the difference between the two.
+- id: raw-totals-not-rates
+  description: Compares the raw totals instead of computing each unit rate first.
+- id: raw-quantities-not-rates
+  description: Compares the raw quantities (hours/minutes) instead of the computed rates.
+- id: mL-treated-as-litres
+  description: Divides the mL-labelled pack price by its raw number, treating millilitres as if they were already litres.
+- id: added-instead-of-subtracted-per-litre
+  description: Adds the two per-litre prices instead of subtracting them.
+tags: [acara-senior-v8-4, arithmetic, rates, p7d_use_rates_to_compare, ACMEM074]

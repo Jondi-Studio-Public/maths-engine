@@ -1,0 +1,35 @@
+id: ucv1-definition-quantifier-check
+name: Check definitions and quantifiers
+domain: proof-and-foundations
+description: For a supplied finite relation between two stated sets, identify one of its domain, codomain, quantifier scope, or whether it is a function.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15a_definition_quantifier_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15a_definition_quantifier_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15a_definition_quantifier_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15a_definition_quantifier_check
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-domain-with-active-domain
+  description: Answers with the set of elements that actually appear as a first coordinate in R, instead of the stated ambient domain A.
+- id: confuses-domain-and-codomain
+  description: Swaps the domain and codomain sets when asked for one of them.
+- id: treats-shared-output-as-non-function
+  description: Believes two different inputs mapping to the same output makes a relation fail to be a function -- that is an injectivity property, never a function-ness property, and is offered every draw as a guaranteed-wrong option.
+- id: assumes-single-witness-not-needed-for-both
+  description: Believes 'only statement (ii) is true' is a coherent possibility -- (ii) [a single b works for every a] logically FORCES (i) [every a has some witness b], so that option is offered every draw and is never the key.
+tags: [university-core-v1, proof-and-foundations, p15a_definition_quantifier_check]

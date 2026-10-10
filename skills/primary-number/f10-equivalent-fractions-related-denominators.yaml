@@ -1,0 +1,33 @@
+id: f10-equivalent-fractions-related-denominators
+name: Generate equivalent fractions with related denominators
+domain: primary-number
+description: Generate an equivalent fraction with a related denominator for a supplied fraction. Never a decimal connection, a number-line placement or a simplification -- grade_fraction compares fractions by exact value, so a distractor is never "the right value, a different denominator"; every misconception offered here is a genuinely different fraction value.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-unit-fractions-combine-whole
+- compare-common-fractions
+answer: fraction
+sources:
+- topic: equivalent_fraction_related_denominator
+  params: {shape: "direct"}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: equivalent_fraction_related_denominator
+  params: {shape: "named"}
+  difficulty: medium
+  stages: [3, 4]
+- topic: equivalent_fraction_related_denominator
+  params: {shape: "backward"}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: scaled-numerator-only
+  description: Multiplies the numerator by the scale factor but leaves the denominator unchanged (e.g. for 2/3 -> ?/12, answers 8/3 instead of 8/12).
+- id: scaled-denominator-only
+  description: Multiplies the denominator by the scale factor but leaves the numerator unchanged (e.g. for 2/3 -> ?/12, answers 2/12 instead of 8/12).
+- id: added-scale-factor
+  description: Adds the scale factor to numerator and denominator instead of multiplying by it (e.g. scale factor 4, answers (2+4)/(3+4) = 6/7 instead of 8/12).
+- id: wrong-scale-factor
+  description: Uses the original denominator as if it were the scale factor, instead of dividing the target denominator by the original denominator to find it.
+tags: [acara-f10-v9, primary, number, fractions, equivalent-fractions, ac9m4n03, ac9m4n04, ac9m5n03]

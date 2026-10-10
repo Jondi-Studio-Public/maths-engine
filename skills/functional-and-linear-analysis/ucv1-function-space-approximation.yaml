@@ -1,0 +1,49 @@
+id: ucv1-function-space-approximation
+name: Compute a finite basis approximation
+domain: functional-and-linear-analysis
+description: Compute the least-squares coefficients of a supplied function sampled on a fixed two-function basis.
+status: active
+placement_eligible: false
+prerequisites: [least-squares-line]
+answer: pair
+sources:
+- topic: p15c_function_space_approximation
+  params: {basis: one_xsq, evaluate_fn: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15c_function_space_approximation
+  params: {basis: x_xsq, evaluate_fn: false}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15c_function_space_approximation
+  params: {basis: sq_cube, evaluate_fn: false}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15c_function_space_approximation
+  params: {basis: sq_cube, evaluate_fn: true}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swaps-coefficient-order
+  description: Reports c2 in place of c1 and vice versa, ignoring the stated order (first basis function's coefficient first).
+- id: sign-error-c1
+  description: Negates c1 only, keeping c2 correct.
+- id: sign-error-c2
+  description: Negates c2 only, keeping c1 correct.
+- id: forgets-to-evaluate-f
+  description: On the exam tier, where each sampled value is f(x) = |x| plus a stated residual, uses only the residual and forgets to add |x|, or evaluates f(x) as x instead of |x|.
+tags: [university-core-v1, functional-analysis, p15c_function_space_approximation]
+framework_areas: [functional-and-linear-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: functional-and-linear-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: functional-and-linear-analysis
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: functional-and-linear-analysis

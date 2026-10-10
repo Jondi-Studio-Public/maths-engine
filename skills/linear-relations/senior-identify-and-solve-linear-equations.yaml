@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-and-solve-linear-equations
+name: Identify and solve linear equations
+domain: linear-relations
+description: Classify a given one-variable equation as linear or not linear. The "solve" half of the skill name is covered by the active equations set and by senior-solve-linear-equations; the deliverable here is the judgement call of deciding whether a given equation is linear in the first place (rejecting a squared term, a reciprocal-in-the-unknown term, or a bracket expansion that does or does not cancel), stating the solved value only when the equation is in fact linear.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: identify_and_solve_linear_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: identify_and_solve_linear_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: identify_and_solve_linear_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-classification
+  description: Stated the opposite classification from the true one -- called a linear equation "not linear", or a non-linear equation "linear"
+- id: right-classification-wrong-value
+  description: Correctly classified the equation as linear but stated an incorrect solution (a sign error or a dropped/duplicated term)
+- id: surface-pattern-misclassification
+  description: Classified the equation from its surface shape -- a solvable-looking reciprocal, or a bracket pair that looks identical to a sibling equation -- without actually expanding, simplifying, or checking where the unknown sits
+tags: []

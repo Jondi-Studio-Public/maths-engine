@@ -1,0 +1,37 @@
+id: f10-fraction-equivalence-numberline
+name: Compare and order common fractions on one line
+domain: primary-number
+description: 'Order a supplied set of halves, thirds and quarters from smallest
+  to largest. Not a pairwise comparison (that is compare-common-fractions'' own
+  mcq shape, "less than/equal to/greater than") -- orders a whole supplied set of
+  three or four values at once. The value pool is fixed and small by design
+  (denominators 2, 3 and 4 only) -- the only proper fractions with denominator in {2, 3, 4} are
+  1/4, 1/3, 1/2, 2/3 and 3/4. At the hardest tier exactly one displayed value is
+  shown in a non-canonical, unreduced equivalent form (e.g. "1/3" as "2/6"), so
+  the learner must recognise the hidden equivalence before ordering it. grade_ordered_list
+  is exact-position, no partial credit.'
+status: active
+placement_eligible: false
+prerequisites: [f10-equivalent-fractions-related-denominators, compare-common-fractions]
+answer: ordered_list
+sources:
+- topic: p10e_fraction_equivalence_numberline
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10e_fraction_equivalence_numberline
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10e_fraction_equivalence_numberline
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the fractions from largest to smallest instead of smallest to largest.
+- id: adjacent-swap
+  description: Orders the fractions correctly overall but swaps one neighbouring pair, as if two adjacent values did not need comparing once roughly placed.
+- id: denominator-then-numerator-order
+  description: Sorts by the displayed denominator ascending, then the displayed numerator ascending, ignoring the actual fraction value entirely -- so a fraction with a bigger denominator is always ranked after one with a smaller denominator, regardless of size.
+tags: [acara-f10-v9, primary, number, fractions, ordering, equivalent-fractions, ac9m6n03, ac9m7n04]

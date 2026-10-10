@@ -1,0 +1,10 @@
+id: classify-data
+name: Classify a data variable
+domain: statistics-probability
+description: Classify a variable as categorical, discrete numerical or continuous numerical.
+status: active
+prerequisites: []
+answer: mcq
+sources: [{topic: classify_data, params: {}, difficulty: easy}]
+misconceptions: [{id: numbers-always-continuous, description: Treats every numerical variable as continuous.}]
+tags: [expansion-batch-3, statistics]

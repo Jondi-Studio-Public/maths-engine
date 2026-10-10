@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-y-tan-x-c-and-the-relationships-sin
+name: "y=tan(x+c) and the relationships sin(x+π/2)=cos(x) and cos(x-π/2)=sin(x)"
+domain: trigonometry
+description: "Apply the co-function identities sin(x + pi/2) = cos(x) and cos(x - pi/2) = sin(x) to evaluate exact trig values, and find the vertical-asymptote location of y = tan(x + c) for a stated horizontal shift c."
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: expression
+sources:
+- topic: tan_shift_complementary_identity
+  params: {variant: sin_shift}
+  difficulty: easy
+  stages: [6]
+- topic: tan_shift_complementary_identity
+  params: {variant: cos_shift}
+  difficulty: medium
+  stages: [6]
+- topic: tan_shift_complementary_identity
+  params: {variant: tan_asymptote}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgets-the-cofunction-identity
+  description: Evaluates the original function directly instead of applying the stated co-function identity.
+- id: sign-error-on-cofunction-value
+  description: Applies the identity correctly but makes a sign error in the resulting value.
+- id: ignores-the-shift-c
+  description: Locates the asymptote at x = pi/2 without accounting for the horizontal shift c.
+- id: adds-instead-of-subtracts-the-shift
+  description: Uses addition instead of subtraction when solving for the asymptote location.
+tags: [acara-senior-v8-4, trigonometry, cofunction-identities, tan-shift, acmmm039]

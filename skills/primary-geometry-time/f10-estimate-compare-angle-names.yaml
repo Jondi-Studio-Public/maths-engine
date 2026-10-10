@@ -1,0 +1,29 @@
+id: f10-estimate-compare-angle-names
+name: Order angle names by size
+domain: primary-geometry-time
+description: Order a stated set of angle names (acute, right, obtuse, straight, reflex, revolution) from smallest to largest.
+status: active
+placement_eligible: false
+prerequisites: [angle-types, f10-angle-turn-right-reference]
+answer: ordered_list
+sources:
+- topic: p11d_compare_angle_names
+  params: {n: 3, hard_shuffle: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11d_compare_angle_names
+  params: {n: 4, hard_shuffle: false}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11d_compare_angle_names
+  params: {n: 5, hard_shuffle: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Arranges the names from largest to smallest instead of smallest to largest.
+- id: adjacent-swap
+  description: Swaps two adjacent names in the correct order while leaving the rest unchanged.
+- id: first-last-swap
+  description: (Medium and hard tiers only, N>=4) Swaps the first and last names while keeping the middle names unchanged; at N=3 this is identical to full reversal and is not offered.
+tags: [f10, geometry, angles, ordering, acara-v9-year-4]

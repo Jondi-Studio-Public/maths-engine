@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-amplitude-changes-and-the-graphs-of-y
+name: Read the value of a from the graph of y = a sin x
+domain: trigonometry
+description: Given one drawn sine curve y = a sin x on labelled axes (x marked in multiples of pi, y on an integer grid) with a never printed, state the value of a by reading the curve's extreme height on the y grid and deciding its sign from the curve and the x-axis window. The easy tier has a positive (the amplitude); later tiers allow a negative.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: fraction
+sources:
+- topic: pv1c_amplitude
+  params: {variant: peak_up}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1c_amplitude
+  params: {variant: signed_near_origin}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1c_amplitude
+  params: {variant: offset_window}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1c_amplitude
+  params: {variant: single_lobe}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sign-flipped
+  description: Gets the size of a right but the wrong sign, reading the curve as rising first (or falling first) when the x-axis window, or the direction of the first extreme from the origin, says otherwise.
+- id: peak-to-trough
+  description: Reads the full height from the lowest point to the highest point (twice a) instead of the height of one extreme from the x-axis.
+- id: off-by-one-up
+  description: Miscounts the gridlines up to the extreme and gives a value one unit further from zero than the true extreme.
+- id: off-by-one-down
+  description: Miscounts the gridlines up to the extreme (for example from the unlabelled even lines) and gives a value one unit nearer zero than the true extreme.
+tags: [acara-senior-v8-4, trigonometry, sine, amplitude, acmmm037, figure]

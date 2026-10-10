@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-the-concept-of-an-interval-estimate-for-a
+name: The concept of an interval estimate for a proportion
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, the concept of an interval estimate for a parameter associated with a random variable. This skill assesses the computational margin of error for a sample proportion, not the full interval bounds. Three tiers: direct calculation from sample proportion and size; computation of sample proportion from raw counts; and inverse recovery of required sample size given a target margin of error.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: interval_estimate_proportion_margin
+  params: {variant: direct}
+  difficulty: easy
+  stages: [6]
+- topic: interval_estimate_proportion_margin
+  params: {variant: from_counts}
+  difficulty: medium
+  stages: [6]
+- topic: interval_estimate_proportion_margin
+  params: {variant: solve_for_n}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits-square-root
+  description: Computes z*phat*(1-phat)/n without taking the square root.
+- id: omits-division-by-n
+  description: Computes z*sqrt(phat*(1-phat)) without dividing by n.
+- id: omits-complement
+  description: Computes z*sqrt(phat/n) without including the (1-phat) factor.
+- id: omits-z-squared
+  description: Forgets to square z when solving for sample size.
+- id: omits-E-squared
+  description: Forgets to square the target margin of error when solving for sample size.
+- id: uses-floor-instead-of-ceil
+  description: Rounds down instead of rounding up when solving for required sample size.
+tags: [acara-senior-v8-4, statistics-probability, interval-estimate, proportion, acmmm177, acmsm140]

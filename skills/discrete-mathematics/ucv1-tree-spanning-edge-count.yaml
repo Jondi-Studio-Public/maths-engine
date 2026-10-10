@@ -1,0 +1,37 @@
+id: ucv1-tree-spanning-edge-count
+name: Count edges in a finite tree
+domain: discrete-mathematics
+description: Determine the number of edges in a supplied connected acyclic graph from its vertex count.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p14b_tree_edge_count
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14b_tree_edge_count
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14b_tree_edge_count
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14b_tree_edge_count
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-n-not-n-minus-1
+  description: Reports n itself as the edge count instead of n - 1 (the single most natural off-by-one error for this invariant).
+- id: uses-n-plus-1
+  description: Reports n + 1 instead of n - 1 -- the reverse off-by-one.
+- id: forgets-to-halve-degree-sum
+  description: Sums the stated degree sequence and reports the raw sum (2(n-1)) directly instead of dividing by 2 first.
+- id: wrong-vertex-count-formula
+  description: Mistakes the internal-node count (L - 1, for a full binary tree with L leaves) for the edge count itself, instead of computing n = L + (L - 1) and then n - 1.
+- id: reports-given-edges-directly
+  description: At the exam tier, reports the stated total edge count directly instead of subtracting the n - 1 spanning-tree baseline to find the extra edges.
+tags: [university-core-v1, discrete-mathematics, p14b_tree_edge_count]

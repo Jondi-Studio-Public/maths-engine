@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-contexts-suitable-for-modelling-by-trigonometric-functions
+name: Identify contexts suitable for modelling by trigonometric functions and use them to solve practical problems
+domain: trigonometry
+description: "Given a stated real-world periodic scenario modelled by a sinusoidal function with stated amplitude, period and starting condition, compute the numeric value of the modelled quantity (for example height or depth) at a stated time. Amplitude, period and starting condition are always fully stated in words; the function itself is never shown and the learner is never asked to identify or choose a suitable context."
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19g_sinusoid_evaluate_context
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19g_sinusoid_evaluate_context
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19g_sinusoid_evaluate_context
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19g_sinusoid_evaluate_context
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgets-amplitude
+  description: Reports the mean value alone, ignoring the sine term entirely, as if the quantity were constant.
+- id: forgets-mean
+  description: Reports only the deviation from the mean (A*sin(...)) instead of adding the mean value D.
+- id: sign-flip
+  description: Reflects the deviation from the mean the wrong way (as if the sine term's sign were flipped).
+- id: over-amplitude
+  description: Adds an extra whole amplitude on top of the correctly evaluated quantity.
+- id: wrong-root
+  description: Reports the second (later) solution of the sinusoidal equation within the period instead of the smallest positive one, on the exam-tier inverse problem.
+- id: half-period-guess
+  description: Guesses half the stated period as the answer time, without solving the sinusoidal equation at all, on the exam-tier inverse problem.
+- id: late-by-one-period
+  description: Reports the correct smallest positive time plus one whole extra period, on the exam-tier inverse problem.
+tags: [acara-senior-v8-4, trigonometry, periodic-motion, modelling, acmmm042]

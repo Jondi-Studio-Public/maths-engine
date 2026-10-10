@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-implement-the-statistical-investigation-process-to-answer-questions
+name: Implement the statistical investigation process to answer questions that involve comparing the data for a numerical variable across two or more groups; for example, are Year 11 students the fittest in the school?
+domain: statistics-probability
+description: Given two stated, generated datasets (with context) for a numerical variable measured across two named groups, compute the difference between the two groups' means or, if stated, their medians. Return the resulting value.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: p16a_group_centre_difference
+  params: {variant: mean_plain}
+  difficulty: easy
+  stages: [6]
+- topic: p16a_group_centre_difference
+  params: {variant: median_plain}
+  difficulty: medium
+  stages: [6]
+- topic: p16a_group_centre_difference
+  params: {variant: mean_table}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16a_group_centre_difference
+  params: {variant: implicit_measure}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-order
+  description: Computes Group 2's statistic minus Group 1's statistic instead of Group 1 minus Group 2.
+- id: reports-one-groups-statistic
+  description: Reports a single group's own mean or median instead of the difference between the two groups.
+- id: forgets-to-divide-by-count
+  description: Reports the difference between the two groups' totals instead of dividing each total by its own group size first.
+- id: uses-the-wrong-measure
+  description: Computes the mean when the median was asked for, or the median when the mean was asked for.
+tags: [acara-v8-4-general, statistics-probability, two-group-comparison, mean, median, acmgm033]

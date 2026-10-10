@@ -1,0 +1,41 @@
+id: definite-integral
+name: Evaluate a definite integral
+domain: integration
+description: Evaluate a definite integral of a polynomial between two limits.
+status: active
+prerequisites:
+- integrate-polynomial
+answer: number
+sources:
+- topic: integration
+  params:
+    kinds:
+    - definite
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: integration
+  params:
+    kinds:
+    - definite
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: integration
+  params:
+    kinds:
+    - definite
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-subtract-lower
+  description: Forgetting to subtract the value at the lower limit.
+- id: swapped-limits
+  description: Evaluating the limits in the wrong order.
+tags: []

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-leibniz-notation-delta-x-and-delta
+name: Use the Leibniz notation δx and δy for changes or increments in the variables x and y
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use the Leibniz notation δx and δy for changes or increments in the variables x and y. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: p9c_leibniz_delta_x_delta_y_increments
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p9c_leibniz_delta_x_delta_y_increments
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p9c_leibniz_delta_x_delta_y_increments
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-order
+  description: Reports the pair with δx and δy in the wrong positions, swapping them.
+- id: sign-flipped-dy
+  description: Reports the correct δx but with the sign of δy flipped.
+- id: used-x1-instead-of-dx
+  description: Reports the starting value x1 in place of the change δx.
+- id: dropped-sign-on-dx
+  description: Reports the magnitude of δx, losing the fact that x is decreasing.
+tags: [acara-senior-v8-4, differentiation, leibniz-notation, acmmm078]

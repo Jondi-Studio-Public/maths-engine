@@ -1,0 +1,59 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-simulate-repeated-random-sampling-from-a-variety-of
+name: Standardise a sample mean using the known population sigma
+domain: statistics-probability
+description: >-
+  Read the output of a seeded, reproducible simulation of repeated random
+  sampling of size n from a stated distribution with mean mu and KNOWN
+  standard deviation sigma, and compute the standardised value of a stated
+  sample's mean, z = (x-bar - mu) / (sigma / sqrt(n)), to 2 decimal places.
+  Never prints or asks for a sample standard deviation or sample variance --
+  sigma is always the population's own, known value. Four tiers: mu and
+  sigma stated directly, for a variety of populations (uniform, 0/1
+  indicator, exponential, normal); the population given only as a small pmf
+  table, so the learner derives mu and sigma of X first (distinct from
+  `finite-distribution-variance`, where that derived variance is the whole
+  answer -- here it is only an intermediate step, and the graded answer is
+  the standardised sample mean); two stated samples of DIFFERENT sizes from
+  the same population, asking which has the standardised value further from
+  0 (the standard error depends on n); and a stated binomial count (m
+  trials, success probability q), where the learner must recognise the
+  model and derive mu = mq and sigma = sqrt(mq(1-q)) themselves. This is the
+  sigma-known sibling of
+  `senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139`,
+  which never states or derives a population sigma and instead standardises
+  with each sample's own sample standard deviation s.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: number
+sources:
+- topic: p16b_xbar_sigma_standardise
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p16b_xbar_sigma_standardise
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p16b_xbar_sigma_standardise
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16b_xbar_sigma_standardise
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: omits-sqrt-n
+  description: Divides the deviation by sigma alone, never taking the square root of n.
+- id: divides-by-n
+  description: Divides sigma by n instead of by the square root of n.
+- id: uses-variance
+  description: Divides by sigma squared over the square root of n, using the variance where the standard deviation belongs.
+- id: reversed-difference
+  description: Computes (mu - x-bar) instead of (x-bar - mu), flipping the sign.
+- id: other-sample
+  description: Reports the other stated sample's standardised value instead of the one that is actually further from 0.
+tags: [acara-senior-v8-4, statistics-probability, sampling-distribution, standardise, acmsm138]

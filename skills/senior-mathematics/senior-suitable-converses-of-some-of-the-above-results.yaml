@@ -1,0 +1,28 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-suitable-converses-of-some-of-the-above-results
+name: Suitable converses of some of the above results
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, Suitable converses of some of the above results. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: circle_theorem_converses_classify
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: circle_theorem_converses_classify
+  difficulty: medium
+  stages: [3, 4]
+- topic: circle_theorem_converses_classify
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: assumes-converse-always-holds
+  description: Picks the named conclusion whenever the configuration LOOKS like the right shape, without checking whether the stated numbers actually satisfy the hypothesis.
+- id: confuses-which-theorem-a-configuration-invokes
+  description: Picks a different family's option than the one the configuration actually describes.
+- id: treats-approximately-equal-as-equal
+  description: On Family B or Family D, picks the concyclic or tangent conclusion when the two stated angles are close but not exactly equal.
+tags: [acara-v8-4-specialist, circle-geometry]

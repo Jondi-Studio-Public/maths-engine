@@ -1,0 +1,33 @@
+id: f10-regular-irregular-area-perimeter
+name: Calculate area and perimeter of regular and irregular rectilinear shapes
+domain: measurement
+description: Given regular or irregular rectilinear shapes with stated part dimensions (decomposed into rectangular parts where needed), calculate perimeter or area using metric units.
+status: active
+placement_eligible: false
+prerequisites: [composite-perimeter, rectangle-area, rectangle-perimeter]
+answer: number
+sources:
+- topic: regular_irregular_area_perimeter
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: regular_irregular_area_perimeter
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: regular_irregular_area_perimeter
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses_perimeter_for_area
+  description: States the perimeter when area is asked (or vice versa).
+- id: uses_area_for_perimeter
+  description: States the area when perimeter is asked.
+- id: adds_notch_instead_of_subtracts
+  description: Adds the notch area instead of subtracting it from the bounding rectangle.
+- id: ignores_notch
+  description: Forgets to account for the notch and uses only the bounding rectangle area.
+- id: subtracts_notch_perimeter
+  description: Subtracts the notch's perimeter from the bounding rectangle's perimeter, incorrectly assuming the notch reduces the total perimeter.
+tags: [measurement, area, perimeter, acara-v9-year-5]

@@ -1,0 +1,35 @@
+id: ucv1-completeness-cauchy-check
+name: Check a finite Cauchy witness
+domain: functional-and-linear-analysis
+description: For a supplied finite sequence and (epsilon, N) witness table, identify which row's claim is inconsistent with the sequence, or that every row is consistent.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15b_completeness_cauchy_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15b_completeness_cauchy_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15b_completeness_cauchy_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15b_completeness_cauchy_check
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-any-small-epsilon-fails
+  description: Reports a row inconsistent just because its stated epsilon looks small, without recomputing the sequence's own exact tail spread a_N - a_(last) to compare it against.
+- id: compares-epsilon-to-the-wrong-term
+  description: Compares epsilon to a single term a_N instead of to the tail spread a_N - a_(last), the actual quantity the Cauchy claim bounds.
+- id: near-miss-eyeball-error
+  description: On the hard/exam tiers' smallest-possible margins, guesses consistency by eye instead of comparing the two exact fractions, and gets the near-miss row wrong.
+- id: fails-to-add-the-split-epsilon
+  description: On the exam tier, compares the tail spread to only the first of the two fractions that sum to epsilon, instead of adding both parts first.
+tags: [university-core-v1, functional-and-linear-analysis, p15b_completeness_cauchy_check]

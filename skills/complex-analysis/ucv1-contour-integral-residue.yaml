@@ -1,0 +1,48 @@
+id: ucv1-contour-integral-residue
+name: Evaluate a residue-based contour integral
+domain: complex-analysis
+description: Evaluate a supplied positively oriented contour integral enclosing one stated simple pole using the residue value.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-residue-simple-pole
+answer: expression
+sources:
+- topic: p15e_contour_integral_residue
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15e_contour_integral_residue
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15e_contour_integral_residue
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15e_contour_integral_residue
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgets-2-pi-i
+  description: Reports the residue value alone, without multiplying by 2*pi*i.
+- id: sign-flip
+  description: Reports the contour integral with the wrong sign.
+- id: wrong-pole
+  description: Applies the residue theorem at the pole the contour does not enclose (medium/hard/exam only).
+- id: drops-the-2-in-derivative
+  description: Computes the residue via the quotient-rule formula but omits the factor of 2 from differentiating the squared term.
+- id: uses-wrong-candidate
+  description: Computes the contour integral as if the decoy candidate pole were the true one (exam tier only).
+tags: [university-core-v1, p15e-university-batch, complex-analysis]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis

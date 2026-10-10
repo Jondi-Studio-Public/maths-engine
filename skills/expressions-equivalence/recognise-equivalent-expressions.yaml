@@ -1,0 +1,41 @@
+id: recognise-equivalent-expressions
+name: Recognise and justify equivalent expressions
+domain: expressions-equivalence
+description: Determine whether expressions are equivalent and justify the conclusion using properties
+  or substitution.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- simplify-multi-operation-expressions
+- apply-a-rule-to-inputs
+answer: mcq
+sources:
+- topic: simplify_expression
+  params:
+    kind: multi
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: simplify_expression
+  params:
+    kind: multi
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: simplify_expression
+  params:
+    kind: multi
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Assuming expressions are equivalent because they match for one value
+- id: misconception-2
+  description: Using examples as a complete proof
+tags: []

@@ -1,0 +1,31 @@
+id: angle-radians-to-degrees-decimal
+name: Convert radians to degrees (decimal answer)
+domain: trigonometry
+description: 'Convert an angle given in radians to its degree value, rounded to a stated number of decimal places. Three tiers: a basic 2dp radian value (easy); a signed 2dp radian value (medium); and an exact pi-fraction radian input, e.g. 3pi/7, converted to a decimal degree value (hard). This is the decimal-answer half of an exam-style item''s degree-radian conversion questions; a separate skill covers the reverse (degrees to radians) direction and another covers exact pi-form answers, split because each declares a genuinely different grader kind.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: t4_radians_to_degrees_decimal
+  params: {variant: forward_basic}
+  difficulty: easy
+  stages: [6]
+- topic: t4_radians_to_degrees_decimal
+  params: {variant: forward_signed}
+  difficulty: medium
+  stages: [6]
+- topic: t4_radians_to_degrees_decimal
+  params: {variant: pi_fraction_input}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: inverts-the-conversion-factor
+  description: Applies the degrees-to-radians factor (pi/180) instead of the radians-to-degrees factor (180/pi).
+- id: uses-90-instead-of-180
+  description: Uses 90 instead of 180 as the conversion base, halving the correct degree value.
+- id: drops-the-negative-sign
+  description: Converts the magnitude of a negative radian value only, discarding its sign.
+- id: reports-the-pi-coefficient-as-the-answer
+  description: Reports the bare coefficient of pi as if it were already the degree value, forgetting to multiply by 180.
+tags: [trigonometry, angle-measure, radians]

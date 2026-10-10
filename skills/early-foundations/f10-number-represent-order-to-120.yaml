@@ -1,0 +1,32 @@
+id: f10-number-represent-order-to-120
+name: Represent and order numbers to 120
+domain: early-foundations
+learner_band: early
+description: Given a stated set of whole numbers, order them by numeral, from 10 to 120.
+status: active
+placement_eligible: false
+prerequisites: [f10-number-represent-order-to-20, place-value-to-100]
+answer: ordered_list
+sources:
+- topic: order_to_120
+  params: {count: [3, 4], digit_lengths: [2], min_gap: 20, force_teen_reversal: false}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: order_to_120
+  params: {count: 4, digit_lengths: [2], min_gap: null, force_teen_reversal: true}
+  difficulty: medium
+  stages: [3, 4]
+- topic: order_to_120
+  params: {count: 5, digit_lengths: [2, 3], min_gap: null, force_teen_reversal: false}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the numbers from largest to smallest instead of smallest to largest.
+- id: adjacent-swap
+  description: Orders the numbers correctly overall but swaps the two middle values, as if two neighbouring values did not need comparing.
+- id: teen-reversal-confusion
+  description: Confuses a teen number with its digit-reversed two-digit counterpart (e.g. 13 and 31) and swaps their order in the sequence. Computed on every medium question; presented as a distinct third option only when the pair does not land in the same two positions the adjacent-swap distractor already occupies (empirically ~95% of medium seeds).
+- id: leading-digit-only
+  description: Orders numbers by their first digit alone, ignoring overall digit count, so a shorter number with a larger leading digit is wrongly placed above a longer number (e.g. ranking 99 above 105).
+tags: [acara-f10-v9, early, ordering, ac9m1n01]

@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-positions-given-acceleration-and-initial-values-of
+name: Determine positions given acceleration and initial values of position and velocity
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, determine positions given acceleration and initial values of position and velocity. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: p10a_acceleration_to_position_line
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10a_acceleration_to_position_line
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10a_acceleration_to_position_line
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-second-constant
+  description: Uses the correctly-built velocity function to form the second antiderivative, but never solves for/adds the second constant of integration.
+- id: forgot-first-constant
+  description: Antidifferentiates a(t) a second time without ever adding the first constant of integration, as if the initial velocity were zero.
+- id: sign-error-on-second-constant
+  description: Isolates the second constant of integration with the sign flipped (hard tier only, where the stated instant is nonzero so this is a genuinely different value from the true answer).
+- id: sign-error-on-first-constant
+  description: Isolates the first constant of integration with the sign flipped, then correctly carries that wrong velocity function through the second integration (hard tier only, for the same reason as sign-error-on-second-constant).
+tags: [acara-senior-v8-4, senior-mathematics, integration, motion, acmmm135]

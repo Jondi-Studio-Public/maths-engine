@@ -1,0 +1,48 @@
+id: vector-projection
+name: Compute a vector projection
+domain: linear-algebra
+description: Compute the two-dimensional vector projection of one vector onto another exact vector.
+status: active
+prerequisites: [vector-dot-product]
+answer: pair
+sources:
+- topic: vector_projection
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: vector_projection
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: vector_projection
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: returns-original
+  description: Returns the original vector instead of its component parallel to the target vector.
+- id: swaps-components
+  description: Swaps the projection components or uses the opposite projection direction.
+tags: [university-core-v1, university-foundation-pilot, linear-algebra]
+framework_areas: [linear-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

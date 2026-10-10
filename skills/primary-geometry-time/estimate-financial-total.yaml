@@ -1,0 +1,10 @@
+id: estimate-financial-total
+name: Estimate a financial total
+domain: primary-geometry-time
+description: Estimate a purchase total by rounding individual prices to the nearest dollar.
+status: active
+prerequisites: [money-change]
+answer: number
+sources: [{topic: financial_estimation, params: {}, difficulty: easy}]
+misconceptions: [{id: truncates-prices, description: Always rounds prices down.}]
+tags: [expansion-batch-2, primary, estimation, money]

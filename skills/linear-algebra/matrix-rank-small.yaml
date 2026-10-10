@@ -1,0 +1,48 @@
+id: matrix-rank-small
+name: Compute rank of a small matrix
+domain: linear-algebra
+description: Compute the rank of a small integer matrix by identifying independent pivot rows.
+status: active
+prerequisites: [matrix-determinant-2x2]
+answer: number
+sources:
+- topic: matrix_rank_small
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: matrix_rank_small
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: matrix_rank_small
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: counts-entries
+  description: Counts non-zero entries instead of independent pivot rows.
+- id: ignores-dependence
+  description: Counts a dependent row as an additional dimension.
+tags: [university-core-v1, university-foundation-pilot, linear-algebra]
+framework_areas: [linear-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

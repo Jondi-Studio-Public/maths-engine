@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-investigate-the-effect-of-the-interest-rate-and
+name: Investigate the effect of the interest rate and repayment amount on the time taken to repay a loan
+domain: financial-discrete
+description: Compute the number of periods needed to repay a flat-interest loan for a stated interest rate and repayment amount.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+capability_gates: [modelling]
+answer: number
+sources:
+- topic: p12b_loan_term_from_repayment
+  params: {mode: years}
+  difficulty: easy
+  stages: [6]
+- topic: p12b_loan_term_from_repayment
+  params: {mode: months}
+  difficulty: medium
+  stages: [6]
+- topic: p12b_loan_term_from_repayment
+  params: {mode: term_difference}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12b_loan_term_from_repayment
+  params: {mode: max_rate}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: years_months_unit_confusion
+  description: Solves correctly for one unit (years or months) but reports the value in the other unit, mistaking a months count for a years count or vice versa.
+- id: ignores_interest
+  description: Divides the bare principal by the repayment amount, as if the loan were interest-free.
+- id: circular_reasoning_trap
+  description: Plugs an arbitrary, wrong assumed term into the total-repayable formula to get a total, then divides that total by the repayment amount instead of solving the linear equation for the actual term.
+- id: added_terms_instead_of_subtracting
+  description: For the two-plan comparison, adds the two solved terms instead of finding their difference.
+- id: forgot_second_scenario
+  description: For the two-plan comparison, reports only one plan's solved term and never computes the second.
+- id: forgot_to_subtract_the_principal_reduction_term
+  description: When solving for the maximum rate, computes 1200 x repayment / principal directly as the rate, omitting the term that accounts for part of each repayment reducing the principal itself.
+- id: reported_the_total_interest_rate_over_the_whole_term
+  description: When solving for the maximum rate, computes the total percentage increase over the whole loan term instead of dividing by the number of years to annualise it.
+tags: [acara-senior-v8-4, financial-discrete, p12b_loan_term_from_repayment, ACMEM175]

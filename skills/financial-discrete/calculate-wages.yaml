@@ -1,0 +1,10 @@
+id: calculate-wages
+name: Calculate hourly wages
+domain: financial-discrete
+description: Calculate gross wages from an hourly rate and a number of regular hours.
+status: active
+prerequisites: [decimal-arithmetic]
+answer: number
+sources: [{topic: earnings, params: {kind: wages}, difficulty: easy}]
+misconceptions: [{id: adds-rate-hours, description: Adds the hourly rate and hours instead of multiplying.}]
+tags: [expansion-batch-5, consumer-arithmetic]

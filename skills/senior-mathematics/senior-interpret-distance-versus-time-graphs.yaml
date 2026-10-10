@@ -1,0 +1,48 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-distance-versus-time-graphs
+name: Interpret distance-versus-time graphs
+domain: senior-mathematics
+description: Given a distance-time graph made of straight-line segments on a labelled integer grid, state the speed (or velocity) during a stated time interval by reading the gradient of the one segment that covers it.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: fraction
+sources:
+- topic: pv1b_distance_time
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1b_distance_time
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1b_distance_time
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1b_distance_time
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: rise-only
+  description: Reports the change in distance over the segment without dividing by the time it took.
+- id: inverted-slope
+  description: Divides run by rise (time over distance) instead of rise by run.
+- id: neighbouring-segment
+  description: Reads the speed of the segment next to the one that covers the stated interval.
+- id: average-over-whole-graph
+  description: Gives the average over the whole journey instead of the speed on the stated interval.
+- id: sign-flipped
+  description: Gives the velocity with the wrong sign, ignoring the stated direction convention (away from home is positive).
+- id: unconverted-unit
+  description: Leaves the gradient in kilometres per minute, or scales by the wrong factor, when the question asks for kilometres per hour.
+- id: height-instead-of-speed
+  description: On a flat (stationary) segment, reads the distance from home off the vertical axis instead of the speed, which is zero.
+- id: segment-duration
+  description: On a flat segment, reports how long the segment lasts instead of the speed.
+tags: [senior, essential-mathematics, distance-time-graph, figure, acara-v8-4]

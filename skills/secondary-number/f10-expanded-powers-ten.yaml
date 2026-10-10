@@ -1,0 +1,35 @@
+id: f10-expanded-powers-ten
+name: Expand numbers using powers of ten
+domain: secondary-number
+description: Given a natural number written in expanded place-value notation using powers of ten (for example 4*10^3 + 3*10^2 + 5*10 + 6), reconstruct the single numeral it represents.
+status: active
+placement_eligible: false
+prerequisites: [f10-powers-ten-multiply-divide]
+answer: number
+sources:
+- topic: p19a_expanded_powers_ten
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_expanded_powers_ten
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_expanded_powers_ten
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19a_expanded_powers_ten
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: coefficients-concatenated
+  description: Concatenates the stated coefficients as if they were adjacent digits, ignoring which powers of ten are actually present (and, at the exam tier, ignoring that an oversized coefficient needs regrouping first). Used at the medium, hard and exam tiers, where a missing place, a shuffled order or an oversized coefficient each make this genuinely different from the correct numeral.
+- id: dropped-term
+  description: Forgets the lowest-power term entirely. Used in place of coefficients-concatenated at the easy tier, where every place is present and always in descending order, so concatenating the coefficients would trivially reproduce the correct numeral rather than a genuine wrong answer.
+- id: digit-in-wrong-place
+  description: Swaps the coefficients of two of the terms, placing a digit at the wrong power of ten.
+- id: exponent-off-by-one
+  description: Reads the leading term's power of ten as if it had one fewer zero than it actually does.
+tags: [acara-f10-v9, secondary, place-value, powers-of-ten, ac9m7n03]

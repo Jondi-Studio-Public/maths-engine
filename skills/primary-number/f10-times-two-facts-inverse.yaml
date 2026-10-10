@@ -1,0 +1,33 @@
+id: f10-times-two-facts-inverse
+name: Derive multiplication and division facts for twos
+domain: primary-number
+description: Given a known multiplication fact for two, state the value of the related division fact obtained by halving the product.
+status: active
+placement_eligible: false
+prerequisites:
+- multiplication-facts
+- whole-number-division-facts
+answer: number
+sources:
+- topic: p19a_times_two_halving
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19a_times_two_halving
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19a_times_two_halving
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: unhalved-product
+  description: Reports the product itself, without halving it.
+- id: doubled-product
+  description: Reports double the product -- halve read as double a second time.
+- id: other-facts-half
+  description: Resolves the wrong one of two known twos facts and reports its half instead of the one the question asked about.
+- id: off-by-one
+  description: Reports the correct half, shifted by one.
+tags: [acara-f10-v9, primary, multiplication, division, fact-families, doubling-halving, ac9m2a03]

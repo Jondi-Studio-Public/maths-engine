@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-and-apply-the-notation-left-x-right
+name: Read the vertex of a V-shaped absolute value graph
+domain: functions-sequences
+description: Given the graph of y = |x - h| + k drawn on an integer grid, read off the coordinates of its vertex (h, k), choosing between two graphs by a marked point or by whether each meets the x-axis.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: pair
+sources:
+- topic: pv1d_abs_vertex
+  params: {variant: marked}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1d_abs_vertex
+  params: {variant: unmarked}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1d_abs_vertex
+  params: {variant: two_graphs_lettered}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1d_abs_vertex
+  params: {variant: two_graphs_axis}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-coordinates
+  description: Writes the vertex as (k, h), giving the height before the horizontal position.
+- id: sign-of-h
+  description: Reads the horizontal shift from the equation form |x + h| and negates it, reporting (-h, k).
+- id: sign-of-k
+  description: Reports the vertical coordinate with the wrong sign, (h, -k).
+- id: x-intercept
+  description: Reports the point where the graph crosses the x-axis, (h + |k|, 0), instead of the corner.
+- id: y-intercept
+  description: Reports the point where the graph crosses the y-axis, (0, |h| + k), instead of the corner.
+- id: other-graph-vertex
+  description: Reads the corner of the other graph in the picture instead of the one the question selects.
+tags: [acara-senior-v8-4, functions-sequences, absolute-value, graph, acmsm098]

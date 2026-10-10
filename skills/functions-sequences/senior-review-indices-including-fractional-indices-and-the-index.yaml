@@ -1,0 +1,63 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-indices-including-fractional-indices-and-the-index
+name: Review indices (including fractional indices) and the index laws
+domain: functions-sequences
+description: Apply the product, quotient and power-of-a-power index laws to combine two or three like-base index terms with a symbolic base x, into a single simplified power of x. Exponents may be integers or simple fractions (1/2, 1/3, 2/3). Does not assess index laws applied to a purely numeric base (radical evaluation), the zero-index or negative-index laws as standalone identities, or index laws applied to different symbolic bases.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: expression
+sources:
+- topic: index_laws_review
+  params:
+    variant: product
+  difficulty: easy
+  stages: [6]
+- topic: index_laws_review
+  params:
+    variant: product_quotient
+  difficulty: medium
+  stages: [6]
+- topic: index_laws_review
+  params:
+    variant: power_fraction
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: index_laws_review
+  params:
+    variant: exam_algebraic_fraction
+  difficulty: exam
+  stages: ["exam"]
+misconceptions:
+- id: multiplies-instead-of-adding
+  description: Multiplying exponents instead of adding them in the product law.
+- id: subtracts-instead-of-adding
+  description: Subtracting the second exponent from the first instead of adding.
+- id: ignores-the-division
+  description: Forgetting to apply the quotient law; omitting the division step.
+- id: treats-division-as-another-multiplication
+  description: Adding the divisor's exponent instead of subtracting it.
+- id: power-of-power-adds-instead-of-multiplies
+  description: Adding exponents in the power-of-a-power law instead of multiplying.
+- id: quotient-sign-flip
+  description: Adding the divisor's exponent instead of subtracting when combining laws.
+- id: reads-fractional-exponent-as-a-coefficient
+  description: Treating x**p as "multiply by p" rather than "raise to the power p".
+- id: exam-exponent-subtraction-direction
+  description: Subtracted the algebraic fraction's exponents the wrong way round
+    (denominator's exponent minus numerator's, instead of numerator minus
+    denominator) before applying the fractional power.
+- id: exam-power-applied-to-coefficient-only
+  description: Applied the fractional power to the numeric coefficient but left
+    the combined x exponent as the raw, unreduced fraction-simplification
+    result, never multiplying it by the fractional index.
+- id: exam-power-applied-to-exponent-only
+  description: Applied the fractional power to the x exponent but left the
+    numeric coefficient as the raw, unreduced ratio from before the power was
+    applied.
+- id: exam-wrong-root-index
+  description: Took the numeric coefficient's square root regardless of what
+    root the fractional index actually calls for (e.g. a fourth root treated
+    as a square root).
+tags: [acara-senior-v8-4, functions-sequences, index-laws, exponents, acmmm061]

@@ -1,0 +1,44 @@
+id: vector-addition
+name: Add and subtract vectors
+domain: vectors
+description: Add and subtract 3D vectors component-wise.
+status: active
+prerequisites:
+- vector-dot-product
+answer: list
+sources:
+- topic: vectors
+  params:
+    kinds:
+    - add
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: vectors
+  params:
+    kinds:
+    - add
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: vectors
+  params:
+    kinds:
+    - subtract
+    hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: multiplied-not-added
+  description: Multiplying components instead of adding them.
+- id: sign-error-subtraction
+  description: A sign error subtracting one vector from another.
+- id: subtracted-wrong-order
+  description: Subtracting in the wrong order (v - u instead of u - v), flipping the sign of every component.
+tags: []

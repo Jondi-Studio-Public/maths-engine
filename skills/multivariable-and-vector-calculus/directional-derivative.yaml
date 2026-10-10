@@ -1,0 +1,48 @@
+id: directional-derivative
+name: Compute a directional derivative
+domain: multivariable-and-vector-calculus
+description: Compute the scalar directional derivative of a two-variable polynomial at a specified point and unit direction.
+status: active
+prerequisites: [partial-derivative-y]
+answer: number
+sources:
+- topic: directional_derivative
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: directional_derivative
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: directional_derivative
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: uses-gradient-magnitude
+  description: Reports the gradient magnitude rather than its component in the stated direction.
+- id: non-unit-direction
+  description: Uses an unnormalised direction vector without accounting for its length.
+tags: [university-core-v1, university-foundation-pilot, multivariable-calculus]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

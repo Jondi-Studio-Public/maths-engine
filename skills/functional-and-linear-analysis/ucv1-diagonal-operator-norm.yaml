@@ -1,0 +1,49 @@
+id: ucv1-diagonal-operator-norm
+name: Compute a diagonal operator norm
+domain: functional-and-linear-analysis
+description: Compute the Euclidean operator norm of a supplied 2-by-2 diagonal linear map.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p15c_diagonal_operator_norm
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15c_diagonal_operator_norm
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15c_diagonal_operator_norm
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15c_diagonal_operator_norm
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-min-instead-of-max
+  description: Reports the smaller |entry| instead of the larger one.
+- id: multiplies-the-two-norms
+  description: On the hard tier (a composition of two diagonal maps), multiplies the operator norms of the two individual maps instead of multiplying the matching diagonal entries first and then taking the max absolute value.
+- id: swaps-the-pairing
+  description: On the hard tier, pairs each map's first entry with the other map's second entry (an unmatched index) when composing, instead of multiplying corresponding entries.
+- id: forgets-absolute-value-after-power
+  description: On the exam tier (a power of a map with a negative fractional entry), compares the raw signed powered values instead of their absolute values, so an odd power of a negative entry is ranked incorrectly.
+tags: [university-core-v1, functional-analysis, p15c_diagonal_operator_norm]
+framework_areas: [functional-and-linear-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: functional-and-linear-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: functional-and-linear-analysis
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: functional-and-linear-analysis

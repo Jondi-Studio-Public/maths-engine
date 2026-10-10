@@ -1,0 +1,51 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-and-examine-the-n-th-roots-of
+name: Determine and examine the n-th roots of unity and their location on the unit circle
+domain: measurement
+description: |
+  Given bounded, fully specified inputs, determine and examine the n-th roots
+  of unity and their location on the unit circle. Return the resulting value,
+  expression, relation, or classification. Every w in this skill is exactly 1
+  (never displayed as such, since it is implicit in "roots of unity"), and
+  the graded value is always a plain real number (an angle in degrees, or a
+  count) -- never a complex value. Boundary against the sibling skill
+  senior-determine-and-examine-the-n-th-roots-of-acmsm088 (ACMSM088), which
+  covers the n-th roots of a non-unity complex number (w != 1) only: this
+  skill never constructs or grades a root of any w != 1.
+
+  Known quirk: this skill is filed under `domain: measurement` with
+  prerequisite `convert-metric-length`, neither of which fits a
+  complex-numbers skill (it sits more naturally in senior-mathematics, like
+  ACMSM088, and the prerequisite is unrelated to roots of unity).
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+  - topic: nth_roots_of_unity
+    params: {variant: direct}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: nth_roots_of_unity
+    params: {variant: periodic}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: nth_roots_of_unity
+    params: {variant: count}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: off-by-one-index
+    description: Applies the formula to root k+1 or k-1 instead of the stated root k.
+  - id: wrong-direction-reduction
+    description: Reduces an out-of-range k as (-k) mod n instead of k mod n before applying the formula, giving the point reflected across the real axis.
+  - id: forgets-to-reduce
+    description: Applies 360k/n directly to the raw, out-of-range k without first reducing k mod n, giving an angle outside 0-360 degrees.
+  - id: counts-positive-instead-of-negative
+    description: Counts the roots with positive real part instead of negative real part.
+  - id: second-quadrant-only
+    description: Counts only the roots with argument strictly between 90 and 180 degrees, forgetting the third quadrant (180 to 270 degrees) also has a negative real part.
+  - id: off-by-one-boundary-count
+    description: Includes a root whose real part is exactly zero (argument exactly 90 or 270 degrees) in the negative-real-part count.
+tags: [complex-numbers, acara-v8-4, ACMSM087, nth-roots]

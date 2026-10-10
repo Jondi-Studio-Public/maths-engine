@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-notion-of-independence-of-an-event
+name: Understand the notion of independence of an event (A)
+domain: statistics-probability
+description: 'Given stated probabilities for two events A and B (as P(A), P(B), and either P(A and B) or P(A|B)), determine whether A and B are independent, choosing the classification from the offered options: "Independent" (when P(A and B) = P(A) x P(B)) or one of three "Not independent -- P(A and B) = X but P(A) x P(B) = Y" statements, each stating real computed numbers, never a bare "not independent". Boundary against the active senior-use-the-notation-p-a-vert-b (ACMMM057): that skill COMPUTES the numeric value of P(A|B) from given counts or probabilities and grades a fraction -- it never asks an independence verdict. This skill takes P(A), P(B) and a third value (which may itself be phrased using P(A|B) notation) as GIVEN inputs and asks ONLY for the yes/no independence classification with a stated reason; it never grades a bare P(A|B) numeric value as its answer.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19c_independence_verdict
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_independence_verdict
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_independence_verdict
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_independence_verdict
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: adds-instead-of-multiplies
+  description: Reports "Not independent" using P(A) + P(B) as the product test instead of P(A) x P(B), an addition-instead-of-multiplication misconception.
+- id: subtracts-instead-of-multiplies
+  description: Reports "Not independent" using |P(A) - P(B)| as the product test instead of P(A) x P(B).
+- id: squares-one-probability
+  description: Reports "Not independent" using P(A) x P(A) or P(B) x P(B) as the product test, forgetting the other event's probability entirely.
+- id: averages-instead-of-multiplies
+  description: Reports "Not independent" using the average (P(A) + P(B)) / 2 as the product test instead of P(A) x P(B).
+tags: [acara-senior-v8-4, statistics-probability, independence, acmmm058]

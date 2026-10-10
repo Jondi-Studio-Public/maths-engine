@@ -1,0 +1,17 @@
+id: tell-time-to-hour
+name: Tell time to the hour
+domain: early-foundations
+placement_order: 200
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Read an analogue clock showing an exact hour.
+status: active
+prerequisites: [recognise-numerals-to-10]
+answer: mcq
+sources:
+- topic: clock_hours
+  params: {}
+  difficulty: easy
+misconceptions: []
+tags: [age-6, time, visual]

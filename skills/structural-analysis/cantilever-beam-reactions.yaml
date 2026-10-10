@@ -1,0 +1,21 @@
+id: cantilever-beam-reactions
+name: Cantilever reactions and moment
+domain: structural-analysis
+description: Find the fixed-end reaction and moment for a cantilever beam under a uniformly distributed
+  load.
+status: active
+prerequisites:
+- beam-reactions-point-load
+answer: pair
+sources:
+- topic: structural
+  params:
+    kinds:
+    - cantilever_udl
+  difficulty: easy
+misconceptions:
+- id: treated-as-simply-supported
+  description: Treating the cantilever as if it were simply supported at both ends.
+- id: forgot-square-span-cantilever
+  description: Forgetting to square the span in the moment formula.
+tags: []

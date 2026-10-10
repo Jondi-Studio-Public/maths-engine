@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-apply-the-cosine-and-sine-ratios-to-find
+name: Apply the cosine and sine ratios to find unknown angles and sides
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, apply the cosine and sine ratios to find unknown angles and sides in right-angled triangles. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: sine_cosine_ratio_triangle
+  params: {variant: side_from_angle}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sine_cosine_ratio_triangle
+  params: {variant: angle_from_sides}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sine_cosine_ratio_triangle
+  params: {variant: chained}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swaps-sine-and-cosine
+  description: Uses cos where sin was needed, or vice versa (e.g., computes H*cos(theta) when asking for the opposite side, which requires sin).
+- id: uses-tangent-instead
+  description: Uses the tangent ratio instead of sine or cosine, violating the skill's constraint that only sine and cosine are applied.
+- id: skips-intermediate-step
+  description: Omits a required intermediate calculation (e.g., skips computing the hypotenuse in the chained tier).
+- id: forgets-inverse-function
+  description: Forgets to apply the inverse trigonometric function when solving for an angle (reports the ratio value instead of the inverse trig result).
+tags: [acara-v8-4-essential, trigonometry, right-angled-triangles]

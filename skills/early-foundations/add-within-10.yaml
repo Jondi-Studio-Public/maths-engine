@@ -1,0 +1,17 @@
+id: add-within-10
+name: Add within 10
+domain: early-foundations
+placement_order: 140
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Add two numbers when the total is no more than ten.
+status: active
+prerequisites: [number-bonds-to-10]
+answer: mcq
+sources:
+- topic: early_addition
+  params: {total_hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, addition]

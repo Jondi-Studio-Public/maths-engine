@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-model-periodic-motion-using-sine-and-cosine-functions
+name: Model periodic motion using sine and cosine functions and understand the relevance of the period and amplitude of these functions in the model
+domain: trigonometry
+description: "Given a sine or cosine function of the form y = A*sin(B*x + C) + D (or the cosine equivalent) modelling a periodic motion, state its amplitude and its period. The function is always fully stated with its x-coefficient written as a multiple of pi (pi/k, or an unsimplified m*pi/n on the harder tiers), so the period is always a plain positive integer and the amplitude is always a plain integer or terminating decimal."
+status: active
+placement_eligible: false
+prerequisites:
+- right-triangle-angle
+answer: pair
+sources:
+- topic: p19g_sinusoid_amplitude_period
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19g_sinusoid_amplitude_period
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19g_sinusoid_amplitude_period
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19g_sinusoid_amplitude_period
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: double-amplitude
+  description: Reports the full peak-to-trough range (2*|A|) as the amplitude instead of |A| itself.
+- id: half-period
+  description: Reports the x-coefficient's own denominator k directly as the period, forgetting to double it (period = 2*pi/|B|, not pi/|B|).
+- id: period-off-by-one
+  description: Reports a period one unit away from the correct value, an arithmetic slip.
+- id: swapped-amplitude-period
+  description: Reports the period's value as the amplitude and the amplitude's value as the period.
+- id: includes-vertical-shift
+  description: Adds the vertical shift D onto the amplitude, treating it as if it changed the peak height.
+- id: drops-absolute-value
+  description: Reports the signed coefficient A directly as the amplitude instead of |A|, when A is negative.
+- id: doesnt-simplify-b
+  description: Reports the unsimplified denominator of B (before cancelling the shared factor with its numerator) directly as the period, instead of simplifying pi/k first.
+tags: [acara-senior-v8-4, trigonometry, periodic-motion, amplitude, period, acmsm050]

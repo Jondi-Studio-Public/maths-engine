@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-and-examine-the-n-th-roots-of-acmsm088
+name: Determine and examine the n-th roots of complex numbers and their location in the complex plane
+domain: senior-mathematics
+description: |
+  Determine, in polar form, the n-th roots of a given non-real complex number w
+  (w != 1), including their location in the complex plane. Every w in this
+  skill has modulus base**n for a small integer base (2, 3 or 4), so w can
+  never equal 1 -- that boundary case is the sibling skill,
+  senior-determine-and-examine-the-n-th-roots-of (roots of unity, w = 1),
+  ACARA's own preceding dot point (ACMSM087). Return the resulting root or
+  roots in polar form (r, theta).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+  - topic: nth_roots_of_complex_number
+    params: {variant: polar_principal}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: nth_roots_of_complex_number
+    params: {variant: polar_k}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: nth_roots_of_complex_number
+    params: {variant: cartesian_axis}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: swaps-modulus-and-argument
+    description: Reports (theta, r) instead of (r, theta) -- confuses which component is the modulus and which is the argument.
+  - id: forgets-the-360k-term
+    description: Uses theta/n regardless of k, instead of (theta+360k)/n -- misses that k != 0 roots require adding a full turn per step before dividing.
+  - id: nth-power-instead-of-nth-root
+    description: Computes base**(n*n) instead of base for the root's modulus -- raises w's modulus to the n-th power again instead of taking its n-th root.
+  - id: wrong-axis-quadrant
+    description: For a Cartesian-given axis-aligned w, misreads the point as the opposite point on the same axis (e.g. reads a negative real number as positive), giving the wrong theta for w before applying the root formula.
+tags: [complex-numbers, acara-v8-4, ACMSM088, nth-roots]

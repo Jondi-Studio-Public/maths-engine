@@ -1,0 +1,23 @@
+id: f10-exponent-laws-positive-zero
+name: Exponent laws for positive and zero exponents
+domain: secondary-number
+description: Apply exponent laws for positive integer and zero exponents to a numerical expression to produce an equivalent simplified form.
+status: active
+placement_eligible: false
+prerequisites: [evaluate-powers]
+answer: expression
+sources:
+- topic: exponent_laws_positive_zero
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: exponent_laws_positive_zero
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: exponent_laws_positive_zero
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions: []
+tags: [acara-f10-v9, secondary, exponents]

@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-line-of-best-fit-to-make
+name: Use the line of best fit to make predictions, both by interpolation and extrapolation
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use the line of best fit to make predictions, both by interpolation and extrapolation. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: number
+sources:
+- topic: p8c_line_best_fit_predict
+  difficulty: easy
+  stages: [6]
+- topic: p8c_line_best_fit_predict
+  difficulty: medium
+  stages: [6]
+- topic: p8c_line_best_fit_predict
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: swapped-gradient-intercept
+  description: Treats the intercept as the gradient and vice versa, computing y = cx + m (or, inverted, x = (y - m) / c; for a predicted change, c * (x2 - x1) instead of m * (x2 - x1)).
+- id: omits-intercept
+  description: Forgets the constant term entirely, computing y = mx (or, inverted, x = y / m).
+- id: sign-error-on-intercept
+  description: Flips the sign of the intercept, computing y = mx - c (or, inverted, x = (y + c) / m).
+- id: uses-endpoint-instead-of-change
+  description: For a predicted change in y over an interval, answers the absolute prediction at one endpoint (m * x2 + c or m * x1 + c) instead of the difference m * (x2 - x1).
+tags: [acara-senior-v8-4, statistics-probability, p8c_line_best_fit_predict, line-of-best-fit, prediction, acmem145]

@@ -1,0 +1,10 @@
+id: permutations
+name: Calculate permutations
+domain: senior-mathematics
+description: Count ordered selections of distinct objects without replacement.
+status: active
+prerequisites: [multiplication-principle]
+answer: number
+sources: [{topic: combinatorics, params: {kind: permutation}, difficulty: easy}]
+misconceptions: [{id: uses-combination, description: Ignores that order matters.}]
+tags: [expansion-batch-6, combinatorics, acara-v8-4]

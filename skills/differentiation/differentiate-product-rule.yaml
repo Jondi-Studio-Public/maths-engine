@@ -1,0 +1,41 @@
+id: differentiate-product-rule
+name: Product rule
+domain: differentiation
+description: Differentiate a product of two functions using the product rule.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - product_rule
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - product_rule
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - product_rule
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: multiplied-derivatives
+  description: Multiplying the two derivatives together instead of applying the product rule.
+- id: forgot-second-term
+  description: Differentiating only one factor and forgetting the other term.
+tags: []

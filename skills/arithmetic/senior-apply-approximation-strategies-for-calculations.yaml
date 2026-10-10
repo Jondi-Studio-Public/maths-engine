@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-apply-approximation-strategies-for-calculations
+name: Apply approximation strategies for calculations
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, apply approximation strategies for calculations. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: apply_approximation_strategy
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: apply_approximation_strategy
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: apply_approximation_strategy
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: applies-the-other-named-strategy
+  description: Applies front-end truncation when rounding to a stated place was asked, or the reverse.
+- id: rounds-to-own-leading-digit-instead-of-stated-strategy
+  description: Rounds each operand to its own leading digit (leading-digit approximation) instead of applying the strategy the question named.
+- id: switches-strategy-partway
+  description: Applies the named strategy to only some of the operands in a multi-step calculation instead of consistently to all of them.
+tags: [acara-senior-v8-4, arithmetic, estimation, apply_approximation_strategy, ACMEM010]

@@ -1,0 +1,64 @@
+id: ucv1-poisson-count-probability
+name: Compute a Poisson process count probability
+domain: stochastic-processes
+description: Compute P(N(t)=k) for a supplied Poisson rate, time and count using an
+  exact bounded parameter set. The exponential factor e^(-lambda t) is always
+  supplied as a given exact value in the question text; never a Poisson-process
+  construction proof, inter-arrival simulation, martingale or stochastic-calculus
+  exercise.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: p12e_poisson_count
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p12e_poisson_count
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p12e_poisson_count
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p12e_poisson_count
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: omits-factorial
+  description: Reports (given e-value) * (lambda t)^k, forgetting to divide by
+    k! -- exercisable whenever k >= 2 (k! = 1 makes this collide with the
+    correct answer, so it is skipped at k in {0, 1}).
+- id: off-by-one-count
+  description: Uses k-1 or k+1 in place of k, in both the exponent and the
+    factorial.
+- id: drops-exponential-factor
+  description: Reports (lambda t)^k / k! alone, omitting the given e^(-lambda
+    t) multiplier entirely. Not exercisable at the hard tier, whose ratio
+    formula has no exponential factor to drop.
+- id: uses-lambda-not-lambda-t
+  description: 'Medium tier only (lambda and t stated separately): substitutes
+    lambda alone where lambda*t belongs.'
+- id: inverted-ratio
+  description: 'Hard tier only: reports P(N=k2)/P(N=k1) instead of the asked
+    P(N=k1)/P(N=k2), the reciprocal of the correct ratio.'
+- id: confuses-k1-for-k2
+  description: 'Exam tier only: reports the stated count k1 itself instead of
+    solving for the unknown count k2.'
+- id: off-by-one-high
+  description: 'Exam tier only: reports k2 + 1 instead of the true k2.'
+- id: off-by-one-low
+  description: 'Exam tier only: reports k2 - 1 instead of the true k2.'
+tags: [university-core-v1, stochastic-processes, probability]

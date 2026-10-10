@@ -1,0 +1,17 @@
+id: name-basic-shapes
+name: Name basic shapes
+domain: early-foundations
+placement_order: 80
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Recognise circles, triangles, squares and rectangles.
+status: active
+prerequisites: [count-to-5]
+answer: mcq
+sources:
+- topic: shape_names
+  params: {}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, shapes, visual]

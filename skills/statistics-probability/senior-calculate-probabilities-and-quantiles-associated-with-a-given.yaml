@@ -1,0 +1,52 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-probabilities-and-quantiles-associated-with-a-given
+name: Calculate probabilities and quantiles associated with a given normal distribution using technology,
+  and use these to solve practical problems
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, calculate probabilities and quantiles associated
+  with a given normal distribution using technology, and use these to solve practical problems. Return
+  the resulting value, expression, relation, or classification. This is a CONTINUOUS N(mu, sigma^2)
+  distribution computed with statistics.NormalDist, never a discrete probability mass function. Four
+  tiers, each a genuine change of decision: a one-tail probability P(X<a) or P(X>b); a between-two-values
+  probability P(a<X<b); the inverse problem of finding a quantile x from a stated cumulative proportion;
+  and, on the exam tier, solving for a missing distribution parameter (mu or sigma) given the other
+  parameter and a stated event proportion and threshold.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+capability_gates: [modelling, technology_use]
+answer: number
+sources:
+- topic: p13d_normal_dist_prob_quantile
+  params: {mode: one_tail}
+  difficulty: easy
+  stages: [6]
+- topic: p13d_normal_dist_prob_quantile
+  params: {mode: between}
+  difficulty: medium
+  stages: [6]
+- topic: p13d_normal_dist_prob_quantile
+  params: {mode: quantile}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p13d_normal_dist_prob_quantile
+  params: {mode: solve_parameter}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-tail
+  description: Reports 1 minus the correct probability (or, on the between-tier, the complementary total), reading the asked-for tail/range backwards.
+- id: reports-z-not-x
+  description: Reports the standardised z-score instead of converting it back to the original value x (or the solved distribution parameter), on the quantile and parameter-solving tiers.
+- id: variance-as-standard-deviation
+  description: Uses sigma squared (the variance) where sigma (the standard deviation) belongs in the normal distribution's construction.
+- id: forgets-the-standard-deviation
+  description: Computes as if the standard deviation were 1, forgetting to standardise by the stated sigma at all.
+- id: swapped-subtraction-order
+  description: On the between-two-values tier, computes cdf(a) - cdf(b) instead of cdf(b) - cdf(a), reporting the negative of the correct probability.
+- id: inverts-the-wrong-tail
+  description: On the quantile tier, uses the inverse cdf of (1 - q) instead of q, confusing the smallest/largest proportion with its complement.
+- id: swaps-multiplication-and-division
+  description: On the parameter-solving tier, multiplies where the algebra requires dividing (or vice versa) when isolating the unknown parameter.
+tags: [acara-senior-v8-4, statistics-probability, normal-distribution, probability, quantile, acmmm170]

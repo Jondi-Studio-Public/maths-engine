@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-and-use-multiplication-as-a-linear-transformation
+name: Examine and use multiplication as a linear transformation
+domain: senior-mathematics
+description: |
+  Given bounded, fully specified inputs, examine and use multiplication as a linear
+  transformation in the complex plane. Return the resulting value, expression, relation,
+  or classification. Every question fixes a multiplier w (real, purely imaginary, or
+  general complex) and asks for the image of a supplied point z under multiplication by
+  w. Boundary against multiply-complex-numbers (which grades the raw Cartesian product of
+  two supplied complex numbers via MCQ): this skill's focus is the GEOMETRIC reading
+  of multiplication -- one of the two factors is always a fixed "multiplier" w drawn from
+  an increasingly general family (real, then purely imaginary, then general complex), and
+  the question is framed as finding the image point of z under multiplication by w, never
+  as "compute the product" in the abstract.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+  - topic: complex_mult_linear_transform
+    params: {variant: real}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: complex_mult_linear_transform
+    params: {variant: imaginary}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: complex_mult_linear_transform
+    params: {variant: general}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: added-not-multiplied
+    description: Adds the multiplier w to z's coordinates instead of multiplying by it — treats a fixed multiplier as an offset, not a scale factor.
+  - id: scaled-x-only
+    description: Multiplies only the x-coordinate by the real multiplier k and leaves y unchanged.
+  - id: swapped-scalar
+    description: Swaps the scaled x and y coordinates when reporting the image point under a real multiplier.
+  - id: sign-drop
+    description: Forgets i squared equals negative one and adds the cross term instead of subtracting it, reporting (my, mx) instead of (-my, mx) for a purely imaginary multiplier.
+  - id: treated-as-real
+    description: Treats a purely imaginary multiplier as if it were real, reporting (mx, my) instead of (-my, mx).
+  - id: swapped-imaginary
+    description: Reports the correctly-signed components in the wrong order for a purely imaginary multiplier.
+  - id: sign-error-cross-term
+    description: Forgets i squared equals negative one and adds the by cross term instead of subtracting it, for a general complex multiplier.
+  - id: real-part-only
+    description: Ignores the multiplier's imaginary component entirely, reporting (ax, ay) instead of the full two-term formula.
+  - id: swapped-formula
+    description: Swaps the real and imaginary parts of the correctly-computed image point for a general complex multiplier.
+tags: [complex-numbers, acara-v8-4, ACMSM085]

@@ -1,0 +1,17 @@
+id: continue-patterns
+name: Continue repeating patterns
+domain: early-foundations
+placement_order: 90
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Spot a repeating unit and choose what comes next.
+status: active
+prerequisites: [name-basic-shapes]
+answer: mcq
+sources:
+- topic: repeating_pattern
+  params: {}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, patterns, visual]

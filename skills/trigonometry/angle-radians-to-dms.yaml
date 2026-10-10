@@ -1,0 +1,33 @@
+id: angle-radians-to-dms
+name: Convert a radian angle to degrees and minutes
+domain: trigonometry
+description: 'Given a radian value in one of four input shapes (a 3dp decimal, a word-problem framing of the same decimal, a bare fraction, or a word-problem framing of an exact pi-fraction), convert to degrees and minutes, rounded to the nearest minute. Reverse direction of the DMS-to-radians conversion (a separate skill); split because they use different grader kinds.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: t4_radians_to_dms
+  params: {variant: basic}
+  difficulty: easy
+  stages: [6]
+- topic: t4_radians_to_dms
+  params: {variant: context}
+  difficulty: medium
+  stages: [6]
+- topic: t4_radians_to_dms
+  params: {variant: fraction_input}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: t4_radians_to_dms
+  params: {variant: exam_pi_fraction}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dropped-minutes
+  description: Converts the whole-degree part correctly but forgets to convert the fractional degree into minutes at all.
+- id: minutes-as-hundredths
+  description: Misreads the fractional degree as hundredths rather than sixtieths, so 0.5 degrees becomes 50 minutes instead of 30.
+- id: swapped-components
+  description: Swaps the degrees and minutes components in the answer.
+tags: [trigonometry, angle-measure, radians, dms]

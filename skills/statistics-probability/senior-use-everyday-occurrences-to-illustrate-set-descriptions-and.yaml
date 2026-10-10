@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-everyday-occurrences-to-illustrate-set-descriptions-and
+name: Use everyday occurrences to illustrate set descriptions and representations of events, and set operations
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use everyday occurrences to illustrate set descriptions and representations of events, and set operations. Return the resulting value, expression, relation, or classification. This skill assesses the description/representation half only: translating an everyday-language description of a group into a matching set-notation phrase (word form, never symbolic notation like ∪/∩/\). The operations half (computing or listing the actual elements of any set) is not covered by this skill; that is left to finite-set-operations, a separate already-shipped skill that handles computation over explicitly listed finite sets. This skill never lists a set''s elements and never asks for a computed result set.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: mcq
+sources:
+- topic: use_everyday_occurrences_to_illustrate_set_descriptions_and
+  difficulty: easy
+  stages: [6]
+- topic: use_everyday_occurrences_to_illustrate_set_descriptions_and
+  difficulty: medium
+  stages: [6]
+- topic: use_everyday_occurrences_to_illustrate_set_descriptions_and
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: confuses-union-with-intersection
+  description: Chooses the union option when the description asks for intersection, or vice versa.
+- id: ignores-direction-in-difference
+  description: For "A but not B" vs "B but not A", misses that the direction determines which group is excluded.
+- id: omits-exclusion-in-difference
+  description: Correctly identifies the set operation as a difference but forgets that one group must be explicitly removed.
+- id: misses-triple-set-complexity
+  description: In hard tier, attempts to apply a 2-set logic to a 3-set description without tracking the third group.
+- id: confuses-exactly-one-with-both
+  description: Thinks "exactly one of A or B" means "at least one" (which is union), not the symmetric difference.
+- id: misinterprets-neither
+  description: Chooses union or intersection when the description asks for "neither A nor B" (the complement of their union).
+tags: [acara-senior-v8-4, statistics-probability, use_everyday_occurrences_to_illustrate_set_descriptions_and, acmmm051]

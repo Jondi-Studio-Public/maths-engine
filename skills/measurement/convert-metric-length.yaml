@@ -1,0 +1,30 @@
+id: convert-metric-length
+name: Convert metric length units
+domain: measurement
+placement_order: 10
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Convert between millimetres, centimetres, metres and kilometres using exact common-unit relationships.
+status: active
+prerequisites: [decimal-place-value]
+answer: number
+sources:
+- topic: metric_conversion
+  params: {kind: length, max_steps: 1, value_hi: 12}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: metric_conversion
+  params: {kind: length, max_steps: 1, value_hi: 20}
+  stages: [3, 4]
+  difficulty: medium
+- topic: metric_conversion
+  params: {kind: length, max_steps: 1, value_hi: 30, combine: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: conversion-direction
+  description: Multiplies when converting to a larger unit or divides when converting to a smaller unit.
+- id: assumes-factor-ten
+  description: Assumes every adjacent named metric length unit differs by a factor of ten.
+tags: [primary, measurement, metric, acara-v9-year-6]

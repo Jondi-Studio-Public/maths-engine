@@ -1,0 +1,65 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-formulate-differential-equations-including-the-logistic-equation-that
+name: 'Formulate differential equations including the logistic equation that will arise in, for
+  example, chemistry, biology and economics, in situations where rates are involved'
+domain: differential-equations
+description: Given a verbal description of a rate relationship (proportional growth/decay,
+  Newton's law of cooling, logistic growth, or a combined input/decay rate), choose the
+  differential equation FORM that models it. Never asks the learner to solve the equation.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+answer: mcq
+sources:
+- topic: p13b_formulate_de
+  params:
+    variant: easy
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13b_formulate_de
+  params:
+    variant: medium
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13b_formulate_de
+  params:
+    variant: hard
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13b_formulate_de
+  params:
+    variant: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: proportional-to-time-not-quantity
+  description: 'Easy tier: models the rate as proportional to time (kt) rather than to the
+    quantity itself (kQ).'
+- id: constant-rate
+  description: 'Easy tier: uses a constant rate (k) that ignores the "proportional to the
+    quantity" clause entirely.'
+- id: cooling-drops-ambient-term
+  description: 'Medium tier: drops the ambient-temperature clause entirely, modelling plain
+    proportional change (kT) instead of k(A - T).'
+- id: cooling-reverses-difference
+  description: 'Medium tier: reverses the stated order of the temperature difference,
+    writing k(T - A) instead of k(A - T) -- physically backwards under a positive
+    constant, since an object above ambient must cool toward it (negative rate).'
+- id: logistic-reverses-capacity-term
+  description: 'Hard tier: reverses the sign of the remaining-capacity term, writing
+    kP(P - N) instead of kP(N - P).'
+- id: logistic-adds-instead-of-multiplies
+  description: 'Hard tier: adds the population and its remaining capacity instead of
+    multiplying them, which algebraically collapses to a constant rate.'
+- id: logistic-drops-capacity
+  description: 'Hard tier: drops the capacity term entirely, modelling plain exponential
+    growth (kP).'
+- id: combined-rate-sign-reversed
+  description: 'Exam tier: reverses the sign of the decay term, modelling growth from decay
+    (r + kQ) instead of loss (r - kQ).'
+- id: combined-rate-wrong-scope
+  description: 'Exam tier: applies the proportionality constant to the whole expression
+    (k(r - Q)) instead of only to the decay term.'
+tags: []

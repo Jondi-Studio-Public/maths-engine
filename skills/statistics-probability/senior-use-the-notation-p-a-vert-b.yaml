@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-the-notation-p-a-vert-b
+name: Use the notation P(A|B) for conditional probability
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use the notation P(A|B). Return the resulting value, expression, relation, or classification. This skill assesses conditional probability directly from given event definitions and counts or pre-computed probabilities, using the conditional probability formula P(A|B) = P(A ∩ B) / P(B).'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: conditional_probability_notation
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: conditional_probability_notation
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: conditional_probability_notation
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: reports-joint-not-conditional
+  description: Reports P(A ∩ B) instead of P(A|B), confusing the joint probability with the conditional.
+- id: reports-marginal-of-conditioning-event
+  description: Reports P(B) instead of P(A|B), treating the conditioning event as the answer.
+- id: conditions-on-complement
+  description: Divides by the count not in B instead of the count in B, using the complement of the conditioning event.
+tags: [acara-senior-v8-4, statistics-probability, conditional-probability, acmmm057]

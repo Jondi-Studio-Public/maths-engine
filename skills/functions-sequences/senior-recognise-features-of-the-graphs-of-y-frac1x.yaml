@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-features-of-the-graphs-of-y-frac1x
+name: 'Read the asymptotes of y = 1/(x - h) + k off its graph'
+domain: functions-sequences
+description: 'Given the graph of y = 1/(x - h) + k on a labelled integer grid with h and k integers and no asymptote drawn, state its two asymptote equations in the form x = h, y = k by reading where the branches break and where they level off. The values of h and k are never printed.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: pv1e_hyperbola_asymptotes
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1e_hyperbola_asymptotes
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1e_hyperbola_asymptotes
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1e_hyperbola_asymptotes
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped
+  description: 'Gives x = k, y = h, reading the horizontal asymptote''s value as the vertical one (or the other way round).'
+- id: sign-h
+  description: 'Gives x = -h, y = k, writing the vertical asymptote on the wrong side of the y-axis (the sign slip of reading 1/(x + h)).'
+- id: sign-k
+  description: 'Gives x = h, y = -k, writing the horizontal asymptote on the wrong side of the x-axis.'
+- id: branch-point
+  description: 'Gives x = h + 1, y = k + 1, the coordinates of the point one square along the branch, instead of the lines the branches approach.'
+- id: axis-next-to
+  description: 'Gives an asymptote one square beside the axis it actually lies along (x = 1 for x = 0), missing that an axis can be an asymptote.'
+- id: squares-not-units
+  description: 'Counts squares up instead of using the vertical scale, giving y = k/2 when one square is 2 units.'
+tags: [acara-senior-v8-4, functions-sequences, reciprocal, hyperbola, asymptote, graph, acmmm013, figure]

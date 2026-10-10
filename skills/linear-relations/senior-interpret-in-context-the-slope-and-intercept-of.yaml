@@ -1,0 +1,51 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-in-context-the-slope-and-intercept-of
+name: Interpret, in context, the slope and intercept of a straight-line graph used to model and analyse
+  a practical situation
+domain: linear-relations
+description: 'A straight-line graph of total cost against a count (hours, classes, posters, kilometres) is
+  drawn on a labelled grid and the learner types the fixed cost, in dollars: the value of the line at zero.
+  The rate is never stated. Tier ladder by decision: easy draws the y-axis from zero and the line meets it
+  at a lattice point, so the fixed cost is read at x = 0; medium offsets the y scale so it does not start at
+  zero (x = 0 is still drawn), so the reading is made against a scale whose bottom edge is not the origin;
+  hard starts the x scale above zero so the y-axis is not drawn, and the fixed cost is extrapolated back
+  from two lattice points and the slope; exam does the same on stepped axes (both axes step by more than one
+  real unit per grid line) with a fractional rate per real unit, and asks for the fee by its own name (hire
+  fee, joining fee, call-out fee, set-up cost). This skill reads one contextual quantity, not the abstract
+  pair (m, c) off a bare graph (senior-determine-the-slope-and-intercepts-of-a-straight) and not the rate
+  itself (rate-of-change).'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rate-of-change]
+answer: number
+sources:
+- topic: pv1a_fixed_cost
+  params: {mode: read}
+  difficulty: easy
+  stages: [6]
+- topic: pv1a_fixed_cost
+  params: {mode: offset}
+  difficulty: medium
+  stages: [6]
+- topic: pv1a_fixed_cost
+  params: {mode: extrapolate}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv1a_fixed_cost
+  params: {mode: named_fee}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: first-point-cost
+  description: Reads the total cost at the first plotted point on the line instead of at zero, giving the cost of the first few items rather than the fixed cost.
+- id: rate-as-fixed-cost
+  description: Gives the rate (the cost for each extra unit) as the fixed cost, taking the slope for the intercept.
+- id: cost-at-largest-x
+  description: Reads the total cost at the far right end of the line instead of where the line meets x = 0.
+- id: grid-step-as-unit
+  description: Takes the rise per grid line as the rate per real unit of x when the x grid lines are more than one unit apart, so the extrapolation back to zero over-corrects.
+tags: [acara-v8-4-general, linear-relations, figure-stimulus]

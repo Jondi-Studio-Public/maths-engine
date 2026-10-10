@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-units-of-time-conversions-between-units-fractional
+name: Use units of time, conversions between units, fractional and decimal representations
+domain: measurement
+description: Given bounded, fully specified inputs, use units of time, conversions between units, fractional, digital and decimal representations. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: use_units_of_time_conversions_between_units_fractional
+  params: {mode: minutes_hours_direct}
+  difficulty: easy
+  stages: [6]
+- topic: use_units_of_time_conversions_between_units_fractional
+  params: {mode: hours_minutes_compound}
+  difficulty: medium
+  stages: [6]
+- topic: use_units_of_time_conversions_between_units_fractional
+  params: {mode: fraction_of_hour_to_minutes}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: divides_by_100
+  description: Divides minutes by 100 instead of 60 when converting to decimal hours (e.g. 45 minutes becomes 0.45 instead of 0.75).
+- id: divides_by_10
+  description: Divides minutes by 10 instead of 60 when converting to decimal hours (e.g. 45 minutes becomes 4.5 instead of 0.75).
+- id: forgets_to_convert
+  description: Leaves the answer in the original unit instead of converting (e.g. answers 45 instead of 0.75 when converting 45 minutes to hours).
+- id: reads_the_decimal_digits_as_minutes
+  description: Treats decimal digits as if they were minutes (e.g. reads 2.25 hours as 225 minutes instead of 135 minutes).
+- id: ignores_the_fractional_part
+  description: Ignores the decimal part when converting (e.g. converts only the whole-hour part from 2.75 hours to 120 minutes, ignoring the 0.75 hours).
+- id: off_by_a_factor_of_ten
+  description: Divides or multiplies by 10 instead of 60 when converting between minutes and hours (e.g. 120 minutes becomes 12 instead of 2).
+- id: multiplies_fraction_by_100_not_60
+  description: Multiplies the fractional part by 100 instead of 60 when converting to minutes (e.g. 1/2 hour becomes 50 minutes instead of 30 minutes).
+- id: ignores_fraction_entirely
+  description: Ignores the fractional part of an hour, converting only the whole-hour part (e.g. 3 and 1/4 hours becomes 180 minutes instead of 195 minutes).
+- id: adds_instead_of_converts
+  description: Adds the numerator and denominator of a fraction instead of converting it to minutes (e.g. 3/4 hour becomes 7 minutes instead of 45 minutes).
+tags: [acara-senior-v8-4, measurement, time, acmem076]

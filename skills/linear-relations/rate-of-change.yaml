@@ -1,0 +1,65 @@
+id: rate-of-change
+name: Rate of change and gradient
+domain: linear-relations
+description: Calculate and interpret a constant rate of change (gradient) from two points, a table of
+  values, or a real-world context.
+status: active
+prerequisites:
+- coordinate-plane-readiness
+- integer-arithmetic
+- input-output-tables
+- ratio-rate-proportion
+- independent-dependent-variables
+answer: fraction
+sources:
+- topic: gradient
+  params:
+    kind: points
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: gradient
+  params:
+    kind: points
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: gradient
+  params:
+    kind: context
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: gradient
+    params:
+      kind: points
+      hi: 5
+    target_s: 8
+    limit_s: 20
+  - topic: gradient
+    params:
+      kind: points
+      hi: 9
+    target_s: 10
+    limit_s: 24
+  - topic: gradient
+    params:
+      kind: points
+      hi: 12
+    target_s: 12
+    limit_s: 28
+misconceptions:
+- id: reversed-rise-run
+  description: Reversing rise and run, or using inconsistent point order.
+- id: output-change-only
+  description: Using the change in output alone, ignoring the change in input.
+- id: total-not-change
+  description: Using total values instead of the change between them.
+tags: []

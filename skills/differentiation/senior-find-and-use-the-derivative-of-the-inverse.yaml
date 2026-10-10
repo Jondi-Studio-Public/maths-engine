@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-and-use-the-derivative-of-the-inverse
+name: 'Find and use the derivative of the inverse trigonometric functions'
+domain: differentiation
+description: 'Given bounded, fully specified inputs, find and use the derivative of the inverse trigonometric functions: arcsine, arccosine and arctangent. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, assessment modes outside capability_gate, evaluating an inverse trigonometric function to an exact numeric or angle value, or composing one inside a further trigonometric evaluation (both belong to the sibling skill, senior-find-and-use-the-inverse-trigonometric-functions-arcsine).'
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: find_and_use_the_derivative_of_the_inverse
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: find_and_use_the_derivative_of_the_inverse
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: find_and_use_the_derivative_of_the_inverse
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: inverse-trig-sign-flip
+  description: Uses the wrong sign on the derivative (confuses arcsine's and arccosine's formulas, or flips arctangent's).
+- id: inverse-trig-dropped-sqrt
+  description: Drops the square root in the arcsine/arccosine derivative formula.
+- id: confused-with-direct-trig-derivative
+  description: Differentiates as if the function were the plain (non-inverse) trig function instead.
+- id: chain-rule-forgot-inner-factor
+  description: Uses the bare inverse-trig derivative formula without the chain-rule factor from a scaled inner argument.
+- id: chain-rule-forgot-affine-intercept
+  description: Uses only the linear coefficient of the inner argument, dropping its constant term, when applying the chain rule.
+tags: [acara-senior-v8-4, differentiation, inverse-trigonometric-functions, chain-rule, acmsm120]

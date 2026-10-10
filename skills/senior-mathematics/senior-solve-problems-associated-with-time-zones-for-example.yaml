@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-associated-with-time-zones-for-example
+name: Solve problems associated with time zones; for example, internet and phone usage
+domain: senior-mathematics
+description: Given two named places, each with its own stated "reasonable hours to call" window in its own local time and a UTC offset (stated directly, derived via a daylight-saving allowance, or looked up from a stated zone-abbreviation key), work out the length of the daily window during which both places' reasonable-hours-to-call windows overlap.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: timezone_call_window_overlap
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: timezone_call_window_overlap
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: timezone_call_window_overlap
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores-dst-or-abbreviation
+  description: Uses a place's standard offset without applying its daylight-saving allowance, or without resolving its stated zone abbreviation, before shifting its window into the other place's clock frame.
+- id: uses-wrong-window-length
+  description: Applies the same window length to both places when they genuinely differ (14 hours for a place whose stated window is actually the narrower 12-hour one), only reachable once the two windows are of different lengths.
+- id: adds-instead-of-intersects
+  description: Reports the sum of the two window lengths instead of the length of their overlap once one window is shifted into the other's clock frame.
+tags: [acara-senior-v8-4, essential-mathematics, time-zones, earth-geometry]

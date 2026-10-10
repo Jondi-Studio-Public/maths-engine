@@ -1,0 +1,20 @@
+id: arithmetic-properties
+name: Use properties of operations
+domain: readiness
+placement_order: 50
+description: Recognise and use commutative, associative, identity, inverse and distributive properties.
+status: active
+prerequisites:
+- order-of-operations
+answer: mcq
+sources:
+- topic: arithmetic_properties
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2, 3, 4, 5, 6, maintenance]
+misconceptions:
+- id: misconception-1
+  description: Applying commutativity to subtraction or division
+- id: misconception-2
+  description: Changing grouping without preserving operations
+tags: []

@@ -1,0 +1,48 @@
+id: ucv1-wave-equation-separation
+name: Separate a one-dimensional wave equation
+domain: fourier-analysis-and-pdes
+description: Compute one product-form separated mode for a supplied one-dimensional wave equation and boundary family.
+status: active
+placement_eligible: false
+prerequisites:
+- classify-constant-coefficient-pde
+answer: expression
+sources:
+- topic: p15e_wave_equation_separation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15e_wave_equation_separation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15e_wave_equation_separation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15e_wave_equation_separation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-family
+  description: Uses cosine spatial modes for a Dirichlet boundary (or sine modes for a Neumann boundary), swapping the required family.
+- id: wrong-time-factor
+  description: Uses the wrong time factor, such as sin(...) when the string starts from rest requires cos(...), or vice versa.
+- id: drops-c
+  description: Omits the wave speed c from the time-factor argument entirely.
+- id: wrong-amplitude
+  description: Reports the mode with the wrong overall amplitude coefficient.
+- id: uses-wrong-family-candidate
+  description: Builds the mode from the decoy family candidate instead of the one implied by the stated boundary condition (exam tier only).
+tags: [university-core-v1, p15e-university-batch, fourier]
+framework_areas: [fourier-analysis-and-pdes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes

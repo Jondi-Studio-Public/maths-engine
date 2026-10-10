@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-differentiate-and-integrate-a-vector-function-with-respect
+name: Differentiate and integrate a vector function with respect to time
+domain: differentiation
+description: Given bounded, fully specified inputs, differentiate and integrate a vector function with respect to time. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-polynomial
+answer: pair
+sources:
+- topic: differentiate_and_integrate_a_vector_function_with_respect
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: differentiate_and_integrate_a_vector_function_with_respect
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: differentiate_and_integrate_a_vector_function_with_respect
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: evaluated-position-not-velocity
+  description: Reports the position vector at the stated time instead of the velocity vector.
+- id: forgot-power-rule-coefficient
+  description: Differentiates each component's squared term as if it were linear, forgetting the power-rule coefficient.
+- id: sign-error-both-components
+  description: Reports the negative of the correct velocity vector.
+- id: forgot-chain-rule-both-components
+  description: Differentiates as if the inner argument had coefficient 1, forgetting the chain-rule factor on both components.
+- id: sign-confused-trig-derivative
+  description: Confuses the sine derivative with the cosine derivative's sign, or evaluates at the wrong point.
+- id: sign-error-exponential-component
+  description: Reports the negative of the correct exponential-component derivative.
+- id: used-velocity-instead-of-integrating
+  description: Reports the velocity vector at the stated time instead of integrating to find displacement.
+- id: botched-power-rule-antiderivative
+  description: Antidifferentiates as if the variable's own antiderivative were itself, instead of applying the power rule in reverse.
+tags: [acara-senior-v8-4, differentiation, vectors, integration, acmsm113]

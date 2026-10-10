@@ -1,0 +1,10 @@
+id: complex-modulus
+name: Calculate a complex modulus
+domain: senior-mathematics
+description: Calculate the modulus of a Cartesian complex number using Pythagoras.
+status: active
+prerequisites: [complex-imaginary-part, pythagorean-hypotenuse]
+answer: number
+sources: [{topic: complex_number, params: {kind: modulus}, difficulty: easy}]
+misconceptions: [{id: adds-components, description: Adds the real and imaginary components.}]
+tags: [expansion-batch-6, complex-numbers, acara-v8-4]

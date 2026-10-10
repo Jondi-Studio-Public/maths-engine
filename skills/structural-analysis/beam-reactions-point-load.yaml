@@ -1,0 +1,20 @@
+id: beam-reactions-point-load
+name: Reactions R_A, R_B
+domain: structural-analysis
+description: Find the support reactions for a simply supported beam under a point load.
+status: active
+prerequisites:
+- moment-of-a-force
+answer: pair
+sources:
+- topic: structural
+  params:
+    kinds:
+    - reactions
+  difficulty: easy
+misconceptions:
+- id: swapped-reactions
+  description: Swapping the two support reactions.
+- id: assumed-equal-share
+  description: Assuming each support carries half the load regardless of position.
+tags: []

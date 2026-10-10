@@ -1,0 +1,33 @@
+id: least-squares-line
+name: Fit a least-squares line
+domain: statistics-probability
+description: Compute the slope and intercept of a least-squares line for a small exact data set.
+status: active
+prerequisites: [equation-from-table]
+answer: pair
+sources:
+- topic: least_squares_line
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: least_squares_line
+  difficulty: medium
+  stages: [3, 4]
+- topic: least_squares_line
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swaps-slope-intercept
+  description: Reports the intercept as the slope or reverses their order.
+- id: uses-first-point-intercept
+  description: Treats the first observed y-value as the fitted intercept.
+tags: [university-core-v1, statistics, optimisation]
+framework_areas: [statistics, optimisation]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: statistics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: optimisation

@@ -1,0 +1,17 @@
+id: compare-functions-representations
+name: Compare functions in different representations
+domain: functions-sequences
+description: Compare properties of functions represented verbally, numerically, graphically or algebraically.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- function-notation
+- compare-linear-representations
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Comparing only one displayed value
+- id: misconception-2
+  description: Ignoring differences in scale or domain
+tags: []

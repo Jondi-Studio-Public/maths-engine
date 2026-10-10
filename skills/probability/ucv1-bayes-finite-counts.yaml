@@ -1,0 +1,47 @@
+id: ucv1-bayes-finite-counts
+name: Compute a Bayes update from a finite table
+domain: probability
+description: Given a prior population split across two groups as raw counts and a
+  per-group rate for an evidence property, construct the joint counts and invert
+  them into a posterior probability. Excludes a pre-tabulated joint count table
+  handed to the learner whole -- that shape is conditional-probability-counts.
+status: active
+placement_eligible: false
+prerequisites: [conditional-probability-counts]
+answer: fraction
+sources:
+- topic: bayes_finite_counts
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: bayes_finite_counts
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: bayes_finite_counts
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: likelihood-instead-of-posterior
+  description: Reports the raw per-group rate for group 1 (or its complement, on
+    the not-E tier) instead of the updated posterior probability.
+- id: prior-instead-of-posterior
+  description: Reports the prior population share for group 1 instead of the
+    posterior probability given the evidence.
+- id: wrong-group
+  description: Reports the posterior probability for group 2 instead of group 1,
+    swapping which group the question asked about.
+- id: forgot-to-complement
+  description: On the not-E tier, uses the E counts instead of the not-E counts,
+    answering as if the question had asked about the evidence rather than its
+    complement.
+tags: [university-core-v1, probability, bayes-theorem]

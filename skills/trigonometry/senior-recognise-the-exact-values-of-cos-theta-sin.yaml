@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-exact-values-of-cos-theta-sin
+name: Recognise the exact values of \(\cos\theta,\;\sin\theta\) and \(\tan\theta\) at integer multiples of \(\frac\pi6\) and \(\frac\pi4\)
+domain: trigonometry
+description: "Given theta as a stated integer multiple of pi/6 or pi/4, and which of cos(theta), sin(theta) or tan(theta) is asked for, state its exact value in simplified surd form as a multiple-choice option. tan(theta) is undefined at odd multiples of pi/2 -- that case is a real, gradable key on the harder tiers, offered as a plain \"undefined\" mcq option (never a typed expression)."
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19g_exact_trig_value
+  params: {variant: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19g_exact_trig_value
+  params: {variant: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19g_exact_trig_value
+  params: {variant: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19g_exact_trig_value
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-cos-sin
+  description: Reports the value of the other named function (e.g. sin(theta) when cos(theta) was asked for) instead of the one actually requested.
+- id: sign-flipped-value
+  description: Reports the correct magnitude but with the wrong sign for the quadrant theta is in.
+- id: confuses-zero-and-undefined
+  description: Swaps "tan(theta) = 0" and "tan(theta) is undefined" at the quadrantal angles, offering 0 where cos(theta) = 0 or "undefined" where sin(theta) = 0.
+- id: forgets-to-divide-for-tan
+  description: Reports sin(theta) alone instead of computing tan(theta) = sin(theta)/cos(theta).
+- id: wrong-standard-angle
+  description: Reports the exact value for a nearby standard angle (e.g. pi/3 instead of pi/6) rather than the one actually stated.
+tags: [acara-senior-v8-4, trigonometry, exact-values, unit-circle, acmmm035]

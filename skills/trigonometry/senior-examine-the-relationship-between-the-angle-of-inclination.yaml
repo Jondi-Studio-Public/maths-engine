@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-the-relationship-between-the-angle-of-inclination
+name: Angle of inclination and gradient
+domain: trigonometry
+description: Examine the relationship between the angle of inclination of a line and its gradient, given bounded, fully specified inputs, returning the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: expression
+sources:
+- topic: angle_of_inclination_gradient
+  params: {variant: forward}
+  difficulty: easy
+  stages: [6]
+- topic: angle_of_inclination_gradient
+  params: {variant: inverse}
+  difficulty: medium
+  stages: [6]
+- topic: angle_of_inclination_gradient
+  params: {variant: from_points}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-sine-not-tangent
+  description: Used sine instead of tangent.
+- id: uses-cosine-not-tangent
+  description: Used cosine instead of tangent.
+- id: supplementary-angle-confusion
+  description: Confused the angle with its supplementary angle (180 - angle).
+- id: mistakes-gradient-for-angle
+  description: Mistakes the gradient value for the angle in degrees.
+tags: [acara-senior-v8-4, trigonometry, angle-of-inclination, gradient, acmmm030]

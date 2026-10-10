@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-examples-of-inverse-proportion
+name: Examine examples of inverse proportion
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, examine examples of inverse proportion. Return the resulting value, expression, relation, or classification. Specifically: given a stated relation y = k/x and one data point, compute a second value for a new input, the new input for a second value, or (named-law framing) the resulting value after the input is scaled twice in succession, inferring that the output divides (rather than multiplies) from the stated relation itself. Excludes classifying an unlabelled table of values as direct, inverse or quadratic from the data alone; the relation type and its formula are always stated.'
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: p7d_examine_inverse_proportion
+  params:
+    variant: find_y2
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p7d_examine_inverse_proportion
+  params:
+    variant: find_x2
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p7d_examine_inverse_proportion
+  params:
+    variant: divide_factor
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: as-if-direct
+  description: 'Treats the relation as directly proportional, multiplying by the scale factor instead of applying the inverse relationship (easy: y2 = y1*t; medium: x2 = x1*y2/y1; hard: multiplies the stated pressure by the combined scale factor t1*t2 instead of dividing, P1*(t1*t2)).'
+- id: as-if-quadratic
+  description: 'Treats the relation as quadratically related, applying the square of the scale factor instead of the inverse relationship (easy/medium: an extra factor of t; hard: applies the square of the combined scale factor, P1*(t1*t2)^2).'
+- id: no-change
+  description: 'Forgets the value changes and answers the stated "before" value unchanged (easy: y1; medium: x1; hard: P1, the stated pressure, ignoring both scaling steps).'
+tags: []

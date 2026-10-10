@@ -1,0 +1,31 @@
+id: f10-logarithmic-scales
+name: Interpret logarithmic scales
+domain: secondary-number
+description: Given a logarithmic scale with two labelled reference values and a stated position on the scale expressed as a fraction of the scale-distance between them, calculate the numeric value at that position, using the fact that equal scale-distances correspond to equal multiplicative ratios.
+status: active
+placement_eligible: false
+prerequisites: [logarithm-laws, scientific-notation]
+answer: number
+sources:
+- topic: p10e_logarithmic_scales
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10e_logarithmic_scales
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10e_logarithmic_scales
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: linear-interpolation
+  description: Computes the value (or, on the inverse-direction question, the position) as if the scale were linear -- A + t*(B-A) -- instead of using the exponential/multiplicative-ratio relationship.
+- id: off-by-one-decade
+  description: Uses one decade too many or too few (j+1 or j-1 instead of the correct j), a one-decade miscount.
+- id: swaps-reference-direction
+  description: Computes as if starting from B and working backward (B*(A/B)^t), which is only correct at the scale's exact midpoint. Never offered where it would collide with the correct answer (the fixed easy-tier midpoint, or an inverse-tier position exactly at the midpoint).
+- id: halves-the-ratio-not-the-exponent
+  description: Easy-tier-only substitute for swaps-reference-direction (which always collides with the correct answer at the fixed easy-tier midpoint position). Halves the whole multiplicative ratio A-to-B arithmetically (dividing by 2) instead of taking the correct geometric half (halving the exponent, i.e. a square root of the ratio).
+tags: [acara-f10-v9, secondary, number, logarithms, scales, ac9m10m02]

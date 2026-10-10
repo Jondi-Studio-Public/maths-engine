@@ -1,0 +1,60 @@
+id: ucv1-quotient-ring-operation
+name: Compute a quotient-ring polynomial operation
+domain: abstract-algebra
+description: Reduce the sum or product of two supplied polynomials modulo a supplied monic polynomial.
+status: active
+placement_eligible: false
+prerequisites:
+- integer-polynomial-quotient-remainder
+answer: expression
+sources:
+- topic: p15e_quotient_ring_operation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15e_quotient_ring_operation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15e_quotient_ring_operation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15e_quotient_ring_operation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: subtracts-instead-of-adds
+  description: Subtracts the two polynomials instead of adding them (easy tier only).
+- id: mismatched-degree-addition
+  description: Adds each coefficient to the wrong degree of the other polynomial (easy tier only).
+- id: drops-second-polynomial
+  description: Reports the first polynomial alone, dropping the second entirely (easy tier only).
+- id: forgets-to-reduce
+  description: Reports the unreduced sum or product without applying the modulus at all.
+- id: sign-error-in-reduction
+  description: Substitutes the modulus relation with the wrong sign while reducing.
+- id: drops-a-term-of-modulus
+  description: Applies the reduction substitution but omits the modulus's constant term.
+- id: coefficient-transposition
+  description: Reports the reduced remainder with its coefficients in the wrong order.
+- id: forgets-mod-p-reduction
+  description: Reduces modulo the polynomial correctly but leaves coefficients unreduced modulo p (exam tier only).
+- id: forgets-to-reduce-mod-m
+  description: Reduces coefficients modulo p but skips the polynomial reduction modulo m(x) (exam tier only).
+tags: [university-core-v1, p15e-university-batch, abstract-algebra]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

@@ -1,0 +1,47 @@
+id: ucv1-topology-basis-membership
+name: Test membership in a finite topology basis
+domain: metric-spaces-and-topology
+description: Decide whether a supplied collection is a basis for a finite topology by checking coverage and finite intersections.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15c_topology_basis_membership
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15c_topology_basis_membership
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15c_topology_basis_membership
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15c_topology_basis_membership
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: checks-coverage-only
+  description: Confirms the union of the collection is the whole universe but never checks the finite-intersection condition, so a collection that fails intersection is misclassified as a basis.
+- id: checks-intersection-only
+  description: Confirms the finite-intersection condition but never checks coverage, so a collection that fails coverage is misclassified as a basis.
+- id: assumes-singletons-present
+  description: Treats every pairwise intersection as automatically refinable without checking whether a small enough member is actually present in the collection, so a family built only from mid-sized sets is misclassified as satisfying the intersection condition.
+tags: [university-core-v1, topology, p15c_topology_basis_membership]
+framework_areas: [metric-spaces-and-topology]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology

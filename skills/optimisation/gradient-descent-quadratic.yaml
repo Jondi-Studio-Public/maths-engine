@@ -1,0 +1,33 @@
+id: gradient-descent-quadratic
+name: Take one gradient-descent step on a quadratic loss
+domain: optimisation
+description: Use an exact derivative and learning rate to update one parameter for a simple quadratic loss.
+status: active
+prerequisites: [differentiate-polynomial]
+answer: fraction
+sources:
+- topic: gradient_descent_quadratic
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: gradient_descent_quadratic
+  difficulty: medium
+  stages: [3, 4]
+- topic: gradient_descent_quadratic
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: moves-uphill
+  description: Adds the learning-rate times gradient instead of subtracting it.
+- id: reports-gradient
+  description: Reports the derivative value rather than the updated parameter.
+tags: [university-core-v1, optimisation, statistical-learning]
+framework_areas: [optimisation, statistical-learning]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: optimisation
+- source_id: oxford-data-science
+  status: candidate
+  framework: university-core-v1
+  area: statistical-learning

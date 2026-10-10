@@ -1,0 +1,37 @@
+id: algebraic-notation
+name: Interpret algebraic notation
+domain: language-formulas
+description: Interpret implied multiplication, powers, brackets, fractions and conventional algebraic
+  notation.
+status: active
+prerequisites:
+- variable-concept
+- order-of-operations
+answer: expression
+sources:
+- topic: interpret_notation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: interpret_notation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: interpret_notation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reading 3x as 3 plus x
+- id: misconception-2
+  description: Reading x squared as two times x
+tags: []

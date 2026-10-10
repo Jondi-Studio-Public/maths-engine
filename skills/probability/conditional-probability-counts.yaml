@@ -1,0 +1,48 @@
+id: conditional-probability-counts
+name: Compute conditional probability from counts
+domain: probability
+description: Compute P(A given B) from four finite counts for A and B.
+status: active
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: conditional_probability_counts
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: conditional_probability_counts
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: conditional_probability_counts
+  params: {kind: totals}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-denominator
+  description: Divides by the total population or by the count for A rather than the count for B.
+- id: reversed-conditioning
+  description: Computes P(B given A) instead of P(A given B).
+tags: [university-core-v1, university-foundation-pilot, probability]
+framework_areas: [probability]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

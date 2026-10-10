@@ -1,0 +1,20 @@
+id: strain-from-extension
+name: Strain = dL/L
+domain: engineering-mechanics
+description: Calculate strain from an extension and an original length.
+status: active
+prerequisites:
+- stress-from-force-area
+answer: number
+sources:
+- topic: engineering
+  params:
+    kinds:
+    - strain
+  difficulty: easy
+misconceptions:
+- id: inverted-ratio-strain
+  description: Inverting the strain ratio.
+- id: quoted-percentage
+  description: Quoting the percentage value as the strain.
+tags: []

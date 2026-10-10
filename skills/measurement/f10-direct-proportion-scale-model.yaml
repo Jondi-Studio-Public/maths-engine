@@ -1,0 +1,43 @@
+id: f10-direct-proportion-scale-model
+name: Model direct proportion and scale
+domain: measurement
+description: Given a stated ratio, rate or scale context, determine whether it is directly proportional and compute the resulting value.
+status: active
+placement_eligible: false
+prerequisites: [ratio-rate-proportion, f10-ratio-rate-financial-model]
+answer: mcq
+sources:
+- topic: p13a_direct_proportion_scale
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13a_direct_proportion_scale
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13a_direct_proportion_scale
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13a_direct_proportion_scale
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: omits-fixed-fee
+  description: Computes rate x quantity alone, omitting a stated fixed component entirely -- the textbook direct-proportion-vs-not error.
+- id: applies-fixed-fee-per-unit
+  description: Treats the fixed component as if it recurred every unit, computing (fixed + rate) x quantity instead of fixed + rate x quantity.
+- id: rate-inversion
+  description: Divides by the rate instead of multiplying, or vice versa.
+- id: decimal-shift
+  description: Shifts the decimal point one place too far (a value ten times too large).
+- id: ignores-quantity
+  description: Reports the stated per-unit rate itself as the total, ignoring the quantity entirely.
+- id: skips-the-division-step
+  description: Uses a stated group cost directly as if it were itself the per-unit rate, without dividing by the group size first.
+- id: wrong-data-point-ratio
+  description: Given two data points whose implied rates disagree, uses one data point's own total/quantity ratio as "the" rate instead of solving the two simultaneous equations for the fixed and rate components.
+- id: reports-a-given-total
+  description: Reports one of two given totals directly, ignoring that a new quantity was actually asked for.
+tags: [acara-f10-v9, measurement, ratio, rate, scale, direct-proportion, ac9m9m05, ac9m10m05]

@@ -1,0 +1,30 @@
+id: f10-add-subtract-practical-situations
+name: Solve joining and separating word problems to 20
+domain: early-foundations
+learner_band: early
+description: Given a word problem describing objects being joined, separated or combined into a single quantity, with quantities up to 20, determine the resulting quantity.
+status: active
+placement_eligible: false
+prerequisites: [add-within-10, subtract-within-10]
+answer: number
+sources:
+- topic: practical_situation_sum
+  params: {variant: direct}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: practical_situation_sum
+  params: {variant: comparison}
+  difficulty: medium
+  stages: [3, 4]
+- topic: practical_situation_sum
+  params: {variant: trap}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: opposite-operation
+  description: Applies the opposite operation to the scenario (adds when the situation requires subtracting, or subtracts when it requires adding).
+- id: off-by-one-slip
+  description: States a quantity one more or one less than the correct resulting quantity.
+- id: ignores-one-quantity
+  description: Answers with just one of the two stated quantities, ignoring the other entirely.
+tags: [acara-f10-v9, early, addition-subtraction, ac9mfn05, ac9m1n05]

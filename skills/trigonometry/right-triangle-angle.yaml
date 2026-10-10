@@ -1,0 +1,50 @@
+id: right-triangle-angle
+name: Angle by inverse trig
+domain: trigonometry
+description: Find an unknown angle in a right triangle using an inverse trigonometric ratio.
+status: active
+prerequisites:
+- pythagorean-hypotenuse
+answer: number
+sources:
+- topic: trigonometry
+  params:
+    kinds:
+    - angle
+    angle_style: legs
+    angle_lo: 3
+    angle_hi: 40
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: trigonometry
+  params:
+    kinds:
+    - angle
+    angle_style: leg_hyp
+    angle_lo: 41
+    angle_hi: 80
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: trigonometry
+  params:
+    kinds:
+    - angle
+    angle_style: mixed
+    angle_lo: 81
+    angle_hi: 150
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: complementary-angle
+  description: Finding the complementary angle instead of the one asked for.
+- id: wrong-ratio
+  description: Using sine or cosine with the wrong pair of sides.
+tags: []

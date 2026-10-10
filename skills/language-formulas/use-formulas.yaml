@@ -1,0 +1,64 @@
+id: use-formulas
+name: Use formulas to determine unknown values
+domain: language-formulas
+description: Select a formula, substitute known values and calculate the requested quantity.
+status: active
+prerequisites:
+- apply-a-rule-to-inputs
+answer: number
+sources:
+- topic: formula_plugin
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: formula_plugin
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: formula_plugin
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: formula_plugin
+    params:
+      hi: 9
+      formulas:
+      - rectangle_area
+      - perimeter
+    target_s: 6
+    limit_s: 15
+  - topic: formula_plugin
+    params:
+      hi: 12
+      formulas:
+      - rectangle_area
+      - perimeter
+      - speed
+    target_s: 8
+    limit_s: 20
+  - topic: formula_plugin
+    params:
+      hi: 15
+      formulas:
+      - rectangle_area
+      - perimeter
+      - speed
+      - simple_interest
+    target_s: 10
+    limit_s: 25
+misconceptions:
+- id: misconception-1
+  description: Substituting a value into the wrong variable
+- id: misconception-2
+  description: Reporting a numerical answer without relevant units
+tags: []

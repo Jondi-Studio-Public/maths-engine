@@ -1,0 +1,31 @@
+id: f10-sequence-days-times
+name: Sequence days and daily times
+domain: primary-geometry-time
+description: Order familiar day-parts or days of the week, each shown with a matching event, into their correct chronological sequence.
+status: active
+placement_eligible: false
+prerequisites: [tell-time-to-hour]
+answer: ordered_list
+sources:
+- topic: day_time_sequencing
+  params: {window: day_parts}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: day_time_sequencing
+  params: {window: weekdays, run_lengths: [4]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: day_time_sequencing
+  params: {window: weekdays, run_lengths: [5, 6]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Writes the sequence latest to earliest instead of earliest to latest.
+- id: alphabetical-order
+  description: Orders the day-parts or day names alphabetically instead of chronologically.
+- id: adjacent-swap
+  description: Swaps two adjacent periods (e.g. afternoon and evening) as if their order did not matter.
+- id: keeps-shuffled-order
+  description: Writes the periods back in the order they were shown instead of reordering them chronologically.
+tags: [acara-f10-v9, primary, time, sequencing, ac9mfm02]

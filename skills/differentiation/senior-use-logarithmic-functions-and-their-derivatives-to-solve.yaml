@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-logarithmic-functions-and-their-derivatives-to-solve
+name: Use logarithmic functions and their derivatives to solve practical problems
+domain: differentiation
+description: 'Given bounded, fully specified inputs, use logarithmic functions and their derivatives to solve practical problems. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+capability_gates: [modelling]
+answer: number
+sources:
+- topic: p12c_log_deriv_apply
+  params: {mode: rate_at_x}
+  difficulty: easy
+  stages: [6]
+- topic: p12c_log_deriv_apply
+  params: {mode: rate_at_resolved_x}
+  difficulty: medium
+  stages: [6]
+- topic: p12c_log_deriv_apply
+  params: {mode: x_for_rate}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12c_log_deriv_apply
+  params: {mode: value_at_rate}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: evaluates-value-instead-of-rate
+  description: Reports the model's value V(x) instead of its instantaneous rate of change dV/dx.
+- id: dropped-a-from-derivative
+  description: Drops the coefficient a from the derivative, using 1/x in place of a/x.
+- id: sign-error-on-rate
+  description: Flips the sign of the computed rate of change or its inversion, producing the negative of the correct value.
+- id: forgot-to-resolve-x
+  description: On the medium tier, uses the stated starting value of x instead of resolving the stated expression for x before dividing.
+- id: used-value-equation-instead-of-rate-equation
+  description: On the hard tier's inversion, solves V(x) = R (the value equation) instead of a/x = R (the rate equation) for the stated target rate R.
+- id: forgot-to-invert-for-x
+  description: On the exam tier, uses the stated target rate R directly as x instead of first inverting a/x = R to find x.
+- id: reported-x-instead-of-the-model-value
+  description: On the exam tier, correctly inverts for x but reports x itself instead of evaluating V(x) at that x.
+tags: [acara-senior-v8-4, differentiation, p12c_log_deriv_apply, ACMMM163]

@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-composition-of-two-functions
+name: Find the composition of two functions
+domain: functions-sequences
+description: 'Given bounded, fully specified inputs, find the composition of two functions. Return the resulting value, expression, relation, or classification. This skill assesses computing f(g(x)) or g(f(x)) for a supplied reciprocal function f(x) = 1/(x - k) and a supplied square-root function g(x) = sqrt(x - a), always by direct substitution once both formulas are given (sometimes as a general expression, sometimes evaluated at a concrete point), and never asks the learner to determine where the composition is defined (see the sibling senior-determine-when-the-composition-of-two-functions-is skill).'
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: expression
+sources:
+- topic: function_composition
+  params: {mode: compose}
+  difficulty: easy
+  stages: [6]
+- topic: function_composition
+  params: {mode: compose}
+  difficulty: medium
+  stages: [6]
+- topic: function_composition
+  params: {mode: compose}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Computes the composition in the wrong order relative to what was asked.
+- id: treats-composition-as-addition
+  description: Adds f(x) and g(x) together instead of substituting g(x) into f.
+- id: drops-the-inner-function
+  description: Applies f directly to x - a instead of to g(x) = sqrt(x - a), omitting the square root entirely.
+tags: [acara-senior-v8-4, functions-sequences, function-composition, acmsm093]

@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-leading-digit-approximation-to-obtain-estimates-of
+name: Use leading-digit approximation to obtain estimates of calculations
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, use leading-digit approximation to obtain estimates of calculations. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: leading_digit_estimate
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: leading_digit_estimate
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: leading_digit_estimate
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: truncates-instead-of-rounds
+  description: Always rounds each operand down (truncates) to its own leading digit instead of rounding to the nearest one.
+- id: same-fixed-place-for-every-operand
+  description: Rounds every operand to the same fixed place (e.g. the nearest ten) instead of each operand's own leading digit.
+- id: left-to-right-instead-of-precedence
+  description: Evaluates the rounded expression strictly left to right instead of applying multiplication before addition.
+tags: [acara-senior-v8-4, arithmetic, estimation, leading_digit_estimate, ACMEM004]

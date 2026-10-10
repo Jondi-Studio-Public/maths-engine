@@ -1,0 +1,40 @@
+id: ucv1-ftc-polynomial
+name: Apply the fundamental theorem of calculus
+domain: single-variable-calculus
+description: Given a stated definite polynomial integral with one unknown (a coefficient or a limit) and its stated value, recover the unknown by finding an antiderivative, applying endpoint subtraction, and solving -- never a forward evaluation.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: number
+sources:
+- topic: p17a_ftc_inverse
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p17a_ftc_inverse
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p17a_ftc_inverse
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p17a_ftc_inverse
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-lower-limit
+  description: Treats the antiderivative at the lower limit as zero (or omits it entirely) instead of subtracting F(lower) from F(upper).
+- id: swapped-limits
+  description: Computes F(lower) - F(upper) instead of F(upper) - F(lower), flipping the sign of the stated value.
+- id: used-integrand-not-antiderivative
+  description: Substitutes the limits into the original integrand p(x) instead of into its antiderivative F(x).
+- id: dropped-power-rule-factor
+  description: Integrates a term without dividing by (power + 1) -- the unknown coefficient's own term at the easy tier, or the antiderivative's leading term at the limit tiers -- leaving an extra factor in the equation.
+- id: took-rejected-root
+  description: At the limit tiers, solves the resulting polynomial equation and reports the real root the stated domain excludes instead of the one it selects.
+- id: forgot-stated-multiplier
+  description: At the exam tier, uses the second (fully known) integral's own value directly instead of first multiplying it by the stated multiplier.
+tags: [university-core-v1, single-variable-calculus, p17a_ftc_inverse]

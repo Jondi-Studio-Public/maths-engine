@@ -1,0 +1,34 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-equations-of-motion-of-a-particle-travelling
+name: Determine equations of motion of a particle travelling in a straight line with both constant and variable acceleration
+domain: vectors
+description: Given bounded, fully specified inputs, determine equations of motion of a particle travelling in a straight line with both constant and variable acceleration. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: p10a_vector_motion_line_accel
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10a_vector_motion_line_accel
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10a_vector_motion_line_accel
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: forgot-initial-scalar-velocity
+  description: Drops the initial scalar velocity term when forming the displacement-along-d function, as if the particle started from rest along the line.
+- id: forgot-position-offset
+  description: Omits the stated initial position vector from the final answer, as if the particle started at the origin (medium/hard tiers only -- collides with the answer at easy, where it does start at the origin).
+- id: wrong-axis-component
+  description: Reports the fully-correct value for the other axis instead of the one asked for.
+- id: power-rule-no-divide
+  description: Mis-integrates the variable acceleration H*t, dividing by 2 instead of 6 (hard tier only, where acceleration is variable).
+tags: [acara-senior-v8-4, vectors, motion, acmsm114]

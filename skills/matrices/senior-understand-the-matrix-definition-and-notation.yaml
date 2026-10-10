@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-matrix-definition-and-notation
+name: Understand the matrix definition and notation
+domain: matrices
+description: "Given a stated matrix (or, at exam level, only the rule a_{i,j} and the ranges of i and j, so the learner substitutes) and a subscript reference a_{i,j} using row-column notation, state the value of the entry in row i, column j. Pure abstract notation practice with no dataset framing, never a row/column total. Never classifies the matrix's type or reports its size: contrast the sibling senior-recognise-different-types-of-matrices-row-column-square, which never reports a single entry."
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19g_matrix_entry_lookup
+  params: {variant: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19g_matrix_entry_lookup
+  params: {variant: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19g_matrix_entry_lookup
+  params: {variant: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19g_matrix_entry_lookup
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-index
+  description: Reports a_{j,i} instead of a_{i,j} -- reads the row index as the column index and vice versa.
+- id: adjacent-row-error
+  description: Reads the entry from the wrong row of the same column.
+- id: adjacent-column-error
+  description: Reads the entry from the wrong column of the same row.
+- id: misresolves-relative-index-reference
+  description: Fails to resolve a described index (e.g. "the last row", "row m - 1") into the correct numeral before looking up the entry.
+tags: [acara-senior-v8-4, matrices, matrix-notation, acmsm051]

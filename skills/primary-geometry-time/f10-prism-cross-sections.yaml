@@ -1,0 +1,29 @@
+id: f10-prism-cross-sections
+name: Classify solids as right prisms from cross-section descriptions
+domain: primary-geometry-time
+description: Given a description of how a solid's cross-sections parallel to a stated direction compare, classify the solid as a right prism or not.
+status: active
+placement_eligible: false
+prerequisites: [rectangular-prism-volume]
+answer: mcq
+sources:
+- topic: prism_cross_sections
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: prism_cross_sections
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: prism_cross_sections
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-classification-easy
+  description: (easy tier) Reads the keyword incorrectly; answers "not a right prism" when the cross-sections are constant and uniform.
+- id: ignores-measurements-medium
+  description: (medium tier) Focuses only on the shape name but ignores the two stated measurements; answers "a right prism" even when the measurements differ.
+- id: partial-comparison-hard
+  description: (hard tier) Checks only the first two measurements and misses a mismatch introduced at the third point; fails to verify all three measurements are equal.
+tags: [acara-f10-v9, primary, geometry, spatial-classification, ac9m6sp01]

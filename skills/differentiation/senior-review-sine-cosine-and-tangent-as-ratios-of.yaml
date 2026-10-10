@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-review-sine-cosine-and-tangent-as-ratios-of
+name: Review sine, cosine and tangent as ratios of side lengths in right-angled triangles
+domain: differentiation
+description: Given bounded, fully specified inputs, review sine, cosine and tangent as ratios of side lengths in right-angled triangles. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: fraction
+sources:
+- topic: trig_ratio_review_tan
+  params: {variant: direct}
+  difficulty: easy
+  stages: [6]
+- topic: trig_ratio_review_tan
+  params: {variant: pythagoras}
+  difficulty: medium
+  stages: [6]
+- topic: trig_ratio_review_tan
+  params: {variant: cofunction}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-wrong-side-pairing
+  description: States the ratio for the wrong pair of sides (e.g. gives sine when cosine was asked), which is the same value as the requested ratio for the OTHER acute angle.
+- id: reports-the-reciprocal
+  description: Reports the reciprocal of the correct ratio (e.g. adjacent/opposite instead of opposite/adjacent).
+- id: repeats-the-given-ratio
+  description: On the hard tier, restates the given ratio's value instead of deriving the newly-asked ratio.
+- id: reports-the-third-ratio
+  description: On the hard tier, computes the one named ratio that is neither given nor asked, confusing which ratio the question wants.
+tags: [acara-v8-4-methods, differentiation, trigonometry, right-angled-triangles, acmmm028]

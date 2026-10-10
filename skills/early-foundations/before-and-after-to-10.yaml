@@ -1,0 +1,17 @@
+id: before-and-after-to-10
+name: Find one before and one after
+domain: early-foundations
+placement_order: 70
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Find the number immediately before or after a number to ten.
+status: active
+prerequisites: [order-numbers-to-10]
+answer: mcq
+sources:
+- topic: before_after
+  params: {hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, ordering]

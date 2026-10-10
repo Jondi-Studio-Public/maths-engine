@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-convert-sums-mathrm-a-cos-mathrm-x-mathrm
+name: Convert sums \(\mathrm a\cos\mathrm x+\mathrm b\;\sin\mathrm x\) to \(\mathrm R\;\cos{(\mathrm x\pm\mathrm\alpha)}\) or \(\mathrm R\sin{(\mathrm x\pm\mathrm\alpha)}\)
+domain: trigonometry
+description: "Given real numbers a and b, not both zero, convert the sum a cos(x) + b sin(x) to the equivalent single-term form R cos(x - alpha) (or R sin(x + alpha)), stating R and alpha (to 1 decimal place, on -180 < alpha <= 180)."
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: pair
+sources:
+- topic: aux_angle_r_cos_conversion
+  params: {variant: cos_form_q1}
+  difficulty: easy
+  stages: [6]
+- topic: aux_angle_r_cos_conversion
+  params: {variant: cos_form_mixed_sign}
+  difficulty: medium
+  stages: [6]
+- topic: aux_angle_r_cos_conversion
+  params: {variant: sin_form_mixed_sign}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: no-quadrant-correction
+  description: Uses atan(b/a) (or atan(a/b) for the sin form) directly without checking the signs of a and b, so alpha lands in the wrong quadrant.
+- id: sums-legs-for-r
+  description: Computes R as a + b instead of sqrt(a^2 + b^2).
+- id: differences-legs-for-r
+  description: Computes R as the difference of the magnitudes of a and b instead of sqrt(a^2 + b^2).
+- id: swaps-a-and-b-in-formula
+  description: Uses the other form's alpha formula (swaps the roles of a and b) -- e.g. computing atan2(a, b) when the cos form's atan2(b, a) was wanted, or vice versa for the sin form.
+tags: [acara-senior-v8-4, trigonometry, auxiliary-angle, r-cos-form, acmsm048]

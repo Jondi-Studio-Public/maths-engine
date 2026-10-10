@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-consider-complex-numbers-as-points-in-a-plane
+name: Consider complex numbers as points in a plane
+domain: senior-mathematics
+description: |
+  Given bounded, fully specified inputs, consider complex numbers as points in a plane
+  with real and imaginary parts as Cartesian coordinates. Return the resulting value,
+  expression, relation, or classification. Boundary against complex-real-part and
+  complex-imaginary-part (which extract a single number in isolation): this skill
+  always produces an ordered coordinate pair (x, y) representing the complex number's
+  location on the plane, never a single component alone.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+  - topic: complex_number_as_point
+    params: {variant: direct}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: complex_number_as_point
+    params: {variant: degenerate}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: complex_number_as_point
+    params: {variant: sum}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: swaps-real-and-imaginary
+    description: Reports (b, a) instead of (a, b) — confuses which component corresponds to x vs. y on the plane.
+  - id: drops-the-sign
+    description: Reports (a, abs(b)) instead of (a, b) — loses the negative sign on the imaginary coefficient.
+  - id: treats-i-as-a-value
+    description: For purely imaginary numbers, reports (b, 0) instead of (0, b) — mis-places the i term as the real part.
+tags: [complex-numbers, acara-v8-4, ACMSM071]

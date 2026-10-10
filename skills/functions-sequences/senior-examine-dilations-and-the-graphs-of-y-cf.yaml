@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-dilations-and-the-graphs-of-y-cf
+name: Read the dilation factor c from the graphs of y = f(x) and y = cf(x)
+domain: functions-sequences
+description: Given the graphs of y = f(x) and y = cf(x) on one labelled integer grid, with a marked point P on the first curve and Q on the second at the same stated integer x (on grid intersections, coordinates never printed), state the dilation factor c as the signed ratio of the two heights. The easy tier has c a whole number above 1; later tiers allow fractions, negative factors, and a point P below the x axis.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation]
+answer: fraction
+sources:
+- topic: pv1c_dilation_factor
+  params: {variant: stretch}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1c_dilation_factor
+  params: {variant: compress_fraction}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1c_dilation_factor
+  params: {variant: negative}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1c_dilation_factor
+  params: {variant: below_axis}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reciprocal
+  description: Divides the heights the wrong way round, giving P divided by Q (the reciprocal of c) instead of Q divided by P.
+- id: sign-flipped
+  description: Gets the size of c right but the wrong sign, for example calling the factor negative because the second point is lower, or positive because it is further from the x axis, instead of comparing the signed heights.
+- id: difference
+  description: Subtracts the two heights (how far Q is from P) instead of dividing them, treating the dilation as a shift.
+- id: height-of-q
+  description: Reads the height of Q on the y grid and gives that as the factor, forgetting to divide by the height of P.
+- id: extra-not-total
+  description: Gives the extra stretch (c - 1) when the curve is stretched, or the fraction taken away (1 - c) when it is compressed, instead of the whole multiple c (for c = 1/2, where 1 - c is c itself, one more than c).
+tags: [acara-senior-v8-4, functions, dilation, transformations, acmmm026, figure]

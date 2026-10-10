@@ -1,0 +1,62 @@
+id: add-subtract-polynomials
+name: Add and subtract polynomials
+domain: expressions-equivalence
+description: Given three single-variable polynomials A, B and C, find A + B - C by aligning and combining
+  coefficients term by term BY DEGREE, not by printed position. The skill is coefficient handling and term
+  alignment, never degree itself. answer_form="expanded" is required on every question -- a bracketed or
+  uncombined-form answer must be rejected. Known, disclosed grading gap -- the grader does not currently reject
+  an uncombined-like-terms typed answer (e.g. "3x^2 + 5x - 3x - 5" for "3x^2 + 2x - 5"), because sympy combines
+  terms at parse time; out of scope here. The exam source is
+  genuinely two-variable (xy, x^2, y^2 and lower-degree/constant terms), one of two shapes per question --
+  P - (Q + R), a NESTED bracket distributing the subtraction across a bracketed sum of two polynomials, or the
+  same A + B - C shape in two variables -- a real escalation in kind over hard, not just bigger numbers.
+status: active
+placement_eligible: false
+prerequisites:
+- combine-like-terms
+- expand-single-brackets
+answer: expression
+sources:
+- topic: polynomial_add_subtract
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: polynomial_add_subtract
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: polynomial_add_subtract
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: polynomial_add_subtract
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sign-error-on-subtraction
+  description: Does not distribute the minus sign across the subtracted polynomial's terms -- computes
+    A + B + C instead of A + B - C. At the exam source's nested-bracket template (P - (Q + R)), the same trap
+    is failing to distribute the minus into the bracket at all -- computes P + Q + R.
+- id: swapped-subtracted-term
+  description: Subtracts the wrong named polynomial -- computes A - B + C instead of A + B - C, as if B
+    rather than C were the one being subtracted. At the exam source's nested-bracket template, the same trap
+    is distributing the minus onto only the first bracketed term -- computes P - Q + R, as if only Q (not R)
+    were part of what is being subtracted.
+- id: coefficient-drop
+  description: At hard tier and the exam source, one polynomial is missing a power (by degree, or -- at the
+    exam source's genuinely two-variable A, B, C / P, Q, R -- one specific exponent pair among x^2, xy, y^2)
+    that another has. Treats that missing coefficient as if it also carried the nonzero coefficient from a
+    neighbouring position, instead of zero -- a learner who aligns terms by printed POSITION rather than by
+    DEGREE (or exponent pair) gets the wrong coefficient there. Only exercisable at hard tier and the exam
+    source, where a missing power/monomial is forced on every question.
+tags: []

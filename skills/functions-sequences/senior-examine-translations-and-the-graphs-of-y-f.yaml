@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-translations-and-the-graphs-of-y-f
+name: Read the corresponding point on y = f(x) + a from two graphs
+domain: functions-sequences
+description: Given the graphs of y = f(x) and y = f(x) + a drawn on the same integer grid, with a point P marked on y = f(x) and the value of a never stated, state the coordinates of the point on y = f(x) + a that has the same x-coordinate as P. Only the vertical translation y = f(x) + a is covered. Tiers change the decision, from reading an upward gap, to its direction, to ignoring a same-row crossing of the other curve, to ignoring a horizontal shift that two straight lines also support.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation]
+answer: pair
+sources:
+- topic: pv1c_translated_point
+  params: {variant: shift_up}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1c_translated_point
+  params: {variant: either_direction}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1c_translated_point
+  params: {variant: steep_same_height_trap}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1c_translated_point
+  params: {variant: line_both_readings}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: opposite-direction
+  description: Applies the vertical shift the wrong way, adding the gap when the other curve is below P (or subtracting it when it is above), so the y-coordinate moves away from the other curve.
+- id: horizontal-by-a
+  description: Treats the translation as a horizontal move and shifts the x-coordinate of P by a, keeping the y-coordinate.
+- id: horizontal-slide
+  description: Slides along the row of P to where the other curve crosses that row, giving a different on-grid point of the other curve instead of the point with the same x-coordinate as P.
+- id: gap-as-y
+  description: Reports the size of the gap a as the y-coordinate of the answer, keeping the x-coordinate of P, instead of adding the gap to the y-coordinate of P.
+tags: [acara-senior-v8-4, functions, translation, transformations, acmmm025, figure]

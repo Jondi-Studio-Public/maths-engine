@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-area-of-irregular-figures-by-decomposition
+name: Find the area of irregular figures by decomposition
+domain: measurement
+description: Given bounded, fully specified inputs, find the area of irregular figures by decomposition into regular shapes. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: find_the_area_of_irregular_figures
+  params: {mode: two_rectangles}
+  difficulty: easy
+  stages: [6]
+- topic: find_the_area_of_irregular_figures
+  params: {mode: rectangle_triangle}
+  difficulty: medium
+  stages: [6]
+- topic: find_the_area_of_irregular_figures
+  params: {mode: notch}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: omits-a-component
+  description: Drops one of the shape's components entirely from the sum or difference, undercounting (or overcounting in the subtractive case) by exactly that component's area.
+- id: wrong-operation
+  description: For subtractive decomposition (hard tier), adds the cut-out piece instead of subtracting it.
+- id: double-counts-shared-region
+  description: In additive decomposition, counts a shared boundary or overlap region twice.
+tags: [acara-senior-v8-4, measurement, area, irregular-figures, decomposition, acmem094]

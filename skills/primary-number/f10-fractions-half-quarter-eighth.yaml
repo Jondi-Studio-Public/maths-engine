@@ -1,0 +1,29 @@
+id: f10-fractions-half-quarter-eighth
+name: Halve a fraction to find halves, quarters and eighths
+domain: primary-number
+description: Split a whole or an event into equal parts and relate halves to quarters and eighths by halving again and again. Every question produces a fraction answer by halving -- either forward (halve a given fraction once or twice) or in reverse (find the fraction that, once halved, gives a stated result) -- never an operation on two supplied fractions.
+status: active
+placement_eligible: false
+prerequisites: [fraction-arithmetic]
+answer: fraction
+sources:
+- topic: fraction_halving
+  params: {variant: forward, n_steps: 1}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fraction_halving
+  params: {variant: forward, n_steps: 2}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fraction_halving
+  params: {variant: inverse}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-direction-halving
+  description: Halves the denominator instead of doubling it (e.g. 1/2 -> 1/1), going the wrong direction.
+- id: off-by-one-halving-step
+  description: Stops one halving step early, or goes one halving step too far.
+- id: adds-instead-of-multiplies
+  description: Treats each halving step as adding one-half rather than multiplying by one-half.
+tags: [acara-f10-v9, primary, fractions, halving, ac9m2n03, ac9m2m02]

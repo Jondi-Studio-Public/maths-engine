@@ -1,0 +1,17 @@
+id: plot-linear-points
+name: Plot points representing a relationship
+domain: linear-relations
+description: Plot ordered pairs from a table or rule on the Cartesian plane.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- coordinate-plane-readiness
+- input-output-tables
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Reversing ordered pairs
+- id: misconception-2
+  description: Plotting values as separate points on axes rather than one coordinate pair
+tags: []

@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-develop-a-linear-formula-from-a-word-description
+name: Develop a linear formula from a word description
+domain: linear-relations
+description: Given bounded, fully specified inputs, develop a linear formula from a word description. Return the resulting value, expression, relation, or classification. Scope is narrowly producing the linear formula from a stated scenario; does not cover the broader model scope (formulate, interpret, predict, evaluate) that deferred linear-models covers.
+status: active
+placement_eligible: false
+prerequisites:
+- rate-of-change
+answer: expression
+sources:
+- topic: develop_a_linear_formula_from_a_word_description
+  params:
+    variant: increasing
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: develop_a_linear_formula_from_a_word_description
+  params:
+    variant: decreasing
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: develop_a_linear_formula_from_a_word_description
+  params:
+    variant: back_solved_intercept
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: swapped-rate-and-intercept
+  description: Swapping the rate and intercept coefficients in the formula
+- id: dropped-intercept
+  description: Forgetting the starting/initial amount and only including the rate term
+- id: wrong-sign-direction
+  description: Using addition instead of subtraction (or vice versa) when the wording indicates the opposite
+- id: used-later-value-as-intercept
+  description: Using the value at a later point as if it were the initial value, never back-solving for the true intercept
+tags: []

@@ -1,0 +1,39 @@
+id: simplify-bracketed-expressions
+name: Simplify expressions containing brackets
+domain: expressions-equivalence
+description: Expand brackets and combine like terms in an appropriate sequence.
+status: active
+prerequisites:
+- expand-single-brackets
+- combine-like-terms
+answer: expression
+sources:
+- topic: simplify_expression
+  params:
+    kind: brackets
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: simplify_expression
+  params:
+    kind: brackets
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: simplify_expression
+  params:
+    kind: brackets
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Combining terms before correctly expanding
+- id: misconception-2
+  description: Treating a minus before brackets as decoration
+tags: []

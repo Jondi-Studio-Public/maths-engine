@@ -1,0 +1,42 @@
+id: integration-by-substitution
+name: u-substitution
+domain: integration
+description: Integrate a composite function using u-substitution.
+status: active
+prerequisites:
+- integrate-polynomial
+- differentiate-chain-rule
+answer: expression
+sources:
+- topic: integration
+  params:
+    kinds:
+    - substitution
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: integration
+  params:
+    kinds:
+    - substitution
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: integration
+  params:
+    kinds:
+    - nonlinear
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-du-factor
+  description: Forgetting to account for du/dx when substituting.
+- id: substituted-back-incorrectly
+  description: Substituting back for u incorrectly at the end.
+tags: []

@@ -1,0 +1,41 @@
+id: limit-degree-comparison
+name: Degree-mismatch limits
+domain: limits
+description: Evaluate a limit at infinity when numerator and denominator have different degrees.
+status: active
+prerequisites:
+- limit-at-infinity
+answer: expression
+sources:
+- topic: limits
+  params:
+    kinds:
+    - degree_comparison
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: limits
+  params:
+    kinds:
+    - degree_comparison
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: limits
+  params:
+    kinds:
+    - degree_comparison
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: ignored-degree-mismatch
+  description: Applying the leading-coefficient ratio when the degrees differ.
+- id: wrong-infinite-sign
+  description: Getting the sign of an infinite limit wrong.
+tags: []

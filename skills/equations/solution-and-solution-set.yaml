@@ -1,0 +1,37 @@
+id: solution-and-solution-set
+name: Understand equation solutions
+domain: equations
+description: Determine whether a value makes an equation true and understand a solution set.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- meaning-of-equality
+- apply-a-rule-to-inputs
+answer: mcq
+sources:
+- topic: linear_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: linear_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Treating any computed value as a solution
+- id: misconception-2
+  description: Confusing an expression value with an equation solution
+tags: []

@@ -1,0 +1,62 @@
+id: apply-a-rule-to-inputs
+name: Apply a rule to inputs
+domain: language-formulas
+description: Substitute given values into an expression or formula and evaluate it using the correct order
+  of operations.
+status: active
+prerequisites:
+- order-of-operations
+- algebraic-notation
+- integer-arithmetic
+answer: number
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: function_evaluation
+    params:
+      a_lo: 0
+      coef_hi: 3
+      arg_hi: 4
+    target_s: 8
+    limit_s: 20
+  - topic: function_evaluation
+    params:
+      a_lo: 0
+      coef_hi: 5
+      arg_hi: 6
+    target_s: 10
+    limit_s: 25
+  - topic: function_evaluation
+    params:
+      coef_hi: 2
+      arg_hi: 3
+    target_s: 12
+    limit_s: 28
+misconceptions:
+- id: operate-before-substituting
+  description: Applying operations before substitution is complete.
+- id: sign-on-power
+  description: Ignoring the sign of a negative substituted value when it is raised to a power.
+- id: partial-substitution
+  description: Replacing only one occurrence of a repeated variable.
+tags: []

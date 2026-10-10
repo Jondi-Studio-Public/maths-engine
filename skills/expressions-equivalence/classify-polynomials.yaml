@@ -1,0 +1,40 @@
+id: classify-polynomials
+name: Classify polynomials by degree and term count
+domain: expressions-equivalence
+description: Given a polynomial, state its degree and whether it is a monomial, binomial or trinomial; given an expression that may not be a polynomial, identify which of three violations (negative exponent, fractional exponent, variable in the denominator) rules it out.
+status: active
+placement_eligible: false
+prerequisites:
+- combine-like-terms
+answer: mcq
+sources:
+- topic: polynomial_classify
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: polynomial_classify
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: polynomial_classify
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-degree-adjacent
+  description: States a degree one away from the polynomial's true degree, keeping the correct term-count label.
+- id: wrong-type-adjacent
+  description: States the correct degree but a term-count label one class away from the true one (e.g. binomial for a trinomial, or vice versa), sometimes combined with the wrong degree too.
+- id: x-exponent-only-degree
+  description: Hard tier only. Reads only the x exponent of the two-variable term with the true highest total degree, ignoring that term's y contribution, understating the polynomial's true degree.
+- id: wrong-not-a-polynomial-reason
+  description: For an expression that is not a polynomial, names one of the other fixed category strings (a different violation, or "yes, it is a polynomial") instead of the one that actually applies. "Negative exponent" and "variable in the denominator" describe the same underlying reason (x^-k = 1/x^k), so a negative-exponent or variable-denominator question never offers the other as a distractor -- only "fractional exponent" and "yes, it is a polynomial" remain available there.
+tags: []

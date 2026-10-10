@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-qualitative-features-of-the-graph-of
+name: 'Read the horizontal asymptote of y = a^x + k off its graph'
+domain: functions-sequences
+description: 'Given the graph of y = a^x + k (a > 0, a not 1) on a labelled integer grid with k an integer and no asymptote drawn, state the equation of its horizontal asymptote, y = k, by reading the height the level end of the curve runs along. The values of a and k are never printed.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: pv1e_exp_asymptote
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1e_exp_asymptote
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1e_exp_asymptote
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1e_exp_asymptote
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: y-intercept
+  description: 'Gives y = k + 1, the height where the curve crosses the y-axis, instead of the height it levels off at.'
+- id: x-axis
+  description: 'Gives y = 0, taking the x-axis as the asymptote because the curve seems to run along it or crosses it.'
+- id: sign-flipped
+  description: 'Gives y = -k, reading the level height on the wrong side of the x-axis.'
+- id: off-by-one
+  description: 'Gives y = k - 1, reading the level end one square away from the gridline it runs along.'
+- id: off-by-two
+  description: 'Gives y = k + 2, reading the level end two squares from the gridline it runs along.'
+- id: squares-not-units
+  description: 'Counts squares up instead of using the vertical scale, giving y = k/2 when one square is 2 units.'
+tags: [acara-senior-v8-4, functions-sequences, exponential, asymptote, graph, acmmm065, figure]

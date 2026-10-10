@@ -1,0 +1,43 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-involving-bearings
+name: Solve problems involving bearings
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, solve problems involving bearings. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: bearings_problem
+  params: {variant: back_bearing}
+  difficulty: easy
+  stages: [6]
+- topic: bearings_problem
+  params: {variant: leg_distance}
+  difficulty: medium
+  stages: [6]
+- topic: bearings_problem
+  params: {variant: leg_bearing}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: reports-bearing-unchanged
+  description: Reports the given bearing back unchanged instead of computing the reverse (back) bearing.
+- id: forgets-to-normalise-mod-360
+  description: Adds or subtracts 180 degrees without normalising past 0 or 360, giving a negative value or one that needs +360.
+- id: adds-legs-instead-of-pythagoras
+  description: Adds the two leg lengths directly instead of applying Pythagoras to find the straight-line distance.
+- id: subtracts-legs-instead-of-pythagoras
+  description: Subtracts the shorter leg length from the longer one instead of applying Pythagoras to find the straight-line distance.
+- id: reports-single-leg-only
+  description: Reports one leg's length as if it were the straight-line distance, forgetting the second leg entirely.
+- id: forgets-to-convert-triangle-angle-to-bearing
+  description: Reports the raw inverse-tangent angle from inside the right triangle without converting it into an absolute compass bearing.
+- id: wrong-reference-direction
+  description: Subtracts the triangle's angle from the reference bearing instead of adding it (or vice versa), taking the wrong turn direction.
+- id: reports-opposite-direction-bearing
+  description: Reports the forward bearing when the back bearing was asked, or vice versa, forgetting to add the 180-degree turn for the direction actually asked.
+- id: swaps-opposite-and-adjacent-legs
+  description: Swaps which leg is opposite and which is adjacent in the inverse-tangent ratio, giving the complementary angle.
+tags: [acara-v8-4-essential, trigonometry, bearings, right-angled-triangles]

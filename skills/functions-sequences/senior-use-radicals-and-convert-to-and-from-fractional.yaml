@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-radicals-and-convert-to-and-from-fractional
+name: Use radicals and convert to and from fractional indices
+domain: functions-sequences
+description: Evaluate a numeral presented in fractional-index or worded-radical notation to its exact integer value, by first identifying the integer root the notation names. Both directions (convert to and from fractional indices) are realised as the two notations a question may be displayed in (fractional-index numeral form, or a worded radical-root-then-power description), always evaluating to the same exact integer. Does not assess index law combination on a symbolic base (that is a separate skill), and every numeral is constructed as an exact perfect power, never approximated.
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: number
+sources:
+- topic: radicals_fractional_indices
+  params:
+    variant: root_only
+  difficulty: easy
+  stages: [6]
+- topic: radicals_fractional_indices
+  params:
+    variant: root_then_power
+  difficulty: medium
+  stages: [6]
+- topic: radicals_fractional_indices
+  params:
+    variant: unfamiliar_root
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgets-the-root-computes-the-full-power
+  description: Raises the original number to the power, skipping the root extraction.
+- id: stops-after-the-root-forgets-the-power
+  description: Computes only the root, omitting the power exponent (medium/hard only).
+- id: off-by-one-power
+  description: Computing b**(m+1) instead of b**m.
+- id: uses-the-root-index-as-the-answer
+  description: Mistakenly treating the root index r as the answer itself.
+tags: [acara-senior-v8-4, functions-sequences, radicals, fractional-indices, acmmm062]

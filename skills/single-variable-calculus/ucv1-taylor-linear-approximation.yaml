@@ -1,0 +1,61 @@
+id: ucv1-taylor-linear-approximation
+name: Use a first-order local approximation
+domain: single-variable-calculus
+description: Approximate a supplied smooth function near a stated point using its
+  value and derivative. The question states a and x0 (or, at the exam tier, an
+  already-computed value and its local approximation) directly; never a
+  higher-order series, an error-theorem proof, or a model-fitting exercise.
+status: active
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+answer: number
+sources:
+- topic: p12e_taylor_linear_approx
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p12e_taylor_linear_approx
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p12e_taylor_linear_approx
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p12e_taylor_linear_approx
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: omits-derivative-term
+  description: Reports f(a) alone, ignoring the linear correction entirely
+    (L(x0) = f(a)).
+- id: evaluates-f-directly-at-x0
+  description: Reports the true f(x0) instead of the linear approximation
+    L(x0) -- a learner who does not understand why the approximation is
+    needed just evaluates the original function.
+- id: sign-flip-on-offset
+  description: Uses f(a) + f'(a)*(a - x0), the offset direction reversed.
+- id: forgets-to-evaluate-derivative-at-a
+  description: Uses f'(x0) instead of f'(a) in the formula, evaluating the
+    derivative at the wrong point.
+- id: swaps-subtraction-order
+  description: 'Exam tier: computes (f(a) - L(x0)) / (x0 - a) instead of
+    (L(x0) - f(a)) / (x0 - a) -- the subtraction order reversed, giving the
+    negative of the true derivative.'
+- id: ignores-offset-sign
+  description: 'Exam tier: divides by the magnitude of the offset instead of
+    its signed value, losing the sign when x0 < a.'
+- id: confuses-slope-with-target
+  description: 'Exam tier: reports the stated approximate value L(x0) itself
+    as if it were f''(a), skipping the rearrangement entirely.'
+tags: [university-core-v1, single-variable-calculus, differentiation]

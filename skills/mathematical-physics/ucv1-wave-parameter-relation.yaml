@@ -1,0 +1,50 @@
+id: ucv1-wave-parameter-relation
+name: Relate wave parameters
+domain: mathematical-physics
+description: Compute one wavelength, frequency or wave speed from the other two supplied parameters.
+status: active
+placement_eligible: false
+prerequisites:
+- wave-frequency-from-speed-wavelength
+answer: number
+sources:
+- topic: p14f_wave_parameter_relation
+  params: {variant: solve_v, hi: 12}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14f_wave_parameter_relation
+  params: {variant: solve_v_period, hi: 20}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14f_wave_parameter_relation
+  params: {variant: solve_lambda_unit, hi: 9}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14f_wave_parameter_relation
+  params: {variant: medium_change, hi: 20}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: inverted-relation
+  description: Uses lambda/f (or T/lambda) where f*lambda (or lambda/T) is correct, solving for the wrong unknown.
+- id: forgot-reciprocal
+  description: Uses the period T directly as if it were the frequency f.
+- id: unit-conversion-error
+  description: Applies the wrong conversion factor between km/h and m/s (or skips the conversion entirely), only offered when it produces a distinct value.
+- id: assumed-wavelength-unchanged
+  description: On the exam tier, reports the first medium's wavelength unchanged, forgetting that only frequency is invariant across the boundary.
+- id: confused-v2-for-frequency
+  description: On the exam tier, divides the second medium's speed by the first medium's wavelength directly, skipping the frequency derivation.
+- id: inverted-final-step
+  description: On the exam tier, computes frequency divided by the second speed (a reciprocal) instead of speed divided by frequency.
+tags: [university-core-v1, mathematical-physics]
+framework_areas: [mathematical-physics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics

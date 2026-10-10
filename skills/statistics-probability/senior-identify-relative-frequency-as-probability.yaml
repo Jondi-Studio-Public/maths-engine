@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-relative-frequency-as-probability
+name: Identify relative frequency as probability
+domain: statistics-probability
+description: Given a stated count of times an outcome occurred in a stated number of trials, compute its relative frequency as an estimate of its probability. Always exactly ONE stated count out of exactly ONE stated total number of trials -- never a frequency table with several categories to distinguish (that is the shipping senior-use-relative-frequencies-obtained-from-data-as-point / ...-as-point-acmmm060 / ...-to-obtain skills' own stimulus shape, each strictly more complex). Graded as a decimal to a stated precision that the prompt itself states; the exam tier escalates the FORMAT convention (a percentage) rather than the table complexity, which never changes.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19c_relative_frequency_estimate
+  params: {variant: bare}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_relative_frequency_estimate
+  params: {variant: scenario}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_relative_frequency_estimate
+  params: {variant: derive}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_relative_frequency_estimate
+  params: {variant: percentage}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-count
+  description: Uses one fewer than the recorded count, (count-1)/trials, instead of count/trials.
+- id: wrong-denominator
+  description: Divides the count by the complementary (non-occurring) count instead of by the total number of trials.
+- id: swaps-success-and-failure
+  description: Reports the complementary relative frequency (the non-occurring outcome's rate) instead of the stated outcome's own rate.
+tags:
+- acara-v8-4-essential
+- statistics-probability
+- relative-frequency
+- acmem152

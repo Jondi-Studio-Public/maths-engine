@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-features-of-the-graphs-of-x-2
+name: 'Recognise features of the graphs of \(x^2+y^2=r^2\) and \(\left(x-a\right)^2+\left(y-b\right)^2=r^2\), including their circular shapes, their centres and their radii'
+domain: functions-sequences
+description: Given a circle drawn on an integer grid, state the coordinates (a, b) of its centre, by reading a marked centre, finding the middle of an unmarked circle, or choosing the right one of two circles. Never asks for the radius, an equation, a tangent or a chord.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: pair
+sources:
+- topic: pv1d_circle_centre
+  params: {variant: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1d_circle_centre
+  params: {variant: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1d_circle_centre
+  params: {variant: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1d_circle_centre
+  params: {variant: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-coordinates
+  description: Gives (b, a), reading the vertical position before the horizontal one.
+- id: sign-flipped-coordinate
+  description: Gives (-a, b) or (a, -b), reading one coordinate on the wrong side of an axis.
+- id: edge-point-as-centre
+  description: Gives a point on the circle itself (its rightmost, topmost, leftmost or bottommost point) instead of the middle.
+- id: marked-point-as-centre
+  description: Gives the coordinates of the lettered point on the circle instead of the centre of that circle.
+- id: other-circle-centre
+  description: Gives the centre of the other circle, answering about the wrong circle of the two drawn.
+- id: tangent-point-as-centre
+  description: Gives the point where the circle touches the x-axis, (a, 0), instead of the centre.
+tags: [acara-senior-v8-4, functions-sequences, circle, centre, graph, acmmm020]

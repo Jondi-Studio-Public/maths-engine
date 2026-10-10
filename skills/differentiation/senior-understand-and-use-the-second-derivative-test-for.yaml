@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-and-use-the-second-derivative-test-for
+name: Understand and use the second derivative test for finding local maxima and minima
+domain: differentiation
+description: Given a function with exactly one critical point where its first derivative is zero (by construction, on every question), find that critical point's x-value and use the second derivative test to classify it as a local maximum or a local minimum. Functions where the test is genuinely inconclusive (f''(x0) = 0) never appear; the test is never asked to answer "inconclusive". The graded answer is the x-value followed by the classification, typed as two items separated by a comma (e.g. "3, local maximum") -- graded as an ordered_list because a pair grader cannot compare a text classification component.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: ordered_list
+sources:
+- topic: p19f_second_derivative_test
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19f_second_derivative_test
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19f_second_derivative_test
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19f_second_derivative_test
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: flipped-classification
+  description: Reports the correct critical x-value but the wrong classification -- flips local maximum and local minimum, the natural sign-convention error for this skill.
+- id: treats-zero-first-derivative-as-inconclusive
+  description: Reports the critical point as "neither maximum nor minimum", mistaking f'(x0) = 0 itself for evidence the test cannot classify the point.
+- id: sign-error-on-critical-x-value
+  description: Reports the correct classification but the wrong x-value -- a sign error solving f'(x) = 0 (reports the negative of the true critical point).
+tags: [acara-senior-v8-4, differentiation, second-derivative-test, extrema, ordered_structures, acmmm111]

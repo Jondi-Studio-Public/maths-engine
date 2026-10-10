@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-proof-by-contradiction
+name: Use proof by contradiction
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use proof by contradiction. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: proof_by_contradiction_identify
+  params: {variant: single_simple}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: proof_by_contradiction_identify
+  params: {variant: single_computed}
+  difficulty: medium
+  stages: [3, 4]
+- topic: proof_by_contradiction_identify
+  params: {variant: compound_claim}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: guesses-plausible-sounding-option
+  description: Selects a distractor built from an unrelated property family (parity, sign, multiple-of-3, multiple-of-4, perfect-square) without checking whether the stated fact is actually true of n, mistaking a real, checkable numeric property for the correct contradiction.
+- id: misattributes-property-family
+  description: Confuses which property family is relevant to the claim at hand and selects an option from the wrong family, rather than verifying each option's truth directly against n.
+- id: misidentifies-false-clause
+  description: At the hard tier, names the clause that is actually true as the one producing the contradiction, or answers "Both clauses"/"Neither clause" when exactly one of the two stated clauses is false.
+tags: [acara-v8-4-specialist, logic, proof-by-contradiction]

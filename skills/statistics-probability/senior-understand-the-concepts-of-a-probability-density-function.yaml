@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-the-concepts-of-a-probability-density-function
+name: Understand the concepts of a probability density function, cumulative distribution function, and probabilities associated with a continuous random variable given by integrals; examine simple types of continuous random variables and use them in appropriate contexts
+domain: statistics-probability
+description: >-
+  Given a probability density function stated algebraically on a bounded interval [c, d] and two bounds [p, q] within
+  that interval, compute the probability that the random variable falls between those bounds by evaluating the
+  definite integral of the density over that range. This skill covers only the first of the three clauses of
+  the descriptor ACMMM165 -- the cumulative distribution function clause and the "examine simple types/use in appropriate
+  contexts" clause are both dropped entirely: no CDF value is ever built or
+  graded, and no learner is ever asked to classify a "type" of continuous random variable. Every density is
+  constructed from a normalising constant solved algebraically so it genuinely integrates to 1 over its stated
+  support and is nonnegative there; the two stated bounds always sit inside that support (the exam tier places one
+  bound exactly at a support endpoint, requiring the learner to recognise the density is 0 outside it).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: p19c_density_probability
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_density_probability
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_density_probability
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_density_probability
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reports-complement
+  description: Reports the probability of X falling OUTSIDE [p, q] (1 minus the true answer) instead of within it.
+- id: sign-swap
+  description: Integrates in the wrong direction, reporting the negative of the true probability.
+- id: forgets-normalisation-shift
+  description: Uses the wrong power or the wrong normalising base for the density's algebraic shape (e.g. applies a lower-tier density's formula to a higher-tier one).
+tags:
+- acara-senior-v8-4
+- statistics-probability
+- continuous-random-variable
+- probability-density-function
+- acmmm165

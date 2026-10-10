@@ -1,0 +1,44 @@
+id: factorise-quadratic
+name: Factorise a quadratic trinomial
+domain: quadratics
+description: Factorise a quadratic ax^2 + bx + c, with integer coefficients, as a product of two integer
+  binomial factors -- both when the leading coefficient is 1 and when it is not. Distinct from
+  solve-quadratics-factorable, which asks for the roots of a monic quadratic; this skill asks for the
+  factorisation itself and is the only place a non-monic leading coefficient is factorised.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-single-brackets
+answer: expression
+sources:
+- topic: factorise_quadratic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: factorise_quadratic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: factorise_quadratic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-flip-one-factor
+  description: Flips the sign of one bracket's constant term alone, e.g. (px - q)(rx + s) instead of the
+    correct (px + q)(rx + s).
+- id: sign-flip-both-factors
+  description: Flips the sign of both brackets' constant terms, landing on (px - q)(rx - s) instead of the
+    correct (px + q)(rx + s).
+- id: swapped-cross-terms
+  description: On a non-monic quadratic, swaps which bracket carries which leading coefficient -- offers
+    (rx + q)(px + s) instead of the correct (px + q)(rx + s). Only exercisable when p != r.
+tags: []

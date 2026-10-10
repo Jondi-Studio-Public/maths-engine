@@ -1,0 +1,37 @@
+id: independent-dependent-variables
+name: Identify independent and dependent variables
+domain: linear-relations
+description: Identify which quantity is selected or controlled and which depends on it.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- variable-concept
+- input-output-tables
+answer: mcq
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Assuming time is always the independent variable
+- id: misconception-2
+  description: Choosing variables based only on graph axis position
+tags: []

@@ -1,0 +1,29 @@
+# Exact versions for every pip install in CI (Python 3.12). This is a pip constraints file:
+# it does not install anything, it only fixes the version of whatever CI does install,
+# including transitive packages, the build backend and the lint tools. ci.yml applies it
+# to every job through two environment variables: PIP_CONSTRAINT for the packages pip
+# installs and PIP_BUILD_CONSTRAINT for pip's isolated build environment, which is where the
+# setuptools below is used (from pip 26.2 PIP_CONSTRAINT no longer reaches it).
+# pyproject.toml keeps the loose ranges that users get.
+#
+# Dependabot bumps these weekly in one reviewed pull request (.github/dependabot.yml).
+# By hand, in a throwaway venv, never the project's own:
+#   python3.12 -m venv /tmp/ci-pins && /tmp/ci-pins/bin/pip install -e ".[dev]" ruff zizmor
+#   /tmp/ci-pins/bin/pip freeze --exclude-editable
+# and take the setuptools version that pip logs under "Installing build dependencies".
+#
+# tests/test_ci_workflow.py fails if a direct dependency of pyproject.toml is missing here.
+execnet==2.1.2
+iniconfig==2.3.1
+mpmath==1.3.0
+numpy==2.5.3
+packaging==26.3
+pluggy==1.6.0
+pygments==2.21.0
+pytest==9.1.1
+pytest-xdist==3.8.0
+pyyaml==6.0.3
+ruff==0.16.10
+setuptools==84.0.0
+sympy==1.14.0
+zizmor==1.30.1

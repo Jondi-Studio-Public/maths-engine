@@ -1,0 +1,48 @@
+id: two-by-two-eigenvalues
+name: Find eigenvalues of a triangular 2x2 matrix
+domain: linear-algebra
+description: Find the two eigenvalues of an upper-triangular 2x2 matrix by solving its characteristic equation.
+status: active
+prerequisites: [matrix-determinant-2x2]
+answer: list
+sources:
+- topic: two_by_two_eigenvalues
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: two_by_two_eigenvalues
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: two_by_two_eigenvalues
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: uses-off-diagonal
+  description: Treats the off-diagonal entry as an eigenvalue.
+- id: trace-only
+  description: Reports the trace as one eigenvalue instead of solving for both roots.
+tags: [university-core-v1, university-foundation-pilot, linear-algebra]
+framework_areas: [linear-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

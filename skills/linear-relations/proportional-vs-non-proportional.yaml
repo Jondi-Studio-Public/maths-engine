@@ -1,0 +1,38 @@
+id: proportional-vs-non-proportional
+name: Distinguish proportional and non-proportional linear relations
+domain: linear-relations
+description: Use tables, graphs and equations to decide whether a linear relationship is proportional.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- graph-y-mx
+- graph-y-mx-plus-b
+- ratio-rate-proportion
+answer: mcq
+sources:
+- topic: function_evaluation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: function_evaluation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: function_evaluation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Assuming every straight line is proportional
+- id: misconception-2
+  description: Ignoring whether the relation passes through the origin
+tags: []

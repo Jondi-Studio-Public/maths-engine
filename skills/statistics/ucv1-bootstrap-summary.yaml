@@ -1,0 +1,55 @@
+id: ucv1-bootstrap-summary
+name: Compute a fixed bootstrap summary
+domain: statistics
+description: From a supplied finite resample list, compute the bootstrap mean and
+  percentile interval endpoints.
+status: active
+placement_eligible: false
+prerequisites: [calculate-mean]
+answer: pair
+sources:
+- topic: p14e_bootstrap_percentile
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p14e_bootstrap_percentile
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p14e_bootstrap_percentile
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p14e_bootstrap_percentile
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: off-by-one-index
+  description: Uses the (k-1)-th or (k+1)-th order statistic instead of the k-th,
+    an indexing-convention slip that keeps the mean correct but reads off the
+    wrong endpoint.
+- id: wrong-tail
+  description: Reports the (100-p)-th percentile's value instead of the p-th,
+    reading off the wrong end of the sorted resample.
+- id: forgot-to-sort
+  description: Indexes into the ORIGINAL unsorted resample at position k instead
+    of sorting it first. Only exercisable at medium, hard and exam, which
+    present the resample unsorted.
+- id: mean-off-by-a-value
+  description: Computes the mean over n-1 values (drops one) instead of all n,
+    leaving the percentile endpoint correct but the mean wrong.
+- id: coverage-inversion
+  description: On the exam tier, treats the stated bootstrap coverage percentage
+    itself as the percentile level (e.g. reads "60% interval" as the 60th
+    percentile) instead of deriving the correct tail percentile.
+tags: [university-core-v1, statistics]

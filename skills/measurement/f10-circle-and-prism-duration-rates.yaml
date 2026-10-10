@@ -1,0 +1,31 @@
+id: f10-circle-and-prism-duration-rates
+name: Calculate duration across time zones
+domain: measurement
+description: Given a starting date/time, a stated sequence of elapsed durations, and stated time-zone offsets, determine the resulting date/time or total duration using 12-hour or 24-hour clock notation.
+status: active
+placement_eligible: false
+prerequisites: [convert-time-systems, elapsed-time, ratio-rate-proportion]
+answer: number
+sources:
+- topic: circle_and_prism_duration_rates
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: circle_and_prism_duration_rates
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: circle_and_prism_duration_rates
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores_offset
+  description: Never adds the time-zone offset when converting between zones.
+- id: wrong_offset_direction
+  description: Applies the offset in the wrong direction, subtracting twice instead of adding it.
+- id: omits_layover
+  description: Calculates the flight duration but forgets to add the connecting layover.
+- id: forgets_midnight_wrap
+  description: Fails to apply the day-boundary correction when arrival crosses midnight.
+tags: [measurement, time, duration, rates, acara-v9-year-8]

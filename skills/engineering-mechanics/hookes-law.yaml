@@ -1,0 +1,20 @@
+id: hookes-law
+name: F = kx
+domain: engineering-mechanics
+description: Apply Hooke's law to relate force, stiffness and extension.
+status: active
+prerequisites:
+- stress-from-force-area
+answer: number
+sources:
+- topic: engineering
+  params:
+    kinds:
+    - hookes_law
+  difficulty: easy
+misconceptions:
+- id: inverted-hookes-law
+  description: Inverting the relationship between force and extension.
+- id: unit-slip-stiffness
+  description: A unit slip in the stiffness constant.
+tags: []

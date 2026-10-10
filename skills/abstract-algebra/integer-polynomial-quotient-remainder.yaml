@@ -1,0 +1,40 @@
+id: integer-polynomial-quotient-remainder
+name: Compute an integer polynomial quotient and remainder
+domain: abstract-algebra
+description: Compute the exact quotient and remainder in division of small integer polynomials by a monic divisor.
+status: active
+prerequisites: [expand-single-brackets, combine-like-terms]
+answer: mcq
+sources:
+- topic: integer_polynomial_quotient_remainder
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: integer_polynomial_quotient_remainder
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: integer_polynomial_quotient_remainder
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: remainder-too-large
+  description: Gives a remainder whose degree is not smaller than the divisor degree.
+- id: sign-or-constant-error
+  description: Makes a local sign or constant error while retaining a plausible quotient.
+tags: [university-core-v1, university-algebra-batch, abstract-algebra]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

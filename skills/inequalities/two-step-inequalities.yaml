@@ -1,0 +1,40 @@
+id: two-step-inequalities
+name: Solve two-step linear inequalities
+domain: inequalities
+description: Solve and graph inequalities requiring two operations, including signed values.
+status: deferred
+deferred_reason: grader
+prerequisites:
+- two-step-equations
+- inequalities-negative-mult-div
+answer: inequality
+sources:
+- topic: inequality
+  params:
+    kind: two_step
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: inequality
+  params:
+    kind: two_step
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: inequality
+  params:
+    kind: two_step
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reversing at the wrong step
+- id: misconception-2
+  description: Failing to graph the final solution set
+tags: []

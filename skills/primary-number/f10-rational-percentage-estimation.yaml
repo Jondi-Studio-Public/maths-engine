@@ -1,0 +1,29 @@
+id: f10-rational-percentage-estimation
+name: Estimate a percentage of a quantity
+domain: primary-number
+description: Estimate a percentage of a quantity using a stated benchmark percentage (10%, 25%, 50%).
+status: active
+placement_eligible: false
+prerequisites: [percentage-of-quantity, round-decimals]
+answer: number
+sources:
+- topic: rational_percentage_estimation
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: rational_percentage_estimation
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: rational_percentage_estimation
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-benchmark-divisor
+  description: Applies a structurally wrong mental-math divisor for the stated benchmark (10% treated as divide-by-100; 25% treated as divide-by-2; 50% treated as divide-by-4).
+- id: always-floor
+  description: Never rounds up even at or past the midpoint; always floors the exact value.
+- id: always-ceiling
+  description: Always rounds up regardless of the fractional part; always takes the ceiling of the exact value.
+tags: [primary, percentages, estimation, acara-f10-v9, ac9m6n08]

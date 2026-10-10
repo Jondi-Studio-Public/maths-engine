@@ -1,0 +1,53 @@
+id: linear-equations-with-fractions
+name: Solve linear equations containing fractions
+domain: equations
+description: Clear the denominator(s) to solve a linear equation whose terms are written as fractions.
+status: active
+prerequisites:
+- two-step-equations
+- equations-with-brackets
+- fraction-arithmetic
+answer: number
+sources:
+- topic: linear_equation_fraction
+  params:
+    kind: single
+    sol_hi: 8
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: linear_equation_fraction
+  params:
+    kind: two_terms
+    k_hi: 2
+  difficulty: medium
+  stages:
+  - 3
+- topic: linear_equation_fraction
+  params:
+    kind: binomial
+    h_hi: 9
+    x0_hi: 9
+  difficulty: medium
+  stages:
+  - 4
+- topic: linear_equation_fraction
+  params:
+    kind: both_sides
+    h_hi: 6
+    sol_hi: 9
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: multiply-one-side-by-lcd
+  description: Clears the denominator on one term or one side of the equation but forgets to multiply the other term/side by the same factor.
+- id: added-denominators
+  description: Treats x/p + x/q as x/(p + q) (or x/p - x/q as x/(p - q)), combining the denominators instead of finding a common denominator.
+- id: mishandled-binomial-numerator
+  description: When the numerator is a binomial, drops or mis-signs the constant term while clearing the denominator, or forgets that term is also divided by the denominator.
+tags: []

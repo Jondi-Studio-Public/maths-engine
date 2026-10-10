@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-involving-displacement-force-and-velocity-involving
+name: Solve problems involving displacement, force and velocity involving the above concepts
+domain: differential-equations
+description: 'Given bounded, fully specified inputs, solve problems involving displacement, force and velocity involving the above concepts. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [solve-ode-exponential]
+answer: number
+sources:
+- topic: p13b_vector_resultant_angle
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p13b_vector_resultant_angle
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p13b_vector_resultant_angle
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p13b_vector_resultant_angle
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-pythagoras
+  description: Ignores the stated angle entirely and combines two vector magnitudes as if they were perpendicular (easy, hard and exam tiers).
+- id: wrong-sign-cosine-rule
+  description: Subtracts instead of adds the cross term in the cosine rule, easy tier.
+- id: adds-the-magnitudes
+  description: Treats the two forces as collinear and simply adds their magnitudes, easy tier.
+- id: wrong-side-of-sine-rule
+  description: Swaps the two forces' roles in the sine-rule ratio, medium tier.
+- id: halves-the-angle
+  description: Reports half the stated angle between the forces as the resultant's direction, medium tier.
+- id: ignores-the-angle-for-direction
+  description: Treats the two forces as perpendicular legs and reports atan(F2/F1), ignoring the stated angle, medium tier.
+- id: swapped-rates
+  description: Uses the boat's own across-river speed in place of the current's speed when scaling by the crossing time, hard tier.
+- id: forgot-the-time
+  description: Reports the current's speed itself as the drift, never multiplying by the crossing time, hard tier.
+- id: dropped-a-vector
+  description: Omits one of the three vectors from the component sum, exam tier.
+- id: component-sign-error
+  description: Subtracts instead of adds one vector's component when summing, exam tier.
+tags: [acara-senior-v8-4, differential-equations, vectors, resultant, cosine-rule, sine-rule, acmsm023]

@@ -1,0 +1,30 @@
+id: fraction-decimal-percent
+name: Connect fractions, decimals and percentages
+domain: primary-number
+placement_order: 50
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Recognise equivalent common fractions, terminating decimals and percentages.
+status: active
+prerequisites: [fraction-of-quantity, decimal-place-value]
+answer: mcq
+sources:
+- topic: fraction_decimal_percent
+  params: {denominators: [2, 4, 5, 10]}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: fraction_decimal_percent
+  params: {denominators: [2, 4, 5, 10, 20]}
+  stages: [3, 4]
+  difficulty: medium
+- topic: fraction_decimal_percent
+  params: {denominators: [2, 4, 5, 10, 20, 25], reverse_directions: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: percent-as-decimal-digits
+  description: Writes 25 percent as 0.25 percent or as the whole number 25.
+- id: denominator-is-percent
+  description: Treats the denominator as the percentage without finding an equivalent fraction out of 100.
+tags: [primary, fractions, decimals, percentages, acara-v9-year-6]

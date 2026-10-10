@@ -1,0 +1,17 @@
+id: count-to-10
+name: Count objects to 10
+domain: early-foundations
+placement_order: 30
+placement_questions: 3
+placement_pass: 2
+learner_band: early
+description: Count a group containing up to ten objects.
+status: active
+prerequisites: [recognise-numerals-to-5]
+answer: mcq
+sources:
+- topic: count_objects
+  params: {lo: 4, hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-5, counting, visual]

@@ -1,0 +1,37 @@
+id: simple-harmonic-angular-frequency
+name: Compute simple-harmonic angular frequency
+domain: differential-equations
+description: Compute ω = √(k/m) for a clean mass-spring oscillator.
+status: active
+prerequisites:
+- hookes-law
+answer: number
+sources:
+- topic: simple_harmonic_angular_frequency
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: simple_harmonic_angular_frequency
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: simple_harmonic_angular_frequency
+  params: {kind: solve_for_k}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses-k-over-m-as-omega
+  description: Reports k/m rather than taking its square root.
+- id: reverses-mass-stiffness
+  description: Uses √(m/k), reversing the physical dependence.
+tags: [university-core-v1, mathematical-physics]
+framework_areas: [ordinary-differential-equations, mathematical-physics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: ordinary-differential-equations
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics

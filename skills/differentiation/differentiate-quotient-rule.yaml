@@ -1,0 +1,41 @@
+id: differentiate-quotient-rule
+name: Quotient rule
+domain: differentiation
+description: Differentiate a quotient of two functions using the quotient rule.
+status: active
+prerequisites:
+- differentiate-product-rule
+answer: expression
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - quotient_rule
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - quotient_rule
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - quotient_rule
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: wrong-order-subtraction
+  description: Subtracting the terms in the wrong order in the numerator.
+- id: forgot-denominator-squared
+  description: Forgetting to square the denominator.
+tags: []

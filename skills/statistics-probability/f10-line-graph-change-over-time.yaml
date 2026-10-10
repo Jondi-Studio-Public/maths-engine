@@ -1,0 +1,41 @@
+id: f10-line-graph-change-over-time
+name: Interpret line graphs of change
+domain: statistics-probability
+description: Given a quantity's value at a labelled sequence of time points, presented as an explicit list of time-value pairs, and one stated claim drawn from a fixed class (the value at a stated time point, the direction or size of the change between two stated time points, or whether the value rose, fell or stayed the same across every consecutive pair of time points), classify the claim as supported or not supported by the data. Every question shows the full sequence as text; open description of relationships/trends and any rendered figure are excluded, as is any claim outside the three named classes.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-mean
+- calculate-median
+- calculate-mode
+- calculate-range
+answer: mcq
+sources:
+- topic: p18a_line_graph_claims
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p18a_line_graph_claims
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p18a_line_graph_claims
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p18a_line_graph_claims
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reads-wrong-time-point
+  description: Reads the value at a neighbouring time point instead of the one the claim names, offered as a "was actually" decoy.
+- id: subtracts-wrong-order
+  description: Computes the change between two named points in the wrong order, reporting the opposite sign (a fall reported as a rise, or vice versa).
+- id: wrong-change-magnitude
+  description: Gets the direction of a change right but the size wrong, offered as a "rose/fell by" decoy with a plausible but incorrect magnitude.
+- id: ignores-the-one-breaking-pair
+  description: Assumes a rose/fell/stayed-the-same claim holds across the whole sequence without checking every consecutive pair, missing the single pair where the pattern actually breaks.
+- id: distracted-by-interior-fluctuation
+  description: On the exam tier's overall-change claim, refuses to resolve the net first-to-last change because the data moves up and down in between, instead of computing the two endpoints directly.
+tags: [acara-f10-v9, statistics-probability, p18a_line_graph_claims, AC9M5ST02]

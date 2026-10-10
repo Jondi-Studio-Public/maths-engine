@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-complex-timetables-such-as-tide-charts-sunrise
+name: Interpret complex timetables, such as tide charts, sunrise charts and moon
+  phases
+domain: senior-mathematics
+description: Given a stated tide, sunrise/sunset or moon-phase table for several
+  days, choose from offered entries the day or time that meets a stated condition
+  (for example the highest high tide, the latest sunrise, or the first full moon
+  after a stated date).
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19i_timetable_condition_lookup
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: p19i_timetable_condition_lookup
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: p19i_timetable_condition_lookup
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: p19i_timetable_condition_lookup
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: wrong-direction
+  description: Picks the day with the opposite superlative reading (lowest instead
+    of highest, earliest instead of latest).
+- id: full-moon-before-date
+  description: On the hard tier, picks the most recent full moon before the stated
+    date instead of the first one after it.
+- id: satisfies-only-one-clause
+  description: On the exam tier, picks the day that is the extreme value overall
+    but fails the stated second condition (falls on a weekend, or on or before the
+    stated date).
+tags: [acara-senior-v8-4, timetable, acmem081]

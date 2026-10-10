@@ -1,0 +1,36 @@
+id: factor-common-numerical-factor
+name: Factor out a common numerical factor
+domain: expressions-equivalence
+description: Rewrite a linear expression as a product by extracting a common numerical factor.
+status: active
+prerequisites:
+- expand-single-brackets
+- combine-like-terms
+answer: expression
+sources:
+- topic: factor_gcf
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: factor_gcf
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: factor_gcf
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Dividing only one term by the factor
+- id: misconception-2
+  description: Confusing factorisation with combining like terms
+tags: []

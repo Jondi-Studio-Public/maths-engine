@@ -1,0 +1,48 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-and-use-the-formulas-for-finding-the
+name: Determine and use the formulas for finding the number of elements in the union of two and the union of three sets
+domain: senior-mathematics
+description: |
+  Given bounded, fully specified inputs, determine and use the formulas for finding the
+  number of elements in the union of two and the union of three sets. Return the resulting
+  value, expression, relation, or classification. Boundary against
+  senior-review-the-rules-p-left-overline-a-right (which grades the structurally identical
+  P(A union B) = P(A) + P(B) - P(A intersect B) identity for probabilities in [0, 1], with no
+  universe count anywhere in its contract): every question here is framed with an explicit
+  finite universe (a survey/count word problem) and answers with a plain integer count, never
+  a probability. easy: two-set union, find the "neither" count via N - |A union B|. medium:
+  the two-set inverse -- given N, the two set sizes and the "neither" count, find the overlap
+  |A intersect B|. hard: three-set union with the union total now stated and exactly one of
+  the seven region-derived totals withheld -- which one varies across draws -- solve for the
+  missing term by rearranging the seven-term identity. Both the three-set case and the
+  two-set inverse-overlap case have no analogue in the probability skill at all.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+  - topic: p11c_set_union_cardinality
+    params: {mode: easy}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: p11c_set_union_cardinality
+    params: {mode: two_set_overlap}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: p11c_set_union_cardinality
+    params: {mode: three_set_unknown}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: forgets-to-subtract-overlap
+    description: Reports |A| + |B| (or |A| + |B| + |C|) uncorrected, forgetting to subtract the pairwise overlap(s) at all.
+  - id: double-subtracts-overlap
+    description: Subtracts the overlap twice (or, in the three-set case, subtracts the triple intersection again instead of re-adding it), producing an undercount of the union.
+  - id: omits-triple-readdition
+    description: 'Three-set case: applies the pairwise subtractions but omits the final +|A intersect B intersect C| re-addition, the classic inclusion-exclusion trap.'
+  - id: confuses-neither-with-union
+    description: Reports the union total |A union B| itself when asked for the "neither" count N - |A union B|, or vice versa. At the three-set hard tier this generalises to reporting the STATED union total itself when asked to solve for a withheld region term.
+  - id: drops-a-term-rearranging-for-unknown
+    description: 'Three-set hard tier, where the union total is stated and a different region term is withheld each draw: while rearranging the seven-term identity for the withheld term, drops one or more of the OTHER stated terms entirely (rather than a pure sign error), producing a plausible but incomplete isolate.'
+tags: [acara-v8-4, senior-mathematics, sets, inclusion-exclusion, p11c_set_union_cardinality, ACMSM005]

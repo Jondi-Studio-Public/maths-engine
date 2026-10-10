@@ -1,0 +1,10 @@
+id: multiply-complex-numbers
+name: Multiply complex numbers
+domain: senior-mathematics
+description: Expand a product of Cartesian complex numbers and use i squared equals negative one.
+status: active
+prerequisites: [add-complex-numbers, expand-single-brackets]
+answer: mcq
+sources: [{topic: complex_number, params: {kind: multiply}, difficulty: easy}]
+misconceptions: [{id: treats-i-squared-positive, description: Replaces i squared with positive one.}]
+tags: [expansion-batch-6, complex-numbers, acara-v8-4]

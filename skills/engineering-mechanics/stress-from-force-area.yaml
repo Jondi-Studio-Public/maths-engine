@@ -1,0 +1,20 @@
+id: stress-from-force-area
+name: Stress = F/A
+domain: engineering-mechanics
+description: Calculate axial stress from a force and cross-sectional area.
+status: active
+prerequisites:
+- ratio-rate-proportion
+answer: number
+sources:
+- topic: engineering
+  params:
+    kinds:
+    - stress
+  difficulty: easy
+misconceptions:
+- id: unit-slip-kn-mm2
+  description: A unit slip mixing kN with mm^2 (off by 1000).
+- id: multiplied-f-a
+  description: Multiplying force by area instead of dividing.
+tags: []

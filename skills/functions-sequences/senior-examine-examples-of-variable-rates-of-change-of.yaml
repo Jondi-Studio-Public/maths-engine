@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-examples-of-variable-rates-of-change-of
+name: Examine examples of variable rates of change of non-linear functions
+domain: functions-sequences
+description: Given a fully-specified polynomial f(x) (every coefficient a concrete stated integer), find the average rate of change of f(x) over a stated interval [x1, x2] of width >= 2. The average rate of change (f(x2) - f(x1)) / (x2 - x1) is always an exact integer for the quadratic and cubic families used here, so the graded answer is a plain integer. Distinguished from the differentiation skills in this domain, which find an INSTANTANEOUS rate; this skill only ever asks for an AVERAGE rate over a stated interval.
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: number
+sources:
+- topic: p11b_variable_rate_of_change
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p11b_variable_rate_of_change
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p11b_variable_rate_of_change
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgets-to-divide
+  description: Reports f(x2) - f(x1), the total change in y, as if it were the rate of change, without dividing by the width of the interval.
+- id: sign-flip
+  description: Reports the negative of the correct rate, as if x1 and x2 had been swapped in only the numerator, not the denominator too.
+- id: endpoint-value-confusion
+  description: Reports f(x2) itself, confusing the function's value at the right endpoint with its rate of change over the interval.
+tags: [acara-senior-v8-4, functions-sequences, rate-of-change, calculus, acmmm087]

@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-complete-a-five-number-summary-for-different-datasets
+name: Complete a five number summary for different datasets
+domain: statistics-probability
+description: Given a nine-value integer dataset, complete its five-number summary (min, Q1, median, Q3, max) using the median-of-the-lower/upper-half (Tukey/inclusive) method, stated explicitly in the question. Every value in the summary is a literal element of the dataset -- no interpolation.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+capability_gates: [authentic_data]
+answer: pair
+sources:
+- topic: p12d_five_number_summary
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p12d_five_number_summary
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p12d_five_number_summary
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12d_five_number_summary
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: excludes-median-from-halves
+  description: Uses the exclusive method (Q1/Q3 from v1..v4 / v6..v9, excluding the overall median) instead of the inclusive Tukey method the question specifies. Offered whenever it actually produces a different value.
+- id: forgets-to-sort
+  description: Applies the summary-statistic index positions directly to the presented, unsorted order instead of sorting first. Never offered on the easy tier (already sorted); offered on medium/hard/exam only when it actually differs.
+- id: swaps-q1-q3
+  description: Reports Q3 in the Q1 slot and vice versa. Offered only when Q1 and Q3 genuinely differ.
+tags: [acara-senior-v8-4, statistics-probability, p12d_five_number_summary, ACMEM058]

@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-relative-frequencies-obtained-from-data-as-point
+name: Use relative frequencies obtained from data as point estimates of probabilities
+domain: statistics-probability
+description: From a frequency table of OBSERVED trials of an experiment, estimate the probability of a stated event (single, union or complement) as its relative frequency, or project that estimate onto a stated number of future trials. Genuinely different from the shipping simple-event-probability and finite-sample-space-probability skills, whose probability comes from an enumerated collection of KNOWN outcomes rather than observed trial counts.
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: p16a_relative_frequency_estimate
+  params: {variant: single}
+  difficulty: easy
+  stages: [6]
+- topic: p16a_relative_frequency_estimate
+  params: {variant: union}
+  difficulty: medium
+  stages: [6]
+- topic: p16a_relative_frequency_estimate
+  params: {variant: complement}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p16a_relative_frequency_estimate
+  params: {variant: project_future}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reports-raw-count
+  description: Reports the raw observed count of the event instead of dividing it by the total number of trials.
+- id: wrong-denominator
+  description: Divides the favourable count by the count of some other category instead of by the total number of trials.
+- id: ignores-the-data
+  description: Assumes every category is equally likely, ignoring the recorded frequencies entirely.
+tags: [acara-v8-4-methods, statistics-probability, relative-frequency, empirical-probability, acmmm055]

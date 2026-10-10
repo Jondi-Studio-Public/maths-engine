@@ -1,0 +1,10 @@
+id: logarithm-laws
+name: Apply logarithm laws
+domain: secondary-number
+description: Recognise product, quotient and power-law transformations of logarithmic expressions.
+status: active
+prerequisites: [evaluate-powers]
+answer: mcq
+sources: [{topic: logarithm_law, params: {}, difficulty: easy}]
+misconceptions: [{id: logs-distribute-over-addition, description: Treats log(a)+log(b) as log(a+b).}]
+tags: [expansion-batch-4, logarithms]

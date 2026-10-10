@@ -1,0 +1,31 @@
+id: f10-skip-count-pattern-sequences
+name: Continue skip-count pattern sequences
+domain: functions-sequences
+description: Continue a numeral skip-counting sequence by two, five or ten to the next terms.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-pattern-copy-repeat-unit
+- skip-count-2-5-10
+answer: ordered_list
+sources:
+- topic: skip_count_pattern_sequences
+  params: {step_choice: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: skip_count_pattern_sequences
+  params: {step_choice: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: skip_count_pattern_sequences
+  params: {step_choice: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-step
+  description: Extends the sequence using a different step value from the two, five or ten used in the shown terms.
+- id: stopped-incrementing
+  description: Repeats the last shown term instead of continuing to advance by the step value.
+- id: hundred-crossing-drop
+  description: Fails to carry the hundreds digit when continuing across a place-value boundary (e.g., from 98 to 103).
+tags: [acara-f10-v9, functions-sequences, patterns, ac9m1a01]

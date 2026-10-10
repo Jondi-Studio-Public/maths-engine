@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-a-bernoulli-random-variable-as-a-model
+name: Use a Bernoulli random variable as a model
+domain: statistics-probability
+description: 'Given bounded, fully specified inputs, use a Bernoulli random variable as a model for two-outcome situations. Return the resulting value, expression, relation, or classification. The learner derives p from a described count of equally-likely outcomes (never handed p directly), then computes E(X) = p or Var(X) = p(1-p) -- the MODELLING-CHOICE step, distinct from the neighbouring skill senior-use-bernoulli-random-variables-and-associated-probabilities-to, which takes p as GIVEN and computes the probability of a stated sequence of trials once a model is already assumed. The hard and exam tiers invert the relationship: Var(X) is stated and a contextual clue disambiguates which root of p^2 - p + Var(X) = 0 is P(success). At hard the clue names success directly ("success is the less/more common outcome"). At exam the clue instead describes FAILURE indirectly via frequency ("a failure occurs on more/fewer than half of all trials"), so the clue-selected root is P(failure) and the learner must report its complement, P(success) -- a genuine conversion step hard never requires.'
+status: active
+placement_eligible: false
+prerequisites: [simple-event-probability]
+answer: fraction
+sources:
+- topic: p12d_bernoulli_model
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p12d_bernoulli_model
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p12d_bernoulli_model
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12d_bernoulli_model
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: uses-failure-probability
+  description: Reports 1 - p (or q) instead of p at the easy tier.
+- id: adds-instead-of-multiplies
+  description: Reports p + (1 - p) = 1 instead of the product p(1 - p) at the medium (variance) tier.
+- id: wrong-root-selected
+  description: At the hard/exam tiers, reports the algebraically valid but contextually wrong root of p^2 - p + Var(X) = 0.
+- id: off-by-one-count
+  description: Miscounts the shaded/marked outcomes by one when deriving p from the described scenario.
+- id: treats-variance-as-probability
+  description: At the hard/exam tiers, reports the stated Var(X) value itself instead of solving for p.
+tags: [acara-senior-v8-4, statistics-probability, bernoulli, acmmm143]

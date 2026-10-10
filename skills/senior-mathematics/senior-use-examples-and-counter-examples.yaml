@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-examples-and-counter-examples
+name: Use examples and counter-examples
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, use examples and counter-examples. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: counterexample_identify
+  params: {variant: classify, pool: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: counterexample_identify
+  params: {variant: classify, pool: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: counterexample_identify
+  params: {variant: find_counterexample}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swaps-example-and-counterexample
+  description: Selects "Counterexample" for a value that actually satisfies the claim's stated property (or "Example" for one that fails it), inverting the definitions of the two terms instead of checking the property directly.
+- id: picks-both-or-neither
+  description: Answers "Both" or "Neither" for a single value under a total (always-true-or-false) predicate, rather than recognising that one value is always exactly one of Example/Counterexample.
+- id: picks-a-satisfying-value-as-the-disproof
+  description: At the hard tier, selects one of the three values that genuinely satisfies the claim as the one that "disproves" it, rather than testing each of the four supplied values against the predicate and identifying the one that fails.
+tags: [acara-v8-4-specialist, logic, examples-and-counterexamples]

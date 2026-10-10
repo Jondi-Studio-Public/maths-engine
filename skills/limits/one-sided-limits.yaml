@@ -1,0 +1,41 @@
+id: one-sided-limits
+name: Left and right limits
+domain: limits
+description: Evaluate one-sided limits and decide whether the two-sided limit exists.
+status: active
+prerequisites:
+- limit-removable
+answer: expression
+sources:
+- topic: limits
+  params:
+    kinds:
+    - one_sided
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: limits
+  params:
+    kinds:
+    - one_sided
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: limits
+  params:
+    kinds:
+    - one_sided_quad
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: ignored-side
+  description: Ignoring which side the limit is approached from.
+- id: assumed-exists
+  description: Assuming the two-sided limit exists when the one-sided limits disagree.
+tags: []

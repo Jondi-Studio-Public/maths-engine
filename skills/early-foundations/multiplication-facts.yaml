@@ -1,0 +1,17 @@
+id: multiplication-facts
+name: Multiplication facts to 10 × 10
+domain: early-foundations
+placement_order: 280
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Recall and reason about basic multiplication facts.
+status: active
+prerequisites: [subtract-within-100]
+answer: mcq
+sources:
+- topic: equal_groups
+  params: {groups_hi: 10, each_hi: 10}
+  difficulty: easy
+misconceptions: []
+tags: [age-7, multiplication]

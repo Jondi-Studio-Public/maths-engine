@@ -1,0 +1,10 @@
+id: rectangular-prism-volume
+name: Calculate rectangular-prism volume
+domain: primary-geometry-time
+description: Calculate the volume of a rectangular prism from three whole-number dimensions.
+status: active
+prerequisites: [rectangle-area]
+answer: number
+sources: [{topic: rectangular_prism_volume, params: {side_hi: 12}, difficulty: easy}]
+misconceptions: [{id: uses-surface-area, description: Adds face areas instead of multiplying all three dimensions.}]
+tags: [expansion-batch-2, primary, volume]

@@ -1,0 +1,10 @@
+id: elapsed-time
+name: Calculate elapsed time
+domain: primary-geometry-time
+description: Calculate a duration in minutes between two times on the same day.
+status: active
+prerequisites: [convert-time-systems]
+answer: number
+sources: [{topic: elapsed_time, params: {duration_hi: 180}, difficulty: easy}]
+misconceptions: [{id: minute-parts-only, description: Subtracts only the displayed minute parts and ignores complete hours.}]
+tags: [expansion-batch-2, primary, time]

@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-problems-involving-greenwich-mean-time-and-the
+name: Solve problems involving Greenwich Mean Time and the International Date Line
+domain: senior-mathematics
+description: Given a flight's departure day and time and each place's stated GMT offset, use GMT as the reference to find the local day and time of arrival, crossing the International Date Line.
+status: active
+placement_eligible: false
+prerequisites: [senior-solve-problems-involving-time-zones-in-australia-and]
+answer: mcq
+sources:
+- topic: p16c_gmt_dateline
+  params: {variant: single_forward}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p16c_gmt_dateline
+  params: {variant: single_half_hour}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p16c_gmt_dateline
+  params: {variant: single_day_back}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p16c_gmt_dateline
+  params: {variant: two_leg}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ignores-date-line
+  description: Adds the flight duration to the departure day and time directly, applying neither place's GMT offset at all.
+- id: swapped-zones
+  description: Applies the destination's GMT offset to convert the departure time to GMT, and the origin's GMT offset to convert back to local time -- the two offsets swapped.
+- id: off-by-one-day-forward
+  description: States the correct arrival time but a calendar day too late.
+- id: off-by-one-day-back
+  description: States the correct arrival time but a calendar day too early.
+- id: ignores-layover-zone-shift
+  description: On a connecting flight, keeps using the first leg's GMT offset for the whole journey instead of switching to the layover city's own offset for the second leg.
+tags: [acara-senior-v8-4, senior-mathematics, gmt, international-date-line, acmem164]

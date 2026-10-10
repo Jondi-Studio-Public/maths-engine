@@ -1,0 +1,29 @@
+id: f10-parallelogram-area
+name: Calculate parallelogram area
+domain: measurement
+description: Given a parallelogram's base and perpendicular height, calculate its area in appropriate square units.
+status: active
+placement_eligible: false
+prerequisites: [rectangle-area]
+answer: number
+sources:
+- topic: parallelogram_area
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: parallelogram_area
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: parallelogram_area
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses_slant_side
+  description: Multiplies base by the slanted side length instead of by the perpendicular height.
+- id: adds_instead_of_multiplies
+  description: Adds base and height instead of multiplying them.
+- id: wrong_dimension_relation
+  description: Subtracts instead of divides when solving the inverse problem (finding a dimension from area).
+tags: [measurement, area, acara-v9-year-7]

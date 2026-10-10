@@ -1,0 +1,26 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-consider-conjugate-roots-for-polynomials-with-real-coefficients
+name: Consider conjugate roots for polynomials with real coefficients
+domain: functions-sequences
+description: Given a monic quadratic with real coefficients and complex-conjugate roots, apply Vieta's formulas to state the sum or product of roots, or (hard tier) build a monic quadratic from a stated conjugate root pair and find its coefficient of x. All answers are real-valued integers; learners never type or manipulate complex numbers directly.
+status: active
+placement_eligible: false
+prerequisites:
+  - function-notation
+answer: number
+sources:
+  - topic: conjugate_roots_real_coefficients
+    params: {}
+    difficulty: easy
+    stages: [1, 2, 3]
+misconceptions:
+  - id: sign-flip
+    description: States b or similar value with wrong sign (e.g., b instead of -b)
+  - id: confuses-with-product
+    description: Confuses the sum with the product of roots, or vice versa
+  - id: forgot-to-double
+    description: States a factor of p when the correct answer requires -2p (missing the doubling)
+  - id: sign-error
+    description: Inverts the sign of the correct answer
+tags: []

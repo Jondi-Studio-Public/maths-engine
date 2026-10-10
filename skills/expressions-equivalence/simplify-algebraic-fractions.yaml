@@ -1,0 +1,55 @@
+id: simplify-algebraic-fractions
+name: Simplify algebraic fractions
+domain: expressions-equivalence
+description: Cancel a trinomial numerator by one of its own linear factors -- the denominator -- to leave the
+  other factor as a bare polynomial. Every draw is confined so the reduced result never itself contains a
+  fraction; simplifying to a result that is still a fraction is out of scope.
+status: active
+placement_eligible: false
+prerequisites:
+- difference-of-squares
+- factor-common-numerical-factor
+- solve-quadratics-factorable
+answer: expression
+sources:
+- topic: t1_simplify_algebraic_fraction
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: t1_simplify_algebraic_fraction
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: t1_simplify_algebraic_fraction
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: sign-error
+  description: On an easy difference-of-squares question, states the denominator's own factor back instead of
+    the other root's factor -- there are only two linear factors total, so this is the "cancelled to the wrong
+    root" confusion.
+- id: constant-off-by-one
+  description: On an easy difference-of-squares question, keeps the correct sign but states a constant one
+    more than the true root, e.g. x - 6 instead of x - 5.
+- id: copied-denominator
+  description: On a medium monic-trinomial question, states the denominator's own factor as the answer -- a
+    "cancelled the whole fraction to 1" confusion.
+- id: sign-error-in-constant
+  description: On a medium or hard question, flips the sign of the answer's own constant term, e.g. x + 6
+    instead of x - 6.
+- id: dropped-leading-coefficient
+  description: On a hard non-monic-trinomial question, states the correct constant but with leading
+    coefficient 1 instead of the true non-unit coefficient, e.g. x + 9 instead of 4x + 9.
+tags: []

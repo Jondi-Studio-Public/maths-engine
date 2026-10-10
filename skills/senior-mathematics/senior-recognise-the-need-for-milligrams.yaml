@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-need-for-milligrams
+name: Recognise the need for milligrams
+domain: senior-mathematics
+description: Given a stated real-world mass description, choose the most appropriate unit among milligrams, grams, kilograms and tonnes for measuring it.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19h_need_for_milligrams
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19h_need_for_milligrams
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19h_need_for_milligrams
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19h_need_for_milligrams
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: keeps-the-stated-unit
+  description: Picks the unit the mass was already stated in, even though that gives an awkward decimal or an unwieldy number of digits.
+- id: off-by-one-ladder-step
+  description: Picks the mass unit one ladder step away (mg/g/kg/t) from the one that would give a whole number of no more than 3 digits.
+- id: picks-the-opposite-direction
+  description: When the stated unit is too small (an unwieldy large integer), picks a unit that makes the value even smaller (or vice versa when the stated unit is too large), moving the wrong way along the ladder.
+tags: [acara-senior-v8-4, senior-mathematics, measurement, units, mass, acmem099]

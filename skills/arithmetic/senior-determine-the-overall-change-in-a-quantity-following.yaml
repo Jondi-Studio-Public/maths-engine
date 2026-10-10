@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-the-overall-change-in-a-quantity-following
+name: Determine the overall change in a quantity following repeated percentage changes; for example
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, determine the overall change in a quantity following repeated percentage changes; for example. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: repeated_percentage_change
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: repeated_percentage_change
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: repeated_percentage_change
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: adds-the-percentages
+  description: Sums the stated percentages and applies the total as a single change to the original quantity, instead of compounding each change in turn.
+- id: applies-only-the-first-change
+  description: Applies only the first stated percentage change and ignores every change after it.
+- id: applies-only-the-last-change
+  description: Applies only the final stated percentage change to the original quantity, ignoring every earlier change.
+tags: [acara-senior-v8-4, arithmetic, repeated_percentage_change, ACMEM063]

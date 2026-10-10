@@ -1,0 +1,55 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-and-use-graphs-in-practical-situations-including
+name: Interpret and use graphs in practical situations, including travel graphs and conversion graphs
+domain: senior-mathematics
+description: 'A straight-line conversion graph is drawn on a labelled grid, the prompt names both units and the
+  direction and states one input value, and the learner types the converted value as a whole number in the
+  unit asked for. Only true unit conversions (hours to minutes, feet to inches, kilometres to metres, ...) or
+  an explicitly scenario-specific rule (one exchange desk today, a hiker''s rule of thumb treated as exact)
+  are ever drawn; no rate, offset or equation is printed. The stated input and its output both sit on grid
+  lines. Tier ladder by decision: easy converts the stated input forward on a proportional graph through the
+  origin; medium reads the graph in reverse (the stated value is on the vertical axis, the answer on the
+  horizontal), so the decision is which axis the number is on; hard uses an offset conversion that does not
+  pass through the origin, so proportional reasoning from one point fails; exam reads the offset conversion
+  in reverse on stepped unequal scales. This skill reads one converted value at a stated input, not the
+  line''s parameters (rate-of-change; senior-determine-the-slope-and-intercepts-of-a-straight) and not a
+  distance-versus-time travel graph (senior-interpret-distance-versus-time-graphs).'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: pv1a_conversion
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv1a_conversion
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv1a_conversion
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv1a_conversion
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: stated-number-read-on-the-wrong-axis
+  description: Finds the stated number on the wrong axis and reads across to the other one, converting in the opposite direction to the one asked.
+- id: proportional-reasoning-ignores-the-offset
+  description: Scales the stated value by the ratio at one point on the line, as if the line passed through the origin, ignoring the constant that shifts it.
+- id: repeats-the-stated-number-unconverted
+  description: Gives the stated number back as the answer, reading it off the wrong scale instead of converting it.
+- id: adjacent-grid-line-above
+  description: Reads the line one grid line too high, giving the next labelled value instead of the one at the stated input.
+- id: adjacent-grid-line-below
+  description: Reads the line one grid line too low, giving the previous labelled value instead of the one at the stated input.
+- id: counts-grid-squares-not-axis-units
+  description: Counts grid squares from the origin instead of reading the numbers on the axis, so the answer is a number of squares and not of units.
+tags: [acara-v8-4-essential, senior-mathematics, figure-stimulus]

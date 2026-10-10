@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-exponential-functions-and-their-derivatives-to-solve
+name: Use exponential functions and their derivatives to solve practical problems
+domain: differentiation
+description: 'Given bounded, fully specified inputs, use exponential functions and their derivatives to solve practical problems. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+capability_gates: [modelling]
+answer: number
+sources:
+- topic: p12c_exp_deriv_apply
+  params: {mode: rate_at_zero}
+  difficulty: easy
+  stages: [6]
+- topic: p12c_exp_deriv_apply
+  params: {mode: rate_at_t}
+  difficulty: medium
+  stages: [6]
+- topic: p12c_exp_deriv_apply
+  params: {mode: time_for_rate}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12c_exp_deriv_apply
+  params: {mode: rate_at_value}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: evaluates-value-instead-of-rate
+  description: Reports the model's value N(t) (the population/quantity itself) instead of its instantaneous rate of change dN/dt.
+- id: dropped-k-from-derivative
+  description: Drops k from the derivative, using N0*e^(kt) in place of N0*k*e^(kt).
+- id: sign-error-on-k
+  description: Flips the sign of k somewhere in the derivative or its inversion, producing the negative of the correct value.
+- id: used-value-equation-instead-of-rate-equation
+  description: On the hard tier's inversion, solves N0*e^(kt) = R (the value equation) instead of N0*k*e^(kt) = R (the rate equation) for the stated target rate R.
+- id: forgot-to-divide-by-the-baseline-rate
+  description: On the hard tier's inversion, solves e^(kt) = R directly instead of e^(kt) = R / (N0*k), omitting the division by the baseline rate.
+- id: reported-the-target-value-as-the-rate
+  description: On the exam tier, reports the stated target value M itself as the answer instead of computing the rate of change k*M at the moment N(t) equals M.
+- id: evaluated-rate-at-the-wrong-moment
+  description: On the exam tier, evaluates the rate of change at t=0 (N0*k) instead of at the moment the model reaches the stated target value M.
+tags: [acara-senior-v8-4, differentiation, p12c_exp_deriv_apply, ACMMM101]

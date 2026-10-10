@@ -1,0 +1,30 @@
+id: percentage-of-quantity
+name: Find a percentage of a quantity
+domain: primary-number
+placement_order: 60
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Calculate a common percentage of a whole-number quantity when the result is exact.
+status: active
+prerequisites: [fraction-decimal-percent]
+answer: number
+sources:
+- topic: percentage_quantity
+  params: {kind: amount, percents: [10, 50], units_hi: 10}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: percentage_quantity
+  params: {kind: amount, percents: [10, 20, 25, 50], units_hi: 15}
+  stages: [3, 4]
+  difficulty: medium
+- topic: percentage_quantity
+  params: {kind: amount, percents: [5, 10, 20, 25, 50, 75], units_hi: 20, find_whole: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: multiplies-by-whole-percent
+  description: Multiplies by 25 instead of by 0.25 or one quarter.
+- id: subtracts-percentage
+  description: Subtracts the percentage number from the quantity even when asked only for the percentage amount.
+tags: [primary, percentages, acara-v9-year-6]

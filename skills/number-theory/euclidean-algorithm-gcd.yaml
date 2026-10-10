@@ -1,0 +1,54 @@
+id: euclidean-algorithm-gcd
+name: Compute a greatest common divisor
+domain: number-theory
+description: Compute the greatest common divisor of two or three positive integers using repeated Euclidean remainders.
+status: active
+prerequisites: [list-factors]
+answer: number
+sources:
+- topic: euclidean_algorithm_gcd
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: euclidean_algorithm_gcd
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: euclidean_algorithm_gcd
+  params: {count: 3}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: stops-at-first-remainder
+  description: Stops before the final non-zero remainder in the Euclidean algorithm.
+- id: chooses-larger-number
+  description: Reports one of the inputs instead of their greatest common divisor.
+- id: gcd-of-first-two-only
+  description: Computes gcd(first, second) and stops, ignoring the third number -- one Euclidean-algorithm pass short.
+- id: gcd-of-last-two-only
+  description: Computes gcd(second, third) and ignores the first number entirely.
+- id: reuses-one-input-or-sum
+  description: Offers one of the three numbers themselves, or their sum, instead of their greatest common divisor.
+tags: [university-core-v1, university-foundation-pilot, number-theory]
+framework_areas: [number-theory]
+alignments:
+- source_id: mit-degree-chart
+  status: candidate
+  framework: university-core-v1
+  area: number-theory
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: number-theory
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: number-theory

@@ -1,0 +1,90 @@
+id: integer-arithmetic
+name: Operate with integers
+domain: readiness
+placement_order: 10
+description: Add, subtract, multiply and divide positive and negative integers.
+status: active
+prerequisites:
+- whole-number-division-facts
+answer: number
+sources:
+- topic: addition
+  params:
+    lo: -20
+    hi: 20
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: subtraction
+  params:
+    lo: -20
+    hi: 20
+    allow_negative: true
+  difficulty: medium
+  stages:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+- topic: multiplication
+  params:
+    lo: -12
+    hi: 12
+    lo2: -12
+    hi2: 12
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+  - 5
+  - 6
+- topic: division
+  params:
+    q_lo: -12
+    q_hi: 12
+    d_lo: 2
+    d_hi: 12
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: addition
+    params:
+      lo: 1
+      hi: 20
+    target_s: 3
+    limit_s: 8
+  - topic: subtraction
+    params:
+      lo: 1
+      hi: 20
+    target_s: 4
+    limit_s: 10
+  - topic: multiplication
+    params:
+      lo: 2
+      hi: 9
+      lo2: 2
+      hi2: 9
+    target_s: 4
+    limit_s: 10
+  - topic: division
+    params:
+      q_lo: 2
+      q_hi: 9
+      d_lo: 2
+      d_hi: 9
+    target_s: 5
+    limit_s: 12
+misconceptions:
+- id: misconception-1
+  description: Interpreting subtraction of a negative as subtraction
+- id: misconception-2
+  description: Assuming a negative times a negative is negative
+tags: []

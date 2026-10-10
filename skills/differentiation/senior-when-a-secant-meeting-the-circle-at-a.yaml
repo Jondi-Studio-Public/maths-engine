@@ -1,0 +1,54 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-when-a-secant-meeting-the-circle-at-a
+name: When a secant (meeting the circle at \(A\) and \(B\)) and a tangent (meeting the circle at \(T\)) are drawn to a circle from an external point \(M\), the square of the length of the tangent equals the product of the lengths to the circle on the secant. \((AM\times BM=TM^2)\)
+domain: differentiation
+description: >-
+  Given two of the lengths AM, BM and TM for a secant through A and B and a tangent at T drawn from
+  an external point M (M outside the circle, B between A and M), find the third using
+  AM x BM = TM^2. easy states AM and BM and asks for TM; medium states TM and one of AM/BM and asks
+  for the other; hard states BM and the chord AB (so the learner must first recover the whole
+  secant AM = AB + BM) and asks for TM, or states TM and BM and asks for the chord AB; exam states
+  TM and the chord AB and asks for BM or AM, solving the quadratic x(x + AB) = TM^2 and rejecting
+  the negative root, or gives the secant through the circle's centre with a stated radius and asks
+  for the distance MO. This is not `senior-the-alternate-segment-theorem` (angles, not lengths) and
+  not `senior-when-two-chords-of-a-circle-intersect-the` (that skill's point is inside the circle,
+  on two ordinary chords, with no tangent and no squared length -- this skill's point M is outside
+  the circle and one side of the relation is a tangent length squared).
+status: active
+placement_eligible: false
+prerequisites: [differentiate-polynomial]
+answer: number
+sources:
+- topic: pv0c_tangent_secant
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv0c_tangent_secant
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv0c_tangent_secant
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv0c_tangent_secant
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: chord-for-secant
+  description: Uses the chord AB in place of the whole secant AM (e.g. TM^2 = AB x BM, or reports AB when AM is asked).
+- id: no-square-root
+  description: Reports AM x BM directly as TM instead of taking the square root.
+- id: arithmetic-mean
+  description: Reports the arithmetic mean of the two given lengths instead of applying AM x BM = TM^2.
+- id: whole-secant-when-part-asked
+  description: Reports the whole secant AM (or an intermediate value that stops short of subtracting BM) instead of continuing to the length actually asked for.
+- id: tm-not-squared
+  description: Uses TM (not TM^2) in the relation, e.g. computing AM = TM / BM instead of AM = TM^2 / BM.
+- id: other-root-or-other-segment
+  description: On the exam tier, reports the other segment of the secant (AM when BM was asked, or vice versa) instead of the one requested.
+- id: pythagoras-slip
+  description: On the through-centre exam variant, reports BM or AM as if it were MO, or uses TM + r in place of sqrt(TM^2 + r^2).
+tags: [acara-v8-4-specialist, circle-geometry]

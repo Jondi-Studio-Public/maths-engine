@@ -1,0 +1,30 @@
+id: decimal-place-value
+name: Identify decimal place value
+domain: primary-number
+placement_order: 30
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: State the value of a non-zero digit in the tenths, hundredths or thousandths place.
+status: active
+prerequisites: [place-value-to-100]
+answer: number
+sources:
+- topic: decimal_place_value
+  params: {max_places: 1, whole_hi: 20}
+  stages: [0, 1, 2]
+  difficulty: easy
+- topic: decimal_place_value
+  params: {max_places: 2, whole_hi: 50}
+  stages: [3, 4]
+  difficulty: medium
+- topic: decimal_place_value
+  params: {max_places: 3, whole_hi: 100, ask_place: true}
+  stages: [5, 6, maintenance]
+  difficulty: hard
+misconceptions:
+- id: reports-digit
+  description: Reporting the digit itself instead of its place value.
+- id: reverses-place-direction
+  description: Making digits to the right of the decimal point ten times larger instead of ten times smaller.
+tags: [primary, decimals, place-value, acara-v9-year-4]

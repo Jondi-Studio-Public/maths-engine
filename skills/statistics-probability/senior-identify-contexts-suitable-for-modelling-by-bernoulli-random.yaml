@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-contexts-suitable-for-modelling-by-bernoulli-random
+name: Identify contexts suitable for modelling by Bernoulli random variables
+domain: statistics-probability
+description: 'Given a described real-world scenario, classify whether it is suitable for modelling by a Bernoulli random variable -- a single trial with exactly two possible outcomes and a fixed probability of success -- choosing the correct classification from the offered options: genuinely suited, or, if not, one of (a) a fixed-count-of-trials binomial setup in disguise, (b) a continuous-outcome setup, or (c) a dependent-trials setup. Never computes E(X)/Var(X) -- boundary against the active senior-use-a-bernoulli-random-variable-as-a-model (ACMMM143), which takes the Bernoulli model as already chosen. Boundary against the sibling senior-identify-contexts-suitable-for-modelling-by-binomial-random: a Bernoulli-suited scenario always describes exactly ONE trial/draw/measurement, while a binomial-suited scenario always names a fixed number of repeats and asks about a count of successes across them.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19c_bernoulli_suitability
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p19c_bernoulli_suitability
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p19c_bernoulli_suitability
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19c_bernoulli_suitability
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reports-suited-for-repeated-trials
+  description: Reports "Suited to a Bernoulli model" when the scenario explicitly repeats the trial a fixed number of times and asks for a count of successes -- a binomial setup, not a single trial.
+- id: reports-suited-for-continuous-outcome
+  description: Reports "Suited to a Bernoulli model" when the single trial's outcome is a continuous measurement, not one of two discrete categories.
+- id: reports-suited-for-dependent-draw
+  description: Reports "Suited to a Bernoulli model" when the single draw comes from a population whose composition has already changed noticeably, so its probability is not genuinely fixed.
+- id: pattern-matches-already-removed
+  description: At the exam tier, reports "Not suited -- the trials are not independent" purely because the scenario mentions items already removed without replacement, without checking whether the remaining population is large enough for the effect to be negligible.
+tags: [acara-senior-v8-4, statistics-probability, bernoulli, acmmm144]

@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-solve-practical-problems-requiring-basic-number-operations
+name: Solve practical problems requiring basic number operations
+domain: arithmetic
+description: Given a cents-precision practical money situation, apply one percentage-based step (a discount or a GST/service-charge addition) together with a genuinely non-percentage step (a flat add/subtract, a per-item multiply, or an equal split) to compute the final amount.
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p14b_practical_number_operations
+  params: {}
+  difficulty: easy
+  stages: [5, 6, maintenance]
+- topic: p14b_practical_number_operations
+  params: {}
+  difficulty: medium
+  stages: [5, 6, maintenance]
+- topic: p14b_practical_number_operations
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14b_practical_number_operations
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-direction
+  description: Applies the percentage adjustment in the wrong direction (adds a discount instead of subtracting it, or subtracts a GST/service-charge addition instead of adding it), then continues with the remaining step(s).
+- id: dropped-non-percentage-step
+  description: Reports only the percentage step's own result, never applying the flat add/subtract, multiply, or split step the situation also requires.
+- id: dropped-percentage-step
+  description: Applies only the non-percentage step to the original base amount, skipping the percentage-based step entirely.
+- id: red-herring-as-relevant
+  description: On the exam-tier situation, treats the stated irrelevant quantity (a red herring that plays no role in the calculation) as though it were part of the calculation -- most often using it in place of the genuine split divisor.
+tags: [acara-senior-v8-4, essential-mathematics, arithmetic, money, percentage, acmem001]

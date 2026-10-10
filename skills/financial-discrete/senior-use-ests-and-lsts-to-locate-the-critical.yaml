@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-ests-and-lsts-to-locate-the-critical
+name: Use ESTs and LSTs to locate the critical path(s) for the project
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, use ESTs and LSTs to locate the critical path(s) for the project. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: mcq
+sources:
+- topic: p10c_critical_path_locate
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p10c_critical_path_locate
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p10c_critical_path_locate
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: swapped-critical-path
+  description: Believes the shorter (losing) path is critical instead of the longer path.
+- id: counted-other-path
+  description: Counts the number of activities on the non-critical path instead of the critical path.
+- id: off-by-one-activity-count
+  description: Miscounts the critical path's activity count by one (drops or double-counts one activity).
+tags: [acara-senior-v8-4, financial-discrete, networks, p10c_critical_path_locate, ACMGM106]

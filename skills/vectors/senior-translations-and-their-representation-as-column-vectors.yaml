@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-translations-and-their-representation-as-column-vectors
+name: Translations and their representation as column vectors
+domain: vectors
+description: Given bounded, fully specified inputs, translations and their representation as column vectors. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+  - vector-addition
+answer: pair
+sources:
+  - topic: translations_and_their_representation_as_column_vectors
+    params: {}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: translations_and_their_representation_as_column_vectors
+    params: {}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: translations_and_their_representation_as_column_vectors
+    params: {}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: subtracts-instead-of-adds
+    description: Subtracts the column vector instead of adding it; computes P' = (Px - a, Py - b).
+  - id: swapped-vector-components
+    description: Swaps the x and y components of the column vector; applies (Px + b, Py + a) instead of (Px + a, Py + b).
+  - id: one-axis-only
+    description: Applies the translation to only one axis; computes P' = (Px + a, Py) and forgets the y-component.
+  - id: only-first-translation
+    description: (Hard tier only) Applies only the first translation; computes P' = (Px + a1, Py + b1) and ignores the second.
+  - id: only-second-translation
+    description: (Hard tier only) Applies only the second translation; computes P' = (Px + a2, Py + b2) and ignores the first.
+  - id: subtracts-second-translation
+    description: (Hard tier only) Subtracts the second translation instead of adding it; computes P' = (Px + a1 - a2, Py + b1 - b2).
+tags: [acara-senior-v8-4, vectors, acmsm054]

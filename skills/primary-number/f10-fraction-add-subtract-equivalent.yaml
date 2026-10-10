@@ -1,0 +1,29 @@
+id: f10-fraction-add-subtract-equivalent
+name: Add and subtract fractions through equivalence
+domain: primary-number
+description: Add or subtract fractions by generating equivalent fractions with a common denominator and simplify or interpret the result. Denominators are always related (one a multiple of the other, or -- at the hardest tier -- three denominators sharing a common multiple), never equal at input and never fraction multiplication/division. grade_fraction compares by exact value, so no distractor is ever "the right value, not simplified" -- the canonical answer is simply shown fully reduced. Distinct from the readiness skill fraction-arithmetic, which already performs all four operations on ARBITRARY-denominator fractions with no relatedness constraint; this skill specifically targets the equivalent-fraction/common-denominator METHOD.
+status: active
+placement_eligible: false
+prerequisites: [f10-equivalent-fractions-related-denominators, fraction-arithmetic]
+answer: fraction
+sources:
+- topic: p10e_fraction_add_subtract_equivalent
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10e_fraction_add_subtract_equivalent
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10e_fraction_add_subtract_equivalent
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: denominators-added
+  description: Treats fraction addition/subtraction like whole-number addition of a pair -- adds or keeps the original numerators over the SUM of the original denominators instead of the common denominator (e.g. for 1/3 + 1/6, answers 2/9 instead of 1/2).
+- id: numerator-not-scaled
+  description: Converts every term's denominator to the common denominator but forgets to scale one term's numerator to match, keeping it over the new denominator unchanged (e.g. for 1/3 + 1/6, answers 1/6 + 1/6 = 2/6 instead of 2/6 + 1/6 = 3/6).
+- id: wrong-operation-sign
+  description: On a subtraction question, computes the sum instead of the difference, or reverses the term order (b - a instead of a - b). Never exercisable on an addition-only question (the easy tier never subtracts).
+tags: [acara-f10-v9, primary, number, fractions, equivalent-fractions, ac9m5n05, ac9m6n05]

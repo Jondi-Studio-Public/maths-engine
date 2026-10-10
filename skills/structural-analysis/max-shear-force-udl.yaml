@@ -1,0 +1,20 @@
+id: max-shear-force-udl
+name: V_max for a UDL
+domain: structural-analysis
+description: Find the maximum shear force for a simply supported beam under a uniformly distributed load.
+status: active
+prerequisites:
+- beam-reactions-point-load
+answer: number
+sources:
+- topic: structural
+  params:
+    kinds:
+    - max_shear_udl
+  difficulty: easy
+misconceptions:
+- id: used-total-load
+  description: Reporting the total load instead of the maximum shear at the supports.
+- id: confused-with-moment
+  description: Confusing the shear formula with the bending-moment formula.
+tags: []

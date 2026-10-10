@@ -1,0 +1,41 @@
+id: f10-volume-surface-area-prisms-cylinders
+name: Calculate volume and surface area of prisms and cylinders
+domain: measurement
+description: Given a right prism or cylinder's supplied dimensions, calculate its volume or surface area, reporting the result with appropriate units.
+status: active
+placement_eligible: false
+prerequisites:
+  - f10-circle-measures
+  - f10-triangular-prism-volume
+answer: number
+sources:
+  - topic: volume_surface_area_prisms_cylinders
+    params: {}
+    difficulty: easy
+    stages: [0, 1, 2]
+  - topic: volume_surface_area_prisms_cylinders
+    params: {}
+    difficulty: medium
+    stages: [3, 4]
+  - topic: volume_surface_area_prisms_cylinders
+    params: {}
+    difficulty: hard
+    stages: [5, 6, maintenance]
+misconceptions:
+  - id: omits_pi
+    description: Applies the formula without the π factor, treating the base as a square or rectangle rather than a circle.
+  - id: uses_diameter_as_radius
+    description: Uses the stated diameter as the radius in calculations, quadrupling the volume.
+  - id: radius_height_swap
+    description: Swaps which dimension is squared in the formula.
+  - id: omits_end_caps
+    description: Forgets the circular end faces in surface area, computing only the curved lateral surface.
+  - id: omits_lateral_surface
+    description: Forgets the curved lateral surface in surface area, computing only the circular ends.
+  - id: omits_triangle_ends
+    description: Forgets both triangular end faces in prism surface area.
+  - id: forgets_half_factor
+    description: Treats each triangular end face as a full rectangle instead of half a rectangle.
+  - id: single_end_only
+    description: Counts only one triangular end face instead of both in prism surface area.
+tags: [measurement, volume, surface-area, cylinders, prisms, acara-v9-year-9-10]

@@ -1,0 +1,29 @@
+id: f10-percentage-equivalence-comparison
+name: Convert a percentage to its equivalent fraction
+domain: primary-number
+description: Convert a familiar percentage to its equivalent fraction or decimal, using 100% as the whole. Every question converts a percentage to its equivalent fraction only, always in that one direction; decimal output is never graded.
+status: active
+placement_eligible: false
+prerequisites: [fraction-decimal-percent, percentage-of-quantity]
+answer: fraction
+sources:
+- topic: percentage_to_fraction
+  params: {variant: benchmark}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: percentage_to_fraction
+  params: {variant: two_digit_simplify}
+  difficulty: medium
+  stages: [3, 4]
+- topic: percentage_to_fraction
+  params: {variant: beyond_familiar_band}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: drops-the-percent-divisor
+  description: States the percentage number itself as if it were already the numerator over a denominator of 1 (e.g. 25% answered as 25/1), never dividing by 100.
+- id: wrong-power-of-ten-denominator
+  description: An off-by-one-decimal-place error in the denominator (e.g. 25% answered as 25/1000 instead of 25/100).
+- id: treats-100-percent-as-the-ceiling
+  description: For a percentage over 100%, answers as if the whole were capped at 100% and only the excess-over-100 part counted (e.g. 150% answered as if it were 50%).
+tags: [acara-f10-v9, primary, percentages, fractions, ac9m5n04]

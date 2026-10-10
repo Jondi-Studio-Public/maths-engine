@@ -1,0 +1,10 @@
+id: convert-time-systems
+name: Convert between 12-hour and 24-hour time
+domain: primary-geometry-time
+description: Convert a clock time between 12-hour notation with am or pm and 24-hour notation.
+status: active
+prerequisites: [tell-time-to-hour]
+answer: mcq
+sources: [{topic: time_system_conversion, params: {}}]
+misconceptions: [{id: noon-midnight, description: Confuses 12 am with noon or 12 pm with midnight.}]
+tags: [expansion-batch-2, primary, time]

@@ -1,0 +1,10 @@
+id: probability-representations
+name: Connect probability representations
+domain: statistics-probability
+description: Recognise equivalent fraction, decimal and percentage representations of a probability.
+status: active
+prerequisites: [simple-event-probability, fraction-decimal-percent]
+answer: mcq
+sources: [{topic: probability_representation, params: {}, difficulty: easy}]
+misconceptions: [{id: inconsistent-percent, description: Chooses a percentage that is not equivalent to the fraction and decimal.}]
+tags: [expansion-batch-3, probability]

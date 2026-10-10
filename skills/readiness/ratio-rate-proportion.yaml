@@ -1,0 +1,60 @@
+id: ratio-rate-proportion
+name: Reason with ratios, rates and proportions
+domain: readiness
+placement_order: 60
+description: Use ratio and rate reasoning to represent and solve proportional situations.
+status: active
+prerequisites:
+- fraction-arithmetic
+- decimal-arithmetic
+answer: fraction
+sources:
+- topic: ratio
+  params:
+    kind: simplify
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ratio
+  params:
+    kind: simplify
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ratio
+  params:
+    kind: simplify
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+mental:
+  levels:
+  - topic: ratio
+    params:
+      kind: simplify
+      hi: 10
+    target_s: 5
+    limit_s: 12
+  - topic: ratio
+    params:
+      kind: simplify
+      hi: 20
+    target_s: 6
+    limit_s: 15
+  - topic: ratio
+    params:
+      kind: unit_rate
+      hi: 20
+    target_s: 8
+    limit_s: 20
+misconceptions:
+- id: misconception-1
+  description: Treating every additive relationship as proportional
+- id: misconception-2
+  description: Confusing a ratio with a difference
+tags: []

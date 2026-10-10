@@ -1,0 +1,45 @@
+id: vector-magnitude
+name: Magnitude
+domain: vectors
+description: Calculate the exact magnitude of a 3D vector, leaving surds unsimplified where needed.
+status: active
+prerequisites:
+- vector-dot-product
+answer: expression
+sources:
+- topic: vectors
+  params:
+    kinds:
+    - magnitude
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: vectors
+  params:
+    kinds:
+    - magnitude
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: vectors
+  params:
+    kinds:
+    - magnitude_sum
+    hi: 15
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: no-square-before-root
+  description: Adding the absolute values of components without squaring first.
+- id: forgot-sqrt-magnitude
+  description: Forgetting to take the square root of the sum of squares.
+- id: magnitudes-not-additive
+  description: Computing |u| + |v| instead of |u + v| -- magnitudes are not additive
+    in general (the triangle inequality).
+tags: []

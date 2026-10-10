@@ -1,0 +1,44 @@
+id: matrix-inverse-2x2
+name: Invert a 2x2 matrix
+domain: matrices
+description: Find the inverse of a 2x2 matrix.
+status: deferred
+deferred_reason: grader
+prerequisites:
+- matrix-determinant-2x2
+answer: list
+sources:
+- topic: matrices
+  params:
+    kinds:
+    - inverse
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: matrices
+  params:
+    kinds:
+    - inverse
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: matrices
+  params:
+    kinds:
+    - inverse
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-swap-diagonal
+  description: Forgetting to swap the leading-diagonal entries.
+- id: forgot-negate-offdiag
+  description: Forgetting to negate the off-diagonal entries.
+- id: forgot-divide-det
+  description: Forgetting to divide by the determinant.
+tags: []

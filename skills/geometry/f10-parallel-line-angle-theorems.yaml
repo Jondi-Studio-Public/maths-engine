@@ -1,0 +1,29 @@
+id: f10-parallel-line-angle-theorems
+name: Apply transversal angle relationships
+domain: geometry
+description: Given a stated angle and a named relationship (corresponding, alternate or co-interior) formed by two parallel lines cut by a transversal, determine the unknown angle in degrees.
+status: active
+placement_eligible: false
+prerequisites: [f10-angle-relationships]
+answer: number
+sources:
+- topic: p11d_parallel_line_angle_theorems
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11d_parallel_line_angle_theorems
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11d_parallel_line_angle_theorems
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: applies-supplementary-to-equal-type
+  description: Applies the co-interior (180-minus) rule to a corresponding or alternate (equal-type) pair -- only exercisable/checkable on corresponding/alternate seeds.
+- id: applies-equal-to-co-interior
+  description: Applies the corresponding/alternate (equal) rule to a co-interior pair -- only exercisable/checkable on co-interior seeds.
+- id: reports-x-not-angle
+  description: (Hard tier only) Solves the equation correctly for x but reports x itself instead of substituting it back into the angle expression.
+tags: [f10, geometry, angles, parallel-lines, transversal, acara-v9-year-7]

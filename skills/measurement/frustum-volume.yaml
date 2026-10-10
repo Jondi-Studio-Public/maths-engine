@@ -1,0 +1,33 @@
+id: frustum-volume
+name: Calculate the volume of a frustum of a cone
+domain: measurement
+description: Given a frustum of a cone's base radius, top radius and height
+  (or diameters, or a base/top radius with a slant height), calculate its
+  volume as one third of pi times the height times the sum of the base
+  radius squared, the base radius times the top radius, and the top radius
+  squared. Using pi (roughly) 3.14159, answers stated to 1 decimal place.
+status: active
+placement_eligible: false
+prerequisites: [senior-use-formulas-to-find-the-volume-of-pyramids]
+answer: number
+sources:
+- topic: frustum_volume
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: frustum_volume
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: frustum_volume
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: treats_as_full_cone
+  description: Treats the frustum as a full cone, computing one third of pi times the base radius squared times the height and ignoring the top radius entirely.
+- id: uses_mean_radius_as_cylinder
+  description: Averages the base and top radii and treats the frustum as a cylinder, dropping both the one-third factor and the correct sum-of-squares term.
+- id: omits_one_third_factor
+  description: Uses the correct sum-of-squares polynomial but omits the one-third factor.
+tags: [measurement, volume]

@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-features-of-the-graph-of-y-mx
+name: 'Recognise features of the graph of \(y=mx+c\)'
+domain: functions-sequences
+description: 'A straight line is drawn on a labelled grid with no equation, coordinate or rate printed,
+  and the learner picks whether its gradient is positive, negative or zero. The class is drawn first,
+  about a third each, and a zero gradient is a horizontal line through two grid intersections. Tier
+  ladder by decision: easy centres the window with the y-axis drawn and shows a clearly rising, falling
+  or flat line, so the decision is the direction of the line read left to right; medium draws the
+  y-axis but lets the line meet it on the side that CONTRADICTS the gradient (a rising line meets it
+  below the origin, a falling line above), so the decision is ignoring the intercept and using the
+  direction; hard moves the window away from x = 0 so the y-axis and the intercept are not visible, and
+  the decision is direction alone; exam gives the axes different scales and makes the steepness of the
+  picture independent of the sign (a rising line may look nearly flat, a falling one steep), so the
+  decision is that the sign still comes from the direction, not from how steep the line looks. This
+  skill asks the qualitative sign only; the numeric pair (m, c) is the neighbour
+  senior-determine-the-slope-and-intercepts-of-a-straight.'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: pv1a_gradient_sign
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv1a_gradient_sign
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv1a_gradient_sign
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv1a_gradient_sign
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reads-rising-line-as-falling
+  description: Calls the gradient negative for a line that rises from left to right.
+- id: reads-falling-line-as-rising
+  description: Calls the gradient positive for a line that falls from left to right.
+- id: reads-shallow-line-as-flat
+  description: Calls the gradient zero for a line that rises or falls gently, because it looks nearly flat.
+- id: sign-of-intercept-as-sign-of-gradient
+  description: Takes the side of the origin where the line meets the y-axis as the sign of the gradient, so a rising line that meets the axis below the origin is called negative.
+- id: reads-height-above-axis-as-positive-gradient
+  description: Calls a horizontal line above the x-axis positive, taking its height as its gradient.
+- id: reads-height-below-axis-as-negative-gradient
+  description: Calls a horizontal line below the x-axis negative, taking its height as its gradient.
+tags: [acara-v8-4-methods, functions-sequences, figure-stimulus]

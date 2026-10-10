@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-features-of-the-graph-of-the-general
+name: 'Recognise features of the graph of the general quadratic \(y=ax^2+bx+c\)'
+domain: quadratics
+description: Given the graph of a quadratic y = ax^2 + bx + c drawn on an integer grid, say how many real roots (x-intercepts) the graph shows, choosing 0, 1 or 2. Never asks for the roots' values, the vertex or the axis.
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: pv1d_quadratic_root_count
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pv1d_quadratic_root_count
+  difficulty: medium
+  stages: [3, 4]
+- topic: pv1d_quadratic_root_count
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pv1d_quadratic_root_count
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: tangent-as-no-root
+  description: Counts a turning point that sits on the x-axis as no root, because the graph does not cross the axis.
+- id: tangent-as-two-roots
+  description: Counts the single point where the vertex meets the x-axis as two roots, one for each arm.
+- id: near-miss-as-root
+  description: Counts a vertex that is one unit short of the x-axis (opening away from it) as meeting the axis, or one that opens towards it as missing it.
+- id: wrong-line-count
+  description: Counts the intersections of the parabola with the extra line L instead of with the x-axis.
+- id: other-curve-count
+  description: Reads the root count of the other curve in the picture instead of the one through the named point.
+- id: crossings-not-counted
+  description: Counts the arms of the parabola or its turning point rather than the points where it meets the x-axis.
+tags: [acara-senior-v8-4, quadratics, graph, discriminant, roots, acmmm011]

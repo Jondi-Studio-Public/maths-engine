@@ -1,0 +1,41 @@
+id: differentiate-polynomial
+name: Differentiate a polynomial
+domain: differentiation
+description: Differentiate a polynomial term by term using the power rule.
+status: active
+prerequisites:
+- expand-single-brackets
+answer: expression
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - polynomial
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - polynomial
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - polynomial
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-decrement-power
+  description: Forgetting to decrement the power after differentiating.
+- id: forgot-multiply-power
+  description: Forgetting to multiply by the original power.
+tags: []

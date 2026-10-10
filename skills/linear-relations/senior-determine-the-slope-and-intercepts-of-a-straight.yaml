@@ -1,0 +1,59 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-determine-the-slope-and-intercepts-of-a-straight
+name: Determine the slope and intercepts of a straight-line graph from both its equation and its plot
+domain: linear-relations
+description: 'A straight line is drawn on a labelled grid and the learner types its gradient and
+  y-intercept as the ordered pair (m, c). Nothing the key needs is printed: two points on the line are
+  grid intersections at least two columns apart, and no equation, coordinate or rate appears in the
+  prompt. Tier ladder by decision: easy draws the y-axis and the line meets it at a lattice point with
+  a whole-number gradient, so c is read at the axis and m is rise over run; medium leaves the y-axis out
+  of the window (x = 0 is not drawn) with a whole-number or half gradient, so c is found by running the
+  line back to x = 0 along its slope; hard uses a fractional gradient (halves, thirds, quarters, three
+  halves and so on) and puts the y-intercept outside the visible window, so c is extrapolated from the
+  gradient, never read; exam gives the two axes different scales (a grid step is not one unit on both),
+  so the decision is converting rise and run to the units on the axis labels instead of counting
+  squares. This skill reads the abstract pair (m, c) off a bare graph; it does not read the gradient
+  alone (rate-of-change), build an equation from stated information
+  (senior-find-the-equation-of-a-straight-line-given) or ask the sign only
+  (senior-recognise-features-of-the-graph-of-y-mx).'
+status: deferred
+deferred_reason: visual
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rate-of-change]
+answer: pair
+sources:
+- topic: pv1a_slope_intercept
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: pv1a_slope_intercept
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: pv1a_slope_intercept
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: pv1a_slope_intercept
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-m-and-c
+  description: Gives the y-intercept first and the gradient second, writing (c, m) for (m, c).
+- id: sign-error-on-m
+  description: Reads the rise and run correctly but gives the wrong sign for the gradient (a falling line as rising, or the reverse).
+- id: c-read-from-a-point
+  description: Gives the y-coordinate of a plotted point as the y-intercept instead of where the line meets x = 0.
+- id: inverted-gradient
+  description: Gives run over rise, the reciprocal of the gradient.
+- id: sign-error-on-c
+  description: Gives the gradient correctly but the y-intercept with the wrong sign.
+- id: m-counted-in-squares
+  description: Counts rise and run in grid squares and ignores the scale on the axes, so the gradient is wrong whenever one grid step is not one unit on both axes.
+- id: c-counted-in-squares
+  description: Takes the y-intercept in grid squares instead of in the units on the y-axis.
+tags: [acara-v8-4-general, linear-relations, figure-stimulus]

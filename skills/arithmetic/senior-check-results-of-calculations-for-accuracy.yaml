@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-check-results-of-calculations-for-accuracy
+name: Check results of calculations for accuracy
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, check results of calculations for accuracy. Return the resulting value, expression, relation, or classification. Given a 3-step worked calculation (each step showing its own two operands, operator and stated result, each step''s inputs including the prior step''s own stated result), identify which step -- if any -- contains an arithmetic error. Every error, when present, is a local slip (a dropped carry or a times-table error) too small to catch by judging the final answer''s plausibility alone; each step must be recomputed from its own stated inputs.'
+status: active
+placement_eligible: false
+prerequisites:
+- order-of-operations
+answer: mcq
+sources:
+- topic: locate_calculation_error
+  difficulty: easy
+  stages: [6]
+- topic: locate_calculation_error
+  difficulty: medium
+  stages: [6]
+- topic: locate_calculation_error
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: judges-plausibility-instead-of-recomputing
+  description: Checks whether the final stated result looks plausible in size rather than recomputing each step from its own stated inputs, so a small local slip is missed.
+- id: applies-the-wrong-slip-model-to-the-operation
+  description: Expects a times-table-style error at an addition/subtraction step, or a dropped-carry-style error at a multiplication step, rather than recognising which error model fits which operation.
+- id: blames-the-first-step-by-default
+  description: Assumes an error must be in Step 1 because it is the first place a mistake could occur, without recomputing Steps 2 and 3 from their own stated inputs.
+- id: stops-checking-after-finding-the-first-correct-step
+  description: Confirms Step 1 is correct and concludes the whole calculation is error-free without checking Steps 2 and 3.
+- id: recomputes-a-later-step-from-the-true-value-not-the-stated-value
+  description: When Step 2 uses Step 1's stated result as its input, recomputes Step 2 from what Step 1's result SHOULD have been rather than from what Step 1 actually stated, hiding a genuine downstream inconsistency.
+tags: [acara-senior-v8-4, arithmetic, locate_calculation_error, checking-calculations-for-accuracy, acmem006]

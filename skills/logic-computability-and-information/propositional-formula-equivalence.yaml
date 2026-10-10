@@ -1,0 +1,40 @@
+id: propositional-formula-equivalence
+name: Test propositional formula equivalence
+domain: logic-computability-and-information
+description: Decide whether two small propositional formulas have identical truth values on every assignment by exhaustive truth-table comparison.
+status: active
+prerequisites: [propositional-truth-evaluation]
+answer: mcq
+sources:
+- topic: propositional_formula_equivalence
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: propositional_formula_equivalence
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: propositional_formula_equivalence
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: checks-one-assignment
+  description: Declares equivalence after checking one or a few truth assignments rather than all rows.
+- id: implication-converse
+  description: Treats p implies q as equivalent to q implies p.
+tags: [university-core-v1, university-algebra-batch, logic]
+framework_areas: [logic-computability-and-information]
+alignments:
+- source_id: mit-degree-chart
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information
+- source_id: oxford-part-b
+  status: candidate
+  framework: university-core-v1
+  area: logic-computability-and-information

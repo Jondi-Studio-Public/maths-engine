@@ -1,0 +1,33 @@
+id: annulus-cross-section-area
+name: Calculate the cross-sectional area of an annulus
+domain: measurement
+description: Given a hollow shaft, pipe or washer's outer and inner radii (or
+  diameters, or an outer diameter with a wall thickness), calculate the area
+  of its annular cross-section as pi times the outer radius squared minus the
+  inner radius squared. Using pi (roughly) 3.14159, answers stated to 1
+  decimal place.
+status: active
+placement_eligible: false
+prerequisites: [f10-circle-measures]
+answer: number
+sources:
+- topic: annulus_cross_section_area
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: annulus_cross_section_area
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: annulus_cross_section_area
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: ignores_inner_circle
+  description: Reports pi times the outer radius squared, dropping the inner circle (the hole) entirely.
+- id: subtracts_radii_first
+  description: Subtracts the inner radius from the outer radius first, then squares the result, instead of squaring each radius before subtracting.
+- id: adds_instead_of_subtracts
+  description: Adds the squares of the outer and inner radii instead of subtracting the inner from the outer.
+tags: [measurement, area]

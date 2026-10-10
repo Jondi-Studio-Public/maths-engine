@@ -1,0 +1,10 @@
+id: compound-interest
+name: Calculate compound-interest balance
+domain: financial-discrete
+description: Calculate a balance under annual compound interest and round to cents.
+status: active
+prerequisites: [simple-interest, evaluate-powers]
+answer: number
+sources: [{topic: financial_interest, params: {kind: compound}, difficulty: easy}]
+misconceptions: [{id: uses-simple-interest, description: Adds the same interest amount each year.}]
+tags: [expansion-batch-5, finance]

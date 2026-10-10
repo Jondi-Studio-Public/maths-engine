@@ -1,0 +1,33 @@
+id: finite-distribution-variance
+name: Calculate variance of a finite distribution
+domain: statistics-probability
+description: Compute the exact variance of a small finite discrete distribution.
+status: active
+prerequisites: [calculate-mean, simple-event-probability]
+answer: fraction
+sources:
+- topic: finite_distribution_variance
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: finite_distribution_variance
+  difficulty: medium
+  stages: [3, 4]
+- topic: finite_distribution_variance
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reports-second-moment
+  description: Reports E[X²] without subtracting E[X]².
+- id: squares-mean-only
+  description: Reports E[X]² rather than the variance.
+tags: [university-core-v1, probability, statistics]
+framework_areas: [probability, statistics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: statistics

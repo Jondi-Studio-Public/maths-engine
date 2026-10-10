@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-formulas-to-calculate-areas-of-regular-shapes
+name: Use formulas to calculate areas of regular shapes
+domain: measurement
+description: Given bounded, fully specified inputs, use formulas to calculate areas of regular shapes, including triangles, squares, rectangles, parallelograms, trapeziums, circles and sectors. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: use_formulas_to_calculate_areas
+  params: {mode: rectangle_square}
+  difficulty: easy
+  stages: [6]
+- topic: use_formulas_to_calculate_areas
+  params: {mode: triangle_parallelogram}
+  difficulty: medium
+  stages: [6]
+- topic: use_formulas_to_calculate_areas
+  params: {mode: trapezium}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-perimeter
+  description: Sums the dimensions (sides, base, height) instead of applying the area formula.
+- id: omits-half-factor
+  description: For triangle or trapezium, applies the base and height (or the two parallel sides and height) without the 1/2 factor.
+- id: uses-one-parallel-side
+  description: For trapezium, uses only one of the two parallel sides instead of their average when computing the area.
+tags: [acara-senior-v8-4, measurement, area, regular-shapes, acmem093]

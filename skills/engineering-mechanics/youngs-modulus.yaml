@@ -1,0 +1,20 @@
+id: youngs-modulus
+name: E = stress/strain
+domain: engineering-mechanics
+description: Calculate Young's modulus from stress and strain.
+status: active
+prerequisites:
+- strain-from-extension
+answer: number
+sources:
+- topic: engineering
+  params:
+    kinds:
+    - youngs_modulus
+  difficulty: easy
+misconceptions:
+- id: inverted-youngs-modulus
+  description: Inverting the stress/strain ratio.
+- id: unit-slip-modulus
+  description: A unit slip between Pa and MPa/GPa.
+tags: []

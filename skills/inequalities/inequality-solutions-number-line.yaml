@@ -1,0 +1,16 @@
+id: inequality-solutions-number-line
+name: Represent inequality solutions on a number line
+domain: inequalities
+description: Graph strict and inclusive one-variable solution sets using correct endpoints and shading.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- inequality-symbols
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Using a closed endpoint for a strict inequality
+- id: misconception-2
+  description: Shading in the direction opposite the solution set
+tags: []

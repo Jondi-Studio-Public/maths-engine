@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-the-response-variable-and-the-explanatory-variable
+name: Identify the response variable and the explanatory variable
+domain: statistics-probability
+description: 'Given a stated study context that measures an association between two variables and also names a third recorded quantity that is not one of the pair, choose from four offered ordered pairs the one that names the explanatory variable and the response variable. The distractors are role-swapped pairs and pairs that use the third quantity, which is only ever recorded neutrally and never described as irrelevant. The stimulus never uses the words explanatory, response or dependent: direction comes from the wording alone. Four tiers: easy, the researcher sets the level of one quantity and measures the other; medium, an observational study whose aim uses an influence verb (one quantity influences or affects the other); hard, two analyses (the sample is split by the third quantity to compare subgroup means, and a line of best fit predicts one quantity from another) and a question about the association the line of best fit describes, so the learner picks the right analysis and applies predicted quantity = response; exam, a scatterplot with the two variables on the horizontal and vertical axes, points coloured or labelled by the third quantity and a least-squares line to be fitted for making predictions, without saying which quantity is predicted, so the learner applies horizontal = explanatory, vertical = response.'
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19b_response_variable
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p19b_response_variable
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p19b_response_variable
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p19b_response_variable
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swaps-explanatory-response
+  description: Offers the role-swapped pair, taking the quantity that is measured or predicted as the explanatory variable.
+- id: pairs-a-recorded-extra-with-the-response
+  description: Pairs the third recorded quantity (a grouping label or covariate) with the response variable, treating a recorded extra as the explanatory variable.
+- id: pairs-a-recorded-extra-with-the-explanatory
+  description: Keeps the true explanatory variable but names the third recorded quantity as the response, or takes the extra as the explanatory variable of the true explanatory variable.
+- id: ignores-axis-convention
+  description: On the exam tier, ignores that the horizontal axis carries the explanatory variable and the vertical axis the response, choosing by which variable seems more important.
+tags: [acara-senior-v8-4, statistics-probability, p19b_response_variable, response-explanatory-variable, acmgm055]

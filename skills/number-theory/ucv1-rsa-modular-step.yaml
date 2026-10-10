@@ -1,0 +1,35 @@
+id: ucv1-rsa-modular-step
+name: Compute one RSA modular step
+domain: number-theory
+description: Compute c = m^e mod n or m = c^d mod n for supplied small RSA parameters.
+status: active
+placement_eligible: false
+prerequisites: [modular-multiplicative-inverse]
+answer: number
+sources:
+- topic: p12f_rsa_modular_step
+  params: {mode: encrypt, primes: [3, 5, 7, 11, 13], exponents: [3]}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12f_rsa_modular_step
+  params: {mode: encrypt, primes: [11, 13, 17, 19, 23], exponents: [5, 7]}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12f_rsa_modular_step
+  params: {mode: decrypt, primes: [13, 17, 19, 23, 29, 31], exponents: [3, 5, 7]}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12f_rsa_modular_step
+  params: {mode: chain, primes: [3, 5, 7, 11, 13], exponents: [3]}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgot-mod-reduction
+  description: Reports m**e (or c**d) unreduced, the full integer power with no mod n applied.
+- id: used-phi-instead-of-n
+  description: Computes m^e mod phi(n) instead of mod n.
+- id: multiplied-instead-of-exponentiated
+  description: Reports (m * e) mod n, treating exponentiation as multiplication.
+- id: used-wrong-exponent
+  description: Uses the decrypt exponent on an encrypt question, or vice versa.
+tags: [university-core-v1, number-theory, p12f_rsa_modular_step]

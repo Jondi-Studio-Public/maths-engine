@@ -1,0 +1,68 @@
+id: sine-rule
+name: Sine rule for a side
+domain: trigonometry
+description: Use the sine rule to find a missing side of a non-right triangle.
+status: active
+prerequisites:
+- right-triangle-angle
+answer: number
+sources:
+- topic: trigonometry
+  params:
+    kinds:
+    - sine_rule
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: trigonometry
+  params:
+    kinds:
+    - sine_rule
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sine_rule_angle
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: trigonometry
+  params:
+    kinds:
+    - sine_rule
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sine_rule_ambiguous
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sine_rule_solve
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: flipped-ratio
+  description: Flipping the sine-rule ratio.
+- id: forgot-divide
+  description: Forgetting to divide by sin(A).
+- id: wrong-side-ratio
+  description: Putting the given angle and its opposite side on the wrong side of the sine-rule ratio.
+- id: no-ratio-conversion
+  description: Scaling the given angle directly by the raw side ratio instead of taking a sine.
+- id: cos-instead-of-sin
+  description: Applying the inverse cosine instead of the inverse sine to the correct ratio.
+- id: acute-instead-of-obtuse
+  description: Giving the acute solution to an ambiguous SSA case when the obtuse triangle was asked for.
+- id: skips-angle-sum-step
+  description: Solving a triangle without first finding the missing angle from the angle sum.
+tags: []

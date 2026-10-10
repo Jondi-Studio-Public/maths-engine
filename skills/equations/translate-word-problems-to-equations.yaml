@@ -1,0 +1,41 @@
+id: translate-word-problems-to-equations
+name: Translate word problems into equations
+domain: equations
+description: Represent relationships in contextual problems with one-variable linear equations.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- define-variables
+- write-expressions-from-words
+- meaning-of-equality
+answer: expression
+sources:
+- topic: word_problem
+  params:
+    kind: translate
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: word_problem
+  params:
+    kind: translate
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: word_problem
+  params:
+    kind: translate
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Choosing operations from keywords alone
+- id: misconception-2
+  description: Writing an expression when an equality relationship is required
+tags: []

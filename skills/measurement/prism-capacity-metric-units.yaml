@@ -1,0 +1,31 @@
+id: prism-capacity-metric-units
+name: Find a rectangular prism's capacity in metric units
+domain: measurement
+description: Given a rectangular prism's three dimensions, find its capacity in a stated
+  metric unit (bare cm^3, litres or cubic metres) using the exact relationships
+  1 L = 1000 cm^3 and 1 m^3 = 1000 L = 1,000,000 cm^3.
+status: active
+placement_eligible: false
+prerequisites: [rectangular-prism-volume, convert-metric-capacity]
+answer: number
+sources:
+- topic: prism_capacity_conversion
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: prism_capacity_conversion
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: prism_capacity_conversion
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-order-of-magnitude
+  description: Uses 1 L = 100 cm^3 (a tenfold slip) instead of 1000 when converting to litres.
+- id: reports-unconverted-volume
+  description: Reports the bare cm^3 volume when litres or cubic metres was asked, skipping the conversion step entirely.
+- id: confuses-L-and-m3-factor
+  description: Uses the wrong unit's own conversion factor (e.g. 1 m^3 = 1000 cm^3, the litre factor, when converting to cubic metres).
+tags: [measurement, capacity, conversion]

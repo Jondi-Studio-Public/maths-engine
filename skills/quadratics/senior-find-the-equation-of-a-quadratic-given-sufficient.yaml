@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-the-equation-of-a-quadratic-given-sufficient
+name: Find the equation of a quadratic given sufficient information
+domain: quadratics
+description: Find the equation of a quadratic given sufficient information. Given a turning point and one further point, or two roots and one further point, or three points, construct the expanded standard form ax^2 + bx + c.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: expression
+sources:
+- topic: find_the_equation_of_a_quadratic_given_sufficient
+  params:
+    variant: vertex_point
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: find_the_equation_of_a_quadratic_given_sufficient
+  params:
+    variant: roots_point
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: find_the_equation_of_a_quadratic_given_sufficient
+  params:
+    variant: three_points
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: forgot-negate-h
+  description: Forgetting to negate h when expanding from vertex form.
+- id: sign-error-k
+  description: A sign error on the vertex y-coordinate only.
+- id: sign-error-a
+  description: A sign error on the leading coefficient.
+- id: sign-error-one-root
+  description: A sign error on one of the roots only.
+- id: sign-error-both-roots
+  description: A sign error on both roots.
+- id: dropped-constant
+  description: Omitting the constant term.
+- id: sign-error-b
+  description: A sign error on the linear coefficient only.
+- id: off-by-one-constant
+  description: Adding or subtracting 1 from the constant term.
+tags: []

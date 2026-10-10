@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-with-the-aid-of-a-financial-calculator-or-acmgm100
+name: With the aid of a financial calculator or computer-based financial software, solve problems involving
+  annuities (including perpetuities as a special case); for example, determining the amount to be invested
+  in an annuity to provide a regular monthly income of a certain amount
+domain: financial-discrete
+description: Given bounded, fully specified inputs, with the aid of a financial calculator or computer-based
+  financial software, solve problems involving annuities (including perpetuities as a special case); for
+  example, determining the amount to be invested in an annuity to provide a regular monthly income of a
+  certain amount. Return the resulting value, expression, relation, or classification. Does not assess
+  unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p12b_annuity_perpetuity
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p12b_annuity_perpetuity
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p12b_annuity_perpetuity
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p12b_annuity_perpetuity
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: perpetuity-finite-confusion
+  description: Applies the perpetuity formula (PV = A/i) to a question about a FINITE-term annuity, or
+    applies the finite-annuity formula to a genuine perpetuity -- the two are always distinguishable by
+    construction (a perpetuity question never states a term; every finite-annuity question always does),
+    but a learner who does not notice which shape is in front of them can still make this substitution.
+- id: forgot-to-discount
+  description: Computes the present value as an undiscounted total (income multiplied by the number of
+    periods, or by one year's worth of income) instead of applying the discounting formula.
+- id: annual-rate-as-periodic
+  description: Uses the stated ANNUAL interest rate directly as the periodic (monthly) rate, forgetting to
+    divide by the number of compounding periods per year.
+- id: months-not-years
+  description: Reports the number of MONTHS the income lasts instead of converting to whole YEARS, an
+    off-by-a-factor-of-12 unit error on the hard tier's own unknown.
+tags: [acara-senior-v8-4, financial-discrete, annuities, perpetuities, acmgm100]

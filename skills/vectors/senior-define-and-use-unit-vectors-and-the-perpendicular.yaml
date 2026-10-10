@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-and-use-unit-vectors-and-the-perpendicular
+name: Define and use unit vectors and the perpendicular unit vectors
+domain: vectors
+description: Given bounded, fully specified inputs, define and use unit vectors and the perpendicular unit vectors. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: fraction
+sources:
+- topic: define_and_use_unit_vectors_and_the_perpendicular
+  params: {variant: unit_positive}
+  difficulty: easy
+  stages: [6]
+- topic: define_and_use_unit_vectors_and_the_perpendicular
+  params: {variant: unit_signed}
+  difficulty: medium
+  stages: [6]
+- topic: define_and_use_unit_vectors_and_the_perpendicular
+  params: {variant: perpendicular}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgot-to-normalise
+  description: Reports the raw leg value as a whole number instead of dividing by the magnitude.
+- id: wrong-axis-unit-component
+  description: Reports the other coefficient of the unit vector instead of the one asked for.
+- id: divides-by-the-other-leg-not-the-hypotenuse
+  description: Divides by the other leg instead of the true magnitude (hypotenuse).
+- id: used-original-units-unit-not-perpendicular
+  description: Reports the original (non-rotated) unit vector's coefficient, forgetting to rotate (hard tier).
+- id: wrong-rotation-direction
+  description: Rotates clockwise instead of counter-clockwise, the wrong perpendicular (hard tier).
+tags: [acara-senior-v8-4, vectors, unit-vector, perpendicular, acmsm015]

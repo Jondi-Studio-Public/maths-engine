@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-matrices-for-storing-and-displaying-information-that
+name: Use matrices for storing and displaying information that can be presented in rows and columns; for example, databases, links in social or road networks
+domain: matrices
+description: Given a stated small dataset (with context) represented as a matrix of rows and columns, read off the stated entry at a specified row and column, or compute the stated row or column total.
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-multiplication
+answer: number
+sources:
+- topic: p14a_matrix_table
+  params: {variant: entry_lookup}
+  difficulty: easy
+  stages: [6]
+- topic: p14a_matrix_table
+  params: {variant: row_or_column_total}
+  difficulty: medium
+  stages: [6]
+- topic: p14a_matrix_table
+  params: {variant: directed_adjacency}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p14a_matrix_table
+  params: {variant: directed_adjacency_larger}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-row-same-column
+  description: Reads the entry at the wrong row but the correct column, misidentifying which row the labelled entry belongs to.
+- id: wrong-column-same-row
+  description: Reads the entry at the correct row but the wrong column, misidentifying which column the labelled entry belongs to.
+- id: transposed-entry
+  description: Swaps the row and column when locating a labelled entry, reading the transposed cell instead of the stated one.
+- id: wrong-axis-total
+  description: Sums the wrong row or column instead of the one named in the question, when computing a stated row or column total.
+- id: omitted-entry-in-total
+  description: Leaves out one entry when summing a stated row or column total.
+- id: double-counted-entry-in-total
+  description: Counts one entry twice when summing a stated row or column total.
+- id: opposite-direction-total
+  description: On a directed network, reports the total for the opposite direction (into a node instead of out of it, or vice versa) from the one asked.
+tags: [acara-v8-4-general, matrices, data-representation, acmgm013]

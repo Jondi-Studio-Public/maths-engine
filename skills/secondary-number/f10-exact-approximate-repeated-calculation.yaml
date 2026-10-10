@@ -1,0 +1,31 @@
+id: f10-exact-approximate-repeated-calculation
+name: Compare exact and approximate repeated calculations
+domain: secondary-number
+description: Given a stated sequence of arithmetic operations and a stated rounding rule to apply after each intermediate step, calculate the discrepancy between the exact final result and the result obtained by applying that repeated rounding.
+status: active
+placement_eligible: false
+prerequisites: [f10-measurement-error-interpretation]
+answer: number
+sources:
+- topic: p10e_exact_approx_repeated_calc
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p10e_exact_approx_repeated_calc
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p10e_exact_approx_repeated_calc
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reports-approximate-value
+  description: Reports the approximate pathway's own final value (rounded after every step) instead of the discrepancy between the two pathways.
+- id: reports-exact-value
+  description: Reports the exact pathway's own final (once-rounded) value instead of the discrepancy between the two pathways.
+- id: rounds-pi-early
+  description: Re-runs the exact pathway substituting a fixed rational approximation of pi (22/7 or 3.14) for its true value from the first operation onward, instead of carrying true pi through every step. Only exercisable on hard-tier questions, the only tier that uses pi.
+- id: skips-one-rounding-step
+  description: Applies the "round after every step" rule to all but one intermediate step, producing a different approximate-pathway value and hence a different discrepancy.
+tags: [acara-f10-v9, secondary, number, rounding, estimation, ac9m10n01]

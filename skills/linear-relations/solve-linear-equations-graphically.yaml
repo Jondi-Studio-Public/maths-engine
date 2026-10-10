@@ -1,0 +1,17 @@
+id: solve-linear-equations-graphically
+name: Solve linear equations graphically
+domain: linear-relations
+description: Interpret intersections or equal output values as graphical solutions to linear equations.
+status: deferred
+deferred_reason: visual
+prerequisites:
+- graph-y-mx-plus-b
+- solution-and-solution-set
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Reading any plotted point as the solution
+- id: misconception-2
+  description: Confusing an approximate graphical solution with an exact value
+tags: []

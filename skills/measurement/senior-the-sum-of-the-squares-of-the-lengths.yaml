@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-the-sum-of-the-squares-of-the-lengths
+name: The sum of the squares of the lengths of the diagonals of a parallelogram is equal to the sum of the squares of the lengths of the sides
+domain: measurement
+description: Given bounded, fully specified inputs, the sum of the squares of the lengths of the diagonals of a parallelogram is equal to the sum of the squares of the lengths of the sides. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: [convert-metric-length]
+answer: number
+sources:
+- topic: p11c_parallelogram_diagonal_law
+  params: {tier: easy}
+  difficulty: easy
+  stages: [6]
+- topic: p11c_parallelogram_diagonal_law
+  params: {tier: medium}
+  difficulty: medium
+  stages: [6]
+- topic: p11c_parallelogram_diagonal_law
+  params: {tier: hard}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: uses-linear-law
+  description: Applies d1 + d2 = 2(a + b) (linear, never squared) instead of the real law d1^2 + d2^2 = 2(a^2 + b^2).
+- id: forgets-factor-of-two
+  description: Applies d1^2 + d2^2 = a^2 + b^2, dropping the factor of 2 that the real law requires.
+- id: uses-sum-then-squares
+  description: Computes (d1 + d2)^2 instead of d1^2 + d2^2 when solving for an unknown side.
+- id: forgets-unit-conversion
+  description: Uses a stated length as if it were already in the target unit, or reports the final answer in the wrong unit's numeral, instead of converting before or after applying the law.
+tags: [acara-senior-v8-4, measurement, parallelogram, diagonals, acmsm041]

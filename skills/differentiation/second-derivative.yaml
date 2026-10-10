@@ -1,0 +1,41 @@
+id: second-derivative
+name: Second derivative
+domain: differentiation
+description: Differentiate a function twice to find its second derivative.
+status: active
+prerequisites:
+- differentiate-polynomial
+answer: expression
+sources:
+- topic: differentiation
+  params:
+    kinds:
+    - second_derivative
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: differentiation
+  params:
+    kinds:
+    - second_derivative
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: differentiation
+  params:
+    kinds:
+    - second_derivative
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: differentiated-once
+  description: Stopping after the first derivative.
+- id: reapplied-wrong-rule
+  description: Applying the power rule incorrectly on the second pass.
+tags: []

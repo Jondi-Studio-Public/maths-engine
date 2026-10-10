@@ -1,0 +1,46 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-instantaneous-rates-of-change
+name: Find instantaneous rates of change
+domain: arithmetic
+description: Given bounded, fully specified inputs, find instantaneous rates of change. Return
+  the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites:
+- order-of-operations
+answer: number
+sources:
+- topic: p13c_instantaneous_rate_context
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13c_instantaneous_rate_context
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13c_instantaneous_rate_context
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13c_instantaneous_rate_context
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: average-rate-not-instantaneous
+  description: Computes the average rate of change over [0, t0] (or the stated interval) instead
+    of the instantaneous rate at the stated instant.
+- id: evaluates-value-not-rate
+  description: Evaluates Q(t0) (the modelled quantity's value) instead of Q'(t0) (its rate of
+    change).
+- id: dropped-power-rule-coefficient
+  description: Differentiates a*t^n as if the power-rule coefficient were un-multiplied (e.g.
+    treats d/dt[a*t^2] as a*t, or d/dt[a*t^3] as a*t^2).
+- id: solves-value-equation-not-rate-equation
+  description: On the hard tier, forgets to divide by the derivative's own leading coefficient
+    when isolating t from Q'(t) = k.
+- id: sign-error-on-derivative-or-solved-t
+  description: Reports the negative of the correct rate of change, or the negative of the correct
+    solved time.
+tags: [acara-senior-v8-4, arithmetic, instantaneous-rate, differentiation, acmmm092]

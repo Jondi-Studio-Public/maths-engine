@@ -1,0 +1,368 @@
+name: ci
+
+# What a green check means here. For a pull request this workflow is the version in the PR's own
+# merge commit, so a PR can rewrite this file, the tests and the scripts below. Green therefore
+# proves nothing for any change that can alter what the checks do or see, and that is more than
+# .github/, scripts/, tests/ and pyproject.toml: a conftest.py, pytest.ini, tox.ini or setup.cfg,
+# a ruff config, a .gitignore line (ruff skips ignored files) or a .gitattributes (it can hide a
+# diff from the secret scan) do it too, and the list cannot be complete. So the first rule in
+# .github/CODEOWNERS is a catch-all that puts every file under the maintainer's review, and the
+# rules below it single out the riskiest paths (see also AGENTS.md). Everything here fails closed:
+# a step that cannot run or cannot decide fails the job, and ci-ok only goes green when every job
+# ended in exactly the state it should have.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Only a superseded run of the same pull request is cancelled. Pushes to main, the nightly run
+# and manual runs each get a group of their own, so none of them can cancel another.
+concurrency:
+  group: ci-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('run-{0}', github.run_id) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  # Exact versions of everything pip installs, in every job. Two variables, because pip applies a
+  # constraints file to the packages it installs (PIP_CONSTRAINT) and, separately, to the isolated
+  # environment that builds this project, i.e. the setuptools in [build-system] (PIP_BUILD_CONSTRAINT).
+  # From pip 26.2 PIP_CONSTRAINT no longer reaches the build environment and pip 25.3 and later
+  # warn about it; an older pip ignores PIP_BUILD_CONSTRAINT and still pins the build through
+  # PIP_CONSTRAINT. Setting both pins it on every pip.
+  PIP_CONSTRAINT: ${{ github.workspace }}/.github/requirements-ci.txt
+  PIP_BUILD_CONSTRAINT: ${{ github.workspace }}/.github/requirements-ci.txt
+
+defaults:
+  run:
+    shell: bash # bash -eo pipefail, so a failure inside a pipeline fails the step
+
+# Runners. While this repository is private, GitHub will not start hosted jobs for the organisation, so a
+# run whose event says the repository is private uses the self-hosted runner registered to it. Every other
+# run uses a hosted runner: a public repository never asks for a self-hosted one, and neither does the
+# nightly run, whose event carries no visibility (while the repository is private it cannot start).
+jobs:
+  changes:
+    # Docs-only pull requests skip the test shards and the speed check, which are
+    # about 100 runner-minutes. Pushes to main, nightly and manual runs always run everything.
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 5
+    outputs:
+      code: ${{ steps.diff.outputs.code }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - id: diff
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          code=true
+          if [ "$EVENT" = "pull_request" ]; then
+            # An unreadable diff must fail this job (ci-ok then goes red), never read as "docs only".
+            # --no-renames lists the old path of a rename too, so renaming code to .md cannot hide it.
+            # Three dots diff against the merge base, so a main that moved on adds nothing here.
+            changed=$(git diff --name-only --no-renames "$BASE_SHA...$HEAD_SHA")
+            # Only Markdown below a directory counts as docs. Every file at the repository root is code
+            # here, because pyproject.toml, MANIFEST.in and the tests name or read README.md, AGENTS.md,
+            # CLAUDE.md, CONTRIBUTING.md, SECURITY.md, LICENSE, LICENSE-CONTENT and NOTICE, so a change or
+            # a deletion there must run the tests. A .gitignore is code too: ruff skips the files it lists.
+            # tests/test_ci_workflow.py fails if a Markdown file that a test, script, pyproject.toml or
+            # MANIFEST.in names would be read as docs-only.
+            other=$(printf '%s\n' "$changed" | grep -v -E '^([^/]+/)+[^/]+\.md$' || true)
+            # An empty diff is not "docs only" either: run everything.
+            if [ -n "$changed" ] && [ -z "$other" ]; then code=false; fi
+          fi
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "code changed: $code"
+
+  dco:
+    # Developer Certificate of Origin: every commit of a pull request is signed off by its author.
+    # A plain script in this repository: no third-party app, no secret, no pull_request_target.
+    if: github.event_name == 'pull_request'
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require a Signed-off-by line on every commit
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: python3 scripts/check_dco.py "$BASE_SHA" "$HEAD_SHA" --pr-author "$PR_AUTHOR"
+
+  lint:
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - run: pip install ruff # the version comes from PIP_CONSTRAINT
+      - run: ruff format --check .
+      - run: ruff check .
+
+  workflows:
+    # Lints this workflow and any other one a pull request adds. Tool versions and SHA-256 hashes
+    # are pinned below because Dependabot cannot bump downloads; update both by hand together,
+    # taking the hash from the release's published checksums (actionlint) or from the downloaded
+    # release asset (shellcheck publishes no checksum file). The hash is hard-coded rather than
+    # fetched from the release because whoever can replace the tarball can replace a checksum
+    # file beside it.
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 10
+    env:
+      ACTIONLINT_VERSION: "1.7.12"
+      ACTIONLINT_SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8" # actionlint_1.7.12_linux_amd64.tar.gz
+      SHELLCHECK_VERSION: "0.11.0"
+      SHELLCHECK_SHA256: "8c3be12b05d5c177a04c29e3c78ce89ac86f1595681cab149b65b97c4e227198" # shellcheck-v0.11.0.linux.x86_64.tar.xz
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Install actionlint and shellcheck (SHA-256 verified)
+        run: |
+          set -euo pipefail
+          tools="$RUNNER_TEMP/tools"
+          mkdir -p "$tools"
+          curl --proto '=https' --tlsv1.2 -sSfL --retry 3 -o "$tools/actionlint.tar.gz" \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          echo "${ACTIONLINT_SHA256}  $tools/actionlint.tar.gz" | sha256sum -c -
+          tar -xzf "$tools/actionlint.tar.gz" -C "$tools" actionlint
+          curl --proto '=https' --tlsv1.2 -sSfL --retry 3 -o "$tools/shellcheck.tar.xz" \
+            "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz"
+          echo "${SHELLCHECK_SHA256}  $tools/shellcheck.tar.xz" | sha256sum -c -
+          tar -xJf "$tools/shellcheck.tar.xz" -C "$tools" --strip-components=1 "shellcheck-v${SHELLCHECK_VERSION}/shellcheck"
+      - name: actionlint (with shellcheck on every run step)
+        run: '"$RUNNER_TEMP/tools/actionlint" -color -shellcheck "$RUNNER_TEMP/tools/shellcheck"'
+      - name: zizmor (workflow security audit, offline)
+        run: |
+          pip install zizmor
+          zizmor --offline --no-progress .github
+
+  test:
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
+    name: test (shard ${{ matrix.shard }}/${{ strategy.job-total }})
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # The one place the shard count is defined: SHARDS below is this list's length.
+        # tests/test_ci_workflow.py checks that the list is 0..N-1 with no gaps.
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    env:
+      SHARD: ${{ matrix.shard }}
+      SHARDS: ${{ strategy.job-total }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            .github/requirements-ci.txt
+      - run: pip install -e ".[dev]"
+      - name: Run this shard's test files
+        run: |
+          set -euo pipefail
+          # Assigning the output (not $(...) inside the pytest command) makes a failing
+          # ci_shard.py abort this step. It must never fall through to pytest with no
+          # file list, which would collect the whole suite in every shard.
+          listing=$(python scripts/ci_shard.py "$SHARD" "$SHARDS")
+          if [ -z "$listing" ]; then
+            echo "::error::shard $SHARD/$SHARDS has no test files"
+            exit 1
+          fi
+          files=()
+          while IFS= read -r line; do files+=("$line"); done <<< "$listing"
+          python -m pytest "${files[@]}" -q -n auto --dist worksteal
+
+  generator-speed:
+    needs: changes
+    if: needs.changes.outputs.code == 'true'
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            .github/requirements-ci.txt
+      - run: pip install -e ".[dev]"
+      - run: python scripts/check_generator_speed.py
+
+  secrets:
+    # gitleaks over the whole history and then over the final tree. A pull request must not be able
+    # to configure or blind its own scan, so:
+    # - the config and ignore file come from the base commit (the commit itself for a push); the
+    #   PR's own copies are deleted from the checkout first, because gitleaks reads .gitleaksignore
+    #   from the checkout root whatever --gitleaks-ignore-path says;
+    # - every .gitattributes is deleted from the checkout and the index first: `* -diff` or
+    #   `*.txt binary` makes `git log -p` print no patch, and gitleaks only sees the patches;
+    # - inline allow comments are ignored;
+    # - a second pass scans the files of the final tree, because `git log -p` prints no patch for a
+    #   merge commit, so a secret that exists only in a merge's conflict resolution is invisible to
+    #   the history pass. That pass also opens archives (--max-archive-depth 3);
+    # - a first step refuses the file types and paths gitleaks skips on its own, so a secret cannot
+    #   hide in a picture, a zip file or a node_modules/ directory;
+    # - a base commit that cannot be read fails the job instead of falling back to the default rules.
+    # Exceptions belong in .gitleaks.toml and .gitleaksignore on main. A finding in the final tree
+    # is ignored there by path:rule:line (the history pass uses commit:path:rule:line).
+    # Why a pinned download and not gitleaks-action: the action needs a paid licence key for
+    # organisation repositories. Version and hash are pinned by hand as in the workflows job;
+    # the hash is the one in the release's gitleaks_<version>_checksums.txt.
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 10
+    env:
+      GITLEAKS_VERSION: "8.30.1"
+      GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb" # gitleaks_8.30.1_linux_x64.tar.gz
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Refuse files the secret scan would skip
+        # gitleaks' built-in allowlist skips whole classes of files by name or path whatever they
+        # contain (images, fonts, office documents, executables, lock files, node_modules/, vendor/,
+        # env/lib/, *.dist-info/, anything with "gitleaks.toml" in its path), and it does not open
+        # archives. A secret in any of them passes the scan, so this repository, which holds only
+        # text, refuses them outright. Add a type here only if it is text that gitleaks reads.
+        run: |
+          set -euo pipefail
+          list="$RUNNER_TEMP/tracked-files"
+          git ls-files -s -z > "$list"
+          [ -s "$list" ] || { echo "::error::git lists no tracked files"; exit 1; }
+          bad=0
+          while IFS= read -r -d '' record; do
+            mode=${record%% *}
+            path=${record#*$'\t'}
+            name=${path##*/}
+            shown=${path@Q}
+            lower="/${path,,}/"
+            if [ "$mode" = "160000" ]; then
+              echo "::error::submodule ${shown}: the secret scan does not read it"; bad=1; continue
+            fi
+            case "$name" in
+              *.py|*.yaml|*.yml|*.md|*.txt|*.toml|*.in|*.cfg) ;;
+              LICENSE|LICENSE-CONTENT|NOTICE|CODEOWNERS|.gitignore|.gitattributes|.gitleaksignore) ;;
+              *) echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue ;;
+            esac
+            if [[ "$lower" =~ /(node_modules|bower_components|vendor|env|venv|virtualenv|lib|lib64)/ || "$lower" == *.dist-info/* ]]; then
+              echo "::error::${shown}: the secret scan skips files under a directory of this name"; bad=1; continue
+            fi
+            if [[ "$path" == *gitleaks.toml* && "$path" != .gitleaks.toml ]]; then
+              echo "::error::${shown}: the secret scan skips any path containing gitleaks.toml"; bad=1
+            fi
+          done < "$list"
+          exit "$bad"
+      - name: Install gitleaks (SHA-256 verified)
+        run: |
+          set -euo pipefail
+          curl --proto '=https' --tlsv1.2 -sSfL --retry 3 -o "$RUNNER_TEMP/gitleaks.tar.gz" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "${GITLEAKS_SHA256}  $RUNNER_TEMP/gitleaks.tar.gz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP" gitleaks
+      - name: Scan with a configuration the pull request cannot change
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          policy="$RUNNER_TEMP/gitleaks-policy"
+          mkdir -p "$policy"
+          ref=HEAD
+          if [ "$EVENT" = "pull_request" ]; then ref="$BASE_SHA"; fi
+          # A base commit that cannot be read must fail the job. Without this check a missing commit
+          # reads as "the base has no policy files" and the scan quietly runs on the default rules.
+          if ! git cat-file -e "$ref^{commit}"; then
+            echo "::error::the commit the scan policy comes from is missing: ${ref:-<empty>}"
+            exit 1
+          fi
+          for name in .gitleaks.toml .gitleaksignore; do
+            if git cat-file -e "$ref:$name" 2>/dev/null; then git show "$ref:$name" > "$policy/$name"; fi
+          done
+          if [ ! -f "$policy/.gitleaks.toml" ]; then printf '[extend]\nuseDefault = true\n' > "$policy/.gitleaks.toml"; fi
+          rm -f -- .gitleaks.toml .gitleaksignore
+          find . -name .gitattributes -not -path './.git/*' -delete
+          git ls-files -z -- ':(glob)**/.gitattributes' | xargs -0 -r git rm -q --cached --
+          scan=(--no-banner --redact --verbose --ignore-gitleaks-allow --config "$policy/.gitleaks.toml" --gitleaks-ignore-path "$policy")
+          # Run both passes so one report shows everything, then fail if either failed.
+          status=0
+          "$RUNNER_TEMP/gitleaks" git "${scan[@]}" . || status=1
+          "$RUNNER_TEMP/gitleaks" dir "${scan[@]}" --max-archive-depth 3 . || status=1
+          exit "$status"
+
+  ci-ok:
+    # The one required check. Every dependency must have ended in exactly the state this event
+    # calls for; a missing, cancelled or unexpectedly skipped job is a failure.
+    if: always()
+    needs: [changes, dco, lint, workflows, secrets, test, generator-speed]
+    runs-on: ${{ github.event.repository.visibility == 'private' && fromJSON('["self-hosted", "Linux", "X64"]') || 'ubuntu-24.04' }}
+    timeout-minutes: 5
+    steps:
+      - name: Require every job to have ended as expected
+        env:
+          EVENT: ${{ github.event_name }}
+          CODE: ${{ needs.changes.outputs.code }}
+          CHANGES: ${{ needs.changes.result }}
+          DCO: ${{ needs.dco.result }}
+          LINT: ${{ needs.lint.result }}
+          WORKFLOWS: ${{ needs.workflows.result }}
+          SECRETS: ${{ needs.secrets.result }}
+          TEST: ${{ needs.test.result }}
+          SPEED: ${{ needs.generator-speed.result }}
+        run: |
+          set -euo pipefail
+          echo "event=$EVENT code=$CODE changes=$CHANGES dco=$DCO lint=$LINT workflows=$WORKFLOWS secrets=$SECRETS test=$TEST speed=$SPEED"
+          fail() { echo "::error::$*"; exit 1; }
+          # These always run, and must have succeeded.
+          for result in "$CHANGES" "$LINT" "$WORKFLOWS" "$SECRETS"; do
+            [ "$result" = "success" ] || fail "a job that always runs did not succeed"
+          done
+          # The DCO check exists for pull requests only.
+          case "$EVENT" in
+            pull_request) want_dco=success ;;
+            *) want_dco=skipped ;;
+          esac
+          [ "$DCO" = "$want_dco" ] || fail "dco is '$DCO' but a $EVENT run needs '$want_dco'"
+          # Tests and the speed check run unless the diff was docs-only, which only a pull request can be.
+          case "$CODE" in
+            true) want=success ;;
+            false)
+              [ "$EVENT" = "pull_request" ] || fail "only a pull request can be docs-only"
+              want=skipped
+              ;;
+            *) fail "the changes job gave no verdict" ;;
+          esac
+          [ "$TEST" = "$want" ] || fail "test is '$TEST' but needs '$want'"
+          [ "$SPEED" = "$want" ] || fail "generator-speed is '$SPEED' but needs '$want'"
+          echo "ci-ok: all jobs ended as expected"

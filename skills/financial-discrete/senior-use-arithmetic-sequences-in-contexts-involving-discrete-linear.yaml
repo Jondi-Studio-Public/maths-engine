@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear
+name: Use arithmetic sequences in contexts involving discrete linear growth or decay
+domain: financial-discrete
+description: 'Given bounded, fully specified inputs, use arithmetic sequences in contexts involving discrete linear growth or decay, such as simple interest. Return the resulting value, expression, relation, or classification. Every question states the first term and the constant per-period change directly, and the interest amount itself is never asked for (that is the neighbouring skill simple-interest): this skill asks for a term or sum of the arithmetic sequence a discrete-linear scenario generates.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: number
+sources:
+- topic: p12b_arith_seq_methods
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p12b_arith_seq_methods
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p12b_arith_seq_methods
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p12b_arith_seq_methods
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-nth-term
+  description: Uses n instead of (n-1) in the nth-term formula t_n = t1 + (n-1)d, shifting every predicted value by one whole common difference.
+- id: sum-formula-for-a-term
+  description: Reports the sum of the first n terms when a single nth-term value was asked, or vice versa -- confuses "a value at a point" with "an accumulation".
+- id: forgot-first-term
+  description: Reports (n-1)d alone, forgetting to add the stated first term t1.
+tags: [acara-senior-v8-4, financial-discrete, sequences, arithmetic-sequence, acmmm070]

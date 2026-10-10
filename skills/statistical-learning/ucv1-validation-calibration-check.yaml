@@ -1,0 +1,47 @@
+id: ucv1-validation-calibration-check
+name: Check a validation and calibration summary
+domain: statistical-learning
+description: Given supplied validation predictions and observed outcomes, compute the binned expected calibration error to a stated precision and select whether the model is over- or under-confident overall.
+status: active
+placement_eligible: false
+prerequisites: [least-squares-line]
+answer: mcq
+sources:
+- topic: p15d_validation_calibration
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15d_validation_calibration
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15d_validation_calibration
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15d_validation_calibration
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: skips-binning
+  description: Computes the calibration error from the overall mean prediction and outcome directly, skipping the stated per-bin convention.
+- id: direction-flipped
+  description: Computes the calibration error correctly but reports the opposite over-/under-confidence direction.
+- id: unweighted-bin-average
+  description: Averages the bins' errors equally instead of weighting each bin by its share of the total points.
+tags: [university-core-v1, statistical-learning, calibration, validation]
+framework_areas: [statistical-learning]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: statistical-learning
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: statistical-learning
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: statistical-learning

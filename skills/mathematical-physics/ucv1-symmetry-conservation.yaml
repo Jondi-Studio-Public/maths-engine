@@ -1,0 +1,51 @@
+id: ucv1-symmetry-conservation
+name: Select a symmetry-conservation pairing
+domain: mathematical-physics
+description: Select the conserved quantity associated with one supplied discrete symmetry in a finite mechanics scenario.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p15c_symmetry_conservation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p15c_symmetry_conservation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p15c_symmetry_conservation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p15c_symmetry_conservation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-axis
+  description: Picks the momentum or angular-momentum component for the wrong axis (e.g. selects p_y when the stated symmetry is translation along x, or the missing coordinate in the given V is actually y).
+- id: confuses-translation-with-rotation
+  description: Pairs a translational symmetry with an angular-momentum component, or a rotational symmetry with a momentum component, instead of the matching linear/angular pairing.
+- id: misses-the-cyclic-coordinate
+  description: On the medium tier, where V is given explicitly, fails to identify which single coordinate is absent from V and instead answers energy or an angular-momentum component.
+- id: misses-the-rotational-invariant
+  description: On the hard tier, fails to recognise the two coordinates entering V only through the sum of their squares, and instead answers a momentum component or the wrong axis's angular momentum.
+- id: forgets-other-conserved-quantities
+  description: On the exam tier, where V is spherically symmetric and more than one quantity is genuinely conserved, selects one of the (always wrong) linear momenta because the fully symmetric potential is mistaken for one with no conserved quantities at all.
+tags: [university-core-v1, mathematical-physics, p15c_symmetry_conservation]
+framework_areas: [mathematical-physics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: mathematical-physics

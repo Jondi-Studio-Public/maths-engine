@@ -1,0 +1,17 @@
+id: add-within-100
+name: Add within 100
+domain: early-foundations
+placement_order: 260
+placement_questions: 3
+placement_pass: 2
+learner_band: primary
+description: Add two whole numbers with a total no greater than one hundred.
+status: active
+prerequisites: [place-value-to-100]
+answer: mcq
+sources:
+- topic: early_addition
+  params: {total_hi: 100}
+  difficulty: easy
+misconceptions: []
+tags: [age-7, addition]

@@ -1,0 +1,35 @@
+id: ucv1-number-theory-computation
+name: Apply a bounded arithmetic number-theory method
+domain: number-theory
+description: Use modular exponentiation and a supplied factorisation to compute one arithmetic residue.
+status: active
+placement_eligible: false
+prerequisites: [modular-arithmetic-congruence]
+answer: number
+sources:
+- topic: p14b_number_theory_computation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p14b_number_theory_computation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p14b_number_theory_computation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p14b_number_theory_computation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forgets-exponent-reduction
+  description: Forgets to reduce the exponent through the supplied factorisation at all, and reports m^e0 mod n for a truncated substitute exponent instead.
+- id: uses-modulus-not-totient
+  description: Reduces the exponent modulo n itself instead of modulo phi(n) computed from the supplied factorisation, confusing the modulus with the totient.
+- id: drops-power-correction-term
+  description: For a repeated-prime-factor modulus, uses the two-factor totient formula (p-1)(q-1) instead of the correct prime-power formula p(p-1)(q-1), dropping the power-based correction term.
+- id: applies-euler-shortcut-when-not-coprime
+  description: Applies the Euler exponent-reduction shortcut even though the base is not coprime to the modulus, instead of recognising the shortcut is invalid and falling back to a direct CRT computation.
+tags: [university-core-v1, number-theory, p14b_number_theory_computation]

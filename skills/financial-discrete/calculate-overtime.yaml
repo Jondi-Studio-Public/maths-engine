@@ -1,0 +1,10 @@
+id: calculate-overtime
+name: Calculate overtime earnings
+domain: financial-discrete
+description: Combine regular pay with overtime paid at a stated rate multiplier.
+status: active
+prerequisites: [calculate-wages, decimal-arithmetic]
+answer: number
+sources: [{topic: earnings, params: {kind: overtime}, difficulty: easy}]
+misconceptions: [{id: multiplier-on-all-hours, description: Applies the overtime multiplier to every hour worked.}]
+tags: [expansion-batch-5, consumer-arithmetic]

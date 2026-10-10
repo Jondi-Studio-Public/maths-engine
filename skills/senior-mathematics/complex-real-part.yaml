@@ -1,0 +1,10 @@
+id: complex-real-part
+name: Identify a complex number's real part
+domain: senior-mathematics
+description: Identify the real component of a complex number in Cartesian form.
+status: active
+prerequisites: [classify-real-numbers]
+answer: number
+sources: [{topic: complex_number, params: {kind: real_part}, difficulty: easy}]
+misconceptions: [{id: selects-imaginary, description: Selects the coefficient of i.}]
+tags: [expansion-batch-6, complex-numbers, acara-v8-4]

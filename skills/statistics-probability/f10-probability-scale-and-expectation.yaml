@@ -1,0 +1,38 @@
+id: f10-probability-scale-and-expectation
+name: Estimate probabilities on a scale and predict expected frequencies
+domain: statistics-probability
+description: >-
+  Assign or estimate probabilities on 0-1 and 0-100% scales, convert representations
+  and predict a related expected frequency. This skill estimates probabilities from
+  likelihood words (impossible, unlikely, even chance, likely, certain) mapped to
+  fixed canonical anchors on the 0-1 scale, and applies those anchors to predict
+  expected frequencies in trials. Boundary against prerequisites is sharp: probability-representations
+  is an MCQ on converting exact stated fractions to other forms; expected-frequency
+  multiplies a given exact fraction by trial count. This skill never starts from
+  exact fractions -- it starts from likelihood words and maps them to fixed canonical
+  anchors (0, 0.25, 0.5, 0.75, 1), a genuinely different first operation; the hard
+  tier's expected-frequency composition combines that word-to-anchor step with shared
+  multiplication arithmetic.
+status: active
+placement_eligible: false
+prerequisites:
+- probability-representations
+- simple-event-probability
+answer: number
+sources:
+- topic: probability_scale_estimate
+  params: {}
+  difficulty: easy
+misconceptions:
+- id: uses_wrong_word_mapping
+  description: Maps likelihood words to incorrect probability values (e.g., 0.33 for
+    'even chance' instead of 0.5).
+- id: confuses_probability_with_frequency
+  description: Treats probability values as expected frequency counts without multiplying
+    by trial count.
+- id: wrong_arithmetic_composition
+  description: Multiplies incorrectly when combining word-mapped probability with trial
+    count, or adds instead of multiplying.
+tags:
+- f10-probability-scale-and-expectation
+- probability

@@ -1,0 +1,46 @@
+id: matrix-determinant-2x2
+name: 2x2 determinant
+domain: matrices
+description: Calculate the determinant of a 2x2 matrix.
+status: active
+prerequisites:
+- evaluate-powers
+answer: number
+sources:
+- topic: matrices
+  params:
+    kinds:
+    - determinant
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: matrices
+  params:
+    kinds:
+    - determinant
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: matrices
+  params:
+    kinds:
+    - determinant_product
+    hi: 6
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: added-not-subtracted
+  description: Adding ad and bc instead of subtracting.
+- id: multiplied-columns
+  description: Multiplying down the columns instead of the diagonals.
+- id: summed-not-multiplied-determinants
+  description: Adding det(A) and det(B) instead of multiplying them to find det(AB).
+- id: ignored-second-matrix
+  description: Computing the determinant of only one of the two matrices and ignoring the other.
+tags: []

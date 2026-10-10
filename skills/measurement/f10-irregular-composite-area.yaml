@@ -1,0 +1,29 @@
+id: f10-irregular-composite-area
+name: Calculate irregular composite area
+domain: measurement
+description: Decompose an irregular or composite rectilinear shape into familiar parts, calculate its area and report square units.
+status: active
+placement_eligible: false
+prerequisites: [composite-perimeter, rectangle-area]
+answer: number
+sources:
+- topic: irregular_composite_area
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: irregular_composite_area
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: irregular_composite_area
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: omits_one_section
+  description: Sums only some of the sections' areas, omitting one entirely.
+- id: uses_perimeter_instead_of_area
+  description: Sums the perimeters of the sections instead of their areas.
+- id: wrong_missing_dimension
+  description: Uses the total height directly instead of deriving the missing section width first.
+tags: [measurement, area, acara-v9-year-8]

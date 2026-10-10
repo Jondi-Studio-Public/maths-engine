@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-the-diagonals-of-a-parallelogram-meet-at-right
+name: The diagonals of a parallelogram meet at right angles if and only if it is a rhombus
+domain: senior-mathematics
+description: Given bounded, fully specified inputs, The diagonals of a parallelogram meet at right angles if and only if it is a rhombus. Return the resulting value, expression, relation, or classification.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: the_diagonals_of_a_parallelogram_meet_at_right
+  params: {variant: diagonals_given}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: the_diagonals_of_a_parallelogram_meet_at_right
+  params: {variant: one_diagonal_given}
+  difficulty: medium
+  stages: [3, 4]
+- topic: the_diagonals_of_a_parallelogram_meet_at_right
+  params: {variant: converse_rhombus}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: sum-of-squares-of-diagonals-confusion
+  description: Confuses this theorem with the neighbouring sum-of-squares-of-diagonals relationship, using the full (un-halved) diagonal lengths as the right-triangle legs instead of halving each diagonal first.
+- id: reports-given-diagonal-as-answer
+  description: Reports one of the given diagonal lengths directly instead of computing the requested side or diagonal length.
+- id: omits-doubling-the-half-diagonal
+  description: On the medium tier, solves for the half-diagonal correctly but reports it directly instead of doubling it to give the full diagonal length.
+- id: wrong-sign-equation
+  description: On the hard tier, sets the two side expressions equal with a sign error (e.g. solves AB = -BC instead of AB = BC), giving the wrong value of x and hence the wrong side length.
+- id: reports-x-not-side
+  description: On the hard tier, solves for x correctly but reports x itself instead of substituting it back into a side expression to get the evaluated side length.
+tags: [acara-v8-4-specialist, quadrilateral-geometry]

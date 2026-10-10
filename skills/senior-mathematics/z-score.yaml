@@ -1,0 +1,10 @@
+id: z-score
+name: Calculate a z-score
+domain: senior-mathematics
+description: Standardise a value using a stated mean and standard deviation.
+status: active
+prerequisites: [calculate-mean, decimal-arithmetic]
+answer: number
+sources: [{topic: z_score, params: {}, difficulty: easy}]
+misconceptions: [{id: omits-centering, description: Divides the raw value by the standard deviation without subtracting the mean.}]
+tags: [expansion-batch-6, statistics, acara-v8-4]

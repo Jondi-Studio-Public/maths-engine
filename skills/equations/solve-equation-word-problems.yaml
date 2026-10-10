@@ -1,0 +1,45 @@
+id: solve-equation-word-problems
+name: Solve and interpret linear equation word problems
+domain: equations
+description: Form, solve, check and interpret a one-variable linear equation in context.
+status: active
+prerequisites:
+- translate-word-problems-to-equations
+- two-step-equations
+- check-solution-by-substitution
+answer: number
+sources:
+- topic: word_problem
+  params:
+    kind: linear_eq
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: word_problem
+  params:
+    kind: linear_eq
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: word_problem
+  params:
+    kind: linear_eq_reverse
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: misconception-1
+  description: Reporting the variable value without interpreting it
+- id: misconception-2
+  description: Accepting a mathematically valid but contextually impossible value
+- id: misconception-3
+  description: Undoing a bracketed "increased by, then multiplied by" word problem
+    in the same order it was built (dividing, then adding the increase back)
+    instead of the reverse order the bracket requires (dividing first, then
+    subtracting)
+tags: []

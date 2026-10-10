@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-calculate-lengths-of-arcs-and-areas-of-sectors
+name: Calculate arc lengths and sector areas
+domain: trigonometry
+description: Calculate the length of an arc or the area of a sector given a bounded radius and angle in radians, or recover the radius from a bounded arc length and angle.
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle]
+answer: expression
+sources:
+- topic: arc_length_sector_area
+  params: {variant: arc_length}
+  difficulty: easy
+  stages: [6]
+- topic: arc_length_sector_area
+  params: {variant: sector_area}
+  difficulty: medium
+  stages: [6]
+- topic: arc_length_sector_area
+  params: {variant: find_radius}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: halves-arc-for-sector-formula
+  description: Uses the sector-area formula's 1/2 factor on arc length.
+- id: doubles-for-diameter
+  description: Uses diameter instead of radius.
+- id: drops-the-half
+  description: Forgets the 1/2 factor in the sector area formula.
+- id: uses-diameter-squared
+  description: Uses diameter squared in place of radius squared in the sector area formula.
+- id: multiplies-instead-of-divides
+  description: Multiplies instead of divides when solving for radius.
+- id: double-counts-the-radius
+  description: Double-counts the radius.
+tags: [acara-senior-v8-4, trigonometry, arc-length, sector-area, acmmm033]

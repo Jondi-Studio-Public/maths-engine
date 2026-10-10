@@ -1,0 +1,29 @@
+id: f10-exponential-relations-equations
+name: Solve exponential equations by matching a common base
+domain: functions-sequences
+description: Given a bounded exponential equation (of the form a^x = b or a times b^x = c for stated positive values) whose solution for x is an integer or simple rational value obtainable by expressing both sides as powers of a common base, solve for x.
+status: active
+placement_eligible: false
+prerequisites: [f10-exponent-laws-integer-variable, function-notation]
+answer: fraction
+sources:
+- topic: p11d_exponential_common_base_solve
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p11d_exponential_common_base_solve
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p11d_exponential_common_base_solve
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-the-exponents
+  description: Adds the two sides' exponents instead of matching them, reporting x = n + m instead of x = n / m.
+- id: drops-the-negative-sign
+  description: Reports the positive magnitude of x when the true answer is negative, dropping the sign carried by a negative exponent on the target value (medium tier, where the target is a proper fraction).
+- id: forgets-the-coefficient
+  description: (hard tier only) Solves b^x = c directly without first dividing both sides by the stated coefficient a_coef, ignoring it entirely.
+tags: [acara-f10-v9, secondary, algebra, exponential, ac9m10a03]

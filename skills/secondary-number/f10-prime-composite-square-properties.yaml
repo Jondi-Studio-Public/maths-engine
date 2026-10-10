@@ -1,0 +1,23 @@
+id: f10-prime-composite-square-properties
+name: Prime, composite, and perfect-square classification
+domain: secondary-number
+description: Given a stated natural number and one of the properties prime, composite or perfect square, determine whether the number has that property.
+status: active
+placement_eligible: false
+prerequisites: [list-factors, prime-factorisation]
+answer: mcq
+sources:
+- topic: prime_composite_square_properties
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: prime_composite_square_properties
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: prime_composite_square_properties
+  params: {form: factored}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions: []
+tags: [acara-f10-v9, secondary, primes, ac9m6n02]

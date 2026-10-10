@@ -1,0 +1,19 @@
+id: linear-models
+name: Create and evaluate linear models
+domain: linear-relations
+description: Formulate a linear model, interpret parameters, make predictions and evaluate whether the
+  model is appropriate.
+status: deferred
+deferred_reason: assessment_contract
+prerequisites:
+- compare-linear-representations
+- define-variables
+- solve-equation-word-problems
+answer: mcq
+sources: []
+misconceptions:
+- id: misconception-1
+  description: Assuming a linear model remains valid for all inputs
+- id: misconception-2
+  description: Reporting predictions without interpreting units or assumptions
+tags: []

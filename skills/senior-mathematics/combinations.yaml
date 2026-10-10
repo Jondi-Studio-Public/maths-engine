@@ -1,0 +1,10 @@
+id: combinations
+name: Calculate combinations
+domain: senior-mathematics
+description: Count unordered selections of distinct objects without replacement.
+status: active
+prerequisites: [permutations]
+answer: number
+sources: [{topic: combinatorics, params: {kind: combination}, difficulty: easy}]
+misconceptions: [{id: uses-permutation, description: Counts different orders of the same group separately.}]
+tags: [expansion-batch-6, combinatorics, acara-v8-4]

@@ -1,0 +1,35 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-identify-the-appropriate-units-for-different-activities-such
+name: Identify the appropriate units for different activities, such as walking, running, swimming and flying
+domain: measurement
+description: Given a stated activity (for example walking, running, swimming or flying) and a described measurement of it, choose the most appropriate unit (such as m, km, km/h or m/s) from the offered options.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: p19h_appropriate_activity_unit
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p19h_appropriate_activity_unit
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: p19h_appropriate_activity_unit
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p19h_appropriate_activity_unit
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wrong-scale-same-type
+  description: Picks the other unit of the same type (km when m is correct, or vice versa; km/h when m/s is correct, or vice versa) -- the right family, the wrong scale.
+- id: confuses-distance-and-speed
+  description: Picks a unit from the other type entirely (a speed unit for a distance measurement, or a distance unit for a speed measurement) -- confuses "how far" with "how fast".
+- id: answers-with-the-other-measurement
+  description: On the exam tier, where two measurements of the same activity are described and the question states which one is graded, answers with the unit of the OTHER (non-graded) measurement instead of the one specified.
+tags: [acara-senior-v8-4, measurement, units, activities, distance, speed, acmem085]

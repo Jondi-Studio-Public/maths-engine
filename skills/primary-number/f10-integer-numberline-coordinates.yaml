@@ -1,0 +1,29 @@
+id: f10-integer-numberline-coordinates
+name: Order integers from smallest to largest
+domain: primary-number
+description: Order a supplied set of integers from smallest to largest.
+status: active
+placement_eligible: false
+prerequisites: [integer-arithmetic, coordinate-plane-readiness]
+answer: ordered_list
+sources:
+- topic: integer_numberline_order
+  params: {count: 4, sign_mix: all_positive}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: integer_numberline_order
+  params: {count: 4, sign_mix: mixed_with_zero}
+  difficulty: medium
+  stages: [3, 4]
+- topic: integer_numberline_order
+  params: {count: 5, sign_mix: mixed_trap}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reversed-order
+  description: Orders the integers from largest to smallest instead of smallest to largest.
+- id: adjacent-swap
+  description: Orders the integers correctly overall but swaps the two middle values, as if two neighbouring values did not need comparing.
+- id: magnitude-ignores-sign
+  description: Orders integers as if comparing their absolute values, treating the sign as irrelevant -- so a negative number with a larger magnitude than a positive number (e.g. -7 vs 3) is wrongly placed after it, the "-7 > -3 because 7 > 3" misconception.
+tags: [acara-f10-v9, primary, integers, ordering, ac9m6n01, ac9m7n07]

@@ -1,0 +1,14 @@
+id: f10-nets-build-solids
+name: Connect nets and three-dimensional objects
+domain: primary-geometry-time
+description: Match a net to a solid, construct a solid from a valid net and explain how faces meet.
+status: deferred
+deferred_reason: visual
+capability_gates:
+- visual_construction
+prerequisites:
+- name-basic-shapes
+answer: ""
+sources: []
+misconceptions: []
+tags: []

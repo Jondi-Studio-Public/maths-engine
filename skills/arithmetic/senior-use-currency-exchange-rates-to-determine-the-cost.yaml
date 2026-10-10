@@ -1,0 +1,31 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-currency-exchange-rates-to-determine-the-cost
+name: Use currency exchange rates to determine the cost in Australian dollars
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, use currency exchange rates to determine the cost in Australian dollars of purchasing a given amount of a foreign currency, such as US$1500, or the value of a given amount of foreign currency when converted to Australian dollars, such as the value of €2050 in Australian dollars. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: currency_exchange_conversion
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: currency_exchange_conversion
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: currency_exchange_conversion
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: wrong-direction
+  description: Applies the other operation to the same rate and amount (multiplies when the rate is AUD-based and division was correct, or divides when the rate is foreign-based and multiplication was correct).
+- id: treats-as-one-to-one
+  description: Reports the foreign amount unchanged as the AUD value, as if the exchange rate were exactly 1.
+- id: adds-the-rate
+  description: Adds the exchange rate to the foreign amount instead of multiplying or dividing by it.
+tags: [acara-senior-v8-4, arithmetic, currency_exchange_conversion, ACMGM007]

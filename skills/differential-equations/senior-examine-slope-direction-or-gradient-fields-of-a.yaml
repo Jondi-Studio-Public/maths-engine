@@ -1,0 +1,47 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-examine-slope-direction-or-gradient-fields-of-a
+name: Examine slope (direction or gradient) fields of a first order differential equation
+domain: differential-equations
+description: Examine a first-order differential equation dy/dx = f(x, y) by evaluating,
+  classifying, or matching the slope (direction/gradient) it implies -- entirely in text,
+  never from a drawn field diagram.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+answer: mcq
+sources:
+- topic: p13b_slope_field_examine
+  params:
+    variant: value_easy
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: p13b_slope_field_examine
+  params:
+    variant: value_medium
+  difficulty: medium
+  stages: [3, 4]
+- topic: p13b_slope_field_examine
+  params:
+    variant: classify_point
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: p13b_slope_field_examine
+  params:
+    variant: match_ode
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: swapped-coordinates
+  description: Substitutes the point's coordinates in the wrong order, computing f(y0, x0)
+    instead of f(x0, y0).
+- id: dropped-sign
+  description: Drops the sign of the computed slope, or of one substituted coordinate.
+- id: picks-value-not-sign
+  description: 'Hard tier: picks the point whose raw evaluated value looks unusual instead
+    of the point whose stated SIGN disagrees with the equation.'
+- id: matches-first-feature-only
+  description: 'Exam tier: picks a candidate equation that satisfies only the first stated
+    feature and ignores the remaining ones.'
+tags: []

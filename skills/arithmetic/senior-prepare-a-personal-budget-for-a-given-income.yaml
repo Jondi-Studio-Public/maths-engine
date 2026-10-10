@@ -1,0 +1,33 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-prepare-a-personal-budget-for-a-given-income
+name: Prepare a personal budget for a given income taking into account fixed and discretionary spending
+domain: arithmetic
+description: 'Given bounded, fully specified inputs, prepare a personal budget for a given income taking into account fixed and discretionary spending. Return the resulting value, expression, relation, or classification.'
+status: active
+placement_eligible: false
+prerequisites: [order-of-operations]
+answer: number
+sources:
+- topic: p10c_personal_budget
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: p10c_personal_budget
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: p10c_personal_budget
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+misconceptions:
+- id: forgot-one-fixed-expense
+  description: Drops the last fixed-expense item from the sum, as if only the earlier fixed expenses existed.
+- id: added-instead-of-subtracted
+  description: Adds the fixed (and, where present, discretionary) spending to the income instead of subtracting it.
+- id: percentage-of-remainder
+  description: 'Hard tier: applies the discretionary percentage to income after fixed expenses instead of to the whole income.'
+- id: percent-read-as-dollars
+  description: 'Hard tier: treats the stated percentage figure as a flat dollar amount instead of a percentage of income.'
+tags: [acara-senior-v8-4, arithmetic, budgeting, p10c_personal_budget, ACMGM004]
