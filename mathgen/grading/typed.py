@@ -1996,8 +1996,9 @@ def _exact_decimals(given_expr, expected):
 # A bracket in the reply is not enough: "(6x + 9)", "1(6x + 9)" and the question's own "2(x - 3)^2 - 7(x - 3) - 30"
 # all carry one. The reply is read as written (an unevaluated parse keeps the product the learner typed) and must
 # be a product of at least two factors, a number other than 1 counting as one; no polynomial factor may keep a
-# common whole-number factor ("3(4x + 6)" for 6(2x + 3)); and it must have at least as many non-constant factors as
-# the canonical ("(x^2 - 1)(x^2 + 1)" for (x - 1)(x + 1)(x^2 + 1)). Factoring further than the canonical is fine.
+# common whole-number factor ("3(4x + 6)" for 6(2x + 3)) unless the canonical keeps one too; and it must have at least
+# as many non-constant factors as the canonical ("(x^2 - 1)(x^2 + 1)" for (x - 1)(x + 1)(x^2 + 1)). Factoring
+# further than the canonical is fine.
 # Text the unevaluated parse cannot read keeps the bracket check alone.
 
 
@@ -2045,9 +2046,13 @@ def _factorised_as_far_as(stripped: str, question) -> bool:
         trivial_constant = False
     if len(factors) + (0 if trivial_constant else 1) < 2:
         return False
-    if any(_keeps_a_common_factor(factor) for factor in factors):
-        return False
     expected = _written_factors(_strip_label(question.answer_text or "")) or _written_factors(str(question.answer))
+    # A canonical that leaves a common factor inside a bracket, "(3x - 3)(x^2 + 9)", answers a question about the
+    # split into factors, not the common factor: there a reply may leave one too.
+    if (expected is None or not any(map(_keeps_a_common_factor, expected[1]))) and any(
+        map(_keeps_a_common_factor, factors)
+    ):
+        return False
     return expected is None or len(factors) >= len(expected[1])
 
 

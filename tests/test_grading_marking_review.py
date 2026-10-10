@@ -307,3 +307,11 @@ def test_working_that_restates_part_of_the_question_is_still_right(answer, answe
 def test_a_coordinate_answer_is_still_read():
     """The degree check reads the expected answer, which can be a tuple rather than a number."""
     assert _correct("expression", _q("(1, 2)", "(1, 2)"), "(1, 2)")
+
+
+def test_a_common_factor_is_allowed_when_the_canonical_keeps_one():
+    """A question about the split into a linear and a quadratic factor, not about the common factor."""
+    question = _q("(3*x - 3)*(x**2 + 9)", "(3x - 3)(x^2 + 9)", answer_form="factored")
+    for given in ["(3x - 3)(x^2 + 9)", "3(x - 1)(x^2 + 9)", "(x - 1)(3x^2 + 27)"]:
+        assert _correct("expression", question, given)
+    assert not _correct("expression", question, "(3x^3 - 3x^2 + 27x - 27)")
