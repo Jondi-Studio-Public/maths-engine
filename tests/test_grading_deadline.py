@@ -110,7 +110,7 @@ def test_a_slow_real_reply_cannot_hang_the_call(pool, skills):
     assert after.correct and not after.timed_out
 
 
-def test_a_worker_killed_from_outside_is_replaced(skills):
+def test_a_worker_killed_from_outside_is_replaced_and_the_reply_retried(skills):
     skill = skills["number"]
     q = engine.make_for_skill(skill, seed=0)
     with GradingPool(1, timeout=30) as one:
@@ -118,8 +118,23 @@ def test_a_worker_killed_from_outside_is_replaced(skills):
         worker = one._idle.queue[0]
         worker.process.kill()
         worker.process.join()
+        retried = one.grade("number", q, q.answer_text, skill=skill)
+        assert retried.correct and not retried.timed_out
+        assert one._idle.queue[0] is not worker
+
+
+def test_a_worker_that_cannot_be_started_keeps_its_place(skills, monkeypatch):
+    """A failed start must not shrink the pool: with one place, a lost place would block every later call."""
+    skill = skills["number"]
+    q = engine.make_for_skill(skill, seed=0)
+    with GradingPool(1, timeout=30) as one:
+        real_start = one._start
+        monkeypatch.setattr(one, "_start", lambda: (_ for _ in ()).throw(OSError("no processes left")))
+        one._replace(one._idle.get())
+        assert one._idle.queue[0] is None
         lost = one.grade("number", q, q.answer_text, skill=skill)
         assert not lost.correct and not lost.timed_out
+        monkeypatch.setattr(one, "_start", real_start)
         assert one.grade("number", q, q.answer_text, skill=skill).correct
 
 

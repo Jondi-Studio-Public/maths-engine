@@ -114,13 +114,23 @@ class GradingPool:
             self._all.add(worker)
         return worker
 
-    def _replace(self, worker: _Worker) -> None:
-        worker.stop()
+    def _replace(self, worker: _Worker | None) -> None:
+        """Stop `worker` and put a fresh one in its place. If a new process cannot be started (out of memory, too
+        many processes), the place is held by None and the next call to take it tries again, so the pool never
+        loses a place and a caller never waits on a queue nothing will refill."""
+        if worker is not None:
+            worker.stop()
         with self._lock:
             self._all.discard(worker)
             closed = self._closed
-        if not closed:
-            self._idle.put(self._start())
+        if closed:
+            return
+        try:
+            fresh = self._start()
+        except Exception:  # noqa: BLE001 - logged; the place is kept for the next call to retry
+            logger.exception("could not start a grading worker; the next reply will try again")
+            fresh = None
+        self._idle.put(fresh)
 
     def grade(self, kind: str, question, given: str, *, skill=None, timeout: float | None = None) -> DeadlineResult:
         """`grade(kind, question, given, skill=skill)` in a worker, wrong and `timed_out` if it takes longer than
@@ -128,24 +138,33 @@ class GradingPool:
         if self._closed:
             raise RuntimeError("the grading pool is closed")
         limit = self.timeout if timeout is None else timeout
-        worker = self._idle.get()
-        try:
-            worker.wait_ready()
-            worker.conn.send((kind, question, given, skill))
-            started = time.monotonic()
-            if worker.conn.poll(limit):
-                status, value = worker.conn.recv()
-            else:
-                status, value = "timeout", None
-        except (EOFError, OSError, RuntimeError) as exc:
-            # The worker died (killed from outside, out of memory) or never started: replace it, grade wrong.
-            logger.error("a grading worker failed (%s); grading kind=%r given=%.200r wrong", exc, kind, given)
-            self._replace(worker)
+        # A worker that dies under a reply (killed from outside, out of memory) is replaced and the reply tried once
+        # more on the new one, so one lost process does not mark a learner wrong. A second loss grades it wrong.
+        for attempt in (1, 2):
+            worker = self._idle.get()
+            try:
+                if worker is None:
+                    worker = self._start()
+                worker.wait_ready()
+                worker.conn.send((kind, question, given, skill))
+                started = time.monotonic()
+                if worker.conn.poll(limit):
+                    status, value = worker.conn.recv()
+                else:
+                    status, value = "timeout", None
+            except (EOFError, OSError, RuntimeError) as exc:
+                logger.error(
+                    "a grading worker failed (%s) on attempt %d; kind=%r given=%.200r", exc, attempt, kind, given
+                )
+                self._replace(worker)
+                continue
+            except BaseException:
+                # Interrupted mid-call (KeyboardInterrupt): the worker may still be grading, so it cannot be reused.
+                self._replace(worker)
+                raise
+            break
+        else:
             return _wrong(question)
-        except BaseException:
-            # Interrupted mid-call (KeyboardInterrupt): the worker may still be grading, so it cannot be reused.
-            self._replace(worker)
-            raise
         if status == "timeout":
             logger.warning(
                 "grading kind=%r given=%.200r ran past %.1f s; worker killed, graded wrong", kind, given, limit

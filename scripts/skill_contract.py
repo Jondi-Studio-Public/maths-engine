@@ -184,7 +184,7 @@ ANSWER_FLOORS_PATH = Path(__file__).resolve().parents[1] / "tests" / "skill_cont
 def answer_floors() -> dict[str, dict[str, int]]:
     """skill id -> {"topic/difficulty": distinct answers over the sweep}: the tiers below
     `MIN_DISTINCT_ANSWERS` when the check was added, each the backlog to widen or to rule
-    small by design. Written by `scripts/build_answer_floors.py`."""
+    small by design. Written by `scripts/build_contract_floors.py`."""
     import yaml
 
     if not ANSWER_FLOORS_PATH.exists():
