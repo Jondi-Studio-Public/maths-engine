@@ -66,9 +66,45 @@ def test_unfactored_expression_in_a_bracket_is_not_factored(given):
     assert not _correct("expression", _FACTORED, given)
 
 
-@pytest.mark.parametrize("given", ["2(4x - 3)", "(4x - 3)2", "(2)(4x - 3)", "2[4x - 3]"])
+@pytest.mark.parametrize("given", ["2(4x - 3)", "(4x - 3)2", "(2)(4x - 3)", "2[4x - 3]", "-2(3 - 4x)"])
 def test_factored_reply_still_accepted(given):
     assert _correct("expression", _FACTORED, given)
+
+
+def _factored(answer, answer_text):
+    return _q(answer, answer_text, answer_form="factored")
+
+
+@pytest.mark.parametrize(
+    "answer, answer_text, given",
+    [
+        ("2*(4*x - 3)", "2(4x - 3)", "1(8x - 6)"),  # a factor of 1 factors nothing
+        ("(2*x - 11)*(x - 1)", "(2x - 11)(x - 1)", "2(x - 3)^2 - 7(x - 3) - 30"),  # the question restated
+        ("(4*x + y)*(x + 3*y)", "(4x + y)(x + 3y)", "(4x^2 + 13xy + 3y^2)"),
+        ("6*(2*x + 3)", "6(2x + 3)", "3(4x + 6)"),  # a common factor left inside the bracket
+        ("9*x*(x - 8)", "9x(x - 8)", "x(9x - 72)"),
+        ("9*x*(x - 8)", "9x(x - 8)", "9(x^2 - 8x)"),
+        ("2*(x - 3)*(x**2 + 6*x - 4)", "2(x - 3)(x^2 + 6x - 4)", "(2x - 6)(x^2 + 6x - 4)"),
+        ("(x - 1)*(x + 1)*(x**2 + 1)", "(x - 1)(x + 1)(x^2 + 1)", "(x^2 - 1)(x^2 + 1)"),  # fewer factors
+    ],
+)
+def test_not_factorised_far_enough(answer, answer_text, given):
+    assert not _correct("expression", _factored(answer, answer_text), given)
+
+
+@pytest.mark.parametrize(
+    "answer, answer_text, given",
+    [
+        ("(x + 7)**2", "(x + 7)(x + 7)", "(x + 7)^2"),
+        ("(x - 3)*(x + 3)", "(x - 3)(x + 3)", "-(3 - x)(x + 3)"),
+        ("(2*x - 11)*(x - 1)", "(2x - 11)(x - 1)", "(2(x - 3) - 5)(x - 3 + 2)"),
+        ("9*x*(x - 8)", "9x(x - 8)", "9x(x - 8)"),
+        # Factoring further than the canonical is still factorised.
+        ("2*(x + 2)*(x**2 + 2*x)", "2(x + 2)(x^2 + 2x)", "2x(x + 2)^2"),
+    ],
+)
+def test_factorised_in_another_order_or_further(answer, answer_text, given):
+    assert _correct("expression", _factored(answer, answer_text), given)
 
 
 # -- answer_alt does not skip the answer form -----------------------------------------

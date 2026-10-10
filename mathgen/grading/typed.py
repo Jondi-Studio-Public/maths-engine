@@ -1487,19 +1487,26 @@ def _too_costly_to_parse(candidate: str) -> bool:
     return too_costly(candidate, transformations=_TRANSFORMATIONS)
 
 
-def _parse_expression(given: str):
-    text = given.strip()
-    if not text:
-        return None
-    if len(text) > MAX_ANSWER_LENGTH:
-        return None  # never run the normalisers or the spoken fallback over a pasted essay
+def _sympy_text(text: str) -> str | None:
+    """`text` rewritten for sympy's parser, or None when the learner notation has no single reading."""
     candidate = _normalize_learner_notation(_round_brackets(text).translate(_MULTIPLICATION_SIGNS))
     if candidate is None:
         return None  # no single reading: never guess, never hand it to the spoken fallback
     candidate = _bars_to_abs(candidate)
     if candidate is None:
         return None  # unpaired "|": never hand bars to the spoken fallback
-    candidate = _normalize_surd_notation(candidate).replace("^", "**")
+    return _normalize_surd_notation(candidate).replace("^", "**")
+
+
+def _parse_expression(given: str):
+    text = given.strip()
+    if not text:
+        return None
+    if len(text) > MAX_ANSWER_LENGTH:
+        return None  # never run the normalisers or the spoken fallback over a pasted essay
+    candidate = _sympy_text(text)
+    if candidate is None:
+        return None
     try:
         # Measured before it is evaluated and again once parsed: an expression SymPy could spend seconds
         # on is not graded (and never reaches the spoken-word fallback, which would read it differently).
@@ -1953,6 +1960,66 @@ def _exact_decimals(given_expr, expected):
     return given_expr.xreplace({f: sympy.Rational(str(f)) for f in floats})
 
 
+# -- expression: answer_form "factored" ------------------------------------
+#
+# A bracket in the reply is not enough: "(6x + 9)", "1(6x + 9)" and the question's own "2(x - 3)^2 - 7(x - 3) - 30"
+# all carry one. The reply is read as written (an unevaluated parse keeps the product the learner typed) and must
+# be a product of at least two factors, a number other than 1 counting as one; no polynomial factor may keep a
+# common whole-number factor ("3(4x + 6)" for 6(2x + 3)); and it must have at least as many non-constant factors as
+# the canonical ("(x^2 - 1)(x^2 + 1)" for (x - 1)(x + 1)(x^2 + 1)). Factoring further than the canonical is fine.
+# Text the unevaluated parse cannot read keeps the bracket check alone.
+
+
+def _written_factors(text: str) -> tuple[object, list] | None:
+    """(the product of the constant factors, the non-constant factors with repeats) of `text` as written."""
+    candidate = _sympy_text(text.strip()) if text and len(text) <= MAX_ANSWER_LENGTH else None
+    if candidate is None:
+        return None
+    try:
+        tree = parse_expression_safely(candidate, transformations=_TRANSFORMATIONS, evaluate=False)
+    except Exception:  # noqa: BLE001 - unreadable as written: the caller keeps its simpler check
+        return None
+    if not isinstance(tree, sympy.Basic):
+        return None
+    constant, factors, stack = sympy.Integer(1), [], [tree]
+    while stack:
+        node = stack.pop()
+        if isinstance(node, sympy.Mul):
+            stack.extend(node.args)
+        elif not node.free_symbols:
+            constant *= node
+        elif isinstance(node, sympy.Pow) and node.exp.is_Integer and 1 < node.exp <= 20:
+            stack.extend([node.base] * int(node.exp))
+        else:
+            factors.append(node)
+    return constant, factors
+
+
+def _keeps_a_common_factor(factor) -> bool:
+    try:
+        poly = sympy.Poly(sympy.expand(factor))
+    except (sympy.PolynomialError, sympy.GeneratorsNeeded, TypeError, ValueError):
+        return False
+    return poly.domain.is_ZZ and abs(poly.content()) != 1
+
+
+def _factorised_as_far_as(stripped: str, question) -> bool:
+    given = _written_factors(stripped)
+    if given is None:
+        return True
+    constant, factors = given
+    try:
+        trivial_constant = sympy.simplify(constant) in (1, -1)
+    except (TypeError, ValueError):
+        trivial_constant = False
+    if len(factors) + (0 if trivial_constant else 1) < 2:
+        return False
+    if any(_keeps_a_common_factor(factor) for factor in factors):
+        return False
+    expected = _written_factors(_strip_label(question.answer_text or "")) or _written_factors(str(question.answer))
+    return expected is None or len(factors) >= len(expected[1])
+
+
 def grade_expression(question, given: str) -> GradeResult:
     canonical = question.answer_text
     stripped = _round_brackets(_strip_label(given))
@@ -2025,7 +2092,7 @@ def grade_expression(question, given: str) -> GradeResult:
         # cannot show this (see above), so this is a string check on `stripped`,
         # never on `given_expr`. A pair around the whole reply factors nothing:
         # "(6x + 9)" is the expression the question gave, so it is peeled first.
-        if "(" not in _strip_redundant_enclosing_brackets(stripped):
+        if "(" not in _strip_redundant_enclosing_brackets(stripped) or not _factorised_as_far_as(stripped, question):
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
     elif answer_form == "expanded":
         # Peel off one (or, looped, several nested) fully-enclosing redundant bracket pair before
