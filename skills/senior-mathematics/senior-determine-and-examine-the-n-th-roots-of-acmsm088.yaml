@@ -28,6 +28,11 @@ sources:
     params: {variant: cartesian_axis}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_complex_nth_root
+    params: {tier: exam}
+    difficulty: exam
+    stages:
+      - exam
 misconceptions:
   - id: swaps-modulus-and-argument
     description: Reports (theta, r) instead of (r, theta) -- confuses which component is the modulus and which is the argument.

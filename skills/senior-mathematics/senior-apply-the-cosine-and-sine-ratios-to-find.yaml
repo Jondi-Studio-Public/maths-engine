@@ -21,6 +21,11 @@ sources:
   params: {variant: chained}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h4_trig_altitude
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swaps-sine-and-cosine
   description: Uses cos where sin was needed, or vice versa (e.g., computes H*cos(theta) when asking for the opposite side, which requires sin).

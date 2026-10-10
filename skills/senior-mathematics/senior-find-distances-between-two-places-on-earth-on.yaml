@@ -21,6 +21,11 @@ sources:
   params: {mode: combined_km}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_meridian_voyage
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-hemisphere-rule
   description: Subtracts the two latitudes when they are in opposite hemispheres (should add the magnitudes), or adds them when they are in the same hemisphere (should subtract).

@@ -31,6 +31,10 @@ sources:
     params: {variant: general}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_h2_complex_mult_transform
+    params: {tier: exam}
+    difficulty: exam
+    stages: [exam]
 misconceptions:
   - id: added-not-multiplied
     description: Adds the multiplier w to z's coordinates instead of multiplying by it — treats a fixed multiplier as an offset, not a scale factor.

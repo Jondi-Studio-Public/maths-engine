@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h5_quotient_reciprocal_or_cubic
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-to-divide
   description: Reports δy = f(p+δx)-f(p) alone, without dividing by δx.

@@ -323,13 +323,13 @@ class TestSkillLoads:
         assert skill.answer == "number"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4
 
     def test_skill_sources_cover_all_difficulties(self):
         domains, skills = load_skills()
         skill = next(s for s in skills if s.id == SKILL_ID)
         difficulties = {source.difficulty for source in skill.sources}
-        assert difficulties == {"easy", "medium", "hard"}
+        assert difficulties == {"easy", "medium", "hard", "exam"}
 
     def test_skill_sources_cover_expected_stages(self):
         domains, skills = load_skills()

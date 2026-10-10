@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h5_acceleration_rest_or_positions
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-second-constant
   description: Uses the correctly-built velocity function to form the second antiderivative, but never solves for/adds the second constant of integration.

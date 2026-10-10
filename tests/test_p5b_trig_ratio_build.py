@@ -308,7 +308,7 @@ class TestSkillLoads:
         assert skill.answer == "number"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3  # easy, medium, hard
+        assert len(skill.sources) == 4  # easy, medium, hard, exam
 
     def test_skill_sources_cover_all_difficulties(self):
         """Test that skill sources cover easy, medium, and hard."""
@@ -316,7 +316,7 @@ class TestSkillLoads:
         skill = next((s for s in skills if s.id == "senior-apply-the-cosine-and-sine-ratios-to-find"), None)
         assert skill is not None
         difficulties = {source.difficulty for source in skill.sources}
-        assert difficulties == {"easy", "medium", "hard"}
+        assert difficulties == {"easy", "medium", "hard", "exam"}
 
     def test_misconceptions_present(self):
         """Test that skill declares misconceptions."""

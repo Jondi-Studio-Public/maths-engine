@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h5_antiderivative_linear_power
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-constant
   description: Reports G(x), the antiderivative without solving for the constant of integration (equivalent to using C = 0).
