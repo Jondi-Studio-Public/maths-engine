@@ -58,6 +58,12 @@ def _strip_label(given: str) -> str:
     return _LABEL_RE.sub("", given, count=1)
 
 
+def _label_name(text: str | None) -> str | None:
+    """The variable a reply or canonical is labelled with ("x" in "x = 3"), or None when it has no label."""
+    match = _LABEL_RE.match(text or "")
+    return match.group(0).split("=")[0].strip() if match else None
+
+
 _RATIO_RE = re.compile(r"^(-?)\s*(\d+)\s*:\s*(\d+)$")
 
 
@@ -553,8 +559,9 @@ def grade_fraction(question, given: str) -> GradeResult:
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         given_normalised = _normalised_values(given)
         parsed = _parse_typed_fraction(given)
-        if parsed is None:
-            # "x = 50/7": the variable the question solves for, as `number` and `expression` already accept it.
+        if parsed is None and _label_name(canonical) is not None and _label_name(given) == _label_name(canonical):
+            # "x = 50/7" for a canonical shown as "x = 50/7". Only with the canonical's own label: for a bare "7"
+            # a labelled reply stays wrong, as before, and "y = 50/7" is wrong for x.
             given = _strip_label(given)
             parsed = _parse_typed_fraction(given)
         if parsed is None:
@@ -2123,9 +2130,9 @@ def grade_expression(question, given: str) -> GradeResult:
         expected = _expected_expression(question)
     except (sympy.SympifyError, TypeError, ValueError):
         expected = None
-    if getattr(expected, "is_number", False):
+    if getattr(expected, "is_number", False) and not expected.has(sympy.pi):
         # An angle typed with its unit: "30°", "30 degrees". Only when the answer is a plain number, so
-        # nothing else a learner writes is read differently.
+        # nothing else a learner writes is read differently, and never for an answer in radians ("9π/4°").
         stripped = _DEGREE_SUFFIX_RE.sub("", stripped)
     if "∞" in (canonical or ""):
         # "infinity", "inf" or "oo" for an answer shown as ∞: the reply on its own, so nothing else is read differently.

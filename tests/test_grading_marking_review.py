@@ -375,3 +375,13 @@ def test_exact_fraction_answer_with_or_without_the_variable(answer, kind, given)
 @pytest.mark.parametrize("given", ["x = 50/8", "7.14", "x = 7", "x = -50/7"])
 def test_exact_fraction_answer_wrong_values(answer, kind, given):
     assert not _correct(kind, _q(answer, "x = 50/7"), given)
+
+
+def test_a_labelled_reply_needs_a_labelled_canonical_with_the_same_variable():
+    assert not _correct("fraction", _q({"p": 7, "q": 1}, "7"), "x = 7")
+    assert not _correct("fraction", _q({"p": 50, "q": 7}, "x = 50/7"), "y = 50/7")
+
+
+def test_degree_sign_is_not_dropped_from_an_answer_in_radians():
+    assert not _correct("expression", _q("9*pi/4", "9π/4"), "9*pi/4°")
+    assert _correct("expression", _q("9*pi/4", "9π/4"), "9pi/4")
