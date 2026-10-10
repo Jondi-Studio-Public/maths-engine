@@ -3,7 +3,8 @@ condition is met.
 
 The practice tiers apply a fixed one- or two-step rule once to each given input. Here the learner is told a
 decision rule and a stopping test and must run the rule repeatedly, deciding at every pass which branch applies
-and when to stop, then list every value the algorithm visits (start and final value included). The number of
+and when to stop, then list every value the algorithm visits, in any order, since the skill's list answers are
+graded as sets (start and final value included). The number of
 passes is not stated; it is found by running the algorithm.
 
 The sequence of values is produced by one simulation and then recomputed independently with a second,
@@ -104,7 +105,7 @@ def exd_x_f0_algorithm_loop(rng: random.Random, tier: str = "exam") -> dict:
     text = (
         f"An algorithm starts with n = {start} and repeats this step: if n is {test_text}, replace n by "
         f"{b1_text}; otherwise replace n by {other_text}. It stops as soon as {stop_text}. "
-        "List every value of n in order, including the starting value and the final value."
+        "List every value n takes, including the starting value and the final value (the order you give them in does not matter)."
     )
     answer_text = ", ".join(str(v) for v in values)
 

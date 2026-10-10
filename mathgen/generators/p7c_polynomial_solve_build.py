@@ -25,6 +25,8 @@ skill 1, `sympy.div` on the *displayed* expanded cubic for skill 2).
 
 from __future__ import annotations
 
+from math import isqrt
+
 from sympy import Poly, Symbol, expand
 
 from ..core import check, check_distinct, fmt_signed, generator, join_terms, pick_distractors
@@ -163,6 +165,12 @@ P_HARD = [-4, -3, -2, -1, 1, 2, 3, 4]
 A_HARD = [2, 3]
 
 
+def _splits_over_integers(q, r):
+    """True if x^2 + qx + r has integer roots (non-negative perfect-square discriminant)."""
+    d = q * q - 4 * r
+    return d >= 0 and isqrt(d) ** 2 == d
+
+
 @generator(
     "factorise_cubic_linear_factor",
     level=12,
@@ -195,7 +203,10 @@ def factorise_cubic_linear_factor(rng, tier="medium"):
         a = rng.choice(A_HARD)
         q = rng.randint(-6, 6)
         r = rng.randint(-6, 6)
-        while q == r:
+        # "Completely" means the quadratic factor must not split over the integers either (discriminant a
+        # perfect square), or the stated product is not fully factorised.
+        while q == r or _splits_over_integers(q, r):
+            q = rng.randint(-6, 6)
             r = rng.randint(-6, 6)
     else:
         raise ValueError(f"Unknown tier: {tier}")

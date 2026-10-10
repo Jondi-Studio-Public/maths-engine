@@ -74,6 +74,16 @@ def test_grader_accepts_key_and_rejects_every_distractor():
             assert not grade(q, d).correct, (seed, d, q.answer_text)
 
 
+def test_prompt_matches_the_order_insensitive_grader():
+    """The skill's `list` answers ignore order, so the prompt must not ask for an order."""
+    grade = GRADERS["list"]
+    for seed in range(100):
+        q = _q(seed)
+        assert "in order" not in q.text and "does not matter" in q.text
+        assert grade(q, ", ".join(str(v) for v in sorted(q.answer))).correct
+        assert grade(q, ", ".join(str(v) for v in reversed(q.answer))).correct
+
+
 def test_every_run_uses_both_branches_and_ends_at_the_stop():
     for seed in range(100):
         q = _q(seed)

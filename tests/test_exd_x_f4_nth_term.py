@@ -94,3 +94,15 @@ def test_grader_accepts_key_and_rejects_every_distractor():
         assert len(q.distractors) >= 3
         for d in q.distractors:
             assert not grade(q, d).correct, (seed, q.text, d)
+
+
+def test_ordinals_use_correct_suffixes():
+    wrong = re.compile(
+        r"\b(?:\d*(?<!1)[123]th|\d*1[123](?:st|nd|rd)|\d*(?<![1])1(?:nd|rd|th)|\d*(?<!1)2(?:st|rd|th)|\d*(?<!1)3(?:st|nd|th))\b"
+    )
+    seen = set()
+    for seed in range(300):
+        text = _make(seed).text
+        assert not wrong.search(text), text
+        seen.update(re.findall(r"\b\d+(?:st|nd|rd|th)\b", text))
+    assert any(s.endswith(("st", "nd", "rd")) for s in seen), seen

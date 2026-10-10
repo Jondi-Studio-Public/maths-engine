@@ -24,9 +24,9 @@ from ..core import check, generator, join_terms, numeric_answer, phrase, pick_di
 _KINDS = ("from_two_terms", "first_exceeds", "count_in_range")
 
 _TWO_TERMS = (
-    "The {p1}th term of an arithmetic sequence is {t1} and the {p2}th term is {t2}. Find the {k}th term.",
-    "An arithmetic sequence has {t1} as its {p1}th term and {t2} as its {p2}th term. What is its {k}th term?",
-    "In an arithmetic sequence, term number {p1} equals {t1} and term number {p2} equals {t2}. Work out term number {k}.",
+    "The {p1} term of an arithmetic sequence is {t1} and the {p2} term is {t2}. Find the {k} term.",
+    "An arithmetic sequence has {t1} as its {p1} term and {t2} as its {p2} term. What is its {k} term?",
+    "In an arithmetic sequence, term number {p1n} equals {t1} and term number {p2n} equals {t2}. Work out term number {kn}.",
 )
 _EXCEEDS = (
     "The nth term of a sequence is T_n = {rule}. Find the smallest value of n for which T_n is greater than {m}.",
@@ -38,6 +38,13 @@ _COUNT = (
     "A sequence has rule T_n = {rule}, for n = 1, 2, 3, and so on. Count the terms whose value is at least {lo} and at most {hi}.",
     "For the sequence T_n = {rule}, how many of its terms are in the interval from {lo} to {hi}, including both ends?",
 )
+
+
+def _ordinal(n):
+    """1st, 2nd, 3rd, 4th ... 11th, 12th, 13th, 21st ..."""
+    if n % 100 in (11, 12, 13):
+        return f"{n}th"
+    return f"{n}" + {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
 
 
 def _two_terms(rng):
@@ -60,7 +67,9 @@ def _two_terms(rng):
         ]
         distractors = pick_distractors(str(key), [str(c) for c in cands])
         if len(distractors) >= 3:
-            text = phrase(rng, _TWO_TERMS, p1=p1, p2=p2, t1=t1, t2=t2, k=k)
+            text = phrase(
+                rng, _TWO_TERMS, p1=_ordinal(p1), p2=_ordinal(p2), t1=t1, t2=t2, k=_ordinal(k), p1n=p1, p2n=p2, kn=k
+            )
             return text, key, distractors
     check(False, "exd_x_f4_nth_term: no draw with three distinct distractors")
 

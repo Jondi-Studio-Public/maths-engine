@@ -74,7 +74,7 @@ def exd_x_f5_incl(rng: random.Random, tier: str = "exam") -> dict:
     lines = []
     for i, d in enumerate((first, second), start=1):
         lines.append(f"Line {i} is {d}." if d.startswith("the line") else f"Line {i}: {d}.")
-    text = " ".join(lines) + f" Find the {want} angle between the two lines, in degrees."
+    text = " ".join(lines) + f" Find the {want} angle between the two lines. Give the number of degrees only."
     # Independent route: the angle between lines also satisfies tan(phi) = |(m1 - m2)/(1 + m1 m2)| for the acute angle.
     m1, m2 = math.tan(math.radians(t1)), math.tan(math.radians(t2))
     phi = math.degrees(math.atan(abs((m1 - m2) / (1 + m1 * m2))))

@@ -97,3 +97,11 @@ def test_grader_accepts_key_and_rejects_every_distractor_over_120_seeds():
             if _GRADER(q, d).correct:
                 bad.append(("distractor accepted", seed, d, q.answer_text))
     assert bad == [], bad[:3]
+
+
+def test_prompt_asks_for_the_bare_number_of_degrees():
+    """The expression grader rejects a degree sign or word, so the prompt must say to leave them off."""
+    for seed in range(60):
+        q = _exam(seed)
+        assert q.text.endswith("Give the number of degrees only."), q.text
+        assert _GRADER(q, q.answer_text).correct
