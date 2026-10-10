@@ -290,7 +290,7 @@ def _free_angle(rng, style, lo, hi):
     of defaulting to tan, medium tier); "mixed" draws from all three (hard
     tier, also given the widest `lo`/`hi` band of the three tiers).
 
-    `right-triangle-angle.yaml`'s hard source uses `angle_style: elevation_eye`
+    `right-triangle-angle.yaml`'s exam source uses `angle_style: elevation_eye`
     (the opposite side must first be obtained by subtracting the observer's
     eye height, which changes the numbers that go into the ratio)."""
     if style == "elevation_eye":
@@ -392,7 +392,7 @@ _INEXACT_MAX_TRIES = 200
 
 
 def _angle_elevation_eye(rng):
-    """Hard tier: angle of elevation of a tower's top from a
+    """Exam tier: angle of elevation of a tower's top from a
     student's eyes. The opposite side is H - e (tower height less eye height),
     so the subtraction changes which numbers enter tan; it is not a detour.
     The yaml's angle_lo/angle_hi are ignored here: H, d and e have their own

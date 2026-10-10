@@ -1,4 +1,4 @@
-"""W5b 1175: right-triangle-angle hard tier subtracts the observer's eye height."""
+"""W5b 1175: right-triangle-angle exam tier subtracts the observer's eye height."""
 
 import math
 import re
