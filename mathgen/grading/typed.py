@@ -812,6 +812,36 @@ def _labelled_pair_verdict(canonical: str, given: str, expected_values: list) ->
     return True
 
 
+# A vector in component form, "-4i - 3j + 0k" or "i - 2j": each unit vector at most once, in any order, a
+# missing one being 0. Read as the tuple of its components. Without this a spaced reply was read as a
+# subtraction ("- 3j" lost its sign), while the same reply typed without spaces was accepted.
+_COMPONENT_TERM_RE = re.compile(r"\s*([+-]?)\s*(\d+(?:\.\d+)?(?:/\d+)?)?\s*\*?\s*([ijk])(?![A-Za-z])")
+
+
+def _component_form(given: str, count: int) -> str | None:
+    text = (given or "").strip()
+    # Each term is matched where the last one ended, so the reading is linear; a vector is a few dozen characters.
+    if not text or count not in (2, 3) or len(text) > 200 or not any(unit in text for unit in "ijk"):
+        return None
+    coefficients: dict[str, str] = {}
+    position = 0
+    while position < len(text):
+        match = _COMPONENT_TERM_RE.match(text, position)
+        if match is None or (position and not match.group(1)) or match.group(3) in coefficients:
+            return None
+        sign, number, unit = match.groups()
+        coefficients[unit] = (sign if sign == "-" else "") + (number or "1")
+        position = match.end()
+        if not text[position:].strip():
+            break
+    if not coefficients:
+        return None
+    units = "ijk"[:count]
+    if any(unit not in units and coefficients[unit].lstrip("-") not in ("0", "0.0") for unit in coefficients):
+        return None
+    return "(" + ", ".join(coefficients.get(unit, "0") for unit in units) + ")"
+
+
 def grade_pair(question, given: str) -> GradeResult:
     """Unlike `check_answer`'s dict branch (which accepts the two values in
     either order, since it only checks presence), a pair answer kind
@@ -827,6 +857,7 @@ def grade_pair(question, given: str) -> GradeResult:
     if not isinstance(answer, dict):
         return _check_answer_kind(question, given)
     expected_values = list(answer.values())
+    given = _component_form(given, len(expected_values)) or given
     given_values = _normalised_values(given)
     if _reply_negates_the_answer(question, given):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_values)
@@ -2020,6 +2051,9 @@ def _factorised_as_far_as(stripped: str, question) -> bool:
     return expected is None or len(factors) >= len(expected[1])
 
 
+_DEGREE_SUFFIX_RE = re.compile(r"(?<=[\d)])\s*(?:[°º˚]|deg(?:rees?|s)?\.?)\s*$", re.IGNORECASE)
+
+
 def grade_expression(question, given: str) -> GradeResult:
     canonical = question.answer_text
     stripped = _round_brackets(_strip_label(given))
@@ -2046,13 +2080,17 @@ def grade_expression(question, given: str) -> GradeResult:
             given_normalised=str(given_coeffs) if given_coeffs is not None else None,
         )
 
-    given_expr = _parse_expression(stripped)
-    if given_expr is None:
-        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     try:
         expected = _expected_expression(question)
     except (sympy.SympifyError, TypeError, ValueError):
         expected = None
+    if getattr(expected, "is_number", False):
+        # An angle typed with its unit: "30°", "30 degrees". Only when the answer is a plain number, so
+        # nothing else a learner writes is read differently.
+        stripped = _DEGREE_SUFFIX_RE.sub("", stripped)
+    given_expr = _parse_expression(stripped)
+    if given_expr is None:
+        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     given_expr = _resolve_constants(given_expr, expected)
     if given_expr is None:  # `e` as Euler's number made it too costly to compare
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
@@ -2740,6 +2778,29 @@ _DOUBLE_SIGN_KINDS = _SIGNED_VALUE_KINDS | {"number"}
 _DOUBLE_SIGN_RE = re.compile(r"-[ \t]*-[ \t]*\.?\d")
 
 
+# The question pasted back as the reply. The value readers take the number after the last "=", so the question
+# itself could grade correct: "Solve 2x/2 = 4" for x = 4, or "... satisfy p·u + q·w = i - 2j ... Find q" for -2.
+# A reply is a copy when a stretch of prose from the question makes it up (twelve characters or more, with a
+# letter), or when what stands before its last "=" is an expression with a variable (a digit and a letter) that
+# the question shows. Compared without spaces or case. The kinds whose answers never repeat the question's text.
+_COPY_CHECKED_KINDS = frozenset({"number", "fraction", "pair"})
+
+
+def _squeezed(text: str) -> str:
+    return re.sub(r"\s+", "", (text or "").translate(_MINUS_SIGNS)).lower()
+
+
+def _copies_the_question(question, given: str) -> bool:
+    asked = _squeezed(getattr(question, "text", ""))
+    reply = _squeezed(given)
+    if not asked or not reply:
+        return False
+    if len(reply) >= 12 and re.search(r"[a-z]", reply) and reply in asked:
+        return True
+    label = reply.rpartition("=")[0]
+    return bool(label and re.search(r"[a-z]", label) and re.search(r"\d", label) and label + "=" in asked)
+
+
 #: Longest reply `grade` reads at all. The longest answer in the library, table answers included, is a few hundred
 #: characters; this is a bound on the work (about 0.3 s at the limit), not a judgement on any real reply. A
 #: reply shorter than this still reaches its grader, which truncates what it logs (see test_logged_reply_is_truncated).
@@ -2769,6 +2830,8 @@ def grade(kind: str, question, given: str, *, skill=None) -> GradeResult:
         # parser reads is in the width of a gap.
         given = _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, _WHITESPACE_RUN_RE.sub(_one_gap, given)))
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
+        return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
+    if isinstance(given, str) and kind in _COPY_CHECKED_KINDS and _copies_the_question(question, given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     try:
         result = GRADERS[kind](question, given)

@@ -213,3 +213,97 @@ def test_ordered_list_with_semicolons(given):
 
 def test_ordered_list_with_semicolons_keeps_order():
     assert not _correct("ordered_list", _SEQUENCE, "13; 8; 5; 3")
+
+
+# -- an angle typed with its unit, in an expression answer -------------------------------
+
+_ANGLE = _q("30", "30")
+
+
+@pytest.mark.parametrize("given", ["30", "30°", "30 °", "30º", "30 degrees", "30 Degrees", "30 deg"])
+def test_angle_with_its_unit(given):
+    assert _correct("expression", _ANGLE, given)
+
+
+@pytest.mark.parametrize("given", ["31°", "30 radians", "°30"])
+def test_wrong_angle_with_a_unit_is_still_wrong(given):
+    assert not _correct("expression", _ANGLE, given)
+
+
+def test_degree_sign_is_not_dropped_from_a_symbolic_answer():
+    assert not _correct("expression", _q("x", "x"), "x°")
+
+
+# -- a vector in component form for a pair answer -----------------------------------------
+
+_VECTOR3 = _q({"x": -4, "y": -3, "z": 0}, "(-4, -3, 0)")
+
+
+@pytest.mark.parametrize(
+    "given", ["-4i-3j+0k", "-4i - 3j + 0k", "−4i − 3j + 0k", "-4 i - 3 j + 0 k", "-3j - 4i", "-4i - 3j"]
+)
+def test_component_form_spaced_or_not(given):
+    assert _correct("pair", _VECTOR3, given)
+
+
+@pytest.mark.parametrize("given", ["-4i + 3j", "-4i - 3j + k", "-4i - 3i", "4i - 3j", "-4i - 3j + 0k + 2"])
+def test_wrong_component_form_is_wrong(given):
+    assert not _correct("pair", _VECTOR3, given)
+
+
+@pytest.mark.parametrize("given", ["i - 2j", "1i - 2j", "-2j + i", "i - 2j + 0k"])
+def test_unit_coefficient_and_missing_k(given):
+    assert _correct("pair", _q({"x": 1, "y": -2}, "(1, -2)"), given)
+
+
+def test_a_k_component_is_not_dropped_from_a_two_component_answer():
+    assert not _correct("pair", _q({"x": 1, "y": -2}, "(1, -2)"), "i - 2j + k")
+
+
+# -- the question pasted back ----------------------------------------------------------------
+
+
+def _asked(answer, answer_text, text):
+    question = _q(answer, answer_text)
+    question.text = text
+    return question
+
+
+_SCALARS = _asked(
+    -2,
+    "-2",
+    "The vectors u = -5i + 2j and w = -3i + 2j satisfy p·u + q·w = i - 2j, where p and q are scalars. "
+    "Find the value of q.",
+)
+
+
+@pytest.mark.parametrize("given", [_SCALARS.text, "p·u + q·w = i - 2j", "satisfy p·u + q·w = i - 2j"])
+def test_question_pasted_back_is_wrong(given):
+    assert not _correct("number", _SCALARS, given)
+
+
+@pytest.mark.parametrize("given", ["-2", "q = -2"])
+def test_answer_to_that_question_is_right(given):
+    assert _correct("number", _SCALARS, given)
+
+
+def test_equation_copied_from_the_question_is_wrong():
+    question = _asked(4, "x = 4", "Solve 2x/2 = 4")
+    assert not _correct("number", question, "2x/2 = 4")
+    assert _correct("number", question, "x = 4")
+
+
+@pytest.mark.parametrize(
+    "answer, answer_text, text, given",
+    [
+        (9, "9", "Find the area of a 3 by 3 square.", "area = 3 x 3 = 9"),
+        (3, "x = 3", "Solve 3x = 9", "3x = 9, x = 3"),
+    ],
+)
+def test_working_that_restates_part_of_the_question_is_still_right(answer, answer_text, text, given):
+    assert _correct("number", _asked(answer, answer_text, text), given)
+
+
+def test_a_coordinate_answer_is_still_read():
+    """The degree check reads the expected answer, which can be a tuple rather than a number."""
+    assert _correct("expression", _q("(1, 2)", "(1, 2)"), "(1, 2)")
