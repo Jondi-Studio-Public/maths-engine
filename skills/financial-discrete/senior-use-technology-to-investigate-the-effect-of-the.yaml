@@ -21,8 +21,8 @@ sources:
   params: {variant: rate_effect}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p16c_compound_effect
-  params: {variant: percent_effect}
+- topic: exam_parts_compound_interest
+  params: {}
   difficulty: exam
   stages: [exam]
 misconceptions:
@@ -38,4 +38,12 @@ misconceptions:
   description: Treats the effect of the rate change as simple, non-compounding growth applied once over the whole term, rather than compounding it.
 - id: wrong-percentage-base
   description: Expresses the percentage difference between the two future values against the wrong base value (the total of both, or the larger value) instead of the smaller future value.
+- id: rate-not-divided-by-n
+  description: Uses the full annual rate in every compounding period instead of dividing it by the number of periods per year.
+- id: periods-not-multiplied-by-n
+  description: Compounds once per year for the stated years instead of multiplying the years by the number of periods per year.
+- id: simple-interest-instead-of-compound
+  description: Adds the same interest every year (principal x rate x time) instead of compounding it on the growing balance.
+- id: interest-reported-as-balance
+  description: Reports the balance where the interest earned was asked for, or the interest where the balance was asked for.
 tags: [acara-senior-v8-4, financial-discrete, compounding, effect, acmem173]
