@@ -642,14 +642,9 @@ def test_gitleaks_on_a_push_uses_the_commits_own_policy_files(tmp_path):
 
 ALL_WORKFLOWS = sorted(p for p in WORKFLOWS.iterdir() if p.suffix in {".yml", ".yaml"})
 ALLOWED_TRIGGERS = {"push", "pull_request", "schedule", "workflow_dispatch"}
-#: The only runner choice a job may make. A run whose event says the repository is private (GitHub will not start
-#: hosted jobs for the organisation while it is) takes the self-hosted runner registered to it; anything else, a
-#: public repository and an event with no visibility such as the nightly run, takes a version-pinned hosted
-#: runner. Self-hosted is the exception the event has to ask for, so a public repository never reaches it.
-SELF_HOSTED_LABELS = '["self-hosted", "Linux", "X64"]'
-RUNS_ON = (
-    "${{ github.event.repository.visibility == 'private' && fromJSON('" + SELF_HOSTED_LABELS + "') || 'ubuntu-24.04' }}"
-)
+#: The only runner a job may use: a version-pinned GitHub-hosted one. A fork's pull request runs the workflow as
+#: its own branch wrote it, so a self-hosted runner would run a stranger's code on the maintainer's machine.
+RUNS_ON = "ubuntu-24.04"
 
 
 def triggers_of(doc: dict) -> set[str]:
@@ -679,11 +674,11 @@ def test_workflow_has_only_safe_triggers_a_read_only_token_and_no_secrets(path):
     for job_id, job in doc["jobs"].items():
         assert "permissions" not in job, f"job {job_id} must not widen the token"
         assert "timeout-minutes" in job, f"job {job_id} needs a timeout"
-        assert job["runs-on"] == RUNS_ON, f"job {job_id}: self-hosted only while private, else a pinned hosted runner"
+        assert job["runs-on"] == RUNS_ON, f"job {job_id}: must run on the pinned hosted runner"
     text = path.read_text(encoding="utf-8")
     assert not re.search(r"(?<![\w.-])secrets\.|secrets:\s*inherit", text), "no secrets in a public repository"
     code = re.sub(r"(?m)^\s*#.*$", "", text)
-    assert code.count("self-hosted") == len(doc["jobs"]), "self-hosted appears only in each job's RUNS_ON"
+    assert "self-hosted" not in code, "a public repository never names a self-hosted runner"
 
 
 @pytest.mark.parametrize("path", ALL_WORKFLOWS, ids=lambda p: p.name)
