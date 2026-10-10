@@ -30,6 +30,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a3_linear_fractions_cancelling_square
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-side-collection
   description: Collected the unknown terms on the wrong side when isolating x, flipping the sign of the whole coefficient (subtracted where the correct move was to add, or vice versa)
