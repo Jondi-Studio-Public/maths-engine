@@ -183,6 +183,8 @@ class TestSkillLoads:
         assert skill.prerequisites == ["combine-like-terms"]
         stages_covered = set()
         for source in skill.sources:
+            if source.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             assert source.topic == "polynomial_classify"
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance"}

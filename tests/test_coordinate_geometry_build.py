@@ -203,14 +203,14 @@ def test_coordinate_pilot_skill_contracts_load_with_expected_shape():
     assert midpoint.answer == "pair"
     assert midpoint.placement_eligible is False
     assert midpoint.status == "active"
-    assert [source.stages for source in midpoint.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
-    assert [source.difficulty for source in midpoint.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in midpoint.sources} == {"midpoint_two_points"}
+    assert [source.stages for source in midpoint.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
+    assert [source.difficulty for source in midpoint.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in midpoint.sources if source.difficulty != "exam"} == {"midpoint_two_points"}
 
     assert distance.prerequisites == ["coordinate-plane-readiness", "pythagorean-hypotenuse"]
     assert distance.answer == "expression"
     assert distance.placement_eligible is False
     assert distance.status == "active"
-    assert [source.stages for source in distance.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
-    assert [source.difficulty for source in distance.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in distance.sources} == {"distance_two_points"}
+    assert [source.stages for source in distance.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
+    assert [source.difficulty for source in distance.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in distance.sources if source.difficulty != "exam"} == {"distance_two_points"}
