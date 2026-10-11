@@ -33,7 +33,7 @@ classifiers = [
 dependencies = ["sympy>=1.12.1", "numpy>=1.26", "pyyaml>=6.0.1"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "pytest-xdist>=3.5", "mpmath>=1.3"]
+dev = ["pytest>=8.0", "pytest-xdist>=3.5", "mpmath>=1.3", "jsonschema>=4.18"]
 
 [project.urls]
 Homepage = "https://github.com/Jondi-Studio-Public/maths-engine"
@@ -57,7 +57,7 @@ include-package-data = false
 "mathgen._skills" = "skills"
 
 [tool.setuptools.package-data]
-"mathgen._skills" = ["*.yaml", "*/*.yaml"]
+"mathgen._skills" = ["*.yaml", "*/*.yaml", "*.json"]
 
 [tool.pytest.ini_options]
 # Tests import `scripts.*` and `tests.*` from the repository root; a bare `pytest` does not put it on

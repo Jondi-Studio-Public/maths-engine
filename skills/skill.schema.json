@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Maths engine skill file",
+  "description": "One skill: skills/<domain>/<id>.yaml. Derived from what mathgen/skills.py reads (_skill_from_dict, _source_from_dict, _mental_from_dict, _alignment_from_dict, _rubric_block_from_dict) and the rules validate() enforces. The schema checks shape and labels only; it cannot check that a topic is registered, that a prerequisite resolves, that an answer kind has a grader, or that a source generates questions. validate() does those. tests/public/test_skill_schema.py keeps the property lists below equal to the fields the loader reads.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "domain", "status", "answer"],
+  "properties": {
+    "id": {
+      "description": "Equal to the file name without .yaml. Lower-case words joined by hyphens.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "description": "Short title shown to the learner.",
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "description": "Equal to the folder name, and listed in skills/domains.yaml.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "description": {
+      "description": "One sentence naming the observable operation.",
+      "type": "string"
+    },
+    "status": {
+      "description": "active: every source generates and the answer kind has a grader. deferred: not live yet; needs deferred_reason.",
+      "enum": ["active", "deferred"]
+    },
+    "deferred_reason": {
+      "description": "Why a deferred skill is not live. (The loader also uses 'invalid' for a file that failed to load; that is never written by hand.)",
+      "enum": [
+        "generator",
+        "grader",
+        "hard",
+        "visual",
+        "assessment_contract",
+        "formal_verification",
+        "safety_gate"
+      ]
+    },
+    "prerequisites": {
+      "description": "Skill ids that come first. May be empty; no cycles (validate() checks that they resolve).",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "capability_gates": {
+      "description": "Ids from skills/capability-gates.yaml. Fail-closed: an active skill needs every gate to have passed.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "answer": {
+      "description": "Which grader checks replies: a key of GRADERS in mathgen/grading, or 'rubric' (then see the rubric field). Not an enum here because the registry is code. A deferred skill may leave it empty.",
+      "type": "string"
+    },
+    "sources": {
+      "description": "Question sources, easiest first. An active skill needs at least one, each with a difficulty tier.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "misconceptions": {
+      "description": "Wrong methods a distractor can be tied to (feedback tone: here is the slip).",
+      "type": "array",
+      "items": { "$ref": "#/$defs/note" }
+    },
+    "near_misses": {
+      "description": "Sound reasoning aimed at a different question than the one asked (feedback tone: your reasoning is sound). Ids must not collide with misconceptions ids.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/note" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "framework_areas": {
+      "description": "Curriculum area ids this skill maps to. No duplicates.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "alignments": {
+      "description": "Evidence linking the skill to an external curriculum or framework. Only 'verified' is a formal claim.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/alignment" }
+    },
+    "placement_eligible": {
+      "description": "Default true.",
+      "type": "boolean"
+    },
+    "placement_order": {
+      "description": "Default 1000.",
+      "type": "integer"
+    },
+    "placement_questions": {
+      "description": "Default 4. At least 1.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "placement_pass": {
+      "description": "Default 3. Between 1 and placement_questions (validate() checks the upper bound).",
+      "type": "integer",
+      "minimum": 1
+    },
+    "learner_band": {
+      "description": "Default general.",
+      "enum": ["early", "primary", "general"]
+    },
+    "needs_figure": {
+      "description": "True when the questions carry a figure the learner must see. Such a skill may not have a mental block.",
+      "type": "boolean"
+    },
+    "mental": {
+      "description": "A fluency ladder for quick no-paper practice.",
+      "$ref": "#/$defs/mental"
+    },
+    "rubric": {
+      "description": "For answer: rubric. Names the versioned rubric that marks the answer.",
+      "$ref": "#/$defs/rubric"
+    },
+    "difficulty_progression": {
+      "description": "Prose saying how the tiers escalate in reasoning. Not read by the loader.",
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "active" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "answer": { "minLength": 1 },
+          "sources": {
+            "minItems": 1,
+            "items": { "required": ["difficulty"] }
+          }
+        },
+        "required": ["sources"]
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "deferred" } }, "required": ["status"] },
+      "then": { "required": ["deferred_reason"] }
+    },
+    {
+      "if": { "properties": { "answer": { "const": "rubric" } }, "required": ["answer"] },
+      "then": { "required": ["rubric"] }
+    },
+    {
+      "if": { "required": ["needs_figure", "mental"], "properties": { "needs_figure": { "const": true } } },
+      "then": false
+    }
+  ],
+  "$defs": {
+    "source": {
+      "description": "One entry of sources: mathgen.make(topic, seed=..., difficulty=..., **params).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topic"],
+      "properties": {
+        "topic": {
+          "description": "A registered generator topic (python -m mathgen --list).",
+          "type": "string",
+          "minLength": 1
+        },
+        "params": {
+          "description": "Keyword arguments for the generator; its signature is the authority.",
+          "type": "object"
+        },
+        "difficulty": {
+          "description": "The tier this source stands for. Required on an active skill's sources. It is also hashed into the seed, so changing it changes which question each seed gives.",
+          "enum": ["easy", "medium", "hard", "exam"]
+        },
+        "stages": {
+          "description": "Learning stages that draw this source. Omitted means all stages.",
+          "type": "array",
+          "items": { "enum": [0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"] }
+        }
+      }
+    },
+    "note": {
+      "description": "A misconception or near miss.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" }
+      }
+    },
+    "alignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "status": {
+          "description": "Default unverified. candidate and unverified are never presented as formal alignment.",
+          "enum": ["verified", "candidate", "unverified"]
+        },
+        "code": { "description": "External curriculum code; optional.", "type": "string" },
+        "framework": { "type": "string" },
+        "area": { "description": "Required when framework is given.", "type": "string" },
+        "source_version": { "type": "string" },
+        "source_url": { "type": "string" },
+        "verified_on": {
+          "description": "ISO date of the review. Required for verified. Quote it so YAML keeps it a string.",
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["status"], "properties": { "status": { "const": "verified" } } },
+          "then": { "required": ["verified_on"] }
+        },
+        {
+          "if": { "required": ["framework"] },
+          "then": { "required": ["area"] }
+        }
+      ]
+    },
+    "mental": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["levels"],
+      "properties": {
+        "levels": {
+          "description": "1 to 5 rungs, easiest first.",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": { "$ref": "#/$defs/mental_level" }
+        },
+        "entry_stage": {
+          "description": "Overrides the global mental entry stage.",
+          "type": "integer"
+        }
+      }
+    },
+    "mental_level": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["topic", "target_s", "limit_s"],
+      "properties": {
+        "topic": { "type": "string", "minLength": 1 },
+        "params": { "type": "object" },
+        "difficulty": { "description": "A preset name of the topic, if it has presets.", "type": "string" },
+        "target_s": { "description": "Positive seconds.", "type": "number", "exclusiveMinimum": 0 },
+        "limit_s": { "description": "Positive seconds, at least target_s (validate() checks that).", "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "rubric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "high_stakes": { "description": "Default false.", "type": "boolean" }
+      }
+    }
+  }
+}

@@ -44,6 +44,21 @@ def test_package_data_globs_cover_every_yaml_file_in_the_library(pyproject):
     assert pyproject["tool"]["setuptools"]["include-package-data"] is False
 
 
+def test_the_skill_schema_ships_with_the_skill_library(pyproject):
+    """The schema sits beside domains.yaml, so the wheel carries it as mathgen/_skills/skill.schema.json."""
+    globs = pyproject["tool"]["setuptools"]["package-data"]["mathgen._skills"]
+    assert (ROOT / "skills" / "skill.schema.json").is_file()
+    assert any(fnmatch.fnmatch("skill.schema.json", g) and "/" not in g for g in globs)
+
+
+def test_jsonschema_is_a_dev_dependency_only(pyproject):
+    """The schema is for editors and tests; the package must run without jsonschema installed."""
+    assert not any(d.lower().startswith("jsonschema") for d in pyproject["project"]["dependencies"])
+    assert any(d.lower().startswith("jsonschema") for d in pyproject["project"]["optional-dependencies"]["dev"])
+    runtime_sources = [p for p in (ROOT / "mathgen").rglob("*.py") if "jsonschema" in p.read_text(encoding="utf-8")]
+    assert runtime_sources == []
+
+
 def test_the_distribution_is_not_named_after_the_taken_pypi_project(pyproject):
     project = pyproject["project"]
     assert project["name"] == "maths-engine"  # `mathgen` on PyPI is an unrelated project
