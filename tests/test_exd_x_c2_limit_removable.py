@@ -30,14 +30,6 @@ _X = sympy.Symbol("x")
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
 
 
-@pytest.fixture(autouse=True)
-def _precision():
-    """60-digit mpmath arithmetic for this module's tests only; a module-level `mp.dps = 60` would leak into
-    every other test collected in the same process."""
-    with mpmath.mp.workdps(60):
-        yield
-
-
 def _exam(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
@@ -117,6 +109,7 @@ def _split(text):
     raise AssertionError(text)
 
 
+@mpmath.workdps(60)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _oracle(text):
     point_text, expr_text = _split(text)
     point = int(point_text)

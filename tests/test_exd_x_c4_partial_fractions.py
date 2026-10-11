@@ -20,14 +20,6 @@ GRADER = GRADERS["expression"]
 _HARD_KW = {}
 
 
-@pytest.fixture(autouse=True)
-def _precision():
-    """25-digit mpmath arithmetic for this module's tests only; a module-level `mp.dps = 25` would leak into
-    every other test collected in the same process."""
-    with mp.workdps(25):
-        yield
-
-
 def _make(seed: int) -> Question:
     return make(TOPIC, seed=seed, difficulty="exam")
 
@@ -74,6 +66,7 @@ def _expr(text: str):
     return parse_expr(s, transformations=_TR, local_dict={"x": _X})
 
 
+@mp.workdps(25)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _agrees(q: Question) -> bool:
     m = re.match(r"Find ∫ from x = (-?\d+) to x = (-?\d+) of (.+) dx\.", q.text)
     lo, hi, body = int(m.group(1)), int(m.group(2)), m.group(3)

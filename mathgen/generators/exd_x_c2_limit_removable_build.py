@@ -115,7 +115,7 @@ _FAMILIES = (_root_family, _sine_ratio_family, _cosine_family, _parametric_famil
 
 def _exam(rng: random.Random) -> dict:
     expr, point, key, fn, wrong, patterns = rng.choice(_FAMILIES)(rng)
-    with mp.workdps(60):  # local precision: never change mpmath's process-wide setting
+    with mp.workdps(60):  # local, so make() leaves mpmath's global precision as it found it
         target = mpf(key.p) / mpf(key.q)
         for side in (mpf(10) ** -12, -(mpf(10) ** -12)):
             check(
