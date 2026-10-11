@@ -248,9 +248,9 @@ def test_notation_skill_loads_with_correct_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    # Check sources cover all three difficulties
+    # Check sources cover the three practice difficulties plus the exam tier
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}
 
 
 def test_scalar_skill_loads_with_correct_properties():
@@ -262,6 +262,6 @@ def test_scalar_skill_loads_with_correct_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    # Check sources cover all three difficulties
+    # Check sources cover the three practice difficulties plus the exam tier
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}

@@ -131,3 +131,15 @@ def test_oracle_covers_all_tiers():
             q = make(TOPIC, seed=seed, difficulty=difficulty)
             _cubic_coeffs(q.text)
             _parse_factored_answer(q.answer_text)
+
+
+def test_hard_tier_quadratic_factor_is_irreducible_over_the_integers():
+    """'Completely' means the quadratic factor must not split further (e.g. 2x^3+8x^2+8x = 2x(x+2)^2)."""
+    import sympy
+    from mathgen import make
+
+    xs = sympy.Symbol("x")
+    for seed in range(400):
+        q = make("factorise_cubic_linear_factor", seed=seed, tier="hard")
+        factors = sympy.factor_list(sympy.sympify(q.answer))[1]
+        assert any(sympy.degree(f, xs) == 2 for f, _ in factors), (seed, q.answer_text)

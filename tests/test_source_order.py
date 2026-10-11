@@ -52,11 +52,12 @@ def test_source_difficulty_order_is_non_decreasing_for_ordinary_skills():
 
     # Guard against a loader regression that silently exempted everything
     # (e.g. every `difficulty` coming back `None`), which would make the
-    # assertion below pass vacuously: `sine-rule` itself uses only the
+    # assertion below pass vacuously: `add-within-10` itself uses only the
     # standard labels, so it must land in the constrained set, and the
     # constrained set as a whole must not be empty or suspiciously tiny.
-    assert "sine-rule" in constrained_ids, (
-        "sine-rule was exempted from the order check -- its sources should "
+    # (`sine-rule` now carries an exam source, which is exempt, so another all-ordinary skill is the canary.)
+    assert "add-within-10" in constrained_ids, (
+        "add-within-10 was exempted from the order check -- its sources should "
         "all carry easy/medium/hard labels; a loader regression may be "
         "dropping difficulty values"
     )

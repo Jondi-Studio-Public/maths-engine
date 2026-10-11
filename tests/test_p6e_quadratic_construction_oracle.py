@@ -186,6 +186,8 @@ def test_quadratic_construction():
     disagreements = []
 
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         topic = source.topic
         params = source.params
         difficulty = source.difficulty
@@ -266,6 +268,8 @@ def test_polynomial_expansion():
     disagreements = []
 
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         topic = source.topic
         params = source.params
         difficulty = source.difficulty

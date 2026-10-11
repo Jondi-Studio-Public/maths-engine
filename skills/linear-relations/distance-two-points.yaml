@@ -21,6 +21,11 @@ sources:
   params: {kind: perimeter, coord_hi: 16, leg_hi: 24, allow_negative: true}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_a4_median_length
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-square-root
   description: Reports dx² + dy² as the answer, forgetting to take the square root.

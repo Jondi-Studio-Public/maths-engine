@@ -338,6 +338,13 @@ def polynomial_add_subtract(
         missing_target = rng.choice(["A", "B", "C"])
         missing_degree = _force_missing_power(rng, polys[missing_target])
 
+    # C must differ from B: when they are equal, A + B - C and the swapped-subtracted-term distractor A - B + C
+    # are the same value (easy seed 208, and medium seed 4041 after the negative-leading step). Moving C's leading
+    # coefficient one step further from zero keeps its sign, its degree and any missing power, and leaves every
+    # other seed's question unchanged.
+    if c == b:
+        c[-1] += -1 if c[-1] < 0 else 1
+
     correct = _combine_arrays([a, b, c], [1, 1, -1])
 
     # Independent check, second route: real sympy expressions combined with

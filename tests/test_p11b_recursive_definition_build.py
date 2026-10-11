@@ -323,7 +323,8 @@ def test_both_skills_have_sources_covering_all_difficulties():
     _, skills = load_skills(ROOT / "skills")
     by_id = {s.id: s for s in skills}
     for skill_id in (ARITH_ID, GEOM_ID):
-        difficulties = {src.difficulty for src in by_id[skill_id].sources}
+        # an optional exam source is covered by that skill's tests/test_exd_x_* file
+        difficulties = {src.difficulty for src in by_id[skill_id].sources} - {"exam"}
         assert difficulties == {"easy", "medium", "hard"}
 
 

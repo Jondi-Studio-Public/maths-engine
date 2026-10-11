@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_g6_delay_propagation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-lst-not-float
   description: Reports the queried activity's raw latest start time (LST) instead of LST minus EST (forgets to subtract).

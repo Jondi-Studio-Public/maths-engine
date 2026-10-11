@@ -21,6 +21,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f2_cubic_factor
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: sign-error-on-linear-factor
   description: States (x + p) instead of (x - p) in the linear factor.

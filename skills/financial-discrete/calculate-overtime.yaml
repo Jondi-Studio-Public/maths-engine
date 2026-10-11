@@ -5,6 +5,12 @@ description: Combine regular pay with overtime paid at a stated rate multiplier.
 status: active
 prerequisites: [calculate-wages, decimal-arithmetic]
 answer: number
-sources: [{topic: earnings, params: {kind: overtime}, difficulty: easy}]
+sources:
+- {topic: earnings, params: {kind: overtime}, difficulty: easy}
+- topic: exd_x_g5_overtime
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: multiplier-on-all-hours, description: Applies the overtime multiplier to every hour worked.}]
 tags: [expansion-batch-5, consumer-arithmetic]

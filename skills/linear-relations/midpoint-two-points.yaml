@@ -21,6 +21,11 @@ sources:
   params: {kind: find_endpoint, coord_lo: -14, coord_hi: 14}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_a4_parallelogram_vertex
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: subtract-instead-of-average
   description: Subtracts the two points' coordinates instead of averaging them.

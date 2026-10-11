@@ -131,9 +131,10 @@ def test_skill_loads_with_correct_properties():
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
     assert skill.prerequisites == []
-    assert len(skill.sources) == 3
-    for source in skill.sources:
+    assert len(skill.sources) == 4  # easy, medium, hard and exam
+    for source in skill.sources[:3]:  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == TOPIC
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}
+    assert set(skill.sources[3].stages) == {"exam"}

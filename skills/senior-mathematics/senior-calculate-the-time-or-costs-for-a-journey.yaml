@@ -21,6 +21,11 @@ sources:
   params: {variant: fuel_cost}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_journey_cost
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: inverts-the-ratio
   description: Computes speed divided by distance times sixty instead of the correct ratio.

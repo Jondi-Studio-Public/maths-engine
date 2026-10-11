@@ -53,6 +53,26 @@ def skills_root() -> Path:
     return Path(override) if override else DEFAULT_SKILLS_DIR
 
 
+def extra_skills_roots() -> list[Path]:
+    """Folders named by ``MATHS_EXTRA_SKILLS_DIRS`` (separated by ``os.pathsep``), in order.
+
+    An extra folder adds skills that are not in the library -- a site's private skills, say -- laid out the
+    same way (``<domain>/<id>.yaml``). Its skills join the main library's domains; the main library's
+    ``domains.yaml`` and ``capability-gates.yaml`` still apply, and ``load_skills`` refuses an id that is already
+    taken, so an extra folder can add skills but never replace one. ``~`` is expanded.
+    """
+    raw = os.environ.get("MATHS_EXTRA_SKILLS_DIRS", "")
+    return [Path(p).expanduser() for p in raw.split(os.pathsep) if p]
+
+
+class DuplicateSkillError(ValueError):
+    """An extra skills folder holds a skill whose id is already in the library (or in an earlier extra folder).
+
+    Raised by ``load_skills`` rather than left to ``validate``, because callers that only load (and key skills
+    by id) would otherwise resolve the id to whichever copy came last.
+    """
+
+
 class SkillsNotFoundError(FileNotFoundError):
     """The skills folder is missing or holds no skill files.
 
@@ -325,25 +345,48 @@ def _tree_fingerprint(root: Path) -> tuple:
     return tuple(entries)
 
 
-def load_skills(root: Path | None = None) -> tuple[list[Domain], list[Skill]]:
-    """Load every ``<domain>/<id>.yaml`` under ``root`` plus ``domains.yaml``.
+def load_skills(root: Path | None = None, extra_roots: list[Path] | None = None) -> tuple[list[Domain], list[Skill]]:
+    """Load every ``<domain>/<id>.yaml`` under ``root`` plus ``domains.yaml``, then every skill in
+    ``extra_roots`` (default: ``extra_skills_roots()``; pass ``[]`` for none).
 
     Cached per root and invalidated by any file change; every call returns
     its own deep copy, so callers may mutate the result freely.
 
     Raises ``SkillsNotFoundError`` when the folder is missing or holds no skill files: an empty library is
-    always a mistake (a broken install, a wrong ``MATHS_SKILLS_DIR``), never a result.
+    always a mistake (a broken install, a wrong ``MATHS_SKILLS_DIR``), never a result. A missing extra folder
+    raises ``FileNotFoundError``; an extra folder that exists but holds no skills is allowed. An extra skill
+    whose id is already loaded raises ``DuplicateSkillError``.
     """
     root = Path(root) if root else skills_root()
+    extras = [Path(p) for p in extra_roots] if extra_roots is not None else extra_skills_roots()
+    domains, skills = _load_cached(root)
+    if not skills:
+        raise SkillsNotFoundError(root)
+    seen = {s.id: s.path for s in skills if s.id}
+    for extra in extras:
+        extra = extra.expanduser()
+        if not extra.is_dir():
+            raise FileNotFoundError(
+                f"extra skills folder {extra} does not exist (named by MATHS_EXTRA_SKILLS_DIRS or extra_roots)"
+            )
+        more = _load_cached(extra)[1]
+        for s in more:
+            if s.id in seen:
+                raise DuplicateSkillError(f"skill {s.id!r} in {s.path} is already loaded from {seen[s.id]}")
+            if s.id:
+                seen[s.id] = s.path
+        skills = skills + more
+    return copy.deepcopy((domains, skills))
+
+
+def _load_cached(root: Path) -> tuple[list[Domain], list[Skill]]:
     key = root.resolve()
     fingerprint = _tree_fingerprint(root)
     hit = _LOAD_CACHE.get(key)
     if hit is None or hit[0] != fingerprint:
         hit = (fingerprint, _load_skills_uncached(root))
         _LOAD_CACHE[key] = hit
-    if not hit[1][1]:
-        raise SkillsNotFoundError(root)
-    return copy.deepcopy(hit[1])
+    return hit[1]
 
 
 def load_problems(skills: list[Skill]) -> list[str]:
@@ -663,8 +706,10 @@ def validate(
 
 
 def load_and_validate(
-    root: Path | None = None, rubric_loader: Callable[[str], object] | None = None
+    root: Path | None = None,
+    rubric_loader: Callable[[str], object] | None = None,
+    extra_roots: list[Path] | None = None,
 ) -> tuple[list[Domain], list[Skill], ValidationReport]:
-    domains, skills = load_skills(root)
+    domains, skills = load_skills(root, extra_roots)
     report = validate(domains, skills, rubric_loader=rubric_loader)
     return domains, skills, report

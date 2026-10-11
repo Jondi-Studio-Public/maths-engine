@@ -242,4 +242,4 @@ def test_skill_loads_with_correct_prerequisites_and_placement():
     assert skill.placement_eligible is False
     assert skill.answer == "number"
     difficulties = {src.difficulty for src in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}

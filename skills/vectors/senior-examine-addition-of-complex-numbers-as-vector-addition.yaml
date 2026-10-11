@@ -32,6 +32,11 @@ sources:
     params: {variant: inverse}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_g2_complex_vector_system
+    params: {tier: exam}
+    difficulty: exam
+    stages:
+    - exam
 misconceptions:
   - id: subtracted-not-added
     description: Subtracts the second vector instead of adding it.

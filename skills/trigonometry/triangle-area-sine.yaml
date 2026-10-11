@@ -33,6 +33,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_f5_areaaas
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-angle-used
   description: Using an angle that is not between the two given sides.

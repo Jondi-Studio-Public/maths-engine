@@ -39,6 +39,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_f4_cosine
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-error-cosine-term
   description: A sign error on the -2ab cos(C) term.

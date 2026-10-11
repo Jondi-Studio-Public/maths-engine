@@ -147,4 +147,4 @@ def test_skill_loads_through_api_with_correct_properties():
     assert skill.placement_eligible is False
     assert skill.answer == "pair"
     assert skill.prerequisites == []
-    assert {src.difficulty for src in skill.sources} == {"easy", "medium", "hard"}
+    assert {src.difficulty for src in skill.sources} == {"easy", "medium", "hard", "exam"}

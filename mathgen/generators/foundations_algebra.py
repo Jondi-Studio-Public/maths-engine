@@ -340,6 +340,7 @@ def simplify_expression(rng, kind="brackets", hi=9):
         answer_text=ans_str,
         answer_latex=latex(ans),
         distractors=pick_distractors(ans_str, cands),
+        answer_form="expanded",
     )
 
 

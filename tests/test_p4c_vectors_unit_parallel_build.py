@@ -283,9 +283,9 @@ def test_unit_vectors_skill_contract_loads_with_expected_shape():
     assert skill.answer == "fraction"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in skill.sources} == {UNIT_VECTORS_TOPIC}
-    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in skill.sources} == {UNIT_VECTORS_TOPIC, "exd_x_g1_unit_vectors"}
+    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]
 
 
 def test_parallel_perpendicular_skill_contract_loads_with_expected_shape():
@@ -298,6 +298,9 @@ def test_parallel_perpendicular_skill_contract_loads_with_expected_shape():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in skill.sources} == {PARALLEL_PERPENDICULAR_TOPIC}
-    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in skill.sources} == {
+        PARALLEL_PERPENDICULAR_TOPIC,
+        "exd_x_g2_parallel_perp_condition",
+    }
+    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]
