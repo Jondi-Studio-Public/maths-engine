@@ -83,9 +83,12 @@ part is graded with its own grader, in order:
    carried forward from a wrong earlier part (marked `follow_through=True` on the part result), and a correct
    earlier answer rounded as asked and then used (which can move the last digit of a later part).
    Markers withhold follow-through when the error makes the later part trivial or impossible, and so does
-   the engine: no follow-through from an earlier reply of zero where the canonical value is not zero, from a
-   reply outside that earlier part's `sensible_range`, or for a reply that just repeats the earlier value it
-   uses. Without these, one number typed into every part earned follow-through marks in every pilot chain.
+   the engine: no follow-through from an earlier reply that is zero, or rounds to zero at its part's
+   precision, where the canonical value is not zero; from a reply outside that earlier part's
+   `sensible_range`; when a tiny earlier reply rounds the later answer itself to zero (an answer that is
+   exactly zero, such as a tangent through the origin, still counts); or for a reply that just repeats the
+   earlier value it uses. Without these, one number typed into every part, or a tiny first answer and zeros
+   after it, earned follow-through marks in every pilot chain.
 3. **Partial credit** for a reply that matches a distractor carrying `distractor_credit` (a fraction of the
    part's marks), once the typed answer contract supplies `matched_distractor`. Until then this step is inert.
 4. Otherwise no marks.

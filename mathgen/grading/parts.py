@@ -177,6 +177,18 @@ def retarget(part, value):
 def follow_through_target(part, values: dict[str, object]):
     """`part` retargeted to its follow-through answer from earlier parts' `values` (label -> SymPy value), or
     None when a named part has no value or the result cannot be stated as this part's answer."""
+    value = follow_through_value(part, values)
+    if value is None:
+        return None
+    try:
+        return retarget(part, value)
+    except (TypeError, ValueError, ZeroDivisionError, ArithmeticError):
+        return None
+
+
+def follow_through_value(part, values: dict[str, object]):
+    """`part.follow_through` worked out exactly at earlier parts' `values`, before it is stated to the part's
+    precision, or None when a named part has no value or it cannot be worked out."""
     expr = follow_through_expression(part)
     substitutions = {}
     for symbol in expr.free_symbols:
@@ -187,7 +199,7 @@ def follow_through_target(part, values: dict[str, object]):
             return None
         substitutions[symbol] = value
     try:
-        return retarget(part, _apply_functions(expr.xreplace(substitutions)))
+        return _apply_functions(expr.xreplace(substitutions))
     except (TypeError, ValueError, ZeroDivisionError, ArithmeticError):
         return None
 
@@ -322,14 +334,15 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
 
 def _carries(parts, part, values) -> bool:
     """Whether the learner's replies to the parts `part` follows through from can carry marks into it. Not
-    when one is zero where its canonical answer is not (zero makes most later work trivial), nor when one lies
-    outside its part's `sensible_range` (a negative length, a probability above 1)."""
+    when one is zero, or rounds to zero at its part's own precision, where its canonical answer is not (zero
+    makes most later work trivial), nor when one lies outside its part's `sensible_range` (a negative length,
+    a probability above 1)."""
     by_label = {p.label: p for p in parts}
     for name in named_parts(part):
         value, source = values.get(name), by_label[name]
         if value is None or not getattr(value, "is_number", False):
             continue
-        if value == 0 and _canonical_value(source) != 0:
+        if _states_zero(source, value) and not _same(_canonical_value(source), 0):
             return False
         if not _in_range(source.sensible_range, value):
             return False
@@ -337,19 +350,35 @@ def _carries(parts, part, values) -> bool:
 
 
 def _not_trivial(parts, part, target, values) -> bool:
-    """Whether a follow-through answer still asks for real work: not when it is the very value of an earlier
-    reply it uses while the canonical answers differ. Writing the same number again is not following through
+    """Whether a follow-through answer still asks for real work: not when a tiny earlier answer rounds it to
+    zero while the canonical answer is not zero (an answer that is exactly zero, such as a tangent through the
+    origin, still counts), nor when it is the very value of an earlier reply it uses while the canonical
+    answers differ. Writing the same number again is not following through
     (a constant dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian)."""
     value = reply_value(part.answer_kind, target.answer_text)
     if value is None or not getattr(value, "is_number", False):
         return True
     canonical = _canonical_value(part)
+    exact = follow_through_value(part, values)
+    if _same(value, 0) and not _same(canonical, 0) and exact is not None and not _same(exact, 0):
+        return False  # a tiny earlier answer that rounds this part's answer away to nothing
     by_label = {p.label: p for p in parts}
     for name in named_parts(part):
         earlier = values.get(name)
         if earlier is not None and _same(earlier, value) and not _same(_canonical_value(by_label[name]), canonical):
             return False
     return True
+
+
+def _states_zero(part, value) -> bool:
+    """Whether `value` is zero as `part` states its answer: 0.001 is 0.0 for a part asked to 1 decimal place."""
+    if _same(value, 0):
+        return True
+    try:
+        stated = retarget(part, value)
+    except (TypeError, ValueError, ZeroDivisionError, ArithmeticError):
+        return False
+    return stated is not None and _same(reply_value(part.answer_kind, stated.answer_text), 0)
 
 
 def _same(left, right) -> bool:

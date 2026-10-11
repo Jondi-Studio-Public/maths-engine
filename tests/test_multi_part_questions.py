@@ -284,6 +284,37 @@ def test_one_number_for_every_part_earns_no_follow_through_in_the_pilot_chains(t
         assert followed == [], (seed, followed, q.answer_text)
 
 
+@pytest.mark.parametrize(
+    "topic",
+    [
+        "exam_parts_circle_radius_arc",
+        "exam_parts_square_pyramid",
+        "exam_parts_implicit_tangent",
+        "exam_parts_normal_distribution",
+        "exam_parts_compound_interest",
+    ],
+)
+@pytest.mark.parametrize("tiny", ["0.001", "0.0001", "0.01", "0.04"])
+def test_a_tiny_earlier_answer_and_zeros_after_it_earn_no_follow_through(topic, tiny):
+    for seed in range(40):
+        q = make(topic, seed=seed, difficulty="exam")
+        for source in q.parts:
+            replies = {p.label: (tiny if p is source else "0") for p in q.parts}
+            result = grade("number", q, replies)
+            followed = [label for label, r in result.parts.items() if r.follow_through and r.marks]
+            assert followed == [], (seed, source.label, followed, q.answer_text)
+
+
+def test_a_tiny_radius_carries_nothing_but_a_wrong_sensible_one_still_does():
+    q = make("exam_parts_circle_radius_arc", seed=0, difficulty="exam")
+    assert grade("number", q, "(a) 0.001 (b) 0 (c) 0").marks == 0
+    a = q.parts[0]
+    wrong = str(Fraction(a.answer_text) + 1)
+    b, c = (follow_through_target(p, {"a": reply_value("number", wrong)}) for p in q.parts[1:])
+    result = grade("number", q, {"a": wrong, "b": b.answer_text, "c": c.answer_text})
+    assert result.marks == 3 and result.parts["b"].follow_through and result.parts["c"].follow_through
+
+
 def test_the_wrong_distractors_are_wrong_part_by_part(circle):
     canonical = {p.label: p.answer_text for p in circle.parts}
     for part in circle.parts:
