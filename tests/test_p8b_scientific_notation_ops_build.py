@@ -257,7 +257,7 @@ def test_skill_loads_with_new_source_and_unchanged_declared_fields():
     assert "scientific_notation" in topics  # existing source untouched
     new_sources = [src for src in skill.sources if src.topic == "scientific_notation_operate"]
     assert len(new_sources) == 1
-    # Every active source now carries a tier label (skills/skill.schema.json); operating on two
+    # Every active source now carries a tier label (skills/skill.schema.yaml); operating on two
     # values and renormalising is one step up from the `easy` conversion source. No stages.
     assert new_sources[0].difficulty == "medium"
     assert new_sources[0].stages is None

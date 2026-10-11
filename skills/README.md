@@ -45,10 +45,10 @@ misconceptions:
 tags: []
 ```
 
-`skill.schema.json` beside this file is the same list as a JSON Schema (draft 2020-12): every field,
+`skill.schema.yaml` beside this file is the same list as a JSON Schema (draft 2020-12): every field,
 which are required, the allowed labels, and the conditions below. An unknown key is an error at every
 level, so a misspelt field is caught instead of silently ignored. To check a file in VS Code with the
-YAML extension, put `# yaml-language-server: $schema=../skill.schema.json` on its first line, or map the
+YAML extension, put `# yaml-language-server: $schema=../skill.schema.yaml` on its first line, or map the
 glob `skills/*/*.yaml` to the schema in settings. `tests/public/test_skill_schema.py` checks the whole
 library against it and keeps its field lists equal to what `mathgen/skills.py` reads. The schema covers
 shape only: it cannot tell whether a topic is registered or a source generates, which `validate()` does.

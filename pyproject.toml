@@ -57,7 +57,7 @@ include-package-data = false
 "mathgen._skills" = "skills"
 
 [tool.setuptools.package-data]
-"mathgen._skills" = ["*.yaml", "*/*.yaml", "*.json"]
+"mathgen._skills" = ["*.yaml", "*/*.yaml"]
 
 [tool.pytest.ini_options]
 # Tests import `scripts.*` and `tests.*` from the repository root; a bare `pytest` does not put it on

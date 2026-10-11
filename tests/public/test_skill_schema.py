@@ -1,4 +1,4 @@
-"""skills/skill.schema.json: the written-down shape of a skill file.
+"""skills/skill.schema.yaml: the written-down shape of a skill file.
 
 The library must satisfy it, bad labels must not, and its field lists must not drift from what the loader reads.
 `jsonschema` is a dev dependency only; the package itself never imports it.
@@ -6,7 +6,6 @@ The library must satisfy it, bad labels must not, and its field lists must not d
 
 import ast
 import inspect
-import json
 from pathlib import Path
 
 import pytest
@@ -18,7 +17,7 @@ from mathgen import skills as skills_mod  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SKILLS = ROOT / "skills"
-SCHEMA_PATH = SKILLS / "skill.schema.json"
+SCHEMA_PATH = SKILLS / "skill.schema.yaml"
 
 GOOD = """\
 id: add-two
@@ -42,7 +41,7 @@ tags: []
 
 @pytest.fixture(scope="module")
 def schema():
-    return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    return yaml.safe_load(SCHEMA_PATH.read_text(encoding="utf-8"))
 
 
 @pytest.fixture(scope="module")

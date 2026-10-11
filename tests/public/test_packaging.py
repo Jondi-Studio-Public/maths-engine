@@ -45,10 +45,10 @@ def test_package_data_globs_cover_every_yaml_file_in_the_library(pyproject):
 
 
 def test_the_skill_schema_ships_with_the_skill_library(pyproject):
-    """The schema sits beside domains.yaml, so the wheel carries it as mathgen/_skills/skill.schema.json."""
+    """The schema sits beside domains.yaml, so the wheel carries it as mathgen/_skills/skill.schema.yaml."""
     globs = pyproject["tool"]["setuptools"]["package-data"]["mathgen._skills"]
-    assert (ROOT / "skills" / "skill.schema.json").is_file()
-    assert any(fnmatch.fnmatch("skill.schema.json", g) and "/" not in g for g in globs)
+    assert (ROOT / "skills" / "skill.schema.yaml").is_file()
+    assert any(fnmatch.fnmatch("skill.schema.yaml", g) and "/" not in g for g in globs)
 
 
 def test_jsonschema_is_a_dev_dependency_only(pyproject):
