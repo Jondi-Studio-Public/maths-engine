@@ -164,7 +164,9 @@ refuses one that reuses an id already loaded. Entries are split on `os.pathsep` 
 
 ## Grading facts that shape a skill
 
-- Typed numeric answers are graded to their own stated precision.
+- Typed numeric answers are graded to their own stated precision. A rounded answer accepts half a
+  unit in its last place; an answer shown exactly is matched exactly, so a question whose stored
+  answer is rounded must say so ("to the nearest cent").
 - `grade_fraction` compares by value, so `2/4` is accepted for `1/2`. Never build a
   "does not simplify" distractor.
 - Every distractor and every deliberately wrong test value must clear the grader. Check every

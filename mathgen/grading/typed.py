@@ -248,6 +248,20 @@ def _plausible_rounding_tolerance(places: int) -> Fraction:
     return Fraction(1, 2 * 10**places)
 
 
+_FLOAT_NOISE = Fraction(1, 10**9)
+
+
+def _is_exact_display(literal_value: Fraction, answer) -> bool:
+    """Whether the displayed literal is the answer itself rather than a rounding of it.
+
+    An `int` answer is compared exactly. A `float` answer carries binary noise (7.7 - 5.1 is
+    2.6000000000000005), so it counts as exact when it is within a relative 1e-9 of the literal: far
+    below any precision a question displays, and far above double-precision noise."""
+    if isinstance(answer, int):
+        return literal_value == answer
+    return abs(Fraction(repr(float(answer))) - literal_value) <= _FLOAT_NOISE * max(1, abs(literal_value))
+
+
 @dataclass
 class _TypedNumberTarget:
     target: Fraction
@@ -299,6 +313,10 @@ def _typed_number_target(question, answer=None) -> _TypedNumberTarget:
             sanity_tolerance = _plausible_rounding_tolerance(places)
             tolerance = _typed_number_tolerance(places)
             if abs(literal_value - fallback_target) <= sanity_tolerance:
+                if _is_exact_display(literal_value, answer):
+                    # The literal is the answer itself, not a rounding of it ("2.6" for 7.7 - 5.1), so
+                    # there is nothing to round and no slack to give: 2.64 is a different number.
+                    tolerance = Fraction(0)
                 return _TypedNumberTarget(target=literal_value, tolerance=tolerance, source="literal")
 
     return _TypedNumberTarget(target=fallback_target, tolerance=fallback_tolerance, source="fallback")

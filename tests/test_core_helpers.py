@@ -519,9 +519,9 @@ class TestStatedPrecisionString:
 
 
 class TestStatedPrecisionStringGradingHazard:
-    """A canonical answer built through `exact_decimal_string` at a stated precision it under-displays is
-    therefore graded with a tolerance ten times too loose -- proved RED here first, then GREEN once the
-    canonical is built through `stated_precision_string` instead.
+    """A canonical answer built through `exact_decimal_string` at a stated precision it under-displays was
+    graded with a tolerance ten times too loose. `stated_precision_string` avoided it; the grader now also
+    matches an exactly displayed answer exactly, so neither form false-accepts.
     """
 
     @staticmethod
@@ -537,23 +537,18 @@ class TestStatedPrecisionStringGradingHazard:
             answer_latex=answer_text,
         )
 
-    def test_exact_decimal_string_canonical_false_accepts_a_full_rounding_unit_away(self):
-        # 0.10 collapses to "0.1" -- one displayed decimal place, so
-        # grade_number derives a 0.05 tolerance, ten times looser than the
-        # 0.005 a genuinely-2dp-stated answer should get.
+    def test_exact_decimal_string_canonical_no_longer_false_accepts_a_full_rounding_unit_away(self):
+        # 0.10 collapses to "0.1" -- one displayed decimal place, which used
+        # to derive a 0.05 tolerance and accept "0.11", a full rounding unit
+        # away at the 2dp the question states. "0.1" is the answer itself
+        # (answer=0.1), not a rounding of it, so the grader now matches it
+        # exactly and the hazard no longer reproduces (maintainer's ruling,
+        # 2026-10-11: exact answers are marked exactly).
         canonical = exact_decimal_string(Fraction(1, 10), 2)
         assert canonical == "0.1"
         question = self._question(canonical)
-        # "0.11" is a full rounding unit away at the 2dp the question
-        # states, but sits inside the too-loose 0.05 tolerance derived from
-        # "0.1"'s single displayed place. Proved RED: this is the hazard,
-        # reproduced against the real grader, not merely asserted.
         result = grade_number(question, "0.11")
-        assert result.correct, (
-            "expected the pre-fix hazard to reproduce: an exact_decimal_string "
-            "canonical that under-displays its stated precision should "
-            "false-accept a value a full rounding unit away"
-        )
+        assert not result.correct
 
     def test_stated_precision_string_canonical_rejects_the_same_wrong_value(self):
         canonical = stated_precision_string(Fraction(1, 10), 2)
