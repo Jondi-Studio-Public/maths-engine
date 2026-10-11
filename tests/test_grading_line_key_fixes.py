@@ -28,15 +28,13 @@ def _value(q, label):
 
 
 @pytest.mark.parametrize("q,label", list(_questions()))
-def test_label_stripped_by_design_bare_value_accepted(q, label):
+def test_a_line_must_be_written_as_that_line(q, label):
     v = _value(q, label)
     other = "x" if label == "y" else "y"
     assert grade("pair", q, f"{label} = {v}").correct
-    # The label is stripped by design (documented in the two pv1d tests): same as bare.
-    assert grade("pair", q, f"{other} = {v}").correct
-    # A bare value is accepted by design (documented in test_pv1d_parabola_build.py and
-    # test_pv1d_sideways_circle_build.py).
-    assert grade("pair", q, f"{v}").correct
+    # "y = 3" is an equation: the other axis ("x = 3") and a bare "3" are both wrong.
+    assert not grade("pair", q, f"{other} = {v}").correct
+    assert not grade("pair", q, f"{v}").correct
 
 
 @pytest.mark.parametrize("q,label", list(_questions()))
