@@ -31,15 +31,131 @@ loops:
   - {module: exd_e2_algebraic_fraction_mul_div_build, function: _exam_power, index: 0, kind: while_true}
   - {module: exd_e2_algebraic_fraction_mul_div_build, function: _gh, index: 0, kind: rng_redraw}
   - {module: exd_e3_statistics_build, function: exam_median_summary_statistic, index: 0, kind: rng_redraw}
+  - {module: exd_x_a1_factorise_quadratic, function: _draw_binomials, index: 0, kind: while_true}
+  - {module: exd_x_a1_factorise_quadratic, function: _substitution, index: 0, kind: while_true}
+  - {module: exd_x_a1_factorise_quadratic, function: _two_variable, index: 0, kind: while_true}
+  - {module: exd_x_a1_polynomial_long_division, function: _draw, index: 0, kind: while_true}
+  - {module: exd_x_a1_quadratic_vertex, function: exd_x_a1_quadratic_vertex, index: 0, kind: while_true}
+  - {module: exd_x_a1_quadratic_vertex, function: exd_x_a1_quadratic_vertex, index: 1, kind: while_true}
+  - {module: exd_x_a1_solve_quadratics_formula, function: exd_x_a1_solve_quadratics_formula, index: 0, kind: while_true}
+  - {module: exd_x_a1_solve_quadratics_formula, function: exd_x_a1_solve_quadratics_formula, index: 1, kind: while_true}
+  - {module: exd_x_a1_zero_product_property, function: _common_factor, index: 0, kind: while_true}
+  - {module: exd_x_a1_zero_product_property, function: _squares, index: 0, kind: while_true}
+  - {module: exd_x_a2_complex_quadratic_build, function: _exam, index: 0, kind: while_true}
+  - {module: exd_x_a2_expand_binomial_sums_build, function: _exam, index: 0, kind: while_true}
+  - {module: exd_x_a2_quadratic_formula_rearranged_build, function: _exam, index: 0, kind: while_true}
+  - {module: exd_x_a2_quadratic_from_conditions_build, function: _exam, index: 0, kind: while_true}
+  - {module: exd_x_a2_quadratic_from_conditions_build, function: _exam, index: 1, kind: while_true}
+  - {module: exd_x_a3_equations_unknown_in_denominator, function: exd_x_a3_equations_unknown_in_denominator, index: 0, kind: while_true}
+  - {module: exd_x_a3_linear_for_which_parameter, function: exd_x_a3_linear_for_which_parameter, index: 0, kind: while_true}
+  - {module: exd_x_a3_linear_fractions_cancelling_square, function: exd_x_a3_linear_fractions_cancelling_square, index: 0, kind: while_true}
+  - {module: exd_x_a3_parametric_both_sides, function: exd_x_a3_parametric_both_sides, index: 0, kind: while_true}
+  - {module: exd_x_a3_rearrange_repeated_subject, function: exd_x_a3_rearrange_repeated_subject, index: 0, kind: while_true}
+  - {module: exd_x_a3_word_two_expressions, function: exd_x_a3_word_two_expressions, index: 0, kind: while_true}
+  - {module: exd_x_a4_formula_two_readings, function: exd_x_a4_formula_two_readings, index: 0, kind: while_true}
+  - {module: exd_x_a4_gradient_composite, function: _midpoint, index: 0, kind: while_true}
+  - {module: exd_x_a4_gradient_composite, function: _perpendicular, index: 0, kind: while_true}
+  - {module: exd_x_a4_gradient_composite, function: _standard, index: 0, kind: while_true}
+  - {module: exd_x_a4_intercept_parallel_perp, function: exd_x_a4_intercept_parallel_perp, index: 0, kind: while_true}
+  - {module: exd_x_a4_median_length, function: _pair_around, index: 0, kind: while_true}
+  - {module: exd_x_a4_median_length, function: exd_x_a4_median_length, index: 0, kind: while_true}
+  - {module: exd_x_a4_parallelogram_vertex, function: exd_x_a4_parallelogram_vertex, index: 0, kind: while_true}
+  - {module: exd_x_a4_table_unit_change, function: exd_x_a4_table_unit_change, index: 0, kind: while_true}
+  - {module: exd_x_a5_factor_monomial_gcf, function: _draw_inner, index: 0, kind: while_true}
+  - {module: exd_x_a5_factor_monomial_gcf, function: _draw_inner, index: 1, kind: while_true}
   - {module: exd_x_c2_definite_integral_build, function: _exam, index: 0, kind: while_true}
   - {module: exd_x_c2_integrate_polynomial_build, function: _exam, index: 0, kind: while_true}
   - {module: exd_x_c2_limit_at_infinity_build, function: _difference_of_roots, index: 0, kind: rng_redraw}
   - {module: exd_x_c2_limit_degree_comparison_build, function: _exam, index: 0, kind: while_true}
+  - {module: exd_x_complex_arith, function: _build_add, index: 0, kind: while_true}
+  - {module: exd_x_complex_arith, function: _build_conjugate, index: 0, kind: while_true}
+  - {module: exd_x_complex_arith, function: _build_modulus, index: 0, kind: while_true}
+  - {module: exd_x_complex_arith, function: _build_multiply, index: 0, kind: while_true}
+  - {module: exd_x_complex_arith, function: _build_part, index: 0, kind: while_true}
+  - {module: exd_x_complex_arith, function: _draw, index: 0, kind: while_true}
+  - {module: exd_x_complex_plane, function: _i_power_question, index: 0, kind: while_true}
+  - {module: exd_x_complex_plane, function: _i_power_question, index: 1, kind: while_true}
+  - {module: exd_x_complex_plane, function: _point_question, index: 0, kind: while_true}
+  - {module: exd_x_complex_plane, function: _root_question, index: 0, kind: while_true}
+  - {module: exd_x_f3_arithrec, function: _sum_first, index: 0, kind: while_true}
+  - {module: exd_x_f3_fracidx, function: _mixed, index: 0, kind: while_true}
+  - {module: exd_x_f3_fracidx, function: _solve_base, index: 0, kind: while_true}
+  - {module: exd_x_f3_geoformula, function: _find_term, index: 0, kind: while_true}
+  - {module: exd_x_f3_geoformula, function: _setup, index: 0, kind: while_true}
+  - {module: exd_x_f3_georec, function: _parametric, index: 0, kind: while_true}
+  - {module: exd_x_f3_georec, function: _two_terms, index: 0, kind: while_true}
+  - {module: exd_x_f3_logeq, function: _hidden_quadratic, index: 0, kind: while_true}
+  - {module: exd_x_f3_logeq, function: _two_bases, index: 0, kind: while_true}
+  - {module: exd_x_f3_polyeq, function: _pick_root, index: 0, kind: while_true}
+  - {module: exd_x_f3_recdef, function: _parametric, index: 0, kind: while_true}
+  - {module: exd_x_f3_recdef, function: _term_sum, index: 0, kind: while_true}
+  - {module: exd_x_f5_areaaas, function: exd_x_f5_areaaas, index: 0, kind: while_true}
+  - {module: exd_x_f5_auxsum, function: _build, index: 0, kind: while_true}
+  - {module: exd_x_f5_incl, function: exd_x_f5_incl, index: 0, kind: while_true}
+  - {module: exd_x_f5_sinetower, function: exd_x_f5_sinetower, index: 0, kind: while_true}
+  - {module: exd_x_f5_tanasym, function: exd_x_f5_tanasym, index: 0, kind: while_true}
+  - {module: exd_x_f5_trigquad, function: exd_x_f5_trigquad, index: 0, kind: while_true}
+  - {module: exd_x_f5_trigquad, function: exd_x_f5_trigquad, index: 1, kind: while_true}
+  - {module: exd_x_g1_vector_addition, function: _parallelogram, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_addition, function: _ratio, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_cross_product, function: _bilinear, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_cross_product, function: _points, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_dot_product, function: _angle, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_dot_product, function: _perpendicular, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_line, function: _build, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_magnitude, function: _angle, index: 0, kind: while_true}
+  - {module: exd_x_g1_vector_magnitude, function: _projection, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _basic_reflection, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _basic_reflection_two_point, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _basic_rotation, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _composition_find_original, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _composition_forward, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _dilation, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _inverse_composite_question, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _inverse_matrix_question, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _inverse_rotation_question, index: 0, kind: while_true}
+  - {module: exd_x_g4_linear_transforms, function: _point, index: 0, kind: while_true}
+  - {module: exd_x_g4_matrix_solve_system, function: _both_sides, index: 0, kind: while_true}
+  - {module: exd_x_g4_matrix_solve_system, function: _invertible, index: 0, kind: while_true}
+  - {module: exd_x_g4_matrix_solve_system, function: _product, index: 0, kind: while_true}
+  - {module: exd_x_g4_matrix_solve_system, function: _rhs_product, index: 0, kind: while_true}
+  - {module: exd_x_g4_matrix_solve_system, function: _solution, index: 0, kind: while_true}
+  - {module: exd_x_g5_compound_interest, function: _periods, index: 0, kind: while_true}
+  - {module: exd_x_g5_compound_interest, function: _phases, index: 0, kind: while_true}
+  - {module: exd_x_g5_moving_average, function: _centred, index: 0, kind: while_true}
+  - {module: exd_x_g5_moving_average, function: _missing, index: 0, kind: while_true}
+  - {module: exd_x_g5_unit_pricing, function: _offer, index: 0, kind: while_true}
+  - {module: exd_x_g6_network_optim, function: _max_flow_augment, index: 0, kind: while_true}
+  - {module: exd_x_h2_binomial_point_probability, function: _build, index: 0, kind: while_true}
+  - {module: exd_x_h2_complex_mult_transform, function: _compose, index: 0, kind: while_true}
+  - {module: exd_x_h2_complex_mult_transform, function: _find_multiplier, index: 0, kind: while_true}
+  - {module: exd_x_h2_complex_mult_transform, function: _infer_apply, index: 0, kind: while_true}
+  - {module: exd_x_h2_complex_mult_transform, function: _nonzero_point, index: 0, kind: while_true}
+  - {module: exd_x_h2_factorial_notation, function: _factor_out, index: 0, kind: while_true}
+  - {module: exd_x_h2_factorial_notation, function: _two_ratios, index: 0, kind: while_true}
+  - {module: exd_x_h2_matrix_multiplication, function: _commutator, index: 0, kind: while_true}
+  - {module: exd_x_h2_restricted_permutations, function: exd_x_h2_restricted_permutations, index: 0, kind: while_true}
+  - {module: exd_x_h2_z_score, function: _equivalent, index: 0, kind: while_true}
+  - {module: exd_x_h2_z_score, function: _find_mean, index: 0, kind: while_true}
+  - {module: exd_x_h2_z_score, function: _find_sd, index: 0, kind: while_true}
+  - {module: exd_x_h4_centre_isosceles_chords, function: _acute, index: 0, kind: while_true}
+  - {module: exd_x_h4_centre_isosceles_chords, function: _obtuse, index: 0, kind: while_true}
+  - {module: exd_x_h4_centre_isosceles_chords, function: _unknown_base, index: 0, kind: while_true}
+  - {module: exd_x_h4_semicircle_composed, function: _altitude, index: 0, kind: while_true}
+  - {module: exd_x_h4_similar_area_volume_scale, function: _ratio, index: 0, kind: while_true}
   - {module: exd_x_s1_covariance, function: _indicator_form, index: 0, kind: while_true}
   - {module: exd_x_s1_covariance, function: _table_form, index: 0, kind: while_true}
   - {module: exd_x_s2_markov, function: exd_x_s2_markov_step, index: 0, kind: while_true}
   - {module: exd_x_s2_markov, function: exd_x_s2_markov_step, index: 1, kind: while_true}
   - {module: exd_x_s2_traffic, function: exd_x_s2_traffic, index: 0, kind: while_true}
+  - {module: f10_enlargement_invariants_build, function: _medium, index: 0, kind: rng_redraw}
+  - {module: f10_transformations_invariants_build, function: _build_options, index: 0, kind: while_true}
+  - {module: f10a_conditional_language_build, function: _counts, index: 0, kind: while_true}
+  - {module: f10c_congruence_criteria_build, function: _angle_value, index: 0, kind: while_true}
+  - {module: f10c_congruence_criteria_build, function: _case_aa_derived, index: 0, kind: while_true}
+  - {module: f10c_quadrilateral_properties_build, function: _h_alg_angles, index: 0, kind: while_true}
+  - {module: f10c_quadrilateral_properties_build, function: _h_alg_diag, index: 0, kind: while_true}
+  - {module: f10c_quadrilateral_properties_build, function: _h_alg_sides, index: 0, kind: while_true}
   - {module: foundations, function: decimals, index: 0, kind: while_true}
   - {module: foundations, function: ratio, index: 0, kind: rng_redraw}
   - {module: foundations, function: ratio, index: 1, kind: rng_redraw}
