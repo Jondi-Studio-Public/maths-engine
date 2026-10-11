@@ -5,6 +5,12 @@ description: Calculate a monthly repayment from principal, flat annual interest 
 status: active
 prerequisites: [simple-interest, decimal-arithmetic]
 answer: number
-sources: [{topic: flat_loan_repayment, params: {}, difficulty: easy}]
+sources:
+- {topic: flat_loan_repayment, params: {}, difficulty: easy}
+- topic: exd_x_g5_flat_loan
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: ignores-interest, description: Divides principal alone by the number of months.}]
 tags: [expansion-batch-5, loans]

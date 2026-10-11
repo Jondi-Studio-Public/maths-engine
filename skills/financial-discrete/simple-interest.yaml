@@ -5,6 +5,12 @@ description: Calculate simple interest from principal, annual rate and whole yea
 status: active
 prerequisites: [percentage-of-quantity]
 answer: number
-sources: [{topic: financial_interest, params: {kind: simple}, difficulty: easy}]
+sources:
+- {topic: financial_interest, params: {kind: simple}, difficulty: easy}
+- topic: exd_x_g5_simple_interest
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: omits-time, description: Calculates one year's interest and ignores the number of years.}]
 tags: [expansion-batch-5, finance]

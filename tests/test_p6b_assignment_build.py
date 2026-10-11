@@ -232,11 +232,11 @@ def test_skill_loads_through_api():
     assert skill.answer == "number", f"Expected answer=number, got {skill.answer}"
     assert skill.placement_eligible is False, "Should have placement_eligible=false"
     assert "simple-interest" in skill.prerequisites, "Should list simple-interest as prerequisite"
-    assert len(skill.sources) == 3, f"Should have 3 sources (easy/medium/hard), got {len(skill.sources)}"
+    assert len(skill.sources) == 4, f"Should have 4 sources (easy/medium/hard/exam), got {len(skill.sources)}"
 
     # Verify source difficulties
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}, f"Expected easy/medium/hard, got {difficulties}"
+    assert difficulties == {"easy", "medium", "hard", "exam"}, f"Expected easy/medium/hard/exam, got {difficulties}"
 
     # Verify source stages
     for source in skill.sources:
@@ -244,6 +244,8 @@ def test_skill_loads_through_api():
             assert source.stages == [6], f"{source.difficulty} should have stages [6]"
         elif source.difficulty == "hard":
             assert source.stages == [6, "maintenance"], f"hard should have stages [6, maintenance]"
+        elif source.difficulty == "exam":
+            assert source.stages == ["exam"], "exam should have stages [exam]"
 
 
 # --- distinct questions floor ---

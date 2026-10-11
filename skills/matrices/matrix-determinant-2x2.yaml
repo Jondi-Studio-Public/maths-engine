@@ -34,6 +34,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_g3_det2
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: added-not-subtracted
   description: Adding ad and bc instead of subtracting.

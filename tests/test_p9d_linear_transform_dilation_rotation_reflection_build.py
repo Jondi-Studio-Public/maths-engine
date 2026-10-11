@@ -228,7 +228,7 @@ def test_skill_loads_with_expected_shape():
     assert skill.answer == "pair"
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["matrix-multiplication"]
-    assert {src.difficulty for src in skill.sources} == set(TIERS)
+    assert {src.difficulty for src in skill.sources} == set(TIERS) | {"exam"}
     stages_covered = set()
     for src in skill.sources:
         stages_covered.update(src.stages)
@@ -238,8 +238,10 @@ def test_skill_loads_with_expected_shape():
 def test_skill_sources_drive_the_three_variants():
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == SKILL_ID)
-    seen_variants = {src.params.get("variant") for src in skill.sources}
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    practice = [src for src in skill.sources if src.difficulty != "exam"]
+    seen_variants = {src.params.get("variant") for src in practice}
     assert seen_variants == {"dilation", "rotation", "reflection"}
-    for src in skill.sources:
+    for src in practice:
         q = make(src.topic, seed=0, difficulty=src.difficulty, **(src.params or {}))
         assert q.answer_text.startswith("x = ")

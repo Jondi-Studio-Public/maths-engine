@@ -34,6 +34,10 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_g1_vector_magnitude
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: no-square-before-root
   description: Adding the absolute values of components without squaring first.

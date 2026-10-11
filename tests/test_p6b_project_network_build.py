@@ -250,14 +250,14 @@ def test_both_skills_load_through_api():
     assert "simple-interest" in est_lst_skill.prerequisites
     assert est_lst_skill.answer == "number"
     assert est_lst_skill.placement_eligible is False
-    assert len(est_lst_skill.sources) == 3  # easy, medium, hard
+    assert len(est_lst_skill.sources) == 4  # easy, medium, hard, exam
 
     completion_skill = skills_dict.get("senior-use-the-critical-path-to-determine-the-minimum")
     assert completion_skill is not None
     assert "simple-interest" in completion_skill.prerequisites
     assert completion_skill.answer == "number"
     assert completion_skill.placement_eligible is False
-    assert len(completion_skill.sources) == 3  # easy, medium, hard
+    assert len(completion_skill.sources) == 4  # easy, medium, hard, exam
 
 
 def test_est_lst_raises_on_unknown_tier():

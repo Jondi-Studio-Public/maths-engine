@@ -275,8 +275,10 @@ def test_skill_contract_loads_with_expected_shape():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in skill.sources} == {TOPIC}
-    # Confirm exact stages: [6], [6], [6, "maintenance"]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in skill.sources} == {TOPIC, "exd_x_g2_velocity_composition"}
+    # Confirm exact stages: [6], [6], [6, "maintenance"], and the exam source's ["exam"]
     stages_list = [source.stages for source in skill.sources]
-    assert stages_list == [[6], [6], [6, "maintenance"]], f"Expected [[6], [6], [6, 'maintenance']], got {stages_list}"
+    assert stages_list == [[6], [6], [6, "maintenance"], ["exam"]], (
+        f"Expected [[6], [6], [6, 'maintenance'], ['exam']], got {stages_list}"
+    )
