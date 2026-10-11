@@ -4,7 +4,11 @@ One pytest case per live skill and check family (`scripts/skill_contract.py` hol
 the checks), so a new skill needs no boilerplate test file beyond its own oracle,
 and a change to one skill (or the generator it uses) selects only that skill's cases:
 
-    pytest tests/test_skill_contract.py -k "<skill-id>"
+    pytest tests/test_skill_contract_part_*.py -k "<skill-id>"
+
+The cases live in `tests/test_skill_contract_part_<k>.py` (built by
+`tests/skill_contract_cases.py`), split so CI can spread them over its shards; this
+file checks the baseline itself.
 
 Skills that predate the contract and miss a family on purpose-or-neglect are
 listed in `tests/skill_contract_baseline.yaml` as `family: {skill-id: reason}`.
@@ -17,58 +21,19 @@ Skill-specific oracles stay in their own test files.
 
 from pathlib import Path
 
-import pytest
-import yaml
 
 from scripts import skill_contract as sc
 
-BASELINE_PATH = Path(__file__).with_name("skill_contract_baseline.yaml")
-BASELINE = (yaml.safe_load(BASELINE_PATH.read_text(encoding="utf-8")) or {}) if BASELINE_PATH.exists() else {}
+from tests.skill_contract_cases import BASELINE, PARTS, part_ids
 
 
-def _cases(family: str):
-    known = BASELINE.get(family) or {}
-    return [
-        pytest.param(sid, marks=pytest.mark.xfail(strict=True, reason=known[sid]), id=sid)
-        if sid in known
-        else pytest.param(sid, id=sid)
-        for sid in sc.live_ids()
-    ]
-
-
-@pytest.mark.parametrize("skill_id", _cases("shape"))
-def test_shape(skill_id):
-    sc.check_shape(skill_id)
-
-
-@pytest.mark.parametrize("skill_id", _cases("determinism"))
-def test_determinism(skill_id):
-    sc.check_determinism(skill_id)
-
-
-@pytest.mark.parametrize("skill_id", _cases("distractors"))
-def test_distractors(skill_id):
-    sc.check_distractors(skill_id)
-
-
-@pytest.mark.parametrize("skill_id", _cases("options"))
-def test_options(skill_id):
-    sc.check_options(skill_id)
-
-
-@pytest.mark.parametrize("skill_id", _cases("variety"))
-def test_variety(skill_id):
-    sc.check_variety(skill_id)
-
-
-@pytest.mark.parametrize("skill_id", _cases("escalation"))
-def test_escalation(skill_id):
-    sc.check_escalation(skill_id)
-
-
-@pytest.mark.parametrize("skill_id", _cases("grader"))
-def test_grader_round_trip(skill_id):
-    sc.check_grader(skill_id)
+def test_the_parts_cover_every_live_skill_once():
+    ids = [sid for part in range(PARTS) for sid in part_ids(part)]
+    assert sorted(ids) == sorted(sc.live_ids())
+    assert len(ids) == len(set(ids))
+    for part in range(PARTS):
+        assert Path(__file__).with_name(f"test_skill_contract_part_{part}.py").is_file()
+    assert not Path(__file__).with_name(f"test_skill_contract_part_{PARTS}.py").exists()
 
 
 def test_baseline_names_only_live_skills_and_known_families():

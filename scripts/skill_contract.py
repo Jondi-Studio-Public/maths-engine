@@ -1,7 +1,7 @@
 """The shared skill contract: the checks every per-batch `_build` file repeats.
 
 One function per family, each `check_<family>(skill_id)` raising AssertionError
-with a located message. `tests/test_skill_contract.py` runs them one pytest case per skill and family;
+with a located message. `tests/test_skill_contract_part_*.py` run them one pytest case per skill and family;
 `scripts/skill_contract_baseline.py` runs them over the whole library to record the skills that fail
 today (`tests/skill_contract_baseline.yaml`); `tests/test_skill_contract_mutants.py` shows that each
 one fails on a deliberately broken skill. Read-only.
