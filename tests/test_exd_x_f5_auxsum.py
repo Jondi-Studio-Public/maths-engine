@@ -12,7 +12,14 @@ from mathgen import make
 from mathgen.grading import GRADERS
 from mathgen.text_quality import find_text_defects, prompt_shape
 
-mp.dps = 40
+
+@pytest.fixture(autouse=True)
+def _precision():
+    # Set per test: a module-level mp.dps leaks into every later test in the same worker.
+    with mp.workdps(40):
+        yield
+
+
 TOPIC = "exd_x_f5_auxsum"
 _GRADER = GRADERS["pair"]
 

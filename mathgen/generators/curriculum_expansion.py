@@ -107,12 +107,14 @@ def time_system_conversion(rng):
     else:
         prompt, answer = f"Convert {hour:02d}:{minute:02d} to 12-hour time.", _clock12(total)
         alternatives = [_clock12(total + shift * 60) for shift in (12, 1, -1)]
-    return _mcq(
+    d = _mcq(
         prompt,
         answer,
         alternatives,
         working=[f"The same instant is written as {hour:02d}:{minute:02d} or {_clock12(total)}."],
     )
+    d["answer_latex"] = latex_answer(answer, plain=True)  # "2:05 pm" would render as italic prose
+    return d
 
 
 @generator("elapsed_time", level=6)

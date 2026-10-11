@@ -16,25 +16,28 @@ status: active
 prerequisites: [calculate-mean]
 answer: number
 sources:
-# `difficulty` names one of the topic's own registered presets (see
-# mathgen/generators/sample_standard_deviation.py), each of which just sets
-# the matching `variant` -- kept explicit in `params` too so the question a
-# reader of this file sees is never hidden behind the preset name alone.
+# `difficulty` is the tier (easy, medium, hard, exam). The topic registers a
+# preset of each of those names (see
+# mathgen/generators/sample_standard_deviation.py), and the `variant` is kept
+# explicit in `params` too: it wins over the preset, and a reader of this file
+# sees the question shape without looking the preset up. Context and
+# compare_sets share the hard tier: the first adds decimal readings with a
+# unit, the second adds choosing between two labelled data sets.
 - topic: standard_deviation_from_data
   params: {variant: integers}
-  difficulty: integers
+  difficulty: easy
   stages: [0, 1]
 - topic: standard_deviation_from_data
   params: {variant: non_integer_mean}
-  difficulty: non_integer_mean
+  difficulty: medium
   stages: [2, 3]
 - topic: standard_deviation_from_data
   params: {variant: context}
-  difficulty: context
+  difficulty: hard
   stages: [4, 5]
 - topic: standard_deviation_from_data
   params: {variant: compare_sets}
-  difficulty: compare_sets
+  difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s5_sd_summary
   params: {tier: exam}
