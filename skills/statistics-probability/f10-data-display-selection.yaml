@@ -1,0 +1,54 @@
+id: f10-data-display-selection
+name: Choose a data display for a purpose
+domain: statistics-probability
+description: Given a short text description of what was recorded and what the reader wants to see, name the one display, from four options, that suits both the data and the purpose (column graph, pie chart, histogram, line graph, scatterplot or back-to-back stem-and-leaf plot). Every scenario has exactly one defensible display. Nothing is drawn, and justifying the choice or interpreting a finished display is not asked. easy names the kind of variable; medium leaves the learner to read it from the description; hard disguises it (numeric labels that are really categories, time-ordered data wanted only for its spread, a year column that is a time axis, whole-number hours that are a measured variable).
+status: active
+placement_eligible: false
+prerequisites:
+- classify-data
+answer: mcq
+sources:
+- topic: f10a_data_display_selection
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10a_data_display_selection
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10a_data_display_selection
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: pie-chart-for-numerical-data
+  description: Picks a pie chart for measurements or counts that are not parts of one whole.
+- id: line-graph-for-categories
+  description: Joins separate categories with a line, as if one followed on from the next.
+- id: histogram-for-categories
+  description: Picks a histogram for categorical data, treating it as just another bar graph.
+- id: scatterplot-for-one-variable
+  description: Picks a scatterplot when only one variable is recorded, or when the aim is not a relationship.
+- id: two-group-display-for-one-group
+  description: Picks a back-to-back display when there is only one group to show.
+- id: line-graph-without-a-time-axis
+  description: Joins values with a line when nothing is changing over time.
+- id: distribution-display-ignores-time
+  description: Picks a histogram for a quantity whose order in time is the point, which throws the order away.
+- id: histogram-for-two-variables
+  description: Picks a histogram when two variables are recorded together, but a histogram shows only one.
+- id: column-graph-for-numerical-pairs
+  description: Picks a column graph for two measured variables, though columns need one category each.
+- id: column-graph-hides-individual-values
+  description: Picks a column graph to compare two groups, which shows totals and hides the spread of individual values.
+- id: scatterplot-for-groups
+  description: Picks a scatterplot to compare two groups, treating the group as a second variable.
+- id: numeric-label-treated-as-measurement
+  description: Sees a numeral (a bib, postcode or room number) and treats it as a measurement, though it is only a label.
+- id: line-graph-because-data-has-dates
+  description: Picks a line graph because the data were recorded day by day, though the aim ignores the order in time.
+- id: time-treated-as-ordinary-variable
+  description: Picks a scatterplot for a year column and a quantity, treating the year as an ordinary variable and not a time axis.
+- id: line-graph-for-ordered-pairs-not-time
+  description: Picks a line graph because the first variable is a whole number in order, though it is a measured variable and not time.
+tags: [acara-f10-v9, statistics-probability, f10a_data_display_selection, AC9M9ST04]
