@@ -657,6 +657,13 @@ def validate(
                             f"difficulty={src.difficulty!r} failed at seed={seed}: {exc}"
                         )
                         break
+                    unknown_part_kinds = sorted({p.answer_kind for p in q.parts} - set(graders))
+                    if unknown_part_kinds:
+                        report.errors.append(
+                            f"{s.id}: source topic={src.topic!r} has parts graded as {unknown_part_kinds}, "
+                            f"which have no grader"
+                        )
+                        break
                     if getattr(q, "figure", None) is not None and not s.needs_figure:
                         report.errors.append(
                             f"{s.id}: source topic={src.topic!r} draws a figure; "

@@ -68,9 +68,17 @@ class Question:
     # value a learner making that option's error reaches, shaped like `answer`
     distractor_credit: dict[str, str] = field(default_factory=dict)  # option text -> share of the
     # marks that error still earns, as a fraction string ("1/2")
+    parts: list[Part] = field(default_factory=list)  # a multi-part question's parts, in order; see `Part`.
+    # Empty for a single-answer question, and omitted from to_dict()/to_json() when empty, like `answer_alt`.
+    stem: str | None = None  # a multi-part question's shared information, without the parts' prompts
+    # (`text` is the stem followed by every part's prompt). None, and omitted, for a single-answer question.
 
     def to_dict(self) -> dict:
         d = asdict(self)
+        if not d.get("parts"):
+            d.pop("parts", None)
+        if d.get("stem") is None:
+            d.pop("stem", None)
         if d.get("answer_alt") is None:
             d.pop("answer_alt", None)
         if not d.get("option_notes"):
@@ -86,6 +94,118 @@ class Question:
 
     def to_json(self) -> str:
         return json.dumps(self.to_dict(), ensure_ascii=False, default=str)
+
+
+@dataclass
+class Part:
+    """One part of a multi-part question: "(a) find the radius", "(b) hence find the circumference".
+
+    A part has the same answer attributes a single-answer `Question` has (`answer`, `answer_text`,
+    `answer_latex`, `answer_form`, `answer_alt`, `distractors`, `option_notes`), so every grader grades a part
+    exactly as it grades a question: `grade(part.answer_kind, part, reply)`. See
+    `docs/design/multi-part-questions.md`.
+
+    `follow_through` is a SymPy expression for this part's answer in terms of earlier parts' values, named
+    `part_a`, `part_b`, ... (for example `"2*pi*part_a"`). When it is set, a reply that is right for the
+    learner's OWN earlier answers earns this part's marks, as exam markers give follow-through marks. Only
+    parts graded as one value (`number`, `fraction`, `expression`) can be named in it.
+
+    Follow-through is not given for a later part when an earlier reply it uses makes that part trivial or
+    impossible, as markers withhold it: a zero where the canonical value is not zero, a later answer of zero
+    where the canonical one is not, or a reply outside the earlier part's `sensible_range`. `sensible_range` is
+    the open interval a sensible answer to this part lies in, `(0, None)` for a length, an area or an amount of
+    money, `(0, 1)` for a probability; `make()` checks the canonical answer lies in it.
+    """
+
+    label: str  # "a", "b", ...
+    prompt: str  # what this part asks, plain text
+    answer_kind: str  # the grader for this part, a key of mathgen.grading.GRADERS
+    answer: Any
+    answer_text: str
+    prompt_latex: str = ""
+    answer_latex: str = ""
+    marks: int = 1
+    follow_through: str | None = None
+    working: list[str] = field(default_factory=list)
+    distractors: list[str] = field(default_factory=list)
+    answer_alt: Any = None
+    option_notes: dict[str, str] = field(default_factory=dict)
+    answer_form: str | None = None
+    distractor_values: dict[str, Any] = field(default_factory=dict)  # as on `Question` (mathgen/answers.py)
+    distractor_credit: dict[str, str] = field(default_factory=dict)  # as on `Question`: a share of this part's marks
+    sensible_range: tuple | None = None  # (low, high), open, None for no bound: see below
+    seed: str = ""  # "<question seed>:<label>"; shuffles this part's options for an mcq part (`mcq_options`)
+
+    @property
+    def text(self) -> str:
+        """The prompt, under the name graders read a question's wording by (`requested_rounding(text)`)."""
+        return self.prompt
+
+
+#: Keys a generator may give each entry of `parts`; everything else in a part dict is an error.
+_PART_KEYS = frozenset(Part.__dataclass_fields__) - {"seed"}
+#: Answer keys `make()` fills from the parts, so a multi-part generator must not set them itself.
+_FILLED_FROM_PARTS = (
+    "answer",
+    "answer_text",
+    "answer_latex",
+    "answer_kind",
+    "distractors",
+    "answer_alt",
+    "option_notes",
+    "answer_form",
+    "distractor_values",
+    "distractor_credit",
+)
+
+
+def _build_parts(d: dict, seed) -> dict:
+    """Turn a multi-part generator's dict into the question fields: `Part` objects plus the composed
+    question-level text, answer and working that code unaware of parts reads (see `Question.parts`)."""
+    for key in _FILLED_FROM_PARTS:
+        if key in d:
+            raise ValueError(f"a multi-part question sets {key!r} on each part, not on the question")
+    raw = d.pop("parts")
+    if not raw:
+        raise ValueError("parts must not be empty")
+    parts = []
+    for i, entry in enumerate(raw):
+        unknown = set(entry) - _PART_KEYS
+        if unknown:
+            raise ValueError(f"part {i} has unknown keys {sorted(unknown)}")
+        entry = dict(entry)
+        entry.setdefault("label", chr(ord("a") + i))
+        # A part's tagged distractors are flattened exactly as a question's are (mathgen/answers.py).
+        flatten_distractors(entry)
+        if entry.get("answer_kind") not in ANSWER_KINDS:
+            raise ValueError(f"part {entry['label']!r}: unknown answer_kind {entry.get('answer_kind')!r}")
+        if entry.get("answer_form") is not None and entry["answer_form"] not in ANSWER_FORMS:
+            raise ValueError(f"part {entry['label']!r}: unknown answer_form {entry['answer_form']!r}")
+        if not entry.get("prompt_latex") or entry["prompt_latex"] == entry["prompt"]:
+            entry["prompt_latex"] = latex_prompt(entry["prompt"])
+        if isinstance(entry.get("working"), str):
+            entry["working"] = [entry["working"]]
+        part = Part(**entry, seed=f"{seed}:{entry['label']}")
+        if not isinstance(part.marks, int) or isinstance(part.marks, bool) or part.marks < 1:
+            raise ValueError(f"part {part.label!r}: marks must be a whole number of at least 1")
+        parts.append(part)
+    labels = [p.label for p in parts]
+    if len(set(labels)) != len(labels):
+        raise ValueError(f"part labels must be unique: {labels}")
+
+    stem = d.pop("text")
+    stem_latex = d.pop("latex", "") or ""
+    if not stem_latex or stem_latex == stem:
+        stem_latex = latex_prompt(stem)
+    d["stem"] = stem
+    d["text"] = " ".join([stem, *(f"({p.label}) {p.prompt}" for p in parts)])
+    d["latex"] = " ".join([stem_latex, *(rf"\text{{({p.label}) }}{p.prompt_latex}" for p in parts)])
+    d["answer"] = {p.label: p.answer for p in parts}
+    d["answer_text"] = "; ".join(f"({p.label}) {p.answer_text}" for p in parts)
+    d["answer_latex"] = "plain:" + d["answer_text"]
+    d["working"] = [*d.get("working", []), *(f"({p.label}) {step}" for p in parts for step in p.working)]
+    d["parts"] = parts
+    return d
 
 
 class VerificationError(Exception):
@@ -151,6 +271,13 @@ def make(topic: str, seed: int | None = None, difficulty: str | None = None, **p
         raise ValueError(f"{topic}: unknown answer_kind {d['answer_kind']!r}")
     if d.get("answer_form") is not None and d["answer_form"] not in ANSWER_FORMS:
         raise ValueError(f"{topic}: unknown answer_form {d['answer_form']!r}")
+    if "parts" in d:
+        # A multi-part question: build its parts and the question-level fields they fill, then prove every
+        # follow-through expression reproduces its part's answer from the earlier parts' answers.
+        d = _build_parts(d, seed)
+        from mathgen.grading.parts import verify_follow_through
+
+        verify_follow_through(d["parts"])
     # A generator that never authored its own `latex` (or authored it as a
     # verbatim copy of `text`) gets one for free here -- the single choke
     # point every consumer goes through, so no generator needs touching.

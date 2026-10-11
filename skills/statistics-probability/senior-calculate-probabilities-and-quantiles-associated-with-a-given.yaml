@@ -30,8 +30,8 @@ sources:
   params: {mode: quantile}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p13d_normal_dist_prob_quantile
-  params: {mode: solve_parameter}
+- topic: exam_parts_normal_distribution
+  params: {}
   difficulty: exam
   stages: [exam]
 misconceptions:
@@ -47,6 +47,8 @@ misconceptions:
   description: On the between-two-values tier, computes cdf(a) - cdf(b) instead of cdf(b) - cdf(a), reporting the negative of the correct probability.
 - id: inverts-the-wrong-tail
   description: On the quantile tier, uses the inverse cdf of (1 - q) instead of q, confusing the smallest/largest proportion with its complement.
+- id: z-sign-reversed
+  description: Subtracts the other way when standardising, (mu - x) / sigma, so the z-score has the wrong sign.
 - id: swaps-multiplication-and-division
   description: On the parameter-solving tier, multiplies where the algebra requires dividing (or vice versa) when isolating the unknown parameter.
 tags: [acara-senior-v8-4, statistics-probability, normal-distribution, probability, quantile, acmmm170]
