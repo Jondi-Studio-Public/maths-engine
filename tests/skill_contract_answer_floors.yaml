@@ -50,6 +50,10 @@ f10-chance-language-and-outcomes:
 f10-compare-measurement-attributes:
   compare_measurement_attributes/easy: 4
   compare_measurement_attributes/medium: 4
+f10-congruence-similarity-criteria:
+  f10c_congruence_criteria/easy: 5
+f10-data-display-selection:
+  f10a_data_display_selection/hard: 4
 f10-factor-multiple-divisibility-algorithm:
   p9e_factor_multiple_divisibility_algorithm/hard: 5
 f10-factors-multiples-divisibility:
@@ -148,6 +152,8 @@ senior-compare-the-characteristics-of-the-shape-of-histograms:
   p19b_histogram_shape/exam: 4
   p19b_histogram_shape/hard: 4
   p19b_histogram_shape/medium: 4
+senior-convert-between-grams-and-milligrams:
+  exd_x_grams_dose/exam: 4
 senior-convert-between-units-for-rates-for-example-km:
   convert_units_for_rates/hard: 4
 senior-define-logarithms-as-indices-a-x-b-is:

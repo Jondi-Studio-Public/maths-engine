@@ -8,7 +8,10 @@ middle_answer:
   add-within-100:
   - early_addition/easy
   angle-degrees-to-radians-decimal:
+  - exd_x_f4_deg_to_rad/exam
   - t4_degrees_to_radians_decimal/easy
+  angle-radians-to-degrees-decimal:
+  - exd_x_f4_rad_to_deg/exam
   annulus-cross-section-area:
   - annulus_cross_section_area/easy
   - annulus_cross_section_area/hard
@@ -16,6 +19,7 @@ middle_answer:
   applied-pythagoras-problems:
   - applied_pythagoras/hard
   - applied_pythagoras/medium
+  - exd_x_f4_pythag/exam
   before-and-after-to-10:
   - before_after/easy
   bernoulli-mle:
@@ -30,6 +34,7 @@ middle_answer:
   - summary_statistic/easy
   calculate-overtime:
   - earnings/easy
+  - exd_x_g5_overtime/exam
   calculate-range:
   - summary_statistic/easy
   calculate-wages:
@@ -38,6 +43,7 @@ middle_answer:
   - circle_reverse_from_area/hard
   combinations:
   - combinatorics/easy
+  - exd_x_h2_combinations/exam
   common-difference:
   - sequence/hard
   complex-modulus:
@@ -48,6 +54,8 @@ middle_answer:
   - composite_trapezoidal_polynomial/easy
   - composite_trapezoidal_polynomial/hard
   - composite_trapezoidal_polynomial/medium
+  compound-interest:
+  - exd_x_g5_compound_interest/exam
   condition-number-diagonal:
   - condition_number_diagonal/easy
   - condition_number_diagonal/medium
@@ -113,6 +121,8 @@ middle_answer:
   - describe_calendar_duration/medium
   f10-division-remainder-context:
   - division_remainder_context/hard
+  f10-enlargement-invariants:
+  - enlargement_invariants/easy
   f10-equivalent-fractions-related-denominators:
   - equivalent_fraction_related_denominator/easy
   - equivalent_fraction_related_denominator/hard
@@ -132,6 +142,8 @@ middle_answer:
   - fraction_halving/easy
   - fraction_halving/hard
   - fraction_halving/medium
+  f10-geometric-construction-algorithm:
+  - f10_geometric_construction_algorithm/hard
   f10-logarithmic-scales:
   - p10e_logarithmic_scales/easy
   - p10e_logarithmic_scales/hard
@@ -215,6 +227,7 @@ middle_answer:
   finite-sample-space-probability:
   - finite_sample_space_probability/easy
   flat-loan-repayment:
+  - exd_x_g5_flat_loan/exam
   - flat_loan_repayment/easy
   fraction-of-quantity:
   - fraction_of_quantity/easy
@@ -236,6 +249,8 @@ middle_answer:
   markov-two-state-step:
   - markov_two_state_step/easy
   - markov_two_state_step/medium
+  matrix-determinant-2x2:
+  - exd_x_g3_det2/exam
   matrix-rank-small:
   - matrix_rank_small/easy
   - matrix_rank_small/hard
@@ -257,10 +272,13 @@ middle_answer:
   - number_bond/easy
   order-numbers-to-10:
   - number_sequence/easy
+  percentage-change:
+  - percentage_change/easy
   percentage-of-quantity:
   - percentage_quantity/hard
   permutations:
   - combinatorics/easy
+  - exd_x_h2_permutations/exam
   place-value-to-100:
   - teen_place_value/easy
   place-value-to-20:
@@ -290,6 +308,8 @@ middle_answer:
   - rectangle_mixed_unit_area_perimeter/medium
   rectangle-perimeter:
   - rectangle_measure/medium
+  reverse-percentage:
+  - percentage_change/easy
   round-decimals:
   - round_decimal/easy
   - round_decimal/hard
@@ -305,6 +325,8 @@ middle_answer:
   - pv0c_euler_planar/medium
   senior-apply-the-cosine-and-sine-ratios-to-find:
   - sine_cosine_ratio_triangle/hard
+  senior-apply-vector-calculus-to-motion-in-a-plane:
+  - exd_x_g2_projectile_landing/exam
   senior-calculate-and-interpret-quartiles-deciles-and-percentiles:
   - p19b_percentile_rank/easy
   - p19b_percentile_rank/medium
@@ -331,6 +353,7 @@ middle_answer:
   - area_between_curves_simple_cases/hard
   - area_between_curves_simple_cases/medium
   senior-calculate-the-time-or-costs-for-a-journey:
+  - exd_x_journey_cost/exam
   - journey_time_or_cost/easy
   - journey_time_or_cost/medium
   senior-calculate-total-change-by-integrating-instantaneous-or-marginal:
@@ -350,6 +373,7 @@ middle_answer:
   - p13b_constant_nonconstant_force/hard
   - p13b_constant_nonconstant_force/medium
   senior-consider-similar-problems-involving-compounding-for-example-population:
+  - exd_x_g6_compound_threshold/exam
   - p10c_population_compounding/hard
   - p10c_population_compounding/medium
   senior-convert-between-grams-and-milligrams:
@@ -362,11 +386,15 @@ middle_answer:
   - p13a_convert_rate_units/easy
   senior-define-and-use-unit-vectors-and-the-perpendicular:
   - define_and_use_unit_vectors_and_the_perpendicular/medium
+  - exd_x_g1_unit_vectors/exam
   senior-define-logarithms-as-indices-a-x-b-is:
   - logarithms_as_indices/hard
+  senior-define-the-natural-logarithm-ln-x-log-ex:
+  - exd_x_f1_ln_exponential_equation/exam
   senior-determine-and-examine-the-n-th-roots-of:
   - nth_roots_of_unity/hard
   senior-determine-and-use-the-formulas-for-finding-the:
+  - exd_x_h5_set_membership_counts/exam
   - p11c_set_union_cardinality/easy
   senior-determine-equations-of-motion-of-a-particle-travelling:
   - p10a_vector_motion_line_accel/hard
@@ -376,6 +404,7 @@ middle_answer:
   senior-determine-the-optimum-assignment-s-by-inspection-for:
   - determine_the_optimum_assignment_s_by_inspection_for/easy
   - determine_the_optimum_assignment_s_by_inspection_for/medium
+  - exd_x_g6_assignment_max_forbidden/exam
   senior-determine-the-overall-change-in-a-quantity-following:
   - repeated_percentage_change/hard
   - repeated_percentage_change/medium
@@ -390,6 +419,7 @@ middle_answer:
   senior-examine-examples-of-inverse-proportion:
   - p7d_examine_inverse_proportion/medium
   senior-examine-examples-of-quadratically-related-variables:
+  - exd_x_a2_quadratic_variation_percent/exam
   - p7d_examine_quadratic_variation/hard
   - p7d_examine_quadratic_variation/medium
   senior-examine-examples-of-variable-rates-of-change-of:
@@ -400,6 +430,7 @@ middle_answer:
   - examine_examples_of_vectors_including_displacement_and_velocity/easy
   - examine_examples_of_vectors_including_displacement_and_velocity/hard
   - examine_examples_of_vectors_including_displacement_and_velocity/medium
+  - exd_x_g2_velocity_composition/exam
   senior-examine-simple-examples-of-non-uniform-discrete-random:
   - non_uniform_discrete_random_variable/hard
   - non_uniform_discrete_random_variable/medium
@@ -407,6 +438,7 @@ middle_answer:
   - p13c_riemann_sum_area/easy
   senior-find-distances-between-two-places-on-earth-on:
   - earth_meridian_distance/easy
+  - exd_x_meridian_voyage/exam
   senior-find-distances-between-two-places-on-earth-using:
   - p13d_great_circle_distance/easy
   - p13d_great_circle_distance/exam
@@ -501,6 +533,8 @@ middle_answer:
   senior-solve-small-scale-network-flow-problems-including-the:
   - solve_small_scale_network_flow_problems_including_the/hard
   - solve_small_scale_network_flow_problems_including_the/medium
+  senior-the-alternate-segment-theorem:
+  - exd_x_h4_tangent_pair_alternate_segment/exam
   senior-the-angle-at-the-centre-subtended-by-an:
   - the_angle_at_the_centre_subtended_by_an_arc/hard
   senior-the-concept-of-an-interval-estimate-for-a:
@@ -546,6 +580,7 @@ middle_answer:
   - volume_of_pyramids_and_spheres/exam
   - volume_of_pyramids_and_spheres/medium
   senior-use-forward-and-backward-scanning-to-determine-the:
+  - exd_x_g6_missing_duration/exam
   - use_forward_and_backward_scanning_to_determine_the/easy
   - use_forward_and_backward_scanning_to_determine_the/medium
   senior-use-geometric-sequences-in-contexts-involving-geometric-growth:
@@ -601,6 +636,7 @@ middle_answer:
   senior-use-the-coefficient-of-determination-to-assess-the:
   - p19b_coefficient_determination/exam
   senior-use-the-critical-path-to-determine-the-minimum:
+  - exd_x_g6_crash_shortest_time/exam
   - use_the_critical_path_to_determine_the_minimum/easy
   - use_the_critical_path_to_determine_the_minimum/hard
   - use_the_critical_path_to_determine_the_minimum/medium
@@ -609,6 +645,7 @@ middle_answer:
   - use_the_equation_of_a_fitted_line_to/hard
   - use_the_equation_of_a_fitted_line_to/medium
   senior-use-the-formula-t-n-r-n-1:
+  - exd_x_f3_geoformula/exam
   - geometric_nth_term_formula/easy
   - geometric_nth_term_formula/hard
   senior-use-the-increments-formula-delta-y-cong-frac:
@@ -715,6 +752,7 @@ middle_answer:
   unit-pricing:
   - unit_pricing/easy
   use-nth-term-rule:
+  - exd_x_f4_nth_term/exam
   - sequence/easy
   - sequence/hard
   - sequence/medium
@@ -804,6 +842,8 @@ option_count:
   - square_roots_perfect_squares/medium
   fair-sharing:
   - fair_sharing/easy
+  matrix-multiplication:
+  - exd_x_h2_matrix_multiplication/exam
   multiplication-facts:
   - equal_groups/easy
   multiply-complex-numbers:
