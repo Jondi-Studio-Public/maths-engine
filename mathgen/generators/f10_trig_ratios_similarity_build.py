@@ -14,7 +14,7 @@ Three tiers, each a different reasoning shape:
   one side. The learner finds another side of the larger triangle by
   keeping the ratio of the two sides constant (similarity). Integer answer.
 - medium: the angle and one side are stated; the three ratios for the angle
-  are printed, each given to four digits after the decimal point, and the answer is wanted to
+  are printed, each rounded to 4 decimal places, and the answer is wanted to
   1 decimal place. The learner picks the ratio from the side NAMES
   (opposite, adjacent, hypotenuse) and decides whether to multiply or divide.
 - hard: the triangle is named by vertex letters (right angle at one of
@@ -270,7 +270,7 @@ def _medium(rng):
     text = (
         f"In a right-angled triangle, one acute angle is {angle} degrees. "
         f"The {_PHRASE[known_role]} is {known} cm. "
-        f"For {angle} degrees, the ratios (each given to four digits after the decimal point) are: {_fmt_table(angle, table)}. "
+        f"For {angle} degrees, the ratios (each rounded to 4 d.p.) are: {_fmt_table(angle, table)}. "
         + rng.choice(_MEDIUM_CLOSERS).format(unknown=_PHRASE[unknown_role], dp_word=_DP_WORD[dp])
     )
     answer_text = stated_precision_string(rounded, dp)
@@ -326,7 +326,7 @@ _PHRASE_ALT = "|".join(re.escape(v) for v in _PHRASE.values())
 
 _MED_RE = re.compile(
     r"one acute angle is (\d+) degrees\. The (" + _PHRASE_ALT + r") is ([\d.]+) cm\. "
-    r"For \d+ degrees, the ratios \(each given to four digits after the decimal point\) are: "
+    r"For \d+ degrees, the ratios \(each rounded to 4 d\.p\.\) are: "
     r"sin \d+ degrees = ([\d.]+), cos \d+ degrees = ([\d.]+), tan \d+ degrees = ([\d.]+)\. "
     r".*? length of the (" + _PHRASE_ALT + r"), correct to (\d) decimal place"
 )
@@ -382,7 +382,7 @@ def _hard(rng):
     text = (
         f"Triangle {v1}{v2}{vr} has a right angle at {vr}, and the angle at {at} is {angle} degrees. "
         f"Side {names[known_role]} is {stated_precision_string(known, 1)} cm. "
-        f"Ratios, each given to four digits after the decimal point: {_fmt_table(angle, t1)}; {_fmt_table(comp, t2)}. "
+        f"Ratios, each rounded to 4 d.p.: {_fmt_table(angle, t1)}; {_fmt_table(comp, t2)}. "
         f"Find the length of side {names[unknown_role]}, correct to {_DP_WORD[dp]}."
     )
     answer_text = stated_precision_string(rounded, dp)
@@ -397,7 +397,7 @@ def _hard(rng):
 _HARD_RE = re.compile(
     r"Triangle (\w)(\w)(\w) has a right angle at (\w), and the angle at (\w) is (\d+) degrees\. "
     r"Side (\w\w) is ([\d.]+) cm\. "
-    r"Ratios, each given to four digits after the decimal point: .*? "
+    r"Ratios, each rounded to 4 d\.p\.: .*? "
     r"Find the length of side (\w\w), correct to (\d) decimal places\."
 )
 
