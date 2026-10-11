@@ -247,3 +247,22 @@ def test_exam_property_is_red_against_the_unconstrained_draw(monkeypatch):
     monkeypatch.setattr(gen, "_draw_point", lambda rng, variant: (3, 2))
     monkeypatch.setattr(gen, "_build_f", lambda rng, variant, p, q: (gen._line(p, q, gen.F(2)), True, "line"))
     assert not all(_crossing_pair(_make("exam", s)) for s in range(10))
+
+
+def test_exam_curves_are_labelled_and_the_prompt_says_which_is_f():
+    for s in range(60):
+        q = _make("exam", s)
+        labels = [c.get("label") for c in q.figure["curves"]]
+        assert sorted(labels) == ["f", "f⁻¹"]  # distinct, both present
+        assert "curve labelled f is y = f(x)" in q.text
+        assert "curve labelled f⁻¹ is y = f⁻¹(x)" in q.text
+        # the label 'f' really sits on the curve the prompt calls y = f(x): the other is its mirror image
+        by_label = {c["label"]: {x: y for pc in c["pieces"] for x, y in pc} for c in q.figure["curves"]}
+        px, py = q.figure["points"][0]["at"]
+        assert abs(by_label["f"][px] - py) < 1e-6 and abs(by_label["f⁻¹"][py] - px) < 1e-6
+        assert q.answer_text == f"({q.figure['points'][0]['at'][1]}, {q.figure['points'][0]['at'][0]})"
+
+
+def test_other_tiers_keep_unlabelled_curves():
+    for tier in ("easy", "medium", "hard"):
+        assert all("label" not in c for c in _make(tier, 3).figure["curves"])
