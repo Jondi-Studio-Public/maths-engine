@@ -288,6 +288,7 @@ def exam_parts_normal_distribution(rng):
     d_prompt = f"Find the value k such that P(X < k) = {p_text}, correct to 1 decimal place."
     d_answer = _G(numeric_answer(_round_float(q_exact, 1)), d_text, d_prompt)
     zq = _STD.inv_cdf(p)
+    zq_text = f"({zq:.4f})" if zq < 0 else f"{zq:.4f}"  # "240 + (-1.6449) × 20", never "+ -1.6449"
     d_values = [
         mu + sigma * _STD.inv_cdf(1.0 - p),  # inverts the wrong tail
         zq,  # reports z, not x
@@ -362,7 +363,7 @@ def exam_parts_normal_distribution(rng):
             marks=2,
             working=[
                 f"z = InvNorm({p_text}) = {zq:.4f}",
-                f"k = μ + zσ = {mu} + {zq:.4f} × {sigma} = {d_text}",
+                f"k = μ + zσ = {mu} + {zq_text} × {sigma} = {d_text}",
             ],
             distractors=d_dist,
             option_notes=notes(d_notes, d_dist),
