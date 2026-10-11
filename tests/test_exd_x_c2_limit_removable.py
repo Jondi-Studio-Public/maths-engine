@@ -27,8 +27,15 @@ from mathgen.text_quality import find_text_defects, prompt_shape
 TOPIC = "exd_x_c2_limit_removable"
 GRADER = "number"
 _X = sympy.Symbol("x")
-mpmath.mp.dps = 60
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
+
+
+@pytest.fixture(autouse=True)
+def _working_precision():
+    """Raise mpmath's precision for this file's tests only. Setting it at import time leaked into
+    every later test on the same worker (an `nsolve` elsewhere then failed its tolerance)."""
+    with mpmath.workdps(60):
+        yield
 
 
 def _exam(seed):

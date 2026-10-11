@@ -55,9 +55,16 @@ from mpmath import mp, quad
 from sympy import Symbol, lambdify
 from sympy.parsing.sympy_parser import implicit_multiplication_application, parse_expr, standard_transformations
 
-mp.dps = 25
 _X = Symbol("x", real=True)
 _TR = standard_transformations + (implicit_multiplication_application,)
+
+
+@pytest.fixture(autouse=True)
+def _working_precision():
+    """Raise mpmath's precision for this file's tests only. Setting it at import time leaked into
+    every later test on the same worker (an `nsolve` elsewhere then failed its tolerance)."""
+    with mp.workdps(25):
+        yield
 
 
 def _expr(text: str):
