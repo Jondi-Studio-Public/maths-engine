@@ -35,6 +35,9 @@ from .typed import GradeResult, grade
 logger = logging.getLogger(__name__)
 
 DEFAULT_TIMEOUT = 2.0  # seconds
+# Replies one worker grades before the pool replaces it, as `maxtasksperchild` does for `multiprocessing.Pool`: it
+# bounds the worker's loop and any memory SymPy's caches gather over a long-running service.
+MAX_REPLIES_PER_WORKER = 10_000
 _STARTUP_TIMEOUT = 120.0  # seconds a new worker may take to import the engine before it is given up on
 
 
@@ -46,9 +49,10 @@ class DeadlineResult(GradeResult):
 
 
 def _serve(conn, grade_fn) -> None:
-    """A worker: say ready, then grade each (kind, question, given, skill) it is sent until the pipe closes."""
+    """A worker: say ready, then grade each (kind, question, given, skill) it is sent until the pipe closes or it has
+    graded `MAX_REPLIES_PER_WORKER` replies (the pool retires it at that count, so the bound is never what ends it)."""
     conn.send("ready")
-    while True:
+    for _ in range(MAX_REPLIES_PER_WORKER):
         try:
             job = conn.recv()
         except EOFError:
@@ -70,6 +74,7 @@ class _Worker:
         self.process.start()
         child.close()
         self.ready = False
+        self.served = 0
 
     def wait_ready(self) -> None:
         if self.ready:
@@ -171,7 +176,11 @@ class GradingPool:
             )
             self._replace(worker)
             return _wrong(question, timed_out=True)
-        self._idle.put(worker)
+        worker.served += 1
+        if worker.served >= MAX_REPLIES_PER_WORKER:
+            self._replace(worker)  # retired at its bound; a fresh one takes its place
+        else:
+            self._idle.put(worker)
         if status == "error":
             raise value  # `grade` raises only for a bad call (an unknown kind), as the in-process call would
         logger.debug("graded kind=%r in %.3f s", kind, time.monotonic() - started)

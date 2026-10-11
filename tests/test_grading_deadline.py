@@ -168,3 +168,18 @@ def test_a_closed_pool_refuses_work(skills):
     p.close()
     with pytest.raises(RuntimeError, match="closed"):
         p.grade("number", q, "1")
+
+
+def test_a_worker_is_retired_after_its_reply_bound(skills, monkeypatch):
+    from mathgen.grading import deadline as deadline_mod
+
+    skill = skills["number"]
+    q = engine.make_for_skill(skill, seed=0)
+    monkeypatch.setattr(deadline_mod, "MAX_REPLIES_PER_WORKER", 2)  # read by the pool; the worker keeps its own bound
+    with GradingPool(1, timeout=30) as one:
+        first = one._idle.queue[0]
+        assert one.grade("number", q, q.answer_text, skill=skill).correct
+        assert one._idle.queue[0] is first
+        assert one.grade("number", q, q.answer_text, skill=skill).correct
+        assert one._idle.queue[0] is not first and not first.process.is_alive()
+        assert one.grade("number", q, q.answer_text, skill=skill).correct
