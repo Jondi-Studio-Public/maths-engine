@@ -146,4 +146,4 @@ def test_skill_loads_with_expected_shape():
     assert skill.status == "active"
     assert skill.prerequisites == ["function-notation"]
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}

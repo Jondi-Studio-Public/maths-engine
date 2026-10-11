@@ -24,6 +24,11 @@ sources:
     variant: unfamiliar_root
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f3_fracidx
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgets-the-root-computes-the-full-power
   description: Raises the original number to the power, skipping the root extraction.

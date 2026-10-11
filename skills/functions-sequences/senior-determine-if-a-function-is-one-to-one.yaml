@@ -14,6 +14,10 @@ sources:
     params: {}
     difficulty: easy
     stages: [1, 2, 3]
+  - topic: exd_x_f1_one_to_one_parameter
+    params: {tier: exam}
+    difficulty: exam
+    stages: [exam]
 misconceptions:
   - id: reports-negative-of-h
     description: Reports -h (the negation of the correct axis of symmetry)
