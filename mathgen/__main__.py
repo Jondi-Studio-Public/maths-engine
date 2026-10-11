@@ -187,6 +187,8 @@ def _run_skills(ap, args):
             unmatched = f" (not an option label {labels[0]}-{labels[-1]} or option text)"
     verdict = engine.grade(found, q, given)
     print(f"  given {args.answer!r}: {'correct' if verdict.correct else 'wrong'}{unmatched}")
+    if verdict.misconception is not None:
+        print(f"  likely error ({verdict.misconception}): {verdict.note or 'no description'}")
     return 0
 
 
