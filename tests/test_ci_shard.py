@@ -238,8 +238,7 @@ def test_wrong_number_of_arguments_is_refused(args):
 
 
 def test_more_shards_than_test_files_is_refused():
-    # One more shard than the tree has test files, counted rather than hard-coded: the
-    # tree has outgrown any fixed guess (1000 stopped being "more" at 1000 test files).
+    # One more shard than the repo has test files, so the check holds however large the suite grows.
     count = len(ci_shard.test_files(ROOT)) + 1
     _assert_refused(_run_cli(str(count - 1), str(count)), 1)
 

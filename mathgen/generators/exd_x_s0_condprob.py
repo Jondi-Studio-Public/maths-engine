@@ -99,7 +99,9 @@ def exd_x_s0_condprob(rng: random.Random, tier: str = "exam") -> dict:
             cands = [
                 Fraction(only_a, n),
                 Fraction(only_a, union),  # forgets that "neither" is also "not both"
-                Fraction(a, n - both),  # keeps the overlap in the numerator
+                # keeps the overlap in the numerator; when that tips it over 1, the slip is
+                # dividing by the two "exactly one" groups only (forgetting "neither")
+                Fraction(a, n - both) if a <= n - both else Fraction(only_a, only_a + only_b),
                 Fraction(only_b, n - both),
             ]
         answer = Fraction(num, den)
