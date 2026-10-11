@@ -1,0 +1,37 @@
+id: f10-transformations-invariants
+name: Identify what transformations preserve
+domain: primary-geometry-time
+description: Given a named translation, reflection or rotation (or a short sequence of them) of a shape, choose the correct statement about whether the image's side lengths, angles, mirror-image reversal and symmetry stay the same or change.
+status: active
+placement_eligible: false
+prerequisites: [coordinate-plane-readiness]
+answer: mcq
+sources:
+- topic: transformations_invariants
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: transformations_invariants
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: transformations_invariants
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: slide-or-turn-reverses
+  description: Believes a translation or a rotation turns the shape into a mirror image (confuses turning the shape round with flipping it over).
+- id: reflection-not-reversed
+  description: Believes a reflection leaves the shape facing the same way, so the image is an exact, non-reversed copy.
+- id: movement-changes-size
+  description: Believes moving the shape changes its side lengths, often by the distance moved (an option that also carries a second slip is tagged with its first slip, in the order reversal, size, angle, symmetry).
+- id: movement-changes-angles
+  description: Believes moving the shape changes its angles, for example by the turn angle or to the supplement.
+- id: any-reflection-reverses
+  description: (Hard tier only) Believes the image is a mirror image whenever at least one reflection is used, even when two reflections cancel.
+- id: reflection-effect-lost
+  description: (Hard tier only) Believes a later translation or rotation undoes the reversal made by a reflection, so a single reflection in a sequence leaves no mirror image.
+- id: symmetry-changes-with-movement
+  description: (Hard tier only) Believes moving the shape creates or removes lines of symmetry or changes the order of its rotational symmetry.
+tags: [f10, geometry, transformations, translation, reflection, rotation, symmetry, acara-v9-year-5, acara-v9-year-6, acara-v9-year-7]
