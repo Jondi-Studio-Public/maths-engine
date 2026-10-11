@@ -12,6 +12,14 @@ from mathgen import make
 from mathgen.grading import GRADERS
 from mathgen.text_quality import find_text_defects, prompt_shape
 
+
+@pytest.fixture(autouse=True)
+def _precision():
+    # Set per test: a module-level mp.dps leaks into every later test in the same worker.
+    with mp.workdps(40):
+        yield
+
+
 TOPIC = "exd_x_f5_auxsum"
 _GRADER = GRADERS["pair"]
 
@@ -50,7 +58,6 @@ def test_unknown_tier_is_rejected():
 _TERM = re.compile(r"([+-]?)\s*(\d+) (cos|sin)\(x ([+-]) (\d+)°\)")
 
 
-@mp.workdps(40)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _independent(text):
     """(R, alpha) from the rendered prompt alone, by expanding each term at high precision."""
     expr = text.split("f(x) = ")[1].split(" in the form")[0]

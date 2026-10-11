@@ -12,6 +12,14 @@ from mathgen import make
 from mathgen.grading import GRADERS
 from mathgen.text_quality import find_text_defects, prompt_shape
 
+
+@pytest.fixture(autouse=True)
+def _precision():
+    # Set per test: a module-level mp.dps leaks into every later test in the same worker.
+    with mp.workdps(40):
+        yield
+
+
 TOPIC = "exd_x_f5_sinetower"
 _GRADER = GRADERS["number"]
 
@@ -50,7 +58,6 @@ def test_unknown_tier_is_rejected():
         make(TOPIC, seed=0, tier="nope")
 
 
-@mp.workdps(40)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _independent(text):
     """Height from the rendered prompt by coordinates: the foot is the origin, A and B sit at h / tan(angle), and
     they are d apart."""
