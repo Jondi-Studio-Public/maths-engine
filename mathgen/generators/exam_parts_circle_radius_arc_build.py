@@ -22,6 +22,7 @@ from fractions import Fraction
 
 from mathgen.core import (
     GRADER_TOLERANCE,
+    VerificationError,
     check,
     generator,
     latex_answer,
@@ -69,7 +70,7 @@ def _fmt(value: Fraction) -> str:
 
 @generator("exam_parts_circle_radius_arc", level=11, presets={"exam": {}})
 def exam_parts_circle_radius_arc(rng):
-    while True:
+    for _ in range(1000):  # bounded rejection loop; draws exactly as `while True` did
         r10 = rng.randint(_R10_LO, _R10_HI)
         if r10 % 10 == 0:
             continue
@@ -79,6 +80,8 @@ def exam_parts_circle_radius_arc(rng):
         arc = Fraction(theta, 360) * circumference
         if _clear_of_boundary(circumference) and _clear_of_boundary(arc):
             break
+    else:
+        raise VerificationError("no radius and angle clear of a rounding boundary in 1000 tries")
 
     area_true = PI * r * r
     area_display = round_half_up(area_true, 2)
