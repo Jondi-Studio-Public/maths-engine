@@ -24,10 +24,18 @@ from mathgen import make
 from mathgen.grading import GRADERS
 from mathgen.text_quality import find_text_defects, prompt_shape
 
+
+@pytest.fixture(autouse=True)
+def _mp_precision():
+    """60 digits for this module's tests only: mpmath's precision is global, and a module-level `mp.dps = 60`
+    stayed set for every later test in the worker (it made sympy's `nsolve` demand a near-zero residual)."""
+    with mpmath.mp.workdps(60):
+        yield
+
+
 TOPIC = "exd_x_c2_limit_removable"
 GRADER = "number"
 _X = sympy.Symbol("x")
-mpmath.mp.dps = 60
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
 
 
