@@ -37,7 +37,7 @@ answer: expression              # which grader checks replies (below)
 sources:
 - topic: t1_simplify_surds      # a generator topic name
   params: {}                    # keyword arguments for mathgen.make(topic, **params)
-  difficulty: easy              # optional preset name
+  difficulty: easy              # tier: easy, medium, hard or exam
   stages: [0, 1, 2]             # optional; None means all stages
 misconceptions:
 - id: drops-the-radical
@@ -45,12 +45,25 @@ misconceptions:
 tags: []
 ```
 
+`skill.schema.yaml` beside this file is the same list as a JSON Schema (draft 2020-12): every field,
+which are required, the allowed labels, and the conditions below. An unknown key is an error at every
+level, so a misspelt field is caught instead of silently ignored. To check a file in VS Code with the
+YAML extension, put `# yaml-language-server: $schema=../skill.schema.yaml` on its first line, or map the
+glob `skills/*/*.yaml` to the schema in settings. `tests/public/test_skill_schema.py` checks the whole
+library against it and keeps its field lists equal to what `mathgen/skills.py` reads. The schema covers
+shape only: it cannot tell whether a topic is registered or a source generates, which `validate()` does.
+Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates.
+
 - **Required in practice:** `id`, `name`, `domain`, `status`, `answer`, and at least one
   entry in `sources` for an active skill. `description` is one sentence.
 - **`sources`:** `topic` must be a registered generator topic (see `python -m mathgen --list`).
   `params` are passed to the generator, whose signature is the authority on which keyword
-  arguments exist. `difficulty` is a preset name such as `easy`, `medium`, `hard` or `exam`,
-  where the generator defines it. `stages` entries come from `0` to `6`, `maintenance` and `exam`.
+  arguments exist. `difficulty` is the tier the source stands for, one of `easy`, `medium`, `hard` or `exam`, and an
+  active skill's every source must have one (`validate()` reports a missing or other label). It is also
+  passed to the generator as a preset name, and it is hashed into the random seed, so changing a
+  source's `difficulty` changes which question each seed gives. A generator that has presets must
+  register one of each tier name it is labelled with; explicit `params` win over a preset's values.
+  `stages` entries come from `0` to `6`, `maintenance` and `exam`.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
   `polyline`, `line`. `list` ignores order and `ordered_list` is positional. `grade_expression`
