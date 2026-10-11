@@ -147,6 +147,7 @@ def exam_parts_circle_radius_arc(rng):
                 answer_text=r_text,
                 answer_latex=latex_answer(r_text),
                 marks=2,
+                sensible_range=(0, None),
                 working=[
                     f"Area = πr², so r² = {area_text} ÷ π.",
                     f"r = √({area_text} ÷ π) = {r_text} cm (1 d.p.).",
@@ -160,6 +161,7 @@ def exam_parts_circle_radius_arc(rng):
                 answer_text=c_text,
                 answer_latex=latex_answer(c_text),
                 marks=1,
+                sensible_range=(0, None),
                 follow_through="2*pi*part_a",
                 working=[f"C = 2πr = 2 × π × {r_text} = {c_text} cm (1 d.p.)."],
                 distractors=b_distractors,

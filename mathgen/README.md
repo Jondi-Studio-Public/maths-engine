@@ -151,7 +151,9 @@ return dict(
 
 `make()` fills the question-level `answer`, `answer_text` and `working` from the parts and checks every
 follow-through expression against the canonical answers. `grade()` takes a dict of replies keyed by label (or
-labelled text) and returns `marks`, `max_marks` and a result per part. The design, including show-that parts,
+labelled text) and returns `marks`, `max_marks` and a result per part. Give a part that later parts follow
+through from a `sensible_range` when its answer has one, such as `(0, None)` for a length or `(0, 1)` for a
+probability, so an impossible earlier reply carries no marks forward. The design, including show-that parts,
 is in `docs/design/multi-part-questions.md`.
 
 ## Use the helpers in `core.py`

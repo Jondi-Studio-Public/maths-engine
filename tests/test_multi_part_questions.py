@@ -134,12 +134,15 @@ def test_make_refuses_a_wrong_follow_through(register, change, message):
         (lambda rng: _circle(rng, {0: {"colour": "red"}}), "unknown keys"),
         (lambda rng: _circle(rng, {0: {"answer_kind": "nonsense"}}), "unknown answer_kind"),
         (lambda rng: _circle(rng, {0: {"distractors": [Distractor("6.2")]}}), "answer's own text"),
+        (lambda rng: _circle(rng, {0: {"sensible_range": (7, None)}}), "outside sensible_range"),
+        (lambda rng: _circle(rng, {0: {"sensible_range": (1, 0)}}), "sensible_range must be"),
+        (lambda rng: _circle(rng, {2: {"sensible_range": (0, None)}}), "number or fraction part"),
         (lambda rng: _circle(rng, {0: {"distractors": [Distractor("12.4"), "12.4"]}}), "offered twice"),
     ],
 )
 def test_make_refuses_a_malformed_multi_part_question(register, build, message):
     register(build)
-    with pytest.raises(ValueError, match=message):
+    with pytest.raises((ValueError, VerificationError), match=message):
         make(TOPIC, seed=1)
 
 
@@ -182,6 +185,13 @@ def test_every_reply_shape_gets_full_marks(circle, given):
 def test_split_reply_gives_missing_parts_an_empty_reply(circle):
     assert split_reply(circle.parts, {"a": "6.2"}) == {"a": "6.2", "b": "", "c": ""}
     assert split_reply(circle.parts, "6.2 and 39") == {"a": "", "b": "", "c": ""}
+
+
+def test_labelled_replies_may_leave_parts_out_or_come_in_any_order(circle):
+    assert split_reply(circle.parts, "(a) 6.2 (b) 39.0") == {"a": "6.2", "b": "39.0", "c": ""}
+    assert split_reply(circle.parts, "(b) 39.0 (a) 6.2") == {"a": "6.2", "b": "39.0", "c": ""}
+    assert grade("number", circle, "(a) 6.2 (b) 39.0").marks == 3
+    assert grade("number", circle, "(c) pi*(38.44 - r^2); (a) 6.2; (b) 39.0").marks == 5
 
 
 def test_reply_value_reads_one_value_or_none():
@@ -228,6 +238,50 @@ def test_blank_and_unreadable_earlier_answers_give_no_follow_through(circle):
     for a in ("", "six", "6 or 7"):
         result = grade("number", circle, {"a": a, "b": "44.0", "c": ""})
         assert result.marks == 0
+
+
+def test_a_zero_earlier_answer_carries_no_follow_through(circle):
+    # 2π × 0 = 0 and π(0 - r²) are "right" for a radius of 0, but a zero makes the later parts trivial.
+    result = grade("number", circle, {"a": "0", "b": "0", "c": "pi*(0 - r^2)"})
+    assert result.marks == 0
+
+
+def test_an_earlier_answer_outside_its_sensible_range_carries_no_follow_through(register):
+    register(lambda rng: _circle(rng, {0: {"sensible_range": (0, None)}}))
+    q = make(TOPIC, seed=1)
+    assert grade("number", q, {"a": "-7", "b": "-44.0"}).marks == 0
+    assert grade("number", q, {"a": "7", "b": "44.0"}).marks == 1  # a wrong but sensible radius still carries
+
+
+def test_repeating_an_earlier_answer_is_not_following_through(register):
+    # (b) = part_a / 1 would make any repeated number "right"; a copy earns nothing unless it is canonical.
+    register(
+        lambda rng: _circle(
+            rng,
+            {1: {"answer": 6.2, "answer_text": "6.2", "follow_through": "part_a", "distractors": []}},
+        )
+    )
+    q = make(TOPIC, seed=1)
+    assert grade("number", q, {"a": "7", "b": "7"}).parts["b"].marks == 1  # the canonical answers agree
+
+
+@pytest.mark.parametrize(
+    "topic",
+    [
+        "exam_parts_circle_radius_arc",
+        "exam_parts_square_pyramid",
+        "exam_parts_implicit_tangent",
+        "exam_parts_normal_distribution",
+        "exam_parts_compound_interest",
+    ],
+)
+@pytest.mark.parametrize("fill", ["0", "-3", "1", "-1", "0.5", "5000"])
+def test_one_number_for_every_part_earns_no_follow_through_in_the_pilot_chains(topic, fill):
+    for seed in range(40):
+        q = make(topic, seed=seed, difficulty="exam")
+        result = grade("number", q, {part.label: fill for part in q.parts})
+        followed = [label for label, r in result.parts.items() if r.follow_through and r.marks]
+        assert followed == [], (seed, followed, q.answer_text)
 
 
 def test_the_wrong_distractors_are_wrong_part_by_part(circle):

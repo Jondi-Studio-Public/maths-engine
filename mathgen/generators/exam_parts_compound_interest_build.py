@@ -82,7 +82,7 @@ def _money(v: Fraction) -> str:
     return f"{int(v):,}"
 
 
-def _part(prompt, v, marks, working, candidates, follow_through=None, others=()):
+def _part(prompt, v, marks, working, candidates, follow_through=None, others=(), sensible_range=None):
     """One number part; every candidate is checked wrong against the answer and the other displayed values."""
     answer = _cents(v)
     cand_vals = [_cents(c) for c in candidates]
@@ -101,6 +101,8 @@ def _part(prompt, v, marks, working, candidates, follow_through=None, others=())
     )
     if follow_through:
         out["follow_through"] = follow_through
+    if sensible_range:
+        out["sensible_range"] = sensible_range
     return out
 
 
@@ -186,6 +188,7 @@ def exam_parts_compound_interest(rng):
                 f"A = {_money(p)} × (1 + {float(rate / n)})^{n * t} = ${_fmt(fv_a)}.",
             ],
             [wrong_rate, wrong_periods, simple, interest_a],
+            sensible_range=(int(p), None),  # a balance that grew
         ),
         _part(
             "Hence find the interest earned, to the nearest cent.",
@@ -195,7 +198,7 @@ def exam_parts_compound_interest(rng):
             [fv_a, p * rate * t, fv_a + p],
             follow_through=f"part_a - {int(p)}",
         ),
-        _part(c_prompt, fv_c, 1, c_work, c_cands),
+        _part(c_prompt, fv_c, 1, c_work, c_cands, sensible_range=(int(p), None)),
         _part(
             "Using your answers to (a) and (c), find how much more interest the first account earns, to the "
             "nearest cent.",

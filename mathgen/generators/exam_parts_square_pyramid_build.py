@@ -251,6 +251,7 @@ def exam_parts_square_pyramid(rng):
             answer_text=volume_text,
             answer_latex=latex_answer(volume_text),
             marks=2,
+            sensible_range=(0, None),
             working=[
                 "Volume of a pyramid = (1/3) × base area × perpendicular height.",
                 f"V = (1/3) × {s}² × {h_text} = (1/3) × {s * s} × {h_text} = {volume_text} {u}³, "

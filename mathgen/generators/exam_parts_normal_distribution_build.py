@@ -331,6 +331,7 @@ def exam_parts_normal_distribution(rng):
             answer_latex=latex_answer(b_text),
             marks=2,
             follow_through=b_ft,
+            sensible_range=(0, 1),
             working=[
                 f"P(X {sym} {x_text}) = P(Z {sym} {z_text})",
                 f"= {b_text} (using technology, normal cdf with mean 0 and standard deviation 1)",

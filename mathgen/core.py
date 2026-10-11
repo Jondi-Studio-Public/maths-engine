@@ -109,6 +109,12 @@ class Part:
     `part_a`, `part_b`, ... (for example `"2*pi*part_a"`). When it is set, a reply that is right for the
     learner's OWN earlier answers earns this part's marks, as exam markers give follow-through marks. Only
     parts graded as one value (`number`, `fraction`, `expression`) can be named in it.
+
+    Follow-through is not given for a later part when an earlier reply it uses makes that part trivial or
+    impossible, as markers withhold it: a zero where the canonical value is not zero, a later answer of zero
+    where the canonical one is not, or a reply outside the earlier part's `sensible_range`. `sensible_range` is
+    the open interval a sensible answer to this part lies in, `(0, None)` for a length, an area or an amount of
+    money, `(0, 1)` for a probability; `make()` checks the canonical answer lies in it.
     """
 
     label: str  # "a", "b", ...
@@ -127,6 +133,7 @@ class Part:
     answer_form: str | None = None
     distractor_values: dict[str, Any] = field(default_factory=dict)  # as on `Question` (mathgen/answers.py)
     distractor_credit: dict[str, str] = field(default_factory=dict)  # as on `Question`: a share of this part's marks
+    sensible_range: tuple | None = None  # (low, high), open, None for no bound: see below
     seed: str = ""  # "<question seed>:<label>"; shuffles this part's options for an mcq part (`mcq_options`)
 
     @property

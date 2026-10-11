@@ -52,6 +52,7 @@ Each part is a `mathgen.core.Part`. It carries exactly the answer fields a singl
 | `marks` | whole marks for the part, default 1 |
 | `follow_through` | optional SymPy expression giving this part's answer from earlier parts' values, named `part_a`, `part_b`, ... |
 | `working` | this part's worked steps |
+| `sensible_range` | optional open interval `(low, high)`, `None` for no bound, that a sensible answer to this part lies in: `(0, None)` for a length, area or amount of money, `(0, 1)` for a probability. A reply outside it carries no follow-through into later parts. `make()` checks that the canonical answer lies inside it |
 
 Because a part has the same attribute names as a question, every existing grader grades a part unchanged:
 `grade(part.answer_kind, part, reply)`. The typed answer contract (separate change) adds `answer_kind`,
@@ -71,7 +72,8 @@ displayed place, which allows for rounding the earlier answer). A wrong expressi
 ## Marking
 
 `grade()` on a multi-part question takes the reply as a dict `{label: reply}`, as a JSON object string, or as
-text labelled "(a) ... (b) ..." (or split by ";" or new lines when it has exactly one piece per part). Each
+text labelled "(a) ... (b) ..." (in any order, with any part left out; or split by ";" or new lines when it
+has exactly one piece per part). Each
 part is graded with its own grader, in order:
 
 1. **Correct** against the canonical answer: full marks.
@@ -80,6 +82,10 @@ part is graded with its own grader, in order:
    part's own precision and form. A match earns full marks. This covers both cases exams accept: an error
    carried forward from a wrong earlier part (marked `follow_through=True` on the part result), and a correct
    earlier answer rounded as asked and then used (which can move the last digit of a later part).
+   Markers withhold follow-through when the error makes the later part trivial or impossible, and so does
+   the engine: no follow-through from an earlier reply of zero where the canonical value is not zero, from a
+   reply outside that earlier part's `sensible_range`, or for a reply that just repeats the earlier value it
+   uses. Without these, one number typed into every part earned follow-through marks in every pilot chain.
 3. **Partial credit** for a reply that matches a distractor carrying `distractor_credit` (a fraction of the
    part's marks), once the typed answer contract supplies `matched_distractor`. Until then this step is inert.
 4. Otherwise no marks.

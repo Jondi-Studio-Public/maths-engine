@@ -8,7 +8,8 @@ rounded as asked and then used); or a share of them when its reply matches a dis
 credit. `grade_parts` returns a `GradeResult` whose `marks`, `max_marks` and `parts` say how.
 
 The reply is a dict of replies keyed by part label, a JSON object string of the same, or text labelled
-"(a) ... (b) ...". Text with no labels is split by ";" or line breaks when it has exactly one piece per part.
+"(a) ... (b) ...", labels in any order and any left out. Text with no labels is split by ";" or line breaks
+when it has exactly one piece per part.
 """
 
 from __future__ import annotations
@@ -62,19 +63,18 @@ def split_reply(parts, given) -> dict[str, str]:
             loaded = None
         if isinstance(loaded, dict):
             return {label: str(loaded.get(label, "") or "") for label in labels}
-    # Labelled: find each label's marker, in order, each after the one before.
-    spans, position = [], 0
+    # Labelled: each label's first marker, in any order. A label with no marker is a part left unanswered, so
+    # "(a) 2.8 (b) 17.6" still marks (a) and (b). Text must open with a marker to be read this way.
+    spans = []
     for label in labels:
-        match = _label_marker(label).search(text, position)
-        if match is None:
-            spans = None
-            break
-        spans.append((label, match.start(), match.end()))
-        position = match.end()
-    if spans is not None:
-        replies = {}
-        for i, (label, _start, end) in enumerate(spans):
-            stop = spans[i + 1][1] if i + 1 < len(spans) else len(text)
+        match = _label_marker(label).search(text)
+        if match is not None:
+            spans.append((match.start(), match.end(), label))
+    spans.sort()
+    if spans and spans[0][0] == 0:
+        replies = {label: "" for label in labels}
+        for i, (_start, end, label) in enumerate(spans):
+            stop = spans[i + 1][0] if i + 1 < len(spans) else len(text)
             replies[label] = text[end:stop].strip().rstrip(";,").strip()
         return replies
     # Unlabelled: one piece per part, split by ";" or line breaks.
@@ -203,6 +203,8 @@ def verify_follow_through(parts) -> None:
     for part in parts:
         if part.answer_kind not in GRADERS:
             raise VerificationError(f"part {part.label!r}: answer kind {part.answer_kind!r} has no grader")
+        if part.sensible_range is not None:
+            _verify_range(part)
         if part.follow_through:
             names = named_parts(part)
             if not names:
@@ -228,6 +230,22 @@ def verify_follow_through(parts) -> None:
         earlier[part.label] = part
         if part.answer_kind in VALUE_KINDS and any(p.follow_through for p in parts):
             values[part.label] = reply_value(part.answer_kind, part.answer_text)
+
+
+def _verify_range(part) -> None:
+    bounds = part.sensible_range
+    if (
+        not isinstance(bounds, (tuple, list))
+        or len(bounds) != 2
+        or not all(b is None or (isinstance(b, (int, float, Fraction)) and not isinstance(b, bool)) for b in bounds)
+        or (None not in bounds and bounds[0] >= bounds[1])
+    ):
+        raise VerificationError(f"part {part.label!r}: sensible_range must be (low, high), either end a number or None")
+    if part.answer_kind not in ("number", "fraction"):
+        raise VerificationError(f"part {part.label!r}: sensible_range needs a number or fraction part")
+    value = reply_value(part.answer_kind, part.answer_text)
+    if value is None or not _in_range(bounds, value):
+        raise VerificationError(f"part {part.label!r}: its answer {part.answer_text!r} is outside sensible_range")
 
 
 def _within_one_place(part, target) -> bool:
@@ -262,9 +280,13 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
         earned = Fraction(part.marks) if result.correct else Fraction(0)
         if not result.correct:
             off_canonical.add(part.label)
-        if not result.correct and part.follow_through:
+        if not result.correct and part.follow_through and _carries(question.parts, part, values):
             target = follow_through_target(part, values)
-            if target is not None and typed.grade(part.answer_kind, target, reply).correct:
+            if (
+                target is not None
+                and _not_trivial(question.parts, part, target, values)
+                and typed.grade(part.answer_kind, target, reply).correct
+            ):
                 earned = Fraction(part.marks)
                 result.correct = True
                 result.note = result.note_kind = None
@@ -296,6 +318,59 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
         max_marks=out_of,
         parts=results,
     )
+
+
+def _carries(parts, part, values) -> bool:
+    """Whether the learner's replies to the parts `part` follows through from can carry marks into it. Not
+    when one is zero where its canonical answer is not (zero makes most later work trivial), nor when one lies
+    outside its part's `sensible_range` (a negative length, a probability above 1)."""
+    by_label = {p.label: p for p in parts}
+    for name in named_parts(part):
+        value, source = values.get(name), by_label[name]
+        if value is None or not getattr(value, "is_number", False):
+            continue
+        if value == 0 and _canonical_value(source) != 0:
+            return False
+        if not _in_range(source.sensible_range, value):
+            return False
+    return True
+
+
+def _not_trivial(parts, part, target, values) -> bool:
+    """Whether a follow-through answer still asks for real work: not when it is the very value of an earlier
+    reply it uses while the canonical answers differ. Writing the same number again is not following through
+    (a constant dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian)."""
+    value = reply_value(part.answer_kind, target.answer_text)
+    if value is None or not getattr(value, "is_number", False):
+        return True
+    canonical = _canonical_value(part)
+    by_label = {p.label: p for p in parts}
+    for name in named_parts(part):
+        earlier = values.get(name)
+        if earlier is not None and _same(earlier, value) and not _same(_canonical_value(by_label[name]), canonical):
+            return False
+    return True
+
+
+def _same(left, right) -> bool:
+    """Equal as numbers, a float reply included: SymPy does not count Float(0.5) equal to Rational(1, 2)."""
+    if left is None or right is None:
+        return left is right
+    try:
+        return bool((left - right).is_zero)
+    except TypeError:
+        return False
+
+
+def _canonical_value(part):
+    return reply_value(part.answer_kind, part.answer_text) if part.answer_kind in VALUE_KINDS else None
+
+
+def _in_range(bounds, value) -> bool:
+    if bounds is None or not getattr(value, "is_real", False):
+        return True
+    low, high = (None if b is None else sympy.Rational(Fraction(b).numerator, Fraction(b).denominator) for b in bounds)
+    return (low is None or value > low) and (high is None or value < high)
 
 
 def _distractor_credit(part, result) -> Fraction:
