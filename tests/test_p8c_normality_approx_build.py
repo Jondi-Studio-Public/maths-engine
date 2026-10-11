@@ -158,3 +158,15 @@ def test_skill_loads_with_expected_shape():
     assert skill.answer == "mcq"
     assert skill.placement_eligible is False
     assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
+
+
+def test_hard_tier_sources_reach_all_four_categories():
+    """The skill's hard tier draws from both the borderline and the from_failures source; the failures source
+    alone only ever gives the two single-product categories."""
+    sk = next(s for s in load_skills()[1] if s.id == "senior-examine-the-approximate-normality-of-the-distribution-of")
+    hard = [src for src in sk.sources if src.difficulty == "hard"]
+    assert {src.params["variant"] for src in hard} == {"borderline", "from_failures"}
+    answers = {
+        make(src.topic, seed=s, difficulty="hard", **src.params).answer_text for src in hard for s in range(60)
+    }
+    assert len(answers) == 4, answers
