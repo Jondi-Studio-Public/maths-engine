@@ -44,6 +44,21 @@ def test_memory_from_history_seeds_from_the_stage_delay_without_a_log():
     assert review.memory_from_history([], stage=0, stage_delays=DELAYS) == (None, None)
 
 
+def test_memory_from_history_replays_out_of_order_rows_oldest_first():
+    log = [
+        {"outcome": "hold", "created_at": NOW + timedelta(days=11)},
+        {"outcome": "advance", "created_at": NOW},
+        {"outcome": "advance", "created_at": NOW + timedelta(days=3)},
+    ]
+    memory, last = review.memory_from_history(log, stage=2, stage_delays=DELAYS)
+    assert last == NOW + timedelta(days=11)
+    assert memory.stability == pytest.approx(14.868805, abs=1e-5)
+
+
+def test_a_zero_stage_delay_seeds_nothing():
+    assert review.memory_from_history([], stage=1, stage_delays=[0, 3]) == (None, None)
+
+
 def test_good_review_is_due_at_the_desired_retention():
     memory = fsrs.Memory(stability=10.0, difficulty=5.0)
     scored = review.score("advance", memory, NOW - timedelta(days=10), NOW)

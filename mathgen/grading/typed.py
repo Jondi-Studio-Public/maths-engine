@@ -728,9 +728,18 @@ def _equation_pair_matches(canonical: str, given: str):
         equivalent = _constant_line_equivalent(canonical_label, expected, parts)
         if equivalent is not None:
             return equivalent
-    # A bare value ("3") and any "label = value" stay accepted by design (the label is
-    # stripped; see tests/test_pv1d_parabola_build.py and
-    # tests/test_pv1d_sideways_circle_build.py).
+    if not expected.free_symbols and _is_line_key_label(canonical):
+        # A horizontal or vertical line ("y = 3", "x = -2") is an equation, not a number: the reply has to
+        # be written as that equation. A bare "3" or the wrong axis ("x = 3" for "y = 3") is wrong.
+        # Other single-equation keys ("lambda = 17") keep the label-stripped comparison below.
+        reply_label = _LABEL_RE.match(given)
+        if (
+            not reply_label
+            or reply_label.group(0).split("=")[0].strip().lower() != canonical.split("=", 1)[0].strip().lower()
+        ):
+            return False
+    # Any other bare value ("17" for "lambda = 17") and any "label = value" stay accepted (the label is
+    # stripped; see tests/test_grading_line_key_fixes.py).
     supplied = _resolve_constants(_parse_expression(_strip_label(given)), expected)
     if supplied is None:
         return False
@@ -738,6 +747,11 @@ def _equation_pair_matches(canonical: str, given: str):
         return symbolically_equal(expected, supplied)
     except (TypeError, ValueError):
         return None
+
+
+def _is_line_key_label(canonical: str) -> bool:
+    """True for a key labelled with an axis letter ("y = 3", "x = -2")."""
+    return canonical.split("=", 1)[0].strip().lower() in ("x", "y")
 
 
 def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | None:

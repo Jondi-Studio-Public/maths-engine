@@ -133,7 +133,7 @@ def test_pair_grader_accepts_the_key_and_rejects_every_distractor(tier):
         b = q.answer["x"]
         assert q.answer_text == f"x = {b}" and b != 0 and isinstance(b, int)
         assert grade_pair(q, f"x={b}").correct and grade_pair(q, f" x = {b} ").correct
-        assert grade_pair(q, str(b)).correct  # a bare number is accepted: the label is stripped
+        assert not grade_pair(q, str(b)).correct  # the line has to be written as "x = b"
         assert len(q.distractors) == 3, (tier, seed, q.distractors)
         for d in q.distractors:
             assert d.startswith("x = "), d  # every distractor keeps the key's own label
@@ -143,11 +143,10 @@ def test_pair_grader_accepts_the_key_and_rejects_every_distractor(tier):
         assert not grade_pair(q, "").correct
 
 
-def test_a_wrong_label_is_graded_by_value_only():
-    """Documented grader behaviour (mathgen/grading/typed.py::_equation_pair_matches strips the label):
-    "y = b" is accepted for the key "x = b". Distractors therefore never use another label."""
+def test_a_wrong_label_is_rejected():
+    """ "y = b" is a different line from the key "x = b", so it is wrong even with the same number."""
     q = _gen(AXIS_ID, "easy", 0)
-    assert grade_pair(q, f"y = {q.answer['x']}").correct
+    assert not grade_pair(q, f"y = {q.answer['x']}").correct
 
 
 @pytest.mark.parametrize("tier", TIERS)

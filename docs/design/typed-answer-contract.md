@@ -111,7 +111,8 @@ Checking each distractor was an error a learner really makes (review recommendat
   slips are now offered only for a negative input; squaring as doubling and dropping the constant are offered always.
 - `percentage_change` offered `100 - p` and a `0` (p/100 rounded to a whole number) going forward, and `final x 100 / p`
   and `original + p` (which needs the answer to compute) in reverse. They are replaced by dividing by the final value,
-  or dropped.
+  or dropped. Every option is a whole number like the answer: dividing by the final value is rounded to a whole
+  percent, and the reverse direction draws only original values that keep the final value less the percentage whole.
 - `quadratic` now offers the positive root alone for x^2 - k^2 = 0, where the sign flips cannot move the roots.
 - Fallbacks that stand for no error (off by one) stay, untagged.
 
