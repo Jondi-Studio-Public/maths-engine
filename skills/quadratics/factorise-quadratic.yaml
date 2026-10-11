@@ -31,6 +31,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a1_factorise_quadratic
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-flip-one-factor
   description: Flips the sign of one bracket's constant term alone, e.g. (px - q)(rx + s) instead of the

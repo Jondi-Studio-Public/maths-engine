@@ -37,6 +37,8 @@ class TestSimplifyAlgebraicFractionsOracle:
         examined = 0
         challenged = []
         for source in skill.sources:
+            if source.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             for seed in range(60):
                 q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **(source.params or {}))
                 examined += 1

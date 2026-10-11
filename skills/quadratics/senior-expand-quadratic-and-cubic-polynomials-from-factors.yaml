@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a2_expand_cubic_shapes
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-flip-one-factor-expansion
   description: A sign error on one of the factors only.

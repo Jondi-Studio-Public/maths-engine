@@ -28,6 +28,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a1_zero_product_property
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-flip-both-roots
   description: Flipping the sign of both roots when applying the null factor law.

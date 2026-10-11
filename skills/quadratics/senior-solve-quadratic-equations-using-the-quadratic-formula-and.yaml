@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a2_quadratic_formula_rearranged
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-sign-b
   description: Using +b instead of -b in the numerator of the quadratic formula.

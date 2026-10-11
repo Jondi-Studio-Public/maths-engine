@@ -26,6 +26,8 @@ class TestStraightLineEquation:
         examined = 0
 
         for source in skill.sources:
+            if source.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             for seed in range(40):
                 q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **source.params)
                 examined += 1
@@ -338,6 +340,8 @@ class TestWordDescriptionFormula:
         template_signs = defaultdict(set)  # template -> {+1 or -1}
 
         for source in skill.sources:
+            if source.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             for seed in range(40):
                 q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **source.params)
                 examined += 1
