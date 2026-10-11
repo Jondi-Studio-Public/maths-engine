@@ -7,4 +7,6 @@ options:
   f10-exponent-laws-positive-zero: 'exponent_laws_positive_zero/easy seed=0: ["double_star in text: ''**''", "double_star in answer_text: ''**''"]'
   percentage-change: 'percentage_change/easy seed=0: answer ''10'' vs distractor ''9.1'''
   reverse-percentage: 'percentage_change/easy seed=0: answer ''320'' vs distractor ''316.8'''
+  senior-calculate-probabilities-and-quantiles-associated-with-a-given: 'exam_parts_normal_distribution/exam seed=0: ["signed_after_operator in working[5]: ''+ -1''"]'
   senior-examine-examples-of-vectors-including-displacement-and-velocity: 'examine_examples_of_vectors_including_displacement_and_velocity/hard seed=0: answer ''25'' vs distractor ''22.4'''
+  senior-use-implicit-differentiation-to-determine-the-gradient-of: 'exam_parts_implicit_tangent/exam seed=0: ["star_operator in working[2]: ''8*x''", "star_operator in working[5]: ''5*x''"]'
