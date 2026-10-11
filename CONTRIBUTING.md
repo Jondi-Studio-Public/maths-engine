@@ -90,6 +90,16 @@ and the shape of what `make()` returns.
    median `make()` takes over 250 ms and flags anything over 15 ms.
 6. **Add tests** that call the generator across many seeds, grade its own
    answer as correct, and grade each distractor as wrong.
+7. **Never write an uncapped loop.** A `while True:` that redraws until a
+   condition holds, or a `while a == b: b = rng.randint(...)`, can spin forever on an
+   unlucky seed. Use `core.draw_until(rng, draw, accept, tries=1000, what="...")`, or
+   `for _ in core.attempts(1000, "..."):` with a `break` when a loop draws several values.
+   Both raise `VerificationError` naming what failed when the budget runs out, and both
+   consume `rng` exactly as the `while` loop would, so seeds keep their questions.
+   `tests/test_no_unbounded_loops.py` fails on a new uncapped loop in
+   `mathgen/generators/`; the loops that predate it are in
+   `tests/unbounded_loops_allowlist.yaml`, which only shrinks. When you convert one, run
+   `python scripts/list_unbounded_loops.py --write` and commit the shorter list.
 
 ## Adding or editing a skill
 
