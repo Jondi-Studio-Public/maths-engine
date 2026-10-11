@@ -1,0 +1,47 @@
+id: f10-symmetry-construction
+name: Identify line and rotational symmetry
+domain: geometry
+description: State a shape's number of lines of symmetry and its order of rotational symmetry, given a familiar shape by name, by its features, or as a regular polygon with a stated exterior angle.
+status: active
+placement_eligible: false
+prerequisites: [f10-shape-features-classification]
+answer: pair
+sources:
+- topic: f10_symmetry_lines_rotation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_symmetry_lines_rotation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_symmetry_lines_rotation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: lines-equals-sides
+  description: Gives the number of sides as the number of lines of symmetry, which is right for regular polygons but wrong for rectangles, rhombuses and other irregular shapes.
+- id: lines-order-swapped
+  description: Gives the number of lines as the order of rotation and the order as the number of lines.
+- id: order-equals-lines
+  description: Assumes the order of rotational symmetry equals the number of lines of symmetry, so a parallelogram (no lines, order 2) is given order 0.
+- id: no-turn-symmetry-is-order-zero
+  description: Gives order 0 for a shape with no turn symmetry, forgetting that the starting position counts so the order is at least 1.
+- id: lines-from-diagonals
+  description: Treats the two diagonals of any four-sided shape as lines of symmetry.
+- id: turn-symmetry-ignored
+  description: Reports only the lines of symmetry and gives order 1 for a shape that also fits onto itself after a part-turn.
+- id: line-symmetry-ignored
+  description: Reports only the rotational symmetry and says there are no lines of symmetry for a shape that has some.
+- id: sides-from-angle-slip
+  description: Works out the number of sides of a regular polygon from its exterior angle with an off-by-one slip.
+- id: half-turn-used-for-sides
+  description: Divides 180 degrees, not 360 degrees, by the exterior angle to find the number of sides.
+- id: angle-reported-as-count
+  description: Reports the size of the angle as the number of lines and the order.
+- id: regular-polygon-turn-order-one
+  description: Treats a regular polygon as having reflection symmetry only.
+- id: lines-doubled
+  description: Doubles the number of lines of symmetry of a regular polygon, counting each line twice (once for each end).
+tags: [acara-f10-v9, geometry, symmetry, rotational-symmetry, ac9m4sp03]

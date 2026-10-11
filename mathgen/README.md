@@ -12,6 +12,8 @@ graders that check replies. For install and a first run, see the top-level
 | `generators/` | The generators, one decorated function each, in about 400 modules |
 | `grading/typed.py` | The graders and the `GRADERS` registry (`number`, `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, and a few structured kinds) |
 | `grading/spoken.py` | Number and expression parsing the typed graders share, and `check_answer` for transcripts of spoken answers |
+| `answers.py` | The typed answer contract: `answer_spec()`, `Distractor`, the answer kinds and forms |
+| `misconceptions.py` | The shared catalogue of misconception ids that distractors are tagged with |
 | `engine.py` | Public API over skills: `load_skills()`, `make_for_skill()`, `grade()` |
 | `skills.py` | Skill loader and validator |
 | `figures.py` | Figure specs for questions that show a picture |
@@ -71,7 +73,7 @@ def my_topic(rng, hi=20):
 
 Required keys are `text`, `latex`, `answer` and `answer_text`. Optional keys include
 `answer_latex`, `working` (worked steps), `distractors`, `answer_alt`, `option_notes`,
-`answer_form` and `figure`; see the `Question` dataclass in `core.py` for what each means.
+`answer_form`, `answer_kind` and `figure`; see the `Question` dataclass in `core.py` for what each means.
 If you leave `latex` empty or copy `text` into it, `make()` fills it in with
 `latex_prompt()`. If you write your own `latex`, you are responsible for its escaping.
 
@@ -101,6 +103,11 @@ Collisions with the answer are the main hazard, so:
 - A question may end up with fewer than three distractors after filtering. That is fine.
 - If a misconception is algebraically identical to the answer for some parameter value,
   exclude that value when you design the generator.
+
+**Tag each distractor with its error.** Return `mathgen.answers.Distractor(text, "<id>", value)` instead of a bare
+string: the id comes from the shared catalogue in `misconceptions.py`, and `value` (shaped like `answer`) lets the
+grader recognise that error however the learner spells it, so a wrong reply is diagnosed, not just marked. Set
+`answer_kind` too. See `docs/design/typed-answer-contract.md`; plain strings still work.
 
 Typed numeric answers are graded to their own stated precision. `grade_fraction` compares
 by value, so `2/4` is accepted for `1/2` and you cannot build a "does not simplify"
