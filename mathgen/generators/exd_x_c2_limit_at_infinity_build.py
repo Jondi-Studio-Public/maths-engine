@@ -41,8 +41,8 @@ def _radicand(a: int, b: int, c: int) -> str:
 
 
 def _numeric_limit(fn, x_value: int) -> mpf:
-    mp.dps = 50
-    return fn(mpf(x_value))
+    with mp.workdps(50):  # local precision: never change mpmath's process-wide setting
+        return +fn(mpf(x_value))
 
 
 def _difference_of_roots(rng):

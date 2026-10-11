@@ -20,6 +20,14 @@ GRADER = GRADERS["expression"]
 _HARD_KW = {}
 
 
+@pytest.fixture(autouse=True)
+def _precision():
+    """25-digit mpmath arithmetic for this module's tests only; a module-level `mp.dps = 25` would leak into
+    every other test collected in the same process."""
+    with mp.workdps(25):
+        yield
+
+
 def _make(seed: int) -> Question:
     return make(TOPIC, seed=seed, difficulty="exam")
 
@@ -55,7 +63,6 @@ from mpmath import mp, quad
 from sympy import Symbol, lambdify
 from sympy.parsing.sympy_parser import implicit_multiplication_application, parse_expr, standard_transformations
 
-mp.dps = 25
 _X = Symbol("x", real=True)
 _TR = standard_transformations + (implicit_multiplication_application,)
 

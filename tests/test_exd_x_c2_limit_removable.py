@@ -27,8 +27,15 @@ from mathgen.text_quality import find_text_defects, prompt_shape
 TOPIC = "exd_x_c2_limit_removable"
 GRADER = "number"
 _X = sympy.Symbol("x")
-mpmath.mp.dps = 60
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
+
+
+@pytest.fixture(autouse=True)
+def _precision():
+    """60-digit mpmath arithmetic for this module's tests only; a module-level `mp.dps = 60` would leak into
+    every other test collected in the same process."""
+    with mpmath.mp.workdps(60):
+        yield
 
 
 def _exam(seed):
