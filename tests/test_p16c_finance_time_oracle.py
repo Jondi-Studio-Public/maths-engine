@@ -36,6 +36,10 @@ def _skills_dict():
 def _make_from_sources(skill_id, difficulty, seed):
     skill = _skills_dict()[skill_id]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if src.topic == "exam_parts_compound_interest":
+        # This skill's exam source is now the multi-part chain (tests/test_exam_parts_compound_interest.py);
+        # these checks keep covering the single-answer exam preset it replaced, which the generator still has.
+        return make("p16c_compound_effect", seed=seed, difficulty="exam", variant="percent_effect")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

@@ -182,8 +182,11 @@ def find_text_defects(question, *, include_working: bool = False) -> list[str]:
 # Keep the two in step by editing this function, never by copying the patterns.
 
 # "2 decimal places", "two decimal places", and the abbreviations "(1 d.p.)", "to 2dp", "3 dp". A count
-# that is the upper end of a range ("1-2 dp") or part of a larger number ("0.5 dp") is not a count.
-_DECIMAL_PLACES_RE = re.compile(r"(?<![\d.\-\u2013/])(\d+|one|two|three|four)\s*(?:decimal\s+place|d\.?\s?p\b)", re.I)
+# that is the upper end of a range ("1-2 dp") or part of a larger number ("0.5 dp") is not a count. An
+# abbreviation is read only when the text has no other rounding instruction: questions use it for the
+# precision of the data they give ("the ratios (each rounded to 4 d.p.) are ...") as well as for the answer.
+_DECIMAL_PLACES_RE = re.compile(r"(?<![\d.\-\u2013/])(\d+|one|two|three|four)\s*decimal\s+place", re.I)
+_DP_ABBREVIATION_RE = re.compile(r"(?<![\d.\-\u2013/])(\d+|one|two|three|four)\s*d\.?\s?p\b", re.I)
 _PLACE_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4}
 _NEAREST_PLACES = {
     "whole": 0,
@@ -227,12 +230,15 @@ def requested_rounding(text: str) -> int | None:
     never `grade_pair`/`grade_list`) can only ever have ONE precision asked of it; a text with two DIFFERENT
     counts is unambiguous only per-component, which this whole-text-level function cannot resolve, so it
     correctly declines rather than picking one count and silently misapplying it to every number in the
-    answer. Counts from "nearest ..." phrases and from decimal-place phrases are
-    pooled. A repeated STATEMENT of the SAME count ("x and y, each rounded to 1 decimal place") is not
+    answer. Counts from "nearest ..." phrases and from spelled-out decimal-place phrases are
+    pooled; a "d.p." abbreviation counts only when neither is present, because a question also uses it
+    for the precision of the values it gives. A repeated STATEMENT of the SAME count ("x and y, each rounded to 1 decimal place") is not
     ambiguous and still resolves normally.
     """
     counts = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DECIMAL_PLACES_RE.findall(text or "")}
     counts |= {_NEAREST_PLACES[unit.lower()] for unit in _NEAREST_RE.findall(text or "")}
+    if not counts:
+        counts = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DP_ABBREVIATION_RE.findall(text or "")}
     if len(counts) == 1:
         return next(iter(counts))
     return None

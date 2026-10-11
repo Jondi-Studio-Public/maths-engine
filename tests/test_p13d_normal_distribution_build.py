@@ -45,6 +45,10 @@ def _make_from_sources(skills_dict, difficulty, seed):
     bare `make(topic, seed, difficulty)` call."""
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if difficulty == "exam":
+        # The skill's exam source is now the multi-part chain (tests/test_exam_parts_normal_distribution.py);
+        # these checks keep covering the single-answer exam preset it replaced, which the generator still has.
+        return make(TOPIC, seed=seed, difficulty="exam", mode="solve_parameter")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

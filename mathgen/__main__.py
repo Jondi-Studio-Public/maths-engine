@@ -163,7 +163,7 @@ def _run_skills(ap, args):
     options = None
     answer_text = q.answer_text
     print(f"[{found.id} #{q.seed}]\n  Q: {q.text}")
-    if found.answer == "mcq":
+    if found.answer == "mcq" and not q.parts:
         options = mcq_options(q)
         labels = _labels(options)
         for label, option in zip(labels, options):
@@ -189,6 +189,13 @@ def _run_skills(ap, args):
     print(f"  given {args.answer!r}: {'correct' if verdict.correct else 'wrong'}{unmatched}")
     if verdict.misconception is not None:
         print(f"  likely error ({verdict.misconception}): {verdict.note or 'no description'}")
+    if verdict.parts:
+        # A multi-part question: the marks, then each part's verdict ("follow-through" when its marks came from
+        # the learner's own wrong earlier answer).
+        print(f"  marks: {verdict.marks} out of {verdict.max_marks}")
+        for label, part in verdict.parts.items():
+            how = "follow-through" if part.follow_through else ("correct" if part.correct else "wrong")
+            print(f"    ({label}) {part.marks} of {part.max_marks}: {how}")
     return 0
 
 
