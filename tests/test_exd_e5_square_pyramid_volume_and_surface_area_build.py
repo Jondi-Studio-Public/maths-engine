@@ -437,7 +437,8 @@ class TestSkillLoads:
         }
         stages_covered = set()
         for source in skill.sources:
-            assert source.topic == TOPIC
+            # The exam tier is now the multi-part chain (tests/test_exam_parts_square_pyramid.py).
+            assert source.topic == ("exam_parts_square_pyramid" if source.difficulty == "exam" else TOPIC)
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
         exam_sources = [s for s in skill.sources if s.difficulty == "exam"]

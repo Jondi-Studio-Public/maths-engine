@@ -124,7 +124,7 @@ recognise-numerals-to-10:
 recognise-numerals-to-5:
   recognise_numeral/easy: 6
 recurring-decimal-to-fraction:
-  recurring_decimal_fraction/None: 8
+  recurring_decimal_fraction/easy: 8
 senior-an-angle-in-a-semicircle-is-a-right:
   angle_in_semicircle/hard: 12
   angle_in_semicircle/medium: 15

@@ -39,9 +39,8 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_e5_circle_area_to_diameter_and_circumference
-  params:
-    tier: exam
+- topic: exam_parts_circle_radius_arc
+  params: {}
   difficulty: exam
   stages:
   - exam
@@ -61,4 +60,21 @@ misconceptions:
     (circumference = pi x radius instead of pi x diameter), exactly half the true
     circumference. Always exercisable; the two never coincide at this skill's radius
     range.
+- id: radius-not-square-rooted
+  description: Divides the area by pi and stops, reporting r squared as the radius
+    (or takes the square root of the area without dividing by pi).
+- id: area-formula-as-circumference-formula
+  description: Treats the area as 2 x pi x r when finding the radius, so divides the
+    area by 2 x pi.
+- id: arc-uses-full-circumference
+  description: Reports the whole circumference as the arc length, ignoring the sector's
+    angle.
+- id: arc-angle-as-radians
+  description: Multiplies the radius by the angle in degrees as if it were radians
+    (arc = angle x r), giving a length far too large.
+- id: sector-area-for-arc
+  description: Finds the sector's area (angle/360 x pi x r squared) when asked for
+    its arc length.
+- id: arc-fraction-inverted
+  description: Uses 360/angle of the circumference instead of angle/360 of it.
 tags: [measurement, multi-part, circle, reverse-from-area]

@@ -131,6 +131,57 @@ def test_the_shipped_library_has_no_load_problems():
     assert load_problems(load_skills()[1]) == []
 
 
+# -- source difficulty tiers -------------------------------------------------------------------
+
+
+def errors_for(tmp_path, text):
+    """Only the tier errors: whether `addition` has a preset of the label is a separate, generation error."""
+    domains, loaded = load_skills(library(tmp_path, **{"add-two": text}))
+    return [e for e in validate(domains, loaded).errors if "difficulty" in e and "source" in e and "failed" not in e]
+
+
+@pytest.mark.parametrize("label", ["easy", "medium", "hard", "exam"])
+def test_the_four_tiers_are_accepted_as_a_source_difficulty(tmp_path, label):
+    assert errors_for(tmp_path, good().replace("difficulty: easy", f"difficulty: {label}")) == []
+
+
+def test_an_active_source_without_a_difficulty_is_reported(tmp_path):
+    errors = errors_for(tmp_path, good().replace("    difficulty: easy\n", ""))
+    assert errors == [
+        "add-two: source 0 (topic='addition') has no difficulty; it must be one of easy, medium, hard, exam"
+    ]
+
+
+@pytest.mark.parametrize("label", ["integers", "Easy", "''"])
+def test_an_active_source_with_another_difficulty_label_is_reported(tmp_path, label):
+    errors = errors_for(tmp_path, good().replace("difficulty: easy", f"difficulty: {label}"))
+    assert len(errors) == 1 and "source 0" in errors[0] and "must be one of easy, medium, hard, exam" in errors[0]
+
+
+def test_only_the_offending_source_is_named(tmp_path):
+    two = good() + "  - topic: addition\n    params: {}\n    difficulty: nonsense\n"
+    errors = errors_for(tmp_path, two)
+    assert len(errors) == 1 and "source 1" in errors[0] and "'nonsense'" in errors[0]
+
+
+def test_a_deferred_skill_may_leave_the_difficulty_off(tmp_path):
+    text = good("deferred", "deferred_reason: generator\n").replace("    difficulty: easy\n", "")
+    assert errors_for(tmp_path, text) == []
+
+
+def test_the_shipped_library_has_a_tier_on_every_active_source():
+    """Cheap stand-in for validate() over the whole library, which generates questions and takes a minute."""
+    _, loaded = load_skills()
+    untiered = [
+        f"{s.id}[{i}]={src.difficulty!r}"
+        for s in loaded
+        if s.status == "active"
+        for i, src in enumerate(s.sources)
+        if src.difficulty not in skills_mod.VALID_DIFFICULTIES
+    ]
+    assert untiered == []
+
+
 # -- rubric hook --------------------------------------------------------------------------------
 
 RUBRIC_SKILL = good(answer="rubric", extra="rubric: {id: proof-v1}\n")

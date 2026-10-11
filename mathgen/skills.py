@@ -26,6 +26,8 @@ from .capabilities import canonical_gate_id, gate_passed, skill_gates_satisfied
 # `skills/` beside `mathgen/` in a repository checkout, or the copy inside an installed wheel.
 DEFAULT_SKILLS_DIR = default_skills_dir()
 VALID_STAGES = {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
+# The tier a source stands for. An active skill's sources must each name one (see `validate`).
+VALID_DIFFICULTIES = ("easy", "medium", "hard", "exam")
 VALID_ALIGNMENT_STATUSES = {"verified", "candidate", "unverified"}
 VALID_DEFERRED_REASONS = {
     "generator",
@@ -646,6 +648,17 @@ def validate(
             if s.capability_gates and not skill_gates_satisfied(s.capability_gates, gate_registry):
                 blocking = [g for g in s.capability_gates if not gate_passed(g, gate_registry)]
                 report.errors.append(f"{s.id}: active skill has unsatisfied capability gate(s) {blocking}")
+            for i, src in enumerate(s.sources):
+                if src.difficulty is None:
+                    report.errors.append(
+                        f"{s.id}: source {i} (topic={src.topic!r}) has no difficulty; "
+                        f"it must be one of {', '.join(VALID_DIFFICULTIES)}"
+                    )
+                elif src.difficulty not in VALID_DIFFICULTIES:
+                    report.errors.append(
+                        f"{s.id}: source {i} (topic={src.topic!r}) difficulty {src.difficulty!r} "
+                        f"must be one of {', '.join(VALID_DIFFICULTIES)}"
+                    )
             for src in s.sources:
                 for seed in range(1, 6):
                     try:
@@ -655,6 +668,13 @@ def validate(
                         report.errors.append(
                             f"{s.id}: source topic={src.topic!r} params={src.params!r} "
                             f"difficulty={src.difficulty!r} failed at seed={seed}: {exc}"
+                        )
+                        break
+                    unknown_part_kinds = sorted({p.answer_kind for p in q.parts} - set(graders))
+                    if unknown_part_kinds:
+                        report.errors.append(
+                            f"{s.id}: source topic={src.topic!r} has parts graded as {unknown_part_kinds}, "
+                            f"which have no grader"
                         )
                         break
                     if getattr(q, "figure", None) is not None and not s.needs_figure:

@@ -95,7 +95,9 @@ def render_skill(skill: Skill, seeds: int = DEFAULT_SEEDS) -> RenderedSkill:
                         seed=seed,
                         text=question.text,
                         answer_text=question.answer_text,
-                        distractors=list(question.distractors),
+                        # A multi-part question has no question-level distractors: show each part's, labelled.
+                        distractors=list(question.distractors)
+                        or [f"({part.label}) {d}" for part in question.parts for d in part.distractors],
                         flags=find_text_defects(question),
                     )
                 )

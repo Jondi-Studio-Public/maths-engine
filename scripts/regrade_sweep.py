@@ -248,6 +248,31 @@ def _check_figure_plausibility(skill: Skill, question, grader) -> str | None:
     return None
 
 
+def _sweep_parts(question, grader, result, where) -> None:
+    """The sweep for a multi-part question (`question.parts`), which every grader marks part by part.
+
+    The labelled `answer_text` must earn full marks. Then, one part at a time with every other part answered
+    correctly, each of that part's distractors, and (for a number part with no follow-through) its answer moved
+    by one unit in its last stated place, must not be accepted for that part. A follow-through part is not
+    perturbed: one unit away can be exactly what the learner's correctly rounded earlier answer gives."""
+    positive = grader(question, question.answer_text)
+    if positive.correct:
+        result.accepts += 1
+    else:
+        result.false_rejects.append((*where, question.answer_text, question.answer_text))
+    canonical = {part.label: part.answer_text for part in question.parts}
+    for part in question.parts:
+        wrong = list(part.distractors)
+        if part.answer_kind == "number" and not part.follow_through:
+            nudged = _perturb_last_decimal_place(part.answer_text)
+            if nudged is not None:
+                wrong.append(nudged)
+        for given in wrong:
+            marked = grader(question, {**canonical, part.label: given})
+            if marked.parts[part.label].correct:
+                result.false_accepts.append((*where, f"({part.label}) {part.answer_text}", f"({part.label}) {given}"))
+
+
 @dataclass
 class SkillSweepResult:
     skill_id: str
@@ -292,6 +317,10 @@ def sweep_skill(skill: Skill, seeds: int = DEFAULT_SEEDS, graders: dict | None =
                         result.figure_failures.append(
                             (question.figure.get("kind"), src.topic, difficulty, seed, failure)
                         )
+
+                if question.parts:
+                    _sweep_parts(question, grader, result, (src.topic, difficulty, seed))
+                    continue
 
                 if skill.answer == "mcq":
                     options = mcq_options(question)
