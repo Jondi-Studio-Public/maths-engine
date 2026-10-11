@@ -40,9 +40,11 @@ def _radicand(a: int, b: int, c: int) -> str:
     return "√(" + join_terms([(a * a, "x^2"), (b, "x"), (c, "")]) + ")"
 
 
-def _numeric_limit(fn, x_value: int) -> mpf:
-    mp.dps = 50
-    return fn(mpf(x_value))
+def _limit_agrees(fn, x_value: int, key) -> bool:
+    """fn at a large x is within 1e-6 of the key, at 50 digits. `workdps`, not `mp.dps = 50`: mpmath's precision is
+    global, and leaving it raised made sympy's `nsolve` in a later caller demand a 1e-64 residual."""
+    with mp.workdps(50):
+        return abs(fn(mpf(x_value)) - mpf(key.p) / mpf(key.q)) < mpf("1e-6")
 
 
 def _difference_of_roots(rng):
@@ -92,8 +94,7 @@ _FAMILIES = (_difference_of_roots, _root_minus_linear, _towards_minus_infinity)
 
 def _exam(rng: random.Random) -> dict:
     expr, target, key, fn, probe, wrong = rng.choice(_FAMILIES)(rng)
-    approx = _numeric_limit(fn, probe)
-    check(abs(approx - mpf(key.p) / mpf(key.q)) < mpf("1e-6"), "numeric evaluation disagrees with the exact limit")
+    check(_limit_agrees(fn, probe, key), "numeric evaluation disagrees with the exact limit")
     text = phrase(rng, _PATTERNS, expr=expr, target=target)
     answer_text = rational_text(key)
     return dict(

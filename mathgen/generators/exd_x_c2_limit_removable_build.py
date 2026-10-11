@@ -115,10 +115,11 @@ _FAMILIES = (_root_family, _sine_ratio_family, _cosine_family, _parametric_famil
 
 def _exam(rng: random.Random) -> dict:
     expr, point, key, fn, wrong, patterns = rng.choice(_FAMILIES)(rng)
-    mp.dps = 60
-    target = mpf(key.p) / mpf(key.q)
-    for side in (mpf(10) ** -12, -(mpf(10) ** -12)):
-        check(abs(fn(mpf(point) + side) - target) < mpf("1e-8"), "numeric evaluation disagrees with the exact limit")
+    with mp.workdps(60):  # not `mp.dps = 60`: mpmath's precision is global and would leak to every later caller
+        target = mpf(key.p) / mpf(key.q)
+        for side in (mpf(10) ** -12, -(mpf(10) ** -12)):
+            near = abs(fn(mpf(point) + side) - target) < mpf("1e-8")
+            check(near, "numeric evaluation disagrees with the exact limit")
     text = phrase(rng, patterns, expr=expr, point=point)
     answer_text = rational_text(key)
     answer = int(key) if key.q == 1 else {"p": int(key.p), "q": int(key.q)}
