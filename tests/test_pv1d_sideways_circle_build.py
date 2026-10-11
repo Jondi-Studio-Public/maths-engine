@@ -116,23 +116,22 @@ def test_real_grader_accepts_key_and_rejects_every_distractor(skill_id, tier):
 
 @pytest.mark.parametrize("tier", DIFFICULTIES)
 def test_parabola_every_distractor_keeps_the_label_y(tier):
-    """The single-equation comparator strips the label, so 'x = 3' would grade correct for
-    'y = 3'. Every distractor must keep 'y =' (and still be rejected)."""
+    """Every distractor keeps the key's own label 'y =' (and is still rejected)."""
     for seed in range(200):
         q = _make(PARABOLA, tier, seed)
         assert all(d.startswith("y = ") for d in q.distractors), (tier, seed, q.distractors)
 
 
 @pytest.mark.parametrize("tier", DIFFICULTIES)
-def test_parabola_spelling_variants_documented_behaviour(tier):
-    """Accepted: 'y=3', 'y = 3', a bare '3', and (documented, not changeable here) 'x = 3',
-    because the comparator strips whatever label is typed. Rejected: the sign flip."""
+def test_parabola_spelling_variants(tier):
+    """Accepted: 'y=3' and 'y = 3'. Rejected: a bare '3', the other axis ('x = 3') and the sign flip."""
     for seed in range(40):
         q = _make(PARABOLA, tier, seed)
         k = q.answer["y"]
-        for given in (f"y = {k}", f"y={k}", str(k), f"x = {k}"):
+        for given in (f"y = {k}", f"y={k}"):
             assert GRADE(q, given).correct, (tier, seed, given)
-        assert not GRADE(q, f"y = {-k}").correct
+        for given in (str(k), f"x = {k}", f"y = {-k}"):
+            assert not GRADE(q, given).correct, (tier, seed, given)
 
 
 @pytest.mark.parametrize("tier", DIFFICULTIES)
