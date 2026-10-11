@@ -37,6 +37,7 @@ LIM = 5  # P and its image have |coordinate| <= LIM
 STEP_DEN = 12
 N_SAMPLES = (HI - LO) * STEP_DEN + 1  # 145: every integer x is an exact sample
 _ALT = "two curves on a coordinate grid"
+CURVE_LABELS = ("f", "f⁻¹")  # exam tier: the labels drawn on f and on its inverse
 
 # ---------------------------------------------------------------- prompts
 
@@ -54,7 +55,11 @@ _NOTE = {
     "no_mirror": ["Both graphs are drawn on the same axes.", "The two graphs share one set of axes."],
     "decreasing_negative": ["Both graphs are drawn on the same axes.", "The two graphs share one set of axes."],
     "fixed_point": ["Both graphs are drawn on the same axes.", "The two graphs share one set of axes."],
-    "crossing_pair": ["Both graphs are drawn on the same axes.", "The two graphs share one set of axes."],
+    # The exam figure labels its two curves, and the prompt says which is which: both pass through P.
+    "crossing_pair": [
+        "Both graphs are drawn on the same axes. The curve labelled f is {F} and the curve labelled f⁻¹ is {G}.",
+        "The two graphs share one set of axes: the curve labelled f is {F}, and the curve labelled f⁻¹ is {G}.",
+    ],
 }
 _SCALE = [
     "Each grid square is 1 unit on both axes.",
@@ -428,6 +433,9 @@ def pv1c_inverse_point(rng, variant: str = "mirror_drawn") -> dict:
         {"pieces": figures.sample_curve(fn, LO, HI, (LO, HI), n=N_SAMPLES)},
         {"pieces": figures.sample_curve(lambda x: inv(x), LO, HI, (LO, HI), n=N_SAMPLES)},
     ]
+    if variant == "crossing_pair":
+        # Both curves go through P, so the figure itself must say which one is f.
+        curves[0]["label"], curves[1]["label"] = CURVE_LABELS
     if rng.random() < 0.5:
         curves.reverse()
     lines = [{"through": [[0, 0], [1, 1]], "label": "y = x"}] if variant == "mirror_drawn" else []

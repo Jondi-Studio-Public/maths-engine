@@ -1,0 +1,37 @@
+id: f10-grid-reference-pathway
+name: Follow a pathway on a grid reference map
+domain: geometry
+description: Given a lettered-column, numbered-row grid, how its rows are numbered, a starting square and a stated sequence of directional moves, state the finishing square as a column number and row number (or, in the hardest tier, count the squares travelled in each of two named directions between two references).
+status: active
+placement_eligible: false
+prerequisites: [f10-position-location-language]
+answer: pair
+sources:
+- topic: f10_grid_reference_pathway
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_grid_reference_pathway
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_grid_reference_pathway
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-column-row
+  description: Reports the row number as the column and the column number as the row (or, in the inverse question, swaps the two counts).
+- id: vertical-direction-reversed
+  description: Moves the wrong way along the rows, for example treating up as increasing the row number when row 1 is at the top.
+- id: horizontal-direction-reversed
+  description: Moves left for right (or west for east) when changing column.
+- id: drops-a-leg
+  description: Leaves out the last move of the pathway and reports the square before it.
+- id: start-square-counted
+  description: Counts the square already stood on as one of the squares moved, so the last move goes one square too far (or an inverse count is one too large).
+- id: letter-numbered-from-zero
+  description: Numbers the columns from A = 0 instead of A = 1, so the column number is one too small.
+- id: reports-finish-not-difference
+  description: In the inverse question, gives a column or row number of the finishing square instead of the number of squares travelled.
+tags: [acara-f10-v9, geometry, grid-reference, pathway, directions, ac9m4sp02]

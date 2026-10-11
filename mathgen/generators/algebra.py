@@ -4,6 +4,7 @@ import math
 
 from sympy import symbols, expand, solve, linsolve, Eq, latex, Rational, FiniteSet
 
+from ..answers import Distractor, exact_value
 from ..core import (
     generator,
     check,
@@ -452,17 +453,19 @@ def linear_equation(
     text = f"{coef_str}x = {c}" if b == 0 else f"{coef_str}x {sign} {abs(b)} = {c}"
     check(solve(Eq(a * x + b, c), x) == [x0])
     # Misconceptions: sign error moving b; forgot to divide by a; ignored b.
-    cands = [
-        f"x = {rational_text((c + b) * Rational(1, a))}",
-        f"x = {c - b}",
-        f"x = {rational_text(c * Rational(1, a))}",
+    slips = [
+        ((c + b) * Rational(1, a), "sign-error-moving-term"),
+        (Rational(c - b), "forgot-to-divide-by-coefficient"),
+        (c * Rational(1, a), "ignored-constant-term"),
     ]
+    cands = [Distractor(f"x = {rational_text(v)}", tag, exact_value(v)) for v, tag in slips]
     return dict(
         text=f"Solve {text}",
         latex=rf"\text{{Solve }} {text}",
         answer=x0,
         answer_text=f"x = {x0}",
         answer_latex=f"x = {x0}",
+        answer_kind="number",
         working=[f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}", f"x = {c - b}/{a} = {x0}"],
         distractors=pick_distractors(f"x = {x0}", cands),
     )
@@ -768,19 +771,23 @@ def quadratic(rng, root_hi=9, kind="factor"):
     check(sorted(solve(Eq(expr, 0), x)) == roots)
     ans_text = _roots_text(roots)
     # Misconceptions: sign flip when factorising (both roots, or just one).
-    cands = [
-        _roots_text(sorted(set([-r1, -r2]))),
-        _roots_text(sorted(set([-r1, r2]))),
-        _roots_text(sorted(set([r1, -r2]))),
+    slips = [
+        ([-r1, -r2], "sign-flip-both-roots"),
+        ([-r1, r2], "sign-flip-one-root"),
+        ([r1, -r2], "sign-flip-one-root"),
     ]
-    # Fallbacks for roots the sign flips cannot move (r1 = r2 = 0, r1 = -r2):
-    # both roots shifted by one.
-    cands += [_roots_text(sorted(set([r1 + 1, r2 + 1]))), _roots_text(sorted(set([r1 - 1, r2 - 1])))]
+    # x^2 - k^2 = 0 is the one the sign flips cannot move: the classic slip there is the positive root alone.
+    if r1 == -r2 != 0:
+        slips.append(([abs(r1)], "missed-negative-root"))
+    # Fallbacks for a double root at 0: both roots shifted by one, which stands for no particular error.
+    slips += [([r1 + 1, r2 + 1], None), ([r1 - 1, r2 - 1], None)]
+    cands = [Distractor(_roots_text(sorted(set(v))), tag, sorted(set(v))) for v, tag in slips]
     return dict(
         text=f"Solve {expr} = 0",
         latex=rf"\text{{Solve }} {latex(expr)} = 0",
         answer=roots,
         answer_text=ans_text,
+        answer_kind="list",
         answer_latex="x = " + (str(roots[0]) if len(roots) == 1 else rf"{roots[0]},\; x = {roots[1]}"),
         working=[f"Factorise: (x {'-' if r1 >= 0 else '+'} {abs(r1)})(x {'-' if r2 >= 0 else '+'} {abs(r2)}) = 0"],
         distractors=pick_distractors(ans_text, cands),
@@ -805,19 +812,27 @@ def function_evaluation(rng, coef_hi=5, arg_hi=6, a_lo=1):
     f = a * x**2 + b * x + c
     ans = a * n**2 + b * n + c
     check(f.subs(x, n) == ans)
-    # Misconceptions: squared the sign away wrong ((-n)^2 vs -(n^2)); dropped c.
-    cands = [-a * n**2 + b * n + c, a * n**2 - b * n + c, a * n**2 + b * n]
+    # Misconceptions. The sign slips are only errors a learner makes with a negative input: (-n)^2 read as -(n^2),
+    # and b(-n) read as bn. With any input, squaring can be done as doubling, and c can be dropped.
+    slips = []
+    if n < 0:
+        slips.append((-a * n**2 + b * n + c, "sign-on-power"))
+    slips += [(a * 2 * n + b * n + c, "squared-as-doubled"), (a * n**2 + b * n, "dropped-constant-term")]
+    if n < 0:
+        slips.append((a * n**2 - b * n + c, "sign-error-linear-term"))
     # Fallbacks for a degenerate draw (a = 0, b = 0 or n = 0) where the slips
-    # above all equal the answer: off-by-one and sign errors.
-    cands += [ans + 1, ans - 1, -ans]
+    # above all equal the answer: off by one, which stands for no particular error.
+    slips += [(ans + 1, None), (ans - 1, None)]
+    cands = [Distractor(f"f({n}) = {v}", tag, int(v)) for v, tag in slips]
     return dict(
         text=f"f(x) = {f}, find f({n})",
         latex=rf"f(x) = {latex(f)},\ \text{{find }} f({n})",
         answer=ans,
         answer_text=f"f({n}) = {ans}",
         answer_latex=f"f({n}) = {ans}",
+        answer_kind="number",
         working=[
             f"f({n}) = {a}({n})^2 {'+' if b >= 0 else '-'} {abs(b)}({n}) {'+' if c >= 0 else '-'} {abs(c)} = {ans}"
         ],
-        distractors=pick_distractors(f"f({n}) = {ans}", [f"f({n}) = {d}" for d in cands]),
+        distractors=pick_distractors(f"f({n}) = {ans}", cands),
     )

@@ -236,7 +236,7 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4  # three practice tiers plus the exam source
 
     def test_rhombus_diagonals_loads(self):
         _, skills = load_skills()
@@ -246,4 +246,4 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4  # three practice tiers plus the exam source

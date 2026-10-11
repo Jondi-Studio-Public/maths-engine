@@ -5,6 +5,6 @@ description: Standardise a value using a stated mean and standard deviation.
 status: active
 prerequisites: [calculate-mean, decimal-arithmetic]
 answer: number
-sources: [{topic: z_score, params: {}, difficulty: easy}]
+sources: [{topic: z_score, params: {}, difficulty: easy}, {topic: exd_x_h2_z_score, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: omits-centering, description: Divides the raw value by the standard deviation without subtracting the mean.}]
 tags: [expansion-batch-6, statistics, acara-v8-4]

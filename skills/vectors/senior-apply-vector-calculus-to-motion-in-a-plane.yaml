@@ -22,6 +22,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_g2_projectile_landing
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-error-on-gravity
   description: Treats acceleration as +g instead of -g on any question touching the y-axis.

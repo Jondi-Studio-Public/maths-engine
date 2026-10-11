@@ -1,0 +1,69 @@
+id: f10-quadrilateral-properties
+name: Apply quadrilateral properties to find a length or angle
+domain: geometry
+description: Given a stated property of a parallelogram, rectangle, rhombus or kite (from congruent triangles and angle facts) and some numbers for a named quadrilateral, find an unknown length or angle, to 1 decimal place.
+status: active
+placement_eligible: false
+prerequisites: [f10-polygon-angle-sums, f10-congruence-similarity-criteria]
+answer: number
+sources:
+- topic: f10c_quadrilateral_properties
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10c_quadrilateral_properties
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10c_quadrilateral_properties
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: diagonal-not-halved-or-doubled
+  description: Gives the whole diagonal where the half (to the crossing point) is asked, or the half where the whole diagonal is asked, ignoring that the diagonals bisect each other.
+- id: uses-the-other-diagonal
+  description: Halves, or uses, the length of the other diagonal instead of the one the question names.
+- id: halves-twice
+  description: Halves a diagonal a second time (or quarters it) after already finding the half.
+- id: misreads-the-perimeter
+  description: Divides or multiplies a perimeter by the wrong amount (for example halving where opposite sides need the whole half-perimeter taken away, or treating a rectangle or rhombus perimeter as a different number of equal sides).
+- id: consecutive-angles-equal
+  description: Treats consecutive angles of a parallelogram as equal (or as adding to the wrong total), instead of adding to 180 degrees.
+- id: uses-360-for-two-angles
+  description: Subtracts from 360 degrees, the total of all four angles, when only the two consecutive angles (total 180) are involved.
+- id: halves-the-given-angle
+  description: Halves the given angle (as though a diagonal bisected it, or as though it were shared by two equal angles) where the property being used is a different one.
+- id: omits-the-final-halving
+  description: Finds 180 degrees minus the apex angle but forgets to halve it between the two equal base angles of the isosceles triangle.
+- id: copies-the-given-angle
+  description: Reports the angle that was given (or its neighbour) as the answer instead of working out the one asked for.
+- id: uses-the-wrong-triangle-total
+  description: Uses 180 degrees minus the angle, or another wrong total, where a right angle at the crossing of the diagonals means 90 degrees minus the angle.
+- id: uses-the-angle-at-the-other-side
+  description: Finds the base angle of the isosceles triangle on the wrong side of the rectangle's corner, so reports the angle that should be taken from 90 degrees.
+- id: counts-a-pair-once
+  description: In a kite, counts one pair of equal sides (or both pairs) only once when adding the perimeter.
+- id: misplaces-the-equal-kite-angles
+  description: Treats the wrong pair of kite angles as equal (the angles between the unequal sides are the equal ones), or the angle at the apex as one of the equal pair.
+- id: uses-whole-diagonals
+  description: Uses the whole length of a diagonal where only the part from a vertex to the crossing point belongs in the perimeter or the Pythagoras step.
+- id: leaves-out-a-length
+  description: Leaves one of the sides of the triangle out of a perimeter, or adds a length that does not belong.
+- id: reports-x-not-the-measurement
+  description: Solves the algebra correctly for x but reports x itself, instead of substituting back into the expression for the requested length or angle.
+- id: adds-the-opposite-sides
+  description: Adds the two expressions for opposite sides instead of setting them equal.
+- id: transposition-slip
+  description: Makes a sign slip when collecting terms in the equation set up from the stated property, giving a wrong x and so a wrong measurement.
+- id: adds-instead-of-using-pythagoras
+  description: Adds the two half-diagonals (or two legs) to get a side or hypotenuse instead of using Pythagoras' theorem.
+- id: subtracts-instead-of-using-pythagoras
+  description: Subtracts lengths where the right-angled triangle needs Pythagoras' theorem.
+- id: averages-the-sides
+  description: Averages the two side lengths of a rectangle to get the distance from the centre to a corner, instead of finding the diagonal and halving it.
+- id: names-the-supplementary-angle
+  description: Reports the neighbouring angle at the crossing of the diagonals (180 degrees minus the answer) instead of the angle asked for.
+- id: counts-one-angle-not-both
+  description: Finds one of two angles and reports it rather than the total of both.
+tags: [acara-f10-v9, secondary, geometry, quadrilaterals, parallelogram, rhombus, rectangle, kite, congruent-triangles, ac9m8sp02]

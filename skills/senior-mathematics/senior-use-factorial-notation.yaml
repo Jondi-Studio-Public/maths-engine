@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h2_factorial_notation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: combines-before-factorialising
   description: At the easy tier, computes (a + b)!, (a - b)! or (a x b)! instead of a! + b!, a! - b! or a! x b! -- combines the two operands first, then applies a single factorial to the combination, instead of factorialising each operand separately (only offered when the combined value stays under 1000; withheld, never clamped, otherwise).

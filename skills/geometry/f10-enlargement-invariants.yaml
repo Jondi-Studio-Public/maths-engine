@@ -1,0 +1,59 @@
+id: f10-enlargement-invariants
+name: Identify what an enlargement changes and keeps
+domain: geometry
+description: Given a shape enlarged from a centre of enlargement by a stated scale factor, find the image's length, angle, area, perimeter or distance from the centre, using the fact that lengths scale by the factor, areas by its square and angles not at all.
+status: active
+placement_eligible: false
+prerequisites: [f10-transformations-invariants]
+answer: number
+sources:
+- topic: enlargement_invariants
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: enlargement_invariants
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: enlargement_invariants
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-instead-of-multiplies
+  description: Adds the scale factor (or one more than it) to a measurement instead of multiplying by it.
+- id: angle-scaled-with-lengths
+  description: (Easy tier) Multiplies an angle by the scale factor as if angles grew with lengths.
+- id: copies-a-stated-length
+  description: (Easy tier) Answers an angle question with a side length from the stem, or that length scaled.
+- id: area-scaled-by-k-not-k-squared
+  description: Multiplies an area by the scale factor instead of by its square (also, under a reduction, divides the area by the denominator once).
+- id: finds-perimeter-instead-of-area
+  description: (Medium tier) Gives the image's perimeter when asked for its area.
+- id: finds-area-instead-of-perimeter
+  description: (Medium tier) Gives the image's area when asked for its perimeter.
+- id: perimeter-scaled-by-k-squared
+  description: (Medium tier) Multiplies the perimeter by the square of the scale factor.
+- id: doubles-instead-of-squares
+  description: (Medium tier) Gives twice the scale factor as the area multiplier.
+- id: uses-k-cubed-for-area
+  description: Uses the cube of the scale factor (the volume multiplier) for an area.
+- id: multiplies-instead-of-divides
+  description: (Medium tier) Finds an original length from an image length by multiplying by the scale factor.
+- id: subtracts-instead-of-divides
+  description: (Medium tier) Finds an original length from an image length by subtracting (or adding) the scale factor.
+- id: length-scaled-by-k-squared
+  description: Multiplies a length by the square of the scale factor.
+- id: reports-scale-factor-not-length
+  description: Reports the scale factor itself rather than applying it to the stated length.
+- id: uses-area-ratio-as-scale-factor
+  description: (Hard tier) Uses the ratio of the two areas as the scale factor instead of its square root.
+- id: gives-distance-from-centre-not-gap
+  description: (Hard tier) Gives the image's distance from the centre of enlargement when asked how far apart the point and its image are.
+- id: puts-image-on-opposite-side-of-centre
+  description: (Hard tier) Adds the two distances from the centre, as if the image were on the opposite side of the centre.
+- id: treats-reduction-as-enlargement
+  description: (Hard tier) Multiplies the area by the square of the denominator, treating a scale factor below 1 as if it enlarged.
+- id: rounds-the-scale-factor
+  description: (Hard tier) Rounds a decimal scale factor to a whole number before multiplying.
+tags: [f10, geometry, enlargement, scale-factor, similarity, acara-v9-year-9]

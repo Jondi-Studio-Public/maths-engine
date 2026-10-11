@@ -207,10 +207,13 @@ def test_skill_loads_with_correct_properties(skill_id):
 @pytest.mark.parametrize("skill_id,topic", [(SKILL_DIRECT, TOPIC_DIRECT), (SKILL_INVERSE, TOPIC_INVERSE)])
 def test_skill_sources_cover_correct_stages(skill_id, topic):
     skill = _skill(skill_id)
-    assert len(skill.sources) == 3
+    assert len(skill.sources) == 4
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == topic
     by_difficulty = {s.difficulty: s for s in skill.sources}
+    assert set(by_difficulty["exam"].stages) == {"exam"}
     assert set(by_difficulty["easy"].stages) == {0, 1, 2}
     assert set(by_difficulty["medium"].stages) == {3, 4}
     assert set(by_difficulty["hard"].stages) == {5, 6, "maintenance"}

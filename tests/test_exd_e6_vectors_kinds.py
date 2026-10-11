@@ -304,7 +304,8 @@ def test_subtract_skill_loads_via_api_skills_vector_addition():
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["subtract"]
     assert hard_sources[0].params.get("hi") == 15
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["add"], src.params
 
@@ -549,7 +550,8 @@ def test_cross_sum_skill_loads_via_api_skills_vector_cross_product():
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["cross_sum"]
     assert hard_sources[0].params.get("hi") == 15
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["cross"], src.params
 
@@ -834,7 +836,8 @@ def test_dot_sum_skill_loads_via_api_skills_vector_dot_product():
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["dot_sum"]
     assert hard_sources[0].params.get("hi") == 15
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["dot"], src.params
 
@@ -1163,6 +1166,7 @@ def test_magnitude_sum_skill_loads_via_api_skills_vector_magnitude():
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["magnitude_sum"]
     assert hard_sources[0].params.get("hi") == 15
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["magnitude"], src.params

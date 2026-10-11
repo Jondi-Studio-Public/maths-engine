@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f3_polyeq
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: states-conjugate-root
   description: States the conjugate root (negative imaginary part) instead of the root with positive imaginary part.

@@ -31,7 +31,9 @@ A plain `pip install .` works too. The built package carries the skill library, 
 `mathgen` finds it from any folder. With the editable install above (or when you run Python from
 the clone's root), the library is read in place from `skills/`, so edits show up straight away. A
 plain install holds the library as it was when you installed it, so reinstall after editing `skills/`.
-`MATHS_SKILLS_DIR` points the loader at a different folder either way.
+`MATHS_SKILLS_DIR` points the loader at a different folder either way, and `MATHS_EXTRA_SKILLS_DIRS`
+(folders separated by `os.pathsep`: `:`, or `;` on Windows; `~` is expanded) adds skills of your own from folders laid out the same way.
+An extra skill joins the library's domains; loading refuses one that reuses an id already loaded.
 
 ## Quick start
 
@@ -143,6 +145,7 @@ does that translation for you.
 | `mathgen/` | The package: `core.py` shared helpers, `figures.py`, `slots.py`, `engine.py`, `skills.py` loader and validator |
 | `mathgen/generators/` | The question generators, one decorated function each |
 | `mathgen/grading/` | Typed-answer graders: number, fraction, expression, list, multiple choice and others |
+| `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
 | `skills/<domain>/<id>.yaml` | One skill definition per file |
 | `scripts/` | Speed check, regrade sweep and other build tooling |
 | `tests/` | The pytest suite. `tests/public/` is a small, fast set to start with |
@@ -178,6 +181,23 @@ A skill YAML file names a skill, describes it, says which generator sources
 build its questions, and lists prerequisites, common misconceptions and tags.
 Some files also carry optional hints, such as stage and placement fields, for
 applications built on the library. The loader ignores what it does not need.
+
+## Scheduling reviews
+
+`mathgen.scheduling` is for applications that space practice over time. It holds no learner
+data and reads no clock; the application stores state and passes times in.
+
+- `stages.eligible_sources(skill, stage, n_stages)` gives the sources a review at a stage
+  draws from (a skill's `stages` hints), using the nearest staged sources when a stage has
+  none. `stages.pick_sources` takes questions from them round-robin.
+- `fsrs` is the FSRS-5 model (the open scheduler Anki uses), matching the reference
+  implementation py-fsrs 5.1.3. `review.score(outcome, memory, last_review_at, now)` turns a
+  finished review (`advance`, `hold`, `reset`, `maintenance_pass`) into new memory and a
+  due date, and `review.memory_from_history` rebuilds memory from past outcomes.
+- `calibration.item_difficulty(rows, skills)` fits a Rasch difficulty per skill and per
+  tier from `{user_id, skill_id, difficulty, correct}` rows and flags tiers answered right
+  more often than an earlier tier; `calibration.fsrs_calibration` compares predicted with
+  observed recall.
 
 ## Licensing
 

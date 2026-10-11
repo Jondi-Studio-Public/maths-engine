@@ -279,11 +279,11 @@ def test_skills_load_with_correct_properties():
     assert deg_to_rad.prerequisites == []
     assert deg_to_rad.answer == "number"
     assert deg_to_rad.placement_eligible is False
-    assert len(deg_to_rad.sources) == 3
+    assert len(deg_to_rad.sources) == 4  # easy, medium, hard and the exam tier
 
     rad_to_deg = by_id.get("angle-radians-to-degrees-decimal")
     assert rad_to_deg is not None
     assert rad_to_deg.prerequisites == []
     assert rad_to_deg.answer == "number"
     assert rad_to_deg.placement_eligible is False
-    assert len(rad_to_deg.sources) == 3
+    assert len(rad_to_deg.sources) == 4  # easy, medium, hard and the exam tier

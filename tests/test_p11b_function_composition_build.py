@@ -259,13 +259,14 @@ def test_both_skills_load_via_api_skills():
     assert skill_a.answer == "expression"
     assert "function-notation" in skill_a.prerequisites
     assert skill_a.placement_eligible is False
-    assert {source.difficulty for source in skill_a.sources} == set(TIERS)
-    assert all(source.params.get("mode") == "compose" for source in skill_a.sources)
+    assert {source.difficulty for source in skill_a.sources} == set(TIERS) | {"exam"}
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    assert all(source.params.get("mode") == "compose" for source in skill_a.sources if source.difficulty != "exam")
 
     skill_b = skills_dict.get("senior-determine-when-the-composition-of-two-functions-is")
     assert skill_b is not None
     assert skill_b.answer == "mcq"
     assert "function-notation" in skill_b.prerequisites
     assert skill_b.placement_eligible is False
-    assert {source.difficulty for source in skill_b.sources} == set(TIERS)
-    assert all(source.params.get("mode") == "when_defined" for source in skill_b.sources)
+    assert {source.difficulty for source in skill_b.sources} == set(TIERS) | {"exam"}
+    assert all(source.params.get("mode") == "when_defined" for source in skill_b.sources if source.difficulty != "exam")

@@ -103,6 +103,8 @@ class TestQuadraticFormulaOracle:
         perfect_square_issues = []
 
         for source in skill.sources:
+            if source.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             variant = source.params.get("variant", "unknown")
 
             for seed in range(60):

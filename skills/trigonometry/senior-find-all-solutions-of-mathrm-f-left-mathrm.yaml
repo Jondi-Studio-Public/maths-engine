@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f5_trigquad
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-quadrant-cast
   description: Applies the opposite CAST-rule sign branch, selecting solutions from the wrong quadrants.

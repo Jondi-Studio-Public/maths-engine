@@ -43,6 +43,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a3_equations_unknown_in_denominator
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: multiply-one-side-by-lcd
   description: Clears the denominator on one term or one side of the equation but forgets to multiply the other term/side by the same factor.

@@ -21,6 +21,11 @@ sources:
   params: {variant: tan_asymptote}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f5_tanasym
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgets-the-cofunction-identity
   description: Evaluates the original function directly instead of applying the stated co-function identity.

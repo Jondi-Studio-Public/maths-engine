@@ -283,4 +283,5 @@ class TestSkillLoads:
         assert skill.answer == "number"
         assert skill.placement_eligible is False
         assert skill.prerequisites == ["pythagorean-hypotenuse", "pythagorean-leg"]
-        assert len(skill.sources) == 3
+        # easy, medium, hard and the exam tier
+        assert len(skill.sources) == 4

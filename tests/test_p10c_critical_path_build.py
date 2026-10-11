@@ -275,14 +275,14 @@ def test_both_skills_load_through_api():
     assert locate_skill.prerequisites == ["simple-interest"]
     assert locate_skill.answer == "mcq"
     assert locate_skill.placement_eligible is False
-    assert len(locate_skill.sources) == 3
+    assert len(locate_skill.sources) == 4  # easy, medium, hard, exam
 
     float_skill = skills_dict.get("senior-calculate-float-times-for-non-critical-activities")
     assert float_skill is not None
     assert float_skill.prerequisites == ["simple-interest"]
     assert float_skill.answer == "number"
     assert float_skill.placement_eligible is False
-    assert len(float_skill.sources) == 3
+    assert len(float_skill.sources) == 4  # easy, medium, hard, exam
 
 
 def test_locate_raises_on_unknown_tier():

@@ -144,7 +144,10 @@ print(report.errors)
 ```
 
 It checks ids, domains, prerequisites, cycles, answer kinds, gates, stages and that each active
-source generates for a few seeds. `MATHS_SKILLS_DIR` points the loader at a different folder.
+source generates for a few seeds. `MATHS_SKILLS_DIR` points the loader at a different folder, and
+`MATHS_EXTRA_SKILLS_DIRS` (or `load_skills(extra_roots=...)`) adds skills from your own folders, laid
+out as `<domain>/<id>.yaml`; they join the library's domains, and loading
+refuses one that reuses an id already loaded. Entries are split on `os.pathsep` (`;` on Windows).
 
 ## Grading facts that shape a skill
 

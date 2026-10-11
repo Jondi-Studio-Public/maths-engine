@@ -5,6 +5,6 @@ description: Identify the signed coefficient of i in a complex number in Cartesi
 status: active
 prerequisites: [complex-real-part]
 answer: number
-sources: [{topic: complex_number, params: {kind: imaginary_part}, difficulty: easy}]
+sources: [{topic: complex_number, params: {kind: imaginary_part}, difficulty: easy}, {topic: exd_x_complex_imaginary_part, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: loses-sign, description: Reports the magnitude but loses a negative sign.}]
 tags: [expansion-batch-6, complex-numbers, acara-v8-4]

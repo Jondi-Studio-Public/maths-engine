@@ -60,8 +60,10 @@ def test_compose_oracle_matches_every_rendered_answer():
     skill = next(s for s in skills if s.id == "senior-find-the-composition-of-two-functions")
 
     total = 0
-    shapes_by_tier = {source.difficulty: Counter() for source in skill.sources}
+    shapes_by_tier = {source.difficulty: Counter() for source in skill.sources if source.difficulty != "exam"}
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         for seed in range(60):
             q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **(source.params or {}))
             total += 1
@@ -113,7 +115,7 @@ def test_compose_oracle_matches_every_rendered_answer():
     print(f"\nsenior-find-the-composition-of-two-functions oracle: {total} questions re-derived, 0 challenged")
     for tier, counts in shapes_by_tier.items():
         print(f"  {tier}: {dict(counts)}")
-    assert total == 60 * len(skill.sources)
+    assert total == 60 * len([src for src in skill.sources if src.difficulty != "exam"])
     for tier, counts in shapes_by_tier.items():
         for shape in ("forward_a", "forward_b", "point_eval"):
             assert counts[shape] > 0, f"{tier}: shape {shape!r} never appeared over 60 seeds: {dict(counts)}"
@@ -128,6 +130,8 @@ def test_when_defined_oracle_matches_every_rendered_answer_over_full_draw_space(
     total = 0
     distribution = {tier: Counter() for tier in TIERS}
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         for seed in range(SEEDS):
             q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **(source.params or {}))
             total += 1
@@ -146,4 +150,4 @@ def test_when_defined_oracle_matches_every_rendered_answer_over_full_draw_space(
     )
     for tier in TIERS:
         print(f"  {tier}: {dict(distribution[tier])}")
-    assert total == SEEDS * len(skill.sources)
+    assert total == SEEDS * len([src for src in skill.sources if src.difficulty != "exam"])

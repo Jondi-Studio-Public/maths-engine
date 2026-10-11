@@ -289,9 +289,9 @@ class TestSkill2LinearWordFormula:
         assert skill.prerequisites == ["rate-of-change"]
         assert skill.answer == "expression"
 
-        # Three tiers (easy, medium, hard)
+        # Four tiers (easy, medium, hard, exam)
         difficulties = [source.difficulty for source in skill.sources]
-        assert difficulties == ["easy", "medium", "hard"]
+        assert difficulties == ["easy", "medium", "hard", "exam"]
 
     def test_no_double_star_or_star_in_answer_text(self):
         """Answer text must not contain ** or bare * (text_quality check)."""

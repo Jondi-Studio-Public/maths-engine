@@ -51,6 +51,8 @@ def _skill_sources():
 @pytest.mark.parametrize("seed", range(60))
 def test_oracle_matches_answer_text_every_tier(seed):
     for spec in _skill_sources():
+        if spec.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         question = make(spec.topic, seed=seed, difficulty=spec.difficulty, **(spec.params or {}))
         expected = _oracle_answer(question.text)
         assert expected == question.answer_text, (
@@ -61,6 +63,6 @@ def test_oracle_matches_answer_text_every_tier(seed):
 
 def test_oracle_coverage():
     sources = _skill_sources()
-    assert len(sources) == 3
-    total = len(sources) * 60
+    assert len(sources) == 4  # easy, medium, hard and exam
+    total = len([s for s in sources if s.difficulty != "exam"]) * 60
     assert total == 180

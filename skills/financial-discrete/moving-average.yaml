@@ -5,6 +5,12 @@ description: Calculate the arithmetic mean for a stated moving window of time-se
 status: active
 prerequisites: [calculate-mean]
 answer: number
-sources: [{topic: moving_average, params: {window: 3}, difficulty: easy}]
+sources:
+- {topic: moving_average, params: {window: 3}, difficulty: easy}
+- topic: exd_x_g5_moving_average
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: divides-wrong-count, description: Divides by the full series length instead of the window size.}]
 tags: [expansion-batch-5, time-series]

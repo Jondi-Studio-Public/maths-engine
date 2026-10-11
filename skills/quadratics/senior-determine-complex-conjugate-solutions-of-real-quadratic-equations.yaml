@@ -33,6 +33,12 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a2_complex_quadratic
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-error-real-part
   description: Stated -p + qi instead of p + qi (sign error on the real part).

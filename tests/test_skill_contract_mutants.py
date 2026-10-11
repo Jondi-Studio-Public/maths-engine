@@ -77,8 +77,13 @@ def test_variety_notices_a_collapsed_prompt_pool(monkeypatch):
 
 def test_escalation_notices_tiers_that_draw_the_same_questions(monkeypatch):
     real = sc.make
+    # the exam source (its own topic, with only an "exam" preset) is left alone: the three practice tiers collapse
     monkeypatch.setattr(
-        sc, "make", lambda topic, seed=None, difficulty=None, **p: real(topic, seed=seed, difficulty="easy", **p)
+        sc,
+        "make",
+        lambda topic, seed=None, difficulty=None, **p: real(
+            topic, seed=seed, difficulty=difficulty if difficulty == "exam" else "easy", **p
+        ),
     )
     with pytest.raises(AssertionError, match="draw the same questions"):
         sc.check_escalation(EXPR)
