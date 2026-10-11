@@ -122,11 +122,12 @@ class TestSolveLinearEquations:
         assert skill.prerequisites == ["rate-of-change"]
         assert skill.answer == "fraction"
         difficulties = [s.difficulty for s in skill.sources]
-        assert difficulties == ["easy", "medium", "hard"]
+        assert difficulties == ["easy", "medium", "hard", "exam"]
         stages = {s.difficulty: s.stages for s in skill.sources}
         assert stages["easy"] == [0, 1, 2]
         assert stages["medium"] == [3, 4]
         assert stages["hard"] == [5, 6, "maintenance"]
+        assert stages["exam"] == ["exam"]
 
 
 # ============================================================================
@@ -222,11 +223,12 @@ class TestIdentifyAndSolveLinearEquations:
         assert skill.prerequisites == []
         assert skill.answer == "mcq"
         difficulties = [s.difficulty for s in skill.sources]
-        assert difficulties == ["easy", "medium", "hard"]
+        assert difficulties == ["easy", "medium", "hard", "exam"]
         stages = {s.difficulty: s.stages for s in skill.sources}
         assert stages["easy"] == [0, 1, 2]
         assert stages["medium"] == [3, 4]
         assert stages["hard"] == [5, 6, "maintenance"]
+        assert stages["exam"] == ["exam"]
 
 
 def test_topic_names_registered_once():

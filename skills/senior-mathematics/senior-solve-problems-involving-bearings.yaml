@@ -21,6 +21,11 @@ sources:
   params: {variant: leg_bearing}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_bearings_cosine
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-bearing-unchanged
   description: Reports the given bearing back unchanged instead of computing the reverse (back) bearing.

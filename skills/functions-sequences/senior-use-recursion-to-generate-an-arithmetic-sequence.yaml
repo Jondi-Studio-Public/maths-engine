@@ -21,6 +21,11 @@ sources:
   params: {variant: from_two_terms}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f3_arithrec
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: repeats-the-first-step-constant
   description: States the same single step repeated, never accumulating the common difference.

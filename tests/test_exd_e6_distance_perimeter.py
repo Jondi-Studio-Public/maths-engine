@@ -251,7 +251,7 @@ def test_skill_contract_hard_source_carries_the_new_kind():
 
     assert skill.answer == "expression"
     assert skill.status == "active"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
 
     hard_source = skill.sources[2]
     assert hard_source.stages == [5, 6, "maintenance"]

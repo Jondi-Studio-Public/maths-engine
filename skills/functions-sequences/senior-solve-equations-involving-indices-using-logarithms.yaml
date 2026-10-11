@@ -21,6 +21,11 @@ sources:
   params: {variant: linear_exponent}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f3_logeq
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swaps-base-and-argument
   description: Computes log_target(a) instead of log_a(target), i.e. swaps which number is the base.

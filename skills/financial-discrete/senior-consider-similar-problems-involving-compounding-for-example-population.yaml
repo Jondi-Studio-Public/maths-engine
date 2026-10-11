@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_g6_compound_threshold
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: simple-growth-not-compound
   description: Treats a compounding rate as simple (linear) growth or decline instead, adding or subtracting a flat percentage of the starting/final value once per period instead of compounding it.

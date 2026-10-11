@@ -34,6 +34,10 @@ sources:
     params: {mode: three_set_unknown}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_h5_set_membership_counts
+    params: {tier: exam}
+    difficulty: exam
+    stages: [exam]
 misconceptions:
   - id: forgets-to-subtract-overlap
     description: Reports |A| + |B| (or |A| + |B| + |C|) uncorrected, forgetting to subtract the pairwise overlap(s) at all.

@@ -4,7 +4,15 @@ from decimal import Decimal
 from fractions import Fraction
 from math import comb, factorial, sqrt
 
-from ..core import generator, latex_answer, pick_distractors, rational_text
+from ..answers import Distractor
+from ..core import (
+    generator,
+    latex_answer,
+    pick_distractors,
+    rational_text,
+    round_half_up,
+    stated_precision_string,
+)
 from .primary_math import _aligned
 
 
@@ -399,27 +407,73 @@ def recurring_decimal_fraction(rng):
     )
 
 
+# Australian settings for `percentage_change`, each a singular quantity that can sit between 40 and 600. The prefix is
+# the unit written before the number.
+_PERCENTAGE_CHANGE_CONTEXTS = (
+    ("the weekly rent on a unit in Brisbane", "$"),
+    ("a family's weekly grocery bill in Adelaide", "$"),
+    ("the price of a season pass to the public pool in Darwin", "$"),
+    ("the number of members of a surf life saving club on the Gold Coast", ""),
+    ("the number of daily visitors to a national park in Tasmania", ""),
+)
+
+
+def _decimal_option(value: Fraction) -> tuple[str, int | float]:
+    """A distractor's text and value: whole numbers as they are, anything else to one decimal place."""
+    if value.denominator == 1:
+        return str(value.numerator), value.numerator
+    shown = stated_precision_string(round_half_up(value, 1), 1)
+    return shown, float(shown)
+
+
 @generator("percentage_change", level=8)
 def percentage_change(rng, reverse=False):
     percent = rng.choice((10, 20, 25, 50))
-    if reverse:
-        original = rng.randint(2, 20) * 20
-        final = original * (100 + percent) // 100
-        return _number(
-            f"After a {percent}% increase, a value is {final}. What was the original value?",
-            original,
-            [final - percent, final * 100 / percent, final * (100 - percent) / 100, original + percent],
-            aligned=True,
-            working=[f"Divide by {1 + percent / 100:g}: {final} ÷ {1 + percent / 100:g} = {original}."],
-        )
+    subject, unit = rng.choice(_PERCENTAGE_CHANGE_CONTEXTS)
     original = rng.randint(2, 20) * 20
     final = original * (100 + percent) // 100
-    return _number(
-        f"A value rises from {original} to {final}. What is the percentage increase?",
-        percent,
-        [final - original, final / original * 100, percent / 100, 100 - percent],
-        aligned=True,
+    if reverse:
+        if percent == 10 and rng.random() < 0.5:
+            text = f"A price including 10% GST is ${final}. What was the price before GST was added?"
+        else:
+            text = f"After a {percent}% increase, {subject} is {unit}{final}. What was it before the increase?"
+        # Misconceptions: took the percentage off the final value; took the percentage off as a number.
+        slips = [
+            (Fraction(final * (100 - percent), 100), "subtracts-percent"),
+            (Fraction(final - percent), "percent-as-absolute"),
+        ]
+        cands = []
+        for value, tag in slips:
+            shown, number = _decimal_option(value)
+            cands.append(Distractor(shown, tag, number))
+        return dict(
+            text=text,
+            answer=original,
+            answer_text=str(original),
+            answer_latex=str(original),
+            answer_kind="number",
+            working=[f"Divide by {1 + percent / 100:g}: {final} ÷ {1 + percent / 100:g} = {original}."],
+            distractors=pick_distractors(str(original), cands),
+        )
+    text = f"{subject[0].upper()}{subject[1:]} rose from {unit}{original} to {unit}{final}. What is the percentage increase?"
+    # Misconceptions: gave the change itself; gave the new value as a percentage of the old; divided by the new value.
+    slips = [
+        (Fraction(final - original), "gave-change-not-percent"),
+        (Fraction(final * 100, original), "new-as-percent-of-original"),
+        (Fraction((final - original) * 100, final), "divides-by-final"),
+    ]
+    cands = []
+    for value, tag in slips:
+        shown, number = _decimal_option(value)
+        cands.append(Distractor(shown, tag, number))
+    return dict(
+        text=text,
+        answer=percent,
+        answer_text=str(percent),
+        answer_latex=str(percent),
+        answer_kind="number",
         working=[f"Increase = {final - original}; ({final - original}/{original}) × 100 = {percent}%."],
+        distractors=pick_distractors(str(percent), cands),
     )
 
 

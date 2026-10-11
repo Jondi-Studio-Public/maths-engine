@@ -286,7 +286,7 @@ def test_skill_a_loads_with_correct_properties():
     assert skill.placement_eligible is False
     assert skill.prerequisites == []
     difficulties = {src.difficulty for src in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}
 
 
 def test_skill_b_loads_with_correct_properties():
@@ -297,4 +297,4 @@ def test_skill_b_loads_with_correct_properties():
     assert skill.placement_eligible is False
     assert "right-triangle-angle" in skill.prerequisites
     difficulties = {src.difficulty for src in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}

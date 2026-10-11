@@ -254,6 +254,7 @@ def test_p3c_radicals_skill_contract_loads_with_expected_shape():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in skill.sources} == {RADICALS_TOPIC}
-    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    assert {source.topic for source in skill.sources[:3]} == {RADICALS_TOPIC}
+    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]

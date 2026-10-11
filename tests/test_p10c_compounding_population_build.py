@@ -191,11 +191,13 @@ def test_skill_loads_with_correct_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["simple-interest"]
-    assert len(skill.sources) == 3
+    assert len(skill.sources) == 4  # easy, medium, hard, plus the exam source
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == TOPIC
     difficulties = {source.difficulty for source in skill.sources}
-    assert difficulties == set(TIERS)
+    assert difficulties == set(TIERS) | {"exam"}
 
 
 def test_medium_tier_answer_distribution_is_not_concentrated():

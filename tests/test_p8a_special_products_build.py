@@ -130,8 +130,10 @@ class TestZeroProductProperty:
         assert skill.placement_eligible is False
         assert skill.prerequisites == ["two-step-equations"]
         assert skill.answer == "list"
-        assert [s.difficulty for s in skill.sources] == TIERS
+        assert [s.difficulty for s in skill.sources] == [*TIERS, "exam"]
         for s in skill.sources:
+            if s.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             assert s.topic == "zero_product_property"
 
 
@@ -224,8 +226,10 @@ class TestPolynomialLongDivision:
         assert skill.placement_eligible is False
         assert skill.prerequisites == ["expand-single-brackets", "combine-like-terms"]
         assert skill.answer == "expression"
-        assert [s.difficulty for s in skill.sources] == TIERS
+        assert [s.difficulty for s in skill.sources] == [*TIERS, "exam"]
         for s in skill.sources:
+            if s.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             assert s.topic == "polynomial_long_division"
 
     # -- the disclosed, measured grading gap -----

@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h5_limit_two_points_unknown_coefficients
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reads-off-least-converged-value
   description: Reports the least-converged displayed value Q(0.1) instead of the value the sequence approaches as h -> 0.

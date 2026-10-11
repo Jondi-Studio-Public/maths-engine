@@ -22,6 +22,7 @@ from sympy import (
     exp,
 )
 
+from ..answers import Distractor
 from ..core import (
     generator,
     check,
@@ -492,13 +493,18 @@ def limits(rng, kinds=("removable", "infinity")):
         check(limit(num / den, x, a) == ans)
         # Misconceptions: substituted and stopped at 0/0 ("undefined"); saw the
         # zero numerator and answered 0; sign error when cancelling.
-        cands = ["undefined", "0", str(b - a)]
+        cands = [
+            Distractor("undefined", "stopped-at-undefined"),
+            Distractor("0", "answered-zero", 0),
+            Distractor(str(b - a), "sign-error-cancelling", b - a),
+        ]
         return dict(
             text=f"Find the limit as x → {a} of ({num}) / ({den})",
             latex=rf"\lim_{{x \to {a}}} \frac{{{latex(num)}}}{{{latex(den)}}}",
             answer=ans,
             answer_text=str(ans),
             answer_latex=str(ans),
+            answer_kind="number",
             working=[f"({num})/({den}) = x - ({b}) for x ≠ {a}", f"limit = {a} - ({b}) = {ans}"],
             distractors=pick_distractors(str(ans), cands),
         )
@@ -524,17 +530,18 @@ def limits(rng, kinds=("removable", "infinity")):
         # ("undefined"); assumed the singularity means no limit exists;
         # inverted the factor pairing (used (c-a)/(b-a) instead of
         # (b-a)/(c-a)).
-        cands = ["undefined", "does not exist"]
+        cands = [Distractor("undefined", "stopped-at-undefined"), Distractor("does not exist", "no-limit-at-hole")]
         inverted = Rational(c - a, b - a)
         if inverted != ans and inverted.q == 1 and int(inverted) != ans:
-            cands.append(str(int(inverted)))
-        check_distinct(ans, *(v for v in cands if v not in ("undefined", "does not exist")))
+            cands.append(Distractor(str(int(inverted)), "inverted-ratio", int(inverted)))
+        check_distinct(ans, *(d.value for d in cands if d.value is not None))
         return dict(
             text=f"Find the limit as x → {a} of ({num}) / ({den})",
             latex=rf"\lim_{{x \to {a}}} \frac{{{latex(num)}}}{{{latex(den)}}}",
             answer=ans,
             answer_text=str(ans),
             answer_latex=str(ans),
+            answer_kind="number",
             working=[
                 f"({num})/({den}) = (x - {b}) / (x - {c}) for x ≠ {a}",
                 f"limit = ({a} - {b}) / ({a} - {c}) = {ans}",
@@ -562,7 +569,11 @@ def limits(rng, kinds=("removable", "infinity")):
         # Misconceptions: read the limit from the wrong side; assumed the
         # limit doesn't exist because of the jump; substituted a_pt directly
         # into whichever piece happens to be listed first.
-        cands = [str(other_side), "does not exist", str(a_pt + p)]
+        cands = [
+            Distractor(str(other_side), "ignored-side", other_side),
+            Distractor("does not exist", "no-one-sided-limit-at-jump"),
+            Distractor(str(a_pt + p), "used-first-listed-piece", a_pt + p),
+        ]
 
         def _signed(v):
             return f"+ {v}" if v >= 0 else f"- {abs(v)}"
@@ -576,6 +587,7 @@ def limits(rng, kinds=("removable", "infinity")):
             answer=ans,
             answer_text=str(ans),
             answer_latex=str(ans),
+            answer_kind="number",
             working=[f"Approaching from the {dir_word}, f(x) = x {_signed(near_offset)} → {ans}"],
             distractors=pick_distractors(str(ans), cands),
         )
@@ -606,7 +618,11 @@ def limits(rng, kinds=("removable", "infinity")):
             dir_word = "right" if side == "+" else "left"
             arrow = f"{a_pt}^+" if side == "+" else f"{a_pt}^-"
             quad_wrong_sign = a_pt**2 - p * a_pt + q
-            cands = [str(other), "does not exist", str(quad_wrong_sign)]
+            cands = [
+                Distractor(str(other), "ignored-side", other),
+                Distractor("does not exist", "no-one-sided-limit-at-jump"),
+                Distractor(str(quad_wrong_sign), "substitution-sign-error", quad_wrong_sign),
+            ]
             try:
                 check_distinct(ans, other, quad_wrong_sign)
             except Exception:
@@ -624,6 +640,7 @@ def limits(rng, kinds=("removable", "infinity")):
                 answer=ans,
                 answer_text=str(ans),
                 answer_latex=str(ans),
+                answer_kind="number",
                 working=[f"Approaching from the {dir_word}, evaluate the piece that applies there → {ans}"],
                 distractors=pick_distractors(str(ans), cands),
             )
@@ -637,7 +654,12 @@ def limits(rng, kinds=("removable", "infinity")):
             num, den = a_ * x**num_deg, b_ * x**den_deg
             check(limit(num / den, x, oo) == 0)
             ans, ans_text = 0, "0"
-            cands = ["∞" if a_ * b_ > 0 else "-∞", rational_text(Rational(a_, b_)), "does not exist"]
+            ratio = Rational(a_, b_)
+            cands = [
+                Distractor("∞" if a_ * b_ > 0 else "-∞", "assumed-infinite"),
+                Distractor(rational_text(ratio), "ignored-degree-mismatch", str(ratio)),
+                Distractor("does not exist", "no-limit-at-infinity"),
+            ]
             reason = "deg(numerator) < deg(denominator) ⇒ limit is 0"
         else:
             den_deg = rng.randint(0, 2)
@@ -646,7 +668,12 @@ def limits(rng, kinds=("removable", "infinity")):
             sign = "∞" if a_ * b_ > 0 else "-∞"
             check(limit(num / den, x, oo) == (oo if sign == "∞" else -oo))
             ans, ans_text = sign, sign
-            cands = ["0", rational_text(Rational(a_, b_)), "-∞" if sign == "∞" else "∞"]
+            ratio = Rational(a_, b_)
+            cands = [
+                Distractor("0", "inverted-degree-comparison", "0"),
+                Distractor(rational_text(ratio), "ignored-degree-mismatch", str(ratio)),
+                Distractor("-∞" if sign == "∞" else "∞", "wrong-infinite-sign"),
+            ]
             reason = f"deg(numerator) > deg(denominator) ⇒ limit is {sign}"
         return dict(
             text=f"Find the limit as x → ∞ of ({num}) / ({den})",
@@ -654,6 +681,7 @@ def limits(rng, kinds=("removable", "infinity")):
             answer=ans,
             answer_text=ans_text,
             answer_latex=ans_text,
+            answer_kind="expression",
             working=[reason],
             distractors=pick_distractors(ans_text, cands),
         )
@@ -668,13 +696,19 @@ def limits(rng, kinds=("removable", "infinity")):
     ans_text = rational_text(ans)
     # Misconceptions: "x → ∞ so the limit is ∞"; "denominator grows so 0";
     # inverted the leading-coefficient ratio.
-    cands = ["∞", "0", rational_text(Rational(b, a))]
+    inverted = Rational(b, a)
+    cands = [
+        Distractor("∞", "assumed-infinite"),
+        Distractor("0", "denominator-grows-so-zero", {"p": 0, "q": 1}),
+        Distractor(rational_text(inverted), "inverted-ratio", {"p": int(inverted.p), "q": int(inverted.q)}),
+    ]
     return dict(
         text=f"Find the limit as x → ∞ of ({num}) / ({den})",
         latex=rf"\lim_{{x \to \infty}} \frac{{{latex(num)}}}{{{latex(den)}}}",
         answer={"p": int(ans.p), "q": int(ans.q)},
         answer_text=ans_text,
         answer_latex=latex(ans),
+        answer_kind="fraction",
         working=[f"Divide top and bottom by x²: limit = {a}/{b} = {ans_text}"],
         distractors=pick_distractors(ans_text, cands),
     )

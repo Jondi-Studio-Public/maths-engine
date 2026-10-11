@@ -490,7 +490,7 @@ def test_both_skills_load_through_api(skills_dict):
     assert union.answer == "number"
     assert union.placement_eligible is False
     assert union.status == "active"
-    assert len(union.sources) == 3
+    assert len(union.sources) == 4  # easy, medium, hard and exam
 
     cartesian = skills_dict[_CARTESIAN_ID]
     assert cartesian is not None
@@ -499,4 +499,4 @@ def test_both_skills_load_through_api(skills_dict):
     assert cartesian.answer == "pair"
     assert cartesian.placement_eligible is False
     assert cartesian.status == "active"
-    assert len(cartesian.sources) == 3
+    assert len(cartesian.sources) == 4  # easy, medium, hard and exam

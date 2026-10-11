@@ -364,8 +364,8 @@ def test_both_skills_have_sources_covering_all_difficulties():
     arith_difficulties = [source.difficulty for source in arith_skill.sources]
     geom_difficulties = [source.difficulty for source in geom_skill.sources]
 
-    assert set(arith_difficulties) == {"easy", "medium", "hard"}
-    assert set(geom_difficulties) == {"easy", "medium", "hard"}
+    assert set(arith_difficulties) == {"easy", "medium", "hard", "exam"}
+    assert set(geom_difficulties) == {"easy", "medium", "hard", "exam"}
 
 
 # --- Helper function tests ---

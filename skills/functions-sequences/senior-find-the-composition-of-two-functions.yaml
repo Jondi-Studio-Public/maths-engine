@@ -21,6 +21,10 @@ sources:
   params: {mode: compose}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f2_compose
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: reversed-order
   description: Computes the composition in the wrong order relative to what was asked.

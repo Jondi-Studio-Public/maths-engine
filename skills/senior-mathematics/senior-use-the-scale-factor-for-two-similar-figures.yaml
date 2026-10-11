@@ -21,6 +21,11 @@ sources:
   params: {mode: derive_perimeter}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_h4_similar_area_volume_scale
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-squared-factor
   description: Applies k^2 instead of k to a length or perimeter -- the signature trap given the neighbouring area/volume scale-factor skills, especially live on the hard/perimeter tier where a learner who has just been taught k^2/k^3 scaling applies the wrong exponent to a linear quantity.

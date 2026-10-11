@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f3_georec
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: adds-instead-of-multiplying
   description: Treats the common ratio as a common difference (arithmetic operation instead of geometric).

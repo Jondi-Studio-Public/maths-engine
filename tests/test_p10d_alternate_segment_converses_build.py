@@ -130,7 +130,7 @@ class TestAlternateSegmentTheorem:
         assert skill.answer == "number"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4  # three practice tiers plus the exam source
 
 
 # ============================================================================

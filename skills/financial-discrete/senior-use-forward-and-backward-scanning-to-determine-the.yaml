@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_g6_missing_duration
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: predecessor-es-instead-of-ef
   description: Gives the predecessor's earliest start instead of its earliest finish (forgets to add duration).

@@ -21,6 +21,10 @@ sources:
   params: {variant: find_negative_x}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f1_log_nested_base
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: states-b-instead-of-x
   description: States the computed power instead of the exponent.

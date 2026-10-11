@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_g6_flow_upgrade
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sum-all-source-outgoing
   description: Sums all of the source node's outgoing pipe capacities, ignoring downstream bottlenecks.

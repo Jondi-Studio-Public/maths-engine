@@ -308,7 +308,8 @@ def test_determinant_product_skill_loads_via_api_skills_matrix_determinant_2x2()
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["determinant_product"]
     assert hard_sources[0].params.get("hi") == 6
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["determinant"], src.params
 
@@ -617,7 +618,8 @@ def test_determinant3_product_skill_loads_via_api_skills_matrix_determinant_3x3(
     hard_sources = [s for s in skill.sources if s.difficulty == "hard"]
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["determinant3_product"]
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["determinant3"], src.params
 
@@ -962,6 +964,7 @@ def test_system_context_skill_loads_via_api_skills_matrix_solve_system():
     assert len(hard_sources) == 1
     assert hard_sources[0].params.get("kinds") == ["system_context"]
     assert hard_sources[0].params.get("hi") == 6
-    easy_medium = [s for s in skill.sources if s.difficulty != "hard"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    easy_medium = [s for s in skill.sources if s.difficulty not in ("hard", "exam")]
     for src in easy_medium:
         assert src.params.get("kinds") == ["system"], src.params

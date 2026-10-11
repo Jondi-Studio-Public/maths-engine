@@ -1,0 +1,45 @@
+id: f10-geometric-construction-algorithm
+name: Follow a geometric construction after a step is refined
+domain: geometry
+description: Given a stated geometric construction written as numbered steps and a stated refinement to one step, work out the length or angle the refined construction produces, using the stated geometric facts (Pythagoras' theorem, the angle in a semicircle, angle constructions).
+status: active
+placement_eligible: false
+prerequisites:
+- f10-shape-sorting-algorithm
+- pythagorean-hypotenuse
+answer: number
+sources:
+- topic: f10_geometric_construction_algorithm
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_geometric_construction_algorithm
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_geometric_construction_algorithm
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores-the-refinement
+  description: Answers for the original construction, as if the refined step had not been changed.
+- id: reports-the-compass-setting
+  description: Reports the compass setting itself as the length asked for, instead of using it in the right-angled triangle it creates.
+- id: reports-the-original-compass-setting
+  description: Reports the original compass setting when the refined step never affected the length asked for (hard tier).
+- id: subtracts-instead-of-pythagoras
+  description: Subtracts one length from another where Pythagoras' theorem is needed (easy tier).
+- id: reports-one-leg
+  description: Reports one of the given lengths of the right-angled triangle instead of the side asked for.
+- id: reports-the-given-chord
+  description: Reports the chord that was given in the original step rather than the other chord of the right-angled triangle (easy tier).
+- id: adds-the-two-legs
+  description: Adds the two perpendicular lengths instead of finding the hypotenuse (hard tier).
+- id: adds-the-refinement-as-an-extra-step
+  description: Inserts the refined step as an additional step instead of replacing the one it refines (medium tier).
+- id: stops-at-the-refined-step
+  description: Stops at the refined step and does not carry on through the steps that follow it (medium tier).
+- id: applies-the-steps-out-of-order
+  description: Carries out the steps in the wrong order, so each later step starts from the wrong angle (medium tier).
+tags: [f10, geometry, constructions, algorithms, ac9m9sp03, ac9m10sp03, acara-v9-year-9-10]

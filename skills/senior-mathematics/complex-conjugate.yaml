@@ -5,6 +5,6 @@ description: Reverse the sign of the imaginary part to form a complex conjugate.
 status: active
 prerequisites: [complex-imaginary-part]
 answer: mcq
-sources: [{topic: complex_number, params: {kind: conjugate}, difficulty: easy}]
+sources: [{topic: complex_number, params: {kind: conjugate}, difficulty: easy}, {topic: exd_x_complex_conjugate, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: negates-both-parts, description: Negates both the real and imaginary parts.}]
 tags: [expansion-batch-6, complex-numbers, acara-v8-4]

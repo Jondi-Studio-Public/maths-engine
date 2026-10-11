@@ -21,6 +21,11 @@ sources:
   params: {variant: hard, coord_lo: -14, coord_hi: 14}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h4_midpoints_reconstruct
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-sign-combination
   description: Adds and subtracts the wrong pair of vertices when applying the parallelogram vector relation (e.g. P + Q - R instead of P + R - Q), picking the wrong vertex to subtract.
