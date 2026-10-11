@@ -540,7 +540,7 @@ def financial_interest(rng, kind="simple"):
         working = [f"I = Prt = {principal} × {rate / 100:g} × {years} = ${answer:g}."]
     else:
         answer = round(principal * (1 + rate / 100) ** years, 2)
-        text = f"Find the balance of ${principal} invested at {rate}% p.a., compounded annually for {years} years."
+        text = f"Find the balance of ${principal} invested at {rate}% p.a., compounded annually for {years} years. Give your answer to the nearest cent."
         working = [f"A = P(1+r)^n = {principal}(1+{rate / 100:g})^{years} = ${answer:.2f}."]
     return _number(
         text,
@@ -576,7 +576,7 @@ def flat_loan_repayment(rng):
     total = principal * (1 + annual_rate * years / 100)
     answer = round(total / months, 2)
     return _number(
-        f"A ${principal} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment.",
+        f"A ${principal} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment to the nearest cent.",
         answer,
         [round(principal / months, 2), round(total / years, 2), round(answer * 12, 2), round(answer * 1.1, 2)],
         aligned=True,

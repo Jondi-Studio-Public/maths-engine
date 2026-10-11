@@ -109,7 +109,10 @@ string: the id comes from the shared catalogue in `misconceptions.py`, and `valu
 grader recognise that error however the learner spells it, so a wrong reply is diagnosed, not just marked. Set
 `answer_kind` too. See `docs/design/typed-answer-contract.md`; plain strings still work.
 
-Typed numeric answers are graded to their own stated precision. `grade_fraction` compares
+Typed numeric answers are graded to their own stated precision: a rounded answer (`0.33` for 1/3)
+accepts half a unit in its last place, and an answer shown exactly (`2.6` for 7.7 - 5.1) is matched
+exactly. If the stored answer is itself rounded, say so in the question ("to the nearest cent").
+`grade_fraction` compares
 by value, so `2/4` is accepted for `1/2` and you cannot build a "does not simplify"
 distractor. Expressions are compared by symbolic equivalence.
 
