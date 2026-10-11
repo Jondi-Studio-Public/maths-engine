@@ -303,6 +303,57 @@ def check(cond: bool, msg: str = "answer verification failed"):
         raise VerificationError(msg)
 
 
+def attempts(limit: int = 1000, what: str = "an acceptable draw"):
+    """Yield 0, 1, ... limit - 1, then raise `VerificationError`: a bounded stand-in for `while True:`.
+
+    For rejection loops that draw several values per attempt (use `draw_until` when one
+    value is drawn). `break` out of the loop when the draw is acceptable; if the loop
+    runs the budget out, the error names `what` and `limit`::
+
+        for _ in attempts(1000, "a coprime pair"):
+            a, b = rng.randint(1, 12), rng.randint(1, 12)
+            if math.gcd(a, b) == 1:
+                break
+
+    It draws nothing itself, so replacing `while True:` with it leaves every seed's
+    random stream, and so every question, unchanged.
+    """
+    yield from range(limit)
+    raise VerificationError(f"no acceptable draw for {what} in {limit} tries")
+
+
+def draw_until(
+    rng: random.Random,
+    draw: Callable[[random.Random], Any],
+    accept: Callable[[Any], bool],
+    *,
+    tries: int = 1000,
+    what: str = "an acceptable draw",
+):
+    """Return the first `draw(rng)` that `accept` allows; raise `VerificationError` after `tries` draws.
+
+    The bounded form of rejection sampling. It replaces::
+
+        while True:
+            v = draw(rng)
+            if accept(v):
+                break
+
+    and consumes `rng` exactly as that loop does: `draw(rng)` is called once per attempt,
+    in order, and nothing else touches `rng`. Converting an existing loop therefore keeps
+    every seed's question identical, provided `accept` does not use `rng` and `draw`
+    makes the same calls, in the same order, as the loop body did. A value that fails is
+    discarded; the one returned is the one that passed. When all `tries` draws are
+    rejected the error names `what` and `tries`, so a bad seed or odd params fails loudly
+    with a message instead of hanging the process.
+    """
+    for _ in range(tries):
+        value = draw(rng)
+        if accept(value):
+            return value
+    raise VerificationError(f"no acceptable draw for {what} in {tries} tries")
+
+
 _VALUE_TOKEN_RE = re.compile(r"-?\d+(?:\.\d+)?(?:\s*/\s*\d+(?:\.\d+)?)?")
 
 

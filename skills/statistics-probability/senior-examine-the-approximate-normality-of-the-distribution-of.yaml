@@ -18,6 +18,10 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p8c_normality_approx_phat
+  params: {variant: borderline}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: p8c_normality_approx_phat
   params: {variant: from_failures}
   difficulty: hard
   stages: [6, maintenance]

@@ -169,6 +169,7 @@ Read `core.py` before writing any utility. It already has, among others:
 | `numeric_answer`, `stated_precision_string`, `round_half_up` | Decimal answers at a stated precision |
 | `phrase`, `compose` | Vary wording; chain multi-step questions |
 | `mcq_options` | The shuffled option list the `mcq` grader uses |
+| `draw_until`, `attempts` | Bounded rejection sampling; never write an uncapped `while` loop (see `CONTRIBUTING.md`) |
 
 If a helper you need is missing and would serve more than one generator, say so in your
 pull request instead of writing a private copy.
