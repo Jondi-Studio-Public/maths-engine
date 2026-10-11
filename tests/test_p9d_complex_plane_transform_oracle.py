@@ -85,6 +85,8 @@ def test_mult_linear_transform_oracle():
     examined = 0
 
     for source in skill.sources:
+        if source.difficulty == "exam":
+            continue  # the exam source is covered by this skill's tests/test_exd_x_* file
         for seed in SEEDS:
             q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **source.params)
             examined += 1

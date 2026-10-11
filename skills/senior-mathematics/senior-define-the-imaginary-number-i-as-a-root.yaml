@@ -28,6 +28,11 @@ sources:
     params: {}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_complex_i_power
+    params: {tier: exam}
+    difficulty: exam
+    stages:
+      - exam
 misconceptions:
   - id: dropped-imaginary-unit-kept-sign
     description: Reports k instead of ki -- treats sqrt(-k^2) as sqrt(k^2), dropping the imaginary unit entirely.

@@ -27,6 +27,11 @@ sources:
     params: {variant: sum}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_complex_point
+    params: {tier: exam}
+    difficulty: exam
+    stages:
+      - exam
 misconceptions:
   - id: swaps-real-and-imaginary
     description: Reports (b, a) instead of (a, b) — confuses which component corresponds to x vs. y on the plane.

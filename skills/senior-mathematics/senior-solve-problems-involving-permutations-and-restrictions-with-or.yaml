@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h2_restricted_permutations
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: ignores-restriction
   description: Ignores the restriction entirely and reports the plain n! (or n!/repeat! at the hard tier).
