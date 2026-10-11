@@ -5,6 +5,6 @@ description: Identify the real component of a complex number in Cartesian form.
 status: active
 prerequisites: [classify-real-numbers]
 answer: number
-sources: [{topic: complex_number, params: {kind: real_part}, difficulty: easy}]
+sources: [{topic: complex_number, params: {kind: real_part}, difficulty: easy}, {topic: exd_x_complex_real_part, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: selects-imaginary, description: Selects the coefficient of i.}]
 tags: [expansion-batch-6, complex-numbers, acara-v8-4]

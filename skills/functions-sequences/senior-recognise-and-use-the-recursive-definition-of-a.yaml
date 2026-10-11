@@ -21,6 +21,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f2_geometric_recursion
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: off-by-one-first-term
   description: Reports the second given term as if it were the first term, shifting the whole window forward by one position.

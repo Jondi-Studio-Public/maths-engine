@@ -21,6 +21,11 @@ sources:
   params: {variant: mixed_unit_total}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_grams_dose
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: factor-of-100-error
   description: Uses one hundred as the conversion factor instead of one thousand.

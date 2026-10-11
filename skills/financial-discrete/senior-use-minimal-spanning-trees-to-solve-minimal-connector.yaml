@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_g6_connector_constraint
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sum-all-edges
   description: Sums the cost of all listed cable options instead of finding the minimum spanning tree.

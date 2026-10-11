@@ -21,6 +21,11 @@ sources:
   params: {variant: mixed_with_quadrantal}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_f5_unitcircle
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-coordinate-ratio
   description: Treats the x-coordinate as sin(theta) and the y-coordinate as cos(theta), computing x/y instead of y/x.

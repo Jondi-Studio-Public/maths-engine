@@ -270,7 +270,7 @@ def _medium(rng):
     text = (
         f"In a right-angled triangle, one acute angle is {angle} degrees. "
         f"The {_PHRASE[known_role]} is {known} cm. "
-        f"For {angle} degrees, the ratios (each rounded to 4 d.p.) are: {_fmt_table(angle, table)}. "
+        f"For {angle} degrees, the ratios from a four-figure table are: {_fmt_table(angle, table)}. "
         + rng.choice(_MEDIUM_CLOSERS).format(unknown=_PHRASE[unknown_role], dp_word=_DP_WORD[dp])
     )
     answer_text = stated_precision_string(rounded, dp)
@@ -326,7 +326,7 @@ _PHRASE_ALT = "|".join(re.escape(v) for v in _PHRASE.values())
 
 _MED_RE = re.compile(
     r"one acute angle is (\d+) degrees\. The (" + _PHRASE_ALT + r") is ([\d.]+) cm\. "
-    r"For \d+ degrees, the ratios \(each rounded to 4 d\.p\.\) are: "
+    r"For \d+ degrees, the ratios from a four-figure table are: "
     r"sin \d+ degrees = ([\d.]+), cos \d+ degrees = ([\d.]+), tan \d+ degrees = ([\d.]+)\. "
     r".*? length of the (" + _PHRASE_ALT + r"), correct to (\d) decimal place"
 )
@@ -382,7 +382,7 @@ def _hard(rng):
     text = (
         f"Triangle {v1}{v2}{vr} has a right angle at {vr}, and the angle at {at} is {angle} degrees. "
         f"Side {names[known_role]} is {stated_precision_string(known, 1)} cm. "
-        f"Ratios, each rounded to 4 d.p.: {_fmt_table(angle, t1)}; {_fmt_table(comp, t2)}. "
+        f"Ratios from a four-figure table: {_fmt_table(angle, t1)}; {_fmt_table(comp, t2)}. "
         f"Find the length of side {names[unknown_role]}, correct to {_DP_WORD[dp]}."
     )
     answer_text = stated_precision_string(rounded, dp)
@@ -397,7 +397,7 @@ def _hard(rng):
 _HARD_RE = re.compile(
     r"Triangle (\w)(\w)(\w) has a right angle at (\w), and the angle at (\w) is (\d+) degrees\. "
     r"Side (\w\w) is ([\d.]+) cm\. "
-    r"Ratios, each rounded to 4 d\.p\.: .*? "
+    r"Ratios from a four-figure table: .*? "
     r"Find the length of side (\w\w), correct to (\d) decimal places\."
 )
 

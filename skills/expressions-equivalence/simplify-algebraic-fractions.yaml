@@ -35,6 +35,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_a5_fraction_cancel_multistep
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-error
   description: On an easy difference-of-squares question, states the denominator's own factor back instead of

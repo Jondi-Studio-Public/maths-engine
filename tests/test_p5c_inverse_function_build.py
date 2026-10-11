@@ -92,4 +92,4 @@ def test_senior_inverse_functions_skill_loads_correctly():
     assert "function-notation" in skill.prerequisites
     # Verify sources cover all three difficulties
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}

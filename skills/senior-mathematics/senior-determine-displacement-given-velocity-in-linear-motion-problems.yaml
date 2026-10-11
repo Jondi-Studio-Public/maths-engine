@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h5_velocity_two_positions
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-constant-of-integration
   description: Uses the antiderivative G(t) directly as s(t), never solving for the constant of integration against the stated initial position.

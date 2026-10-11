@@ -129,12 +129,13 @@ def test_skill1_loads_with_correct_properties():
 
 
 def test_skill1_sources_cover_correct_stages():
-    """Skill 1 must have three sources covering stages [0,1,2], [3,4], [5,6,maintenance]."""
+    """Skill 1 must have three legacy sources (plus the exam source) covering stages [0,1,2], [3,4], [5,6,maintenance]."""
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-find-the-equation-of-a-quadratic-given-sufficient"), None)
     assert skill is not None
-    assert len(skill.sources) == 3
-    for source in skill.sources:
+    assert len(skill.sources) == 4
+    assert skill.sources[3].difficulty == "exam"
+    for source in skill.sources[:3]:
         assert source.topic == "find_the_equation_of_a_quadratic_given_sufficient"
     assert set(skill.sources[0].stages) == {0, 1, 2}, "easy stages"
     assert set(skill.sources[1].stages) == {3, 4}, "medium stages"
@@ -220,12 +221,13 @@ def test_skill2_loads_with_correct_properties():
 
 
 def test_skill2_sources_cover_correct_stages():
-    """Skill 2 must have three sources covering stages [0,1,2], [3,4], [5,6,maintenance]."""
+    """Skill 2 must have three legacy sources (plus the exam source) covering stages [0,1,2], [3,4], [5,6,maintenance]."""
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-expand-quadratic-and-cubic-polynomials-from-factors"), None)
     assert skill is not None
-    assert len(skill.sources) == 3
-    for source in skill.sources:
+    assert len(skill.sources) == 4
+    assert skill.sources[3].difficulty == "exam"
+    for source in skill.sources[:3]:
         assert source.topic == "expand_quadratic_and_cubic_polynomials_from_factors"
     assert set(skill.sources[0].stages) == {0, 1, 2}, "easy stages"
     assert set(skill.sources[1].stages) == {3, 4}, "medium stages"

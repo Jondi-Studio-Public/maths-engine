@@ -21,6 +21,11 @@ sources:
   params: {variant: converse_rhombus}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h4_rhombus_diagonals_composed
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sum-of-squares-of-diagonals-confusion
   description: Confuses this theorem with the neighbouring sum-of-squares-of-diagonals relationship, using the full (un-halved) diagonal lengths as the right-triangle legs instead of halving each diagonal first.

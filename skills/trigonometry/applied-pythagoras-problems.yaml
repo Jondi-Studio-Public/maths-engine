@@ -29,6 +29,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_f4_pythag
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: added-not-subtracted
   description: Treats the given leg of the ladder problem as if it were also hypotenuse-independent and adds it, computing sqrt(ladder^2 + given^2) instead of sqrt(ladder^2 - given^2). Only exercisable at the easy (ladder) tier.

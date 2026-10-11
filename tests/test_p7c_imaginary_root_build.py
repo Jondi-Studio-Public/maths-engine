@@ -170,9 +170,11 @@ def test_skill_sources_cover_correct_stages():
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-define-the-imaginary-number-i-as-a-root"), None)
     assert skill is not None
-    assert len(skill.sources) == 3
-    for source in skill.sources:
+    assert len(skill.sources) == 4
+    for source in skill.sources[:3]:
         assert source.topic == TOPIC
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}
+    assert skill.sources[3].difficulty == "exam"
+    assert set(skill.sources[3].stages) == {"exam"}

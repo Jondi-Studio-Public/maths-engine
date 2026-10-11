@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_g6_critical_path_after_change
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-critical-path
   description: Believes the shorter (losing) path is critical instead of the longer path.

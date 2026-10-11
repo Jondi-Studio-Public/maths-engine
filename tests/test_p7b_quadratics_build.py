@@ -109,8 +109,10 @@ class TestExpandBinomialProductMonic:
         assert skill.prerequisites == ["expand-single-brackets", "factor-common-numerical-factor"]
         assert skill.answer == "expression"
         difficulties = [s.difficulty for s in skill.sources]
-        assert difficulties == ["easy", "medium", "hard"]
+        assert difficulties == ["easy", "medium", "hard", "exam"]
         for s in skill.sources:
+            if s.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             assert s.topic == "expand_binomial_product_monic"
 
 
@@ -245,6 +247,8 @@ class TestQuadraticComplexConjugateSolutions:
         assert skill.prerequisites == ["quadratic-vertex"]
         assert skill.answer == "expression"
         difficulties = [s.difficulty for s in skill.sources]
-        assert difficulties == ["easy", "medium", "hard"]
+        assert difficulties == ["easy", "medium", "hard", "exam"]
         for s in skill.sources:
+            if s.difficulty == "exam":
+                continue  # the exam source is covered by this skill's tests/test_exd_x_* file
             assert s.topic == "quadratic_complex_conjugate_solutions"

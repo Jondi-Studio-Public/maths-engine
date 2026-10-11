@@ -21,6 +21,11 @@ sources:
   params: {variant: two_pair_chain}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_h4_cyclic_two_unknowns
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-360-instead-of-180
   description: Confuses the quadrilateral's full angle-sum (360 degrees) with the pair-supplement rule (180 degrees) that applies to a single pair of opposite angles.

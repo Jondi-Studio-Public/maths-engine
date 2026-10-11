@@ -5,6 +5,6 @@ description: Expand a product of Cartesian complex numbers and use i squared equ
 status: active
 prerequisites: [add-complex-numbers, expand-single-brackets]
 answer: mcq
-sources: [{topic: complex_number, params: {kind: multiply}, difficulty: easy}]
+sources: [{topic: complex_number, params: {kind: multiply}, difficulty: easy}, {topic: exd_x_complex_multiply, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: treats-i-squared-positive, description: Replaces i squared with positive one.}]
 tags: [expansion-batch-6, complex-numbers, acara-v8-4]

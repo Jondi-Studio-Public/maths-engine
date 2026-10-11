@@ -74,3 +74,10 @@ def _oracle(text):
         return Fraction(only_a, only_a + only_b)
     assert "not do both" in text
     return Fraction(only_a, n - both)
+
+
+def test_every_option_is_a_probability_300_seeds():
+    for s in range(300):
+        q = _exam(s)
+        for text in (q.answer_text, *q.distractors):
+            assert 0 <= Fraction(text) <= 1, (s, text)

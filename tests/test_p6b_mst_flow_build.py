@@ -157,7 +157,7 @@ def test_mst_skill_loads_via_load_skills():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert "simple-interest" in skill.prerequisites
-    assert len(skill.sources) == 3  # easy, medium, hard
+    assert len(skill.sources) == 4  # easy, medium, hard, exam
 
 
 def test_flow_skill_loads_via_load_skills():
@@ -169,7 +169,7 @@ def test_flow_skill_loads_via_load_skills():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert "simple-interest" in skill.prerequisites
-    assert len(skill.sources) == 3  # easy, medium, hard
+    assert len(skill.sources) == 4  # easy, medium, hard, exam
 
 
 # --- Naive-smallest distractor exercisability ---

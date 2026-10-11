@@ -21,6 +21,11 @@ sources:
   params: {mode: ratio_reverse}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_map_area
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: divides-instead-of-multiplies
   description: Applies a forward scale by dividing the map distance by the scale value instead of multiplying.

@@ -5,6 +5,12 @@ description: Divide a pack price by its quantity to calculate price per item.
 status: active
 prerequisites: [ratio-rate-proportion]
 answer: number
-sources: [{topic: unit_pricing, params: {}, difficulty: easy}]
+sources:
+- {topic: unit_pricing, params: {}, difficulty: easy}
+- topic: exd_x_g5_unit_pricing
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: reverses-rate, description: Divides quantity by price.}]
 tags: [expansion-batch-5, rates]

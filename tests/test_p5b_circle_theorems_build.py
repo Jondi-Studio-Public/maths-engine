@@ -210,7 +210,7 @@ class TestSkillsLoad:
         assert skill.placement_eligible == False
         # Check that all three tiers are represented in sources
         sources_topics = [s.topic for s in skill.sources]
-        assert len(sources_topics) == 3, f"Expected 3 sources, got {len(sources_topics)}"
+        assert len(sources_topics) == 4, f"Expected 4 sources, got {len(sources_topics)}"  # plus the exam source
 
     def test_angles_same_arc_loads(self):
         """Test that senior-angles-at-the-circumference-of-a-circle-subtended skill loads."""
@@ -224,4 +224,4 @@ class TestSkillsLoad:
         assert skill.placement_eligible == False
         # Check that all three tiers are represented in sources
         sources_topics = [s.topic for s in skill.sources]
-        assert len(sources_topics) == 3, f"Expected 3 sources, got {len(sources_topics)}"
+        assert len(sources_topics) == 4, f"Expected 4 sources, got {len(sources_topics)}"  # plus the exam source

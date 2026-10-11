@@ -287,15 +287,16 @@ def test_p3c_logarithms_skill_contracts_load_with_expected_shape():
     assert ln_skill.answer == "number"
     assert ln_skill.placement_eligible is False
     assert ln_skill.status == "active"
-    assert [source.difficulty for source in ln_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in ln_skill.sources} == {LN_TOPIC}
-    assert [source.stages for source in ln_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in ln_skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in ln_skill.sources[:3]} == {LN_TOPIC}
+    assert [source.stages for source in ln_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]
 
     # Geometric skill checks
     assert geometric_skill.prerequisites == ["function-notation"]
     assert geometric_skill.answer == "number"
     assert geometric_skill.placement_eligible is False
     assert geometric_skill.status == "active"
-    assert [source.difficulty for source in geometric_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in geometric_skill.sources} == {GEOMETRIC_TOPIC}
-    assert [source.stages for source in geometric_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in geometric_skill.sources] == ["easy", "medium", "hard", "exam"]
+    # the exam source is covered by this skill's tests/test_exd_x_* file
+    assert {source.topic for source in geometric_skill.sources[:3]} == {GEOMETRIC_TOPIC}
+    assert [source.stages for source in geometric_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]
