@@ -208,3 +208,14 @@ class TestSkillsLoad:
             assert source.topic == "polynomial_linear_combination"
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
+
+
+@pytest.mark.parametrize(("tier", "seed"), [("easy", 208), ("medium", 4041)])
+def test_b_equal_to_c_still_gives_a_distinct_swapped_term_distractor(tier, seed):
+    """These seeds draw C equal to B (medium after the negative-leading step), which made the answer A + B - C
+    equal the swapped-subtracted-term distractor A - B + C and the generator raise."""
+    q = make("polynomial_add_subtract", seed=seed, difficulty=tier)
+    a, b, c = (_parse_poly(p) for p in _ADD_SUB_RE.match(q.text).groups())
+    assert b != c
+    answer = _parse_poly(q.answer_text)
+    assert q.distractors and all(_parse_poly(d) != answer for d in q.distractors)
