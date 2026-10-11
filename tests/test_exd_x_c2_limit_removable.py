@@ -27,7 +27,6 @@ from mathgen.text_quality import find_text_defects, prompt_shape
 TOPIC = "exd_x_c2_limit_removable"
 GRADER = "number"
 _X = sympy.Symbol("x")
-mpmath.mp.dps = 60
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
 
 
@@ -110,6 +109,7 @@ def _split(text):
     raise AssertionError(text)
 
 
+@mpmath.workdps(60)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _oracle(text):
     point_text, expr_text = _split(text)
     point = int(point_text)
