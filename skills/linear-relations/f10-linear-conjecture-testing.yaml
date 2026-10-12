@@ -1,0 +1,33 @@
+id: f10-linear-conjecture-testing
+name: Test conjectures about linear representations
+domain: linear-relations
+description: Given a stated conjecture about a linear relation and a table of values, select whether the table supports it or contains a counterexample, naming it.
+status: active
+placement_eligible: false
+prerequisites: [input-output-tables, rate-of-change]
+answer: mcq
+sources:
+- topic: f10_linear_conjecture
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_linear_conjecture
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_linear_conjecture
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: f10_linear_conjecture
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reports-a-place-that-fits-as-a-counterexample
+  description: Names a row or step that agrees with the conjecture as a counterexample, usually because the arithmetic was not checked.
+- id: accepts-the-conjecture-after-checking-only-some-places
+  description: Decides that no counterexample exists after checking only the first few rows or steps.
+- id: compares-changes-without-allowing-for-the-x-step
+  description: Compares the raw change in y across steps of different size in x, instead of the change in y for each 1 in x, and so calls a step that fits a counterexample.
+tags: [acara-f10-v9, linear-relations, conjecture, ac9m8a04, ac9m10a05]

@@ -3,12 +3,16 @@ name: Find a leg
 domain: trigonometry
 description: Use the Pythagorean theorem to find a missing leg given the hypotenuse and the other leg.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - pythagorean-hypotenuse
 answer: number
 sources:
 - topic: trigonometry
   params:
+    figure: true
     kinds:
     - side_leg
   difficulty: easy
@@ -18,6 +22,8 @@ sources:
   - 2
 - topic: trigonometry
   params:
+    figure: true
+    units: true
     kinds:
     - side_leg
   difficulty: medium
@@ -26,6 +32,8 @@ sources:
   - 4
 - topic: trigonometry
   params:
+    figure: true
+    units: true
     kinds:
     - side_leg
     exact_triple: false
