@@ -32,4 +32,4 @@ misconceptions:
   description: Adds the whole of each circle for "either set", so the overlap is counted twice.
 - id: exactly-one-with-overlap
   description: Includes the overlap when asked for exactly one of the sets.
-tags: [acara-f10-v9, statistics-probability, fig_venn_counts, ac9m8p03]
+tags: [acara-f10-v9, statistics-probability, fig_venn_counts, ac9m8p02]

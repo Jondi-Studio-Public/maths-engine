@@ -36,4 +36,4 @@ misconceptions:
   description: Uses the first-stage probabilities on the second stage of a tree drawn without replacement.
 - id: stops-before-the-complement
   description: Finds the probability that neither counter is the colour and gives it as the answer for at least one.
-tags: [acara-f10-v9, statistics-probability, fig_prob_tree, ac9m9p01]
+tags: [acara-f10-v9, statistics-probability, fig_prob_tree, ac9m9p01, ac9m8p02]
