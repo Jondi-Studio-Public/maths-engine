@@ -31,7 +31,9 @@ from mathgen.answers import Distractor, exact_value
 from mathgen.core import (
     check,
     generator,
+    join_terms,
     latex_answer,
+    paren_negative,
     phrase,
     pick_distractors,
     round_half_up,
@@ -140,7 +142,8 @@ def exd_x_r2c_vector_line(rng, tier: str = "exam"):
         "number",
         2,
         [
-            f"Equate the components: {a[0]} + {e[0]}s = {c[0]} + {d[0]}t and {a[1]} + {e[1]}s = {c[1]} + {d[1]}t.",
+            f"Equate the components: {join_terms([(a[0], ''), (e[0], 's')])} = {join_terms([(c[0], ''), (d[0], 't')])} "
+            f"and {join_terms([(a[1], ''), (e[1], 's')])} = {join_terms([(c[1], ''), (d[1], 't')])}.",
             f"Eliminating t gives s = {s} (and t = {t}).",
         ],
         [
@@ -156,7 +159,7 @@ def exd_x_r2c_vector_line(rng, tier: str = "exam"):
         t,
         "fraction",
         1,
-        [f"{a[0]} + {e[0]}·{s} = {c[0]} + {d[0]}t, so t = {t}."],
+        [f"{a[0]} + {paren_negative(e[0])}·{paren_negative(s)} = {join_terms([(c[0], ''), (d[0], 't')])}, so t = {t}."],
         [
             (s, "gave-the-other-parameter"),
             (-t, "sign-error-moving-term"),
@@ -169,7 +172,7 @@ def exd_x_r2c_vector_line(rng, tier: str = "exam"):
         p[0],
         "fraction",
         1,
-        [f"x = {a[0]} + {e[0]}·{s} = {p[0]}."],
+        [f"x = {a[0]} + {paren_negative(e[0])}·{paren_negative(s)} = {p[0]}."],
         [
             (c[0], "wrong-parameter-substituted"),
             (a[0] + e[0] * t, "wrong-parameter-substituted"),

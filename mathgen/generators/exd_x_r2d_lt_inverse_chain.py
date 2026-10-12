@@ -118,6 +118,7 @@ def _build(rng: random.Random) -> dict:
     d_pairs = [
         ("area-scaled-the-wrong-way", Fraction(image_area * abs(det))),
         ("signed-determinant-as-area-factor", Fraction(image_area, det)),
+        ("forgot-area-scale-factor", Fraction(image_area)),
     ]
     stem = rng.choice(_STEM).format(
         row1=join_terms([(a, "x"), (b, "y")]), row2=join_terms([(c, "x"), (d, "y")]), q=_pt(qx, qy)
@@ -162,7 +163,6 @@ def _build(rng: random.Random) -> dict:
                 ],
                 d_pairs,
                 ft=f"{image_area}/Abs(part_a)",
-                minimum=1,
             ),
         ],
     )

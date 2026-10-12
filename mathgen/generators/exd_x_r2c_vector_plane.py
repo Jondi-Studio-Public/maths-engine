@@ -27,7 +27,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from mathgen.answers import Distractor, exact_value
-from mathgen.core import check, generator, latex_answer, phrase, pick_distractors
+from mathgen.core import check, generator, latex_answer, paren_negative, phrase, pick_distractors
 
 _STEMS = (
     "The plane Π passes through the points A({a}), B({b}) and C({c}). Π has Cartesian equation "
@@ -140,7 +140,9 @@ def exd_x_r2c_vector_plane(rng, tier: str = "exam"):
         "Find the value of d.",
         d_val,
         2,
-        [f"d = a·{point_a[0]} + b·{point_a[1]} + {point_a[2]} = {_text(d_val)}."],
+        [
+            f"d = a·{paren_negative(point_a[0])} + b·{paren_negative(point_a[1])} + {paren_negative(point_a[2])} = {_text(d_val)}."
+        ],
         [
             (Fraction(sum(n[i] * point_a[i] for i in range(3))), "forgot-to-divide-by-coefficient"),
             (a_val * point_a[0] + b_val * point_a[1] - point_a[2], "sign-error-moving-term"),

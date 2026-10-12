@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import random
 from fractions import Fraction
+from math import gcd
 
 from mathgen.answers import Distractor
 from mathgen.core import attempts, check, generator, latex_answer, numeric_answer, pick_distractors, rational_text
@@ -60,8 +61,9 @@ def _text(f: Fraction) -> str:
 def _attempt(rng: random.Random) -> dict:
     for _ in attempts(1000, "three fractions of a whole with a positive remainder"):
         dens = [rng.choice(_DENOMS) for _ in range(3)]
-        fracs = [Fraction(rng.randint(1, d - 1), d) for d in dens]
-        if len({f for f in fracs}) < 3 or any(f.denominator != d for f, d in zip(fracs, dens)):
+        # Only numerators coprime to the denominator, so every fraction is already in lowest terms.
+        fracs = [Fraction(rng.choice([n for n in range(1, d) if gcd(n, d) == 1]), d) for d in dens]
+        if len({f for f in fracs}) < 3:
             continue
         f1, f2, f3 = fracs
         first_two = f1 + f2

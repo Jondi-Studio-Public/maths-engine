@@ -87,7 +87,7 @@ def _build(rng: random.Random):
         2,
         [
             f"Product rule with u = {_factor(p, 2)} and v = {_factor(q, 1)}.",
-            f"f'(x) = {pretty(2 * k * (X - p) * (X - q))} + {pretty(k * (X - p) ** 2)} = {pretty(fprime)}.",
+            f"f'(x) = {pretty(2 * k * (X - p) * (X - q))} {'+' if k > 0 else '-'} {pretty(abs(k) * (X - p) ** 2)} = {pretty(fprime)}.",
         ],
         wrong_a,
     )
@@ -101,7 +101,7 @@ def _build(rng: random.Random):
         x0,
         2,
         [
-            f"f'(x) = 0 gives x = {p} or x = ({p} + {2 * q})/3 = {x0}.",
+            f"f'(x) = 0 gives x = {p} or x = ({join_terms([(p, ''), (2 * q, '')])})/3 = {x0}.",
             f"The graph touches the axis at x = {p}, so x = {x0}.",
         ],
         [

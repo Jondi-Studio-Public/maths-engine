@@ -82,7 +82,7 @@ def _build_k_trend_forecast(rng: random.Random) -> dict | None:
         2,
         [
             f"t for {label(q1)} of Year 2 is {t1}; t for {label(qt)} of Year {year} is {tt}.",
-            f"Trend = {tx(y1, 1)} + {tx(m, 1)} x ({tt} - {t1}) = {tx(trend_t, 1)}.",
+            f"Trend = {tx(y1, 1)} {'+' if m >= 0 else '-'} {tx(abs(m), 1)} x ({tt} - {t1}) = {tx(trend_t, 1)}.",
         ],
         [
             (y1 + m * (tt - t1 - per_year), "miscounted-periods-between"),

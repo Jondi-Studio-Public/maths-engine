@@ -44,6 +44,7 @@ from mathgen.core import (
     generator,
     join_terms,
     latex_answer,
+    paren_negative,
     phrase,
     pick_distractors,
     rational_text,
@@ -177,7 +178,7 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of A.",
             a_c,
             2,
-            [f"Matching the x terms of the numerator: {n1} = -2·{k}·({p}) + A, so A = {a_c}."],
+            [f"Matching the x terms of the numerator: {n1} = -2·{paren_negative(k)}·({p}) + A, so A = {a_c}."],
             [
                 (b_c, "swapped-partial-fraction-coefficients"),
                 (n1, "read-coefficient-without-expanding"),
@@ -190,7 +191,7 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of B.",
             b_c,
             2,
-            [f"Matching the constant terms: B = {n0} - {k}·({p})² + A·({p}) = {b_c}."],
+            [f"Matching the constant terms: B = {n0} - {paren_negative(k)}·({p})² + A·({p}) = {b_c}."],
             [
                 (a_c, "swapped-partial-fraction-coefficients"),
                 (n0, "read-coefficient-without-expanding"),
@@ -223,7 +224,7 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of B.",
             b_c,
             2,
-            [f"Matching the x terms: {n1} = -{k}·({p} + ({q})) + A + B, so B = {b_c}."],
+            [f"Matching the x terms: {n1} = -{paren_negative(k)}·({p} + ({q})) + A + B, so B = {b_c}."],
             [
                 (a_c, "swapped-partial-fraction-coefficients"),
                 (-b_c, "sign-reversed-result"),

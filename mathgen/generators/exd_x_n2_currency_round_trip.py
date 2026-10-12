@@ -20,7 +20,6 @@ from fractions import Fraction
 from mathgen.answers import Distractor
 from mathgen.core import (
     check,
-    check_distinct,
     draw_until,
     generator,
     latex_answer,
@@ -70,8 +69,12 @@ def _hundredths(n: int) -> str:
 
 def _part(prompt, key, marks, working, cands, follow_through=None):
     key = _cents(key)
-    vals = [(_cents(v), tag) for v, tag in cands]
-    check_distinct(key, *[v for v, _ in vals], msg="a distractor equals the answer")
+    # A slip that happens to land on the answer (or on an earlier slip) is no wrong option: drop it.
+    vals = []
+    for v, tag in cands:
+        v = _cents(v)
+        if v != key and all(v != seen for seen, _ in vals):
+            vals.append((v, tag))
     text = _txt(key)
     shown = [Distractor(_txt(v), tag, v) if tag else _txt(v) for v, tag in vals]
     out = dict(
@@ -85,6 +88,7 @@ def _part(prompt, key, marks, working, cands, follow_through=None):
         working=working,
         distractors=pick_distractors(text, shown, 3, tolerance=_TOL),
     )
+    check(len(out["distractors"]) >= 2, "fewer than two distinct wrong answers")
     if follow_through:
         out["follow_through"] = follow_through
     return out

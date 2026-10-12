@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator
+from mathgen.core import attempts, check, generator, join_terms
 
 from ._exd_pr3_support import leaks, part
 
@@ -70,7 +70,7 @@ def exd_x_pr3_straight_line_angles(rng, tier="exam"):
             marks=2,
             sensible_range=(0, None),
             working=[
-                f"Angles on a straight line add to 180°: ({a}x + {b}) + {k} + ({c}x + {d}) = 180.",
+                f"Angles on a straight line add to 180°: ({join_terms([(a, 'x'), (b, '')])}) + {k} + ({join_terms([(c, 'x'), (d, '')])}) = 180.",
                 f"{a + c}x = {180 - k - b - d}, so x = {x}.",
             ],
             candidates=xs,
@@ -81,7 +81,7 @@ def exd_x_pr3_straight_line_angles(rng, tier="exam"):
             marks=1,
             follow_through=f"{a}*part_a+({b})",
             sensible_range=(0, 180),
-            working=[f"∠AOC = {a} × {x} + {b} = {aoc}°."],
+            working=[f"∠AOC = {a} × {x} {'+' if b > 0 else '-'} {abs(b)} = {aoc}°."],
             candidates=[
                 (a * x, "dropped-constant-term"),
                 (dob, "used-other-angle-expression"),

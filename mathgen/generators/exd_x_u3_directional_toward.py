@@ -27,6 +27,7 @@ from mathgen.core import (
     join_terms,
     latex_answer,
     numeric_answer,
+    paren_negative,
     pick_distractors,
     round_half_up,
     stated_precision_string,
@@ -175,7 +176,7 @@ def exd_x_u3_directional_toward(rng, tier: str = "exam") -> dict:
                 follow_through=f"({dx}*part_a + {dy}*part_b)/{length}",
                 working=[
                     f"PQ = ({dx}, {dy}), of length {length}, so the unit vector is ({dx}/{length}, {dy}/{length}).",
-                    f"D = ({g1} × {dx} + {g2} × {dy}) ÷ {length} = {c_text} (2 d.p.).",
+                    f"D = ({paren_negative(g1)} × {paren_negative(dx)} + {paren_negative(g2)} × {paren_negative(dy)}) ÷ {length} = {c_text} (2 d.p.).",
                 ],
                 distractors=c_d,
             ),
@@ -189,7 +190,9 @@ def exd_x_u3_directional_toward(rng, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through="sqrt(part_a**2 + part_b**2)",
-                working=[f"The greatest rate is the length of the gradient: √({g1}² + {g2}²) = {d_text} (2 d.p.)."],
+                working=[
+                    f"The greatest rate is the length of the gradient: √({paren_negative(g1)}² + {paren_negative(g2)}²) = {d_text} (2 d.p.)."
+                ],
                 distractors=d_d,
             ),
         ],

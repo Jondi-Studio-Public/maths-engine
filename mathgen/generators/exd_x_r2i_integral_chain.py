@@ -74,7 +74,7 @@ def exd_x_r2i_integral_chain(rng: random.Random, tier: str = "exam") -> dict:
             [
                 f"The second integral is taken from {second_limits[0]} to {second_limits[1]}, so "
                 + (f"reversing the limits gives {i2}." if reversed_limits else f"it is already from {b} to {c}."),
-                f"Integral from {a} to {c} = {i1} + {i2} = {total_f}.",
+                f"Integral from {a} to {c} = {join_terms([(i1, ''), (i2, '')])} = {total_f}.",
             ],
             [
                 (wrong_a, "ignored-reversed-limits" if reversed_limits else "subtracted-instead-of-added"),
@@ -88,7 +88,7 @@ def exd_x_r2i_integral_chain(rng: random.Random, tier: str = "exam") -> dict:
             0,
             2,
             [
-                f"{p} × {total_f} + {q} × {j} + {r} × ({c} − {a}) = {value_b}.",
+                f"{join_terms([(1 if p > 0 else -1, f'{abs(p)} × {total_f}'), (1 if q > 0 else -1, f'{abs(q)} × {j}'), (1 if r > 0 else -1, f'{abs(r)} × ({c} − {a})')])} = {value_b}.",
             ],
             [
                 (total_f + j + r * length, "dropped-scalar-multiplier"),

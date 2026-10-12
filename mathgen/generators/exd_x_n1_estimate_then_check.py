@@ -50,6 +50,17 @@ def _trunc1(value: Fraction) -> Fraction:
     return Fraction((value / unit).numerator // (value / unit).denominator) * unit
 
 
+def _ceil1(value: Fraction) -> Fraction:
+    unit = Fraction(10) ** _sig1_exponent(value)
+    ratio = value / unit
+    return Fraction(-((-ratio.numerator) // ratio.denominator)) * unit
+
+
+def _round2(value: Fraction) -> Fraction:
+    unit = Fraction(10) ** (_sig1_exponent(value) - 1)
+    return round_half_up(value / unit, 0) * unit
+
+
 def _tie(value: Fraction) -> bool:
     unit = Fraction(10) ** _sig1_exponent(value)
     return (value / unit) % 1 == Fraction(1, 2)
@@ -110,7 +121,16 @@ def exd_x_n1_estimate_then_check(rng, tier="exam"):
             f"Round to 1 s.f.: {_plain(a)} → {_plain(ea)}, {_plain(b)} → {_plain(eb)}, {show(c, 2)} → {_plain(ec)}.",
             f"Estimate = {_plain(ea)} × {_plain(eb)} × {_plain(ec)} = {_plain(estimate)}.",
         ],
-        [(trunc, None), (to_whole, None), (two_only, None)],
+        [
+            (trunc, None),
+            (to_whole, None),
+            (two_only, None),
+            (a * eb * ec, None),
+            (ea * b * ec, None),
+            (exact_whole, None),
+            (_ceil1(a) * _ceil1(b) * _ceil1(c), None),
+            (_round2(a) * _round2(b) * _round2(c), None),
+        ],
         sensible_range=(0, None),
     )
     part_b = number_part(
@@ -119,7 +139,16 @@ def exd_x_n1_estimate_then_check(rng, tier="exam"):
         0,
         1,
         [f"{_plain(a)} × {_plain(b)} × {show(c, 2)} = {money(exact, 4)}, so about ${_plain(exact_whole)}."],
-        [(estimate, None), (a * b * ec, None), (trunc, None)],
+        [
+            (estimate, None),
+            (a * b * ec, None),
+            (trunc, None),
+            (to_whole, None),
+            (two_only, None),
+            (ea * b * c, None),
+            (exact * 10, None),
+            (exact / 10, None),
+        ],
         sensible_range=(0, None),
     )
     part_c = number_part(

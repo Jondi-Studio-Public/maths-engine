@@ -21,7 +21,7 @@ import random
 import sympy
 
 from mathgen.answers import Distractor
-from mathgen.core import attempts, check, generator, pick_distractors
+from mathgen.core import attempts, check, generator, join_terms, pick_distractors
 
 _SCALES = (2, 3, 4, -1, -2, -3)
 _SHIFTS = (-5, -4, -3, -2, -1, 1, 2, 3, 4, 5)
@@ -103,9 +103,9 @@ def exd_x_u2_eigen_shifted(rng: random.Random, tier: str = "exam") -> dict:
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"For A: trace = {a} + {d} = {trace} and determinant = {a * d - b * c}, so "
-                f"λ² - {trace}λ + {det} = 0 gives λ = {p} and λ = {q}.",
-                f"The eigenvalues of {scale_text} {shift_text} are {s}λ + {t}: {answer_text}.",
+                f"For A: trace = {join_terms([(a, ''), (d, '')])} = {trace} and determinant = {a * d - b * c}, so "
+                f"{join_terms([(1, 'λ²'), (-trace, 'λ'), (det, '')])} = 0 gives λ = {p} and λ = {q}.",
+                f"The eigenvalues of {scale_text} {shift_text} are {join_terms([(s, 'λ'), (t, '')])}: {answer_text}.",
             ],
             distractors=distractors,
         )

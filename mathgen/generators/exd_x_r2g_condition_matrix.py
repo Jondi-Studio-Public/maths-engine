@@ -17,7 +17,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import check, generator
+from ..core import check, generator, paren_negative
 from .exd_x_r2g_support import build_part, redraws
 
 _RHO_PERCENT = [Fraction(1, 10), Fraction(1, 5), Fraction(1, 4), Fraction(2, 5), Fraction(1, 2), 1, 2]
@@ -93,7 +93,7 @@ def exd_x_r2g_condition_matrix(rng: random.Random, tier: str = "exam") -> dict:
             marks=2,
             sensible_range=(0, None),
             working=[
-                f"det A = {p} x {s} - {q} x {r} = {det}.",
+                f"det A = {paren_negative(p)} x {paren_negative(s)} - {paren_negative(q)} x {paren_negative(r)} = {det}.",
                 f"A^-1 = (1/{det}) x (rows ({s}, {-q}) and ({-r}, {p})).",
                 f"Largest absolute row sum = {adj_norm}/{abs(det)} = {norm_inv}.",
             ],

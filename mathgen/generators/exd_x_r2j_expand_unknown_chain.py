@@ -100,8 +100,8 @@ def exd_x_r2j_expand_unknown_chain(rng: random.Random, tier: str = "exam") -> di
             places=0,
             marks=2,
             working=[
-                f"The x terms come from x · ({c}) and ({a}) · kx, so the coefficient of x is {c} + {a}k.",
-                f"{c} + {a}k = {n}, so k = {k}.",
+                f"The x terms come from x · ({c}) and ({a}) · kx, so the coefficient of x is {join_terms([(c, ''), (a, 'k')])}.",
+                f"{join_terms([(c, ''), (a, 'k')])} = {n}, so k = {k}.",
             ],
             wrong=[(int(v), t) for v, t in wrong_a],
         ),

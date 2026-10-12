@@ -139,10 +139,16 @@ def exd_x_m4_area_between_curves(rng: random.Random, tier: str = "exam") -> dict
     a_candidates = [
         root_slip(-p, p, "sign-flip-both-roots"),
         root_slip(q, p, None),
+        root_slip(-q, p, None),  # the other root, with its sign flipped as well
+        root_slip(q - p, p, None),  # the distance between the crossing points
+        root_slip(p + q, p, None),  # the two roots added
     ]
     b_candidates = [
         root_slip(-q, q, "sign-flip-both-roots"),
         root_slip(p, q, None),
+        root_slip(-p, q, None),  # the other root, with its sign flipped as well
+        root_slip(q - p, q, None),  # the distance between the crossing points
+        root_slip(p + q, q, None),  # the two roots added
     ]
     if scale > 1:
         a_candidates.append(root_slip(Fraction(raw_p), p, "forgot-to-divide-by-coefficient"))

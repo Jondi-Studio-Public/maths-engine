@@ -34,6 +34,7 @@ from mathgen.core import (
     generator,
     join_terms,
     latex_answer,
+    paren_negative,
     phrase,
     pick_distractors,
     round_half_up,
@@ -196,7 +197,7 @@ def exd_x_r2c_collision(rng, tier: str = "exam"):
         2,
         [
             f"v_B(t) = ({2 * e}t + ({f}), {w}); at t = {t_star} this is ({vb_x}, {w}).",
-            f"Speed = √({vb_x}² + {w}²) = {int(speed_b)} m/s.",
+            f"Speed = √({paren_negative(vb_x)}² + {paren_negative(w)}²) = {int(speed_b)} m/s.",
         ],
         [
             (abs(vb_x), "used-one-component-only"),

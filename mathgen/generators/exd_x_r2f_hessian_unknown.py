@@ -76,7 +76,10 @@ def exd_x_r2f_hessian_unknown(rng: random.Random, tier: str = "exam") -> dict:
         "Find the value of E.",
         big_e,
         2,
-        [f"f_xy = {c} + 2E(x + y). At {point}: {c} + {2 * (x0 + y0)}E = {fxy}.", f"So E = {big_e}."],
+        [
+            f"f_xy = {c} + 2E(x + y). At {point}: {join_terms([(c, ''), (2 * (x0 + y0), 'E')])} = {fxy}.",
+            f"So E = {big_e}.",
+        ],
         [
             ("forgot-power-multiplier", Rational(fxy - c, x0 + y0)),
             ("sign-error-moving-term", Rational(fxy + c, 2 * (x0 + y0))),
@@ -88,7 +91,7 @@ def exd_x_r2f_hessian_unknown(rng: random.Random, tier: str = "exam") -> dict:
         f"Hence find f_xx at {point}.",
         fxx,
         1,
-        [f"f_xx = {6 * a}x + {2 * d} + 2Ey = {fxx} at {point}."],
+        [f"f_xx = {join_terms([(6 * a, 'x'), (2 * d, '')])} + 2Ey = {fxx} at {point}."],
         [
             ("ignores-unknown-term", 6 * a * x0 + 2 * d),
             ("swaps-x-and-y", 6 * a * x0 + 2 * d + 2 * big_e * x0),
@@ -101,7 +104,7 @@ def exd_x_r2f_hessian_unknown(rng: random.Random, tier: str = "exam") -> dict:
         f"Find f_yy at {point}.",
         fyy,
         1,
-        [f"f_yy = {6 * b}y + {2 * e} + 2Ex = {fyy} at {point}."],
+        [f"f_yy = {join_terms([(6 * b, 'y'), (2 * e, '')])} + 2Ex = {fyy} at {point}."],
         [
             ("ignores-unknown-term", 6 * b * y0 + 2 * e),
             ("swaps-x-and-y", 6 * b * y0 + 2 * e + 2 * big_e * y0),

@@ -29,6 +29,7 @@ from ..core import (
     generator,
     latex_answer,
     numeric_answer,
+    paren_negative,
     pick_distractors,
     stated_precision_string,
 )
@@ -162,7 +163,7 @@ def exd_x_sc5_jacobian_area(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 working=[
                     f"J = [[{j11}, {j12}], [{j21}, {j22}]] at ({x0}, {y0}).",
-                    f"det J = {j11} x {j22} - {j12} x {j21} = {det}.",
+                    f"det J = {paren_negative(j11)} x {paren_negative(j22)} - {paren_negative(j12)} x {paren_negative(j21)} = {det}.",
                 ],
                 distractors=a_d,
             ),

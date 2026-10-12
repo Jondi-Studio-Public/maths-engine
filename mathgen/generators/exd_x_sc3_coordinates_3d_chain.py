@@ -16,7 +16,7 @@ import math
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator
+from ..core import attempts, check, generator, join_terms, paren_negative
 from .exd_x_sc3_support import number_part, tagged
 
 
@@ -102,8 +102,8 @@ def exd_x_sc3_coordinates_3d_chain(rng: random.Random, tier: str = "exam") -> di
                 0,
                 1,
                 [
-                    f"A to B: {mid[i]} - {start[i]} = {first[i]}. B to C: {second[i]}.",
-                    f"Total = {first[i]} + {second[i]} = {total[i]}.",
+                    f"A to B: {mid[i]} - {paren_negative(start[i])} = {first[i]}. B to C: {second[i]}.",
+                    f"Total = {join_terms([(first[i], ''), (second[i], '')])} = {total[i]}.",
                 ],
                 tagged(Fraction(total[i]), cands, 0),
             )
@@ -121,7 +121,9 @@ def exd_x_sc3_coordinates_3d_chain(rng: random.Random, tier: str = "exam") -> di
             Fraction(dist),
             0,
             2,
-            [f"Distance = √({total[0]}² + {total[1]}² + {total[2]}²) = √{sum(t * t for t in total)} = {dist} m."],
+            [
+                f"Distance = √({paren_negative(total[0])}² + {paren_negative(total[1])}² + {paren_negative(total[2])}²) = √{sum(t * t for t in total)} = {dist} m."
+            ],
             tagged(Fraction(dist), d_cands, 0, lo=0),
             follow_through="sqrt(part_a**2+part_b**2+part_c**2)",
             sensible_range=(0, None),

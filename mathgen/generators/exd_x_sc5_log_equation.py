@@ -22,7 +22,7 @@ from fractions import Fraction
 import sympy
 
 from ..answers import Distractor
-from ..core import GRADER_TOLERANCE, check, generator, latex_answer, pick_distractors
+from ..core import GRADER_TOLERANCE, check, generator, join_terms, latex_answer, pick_distractors
 
 _BASES = {2: 8, 3: 5, 4: 5, 5: 4, 6: 3, 10: 2}  # base -> largest exponent n used
 _MAX_PQ = 25
@@ -144,7 +144,7 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 follow_through=ft_b,
                 working=[
-                    f"x^2 + {p - q}x - {p * q + big_n} = 0, so x = {x0} or x = {other_val}.",
+                    f"{join_terms([(1, 'x^2'), (p - q, 'x'), (-(p * q + big_n), '')])} = 0, so x = {x0} or x = {other_val}.",
                     f"x = {other_val} makes x - {q} negative, so it is rejected. x = {x0}.",
                 ],
                 distractors=b_d,

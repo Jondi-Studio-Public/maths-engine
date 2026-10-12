@@ -130,7 +130,7 @@ def _build(rng: random.Random):
         x_max,
         2,
         [
-            f"f'(x) = 0 gives {'cos' if family == 'sin' else 'sin'}({b}x) = {pretty(-slope / Integer(n * b) if family == 'sin' else slope / Integer(n * b))}.",
+            f"f'(x) = 0 gives {'cos' if family == 'sin' else 'sin'}({b if b > 1 else ''}x) = {pretty(-slope / Integer(n * b) if family == 'sin' else slope / Integer(n * b))}.",
             f"In the domain the solutions are x = {pretty(x_max)} and x = {pretty(x_min)}; f'' < 0 at x = {pretty(x_max)}, so this is the maximum.",
         ],
         wrong_b,

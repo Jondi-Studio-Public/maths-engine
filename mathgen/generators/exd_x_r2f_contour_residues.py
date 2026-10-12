@@ -20,7 +20,7 @@ import random
 import sympy
 from sympy import I, Rational, pi
 
-from ..core import attempts, check, generator, join_terms, rational_text
+from ..core import attempts, check, generator, join_terms, paren_negative, rational_text
 from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2f_common import expr_part, frac_part
 
@@ -79,7 +79,7 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
         2,
         [
             f"{den_text} = (z - {p})(z - {q}), so the poles are z = {p} and z = {q}.".replace("- -", "+ "),
-            f"|{p} - {c0}| = {abs(p - c0)} < {rational_text(r)} but |{q} - {c0}| = {abs(q - c0)} > {rational_text(r)}, "
+            f"|{p} - {paren_negative(c0)}| = {abs(p - c0)} < {rational_text(r)} but |{q} - {paren_negative(c0)}| = {abs(q - c0)} > {rational_text(r)}, "
             f"so z = {p} is inside C.",
         ],
         [
@@ -92,7 +92,9 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
         "Find the residue of f at this pole.",
         res_p,
         2,
-        [f"Res = ({a}·{p} + {b}) / ({p} - {q}) = {rational_text(res_p)}."],
+        [
+            f"Res = ({a}·{paren_negative(p)} {'+' if b >= 0 else '-'} {abs(b)}) / ({p} - {paren_negative(q)}) = {rational_text(res_p)}."
+        ],
         [
             ("residue-at-wrong-pole", res_q),
             ("forgot-to-divide-by-other-factor", Rational(a * p + b)),

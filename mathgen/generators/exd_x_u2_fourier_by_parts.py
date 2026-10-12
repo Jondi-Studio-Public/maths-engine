@@ -144,14 +144,14 @@ def exd_x_u2_fourier_by_parts(rng: random.Random, tier: str = "exam") -> dict:
             text=stem,
             parts=[
                 dict(
-                    prompt=f"Use integration by parts to find the exact value of ∫₀^π f(x) sin({n}x) dx.",
+                    prompt=f"Use integration by parts to find the exact value of ∫₀^π f(x) sin({n if n > 1 else ''}x) dx.",
                     answer_kind="expression",
                     answer=i_expr,
                     answer_text=i_text,
                     answer_latex=sympy.latex(i_expr),
                     marks=3,
                     working=[
-                        f"∫₀^π x sin({n}x) dx = -π(-1)^{n}/{n}, and ∫₀^π x² sin({n}x) dx = "
+                        f"∫₀^π x sin({n if n > 1 else ''}x) dx = -π(-1)^{n}/{n}, and ∫₀^π x² sin({n if n > 1 else ''}x) dx = "
                         f"-π²(-1)^{n}/{n} + 2((-1)^{n} - 1)/{n}³ (two integrations by parts).",
                         f"With f(x) = {_poly(a, b)} the integral is {i_text}.",
                     ],

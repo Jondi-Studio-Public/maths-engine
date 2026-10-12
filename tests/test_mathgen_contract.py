@@ -296,6 +296,11 @@ def test_backward_compatible_outputs_pinned(topic):
 OPTION_NOTES_TOPICS = frozenset(
     {
         "enlargement_invariants",
+        "exd_x_pr7_large_numbers_mixed_forms",
+        "exd_x_pr7_order_to_1000_regrouped",
+        "exd_x_pr7_signed_temperatures_order",
+        "exd_x_u2_eigen_shifted",
+        "exd_x_u2_rank_parameter",
         "f10_collect_sort_categorical",
         "f10_geometric_construction_algorithm",
         "f10_grid_reference_pathway",

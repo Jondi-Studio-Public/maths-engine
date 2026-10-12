@@ -166,10 +166,12 @@ def exd_x_r2i_calibration_chain(rng: random.Random, tier: str = "exam") -> dict:
                 (ece + abs(gap), "added-instead-of-subtracted"),
                 (ece, "gave-one-measure-not-difference"),
                 (abs(gap), "gave-one-measure-not-difference"),
+                (unweighted - abs(gap), "unweighted-bin-average"),
+                (swapped - abs(gap), "weighted-by-wrong-share"),
+                (abs(d1) + abs(d2) - abs(gap), "unweighted-bin-average"),
             ],
             follow_through="part_c - Abs(part_b)",
             sensible_range=(0, 1),
-            min_distractors=1,
         ),
     ]
     return dict(text=stem, parts=parts)

@@ -347,6 +347,15 @@ def paren(value) -> str:
     return str(v) if v >= 0 and v.q == 1 else f"({v.p}/{v.q})" if v.q != 1 else f"({v.p})"
 
 
+def _line_text(slope, c0) -> str:
+    """``mx + c`` as written on the page: no ``1x``, no ``+ -``, a fractional slope bracketed."""
+    m, c = Rational(slope), Rational(c0)
+    coef = "" if m == 1 else "-" if m == -1 else str(m.p) if m.q == 1 else f"({m.p}/{m.q})"
+    if c == 0:
+        return f"{coef}x"
+    return f"{coef}x {'+' if c > 0 else '-'} {rational_text(abs(c))}"
+
+
 # -- the tangent / normal tail shared by several chains -----------------------------------------------------------
 
 
@@ -447,7 +456,7 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
             "Find the x-coordinate of the point where this tangent meets the x-axis.",
             x_int,
             1,
-            [f"Put y = 0: 0 = {rational_text(slope)}x + {paren(c0)}, so x = {rational_text(x_int)}."],
+            [f"Put y = 0: 0 = {_line_text(slope, c0)}, so x = {rational_text(x_int)}."],
             [
                 ("sign-error-moving-term", c0 / slope),
                 ("forgot-to-divide-by-coefficient", -c0),

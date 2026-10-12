@@ -19,7 +19,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, paren_negative, phrase
 from .exd_x_r2h_support import build_part
 
 _MASSES = (1, 2, 3, 4)
@@ -126,7 +126,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 "L_z = m (x vy - y vx) is conserved because V is unchanged by rotation about the origin.",
-                f"L_z = {m} x ({x0} x {vy} - {y0} x {vx}) = {lz}.",
+                f"L_z = {m} x ({paren_negative(x0)} x {paren_negative(vy)} - {paren_negative(y0)} x {paren_negative(vx)}) = {lz}.",
             ],
             wrong=a_wrong,
         ),
@@ -137,7 +137,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 "E = kinetic + potential energy is conserved because L has no explicit time dependence.",
-                f"E = ({m}/2)({vx}^2 + {vy}^2) + {c}({x0}^2 + {y0}^2) = {energy}.",
+                f"E = ({m}/2)({paren_negative(vx)}^2 + {paren_negative(vy)}^2) + {c}({paren_negative(x0)}^2 + {paren_negative(y0)}^2) = {energy}.",
             ],
             wrong=b_wrong,
             sensible_range=(0, None),

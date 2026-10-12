@@ -130,6 +130,11 @@ def exd_x_r2i_timetable_chain(rng: random.Random, tier: str = "exam") -> dict:
                 (wait_of(latest_overall), "ignored-the-deadline"),
                 (wait_of(earliest_ok), "took-first-service-not-latest"),
                 (journey, "swapped-wait-and-journey"),
+                *[
+                    (wait_of(s), "ignored-the-deadline" if s[1] > depart else "took-first-service-not-latest")
+                    for s in services
+                    if s[1] >= arrive_stop
+                ],
             ],
             sensible_range=(0, None),
         ),
@@ -143,6 +148,11 @@ def exd_x_r2i_timetable_chain(rng: random.Random, tier: str = "exam") -> dict:
                 (journey_of(latest_overall), "ignored-the-deadline"),
                 (journey_of(earliest_ok), "took-first-service-not-latest"),
                 (wait + journey, "included-the-wait-in-the-journey"),
+                # The journey times printed for the other services, which a learner reads off the wrong row.
+                *[
+                    (journey_of(s), "ignored-the-deadline" if s[1] > depart else "took-first-service-not-latest")
+                    for s in services
+                ],
             ],
             sensible_range=(0, None),
         ),

@@ -110,7 +110,7 @@ def _draw(rng: random.Random) -> dict | None:
         2,
         [
             f"The difference quotient simplifies to 3x² + 2kx + r + h(3x + k) + h², so f'(x) = 3x² + 2kx + {paren_negative(r)}.",
-            f"f'({a}) = {3 * a * a} + {2 * a}k + {paren_negative(r)} = {gradient_a}, so k = {rational_text(k)}.",
+            f"f'({a}) = {join_terms([(3 * a * a, ''), (2 * a, 'k'), (r, '')])} = {gradient_a}, so k = {rational_text(k)}.",
         ],
         [
             ("dropped-factor-two-in-derivative", wrong_k_flat),
@@ -123,7 +123,7 @@ def _draw(rng: random.Random) -> dict | None:
         f"Hence find the gradient of the curve at x = {b}.",
         slope_b,
         1,
-        [f"f'({b}) = {3 * b * b} + {2 * b}k + {paren_negative(r)} = {rational_text(slope_b)}."],
+        [f"f'({b}) = {join_terms([(3 * b * b, ''), (2 * b, 'k'), (r, '')])} = {rational_text(slope_b)}."],
         [
             ("evaluates-function-not-derivative", f_b),
             ("dropped-factor-two-in-derivative", 3 * b * b + k * b + r),

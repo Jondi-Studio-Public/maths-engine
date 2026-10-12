@@ -141,7 +141,7 @@ def _build(rng: random.Random):
         speed,
         1,
         1,
-        [f"v({big_t}) = ({vxT}, {vyT}) m/s.", f"Speed = √({vxT}² + {vyT}²)."],
+        [f"v({big_t}) = ({vxT}, {vyT}) m/s.", f"Speed = √({paren(vxT)}² + {paren(vyT)}²)."],
         [
             ("speed-as-sum-of-components", abs(vxT) + abs(vyT)),
             ("forgets-square-root", vxT**2 + vyT**2),

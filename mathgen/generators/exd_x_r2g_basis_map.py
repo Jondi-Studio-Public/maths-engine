@@ -15,7 +15,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import check, generator
+from ..core import check, generator, join_terms
 from .exd_x_r2g_support import build_part, redraws
 
 _STEMS = [
@@ -113,7 +113,7 @@ def exd_x_r2g_basis_map(rng: random.Random, tier: str = "exam") -> dict:
             marks=1,
             follow_through=f"{l1}*part_b*({x1 + y1}) + {l2}*part_c*({x2 + y2})",
             working=[
-                f"T(v) = {l1}c1 b1 + {l2}c2 b2 = ({tv[0]}, {tv[1]}).",
+                f"T(v) = {join_terms([(l1, 'c1 b1'), (l2, 'c2 b2')])} = ({tv[0]}, {tv[1]}).",
                 f"The entries sum to {total}.",
             ],
             wrong=[

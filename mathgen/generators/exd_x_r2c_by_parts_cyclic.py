@@ -164,7 +164,7 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
         c,
         2,
         [
-            f"J = (1/{a})·(boundary) + {rational_text(k2)}I, so I = (boundary) + k·{rational_text(k2)}I and c = {rational_text(c)}."
+            f"J = (1/{a})·(boundary) {'+' if k2 >= 0 else '-'} ({rational_text(abs(k2))})I, so I = (boundary) + k·({rational_text(k2)})I and c = {rational_text(c)}."
         ],
         [
             (1 - Rational(b * b, a * a), "sign-reversed-result"),

@@ -21,7 +21,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator
+from mathgen.core import attempts, check, generator, join_terms, paren_negative
 
 from .exd_x_r2i_support import number_part
 
@@ -130,8 +130,8 @@ def exd_x_r2i_particles_approach(rng: random.Random, tier: str = "exam") -> dict
             places_t,
             2,
             [
-                f"Separation d(t) = r_B − r_A = ({d0[0]} + {_term(w[0])}, {d0[1]} + {_term(w[1])}).",
-                f"|d|² is least when d·d′ = 0: {dot} + {wsq}t = 0 gives t = {-Fraction(dot, wsq)}.",
+                f"Separation d(t) = r_B − r_A = ({join_terms([(d0[0], ''), (w[0], 't')])}, {join_terms([(d0[1], ''), (w[1], 't')])}).",
+                f"|d|² is least when d·d′ = 0: {join_terms([(dot, ''), (wsq, 't')])} = 0 gives t = {-Fraction(dot, wsq)}.",
             ],
             [
                 (Fraction(-d0[0], w[0]), "solved-one-component-only"),
@@ -147,7 +147,7 @@ def exd_x_r2i_particles_approach(rng: random.Random, tier: str = "exam") -> dict
             2,
             [
                 f"At t = {t_star}: d = ({m[0]}, {m[1]}).",
-                f"|d| = √({m[0]}² + {m[1]}²) = {mlen} m.",
+                f"|d| = √({paren_negative(m[0])}² + {paren_negative(m[1])}²) = {mlen} m.",
             ],
             [
                 (Fraction(abs(m[0]) + abs(m[1])), "added-components-not-magnitude"),
@@ -194,7 +194,3 @@ def exd_x_r2i_particles_approach(rng: random.Random, tier: str = "exam") -> dict
         ),
     ]
     return dict(text=stem, parts=parts)
-
-
-def _term(c: int) -> str:
-    return f"{c}t"

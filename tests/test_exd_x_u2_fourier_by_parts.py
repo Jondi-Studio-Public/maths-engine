@@ -38,7 +38,7 @@ def _parse(text: str):
 def _oracle(q):
     """The integral and the coefficient, by numerical quadrature of the printed function and the printed n."""
     poly = re.search(r"f\(x\) = ([-+\dx^ ]+?)(?= is defined|\. )", q.stem).group(1)
-    n = int(re.search(r"sin\((\d+)x\) dx", q.text).group(1))
+    n = int(re.search(r"sin\((\d*)x\) dx", q.text).group(1) or 1)  # n = 1 prints as sin(x), never sin(1x)
     f = sympy.lambdify(_X, _parse(poly.replace(" ", "")), "mpmath")
     integral = mpmath.quad(lambda t: f(t) * mpmath.sin(n * t), [0, mpmath.pi])
     return integral, 2 * integral / mpmath.pi, n

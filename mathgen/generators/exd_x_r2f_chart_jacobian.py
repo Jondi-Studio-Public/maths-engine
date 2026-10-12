@@ -127,7 +127,7 @@ def exd_x_r2f_chart_jacobian(rng: random.Random, tier: str = "exam") -> dict:
         2,
         [
             f"Δx ≈ (∂x/∂u)Δu = {rational_text(dxdu)} × {_decimal(step)} = {rational_text(h * dxdu)}.",
-            f"x ≈ {x0} + {rational_text(h * dxdu)} = {rational_text(estimate)}.",
+            f"x ≈ {x0} {'+' if h * dxdu >= 0 else '-'} {rational_text(abs(h * dxdu))} = {rational_text(estimate)}.",
         ],
         [
             ("linear-approximation-sign-error", x0 - h * dxdu),

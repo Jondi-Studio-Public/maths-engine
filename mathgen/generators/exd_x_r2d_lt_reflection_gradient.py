@@ -22,6 +22,7 @@ from mathgen.core import (
     check,
     generator,
     latex_answer,
+    paren_negative,
     pick_distractors,
     rational_text,
 )
@@ -157,7 +158,7 @@ def exd_x_r2d_lt_reflection_gradient(rng: random.Random, tier: str = "exam") -> 
                 2,
                 [
                     "The mirror passes through the midpoint of PP' and through the origin.",
-                    f"m = ({py} + {p1y}) ÷ ({px} + {p1x}) = {rational_text(m)}.",
+                    f"m = ({py} + {paren_negative(p1y)}) ÷ ({px} + {paren_negative(p1x)}) = {rational_text(m)}.",
                 ],
                 a_pairs,
             ),

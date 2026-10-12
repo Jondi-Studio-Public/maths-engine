@@ -144,7 +144,7 @@ def exd_x_sc1_poly_remainder_unknown(rng, tier="exam"):
         q0,
         2,
         [
-            f"Synthetic division by {c}: the quotient is x^2 + {paren_negative(q1)}x + {paren_negative(q0)}.",
+            f"Synthetic division by {c}: the quotient is {join_terms([(1, 'x^2'), (q1, 'x'), (q0, '')])}.",
             f"Constant term = {m} + {paren_negative(c)} × {paren_negative(q1)} = {q0}.",
         ],
         b_cands,

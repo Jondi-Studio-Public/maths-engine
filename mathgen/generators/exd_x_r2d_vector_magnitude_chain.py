@@ -26,6 +26,7 @@ from mathgen.core import (
     generator,
     join_terms,
     latex_answer,
+    paren_negative,
     pick_distractors,
 )
 
@@ -146,7 +147,7 @@ def exd_x_r2d_vector_magnitude_chain(rng: random.Random, tier: str = "exam") -> 
                 sensible_range=(0, None),
                 follow_through=f"{pa2} + {qb2} + ({2 * p * q})*part_a",
                 working=[
-                    f"|{combo}|² = {p}²|a|² + {q}²|b|² + {2 * p * q}(a · b)",
+                    f"|{combo}|² = {join_terms([(1, f'{paren_negative(p)}²|a|²'), (1, f'{paren_negative(q)}²|b|²'), (2 * p * q, '(a · b)')])}",
                     f"= {pa2} + {qb2} + ({2 * p * q})({ab}) = {n}.",
                 ],
                 distractors=_int_dists(n, b_pairs),
@@ -173,7 +174,7 @@ def exd_x_r2d_vector_magnitude_chain(rng: random.Random, tier: str = "exam") -> 
                 marks=3,
                 follow_through=f"180*acos(({p * la * la} + ({q})*part_a)/(sqrt(part_b)*{la}))/pi",
                 working=[
-                    f"({combo}) · a = {p}|a|² + {q}(a · b) = {p * la * la + q * ab}.",
+                    f"({combo}) · a = {join_terms([(p, '|a|²'), (q, '(a · b)')])} = {p * la * la + q * ab}.",
                     f"cos φ = {p * la * la + q * ab} ÷ (√{n} × {la}), so φ = {phi_whole}°.",
                 ],
                 distractors=_int_dists(phi_whole, d_pairs),

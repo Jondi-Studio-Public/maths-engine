@@ -32,6 +32,7 @@ from ..core import (
     generator,
     latex_answer,
     numeric_answer,
+    paren_negative,
     pick_distractors,
     round_half_up,
     stated_precision_string,
@@ -189,7 +190,7 @@ def complex_add(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"sqrt({re_p}**2 + {im_p}**2)",
-                working=[f"|p| = sqrt({px}^2 + {py}^2) = sqrt({sq}) = {mod_text}."],
+                working=[f"|p| = sqrt({paren_negative(px)}^2 + {paren_negative(py)}^2) = sqrt({sq}) = {mod_text}."],
                 distractors=picks[2],
             ),
             dict(

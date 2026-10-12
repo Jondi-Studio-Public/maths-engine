@@ -142,7 +142,9 @@ def _build(rng):
         "Find the value of f(x) at this stationary point.",
         value_q,
         1,
-        [f"f({q}) = {k}({q})^3 + {a_coef}({q})^2 + {b_coef}({q}) + {c_coef} = {value_q}."],
+        [
+            f"f({q}) = {join_terms([(k, f'({q})^3'), (a_coef, f'({q})^2'), (b_coef, f'({q})'), (c_coef, '')])} = {value_q}."
+        ],
         d_wrong,
         follow_through=f"part_a*part_b**3 + {paren_negative(a_coef)}*part_b**2 + {paren_negative(b_coef)}*part_b + "
         f"{paren_negative(c_coef)}",

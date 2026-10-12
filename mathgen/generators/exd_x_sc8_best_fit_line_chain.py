@@ -27,6 +27,7 @@ from ..core import (
     generator,
     latex_answer,
     numeric_answer,
+    paren_negative,
     pick_distractors,
     round_half_up,
     stated_precision_string,
@@ -92,6 +93,16 @@ def _txt(value: Fraction) -> str:
 def _plain(value: Fraction) -> str:
     """A given figure in its shortest exact decimal form (every figure shown is a multiple of 0.5)."""
     return exact_decimal_string(Fraction(value), 2)
+
+
+def _paren(value: Fraction) -> str:
+    """`_plain`, bracketed when negative, for a figure that follows an operator."""
+    return f"({_plain(value)})" if Fraction(value) < 0 else _plain(value)
+
+
+def _plus(value: Fraction) -> str:
+    """``+ v`` or ``- v`` for a figure added to something, so no ``+ -``."""
+    return f"{'-' if Fraction(value) < 0 else '+'} {_plain(abs(Fraction(value)))}"
 
 
 def _dis(value: Fraction, tag: str | None) -> Distractor:
@@ -216,7 +227,9 @@ def exd_x_sc8_best_fit_line_chain(rng: random.Random, tier: str = "exam") -> dic
                 answer_text=key_a,
                 answer_latex=latex_answer(key_a),
                 marks=2,
-                working=[f"m = ({_plain(y2)} - {_plain(y1)}) / ({x2} - {x1}) = {_plain(dy)} / {dx} = {key_a}."],
+                working=[
+                    f"m = ({_plain(y2)} - {_paren(y1)}) / ({x2} - {paren_negative(x1)}) = {_plain(dy)} / {dx} = {key_a}."
+                ],
                 distractors=a_dis,
             ),
             dict(
@@ -227,7 +240,7 @@ def exd_x_sc8_best_fit_line_chain(rng: random.Random, tier: str = "exam") -> dic
                 answer_latex=latex_answer(key_b),
                 marks=1,
                 follow_through=f"{y1} - part_a*{x1}",
-                working=[f"{_plain(y1)} = {_plain(m)} x {x1} + c, so c = {key_b}."],
+                working=[f"{_plain(y1)} = {_plain(m)} x {paren_negative(x1)} + c, so c = {key_b}."],
                 distractors=b_dis,
             ),
             dict(
@@ -238,7 +251,7 @@ def exd_x_sc8_best_fit_line_chain(rng: random.Random, tier: str = "exam") -> dic
                 answer_latex=latex_answer(key_c),
                 marks=1,
                 follow_through=f"part_a*{x0} + part_b",
-                working=[f"y = {_plain(m)} x {x0} + {_plain(c)} = {key_c}."],
+                working=[f"y = {_plain(m)} x {paren_negative(x0)} {_plus(c)} = {key_c}."],
                 distractors=c_dis,
             ),
             dict(
@@ -250,8 +263,8 @@ def exd_x_sc8_best_fit_line_chain(rng: random.Random, tier: str = "exam") -> dic
                 marks=2,
                 follow_through=f"{py} - (part_a*{px} + part_b)",
                 working=[
-                    f"Predicted y = {_plain(m)} x {px} + {_plain(c)} = {_plain(m * px + c)}.",
-                    f"Residual = {py} - {_plain(m * px + c)} = {key_d}.",
+                    f"Predicted y = {_plain(m)} x {paren_negative(px)} {_plus(c)} = {_plain(m * px + c)}.",
+                    f"Residual = {py} - {_paren(m * px + c)} = {key_d}.",
                 ],
                 distractors=d_dis,
             ),

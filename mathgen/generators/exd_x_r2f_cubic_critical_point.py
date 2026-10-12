@@ -116,7 +116,7 @@ def exd_x_r2f_cubic_critical_point(rng: random.Random, tier: str = "exam") -> di
         "Since D > 0, (x₀, y₀) is a local extremum. Find the value of f there.",
         f_val,
         2,
-        [f"f(x₀, y₀) = {a}({x0})³ + {b}({y0})³ − {c}({x0})({y0}) = {f_val}."],
+        [f"f(x₀, y₀) = {join_terms([(a, f'({x0})³'), (b, f'({y0})³'), (-c, f'({x0})({y0})')])} = {f_val}."],
         [
             ("sign-error-cross-term", a * x0**3 + b * y0**3 + c * x0 * y0),
             ("drops-cross-term", a * x0**3 + b * y0**3),

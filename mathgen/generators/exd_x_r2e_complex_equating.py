@@ -31,6 +31,7 @@ from ..core import (
     attempts,
     check,
     generator,
+    join_terms,
     latex_answer,
     numeric_answer,
     pick_distractors,
@@ -150,7 +151,7 @@ def complex_equating(rng: random.Random, tier: str = "exam") -> dict:
                 marks=3,
                 sensible_range=(0, None),
                 working=[
-                    f"x^2 - y^2 = {wr} and 2xy = {wi}, so y = {wi}/(2x) and x^4 - {wr}x^2 - {wi * wi // 4} = 0.",
+                    f"x^2 - y^2 = {wr} and 2xy = {wi}, so y = {wi}/(2x) and {join_terms([(1, 'x^4'), (-wr, 'x^2'), (-(wi * wi // 4), '')])} = 0.",
                     f"x^2 = ({wr} + sqrt({wr * wr + wi * wi}))/2 = {x2}, taking the positive root.",
                 ],
                 distractors=picks[0],

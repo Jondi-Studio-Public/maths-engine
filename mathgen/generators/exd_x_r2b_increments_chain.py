@@ -70,6 +70,13 @@ def _terms(f):
     return [(int(c), int(m[0])) for m, c in poly.terms()]
 
 
+def _combine(left, op: str, right) -> str:
+    """``left op right`` with the sign of ``right`` folded into the operator, so no ``+ -`` or ``- -``."""
+    right = Rational(right)
+    minus = (right < 0) != (op == "-")
+    return f"{_dec(left)} {'-' if minus else '+'} {_dec(abs(right))}"
+
+
 def _dec(value) -> str:
     """An exact terminating decimal as text (`-0.05`), or the integer when whole."""
     value = Rational(value)
@@ -151,7 +158,7 @@ def _build(rng):
         "Hence estimate the new value of y.",
         est_new,
         1,
-        [f"y ≅ {y0} + {_dec(est_change)} = {_dec(est_new)}."],
+        [f"y ≅ {y0} {'-' if est_change < 0 else '+'} {_dec(abs(est_change))} = {_dec(est_new)}."],
         c_wrong,
         follow_through=f"{y0} + part_b",
         min_places=2,
@@ -171,7 +178,7 @@ def _build(rng):
         2,
         [
             f"Exact: y = f({_dec(x0 + dx)}) = {_dec(exact_new)}.",
-            f"Error = {_dec(exact_new)} - {_dec(est_new)} = {_dec(error)}.",
+            f"Error = {_combine(exact_new, '-', est_new)} = {_dec(error)}.",
         ],
         d_wrong,
         follow_through=f"Rational({exact_new.p}, {exact_new.q}) - part_c",

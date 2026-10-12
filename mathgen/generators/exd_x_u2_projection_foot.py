@@ -27,6 +27,7 @@ from mathgen.core import (
     check,
     generator,
     latex_answer,
+    paren_negative,
     pick_distractors,
     rounded_decimal_string,
 )
@@ -132,7 +133,7 @@ def exd_x_u2_projection_foot(rng: random.Random, tier: str = "exam") -> dict:
                     working=[
                         f"The closest point F satisfies (Q - {named}) · d = 0 after moving along the line: "
                         f"t = ((Q - {named}) · d) / (d · d).",
-                        f"t = ({qx - px}×{dx} + {qy - py}×{dy}) / {norm_sq} = {t}.",
+                        f"t = ({paren_negative(qx - px)}×{paren_negative(dx)} + {paren_negative(qy - py)}×{paren_negative(dy)}) / {norm_sq} = {t}.",
                     ],
                     distractors=a_distractors,
                 ),
@@ -144,7 +145,7 @@ def exd_x_u2_projection_foot(rng: random.Random, tier: str = "exam") -> dict:
                     answer_latex=latex_answer(str(fx)),
                     marks=1,
                     follow_through=f"{px} + {dx}*part_a",
-                    working=[f"x = {px} + {t}×{dx} = {fx}."],
+                    working=[f"x = {px} + {paren_negative(t)}×{paren_negative(dx)} = {fx}."],
                     distractors=b_distractors,
                 ),
                 dict(
@@ -155,7 +156,7 @@ def exd_x_u2_projection_foot(rng: random.Random, tier: str = "exam") -> dict:
                     answer_latex=latex_answer(str(fy)),
                     marks=1,
                     follow_through=f"{py} + {dy}*part_a",
-                    working=[f"y = {py} + {t}×{dy} = {fy}."],
+                    working=[f"y = {py} + {paren_negative(t)}×{paren_negative(dy)} = {fy}."],
                     distractors=c_distractors,
                 ),
             ],

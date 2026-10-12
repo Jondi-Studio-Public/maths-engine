@@ -13,7 +13,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import check, generator
+from ..core import check, generator, join_terms
 from .exd_x_sc3_support import number_part, redraw, tagged
 
 F = Fraction
@@ -72,7 +72,7 @@ def _build(rng: random.Random) -> dict:
                 (F(v + c), "sign-error-moving-term"),
                 (F(v), "reports-the-given-value-as-the-unknown"),
             ]
-            a_work = [f"{c} - k = {v}, so k = {c} - {v} = {k}."]
+            a_work = [f"{c} - k = {v}, so k = {join_terms([(c, ''), (-v, '')])} = {k}."]
     else:
         a_cands = [
             (F(v + d, sg * e), "sign-error-moving-term"),
