@@ -12,7 +12,7 @@ from fractions import Fraction
 from itertools import combinations, product
 from math import comb
 
-from ..core import GRADER_TOLERANCE, check, generator, pick_distractors, paren_negative
+from ..core import GRADER_TOLERANCE, check, draw_until, generator, pick_distractors, paren_negative
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict[str, int], str]:
@@ -426,10 +426,15 @@ def least_squares_line(rng, coefficient_hi=8, intercept_hi=12, kind=None):
 )
 def gradient_descent_quadratic(rng, target_hi=10, eta_index=1):
     """Take one exact gradient-descent step on L(theta)=1/2(theta-t)^2."""
+    if target_hi < 1:
+        raise ValueError("gradient_descent_quadratic needs target_hi >= 1: the start must differ from the target")
     target = rng.randint(-target_hi, target_hi)
-    theta = rng.randint(-target_hi, target_hi)
-    while theta == target:
-        theta = rng.randint(-target_hi, target_hi)
+    theta = draw_until(
+        rng,
+        lambda r: r.randint(-target_hi, target_hi),
+        lambda start: start != target,
+        what="a start different from the target",
+    )
     eta = [Fraction(1, 2), Fraction(1, 4), Fraction(3, 4)][eta_index % 3]
     gradient = theta - target
     theta_new = Fraction(theta) - eta * gradient
