@@ -200,6 +200,12 @@ _ENTRIES = (
         "Dividing an extension in millimetres by a length treated as metres, so the strain is out by 1000.",
         area="mechanics",
     ),
+    # -- added for the university exam-tier option-format fix ---------------------------------------------------------
+    CatalogueEntry(
+        "unit-slip-mm-as-cm",
+        "Dividing an extension in millimetres by a length treated as centimetres, so the strain is out by 10.",
+        area="mechanics",
+    ),
     CatalogueEntry(
         "mpa-gpa-slip",
         "Mixing megapascals and gigapascals (1 GPa = 1000 MPa), so a modulus or an extension is out by 1000.",

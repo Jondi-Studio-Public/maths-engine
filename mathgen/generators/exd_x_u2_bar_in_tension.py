@@ -155,10 +155,8 @@ def _build(rng: random.Random) -> dict | None:
                 "inverted-ratio",
                 int(round_half_up(Fraction(10**6, strain), 0)),
             ),
-            Distractor(
-                exact_decimal_string(Fraction(strain, 10**6), 6), "gave-strain-not-microstrain", Fraction(strain, 10**6)
-            ),
             Distractor(str(strain * 1000), "unit-slip-mm-as-m", strain * 1000),
+            Distractor(str(strain * 10), "unit-slip-mm-as-cm", strain * 10),
         ],
         3,
         tolerance=Fraction(1, 2),

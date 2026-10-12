@@ -66,8 +66,10 @@ def _dec(value: Fraction) -> str:
     return stated_precision_string(round_half_up(value, 2), 2)
 
 
-def _int_or_dec(value: Fraction) -> str:
-    return str(int(value)) if value.denominator == 1 else _dec(value)
+def _whole(value: Fraction, misconception: str):
+    """A wrong route to a whole-number key, shown to the nearest whole number."""
+    rounded = round_half_up(value, 0)
+    return tagged(str(int(rounded)), misconception, rounded)
 
 
 @generator("exd_x_u6_probability_expectation", level=10, presets={"exam": dict(tier="exam")})
@@ -118,17 +120,18 @@ def _build(rng: random.Random):
     a_distractors = pick_distractors(a_text, a_cands, 3, tolerance=GRADER_TOLERANCE)
 
     b_cands = [
-        tagged(_dec(p), "probability-not-scaled-by-trials", round_half_up(p, 2)),
-        tagged(_int_or_dec(Fraction(trials) / p), "divides-trials-by-probability", Fraction(trials) / p),
-        tagged(_int_or_dec((1 - p) * trials), "gave-complement-probability", (1 - p) * trials),
+        _whole(Fraction(trials) / p, "divides-trials-by-probability"),
+        _whole((1 - p) * trials, "gave-complement-probability"),
+        _whole(Fraction(trials, den), "divides-trials-only"),
     ]
-    b_distractors = pick_distractors(b_text, [c for c in b_cands if c.value != expected], 3)
+    b_distractors = pick_distractors(b_text, [c for c in b_cands if c.value != expected and c.value > 0], 3)
 
     c_cands = [
-        tagged(_int_or_dec(target * p), "multiplies-by-probability-to-invert", round_half_up(target * p, 2)),
-        tagged(_int_or_dec(target / (1 - p)), "gave-complement-probability", round_half_up(target / (1 - p), 2)),
+        _whole(target * p, "multiplies-by-probability-to-invert"),
+        _whole(target / (1 - p), "gave-complement-probability"),
+        _whole(target / Fraction(r, r + g), "left-out-a-category-from-total"),
     ]
-    c_distractors = pick_distractors(c_text, [c for c in c_cands if c.value != needed], 3)
+    c_distractors = pick_distractors(c_text, [c for c in c_cands if c.value != needed and c.value > 0], 3)
     if len(a_distractors) < 2 or len(b_distractors) < 2 or not c_distractors:
         return None
 

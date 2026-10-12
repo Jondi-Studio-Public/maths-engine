@@ -127,16 +127,16 @@ def _build(rng: random.Random) -> dict | None:
         shown = _dp2(value)
         return Distractor(stated_precision_string(shown, 2), tag, exact_value(shown))
 
-    def whole_or_2dp(value: Fraction, tag):
-        shown = _dp2(value)
-        text = str(int(shown)) if shown.denominator == 1 else stated_precision_string(shown, 2)
-        return Distractor(text, tag, exact_value(shown))
+    def whole(value: Fraction, tag):
+        # The key k is a whole number, so a wrong route is shown to the nearest whole number as well.
+        shown = round_half_up(value, 0)
+        return Distractor(str(int(shown)), tag, exact_value(shown))
 
     a_cands = [
-        whole_or_2dp(m0 / (Fraction(x0, 100)), "forgot-weight-is-mass-times-g"),
-        whole_or_2dp(m0 * G * x0, "unit-slip-cm-for-m"),
-        whole_or_2dp(m0 * G, None),
-        whole_or_2dp(Fraction(k) / 2, None),
+        whole(m0 / (Fraction(x0, 100)), "forgot-weight-is-mass-times-g"),
+        whole(m0 * G * x0, "unit-slip-cm-for-m"),
+        whole(m0 * G, None),
+        whole(Fraction(k) / 2, None),
     ]
     b_cands = [
         d2(Fraction(k) / m, "omits-square-root"),

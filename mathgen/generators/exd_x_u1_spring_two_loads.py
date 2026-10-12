@@ -97,16 +97,16 @@ def _build(rng: random.Random) -> dict | None:
         rounded = round_half_up(value, places)
         return Distractor(_fx(rounded, places), tag, exact_value(rounded))
 
-    def whole_or_2dp(value: Fraction, tag):
-        rounded = round_half_up(value, 2)
-        text = str(int(rounded)) if rounded.denominator == 1 else stated_precision_string(rounded, 2)
-        return Distractor(text, tag, exact_value(rounded))
+    def whole(value: Fraction, tag):
+        # The key k is a whole number, so a wrong route is shown to the nearest whole number as well.
+        rounded = round_half_up(value, 0)
+        return Distractor(str(int(rounded)), tag, exact_value(rounded))
 
     a_cands = [
-        whole_or_2dp(f2 / l2, "length-used-as-extension"),
-        whole_or_2dp(f1 / l1, "length-used-as-extension"),
-        whole_or_2dp((f2 - f1) / l2, "length-used-as-extension"),
-        whole_or_2dp((f1 + f2) / (l1 + l2), None),
+        whole(f2 / l2, "length-used-as-extension"),
+        whole(f1 / l1, "length-used-as-extension"),
+        whole((f2 - f1) / l2, "length-used-as-extension"),
+        whole((f1 + f2) / (l1 + l2), None),
     ]
     b_cands = [
         dist(l1 + f1 / k, "natural-length-sign-reversed", 2),
@@ -122,7 +122,7 @@ def _build(rng: random.Random) -> dict | None:
     ]
     key_b = _fx(l0, 2)
     key_c = _fx(f3, 1)
-    a_dist = pick_distractors(str(k), a_cands, 3, tolerance=stated_precision_tolerance(1))
+    a_dist = pick_distractors(str(k), a_cands, 3)
     b_dist = pick_distractors(key_b, b_cands, 3, tolerance=stated_precision_tolerance(2) * 2)
     c_dist = pick_distractors(key_c, c_cands, 3, tolerance=stated_precision_tolerance(1) * 2)
     if min(len(a_dist), len(b_dist), len(c_dist)) < 2:

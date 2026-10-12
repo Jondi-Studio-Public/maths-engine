@@ -22,7 +22,7 @@ import random
 from fractions import Fraction
 
 from ..answers import Distractor, exact_value
-from ..core import check, generator, pick_distractors, round_half_up, stated_precision_string
+from ..core import check, generator, pick_distractors, round_half_up
 
 _SETUPS = [
     "A uniform plank of weight {w} N and length {L} m rests horizontally on a pivot {p} m from its left end. "
@@ -96,12 +96,9 @@ def _build(rng: random.Random) -> dict | None:
     check(reaction - load - w - force == 0, "vertical forces do not balance")
 
     def shown(value: Fraction, tag):
-        rounded = round_half_up(Fraction(value), 2)
-        if rounded.denominator == 1:
-            text = str(int(rounded))
-        else:
-            text = stated_precision_string(rounded, 2)
-        return Distractor(text, tag, exact_value(rounded))
+        # Every key in this question is a whole number, so a wrong route is shown to the nearest whole number.
+        rounded = round_half_up(Fraction(value), 0)
+        return Distractor(str(int(rounded)), tag, exact_value(rounded))
 
     arm = length - p
     a_cands = [
