@@ -33,7 +33,7 @@ from types import SimpleNamespace
 from typing import NamedTuple
 
 from .. import figures
-from ..core import check, check_pairwise_distinct, generator, paren_negative, phrase, rational_text
+from ..core import check, check_pairwise_distinct, generator, paren_negative, phrase, rational_text, latex_from_inline
 
 TOPIC = "pv1b_tangent_slope"
 
@@ -401,7 +401,7 @@ def _try(rng, variant, e: Entry):
         )
     return {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": int(key) if key.denominator == 1 else {"p": key.numerator, "q": key.denominator},
         "answer_text": answer_text,
         "answer_latex": (

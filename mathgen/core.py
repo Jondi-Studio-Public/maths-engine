@@ -859,6 +859,26 @@ def _convert_math_span(s: str) -> str:
     return s
 
 
+_INLINE_MATH_RE = re.compile(r"\\\((.*?)\\\)", re.S)
+
+
+def latex_from_inline(s: str) -> str:
+    r"""Convert a prompt written as prose with inline maths (``Use \(x = 0\) on \(y = f(x)\).``) to the
+    whole-string form `latex_prompt` produces: each prose run wrapped in ``\text{...}`` (escaped), each
+    ``\(...\)`` span left as bare LaTeX in a {...} group between them. A string with no ``\(`` is returned unchanged."""
+    if "\\(" not in s:
+        return s
+    parts, pos = [], 0
+    for m in _INLINE_MATH_RE.finditer(s):
+        if m.start() > pos:
+            parts.append(r"\text{" + _escape_prose(s[pos : m.start()]) + "}")
+        parts.append("{" + m.group(1) + "}")  # a group, so neighbouring maths never runs together
+        pos = m.end()
+    if pos < len(s):
+        parts.append(r"\text{" + _escape_prose(s[pos:]) + "}")
+    return "".join(parts)
+
+
 def latex_prompt(text: str) -> str:
     r"""Render a plain-text question stem (`Question.text`) as real LaTeX
     for a KaTeX-style renderer (`katex.renderToString`). This is the prompt-side twin of
@@ -1464,6 +1484,231 @@ def value_safe_str(expr) -> str:
     `p13c_antideriv_notation_build.py`'s `_value`. Use `prompt_safe_str` instead for `Question.text`, where a
     bare "*" is also forbidden."""
     return str(expr).replace("**", "^")
+
+
+# --- paper notation ----------------------------------------------------------
+#
+# Generators build prompts and answers with Python's spelling: ``x**2``, ``2*x``, ``sqrt(21)``, ``exp(-x)``,
+# ``pi``. A learner reads (and types) ``x^2``, ``2x``, ``√21``, ``e^(-x)``, ``π``. ``paper_notation`` is the one
+# place that rewrites the first into the second. The stored question keeps Python's spelling, which tests and
+# oracles parse; a consumer shows ``display_question(q)`` (text, answer, options, working in paper notation).
+# The graders read both spellings (``mathgen/grading/typed.py`` normalises ``^``, ``×``, ``√``, ``π`` and implied
+# multiplication), and ``tests/test_paper_notation.py`` pins that every rewritten form reads as the same value.
+
+_PAPER_TRIGGER_RE = re.compile(r"\*|(?<![A-Za-z])(?:sqrt|exp)\(|(?<![A-Za-z])pi(?![A-Za-z])")
+_PAPER_PI_RE = re.compile(r"(?<![A-Za-z])pi(?![A-Za-z])")
+_PAPER_SQRT_RE = re.compile(r"(?<![A-Za-z])sqrt\(")
+_PAPER_EXP_RE = re.compile(r"(?<![A-Za-z])exp\(")
+# "4*I" is a complex number, written 4i; "lambda*I" is a matrix, so only a number may stand to its left.
+_PAPER_IMAGINARY_RE = re.compile(r"(?<=\d)(\s*\*\s*)I(?![A-Za-z0-9_(])")
+# A root or a power of e whose argument is one number or one letter needs no brackets ("√21", "e^x"), unless
+# something follows that would attach to the argument instead ("√(2)^3", "e^(x)(y)"). A root followed by a
+# letter or bracket takes a space instead ("√3 y"): "√3y" does not say which factor is under the root.
+_PAPER_SIMPLE_ROOT_RE = re.compile(r"√\((\d+(?:\.\d+)?|[A-Za-z])\)(?![\^\d.])")
+_PAPER_SIMPLE_EXP_RE = re.compile(r"(?<![A-Za-z])e\^\((\d+(?:\.\d+)?|[A-Za-z])\)(?![\^\w(.])")
+_PAPER_STAR_RE = re.compile(r"[ \t]*\*[ \t]*")
+_PAPER_TIMES = " × "
+
+
+def _paper_matching_open(text: str, close: int) -> int:
+    """Index of the ``(`` that closes at ``text[close]``, or -1."""
+    depth = 0
+    for i in range(close, -1, -1):
+        if text[i] == ")":
+            depth += 1
+        elif text[i] == "(":
+            depth -= 1
+            if depth == 0:
+                return i
+    return -1
+
+
+def _paper_matching_close(text: str, open_at: int) -> int:
+    """Index of the ``)`` that closes ``text[open_at]``, or -1."""
+    depth = 0
+    for i in range(open_at, len(text)):
+        if text[i] == "(":
+            depth += 1
+        elif text[i] == ")":
+            depth -= 1
+            if depth == 0:
+                return i
+    return -1
+
+
+def _paper_left_class(text: str) -> str:
+    """What the operand ending ``text`` is, for choosing how a ``*`` after it is written."""
+    if not text:
+        return "OTHER"
+    last = text[-1]
+    if last.isdigit() or last == ".":
+        start = len(text)
+        while start > 0 and (text[start - 1].isdigit() or text[start - 1] == "."):
+            start -= 1
+        before = text[start - 1] if start else ""
+        if before == "^" or (before == "-" and text[start - 2 : start - 1] == "^"):
+            return "EXP"
+        if before == "√":
+            return "RADICAL"
+        if before.isalpha() or before == "_":
+            return "WORD"
+        return "NUM"
+    if last == ")":
+        opener = _paper_matching_open(text, len(text) - 1)
+        if opener < 0:
+            return "OTHER"
+        before = text[opener - 1] if opener else ""
+        if before == "^":
+            return "EXP"
+        if before == "√":
+            return "RADICAL"
+        if before.isalpha():
+            return "CLOSE_F"
+        return "GROUP"
+    if last.isalpha():
+        start = len(text)
+        while start > 0 and text[start - 1].isalpha():
+            start -= 1
+        run = text[start:]
+        before = text[start - 1] if start else ""
+        if before == "^" or (before == "-" and text[start - 2 : start - 1] == "^"):
+            return "EXP"
+        if run == "π":
+            return "PI"
+        if len(run) == 1 and before != "_":
+            return "VAR1"
+        return "WORD"
+    return "OTHER"
+
+
+def _paper_right_class(text: str) -> tuple[str, int]:
+    """(class of the operand starting ``text`` after any unary minus, index just past that operand)."""
+    i = 1 if text[:1] in ("-", "−") else 0
+    if i >= len(text):
+        return "OTHER", i
+    c = text[i]
+    if c.isdigit():
+        j = i
+        while j < len(text) and (text[j].isdigit() or text[j] == "."):
+            j += 1
+        return "NUM", j
+    if c == "(":
+        close = _paper_matching_close(text, i)
+        return "GROUP", (close + 1 if close >= 0 else i + 1)
+    if c == "√":
+        if text[i + 1 : i + 2] == "(":
+            close = _paper_matching_close(text, i + 1)
+            return "RADICAL", (close + 1 if close >= 0 else i + 2)
+        j = i + 1
+        while j < len(text) and (text[j].isdigit() or text[j] == "."):
+            j += 1
+        return "RADICAL", max(j, i + 2)
+    if c == "π":
+        return "PI", i + 1
+    if c.isalpha():
+        j = i
+        while j < len(text) and text[j].isalpha():
+            j += 1
+        run = text[i:j]
+        if run == "e" and text[j : j + 1] == "^":
+            return "EPOW", j
+        if text[j : j + 1] == "(":
+            close = _paper_matching_close(text, j)
+            return "FUNC", (close + 1 if close >= 0 else j + 1)
+        if len(run) == 1 and text[j : j + 1] != "_":
+            return "VAR1", j
+        return "WORD", j
+    return "OTHER", i
+
+
+def _paper_star_separator(left: str, right: str) -> str:
+    """What replaces ``*`` between a ``left`` and a ``right`` operand: nothing (``2x``), a space (``x sin(x)``)
+    or the multiplication sign (``6 × 8``), whichever reads unambiguously on paper."""
+    if right in ("NUM", "WORD", "OTHER") or left in ("WORD", "OTHER"):
+        return _PAPER_TIMES
+    if left == "NUM":
+        return "" if right in ("VAR1", "GROUP", "PI", "RADICAL") else " "
+    if left in ("VAR1", "PI", "GROUP"):
+        return "" if right in ("VAR1", "GROUP", "PI") else " "
+    if left == "CLOSE_F":
+        return _PAPER_TIMES if right == "GROUP" else " "
+    if left == "EXP":
+        return "" if right == "GROUP" else " "
+    if left == "RADICAL":
+        return " "
+    return _PAPER_TIMES
+
+
+def paper_notation(text):
+    """``text`` with Python's spelling of maths written as it is on paper, for anything a learner reads.
+
+    ``x**2`` -> ``x^2``; ``2*x`` -> ``2x``; ``6*8`` -> ``6 × 8``; ``(a + 1)*(a - 1)`` -> ``(a + 1)(a - 1)``;
+    ``x*sin(x)`` -> ``x sin(x)``; ``sqrt(21)`` -> ``√21`` and ``sqrt(x + 1)`` -> ``√(x + 1)``;
+    ``exp(-2*x)`` -> ``e^(-2x)``; ``5*pi/6`` -> ``5π/6``; ``4*I`` -> ``4i``.
+    A multiplication between two numbers, or whose neighbour is a longer name (``lambda*t``), keeps a visible
+    sign: ``lambda × t``. A negative factor is bracketed: ``3*-1`` -> ``3 × (-1)``.
+    Text with none of these is returned unchanged, and the result is unchanged by a second pass.
+    Not a parser: it reads only the operands on each side of a ``*``, so prose passes through untouched.
+    The graders read the result as well as the input; ``tests/test_paper_notation.py`` pins that.
+    """
+    if not isinstance(text, str) or not _PAPER_TRIGGER_RE.search(text):
+        return text
+    s = text.replace("**", "^")
+    s = _PAPER_PI_RE.sub("π", s)
+    s = _PAPER_SQRT_RE.sub("√(", s)
+    s = _PAPER_EXP_RE.sub("e^(", s)
+    s = _PAPER_SIMPLE_ROOT_RE.sub(
+        lambda m: (
+            "√" + m.group(1) + (" " if s[m.end() : m.end() + 1].isalpha() or s[m.end() : m.end() + 1] == "(" else "")
+        ),
+        s,
+    )
+    s = _PAPER_SIMPLE_EXP_RE.sub(r"e^\1", s)
+    s = _PAPER_IMAGINARY_RE.sub(r"\1i", s)
+    out: list[str] = []
+    pos = 0
+    for m in _PAPER_STAR_RE.finditer(s):
+        if m.start() < pos:
+            continue  # inside a negative factor already rewritten
+        left = _paper_left_class(s[: m.start()])
+        right, end = _paper_right_class(s[m.end() :])
+        if left == "OTHER" or right == "OTHER":
+            continue  # a star with no operand on one side is left as written
+        negative = s[m.end() : m.end() + 1] in ("-", "−")
+        separator = _paper_star_separator(left, right)
+        out.append(s[pos : m.start()])
+        out.append(separator)
+        operand_end = m.end() + end
+        if negative:
+            out.append("(" + s[m.end() : operand_end] + ")")
+            pos = operand_end
+        else:
+            pos = m.end()
+    out.append(s[pos:])
+    return "".join(out)
+
+
+def display_question(question) -> dict:
+    """The strings a learner reads for `question` (or a `Part`), written as on paper (`paper_notation`).
+
+    The question itself is not changed: its stored `text`, `answer_text`, `distractors` and `working` keep the
+    generator's spelling, which the graders and the tests read. A front end or command line that shows a question
+    shows this instead. Keys: `text`, `answer_text`, `options`, `distractors` and `working`. `options` is
+    `mcq_options(question)` in the same order, so an option picked by index grades the same; `distractors` is the
+    wrong options in their stored order. A multi-part question also has `parts`, the same dictionary for each part
+    with its `label` added.
+    """
+    shown = {
+        "text": paper_notation(question.text),
+        "answer_text": paper_notation(question.answer_text),
+        "options": [paper_notation(o) for o in mcq_options(question)],
+        "distractors": [paper_notation(d) for d in question.distractors],
+        "working": [paper_notation(w) for w in (question.working or [])],
+    }
+    parts = getattr(question, "parts", None)
+    if parts:
+        shown["parts"] = [{"label": p.label, **display_question(p)} for p in parts]
+    return shown
 
 
 def mcq_options(question) -> list[str]:

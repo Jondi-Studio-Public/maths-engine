@@ -25,7 +25,7 @@ from fractions import Fraction as F
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, check_pairwise_distinct, generator, rational_text
+from ..core import check, check_pairwise_distinct, generator, rational_text, latex_from_inline
 
 TOPIC = "pv1c_amplitude"
 
@@ -259,7 +259,7 @@ def pv1c_amplitude(rng, variant: str = "peak_up") -> dict:
     text, latex = _prompt(rng, variant)
     return {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": a,
         "answer_text": answer_text,
         "answer_latex": str(a),

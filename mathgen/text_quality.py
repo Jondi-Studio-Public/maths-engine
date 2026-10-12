@@ -244,6 +244,36 @@ def requested_rounding(text: str) -> int | None:
     return None
 
 
+# "3 significant figures", "2 sig figs", "(3 s.f.)". Not "3 s. Find": a time in seconds ends that sentence.
+_SIGNIFICANT_FIGURES_RE = re.compile(
+    r"(?<![\d.\-\u2013/])(\d+|one|two|three|four|five|six)\s*"
+    r"(?:significant\s+(?:figures?|digits?)|sig\.?\s*figs?\b|s\.f\b\.?|sf\b)",
+    re.I,
+)
+
+
+def conflicting_rounding(text: str) -> str | None:
+    """Why `text` asks for its single answer to be rounded two ways, or None when it asks at most one way.
+
+    "to 2 decimal places ... to 3 significant figures" or "to 1 decimal place ... to the nearest whole number"
+    in one single-value question leaves the learner to guess which instruction wins, and leaves
+    `requested_rounding` unable to read either. A question with several answers (a pair, a multi-part
+    question) states one precision per answer and is checked per answer, not as one text.
+    """
+    places = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DECIMAL_PLACES_RE.findall(text or "")}
+    places |= {_NEAREST_PLACES[unit.lower()] for unit in _NEAREST_RE.findall(text or "")}
+    if not places:
+        places = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DP_ABBREVIATION_RE.findall(text or "")}
+    figures = {tok.lower() for tok in _SIGNIFICANT_FIGURES_RE.findall(text or "")}
+    if len(places) > 1:
+        return f"asks for {sorted(places)} decimal places"
+    if len(figures) > 1:
+        return f"asks for {sorted(figures)} significant figures"
+    if places and figures:
+        return f"asks for {next(iter(places))} decimal places and {next(iter(figures))} significant figures"
+    return None
+
+
 # --- prompt_shape ------------------------------------------------------
 
 #: A signed numeric token: an optional leading `-` directly against the
@@ -361,3 +391,35 @@ def prompt_shape(question) -> str:
     text = _UNIT_RE.sub("§UNIT§", text)
     text = _CONTEXT_RE.sub("§CTX§", text)
     return " ".join(text.split())
+
+
+# --- Python notation, checked on what a learner is shown ---------------------------------------------------------
+#
+# Generators keep building strings in Python's spelling (`x**2`, `2*x`, `sqrt(21)`, `exp(-x)`, `pi`) and graders
+# and tests read that spelling. `core.display_question` rewrites it as it is on paper (`core.paper_notation`), and
+# these patterns are what that rewrite must leave none of. They are separate from `BAD_TEXT_PATTERNS` because they
+# apply to the displayed strings, not the stored ones.
+
+PYTHON_NOTATION_PATTERNS: tuple[TextPattern, ...] = (
+    TextPattern("double_star", "learner", _regex(r"\*\*"), "Python exponent notation"),
+    TextPattern("star_operator", "learner", _regex(r"(?<![*\w])\*(?![*\w])|\d\*[\dxa-z(]"), "an asterisk as times"),
+    TextPattern("sqrt_call", "learner", _regex(r"(?<![A-Za-z])sqrt\s*\("), "Python's sqrt( )"),
+    TextPattern("exp_call", "learner", _regex(r"(?<![A-Za-z])exp\s*\("), "Python's exp( )"),
+    TextPattern("spelled_pi", "learner", _regex(r"(?<![A-Za-z])pi(?![A-Za-z])"), "the word pi for the symbol"),
+)
+
+
+def find_python_notation(shown: dict) -> list[str]:
+    """Every Python spelling left in a `core.display_question` result, as ``"<pattern> in <field>: <match>"``."""
+    fields = [("text", shown["text"]), ("answer_text", shown["answer_text"])]
+    fields += [(f"option[{i}]", o) for i, o in enumerate(shown["options"])]
+    fields += [(f"working[{i}]", w) for i, w in enumerate(shown["working"])]
+    for part in shown.get("parts", ()):
+        fields += [(f"part {part['label']} {name}", value) for name, value in part.items() if isinstance(value, str)]
+    found = []
+    for pattern in PYTHON_NOTATION_PATTERNS:
+        for name, value in fields:
+            match = pattern.find(value)
+            if match is not None:
+                found.append(f"{pattern.name} in {name}: {match!r}")
+    return found
