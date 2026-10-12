@@ -74,17 +74,24 @@ def exd_x_m4_area_units_land_chain(rng: random.Random, tier: str = "exam") -> di
             break
     area_m2 = Fraction(l10 * 100 * w)
     s = Fraction(s10, 10)
-    a_wrong = [area_m2 / 10**6, area_m2, Fraction(l10, 10) * w / 10000, area_m2 / 1000]
+    # Every wrong value is shown at the key's own places: a distractor with a different format gives the key away.
+    a_places = len(ha_text.partition(".")[2])
+    a_wrong = [area_m2, area_m2 / 1000, ha / 10, area_m2 / 10**6, Fraction(l10, 10) * w / 10000]
     b_wrong = [ha * price * 10, ha * price / 10, ha + price, ha * price / 100]
     c_wrong = [ha / (10 * s), ha / (100 * s), 100 * ha / s, 10000 * s / ha]
 
     def options(values, places):
         return [
-            Distractor(exact_decimal_string(round_half_up(v, places), places), None, round_half_up(Fraction(v), places))
+            Distractor(
+                stated_precision_string(round_half_up(Fraction(v), places), places),
+                None,
+                round_half_up(Fraction(v), places),
+            )
             for v in values
+            if round_half_up(Fraction(v), places) > 0
         ]
 
-    a_d = pick_distractors(ha_text, options(a_wrong, 1), 3, tolerance=GRADER_TOLERANCE)
+    a_d = pick_distractors(ha_text, options(a_wrong, a_places), 3, tolerance=GRADER_TOLERANCE)
     b_d = pick_distractors(cost_text, options(b_wrong, 0), 3, tolerance=GRADER_TOLERANCE)
     c_options = [
         Distractor(stated_precision_string(round_half_up(v, 1), 1), None, round_half_up(v, 1)) for v in c_wrong

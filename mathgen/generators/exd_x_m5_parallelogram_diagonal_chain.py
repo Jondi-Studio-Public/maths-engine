@@ -98,7 +98,7 @@ def exd_x_m5_parallelogram_diagonal_chain(rng, tier: str = "exam") -> dict:
 
     a_dis = tagged_distractors(
         a_text,
-        1,
+        0,
         [
             (root(a * a + b * b - given * given), None),  # dropped the factor of 2 in the law
             (Fraction(2 * (a + b) - given), None),  # used the linear sum d1 + d2 = 2(a + b)

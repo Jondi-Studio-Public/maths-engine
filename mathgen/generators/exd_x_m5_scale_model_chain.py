@@ -20,7 +20,6 @@ from mathgen.core import (
     GRADER_TOLERANCE,
     VerificationError,
     attempts,
-    exact_decimal_string,
     generator,
     latex_answer,
     numeric_answer,
@@ -106,8 +105,8 @@ def exd_x_m5_scale_model_chain(rng, tier: str = "exam") -> dict:
         a_text,
         [
             Distractor(str(k * 10), None, k * 10),  # took 1 m as 1000 cm
-            Distractor(exact_decimal_string(Fraction(k, 100), 4), None, Fraction(k, 100)),  # m over cm, no conversion
-            Distractor(exact_decimal_string(Fraction(k, 10), 4), None, Fraction(k, 10)),  # took 1 m as 10 cm
+            Distractor(str(k * 100), None, k * 100),  # converted m to cm twice
+            Distractor(str(k * h1 - h1), None, k * h1 - h1),  # subtracted the heights instead of dividing
         ],
         3,
         tolerance=GRADER_TOLERANCE,

@@ -64,21 +64,21 @@ def _attempt(rng: random.Random) -> dict | None:
 
     area_m2 = Fraction(area_cm2, 10_000)
     a_cands = [
-        tagged(area_m2, "forgot-unit-conversion"),  # multiplied the metre figures and stopped
-        tagged(area_m2 * 100, "unit-factor-wrong-power"),  # used 100 once instead of squaring it
-        tagged(area_m2 * 10**6, "unit-factor-wrong-power"),  # used 1000 for each side
+        tagged(area_m2, "forgot-unit-conversion", 0),  # multiplied the metre figures and stopped
+        tagged(area_m2 * 100, "unit-factor-wrong-power", 0),  # used 100 once instead of squaring it
+        tagged(area_m2 * 10**6, "unit-factor-wrong-power", 0),  # used 1000 for each side
     ]
     b_cands = [
-        tagged(Fraction(area_cm2, p), "area-divided-by-one-side"),
-        tagged(Fraction(area_cm2, q), "area-divided-by-one-side"),
-        tagged(Fraction(count, 100), "unit-factor-wrong-power"),
-        tagged(Fraction(count * 100), "unit-factor-wrong-power"),
+        tagged(Fraction(area_cm2, p), "area-divided-by-one-side", 0),
+        tagged(Fraction(area_cm2, q), "area-divided-by-one-side", 0),
+        tagged(Fraction(count, 100), "unit-factor-wrong-power", 0),
+        tagged(Fraction(count * 100), "unit-factor-wrong-power", 0),
     ]
     c_cands = [
-        tagged(area_m2 * price, "cost-from-area-not-count"),
-        tagged(Fraction(area_cm2 * price), "cost-from-area-not-count"),
-        tagged(Fraction(cost, 100), "unit-factor-wrong-power"),
-        tagged(Fraction(cost * 100), "unit-factor-wrong-power"),
+        tagged(area_m2 * price, "cost-from-area-not-count", 0),
+        tagged(Fraction(area_cm2 * price), "cost-from-area-not-count", 0),
+        tagged(Fraction(cost, 100), "unit-factor-wrong-power", 0),
+        tagged(Fraction(cost * 100), "unit-factor-wrong-power", 0),
     ]
     return dict(
         text=stem,

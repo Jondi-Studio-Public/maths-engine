@@ -68,21 +68,30 @@ def _attempt(rng: random.Random) -> dict | None:
         return None
 
     k = sum(metre_dims)
+
+    def whole(value: Fraction, tag: str):
+        """A wrong value offered only when it is a whole number, like the key: a decimal would give the key away."""
+        value = Fraction(value)
+        return tagged(value, tag) if value.denominator == 1 else None
+
     a_cands = [
-        tagged(Fraction(volume, 100**k), "forgot-unit-conversion"),  # multiplied the figures as written
-        tagged(Fraction(volume, 10**k), "unit-factor-wrong-power"),  # 10 for each metre figure instead of 100
-        tagged(Fraction(volume * 10**k), "unit-factor-wrong-power"),  # 1000 for each metre figure
+        whole(Fraction(volume, 100**k), "forgot-unit-conversion"),  # multiplied the figures as written
+        whole(Fraction(volume, 10**k), "unit-factor-wrong-power"),  # 10 for each metre figure instead of 100
+        whole(Fraction(volume * 10**k), "unit-factor-wrong-power"),  # 1000 for each metre figure
+        whole(Fraction(volume, 100), "forgot-unit-conversion"),  # converted only one of the metre figures
+        whole(Fraction(volume * 100), "unit-factor-wrong-power"),
     ]
     b_cands = [
-        tagged(Fraction(volume, 100), "unit-factor-wrong-power"),
-        tagged(Fraction(volume, 10**6), "unit-factor-wrong-power"),
-        tagged(Fraction(volume * 1000), "unit-conversion-wrong-way"),
-        tagged(Fraction(volume, 10), "unit-factor-wrong-power"),
+        whole(Fraction(volume, 100), "unit-factor-wrong-power"),
+        whole(Fraction(volume, 10**6), "unit-factor-wrong-power"),
+        whole(Fraction(volume * 1000), "unit-conversion-wrong-way"),
+        whole(Fraction(volume, 10), "unit-factor-wrong-power"),
     ]
     c_cands = [
-        tagged(Fraction(litres * rate), "unit-conversion-wrong-way"),
-        tagged(Fraction(volume, rate), "forgot-unit-conversion"),
-        tagged(Fraction(rate, litres), "inverted-ratio"),
+        whole(Fraction(litres * rate), "unit-conversion-wrong-way"),
+        whole(Fraction(volume, rate), "forgot-unit-conversion"),
+        whole(Fraction(minutes * 60), "unit-conversion-wrong-way"),  # minutes turned into seconds
+        whole(Fraction(litres - rate), "inverted-ratio"),  # subtracted the rate instead of dividing by it
     ]
     return dict(
         text=stem,

@@ -86,21 +86,22 @@ def exd_x_m1_cone_stockpile(rng, tier: str = "exam"):
     def vol_text(value: Fraction) -> str:
         return stated_precision_string(_tenths(value), 1)
 
+    # Part (a) is a whole number of metres, so each slip is shown to the nearest metre.
     a_cands: list = [
         Distractor(str(s), "slant-height-for-height", s),
         Distractor(
-            vol_text(Fraction(math.sqrt(s * s + r * r)))[:-2] + "." + vol_text(Fraction(math.sqrt(s * s + r * r)))[-1],
+            str(round_half_up(Fraction(math.sqrt(s * s + r * r)), 0)),
             "hypotenuse-added-not-subtracted",
-            _tenths(Fraction(math.sqrt(s * s + r * r))),
+            int(round_half_up(Fraction(math.sqrt(s * s + r * r)), 0)),
         ),
         str(s - r),
     ]
     if s > d:
         a_cands.append(
             Distractor(
-                vol_text(Fraction(math.sqrt(s * s - d * d))),
+                str(round_half_up(Fraction(math.sqrt(s * s - d * d)), 0)),
                 "diameter-for-radius",
-                _tenths(Fraction(math.sqrt(s * s - d * d))),
+                int(round_half_up(Fraction(math.sqrt(s * s - d * d)), 0)),
             )
         )
     b_cands = [

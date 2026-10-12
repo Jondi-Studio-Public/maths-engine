@@ -76,9 +76,9 @@ def _attempt(rng: random.Random) -> dict | None:
         tagged(Fraction(per100 * s, 10), "unit-factor-wrong-power"),
     ]
     b_cands = [
-        tagged(Fraction(kj * 42, 10), "unit-conversion-wrong-way"),
+        tagged(Fraction(kj * 42, 10), "unit-conversion-wrong-way", 0),
         tagged(Fraction(kj), "forgot-unit-conversion"),
-        tagged(Fraction(per100 * 10, 42), "per-100-g-not-scaled"),
+        tagged(Fraction(per100 * 10, 42), "per-100-g-not-scaled", 0),
     ]
     c_cands = [
         tagged(Fraction(target_kj - n * cal), "mixed-units-in-subtraction"),

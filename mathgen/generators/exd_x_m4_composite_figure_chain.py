@@ -88,9 +88,9 @@ def exd_x_m4_composite_figure_chain(rng: random.Random, tier: str = "exam") -> d
     a_d = pick_distractors(
         x_text,
         [
-            Distractor(exact_decimal_string(round_half_up(v, 2), 2), None, round_half_up(v, 2))
+            Distractor(stated_precision_string(round_half_up(v, 1), 1), None, round_half_up(v, 1))
             for v in (x / 2, 2 * area / h, 2 * (area - w * h) / w)
-            if v > 0
+            if round_half_up(v, 1) > 0
         ],
         3,
         tolerance=GRADER_TOLERANCE,

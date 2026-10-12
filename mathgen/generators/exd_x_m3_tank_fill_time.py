@@ -56,7 +56,11 @@ def exd_x_m3_tank_fill_time(rng: random.Random, tier: str = "exam") -> dict:
                     f"{tenths / 10:.1f} m = {10 * tenths} cm.",
                     f"Volume = {10 * tenths} × {W} × {H} = {vol_cm3} cm³; 1 L = 1000 cm³.",
                 ],
-                [(vol_cm3, "unit-not-converted"), (capacity * 10, "unit-factor-wrong-power"), (capacity / 10, None)],
+                [
+                    (vol_cm3, "unit-not-converted"),
+                    (capacity * 10, "unit-factor-wrong-power"),
+                    (capacity * 100, "unit-factor-wrong-power"),
+                ],
             ),
             numeric_part(
                 f"How many more litres are needed to fill the {thing}?",

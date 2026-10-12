@@ -15,7 +15,6 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from mathgen.answers import Distractor
 from mathgen.core import VerificationError, attempts, generator, latex_answer, numeric_answer
 
 from .exd_x_m5_support import PI, clear_of_boundary, display, keys_absent, rounded, tagged_distractors
@@ -82,18 +81,17 @@ def exd_x_m5_tank_capacity_chain(rng, tier: str = "exam") -> dict:
             break
 
     r = d / 2
-    cubic_metres = rounded(litres / 1000, 2)
     a_dis = [
-        Distractor(display(cubic_metres, 2), None, cubic_metres),  # left in cubic metres
         *tagged_distractors(
             a_text,
             0,
             [
+                (litres / 10, None),  # took 1 m³ as 100 L
                 (PI * d * d * h * 1000, None),  # used the diameter as the radius
                 (PI * r * r * h * 1000 / 3, None),  # used the cone formula
                 (2 * PI * r * h * 1000, None),  # used the curved surface area
             ],
-            2,
+            3,
         ),
     ]
     b_dis = tagged_distractors(

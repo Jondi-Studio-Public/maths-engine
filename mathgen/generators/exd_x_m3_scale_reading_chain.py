@@ -11,6 +11,7 @@ Built backwards from the size of one division, so every reading is a whole numbe
 from __future__ import annotations
 
 import random
+from fractions import Fraction
 
 from mathgen.core import attempts, generator, phrase
 
@@ -35,6 +36,11 @@ _STEMS = [
 
 def _divisions(count: int) -> str:
     return f"{count} division" if count == 1 else f"{count} divisions"
+
+
+def _whole(pairs):
+    """Only whole-number wrong values for a whole-number key: a decimal would give the key away."""
+    return [(v, tag) for v, tag in pairs if Fraction(v).denominator == 1]
 
 
 @generator("exd_x_m3_scale_reading_chain", level=9, presets={"exam": dict(tier="exam")})
@@ -62,11 +68,14 @@ def exd_x_m3_scale_reading_chain(rng: random.Random, tier: str = "exam") -> dict
                 0,
                 1,
                 [f"{hi} - {lo} = {step} {u} is shared between {n} divisions, so each is {step} ÷ {n} = {q} {u}."],
-                [
-                    (step, "major-interval-as-division"),
-                    (step / (n + 1), "division-count-off-by-one"),
-                    (step / (n - 1), "division-count-off-by-one"),
-                ],
+                _whole(
+                    [
+                        (step, "major-interval-as-division"),
+                        (Fraction(step, n + 1), "division-count-off-by-one"),
+                        (Fraction(step, n - 1), "division-count-off-by-one"),
+                        (n, None),  # the number of divisions taken as the size of one
+                    ]
+                ),
             ),
             numeric_part(
                 f"Find reading P, in {u}.",

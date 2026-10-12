@@ -74,13 +74,13 @@ def _attempt(rng: random.Random) -> dict | None:
 
     a_cands = [
         tagged(Fraction(b * h), "triangle-without-half"),
-        tagged(Fraction(b * s, 2), "slant-side-as-height"),
+        tagged(Fraction(b * s, 2), "slant-side-as-height", 0),
         tagged(Fraction(b + h + s)),  # adds the lengths
     ]
     b_cands = [
-        tagged(Fraction(area, b2), "height-from-area-without-doubling"),
+        tagged(Fraction(area, b2), "height-from-area-without-doubling", 0),
         tagged(Fraction(h)),  # repeats the first sail's height
-        tagged(Fraction(b2, 2 * area), "inverted-ratio"),
+        tagged(Fraction(2 * area - b2)),  # took the second base off the doubled area
     ]
     c_cands = [
         tagged(Fraction(area * price)),  # prices one sail only

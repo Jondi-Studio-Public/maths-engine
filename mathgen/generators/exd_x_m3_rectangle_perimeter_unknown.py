@@ -12,8 +12,9 @@ whole number.
 from __future__ import annotations
 
 import random
+from fractions import Fraction
 
-from mathgen.core import attempts, generator, phrase
+from mathgen.core import attempts, generator, phrase, round_half_up
 
 from .exd_x_m3_support import finish, numeric_part
 
@@ -48,8 +49,9 @@ def exd_x_m3_rectangle_perimeter_unknown(rng: random.Random, tier: str = "exam")
                     f"4w = {P - 2 * d}, so w = {w} m.",
                 ],
                 [
-                    (P / 4, None),
-                    ((P - d) / 4, None),
+                    # whole metres like the key, so the format never gives the answer away
+                    (round_half_up(Fraction(P, 4), 0), None),
+                    (round_half_up(Fraction(P - d, 4), 0), None),
                     (P / 2 - d, None),
                 ],
             ),

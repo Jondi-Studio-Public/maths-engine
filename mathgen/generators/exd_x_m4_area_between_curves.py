@@ -129,17 +129,24 @@ def exd_x_m4_area_between_curves(rng: random.Random, tier: str = "exam") -> dict
     def money(value: Fraction) -> str:
         return stated_precision_string(round_half_up(value, 2), 2)
 
+    def root_slip(value: Fraction, key: Fraction, tag: str | None) -> Distractor:
+        """A wrong root shown to the places of the key (a whole number or one decimal place), never a
+        different format."""
+        places = 0 if key.denominator == 1 else 1
+        shown_value = round_half_up(abs(value), places) * (1 if value >= 0 else -1)
+        return Distractor(stated_precision_string(shown_value, places), tag, shown_value)
+
     a_candidates = [
-        Distractor(_fmt_root(-p), "sign-flip-both-roots", -p),
-        Distractor(q_text, None, q),
+        root_slip(-p, p, "sign-flip-both-roots"),
+        root_slip(q, p, None),
     ]
     b_candidates = [
-        Distractor(_fmt_root(-q), "sign-flip-both-roots", -q),
-        Distractor(p_text, None, p),
+        root_slip(-q, q, "sign-flip-both-roots"),
+        root_slip(p, q, None),
     ]
     if scale > 1:
-        a_candidates.append(Distractor(_fmt_root(Fraction(raw_p)), "forgot-to-divide-by-coefficient", Fraction(raw_p)))
-        b_candidates.append(Distractor(_fmt_root(Fraction(raw_q)), "forgot-to-divide-by-coefficient", Fraction(raw_q)))
+        a_candidates.append(root_slip(Fraction(raw_p), p, "forgot-to-divide-by-coefficient"))
+        b_candidates.append(root_slip(Fraction(raw_q), q, "forgot-to-divide-by-coefficient"))
     width = q - p
     c_wrong = [
         -area,  # the integral taken the wrong way round, a negative area

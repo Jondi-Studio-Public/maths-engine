@@ -88,10 +88,29 @@ def _attempt(rng: random.Random) -> dict | None:
     else:
         sum_rule = Fraction(cp + pd - p_off - q_off, 2)
         crossed = Fraction(q_off * pd - p_off * cp, cp - pd)
+
+    def whole(value: Fraction | None, tag: str | None = None, **kwargs):
+        """A wrong value offered only when it is a whole number, like the key: a decimal would give the key away."""
+        return tagged(value, tag, **kwargs) if value is not None and Fraction(value).denominator == 1 else None
+
+    def carried_is_distinct(value):
+        """False for a wrong x whose own follow-through answers repeat it: the grader does not credit writing the same
+        number again as following through, so such an x could never be carried into (b) and (c)."""
+        if value is None:
+            return None
+        ab_carried = (ap_coeff + pb_coeff) * Fraction(value) + p_off + q_off
+        repeats = Fraction(value) in (ab_carried, abs(ab_carried - chord_cd))
+        return None if repeats else value
+
     a_cands = [
-        tagged(sum_rule, "chord-segments-added"),
-        tagged(crossed, "chord-products-crossed") if crossed is not None else None,
-        tagged(other_root, "negative-root-as-length", allow_negative=True),
+        whole(carried_is_distinct(sum_rule), "chord-segments-added"),
+        whole(carried_is_distinct(crossed), "chord-products-crossed"),
+        whole(carried_is_distinct(other_root), "negative-root-as-length", allow_negative=True),
+        # Equating one part of AB with one part of CD (AP = CP, PB = PD, AP = PD, PB = CP) and solving that.
+        whole(carried_is_distinct(Fraction(cp - p_off, ap_coeff)), "chord-products-crossed"),
+        whole(carried_is_distinct(Fraction(pd - q_off, pb_coeff)), "chord-products-crossed"),
+        whole(carried_is_distinct(Fraction(pd - p_off, ap_coeff)), "chord-products-crossed"),
+        whole(carried_is_distinct(Fraction(cp - q_off, pb_coeff)), "chord-products-crossed"),
     ]
     b_cands = [
         tagged(Fraction(pb), "segment-for-whole-chord"),

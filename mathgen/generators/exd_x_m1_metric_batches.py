@@ -30,6 +30,7 @@ from mathgen.core import (
     latex_answer,
     numeric_answer,
     pick_distractors,
+    round_half_up,
     stated_precision_string,
     stated_precision_tolerance,
 )
@@ -190,14 +191,18 @@ def _build(rng, kind: str, tier: str):
     p_a, p_b = qa, f"Using your answer to (a), {qb[0].lower()}{qb[1:]}"
     p_c = f"Using your answers to (a) and (b), {qc[0].lower()}{qc[1:-1]}, correct to {places} decimal place{'s' if places > 1 else ''}?"
 
-    def tagged(value, ident=None):
-        text = _dec(Fraction(value))
-        return Distractor(text, ident, Fraction(text)) if ident else text
+    def tagged(value, ident=None, places=0):
+        """The wrong value shown to the key's own places (a different format would give the key away); None if it is 0."""
+        shown_value = round_half_up(Fraction(value), places)
+        if shown_value <= 0:
+            return None
+        text = stated_precision_string(shown_value, places)
+        return Distractor(text, ident, shown_value) if ident else text
 
     a_cands = [
         tagged(key_a * 10, "unit-factor-wrong-power"),
-        tagged(Fraction(key_a, 10), "unit-factor-wrong-power"),
-        tagged(big / factor, "unit-conversion-wrong-way"),
+        tagged(Fraction(key_a, 10), "unit-factor-wrong-power"),  # 100 per unit instead of 1000 (shown to whole units)
+        tagged(key_a * 100, "unit-factor-wrong-power"),
     ]
     near = Fraction(key_a, s)
     b_cands = [
@@ -208,10 +213,12 @@ def _build(rng, kind: str, tier: str):
         ),
     ]
     c_cands = [
-        tagged(leftover, "leftover-not-converted"),
-        tagged(Fraction(leftover, factor * 10), "unit-factor-wrong-power"),
-        tagged(Fraction(s - leftover, factor)),  # what is still needed for one more portion
+        tagged(leftover, "leftover-not-converted", places),
+        tagged(Fraction(leftover, factor * 10), "unit-factor-wrong-power", places),
+        tagged(Fraction(s - leftover, factor), None, places),  # what is still needed for one more portion
     ]
+    a_cands = [c for c in a_cands if c is not None]
+    c_cands = [c for c in c_cands if c is not None]
     a_d = pick_distractors(a_text, a_cands, 3, tolerance=stated_precision_tolerance(0))
     b_d = pick_distractors(b_text, b_cands, 3)
     c_d = pick_distractors(c_text, c_cands, 3, tolerance=stated_precision_tolerance(places))

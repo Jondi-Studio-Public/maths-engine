@@ -105,18 +105,20 @@ def exd_x_m4_roots_of_unity_chain(rng: random.Random, tier: str = "exam") -> dic
     )
     b_d = pick_distractors(
         d_text,
-        [two(u * rad), two(2 * u * math.sin(rad)), two(u * math.sin(rad / 2)), two(2 * u * math.cos(rad / 2))],
+        keep([two(u * rad), two(2 * u * math.sin(rad)), two(u * math.sin(rad / 2)), two(2 * u * math.cos(rad / 2))]),
         3,
         tolerance=GRADER_TOLERANCE,
     )
     c_d = pick_distractors(
         s_text,
-        [
-            two(u * u * math.sin(rad)),
-            two(u * u * rad / 2),
-            two(u * u * math.cos(rad) / 2),
-            two(u * u * math.sin(rad / 2) / 2),
-        ],
+        keep(
+            [
+                two(u * u * math.sin(rad)),
+                two(u * u * rad / 2),
+                two(u * u * math.cos(rad) / 2),  # None for an obtuse angle, where the cosine is negative
+                two(u * u * math.sin(rad / 2) / 2),
+            ]
+        ),
         3,
         tolerance=GRADER_TOLERANCE,
     )

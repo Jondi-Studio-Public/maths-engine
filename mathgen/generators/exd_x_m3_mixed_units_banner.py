@@ -83,7 +83,8 @@ def exd_x_m3_mixed_units_banner(rng: random.Random, tier: str = "exam") -> dict:
                 [f"{float(L):.1f} m = {int(Lcm)} cm.", f"Area = {int(Lcm)} × {W} cm²."],
                 [
                     (L * W, "unit-not-converted"),
-                    (L * Fraction(W, 100), None),
+                    (L * 10 * W, "unit-factor-wrong-power"),  # 10 cm to the metre
+                    (Lcm * W / 100, "linear-factor-on-area"),  # divided by 100, as for a length
                     (2 * (Lcm + W), "perimeter-for-area"),
                 ],
             ),
