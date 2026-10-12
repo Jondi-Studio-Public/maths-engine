@@ -21,7 +21,7 @@ from mathgen.core import VerificationError, attempts, generator, latex_answer, n
 from .exd_x_m5_support import PI, clear_of_boundary, display, keys_absent, rounded, tagged_distractors
 
 _OBJECTS = (
-    ("An arched window is a rectangle with a semicircle on top.", "window", "m"),
+    ("The doorway of an aircraft hangar is a rectangle with a semicircle on top.", "doorway", "m"),
     ("The floor of a stage is a rectangle with a semicircular end.", "stage", "m"),
     ("A garden bed is a rectangle with a semicircle added to one of its sides.", "bed", "m"),
     ("A swimming pool is a rectangle with a semicircular end.", "pool", "m"),

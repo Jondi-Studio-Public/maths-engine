@@ -23,7 +23,7 @@ _OBJECTS = [
     "A garden bed",
     "A section of decking",
     "A sail panel",
-    "A car-park bay",
+    "A car park",
     "A veggie patch",
     "A shade-cloth panel",
     "A concrete pad",

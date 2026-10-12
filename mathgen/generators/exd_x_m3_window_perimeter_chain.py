@@ -20,7 +20,7 @@ from mathgen.core import attempts, generator, phrase, round_half_up
 from .exd_x_m3_support import clear_of_tie, display, finish, numeric_part
 
 PI = Fraction(math.pi)
-_THINGS = ["window", "arched mirror", "picture frame", "shopfront window", "noticeboard"]
+_THINGS = ["window", "mirror", "picture frame", "shopfront window", "noticeboard"]
 _STEMS = [
     "A {thing} is made from a rectangle {w} cm wide and {h} cm high, with a semicircle on top. The diameter of the "
     "semicircle is the top edge of the rectangle.",
