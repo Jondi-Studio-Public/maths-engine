@@ -29,6 +29,8 @@ from mathgen.core import (
     stated_precision_string,
 )
 
+from ._exd_distinct_parts import distinct_part_answers
+
 _X, _Y = sympy.symbols("x y")
 _THIRD = Fraction(1, 3)
 _HALF = Fraction(1, 2)
@@ -47,6 +49,7 @@ def _clear(value: Fraction) -> bool:
 
 
 @generator("exd_x_u3_double_integral_average", level=18, presets={"exam": dict(tier="exam")})
+@distinct_part_answers
 def exd_x_u3_double_integral_average(rng, tier: str = "exam") -> dict:
     """Exam tier: integrate a sum-form f over a rectangle, then find its average value."""
     check(tier == "exam", f"unknown tier {tier!r}")

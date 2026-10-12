@@ -111,8 +111,10 @@ def wording_defects(text: str) -> list[str]:
         if (m.group(1) or "").lower() in _LABELS:
             continue
         before = text[: m.start(2) - 2].rstrip()
-        if before.endswith(("+", "-", "=", "*", "/", "^", "(", "\u2212", "|")):
-            continue  # arithmetic, or a stem-and-leaf key ("5 | 1 means 51"), not a count
+        if before.endswith(("+", "-", "=", "*", "/", "^", "(", "\u2212")):
+            continue  # arithmetic, not a count
+        if re.search(r"Key: \d+ \|$", before):
+            continue  # a stem-and-leaf key ("Key: 5 | 1 means 51")
         w = m.group(2).lower()
         if w.endswith("s") and not w.endswith("ss") and w not in _SINGULAR_S:
             found.append(f"'1 {m.group(2)}'")

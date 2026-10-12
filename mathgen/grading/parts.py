@@ -451,10 +451,10 @@ def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
     while the canonical answers differ. Writing the same number again is not following through (a constant
     dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian). Nor when it is 0, 1 or -1
     and the canonical answer is not, and either it does not move when an earlier reply it uses is multiplied by ten
-    (the floor or ceiling of any tiny reply) or two earlier replies it uses are the same number while their
-    canonical answers differ and neither is a `known` answer ("1; 1; 0" is not a difference worked out). Those
-    last two rules pass a chain carried wholly from known answers: a catalogued misconception followed through
-    is real working. An answer that is exactly zero from real working, such as a tangent through the origin,
+    (the floor or ceiling of any tiny reply), or two earlier replies it uses are the same wrong number while
+    their canonical answers differ ("1; 1; 0" is not a difference worked out, even when 1 is a listed
+    distractor). The first of those passes a chain carried wholly from known answers: a catalogued
+    misconception followed through is real working. An answer that is exactly zero from real working, such as a tangent through the origin,
     still counts."""
     value = reply_value(part.answer_kind, target.answer_text)
     if value is None or not getattr(value, "is_number", False):
@@ -469,10 +469,8 @@ def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
         earlier = values.get(name)
         if earlier is not None and _same(earlier, value) and not _same(_canonical_value(by_label[name]), canonical):
             return False
-    if not any(_same(value, small) for small in (0, 1, -1)) or _same(canonical, value) or set(names) <= known:
+    if not any(_same(value, small) for small in (0, 1, -1)) or _same(canonical, value):
         return True
-    if _insensitive(part, target, values):
-        return False
     for i, first in enumerate(names):
         for second in names[i + 1 :]:
             left, right = values.get(first), values.get(second)
@@ -481,10 +479,13 @@ def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
                 and getattr(right, "is_number", False)
                 and _same(left, right)
                 and not _same(_canonical_value(by_label[first]), _canonical_value(by_label[second]))
-                and not {first, second} & known
+                and not _same(left, _canonical_value(by_label[first]))
+                and not _same(right, _canonical_value(by_label[second]))
             ):
-                return False
-    return True
+                return False  # the same wrong number in two boxes: an integral from 1 to 1 is no working
+    if set(names) <= known:
+        return True
+    return not _insensitive(part, target, values)
 
 
 def _insensitive(part, target, values) -> bool:

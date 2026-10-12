@@ -15,6 +15,8 @@ import math
 from mathgen.answers import Distractor
 from mathgen.core import attempts, check, generator, latex_answer, pick_distractors
 
+from ._exd_distinct_parts import distinct_part_answers
+
 _CONTEXTS = [
     "A hardware shop in Ballarat scrambles its stock codes, the whole numbers from 0 to {top}, with the rule",
     "A library in Armidale scrambles its shelf codes, the whole numbers from 0 to {top}, with the rule",
@@ -23,6 +25,7 @@ _CONTEXTS = [
 
 
 @generator("exd_x_u3_affine_decode", level=14, presets={"exam": dict(tier="exam")})
+@distinct_part_answers
 def exd_x_u3_affine_decode(rng, tier: str = "exam") -> dict:
     """Exam tier: the inverse of a modulo m, then two codes decoded with it."""
     check(tier == "exam", f"unknown tier {tier!r}")

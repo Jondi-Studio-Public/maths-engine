@@ -72,3 +72,25 @@ def test_the_same_junk_in_every_box_earns_nothing(skill_id, value):
         pytest.skip("the junk value is one part's real answer")
     result, _ = _timed_grade(skill, question, {p.label: value for p in question.parts})
     assert result.marks == 0
+
+
+def test_the_same_wrong_number_in_two_boxes_earns_no_difference_even_when_it_is_a_distractor():
+    # (c) integrates from (a) to (b); "1" for both limits gives an integral of 0 with no working done.
+    skill, question = _exam("definite-integral")
+    result, _ = _timed_grade(skill, question, {"a": "1", "b": "1", "c": "0", "d": "1"})
+    assert result.marks == 0
+
+
+@pytest.mark.parametrize("skill_id", ["ucv1-double-integral-rectangle", "modular-multiplicative-inverse"])
+def test_no_two_parts_of_these_chains_share_an_answer(skill_id):
+    skill = _SKILLS[skill_id]
+    for seed in range(40):
+        question = engine.make_for_skill(skill, seed, source="exam")
+        answers = [p.answer_text for p in question.parts]
+        assert len(set(answers)) == len(answers), (seed, answers)
+        result, _ = _timed_grade(skill, question, {p.label: "1" for p in question.parts})
+        assert all(r.marks == 0 for label, r in result.parts.items() if _part(question, label).answer_text != "1"), seed
+
+
+def _part(question, label):
+    return next(p for p in question.parts if p.label == label)
