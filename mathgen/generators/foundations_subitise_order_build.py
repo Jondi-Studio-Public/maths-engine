@@ -37,71 +37,35 @@ domain, both framework ``acara-f10-v9``.
 
 from __future__ import annotations
 
+from .. import figures
 from ..core import check, generator, pick_distractors, reversed_and_adjacent_swap
+from ..figure_kinds.early import counters, counters_total, scatter_dots
+from ..slots import NAMES
 from .early_math import DOTS
 
 # -- subitise_to_5 ----------------------------------------------------------
 
-# Standard 1-5 dice-face dot patterns, read as a 3x3 grid: 'X' is a filled
-# cell, '.' is blank. These are genuinely canonical (instantly recognisable
-# without counting) arrangements, not an arbitrary layout choice.
-_CANONICAL_GRID = {
-    1: ["...", ".X.", "..."],
-    2: ["X..", "...", "..X"],
-    3: ["X..", ".X.", "..X"],
-    4: ["X.X", "...", "X.X"],
-    5: ["X.X", ".X.", "X.X"],
+# Counter shapes the scattered and clustered layouts draw, keyed by the glyph an earlier text-only
+# version of this generator printed (kept so the shape draw consumes the same random numbers).
+_SHAPE_OF = {"●": "circle", "◆": "diamond", "★": "star", "■": "square"}
+
+_TEXT = {
+    "canonical": (
+        "{n} rolls a die. How many dots are on top?",
+        "{n} looks at this die. How many dots are on it?",
+        "{n} looks at a die. How many dots can you see?",
+    ),
+    "scattered": (
+        "{n} sees some shapes spread out. How many are there?",
+        "{n} glances at a group of shapes. How many are there?",
+        "{n} takes a quick look at some shapes. How many are there?",
+    ),
+    "clustered": (
+        "{n} sees two groups of shapes. How many are there altogether?",
+        "{n} sees two groups of shapes. How many are there in all?",
+        "{n} looks at both groups of shapes. How many altogether?",
+    ),
 }
-
-# Blank-cell marker: deliberately not a member of `DOTS`, so counting
-# occurrences of the chosen symbol character in an assembled layout string
-# (the independent check below) is never confused with a blank cell.
-_BLANK = "·"  # "·"
-
-
-def _render_row(template_row: str, symbol: str) -> str:
-    return " ".join(symbol if ch == "X" else _BLANK for ch in template_row)
-
-
-def _render_canonical(count: int, symbol: str) -> str:
-    """Easy tier: a canonical dice-face pattern for `count` (1-5). A learner
-    who already recognises the pattern reads the count instantly, without
-    counting each dot -- perceptual subitising."""
-    rows = _CANONICAL_GRID[count]
-    return " / ".join(_render_row(row, symbol) for row in rows)
-
-
-def _render_scattered(count: int, symbol: str, rng) -> str:
-    """Medium tier: the same count range as easy, but placed at random
-    positions in a 2x4 grid -- a different shape from the 3x3 canonical grid
-    above, so a scattered layout can never coincide with a recognisable
-    dice-style pattern for any count 1-5. Without a familiar pattern to
-    match, the learner cannot rely on instant perceptual recognition and
-    must actually attend to the whole group -- a harder perceptual task than
-    easy, though still a single group (not yet the two-cluster combination
-    hard tier requires)."""
-    total_cells = 8
-    positions = set(rng.sample(range(total_cells), count))
-    rows = []
-    for r in range(2):
-        cells = [symbol if (r * 4 + c) in positions else _BLANK for c in range(4)]
-        rows.append(" ".join(cells))
-    return " / ".join(rows)
-
-
-def _render_clustered(count: int, symbol: str, rng) -> tuple[str, tuple[int, int]]:
-    """Hard tier: split `count` into two visually separated sub-groups (a
-    clear gap between them, no gap within either group), each small enough
-    to be perceived on its own -- genuine *conceptual* subitising, which
-    requires perceiving two sub-quantities and combining them, a strictly
-    harder cognitive operation than either recognising one canonical pattern
-    (easy) or attending to one scattered group (medium)."""
-    if count < 2:
-        raise ValueError("clustered layout needs a count of at least 2 to split into two groups")
-    cluster_a = rng.randint(1, count - 1)
-    cluster_b = count - cluster_a
-    layout = f"{symbol * cluster_a}   {symbol * cluster_b}"
-    return layout, (cluster_a, cluster_b)
 
 
 def _verify_symbol_count(layout: str, symbol: str, count: int) -> None:
@@ -138,37 +102,44 @@ def subitise_to_5(rng, mode="canonical", count_range=(1, 5)):
 
     count = rng.randint(lo, hi)
     symbol = rng.choice(DOTS)
+    shape = _SHAPE_OF[symbol]
+    name = rng.choice(NAMES)
 
     cluster_sizes: tuple[int, int] | None = None
     if mode == "canonical":
-        layout = _render_canonical(count, symbol)
-        framing = "arranged in a pattern"
+        fig = counters(layout="dice", alt="a die face", faces=[{"n": count, "colour": 1}])
         working = [
             "This is a dot pattern you may already recognise (like a dice face) -- "
             "there is no need to count one by one.",
             f"There are {count} altogether.",
         ]
     elif mode == "scattered":
-        layout = _render_scattered(count, symbol, rng)
-        framing = "scattered"
+        fig = counters(
+            layout="scatter",
+            alt="some shapes spread out on a plain background",
+            shape=shape,
+            dots=scatter_dots(rng, count, arrangement="free"),
+        )
         working = [
             "These are scattered, not in a familiar pattern, so look at the whole group rather than a single shape.",
             f"There are {count} altogether.",
         ]
     elif mode == "clustered":
-        layout, cluster_sizes = _render_clustered(count, symbol, rng)
-        framing = "in two groups, with a gap between them"
-        cluster_a, cluster_b = cluster_sizes
+        dots = scatter_dots(rng, count, arrangement="clusters")
+        fig = counters(layout="scatter", alt="two separate groups of shapes", shape=shape, dots=dots)
+        # re-read the two groups from the drawn positions: the left and the right half of the picture
+        cluster_a = sum(1 for d in dots if d["at"][0] < 0.5)
+        cluster_sizes = (cluster_a, count - cluster_a)
         working = [
-            f"See the two groups without counting each dot: {cluster_a} and {cluster_b}.",
-            f"Combine the groups: {cluster_a} + {cluster_b} = {count}.",
+            f"See the two groups without counting each shape: {cluster_sizes[0]} and {cluster_sizes[1]}.",
+            f"Combine the groups: {cluster_sizes[0]} + {cluster_sizes[1]} = {count}.",
         ]
     else:
         raise ValueError(f"unknown mode {mode!r}; expected 'canonical', 'scattered' or 'clustered'")
 
-    _verify_symbol_count(layout, symbol, count)
-
-    text = f"How many are there ({framing})?   {layout}"
+    _verify_symbol_count(symbol * counters_total(fig), symbol, count)
+    figures.assert_no_leak(fig, [str(count)])
+    text = rng.choice(_TEXT[mode]).format(n=name)
 
     # Misconception distractors:
     #  - undercount-by-one: one fewer than the true count.
@@ -178,21 +149,11 @@ def subitise_to_5(rng, mode="canonical", count_range=(1, 5)):
     #    to combine it with the other -- a genuine failure-to-combine
     #    conceptual-subitising error, distinct from a blanket off-by-one on
     #    the final total.
-    undercount = max(count - 1, 0)
-    overcount = count + 1
-    candidates = [str(undercount), str(overcount)]
+    candidates = [str(max(count - 1, 0)), str(count + 1)]
     if cluster_sizes is not None:
-        cluster_a, cluster_b = cluster_sizes
-        # "miscounts one cluster" / failure-to-combine: the learner notices
-        # only one visible sub-group (the smaller one is the easier one to
-        # overlook the other beside) and reports its size alone, forgetting
-        # to add the other sub-group -- a real, documented conceptual-
-        # subitising error (the combination step is skipped entirely),
-        # distinct from a blanket off-by-one on the final total. Provably
-        # distinct here: for count in {3,4,5} with each cluster >= 1, the
-        # smaller cluster's size is always <= count-2, which can never equal
-        # count-1 (undercount), count+1 (overcount), or count itself.
-        candidates.append(str(min(cluster_a, cluster_b)))
+        # Provably distinct here: for count in {3,4,5} with each cluster >= 1, the smaller
+        # cluster's size is always <= count-2, which can never equal count-1, count+1 or count.
+        candidates.append(str(min(cluster_sizes)))
 
     return dict(
         text=text,
@@ -202,7 +163,11 @@ def subitise_to_5(rng, mode="canonical", count_range=(1, 5)):
         answer_latex=str(count),
         working=working,
         distractors=pick_distractors(str(count), candidates),
+        figure=fig,
     )
+
+
+figures.register_reader("subitise_to_5", lambda q: str(counters_total(q.figure)))
 
 
 # -- order_to_twenty ----------------------------------------------------

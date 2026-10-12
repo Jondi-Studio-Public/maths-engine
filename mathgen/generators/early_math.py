@@ -7,6 +7,8 @@ any practice setting.
 
 from .. import figures
 from ..core import generator, latex_answer, pick_distractors
+from ..figure_kinds.early import counters, counters_total, scatter_dots
+from ..slots import NAMES
 from ..figure_kinds import measure
 
 
@@ -43,19 +45,43 @@ def _nearby(n, lo=0, hi=100):
     return [value for value in values if lo <= value <= hi]
 
 
+_SHAPE_OF = {
+    "●": ("circle", "circles"),
+    "◆": ("diamond", "diamonds"),
+    "★": ("star", "stars"),
+    "■": ("square", "squares"),
+}
+_COUNT_TEXT = (
+    "How many {w} are there?",
+    "{n} counts the {w}. How many are there?",
+    "Count the {w}. How many?",
+)
+
+
 @generator("count_objects", level=1)
 def count_objects(rng, lo=1, hi=5):
     count = rng.randint(lo, hi)
-    symbol = rng.choice(DOTS)
-    objects = "  ".join([symbol] * count)
-    text = f"How many?   {objects}"
-    return _number_question(
+    shape, plural = _SHAPE_OF[rng.choice(DOTS)]
+    fig = counters(
+        layout="scatter",
+        alt="a group of shapes to count",
+        shape=shape,
+        dots=scatter_dots(rng, count, arrangement="tidy"),
+    )
+    figures.assert_no_leak(fig, [str(count)])
+    text = rng.choice(_COUNT_TEXT).format(n=rng.choice(NAMES), w=plural)
+    q = _number_question(
         text,
         count,
         _nearby(count, 0, max(10, hi + 2)),
         latex=f"plain:{text}",
         working=[f"Touch each shape once while counting: {count}."],
     )
+    q["figure"] = fig
+    return q
+
+
+figures.register_reader("count_objects", lambda q: str(counters_total(q.figure)))
 
 
 @generator("recognise_numeral", level=1)

@@ -7,6 +7,8 @@ placement_pass: 2
 learner_band: early
 description: Touch and count a small group of objects, one object at a time.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 prerequisites: []
 answer: mcq
 sources:
