@@ -12,6 +12,11 @@ sources:
     kinds:
     - max_shear_udl
   difficulty: easy
+- topic: exd_x_u7_shear_two_loads_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: used-total-load
   description: Reporting the total load instead of the maximum shear at the supports.

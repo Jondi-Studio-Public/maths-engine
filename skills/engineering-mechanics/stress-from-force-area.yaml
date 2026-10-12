@@ -12,6 +12,11 @@ sources:
     kinds:
     - stress
   difficulty: easy
+- topic: exd_x_u2_bar_in_tension
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: unit-slip-kn-mm2
   description: A unit slip mixing kN with mm^2 (off by 1000).

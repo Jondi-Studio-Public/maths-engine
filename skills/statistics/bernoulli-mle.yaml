@@ -16,6 +16,11 @@ sources:
   difficulty: hard
   params: {kind: pooled}
   stages: [5, 6, maintenance]
+- topic: exd_x_u6_bernoulli_invariance
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: counts-failures
   description: Uses the failure proportion (n-k)/n instead of the success proportion.

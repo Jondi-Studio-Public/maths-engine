@@ -16,6 +16,11 @@ sources:
   params: {kind: summary}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u6_regression_prediction
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swaps-slope-intercept
   description: Reports the intercept as the slope or reverses their order.
