@@ -1,6 +1,8 @@
 id: f10-estimate-counts-and-check-reasonableness
 name: Estimate counts and check reasonableness
 domain: primary-number
+year_level: ['6']
+naplan_domain: [number]
 description: Estimate the result of a whole-number addition, subtraction or multiplication by rounding each operand to a stated place and computing.
 status: active
 placement_eligible: false

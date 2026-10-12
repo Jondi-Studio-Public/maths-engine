@@ -1,6 +1,8 @@
 id: f10-multidigit-add-subtract-regroup
 name: Add and subtract multi-digit numbers by regrouping
 domain: primary-number
+year_level: ['3']
+naplan_domain: [number]
 description: Add or subtract two- and three-digit numbers by partitioning, rearranging or regrouping, without a calculator. The numbers are chosen so that the regrouping is controlled, from one regroup in two-digit numbers up to carrying in every column and borrowing through a zero.
 status: active
 placement_eligible: false

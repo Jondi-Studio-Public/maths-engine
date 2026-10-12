@@ -1,6 +1,7 @@
 id: f10-parallelogram-area
 name: Calculate parallelogram area
 domain: measurement
+year_level: ['7']
 description: Given a parallelogram's base and perpendicular height, calculate its area in appropriate square units.
 status: active
 placement_eligible: false

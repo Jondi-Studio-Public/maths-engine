@@ -1,6 +1,7 @@
 id: fraction-of-quantity
 name: Find a fraction of a quantity
 domain: primary-number
+year_level: ['6']
 placement_order: 10
 placement_questions: 3
 placement_pass: 2

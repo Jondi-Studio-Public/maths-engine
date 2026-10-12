@@ -1,6 +1,7 @@
 id: integer-polynomial-quotient-remainder
 name: Compute an integer polynomial quotient and remainder
 domain: abstract-algebra
+year_level: [university]
 description: Compute the exact quotient and remainder in division of small integer polynomials by a monic divisor.
 status: active
 prerequisites: [expand-single-brackets, combine-like-terms]

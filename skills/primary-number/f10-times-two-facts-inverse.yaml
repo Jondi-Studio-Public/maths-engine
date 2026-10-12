@@ -1,6 +1,8 @@
 id: f10-times-two-facts-inverse
 name: Derive multiplication and division facts for twos
 domain: primary-number
+year_level: ['2']
+naplan_domain: [algebra]
 description: Given a known multiplication fact for two, state the value of the related division fact obtained by halving the product.
 status: active
 placement_eligible: false

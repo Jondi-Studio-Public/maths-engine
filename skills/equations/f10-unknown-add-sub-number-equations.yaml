@@ -1,6 +1,8 @@
 id: f10-unknown-add-sub-number-equations
 name: Find unknowns in additive numerical equations
 domain: equations
+year_level: ['4']
+naplan_domain: [algebra]
 description: Find the missing value in a numerical addition or subtraction equation, using operation properties. The blank is a square and the equation has no story, from one operation against a total to equations with an expression on both sides and three-digit numbers where a property does the work.
 status: active
 placement_eligible: false

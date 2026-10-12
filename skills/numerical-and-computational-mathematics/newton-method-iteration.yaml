@@ -1,6 +1,7 @@
 id: newton-method-iteration
 name: Perform one Newton iteration
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Perform one exact Newton-method update for a polynomial from a stated starting value.
 status: active
 prerequisites: [differentiate-polynomial]

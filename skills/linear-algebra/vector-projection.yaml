@@ -1,6 +1,7 @@
 id: vector-projection
 name: Compute a vector projection
 domain: linear-algebra
+year_level: [university]
 description: Compute the two-dimensional vector projection of one vector onto another exact vector.
 status: active
 prerequisites: [vector-dot-product]

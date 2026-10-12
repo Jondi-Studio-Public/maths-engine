@@ -1,6 +1,7 @@
 id: f10-regular-irregular-area-perimeter
 name: Calculate area and perimeter of regular and irregular rectilinear shapes
 domain: measurement
+year_level: ['5']
 description: Given regular or irregular rectilinear shapes with stated part dimensions (decomposed into rectangular parts where needed), calculate perimeter or area using metric units.
 status: active
 placement_eligible: false

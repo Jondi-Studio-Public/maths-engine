@@ -1,6 +1,7 @@
 id: ucv1-syntactic-semantic-separation
 name: Distinguish syntax from semantic truth
 domain: logic-computability-and-information
+year_level: [university]
 description: For a supplied propositional expression and interpretation, classify it as ill-formed, well-formed and true, well-formed but false, or syntactically derivable via modus ponens yet false under the interpretation.
 status: active
 placement_eligible: false

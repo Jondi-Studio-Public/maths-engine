@@ -1,6 +1,8 @@
 id: f10-division-remainder-context
 name: Divide and interpret remainders
 domain: primary-number
+year_level: ['5']
+naplan_domain: [number]
 description: Solve a division problem and express or interpret the remainder as a whole number (how many are left over), the number of groups needed to fit everything, or a decimal share amount, appropriate to the stated context.
 status: active
 placement_eligible: false

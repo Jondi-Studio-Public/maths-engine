@@ -1,6 +1,7 @@
 id: hypergeometric-probability
 name: Calculate a hypergeometric probability
 domain: statistics-probability
+year_level: [university]
 description: Compute the exact probability of k successes in n draws without replacement.
 status: active
 prerequisites: [simple-event-probability]

@@ -1,6 +1,7 @@
 id: percentage-discount
 name: Calculate a percentage discount
 domain: primary-number
+year_level: ['6']
 placement_order: 70
 placement_questions: 3
 placement_pass: 2

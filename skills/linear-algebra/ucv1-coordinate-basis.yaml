@@ -1,6 +1,7 @@
 id: ucv1-coordinate-basis
 name: Coordinates in a supplied two-dimensional basis
 domain: linear-algebra
+year_level: [university]
 description: Compute the ordered coordinates of a supplied vector in a supplied independent
   two-dimensional basis (and, at the exam tier, reconstruct the vector from its stated
   coordinates).

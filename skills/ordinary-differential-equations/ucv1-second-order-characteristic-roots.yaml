@@ -1,6 +1,7 @@
 id: ucv1-second-order-characteristic-roots
 name: Solve a constant-coefficient second-order ODE
 domain: ordinary-differential-equations
+year_level: [university]
 description: Return the characteristic roots for a supplied homogeneous second-order constant-coefficient ODE.
 status: active
 placement_eligible: false

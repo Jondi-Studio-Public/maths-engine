@@ -1,6 +1,7 @@
 id: f10-exact-approximate-repeated-calculation
 name: Compare exact and approximate repeated calculations
 domain: secondary-number
+year_level: ['10']
 description: Given a stated sequence of arithmetic operations and a stated rounding rule to apply after each intermediate step, calculate the discrepancy between the exact final result and the result obtained by applying that repeated rounding.
 status: active
 placement_eligible: false

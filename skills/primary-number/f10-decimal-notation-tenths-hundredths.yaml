@@ -1,6 +1,8 @@
 id: f10-decimal-notation-tenths-hundredths
 name: Compose a decimal from tenths and hundredths
 domain: primary-number
+year_level: ['4']
+naplan_domain: [number]
 description: Name, represent and extend decimals to hundredths using place value and standard decimal notation, by composing a decimal numeral from stated tenths and/or hundredths quantities (e.g. "write 3 tenths and 7 hundredths as a decimal" -> 0.37). The reverse of decimal-place-value's own operation (which decomposes a given decimal into a named digit's place value); this skill never asks for a digit's place value in an already-stated decimal.
 status: active
 placement_eligible: false

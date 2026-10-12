@@ -1,6 +1,7 @@
 id: ucv1-completeness-cauchy-check
 name: Check a finite Cauchy witness
 domain: functional-and-linear-analysis
+year_level: [university]
 description: For a supplied finite sequence and (epsilon, N) witness table, identify which row's claim is inconsistent with the sequence, or that every row is consistent.
 status: active
 placement_eligible: false

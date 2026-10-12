@@ -1,6 +1,8 @@
 id: f10-pattern-copy-repeat-unit
 name: Identify the repeating unit in a pattern
 domain: early-foundations
+year_level: ['1']
+naplan_domain: [algebra]
 learner_band: early
 description: Given a repeating pattern presented with objects, shapes, symbols or numbers, identify and state the smallest repeating unit.
 status: active

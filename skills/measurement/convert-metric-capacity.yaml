@@ -1,6 +1,7 @@
 id: convert-metric-capacity
 name: Convert metric capacity units
 domain: measurement
+year_level: ['6']
 placement_order: 30
 placement_questions: 3
 placement_pass: 2

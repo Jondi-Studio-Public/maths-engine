@@ -1,6 +1,7 @@
 id: wave-frequency-from-speed-wavelength
 name: Compute frequency from wave speed and wavelength
 domain: mathematical-physics
+year_level: [university]
 description: Use v = fλ to compute a wave frequency from speed and wavelength.
 status: active
 prerequisites:

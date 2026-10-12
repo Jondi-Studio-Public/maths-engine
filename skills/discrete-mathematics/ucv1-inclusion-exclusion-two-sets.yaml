@@ -1,6 +1,7 @@
 id: ucv1-inclusion-exclusion-two-sets
 name: Count a union of two finite sets
 domain: discrete-mathematics
+year_level: [university]
 description: Compute the cardinality of the union of two finite sets from the two set sizes and their intersection size.
 status: active
 placement_eligible: false

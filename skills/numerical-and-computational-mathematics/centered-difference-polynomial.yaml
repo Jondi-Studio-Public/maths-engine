@@ -1,6 +1,7 @@
 id: centered-difference-polynomial
 name: Apply a centred finite difference
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Compute a centred finite-difference derivative estimate for a cubic polynomial at a stated point.
 status: active
 prerequisites: [differentiate-polynomial]

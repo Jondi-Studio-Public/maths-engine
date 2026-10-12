@@ -1,6 +1,7 @@
 id: ucv1-energy-estimate
 name: Compute a fixed PDE energy estimate
 domain: advanced-pdes-and-dynamics
+year_level: [university]
 description: For a supplied single separated heat-equation mode on a stated interval, with its boundary conditions and the sign of the diffusion coefficient stated in the question, evaluate the energy E(t), the integral of the square of the solution over the interval, as a closed-form expression in t.
 status: active
 placement_eligible: false

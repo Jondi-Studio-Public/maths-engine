@@ -1,6 +1,7 @@
 id: gradient-descent-quadratic
 name: Take one gradient-descent step on a quadratic loss
 domain: optimisation
+year_level: [university]
 description: Use an exact derivative and learning rate to update one parameter for a simple quadratic loss.
 status: active
 prerequisites: [differentiate-polynomial]

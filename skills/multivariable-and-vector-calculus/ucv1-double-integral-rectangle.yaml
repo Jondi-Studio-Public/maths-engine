@@ -1,6 +1,7 @@
 id: ucv1-double-integral-rectangle
 name: Evaluate a rectangular double integral
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Evaluate a supplied separable polynomial f(x, y) = g(x) h(y) over an
   axis-aligned rectangle by iterated integration -- factor into the two
   one-variable integrals and multiply. Never a change of variables, never a

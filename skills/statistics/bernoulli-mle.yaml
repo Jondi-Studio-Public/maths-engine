@@ -1,6 +1,7 @@
 id: bernoulli-mle
 name: Estimate a Bernoulli probability by maximum likelihood
 domain: statistics
+year_level: [university]
 description: Compute p-hat = k/n for independent Bernoulli observations.
 status: active
 prerequisites: [simple-event-probability]

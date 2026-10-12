@@ -1,6 +1,8 @@
 id: f10-fraction-equivalence-numberline
 name: Compare and order common fractions on one line
 domain: primary-number
+year_level: ['6', '7']
+naplan_domain: [number]
 description: 'Order a supplied set of halves, thirds and quarters from smallest
   to largest. Not a pairwise comparison (that is compare-common-fractions'' own
   mcq shape, "less than/equal to/greater than") -- orders a whole supplied set of

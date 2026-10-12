@@ -1,6 +1,7 @@
 id: ucv1-markov-hitting-probability
 name: Compute a two-state Markov hitting probability
 domain: stochastic-processes
+year_level: [university]
 description: Compute the probability of reaching a target state within two transitions
   for a supplied two-state transition matrix. The chain always starts in the
   non-target state s; the target-state return probability q is part of the

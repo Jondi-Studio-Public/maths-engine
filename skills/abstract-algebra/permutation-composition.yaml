@@ -1,6 +1,7 @@
 id: permutation-composition
 name: Compose small permutations
 domain: abstract-algebra
+year_level: [university]
 description: Compute the composition of two explicitly listed permutations using one-based image notation.
 status: active
 prerequisites: [permutations]

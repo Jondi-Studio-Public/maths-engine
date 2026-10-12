@@ -1,6 +1,8 @@
 id: f10-trig-ratios-similarity
 name: Use constant right-triangle ratios to find a side
 domain: trigonometry
+year_level: ['9']
+naplan_domain: [space]
 description: Given one acute angle and one known side of a right-angled triangle, use the constant sine, cosine or tangent ratio for that angle (established through similar right triangles) to calculate an unknown side, rounded as the question states.
 status: active
 placement_eligible: false

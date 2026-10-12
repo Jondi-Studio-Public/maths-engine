@@ -1,6 +1,7 @@
 id: convert-metric-length
 name: Convert metric length units
 domain: measurement
+year_level: ['6']
 placement_order: 10
 placement_questions: 3
 placement_pass: 2

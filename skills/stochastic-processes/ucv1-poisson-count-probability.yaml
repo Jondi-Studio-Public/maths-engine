@@ -1,6 +1,7 @@
 id: ucv1-poisson-count-probability
 name: Compute a Poisson process count probability
 domain: stochastic-processes
+year_level: [university]
 description: Compute P(N(t)=k) for a supplied Poisson rate, time and count using an
   exact bounded parameter set. The exponential factor e^(-lambda t) is always
   supplied as a given exact value in the question text; never a Poisson-process

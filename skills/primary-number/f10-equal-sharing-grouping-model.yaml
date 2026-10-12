@@ -1,6 +1,8 @@
 id: f10-equal-sharing-grouping-model
 name: Model equal-sharing and grouping problems
 domain: primary-number
+year_level: ['1']
+naplan_domain: [number]
 description: Given a stated practical context, determine whether it is an equal-sharing (partitive -- a fixed number of containers, find how many go in each) or grouping (quotitive -- a fixed amount per container, find how many containers are needed) situation, then compute the result and state what it counts.
 status: active
 placement_eligible: false

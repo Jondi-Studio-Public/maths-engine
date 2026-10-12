@@ -1,6 +1,7 @@
 id: ucv1-heat-equation-mode
 name: Compute one separated heat-equation mode
 domain: fourier-analysis-and-pdes
+year_level: [university]
 description: Compute one supplied separated Fourier mode satisfying stated one-dimensional heat-equation boundary conditions.
 status: active
 placement_eligible: false

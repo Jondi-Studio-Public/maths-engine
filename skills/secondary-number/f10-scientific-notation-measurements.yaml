@@ -1,6 +1,8 @@
 id: f10-scientific-notation-measurements
 name: Solve measurement problems in scientific notation
 domain: secondary-number
+year_level: ['9']
+naplan_domain: [measurement]
 description: Given a measurement, time-scale or interval problem in which the given quantities are expressed in scientific notation, compute the numeric solution requested.
 status: active
 placement_eligible: false

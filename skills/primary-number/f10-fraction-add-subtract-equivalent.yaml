@@ -1,6 +1,8 @@
 id: f10-fraction-add-subtract-equivalent
 name: Add and subtract fractions through equivalence
 domain: primary-number
+year_level: ['5', '6']
+naplan_domain: [number]
 description: Add or subtract fractions by generating equivalent fractions with a common denominator and simplify or interpret the result. Denominators are always related (one a multiple of the other, or -- at the hardest tier -- three denominators sharing a common multiple), never equal at input and never fraction multiplication/division. grade_fraction compares by exact value, so no distractor is ever "the right value, not simplified" -- the canonical answer is simply shown fully reduced. Distinct from the readiness skill fraction-arithmetic, which already performs all four operations on ARBITRARY-denominator fractions with no relatedness constraint; this skill specifically targets the equivalent-fraction/common-denominator METHOD.
 status: active
 placement_eligible: false

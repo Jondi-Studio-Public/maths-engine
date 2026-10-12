@@ -1,6 +1,7 @@
 id: percentage-of-quantity
 name: Find a percentage of a quantity
 domain: primary-number
+year_level: ['6']
 placement_order: 60
 placement_questions: 3
 placement_pass: 2

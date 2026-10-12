@@ -1,6 +1,7 @@
 id: discrete-expected-value
 name: Compute a finite discrete expectation
 domain: probability
+year_level: [university]
 description: Compute the exact expected value of a finite discrete random variable from its outcomes and probabilities.
 status: active
 prerequisites: [simple-event-probability]

@@ -1,6 +1,8 @@
 id: f10-factor-multiple-divisibility-algorithm
 name: Trace a factors/multiples/divisibility algorithm
 domain: secondary-number
+year_level: ['5']
+naplan_domain: [number]
 description: Given a stated finite algorithm (a sequence of tests and decisions) for exploring factors, multiples or divisibility, and a stated natural-number input, trace the algorithm and state its final numeric output -- a count or a step count, never a yes/no verdict (a boolean output is deliberately not used here, because a boolean output over factors/multiples/divisibility would collide with the existing f10-factors-multiples-divisibility skill from the learner's chair) and never a GCD/LCM/Euclidean-reduction result (that is the separate euclidean-algorithm-gcd skill).
 status: active
 placement_eligible: false

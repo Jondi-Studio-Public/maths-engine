@@ -1,6 +1,7 @@
 id: propositional-formula-equivalence
 name: Test propositional formula equivalence
 domain: logic-computability-and-information
+year_level: [university]
 description: Decide whether two small propositional formulas have identical truth values on every assignment by exhaustive truth-table comparison.
 status: active
 prerequisites: [propositional-truth-evaluation]

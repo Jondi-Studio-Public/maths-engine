@@ -1,6 +1,7 @@
 id: ucv1-unconstrained-critical-point
 name: Find a quadratic critical point
 domain: optimisation
+year_level: [university]
 description: Solve the zero-gradient equations for a supplied two-variable quadratic and return its critical point.
 status: active
 placement_eligible: false

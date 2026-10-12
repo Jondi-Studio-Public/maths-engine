@@ -1,6 +1,8 @@
 id: f10-subitise-name-to-5
 name: Subitise and name collections to five
 domain: early-foundations
+year_level: [F]
+naplan_domain: [number]
 learner_band: early
 description: Given a concrete or virtual collection of at most five objects, identify its cardinality without counting each object and state the number.
 status: active

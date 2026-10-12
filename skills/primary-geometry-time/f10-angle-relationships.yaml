@@ -1,6 +1,7 @@
 id: f10-angle-relationships
 name: Use angle relationships to find unknowns
 domain: primary-geometry-time
+year_level: ['6']
 description: Given a stated angle in an angles-at-a-point or vertically-opposite relationship to another angle, determine the unknown angle in degrees.
 status: active
 placement_eligible: false

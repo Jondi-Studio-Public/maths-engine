@@ -1,6 +1,7 @@
 id: jacobian-two-variable
 name: Evaluate a 2-variable Jacobian
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Evaluate the 2 by 2 Jacobian matrix of a polynomial map from two variables to two outputs at a point.
 status: active
 prerequisites: [partial-derivative-y]

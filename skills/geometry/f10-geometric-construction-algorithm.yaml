@@ -1,6 +1,8 @@
 id: f10-geometric-construction-algorithm
 name: Follow a geometric construction after a step is refined
 domain: geometry
+year_level: ['9', '10']
+naplan_domain: [space]
 description: Given a stated geometric construction written as numbered steps and a stated refinement to one step, work out the length or angle the refined construction produces, using the stated geometric facts (Pythagoras' theorem, the angle in a semicircle, angle constructions).
 status: active
 placement_eligible: false

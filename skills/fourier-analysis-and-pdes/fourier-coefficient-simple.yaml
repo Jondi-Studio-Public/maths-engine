@@ -1,6 +1,7 @@
 id: fourier-coefficient-simple
 name: Compute a simple Fourier coefficient
 domain: fourier-analysis-and-pdes
+year_level: [university]
 description: Compute one exact sine or cosine coefficient for x or x² on [0, π].
 status: active
 prerequisites:

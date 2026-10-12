@@ -1,6 +1,7 @@
 id: ucv1-numerical-error-bound
 name: Compute a deterministic numerical error bound
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Compute the absolute and relative error bound for a supplied approximation and certified interval.
 status: active
 placement_eligible: false

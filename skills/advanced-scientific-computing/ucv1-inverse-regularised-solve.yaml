@@ -1,6 +1,7 @@
 id: ucv1-inverse-regularised-solve
 name: Solve a tiny regularised inverse problem
 domain: advanced-scientific-computing
+year_level: [university]
 description: Solve the exact regularised normal equations (A^T A + lambda*I)x =
   A^T b for a supplied tiny matrix A (m x 2, m in {2, 3, 4}), vector b and a
   stated ridge penalty lambda >= 1, returning the pair x = (x1, x2). The

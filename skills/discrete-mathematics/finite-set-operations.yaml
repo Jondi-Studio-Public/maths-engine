@@ -1,6 +1,7 @@
 id: finite-set-operations
 name: Compute finite set operations
 domain: discrete-mathematics
+year_level: [university]
 description: Compute union, intersection, difference or symmetric difference for explicitly listed finite sets.
 status: active
 prerequisites: []

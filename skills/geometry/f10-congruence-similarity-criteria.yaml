@@ -1,6 +1,8 @@
 id: f10-congruence-similarity-criteria
 name: Choose the congruence or similarity test for two triangles
 domain: geometry
+year_level: ['8']
+naplan_domain: [space]
 description: Given the side lengths, angles and right angle stated for two triangles, choose the one conclusion those facts justify -- congruent by a named test (SSS, SAS, ASA, AAS or RHS), similar by a named test (AA, or sides or SAS in proportion), or neither can be concluded.
 status: active
 placement_eligible: false

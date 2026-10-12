@@ -1,6 +1,8 @@
 id: f10-equivalent-fractions-related-denominators
 name: Generate equivalent fractions with related denominators
 domain: primary-number
+year_level: ['4', '5']
+naplan_domain: [number]
 description: Generate an equivalent fraction with a related denominator for a supplied fraction. Never a decimal connection, a number-line placement or a simplification -- grade_fraction compares fractions by exact value, so a distractor is never "the right value, a different denominator"; every misconception offered here is a genuinely different fraction value.
 status: active
 placement_eligible: false

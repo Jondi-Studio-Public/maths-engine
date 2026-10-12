@@ -1,6 +1,7 @@
 id: f10-circle-measures
 name: Calculate circle circumference and area
 domain: measurement
+year_level: ['7', '8']
 description: Use radius or diameter and π to calculate or interpret a circle's circumference or area with appropriate units.
 status: active
 placement_eligible: false

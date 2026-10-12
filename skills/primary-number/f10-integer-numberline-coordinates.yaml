@@ -1,6 +1,8 @@
 id: f10-integer-numberline-coordinates
 name: Order integers from smallest to largest
 domain: primary-number
+year_level: ['6', '7']
+naplan_domain: [number]
 description: Order a supplied set of integers from smallest to largest.
 status: active
 placement_eligible: false

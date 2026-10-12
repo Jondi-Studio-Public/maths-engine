@@ -1,6 +1,7 @@
 id: directional-derivative
 name: Compute a directional derivative
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Compute the scalar directional derivative of a two-variable polynomial at a specified point and unit direction.
 status: active
 prerequisites: [partial-derivative-y]

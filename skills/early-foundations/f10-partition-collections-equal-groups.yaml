@@ -1,6 +1,8 @@
 id: f10-partition-collections-equal-groups
 name: Partition collections into equal groups
 domain: early-foundations
+year_level: ['1']
+naplan_domain: [number]
 learner_band: early
 description: Given a collection of up to 120 objects and a stated number of equal groups to partition it into, determine the size of each group using known number facts or skip counting.
 status: active

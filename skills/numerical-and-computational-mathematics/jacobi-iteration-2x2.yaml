@@ -1,6 +1,7 @@
 id: jacobi-iteration-2x2
 name: Perform one 2 by 2 Jacobi iteration
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Apply one exact Jacobi update to a diagonally dominant two-variable linear system.
 status: active
 prerequisites: [matrix-solve-system]

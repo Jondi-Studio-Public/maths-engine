@@ -1,6 +1,8 @@
 id: f10-multiply-divide-one-digit-arrays
 name: Multiply and divide using groups and arrays
 domain: primary-number
+year_level: ['2', '3']
+naplan_domain: [number]
 description: Given a one-digit multiplication or division situation framed as equal groups or an array, compute the unknown total, each-group size, or number of groups.
 status: active
 placement_eligible: false

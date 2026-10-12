@@ -1,6 +1,8 @@
 id: f10-decimal-order-numberline
 name: Order multi-place decimals
 domain: primary-number
+year_level: ['5']
+naplan_domain: [number]
 description: Order a supplied set of decimals with more than two decimal places, including values greater than one, from smallest to largest.
 status: active
 placement_eligible: false

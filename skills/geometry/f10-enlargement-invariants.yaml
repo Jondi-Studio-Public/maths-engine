@@ -1,6 +1,7 @@
 id: f10-enlargement-invariants
 name: Identify what an enlargement changes and keeps
 domain: geometry
+year_level: ['9']
 description: Given a shape enlarged from a centre of enlargement by a stated scale factor, find the image's length, angle, area, perimeter or distance from the centre, using the fact that lengths scale by the factor, areas by its square and angles not at all.
 status: active
 placement_eligible: false

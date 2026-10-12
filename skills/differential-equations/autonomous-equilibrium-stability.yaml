@@ -1,6 +1,7 @@
 id: autonomous-equilibrium-stability
 name: Classify a one-dimensional equilibrium by derivative sign
 domain: differential-equations
+year_level: [university]
 description: Determine whether a hyperbolic equilibrium of x' = f(x) attracts or repels nearby solutions.
 status: active
 prerequisites:

@@ -1,6 +1,7 @@
 id: ucv1-sigma-algebra-closure
 name: Check closure of a finite sigma-algebra candidate
 domain: measure-and-advanced-probability
+year_level: [university]
 description: Decide whether a supplied finite family of subsets is closed under complement and finite union.
 status: active
 placement_eligible: false

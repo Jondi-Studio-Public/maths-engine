@@ -1,6 +1,8 @@
 id: f10-add-subtract-practical-situations
 name: Solve joining and separating word problems to 20
 domain: early-foundations
+year_level: [F, '1']
+naplan_domain: [number]
 learner_band: early
 description: Given a word problem describing objects being joined, separated or combined into a single quantity, with quantities up to 20, determine the resulting quantity.
 status: active

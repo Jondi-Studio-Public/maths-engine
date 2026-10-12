@@ -1,6 +1,7 @@
 id: rectangle-area
 name: Calculate rectangle area
 domain: measurement
+year_level: ['6']
 placement_order: 50
 placement_questions: 3
 placement_pass: 2

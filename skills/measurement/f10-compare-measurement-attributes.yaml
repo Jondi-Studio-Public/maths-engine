@@ -1,6 +1,7 @@
 id: f10-compare-measurement-attributes
 name: Compare measurement attributes
 domain: measurement
+year_level: ['1']
 description: Given two objects or events and a stated attribute (length, mass, capacity or duration), determine which is greater, smaller, or that they are equal using direct comparison methods.
 status: active
 placement_eligible: false

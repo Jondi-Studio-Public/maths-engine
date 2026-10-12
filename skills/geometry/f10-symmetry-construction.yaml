@@ -1,6 +1,8 @@
 id: f10-symmetry-construction
 name: Identify line and rotational symmetry
 domain: geometry
+year_level: ['4']
+naplan_domain: [space]
 description: State a shape's number of lines of symmetry and its order of rotational symmetry, given a familiar shape by name, by its features, or as a regular polygon with a stated exterior angle.
 status: active
 placement_eligible: false

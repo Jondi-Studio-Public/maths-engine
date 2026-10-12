@@ -1,6 +1,7 @@
 id: convex-quadratic-minimum
 name: Find a convex quadratic minimum
 domain: optimisation
+year_level: [university]
 description: Find the minimising input and minimum value of a univariate quadratic with positive leading coefficient.
 status: active
 prerequisites:
