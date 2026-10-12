@@ -66,9 +66,11 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   `stages` entries come from `0` to `6`, `maintenance` and `exam`.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
-  `polyline`, `line`. `list` ignores order and `ordered_list` is positional. `grade_expression`
-  accepts a leading `name =`. `inequality` has no grader yet, so such a skill stays
-  `deferred` with reason `grader`.
+  `polyline`, `line`, `inequality`, `matrix`. `list` ignores order and `ordered_list` is positional.
+  `grade_expression` accepts a leading `name =`. `inequality` (`mathgen/grading/inequality.py`) compares
+  solution sets, so `3 < x` and `(3, ∞)` are both `x > 3`. `matrix` (`mathgen/grading/matrix.py`) compares
+  exact entries; its `answer_form` `scalar_multiple` or `column_scalar_multiple` accepts any non-zero
+  multiple of the answer, or of each of its columns, for answers such as eigenvectors.
 - **`misconceptions` and `near_misses`:** both are lists of `id` plus `description`. A
   misconception is wrong method ("subtracts in the wrong order"). A near miss is sound
   reasoning aimed at a different question than the one asked. Ids must not collide across the
