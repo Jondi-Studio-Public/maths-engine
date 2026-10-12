@@ -61,7 +61,7 @@ def test_fraction_notations_are_read(reply):
     assert grade("fraction", _q({"p": 11, "q": 19}, "11/19", text="Solve 19x = 11."), reply).correct
 
 
-@pytest.mark.parametrize("reply", ["(−3)/5", "(-3)/5", "−3/5", "-\\frac{3}{5}"])
+@pytest.mark.parametrize("reply", ["(−3/5)", "(-3/5)", "−3/5", "-\\frac{3}{5}"])
 def test_negative_fraction_notations_are_read(reply):
     assert grade("fraction", _q({"p": -3, "q": 5}, "-3/5"), reply).correct
 

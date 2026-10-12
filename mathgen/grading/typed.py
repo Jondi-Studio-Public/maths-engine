@@ -121,8 +121,8 @@ _VULGAR_FRACTIONS = {
 _VULGAR_FRACTION_RE = re.compile("(\\d?)[ \t]*([" + "".join(_VULGAR_FRACTIONS) + "])")
 # "\frac{11}{19}", "\dfrac{11}{19}", "\frac11{19}": LaTeX's fraction, as a learner copies it from a rendered page.
 _LATEX_FRACTION_RE = re.compile(r"\\[dt]?frac[ \t]*\{?[ \t]*(\d+)[ \t]*\}?[ \t]*\{[ \t]*(\d+)[ \t]*\}")
-# "(11/19)" and "(-3)/5": brackets around a whole fraction, or around its numerator.
-_BRACKETED_FRACTION_RE = re.compile(r"^\(\s*([^()]*)\s*\)$|^\(\s*(-?\s*\d+)\s*\)\s*/\s*(\d+)$")
+# "(11/19)": brackets around a whole fraction. Brackets around the numerator alone ("(-3)/5") stay unread.
+_BRACKETED_FRACTION_RE = re.compile(r"^\(\s*([^()]*)\s*\)$")
 # The fraction slash, the division slash and the division sign are all a fraction bar here.
 _FRACTION_BARS = str.maketrans({"⁄": "/", "∕": "/", "÷": "/"})
 
@@ -140,8 +140,7 @@ def _tidy_fraction_text(given: str) -> str:
     text = _VULGAR_FRACTION_RE.sub(_vulgar_fraction, text)
     bracketed = _BRACKETED_FRACTION_RE.match(text)
     if bracketed:
-        inner, numerator, denominator = bracketed.groups()
-        text = inner if inner is not None else f"{numerator.replace(' ', '')}/{denominator}"
+        text = bracketed.group(1)
     return text.strip()
 
 
