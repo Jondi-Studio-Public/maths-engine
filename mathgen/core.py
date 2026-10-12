@@ -1470,8 +1470,8 @@ def value_safe_str(expr) -> str:
 #
 # Generators build prompts and answers with Python's spelling: ``x**2``, ``2*x``, ``sqrt(21)``, ``exp(-x)``,
 # ``pi``. A learner reads (and types) ``x^2``, ``2x``, ``√21``, ``e^(-x)``, ``π``. ``paper_notation`` is the one
-# place that rewrites the first into the second; ``make()`` applies it to every learner-facing string, so a
-# generator may keep building its text from ``str(sympy_expression)`` and still show paper notation.
+# place that rewrites the first into the second. The stored question keeps Python's spelling, which tests and
+# oracles parse; a consumer shows ``display_question(q)`` (text, answer, options, working in paper notation).
 # The graders read both spellings (``mathgen/grading/typed.py`` normalises ``^``, ``×``, ``√``, ``π`` and implied
 # multiplication), and ``tests/test_paper_notation.py`` pins that every rewritten form reads as the same value.
 
