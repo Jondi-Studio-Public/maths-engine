@@ -85,10 +85,18 @@ def exd_x_pr4_decimal_estimate_budget(rng: random.Random, tier: str = "exam") ->
         truncated = sum(c // 100 for c in prices) - voucher // 100
         trunc_gap = abs(100 * truncated - exact)
         sum_of_sizes = sum(abs(e) for e in errors)
+        # The estimate is a whole number of dollars, so every option for (a) is one too.
+        rounded_sum = sum(_round_dollar(c) for c in prices)
         a_candidates = [
-            Distractor(_two_dp(rounds_first_only), "rounds-only-one-operand", Fraction(rounds_first_only, 100)),
-            Distractor(exact_text, "computes-exact-result-instead-of-estimating", Fraction(exact, 100)),
+            Distractor(
+                str(_round_dollar(rounds_first_only)), "rounds-only-one-operand", _round_dollar(rounds_first_only)
+            ),
+            Distractor(str(_round_dollar(exact)), "computes-exact-result-instead-of-estimating", _round_dollar(exact)),
             Distractor(str(truncated), "rounded-down-not-to-nearest", truncated),
+            Distractor(
+                str(rounded_sum + _round_dollar(voucher)), None, rounded_sum + _round_dollar(voucher)
+            ),  # voucher added
+            Distractor(str(rounded_sum), None, rounded_sum),  # the voucher left out
         ]
         b_candidates = [
             Distractor(_two_dp(sum(prices)), None, Fraction(sum(prices), 100)),  # the voucher left out

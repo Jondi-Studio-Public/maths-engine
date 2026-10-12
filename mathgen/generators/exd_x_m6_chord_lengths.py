@@ -63,7 +63,7 @@ def _attempt(rng: random.Random) -> dict | None:
         return None
     cp, pd = rng.choice(pairs)
     chord_ab, chord_cd = ap + pb, cp + pd
-    if chord_ab == chord_cd:
+    if chord_ab == chord_cd or len({x, chord_ab, abs(chord_ab - chord_cd)}) < 3:  # no two parts share an answer
         return None
     check(ap_coeff * x + p_off == ap and pb_coeff * x + q_off == pb and ap * pb == cp * pd, "chords: figures disagree")
     # The other root of the quadratic is negative, so x is the only usable solution.

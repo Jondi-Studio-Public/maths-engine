@@ -1,8 +1,8 @@
 """Exam source for `senior-use-formulas-to-find-the-volume-of-pyramids`: a three-part chain on one pyramid.
 
 The stem gives a pyramid with a square or rectangular base and the slant height of one triangular face. Part (a)
-finds the perpendicular height by Pythagoras on the right triangle formed by the height, half of the base edge that
-face stands on, and the slant height. Part (b) uses that height for the volume (one third of base area times
+finds the perpendicular height by Pythagoras on the right triangle formed by the height, half of the base edge perpendicular to
+the edge that face stands on, and the slant height. Part (b) uses that height for the volume (one third of base area times
 height). Part (c) turns the volume into a capacity in litres. Parts (b) and (c) carry `follow_through`, so a learner
 whose (a) is wrong still earns (b) and (c) for using their own answer correctly.
 
@@ -95,7 +95,8 @@ def exd_x_fu_pyramid_volume(rng, tier: str = "exam"):
     else:
         stem = (
             f"A {thing} has a rectangular base {b} cm by {w} cm and its apex directly above the centre of the "
-            f"base. The triangular face standing on a {w} cm edge has a slant height of {slant} cm."
+            f"base. The triangular face standing on a {'longer' if b > w else 'shorter'} edge has a slant height "
+            f"of {slant} cm."
         )
     # (a)
     added = _sqrt_tenths(slant, half)
@@ -137,7 +138,12 @@ def exd_x_fu_pyramid_volume(rng, tier: str = "exam"):
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"Half of the {w} cm edge is {half} cm. The height, this half-edge and the slant height form a right triangle.",
+                    (
+                        f"Half of the {w} cm edge is {half} cm. The height, this half-edge and the slant height form a right triangle."
+                        if d["square"]
+                        else f"The face stands on the {b} cm edge, so the run to the apex is half of the other edge: {w} / 2 = {half} cm. "
+                        "The height, this run and the slant height form a right triangle."
+                    ),
                     f"h^2 = {slant}^2 - {half}^2 = {slant * slant - half * half}, so h = {h_text} cm.",
                 ],
                 distractors=a_d,

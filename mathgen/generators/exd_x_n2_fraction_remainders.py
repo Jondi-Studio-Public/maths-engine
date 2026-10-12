@@ -26,8 +26,6 @@ from mathgen.core import (
     latex_answer,
     phrase,
     pick_distractors,
-    round_half_up,
-    stated_precision_string,
 )
 from mathgen.slots import NAMES
 
@@ -72,10 +70,6 @@ _SCENES = (
 
 def _frac_text(f: Fraction) -> str:
     return f"{f.numerator}/{f.denominator}"
-
-
-def _num_text(v: Fraction) -> str:
-    return str(int(v)) if v.denominator == 1 else stated_precision_string(round_half_up(v, 2), 2)
 
 
 def _draw(rng):
@@ -144,7 +138,9 @@ def exd_x_n2_fraction_remainders(rng, tier="exam"):
         )
 
     def num_part(prompt, key, marks, work, cands, ft):
-        shown = [Distractor(_num_text(v), tag, round_half_up(v, 2)) if tag else _num_text(v) for v, tag in cands]
+        # The key is a whole number, so every option is too: a wrong value that is not whole (39.38 against 280)
+        # would give the key away by its format, and rounding it would misreport what the slip produces.
+        shown = [Distractor(str(int(v)), tag, int(v)) if tag else str(int(v)) for v, tag in cands if v.denominator == 1]
         return dict(
             prompt=prompt,
             answer_kind="number",
@@ -172,6 +168,7 @@ def exd_x_n2_fraction_remainders(rng, tier="exam"):
                 (x / rest, "ignored-second-fraction"),
                 *([(x / (1 - f1 - f2), "second-fraction-of-original")] if 1 - f1 - f2 > 0 else []),
                 (x * (1 - f2), None),
+                (x / (1 - f2), None),  # scales back with the second fraction only
             ],
             f"{x}/part_a",
         ),

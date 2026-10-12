@@ -60,6 +60,8 @@ def exd_x_m3_scale_reading_chain(rng: random.Random, tier: str = "exam") -> dict
         p_read = lo + d1 * q
         q_read = hi - d2 * q
         total = (p_read + q_read) / factor
+        if len({q, p_read, q_read, total}) < 4:  # no two parts may share an answer (P = Q repeated one reply)
+            continue
         stem = phrase(rng, _STEMS, inst=inst, step=step, u=u, lo=lo, hi=hi, n=n, d1=_divisions(d1), d2=_divisions(d2))
         parts = [
             numeric_part(

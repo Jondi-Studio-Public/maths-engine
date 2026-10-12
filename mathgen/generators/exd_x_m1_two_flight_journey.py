@@ -94,13 +94,13 @@ def exd_x_m1_two_flight_journey(rng, tier: str = "exam"):
     t_dep2, t_arr2 = when(depart2, stop), when(arrive2, dest)
     stem = (
         f"A traveller flies from {origin} to {dest} with a stopover in {stop}. "
-        f"Flight 1 leaves {origin} at {t_dep1} and lands in {stop} at {t_arr1}. "
-        f"Flight 2 leaves {stop} at {t_dep2} and lands in {dest} at {t_arr2}. "
+        f"The first flight leaves {origin} at {t_dep1} and lands in {stop} at {t_arr1}. "
+        f"The second flight leaves {stop} at {t_dep2} and lands in {dest} at {t_arr2}. "
         f"All times are local. {_difference(stop, origin)}, and {_difference(dest, stop)}."
     )
-    p_a = "Find the flying time of Flight 1, in minutes."
+    p_a = "Find the flying time of the first flight, in minutes."
     p_b = f"Find the length of the stopover in {stop}, in minutes."
-    p_c = "Find the flying time of Flight 2, in minutes."
+    p_c = "Find the flying time of the second flight, in minutes."
     p_d = f"Using your answers to (a), (b) and (c), find the total time from leaving {origin} to landing in {dest}, in minutes."
 
     def positive(values):

@@ -8,7 +8,9 @@ it, and then keep using powers to compare later periods. Three parts:
 (b) the increase during the next period (2 marks, follow-through from (a));
 (c) the amount after k further periods (2 marks, follow-through from (a)).
 
-The growth factor is 2, 3 or 4 and each context has its own size limit. Everything is an exact integer.
+The growth factor is 3 or 4 (never 2: doubling makes the increase during the next period equal to the amount
+itself, so (b) would repeat (a) and "follow through" from it by multiplying by 1) and each context has its own
+size limit. Everything is an exact integer.
 """
 
 from __future__ import annotations
@@ -34,7 +36,7 @@ _SCENES = (
         "A sample in a Perth research lab starts with {c} cells. The number of cells is multiplied by {b} "
         "every hour as the cells divide.",
         "How many cells are in the sample after {h} hours?",
-        (2, 3),
+        (3, 4),
         2_000_000,
     ),
     (
@@ -43,7 +45,7 @@ _SCENES = (
         "A computer virus is found on {c} computers in a large company's network. From then on the number of infected computers is "
         "multiplied by {b} at the end of each day as it spreads through email.",
         "How many computers are infected after {h} days?",
-        (2, 3),
+        (3, 4),
         40_000,
     ),
     (

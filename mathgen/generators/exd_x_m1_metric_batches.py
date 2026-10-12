@@ -233,7 +233,9 @@ def _build(rng, kind: str, tier: str):
                 answer_text=a_text,
                 answer_latex=latex_answer(a_text),
                 marks=1,
-                sensible_range=(0, None),
+                # A total below one portion floors (b) to 0 and would hand (b) over as free follow-through, so
+                # an (a) that small carries nothing forward. The key is at least four portions.
+                sensible_range=(s - 1, None),
                 working=[f"1 {big_unit} = {factor} {small_unit}, so {big_text} × {factor} = {a_text} {small_unit}."],
                 distractors=a_d,
             ),

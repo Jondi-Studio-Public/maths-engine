@@ -14,7 +14,6 @@ from mathgen.answers import Distractor
 from mathgen.core import (
     attempts,
     check,
-    exact_decimal_string,
     generator,
     numeric_answer,
     pick_distractors,
@@ -73,14 +72,18 @@ def exd_x_pr4_decimal_notation_lengths(rng: random.Random, tier: str = "exam") -
     a_text, b_text = stated_precision_string(v1, 2), stated_precision_string(v2, 2)
     c_text = str(int(total))
 
-    def txt(v: Fraction) -> str:
-        return exact_decimal_string(v, 4)
+    def txt(v: Fraction, places: int) -> str:
+        return stated_precision_string(v, places)
 
     def joined(t: int, h: int) -> Fraction:
         return Fraction(f"{t}.{h}")
 
-    def tagged(v: Fraction, misconception: str | None) -> Distractor:
-        return Distractor(txt(v), misconception, v)
+    def tagged(v: Fraction, misconception: str | None, places: int = 2) -> Distractor | None:
+        """The wrong value written to the key's own places; None when it is not exact there (a whole-number key
+        meets only whole-number options, and rounding a slip's result would misreport it)."""
+        if v * 10**places % 1:
+            return None
+        return Distractor(txt(v, places), misconception, v)
 
     a_candidates = [
         tagged(joined(t1, h1), "joins-digits-as-decimal"),
@@ -93,10 +96,14 @@ def exd_x_pr4_decimal_notation_lengths(rng: random.Random, tier: str = "exam") -
         tagged(Fraction(t2 + h2, 10), "hundredths-read-as-tenths"),
     ]
     c_candidates = [
-        tagged((v1 + v2) * (factor // 10), "converts-with-wrong-power-of-ten"),
-        tagged((v1 + v2) * factor * 10, "converts-with-wrong-power-of-ten"),
-        tagged((joined(t1, h1) + joined(t2, h2)) * factor, "joins-digits-as-decimal"),
+        tagged((v1 + v2) * (factor // 10), "converts-with-wrong-power-of-ten", 0),
+        tagged((v1 + v2) * factor * 10, "converts-with-wrong-power-of-ten", 0),
+        tagged((v1 + v2) * factor * 100, "converts-with-wrong-power-of-ten", 0),
+        tagged((joined(t1, h1) + joined(t2, h2)) * factor, "joins-digits-as-decimal", 0),
     ]
+    a_candidates, b_candidates, c_candidates = (
+        [c for c in cands if c is not None] for cands in (a_candidates, b_candidates, c_candidates)
+    )
     a_d = pick_distractors(a_text, a_candidates, 3, tolerance=Fraction(1, 200))
     b_d = pick_distractors(b_text, b_candidates, 3, tolerance=Fraction(1, 200))
     c_d = pick_distractors(c_text, c_candidates, 3, tolerance=Fraction(1, 2))
