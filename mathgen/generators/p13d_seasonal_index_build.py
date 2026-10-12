@@ -160,7 +160,7 @@ _SI_HARD_TEMPLATES = (
     "decimal places.",
 )
 _SI_EXAM_TEMPLATES = (
-    "Exam-style question. The four quarters' unadjusted seasonal indices (average percentage "
+    "The four quarters' unadjusted seasonal indices (average percentage "
     "method) summed to {total}. Three of the four are: Quarter {a} = {ia}, Quarter {b} = {ib}, "
     "Quarter {c} = {ic}. Find the ADJUSTED seasonal index for Quarter {d}, once every quarter "
     "is scaled by the same factor so all four sum to exactly 400. Give your answer to 1 "
@@ -527,18 +527,18 @@ _DS_HARD_TEMPLATES = (
     "quarter, find the actual sales value that produced it, to 2 decimal places.",
 )
 _DS_EXAM_TEMPLATES = (
-    "Exam-style question. Period A had actual sales of ${a_actual} and a seasonal index of "
+    "Period A had actual sales of ${a_actual} and a seasonal index of "
     "{a_index}. Period B had actual sales of ${b_actual} and a seasonal index of {b_index}. "
-    "Deseasonalise both figures, then find the percentage change from Period A's "
-    "deseasonalised value to Period B's, to 1 decimal place.",
-    "This exam question gives two periods: Period A -- actual sales ${a_actual}, seasonal "
-    "index {a_index}; Period B -- actual sales ${b_actual}, seasonal index {b_index}. After "
-    "deseasonalising both, find the percentage change from Period A to Period B, to 1 decimal "
+    "Find the percentage change from Period A's deseasonalised value to Period B's, to 1 "
+    "decimal place.",
+    "Two periods are compared: Period A -- actual sales ${a_actual}, seasonal "
+    "index {a_index}; Period B -- actual sales ${b_actual}, seasonal index {b_index}. Find "
+    "the percentage change in deseasonalised sales from Period A to Period B, to 1 decimal "
     "place.",
     "Two trading periods are compared. Period A recorded actual sales of ${a_actual} against a "
     "seasonal index of {a_index}; Period B recorded actual sales of ${b_actual} against a "
-    "seasonal index of {b_index}. Deseasonalise each period's figure, then state the "
-    "percentage change from Period A's deseasonalised value to Period B's, to 1 decimal place.",
+    "seasonal index of {b_index}. State the percentage change from Period A's "
+    "deseasonalised value to Period B's, to 1 decimal place.",
 )
 
 

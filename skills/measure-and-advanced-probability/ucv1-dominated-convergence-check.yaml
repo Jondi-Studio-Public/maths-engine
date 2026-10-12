@@ -19,8 +19,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15d_dominated_convergence
-  params: {}
+- topic: exd_x_r2g_dct_integrals
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

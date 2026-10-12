@@ -94,7 +94,7 @@ _SCENARIOS = (
             "The time, X minutes, that a commuter takes to travel by train from {place} to the city is "
             "normally distributed with mean {mu} minutes and standard deviation {sigma} minutes, so "
             "X ~ N({mu}, {sigma}²).",
-            "On weekday mornings, the time, X minutes, for a {place} bus journey into the city is normally "
+            "On weekday mornings, the time, X minutes, for the {place} bus journey into the city is normally "
             "distributed with mean {mu} minutes and standard deviation {sigma} minutes, so X ~ N({mu}, {sigma}²).",
         ),
         places=("Parramatta", "Frankston", "Ipswich", "Elizabeth", "Joondalup", "Cleveland", "Penrith"),
@@ -112,7 +112,7 @@ _SCENARIOS = (
         intro=(
             "At a nursery in {place}, the height, X millimetres, of a {item} seedling at eight weeks is "
             "normally distributed with mean {mu} mm and standard deviation {sigma} mm, so X ~ N({mu}, {sigma}²).",
-            "The height, X millimetres, of {item} seedlings grown by a {place} landcare group is normally "
+            "The height, X millimetres, of {item} seedlings grown by the {place} landcare group is normally "
             "distributed with mean {mu} mm and standard deviation {sigma} mm, so X ~ N({mu}, {sigma}²).",
         ),
         places=("Toowoomba", "Bendigo", "Launceston", "Armidale", "Albany", "Alice Springs", "Murray Bridge"),

@@ -22,6 +22,7 @@ GC_GRADER = GRADERS["fraction"]
 GC_SKILL = "senior-implement-the-statistical-investigation-process-to-answer-questions"
 
 TV_TOPIC = "p16a_trend_value"
+TV_EXAM_SOURCE_TOPIC = "exd_x_r2k_trend_forecast"  # the skill's exam source is the multi-part chain, not TV_TOPIC
 TV_GRADER = GRADERS["number"]
 TV_SKILL = "senior-implement-the-statistical-investigation-process-to-answer-questions-acmgm093"
 
@@ -256,7 +257,8 @@ class _TVCommon:
         skill = next(s for s in skills if s.id == TV_SKILL)
         assert skill.answer == "number"
         assert skill.placement_eligible is False
-        assert any(src.topic == TV_TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        expected = TV_EXAM_SOURCE_TOPIC if self.TIER == "exam" else TV_TOPIC
+        assert any(src.topic == expected and src.difficulty == self.TIER for src in skill.sources)
 
 
 class TestTVEasy(_TVCommon):

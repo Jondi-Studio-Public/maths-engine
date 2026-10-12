@@ -129,9 +129,9 @@ _HARD_PATTERNS = [
 ]
 
 _EXAM_PATTERNS = [
-    "A joint distribution over X (values x1, x2) and Y (values y1, y2, y3) has these probabilities, with one entry missing (all six probabilities sum to 1): {table}. First recover the missing probability, then find {query}.",
-    "The table below gives five of the six joint probabilities for X in x1, x2 and Y in y1, y2, y3 (all six probabilities sum to 1); one entry is missing: {table}. Recover the missing probability, then compute {query}.",
-    "Given a joint probability table with one entry missing (the six probabilities sum to 1): {table}. Find the missing probability first, then compute {query}.",
+    "A joint distribution over X (values x1, x2) and Y (values y1, y2, y3) has these probabilities, with one entry missing (all six probabilities sum to 1): {table}. Find {query}.",
+    "The table below gives five of the six joint probabilities for X in x1, x2 and Y in y1, y2, y3 (all six probabilities sum to 1); one entry is missing: {table}. Compute {query}.",
+    "Given a joint probability table with one entry missing (the six probabilities sum to 1): {table}. Compute {query}.",
 ]
 
 

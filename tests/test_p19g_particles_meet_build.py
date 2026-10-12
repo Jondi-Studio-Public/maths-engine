@@ -283,7 +283,8 @@ def test_skill_loads_through_api():
     assert skill.placement_eligible is False
     assert "vector-addition" in skill.prerequisites
     tiers_seen = {s.difficulty for s in skill.sources if s.topic == TOPIC}
-    assert tiers_seen == {"easy", "medium", "hard", "exam"}
+    # The exam tier is a multi-part chain on its own topic (exd_x_r2i_particles_approach).
+    assert tiers_seen == {"easy", "medium", "hard"}
     exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
     assert exam_sources and exam_sources[0].stages == ["exam"]
 

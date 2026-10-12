@@ -21,8 +21,8 @@ sources:
   params: {variant: complement}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p16a_relative_frequency_estimate
-  params: {variant: project_future}
+- topic: exd_x_r2l_relfreq_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -180,7 +180,8 @@ class TestSkillLoads:
         stages_covered = set()
         difficulties = set()
         for source in skill.sources:
-            assert source.topic == TOPIC
+            # The exam tier is now a multi-part chain (tests/test_exd_x_r2j_expand_unknown_chain.py).
+            assert source.topic == ("exd_x_r2j_expand_unknown_chain" if source.difficulty == "exam" else TOPIC)
             stages_covered.update(source.stages)
             difficulties.add(source.difficulty)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}

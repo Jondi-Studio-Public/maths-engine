@@ -520,7 +520,7 @@ def _build_exam(rng):
         rng,
         [
             "A relation is described as {desc}. Is this relation a function? {opts}",
-            "Consider {desc}. Apply the vertical line test to this described graph: is it a function? {opts}",
+            "Consider {desc}. Is the relation it describes a function? {opts}",
             "A graph is described as {desc}. Decide whether the relation it represents is a function. {opts}",
         ],
         desc=desc,

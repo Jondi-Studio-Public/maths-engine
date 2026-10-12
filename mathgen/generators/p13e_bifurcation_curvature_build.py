@@ -142,17 +142,17 @@ _BIF_EXAM_PATTERNS = [
     "For the family x' = {expr} + r, where r is a parameter, the bifurcation threshold r* "
     "satisfies the discriminant condition b^2 - 4ar = 0. Two formulas are proposed for r* in "
     "terms of a and b -- Formula A: r* = {formula_a}. Formula B: r* = {formula_b}. Exactly one "
-    "of these two formulas is correct for every choice of a and b. Using the CORRECT formula "
-    "with a = {a}, b = {b}, compute r*{precision_note}.",
+    "of these two formulas is correct for every choice of a and b. For a = {a}, b = {b}, "
+    "compute r*{precision_note}.",
     "Consider the family x' = {expr} + r, where r is a parameter; the bifurcation threshold r* "
     "satisfies b^2 - 4ar = 0. Two candidate formulas for r*, in terms of a and b, are proposed "
     "-- Formula A: r* = {formula_a}. Formula B: r* = {formula_b}. Only one formula holds for "
-    "every choice of a and b. Using the CORRECT formula with a = {a}, b = {b}, compute "
+    "every choice of a and b. For a = {a}, b = {b}, compute "
     "r*{precision_note}.",
     "The family x' = {expr} + r depends on the parameter r, and its bifurcation threshold r* "
     "satisfies the discriminant condition b^2 - 4ar = 0. Two formulas for r*, in terms of a "
     "and b, are proposed -- Formula A: r* = {formula_a}. Formula B: r* = {formula_b}. Exactly "
-    "one is correct for every a and b. Using the CORRECT formula with a = {a}, b = {b}, "
+    "one is correct for every a and b. For a = {a}, b = {b}, "
     "compute r*{precision_note}.",
 ]
 

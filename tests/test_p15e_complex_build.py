@@ -77,7 +77,8 @@ def test_contour_exam_tier_requires_solving_the_quadratic():
         q = _make(CONTOUR_SOURCES, "exam", seed)
         assert "Candidate 1" not in q.text and "Candidate 2" not in q.text
         assert "upper half-plane" in q.text
-        assert "quadratic" in q.text.lower() or "= 0" in q.text  # the poles are to be solved, not read off
+        # The quadratic is given and no pole is stated: the poles are to be found, not read off.
+        assert "z^2" in q.text and "z = " not in q.text
 
 
 def test_contour_skill_loads_through_api_with_correct_properties():

@@ -4,6 +4,7 @@ import pytest
 
 from mathgen.grading.typed import grade_expression
 from mathgen.skills import load_skills
+from types import SimpleNamespace
 from mathgen import make
 
 SKILL_ID = "ucv1-energy-estimate"
@@ -21,6 +22,9 @@ def _skill_sources():
 
 
 SKILL, SOURCES = _skill_sources()
+# The skill's exam tier is now a multi-part chain (tests/test_exd_x_r2g_heat_energy_decay.py). These tests keep covering the
+# generator's own earlier exam preset, which is unchanged.
+SOURCES["exam"] = SimpleNamespace(topic="p18a_energy_estimate", difficulty="exam", params={}, stages=["exam"])
 
 
 def _make(difficulty, seed):
