@@ -105,6 +105,9 @@ def _fmt_pct(p: Fraction) -> str:
 _LOAN_RATES = (Fraction(1, 2), Fraction(3, 4), Fraction(1, 1), Fraction(5, 4), Fraction(3, 2))
 _LOAN_R_MULT = (3, 4, 5, 6)
 
+# The answer is stored to the cent, so the question says so: the grader marks a stated value exactly.
+_TO_THE_CENT = " Give your answer to the nearest cent."
+
 _LOAN_FORWARD_TEMPLATES = (
     "A loan of ${p} is charged {r}% interest each period. A regular repayment of ${R} is "
     "made at the end of every period, following the loan's own recurrence relation "
@@ -162,6 +165,7 @@ def _loan_forward(rng, n_lo: int, n_hi: int, lump: bool):
     text = template.format(
         p=principal, r=_fmt_pct(rate_pct), R=(int(R) if R.denominator == 1 else float(R)), extra=extra_text, n=n
     )
+    text = text.rstrip() + _TO_THE_CENT
 
     answer_text = _money(balance)
     candidates = [
@@ -314,6 +318,7 @@ def _loan_rate_change(rng):
         n1=n1,
         ntotal=ntotal,
     )
+    text = text.rstrip() + _TO_THE_CENT
 
     answer_text = _money(final_balance)
     candidates = [

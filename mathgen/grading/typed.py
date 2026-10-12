@@ -248,6 +248,20 @@ def _plausible_rounding_tolerance(places: int) -> Fraction:
     return Fraction(1, 2 * 10**places)
 
 
+_FLOAT_NOISE = Fraction(1, 10**9)
+
+
+def _is_exact_display(literal_value: Fraction, answer) -> bool:
+    """Whether the displayed literal is the answer itself rather than a rounding of it.
+
+    An `int` answer is compared exactly. A `float` answer carries binary noise (7.7 - 5.1 is
+    2.6000000000000005), so it counts as exact when it is within a relative 1e-9 of the literal: far
+    below any precision a question displays, and far above double-precision noise."""
+    if isinstance(answer, int):
+        return literal_value == answer
+    return abs(Fraction(repr(float(answer))) - literal_value) <= _FLOAT_NOISE * max(1, abs(literal_value))
+
+
 @dataclass
 class _TypedNumberTarget:
     target: Fraction
@@ -299,6 +313,10 @@ def _typed_number_target(question, answer=None) -> _TypedNumberTarget:
             sanity_tolerance = _plausible_rounding_tolerance(places)
             tolerance = _typed_number_tolerance(places)
             if abs(literal_value - fallback_target) <= sanity_tolerance:
+                if _is_exact_display(literal_value, answer):
+                    # The literal is the answer itself, not a rounding of it ("2.6" for 7.7 - 5.1), so
+                    # there is nothing to round and no slack to give: 2.64 is a different number.
+                    tolerance = Fraction(0)
                 return _TypedNumberTarget(target=literal_value, tolerance=tolerance, source="literal")
 
     return _TypedNumberTarget(target=fallback_target, tolerance=fallback_tolerance, source="fallback")
@@ -728,9 +746,18 @@ def _equation_pair_matches(canonical: str, given: str):
         equivalent = _constant_line_equivalent(canonical_label, expected, parts)
         if equivalent is not None:
             return equivalent
-    # A bare value ("3") and any "label = value" stay accepted by design (the label is
-    # stripped; see tests/test_pv1d_parabola_build.py and
-    # tests/test_pv1d_sideways_circle_build.py).
+    if not expected.free_symbols and _is_line_key_label(canonical):
+        # A horizontal or vertical line ("y = 3", "x = -2") is an equation, not a number: the reply has to
+        # be written as that equation. A bare "3" or the wrong axis ("x = 3" for "y = 3") is wrong.
+        # Other single-equation keys ("lambda = 17") keep the label-stripped comparison below.
+        reply_label = _LABEL_RE.match(given)
+        if (
+            not reply_label
+            or reply_label.group(0).split("=")[0].strip().lower() != canonical.split("=", 1)[0].strip().lower()
+        ):
+            return False
+    # Any other bare value ("17" for "lambda = 17") and any "label = value" stay accepted (the label is
+    # stripped; see tests/test_grading_line_key_fixes.py).
     supplied = _resolve_constants(_parse_expression(_strip_label(given)), expected)
     if supplied is None:
         return False
@@ -738,6 +765,11 @@ def _equation_pair_matches(canonical: str, given: str):
         return symbolically_equal(expected, supplied)
     except (TypeError, ValueError):
         return None
+
+
+def _is_line_key_label(canonical: str) -> bool:
+    """True for a key labelled with an axis letter ("y = 3", "x = -2")."""
+    return canonical.split("=", 1)[0].strip().lower() in ("x", "y")
 
 
 def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | None:

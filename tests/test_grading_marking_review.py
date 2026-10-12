@@ -385,3 +385,43 @@ def test_a_labelled_reply_needs_a_labelled_canonical_with_the_same_variable():
 def test_degree_sign_is_not_dropped_from_an_answer_in_radians():
     assert not _correct("expression", _q("9*pi/4", "9π/4"), "9*pi/4°")
     assert _correct("expression", _q("9*pi/4", "9π/4"), "9pi/4")
+
+
+# -- an exact answer is marked exactly, not as a half-unit range ----------------------
+
+
+@pytest.mark.parametrize(
+    "answer, answer_text, given",
+    [
+        (7.7 - 5.1, "2.6", "2.64"),  # float noise: 2.6000000000000005
+        (7.7 - 5.1, "2.6", "2.56"),
+        (0.3, "0.3", "0.34"),
+        (0.5, "0.5", "0.51"),
+        (19.05, "19.05", "19.054"),
+        (60, "F = 60.00 N", "60.004"),
+    ],
+)
+def test_near_miss_on_an_exact_answer_is_wrong(answer, answer_text, given):
+    assert not _correct("number", _q(answer, answer_text), given)
+
+
+@pytest.mark.parametrize(
+    "answer, answer_text, given",
+    [
+        (7.7 - 5.1, "2.6", "2.6"),
+        (7.7 - 5.1, "2.6", "2.60"),
+        (0.5, "0.5", ".5"),
+        (60, "F = 60.00 N", "60"),
+        (19.05, "19.05", "$19.05"),
+    ],
+)
+def test_exact_answer_in_any_form_still_right(answer, answer_text, given):
+    assert _correct("number", _q(answer, answer_text), given)
+
+
+def test_rounded_answer_keeps_half_a_unit():
+    # 1/3 shown as 0.33 is a rounding, not the value, so a more precise reply is still right.
+    question = _q(1 / 3, "0.33")
+    assert _correct("number", question, "0.333")
+    assert _correct("number", question, "0.33")
+    assert not _correct("number", question, "0.34")

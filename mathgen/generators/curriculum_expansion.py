@@ -432,7 +432,14 @@ def _decimal_option(value: Fraction) -> tuple[str, int | float]:
 def percentage_change(rng, reverse=False):
     percent = rng.choice((10, 20, 25, 50))
     subject, unit = rng.choice(_PERCENTAGE_CHANGE_CONTEXTS)
-    original = rng.randint(2, 20) * 20
+    if reverse:
+        # A step that keeps both the final value and the percentage taken off it whole, so no option is a decimal
+        # beside a whole-number answer (a decimal there would give the answer away). 100 is left out: from it,
+        # taking the percentage off as a number lands back on the answer, leaving one wrong option.
+        step, low, high = {10: (100, 2, 7), 20: (25, 2, 16), 25: (16, 3, 25), 50: (20, 2, 20)}[percent]
+        original = rng.choice([k * step for k in range(low, high + 1) if k * step != 100])
+    else:
+        original = rng.randint(2, 20) * 20
     final = original * (100 + percent) // 100
     if reverse:
         if percent == 10 and rng.random() < 0.5:
@@ -462,7 +469,8 @@ def percentage_change(rng, reverse=False):
     slips = [
         (Fraction(final - original), "gave-change-not-percent"),
         (Fraction(final * 100, original), "new-as-percent-of-original"),
-        (Fraction((final - original) * 100, final), "divides-by-final"),
+        # Rounded to a whole percent like the answer, so the option's form does not mark it as wrong.
+        (Fraction(round_half_up(Fraction((final - original) * 100, final), 0)), "divides-by-final"),
     ]
     cands = []
     for value, tag in slips:
@@ -532,7 +540,7 @@ def financial_interest(rng, kind="simple"):
         working = [f"I = Prt = {principal} × {rate / 100:g} × {years} = ${answer:g}."]
     else:
         answer = round(principal * (1 + rate / 100) ** years, 2)
-        text = f"Find the balance of ${principal} invested at {rate}% p.a., compounded annually for {years} years."
+        text = f"Find the balance of ${principal} invested at {rate}% p.a., compounded annually for {years} years. Give your answer to the nearest cent."
         working = [f"A = P(1+r)^n = {principal}(1+{rate / 100:g})^{years} = ${answer:.2f}."]
     return _number(
         text,
@@ -568,7 +576,7 @@ def flat_loan_repayment(rng):
     total = principal * (1 + annual_rate * years / 100)
     answer = round(total / months, 2)
     return _number(
-        f"A ${principal} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment.",
+        f"A ${principal} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment to the nearest cent.",
         answer,
         [round(principal / months, 2), round(total / years, 2), round(answer * 12, 2), round(answer * 1.1, 2)],
         aligned=True,

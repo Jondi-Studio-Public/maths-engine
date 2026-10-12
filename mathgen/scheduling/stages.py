@@ -4,6 +4,7 @@ A review ladder has `n_stages` numbered stages (0 to n_stages - 1) and then
 maintenance, which callers pass as stage `n_stages`. A source lists the stages
 it serves in `stages` (ints, "maintenance", or "exam"); no list means every
 stage. Exam sources are reserved for exam-style tests and never serve a review.
+A numbered stage past the end of the ladder counts as maintenance.
 """
 
 from __future__ import annotations
@@ -30,7 +31,10 @@ def _label(stage: int, n_stages: int):
 def _serves(src, stage: int, n_stages: int) -> bool:
     if is_exam_source(src):
         return False
-    return not src.stages or _label(stage, n_stages) in src.stages or stage in src.stages
+    if not src.stages:
+        return True
+    label = _label(stage, n_stages)
+    return any(_label(s, n_stages) == label if isinstance(s, int) else s == label for s in src.stages)
 
 
 def eligible_sources(skill, stage: int, n_stages: int) -> list:
