@@ -112,7 +112,8 @@ def exd_x_s3_ci(rng: random.Random, tier: str = "exam"):
         )
     text = (
         f"{given} Given that {_TABLE}, find the {new} confidence interval for the population mean from the same "
-        f"sample, giving both bounds to 1 decimal place, in {unit}."
+        f"sample. Use the z values exactly as given and do not round any intermediate value; round only the two final "
+        f"bounds to 1 decimal place, in {unit}."
     )
     working = [
         f"The interval is centred on the sample mean {float(centre):.1f}, and its half-width {float(half):.1f} is z times s/sqrt(n).",

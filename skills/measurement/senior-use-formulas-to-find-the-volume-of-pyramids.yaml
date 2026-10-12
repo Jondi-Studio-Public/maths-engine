@@ -22,10 +22,11 @@ sources:
   params: {mode: sphere}
   difficulty: hard
   stages: [6, maintenance]
-- topic: volume_of_pyramids_and_spheres
-  params: {mode: sphere_decimal}
+- topic: exd_x_fu_pyramid_volume
+  params: {tier: exam}
   difficulty: exam
-  stages: [exam]
+  stages:
+  - exam
 misconceptions:
 - id: omits_one_third_factor
   description: Treats a pyramid as a prism, computing base area × height without applying the 1/3 factor.

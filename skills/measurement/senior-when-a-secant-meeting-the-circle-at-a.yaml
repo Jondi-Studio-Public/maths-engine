@@ -2,7 +2,7 @@
 # (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
 id: senior-when-a-secant-meeting-the-circle-at-a
 name: When a secant (meeting the circle at \(A\) and \(B\)) and a tangent (meeting the circle at \(T\)) are drawn to a circle from an external point \(M\), the square of the length of the tangent equals the product of the lengths to the circle on the secant. \((AM\times BM=TM^2)\)
-domain: differentiation
+domain: measurement
 description: >-
   Given two of the lengths AM, BM and TM for a secant through A and B and a tangent at T drawn from
   an external point M (M outside the circle, B between A and M), find the third using
@@ -17,7 +17,7 @@ description: >-
   the circle and one side of the relation is a tangent length squared).
 status: active
 placement_eligible: false
-prerequisites: [differentiate-polynomial]
+prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: pv0c_tangent_secant

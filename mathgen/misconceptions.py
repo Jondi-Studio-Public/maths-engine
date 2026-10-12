@@ -173,6 +173,32 @@ _ENTRIES = (
         "Treating a percentage as a fixed amount: undoing a 20% rise by subtracting 20.",
         area="percentages",
     ),
+    # -- measurement ----------------------------------------------------------------------------------------------
+    CatalogueEntry(
+        "slant-height-as-height",
+        "Using the slant height of a face as the perpendicular height of a solid.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "pythagoras-subtract-lengths",
+        "Subtracting two sides of a right triangle instead of applying Pythagoras' theorem.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "pythagoras-add-squares-for-leg",
+        "Adding the squares of the hypotenuse and a leg to find the other leg, instead of subtracting.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "pyramid-volume-no-third",
+        "Finding a pyramid's volume as base area times height, leaving out the factor of one third.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "cubic-cm-to-litres-wrong-factor",
+        "Converting cubic centimetres to litres by dividing by 10 or 100 instead of 1000.",
+        area="measurement",
+    ),
 )
 
 #: Every entry, by id.
