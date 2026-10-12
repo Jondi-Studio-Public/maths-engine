@@ -181,6 +181,7 @@ class TestSkillLoads:
         assert set(skill.prerequisites) == {"f10-square-roots-perfect-squares", "prime-factorisation"}
         stages_covered = set()
         for source in skill.sources:
-            assert source.topic == "t1_simplify_surds"
+            if source.difficulty != "exam":
+                assert source.topic == "t1_simplify_surds"
             stages_covered.update(source.stages)
-        assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance"}
+        assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}

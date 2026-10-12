@@ -212,7 +212,7 @@ def test_both_skills_load_through_api(skills_dict):
     assert calc.answer == "number"
     assert calc.placement_eligible is False
     assert calc.status == "active"
-    assert len(calc.sources) == 3
+    assert len(calc.sources) == 4
 
     compare = skills_dict["senior-use-rates-to-make-comparisons"]
     assert compare is not None
@@ -221,7 +221,7 @@ def test_both_skills_load_through_api(skills_dict):
     assert compare.answer == "number"
     assert compare.placement_eligible is False
     assert compare.status == "active"
-    assert len(compare.sources) == 3
+    assert len(compare.sources) == 4
 
 
 # --- Skill-2 hard-tier answer is always a strictly positive cent amount ---

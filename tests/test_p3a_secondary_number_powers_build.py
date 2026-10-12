@@ -275,6 +275,9 @@ def test_secondary_number_3a_skill_contracts_load_with_expected_shape():
     assert exponent_laws.answer == "expression"
     assert exponent_laws.placement_eligible is False
     assert exponent_laws.status == "active"
-    assert [source.difficulty for source in exponent_laws.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in exponent_laws.sources} == {"exponent_laws_positive_zero"}
-    assert [source.stages for source in exponent_laws.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in exponent_laws.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in exponent_laws.sources} == {
+        "exponent_laws_positive_zero",
+        "exd_x_n3_common_base_powers",
+    }
+    assert [source.stages for source in exponent_laws.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
