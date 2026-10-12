@@ -1,9 +1,10 @@
 """The shared skill contract: the checks every per-batch `_build` file repeats.
 
 One function per family, each `check_<family>(skill_id)` raising AssertionError
-with a located message. `tests/test_skill_contract_mutants.py` shows that each one fails on a
-deliberately broken skill. No test in this repository runs them over the whole library;
-`tests/skill_contract_baseline.yaml` records the skills that fail them today. Read-only.
+with a located message. `tests/test_skill_contract_part_*.py` run them one pytest case per skill and family;
+`scripts/skill_contract_baseline.py` runs them over the whole library to record the skills that fail
+today (`tests/skill_contract_baseline.yaml`); `tests/test_skill_contract_mutants.py` shows that each
+one fails on a deliberately broken skill. Read-only.
 
 Families:
 
@@ -96,11 +97,20 @@ def check_determinism(skill_id: str) -> None:
 def check_distractors(skill_id: str) -> None:
     for src, difficulty, qs in draws(skill_id):
         for seed, q in enumerate(qs):
-            where = f"{src.topic}/{difficulty} seed={seed}"
-            assert q.answer_text not in q.distractors, f"{where}: answer among distractors"
-            assert len(q.distractors) == len(set(q.distractors)), f"{where}: duplicate distractors"
-            assert q.distractors, f"{where}: no distractors"
-            assert all(str(d).strip() for d in q.distractors), f"{where}: blank distractor"
+            # A multi-part question carries its distractors on each part, not on the whole.
+            for unit, where in _answer_units(q, f"{src.topic}/{difficulty} seed={seed}"):
+                assert unit.answer_text not in unit.distractors, f"{where}: answer among distractors"
+                assert len(unit.distractors) == len(set(unit.distractors)), f"{where}: duplicate distractors"
+                assert unit.distractors, f"{where}: no distractors"
+                assert all(str(d).strip() for d in unit.distractors), f"{where}: blank distractor"
+
+
+def _answer_units(q, where: str):
+    """(answer-bearing object, location) pairs: each part of a multi-part question, else the question."""
+    parts = getattr(q, "parts", None)
+    if parts:
+        return [(p, f"{where} part ({p.label})") for p in parts]
+    return [(q, where)]
 
 
 def _places(text: str):
@@ -123,13 +133,14 @@ def check_options(skill_id: str) -> None:
             defects = find_text_defects(q, include_working=True) if _build_topic(src.topic) else []
             assert not defects, f"{where}: {defects}"
             if number:
-                for d in q.distractors:
-                    assert ("." in d) == ("." in q.answer_text), (
-                        f"{where}: answer {q.answer_text!r} vs distractor {d!r}"
-                    )
-                    assert _places(d) == _places(q.answer_text), (
-                        f"{where}: answer {q.answer_text!r} vs {d!r} differ in places"
-                    )
+                for unit, at in _answer_units(q, where):
+                    for d in unit.distractors:
+                        assert ("." in d) == ("." in unit.answer_text), (
+                            f"{at}: answer {unit.answer_text!r} vs distractor {d!r}"
+                        )
+                        assert _places(d) == _places(unit.answer_text), (
+                            f"{at}: answer {unit.answer_text!r} vs {d!r} differ in places"
+                        )
 
 
 POOL_FLOORS_PATH = Path(__file__).resolve().parents[1] / "tests" / "skill_contract_pool_floors.yaml"
