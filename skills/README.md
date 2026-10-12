@@ -167,6 +167,8 @@ refuses one that reuses an id already loaded. Entries are split on `os.pathsep` 
 - Typed numeric answers are graded to their own stated precision. A rounded answer accepts half a
   unit in its last place; an answer shown exactly is matched exactly, so a question whose stored
   answer is rounded must say so ("to the nearest cent").
+- A number reply may give a unit. It must be the unit the canonical shows ("F = 25.00 N") or the one the
+  question asks for by name in its asking sentence ("Convert 3 cm to mm", "in km/h"), so name it there.
 - `grade_fraction` compares by value, so `2/4` is accepted for `1/2`. Never build a
   "does not simplify" distractor.
 - Every distractor and every deliberately wrong test value must clear the grader. Check every
