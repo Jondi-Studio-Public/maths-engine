@@ -1,0 +1,92 @@
+id: ucv1-triple-integral
+name: Evaluate a triple integral
+domain: multivariable-and-vector-calculus
+description: Evaluate an exact triple integral over a box, over a solid with a sloping top or a plane face, over a region given by inequalities, and use one for the volume, mass and centre of mass of a solid with a density.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-double-integral-rectangle
+answer: fraction
+sources:
+- topic: triple_integral
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: triple_integral
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: triple_integral
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_triple_integral
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: triple-integral-sum-not-product
+  description: Adds the three one-variable integrals of a separable integrand instead of multiplying them.
+- id: triple-integral-forgot-lower-bound
+  description: Evaluates each antiderivative only at its upper limit.
+- id: triple-integral-power-rule-slip
+  description: Raises the power when integrating but does not divide by the new power.
+- id: triple-integral-variable-treated-constant
+  description: Treats one variable as a constant, multiplying by the width of its interval instead of integrating it.
+- id: triple-integral-substituted-not-integrated
+  description: Substitutes the top surface into the integrand instead of integrating with respect to z.
+- id: triple-integral-limit-as-constant
+  description: Uses the height of the top surface at the far corner as a constant upper limit for z.
+- id: triple-integral-rectangle-swapped
+  description: Swaps the x and y intervals of the rectangle but keeps the formula for the top surface.
+- id: triple-integral-height-halved
+  description: Takes the height of the solid as half of the top surface.
+- id: triple-integral-bounding-box
+  description: Integrates over the bounding box of the solid instead of the solid itself.
+- id: triple-integral-pyramid-factor
+  description: Leaves out the one third in the volume of a tetrahedron.
+- id: triple-integral-base-not-halved
+  description: Uses the rectangle ab, not the triangle ab/2, as the base of a tetrahedron.
+- id: triple-integral-coefficients-as-intercepts
+  description: Reads the coefficients of px + qy + rz = d as the axis intercepts.
+- id: triple-integral-limit-not-dependent
+  description: Uses a constant limit for an inner variable where it depends on an outer variable.
+- id: triple-integral-limit-missing-variable
+  description: Leaves one variable out of a limit that depends on two.
+- id: triple-integral-top-not-slanted
+  description: Uses the constant height c as the upper limit for z in a tetrahedron instead of the slanted face.
+- id: triple-integral-limits-reversed
+  description: Takes a chain of inequalities the wrong way round.
+- id: triple-integral-symmetry-assumed
+  description: Takes one sixth of the integral over the cube, as if the integrand were symmetric.
+- id: triple-integral-chain-misordered
+  description: Swaps two variables in a chain of inequalities.
+- id: triple-integral-limits-not-rewritten
+  description: Changes the order of integration but keeps the original limits attached to the new variables.
+- id: triple-integral-density-term-dropped
+  description: Takes the density as its constant term only when finding the mass.
+- id: triple-integral-density-maximum
+  description: Uses the greatest density in the solid as if it applied everywhere.
+- id: triple-integral-density-midpoint
+  description: Uses the density halfway along its range instead of integrating it.
+- id: triple-integral-moment-not-divided
+  description: Gives the moment as the centre-of-mass coordinate without dividing by the mass.
+- id: triple-integral-centroid-uniform
+  description: Gives the centroid, as if the density were uniform, for the centre of mass.
+- id: triple-integral-moment-inverted
+  description: Divides the wrong way round, mass over moment or volume over mass.
+- id: triple-integral-wrong-coordinate
+  description: Finds a different coordinate of the centre of mass from the one asked for.
+- id: triple-integral-mass-not-divided
+  description: Gives the mass where the average density was asked for.
+tags: [university-core-v1, multivariable-calculus, triple-integrals]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
