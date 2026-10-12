@@ -244,6 +244,36 @@ def requested_rounding(text: str) -> int | None:
     return None
 
 
+# "3 significant figures", "2 sig figs", "(3 s.f.)". Not "3 s. Find": a time in seconds ends that sentence.
+_SIGNIFICANT_FIGURES_RE = re.compile(
+    r"(?<![\d.\-\u2013/])(\d+|one|two|three|four|five|six)\s*"
+    r"(?:significant\s+(?:figures?|digits?)|sig\.?\s*figs?\b|s\.f\b\.?|sf\b)",
+    re.I,
+)
+
+
+def conflicting_rounding(text: str) -> str | None:
+    """Why `text` asks for its single answer to be rounded two ways, or None when it asks at most one way.
+
+    "to 2 decimal places ... to 3 significant figures" or "to 1 decimal place ... to the nearest whole number"
+    in one single-value question leaves the learner to guess which instruction wins, and leaves
+    `requested_rounding` unable to read either. A question with several answers (a pair, a multi-part
+    question) states one precision per answer and is checked per answer, not as one text.
+    """
+    places = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DECIMAL_PLACES_RE.findall(text or "")}
+    places |= {_NEAREST_PLACES[unit.lower()] for unit in _NEAREST_RE.findall(text or "")}
+    if not places:
+        places = {_PLACE_WORDS.get(tok.lower()) or int(tok) for tok in _DP_ABBREVIATION_RE.findall(text or "")}
+    figures = {tok.lower() for tok in _SIGNIFICANT_FIGURES_RE.findall(text or "")}
+    if len(places) > 1:
+        return f"asks for {sorted(places)} decimal places"
+    if len(figures) > 1:
+        return f"asks for {sorted(figures)} significant figures"
+    if places and figures:
+        return f"asks for {next(iter(places))} decimal places and {next(iter(figures))} significant figures"
+    return None
+
+
 # --- prompt_shape ------------------------------------------------------
 
 #: A signed numeric token: an optional leading `-` directly against the

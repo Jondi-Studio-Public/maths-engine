@@ -8,8 +8,11 @@ rounded as asked and then used); or a share of them when its reply matches a dis
 credit. `grade_parts` returns a `GradeResult` whose `marks`, `max_marks` and `parts` say how.
 
 The reply is a dict of replies keyed by part label, a JSON object string of the same, or text labelled
-"(a) ... (b) ...", labels in any order and any left out. Text with no labels is split by ";" or line breaks
-when it has exactly one piece per part.
+"(a) ... (b) ...", labels in any order and any left out. A label is written "(a)", "a)", "a:", "a=" or "a."
+(then a space), in any case, using whichever labels the question's own parts use (a/b/c, i/ii/iii, 1/2/3); a
+decimal point or a variable inside an answer is not a label. Text with no labels is split by ";" or line
+breaks when it has exactly one piece per part. Text that cannot be split either way scores 0 and says so:
+the result's `note` explains how to label parts and its `note_kind` is "unreadable_parts".
 """
 
 from __future__ import annotations
@@ -45,17 +48,37 @@ def symbol_name(label: str) -> str:
 
 
 def _label_marker(label: str) -> re.Pattern:
-    """ "(a)", "a)" or "a:" at the start of the reply or after a space, ";" or "," (any case)."""
+    """A marker for part `label`, in any case, at the start of the reply or after whitespace, ";" or ",":
+    "(a)", "(a):", "a)", "a:", "a=", or "a." followed by a space (so a decimal point in "1.5" or "6.1" is never
+    a marker). Only the question's own labels are looked for, so a variable such as the "x" in "x = 3" is not
+    one, and a label letter inside a word or glued to a digit or operator ("2a = 4") does not count."""
     escaped = re.escape(label)
-    return re.compile(rf"(?:^|(?<=[\s;,]))(?:\(\s*{escaped}\s*\)|{escaped}\s*[):])\s*", re.IGNORECASE)
+    body = rf"(?:\(\s*{escaped}\s*\)\s*[:.=]?|{escaped}\s*(?:[):=]|\.(?=\s|$)))"
+    return re.compile(rf"(?:^|(?<=[\s;,])){body}\s*", re.IGNORECASE)
 
 
-def split_reply(parts, given) -> dict[str, str]:
-    """`given` as one reply per part label. A label with no reply gets "", which no part accepts."""
+#: `GradeResult.note_kind` of a multi-part result whose text reply could not be split into one reply per part.
+UNREADABLE_NOTE_KIND = "unreadable_parts"
+
+
+def unreadable_note(parts) -> str:
+    """The message a text reply that cannot be split into parts gets, naming the labels to use."""
+    labels = [p.label for p in parts]
+    example = " ".join(f"({label}) ..." for label in labels[:2])
+    return (
+        "Could not read your answer as separate parts. This question has "
+        f'parts {", ".join(labels)}: label each answer, like "{example}", or put one answer on each line.'
+    )
+
+
+def _split(parts, given) -> dict[str, str] | None:
+    """`given` as one reply per part label, or None when text was given that cannot be split into parts."""
     labels = [p.label for p in parts]
     if isinstance(given, dict):
         return {label: str(given.get(label, "") or "") for label in labels}
     text = str(given or "").strip()
+    if not text:
+        return {label: "" for label in labels}
     if text.startswith("{"):
         try:
             loaded = json.loads(text)
@@ -63,15 +86,20 @@ def split_reply(parts, given) -> dict[str, str]:
             loaded = None
         if isinstance(loaded, dict):
             return {label: str(loaded.get(label, "") or "") for label in labels}
+    if len(labels) == 1:
+        # One part: a leading marker is dropped, anything else is the reply.
+        match = _label_marker(labels[0]).match(text)
+        return {labels[0]: text[match.end() :].strip() if match else text}
     # Labelled: each label's first marker, in any order. A label with no marker is a part left unanswered, so
-    # "(a) 2.8 (b) 17.6" still marks (a) and (b). Text must open with a marker to be read this way.
+    # "(a) 2.8 (b) 17.6" still marks (a) and (b). The text must open with a marker, or hold two or more
+    # (so a lead-in such as "My answers: a) 2.8 b) 17.6" reads, and a lone "a" in prose does not).
     spans = []
     for label in labels:
         match = _label_marker(label).search(text)
         if match is not None:
             spans.append((match.start(), match.end(), label))
     spans.sort()
-    if spans and spans[0][0] == 0:
+    if spans and (spans[0][0] == 0 or len(spans) >= 2):
         replies = {label: "" for label in labels}
         for i, (_start, end, label) in enumerate(spans):
             stop = spans[i + 1][0] if i + 1 < len(spans) else len(text)
@@ -82,9 +110,13 @@ def split_reply(parts, given) -> dict[str, str]:
         pieces = [piece.strip() for piece in text.split(separator)]
         if len(pieces) == len(labels):
             return dict(zip(labels, pieces))
-    if len(labels) == 1:
-        return {labels[0]: text}
-    return {label: "" for label in labels}
+    return None
+
+
+def split_reply(parts, given) -> dict[str, str]:
+    """`given` as one reply per part label. A label with no reply gets "", which no part accepts."""
+    replies = _split(parts, given)
+    return replies if replies is not None else {p.label: "" for p in parts}
 
 
 def reply_value(kind: str, reply: str):
@@ -280,7 +312,10 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
     """Mark every part of a multi-part `question` against `given` (see the module docstring)."""
     if isinstance(given, str) and len(given) > typed.MAX_REPLY_LENGTH:
         given = ""
-    replies = split_reply(question.parts, given)
+    replies = _split(question.parts, given)
+    unreadable = replies is None
+    if unreadable:
+        replies = {p.label: "" for p in question.parts}
     results: dict[str, typed.GradeResult] = {}
     values: dict[str, object] = {}
     # Labels whose reply is not the canonical answer, whether or not it earned marks: a later part that follows
@@ -319,6 +354,9 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
     total = sum((r.marks for r in results.values()), Fraction(0))
     out_of = sum(p.marks for p in question.parts)
     first_note = next((r for r in results.values() if r.note), None)
+    note, note_kind = (first_note.note, first_note.note_kind) if first_note else (None, None)
+    if unreadable:
+        note, note_kind = unreadable_note(question.parts), UNREADABLE_NOTE_KIND
     return typed.GradeResult(
         correct=total == out_of,
         canonical=question.answer_text,
@@ -326,8 +364,8 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
             f"({label}) {r.given_normalised}" for label, r in results.items() if r.given_normalised is not None
         )
         or None,
-        note=first_note.note if first_note else None,
-        note_kind=first_note.note_kind if first_note else None,
+        note=note,
+        note_kind=note_kind,
         marks=total,
         max_marks=out_of,
         parts=results,
