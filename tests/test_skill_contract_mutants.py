@@ -6,6 +6,7 @@ replaces are not safe to delete.
 """
 
 import itertools
+from fractions import Fraction
 
 import pytest
 
@@ -152,7 +153,7 @@ def test_answer_variety_notices_a_collapsed_answer_pool(monkeypatch):
 
 
 def test_options_quality_notices_a_short_option_list(monkeypatch):
-    sid = "integer-polynomial-quotient-remainder"  # mcq, four options on every draw
+    sid = MCQ
 
     def shorten(q):
         del q.distractors[1:]
@@ -165,12 +166,77 @@ def test_options_quality_notices_a_short_option_list(monkeypatch):
         sc.check_options_quality(sid)
 
 
+MCQ = "integer-polynomial-quotient-remainder"  # mcq, four options on every draw
+
+
+def test_answer_variety_holds_typed_exam_tiers_higher():
+    assert sc.answer_minimum(NUMBER, "exam") == sc.MIN_DISTINCT_EXAM_ANSWERS
+    assert sc.answer_minimum(NUMBER, "hard") == sc.MIN_DISTINCT_ANSWERS
+    assert sc.answer_minimum(MCQ, "exam") == sc.MIN_DISTINCT_ANSWERS
+
+
+def test_answer_variety_notices_a_tier_widened_past_its_record(monkeypatch):
+    monkeypatch.setattr(sc, "MIN_DISTINCT_ANSWERS", sc.SEEDS + 1)
+    monkeypatch.setattr(sc, "MIN_DISTINCT_EXAM_ANSWERS", sc.SEEDS + 1)
+    recorded = {key: 1 for key in sc.distinct_answers(NUMBER)}
+    monkeypatch.setattr(sc, "answer_floors", lambda: {NUMBER: recorded})
+    with pytest.raises(AssertionError, match="rose to"):
+        sc.check_answer_variety(NUMBER)
+
+
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("1.200 m", (Fraction(6, 5), "m")),
+        ("45%", (45, "%")),
+        ("$12.50", (Fraction(25, 2), "$")),
+        ("12,000 kg", (12000, "kg")),
+        ("12 cm^2", (12, "cm^2")),
+        ("\u22123/4", (Fraction(-3, 4), "")),
+        ("2x + 1", None),
+        ("Cannot be determined", None),
+    ],
+)
+def test_option_value_reads_a_number_with_a_unit(text, expected):
+    assert sc._option_value(text) == expected
+
+
+def test_option_values_need_one_shared_unit():
+    assert sc.option_values(["0.12 m", "1.2 m", "12 m"]) == [Fraction(3, 25), Fraction(6, 5), 12]
+    assert sc.option_values(["12 m", "12 cm", "1.2 m"]) is None
+
+
+def _numbered(q, offsets, unit=" m"):
+    value = 10 + q.seed
+    q.answer_text = f"{value}{unit}"
+    q.distractors = [f"{value + d}{unit}" for d in offsets]
+    return q
+
+
 def test_options_quality_notices_an_answer_always_in_the_middle(monkeypatch):
-    def pad(q):
-        value = float(q.answer_text)
-        q.distractors = [f"{value - 1:.2f}", f"{value + 1:.2f}", f"{value + 2:.2f}"]
+    sc.check_options_quality(MCQ)
+    sc.draws.cache_clear()
+    _patch_make(monkeypatch, lambda q: _numbered(q, [-1, 1, 2]))
+    with pytest.raises(AssertionError, match="answer_position"):
+        sc.check_options_quality(MCQ)
+
+
+def test_options_quality_notices_an_answer_always_the_smallest(monkeypatch):
+    _patch_make(monkeypatch, lambda q: _numbered(q, [1, 2, 3], unit="%"))
+    with pytest.raises(AssertionError, match="answer_position"):
+        sc.check_options_quality(MCQ)
+
+
+def test_options_quality_notices_a_filler_option(monkeypatch):
+    def filler(q):
+        q.distractors[-1] = "Cannot be determined"
         return q
 
-    _patch_make(monkeypatch, pad)
-    with pytest.raises(AssertionError, match="middle_answer"):
-        sc.check_options_quality(NUMBER)
+    _patch_make(monkeypatch, filler)
+    with pytest.raises(AssertionError, match="filler_option"):
+        sc.check_options_quality(MCQ)
+
+
+def test_answer_position_ignores_a_typed_skill(monkeypatch):
+    _patch_make(monkeypatch, lambda q: _numbered(q, [-1, 1, 2]))
+    assert not sc.option_faults(NUMBER)["answer_position"]
