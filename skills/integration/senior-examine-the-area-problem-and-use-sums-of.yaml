@@ -25,8 +25,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13c_riemann_sum_area
-  params: {}
+- topic: exd_x_r3d_riemann_error_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

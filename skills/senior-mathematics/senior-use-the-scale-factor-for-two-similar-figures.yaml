@@ -21,7 +21,7 @@ sources:
   params: {mode: derive_perimeter}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_h4_similar_area_volume_scale
+- topic: exd_x_r3b_similar_scale
   params: {tier: exam}
   difficulty: exam
   stages:

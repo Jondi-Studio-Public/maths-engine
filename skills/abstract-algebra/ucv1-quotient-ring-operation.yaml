@@ -1,7 +1,10 @@
 id: ucv1-quotient-ring-operation
 name: Compute a quotient-ring polynomial operation
 domain: abstract-algebra
-description: Reduce the sum or product of two supplied polynomials modulo a supplied monic polynomial.
+description: |
+  Reduce the sum or product of two supplied polynomials modulo a supplied monic
+  polynomial. The exam tier also finds the two roots of the modulus polynomial in Z_p and
+  evaluates the reduced product at the smaller root.
 status: active
 placement_eligible: false
 prerequisites:
@@ -20,8 +23,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15e_quotient_ring_operation
-  params: {}
+- topic: exd_x_r3f_quotient_ring_roots
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

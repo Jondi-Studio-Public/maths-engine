@@ -6,11 +6,14 @@ domain: senior-mathematics
 description: |
   Given bounded, fully specified inputs, define the imaginary number i as a root of the
   equation x^2=-1. Return the resulting value, expression, relation, or classification.
-  Closed-form only: every answer is drawn from {1, -1, i, -i} or, at the easy tier, k*i
-  for a perfect-square radicand -- no general complex arithmetic is assessed by this skill
-  (that belongs to senior-solve-simple-polynomial-equations and the two n-th-roots
-  skills). The learner-typed form is always lowercase i; capital I is not accepted, so
-  the question text always shows lowercase i.
+  Below the exam tier the answers are closed-form: every answer is drawn from {1, -1, i,
+  -i} or, at the easy tier, k*i for a perfect-square radicand. The exam tier is a
+  three-part chain of integer powers of one Gaussian integer (u^2, then two further
+  powers, each answered in the form p + qi), so it assesses repeated multiplication of a
+  complex number by itself, but not solving equations or finding n-th roots (those belong
+  to senior-solve-simple-polynomial-equations and the two n-th-roots skills). The
+  learner-typed form is always lowercase i; capital I is not accepted, so the question
+  text always shows lowercase i.
 status: active
 placement_eligible: false
 prerequisites: []
@@ -28,7 +31,7 @@ sources:
     params: {}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_complex_i_power
+  - topic: exd_x_r3a_complex_powers
     params: {tier: exam}
     difficulty: exam
     stages:

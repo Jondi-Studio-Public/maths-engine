@@ -22,7 +22,7 @@ sources:
   params: {variant: recover_scalar}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g2_parallel_perp_condition
+- topic: exd_x_r3f_vector_perpendicular
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -1,12 +1,14 @@
 id: ucv1-stochastic-euler-step
 name: Compute one stochastic Euler update
 domain: stochastic-processes
-description: Compute one Euler-Maruyama update for a supplied scalar drift, diffusion,
-  step and noise value. The diffusion coefficient is a stated constant (additive
-  noise) at the easy and medium tiers, and a stated function of the current value,
-  sigma(Y) = k*Y (multiplicative noise), at the hard and exam tiers. Every noise
-  value is a fixed, stated rational number given in the question text -- never
-  sampled or simulated.
+description: |
+  Compute one Euler-Maruyama update for a supplied scalar drift, diffusion, step and noise
+  value. The diffusion coefficient is a stated constant (additive noise) at the easy and
+  medium tiers, and a stated function of the current value, sigma(Y) = k*Y (multiplicative
+  noise), at the hard and exam tiers. Every noise value is a fixed, stated rational number
+  given in the question text -- never sampled or simulated. The exam tier takes two steps,
+  re-evaluating the drift and the diffusion coefficient at the start of each, and compares
+  the result with the noise-free path.
 status: active
 placement_eligible: false
 prerequisites: [explicit-euler-linear-ode]
@@ -32,8 +34,8 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: p13f_stochastic_euler
-  params: {}
+- topic: exd_x_r3a_stochastic_two_step
+  params: {tier: exam}
   difficulty: exam
   stages:
   - exam

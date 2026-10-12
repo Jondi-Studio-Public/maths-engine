@@ -19,8 +19,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15c_product_measure_rectangle
-  params: {}
+- topic: exd_x_r3e_product_measure_complement
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:
@@ -31,7 +31,7 @@ misconceptions:
 - id: uses-whole-spaces
   description: Uses the total measure of X and Y instead of the stated subsets A and B.
 - id: double-counts-overlap
-  description: On the exam tier, where A is presented as a union of two overlapping index lists, sums the overlapping element's weight twice instead of once.
+  description: Where a set is presented as a union of two overlapping index lists, sums the overlapping element's weight twice instead of once.
 tags: [university-core-v1, measure-theory, p15c_product_measure_rectangle]
 framework_areas: [measure-and-advanced-probability]
 alignments:

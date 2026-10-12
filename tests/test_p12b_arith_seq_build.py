@@ -143,7 +143,8 @@ def test_methods_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["simple-interest"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == METHODS_TOPIC
+        # the exam source moved to the multi-part chain exd_x_r3b_arith_seq
+        assert source.topic == ("exd_x_r3b_arith_seq" if source.difficulty == "exam" else METHODS_TOPIC)
     difficulties = {source.difficulty for source in skill.sources}
     assert difficulties == set(TIERS)
     exam_source = next(s for s in skill.sources if s.difficulty == "exam")

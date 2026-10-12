@@ -22,7 +22,7 @@ sources:
   params: {variant: perpendicular}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g1_unit_vectors
+- topic: exd_x_r3c_unit_vector_perp
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

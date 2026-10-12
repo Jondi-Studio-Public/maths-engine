@@ -97,8 +97,12 @@ _ORACLES = {"easy": _oracle_easy, "medium": _oracle_medium, "hard": _oracle_hard
 
 @pytest.mark.parametrize("difficulty,seed", [(tier, s) for tier in ["easy", "medium", "hard", "exam"] for s in SEEDS])
 def test_oracle_rederives_quotient_ring_answer(difficulty, seed):
-    src = SOURCES[difficulty]
-    q = mathgen.make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
+    if difficulty == "exam":
+        # The skill's exam source is now a multi-part chain; this oracle covers the single-answer generator.
+        q = mathgen.make("p15e_quotient_ring_operation", seed=seed, difficulty="exam")
+    else:
+        src = SOURCES[difficulty]
+        q = mathgen.make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
     derived = _ORACLES[difficulty](q.text)
     stated = sp.expand(sp.sympify(_desanitize(q.answer_text)))
     assert sp.expand(derived - stated) == 0, (

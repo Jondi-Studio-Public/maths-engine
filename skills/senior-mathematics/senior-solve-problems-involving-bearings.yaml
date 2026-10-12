@@ -21,7 +21,7 @@ sources:
   params: {variant: leg_bearing}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_bearings_cosine
+- topic: exd_x_r3a_bearings_triangle
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -25,8 +25,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13c_trig_identity_integrate
-  params: {}
+- topic: exd_x_r3e_trig_identity_integral
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

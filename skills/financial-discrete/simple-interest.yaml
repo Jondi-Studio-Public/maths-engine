@@ -1,13 +1,16 @@
 id: simple-interest
 name: Calculate simple interest
 domain: financial-discrete
-description: Calculate simple interest from principal, annual rate and whole years.
+description: |
+  Calculate simple interest from principal, annual rate and whole years. The exam tier
+  uses a term in whole months and asks for the interest, the final value and the annual
+  rate that would earn the same interest over a shorter term.
 status: active
 prerequisites: [percentage-of-quantity]
 answer: number
 sources:
 - {topic: financial_interest, params: {kind: simple}, difficulty: easy}
-- topic: exd_x_g5_simple_interest
+- topic: exd_x_r3b_simple_interest
   params: {tier: exam}
   difficulty: exam
   stages:

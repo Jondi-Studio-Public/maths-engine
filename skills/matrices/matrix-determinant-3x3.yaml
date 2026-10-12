@@ -33,7 +33,7 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_x_g3_det3
+- topic: exd_x_r3b_det3
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -21,7 +21,7 @@ sources:
   params: {variant: cofunction}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_c4_trig_ratio_expressions
+- topic: exd_x_r3a_right_triangle_chain
   params: {tier: exam}
   difficulty: exam
   stages:

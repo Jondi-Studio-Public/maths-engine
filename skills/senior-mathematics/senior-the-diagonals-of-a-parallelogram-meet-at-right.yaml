@@ -21,7 +21,7 @@ sources:
   params: {variant: converse_rhombus}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h4_rhombus_diagonals_composed
+- topic: exd_x_r3f_rhombus_chain
   params: {tier: exam}
   difficulty: exam
   stages:

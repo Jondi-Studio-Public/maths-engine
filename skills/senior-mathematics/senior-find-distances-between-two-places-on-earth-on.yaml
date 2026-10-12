@@ -21,7 +21,7 @@ sources:
   params: {mode: combined_km}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_meridian_voyage
+- topic: exd_x_r3f_meridian_voyage
   params: {tier: exam}
   difficulty: exam
   stages:

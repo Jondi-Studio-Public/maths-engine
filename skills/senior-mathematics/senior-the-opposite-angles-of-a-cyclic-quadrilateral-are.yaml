@@ -21,7 +21,7 @@ sources:
   params: {variant: two_pair_chain}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h4_cyclic_two_unknowns
+- topic: exd_x_r3a_cyclic_chain
   params: {tier: exam}
   difficulty: exam
   stages:
