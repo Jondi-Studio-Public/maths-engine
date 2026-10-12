@@ -319,11 +319,40 @@ def _matches_number(values: list, expected) -> bool:
     return False
 
 
+# Words and signs that negate or hedge a value ("not twelve", "isn't twelve", "twelve plus or minus one").
+# Kept in step with `mathgen.grading.typed._NEGATION_RE`, which cannot be imported here (typed imports this
+# module).
+_NEGATION_RE = re.compile(
+    r"\b(?:not|never|neither|nor|cannot)\b"
+    r"|n['\u2019]t\b"
+    r"|[\u2260\u2264\u2265\u00b1\u2213]|!=|<(?!-)|(?<![-=])>"
+    r"|\+\s*/\s*-"
+    r"|\bplus[\s-]+(?:or[\s-]+)?minus\b",
+    re.IGNORECASE,
+)
+
+
+def _matches_one_value(values: list, text: str, expected) -> bool:
+    """Whether `text` states exactly one value, not negated or hedged, and it matches `expected`.
+
+    A transcript of a single-number answer is one value: "not twelve", "twelve or thirteen" and "twelve and a
+    half" are not "twelve", though each holds a twelve. Fillers that are not values ("um twelve", "it's
+    twelve", "the answer is twelve") are not numbers and so do not count; "twelve point five" is 12.5."""
+    if len(values) != 1 or _NEGATION_RE.search(text):
+        return False
+    return _matches_number(values, expected)
+
+
 def check_answer(question, transcript: str, fallback: str = None) -> bool:
     """Check a spoken transcript against a mathgen Question's structured answer.
 
     `fallback` is an optional second candidate transcript (for example from a second recogniser),
-    tried only if the first does not match: the first transcript is authoritative."""
+    tried only if the first does not match: the first transcript is authoritative.
+
+    For a single-number answer (an int, a float or a {"p", "q"} fraction) a transcript must state exactly one
+    value and must not negate or hedge it, so "not twelve", "twelve or thirteen" and "twelve and a half" are
+    all wrong for 12; the +/-0.051 tolerance and the number-word reading are unchanged. Answers of several
+    values (a dict of components, a list) still match on each component being present."""
     for text in [t for t in (transcript, fallback) if t]:
         if _check_one(question, text):
             return True
@@ -335,14 +364,14 @@ def _check_one(question, text: str) -> bool:
     values = extract_values(text)
 
     if isinstance(answer, int):
-        return _matches_number(values, answer)
+        return _matches_one_value(values, text, answer)
     if isinstance(answer, float):
-        return _matches_number(values, answer)
+        return _matches_one_value(values, text, answer)
     if isinstance(answer, dict):
         keys = set(answer.keys())
         if keys == {"p", "q"}:
             target = Fraction(answer["p"], answer["q"])
-            return _matches_number(values, target)
+            return _matches_one_value(values, text, target)
         # Pairs like {x, y} or {R_A, R_B}: every component must be present.
         remaining = list(values)
         for expected in answer.values():

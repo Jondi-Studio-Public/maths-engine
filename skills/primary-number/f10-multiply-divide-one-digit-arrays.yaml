@@ -3,6 +3,8 @@ name: Multiply and divide using groups and arrays
 domain: primary-number
 description: Given a one-digit multiplication or division situation framed as equal groups or an array, compute the unknown total, each-group size, or number of groups.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [multiplication-facts, equal-groups, whole-number-division-facts]
 answer: number

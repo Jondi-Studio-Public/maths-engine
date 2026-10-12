@@ -29,8 +29,6 @@ condition-number-diagonal:
   condition_number_diagonal/easy: 18
 continue-patterns:
   repeating_pattern/easy: 4
-count-to-5:
-  count_objects/easy: 19
 define-variables:
   define_variable/easy: 3
 equal-groups:
@@ -190,8 +188,6 @@ simple-harmonic-angular-frequency:
   simple_harmonic_angular_frequency/easy: 9
 subtract-within-5:
   early_subtraction/easy: 18
-tell-time-to-hour:
-  clock_hours/easy: 12
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:
