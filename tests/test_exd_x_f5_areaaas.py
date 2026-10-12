@@ -14,9 +14,8 @@ from mathgen.text_quality import find_text_defects, prompt_shape
 
 
 @pytest.fixture(autouse=True)
-def _mp_precision():
-    """40 digits for this module's tests only: mpmath's precision is global, and a module-level `mp.dps = 40`
-    stayed set for every later test in the worker (it made sympy's `nsolve` demand a near-zero residual)."""
+def _precision():
+    # Set per test: a module-level mp.dps leaks into every later test in the same worker.
     with mp.workdps(40):
         yield
 

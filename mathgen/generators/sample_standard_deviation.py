@@ -438,6 +438,12 @@ _VARIANTS = {
         "non_integer_mean": dict(variant="non_integer_mean"),
         "context": dict(variant="context"),
         "compare_sets": dict(variant="compare_sets"),
+        # Tier names, which is what a skill source's `difficulty` must be. Each sets the variant that
+        # opens that tier; a source whose `params` name another variant (the `context` source is a
+        # `hard` one) overrides it.
+        "easy": dict(variant="integers"),
+        "medium": dict(variant="non_integer_mean"),
+        "hard": dict(variant="compare_sets"),
     },
 )
 def standard_deviation_from_data(rng, variant="integers"):
@@ -458,7 +464,12 @@ def standard_deviation_from_data(rng, variant="integers"):
     `difficulty` string through to a topic with no presets at all, which
     would silently start raising `KeyError` the moment any preset was later
     added to this topic -- also lets any generic check over ``PRESETS`` exercise
-    this tier structure."""
+    this tier structure.
+
+    The skill labels its sources with the library's tiers (``easy``, ``medium``, ``hard``), and so registers
+    ``easy``, ``medium`` and ``hard`` presets too. ``context`` and ``compare_sets`` are both ``hard`` there, so
+    at one seed they start from the same random stream; they then draw differently (different ``n`` choices
+    and construction), so their questions are not copies of each other."""
     if variant not in _VARIANTS:
         raise ValueError(f"unknown variant: {variant!r}; known: {', '.join(_VARIANTS)}")
     return _VARIANTS[variant](rng)

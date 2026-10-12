@@ -295,7 +295,9 @@ def _medium(rng: random.Random) -> dict:
         edits.append(("measures-from-the-least-popular", {dk: counts[r] - min(counts)}))
     edits += _off_by_one(blanks, rng)
     answer_text, distractors, notes = finish(answer, edits)
-    working = [f"{c}: {n} votes, {top - n} fewer than {cats[top_i]}" for c, n in zip(cats, counts)]
+    working = [
+        f"{c}: {n} {'vote' if n == 1 else 'votes'}, {top - n} fewer than {cats[top_i]}" for c, n in zip(cats, counts)
+    ]
     return dict(
         text=text, answer=answer, answer_text=answer_text, working=working, distractors=distractors, option_notes=notes
     )

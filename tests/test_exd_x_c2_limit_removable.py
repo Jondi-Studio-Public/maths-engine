@@ -24,15 +24,6 @@ from mathgen import make
 from mathgen.grading import GRADERS
 from mathgen.text_quality import find_text_defects, prompt_shape
 
-
-@pytest.fixture(autouse=True)
-def _mp_precision():
-    """60 digits for this module's tests only: mpmath's precision is global, and a module-level `mp.dps = 60`
-    stayed set for every later test in the worker (it made sympy's `nsolve` demand a near-zero residual)."""
-    with mpmath.mp.workdps(60):
-        yield
-
-
 TOPIC = "exd_x_c2_limit_removable"
 GRADER = "number"
 _X = sympy.Symbol("x")
@@ -118,6 +109,7 @@ def _split(text):
     raise AssertionError(text)
 
 
+@mpmath.workdps(60)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _oracle(text):
     point_text, expr_text = _split(text)
     point = int(point_text)

@@ -27,16 +27,17 @@ def memory_from_history(
     log_rows: list[dict], stage: int, stage_delays: list[float]
 ) -> tuple[fsrs.Memory | None, datetime | None]:
     """FSRS memory for a skill that has none yet, rebuilt by replaying its review
-    history: rows with `outcome` and `created_at`, oldest first. Rows with an
-    outcome FSRS does not rate are skipped.
+    history: rows with `outcome` and `created_at`, in any order (they are
+    replayed oldest first). Rows with an outcome FSRS does not rate are skipped.
 
     Returns (memory, time of the last replayed review). With no usable history
     but a `stage` above 0, stability is seeded from `stage_delays[stage - 1]`,
     the gap the learner already came back from to reach that stage (capped at
-    the last delay for maintenance)."""
+    the last delay for maintenance). A stage whose delay is not positive gives
+    no seed: the skill starts fresh."""
     memory = None
     last = None
-    for row in log_rows:
+    for row in sorted(log_rows, key=lambda row: row["created_at"]):
         rating = OUTCOME_RATING.get(row["outcome"])
         if rating is None:
             continue
@@ -45,7 +46,8 @@ def memory_from_history(
         last = at
     if memory is None and stage > 0 and stage_delays:
         delay = stage_delays[min(stage, len(stage_delays)) - 1]
-        memory = fsrs.Memory(float(delay), fsrs.initial_difficulty(fsrs.GOOD))
+        if delay > 0:
+            memory = fsrs.Memory(float(delay), fsrs.initial_difficulty(fsrs.GOOD))
     return memory, last
 
 

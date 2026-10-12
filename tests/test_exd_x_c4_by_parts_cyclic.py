@@ -55,15 +55,6 @@ from mpmath import mp, quad
 from sympy import Symbol, lambdify
 from sympy.parsing.sympy_parser import implicit_multiplication_application, parse_expr, standard_transformations
 
-
-@pytest.fixture(autouse=True)
-def _mp_precision():
-    """25 digits for this module's tests only: mpmath's precision is global, and a module-level `mp.dps = 25`
-    stayed set for every later test in the worker (it made sympy's `nsolve` demand a near-zero residual)."""
-    with mp.workdps(25):
-        yield
-
-
 _X = Symbol("x", real=True)
 _TR = standard_transformations + (implicit_multiplication_application,)
 
@@ -75,6 +66,7 @@ def _expr(text: str):
     return parse_expr(s, transformations=_TR, local_dict={"x": _X})
 
 
+@mp.workdps(25)  # set locally: a module-level mp.dps leaks into every test the worker runs
 def _agrees(q: Question) -> bool:
     m = re.match(r"Find ∫ from x = 0 to x = (.+?) of (.+) dx\.", q.text)
     hi = float(parse_expr(m.group(1).replace("π", "pi")).evalf(25))

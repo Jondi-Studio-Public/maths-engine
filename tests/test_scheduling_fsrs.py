@@ -17,6 +17,8 @@ GOLDEN = [
     (3, 0.5, 3.796977, 7.27885),
     (3, 2, 7.153752, 7.2602),
     (4, 6, 34.307021, 6.799103),
+    (3, 4.75, 40.407799, 6.782659),  # fractional gaps count as whole days, rounded down
+    (2, 1.9, 40.759103, 7.285958),
 ]
 
 
@@ -50,6 +52,24 @@ def test_a_lapse_never_raises_stability():
     assert r == pytest.approx(0.9)
     assert after.stability < memory.stability
     assert after.difficulty > memory.difficulty
+
+
+def test_fractional_days_round_down():
+    memory = fsrs.Memory(stability=10.0, difficulty=5.0)
+    assert fsrs.step(memory, fsrs.GOOD, 4.99) == fsrs.step(memory, fsrs.GOOD, 4)
+    assert fsrs.step(memory, fsrs.GOOD, 0.99) == fsrs.step(memory, fsrs.GOOD, 0)
+
+
+@pytest.mark.parametrize("retention", [0, 1, -0.5, 1.5])
+def test_interval_rejects_retention_outside_zero_to_one(retention):
+    with pytest.raises(ValueError):
+        fsrs.interval_days(10, retention)
+
+
+@pytest.mark.parametrize("stability", [0, -1])
+def test_retrievability_rejects_non_positive_stability(stability):
+    with pytest.raises(ValueError):
+        fsrs.retrievability(3, stability)
 
 
 def test_bad_rating_rejected():

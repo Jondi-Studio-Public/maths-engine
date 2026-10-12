@@ -58,8 +58,12 @@ def make_for_skill(skill: Skill, seed: int | None = None, *, source: Source | in
     return make(src.topic, seed=seed, difficulty=src.difficulty, **_tuplify(src.params))
 
 
-def grade(skill: Skill, question, given: str) -> GradeResult:
-    """Grade `given` against `question` with the grader the skill's answer kind names."""
+def grade(skill: Skill, question, given: str | dict) -> GradeResult:
+    """Grade `given` against `question` with the grader the skill's answer kind names.
+
+    A multi-part question (`question.parts`) is marked part by part with each part's own grader, and `given`
+    may be a dict of replies keyed by part label; the result's `marks`, `max_marks` and `parts` give the
+    marks (see `mathgen.grading.parts`)."""
     return _grade_kind(skill.answer, question, given, skill=skill)
 
 

@@ -191,7 +191,7 @@ data and reads no clock; the application stores state and passes times in.
   draws from (a skill's `stages` hints), using the nearest staged sources when a stage has
   none. `stages.pick_sources` takes questions from them round-robin.
 - `fsrs` is the FSRS-5 model (the open scheduler Anki uses), matching the reference
-  implementation py-fsrs 5.1.3. `review.score(outcome, memory, last_review_at, now)` turns a
+  implementation py-fsrs 5.1.3 (like it, gaps count in whole days, rounded down). `review.score(outcome, memory, last_review_at, now)` turns a
   finished review (`advance`, `hold`, `reset`, `maintenance_pass`) into new memory and a
   due date, and `review.memory_from_history` rebuilds memory from past outcomes.
 - `calibration.item_difficulty(rows, skills)` fits a Rasch difficulty per skill and per

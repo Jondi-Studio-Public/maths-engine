@@ -61,12 +61,16 @@ def _clamp_d(d: float) -> float:
 
 def retrievability(elapsed_days: float, stability: float) -> float:
     """Predicted probability of recall `elapsed_days` after the last review."""
+    if stability <= 0:
+        raise ValueError(f"stability must be positive, got {stability!r}")
     elapsed_days = max(0.0, elapsed_days)
     return (1 + FACTOR * elapsed_days / stability) ** DECAY
 
 
 def interval_days(stability: float, desired_retention: float) -> float:
     """Days until retrievability falls to `desired_retention` (unrounded)."""
+    if not 0 < desired_retention < 1:
+        raise ValueError(f"desired_retention must be between 0 and 1, got {desired_retention!r}")
     return stability / FACTOR * (desired_retention ** (1 / DECAY) - 1)
 
 
@@ -105,12 +109,17 @@ def _short_term_stability(s: float, rating: int, w) -> float:
 def step(memory: Memory | None, rating: int, elapsed_days: float, w=DEFAULT_WEIGHTS) -> tuple[Memory, float | None]:
     """Apply one rated review. Returns (new memory, retrievability before the
     review). The retrievability is None for a first review, which has no
-    prediction to score."""
+    prediction to score.
+
+    `elapsed_days` is counted in whole days, rounded down, as the reference
+    implementation counts it: a review 4.75 days after the last one is a
+    4-day gap, and anything under a day is a same-day review."""
     if rating not in (AGAIN, HARD, GOOD, EASY):
         raise ValueError(f"rating must be 1..4, got {rating!r}")
     if memory is None:
         return Memory(initial_stability(rating, w), initial_difficulty(rating, w)), None
     s, d = memory.stability, memory.difficulty
+    elapsed_days = math.floor(max(0.0, elapsed_days))
     r = retrievability(elapsed_days, s)
     if elapsed_days < 1:
         new_s = _short_term_stability(s, rating, w)

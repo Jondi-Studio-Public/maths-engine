@@ -20,6 +20,8 @@ TOPIC = "pv1e_power_end_behaviour"
 TIERS = ["easy", "medium", "hard", "exam"]
 LABELS = {gen.INC, gen.DEC, gen.APP}
 SEEDS = range(40)
+PHRASES = ("tends to infinity", "tends to negative infinity", "tends to 0 from the right", "tends to 0 from the left")
+MATHS = (r"\(x \to \infty\)", r"\(x \to -\infty\)", r"\(x \to 0^{+}\)", r"\(x \to 0^{-}\)")
 
 
 @functools.lru_cache(maxsize=1)
@@ -114,8 +116,8 @@ def test_prompt_names_the_family_and_the_end_but_never_the_answer(tier):
     for seed in range(60):
         q = _make(tier, seed)
         assert "y = x^n" in q.text and r"\(y = x^n\)" in q.latex
-        assert "tends to infinity" in q.text or "tends to negative infinity" in q.text
-        assert r"\(x \to \infty\)" in q.latex or r"\(x \to -\infty\)" in q.latex
+        assert any(p in q.text for p in PHRASES)
+        assert any(m in q.latex for m in MATHS)
         for lab in LABELS:
             assert lab not in q.text and lab not in q.latex
         assert "without bound" not in q.text and "fixed value" not in q.text
@@ -169,3 +171,71 @@ def test_in_generator_check_fires_on_a_corrupted_answer(tier, monkeypatch):
 def test_bad_tier_raises():
     with pytest.raises(ValueError):
         mathgen.make(TOPIC, seed=1, tier="bogus")
+
+
+def _ask(q):
+    return gen.ask_of(q.text)
+
+
+@pytest.mark.parametrize("tier", TIERS)
+def test_class_balance_at_1000_seeds_with_the_near_zero_questions(tier):
+    classes = Counter(_make(tier, seed, notes=False).answer_text for seed in range(1000))
+    assert set(classes) == LABELS
+    for n in classes.values():
+        assert 290 <= n <= 380, classes  # about a third each
+
+
+@pytest.mark.parametrize("tier", TIERS)
+def test_near_zero_questions_are_the_hyperbola_only_and_never_in_easy(tier):
+    asks = Counter()
+    for seed in range(400):
+        q = _make(tier, seed, notes=False)
+        ask = _ask(q)
+        asks[(gen._exponent(q.figure), ask)] += 1
+        if ask in (gen.ZERO_R, gen.ZERO_L):
+            assert gen._exponent(q.figure) == -1
+            assert q.answer_text == (gen.INC if ask == gen.ZERO_R else gen.DEC)
+    near = {k for k in asks if k[1] in (gen.ZERO_R, gen.ZERO_L)}
+    assert (near == set()) if tier == "easy" else (near == {(-1, gen.ZERO_R), (-1, gen.ZERO_L)})
+
+
+@pytest.mark.parametrize("tier", ["medium", "hard", "exam"])
+def test_the_hyperbola_has_all_three_answers_and_the_two_sides_are_balanced(tier):
+    answers, sides = Counter(), Counter()
+    for seed in range(1000):
+        q = _make(tier, seed, notes=False)
+        if gen._exponent(q.figure) != -1:
+            continue
+        answers[q.answer_text] += 1
+        if _ask(q) in (gen.ZERO_R, gen.ZERO_L):
+            sides[_ask(q)] += 1
+    assert set(answers) == LABELS
+    # each side is drawn with the same chance (binomial noise only), so neither dominates
+    assert min(sides.values()) >= 0.3 * sum(sides.values()), sides
+
+
+def test_a_near_zero_question_draws_the_branch_up_to_the_edge_of_the_window():
+    for tier in ("medium", "hard", "exam"):
+        for seed in range(400):
+            q = _make(tier, seed, notes=False)
+            ask = _ask(q)
+            if ask not in (gen.ZERO_R, gen.ZERO_L):
+                continue
+            fig = q.figure
+            pts = gen._end_points(fig, 1 if ask == gen.ZERO_R else -1)
+            assert abs(pts[0][0]) <= 0.3
+            edge = fig["y_range"][1] if ask == gen.ZERO_R else fig["y_range"][0]
+            assert abs(pts[0][1] - edge) <= 0.9
+            assert abs(pts[0][1]) >= 4
+
+
+def test_near_zero_options_are_tagged_with_the_right_misconception():
+    for tier in ("medium", "hard", "exam"):
+        for seed in range(400):
+            q = _make(tier, seed)
+            if _ask(q) not in (gen.ZERO_R, gen.ZERO_L):
+                continue
+            for d, note in q.option_notes.items():
+                assert note == (
+                    "reads-the-far-end-instead-of-the-axis" if d == gen.APP else "reads-the-other-side-of-the-axis"
+                )

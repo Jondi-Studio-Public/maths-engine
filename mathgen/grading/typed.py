@@ -16,6 +16,7 @@ for both the splitting policy and why.
 from __future__ import annotations
 
 import copy
+import functools
 import json
 import logging
 import random
@@ -136,6 +137,30 @@ class GradeResult:
     cells: dict[str, bool] | None = None  # table: per-blank verdict, keyed "r,c"
     misconception: str | None = None  # id of the tagged distractor a wrong reply matched (mathgen/misconceptions.py)
     matched_distractor: str | None = None  # that distractor's option text, the key for its `distractor_credit`
+    # Multi-part questions (`mathgen.grading.parts`). On the question's result: `marks` earned (a Fraction),
+    # `max_marks`, and `parts`, each part's own result keyed by label. On a part's result: its `marks` and
+    # `max_marks`, and `follow_through` when its marks were earned from the learner's own wrong earlier answer.
+    # All None/False for a single-answer question.
+    marks: Fraction | None = None
+    max_marks: int | None = None
+    parts: dict[str, GradeResult] | None = None
+    follow_through: bool = False
+
+
+def _multi_part_aware(grader: Callable) -> Callable:
+    """Every grader, handed a multi-part question, grades it part by part with each part's own grader,
+    whatever kind it was called as (see `mathgen.grading.parts`). Applied to each grader where it is defined,
+    so `GRADERS[kind]` and the module-level name stay the same object."""
+
+    @functools.wraps(grader)
+    def graded(question, given):
+        if getattr(question, "parts", None):
+            from .parts import grade_parts
+
+            return grade_parts(question, given)
+        return grader(question, given)
+
+    return graded
 
 
 def _normalised_values(given: str) -> str | None:
@@ -223,6 +248,20 @@ def _plausible_rounding_tolerance(places: int) -> Fraction:
     return Fraction(1, 2 * 10**places)
 
 
+_FLOAT_NOISE = Fraction(1, 10**9)
+
+
+def _is_exact_display(literal_value: Fraction, answer) -> bool:
+    """Whether the displayed literal is the answer itself rather than a rounding of it.
+
+    An `int` answer is compared exactly. A `float` answer carries binary noise (7.7 - 5.1 is
+    2.6000000000000005), so it counts as exact when it is within a relative 1e-9 of the literal: far
+    below any precision a question displays, and far above double-precision noise."""
+    if isinstance(answer, int):
+        return literal_value == answer
+    return abs(Fraction(repr(float(answer))) - literal_value) <= _FLOAT_NOISE * max(1, abs(literal_value))
+
+
 @dataclass
 class _TypedNumberTarget:
     target: Fraction
@@ -274,6 +313,10 @@ def _typed_number_target(question, answer=None) -> _TypedNumberTarget:
             sanity_tolerance = _plausible_rounding_tolerance(places)
             tolerance = _typed_number_tolerance(places)
             if abs(literal_value - fallback_target) <= sanity_tolerance:
+                if _is_exact_display(literal_value, answer):
+                    # The literal is the answer itself, not a rounding of it ("2.6" for 7.7 - 5.1), so
+                    # there is nothing to round and no slack to give: 2.64 is a different number.
+                    tolerance = Fraction(0)
                 return _TypedNumberTarget(target=literal_value, tolerance=tolerance, source="literal")
 
     return _TypedNumberTarget(target=fallback_target, tolerance=fallback_tolerance, source="fallback")
@@ -470,6 +513,7 @@ def _reply_negates_the_answer(question, given: str) -> bool:
     )
 
 
+@_multi_part_aware
 def grade_number(question, given: str) -> GradeResult:
     """Typed numeric answers are graded against a target/tolerance derived
     from `question.answer_text`'s own displayed precision (see
@@ -544,6 +588,7 @@ def _as_exact_fraction(answer):
     return answer
 
 
+@_multi_part_aware
 def grade_fraction(question, given: str) -> GradeResult:
     """Typed fraction answers are graded *exactly*: "0.8" is wrong for 3/4 even though it's within the ~0.05
     tolerance `mathgen.grading.spoken.check_answer` accepts for spoken transcripts. That loose tolerance is
@@ -701,9 +746,18 @@ def _equation_pair_matches(canonical: str, given: str):
         equivalent = _constant_line_equivalent(canonical_label, expected, parts)
         if equivalent is not None:
             return equivalent
-    # A bare value ("3") and any "label = value" stay accepted by design (the label is
-    # stripped; see tests/test_pv1d_parabola_build.py and
-    # tests/test_pv1d_sideways_circle_build.py).
+    if not expected.free_symbols and _is_line_key_label(canonical):
+        # A horizontal or vertical line ("y = 3", "x = -2") is an equation, not a number: the reply has to
+        # be written as that equation. A bare "3" or the wrong axis ("x = 3" for "y = 3") is wrong.
+        # Other single-equation keys ("lambda = 17") keep the label-stripped comparison below.
+        reply_label = _LABEL_RE.match(given)
+        if (
+            not reply_label
+            or reply_label.group(0).split("=")[0].strip().lower() != canonical.split("=", 1)[0].strip().lower()
+        ):
+            return False
+    # Any other bare value ("17" for "lambda = 17") and any "label = value" stay accepted (the label is
+    # stripped; see tests/test_grading_line_key_fixes.py).
     supplied = _resolve_constants(_parse_expression(_strip_label(given)), expected)
     if supplied is None:
         return False
@@ -711,6 +765,11 @@ def _equation_pair_matches(canonical: str, given: str):
         return symbolically_equal(expected, supplied)
     except (TypeError, ValueError):
         return None
+
+
+def _is_line_key_label(canonical: str) -> bool:
+    """True for a key labelled with an axis letter ("y = 3", "x = -2")."""
+    return canonical.split("=", 1)[0].strip().lower() in ("x", "y")
 
 
 def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | None:
@@ -902,6 +961,7 @@ def _component_form(given: str, count: int) -> str | None:
     return "(" + ", ".join(coefficients.get(unit, "0") for unit in units) + ")"
 
 
+@_multi_part_aware
 def grade_pair(question, given: str) -> GradeResult:
     """Unlike `check_answer`'s dict branch (which accepts the two values in
     either order, since it only checks presence), a pair answer kind
@@ -941,6 +1001,7 @@ def grade_pair(question, given: str) -> GradeResult:
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_values)
 
 
+@_multi_part_aware
 def grade_list(question, given: str) -> GradeResult:
     """Order-insensitive, but the set of values must match exactly.
 
@@ -1159,6 +1220,7 @@ def _numeric_items_equal(given_value: Fraction, expected) -> bool:
     return abs(float(given_value) - float(expected)) < 1e-9
 
 
+@_multi_part_aware
 def grade_ordered_list(question, given: str) -> GradeResult:
     """Order-sensitive sequence grader. Unlike `grade_list`, which matches the multiset of values in
     any order, this compares positionally and requires an exact length match --
@@ -2137,6 +2199,7 @@ _DEGREE_SUFFIX_RE = re.compile(r"(?<=[\d)])\s*(?:[°º˚]|deg(?:rees?|s)?\.?)\s*
 _INFINITY_REPLY_RE = re.compile(r"^\s*([+-]?)\s*(?:∞|infinity|inf|oo)\s*$", re.I)
 
 
+@_multi_part_aware
 def grade_expression(question, given: str) -> GradeResult:
     canonical = question.answer_text
     stripped = _round_brackets(_strip_label(given))
@@ -2266,6 +2329,7 @@ def grade_expression(question, given: str) -> GradeResult:
 _INDEX_RE = re.compile(r"-?\d{1,9}")
 
 
+@_multi_part_aware
 def grade_mcq(question, given: str) -> GradeResult:
     options = mcq_options(question)
     canonical = question.answer_text
@@ -2386,6 +2450,7 @@ def _table_cell_correct(expected, given: str) -> bool:
     return _label_key(given) == _label_key(expected)
 
 
+@_multi_part_aware
 def grade_table(question, given: str) -> GradeResult:
     answer = question.answer
     canonical = question.answer_text
@@ -2462,6 +2527,7 @@ def _set_item_matches(expected, given: str) -> bool:
     return _label_key(given) == _label_key(expected)
 
 
+@_multi_part_aware
 def grade_set(question, given: str) -> GradeResult:
     expected = question.answer
     canonical = question.answer_text
@@ -2579,6 +2645,7 @@ def points_answer_text(points) -> str:
     return " ".join(_point_text(p) for p in _points(points))
 
 
+@_multi_part_aware
 def grade_points(question, given: str) -> GradeResult:
     answer = question.answer
     canonical = question.answer_text
@@ -2686,6 +2753,7 @@ def polyline_answer_text(answer) -> str:
     return "; ".join(_piece_text(piece) for piece in _polyline_pieces(answer, keep_vertices))
 
 
+@_multi_part_aware
 def grade_polyline(question, given: str) -> GradeResult:
     canonical = question.answer_text
     keep_vertices = isinstance(question.answer, dict) and bool(question.answer.get("keep_vertices"))
@@ -2712,6 +2780,7 @@ def line_answer_text(points) -> str:
     return points_answer_text(points)
 
 
+@_multi_part_aware
 def grade_line(question, given: str) -> GradeResult:
     canonical = question.answer_text
     target = _points(question.answer)
@@ -2942,24 +3011,37 @@ def _one_gap(match: re.Match) -> str:
     return "\n" if "\n" in match.group() else " "
 
 
-def grade(kind: str, question, given: str, *, skill=None) -> GradeResult:
+def normalise_reply(kind: str, given: str) -> str:
+    r"""`given` as every grader of `kind` reads it.
+
+    The parsers are not all linear in a long run of whitespace (a separator written `\s*,\s*` is tried from
+    every space of the run, and several together are quartic), so no run reaches them longer than one
+    character: a run that holds a line break is that one line break, any other run one space. Nothing a
+    parser reads is in the width of a gap."""
+    return _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, _WHITESPACE_RUN_RE.sub(_one_gap, given)))
+
+
+def grade(kind: str, question, given, *, skill=None) -> GradeResult:
     """`skill` is optional and keyword-only: every pre-existing
     call site is unaffected. A wrong reply that matches a tagged distractor
     gets `misconception` and `matched_distractor` either way; its `note` comes
     from the skill's own `misconceptions`/`near_misses` when `skill` is passed
-    and lists the id, else from the shared catalogue (mathgen/misconceptions.py)."""
+    and lists the id, else from the shared catalogue (mathgen/misconceptions.py).
+
+    A multi-part question (`question.parts`) is graded part by part, each with its own grader, whatever
+    `kind` is; `given` may then be a dict of replies keyed by part label (see `mathgen.grading.parts`)."""
     if kind not in GRADERS:
         raise KeyError(f"unknown answer kind {kind!r}; known: {', '.join(sorted(GRADERS))}")
+    if getattr(question, "parts", None):
+        from .parts import grade_parts
+
+        return grade_parts(question, given, skill=skill)
     if isinstance(given, str) and len(given) > MAX_REPLY_LENGTH:
         # A megabyte of text is seconds of work for nothing: no answer in the library, in any spelling, is a
         # fraction of this long.
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str):
-        # The parsers are not all linear in a long run of whitespace (a separator written `\s*,\s*` is tried from
-        # every space of the run, and several together are quartic), so no run reaches them longer than one
-        # character: a run that holds a line break is that one line break, any other run one space. Nothing a
-        # parser reads is in the width of a gap.
-        given = _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, _WHITESPACE_RUN_RE.sub(_one_gap, given)))
+        given = normalise_reply(kind, given)
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str) and kind in _COPY_CHECKED_KINDS and _copies_the_question(question, given):

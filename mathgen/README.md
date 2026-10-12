@@ -109,7 +109,10 @@ string: the id comes from the shared catalogue in `misconceptions.py`, and `valu
 grader recognise that error however the learner spells it, so a wrong reply is diagnosed, not just marked. Set
 `answer_kind` too. See `docs/design/typed-answer-contract.md`; plain strings still work.
 
-Typed numeric answers are graded to their own stated precision. `grade_fraction` compares
+Typed numeric answers are graded to their own stated precision: a rounded answer (`0.33` for 1/3)
+accepts half a unit in its last place, and an answer shown exactly (`2.6` for 7.7 - 5.1) is matched
+exactly. If the stored answer is itself rounded, say so in the question ("to the nearest cent").
+`grade_fraction` compares
 by value, so `2/4` is accepted for `1/2` and you cannot build a "does not simplify"
 distractor. Expressions are compared by symbolic equivalence.
 
@@ -117,6 +120,44 @@ distractor. Expressions are compared by symbolic equivalence.
 Explicit params passed to `make()` override a preset. A topic with no presets uses its
 defaults for any difficulty name, and an unknown name for a topic that has presets raises
 `KeyError`. Some topics have only an `exam` preset, or presets named for their own cases.
+
+## Multi-part questions
+
+An exam question in parts ("(a) find the radius; (b) hence find the circumference") returns `text` as the
+stem and a list of `parts` instead of a single answer. Each part names its own grader (`answer_kind`), its
+`marks`, and, when it uses an earlier result, a `follow_through` expression such as `"2*pi*part_a"`, so a
+learner who gets (a) wrong still earns (b)'s marks for using their own (a) correctly:
+
+```python
+return dict(
+    text="A circle has an area of 120.76 cm².",
+    parts=[
+        dict(
+            prompt="Find the radius, correct to 1 decimal place.",
+            answer_kind="number",
+            answer=6.2,
+            answer_text="6.2",
+            marks=2,
+            distractors=[...],
+        ),
+        dict(
+            prompt="Hence find the circumference, correct to 1 decimal place.",
+            answer_kind="number",
+            answer=39.0,
+            answer_text="39.0",
+            follow_through="2*pi*part_a",
+            distractors=[...],
+        ),
+    ],
+)
+```
+
+`make()` fills the question-level `answer`, `answer_text` and `working` from the parts and checks every
+follow-through expression against the canonical answers. `grade()` takes a dict of replies keyed by label (or
+labelled text) and returns `marks`, `max_marks` and a result per part. Give a part that later parts follow
+through from a `sensible_range` when its answer has one, such as `(0, None)` for a length or `(0, 1)` for a
+probability, so an impossible earlier reply carries no marks forward. The design, including show-that parts,
+is in `docs/design/multi-part-questions.md`.
 
 ## Use the helpers in `core.py`
 
@@ -131,6 +172,7 @@ Read `core.py` before writing any utility. It already has, among others:
 | `numeric_answer`, `stated_precision_string`, `round_half_up` | Decimal answers at a stated precision |
 | `phrase`, `compose` | Vary wording; chain multi-step questions |
 | `mcq_options` | The shuffled option list the `mcq` grader uses |
+| `draw_until`, `attempts` | Bounded rejection sampling; never write an uncapped `while` loop (see `CONTRIBUTING.md`) |
 
 If a helper you need is missing and would serve more than one generator, say so in your
 pull request instead of writing a private copy.

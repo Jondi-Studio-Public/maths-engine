@@ -67,6 +67,16 @@ def test_a_tie_prefers_the_easier_side():
     assert _labels(stages.eligible_sources(split, 2, N)) == ["easy"]
 
 
+def test_a_stage_past_the_ladder_counts_as_maintenance():
+    long_ladder = _skill(
+        Source(topic="t", difficulty="easy", stages=[0, 1, 2]),
+        Source(topic="t", difficulty="hard", stages=[9, 10]),
+    )
+    assert _labels(stages.eligible_sources(long_ladder, N, N)) == ["hard"]
+    assert _labels(stages.eligible_sources(long_ladder, 6, N)) == ["hard"]  # nearest staged
+    assert _labels(stages.eligible_sources(long_ladder, 1, N)) == ["easy"]
+
+
 def test_pick_sources_rotates_from_start():
     src = ["a", "b", "c"]
     assert stages.pick_sources(src, 2) == ["a", "b"]

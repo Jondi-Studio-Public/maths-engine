@@ -286,6 +286,9 @@ _REVIEWED = {
     ("grading/typed.py", "_expected_expression", "simplify"): "two expressions from `_parse_expression`",
     ("grading/typed.py", "_line_standard_form_coeffs", "expand"): "the two sides of an equation, parsed",
     ("grading/typed.py", "grade_expression", "expand"): "the reply, already parsed by `_parse_expression`",
+    # a follow-through answer: an expression from `sympify_safely` with the learner's parsed replies substituted
+    ("grading/parts.py", "retarget", "N"): "a follow-through value, a SymPy number",
+    ("grading/parts.py", "retarget", "nsimplify"): "a follow-through value, a SymPy number",
 }  # fmt: skip
 
 
