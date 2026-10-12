@@ -23,7 +23,7 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, generator
+from ..core import check, generator, latex_from_inline
 from . import pv1e_curve_figure_build as cf
 
 TOPIC = "pv1e_exp_asymptote"
@@ -217,7 +217,7 @@ def pv1e_exp_asymptote(rng, tier: str = "easy") -> dict:
     ]
     return {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": {"y": k},
         "answer_text": answer_text,
         "answer_latex": f"y = {k}",

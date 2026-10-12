@@ -48,7 +48,7 @@
 - id: figure_stimulus
   name: Figure rendering in the question (typed or picked answer)
   owner: unassigned
-  status: not_benchmarked
+  status: passed
   benchmark_suite: null
   threshold: null
   fail_closed: true

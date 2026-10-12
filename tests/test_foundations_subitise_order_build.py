@@ -12,7 +12,6 @@ from mathgen.generators.foundations_subitise_order_build import (
     _verify_ascending_order,
     _verify_symbol_count,
 )
-from mathgen.generators.early_math import DOTS
 
 ROOT = Path(__file__).resolve().parents[1]
 SEEDS = range(40)
@@ -44,16 +43,20 @@ def test_subitise_count_is_always_1_to_5(difficulty):
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
-def test_subitise_rendered_symbol_count_matches_intended_count(difficulty):
-    """The independent check's own logic, exercised directly against the
-    real generated text: exactly one DOTS symbol appears in the question,
-    and its occurrence count equals the stated answer."""
+def test_subitise_drawn_dot_count_matches_intended_count(difficulty):
+    """The count is read back out of the drawn picture (never from the answer): the dots in the
+    figure, counted from the positions it carries, equal the stated answer."""
     for seed in SEEDS:
         question = make("subitise_to_5", seed=seed, difficulty=difficulty)
-        symbols_present = [s for s in DOTS if s in question.text]
-        assert len(symbols_present) == 1, f"expected exactly one DOTS symbol in {question.text!r}"
-        symbol = symbols_present[0]
-        assert question.text.count(symbol) == question.answer
+        fig = question.figure
+        assert fig["kind"] == "counters"
+        if fig["layout"] == "dice":
+            assert difficulty == "easy" and len(fig["faces"]) == 1
+            drawn = fig["faces"][0]["n"]
+        else:
+            assert difficulty != "easy"
+            drawn = len(fig["dots"])
+        assert drawn == question.answer
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
@@ -68,15 +71,14 @@ def test_subitise_correct_answer_grades_correct_and_distractors_grade_incorrect(
 def test_subitise_hard_is_always_two_clusters_summing_to_the_count():
     for seed in SEEDS:
         question = make("subitise_to_5", seed=seed, difficulty="hard")
-        symbol = [s for s in DOTS if s in question.text][0]
-        # hard-tier text is "<clusterA><gap><clusterB>" using the same symbol
-        # for both clusters -- confirm two separated runs exist and sum to
-        # the answer, without re-deriving via the same construction path.
-        layout = question.text.split("?", 1)[1].strip()
-        parts = [part for part in layout.split() if part]
-        assert len(parts) == 2, f"expected two visually separated clusters, got {parts!r}"
-        assert sum(part.count(symbol) for part in parts) == question.answer
-        assert all(part.count(symbol) == len(part) for part in parts)
+        # two visually separated groups: every dot sits in the left or the right part of the
+        # picture with a clear empty gap between them, and the two groups sum to the answer.
+        xs = sorted(d["at"][0] for d in question.figure["dots"])
+        left = [x for x in xs if x < 0.5]
+        right = [x for x in xs if x >= 0.5]
+        assert left and right, f"expected two groups, got x positions {xs!r}"
+        assert min(right) - max(left) >= 0.3
+        assert len(left) + len(right) == question.answer
 
 
 def test_subitise_hard_always_has_exactly_three_distractors():

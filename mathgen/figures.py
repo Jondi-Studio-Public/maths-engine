@@ -27,6 +27,10 @@ Number = int | float
 # kind -> validator(spec) -> list of problems (empty when valid)
 _KINDS: dict[str, Callable[[dict], list[str]]] = {}
 
+# kind -> texts(spec) -> every string that kind draws beyond the shared keys
+# (``alt``, ``title``, axis labels). Feeds :func:`labels` and so the leak check.
+_TEXTS: dict[str, Callable[[dict], list[str]]] = {}
+
 # topic -> reader(question) -> answer_text, re-derived from `question.figure`
 # alone (never from `question.answer`/`answer_text`). See `register_reader`.
 _READERS: dict[str, Callable[[Any], str]] = {}
@@ -35,11 +39,23 @@ _READERS: dict[str, Callable[[Any], str]] = {}
 MAX_CURVE_POINTS = 400
 
 
-def register_kind(kind: str, validator: Callable[[dict], list[str]]) -> None:
-    """Register a figure kind's validator. A kind is registered once."""
+def register_kind(
+    kind: str,
+    validator: Callable[[dict], list[str]],
+    texts: Callable[[dict], list[str]] | None = None,
+) -> None:
+    """Register a figure kind's validator. A kind is registered once.
+
+    ``texts(spec)`` returns every string the kind draws beyond ``alt``,
+    ``title``, ``x_label`` and ``y_label`` (category names, tick captions,
+    vertex names, a key such as "each circle = 2"), so :func:`assert_no_leak`
+    sees everything a learner sees. A kind that draws no other text omits it.
+    """
     if kind in _KINDS:
         raise ValueError(f"figure kind {kind!r} is already registered")
     _KINDS[kind] = validator
+    if texts is not None:
+        _TEXTS[kind] = texts
 
 
 def kinds() -> tuple[str, ...]:
@@ -104,6 +120,9 @@ def labels(spec: dict) -> list[str]:
         for item in spec.get(group, ()):
             if item.get("label"):
                 out.append(item["label"])
+    texts = _TEXTS.get(spec.get("kind"))
+    if texts is not None:
+        out.extend(t for t in texts(spec) if t)
     return out
 
 
@@ -367,3 +386,6 @@ def _validate_number_line(spec: dict) -> list[str]:
 
 register_kind("cartesian", _validate_cartesian)
 register_kind("number_line", _validate_number_line)
+
+# The other kinds register themselves on import; they use the helpers above.
+from mathgen import figure_kinds as _figure_kinds  # noqa: E402,F401
