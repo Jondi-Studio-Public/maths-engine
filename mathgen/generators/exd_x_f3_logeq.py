@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import math
 import random
+import re
 
 from ..core import (
     check,
@@ -76,10 +77,12 @@ def _two_bases(rng: random.Random):
         (b * lq - a * lp) / (lp + lq),  # adds instead of subtracts the logs of the bases
         (b - a) * lq / (lp - lq),
     ]
+    # join_terms writes "2ln 5"; a space before ln reads as written maths.
+    numerator = re.sub(r"(\d)ln", r"\1 ln", join_terms([(b, f"ln {q}"), (-a, f"ln {p}")]))
     working = [
         f"Take logs: ({join_terms([(1, 'x'), (a, '')])}) ln {p} = ({join_terms([(1, 'x'), (b, '')])}) ln {q}",
-        f"x(ln {p} - ln {q}) = {paren_negative(b)} ln {q} - {paren_negative(a)} ln {p}",
-        f"x = ({paren_negative(b)} ln {q} - {paren_negative(a)} ln {p}) / (ln {p} - ln {q}) = {x:.3f}",
+        f"x(ln {p} - ln {q}) = {numerator}",
+        f"x = ({numerator}) / (ln {p} - ln {q}) = {x:.3f}",
     ]
     return x, text, wrong, working
 
