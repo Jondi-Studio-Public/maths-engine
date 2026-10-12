@@ -24,6 +24,7 @@ import math
 import re
 from tokenize import TokenError
 from dataclasses import dataclass
+from decimal import Decimal
 from fractions import Fraction
 from typing import Callable
 
@@ -393,8 +394,9 @@ def _is_rounded_as_asked(question, given: str) -> bool:
 #     and "no, it's 9" all say 9. A "+-" inside a sum ("y=2x+-3") is a plus and a minus, not "plus or minus".
 #
 # What was said about the label side of "=" is unchanged: only the side after the LAST "=" is the
-# value, so "area = 3 x 3 = 9" still reads as 9. Scientific notation ("1e3"), a mixed number ("9 1/2") and
-# a number split by a space ("12 345") are still more than one value.
+# value, so "area = 3 x 3 = 9" still reads as 9. Thousands grouped by a space ("12 345") and the school form
+# of scientific notation ("1.2 × 10^3") are one value. Calculator notation ("1e3") and a mixed number
+# ("9 1/2") are still more than one value.
 
 _NEGATION_RE = re.compile(
     r"\b(?:not|never|neither|nor|cannot)\b"  # a negating word
@@ -465,11 +467,35 @@ def _drop_unit_exponent(match: re.Match, first_number_end: int) -> str:
     return ""
 
 
+# "12 345" and "1 234 567.5": thousands grouped by a space, the way the SI and the Australian style manual
+# write them. Groups after the first are exactly three digits, and nothing numeric touches either end, so
+# "9 1/2", "3 45" and "12 3456" are still two values.
+_SPACE_GROUP_RE = re.compile(r"(?<![\d.,/])\d{1,3}(?:[ \u00a0\u2009\u202f]\d{3})+(?:\.\d+)?(?![\d/]|\.\d)")
+_SUPERSCRIPT_DIGITS = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻", "0123456789+-")
+# "1.2 × 10^3", "1.2 x 10^-4", "1.2*10**3", "1.2 × 10⁻⁴": the school form of scientific notation. The power
+# is at most two digits, so a reply cannot ask for an enormous number. Calculator "1.2e3" is not this form
+# and stays two values (see `_drop_unit_exponent`).
+_TIMES_TEN_RE = re.compile(
+    r"(?<![\w.])(-?\d+(?:\.\d+)?)[ \t]*[×xX*·⋅][ \t]*10[ \t]*"
+    r"(?:(?:\^|\*\*)[ \t]*(?:\([ \t]*([+-]?\d{1,2})[ \t]*\)|\{[ \t]*([+-]?\d{1,2})[ \t]*\}|([+-]?\d{1,2}))"
+    r"|([⁺⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹]{1,2}))(?![\d⁰¹²³⁴⁵⁶⁷⁸⁹.])"
+)
+
+
+def _times_ten_as_decimal(match: re.Match) -> str:
+    """The plain decimal a "a × 10^n" match stands for, written out in full: "1.2 × 10^-3" is "0.0012"."""
+    power = next(group for group in match.groups()[1:] if group is not None)
+    value = Decimal(match.group(1)).scaleb(int(power.translate(_SUPERSCRIPT_DIGITS)))
+    return format(value, "f")
+
+
 def _number_text(given: str) -> str:
     """The part of a typed number reply that states the value, tidied for `extract_values`: the side after
-    the last "=", no thousands commas, one minus sign, no precision note, a sign attached to its number and a
-    leading zero on a decimal that has none."""
+    the last "=", no thousands commas or spaces, "a × 10^n" written out, one minus sign, no precision note, a
+    sign attached to its number and a leading zero on a decimal that has none."""
     text = _strip_comma_groups(_value_side(given)).translate(_MINUS_SIGNS)
+    text = _SPACE_GROUP_RE.sub(lambda match: re.sub(r"\s", "", match.group(0)), text)
+    text = _TIMES_TEN_RE.sub(_times_ten_as_decimal, text)
     text = _PRECISION_NOTE_RE.sub(" ", text)
     text = _SIGN_MINUS_RE.sub("-", text)
     return _LEADING_POINT_RE.sub("0.", text)
@@ -1083,7 +1109,7 @@ _ORDINAL_PREFIX_RE = re.compile(r"^\s*\d+\s*(?:[.)]|-)\s+")
 _PLACEHOLDER_RE = re.compile("\0(\\d+)\0")
 
 
-_BRACKET_PAIRS = (("(", ")"), ("[", "]"), ("{", "}"))
+_BRACKET_PAIRS = (("(", ")"), ("[", "]"), ("{", "}"), ("⟨", "⟩"))  # ⟨1, 2, 3⟩ is a vector too
 
 
 def _strip_outer_brackets(given: str) -> str:
@@ -1240,6 +1266,14 @@ def grade_ordered_list(question, given: str) -> GradeResult:
     expected = question.answer
     if not isinstance(expected, list):
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    stripped = (given or "").strip()
+    if stripped.startswith("<") and stripped.endswith(">"):
+        given = "(" + stripped[1:-1] + ")"  # "<5, 6, -5>" is a vector, not an ordering sign
+    if _reply_negates_the_answer(question, given):
+        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    if all(isinstance(item, (int, float, Fraction)) for item in expected):
+        # A vector answer may be typed in component form, "5i + 6j - 5k".
+        given = _component_form(given, len(expected)) or given
 
     items = _strip_ordinal_prefixes(_split_ordered_items(given))
     given_normalised = ", ".join(items) if items else None
