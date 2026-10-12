@@ -31,7 +31,7 @@ from fractions import Fraction as F
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, generator
+from ..core import check, generator, latex_from_inline
 from . import pv1e_curve_figure_build as cf
 
 TOPIC = "pv1e_reciprocal_zeros"
@@ -297,7 +297,7 @@ def pv1e_reciprocal_zeros(rng, tier: str = "easy") -> dict:
     ]
     return {
         "text": text,
-        "latex": _tex(text),
+        "latex": latex_from_inline(_tex(text)),
         "answer": list(zeros),
         "answer_text": answer_text,
         "answer_latex": answer_text,

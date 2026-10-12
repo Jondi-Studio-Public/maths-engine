@@ -15,8 +15,7 @@ description: 'A straight-line conversion graph is drawn on a labelled grid, the 
   in reverse on stepped unequal scales. This skill reads one converted value at a stated input, not the
   line''s parameters (rate-of-change; senior-determine-the-slope-and-intercepts-of-a-straight) and not a
   distance-versus-time travel graph (senior-interpret-distance-versus-time-graphs).'
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
