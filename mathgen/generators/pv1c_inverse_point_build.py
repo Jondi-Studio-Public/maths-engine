@@ -28,7 +28,7 @@ from fractions import Fraction as F
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, generator
+from ..core import check, generator, latex_from_inline
 
 TOPIC = "pv1c_inverse_point"
 
@@ -460,7 +460,7 @@ def pv1c_inverse_point(rng, variant: str = "mirror_drawn") -> dict:
     text, latex = _prompt(rng, variant)
     return {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": {"x": q, "y": p},
         "answer_text": key_text,
         "answer_latex": key_text,

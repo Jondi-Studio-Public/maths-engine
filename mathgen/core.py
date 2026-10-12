@@ -859,6 +859,26 @@ def _convert_math_span(s: str) -> str:
     return s
 
 
+_INLINE_MATH_RE = re.compile(r"\\\((.*?)\\\)", re.S)
+
+
+def latex_from_inline(s: str) -> str:
+    r"""Convert a prompt written as prose with inline maths (``Use \(x = 0\) on \(y = f(x)\).``) to the
+    whole-string form `latex_prompt` produces: each prose run wrapped in ``\text{...}`` (escaped), each
+    ``\(...\)`` span left as bare LaTeX in a {...} group between them. A string with no ``\(`` is returned unchanged."""
+    if "\\(" not in s:
+        return s
+    parts, pos = [], 0
+    for m in _INLINE_MATH_RE.finditer(s):
+        if m.start() > pos:
+            parts.append(r"\text{" + _escape_prose(s[pos : m.start()]) + "}")
+        parts.append("{" + m.group(1) + "}")  # a group, so neighbouring maths never runs together
+        pos = m.end()
+    if pos < len(s):
+        parts.append(r"\text{" + _escape_prose(s[pos:]) + "}")
+    return "".join(parts)
+
+
 def latex_prompt(text: str) -> str:
     r"""Render a plain-text question stem (`Question.text`) as real LaTeX
     for a KaTeX-style renderer (`katex.renderToString`). This is the prompt-side twin of

@@ -25,7 +25,7 @@ import math
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, generator
+from ..core import check, generator, latex_from_inline
 from . import pv1e_curve_figure_build as cf
 
 TOPIC = "pv1e_log_asymptote"
@@ -209,7 +209,7 @@ def pv1e_log_asymptote(rng, tier: str = "easy") -> dict:
     ]
     return {
         "text": " ".join((open_text, note, ask)),
-        "latex": " ".join((open_latex, _tex_note(note), ask)),
+        "latex": latex_from_inline(" ".join((open_latex, _tex_note(note), ask))),
         "answer": {"x": v},
         "answer_text": answer_text,
         "answer_latex": f"x = {v}",
