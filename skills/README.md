@@ -68,10 +68,15 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
   `polyline`, `line`. `list` ignores order and `ordered_list` is positional, so a vector answer
   is an `ordered_list` (it also reads `<5, 6, -5>` and `5i + 6j - 5k`). A `number` reply may group
-  thousands with a space (`12 345`) and may use scientific notation written `1.2 × 10^3`; calculator
-  notation (`1.2e3`) is refused. A question with a single `number` answer asks for one rounding,
-  not two (`tests/test_rounding_asked_once.py`). `grade_expression`
-  accepts a leading `name =`. `inequality` has no grader yet, so such a skill stays
+  thousands with a space (`12 345`), may be a mixed number (`2 1/2`, `2½`) and may use scientific
+  notation written `1.2 × 10^3`; calculator notation (`1.2e3`) is refused. A question with a single
+  `number` answer asks for one rounding, not two (`tests/test_rounding_asked_once.py`). A `fraction`
+  reply may be bracketed, written `\frac{a}{b}` or with another fraction bar (`⁄`, `÷`); when the
+  question says "lowest terms", "simplest form" or "simplify", a written a/b must be reduced. A `pair`
+  reply's labels must be the answer's own (in any case, without a subscript, or spelled out).
+  `grade_expression` accepts a leading `name =`, a derivative label (`f'(x) =`, `dy/dx =`) or
+  `Answer:`, and reads `÷`. An `mcq` reply is an option's index, its letter or its whole text; digits
+  are always an index. `inequality` has no grader yet, so such a skill stays
   `deferred` with reason `grader`.
 - **`misconceptions` and `near_misses`:** both are lists of `id` plus `description`. A
   misconception is wrong method ("subtracts in the wrong order"). A near miss is sound
