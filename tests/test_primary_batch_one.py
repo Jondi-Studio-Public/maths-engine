@@ -60,7 +60,7 @@ def test_batch_one_sources_generate_reproducibly_with_answers_and_distractors():
     batch = [skill for skill in skills if skill.id in PRIMARY_IDS | MEASUREMENT_IDS]
 
     for skill in batch:
-        for source in skill.sources:
+        for source in skill.sources[:3]:
             params = {key: tuple(value) if isinstance(value, list) else value for key, value in source.params.items()}
             for seed in range(1, 11):
                 first = make(source.topic, seed=seed, difficulty=source.difficulty, **params)

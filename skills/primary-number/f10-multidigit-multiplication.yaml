@@ -19,6 +19,11 @@ sources:
   params: {a_range: [100, 999], b_range: [10, 99], min_carry_per_partial: 1}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr6_ticket_takings
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: dropped-carry
   description: Multiplies digit by digit but drops the carry between place-value columns, instead of regrouping it into the next column.

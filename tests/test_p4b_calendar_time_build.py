@@ -222,7 +222,7 @@ def test_both_skills_load_via_api_skills():
     assert skill1.placement_eligible is False
     assert skill1.answer == "number"
     assert skill1.prerequisites == ["tell-time-to-hour"]
-    assert len(skill1.sources) == 3  # easy, medium, hard
+    assert len([s for s in skill1.sources if s.difficulty != "exam"]) == 3  # easy, medium, hard
 
     # Check f10-time-units-and-nearest-minute
     skill2 = skills.get("f10-time-units-and-nearest-minute")
@@ -234,4 +234,4 @@ def test_both_skills_load_via_api_skills():
     assert skill2.answer == "number"
     # Prerequisites should be alphabetically sorted
     assert skill2.prerequisites == ["convert-time-systems", "tell-time-to-hour"]
-    assert len(skill2.sources) == 3  # easy, medium, hard
+    assert len([s for s in skill2.sources if s.difficulty != "exam"]) == 3  # easy, medium, hard
