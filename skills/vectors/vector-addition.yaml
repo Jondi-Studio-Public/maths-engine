@@ -5,7 +5,7 @@ description: Add and subtract 3D vectors component-wise.
 status: active
 prerequisites:
 - vector-dot-product
-answer: list
+answer: ordered_list
 sources:
 - topic: vectors
   params:

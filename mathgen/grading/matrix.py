@@ -41,10 +41,13 @@ MATRIX_FORMS = frozenset({"scalar_multiple", "column_scalar_multiple"})
 _LABEL_RE = re.compile(
     r"^\s*[^\W\d]\w*\s*(?:\^\s*\{?\(?\s*-\s*1\s*\)?\}?|⁻¹|\^\s*\{?T\}?|ᵀ|')?\s*(?:\(\s*\w+\s*\))?\s*=\s*"
 )
-_LATEX_ENV_RE = re.compile(r"\\(?:begin|end)\{[a-zA-Z]*matrix\*?\}|\\left|\\right")
+_LATEX_BEGIN_RE = re.compile(r"\\begin\{[a-zA-Z]*matrix\*?\}")
+_LATEX_END_RE = re.compile(r"\\end\{[a-zA-Z]*matrix\*?\}")
+_LATEX_SIZING_RE = re.compile(r"\\left|\\right")
 _LATEX_FRAC_RE = re.compile(r"\\[dt]?frac\{([^{}]+)\}\{([^{}]+)\}")
 _SCALAR_PREFIX_RE = re.compile(
-    r"^\s*(\(\s*-?[\d.]+\s*/\s*[\d.]+\s*\)|-?[\d.]+\s*/\s*[\d.]+|-?[\d.]+|-)\s*[*×·]?\s*(?=[\[(])"
+    r"^\s*(-?\s*\(\s*-?[\d.]+\s*\)\s*/\s*\(\s*[\d.]+\s*\)"  # -\frac{1}{4}, once read as -(1)/(4)
+    r"|-?\s*\(\s*-?[\d.]+\s*/\s*[\d.]+\s*\)|-?[\d.]+\s*/\s*[\d.]+|-?[\d.]+|-)\s*[*×·]?\s*(?=[\[(])"
 )
 _DIVISOR_SUFFIX_RE = re.compile(r"(?<=[\])])\s*/\s*(-?\d+)\s*$")
 _ANGLE_BRACKETS = str.maketrans({"<": "(", ">": ")", "⟨": "(", "⟩": ")"})
@@ -174,7 +177,7 @@ def _scale(text: str) -> tuple[str, sympy.Basic]:
         if written == "-":
             value = sympy.Integer(-1)
         else:
-            value = read_value(written.strip("()"))
+            value = read_value(written)
         if value is None or value == 0:
             raise _Unreadable
         factor, text = value, text[prefix.end() :]
@@ -191,7 +194,8 @@ def read_matrix(text: str) -> list[list] | None:
     """A reply as a rectangular list of rows of exact SymPy numbers, or None if it cannot be read."""
     if not isinstance(text, str) or not text.strip() or len(text) > MAX_MATRIX_LENGTH:
         return None
-    text = _LATEX_ENV_RE.sub(" ", text)
+    # A LaTeX matrix environment is a bracketed matrix, so a factor written in front of it still scales it.
+    text = _LATEX_END_RE.sub("]", _LATEX_BEGIN_RE.sub("[", _LATEX_SIZING_RE.sub(" ", text)))
     text = _LATEX_FRAC_RE.sub(r"(\1)/(\2)", text)
     text = text.replace("\\\\", ";").replace("&", ",").replace("\\cdot", "*").replace("\\times", "×")
     text = text.translate(_ANGLE_BRACKETS).strip().rstrip(".")

@@ -4,8 +4,7 @@ id: senior-examine-the-reflection-property-of-the-graph-of
 name: Read the corresponding point on the inverse from a function and its inverse
 domain: functions-sequences
 description: Given the graphs of y = f(x) and its inverse y = f⁻¹(x) drawn on the same integer grid as reflections in the line y = x, with a point P marked on y = f(x) at a grid intersection and its coordinates not labelled, state the coordinates of the corresponding point on y = f⁻¹(x). The line of reflection itself is never asked for. Tiers change the decision, from swapping coordinates with the mirror line drawn, to recognising the reflection without it, to keeping each coordinate's sign for a decreasing function, to a decreasing pair whose graphs cross at P off the line y = x, where P is already on both graphs but its corresponding point is the other crossing.
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false

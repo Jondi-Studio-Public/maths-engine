@@ -338,3 +338,20 @@ def test_a_divisor_on_the_last_entry_does_not_scale_the_matrix():
     assert grade("matrix", question, "1, 2; 3, (4)/5").correct
     assert not grade("matrix", question, "5, 10; 15, (4)/5").correct
     assert grade("matrix", question, "[[5, 10], [15, 4]]/5").correct
+
+
+def test_a_latex_fraction_in_front_of_a_matrix_scales_it():
+    question = _question(SIGNED, "[[-5/4, 1], [3/2, -1]]")
+    for reply in (
+        r"-\frac{1}{4}\begin{pmatrix} 5 & -4 \\ -6 & 4 \end{pmatrix}",
+        r"-\frac{1}{4}[[5, -4], [-6, 4]]",
+        r"\frac{1}{4}\begin{bmatrix} -5 & 4 \\ 6 & -4 \end{bmatrix}",
+        "-(1/4)[5 -4; -6 4]",
+    ):
+        assert grade("matrix", question, reply).correct, reply
+    for reply in (
+        r"\frac{1}{4}\begin{pmatrix} 5 & -4 \\ -6 & 4 \end{pmatrix}",
+        r"-\frac{1}{4}\begin{pmatrix} 5 & 4 \\ -6 & 4 \end{pmatrix}",
+        r"-\frac{1}{2}\begin{pmatrix} 5 & -4 \\ -6 & 4 \end{pmatrix}",
+    ):
+        assert not grade("matrix", question, reply).correct, reply
