@@ -3150,7 +3150,7 @@ def _spell_minus_as_ascii(kind: str, given: str) -> str:
 # space, so "5 - 6" and "x - 6" are still a subtraction; "or" and "and" are separators, not values. Done here and
 # not in `_spell_minus_as_ascii`, which spells the characters and nothing else.
 _SIGNED_VALUE_KINDS = frozenset(
-    {"pair", "list", "set", "ordered_list", "points", "polyline", "line", "table", "fraction"}
+    {"pair", "list", "set", "ordered_list", "points", "polyline", "line", "table", "fraction", "inequality", "matrix"}
 )
 _SPACED_SIGN_RE = re.compile(
     r"(?:(?<![\w.)\]}])(?<![\w.)\]}][ \t])|(?<=\bor[ \t])|(?<=\band[ \t]))-[ \t]+(?=\.?\d)", re.IGNORECASE

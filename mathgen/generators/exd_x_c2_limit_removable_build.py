@@ -70,7 +70,7 @@ def _sine_ratio_family(rng):
         return mp_sin(a * x) / mp_sin(b * x)
 
     wrong = [Rational(b, a), Rational(a * b), Rational(a - b), Rational(a * a, b * b)]
-    return f"sin({a}x) / sin({b}x)", 0, key, fn, wrong, _PATTERNS
+    return f"sin({fmt_signed(a, 'x')}) / sin({fmt_signed(b, 'x')})", 0, key, fn, wrong, _PATTERNS
 
 
 def _cosine_family(rng):
@@ -83,8 +83,8 @@ def _cosine_family(rng):
         return (1 - mp_cos(k * x)) / (m * x * mp_sin(n * x))
 
     wrong = [Rational(k * k, m * n), Rational(k, 2 * m * n), Rational(2 * m * n, k * k)]
-    denominator = fmt_signed(m, "x") + f" sin({n}x)"
-    return f"(1 - cos({k}x)) / ({denominator})", 0, key, fn, wrong, _PATTERNS
+    denominator = fmt_signed(m, "x") + f" sin({fmt_signed(n, 'x')})"
+    return f"(1 - cos({fmt_signed(k, 'x')})) / ({denominator})", 0, key, fn, wrong, _PATTERNS
 
 
 def _parametric_family(rng):
@@ -124,7 +124,10 @@ def _exam(rng: random.Random) -> dict:
     text = phrase(rng, patterns, expr=expr, point=point)
     answer_text = rational_text(key)
     answer = int(key) if key.q == 1 else {"p": int(key.p), "q": int(key.q)}
-    candidates = [rational_text(w) for w in wrong] + ["undefined"]
+    # A sign slip on the key shares its shape (integer or fraction), and options of the answer's own shape come
+    # first, so the key can never be the only fraction (or the only integer) among the options.
+    texts = [rational_text(w) for w in [*wrong, -key]]
+    candidates = sorted(texts, key=lambda t: ("/" in t) != ("/" in answer_text)) + ["undefined"]
     return dict(
         text=text,
         latex=f"plain:{text}",

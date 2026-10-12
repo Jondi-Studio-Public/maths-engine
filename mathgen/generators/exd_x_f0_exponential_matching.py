@@ -18,9 +18,17 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from sympy import Rational, simplify
+from sympy import Rational
 
-from ..core import check, check_pairwise_distinct, generator, join_terms, pick_distractors, rational_text
+from ..core import (
+    check,
+    check_equivalent,
+    check_pairwise_distinct,
+    generator,
+    join_terms,
+    pick_distractors,
+    rational_text,
+)
 
 _PRIMES = (2, 3)
 _MAX_POWER = {2: 4, 3: 3}
@@ -73,7 +81,7 @@ def _two_sides(rng: random.Random) -> dict:
     xs = Rational(x.numerator, x.denominator)
     lhs = Rational(c) ** (m * (p1 * xs + q1))
     rhs = Rational(c) ** (n * (p2 * xs + q2))
-    check(simplify(lhs - rhs) == 0, "substituting the solution does not balance the two sides")
+    check_equivalent(lhs, rhs, "substituting the solution does not balance the two sides")
     text = f"Solve {_base_text(c, m)}^({_exp_text(p1, q1)}) = {_base_text(c, n)}^({_exp_text(p2, q2)}) for x."
     working = [
         f"Write both bases as powers of {c}: {c}^({m}({_exp_text(p1, q1)})) = {c}^({n}({_exp_text(p2, q2)})).",
@@ -107,14 +115,14 @@ def _product(rng: random.Random) -> dict:
         check(False, "no usable product exponential equation")
     xs = Rational(x.numerator, x.denominator)
     lhs = Rational(c) ** (m * (p1 * xs + q1)) * Rational(c) ** (n * (p2 * xs + q2))
-    check(simplify(lhs - Rational(c) ** k) == 0, "substituting the solution does not satisfy the product equation")
+    check_equivalent(lhs, Rational(c) ** k, "substituting the solution does not satisfy the product equation")
     text = (
         f"Solve {_base_text(c, m)}^({_exp_text(p1, q1)}) × {_base_text(c, n)}^({_exp_text(p2, q2)}) = "
         f"{_value_text(c, k)} for x."
     )
     working = [
-        f"Write every number as a power of {c} and add the exponents: {m}({_exp_text(p1, q1)}) + "
-        f"{n}({_exp_text(p2, q2)}) = {k}.",
+        f"Write every number as a power of {c} and add the exponents: "
+        f"{join_terms([(m, f'({_exp_text(p1, q1)})'), (n, f'({_exp_text(p2, q2)})')])} = {k}.",
         f"Solve the linear equation: x = {rational_text(x)}.",
     ]
     return _pack(text, x, working, [w for w in wrong.values() if w is not None])

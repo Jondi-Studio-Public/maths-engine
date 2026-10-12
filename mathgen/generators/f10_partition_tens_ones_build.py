@@ -23,7 +23,7 @@ the real set grader rejects every one.
 
 from __future__ import annotations
 
-from mathgen.core import check, draw_until, generator
+from mathgen.core import check, draw_until, generator, phrase
 from mathgen.grading.typed import grade_set, set_answer_text
 
 from types import SimpleNamespace
@@ -104,9 +104,16 @@ def _easy(rng):
             sorted(answer) == sorted((a, n - a) for a in range(n + 1) if a >= n - a),
             "two-part enumeration disagrees with the check",
         )
-        text = (
-            f"Split {n} into two parts in every way. Write each way as (larger part, smaller part). "
-            f"The two parts add to {n}. {_RULE}"
+        text = phrase(
+            rng,
+            [
+                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). "
+                "The two parts add to {n}. {rule}",
+                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). "
+                "Together the two parts make {n}. {rule}",
+            ],
+            n=n,
+            rule=_RULE,
         )
         candidates = [
             ("lists-both-orders-as-different-splits", answer + [(b, a) for a, b in answer if a != b]),
@@ -122,9 +129,16 @@ def _easy(rng):
         n += rng.choice((1, 2, 3))
     answer = _tens_ones_splits(n)
     check(answer == _splits_by_search(n), "tens and ones enumerations disagree")
-    text = (
-        f"Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). "
-        f"The tens and ones must make {n}. {_RULE}"
+    text = phrase(
+        rng,
+        [
+            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). "
+            "The tens and ones must make {n}. {rule}",
+            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). "
+            "Together the tens and the ones make {n}. {rule}",
+        ],
+        n=n,
+        rule=_RULE,
     )
     working = [f"{_tens(t)} and {_ones(o)} is {10 * t} + {o} = {n}." for t, o in answer]
     answer_text, distractors, notes = _finish(answer, _tens_ones_candidates(n, answer))
