@@ -109,7 +109,9 @@ def straight_line_angle(rng):
     d = _number(
         f"{rng.choice(kit.LINE_OPENERS)} {rng.choice(kit.SIZE_CLOSERS).format(u=letter)}",
         answer,
-        [known, 90 - known, 360 - known, answer + 10],
+        # the given angle itself; 90 as the total (the size off a right angle either way round); 360 as the total;
+        # a slip of ten. All positive: a negative angle is never a plausible option.
+        [known, abs(90 - known), 360 - known, answer + 10],
         working=[f"Angles on a straight line total 180°, so 180 − {known} = {answer}°."],
     )
     d["figure"] = fig

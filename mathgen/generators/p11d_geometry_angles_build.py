@@ -372,6 +372,11 @@ def _hard_question(rng, figure=False):
     d_offset = target_angle + 11  # generic distractor, not a named misconception
 
     raw_candidates = [d_x, d_offset] + ([d_wrong_rule] if d_wrong_rule is not None else [])
+    # The supplement of the angle (used 180 where the relationship needed no subtraction, or the reverse) and a
+    # slip of eleven back: further positive options, so dropping a negative candidate never leaves too few.
+    raw_candidates += [180 - target_angle, target_angle - 11]
+    # A negative angle is trivially eliminated, so only positive sizes are offered.
+    raw_candidates = [c for c in raw_candidates if c > 0]
     # Defensive filter, not a resample: drop any candidate that already equals
     # the answer (the honestly-disclosed degeneracy the misconception can hit)
     # or an already-kept candidate (measured: 1/400 hard-tier seeds has

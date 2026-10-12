@@ -174,7 +174,11 @@ def _point_question(rng, n_given: int, noun_total: str, noun_unknown: str, figur
     check_distinct(x, d_drop_1, msg="drops-one-addend distractor equals the answer")
     check_distinct(x, d_drop_2, msg="drops-one-addend (second draw) distractor equals the answer")
 
-    distractors = pick_distractors(answer_text, [str(d_drop_1), str(d_drop_2), str(d_180)])
+    # forgets-to-subtract: reports the sum of the given angles instead of what is left of the turn.
+    d_sum = sum(givens)
+    # Only positive sizes are plausible options; a negative angle is trivially eliminated.
+    positive = [c for c in (d_drop_1, d_drop_2, d_180, d_sum, x + 10) if c > 0]
+    distractors = pick_distractors(answer_text, [str(c) for c in positive])
 
     sum_expr = " + ".join(str(g) for g in givens) + f" + {letter}"
     working = [
