@@ -1,0 +1,98 @@
+id: f10-stem-and-leaf-plots
+name: Read and interpret a stem-and-leaf plot
+domain: statistics-probability
+description: Given a stem-and-leaf plot of whole-number data written out as text (tens as stems, units as leaves, with a key line that says what a stem and leaf stand for, such as 2 | 3 means 23), read it and answer with a typed number. Easy reads the plot, counting the values (leaves, not stems), naming the largest or smallest value, or counting the values in one stem. Medium finds a summary statistic from the plot, the median (an odd count, or an even count whose two middle values give a .5), the range or the mode, and half the plots leave the leaves of a row out of order. Hard reasons backwards or compares, using a back-to-back plot of two groups (difference of the medians or of the ranges) or a plot with one leaf hidden behind ? that is recovered from a stated median or range. Nothing is drawn, and constructing a plot is not asked.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+- calculate-range
+- calculate-mode
+answer: number
+sources:
+- topic: f10_stem_and_leaf
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_stem_and_leaf
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_stem_and_leaf
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-the-stems-not-the-leaves
+  description: Counts the rows (stems) of the plot instead of the leaves, so gives the number of stems as the number of values.
+- id: counts-the-stems-as-values
+  description: Counts every stem as well as every leaf, so the count is the number of values plus the number of stems.
+- id: misses-a-leaf
+  description: Leaves one leaf out when counting the values, so the count is one too low.
+- id: double-counts-a-leaf
+  description: Counts one leaf twice, so the count is one too high.
+- id: reads-the-leaf-alone
+  description: Gives only the leaf as the value (for example 7 from 3 | 7), ignoring the stem and the key that say it means 37.
+- id: adds-the-stem-and-leaf
+  description: Adds the stem and the leaf (3 + 7 = 10) instead of joining them as the key says (37).
+- id: ignores-the-leaf
+  description: Reads only the stem as a number of tens (30) and ignores the leaf that gives the units.
+- id: picks-the-extreme-leaf-whatever-its-stem
+  description: Looks for the largest (or smallest) leaf anywhere in the plot instead of the largest (or smallest) value, which sits in the last (or first) row.
+- id: counts-the-whole-plot
+  description: Gives the number of values in the whole plot when asked about one stem.
+- id: reads-the-wrong-row
+  description: Counts the leaves in a neighbouring row instead of the stem that was asked about.
+- id: adds-the-leaves
+  description: Adds up the leaves of the row instead of counting them.
+- id: gives-the-stem
+  description: Gives the stem itself as the number of values in the row.
+- id: gives-the-position-not-the-value
+  description: Finds which position is in the middle (for example the 8th of 15) and gives that position as the median instead of the value found there.
+- id: takes-the-middle-of-the-unordered-list
+  description: Takes the middle value of the leaves as they are written when the leaves in a row are not in order, without putting the data in order first.
+- id: mean-not-median
+  description: Gives the mean of the values in place of the median.
+- id: midrange-not-median
+  description: Gives the number halfway between the smallest and largest values as the median.
+- id: takes-one-middle-value-not-both
+  description: With an even number of values, gives one of the two middle values instead of the number halfway between them.
+- id: subtracts-the-last-listed-value-from-the-first
+  description: Takes the range as the last value written minus the first value written, which is wrong when the leaves in the rows are not in order.
+- id: range-ignores-the-stems
+  description: Subtracts the leaves only (largest leaf minus smallest leaf) and ignores the stems, so the range is far too small.
+- id: range-from-the-stems-only
+  description: Subtracts the first stem from the last stem and multiplies by ten, ignoring the leaves.
+- id: gives-the-largest-value-not-the-range
+  description: Gives the largest value instead of the largest minus the smallest.
+- id: gives-the-frequency-not-the-value
+  description: Gives how many times the most common value occurs instead of the value itself.
+- id: takes-the-longest-row
+  description: Gives the stem with the most leaves (as tens) as the mode, instead of the one value that occurs most often.
+- id: takes-the-commonest-leaf-whatever-its-stem
+  description: Picks the leaf digit that appears most often across all rows and attaches it to the wrong stem, instead of finding the value (stem and leaf together) that repeats.
+- id: compares-the-ranges-not-the-medians
+  description: Finds the difference between the ranges of the two groups when the medians were asked for.
+- id: pools-the-two-groups
+  description: Finds the median of both groups put together instead of finding each group's median and comparing them.
+- id: gives-one-median-not-the-difference
+  description: Gives the larger of the two medians instead of subtracting one from the other.
+- id: compares-the-leaves-of-the-medians-only
+  description: Subtracts only the leaves of the two medians and ignores the stems.
+- id: compares-the-medians-not-the-ranges
+  description: Finds the difference between the medians of the two groups when the ranges were asked for.
+- id: adds-the-ranges
+  description: Adds the two ranges instead of finding how much they differ.
+- id: gives-one-range-not-the-difference
+  description: Gives the larger of the two ranges instead of the difference between them.
+- id: pairs-with-the-wrong-neighbour
+  description: Pairs the hidden value with the value on the wrong side of it when working back from the median.
+- id: forgets-to-double-the-median
+  description: Subtracts the known middle value from the median instead of from the sum of the two middle values (twice the median).
+- id: gives-the-median-as-the-missing-value
+  description: Gives the median itself as the hidden value.
+- id: applies-the-range-to-the-nearest-value
+  description: Adds the range to the largest known value (or takes it from the smallest) instead of working from the opposite end of the data.
+- id: gives-the-range-as-the-missing-value
+  description: Gives the range as the hidden value.
+tags: [acara-f10-v9, statistics-probability, f10_stem_and_leaf, AC9M7ST02]
