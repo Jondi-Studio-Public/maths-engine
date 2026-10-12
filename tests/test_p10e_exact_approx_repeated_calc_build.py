@@ -246,9 +246,9 @@ def test_skill_contract_loads_with_expected_shape():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in skill.sources} == {TOPIC}
-    assert [source.stages for source in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in skill.sources} == {TOPIC, "exd_x_n3_unit_price_rounding"}
+    assert [source.stages for source in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
     assert {m.id for m in skill.misconceptions} == {
         "reports-approximate-value",
         "reports-exact-value",

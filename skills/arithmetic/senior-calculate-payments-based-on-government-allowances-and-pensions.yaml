@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_allowance_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-dependent-supplement
   description: Drops the dependent-child term from the payment entirely.

@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_budget_to_goal
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-one-fixed-expense
   description: Drops the last fixed-expense item from the sum, as if only the earlier fixed expenses existed.

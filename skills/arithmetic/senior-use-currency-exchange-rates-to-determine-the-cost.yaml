@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n2_currency_round_trip
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-direction
   description: Applies the other operation to the same rate and amount (multiplies when the rate is AUD-based and division was correct, or divides when the rate is foreign-based and multiplication was correct).

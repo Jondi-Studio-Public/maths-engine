@@ -19,6 +19,10 @@ sources:
   params: {variant: compare_magnitude}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_n3_probe_travel_time
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: wrong-power-combination
   description: Combines the coefficients or powers of ten with the wrong operation for the step being performed -- adds the coefficients instead of multiplying them (easy tier), or adds the exponents instead of subtracting them when dividing, or uses one quantity's own coefficient directly instead of dividing the two coefficients (medium tier).

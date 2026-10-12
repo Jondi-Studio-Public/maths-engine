@@ -392,6 +392,6 @@ def test_both_skills_load_through_api(skills_dict):
     assert tr.answer == "fraction"
     assert tr.placement_eligible is False
     assert set(tr.prerequisites) == {"fraction-decimal-percent", "recurring-decimal-to-fraction"}
-    assert {s.difficulty for s in tr.sources} == {"easy", "medium", "hard"}
+    assert {s.difficulty for s in tr.sources} == {"easy", "medium", "hard", "exam"}
     stages2 = {stage for s in tr.sources for stage in s.stages}
-    assert stages2 == {0, 1, 2, 3, 4, 5, 6, "maintenance"}
+    assert stages2 == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
