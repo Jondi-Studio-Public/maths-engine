@@ -1,6 +1,7 @@
 id: ucv1-floating-point-error-budget
 name: Bound a fixed floating-point error budget
 domain: advanced-scientific-computing
+status: active
 description: >-
   For a fixed sequence of supplied arithmetic operations in a stated first-order floating-point model (each operation multiplies
   its exact result by 1 + delta with |delta| at most u), compute the worst-case absolute roundoff error bound as a multiple
