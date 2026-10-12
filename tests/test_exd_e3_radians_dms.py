@@ -276,7 +276,7 @@ def test_skill_loads_with_four_sources_including_exam():
     assert skill is not None, f"skill {SKILL_ID!r} not found"
     assert skill.answer == "pair"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["angle-radians-to-degrees-decimal"]
     assert len(skill.sources) == 4
     variants = {src.params.get("variant") for src in skill.sources}
     assert variants == {"basic", "context", "fraction_input", "exam_pi_fraction"}

@@ -183,7 +183,7 @@ class TestSkillsLoad:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["f10-angle-relationships"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4  # three practice tiers plus the exam source
 

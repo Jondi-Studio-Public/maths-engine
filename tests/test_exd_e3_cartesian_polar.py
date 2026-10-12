@@ -415,7 +415,7 @@ def test_skill_loads_with_exam_source():
     skill = next((s for s in skills if s.id == "senior-convert-between-cartesian-and-polar-form"), None)
     assert skill is not None
     assert skill.answer == "pair"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-consider-complex-numbers-as-points-in-a-plane", "complex-modulus"]
     assert skill.placement_eligible is False
 
     exam_sources = [s for s in skill.sources if s.difficulty == "exam"]

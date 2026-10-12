@@ -254,7 +254,7 @@ def test_p3b_measurement_units_a_skill_contracts_load_with_expected_shape():
     area_skill = by_id["senior-use-metric-units-of-area-their-abbreviations-conversions"]
 
     # Length skill
-    assert length_skill.prerequisites == []
+    assert length_skill.prerequisites == ["convert-metric-length"]
     assert length_skill.answer == "number"
     assert length_skill.placement_eligible is False
     assert length_skill.status == "active"
@@ -264,7 +264,10 @@ def test_p3b_measurement_units_a_skill_contracts_load_with_expected_shape():
     assert [source.stages for source in length_skill.sources] == [[6], [6], [6, "maintenance"]]
 
     # Area skill
-    assert area_skill.prerequisites == ["convert-metric-length"]
+    assert area_skill.prerequisites == [
+        "convert-metric-length",
+        "senior-review-metric-units-of-length-their-abbreviations-conversions",
+    ]
     assert area_skill.answer == "number"
     assert area_skill.placement_eligible is False
     assert area_skill.status == "active"

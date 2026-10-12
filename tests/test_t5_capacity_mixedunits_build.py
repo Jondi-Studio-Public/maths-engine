@@ -127,7 +127,11 @@ def test_skills_load_with_expected_shape():
     prism = by_id["prism-capacity-metric-units"]
     assert prism.answer == "number"
     assert prism.placement_eligible is False
-    assert prism.prerequisites == ["rectangular-prism-volume", "convert-metric-capacity"]
+    assert prism.prerequisites == [
+        "rectangular-prism-volume",
+        "convert-metric-capacity",
+        "senior-recognise-relations-between-volume-and-capacity-recognising-that",
+    ]
     assert {tuple(src.stages) for src in prism.sources} == {(6,), (6, "maintenance")}
 
     rect = by_id["rectangle-area-perimeter-mixed-units"]

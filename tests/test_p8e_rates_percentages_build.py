@@ -111,7 +111,7 @@ def test_skill_loads_through_api(skills_dict):
     skill = skills_dict[SKILL_ID]
     assert skill is not None
     assert skill.domain == "arithmetic"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["ratio-rate-proportion", "percentage-of-quantity"]
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"

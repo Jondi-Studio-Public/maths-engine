@@ -60,7 +60,7 @@ def test_residue_skill_loads_through_api_with_correct_properties():
     assert RESIDUE_SKILL.status == "active"
     assert RESIDUE_SKILL.placement_eligible is False
     assert RESIDUE_SKILL.answer == "expression"
-    assert RESIDUE_SKILL.prerequisites == []
+    assert RESIDUE_SKILL.prerequisites == ["multiply-complex-numbers"]
     assert {src.difficulty for src in RESIDUE_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = RESIDUE_SOURCES["exam"]
     assert exam_src.stages == ["exam"]

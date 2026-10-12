@@ -326,7 +326,7 @@ def test_skill_loads_with_correct_answer_kind_and_prerequisites():
     by_id = {s.id: s for s in skills}
     skill = by_id[SKILL_ID]
     assert skill.answer == "pair"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-consider-complex-numbers-as-points-in-a-plane", "complex-conjugate"]
 
 
 def test_skill_is_active_placement_ineligible_and_general_band():

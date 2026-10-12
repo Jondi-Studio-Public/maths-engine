@@ -284,9 +284,13 @@ def test_equality_branch_check_is_not_independently_corruptible():
 def test_both_skills_load_with_expected_shape():
     _domains, skills = load_skills()
     by_id = {s.id: s for s in skills}
+    prerequisites = {
+        SKILL1_ID: [SKILL2_ID, "senior-use-examples-and-counter-examples"],
+        SKILL2_ID: ["two-step-equations"],
+    }
     for skill_id, topic in ((SKILL1_ID, TOPIC1), (SKILL2_ID, TOPIC2)):
         skill = by_id[skill_id]
-        assert skill.prerequisites == []
+        assert skill.prerequisites == prerequisites[skill_id]
         assert skill.answer == "mcq"
         assert skill.placement_eligible is False
         assert skill.domain == "senior-mathematics"

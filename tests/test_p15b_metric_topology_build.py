@@ -140,7 +140,7 @@ def test_metric_skill_loads_through_api_with_correct_properties():
     assert METRIC_SKILL.status == "active"
     assert METRIC_SKILL.placement_eligible is False
     assert METRIC_SKILL.answer == "mcq"
-    assert METRIC_SKILL.prerequisites == []
+    assert METRIC_SKILL.prerequisites == ["distance-two-points", "finite-set-operations"]
     assert {src.difficulty for src in METRIC_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert METRIC_SOURCES["exam"].stages == ["exam"]
 
@@ -228,6 +228,6 @@ def test_compact_skill_loads_through_api_with_correct_properties():
     assert COMPACT_SKILL.status == "active"
     assert COMPACT_SKILL.placement_eligible is False
     assert COMPACT_SKILL.answer == "mcq"
-    assert COMPACT_SKILL.prerequisites == []
+    assert COMPACT_SKILL.prerequisites == ["ucv1-topology-basis-membership", "finite-set-operations"]
     assert {src.difficulty for src in COMPACT_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert COMPACT_SOURCES["exam"].stages == ["exam"]

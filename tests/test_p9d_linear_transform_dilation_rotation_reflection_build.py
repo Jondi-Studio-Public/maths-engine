@@ -227,7 +227,10 @@ def test_skill_loads_with_expected_shape():
     skill = next(s for s in skills if s.id == SKILL_ID)
     assert skill.answer == "pair"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == ["matrix-multiplication"]
+    assert skill.prerequisites == [
+        "matrix-multiplication",
+        "senior-examine-and-use-multiplication-as-a-linear-transformation",
+    ]
     assert {src.difficulty for src in skill.sources} == set(TIERS) | {"exam"}
     stages_covered = set()
     for src in skill.sources:

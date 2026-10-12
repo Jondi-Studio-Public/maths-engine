@@ -130,7 +130,7 @@ def test_skill_loads_with_correct_properties():
     assert skill is not None, f"{SKILL} not found"
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["integrate-polynomial", "senior-use-the-notation-int-f-left-x-right"]
     assert len(skill.sources) == 4  # easy, medium, hard and exam
     for source in skill.sources[:3]:  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == TOPIC

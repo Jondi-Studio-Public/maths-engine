@@ -23,6 +23,10 @@ DIFFICULTIES = ["easy", "medium", "hard", "exam"]
 PARABOLA = "senior-recognise-features-of-the-graph-of-y-2"
 CIRCLE = "senior-recognise-features-of-the-graphs-of-x-2"
 SKILLS = {PARABOLA: "pv1d_parabola_axis_y", CIRCLE: "pv1d_circle_centre"}
+PREREQUISITES = {
+    PARABOLA: ["senior-recognise-the-distinction-between-functions-and-relations-and", "coordinate-plane-readiness"],
+    CIRCLE: ["distance-two-points", "midpoint-two-points"],
+}
 CASES = [(skill, tier) for skill in SKILLS for tier in DIFFICULTIES]
 GRADE = GRADERS["pair"]
 
@@ -50,7 +54,7 @@ def test_skill_loads_deferred_with_figure_gate(skill_id):
     assert skill.capability_gates == ["figure_stimulus"]
     assert skill.placement_eligible is False
     assert skill.mental is None
-    assert skill.prerequisites == []
+    assert skill.prerequisites == PREREQUISITES[skill_id]
     assert [s.difficulty for s in skill.sources] == DIFFICULTIES
     assert [s.stages for s in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
     assert {s.topic for s in skill.sources} == {SKILLS[skill_id]}

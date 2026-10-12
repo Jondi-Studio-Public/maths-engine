@@ -284,7 +284,7 @@ def test_skill_a_loads_with_correct_properties():
     assert skill is not None
     assert skill.answer == "mcq"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-understand-the-unit-circle-definition-of-cos-theta"]
     difficulties = {src.difficulty for src in skill.sources}
     assert difficulties == {"easy", "medium", "hard", "exam"}
 

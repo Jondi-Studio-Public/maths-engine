@@ -54,6 +54,10 @@ def test_every_remaining_batch_source_reproduces_and_self_grades():
 def test_expansion_graph_contains_real_branches_and_cross_domain_links():
     by_id = {skill.id: skill for skill in _expanded_skills()}
     assert by_id["money-change"].prerequisites == ["australian-coin-values", "subtract-within-100"]
-    assert set(by_id["binomial-point-probability"].prerequisites) == {"combinations", "simple-event-probability"}
+    assert set(by_id["binomial-point-probability"].prerequisites) == {
+        "combinations",
+        "simple-event-probability",
+        "senior-identify-contexts-suitable-for-modelling-by-binomial-random",
+    }
     assert set(by_id["complex-modulus"].prerequisites) == {"complex-imaginary-part", "pythagorean-hypotenuse"}
     assert by_id["moving-average"].prerequisites == ["calculate-mean"]
