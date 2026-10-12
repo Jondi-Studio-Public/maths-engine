@@ -444,6 +444,16 @@ def test_model_assumption_audit_numbers():
     forms = set()
     for q in _qs("model_assumption_audit"):
         text, ans = q.text, q.answer_text
+        # A calculated answer states only its figure; the working it rests on is the reference's
+        # "Evidence:" line. Check the figure is the evidence's, then check the evidence in full.
+        evidence = [
+            r[len("Evidence: ") :].removesuffix(".") for r in q.answer["reference_lines"] if r.startswith("Evidence: ")
+        ]
+        head = re.match(r"(Violated assumption: .+?\. )(The contradiction|The small-angle error)", ans)
+        if head and evidence:
+            fig = re.search(r"(?:at t = (\S+) \w+|error is (\d+)%)\.$", ans)
+            assert fig and (fig.group(1) or fig.group(2)) in evidence[0], (ans, evidence)
+            ans = f"{head.group(1)}{evidence[0][0].upper()}{evidence[0][1:]}."
         # a violated assumption named in a listed set must be one of the listed assumptions
         listed = re.search(r"The model assumes that \((.+?)\)\. It is known", text)
         m = re.match(r"Violated assumption: (.+?)\. (?:The model|At the starting)", ans)
@@ -509,14 +519,17 @@ def test_model_assumption_audit_numbers():
                 and abs(_round_half_up(b, 1) - float(m2.group(3))) < 1e-9
             ), (text, ans, ts, tf)
             continue
-        m3 = re.fullmatch(r"(A\d) fails first, at (\S+) seconds \(the ground is reached at (\S+) seconds\)", ans)
+        m3 = re.fullmatch(
+            r"The (air resistance) assumption fails first, at (\S+) seconds \(the ground is reached at (\S+) seconds\)",
+            ans,
+        )
         if m3:
             forms.add("fall")
             g = float(re.search(r"g = ([\d.]+) m/s", text).group(1))
             vt = float(re.search(r"terminal speed of (\d+) m/s", text).group(1))
             h = float(re.search(r"cliff is (\d+) m high", text).group(1))
             t_term, t_ground = vt / g, math.sqrt(2 * h / g)
-            assert t_term < t_ground and m3.group(1) == "A1", (text, ans)
+            assert t_term < t_ground and m3.group(1) == "air resistance", (text, ans)
             assert (
                 abs(_round_half_up(t_term, 1) - float(m3.group(2))) < 1e-9
                 and abs(_round_half_up(t_ground, 1) - float(m3.group(3))) < 1e-9

@@ -469,7 +469,15 @@ def _item(rng, d: dict, *, list_assumptions: bool, with_calc: bool, with_support
         sub, new_violated, list(range(len(chosen_assumptions))), with_calc=with_calc, with_support=with_support
     )
     mark = short_marking(reference=ref, steps=mk["steps"], traps=mk["traps"])
-    answer = f"Violated assumption: {sub['assumptions'][new_violated]}. {d['event'][0].upper()}{d['event'][1:]}."
+    # The answer states only the asked-for figure, at the asked-for precision; the working stays in the reference.
+    if not with_calc:
+        evidence = f"{d['event'][0].upper()}{d['event'][1:]}."
+    elif d["t_star"] is not None:
+        t_shown = f"{d['t_star']:.2f}" if d["key"] == "spring" else _r1(d["t_star"])
+        evidence = f"The contradiction first happens at t = {t_shown} {d['t_unit']}."
+    else:
+        evidence = f"The small-angle error is {d['pct']:.0f}%."
+    answer = f"Violated assumption: {sub['assumptions'][new_violated]}. {evidence}"
     return finish(p, answer, mark)
 
 
@@ -608,9 +616,9 @@ def _exam_free_fall_ground(rng) -> dict:
     ]
     mark = short_marking(reference=ref, steps=steps, traps=traps)
     verdict = (
-        f"A1 fails first, at {_r1(t_term)} seconds (the ground is reached at {_r1(t_ground)} seconds)"
+        f"The air resistance assumption fails first, at {_r1(t_term)} seconds (the ground is reached at {_r1(t_ground)} seconds)"
         if first_is_term
-        else f"A2 happens first: the stone hits the ground at {_r1(t_ground)} seconds, before reaching terminal speed at {_r1(t_term)} seconds"
+        else f"The stone hits the ground first, at {_r1(t_ground)} seconds, before reaching terminal speed at {_r1(t_term)} seconds"
     )
     return finish(p, verdict, mark)
 

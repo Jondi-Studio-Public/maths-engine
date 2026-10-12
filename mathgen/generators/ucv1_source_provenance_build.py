@@ -301,8 +301,10 @@ def _quad_p(rng) -> dict:
     disc = b * b - 4 * c
     root = int(disc**0.5)
     check(root * root == disc and (-b + root) // 2 == r2 and (-b - root) // 2 == r1, "roots")
-    eq_tex = f"x^{{2}}{b:+d}x{c:+d}=0"
-    eq_txt = f"x^2 {'+' if b >= 0 else '-'} {abs(b)} x {'+' if c >= 0 else '-'} {abs(c)} = 0"
+    b_tex = "" if b == 0 else ("+x" if b == 1 else "-x" if b == -1 else f"{b:+d}x")
+    b_txt = "" if b == 0 else f" {'+' if b > 0 else '-'} {'' if abs(b) == 1 else f'{abs(b)} '}x"
+    eq_tex = f"x^{{2}}{b_tex}{c:+d}=0"
+    eq_txt = f"x^2{b_txt} {'+' if c >= 0 else '-'} {abs(c)} = 0"
     lines = [
         _line(
             "R",
