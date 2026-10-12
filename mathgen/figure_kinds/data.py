@@ -157,8 +157,9 @@ def _validate_bar_chart(spec: dict) -> list[str]:
 
 def _bar_texts(spec: dict) -> list[str]:
     out = list(spec.get("categories", []))
-    if len(spec.get("series", [])) == 2:
-        out += [s.get("name", "") for s in spec["series"]]
+    series = spec.get("series", [])
+    if len(series) == 2:
+        out += [s.get("name", "") for s in series]
     return out
 
 
