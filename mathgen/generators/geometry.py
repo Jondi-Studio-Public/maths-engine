@@ -17,7 +17,10 @@ from sympy import (
     Rational,
 )
 
+from .. import figures
 from ..core import (
+    attempts,
+    latex_prompt,
     generator,
     check,
     pick_distractors,
@@ -28,6 +31,8 @@ from ..core import (
     stated_precision_tolerance,
     phrase,
 )
+from ..figure_kinds import space
+from . import _space_kit as kit
 
 # Primitive Pythagorean triples (a, b, c) kept small for clean numbers. These
 # exist so side_hyp/side_leg's answers come out as whole numbers -- they are
@@ -73,6 +78,147 @@ def trigonometry(
     angle_hi=60,
     exact_triple: bool = True,
     word_problem: bool = False,
+    figure: bool = False,
+    units: bool = False,
+):
+    """Right-triangle and sine-rule questions.
+
+    With ``figure=True`` the ``side_hyp`` and ``side_leg`` kinds draw the triangle instead of describing it in
+    words: a right triangle in one of twelve orientations with two sides labelled and the third marked with a
+    letter, "not drawn to scale" and with the drawn leg proportions unrelated to the answer (see
+    :func:`_side_figure`). ``units=True`` adds a length unit (cm, m or mm) to every label and to the prompt. The
+    other kinds, and the word-problem form, ignore both. The words-only form (``figure=False``) is unchanged.
+    """
+    if not figure:
+        return _trigonometry(
+            rng, kinds, k_hi, k_lo, angle_style, angle_lo, angle_hi, exact_triple, word_problem, False, False
+        )
+    for _ in attempts(60, "a triangle picture that does not show its own answer"):
+        try:
+            return _trigonometry(
+                rng, kinds, k_hi, k_lo, angle_style, angle_lo, angle_hi, exact_triple, word_problem, True, units
+            )
+        except _ShowsAnswer:
+            continue
+    raise AssertionError("unreachable")
+
+
+class _ShowsAnswer(Exception):
+    """A drawn triangle whose labels would show the answer; the caller draws another."""
+
+
+def _legs_to_draw(rng, value_a, value_b):
+    """Drawn leg lengths (a, b) for a not-to-scale right triangle: a ratio of 1.15 to 1.8 either way, the longer
+    labelled leg drawn longer when the two labels differ by a quarter or more (the picture must not contradict
+    them), and otherwise unrelated to the numbers, so the drawing is no help in finding the answer."""
+    r = round(rng.uniform(1.15, 1.8), 3)
+    if value_a is not None and value_b is not None:
+        if value_a >= value_b * 1.25:
+            return r, 1
+        if value_b >= value_a * 1.25:
+            return 1, r
+    return (r, 1) if rng.random() < 0.5 else (1, r)
+
+
+_SIDE_UNKNOWNS = ("x", "y", "z", "d", "s", "t")
+_UNIT_NAMES = {"cm": "centimetres", "m": "metres", "mm": "millimetres"}
+_HYP_PHRASES = (
+    "In the right-angled triangle shown, find the length of the hypotenuse, {u}.",
+    "Find the length of the hypotenuse {u} in the right-angled triangle shown.",
+    "The diagram shows a right-angled triangle. Work out the length of the hypotenuse, {u}.",
+    "Use the right-angled triangle shown to calculate the length of the hypotenuse, {u}.",
+)
+_LEG_PHRASES = (
+    "In the right-angled triangle shown, find the length of the leg marked {u}.",
+    "Find the length of the missing leg {u} in the right-angled triangle shown.",
+    "The diagram shows a right-angled triangle. Work out the length of the side marked {u}.",
+    "Use the right-angled triangle shown to calculate the length of the leg {u}.",
+)
+
+
+def _side_figure(rng, kind, a, b, c, answer_text, places, units):
+    """(figure, prompt) for ``side_hyp`` (legs a, b given, hypotenuse unknown) or ``side_leg`` (hypotenuse c and
+    leg a given, the other leg unknown). ``a`` is the given leg for ``side_leg``; ``b`` is unused there. The
+    unknown side carries a letter; with ``units`` every length carries cm, m or mm and the prompt says which."""
+    letter = rng.choice(_SIDE_UNKNOWNS)
+    unit = rng.choice(tuple(_UNIT_NAMES)) if units else None
+
+    def show(v):
+        return f"{v} {unit}" if unit else str(v)
+
+    if kind == "side_hyp":
+        labels = {"a": show(a), "b": show(b), "c": letter}
+        legs = _legs_to_draw(rng, a, b)
+        phrase_pool = _HYP_PHRASES
+    else:
+        labels = {"c": show(c)}
+        known, unknown = ("a", "b") if rng.random() < 0.5 else ("b", "a")
+        labels[known], labels[unknown] = show(a), letter
+        legs = _legs_to_draw(rng, None, None)
+        phrase_pool = _LEG_PHRASES
+    fig = space.right_triangle(
+        legs=legs,
+        labels=labels,
+        orientation=rng.randrange(12),
+        alt="A right-angled triangle with the lengths of two sides marked and the third side marked with a letter.",
+    )
+    if kit.leaks(fig, answer_text):
+        raise _ShowsAnswer
+    text = rng.choice(phrase_pool).format(u=letter)
+    if places:
+        text = text.rstrip(".") + ", to 1 decimal place."
+    if unit:
+        text += f" All lengths are in {_UNIT_NAMES[unit]}."
+    return fig, text
+
+
+def _read_right_triangle(question) -> str:
+    """Re-derive the unknown side from the picture alone: the sides meeting at the right-angle mark are the
+    legs, the third is the hypotenuse, and the unknown is the side whose label is a bare letter."""
+    fig = question.figure
+    right = [a for a in fig["angles"] if a.get("right")]
+    check(len(right) == 1, "expected one right angle")
+    corner = right[0]["at"]
+    legs, hyp = [], None
+    for seg in fig["segments"]:
+        if corner in (seg["from"], seg["to"]):
+            legs.append(seg)
+        else:
+            hyp = seg
+    check(len(legs) == 2 and hyp is not None, "expected two legs and a hypotenuse")
+
+    def length(seg):
+        return float(seg["label"].split()[0])
+
+    def unknown(seg):
+        return seg["label"].split()[0].isalpha()
+
+    if unknown(hyp):
+        total = sum(length(leg) ** 2 for leg in legs)
+    else:
+        missing = [leg for leg in legs if unknown(leg)]
+        known = [leg for leg in legs if not unknown(leg)]
+        check(len(missing) == 1 and len(known) == 1, "expected exactly one side marked with a letter")
+        total = length(hyp) ** 2 - length(known[0]) ** 2
+    value = math.sqrt(total)
+    return str(round(value)) if abs(value - round(value)) < 1e-9 else f"{value:.1f}"
+
+
+figures.register_reader("trigonometry", _read_right_triangle)
+
+
+def _trigonometry(
+    rng,
+    kinds,
+    k_hi,
+    k_lo,
+    angle_style,
+    angle_lo,
+    angle_hi,
+    exact_triple,
+    word_problem,
+    figure,
+    units,
 ):
     kind = rng.choice(list(kinds))
     if kind == "sine_rule":
@@ -213,7 +359,7 @@ def trigonometry(
         # call are untouched.
         return _free_angle(rng, angle_style, angle_lo, angle_hi)
     if kind in ("side_hyp", "side_leg") and not exact_triple:
-        return _side_inexact(rng, kind)
+        return _side_inexact(rng, kind, figure, units)
     a, b, c = rng.choice(TRIPLES)
     k = rng.randint(k_lo, k_hi)
     a, b, c = a * k, b * k, c * k
@@ -222,7 +368,7 @@ def trigonometry(
     if kind == "side_hyp":
         # Given both legs, find the hypotenuse.
         check(sqrt(Integer(a) ** 2 + Integer(b) ** 2) == c)
-        return dict(
+        d = dict(
             text=(f"A right-angled triangle has legs of length {a} and {b}. Find the length of the hypotenuse."),
             latex=rf"\text{{Legs }} {a} \text{{ and }} {b}\text{{: find the hypotenuse.}}",
             answer=c,
@@ -232,10 +378,14 @@ def trigonometry(
             # Misconceptions: added the sides; forgot the square root; subtracted.
             distractors=pick_distractors(str(c), [str(a + b), str(a * a + b * b), str(abs(b - a))]),
         )
+        if figure:
+            d["figure"], d["text"] = _side_figure(rng, kind, a, b, c, str(c), False, units)
+            d["latex"] = latex_prompt(d["text"])
+        return d
     if kind == "side_leg":
         # Given hypotenuse and one leg, find the other leg.
         check(sqrt(Integer(c) ** 2 - Integer(a) ** 2) == b)
-        return dict(
+        d = dict(
             text=(f"A right-angled triangle has hypotenuse {c} and one leg of length {a}. Find the other leg."),
             latex=rf"\text{{Hypotenuse }} {c}\text{{, leg }} {a}\text{{: find the other leg.}}",
             answer=b,
@@ -245,6 +395,10 @@ def trigonometry(
             # Misconceptions: forgot the square root; subtracted/added lengths not squares.
             distractors=pick_distractors(str(b), [str(c * c - a * a), str(c - a), str(c + a)]),
         )
+        if figure:
+            d["figure"], d["text"] = _side_figure(rng, kind, a, b, c, str(b), False, units)
+            d["latex"] = latex_prompt(d["text"])
+        return d
     # Angle opposite side a, to 1 d.p.
     ans = round(math.degrees(math.atan2(a, b)), 1)
     check(abs(float(N(deg(atan2(Integer(a), Integer(b))))) - ans) < 0.05)
@@ -441,7 +595,7 @@ def _angle_elevation_eye(rng):
     )
 
 
-def _side_inexact(rng, kind):
+def _side_inexact(rng, kind, figure=False, units=False):
     """Hard tier for side_hyp/side_leg: the two given lengths are
     drawn INDEPENDENTLY of TRIPLES, so the true third side is (almost
     always) irrational and must be rounded to 1 d.p. -- a genuinely
@@ -517,7 +671,7 @@ def _side_inexact(rng, kind):
         working = [f"l = √({c}² - {a}²) = √{radicand} = {ans}"]
         cands = [f"{float(radicand):.1f}", f"{float(c - a):.1f}", f"{float(c + a):.1f}"]
     check_distinct(ans, *cands)
-    return dict(
+    d = dict(
         text=text,
         latex=latex,
         answer=ans,
@@ -526,6 +680,10 @@ def _side_inexact(rng, kind):
         working=working,
         distractors=pick_distractors(answer_text, cands, tolerance=stated_precision_tolerance(1)),
     )
+    if figure:
+        d["figure"], d["text"] = _side_figure(rng, kind, a, b, c, answer_text, True, units)
+        d["latex"] = latex_prompt(d["text"])
+    return d
 
 
 # Several phrasings per skill so a `prompt_shape` sweep sees genuine sentence variety rather than

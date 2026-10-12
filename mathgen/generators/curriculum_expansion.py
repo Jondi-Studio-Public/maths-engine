@@ -4,8 +4,11 @@ from decimal import Decimal
 from fractions import Fraction
 from math import comb, factorial, sqrt
 
+from .. import figures
 from ..answers import Distractor
 from ..core import (
+    VerificationError,
+    attempts,
     generator,
     latex_answer,
     pick_distractors,
@@ -13,6 +16,8 @@ from ..core import (
     round_half_up,
     stated_precision_string,
 )
+from ..figure_kinds import space
+from . import _space_kit as kit
 from .primary_math import _aligned
 
 
@@ -78,14 +83,40 @@ def classify_angle(rng):
 
 @generator("straight_line_angle", level=7)
 def straight_line_angle(rng):
-    known = rng.randint(20, 160)
-    answer = 180 - known
-    return _number(
-        f"Two adjacent angles form a straight line. One is {known}°. Find the other.",
+    """Two angles side by side on a straight line, drawn (not to scale) with one marked x. A right angle is not
+    drawn (it would need its own mark), and a draw is redone if the answer's digits show inside the other angle's
+    label."""
+    for _ in attempts(80, "a straight-line picture that does not show its own answer"):
+        known = rng.randint(20, 160)
+        if known == 90:
+            continue
+        answer = 180 - known
+        first = rng.randrange(2)  # which of the two angles is the unknown one
+        true = [answer, known] if first == 0 else [known, answer]
+        try:
+            sweeps = kit.drawn_sweeps(rng, true, hide=[first])
+        except VerificationError:
+            continue
+        letter = kit.pick_unknown(rng)
+        fig = space.angles_on_line(
+            sweeps=sweeps,
+            labels=[letter, kit.degrees(known)] if first == 0 else [kit.degrees(known), letter],
+            tilt=rng.randrange(360),
+            alt="Two angles side by side on a straight line, one of them marked with a letter.",
+        )
+        if not kit.leaks(fig, str(answer)):
+            break
+    d = _number(
+        f"{rng.choice(kit.LINE_OPENERS)} {rng.choice(kit.SIZE_CLOSERS).format(u=letter)}",
         answer,
         [known, 90 - known, 360 - known, answer + 10],
         working=[f"Angles on a straight line total 180°, so 180 − {known} = {answer}°."],
     )
+    d["figure"] = fig
+    return d
+
+
+figures.register_reader("straight_line_angle", lambda q: str(kit.read_missing_angle(q.figure)))
 
 
 def _clock12(total_minutes):

@@ -19,6 +19,12 @@ graded operation. Tiers:
 - hard: two vertically-opposite angles, given as algebraic expressions in
   x, stated equal; solve for x, then report the ANGLE'S value (not x).
 
+With ``figure=True`` (what the skill's sources use) the question is drawn instead of described: the angles at a
+point are rays from a point with an arc and a size on each angle and an ``x`` on the unknown one; the hard tier
+is two crossing lines with an expression in x on each of two vertically opposite angles. The pictures are
+marked "not drawn to scale" and are drawn with the unknown angle visibly different from its true size, so
+measuring does not give the answer. The words-only form (``figure=False``, the default) is unchanged.
+
 ``_bounded_parts`` is a one-off local helper (sequential constrained
 sampling, no rejection loop) for "n positive ints >= floor summing to a
 fixed total" -- used only here, not requested as a shared helper.
@@ -26,18 +32,25 @@ fixed total" -- used only here, not requested as a shared helper.
 
 from __future__ import annotations
 
+from fractions import Fraction
+
 from sympy import Eq, solve, symbols
 from sympy import latex as sympy_latex
 
+from .. import figures
 from ..core import (
+    attempts,
     check,
     check_distinct,
+    VerificationError,
     check_equivalent,
     generator,
     join_terms,
     latex_answer,
     pick_distractors,
 )
+from ..figure_kinds import space
+from . import _space_kit as kit
 
 _X = symbols("x")
 
@@ -88,8 +101,39 @@ def _point_tier(rng, n_given: int):
     return givens, x
 
 
-def _point_question(rng, n_given: int, noun_total: str, noun_unknown: str):
-    givens, x = _point_tier(rng, n_given)
+def _point_draw(rng, n_given: int):
+    """A draw for the figure form: (givens, x, figure, letter). Rays from a point, the givens labelled in degrees,
+    the unknown marked with a letter, drawn not to scale. A draw is redone when it holds a right angle (which would need its
+    own mark) or when the answer's digits would show inside a given label (10 inside 100 degrees)."""
+    for _ in attempts(80, "an angle picture that does not show its own answer"):
+        givens, x = _point_tier(rng, n_given)
+        if {90, 180} & set(givens + [x]):
+            continue
+        pos = rng.randrange(n_given + 1)
+        true = givens[:pos] + [x] + givens[pos:]
+        letter = kit.pick_unknown(rng)
+        labels = [kit.degrees(g) for g in givens[:pos]] + [letter] + [kit.degrees(g) for g in givens[pos:]]
+        try:
+            sweeps = kit.drawn_sweeps(rng, true, hide=[pos])
+        except VerificationError:
+            continue
+        fig = space.angles_at_point(
+            sweeps=sweeps,
+            labels=labels,
+            start=rng.randrange(360),
+            alt="Several angles meeting at a point, one of them marked with a letter.",
+        )
+        if not kit.leaks(fig, str(x)):
+            return givens, x, fig, letter
+    raise AssertionError("unreachable")
+
+
+def _point_question(rng, n_given: int, noun_total: str, noun_unknown: str, figure: bool = False):
+    fig, letter = None, "x"
+    if figure:
+        givens, x, fig, letter = _point_draw(rng, n_given)
+    else:
+        givens, x = _point_tier(rng, n_given)
     all_angles = givens + [x]
 
     # Independent check: assert the PROPERTY directly (the full set of
@@ -104,6 +148,8 @@ def _point_question(rng, n_given: int, noun_total: str, noun_unknown: str):
         f"{noun_unknown[0]} of the angles measure {given_list_text}. "
         f"Find the size of {noun_unknown[1]} angle, in degrees."
     )
+    if fig is not None:
+        question_text = f"{rng.choice(kit.POINT_OPENERS)} {rng.choice(kit.SIZE_CLOSERS).format(u=letter)}"
     answer_text = str(x)
 
     # uses-180-not-360: subtracts the givens from 180 instead of 360. Algebraically d_180 = 180 -
@@ -130,17 +176,34 @@ def _point_question(rng, n_given: int, noun_total: str, noun_unknown: str):
 
     distractors = pick_distractors(answer_text, [str(d_drop_1), str(d_drop_2), str(d_180)])
 
-    sum_expr = " + ".join(str(g) for g in givens) + " + x"
+    sum_expr = " + ".join(str(g) for g in givens) + f" + {letter}"
     working = [
         f"All angles at a point add to 360 degrees: {sum_expr} = 360.",
-        f"x = 360 - {' - '.join(str(g) for g in givens)} = {x} degrees.",
+        f"{letter} = 360 - {' - '.join(str(g) for g in givens)} = {x} degrees.",
     ]
 
-    return question_text, answer_text, distractors, working, x
+    return question_text, answer_text, distractors, working, x, fig
 
 
-def _vertical_hard(rng):
+def _crossing_figure(rng, angle: int, expr_a: str, expr_c: str):
+    """Two crossing lines; the vertically opposite pair of size ``angle`` carries the two expressions."""
+    d = kit.drawn_sweeps(rng, [angle, 180 - angle], hide=[0])[0]
+    labels = [f"({expr_a})°", None, f"({expr_c})°", None]
+    theta = d
+    if rng.random() < 0.5:  # label the other vertically opposite pair instead
+        labels = [None, labels[0], None, labels[2]]
+        theta = 180 - d
+    return space.crossing_lines(
+        theta=theta,
+        labels=labels,
+        rotation=rng.randrange(360),
+        alt="Two straight lines crossing, with two opposite angles marked by expressions in x.",
+    )
+
+
+def _vertical_hard(rng, figure: bool = False):
     found = False
+    fig = None
     for _ in range(50):
         x = rng.randint(2, 30)
         angle = rng.randint(_VERTICAL_FLOOR, _VERTICAL_CEIL)
@@ -153,6 +216,15 @@ def _vertical_hard(rng):
             continue
         a2 = angle - a1 * x
         c2 = angle - c1 * x
+        if figure:
+            if angle == 90:  # a right angle would need its own mark
+                continue
+            try:
+                fig = _crossing_figure(rng, angle, _expr_text(a1, a2), _expr_text(c1, c2))
+            except VerificationError:
+                continue
+            if kit.leaks(fig, str(angle)):
+                continue
         found = True
         break
     check(found, "p10e_angle_relationships: vertical_hard could not find a valid draw")
@@ -174,6 +246,9 @@ def _vertical_hard(rng):
         r" \text{ degrees. Vertically opposite angles are always equal. "
         r"Find the value of the angle, in degrees.}"
     )
+    if fig is not None:
+        question_text = f"{rng.choice(kit.CROSSING_OPENERS)} {rng.choice(kit.EACH_CLOSERS)}"
+        question_latex = rf"\text{{{question_text}}}"
     answer_text = str(angle)
 
     # Independent check: substitute the solved x back into BOTH original
@@ -212,7 +287,7 @@ def _vertical_hard(rng):
         f"angle = {join_terms([(a1, f'({x})'), (a2, '')])} = {angle} degrees.",
     ]
 
-    return question_text, question_latex, answer_text, distractors, working, angle
+    return question_text, question_latex, answer_text, distractors, working, angle, fig
 
 
 @generator(
@@ -224,22 +299,26 @@ def _vertical_hard(rng):
         "hard": dict(variant="vertical_opposite_algebraic"),
     },
 )
-def p10e_angle_relationships(rng, variant="point_two_given"):
+def p10e_angle_relationships(rng, variant="point_two_given", figure=False):
     if variant == "point_two_given":
-        text, answer_text, distractors, working, x = _point_question(rng, 2, "Three angles", ("Two", "the third"))
+        text, answer_text, distractors, working, x, fig = _point_question(
+            rng, 2, "Three angles", ("Two", "the third"), figure
+        )
         latex = rf"\text{{{text}}}"
         answer = x
     elif variant == "point_three_given":
-        text, answer_text, distractors, working, x = _point_question(rng, 3, "Four angles", ("Three", "the fourth"))
+        text, answer_text, distractors, working, x, fig = _point_question(
+            rng, 3, "Four angles", ("Three", "the fourth"), figure
+        )
         latex = rf"\text{{{text}}}"
         answer = x
     elif variant == "vertical_opposite_algebraic":
-        text, latex, answer_text, distractors, working, angle = _vertical_hard(rng)
+        text, latex, answer_text, distractors, working, angle, fig = _vertical_hard(rng, figure)
         answer = angle
     else:
         raise ValueError(f"unknown variant {variant!r}")
 
-    return {
+    out = {
         "text": text,
         "latex": latex,
         "answer": answer,
@@ -248,3 +327,31 @@ def p10e_angle_relationships(rng, variant="point_two_given"):
         "distractors": distractors,
         "working": working,
     }
+    if fig is not None:
+        out["figure"] = fig
+    return out
+
+
+def _read_angle_relationship(question) -> str:
+    """Re-derive the answer from the figure alone: angles filling a turn, or two vertically opposite angles."""
+    fig = question.figure
+    arcs = kit.arcs_of(fig)
+    expressions = [a for a in arcs if kit.is_expression(a.get("label", ""))]
+    if not expressions:
+        return str(kit.read_missing_angle(fig))
+    check(len(expressions) == 2, "expected two expression-labelled angles")
+    first, second = expressions
+    opposite = (
+        first["at"] == second["at"]
+        and abs(first["sweep"] - second["sweep"]) < 0.5
+        and abs((first["start"] - second["start"]) % 360 - 180) < 0.5
+    )
+    check(opposite, "the two marked angles are not vertically opposite in the picture")
+    (a1, a2), (c1, c2) = kit.parse_linear_label(first["label"]), kit.parse_linear_label(second["label"])
+    x = Fraction(c2 - a2, a1 - c1)
+    angle = a1 * x + a2
+    check(angle.denominator == 1, "the angle is not a whole number")
+    return str(int(angle))
+
+
+figures.register_reader("p10e_angle_relationships", _read_angle_relationship)
