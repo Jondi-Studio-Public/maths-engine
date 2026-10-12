@@ -1075,7 +1075,17 @@ def _probe_differs(left, right) -> bool:
     """
     difference = left - right
     if not difference.free_symbols:
-        return False
+        # Two constants (log(2)/pi**2 against 0.0001) need no probe points: evaluate them. Without this the
+        # caller went straight to `simplify`, which spent minutes in powsimp on a learner's small decimal.
+        # 30 digits are certified by evalf, so a gap above 1e-20 of the scale is a real difference.
+        try:
+            value = abs(difference.evalf(30))
+            scale = max(abs(left.evalf(30)), abs(right.evalf(30)), Integer(1))
+            if not (value.is_number and scale.is_number and value.is_finite and scale.is_finite):
+                return False
+            return bool(value > Float("1e-20") * scale)
+        except (TypeError, ValueError, ZeroDivisionError, OverflowError):
+            return False
     # Substitute every symbol either side carries, not only the difference's: an `expr + C` pair
     # cancels C in the difference but not in `left`/`right`, whose scale evaluation then raised on
     # every probe point and made the probe always inconclusive, sending each such distractor check

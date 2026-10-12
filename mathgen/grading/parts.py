@@ -34,6 +34,13 @@ _SYMBOL_PREFIX = "part_"
 _NUMBER_LITERAL_RE = re.compile(r"-?\d+(?:\.\d+)?")
 #: Significant digits a follow-through value is worked out to before it is rounded to the part's precision.
 _DIGITS = 30
+#: How far a carried reply may sit from its part's canonical answer, as a factor either way, and still carry
+#: marks. Real slips (a unit not converted, a factor of 10, a sign) stay inside it; 1e6 typed into every box
+#: does not, and is refused before any SymPy evaluation of the follow-through, which is also what keeps an
+#: `exp(...)` of a huge reply from taking minutes to mark.
+_CARRY_FACTOR = 1000
+#: No follow-through answer is larger than this.
+_LARGEST = sympy.Float("1e100")
 
 
 def symbol_name(label: str) -> str:
@@ -169,6 +176,9 @@ def retarget(part, value):
     if len(literals) != 1:
         return None
     places = len(literals[0].split(".")[1]) if "." in literals[0] else 0
+    approx = value.evalf(15)
+    if not approx.is_finite or abs(approx) > _LARGEST:
+        return None  # no answer is this big, and writing it out exactly (exp of a huge reply) takes minutes
     exact = Fraction(str(sympy.N(value, _DIGITS)))
     rounded = round_half_up(exact, places) if exact >= 0 else -round_half_up(-exact, places)
     stated = stated_precision_string(rounded, places) if places else str(int(rounded))
@@ -286,6 +296,10 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
     # Labels whose reply is not the canonical answer, whether or not it earned marks: a later part that follows
     # through from one of them is marked `follow_through`, so a whole chain carried from a wrong (a) says so.
     off_canonical: set[str] = set()
+    # Labels whose reply is a known answer: the canonical one, one of the part's catalogued distractors (a
+    # recognised misconception), or a follow-through answer carried from known answers. A chain carried from
+    # these is always followed through; one carried from an arbitrary number must also not be degenerate.
+    known: set[str] = set()
     for part in question.parts:
         reply = replies.get(part.label, "")
         if len(reply) > typed.MAX_REPLY_LENGTH:
@@ -294,11 +308,13 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
         earned = Fraction(part.marks) if result.correct else Fraction(0)
         if not result.correct:
             off_canonical.add(part.label)
-        if not result.correct and part.follow_through and _carries(question.parts, part, values):
+        if result.correct or getattr(result, "matched_distractor", None) is not None or _is_distractor(part, reply):
+            known.add(part.label)
+        if not result.correct and part.follow_through and _carries(question.parts, part, values, known):
             target = follow_through_target(part, values)
             if (
                 target is not None
-                and _not_trivial(question.parts, part, target, values)
+                and _not_trivial(question.parts, part, target, values, known)
                 and typed.grade(part.answer_kind, target, reply).correct
             ):
                 earned = Fraction(part.marks)
@@ -308,6 +324,8 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
                     if hasattr(result, attr):
                         setattr(result, attr, None)
                 result.follow_through = bool(off_canonical & set(named_parts(part)))
+                if set(named_parts(part)) <= known:
+                    known.add(part.label)
         if earned == 0:
             credit = _distractor_credit(part, result)
             if credit:
@@ -334,11 +352,12 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
     )
 
 
-def _carries(parts, part, values) -> bool:
+def _carries(parts, part, values, known=frozenset()) -> bool:
     """Whether the learner's replies to the parts `part` follows through from can carry marks into it. Not
     when one is zero, or rounds to zero at its part's own precision, where its canonical answer is not (zero
     makes most later work trivial), nor when one lies outside its part's `sensible_range` (a negative length,
-    a probability above 1)."""
+    a probability above 1), nor when one that is not a `known` answer (canonical, a catalogued distractor, or
+    carried from those) is more than `_CARRY_FACTOR` times bigger or smaller than its canonical answer."""
     by_label = {p.label: p for p in parts}
     for name in named_parts(part):
         value, source = values.get(name), by_label[name]
@@ -348,15 +367,57 @@ def _carries(parts, part, values) -> bool:
             return False
         if not _in_range(source.sensible_range, value):
             return False
+        if name not in known and not _plausible_size(value, _canonical_value(source)):
+            return False
     return True
 
 
-def _not_trivial(parts, part, target, values) -> bool:
+def _is_distractor(part, reply) -> bool:
+    """Whether `reply` is one of `part`'s distractors, as written or as the same value."""
+    text = (reply or "").strip()
+    distractors = getattr(part, "distractors", None) or []
+    if not text or not distractors:
+        return False
+    if text in distractors:
+        return True
+    if part.answer_kind not in ("number", "fraction"):
+        return False
+    mine = reply_value(part.answer_kind, text)
+    return mine is not None and any(_same(mine, reply_value(part.answer_kind, d)) for d in distractors)
+
+
+def _magnitude(value):
+    """`abs(value)` as a float (inf when too large for one), or None when it is not a plain number."""
+    try:
+        return abs(complex(value.evalf(15)))
+    except (TypeError, ValueError, OverflowError, ArithmeticError):
+        return None
+
+
+def _plausible_size(value, canonical) -> bool:
+    """Whether a carried reply is within `_CARRY_FACTOR` of its part's canonical answer either way (an answer
+    of 0 or near it counts as size 1 for the upper bound). A zero reply is left to `_states_zero`."""
+    if canonical is None or not getattr(canonical, "is_number", False):
+        return True
+    size, mine = _magnitude(value), _magnitude(canonical)
+    if size is None or mine is None:
+        return True
+    if size > _CARRY_FACTOR * max(mine, 1.0):
+        return False
+    return size == 0 or mine == 0 or size * _CARRY_FACTOR >= mine
+
+
+def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
     """Whether a follow-through answer still asks for real work: not when a tiny earlier answer rounds it to
-    zero while the canonical answer is not zero (an answer that is exactly zero, such as a tangent through the
-    origin, still counts), nor when it is the very value of an earlier reply it uses while the canonical
-    answers differ. Writing the same number again is not following through
-    (a constant dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian)."""
+    zero while the canonical answer is not zero, nor when it is the very value of an earlier reply it uses
+    while the canonical answers differ. Writing the same number again is not following through (a constant
+    dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian). Nor when it is 0, 1 or -1
+    and the canonical answer is not, and either it does not move when an earlier reply it uses is doubled
+    (the floor or ceiling of any tiny reply) or two earlier replies it uses are the same number while their
+    canonical answers differ and neither is a `known` answer ("1; 1; 0" is not a difference worked out). Those
+    last two rules pass a chain carried wholly from known answers: a catalogued misconception followed through
+    is real working. An answer that is exactly zero from real working, such as a tangent through the origin,
+    still counts."""
     value = reply_value(part.answer_kind, target.answer_text)
     if value is None or not getattr(value, "is_number", False):
         return True
@@ -365,9 +426,38 @@ def _not_trivial(parts, part, target, values) -> bool:
     if _same(value, 0) and not _same(canonical, 0) and exact is not None and not _same(exact, 0):
         return False  # a tiny earlier answer that rounds this part's answer away to nothing
     by_label = {p.label: p for p in parts}
-    for name in named_parts(part):
+    names = named_parts(part)
+    for name in names:
         earlier = values.get(name)
         if earlier is not None and _same(earlier, value) and not _same(_canonical_value(by_label[name]), canonical):
+            return False
+    if not any(_same(value, small) for small in (0, 1, -1)) or _same(canonical, value) or set(names) <= known:
+        return True
+    if _insensitive(part, target, values):
+        return False
+    for i, first in enumerate(names):
+        for second in names[i + 1 :]:
+            left, right = values.get(first), values.get(second)
+            if (
+                getattr(left, "is_number", False)
+                and getattr(right, "is_number", False)
+                and _same(left, right)
+                and not _same(_canonical_value(by_label[first]), _canonical_value(by_label[second]))
+                and not {first, second} & known
+            ):
+                return False
+    return True
+
+
+def _insensitive(part, target, values) -> bool:
+    """Whether `part`'s follow-through answer stays `target` when any one earlier reply it uses is doubled,
+    so the answer does not depend on the learner's earlier work (a floor or ceiling saturated by junk)."""
+    names = [n for n in named_parts(part) if getattr(values.get(n), "is_number", False) and not _same(values[n], 0)]
+    if not names:
+        return False
+    for name in names:
+        moved = follow_through_target(part, {**values, name: values[name] * 2})
+        if moved is None or moved.answer_text != target.answer_text:
             return False
     return True
 
