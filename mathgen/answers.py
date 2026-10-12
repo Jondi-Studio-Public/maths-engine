@@ -37,13 +37,24 @@ ANSWER_KINDS = frozenset(
         "points",
         "polyline",
         "line",
+        "inequality",
+        "matrix",
     }
 )
 
 #: The shapes a grader can require of a reply (`Question.answer_form`). Order of items is not a form: it is the
 #: difference between the `list`/`set` kinds and `ordered_list`.
 ANSWER_FORMS = frozenset(
-    {"expanded", "factored", "simplified_surd", "rationalised", "single_fraction", "line_standard_form"}
+    {
+        "expanded",
+        "factored",
+        "simplified_surd",
+        "rationalised",
+        "single_fraction",
+        "line_standard_form",
+        "scalar_multiple",
+        "column_scalar_multiple",
+    }
 )
 
 # (skill kind, value kind) pairs where a skill's grader reads a value of another kind. Any value can be offered as a

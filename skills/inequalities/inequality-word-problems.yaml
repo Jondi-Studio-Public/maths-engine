@@ -2,39 +2,50 @@ id: inequality-word-problems
 name: Model and solve inequality word problems
 domain: inequalities
 description: Create, solve and interpret inequalities representing limits, minimums and maximums.
-status: deferred
-deferred_reason: grader
+status: active
 prerequisites:
 - define-variables
 - two-step-inequalities
 answer: inequality
 sources:
-- topic: inequality
-  params:
-    kind: word
+- topic: lin_ineq_word
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: inequality
-  params:
-    kind: word
+- topic: lin_ineq_word
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: inequality
-  params:
-    kind: word
+- topic: lin_ineq_word
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_ineq_word
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Using equality when the context gives a range
-- id: misconception-2
-  description: Failing to round or restrict values appropriately in context
+- id: at-least-no-more-than-swapped
+  description: "Reading the direction of the context the wrong way: ≤ for 'at least', ≥ for 'no more than'."
+- id: strict-nonstrict-confused
+  description: "Using < or > where the context allows equality (at least, no more than), or the reverse."
+- id: ignored-constant-term
+  description: "Leaving the fixed fee or starting amount out of the inequality."
+- id: sign-error-moving-term
+  description: "Adding the fixed amount to the limit where it should be subtracted."
+- id: rounds-wrong-way-in-context
+  description: "Rounding the bound to the wrong whole number for a limit that cannot be exceeded or must be reached."
+- id: strict-bound-taken-as-value
+  description: "Giving the bound itself as the greatest or least whole number when a strict inequality excludes it."
+- id: compound-bound-omitted
+  description: "Combining two conditions on one variable but giving only one of them."
 tags: []
