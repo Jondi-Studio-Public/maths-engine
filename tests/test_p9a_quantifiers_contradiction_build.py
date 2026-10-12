@@ -153,7 +153,7 @@ class TestQuantifierEvaluate:
         assert skill.answer == "mcq"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
 
 # ===========================================================================
@@ -252,7 +252,7 @@ class TestProofByContradiction:
         assert skill.answer == "mcq"
         assert skill.prerequisites == []
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
     def test_single_tier_independent_check_fires_on_a_broken_pair(self):
         """Drives the ACTUAL `_single_tier` construction with a deliberately

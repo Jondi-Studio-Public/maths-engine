@@ -145,6 +145,8 @@ def test_every_mcq_skill_can_be_answered_by_label_and_by_text(library):
         for source in sorted({0, len(skill.sources) - 1}):
             for seed in range(1, 26):
                 q = engine.make_for_skill(skill, seed=seed, source=source)
+                if q.parts:  # a multi-part exam source has no options; it is marked part by part
+                    continue
                 options = mcq_options(q)
                 labels = _labels(options)
                 key = options.index(q.answer_text)

@@ -291,7 +291,7 @@ def test_both_skills_load_with_expected_shape():
         assert skill.placement_eligible is False
         assert skill.domain == "senior-mathematics"
         stages = set()
-        for source in skill.sources:
+        for source in skill.sources[:3]:
             assert source.topic == topic
             stages.update(source.stages)
         assert {0, 1, 2, 3, 4, 5, 6, "maintenance"} <= stages

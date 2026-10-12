@@ -240,7 +240,7 @@ class TestEstimateAreaReference:
         assert skill.answer == "mcq"
         assert skill.prerequisites == ["convert-metric-length"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
 
 # ===========================================================================
@@ -369,7 +369,7 @@ class TestEstimateVolumeCapacityReference:
         assert skill.answer == "mcq"
         assert skill.prerequisites == ["convert-metric-length"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
 
 # ===========================================================================

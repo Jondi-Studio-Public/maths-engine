@@ -5,6 +5,6 @@ description: Recognise equivalent fraction, decimal and percentage representatio
 status: active
 prerequisites: [simple-event-probability, fraction-decimal-percent]
 answer: mcq
-sources: [{topic: probability_representation, params: {}, difficulty: easy}]
+sources: [{topic: probability_representation, params: {}, difficulty: easy}, {topic: exd_x_sc8_prob_rep_chain, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: inconsistent-percent, description: Chooses a percentage that is not equivalent to the fraction and decimal.}]
 tags: [expansion-batch-3, probability]

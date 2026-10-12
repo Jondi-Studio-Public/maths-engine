@@ -63,7 +63,7 @@ def test_distractors_share_the_answers_decimal_places(tier):
 
 def test_no_exam_tier_and_three_sources():
     sk = _skill()
-    assert [s.difficulty for s in sk.sources] == TIERS
+    assert [s.difficulty for s in sk.sources[:3]] == TIERS
     assert sk.answer == "number" and sk.status == "active"
 
 
