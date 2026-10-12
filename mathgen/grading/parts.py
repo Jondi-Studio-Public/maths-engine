@@ -450,7 +450,7 @@ def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
     zero while the canonical answer is not zero, nor when it is the very value of an earlier reply it uses
     while the canonical answers differ. Writing the same number again is not following through (a constant
     dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian). Nor when it is 0, 1 or -1
-    and the canonical answer is not, and either it does not move when an earlier reply it uses is doubled
+    and the canonical answer is not, and either it does not move when an earlier reply it uses is multiplied by ten
     (the floor or ceiling of any tiny reply) or two earlier replies it uses are the same number while their
     canonical answers differ and neither is a `known` answer ("1; 1; 0" is not a difference worked out). Those
     last two rules pass a chain carried wholly from known answers: a catalogued misconception followed through
@@ -488,13 +488,13 @@ def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
 
 
 def _insensitive(part, target, values) -> bool:
-    """Whether `part`'s follow-through answer stays `target` when any one earlier reply it uses is doubled,
+    """Whether `part`'s follow-through answer stays `target` when any one earlier reply it uses is multiplied by ten,
     so the answer does not depend on the learner's earlier work (a floor or ceiling saturated by junk)."""
     names = [n for n in named_parts(part) if getattr(values.get(n), "is_number", False) and not _same(values[n], 0)]
     if not names:
         return False
     for name in names:
-        moved = follow_through_target(part, {**values, name: values[name] * 2})
+        moved = follow_through_target(part, {**values, name: values[name] * 10})
         if moved is None or moved.answer_text != target.answer_text:
             return False
     return True
