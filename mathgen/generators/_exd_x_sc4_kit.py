@@ -28,12 +28,16 @@ def txt(value: Fraction, dp: int) -> str:
     return str(int(rounded)) if dp == 0 else stated_precision_string(rounded, dp)
 
 
-def num_part(prompt, value, dp, marks, working, cands, *, follow_through=None, keep=3, signed=False):
+def num_part(prompt, value, dp, marks, working, cands, *, follow_through=None, keep=3, signed=False, key_places=False):
     """A ``number`` part whose key is `value` at `dp` places.
 
     `cands` is a list of ``(wrong value, misconception id or None)`` pairs in priority order. A candidate is dropped
     when it reads the same as the key at the grader's tolerance, is not positive (unless `signed`), or repeats
     another option. A part is given a ``sensible_range`` of positive values unless `signed`.
+
+    By default a whole-number key may be offered a decimal wrong answer (shown to 1 or 2 places). With `key_places`
+    every option is written to the key's own `dp` places instead, so the format cannot give the key away, and a
+    nonzero slip that rounds to 0 is dropped.
     """
     value = Fraction(value)
     key_text = txt(value, dp)
@@ -43,8 +47,14 @@ def num_part(prompt, value, dp, marks, working, cands, *, follow_through=None, k
         wrong = Fraction(wrong)
         if wrong <= 0 and not signed:
             continue
-        shown_dp = dp if dp > 0 else (0 if wrong.denominator == 1 else (2 if abs(wrong) < 1 else 1))
-        shown = round_half_up(wrong, shown_dp)
+        if key_places:
+            shown_dp = dp
+            shown = round_half_up(wrong, dp)
+            if shown == 0 and wrong != 0:
+                continue  # a nonzero slip that rounds to 0 is not a plausible answer
+        else:
+            shown_dp = dp if dp > 0 else (0 if wrong.denominator == 1 else (2 if abs(wrong) < 1 else 1))
+            shown = round_half_up(wrong, shown_dp)
         if shown <= 0 and not signed:
             continue
         options.append(Distractor(txt(shown, shown_dp), mid, int(shown) if shown.denominator == 1 else shown))

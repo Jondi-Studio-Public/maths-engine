@@ -72,7 +72,9 @@ def _terminating(value: Fraction) -> bool:
 
 
 def _part(prompt, key, marks, working, candidates, follow_through=None):
-    cands = [c for c in candidates if _terminating(Fraction(c.value))]
+    # The key is a whole number, so a wrong answer is offered only when it is one too: a decimal option would give
+    # the key away by its format.
+    cands = [c for c in candidates if Fraction(c.value).denominator == 1 and _terminating(Fraction(c.value))]
     part = dict(
         prompt=prompt,
         answer_kind="number",
@@ -145,6 +147,7 @@ def exd_x_sc1_one_step_chain(rng, tier="exam"):
             _dist(m - g, "wrong-operation-family"),
             _dist(Fraction(m, g), "inverted-the-division"),
             _dist(g * p, "used-the-wrong-earlier-answer"),
+            _dist(g * n, "used-the-wrong-earlier-answer"),
         ],
         follow_through=f"{g}*part_b",
     )

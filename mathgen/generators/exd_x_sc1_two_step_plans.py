@@ -89,7 +89,9 @@ def _nice(value: Fraction) -> bool:
 
 
 def _part(prompt, key, marks, working, candidates, follow_through=None):
-    cands = [c for c in candidates if _nice(Fraction(c.value))]
+    # The key is a whole number, so a wrong answer is offered only when it is one too: a decimal option would give
+    # the key away by its format.
+    cands = [c for c in candidates if Fraction(c.value).denominator == 1 and _nice(Fraction(c.value))]
     dists = pick_distractors(str(key), cands, 3)
     check(len(dists) >= 2, "too few distractors")
     part = dict(
@@ -136,6 +138,7 @@ def exd_x_sc1_two_step_plans(rng, tier="exam"):
             _dist(T - f, "forgot-to-divide-by-coefficient"),
             _dist(Fraction(T, r) - f, "divided-before-subtracting"),
             _dist((T - f) * r, "wrong-inverse-operation"),
+            _dist(T + f, "sign-error-moving-term"),
         ],
     )
     b_part = _part(
@@ -149,6 +152,7 @@ def exd_x_sc1_two_step_plans(rng, tier="exam"):
             _dist(U - g, "forgot-to-divide-by-coefficient"),
             _dist(Fraction(U, n) - g, "divided-before-subtracting"),
             _dist((U - g) * n, "wrong-inverse-operation"),
+            _dist(U + g, "sign-error-moving-term"),
         ],
         follow_through=f"({U} - {g})/part_a",
     )

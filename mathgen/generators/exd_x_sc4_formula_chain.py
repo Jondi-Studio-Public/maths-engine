@@ -15,12 +15,15 @@ at a stated number of decimal places and are exact at that precision.
 from __future__ import annotations
 
 import random
+from functools import partial
 from fractions import Fraction
 
 from ..core import check, draw_until, generator, phrase
-from ._exd_x_sc4_kit import num_part, txt
+from ._exd_x_sc4_kit import num_part as _num_part, txt
 
 _NAMES = ["Priya", "Tom", "Mei", "Jack", "Aisha", "Liam", "Sofia", "Noah"]
+
+num_part = partial(_num_part, key_places=True)  # every option in the key's own format
 
 
 def _plain(value: Fraction) -> str:
@@ -137,7 +140,12 @@ def _interest(rng: random.Random):
                 f"Interest per year = {txt(interest, 2)} ÷ {term} = {txt(yearly, 2)}.",
                 f"Years = {txt(target, 2)} ÷ {txt(yearly, 2)} = {other}.",
             ],
-            [(target / interest, "treated-total-as-annual"), (target * 100 / principal, "ignored-rate-in-interest")],
+            [
+                (target / interest, "treated-total-as-annual"),
+                (target * 100 / principal, "ignored-rate-in-interest"),
+                (Fraction(other * term), "treated-total-as-annual"),
+                (Fraction(term), None),
+            ],
             follow_through=f"{txt(target, 2)}*{term}/part_a",
         ),
     ]

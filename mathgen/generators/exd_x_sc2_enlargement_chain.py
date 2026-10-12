@@ -29,6 +29,7 @@ from ..core import (
     latex_answer,
     numeric_answer,
     pick_distractors,
+    round_half_up,
     stated_precision_string,
 )
 
@@ -93,9 +94,10 @@ def exd_x_sc2_enlargement_chain(rng: random.Random, tier: str = "exam") -> dict:
     k_text, per_text, gap_text = _tenths(k), _tenths(perimeter1), _tenths(gap)
 
     a_cands = [
-        Distractor(exact_decimal_string(ratio, 4), "uses-area-ratio-as-scale-factor", exact_value(ratio)),
-        Distractor(exact_decimal_string(ratio / 2, 4), "halves-the-area-ratio", exact_value(ratio / 2)),
+        _dis(round_half_up(ratio, 1), "uses-area-ratio-as-scale-factor"),
+        _dis(round_half_up(ratio / 2, 1), "halves-the-area-ratio"),
         _dis(k + Fraction(1, 10), None),
+        _dis(k - Fraction(1, 10), None),
     ]
     b_cands = [
         _dis(k * k * perimeter0, "perimeter-scaled-by-k-squared")
@@ -111,10 +113,11 @@ def exd_x_sc2_enlargement_chain(rng: random.Random, tier: str = "exam") -> dict:
         _dis(abs(k - 1) * dist + 1, None),
         _dis(dist + k, "adds-instead-of-multiplies"),
     ]
+    a_cands = [c for c in a_cands if Fraction(c.text) > 0]
     a_dis = pick_distractors(k_text, a_cands, 3, tolerance=GRADER_TOLERANCE)
     b_dis = pick_distractors(per_text, [c for c in b_cands if c], 3, tolerance=GRADER_TOLERANCE)
     c_dis = pick_distractors(gap_text, c_cands, 3, tolerance=GRADER_TOLERANCE)
-    check(len(a_dis) >= 1 and len(b_dis) >= 2 and len(c_dis) >= 2, "too few distractors")
+    check(len(a_dis) >= 2 and len(b_dis) >= 2 and len(c_dis) >= 2, "too few distractors")
 
     return dict(
         text=stem,

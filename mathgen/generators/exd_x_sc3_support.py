@@ -25,16 +25,13 @@ from ..core import (
 
 
 def _on_grid(value: Fraction, places: int) -> tuple[Fraction, int]:
-    """`value` as it will be shown. A decimal answer is shown at the `places` the question asks for. A whole-number
-    answer (`places` of 0) keeps a whole-number wrong answer as it is and shows any other to one decimal place."""
-    value = Fraction(value)
-    if places > 0 or round_half_up(value, 0) == value:
-        return round_half_up(value, places), places
-    return round_half_up(value, 1), 1
+    """`value` as it will be shown: always at the `places` the question asks for, so a wrong answer is written in the
+    same format as the key (a decimal option beside a whole-number key would give the key away)."""
+    return round_half_up(Fraction(value), places), places
 
 
 def num_text(value: Fraction, places: int) -> str:
-    """`value` at exactly `places` decimal places, or one more when it does not sit on that grid."""
+    """`value` at exactly `places` decimal places."""
     shown, p = _on_grid(value, places)
     return stated_precision_string(shown, p)
 

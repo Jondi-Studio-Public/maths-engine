@@ -11,12 +11,15 @@ Built backwards from the rate, the starting output and the inputs, so every key 
 from __future__ import annotations
 
 import random
+from functools import partial
 from fractions import Fraction
 
 from ..core import check, draw_until, generator, paren_negative, phrase
-from ._exd_x_sc4_kit import num_part
+from ._exd_x_sc4_kit import num_part as _num_part
 
 _LETTERS = (("x", "y"), ("n", "T"), ("a", "b"))
+
+num_part = partial(_num_part, key_places=True)  # every option in the key's own format
 
 
 @generator("exd_x_sc4_table_rule", level=11, presets={"exam": dict(tier="exam")})
@@ -65,6 +68,7 @@ def exd_x_sc4_table_rule(rng: random.Random, tier: str = "exam") -> dict:
                 (ys[1] - ys[0], "change-not-divided-by-step"),
                 (Fraction(ys[0], xs[0]), "output-over-input-as-rate"),
                 (Fraction(1, m), "inverted-ratio"),
+                (Fraction(yl - ys[0]), "change-not-divided-by-step"),
             ],
             signed=True,
         ),
@@ -110,6 +114,7 @@ def exd_x_sc4_table_rule(rng: random.Random, tier: str = "exam") -> dict:
                 (Fraction(y_target, m), "dropped-constant-term"),
                 (Fraction(y_target + c, m), "sign-error-moving-term"),
                 ((y_target - c) * m, "multiplied-instead-of-divided"),
+                (Fraction(y_target - c), "forgot-to-divide-by-coefficient"),
             ],
             follow_through=f"({y_target} - part_b)/part_a",
             signed=True,
