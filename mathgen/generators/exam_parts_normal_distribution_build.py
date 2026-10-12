@@ -362,7 +362,7 @@ def exam_parts_normal_distribution(rng):
             marks=2,
             working=[
                 f"z = InvNorm({p_text}) = {zq:.4f}",
-                f"k = μ + zσ = {mu} + {zq:.4f} × {sigma} = {d_text}",
+                f"k = μ + zσ = {mu} + {f'({zq:.4f})' if zq < 0 else f'{zq:.4f}'} × {sigma} = {d_text}",
             ],
             distractors=d_dist,
             option_notes=notes(d_notes, d_dist),

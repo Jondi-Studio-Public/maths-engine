@@ -20,7 +20,15 @@ from __future__ import annotations
 import math
 import random
 
-from ..core import check, generator, pick_distractors, rounds_unambiguously, stated_precision_tolerance
+from ..core import (
+    check,
+    generator,
+    join_terms,
+    paren_negative,
+    pick_distractors,
+    rounds_unambiguously,
+    stated_precision_tolerance,
+)
 
 _PRECISION = "Give your answer to 3 decimal places."
 _BASES = [2, 3, 5, 6, 7]
@@ -69,9 +77,9 @@ def _two_bases(rng: random.Random):
         (b - a) * lq / (lp - lq),
     ]
     working = [
-        f"Take logs: (x + {a}) ln {p} = (x + {b}) ln {q}",
-        f"x(ln {p} - ln {q}) = {b} ln {q} - {a} ln {p}",
-        f"x = ({b} ln {q} - {a} ln {p}) / (ln {p} - ln {q}) = {x:.3f}",
+        f"Take logs: ({join_terms([(1, 'x'), (a, '')])}) ln {p} = ({join_terms([(1, 'x'), (b, '')])}) ln {q}",
+        f"x(ln {p} - ln {q}) = {paren_negative(b)} ln {q} - {paren_negative(a)} ln {p}",
+        f"x = ({paren_negative(b)} ln {q} - {paren_negative(a)} ln {p}) / (ln {p} - ln {q}) = {x:.3f}",
     ]
     return x, text, wrong, working
 

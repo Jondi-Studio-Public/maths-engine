@@ -55,7 +55,11 @@ def test_all_topics_usually_have_enough_distractors(topic):
     # with the answer for some parameters (that's expected and filtered); but
     # across seeds, most questions should keep at least 2 usable distractors.
     n = 60 if topic == "differential_equation" else 100
-    counts = [len(make(topic, seed=s).distractors) for s in range(n)]
+    # A multi-part question has no top-level options: each part offers its own, so count those instead.
+    counts = [
+        min(len(part.distractors) for part in question.parts) if question.parts else len(question.distractors)
+        for question in (make(topic, seed=s) for s in range(n))
+    ]
     assert sum(1 for c in counts if c >= 2) / n >= 0.85
 
 
@@ -92,16 +96,30 @@ def test_answer_honours_its_own_stated_precision(topic):
     for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
         for seed in range(TEXT_SEEDS):
             question = make(topic, seed=seed, difficulty=difficulty)
-            places = requested_rounding(question.text)
-            if places is None:
-                continue
-            for token in _NUMBER_RE.findall(question.answer_text or ""):
-                shown = len(token.split(".")[1]) if "." in token else 0
-                assert shown == places, (
-                    f"{topic} difficulty={difficulty} seed={seed}: prompt asks for "
-                    f"{places} decimal places, answer {question.answer_text!r} shows "
-                    f"{token!r} with {shown}"
-                )
+            # A multi-part question states its precision in each part's prompt and answers each part
+            # separately, so pair every part's prompt with its own answer.
+            asked = [(p.prompt, p.answer_text) for p in question.parts] or [(question.text, question.answer_text)]
+            for prompt, answer_text in asked:
+                places = requested_rounding(prompt)
+                if places is None:
+                    continue
+                if re.search(r"\bexact value\b", prompt):
+                    # "Show h is 11.0 cm to 1 d.p. ... write down the exact value of h^2": the 1 d.p. is
+                    # about the quantity shown in the prompt, and the answer asked for is exact.
+                    continue
+                tokens = _NUMBER_RE.findall(answer_text or "")
+                if re.search(r"\bas an integer\b", prompt):
+                    # The prompt asks for one value as an integer and the rest to `places`
+                    # ("R as an integer and alpha to 1 d.p."), so one whole number is allowed.
+                    whole = [t for t in tokens if "." not in t]
+                    tokens = tokens if len(whole) > 1 else [t for t in tokens if "." in t]
+                for token in tokens:
+                    shown = len(token.split(".")[1]) if "." in token else 0
+                    assert shown == places, (
+                        f"{topic} difficulty={difficulty} seed={seed}: prompt asks for "
+                        f"{places} decimal places, answer {answer_text!r} shows "
+                        f"{token!r} with {shown}"
+                    )
 
 
 # Topics whose questions ASK for a fraction that is deliberately not in lowest

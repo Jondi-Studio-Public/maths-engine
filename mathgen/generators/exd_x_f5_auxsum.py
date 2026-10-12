@@ -65,7 +65,7 @@ def _build(rng: random.Random) -> dict:
         # Principled wrong answers, each a named slip.
         na, nb = _coefficients(amps[0], fns[0], signs[0], mags[0], amps[1], "cos", signs[1], mags[1])
         wrong_fn = (math.hypot(na, nb), math.degrees(math.atan2(nb, na)))  # reads sin(x+u) as cos(x+u)
-        naive = math.degrees(math.atan(b / a))  # no quadrant correction
+        naive = math.degrees(math.atan(b / a) if a else math.copysign(math.pi / 2, b))  # no quadrant correction
         cands = [
             (abs(amps[0]) + abs(amps[1]), alpha_val),  # adds the amplitudes
             (r_val, -alpha_val),  # sign of alpha reversed
