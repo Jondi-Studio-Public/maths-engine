@@ -173,6 +173,257 @@ _ENTRIES = (
         "Treating a percentage as a fixed amount: undoing a 20% rise by subtracting 20.",
         area="percentages",
     ),
+    # -- circles, solids and units --------------------------------------------------------------------------------
+    CatalogueEntry(
+        "area-without-square-root",
+        "Finding a radius from an area by dividing by pi and stopping, without taking the square root.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "area-root-without-pi",
+        "Finding a radius from an area by taking the square root of the area and never dividing by pi.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "diameter-for-radius",
+        "Answering with the diameter where the radius was asked for, or using a diameter as if it were the radius.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "area-formula-for-circumference",
+        "Using the area formula where the circumference was asked for, or the reverse.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "diameter-for-circumference",
+        "Giving the diameter where the circumference was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "ignored-the-hole",
+        "Giving the area or volume of the whole solid circle and leaving out the hole in the middle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "subtracted-radii-before-squaring",
+        "Subtracting the inner radius from the outer radius and then squaring, instead of squaring each radius first.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "added-radii-squares",
+        "Adding the squares of the two radii where the inner one should be taken away.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "diameter-minus-wall-once",
+        "Taking one wall thickness off the outer diameter to get the inner diameter, when a wall lies on both sides.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "cone-without-one-third",
+        "Treating a cone as a cylinder and leaving out the factor of one third.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "slant-height-for-height",
+        "Using the slant height of a cone as its vertical height.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "hypotenuse-added-not-subtracted",
+        "Adding the squares of the radius and the slant height to find the height, when the slant height is the "
+        "hypotenuse.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "rounded-count-down",
+        "Rounding a number of trips or containers down to a whole number, leaving some of the load unmoved.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "rounded-count-up",
+        "Rounding up a count of complete turns, trips or containers when only the complete ones count.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "unit-factor-wrong-power",
+        "Using the wrong power of ten between two metric units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "unit-conversion-wrong-way",
+        "Multiplying where the conversion needs a division by the same factor, or the reverse.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "leftover-not-converted",
+        "Finding the amount left over correctly but leaving it in the smaller unit when the larger unit was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "ignored-time-zone-change",
+        "Subtracting the clock times across a time-zone border without allowing for the clocks differing.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "time-zone-applied-backwards",
+        "Moving the clock the wrong way across a time-zone border: adding the difference where it should be taken "
+        "away.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "zone-shift-within-one-clock",
+        "Allowing for a time-zone difference between two times that are both on the same clock, such as a landing "
+        "time and the next departure from the same city.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "left-out-stopover",
+        "Leaving the time spent waiting between flights out of the total journey time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "perimeter-for-area",
+        "Adding the sides of a rectangle where its area was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "area-for-perimeter",
+        "Multiplying the sides of a rectangle where its perimeter was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "border-on-one-side",
+        "Adding the width of a border or path once to each dimension, when it runs along both sides.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "half-perimeter-as-side",
+        "Using half the perimeter, or the whole perimeter, as if it were a single side of the rectangle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "linear-factor-on-area",
+        "Converting an area between units with the length factor instead of its square (100 instead of 10 000).",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "unit-not-converted",
+        "Combining two measurements in different units without converting one of them first.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "full-circle-for-semicircle",
+        "Using the whole circumference where only half of the circle forms the edge.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "surface-area-omits-ends",
+        "Finding the curved surface of a cylinder and leaving out its two circular ends.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "pi-left-out",
+        "Using the formula for a circular solid without the factor of pi.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "counts-from-wrong-mark",
+        "Counting scale divisions from the labelled mark on the wrong side of the reading.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "major-interval-as-division",
+        "Treating the gap between two labelled marks as the size of one division.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "cut-off-cone-uses-frustum-height",
+        "Using the height of the frustum as the height of the small cone that was cut off.",
+        area="measurement",
+    ),
+    # -- measurement: area, volume, energy, time, chords, triangles ------------------------------------------------
+    CatalogueEntry(
+        "forgot-unit-conversion",
+        "Combining measurements given in different units without converting them to a common unit first.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "area-divided-by-one-side",
+        "Finding how many pieces cover a region by dividing its area by only one side of a piece.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "cost-from-area-not-count",
+        "Pricing a number of items as if the price applied to each unit of area instead of to each item.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "per-100-g-not-scaled",
+        "Using the energy stated per 100 g as the energy of a serve of a different size.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "mixed-units-in-subtraction",
+        "Subtracting a figure in one energy unit from a budget in another without converting.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "minutes-over-100",
+        "Turning minutes into a decimal part of an hour by dividing by 100 instead of 60.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "clock-time-read-as-decimal",
+        "Reading a time such as 5 h 45 min as 5.45 hours.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "left-out-the-break",
+        "Leaving an unpaid break out of the time worked, or taking it off the wrong way.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "chord-segments-added",
+        "Setting the sum of the two parts of one chord equal to the sum of the two parts of the other, instead of the "
+        "products.",
+        area="circle-geometry",
+    ),
+    CatalogueEntry(
+        "chord-products-crossed",
+        "Pairing a part of one chord with a part of the other chord in the same product.",
+        area="circle-geometry",
+    ),
+    CatalogueEntry(
+        "negative-root-as-length",
+        "Keeping the negative solution of the quadratic as a length.",
+        area="circle-geometry",
+    ),
+    CatalogueEntry(
+        "segment-for-whole-chord",
+        "Giving one part of a chord where the length of the whole chord was asked.",
+        area="circle-geometry",
+    ),
+    CatalogueEntry(
+        "triangle-without-half",
+        "Finding a triangle's area as base times height, with no half.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "slant-side-as-height",
+        "Using the slanting side of a triangle in place of its perpendicular height.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "height-from-area-without-doubling",
+        "Finding a missing height by dividing a triangle's area by the base, without doubling the area first.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "division-count-off-by-one",
+        "Sharing the gap between two labelled marks over one more or one fewer division than there are.",
+        area="measurement",
+    ),
 )
 
 #: Every entry, by id.

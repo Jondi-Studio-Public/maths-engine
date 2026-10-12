@@ -21,6 +21,11 @@ sources:
   params: {mode: composite}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m4_cylinder_surface_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: radius_treated_as_diameter
   description: Treats the given radius as if it were the diameter, halving it before squaring (or vice versa).

@@ -209,6 +209,6 @@ def test_p11c_parallelogram_skill_contract_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert skill.status == "active"
     assert skill.learner_band == "general"
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in skill.sources} == {TOPIC}
-    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in skill.sources if source.difficulty != "exam"} == {TOPIC}
+    assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]

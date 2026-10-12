@@ -21,6 +21,11 @@ sources:
   params: {mode: chained}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m4_equal_chords_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: half-angle
   description: States half the angle instead of the full equal angle.
