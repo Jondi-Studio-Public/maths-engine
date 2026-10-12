@@ -99,13 +99,16 @@ def _parameter(rng: random.Random) -> dict:
         Fraction(s * a * a + n - m, a),  # k forgotten on the right
         Fraction(left_limit),  # reported the common value instead of k
     ]
+    texts = [rational_text(w) for w in [*wrong, Fraction(-k)]]
     return dict(
         text=text,
         latex=f"plain:{text}",
         answer=k,
         answer_text=str(k),
         answer_latex=str(k),
-        distractors=pick_distractors(str(k), [rational_text(w) for w in wrong]),
+        # A sign slip on k shares its shape (integer), and options of the answer's own shape come first, so k
+        # can never be the only integer among fractions.
+        distractors=pick_distractors(str(k), sorted(texts, key=lambda t: "/" in t)),
     )
 
 

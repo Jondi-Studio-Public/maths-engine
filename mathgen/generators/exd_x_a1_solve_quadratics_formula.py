@@ -105,7 +105,7 @@ def exd_x_a1_solve_quadratics_formula(rng: random.Random, tier: str = "exam") ->
         answer_text=answer_text,
         answer_latex=" \\text{ or } ".join(f"x = {v:.2f}" for v in key),
         working=[
-            f"Standard form: {a}x^2 + ({b})x + ({c}) = 0.",
+            f"Standard form: {fmt_signed(a, 'x^2')} + ({b})x + ({c}) = 0.",
             f"x = (-({b}) +/- sqrt({b * b - 4 * a * c})) / (2 x {a})",
         ],
         distractors=pick_distractors(answer_text, cands, unordered=True, tolerance=GRADER_TOLERANCE),

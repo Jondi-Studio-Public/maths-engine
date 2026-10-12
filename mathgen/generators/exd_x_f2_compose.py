@@ -33,7 +33,7 @@ from __future__ import annotations
 
 import random
 
-from sympy import Rational, Symbol, simplify, sqrt
+from sympy import Rational, Symbol, sqrt
 from sympy.parsing.sympy_parser import (
     convert_xor,
     implicit_multiplication_application,
@@ -41,7 +41,16 @@ from sympy.parsing.sympy_parser import (
     standard_transformations,
 )
 
-from ..core import check, check_distinct, generator, join_terms, latex_answer, phrase, pick_distractors
+from ..core import (
+    check,
+    check_distinct,
+    check_equivalent,
+    generator,
+    join_terms,
+    latex_answer,
+    phrase,
+    pick_distractors,
+)
 
 x = Symbol("x")
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
@@ -100,7 +109,7 @@ def _check_same_at_points(key_text: str, direct, points) -> None:
 def _result(text: str, answer_text: str, direct, points, wrong: list[str], working: list[str], form=None) -> dict:
     key = _parse(answer_text)
     _check_same_at_points(answer_text, direct, points)
-    check(simplify(key - direct) == 0, f"key {answer_text!r} is not equal to the direct composition")
+    check_equivalent(key, direct, f"key {answer_text!r} is not equal to the direct composition")
     for candidate in wrong:
         check_distinct(key, _parse(candidate), msg=f"distractor {candidate!r} equals the key")
     result = dict(
