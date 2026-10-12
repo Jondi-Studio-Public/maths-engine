@@ -61,7 +61,8 @@ def _easy(rng: random.Random) -> dict:
         after = a * (k + 1) + b
         on_previous = a * before + b
         unsigned = a * k + abs(b)
-        if len({value, before, after, on_previous, a * k, unsigned}) == 6:
+        candidates = {value, before, after, on_previous, a * k} | ({unsigned} if b < 0 else set())
+        if len(candidates) == (6 if b < 0 else 5):
             break
     else:
         check(False, "no usable easy draw")

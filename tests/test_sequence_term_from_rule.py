@@ -127,6 +127,11 @@ def test_easy_is_linear_and_hard_uses_varied_multipliers():
     assert len(multipliers) >= 4
 
 
+def test_easy_shows_positive_and_negative_constants():
+    rules = [_EXPLICIT.fullmatch(_q("easy", seed).text).group(1) for seed in SEEDS]
+    assert any(" + " in r for r in rules) and any(" - " in r for r in rules)
+
+
 def test_phrasing_varies_in_medium():
     texts = [_q("medium", s).text for s in SEEDS]
     assert any("term." in t and "Find the" in t for t in texts) and any("Find t(" in t for t in texts)
