@@ -73,10 +73,6 @@ misconceptions:
   description: Picks the leaf digit that appears most often across all rows and attaches it to the wrong stem, instead of finding the value (stem and leaf together) that repeats.
 - id: compares-the-ranges-not-the-medians
   description: Finds the difference between the ranges of the two groups when the medians were asked for.
-- id: pools-the-two-groups
-  description: Finds the median of both groups put together instead of finding each group's median and comparing them.
-- id: gives-one-median-not-the-difference
-  description: Gives the larger of the two medians instead of subtracting one from the other.
 - id: compares-the-leaves-of-the-medians-only
   description: Subtracts only the leaves of the two medians and ignores the stems.
 - id: compares-the-medians-not-the-ranges
@@ -87,8 +83,6 @@ misconceptions:
   description: Gives the larger of the two ranges instead of the difference between them.
 - id: pairs-with-the-wrong-neighbour
   description: Pairs the hidden value with the value on the wrong side of it when working back from the median.
-- id: forgets-to-double-the-median
-  description: Subtracts the known middle value from the median instead of from the sum of the two middle values (twice the median).
 - id: gives-the-median-as-the-missing-value
   description: Gives the median itself as the hidden value.
 - id: applies-the-range-to-the-nearest-value

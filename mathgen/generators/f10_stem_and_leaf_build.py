@@ -218,6 +218,8 @@ def _finish(answer, cands: list[tuple]) -> tuple[str, list[str], dict[str, str]]
         text = _fmt(value)
         if text in seen:
             continue
+        if ("." in text) != ("." in answer_text):
+            continue  # every option has the answer's shape: a lone whole number among decimals (or the reverse) gives it away
         if grade_number(probe, text).correct:
             raise ValueError(f"number grader accepts the wrong answer {text!r} for {answer_text!r}")
         seen.add(text)
@@ -469,7 +471,6 @@ def _back_to_back(rng: random.Random) -> dict:
     ask_median = rng.random() < 0.5
     ma, mb = _median(a), _median(b)
     ra, rb = max(a) - min(a), max(b) - min(b)
-    pooled = _median(a + b)
     ks = rng.choice(stems)
     la, lb = rng.choice(rows_a[ks]), rng.choice(rows_b[ks])
     key = f"Key: {la} | {ks} | {lb} means {10 * ks + la} for {ga} and {10 * ks + lb} for {gb}."
@@ -484,10 +485,12 @@ def _back_to_back(rng: random.Random) -> dict:
             raise _Retry
         ask = f"What is the difference between the median {ctx['val']} of {ga} and the median of {gb}? Give the larger minus the smaller."
         mid_leaf_diff = abs(_median(a) % 10 - _median(b) % 10)
+        mean_diff = abs(Fraction(sum(a), len(a)) - Fraction(sum(b), len(b)))
+        low_diff = abs(sorted(a)[len(a) // 2 - 1] - sorted(b)[len(b) // 2 - 1])
         cands = [
             (abs(ra - rb), "compares-the-ranges-not-the-medians"),
-            (pooled, "pools-the-two-groups"),
-            (max(ma, mb), "gives-one-median-not-the-difference"),
+            (mean_diff, "mean-not-median"),
+            (low_diff, "takes-one-middle-value-not-both"),
             (mid_leaf_diff, "compares-the-leaves-of-the-medians-only"),
         ]
         working = [f"{ga} median {_fmt(ma)}, {gb} median {_fmt(mb)}", f"Difference: {_fmt(ans)}"]
@@ -524,7 +527,6 @@ def _hidden(rng: random.Random) -> dict:
         stated = f"The median is {_fmt(med)}."
         cands_core = [
             (2 * med - wrong_neighbour if wrong_neighbour is not None else None, "pairs-with-the-wrong-neighbour"),
-            (med - values[j], "forgets-to-double-the-median"),
             (int(med), "gives-the-median-as-the-missing-value"),
         ]
         working = [f"The two middle values add to 2 x {_fmt(med)} = {_fmt(2 * med)}", f"{_fmt(2 * med)} - {values[j]}"]
