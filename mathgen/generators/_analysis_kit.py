@@ -528,7 +528,7 @@ def spike_exponential() -> Family:
     return _verify(
         Family(
             key="spike_exponential",
-            fn=Fm("nxe^{-nx}", "n x e^(-n x)"),
+            fn=Fm("n x e^{-n x}", "n x e^(-n x)"),
             lim=Fm("0"),
             a=0,
             b=1,
