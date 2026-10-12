@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import copy
 import os
+import re
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -28,6 +29,7 @@ DEFAULT_SKILLS_DIR = default_skills_dir()
 VALID_STAGES = {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
 # The tier a source stands for. An active skill's sources must each name one (see `validate`).
 VALID_DIFFICULTIES = ("easy", "medium", "hard", "exam")
+SOURCE_KEY_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")  # a source `key`: lower-case words joined by hyphens
 VALID_ALIGNMENT_STATUSES = {"verified", "candidate", "unverified"}
 VALID_DEFERRED_REASONS = {
     "generator",
@@ -97,6 +99,12 @@ class Source:
     params: dict = field(default_factory=dict)
     difficulty: str | None = None
     stages: list | None = None  # None means "all stages"
+    key: str | None = None  # stable name within the skill; None means "use the difficulty label"
+
+    @property
+    def effective_key(self) -> str | None:
+        """The name that identifies this source within its skill: `key`, else the `difficulty` label."""
+        return self.key if self.key is not None else self.difficulty
 
 
 @dataclass
@@ -232,6 +240,7 @@ def _source_from_dict(d: dict) -> Source:
         params=params,
         difficulty=d.get("difficulty"),
         stages=d.get("stages"),
+        key=d.get("key"),
     )
 
 
@@ -613,7 +622,22 @@ def validate(
             if alignment.framework and not alignment.area:
                 report.errors.append(f"{s.id}: framework alignment missing area")
 
-        for src in s.sources:
+        seen_keys: dict[str, int] = {}
+        for i, src in enumerate(s.sources):
+            ekey = src.effective_key
+            if src.key is not None and (not isinstance(src.key, str) or not SOURCE_KEY_RE.match(src.key)):
+                report.errors.append(
+                    f"{s.id}: source {i} key {src.key!r} must be lower-case words joined by hyphens "
+                    f"(letters and digits only, matching {SOURCE_KEY_RE.pattern})"
+                )
+            elif ekey is not None:
+                if ekey in seen_keys:
+                    report.errors.append(
+                        f"{s.id}: sources {seen_keys[ekey]} and {i} share the key {ekey!r}; "
+                        f"give one of them an explicit `key` (a source's key defaults to its difficulty)"
+                    )
+                else:
+                    seen_keys[ekey] = i
             if src.stages:
                 for st in src.stages:
                     if st not in VALID_STAGES:

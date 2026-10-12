@@ -64,6 +64,11 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   source's `difficulty` changes which question each seed gives. A generator that has presets must
   register one of each tier name it is labelled with; explicit `params` win over a preset's values.
   `stages` entries come from `0` to `6`, `maintenance` and `exam`.
+  `key` (optional) names the source within its skill and is part of every question id
+  (`<skill>/<key>/<seed>/<hash>`). It defaults to the `difficulty` label, so it is needed only when two
+  sources of a skill share a difficulty; keys are lower-case words joined by hyphens (`powers-roots`) and
+  must be unique within a skill (`validate()` reports a repeat). Pick a key once and keep it: changing it
+  changes the ids of that source's questions.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
   `polyline`, `line`. `list` ignores order and `ordered_list` is positional. `grade_expression`

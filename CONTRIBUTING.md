@@ -120,6 +120,28 @@ comment lines as every other `senior-*` file (copy them from any of those);
 `tests/public/test_skill_headers.py` checks this. For Australian Curriculum
 text from anywhere else, ask in the pull request how to credit it.
 
+## Seed stability
+
+A question is named by a question id, `<skill id>/<source key>/<seed>/<hash>`
+(`mathgen/engine.py`), and `tests/golden/questions.txt` records the id of
+seeds 0, 1 and 2 of every active source. Changing a generator, a source's
+`params`, `difficulty` or `key`, or a helper in `mathgen/core.py` that
+generators use, changes the hashes of the questions it touches. `tests/test_golden_questions.py`
+fails and lists them. When the change is intended:
+
+```
+python scripts/golden_questions.py --write
+```
+
+commit the regenerated file (never edit it by hand) and say in the pull
+request which skills' existing questions changed and why. A change that should
+not alter existing questions (a new generator, a new source, a fix that only
+affects other seeds) leaves the old lines untouched, so the diff shows only
+added lines. Reordering a skill's sources does not change ids; renaming a
+source's `key` does. Two sources of one skill with the same `difficulty` need
+distinct `key`s (`validate()` reports a repeat). The check takes about 30 s
+(`python scripts/golden_questions.py --check`).
+
 ## Pull requests
 
 Keep them small and focused. Describe what changed and how you checked it.

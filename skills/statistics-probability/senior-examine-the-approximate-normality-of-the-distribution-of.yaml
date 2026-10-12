@@ -24,6 +24,7 @@ sources:
 - topic: p8c_normality_approx_phat
   params: {variant: from_failures}
   difficulty: hard
+  key: from-failures
   stages: [6, maintenance]
 - topic: exd_x_s3_normality
   params: {tier: exam}
