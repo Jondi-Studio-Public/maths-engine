@@ -153,10 +153,22 @@ def _rows_text(body: str) -> list[list[str]]:
     return [_split_entries(line) for line in lines]
 
 
+def _one_group(text: str) -> bool:
+    """Whether `text` is one bracketed group enclosing all of it: "[[1, 2], [3, 4]]", not "(5/4), 1; 3, 4"."""
+    text = text.strip()
+    return len(text) >= 2 and text[0] in "([" and _strip_enclosing(text) != text
+
+
 def _scale(text: str) -> tuple[str, sympy.Basic]:
-    """`text` without a number written in front of the matrix or a divisor after it, and that factor."""
+    """`text` without a number written in front of the matrix or a divisor after it, and that factor.
+
+    A factor counts only when the rest is one bracketed matrix: in "-(5/4), 1; 3/2, -1" the minus belongs to the
+    first entry, and in "1, 2; 3, (4)/5" the divisor belongs to the last, so neither scales the whole matrix.
+    """
     factor = sympy.Integer(1)
     prefix = _SCALAR_PREFIX_RE.match(text)
+    if prefix and not _one_group(_DIVISOR_SUFFIX_RE.sub("", text[prefix.end() :])):
+        prefix = None
     if prefix:
         written = prefix.group(1).strip()
         if written == "-":
@@ -167,7 +179,7 @@ def _scale(text: str) -> tuple[str, sympy.Basic]:
             raise _Unreadable
         factor, text = value, text[prefix.end() :]
     suffix = _DIVISOR_SUFFIX_RE.search(text)
-    if suffix:
+    if suffix and _one_group(text[: suffix.start()]):
         divisor = int(suffix.group(1))
         if divisor == 0:
             raise _Unreadable

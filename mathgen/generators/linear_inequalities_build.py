@@ -32,7 +32,16 @@ from fractions import Fraction as Fr
 from types import SimpleNamespace
 
 from ..answers import Distractor
-from ..core import VerificationError, check, fmt_signed, generator, join_terms, latex_answer, rational_text
+from ..core import (
+    VerificationError,
+    check,
+    fmt_signed,
+    generator,
+    join_terms,
+    latex_answer,
+    paren_negative,
+    rational_text,
+)
 from ..grading import GRADERS
 
 _OPS = ("<", "≤", ">", "≥")
@@ -1126,7 +1135,7 @@ def exd_x_ineq_two_step(rng: random.Random, tier: str = "exam") -> dict:
                     answer_text=str(total),
                     answer_latex=str(total),
                     marks=1,
-                    working=[f"{' + '.join(str(i) for i in ints)} = {total}."],
+                    working=[f"{' + '.join(paren_negative(i) for i in ints)} = {total}."],
                     distractors=dis_c,
                 ),
             ],
