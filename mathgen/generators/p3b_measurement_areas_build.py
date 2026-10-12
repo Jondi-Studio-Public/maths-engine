@@ -31,6 +31,7 @@ from fractions import Fraction
 
 from ..core import (
     check,
+    draw_until,
     exact_decimal_string,
     generator,
     numeric_answer,
@@ -94,9 +95,12 @@ def _build_easy_rectangle_square(rng, side_hi: int) -> dict:
         text = f"A square has sides of {side} cm. What is its area, in cm²?"
     else:
         length = Fraction(rng.randint(2, side_hi))
-        width = Fraction(rng.randint(2, side_hi))
-        while width == length:
-            width = Fraction(rng.randint(2, side_hi))
+        width = draw_until(
+            rng,
+            lambda r: Fraction(r.randint(2, side_hi)),
+            lambda candidate: candidate != length,
+            what="a rectangle width different from the length",
+        )
         text = f"A rectangle is {int(length)} cm long and {int(width)} cm wide. What is its area, in cm²?"
 
     answer = length * width
@@ -252,6 +256,11 @@ def use_formulas_to_calculate_areas(
     trapezium using the shape's own area formula. Circles and sectors are not
     assessed."""
     if mode == "rectangle_square":
+        if side_hi < 3:
+            raise ValueError(
+                "use_formulas_to_calculate_areas needs side_hi >= 3 for mode='rectangle_square': "
+                "a rectangle's two sides are different whole numbers from 2..side_hi"
+            )
         return _build_easy_rectangle_square(rng, side_hi)
     if mode == "triangle_parallelogram":
         return _build_medium_triangle_parallelogram(rng, dim_hi)
