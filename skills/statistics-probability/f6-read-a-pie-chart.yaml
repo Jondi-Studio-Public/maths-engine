@@ -32,4 +32,4 @@ misconceptions:
   description: Gives the sector's own count where the question asks for everyone outside it, or the slices outside it without scaling.
 - id: multiplies-to-find-total
   description: Multiplies the count in a sector by its slices, or by the number of slices in the circle, instead of dividing by the sector's share to find the total.
-tags: [acara-f10-v9, statistics-probability, pie-chart, figure, stat6_pie_chart, AC9M6ST02]
+tags: [acara-f10-v9, statistics-probability, pie-chart, figure, stat6_pie_chart, AC9M6ST01]

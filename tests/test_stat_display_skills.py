@@ -25,7 +25,7 @@ NUMBER_SKILLS = {
     "f6-read-a-dot-plot": ("stat3_dot_plot", "dot_plot", "AC9M7ST02"),
     "f7-read-a-histogram": ("stat4_histogram", "histogram", "AC9M7ST02"),
     "f10-read-a-box-plot": ("stat5_box_plot_read", "box_plot", "AC9M10ST02"),
-    "f6-read-a-pie-chart": ("stat6_pie_chart", "pie_chart", "AC9M6ST02"),
+    "f6-read-a-pie-chart": ("stat6_pie_chart", "pie_chart", "AC9M6ST01"),
 }
 MCQ_SKILLS = {"f10-compare-box-plots": ("stat5_box_plot_compare", "box_plot", "AC9M10ST02")}
 CONVERTED = {
