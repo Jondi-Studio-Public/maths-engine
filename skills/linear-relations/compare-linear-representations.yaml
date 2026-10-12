@@ -1,18 +1,35 @@
 id: compare-linear-representations
 name: Compare linear relationships across representations
 domain: linear-relations
-description: Compare rates, intercepts and values when relationships are shown as tables, graphs, equations
-  or contexts.
-status: deferred
-deferred_reason: visual
+description: 'Relationship A is a graph and relationship B is an equation or a list of (x, y) pairs; the learner decides which has the greater gradient, or the greater y-value at a far x, or that they match. The answer class is drawn first, and in an unequal case the intercepts point at the wrong relationship. Easy compares gradients with B an equation; medium compares gradients with B a list of pairs and any sign; hard compares the y-values at a far x where neither the gradient nor the intercept alone decides.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - equation-from-table
 - equation-from-graph
 answer: mcq
-sources: []
+sources:
+- topic: fg1_compare_linear
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fg1_compare_linear
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fg1_compare_linear
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
 misconceptions:
-- id: misconception-1
-  description: Comparing only appearance rather than scale and values
-- id: misconception-2
-  description: Assuming different representations describe different relationships
-tags: []
+- id: compares-intercepts-not-gradients
+  description: Compares where the relationships start (the y-intercepts) when the question asks about the gradient or a later value.
+- id: compares-gradients-only
+  description: Compares the gradients when the question asks for the value at a particular x, ignoring where each relationship starts.
+- id: treats-the-relationships-as-the-same
+  description: Says the relationships match because they are shown in different forms, without comparing their values.
+- id: picks-by-the-look-of-the-graph
+  description: Picks the relationship by how the graph looks, not by the numbers read from it.
+tags: [acara-f10-v9, linear-relations, ac9m8a02, figure]
