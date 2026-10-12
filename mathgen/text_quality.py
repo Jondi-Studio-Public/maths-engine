@@ -361,3 +361,35 @@ def prompt_shape(question) -> str:
     text = _UNIT_RE.sub("§UNIT§", text)
     text = _CONTEXT_RE.sub("§CTX§", text)
     return " ".join(text.split())
+
+
+# --- Python notation, checked on what a learner is shown ---------------------------------------------------------
+#
+# Generators keep building strings in Python's spelling (`x**2`, `2*x`, `sqrt(21)`, `exp(-x)`, `pi`) and graders
+# and tests read that spelling. `core.display_question` rewrites it as it is on paper (`core.paper_notation`), and
+# these patterns are what that rewrite must leave none of. They are separate from `BAD_TEXT_PATTERNS` because they
+# apply to the displayed strings, not the stored ones.
+
+PYTHON_NOTATION_PATTERNS: tuple[TextPattern, ...] = (
+    TextPattern("double_star", "learner", _regex(r"\*\*"), "Python exponent notation"),
+    TextPattern("star_operator", "learner", _regex(r"(?<![*\w])\*(?![*\w])|\d\*[\dxa-z(]"), "an asterisk as times"),
+    TextPattern("sqrt_call", "learner", _regex(r"(?<![A-Za-z])sqrt\s*\("), "Python's sqrt( )"),
+    TextPattern("exp_call", "learner", _regex(r"(?<![A-Za-z])exp\s*\("), "Python's exp( )"),
+    TextPattern("spelled_pi", "learner", _regex(r"(?<![A-Za-z])pi(?![A-Za-z])"), "the word pi for the symbol"),
+)
+
+
+def find_python_notation(shown: dict) -> list[str]:
+    """Every Python spelling left in a `core.display_question` result, as ``"<pattern> in <field>: <match>"``."""
+    fields = [("text", shown["text"]), ("answer_text", shown["answer_text"])]
+    fields += [(f"option[{i}]", o) for i, o in enumerate(shown["options"])]
+    fields += [(f"working[{i}]", w) for i, w in enumerate(shown["working"])]
+    for part in shown.get("parts", ()):
+        fields += [(f"part {part['label']} {name}", value) for name, value in part.items() if isinstance(value, str)]
+    found = []
+    for pattern in PYTHON_NOTATION_PATTERNS:
+        for name, value in fields:
+            match = pattern.find(value)
+            if match is not None:
+                found.append(f"{pattern.name} in {name}: {match!r}")
+    return found
