@@ -19,6 +19,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr2_angle_point_unknown
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-180-not-360
   description: Subtracts the given angles from 180 instead of 360 (the angles-at-a-point tiers only; the exact mirror of straight-line-angles's own uses-360 misconception, which subtracts from 360 instead of 180).

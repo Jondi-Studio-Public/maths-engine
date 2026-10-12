@@ -385,8 +385,8 @@ def test_both_skills_load_through_api(skills_dict):
     assert fp.answer == "number"
     assert fp.placement_eligible is False
     assert set(fp.prerequisites) == {"fraction-of-quantity", "percentage-discount", "percentage-of-quantity"}
-    assert {s.difficulty for s in fp.sources} == {"easy", "medium", "hard"}
-    stages = {stage for s in fp.sources for stage in s.stages}
+    assert {s.difficulty for s in fp.sources} == {"easy", "medium", "hard", "exam"}
+    stages = {stage for s in fp.sources if s.difficulty != "exam" for stage in s.stages}
     assert stages == {0, 1, 2, 3, 4, 5, 6, "maintenance"}
 
     assert tr.answer == "fraction"

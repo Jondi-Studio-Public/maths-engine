@@ -192,9 +192,9 @@ class TestSkillLoad:
         assert skill.answer == "number"
         assert skill.placement_eligible is False
         assert skill.prerequisites == ["add-within-100", "f10-regroup-zero-place-value", "subtract-within-100"]
-        assert [s.difficulty for s in skill.sources] == ["easy", "medium", "hard"]
+        assert [s.difficulty for s in skill.sources[:3]] == ["easy", "medium", "hard"]
         stages = set()
-        for source in skill.sources:
+        for source in skill.sources[:3]:
             assert source.topic == TOPIC
             stages.update(source.stages)
         assert stages == {0, 1, 2, 3, 4, 5, 6, "maintenance"}

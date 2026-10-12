@@ -19,6 +19,11 @@ sources:
   params: {variant: find_groups, groups_range: [2, 9], each_range: [2, 9]}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr6_array_stacks
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-operation
   description: Applies the wrong operation for the situation -- adds instead of multiplying when finding a total, or multiplies instead of dividing when finding an unknown group count or group size.
