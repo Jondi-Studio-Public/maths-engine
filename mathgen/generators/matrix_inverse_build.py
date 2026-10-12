@@ -203,6 +203,19 @@ def _inverse_slips_2x2(M):
     return cands
 
 
+_INVERSE_PROMPTS = (
+    "Find the inverse of A = {m}. {note}",
+    "Find A⁻¹ for A = {m}. {note}",
+    "Given A = {m}, write down its inverse. {note}",
+    "The matrix A = {m} is invertible. Find A⁻¹. {note}",
+)
+
+
+def _inverse_prompt(rng, shown: str, note: str) -> str:
+    """One of several wordings of the same task. Drawn after the matrix and every distractor, so no answer moves."""
+    return rng.choice(_INVERSE_PROMPTS).format(m=shown, note=note)
+
+
 def _inv_2x2_body(rng, dets, note, *, need_fraction):
     M = _draw_2x2(rng, dets, need_fraction=need_fraction)
     inv = _inverse(M)
@@ -213,7 +226,7 @@ def _inv_2x2_body(rng, dets, note, *, need_fraction):
         return None
     det = _det(M)
     return dict(
-        text=f"Find the inverse of A = {_shown(M)}. {note}",
+        text=_inverse_prompt(rng, _shown(M), note),
         working=[
             f"det(A) = {M[0][0]}×{paren_negative(M[1][1])} - {paren_negative(M[0][1])}×{paren_negative(M[1][0])} = {det}.",
             "Swap the diagonal, negate the others, divide by det(A).",
@@ -367,7 +380,7 @@ def _inv_3x3_body(rng, dets, note):
         return None
     det = _det(M)
     return dict(
-        text=f"Find the inverse of A = {_shown(M)}. {note}",
+        text=_inverse_prompt(rng, _shown(M), note),
         working=[f"det(A) = {det}.", "Cofactor matrix, transposed (the adjugate), divided by det(A)."],
         distractors=dis,
         **ans,
