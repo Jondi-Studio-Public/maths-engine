@@ -1,0 +1,41 @@
+id: f7-read-a-histogram
+name: Read a histogram
+domain: statistics-probability
+description: Read a histogram of equal-width classes (each includes its lower boundary and excludes its upper) and give a number - one class frequency, then the total, two classes combined or the lower boundary of the modal class, and at the hard tier how many values are at or above (or below) a boundary, how many more the modal class has than the least common class, or the percentage of the data at or above a boundary. The prompt names classes and boundaries and never states a frequency.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: stat4_histogram
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat4_histogram
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat4_histogram
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: nearest-labelled-line
+  description: Reads the labelled gridline just above or below the top of the bar instead of where the bar ends, or misses a bar that ends on a half line.
+- id: neighbouring-class
+  description: Reads the bar next to the class the question names.
+- id: boundary-for-frequency
+  description: Gives a class boundary from the horizontal axis where the question asks for a frequency, or a frequency where it asks for the boundary of the modal class.
+- id: counts-classes
+  description: Gives the number of classes, or the height of the tallest bar, for the total number of observations.
+- id: boundary-class-off-by-one
+  description: Includes or leaves out the class that begins at the stated boundary when counting values at or above it, or below it.
+- id: complement
+  description: Counts the values on the wrong side of the boundary, giving the number below it for the number at or above it.
+- id: count-for-percentage
+  description: Gives the number of values where the question asks for a percentage of the total, or the percentage on the wrong side.
+- id: wrong-extremes
+  description: Subtracts the wrong pair of bars, such as the second-highest from the lowest, instead of the highest and lowest.
+tags: [acara-f10-v9, statistics-probability, histogram, figure, stat4_histogram, AC9M7ST02, AC9M9ST03]

@@ -1,0 +1,39 @@
+id: f2-read-a-picture-graph
+name: Read a picture graph
+domain: statistics-probability
+description: Read a picture graph drawn with a key ("each symbol = k", with half symbols only when k is even) and give a number - the count in one row, the difference between two named rows, the total of all rows, the difference between the most and least popular rows, or the number of symbols a new row needs. The prompt names categories and never states a count.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: stat1_picture_graph
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat1_picture_graph
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat1_picture_graph
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: key-read-as-one
+  description: Counts the symbols in a row and gives that number, ignoring that each symbol stands for more than one.
+- id: off-by-one-symbol
+  description: Gives a count one symbol too many or too few, a slip in counting the row.
+- id: neighbouring-row
+  description: Reads the row above or below the category the question names.
+- id: half-symbol-as-whole
+  description: Counts a half symbol as a whole symbol, or drops it, so the count is out by half the key.
+- id: adds-instead-of-subtracts
+  description: Adds the two named rows when the question asks how many more one has than the other.
+- id: wrong-extremes
+  description: Subtracts the wrong pair of rows, such as the second-highest row from the lowest, instead of the most and the least popular.
+- id: symbols-times-count
+  description: On the new-row question, multiplies the count by the key instead of dividing by it.
+tags: [acara-f10-v9, statistics-probability, picture-graph, figure, stat1_picture_graph, AC9M2ST02]

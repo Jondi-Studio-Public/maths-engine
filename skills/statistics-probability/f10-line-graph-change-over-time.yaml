@@ -1,8 +1,10 @@
 id: f10-line-graph-change-over-time
 name: Interpret line graphs of change
 domain: statistics-probability
-description: Given a quantity's value at a labelled sequence of time points, presented as an explicit list of time-value pairs, and one stated claim drawn from a fixed class (the value at a stated time point, the direction or size of the change between two stated time points, or whether the value rose, fell or stayed the same across every consecutive pair of time points), classify the claim as supported or not supported by the data. Every question shows the full sequence as text; open description of relationships/trends and any rendered figure are excluded, as is any claim outside the three named classes.
+description: Given a quantity's value at a labelled sequence of time points, drawn as a line graph on gridlines (the prompt does not list the data), and one stated claim drawn from a fixed class (the value at a stated time point, the direction or size of the change between two stated time points, or whether the value rose, fell or stayed the same across every consecutive pair of time points), classify the claim as supported or not supported by the graph. Open description of relationships/trends is excluded, as is any claim outside the three named classes.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites:
 - calculate-mean
@@ -37,5 +39,7 @@ misconceptions:
 - id: ignores-the-one-breaking-pair
   description: Assumes a rose/fell/stayed-the-same claim holds across the whole sequence without checking every consecutive pair, missing the single pair where the pattern actually breaks.
 - id: distracted-by-interior-fluctuation
-  description: On the exam tier's overall-change claim, refuses to resolve the net first-to-last change because the data moves up and down in between, instead of computing the two endpoints directly.
+  description: On the exam tier's overall-change claim, refuses to resolve the net first-to-last change because the data moves up and down in between, instead of reading the two endpoints directly.
+- id: reads-nearest-gridline
+  description: Reads the labelled gridline beside a plotted point instead of the value at the point, or counts gridlines instead of using the scale.
 tags: [acara-f10-v9, statistics-probability, p18a_line_graph_claims, AC9M5ST02]

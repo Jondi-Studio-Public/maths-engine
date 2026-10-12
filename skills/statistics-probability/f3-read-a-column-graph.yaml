@@ -1,0 +1,39 @@
+id: f3-read-a-column-graph
+name: Read a column graph or bar graph
+domain: statistics-probability
+description: Read a column graph or bar graph (vertical or horizontal) against a gridded value axis and give a number - one bar, the difference or total of two bars, and at the hard tier the difference or totals on a grouped graph with two series, or the range of bars that end on half lines between gridlines. The prompt names categories and never states a value.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: stat2_column_graph
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat2_column_graph
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat2_column_graph
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: nearest-labelled-line
+  description: Reads the labelled gridline just above or just below the end of the bar instead of where the bar ends.
+- id: counts-gridlines
+  description: Counts gridlines to the bar instead of reading the scale, so a scale that goes up in 2s, 5s or 10s gives the wrong value.
+- id: neighbouring-bar
+  description: Reads the bar next to the category the question names.
+- id: adds-instead-of-subtracts
+  description: Adds the two bars when the question asks how many more one is than the other, or subtracts when it asks for the total.
+- id: half-line-misread
+  description: Reads a bar that ends on a half line as the whole gridline beside it, so the value is out by half a step.
+- id: reads-one-series
+  description: On a grouped graph, uses one bar of the pair instead of combining or comparing both.
+- id: wrong-extremes
+  description: Subtracts the wrong pair of bars, such as the second-highest from the lowest, instead of the highest and lowest.
+tags: [acara-f10-v9, statistics-probability, column-graph, bar-graph, figure, stat2_column_graph, AC9M3ST02, AC9M4ST02]

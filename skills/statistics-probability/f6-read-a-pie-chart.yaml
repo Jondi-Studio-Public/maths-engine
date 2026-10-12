@@ -1,0 +1,35 @@
+id: f6-read-a-pie-chart
+name: Read a pie chart
+domain: statistics-probability
+description: Read a pie chart whose circle is cut into a counted number of equal slices (no angles to measure) and give a number of people - how many chose one sector when the total is stated, how many more chose one sector than another or chose either of two, and at the hard tier work back from the count in one sector to the total or to another sector, or count everyone outside a sector. The prompt states counts of people and never a sector's size.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: stat6_pie_chart
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat6_pie_chart
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat6_pie_chart
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: slices-as-people
+  description: Gives the number of slices in the sector as the number of people, without scaling by how many people one slice stands for.
+- id: total-divided-by-slices
+  description: Divides the total by the number of slices in the sector instead of finding the value of one slice and multiplying.
+- id: adds-instead-of-subtracts
+  description: Adds the two sectors when the question asks how many more one has than the other, or subtracts when it asks for either.
+- id: complement-not-taken
+  description: Gives the sector's own count where the question asks for everyone outside it, or the slices outside it without scaling.
+- id: multiplies-to-find-total
+  description: Multiplies the count in a sector by its slices, or by the number of slices in the circle, instead of dividing by the sector's share to find the total.
+tags: [acara-f10-v9, statistics-probability, pie-chart, figure, stat6_pie_chart, AC9M6ST02]

@@ -1,0 +1,41 @@
+id: f10-read-a-box-plot
+name: Read a box plot
+domain: statistics-probability
+description: Read a single box plot against a numbered axis and give a number - one of the five-number summary, then the range or interquartile range (values may sit on half ticks), and at the hard tier the range of all the data when an outlier is plotted, the interquartile range beside an outlier, or the percentage of values below (or the number above) a stated value that is the lower quartile, median or upper quartile of the plot. The prompt never states a value read off the plot.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: stat5_box_plot_read
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat5_box_plot_read
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat5_box_plot_read
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-landmark
+  description: Reads another landmark of the plot, such as the other quartile or the end of a whisker, for the one the question names.
+- id: off-by-one-tick
+  description: Reads the tick just beside the line instead of the value the line is drawn at.
+- id: iqr-as-range
+  description: Gives the range (whisker to whisker) where the question asks for the interquartile range (the width of the box), or the reverse.
+- id: iqr-from-one-end
+  description: Gives a quartile on its own, or the distance from the median to a quartile, for the interquartile range.
+- id: ignores-outlier
+  description: Leaves the plotted outlier out of the range of all the data, giving the whisker-to-whisker range.
+- id: outlier-widens-box
+  description: Lets an outlier change the interquartile range, using the extreme point in place of the box.
+- id: quartile-as-half
+  description: Takes the median and each quartile to cut off half the data, so a quarter of the values is reported as half.
+- id: wrong-side
+  description: Gives the percentage or count on the other side of the stated value, below it instead of above it or the reverse.
+tags: [acara-f10-v9, statistics-probability, box-plot, figure, stat5_box_plot_read, AC9M10ST02]

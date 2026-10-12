@@ -3,8 +3,10 @@
 id: senior-find-the-line-of-best-fit-by-eye
 name: Find the line of best fit by eye
 domain: statistics-probability
-description: 'Given bounded, fully specified inputs, find the line of best fit by eye. Return the resulting value, expression, relation, or classification. A small integer scatter dataset and four candidate line equations are stated in the question text; the correct candidate is the one with the strictly smallest sum of squared residuals AND the strictly smallest sum of absolute residuals against the stated points, each separated from its runner-up by a real margin -- never a hidden generating line the learner cannot see, and never a free-hand drawing judgement.'
+description: 'Given bounded, fully specified inputs, find the line of best fit by eye. Return the resulting value, expression, relation, or classification. A small integer scatter dataset is drawn as a scatter plot and four candidate line equations are stated in the question text; the correct candidate is the one with the strictly smallest sum of squared residuals AND the strictly smallest sum of absolute residuals against the drawn points, each separated from its runner-up by a real margin -- never a hidden generating line the learner cannot see, and never a free-hand drawing judgement.'
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [simple-event-probability]
 answer: mcq
