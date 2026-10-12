@@ -22,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c4_solids_of_revolution
+- topic: exd_x_r2c_solids_of_revolution
   params: {tier: exam}
   difficulty: exam
   stages:

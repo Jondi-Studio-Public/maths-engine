@@ -154,7 +154,9 @@ def retarget(part, value):
         return dataclasses.replace(part, answer=value, answer_text=sympy.sstr(value), **common)
     if not value.is_number:
         return None
-    value = sympy.nsimplify(value) if kind == "fraction" else value
+    # An exact Rational is already its own fraction; nsimplify can rewrite a large one (2567/795) as a
+    # product of surds, which then fails the is_Rational test below and withholds follow-through.
+    value = sympy.nsimplify(value) if kind == "fraction" and not value.is_Rational else value
     if kind == "fraction":
         if not value.is_Rational:
             return None
