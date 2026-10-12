@@ -41,6 +41,18 @@ GENUINE_TWO_OPTION_TOPICS = {
     "prime_composite_square_properties",
 }
 
+# Classifications that look binary but have three or more answers by design, so they must keep the
+# >=2-distractor check: never add them to GENUINE_TWO_OPTION_TOPICS.
+NEVER_TWO_OPTION_TOPICS = {
+    "p19h_rate_usage_classification",
+    "p19h_appropriate_activity_unit",
+    "p19h_need_for_milligrams",
+}
+
+
+def test_multi_option_classifications_are_not_registered_as_two_option():
+    assert not NEVER_TWO_OPTION_TOPICS & GENUINE_TWO_OPTION_TOPICS
+
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_all_topics_usually_have_enough_distractors(topic):
