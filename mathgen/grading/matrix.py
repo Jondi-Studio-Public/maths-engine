@@ -237,7 +237,6 @@ def matrices_match(given: list[list], expected: list[list], form: str | None = N
 
 
 def _entry_text(value) -> str:
-    value = sympy.nsimplify(value) if getattr(value, "is_Float", False) else value
     if isinstance(value, sympy.Rational):
         return str(value)
     return str(value).replace("sqrt", "√").replace("**", "^").replace("*", "")

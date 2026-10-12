@@ -56,8 +56,9 @@ def same_number(left, right) -> bool:
     """Whether two exact real numbers are equal. Both come from `read_value` or from the generator."""
     if left == right:
         return True
+    if not isinstance(left, sympy.Basic) or not isinstance(right, sympy.Basic):
+        return False  # never hand text to `simplify`: it would sympify it
     try:
-        difference = sympy.nsimplify(left - right) if left.is_Float or right.is_Float else left - right
-        return bool(sympy.simplify(difference) == 0)
+        return bool(sympy.simplify(left - right) == 0)
     except Exception:  # noqa: BLE001 - a comparison SymPy cannot decide is not equality
         return False

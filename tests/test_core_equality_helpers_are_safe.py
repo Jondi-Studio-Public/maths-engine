@@ -284,6 +284,7 @@ _REVIEWED = {
     ("core.py", "symbolically_equal", "simplify"): "the difference of two values read by `_sympify`",
     ("grading/spoken.py", "_check_one", "simplify"): "a spoken reading less a `sympify_safely` value",
     ("grading/typed.py", "_expected_expression", "simplify"): "two expressions from `_parse_expression`",
+    ("grading/values.py", "same_number", "simplify"): "two numbers from `read_value` or a generator's answer",
     ("grading/typed.py", "_line_standard_form_coeffs", "expand"): "the two sides of an equation, parsed",
     ("grading/typed.py", "grade_expression", "expand"): "the reply, already parsed by `_parse_expression`",
     # a follow-through answer: an expression from `sympify_safely` with the learner's parsed replies substituted
