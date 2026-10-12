@@ -45,6 +45,8 @@ not P itself.
 
 from __future__ import annotations
 
+import re
+
 import sympy
 from sympy import Rational, symbols
 
@@ -68,6 +70,11 @@ _POINT = (-4, -3, -2, -1, 1, 2, 3, 4)
 
 def _typed(expr) -> str:
     return str(expr).replace("**", "^")
+
+
+def _shown(text: str) -> str:
+    """A typed expression as the working shows it: "8*x + 3*y" -> "8x + 3y". A typed answer keeps its "*"."""
+    return re.sub(r"\*(?=[a-z(])", "", text)
 
 
 def _family_quadratic(rng, x0, y0):
@@ -275,7 +282,7 @@ def exam_parts_implicit_tangent(rng):
         answer_text=a_text,
         answer_latex=latex_answer(true),
         marks=2,
-        working=a_working + [f"So dy/dx = {a_text.replace('*', '')}."],
+        working=a_working + [f"So dy/dx = {_shown(a_text)}."],
         distractors=a_dist,
     )
 
@@ -317,7 +324,7 @@ def exam_parts_implicit_tangent(rng):
         marks=2,
         working=[
             f"y - {paren_negative(y0)} = {rational_text(m)}(x - {paren_negative(x0)}).",
-            f"So {c_text.replace('*', '')}.",
+            f"So {_shown(c_text)}.",
         ],
         distractors=c_dist,
         follow_through=f"part_b*(x - {paren_negative(x0)}) + {paren_negative(y0)}",
@@ -329,7 +336,7 @@ def exam_parts_implicit_tangent(rng):
         "Hence find the x-coordinate of the point where this tangent meets the x-axis.",
         x_int,
         1,
-        [f"Put y = 0 in the tangent: 0 = {join_terms([(m, 'x'), (c, '')])}, so x = {rational_text(x_int)}."],
+        [f"Put y = 0 in the tangent: 0 = {_shown(_typed(tangent))}, so x = {rational_text(x_int)}."],
         d_cands,
         follow_through=f"{paren_negative(x0)} - {paren_negative(y0)}/part_b",
     )

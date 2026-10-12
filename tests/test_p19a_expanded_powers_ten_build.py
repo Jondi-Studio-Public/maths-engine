@@ -58,9 +58,9 @@ def test_real_grader_accepts_answer_rejects_distractors_and_a_wrong_value(diffic
         assert not grade_number(q, str(q.answer + 100000)).correct
 
 
-def test_grader_probe_comma_grouped_accepted_space_grouped_rejected():
-    """The exact probe: GRADERS['number'] accepts
-    "4356" and "4,356" but REJECTS the space-grouped "4 356"."""
+def test_grader_probe_comma_and_space_grouped_accepted():
+    """The exact probe: GRADERS['number'] accepts "4356", "4,356" and the space-grouped "4 356" (thousands
+    grouped by a space, as the SI and the Australian style manual write them: maintainer ruling, 2026-10-12)."""
     q = make(TOPIC, seed=0, difficulty="medium")
     n = q.answer
     grouped = f"{n:,}"  # "4,356"
@@ -68,7 +68,7 @@ def test_grader_probe_comma_grouped_accepted_space_grouped_rejected():
     assert grade_number(q, str(n)).correct
     assert grade_number(q, grouped).correct
     if grouped != str(n):  # only a meaningful probe once the numeral is >= 1000
-        assert not grade_number(q, space_grouped).correct
+        assert grade_number(q, space_grouped).correct
 
 
 def test_grader_probe_on_a_five_digit_numeral():
@@ -81,7 +81,7 @@ def test_grader_probe_on_a_five_digit_numeral():
             space_grouped = grouped.replace(",", " ")
             assert grade_number(q, str(q.answer)).correct
             assert grade_number(q, grouped).correct
-            assert not grade_number(q, space_grouped).correct
+            assert grade_number(q, space_grouped).correct
             return
     pytest.skip("no five-digit numeral drawn in 200 seeds")
 

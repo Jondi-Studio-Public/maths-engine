@@ -1,0 +1,35 @@
+id: f10-compare-scale-readings
+name: Compare two readings on a measuring scale
+domain: measurement
+description: Find the change between two marked readings on a thermometer or measuring jug, and the length of an object that does not start at zero on a ruler, including a ruler that itself starts part way along and temperatures that cross zero.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-read-measurement-scale]
+answer: number
+sources:
+- topic: scale_compare_readings
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: scale_compare_readings
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: scale_compare_readings
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-the-readings
+  description: Adds the two readings instead of finding the difference.
+- id: reads-one-end-only
+  description: Gives the reading at one end of the object or interval as its length.
+- id: ignores-sign
+  description: Subtracts the numbers without their signs, so a rise from a temperature below zero to one above is too small.
+- id: ruler-edge-zero
+  description: Measures from the start of the ruler instead of from the start of the object.
+- id: one-tick-out
+  description: Reads a small mark next to the right one.
+tags: [acara-f10-v9, primary, measurement, scales, temperature, figure, ac9m4m01]

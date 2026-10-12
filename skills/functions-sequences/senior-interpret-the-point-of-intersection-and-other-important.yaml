@@ -16,8 +16,7 @@ description: 'Two straight lines, labelled A and B, are drawn on one labelled gr
   two plans agree, so the decision is mapping each coordinate to the quantity on its own axis. This skill
   reads the crossing off two drawn lines with no equations; the algebraic find-the-break-even skill is
   senior-solve-practical-problems-that-involve-finding-the-point.'
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
