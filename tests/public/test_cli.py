@@ -186,7 +186,9 @@ def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys,
     assert "deferred" in err
 
 
-def test_deferred_skill_without_a_grader_prints_the_question_then_says_it_cannot_grade(capsys, library):
+def test_deferred_skill_without_a_grader_prints_the_question_then_says_it_cannot_grade(capsys, library, monkeypatch):
+    # Every kind the library's deferred skills name now has a grader, so take one away for this test.
+    monkeypatch.delitem(GRADERS, "inequality")
     skill = next(s for s in library if s.status == "deferred" and s.sources and s.answer not in GRADERS)
     code, out, err = run(capsys, "--skill", skill.id, "--seed", "1", "--answer", "x")
     assert code == 1
