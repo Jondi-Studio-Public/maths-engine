@@ -1,17 +1,45 @@
 id: plot-linear-points
-name: Plot points representing a relationship
+name: Read points representing a relationship
 domain: linear-relations
-description: Plot ordered pairs from a table or rule on the Cartesian plane.
-status: deferred
-deferred_reason: visual
+description: 'Points plotted on a labelled grid are read back as ordered pairs. The prompts ask the learner to read the graph and do not ask them to draw, plot or sketch anything. Easy reads the coordinates of one labelled point; medium picks the list of (x, y) pairs that matches three plotted points on a line; hard picks a further ordered pair that lies on the same straight line, beyond the grid. Options come from reversed coordinates, sign errors and a wrong step along the line.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - coordinate-plane-readiness
 - input-output-tables
 answer: mcq
-sources: []
+sources:
+- topic: fg1_plotted_points
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fg1_plotted_points
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fg1_plotted_points
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
 misconceptions:
-- id: misconception-1
-  description: Reversing ordered pairs
-- id: misconception-2
-  description: Plotting values as separate points on axes rather than one coordinate pair
-tags: []
+- id: coordinates-reversed
+  description: Writes the pair as (y, x) instead of (x, y).
+- id: sign-error-on-x
+  description: Gives the x-coordinate the wrong sign.
+- id: sign-error-on-y
+  description: Gives the y-coordinate the wrong sign.
+- id: both-signs-wrong
+  description: Gives both coordinates the wrong sign.
+- id: one-point-off-by-one-square
+  description: Reads one of the points one gridline away from where it is.
+- id: one-pair-reversed
+  description: Writes one of the pairs as (y, x) and the others as (x, y).
+- id: adds-the-rise-once
+  description: Continues the line by adding one rise however far along it goes.
+- id: one-step-too-far
+  description: Continues the line one step too far.
+- id: one-step-short
+  description: Continues the line one step short.
+tags: [acara-f10-v9, linear-relations, ac9m8a02, figure]
