@@ -196,8 +196,6 @@ simple-harmonic-angular-frequency:
   simple_harmonic_angular_frequency/easy: 9
 subtract-within-5:
   early_subtraction/easy: 18
-tell-time-to-hour:
-  clock_hours/easy: 12
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:

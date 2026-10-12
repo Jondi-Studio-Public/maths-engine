@@ -1,0 +1,37 @@
+id: f10-read-measurement-scale
+name: Read a value from a measuring scale
+domain: measurement
+description: Read a length, temperature, volume or mass from a drawn ruler, thermometer, measuring jug or dial where only some marks are numbered, including temperatures below zero, marks that are worth a quarter or a tenth of a labelled step, and a ruler read in millimetres.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-measure-uniform-informal-units]
+answer: number
+sources:
+- topic: scale_read_value
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: scale_read_value
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: scale_read_value
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ticks-as-ones
+  description: Counts every small mark as 1 instead of working out what one small step is worth.
+- id: counts-down-from-upper-label
+  description: Counts the small marks from the label above instead of up from the label below.
+- id: drops-minus-sign
+  description: Reads a temperature below zero as the same number above zero.
+- id: reads-nearest-label
+  description: Gives the nearest numbered mark and ignores the small marks.
+- id: one-tick-out
+  description: Reads the small mark next to the right one.
+- id: mm-slip
+  description: Misplaces the decimal point when changing centimetres to millimetres.
+tags: [acara-f10-v9, primary, measurement, scales, temperature, figure, ac9m4m01]

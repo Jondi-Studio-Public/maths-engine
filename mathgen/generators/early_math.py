@@ -5,7 +5,9 @@ catalogue decides that these are graded as MCQ, so the same questions work in
 any practice setting.
 """
 
+from .. import figures
 from ..core import generator, latex_answer, pick_distractors
+from ..figure_kinds import measure
 
 
 DOTS = ("●", "◆", "★", "■")
@@ -189,27 +191,58 @@ def compare_length(rng):
     return _choice_question(text, long_side, ["Left", "Right", "Same"], latex=f"plain:{text}")
 
 
+_CLOCK_OPENERS = (
+    "Here is a clock.",
+    "Look at the clock on the wall.",
+    "This clock is in the classroom.",
+    "A clock hangs in the kitchen.",
+    "Look at the clock by the door.",
+    "Ben looks at the clock in his room.",
+    "The clock at the bus stop is shown.",
+)
+_CLOCK_QUESTIONS = (
+    "What time is it?",
+    "What time does the clock show?",
+    "Which time is on the clock?",
+    "Choose the time the clock shows.",
+)
+
+
 @generator("clock_hours", level=1)
 def clock_hours(rng):
-    hours = [
-        ("🕐", 1),
-        ("🕑", 2),
-        ("🕒", 3),
-        ("🕓", 4),
-        ("🕔", 5),
-        ("🕕", 6),
-        ("🕖", 7),
-        ("🕗", 8),
-        ("🕘", 9),
-        ("🕙", 10),
-        ("🕚", 11),
-        ("🕛", 12),
-    ]
-    clock, answer = rng.choice(hours)
-    text = f"What time is it?  {clock}"
-    return _choice_question(
-        text, f"{answer} o'clock", [f"{h} o'clock" for _c, h in hours if h != answer], latex=f"plain:{text}"
+    answer = rng.randint(1, 12)
+    fig = measure.clock(hour=answer, minute=0, alt="an analogue clock", numerals="all", minute_ticks=False)
+    text = f"{rng.choice(_CLOCK_OPENERS)} {rng.choice(_CLOCK_QUESTIONS)}"
+
+    def hour(h):
+        return f"{(h - 1) % 12 + 1} o'clock"
+
+    # Named misreadings first: the hour numeral either side (the short hand's neighbour), and 12 o'clock
+    # for reading the long hand, which points at the 12 on every o'clock.
+    rest = [hour(answer + 1), hour(answer - 1), hour(answer + 2), hour(answer - 2), hour(answer + 3)]
+    rng.shuffle(rest)
+    distractors = pick_distractors(hour(answer), [hour(12), *rest])
+    figures.assert_no_leak(fig, [hour(answer), *distractors])
+    return dict(
+        text=text,
+        latex=f"plain:{text}",
+        answer=hour(answer),
+        answer_text=hour(answer),
+        answer_latex=latex_answer(hour(answer), plain=True),
+        working=["The long hand points at the 12, so it is an o'clock time; the short hand points at the hour."],
+        distractors=distractors,
+        figure=fig,
     )
+
+
+def _read_clock_hours(question) -> str:
+    hour, minute = measure.read_clock(question.figure)
+    if minute != 0:
+        raise ValueError("an o'clock clock must have the long hand at the 12")
+    return f"{hour} o'clock"
+
+
+figures.register_reader("clock_hours", _read_clock_hours)
 
 
 @generator("australian_coins", level=1)
