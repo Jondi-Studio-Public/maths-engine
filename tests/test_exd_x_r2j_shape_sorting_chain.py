@@ -148,3 +148,10 @@ def test_follow_through_from_wrong_count(questions):
         )
         checked += 1
     assert checked >= 70
+
+
+def test_count_in_the_bin_is_spread():
+    """Part (a), how many shapes reach the bin, is 2, 3 or 4 in a spread (it was 2 or 3, and 3 on over half)."""
+    from tests.exd_junk_probe import assert_answer_spread
+
+    assert_answer_spread("exd_x_r2j_shape_sorting_chain", "a", max_share=0.45, at_least=3)

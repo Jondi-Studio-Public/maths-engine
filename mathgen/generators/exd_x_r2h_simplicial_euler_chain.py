@@ -20,9 +20,10 @@ from fractions import Fraction
 from itertools import combinations
 
 from ..core import attempts, check, generator, phrase
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2h_support import build_part
 
-_VERTICES = (8, 9, 10, 11, 12, 13)
+_VERTICES = (8, 9, 10, 11, 12, 13, 14, 15)
 
 _STEM = (
     "A simplicial complex X has vertices 1, 2, ..., {v}. Its maximal faces are {faces}. Every face of a maximal face "
@@ -103,6 +104,7 @@ def _components(vertices: list, edges: list) -> int:
     return len({find(v) for v in vertices})
 
 
+@distinct_part_answers
 def _build(rng: random.Random) -> dict:
     v = rng.choice(_VERTICES)
     vertices = list(range(1, v + 1))
@@ -128,7 +130,7 @@ def _build(rng: random.Random) -> dict:
         used = {x for e in edges for x in e}
         isolated = [x for x in vertices if x not in used]
         b0, b1, b2 = _betti(vertices, edges, triangles)
-        if b2 == 0 and 1 <= b1 <= 6 and b0 <= 3 and len(isolated) <= 1 and len(triangles) >= 3:
+        if b2 == 0 and 1 <= b1 <= 7 and b0 <= 3 and len(isolated) <= 1 and len(triangles) >= 3:
             break
 
     n_edges, n_tri = len(edges), len(triangles)

@@ -81,3 +81,17 @@ def test_follow_through_from_wrong_smallest_subcover():
         return "b", replies, 5
 
     follow_through_check(TOPIC, SKILL, wrong_chain)
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable("exd_x_r2g_subcover_count", "ucv1-compactness-finite-check")
+
+
+def test_smallest_subcover_size_is_spread():
+    """Part (b), the size of a smallest subcover, is 3, 4 or 5 in a spread (it was 3 on about three seeds in four)."""
+    from tests.exd_junk_probe import assert_answer_spread
+
+    assert_answer_spread("exd_x_r2g_subcover_count", "b", at_least=3)

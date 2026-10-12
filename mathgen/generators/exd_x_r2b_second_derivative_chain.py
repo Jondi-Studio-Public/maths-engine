@@ -25,6 +25,7 @@ import sympy
 from sympy import Rational, diff, symbols
 
 from ..core import attempts, check, generator, join_terms, paren_negative, phrase
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2b_support import fraction_part, words_part, draw
 
 x = symbols("x")
@@ -41,6 +42,7 @@ def _nature(second: int) -> str:
     return "local minimum" if second > 0 else "local maximum"
 
 
+@distinct_part_answers
 def _build(rng):
     """A cubic with an unknown coefficient: find k, the other stationary point, its nature and its value."""
     for _ in attempts(1000, "a cubic with two stationary points and whole coefficients"):

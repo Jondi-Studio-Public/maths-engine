@@ -26,6 +26,8 @@ from mathgen.core import (
     rational_text,
 )
 
+from ._exd_distinct_parts import distinct_part_answers
+
 _REGIONS = ("triangle", "rectangle", "parallelogram", "trapezium")
 _STEM = (
     "A linear transformation T maps (x, y) to ({row1}, {row2}). T maps the point P to the point Q{q}.",
@@ -73,6 +75,7 @@ def exd_x_r2d_lt_inverse_chain(rng: random.Random, tier: str = "exam") -> dict:
             continue
 
 
+@distinct_part_answers
 def _build(rng: random.Random) -> dict:
     for _ in attempts(2000, "an invertible matrix with |det| > 1"):
         a, b, c, d = (rng.randint(-4, 4) for _ in range(4))

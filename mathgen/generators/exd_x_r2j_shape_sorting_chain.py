@@ -72,7 +72,7 @@ def exd_x_r2j_shape_sorting_chain(rng: random.Random, tier: str = "exam") -> dic
     leaves = _all_leaves(_TREE_EXAM)
     by_leaf = _types_reaching(_TREE_EXAM)
     target = rng.choice(leaves)
-    k = rng.randint(2, 3)
+    k = rng.randint(2, 4)
     drawn = [(*rng.choice(by_leaf[target]), target) for _ in range(k)]
     others = [leaf for leaf in leaves if leaf != target]
     neighbour = _neighbour(leaves, target)
@@ -99,7 +99,7 @@ def exd_x_r2j_shape_sorting_chain(rng: random.Random, tier: str = "exam") -> dic
     mean = Fraction(total, count)
     late_perimeter = sum(late_sides)
     new_mean = Fraction(total + late_perimeter, count + 1)
-    check(count == bins.count(target) and 2 <= count <= 3, "count of the target bin")
+    check(count == bins.count(target) and 2 <= count <= 4, "count of the target bin")
 
     tests = sorted(_all_tests(_TREE_EXAM))
     prompts = {t: rng.choice(_TEST_PROMPT_VARIANTS[t]) for t in tests}

@@ -152,3 +152,12 @@ def test_the_determinant_is_never_a_unit(questions):
 def test_both_signs_of_determinant_occur(questions):
     signs = {q.parts[0].answer_text.startswith("-") for q in questions}
     assert signs == {True, False}
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable(
+        "exd_x_r2d_lt_inverse_chain", "senior-define-and-use-inverses-of-linear-transformations-and"
+    )

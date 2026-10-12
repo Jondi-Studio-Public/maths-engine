@@ -129,3 +129,10 @@ def test_all_wrong_earns_zero(questions):
 
 def test_deterministic():
     assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable("exd_x_u3_crt_leftovers", "ucv1-chinese-remainder-two-congruences")

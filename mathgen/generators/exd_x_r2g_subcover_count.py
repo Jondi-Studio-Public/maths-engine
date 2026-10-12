@@ -9,8 +9,8 @@ how many there are. The stem lists a finite set X and an open cover U1, ..., UN 
 * (d) how many of the 2^N subfamilies are themselves subcovers of X (2 marks).
 
 Everything is found by brute force over the 2^N subfamilies, so the key is exact. A draw is kept only when the
-answers are varied enough to be worth asking (at least one inessential member, a smallest subcover of 3 to N - 2
-sets, and some choice in which subcover to take).
+answers are varied enough to be worth asking (at least one inessential member, a smallest subcover of 3, 4 or 5
+sets (chosen first, evenly, so (b) is not mostly 3), and some choice in which subcover to take).
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ import string
 from itertools import combinations
 
 from ..core import check, generator
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2g_support import build_part, latex_with_sets, redraws
 
 _LETTERS = [c for c in string.ascii_uppercase if c not in "IOQ"]
@@ -67,14 +68,17 @@ def _analyse(masks: list[int], full: int) -> dict | None:
 
 
 def _draw(rng: random.Random) -> dict:
-    for _ in range(2000):
-        m = rng.randint(7, 11)
-        n = rng.randint(6, 8)
+    # The size of a smallest subcover is chosen first, so (b) is spread over 3, 4 and 5 rather than sitting on the
+    # easiest value; the draw then has to deliver it.
+    target = rng.choice((3, 4, 4, 5))
+    for _ in range(4000):
+        m = rng.randint(8, 12) if target > 3 else rng.randint(7, 11)
+        n = rng.randint(target + 3, 9)
         points = sorted(rng.sample(_LETTERS, m))
         full = (1 << m) - 1
         masks = []
         for _i in range(n):
-            size = rng.choice([1, 2, 2, 3, 3, 4, 4, 5])
+            size = rng.choice([1, 2, 2, 3, 3, 4, 4, 5] if target == 3 else [1, 2, 2, 2, 3, 3, 4])
             members = rng.sample(range(m), size)
             masks.append(sum(1 << p for p in members))
         if len(set(masks)) < n:
@@ -82,7 +86,7 @@ def _draw(rng: random.Random) -> dict:
         info = _analyse(masks, full)
         if info is None:
             continue
-        if not (3 <= info["smallest"] <= n - 3) or info["essential"] == n:
+        if info["smallest"] != target or info["essential"] == n:
             continue
         if info["smallest_count"] < 2 and rng.random() < 0.6:
             continue
@@ -106,6 +110,7 @@ _INTRO = [
 
 @generator("exd_x_r2g_subcover_count", level=15, presets={"exam": dict(tier="exam")})
 @redraws
+@distinct_part_answers
 def exd_x_r2g_subcover_count(rng: random.Random, tier: str = "exam") -> dict:
     """Essential members, smallest subcover and subcover counts for a finite open cover."""
     check(tier == "exam", "exd_x_r2g_subcover_count: only the exam tier exists")

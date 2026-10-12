@@ -20,6 +20,7 @@ import random
 from sympy import Rational, exp, pi
 
 from ..core import attempts, check, generator, join_terms, phrase, rational_text
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2f_common import expr_part, frac_part
 
 
@@ -33,6 +34,7 @@ from .exd_x_r2f_common import expr_part, frac_part
         "exam": dict(tier="exam"),
     },
 )
+@distinct_part_answers
 def exd_x_r2f_damped_oscillation(rng: random.Random, tier: str = "exam") -> dict:
     """Complex characteristic roots, then the solution that fits two initial conditions, evaluated exactly."""
     check(tier == "exam", f"unknown tier {tier!r}")

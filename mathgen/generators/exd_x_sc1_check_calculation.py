@@ -23,6 +23,7 @@ from mathgen.core import (
     latex_answer,
     pick_distractors,
 )
+from ._exd_distinct_parts import distinct_part_answers
 
 _OPS = {"+": lambda p, q: p + q, "-": lambda p, q: p - q, "×": lambda p, q: p * q}
 _STORIES = [
@@ -76,6 +77,7 @@ def _line(step, number):
 
 
 @generator("exd_x_sc1_check_calculation", level=11, presets={"exam": dict(tier="exam")})
+@distinct_part_answers
 def exd_x_sc1_check_calculation(rng, tier="exam"):
     for _ in attempts(1000, "a four-step calculation with one slip"):
         steps = _draw_steps(rng)
@@ -99,6 +101,9 @@ def exd_x_sc1_check_calculation(rng, tier="exam"):
         final_correct = _chain_from(shown, k, correct)
         final_stated = shown[3][3]
         if final_correct == final_stated or not (10 <= final_correct <= 6000):
+            continue
+        # The later steps must change the repaired value: if they cancel out, (c) would be (b) typed again.
+        if final_correct == correct:
             continue
         stem_numbers = {n for s in shown for n in (s[0], s[2], s[3])}
         if correct in stem_numbers or final_correct in stem_numbers:

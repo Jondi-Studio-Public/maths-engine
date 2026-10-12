@@ -5,11 +5,12 @@ standard generator gamma of pi_1(S^1, 1) = Z. Four parts:
 
 (a) h_* is multiplication by k = m n                                  number (whole), 2 marks
 (b) the winding number of h applied to the loop gamma^j              number (whole), 1 mark, follow_through part_a * j
-(c) the index of the image h_*(Z) = kZ in Z, which is |k|            number (whole), 1 mark, follow_through Abs(part_a)
+(c) the index of the image of (h o h)_* = multiplication by k^2      number (whole), 1 mark, follow_through part_a^2
 (d) the r for which h applied to gamma^r winds T times, r = T / k    number (whole), 2 marks, follow_through T / part_a
 
 T is chosen as k times a whole number, so (d) has an integer answer. m and n may be negative, so dropping a sign is a
-live error, and |k| is at least 2 so the image is a proper subgroup.
+live error, and |k| is at least 2 so the image is a proper subgroup. No two parts share an answer (the index asked
+for in (c) is of the doubled map, k^2, so it is not just |k| again).
 """
 
 from __future__ import annotations
@@ -19,6 +20,7 @@ import math
 import random
 
 from ..core import attempts, check, generator, phrase
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2h_support import build_part
 
 _DEGREES = (-5, -4, -3, -2, 2, 3, 4, 5)
@@ -47,8 +49,8 @@ _PROMPT_B = (
     "winding number of the loop h(lambda(t)).",
 )
 _PROMPT_C = (
-    "The image of h_* is a subgroup of Z. Find its index in Z.",
-    "Hence find the index in Z of the image of h_*, which is a subgroup of Z.",
+    "Let H = h o h, so H(z) = h(h(z)). The image of H_* is a subgroup of Z. Find its index in Z.",
+    "Apply h twice to get H(z) = h(h(z)). Use your k to find the index in Z of the image of the induced map H_*.",
 )
 _PROMPT_D = (
     "Find the integer r such that the loop h(gamma^r) winds {t} times, that is, such that h_* sends r to {t}.",
@@ -74,6 +76,7 @@ def _turns(m: int, n: int, loops: int, steps: int = 720) -> int:
     return round(total / (2 * math.pi))
 
 
+@distinct_part_answers
 def _build(rng: random.Random) -> dict:
     for _ in attempts(1000, "two power maps with a proper image"):
         m, n = rng.choice(_DEGREES), rng.choice(_DEGREES)
@@ -104,11 +107,11 @@ def _build(rng: random.Random) -> dict:
         ((m + n) * j, "adds-degrees-in-composition"),
     ]
     c_wrong = [
-        (k if k < 0 else None, "index-sign-kept"),
-        (abs(m), "ignores-second-map"),
-        (abs(m) + abs(n), "adds-degrees-in-composition"),
-        (abs(k) - 1, "counts-largest-residue"),
-        (abs(k) + 1, "counts-largest-residue"),
+        (-k * k, "index-sign-kept"),
+        (abs(k), "ignores-second-map"),
+        (2 * abs(k), "adds-degrees-in-composition"),
+        (k * k - 1, "counts-largest-residue"),
+        (k * k + 1, "counts-largest-residue"),
     ]
     d_wrong = [
         (target * k, "multiplies-instead-of-dividing"),
@@ -140,12 +143,15 @@ def _build(rng: random.Random) -> dict:
         ),
         build_part(
             phrase(rng, _PROMPT_C),
-            abs(k),
+            k * k,
             kind="number",
             marks=1,
-            working=[f"The image is {k}Z = {abs(k)}Z, which has index {abs(k)} in Z."],
+            working=[
+                f"H_* is multiplication by {k} twice, that is by {k} x {k} = {k * k}.",
+                f"The image is {k * k}Z, which has index {k * k} in Z.",
+            ],
             wrong=c_wrong,
-            follow_through="Abs(part_a)",
+            follow_through="part_a^2",
         ),
         build_part(
             phrase(rng, _PROMPT_D, t=target),

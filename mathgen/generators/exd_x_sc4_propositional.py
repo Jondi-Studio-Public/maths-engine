@@ -37,6 +37,7 @@ from ._exd_x_sc4_kit import count_part
 
 _ATOMS = ("p", "q", "r", "s")
 _N = 2 ** len(_ATOMS)
+_ONE_SIDED = 0.25  # weight of a pair whose differing rows are all one way round, which makes (d) equal (a)
 _POOL = 300  # candidates drawn per question, then grouped by the answer they give
 _ROWS = list(product([True, False], repeat=len(_ATOMS)))
 _SYMBOL = {"and": "∧", "or": "∨", "implies": "→"}
@@ -145,22 +146,27 @@ def _literal(rng: random.Random, atom: str):
     return ("not", node) if rng.random() < 0.3 else node
 
 
-def _join(rng: random.Random, left, right):
+def _join(rng: random.Random, left, right, negate: float = 0.2):
     node = (rng.choice(("and", "or", "implies")), left, right)
-    return ("not", node) if rng.random() < 0.2 else node
+    return ("not", node) if rng.random() < negate else node
 
 
-def _formula(rng: random.Random):
-    """Four literals, one per atom in random order, joined by three connectives in a random bracketing."""
+def _formula(rng: random.Random, negate: float = 0.2):
+    """Four literals, one per atom in random order, joined by three connectives in a random bracketing. `negate` is
+    the chance that a joined pair is negated as a whole."""
     a, b, c, d = (_literal(rng, atom) for atom in rng.sample(_ATOMS, len(_ATOMS)))
+
+    def join(left, right):
+        return _join(rng, left, right, negate)
+
     shape = rng.randint(0, 3)
     if shape == 0:
-        return _join(rng, _join(rng, a, b), _join(rng, c, d))
+        return join(join(a, b), join(c, d))
     if shape == 1:
-        return _join(rng, _join(rng, _join(rng, a, b), c), d)
+        return join(join(join(a, b), c), d)
     if shape == 2:
-        return _join(rng, a, _join(rng, _join(rng, b, c), d))
-    return _join(rng, _join(rng, a, _join(rng, b, c)), d)
+        return join(a, join(join(b, c), d))
+    return join(join(a, join(b, c)), d)
 
 
 def _fraction_part(prompt, value, marks, working, cands, follow_through=None):
@@ -305,7 +311,7 @@ def exd_x_sc4_prop_equiv(rng: random.Random, tier: str = "exam") -> dict:
     """Compare F with a near copy G over all sixteen assignments. See the module docstring."""
 
     def draw(r):
-        tree = _formula(r)
+        tree = _formula(r, 0.4)
         path = r.choice(_binary_paths(tree))
         current = _node(tree, path)[0]
         new_op = r.choice([o for o in ("and", "or", "implies") if o != current])
@@ -317,10 +323,29 @@ def exd_x_sc4_prop_equiv(rng: random.Random, tier: str = "exam") -> dict:
 
     pool = [pair for pair in (draw(rng) for _ in range(_POOL)) if fine(pair)]
     check(pool, "no usable pair in the pool")
-    by_differ: dict[int, list] = {}
+    # Part (d) asks for the rows where F is true and G false. Which formula is called F is free, so a pair is filed
+    # in the direction(s) that make (d) non-zero: both when each formula is true somewhere the other is false, the
+    # one otherwise (swapping one connective often leaves G weaker or stronger than F, which would leave (d) at 0
+    # on every seed). Groups are keyed by (rows that differ, (d)) and weighted by 1 / sqrt(groups sharing the
+    # differ count x groups sharing the (d) count), which evens out both counts, and by sqrt(group size), so a
+    # group the pool holds only a pair or two of is not drawn over and over. A pair that differs in one direction
+    # only gives (d) equal to (a), so those groups are down-weighted.
+    by_key: dict[tuple[int, int], list] = {}
     for f_, g_ in pool:
-        by_differ.setdefault(_differ(f_, g_), []).append((f_, g_))
-    f, g = rng.choice(by_differ[rng.choice(sorted(by_differ))])
+        differ_ = _differ(f_, g_)
+        f_only_ = sum(a and not b for a, b in zip(_table(f_), _table(g_)))
+        if f_only_:
+            by_key.setdefault((differ_, f_only_), []).append((f_, g_))
+        if f_only_ < differ_:
+            by_key.setdefault((differ_, differ_ - f_only_), []).append((g_, f_))
+    keys = sorted(by_key)
+    weights = [
+        len(by_key[key]) ** 0.5
+        / (sum(k[0] == key[0] for k in keys) * sum(k[1] == key[1] for k in keys)) ** 0.5
+        * (_ONE_SIDED if key[0] == key[1] else 1)
+        for key in keys
+    ]
+    f, g = rng.choice(by_key[rng.choices(keys, weights)[0]])
     rows = [dict(zip(_ATOMS, row)) for row in _ROWS]
     differ = sum(1 for env in rows if _eval(f, env) != _eval(g, env))
     both = sum(1 for env in rows if _eval(f, env) and _eval(g, env))

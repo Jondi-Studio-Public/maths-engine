@@ -14,6 +14,7 @@ import math
 
 from mathgen.answers import Distractor
 from mathgen.core import attempts, check, generator, latex_answer, pick_distractors
+from ._exd_distinct_parts import distinct_part_answers
 
 _SETTINGS = [
     ("A baker in Orange packs rolls", "rolls", "box", "boxes"),
@@ -23,6 +24,7 @@ _SETTINGS = [
 
 
 @generator("exd_x_u3_crt_leftovers", level=14, presets={"exam": dict(tier="exam")})
+@distinct_part_answers
 def exd_x_u3_crt_leftovers(rng, tier: str = "exam") -> dict:
     """Exam tier: the inverse of m1 mod m2, the multiplier t, then the least count."""
     check(tier == "exam", f"unknown tier {tier!r}")

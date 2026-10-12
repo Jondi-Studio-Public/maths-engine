@@ -29,6 +29,8 @@ from mathgen.core import (
     rational_text,
 )
 
+from ._exd_distinct_parts import distinct_part_answers
+
 _TRIPLES = ((3, 4, 5), (4, 3, 5), (5, 12, 13), (12, 5, 13), (8, 15, 17), (15, 8, 17))
 _GRADIENTS = ((1, 2), (2, 1), (1, 3), (3, 1), (2, 3), (3, 2), (-1, 2), (-2, 1), (-1, 3), (-3, 1))
 _STEM = (
@@ -103,6 +105,7 @@ def exd_x_r2d_lt_composition_chain(rng: random.Random, tier: str = "exam") -> di
             continue
 
 
+@distinct_part_answers
 def _build(rng: random.Random) -> dict:
     for _ in attempts(4000, "a composite with whole-number points"):
         fmat, f_text, det_f = _f_matrix(rng)
@@ -116,6 +119,8 @@ def _build(rng: random.Random) -> dict:
         if any(v.denominator != 1 for v in (*fp, *fq)):
             continue
         if 0 in (fp[0], fp[1], fq[0]) or (px, py) == (qx, qy) or 0 in (px, py):
+            continue
+        if abs(fq[0]) == 1:  # (d) would be k again, or its negative: a follow-through that only restates (a)
             continue
         p1x, p1y = k * fp[0], m * fp[1]
         if max(abs(p1x), abs(p1y)) > 70:

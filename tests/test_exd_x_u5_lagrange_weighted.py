@@ -112,3 +112,10 @@ def test_follow_through_from_wrong_coordinates():
 def test_all_wrong_earns_nothing():
     q = exam_question(SKILL, 5)
     assert grade(skill_of(SKILL), q, {"a": "999", "b": "998", "c": "997", "d": "996"}).marks == 0
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable("exd_x_u5_lagrange_weighted", "lagrange-constrained-point")

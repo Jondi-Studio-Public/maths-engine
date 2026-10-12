@@ -21,6 +21,7 @@ import sympy
 from sympy import I, Rational, pi
 
 from ..core import attempts, check, generator, join_terms, rational_text
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2f_common import expr_part, frac_part
 
 
@@ -39,6 +40,7 @@ def _circle(c0: int, r: Rational) -> str:
         "exam": dict(tier="exam"),
     },
 )
+@distinct_part_answers
 def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
     """Which pole is inside the circle, its residue, the integral around the circle, and around a larger circle."""
     check(tier == "exam", f"unknown tier {tier!r}")

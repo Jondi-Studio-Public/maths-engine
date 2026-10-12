@@ -84,3 +84,10 @@ def test_the_stated_final_result_is_not_the_key():
 def test_answer_space_and_determinism():
     sup.check_answer_space(SKILL_ID)
     sup.check_deterministic(SKILL_ID)
+
+
+def test_chain_is_not_copyable():
+    """The later steps never cancel out ((c) is not (b) again) and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable("exd_x_sc1_check_calculation", "senior-check-results-of-calculations-for-accuracy")

@@ -92,8 +92,10 @@ def _class_text(lo: int, width: int, i: int) -> str:
 
 def _build_k_histogram(rng: random.Random) -> dict | None:
     """Mean, median, their difference and the shape they point to, for a grouped frequency table."""
+    # The shape is chosen once, before the retry loop. Chosen inside it, the shape that is hardest to draw (a long
+    # left tail) is rejected most often and the answer collapses onto "right".
+    kind = rng.choice(("sym", "right", "left"))
     for _ in attempts(1000, "a table with a clear mean-median gap"):
-        kind = rng.choice(("right",) * 4 + ("left",) * 4 + ("sym",))
         sentence, lo_mult, widths = rng.choice(_CONTEXTS)
         width = rng.choice(widths)
         lo = width * rng.randint(0, lo_mult)

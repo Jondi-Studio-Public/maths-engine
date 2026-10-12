@@ -118,3 +118,12 @@ def test_a_correct_k_unlocks_nothing_by_itself():
     q = sup.exam_question(TOPIC, 3)
     result = grade(sk, q, {"a": q.parts[0].answer_text})
     assert result.marks == 2
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable(
+        "exd_x_r2b_second_derivative_chain", "senior-understand-and-use-the-second-derivative-test-for"
+    )

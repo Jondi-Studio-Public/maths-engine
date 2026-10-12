@@ -31,6 +31,8 @@ from mathgen.core import (
     rational_text,
 )
 
+from ._exd_distinct_parts import answers_distinct, junk_safe
+
 
 def _fraction_part(prompt, value, marks, working, candidates, follow_through=None):
     """A `fraction` part whose answer is `value`; `candidates` are (misconception id or None, value) pairs."""
@@ -56,6 +58,9 @@ def _draw(rng: random.Random) -> dict | None:
     b = rng.choice((-4, -3, -2, -1, 1, 2, 3, 4))
     k = rng.choice((2, 3, 4))
     c = rng.choice([n for n in range(-15, 16) if n])
+    # x = a lambda / 2 and y = b lambda / (2k) must not be lambda itself (or the follow-through is a restatement).
+    if a == 2 or b == 2 * k:
+        return None
 
     # Solve the stationarity equations 2x = lambda a, 2 k y = lambda b and the constraint exactly.
     d = k * a * a + b * b
@@ -153,5 +158,5 @@ def exd_x_u5_lagrange_weighted(rng: random.Random, tier: str = "exam") -> dict:
     check(tier == "exam", f"unknown tier {tier!r}")
     for _ in attempts(1000, "a draw with three distinct distractors per part"):
         question = _draw(rng)
-        if question is not None:
+        if question is not None and answers_distinct(question["parts"]) and junk_safe(question["parts"]):
             return question

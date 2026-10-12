@@ -51,7 +51,7 @@ def oracle(q):
     k = winding(m, n, 1)
     r = target // k
     assert k * r == target and winding(m, n, r) == target
-    return {"a": str(k), "b": str(winding(m, n, j)), "c": str(abs(k)), "d": str(r)}
+    return {"a": str(k), "b": str(winding(m, n, j)), "c": str(k * k), "d": str(r)}
 
 
 def test_follow_through_from_wrong_k():
@@ -62,9 +62,8 @@ def test_follow_through_from_wrong_k():
             (int(d) for d in q.parts[0].distractors if (2 * target) % int(d) != 0 or target % int(d) == 0),
             int(q.parts[0].distractors[0]),
         )
-        replies = {"a": str(wrong), "b": str(wrong * j), "c": str(abs(wrong)), "d": str(round(target / wrong))}
-        # Following through |k| from a positive slip repeats it, which earns nothing for (c) when the true k is negative.
-        return "a", replies, 3 if wrong > 0 > int(q.parts[0].answer_text) else 4
+        replies = {"a": str(wrong), "b": str(wrong * j), "c": str(wrong * wrong), "d": str(round(target / wrong))}
+        return "a", replies, 4
 
     follow_through_check(TOPIC, SKILL_ID, wrong_chain)
 
@@ -118,3 +117,10 @@ def test_answer_space():
 
 def test_deterministic():
     CHECKS["deterministic"]()
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a mere restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable(TOPIC, SKILL_ID)

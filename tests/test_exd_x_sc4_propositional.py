@@ -258,3 +258,13 @@ def test_answer_space_is_wide(evals, equivs):
         counts = Counter(q.answer_text for q in questions)
         assert len(counts) >= 100, len(counts)
         assert max(counts.values()) <= 15, counts.most_common(2)
+
+
+def test_equiv_f_true_g_false_count_is_spread():
+    """Part (d) of the equivalence chain is never 0 and no one value covers much of the seeds (it was 0 on most)."""
+    from tests.exd_junk_probe import assert_answer_spread
+
+    assert_answer_spread("exd_x_sc4_prop_equiv", "d", max_share=0.4, at_least=6)
+    for seed in range(300):
+        q = make("exd_x_sc4_prop_equiv", seed=seed, difficulty="exam")
+        assert 0 < int(q.parts[3].answer_text) <= int(q.parts[0].answer_text), (seed, q.answer_text)

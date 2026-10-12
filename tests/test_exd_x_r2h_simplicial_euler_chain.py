@@ -130,3 +130,10 @@ def test_answer_space():
 
 def test_deterministic():
     CHECKS["deterministic"]()
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable("exd_x_r2h_simplicial_euler_chain", "ucv1-simplex-homology")

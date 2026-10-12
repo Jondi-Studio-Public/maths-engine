@@ -79,3 +79,10 @@ def test_follow_through_from_a_wrong_median():
         return "b", {**c, "b": kit.fixed(b_wrong, 1), "c": kit.fixed(diff, 1)}
 
     kit.check_follow_through(SKILL, chain)
+
+
+def test_shape_answer_is_spread():
+    """Part (d) names right, left or symmetric in roughly equal shares (it was "right" on three seeds in five)."""
+    from tests.exd_junk_probe import assert_answer_spread
+
+    assert_answer_spread("exd_x_r2k_histogram", "d", max_share=0.42, at_least=3)

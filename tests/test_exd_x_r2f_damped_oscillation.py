@@ -171,3 +171,10 @@ def test_answer_space(questions):
 
 def test_deterministic():
     assert _exam(7).to_json() == _exam(7).to_json()
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable("exd_x_r2f_damped_oscillation", "ucv1-second-order-characteristic-roots")

@@ -31,8 +31,10 @@ from ..core import (
     rounded_decimal_string,
     stated_precision_string,
 )
+from ._exd_distinct_parts import distinct_part_answers
 
-_SIZES = (25, 40, 50, 100, 200)
+# Not 100: with a group of 100 the count in (b) is the percentage in (a), and the follow-through only restates it.
+_SIZES = (25, 40, 50, 80, 200)
 
 # (setting, first, second, third, fourth) -- each category phrase completes "a student who ...".
 _CONTEXTS = (
@@ -98,6 +100,7 @@ def _pct(value: Fraction) -> str:
 
 
 @generator("exd_x_sc8_prob_rep_chain", level=9, presets={"exam": dict(tier="exam")})
+@distinct_part_answers
 def exd_x_sc8_prob_rep_chain(rng: random.Random, tier: str = "exam") -> dict:
     """Exam tier: convert a decimal, a fraction and a percentage probability, then find the remainder."""
     check(tier == "exam", f"unknown tier {tier!r}")

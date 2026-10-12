@@ -168,3 +168,12 @@ def test_the_area_factor_is_the_absolute_determinant(questions):
 def test_both_kinds_of_first_map_occur(questions):
     kinds = {"rotation" if "rotation" in q.stem else "reflection" for q in questions}
     assert kinds == {"rotation", "reflection"}
+
+
+def test_chain_is_not_copyable():
+    """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
+    from tests.exd_junk_probe import assert_chain_is_not_copyable
+
+    assert_chain_is_not_copyable(
+        "exd_x_r2d_lt_composition_chain", "senior-define-and-use-composition-of-linear-transformations-and"
+    )
