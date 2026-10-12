@@ -1232,7 +1232,7 @@ def _strip_outer_brackets(given: str) -> str:
     return text
 
 
-def _split_ordered_items(given: str) -> list[str]:
+def _split_ordered_items(given: str, protect_groups: bool = True) -> list[str]:
     """Split a typed ordered-list answer into its component items.
 
     One matching bracket pair around the whole answer is removed first, so a
@@ -1275,17 +1275,11 @@ def _split_ordered_items(given: str) -> list[str]:
     item separator -- this is exactly the bug `mathgen.grading.spoken`'s tokenizer
     would introduce if it were reused here (see module docstring).
 
-    KNOWN LIMITATION: the thousands-grouping protection is purely
-    syntactic (any run of ", ddd" groups looks like one grouped numeral),
-    so a *sequence of separate 3-digit items typed with no space after the
-    comma* is swallowed as a single value -- "100,200,300" (intended as
-    three items, 100/200/300, e.g. a skip-counting-by-100s answer) parses
-    as the one number 100200300, not three items. "100, 200, 300" (a space
-    after each comma) is unaffected and splits correctly, because the
-    grouping regex requires the digits to immediately follow the comma. A
-    skill whose expected items are exactly-3-digit numerals should word its
-    question/placeholder to encourage a space after each comma, or avoid
-    this grader, until/unless this is worth solving generally."""
+    The protection is purely syntactic (any run of ",ddd" groups looks like
+    one grouped numeral), so "100,200,300" and the vector "(-2,105,287)"
+    read as one value. `protect_groups=False` splits on every comma, and
+    `grade_ordered_list` uses it when the protected reading has the wrong
+    number of items: the answer's own length decides, as in `grade_pair`."""
     given = _strip_outer_brackets(given)
     text = _ARROW_RE.sub("\n", given or "")
     protected: list[str] = []
@@ -1294,7 +1288,8 @@ def _split_ordered_items(given: str) -> list[str]:
         protected.append(match.group(0))
         return f"\0{len(protected) - 1}\0"
 
-    text = _COMMA_GROUP_RE.sub(_protect, text)
+    if protect_groups:
+        text = _COMMA_GROUP_RE.sub(_protect, text)
 
     # "<"/"＜" is a delimiter only when it is the SOLE top-level delimiter -- see the docstring
     # above. Checked here, after outer-bracket stripping, arrow-to-newline conversion and
@@ -1382,6 +1377,9 @@ def grade_ordered_list(question, given: str) -> GradeResult:
         given = _component_form(given, len(expected)) or given
 
     items = _strip_ordinal_prefixes(_split_ordered_items(given))
+    if len(items) != len(expected):
+        # "(-2,105,287)" is three components typed without spaces, not one grouped numeral.
+        items = _strip_ordinal_prefixes(_split_ordered_items(given, protect_groups=False)) or items
     given_normalised = ", ".join(items) if items else None
 
     if len(items) != len(expected):

@@ -4,11 +4,14 @@ and lowest terms where the question asks for them."""
 
 from __future__ import annotations
 
+from types import SimpleNamespace
+
 import pytest
 
 from mathgen import engine
 from mathgen.core import Question, mcq_options
 from mathgen.grading import grade
+from mathgen.grading.units import unit_is_acceptable
 
 
 def _q(answer, answer_text, text="q", **extra):
@@ -185,3 +188,36 @@ def test_lowest_terms_applies_to_a_mixed_number_fraction_part():
     question = _q({"p": 5, "q": 2}, "5/2", text="Simplify 10/4, as a mixed number.")
     assert grade("fraction", question, "2 1/2").correct
     assert not grade("fraction", question, "2 2/4").correct
+
+
+# -- vectors typed without spaces, and unit powers -------------------------------------------------
+
+
+def _ordered(answer, text="Find the cross product."):
+    return _q(answer, "(" + ", ".join(map(str, answer)) + ")", text)
+
+
+@pytest.mark.parametrize("reply", ["(-2,105,287)", "-2,105,287", "(-2, 105, 287)", "<-2,105,287>"])
+def test_vector_components_typed_without_spaces_are_accepted(reply):
+    assert grade("ordered_list", _ordered([-2, 105, 287]), reply).correct
+
+
+@pytest.mark.parametrize("reply", ["(105,-2,287)", "(-2,105,288)", "(-2105287)", "(-2,105)"])
+def test_vector_components_still_compared_in_order(reply):
+    assert not grade("ordered_list", _ordered([-2, 105, 287]), reply).correct
+
+
+def test_one_grouped_value_is_still_one_item():
+    assert grade("ordered_list", _ordered([12345, 7]), "12,345, 7").correct
+
+
+def test_unit_power_is_not_read_as_the_value():
+    question = SimpleNamespace(text="Convert 5 km to m.", answer_text="5000", answer=5000)
+    assert unit_is_acceptable(question, "5000 m")
+    assert not unit_is_acceptable(question, "5000 m2")
+    assert not unit_is_acceptable(question, "5000 m^2")
+
+
+@pytest.mark.parametrize("text", ["What is the sum in n = 5 terms?", "What is the answer in g(x) form?"])
+def test_variable_after_in_is_not_an_asked_unit(text):
+    assert unit_is_acceptable(SimpleNamespace(text=text, answer_text="7", answer=7), "7 m")

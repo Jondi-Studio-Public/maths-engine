@@ -97,10 +97,12 @@ _SPELLING_PATTERN = "|".join(re.escape(spelling) for spelling in _SPELLINGS)
 # A spelling standing on its own: not inside a word ("m" in "mass"), and not followed by a letter or digit that
 # would make it a longer word or an exponent ("m" in "m2" is found as "m2").
 _MENTION_RE = re.compile(rf"(?<![^\W\d_])(?:{_SPELLING_PATTERN})(?![\w²³'’])", re.IGNORECASE)
-_NUMBER_RE = re.compile(r"\d[\d,]*(?:\.\d+)?|\.\d+")
+# Not a digit written straight after a letter, or a letter and "^": the "2" in "m2" or "m^2" is the unit's power, not the value.
+_NUMBER_RE = re.compile(r"(?<![A-Za-z])(?<![A-Za-z]\^)(?:\d[\d,]*(?:\.\d+)?|\.\d+)")
 # "to mm", "into grams", "in km/h", "how many kilojoules": the unit the question asks for by name. Not "in year 3"
-# (a label, not a unit) and not "to the nearest cent" (a precision: the answer is still in dollars).
-_ASKED_RE = re.compile(rf"\b(?:to|into|in|how\s+many)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*\d)", re.IGNORECASE)
+# (a label, not a unit), not "to the nearest cent" (a precision: the answer is still in dollars), and not "in n = 5"
+# or "in g(x)" (a variable or a function).
+_ASKED_RE = re.compile(rf"\b(?:to|into|in|how\s+many)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])", re.IGNORECASE)
 _SENTENCE_RE = re.compile(r"[^.?!]+[.?!]?")
 _ASKING_RE = re.compile(
     r"^\s*(?:find|convert|calculate|work\s+out|determine|write|express|give|estimate|state|what|how)\b", re.IGNORECASE
