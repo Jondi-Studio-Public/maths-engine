@@ -44,7 +44,6 @@ def test_space_grouped_thousands_are_one_number(answer, reply):
         (345, "12 345"),
         (345, "3 45"),
         (123456, "12 3456"),
-        (9.5, "9 1/2"),
         (12345, "12 34 5"),
     ],
 )

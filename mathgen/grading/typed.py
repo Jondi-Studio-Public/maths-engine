@@ -1375,7 +1375,8 @@ def grade_ordered_list(question, given: str) -> GradeResult:
     stripped = (given or "").strip()
     if stripped.startswith("<") and stripped.endswith(">"):
         given = "(" + stripped[1:-1] + ")"  # "<5, 6, -5>" is a vector, not an ordering sign
-    if _reply_negates_the_answer(question, given):
+    # "<" separates an ordering ("1 < 2 < 3"); only "not", "≠", "±" and the like negate one.
+    if _reply_negates_the_answer(question, _LT_RE.sub(", ", given or "")):
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     if all(isinstance(item, (int, float, Fraction)) for item in expected):
         # A vector answer may be typed in component form, "5i + 6j - 5k".
