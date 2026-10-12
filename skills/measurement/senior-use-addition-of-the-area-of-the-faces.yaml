@@ -21,6 +21,11 @@ sources:
   params: {mode: excluded_face}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m5_grooved_block_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits_last_face
   description: Fails to include the last listed face in the total surface area sum.

@@ -21,7 +21,7 @@ from mathgen.skills import load_skills
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PRODUCTION_SKILLS = REPO_ROOT / "skills"
 
-_ORDINAL = {"easy": 0, "medium": 1, "hard": 2}
+_ORDINAL = {"easy": 0, "medium": 1, "hard": 2, "exam": 3}
 
 
 def test_source_difficulty_order_is_non_decreasing_for_ordinary_skills():
@@ -55,7 +55,7 @@ def test_source_difficulty_order_is_non_decreasing_for_ordinary_skills():
     # assertion below pass vacuously: `add-within-10` itself uses only the
     # standard labels, so it must land in the constrained set, and the
     # constrained set as a whole must not be empty or suspiciously tiny.
-    # (`sine-rule` now carries an exam source, which is exempt, so another all-ordinary skill is the canary.)
+    # (An exam source ranks after hard, so a skill with one is checked too: it must come last.)
     assert "add-within-10" in constrained_ids, (
         "add-within-10 was exempted from the order check -- its sources should "
         "all carry easy/medium/hard labels; a loader regression may be "

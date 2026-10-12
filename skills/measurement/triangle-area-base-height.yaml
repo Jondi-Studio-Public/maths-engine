@@ -18,6 +18,11 @@ sources:
   params: {base_hi: 30, height_hi: 24, slant: true}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m6_triangle_sails
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-half
   description: Multiplies the base by the perpendicular height without taking half.
