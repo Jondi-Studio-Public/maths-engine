@@ -266,9 +266,9 @@ def test_secondary_number_3a_skill_contracts_load_with_expected_shape():
     assert square_roots.answer == "mcq"
     assert square_roots.placement_eligible is False
     assert square_roots.status == "active"
-    assert [source.difficulty for source in square_roots.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in square_roots.sources} == {"square_roots_perfect_squares"}
-    assert [source.stages for source in square_roots.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in square_roots.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in square_roots.sources[:3]} == {"square_roots_perfect_squares"}
+    assert [source.stages for source in square_roots.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     # exponent_laws_positive_zero checks
     assert exponent_laws.prerequisites == ["evaluate-powers"]

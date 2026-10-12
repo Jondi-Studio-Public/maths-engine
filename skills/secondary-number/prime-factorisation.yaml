@@ -5,6 +5,6 @@ description: Express a composite whole number as a product of prime factors.
 status: active
 prerequisites: [list-factors]
 answer: mcq
-sources: [{topic: prime_factorisation, params: {}, difficulty: easy}]
+sources: [{topic: prime_factorisation, params: {}, difficulty: easy}, {topic: exd_x_sc5_factor_count, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: composite-factor, description: Leaves a composite number in the final factorisation.}]
 tags: [expansion-batch-4, primes]
