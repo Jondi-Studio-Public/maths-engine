@@ -47,6 +47,11 @@ def _sensible(candidates):
     return [c for c in candidates if Fraction(c.value) > 0]
 
 
+def _whole_dollars(candidates):
+    """A positive whole-dollar value only: the key is a whole number of dollars, and a '211.25' beside a '221' gives it away."""
+    return [c for c in _sensible(candidates) if Fraction(c.value).denominator == 1]
+
+
 def _money(value: Fraction) -> str:
     return str(int(value))
 
@@ -90,7 +95,7 @@ def _attempt(rng: random.Random) -> dict:
     off2 = sale * p2 / 100
     d_a = pick_distractors(
         _money(sale),
-        _sensible(
+        _whole_dollars(
             [
                 Distractor(_money(off1), "reports-discount-not-sale-price", off1),
                 Distractor(f"{float(price - p1):g}", "percent-as-absolute", price - p1),
@@ -106,7 +111,7 @@ def _attempt(rng: random.Random) -> dict:
     off_both = price * (1 - (p1 + p2) / 100)
     d_b = pick_distractors(
         _money(final),
-        _sensible(
+        _whole_dollars(
             [
                 Distractor(_money(off2), "reports-discount-not-sale-price", off2),
                 Distractor(f"{float(off_both):g}", "adds-successive-percentages", off_both),
@@ -121,7 +126,7 @@ def _attempt(rng: random.Random) -> dict:
     saving = price - final
     d_c = pick_distractors(
         _money(saving),
-        _sensible(
+        _whole_dollars(
             [
                 Distractor(_money(price * (p1 + p2) / 100), "adds-successive-percentages", price * (p1 + p2) / 100),
                 Distractor(_money(off2), "omitted-a-term", off2),

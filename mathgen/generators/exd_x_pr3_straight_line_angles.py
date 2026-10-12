@@ -51,16 +51,18 @@ def exd_x_pr3_straight_line_angles(rng, tier="exam"):
             break
     check(aoc + k + dob == 180 and (a + c) * x + b + d + k == 180, "angles do not sum to 180")
     e_od = aoc // 2 + k
-    xs = []
-    for total, tag in (
-        (180 - b - d, "ignored-known-angle"),
-        (360 - k - b - d, "uses-360"),
-        (180 + b + d - k, "sign-error-moving-term"),
-        (180 - k - b - d, "forgot-to-divide-by-coefficient"),
-        (180 - k, "ignored-constant-term"),
-    ):
-        undivided = tag == "forgot-to-divide-by-coefficient"
-        xs.append((Fraction(total, 1) if undivided else Fraction(total, a + c), tag))
+    # Kept only where the slip lands on a whole number (the answer is one), so each is spelled like the key.
+    xs = [
+        (Fraction(180 - b - d, a + c), "ignored-known-angle"),
+        (Fraction(360 - k - b - d, a + c), "uses-360"),
+        (Fraction(180 + b + d - k, a + c), "sign-error-moving-term"),
+        (Fraction(180 - k - b - d, 1), "forgot-to-divide-by-coefficient"),
+        (Fraction(180 - k, a + c), "ignored-constant-term"),
+        (Fraction(180 - k - b - d, a), "used-one-coefficient"),
+        (Fraction(180 - k - b - d, c), "used-one-coefficient"),
+        (Fraction(180 - b - d, 1), "forgot-to-divide-by-coefficient"),
+        (Fraction(360 - k - b - d, 1), "forgot-to-divide-by-coefficient"),
+    ]
     parts = [
         part(
             "Use the angles on the straight line to find the value of x.",

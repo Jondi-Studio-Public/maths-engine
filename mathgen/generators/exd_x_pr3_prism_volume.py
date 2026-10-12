@@ -99,6 +99,7 @@ def exd_x_pr3_prism_volume(rng, tier="exam"):
             candidates=[
                 (need * r, "multiplied-instead-of-divided-rate"),
                 (Fraction(litres, r), "ignored-water-already-in"),
+                (Fraction(litres - need, r), "gave-part-not-remainder"),
                 (need - r, "subtracted-unlike-quantities"),
                 (need + r, "rate-added-not-multiplied"),
             ],

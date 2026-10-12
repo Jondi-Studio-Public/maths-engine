@@ -62,11 +62,11 @@ def part(
         v = Fraction(v)
         if v == value:
             continue
-        # Distractors for a whole-number key may carry cents; a decimal key keeps its own precision.
-        places = dp if on_grid(v, dp) else 2
-        if not on_grid(v, places):
+        # A distractor is spelled at the key's own places: a different decimal-point presence or number of
+        # places gives the key away, so a value that does not sit on the key's grid is not offered.
+        if not on_grid(v, dp):
             continue
-        options.append(Distractor(show(v, places), tag, v))
+        options.append(Distractor(show(v, dp), tag, v))
     picked = pick_distractors(text, options, 3, tolerance=GRADER_TOLERANCE if dp else 0)
     check(len(picked) >= 2, "a part needs at least two distractors")
     out = dict(

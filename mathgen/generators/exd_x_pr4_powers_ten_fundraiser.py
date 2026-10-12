@@ -22,6 +22,7 @@ from mathgen.core import (
     generator,
     numeric_answer,
     pick_distractors,
+    stated_precision_string,
     stated_precision_tolerance,
 )
 
@@ -60,24 +61,52 @@ def exd_x_pr4_powers_ten_fundraiser(rng: random.Random, tier: str = "exam") -> d
 
     a_text, b_text, c_text = _text(total), _text(per_box), _text(grams)
 
-    def d(v, misconception):
-        return Distractor(_text(v), misconception, v)
+    def candidates(key_text, options):
+        """Each `(value, misconception)` spelled at the key's own number of decimal places. A slip that needs more
+        places than the key has cannot be spelled like it, so it is not offered; the point shifted the other way
+        (a longer number, padded with a zero) is."""
+        places = len(key_text.partition(".")[2])
+        out = []
+        for v, misconception in options:
+            if (v * 10**places).denominator == 1:
+                out.append(Distractor(stated_precision_string(v, places) if places else str(int(v)), misconception, v))
+        return out
 
-    a_candidates = [
-        d(each / count, "decimal-point-moved-wrong-way"),
-        d(each * (count // 10), "decimal-point-moved-wrong-distance"),
-        d(each * count * 10, "decimal-point-moved-wrong-distance"),
-    ]
-    b_candidates = [
-        d(total * boxes, "decimal-point-moved-wrong-way"),
-        d(total / (boxes * 10), "decimal-point-moved-wrong-distance"),
-        d(total / Fraction(boxes, 10), "decimal-point-moved-wrong-distance"),
-    ]
-    c_candidates = [
-        d(per_box * 100, "converts-with-wrong-power-of-ten"),
-        d(per_box / 1000, "decimal-point-moved-wrong-way"),
-        d(per_box * 10_000, "converts-with-wrong-power-of-ten"),
-    ]
+    ten = Fraction(10)
+    a_candidates = candidates(
+        a_text,
+        [
+            (each / count, "decimal-point-moved-wrong-way"),
+            (total * ten, "decimal-point-moved-wrong-distance"),
+            (total / ten, "decimal-point-moved-wrong-distance"),
+            (total * ten**2, "decimal-point-moved-wrong-distance"),
+            (total * ten**3, "decimal-point-moved-wrong-distance"),
+            (total / ten**2, "decimal-point-moved-wrong-distance"),
+        ],
+    )
+    b_candidates = candidates(
+        b_text,
+        [
+            (total * boxes, "decimal-point-moved-wrong-way"),
+            (per_box / ten, "decimal-point-moved-wrong-distance"),
+            (per_box * ten, "decimal-point-moved-wrong-distance"),
+            (per_box * ten**2, "decimal-point-moved-wrong-distance"),
+            (per_box * ten**3, "decimal-point-moved-wrong-distance"),
+            (per_box / ten**2, "decimal-point-moved-wrong-distance"),
+        ],
+    )
+    c_candidates = candidates(
+        c_text,
+        [
+            (per_box * 100, "converts-with-wrong-power-of-ten"),
+            (per_box / 1000, "decimal-point-moved-wrong-way"),
+            (per_box * 10_000, "converts-with-wrong-power-of-ten"),
+            (grams * ten, "converts-with-wrong-power-of-ten"),
+            (grams * ten**2, "converts-with-wrong-power-of-ten"),
+            (grams / ten, "converts-with-wrong-power-of-ten"),
+            (grams / ten**2, "converts-with-wrong-power-of-ten"),
+        ],
+    )
     a_d = pick_distractors(a_text, a_candidates, 3, tolerance=stated_precision_tolerance(8))
     b_d = pick_distractors(b_text, b_candidates, 3, tolerance=stated_precision_tolerance(8))
     c_d = pick_distractors(c_text, c_candidates, 3, tolerance=stated_precision_tolerance(8))

@@ -18,7 +18,6 @@ from mathgen.answers import Distractor
 from mathgen.core import (
     attempts,
     check,
-    exact_decimal_string,
     generator,
     numeric_answer,
     pick_distractors,
@@ -43,7 +42,8 @@ def _count(n: int, unit: str) -> str:
 
 
 def _dist(value: Fraction, misconception: str) -> Distractor:
-    return Distractor(exact_decimal_string(value, 3), misconception, value)
+    # Spelled to three places like the key: "25.46" beside "25.406" would give the zero-placeholder slip away.
+    return Distractor(stated_precision_string(value, 3), misconception, value)
 
 
 @generator("exd_x_pr4_decimal_place_value", level=6, presets={"exam": dict(tier="exam")})

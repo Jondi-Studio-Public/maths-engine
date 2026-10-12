@@ -54,7 +54,7 @@ def exd_x_pr3_discount_reverse(rng, tier="exam"):
             candidates=[
                 (p, "gave-discount-percent"),
                 (100 + p, "adds-discount"),
-                (Fraction(p, 100), "gave-discount-percent"),
+                (sale, "count-given-as-percent"),
             ],
         ),
         part(

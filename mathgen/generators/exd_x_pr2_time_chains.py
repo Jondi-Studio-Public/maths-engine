@@ -525,13 +525,10 @@ def exd_x_pr2_unit_totals(rng: random.Random, tier: str = "exam") -> dict:
     def fmt1(v: Fraction) -> str:
         return stated_precision_string(round_half_up(v, 1), 1) if v.denominator != 1 or v else "0.0"
 
-    def fmt2(v: Fraction) -> str:
-        return stated_precision_string(v, 2)
-
     c_options = []
     for value, tag in c_slips:
         value = Fraction(value)
-        shown = fmt2(value) if tag == "wrote-minutes-as-decimal-part" else fmt1(value)
+        shown = fmt1(value)  # the slip is rounded to 1 d.p. like the key, as the question asks of every answer
         shown_value = Fraction(shown)
         if shown_value > 0 and abs(shown_value - final) > GRADER_TOLERANCE:
             c_options.append(Distractor(shown, tag, shown_value))

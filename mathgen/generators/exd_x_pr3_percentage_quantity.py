@@ -81,6 +81,8 @@ def exd_x_pr3_percentage_quantity(rng, tier="exam"):
                 (N - walk, "gives-remainder-not-part"),
                 (N * p1, "multiplies-by-whole-percent"),
                 (Fraction(N, p1), "divides-by-the-percent"),
+                (p1, "percent-as-absolute"),
+                (N - p1, "subtracts-percentage"),
             ],
         ),
         part(
