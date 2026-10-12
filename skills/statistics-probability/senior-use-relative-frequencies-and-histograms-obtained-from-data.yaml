@@ -21,8 +21,8 @@ sources:
   params: {variant: tail}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p16a_histogram_probability
-  params: {variant: interpolate}
+- topic: exd_x_r2l_histogram_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

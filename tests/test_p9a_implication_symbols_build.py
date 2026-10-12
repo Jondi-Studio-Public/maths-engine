@@ -354,7 +354,7 @@ def test_hard_tier_negation_truth_split_over_200_seeds():
     counts = Counter()
     for seed in range(200):
         q = make(TOPIC1, seed=seed, difficulty="hard")
-        counts[q.answer_text] += 1
+        counts[q.answer_text.split(",")[0]] += 1  # "True, because ..." / "False, because ..."
     assert set(counts) == {"True", "False"}, counts
     assert counts["True"] > 0 and counts["False"] > 0, counts
 

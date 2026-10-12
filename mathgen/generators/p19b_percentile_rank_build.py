@@ -209,12 +209,12 @@ _HARD_TEMPLATES = (
     "rank by accumulating counts, then give the value at {level}.",
 )
 _EXAM_TEMPLATES = (
-    "Exam-style question. A data set of {n} {label} is given as a CUMULATIVE frequency table (value: "
+    "A data set of {n} {label} is given as a CUMULATIVE frequency table (value: "
     "cumulative count, i.e. the running total up to and including that value): {values}. {convention} "
     "Find the value at {level}.",
-    "Exam-style question. The following cumulative frequency table (value: running total) records "
+    "The following cumulative frequency table (value: running total) records "
     "{n} {label}: {values}. {convention} State the value at {level}.",
-    "Exam-style question. Here is a cumulative frequency table (value: running total, not a "
+    "Here is a cumulative frequency table (value: running total, not a "
     "per-value count) of {n} {label}: {values}. {convention} Give the value at {level}.",
 )
 _TEMPLATES = {"easy": _EASY_TEMPLATES, "medium": _MEDIUM_TEMPLATES, "hard": _HARD_TEMPLATES, "exam": _EXAM_TEMPLATES}

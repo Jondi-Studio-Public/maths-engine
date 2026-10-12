@@ -81,7 +81,7 @@ _PLAUSIBLE_RANGES_KG: dict[str, tuple[float, float]] = {
     "a golf ball": (0.04, 0.05),
     "a chicken egg": (0.04, 0.075),
     "a slice of bread": (0.015, 0.045),
-    "a AA battery": (0.015, 0.03),
+    "an AA battery": (0.015, 0.03),
     "a pair of scissors": (0.03, 0.12),
     "a computer mouse": (0.05, 0.15),
     "a wallet": (0.04, 0.15),
@@ -175,14 +175,16 @@ def test_a_distractors_match_independently_recomputed_multiples():
         for seed in SEEDS:
             q = _mk(TOPIC_A, seed, tier)
             answer_value, answer_unit = _parse_option_a(q.answer_text)
-            expected = {answer_value * 10, answer_value * Fraction(1, 10), answer_value * 100}
+            expected = {answer_value * Fraction(10) ** k for k in (-2, -1, 1, 2, 3)}
             assert len(q.distractors) == 3
             actual = set()
             for dist in q.distractors:
                 value, unit = _parse_option_a(dist)
                 assert unit == answer_unit
                 actual.add(value)
-            assert actual == expected, f"{tier} seed {seed}: distractors {actual} != expected {expected}"
+            assert len(actual) == 3 and actual <= expected, (
+                f"{tier} seed {seed}: distractors {actual} != expected {expected}"
+            )
             checked += 1
     assert checked == len(TIERS) * len(SEEDS)
 

@@ -173,19 +173,15 @@ _HARD_PATTERNS = [
 _EXAM_PATTERNS = [
     "Let f(z) = {c} / ({quad}). C is a positively oriented simple closed "
     "contour lying entirely in the upper half-plane (Im(z) > 0) and "
-    "enclosing the one pole of f there. Solve the quadratic {quad} = 0 to "
-    "find the poles of f, then evaluate the contour integral of f(z) "
-    "around C using the residue theorem.",
+    "enclosing the one pole of f there. Evaluate the contour integral of "
+    "f(z) around C.",
     "The function f(z) = {c} / ({quad}) has two simple poles; C is a "
     "positively oriented simple closed contour lying entirely in the upper "
-    "half-plane and enclosing the one pole there. Solve {quad} = 0 for "
-    "both poles, discard the one with Im(z) <= 0, and compute the contour "
+    "half-plane and enclosing the one pole there. Compute the contour "
     "integral of f(z) around C.",
     "Given f(z) = {c} / ({quad}), and C a positively oriented simple "
     "closed contour lying entirely in the upper half-plane enclosing the "
-    "one pole of f there, solve the quadratic to find both poles, keep the "
-    "one in the upper half-plane, and evaluate the contour integral of "
-    "f(z) around C.",
+    "one pole of f there, evaluate the contour integral of f(z) around C.",
 ]
 
 

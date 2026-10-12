@@ -44,7 +44,8 @@ def test_every_remaining_batch_source_reproduces_and_self_grades():
                     question.to_json()
                     == make(source.topic, seed=seed, difficulty=source.difficulty, **params).to_json()
                 )
-                if skill.answer == "mcq":
+                # A multi-part exam source is marked part by part, whatever the skill's answer kind.
+                if skill.answer == "mcq" and not question.parts:
                     given = str(grading.mcq_options(question).index(question.answer_text))
                 else:
                     given = question.answer_text

@@ -257,7 +257,7 @@ def bernoulli_mle(rng, n_hi=25, kind=None):
         str(round(k / n, 2)),
     ]
     return dict(
-        text=f"In {n} independent Bernoulli trials there are {k} successes. Find the MLE of p.",
+        text=f"In {n} independent Bernoulli trials there are {k} {'success' if k == 1 else 'successes'}. Find the MLE of p.",
         latex=rf"\hat p=\arg\max_{{0<p<1}}p^{{{k}}}(1-p)^{{{n - k}}}",
         answer=answer,
         answer_text=answer_text,

@@ -299,18 +299,18 @@ def p19f_second_derivative_test(rng, tier="easy"):
             (
                 "Let f(x) = {expr}. This function has exactly one critical "
                 "point, where f'(x) = 0. Find the x-value of that critical "
-                "point and use the second derivative test to classify it as a "
+                "point and classify it as a "
                 "local maximum or a local minimum. Give your answer as the "
                 "x-value, then the classification (local maximum or local "
                 "minimum), separated by a comma, e.g. 10, local maximum.",
                 "The function f(x) = {expr}, written out in full, has exactly "
-                "one point where f'(x) = 0. Find its x-value, then use the "
-                "second derivative test to say whether it is a local maximum "
+                "one point where f'(x) = 0. Find its x-value and say "
+                "whether it is a local maximum "
                 "or a local minimum. Answer with the x-value first, then the "
                 "classification, separated by a comma (e.g. 10, local maximum).",
                 "Consider the function f(x) = {expr}, which has exactly one "
-                "critical point. Determine that critical point's x-value and, "
-                "using the second derivative test, classify it as a local "
+                "critical point. Determine that critical point's x-value and "
+                "classify it as a local "
                 "maximum or a local minimum. Give the x-value first, then the "
                 "classification, separated by a comma (e.g. 10, local maximum).",
             ),

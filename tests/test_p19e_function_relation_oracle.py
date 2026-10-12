@@ -86,7 +86,8 @@ def _oracle_relation(text):
         return "equation", _equation_contains(eq), None
 
     m = re.search(r"described as (.+?)\. (?:Is this relation|Apply|Decide)", text) or re.search(
-        r"Consider (.+?)\. Apply the vertical line test to this described graph", text
+        r"Consider (.+?)\. (?:Apply the vertical line test to this described graph|Is the relation it describes a function)",
+        text,
     )
     if m:
         desc = m.group(1).strip()

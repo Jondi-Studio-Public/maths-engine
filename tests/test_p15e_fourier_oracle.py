@@ -17,6 +17,7 @@ import pytest
 import sympy as sp
 
 from mathgen.skills import load_skills
+from tests.exd_x_r2h_support import legacy_exam_sources
 import mathgen
 
 FT_ID = "ucv1-fourier-transform-gaussian"
@@ -34,7 +35,7 @@ def _desanitize(s: str) -> str:
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return {src.difficulty: src for src in skill.sources}
+    return legacy_exam_sources(skill.id, {src.difficulty: src for src in skill.sources})
 
 
 FT_SOURCES = _skill_sources(FT_ID)

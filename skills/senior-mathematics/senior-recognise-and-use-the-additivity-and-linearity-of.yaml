@@ -3,19 +3,7 @@
 id: senior-recognise-and-use-the-additivity-and-linearity-of
 name: Recognise and use the additivity and linearity of definite integrals
 domain: senior-mathematics
-description: 'Given stated definite-integral VALUES (for example the integral of f over
-  [a, b] and over [b, c], or of f and g over the same interval, together with stated
-  scalar multipliers), compute a combined definite-integral value using additivity or
-  linearity, without evaluating f or g directly. Every "integral value" is drawn directly
-  as a stated integer; this skill never constructs or integrates a real function. Easy is
-  pure additivity, forward direction, both stated values positive. Medium is pure
-  linearity with one scalar. Hard is full linearity with both scalars nonzero and at least
-  one negative, or additivity in the inverse (subtraction) direction with a negative
-  stated value. Exam combines additivity and linearity in one question, across three
-  stated integral values over two adjacent intervals and two functions. Never integrates
-  a stated polynomial from scratch (definite-integral, integrate-polynomial,
-  senior-calculate-total-change-by-integrating-instantaneous-or-marginal) -- this skill
-  only combines already-evaluated integral values.'
+description: 'Given stated definite-integral VALUES (for example the integral of f over [a, b] and over [b, c], or of f and g over the same interval, together with stated scalar multipliers), compute a combined definite-integral value using additivity or linearity, without evaluating f or g directly. Every "integral value" is drawn directly as a stated integer; this skill never constructs or integrates a real function. Easy is pure additivity, forward direction, both stated values positive. Medium is pure linearity with one scalar. Hard is full linearity with both scalars nonzero and at least one negative, or additivity in the inverse (subtraction) direction with a negative stated value. Exam is a four-part chain combining additivity and linearity across three stated integral values over two adjacent intervals and two functions: the integral of f over the whole interval, a combined integral, the constant k that gives a stated total, and the mean value of f. Never integrates a stated polynomial from scratch (definite-integral, integrate-polynomial, senior-calculate-total-change-by-integrating-instantaneous-or-marginal) -- this skill only combines already-evaluated integral values.'
 status: active
 placement_eligible: false
 prerequisites: []
@@ -33,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p19f_integral_additivity_linearity
-  params: {}
+- topic: exd_x_r2i_integral_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

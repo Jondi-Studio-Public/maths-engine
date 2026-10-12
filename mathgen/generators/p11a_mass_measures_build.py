@@ -50,6 +50,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
+from .r2s_scale_options import scaled_options
 from ..core import (
     check,
     check_conversion,
@@ -100,7 +101,7 @@ _MICRO: list[tuple[str, Fraction]] = [
     ("a golf ball", Fraction(46)),
     ("a chicken egg", Fraction(60)),
     ("a slice of bread", Fraction(30)),
-    ("a AA battery", Fraction(25)),
+    ("an AA battery", Fraction(25)),
     ("a pair of scissors", Fraction(70)),
     ("a computer mouse", Fraction(100)),
     ("a wallet", Fraction(80)),
@@ -207,14 +208,7 @@ def _build_estimate_mass(rng, tier: str) -> dict:
 
     check_conversion(canonical, base_unit, ask_unit, correct, _MG_PER_UNIT, label="estimate-mass unit conversion")
 
-    x10 = correct * 10
-    tenth = correct / 10
-    x100 = correct * 100
-    check_pairwise_distinct(correct, x10, tenth, x100, msg="an order-of-magnitude distractor collided with the answer")
-
-    correct_text, x10_text, tenth_text, x100_text = _format_options(correct, x10, tenth, x100, f" {ask_unit}")
-    distractors = pick_distractors(correct_text, [x10_text, tenth_text, x100_text])
-    check(len(distractors) == 3, "an order-of-magnitude distractor collapsed onto another option")
+    correct_text, distractors = scaled_options(rng, correct, f" {ask_unit}")
 
     text = f"What is the best estimate for the mass of {name}? Give your answer in {_UNIT_WORD_MASS[ask_unit]}."
     latex = f"plain:{text}"

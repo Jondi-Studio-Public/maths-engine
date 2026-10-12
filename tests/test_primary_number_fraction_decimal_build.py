@@ -27,8 +27,8 @@ _INVERSE_TEXT_RE = re.compile(
     r"A fraction was halved (once|twice), and the result is (\S+)\. "
     r"What was the original fraction, before it was halved\?"
 )
-_SINGLE_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) (tenths|hundredths) as a decimal\.")
-_BOTH_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) tenths and (\d+) hundredths as a decimal\.")
+_SINGLE_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) (tenths?|hundredths?) as a decimal\.")
+_BOTH_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) tenths? and (\d+) hundredths? as a decimal\.")
 
 _STEP_WORD_TO_N = {"once": 1, "twice": 2}
 
@@ -264,7 +264,7 @@ def test_fraction_halving_never_produces_an_unreduced_display():
 def _parse_single(question):
     m = _SINGLE_DECIMAL_TEXT_RE.match(question.text)
     assert m, f"unexpected single-place question text shape: {question.text!r}"
-    return int(m.group(1)), m.group(2)
+    return int(m.group(1)), m.group(2).rstrip("s") + "s"  # "1 tenth" is singular
 
 
 def test_single_place_easy_both_sub_cases_occur_and_answer_is_correct():
@@ -339,7 +339,7 @@ def _identify_hard_trap(question):
     assert both_match is None, f"hard tier unexpectedly used the dual-clause shape: {question.text!r}"
     single_match = _SINGLE_DECIMAL_TEXT_RE.match(question.text)
     assert single_match, f"unexpected hard question text shape: {question.text!r}"
-    count, place = int(single_match.group(1)), single_match.group(2)
+    count, place = int(single_match.group(1)), single_match.group(2).rstrip("s") + "s"
     if place == "hundredths":
         return "leading_zero", count
     return "regrouping", count

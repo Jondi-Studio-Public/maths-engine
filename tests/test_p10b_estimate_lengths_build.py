@@ -184,8 +184,10 @@ class TestEstimateLengthReference:
                 val, unit = _parse_option(dist)
                 assert unit == answer_unit
                 values.append(val)
-            expected = {answer_val * 10, answer_val / 10, answer_val * 100}
-            assert set(values) == expected, f"{difficulty} seed {seed}: {values} != {expected}"
+            expected = {answer_val * Fraction(10) ** k for k in (-2, -1, 1, 2, 3)}
+            assert len(set(values)) == 3 and set(values) <= expected, (
+                f"{difficulty} seed {seed}: {values} != {expected}"
+            )
 
     def test_skill_loads(self):
         _, skills = load_skills()

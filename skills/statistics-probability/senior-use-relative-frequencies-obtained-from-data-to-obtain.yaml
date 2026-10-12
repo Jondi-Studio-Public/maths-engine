@@ -21,8 +21,8 @@ sources:
   params: {variant: missing_frequency}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p16a_estimated_distribution
-  params: {variant: two_missing_ratio}
+- topic: exd_x_r2l_distribution_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

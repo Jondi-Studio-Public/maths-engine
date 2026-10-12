@@ -115,9 +115,6 @@ pythagorean-leg:
   trigonometry/easy: 6
   trigonometry/medium: 18
 rearrange-simple-formulas:
-  rearrange/easy: 8
-  rearrange/hard: 2
-  rearrange/medium: 4
   rearrange_powers_roots/hard: 7
 recognise-numerals-to-10:
   recognise_numeral/easy: 11

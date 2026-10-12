@@ -384,7 +384,7 @@ def _single_place(rng):
         # place instead, e.g. "0.6" for "6 hundredths").
         candidates = [str(count), f"0.{count}"]
     _verify_decimal_composition(tenths_count, hundredths_count, answer_str)
-    text = f"Write {count} {place} as a decimal."
+    text = f"Write {_place_count(count, place)} as a decimal."
     return _decimal_result(text, tenths_count, hundredths_count, answer_str, candidates)
 
 
@@ -401,7 +401,9 @@ def _both_places(rng):
     if tenths_count != hundredths_count:
         candidates.append(f"0.{hundredths_count}{tenths_count}")
 
-    text = f"Write {tenths_count} tenths and {hundredths_count} hundredths as a decimal."
+    text = (
+        f"Write {_place_count(tenths_count, 'tenths')} and {_place_count(hundredths_count, 'hundredths')} as a decimal."
+    )
     return _decimal_result(text, tenths_count, hundredths_count, answer_str, candidates)
 
 
@@ -413,7 +415,7 @@ def _forced_trap(rng):
         answer_str = f"0.0{count}"
         # Forced: leading-zero-drop, plus drops-decimal-point.
         candidates = [str(count), f"0.{count}"]
-        text = f"Write {count} hundredths as a decimal."
+        text = f"Write {_place_count(count, 'hundredths')} as a decimal."
     else:
         whole = rng.randint(1, 9)
         rem = rng.randint(1, 9)

@@ -41,11 +41,13 @@ import math
 
 from ..core import check, generator, latex_answer, pick_distractors
 
-# ---------------------------------------------------------------------------
-# Shared filler pair, reused wherever a boolean/tri-state mcq needs a
-# plausible-but-always-wrong pair of filler options.
 
-_GENERIC_FILLERS = ["Cannot be determined from the given information", "The question is not well-defined"]
+def _pick_slips(rng, slips, n=3):
+    """Up to ``n`` wrong options from ``(applies, text)`` pairs: each is a wrong verdict that a genuine
+    misreading of the quantifier produces, offered only when its stated reason can be mistaken for true."""
+    pool = [text for applies, text in slips if applies]
+    rng.shuffle(pool)
+    return pool[:n]
 
 
 # ===========================================================================
@@ -136,8 +138,23 @@ def quantifier_forall_exists_evaluate(rng, variant="exists"):
         check(found == target, "exists-tier independent check mismatch")
 
         text = f"There exists n in {_set_text(D)} such that n {p_name}. Is this True or False?"
-        answer_text = "True" if target else "False"
-        distractors = pick_distractors(answer_text, ["False" if target else "True"] + _GENERIC_FILLERS)
+        satisfying = sum(1 for n in D if p_fn(n))
+        if target:
+            answer_text = "True, because at least one value in the set satisfies it"
+            slips = [
+                (len(D) > satisfying, "False, because not every value in the set satisfies it"),  # exists read as all
+                (satisfying >= 2, "False, because more than one value in the set satisfies it"),  # exists read as one
+                (not p_fn(D[0]), "False, because the first value listed does not satisfy it"),  # only looked at one
+                (True, "False, because no value in the set satisfies it"),
+            ]
+        else:
+            answer_text = "False, because no value in the set satisfies it"
+            slips = [
+                (True, "True, because at least one value in the set does not satisfy it"),  # not-P read as P
+                (True, "True, because some whole numbers outside the set satisfy it"),  # strays outside the set
+                (True, "True, because at least one value in the set satisfies it"),
+            ]
+        distractors = _pick_slips(rng, slips)
         working = [
             f"Check n {p_name} for each n in {_set_text(D)}.",
             (
@@ -163,8 +180,24 @@ def quantifier_forall_exists_evaluate(rng, variant="exists"):
         check(ok == target, "forall-tier independent check mismatch")
 
         text = f"For ALL n in {_set_text(D)}, n {p_name}. Is this True or False?"
-        answer_text = "True" if target else "False"
-        distractors = pick_distractors(answer_text, ["False" if target else "True"] + _GENERIC_FILLERS)
+        satisfying = sum(1 for n in D if p_fn(n))
+        if target:
+            answer_text = "True, because every value in the set satisfies it"
+            slips = [
+                (True, "False, because at least one value in the set fails it"),
+                (True, "False, because the statement must hold for every integer, not only those in the set"),
+                (True, "False, because checking examples can never prove a universal statement"),
+            ]
+        else:
+            answer_text = "False, because at least one value in the set fails it"
+            slips = [
+                (True, "True, because every value in the set satisfies it"),
+                (satisfying >= 1, "True, because at least one value in the set satisfies it"),  # all read as exists
+                (satisfying * 2 > len(D), "True, because most of the values in the set satisfy it"),
+                (p_fn(D[0]), "True, because the first value listed satisfies it"),  # only looked at one
+                (True, "True, because the statement has not been disproved"),  # burden of proof reversed
+            ]
+        distractors = _pick_slips(rng, slips)
         working = [
             f"Check n {p_name} for each n in {_set_text(D)}.",
             (
@@ -221,7 +254,7 @@ def quantifier_forall_exists_evaluate(rng, variant="exists"):
         latex=latex,
         answer=answer,
         answer_text=answer_text,
-        answer_latex=latex_answer(answer_text),
+        answer_latex=latex_answer(answer_text, plain=True),
         working=working,
         distractors=distractors,
     )

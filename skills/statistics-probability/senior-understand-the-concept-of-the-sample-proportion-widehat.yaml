@@ -3,7 +3,7 @@
 id: senior-understand-the-concept-of-the-sample-proportion-widehat
 name: 'Understand the concept of the sample proportion \(\widehat p\) as a random variable whose value varies between samples, and the formulas for the mean \(p\) and standard deviation \(\sqrt{p(1-p)/n}\) of the sample proportion \(\widehat p\)'
 domain: statistics-probability
-description: 'Given a population proportion p and a sample size n, BOTH given directly (or restated explicitly once derived), state the mean and the standard deviation of the sampling distribution of the sample proportion p-hat, using the formulas mean = p and standard deviation = sqrt(p(1-p)/n). Standard deviation is reported to 4 decimal places. This is theoretical formula substitution from a GIVEN true p, distinct from every other shipping p-hat skill (the approximate-normality check, the interval-estimate margin, and the confidence-interval bounds skills), all of which start from an OBSERVED sample proportion or raw counts and compute a diagnostic, margin, or interval -- never this skill''s plain mean/SD-formula substitution from a stated true p. Four tiers: easy gives p directly as a simple decimal and n directly as a round number; medium gives p as a simple fraction that must be converted to a decimal, and n via a one-step arithmetic derivation (e.g. a fraction of a stated base count); hard gives p implicitly via a described chance model (a spinner, a bag of marbles, a batch of components) that must first be turned into an exact fraction, combined with n via a similar one-step derivation; exam states two related planned sample sizes for the same population proportion and asks for the pair for a SPECIFIED one of them.'
+description: 'Given a population proportion p and a sample size n, BOTH given directly (or restated explicitly once derived), state the mean and the standard deviation of the sampling distribution of the sample proportion p-hat, using the formulas mean = p and standard deviation = sqrt(p(1-p)/n). Standard deviation is reported to 4 decimal places. This is theoretical formula substitution from a GIVEN true p, distinct from every other shipping p-hat skill (the approximate-normality check, the interval-estimate margin, and the confidence-interval bounds skills), all of which start from an OBSERVED sample proportion or raw counts and compute a diagnostic, margin, or interval -- never this skill''s plain mean/SD-formula substitution from a stated true p. Four tiers: easy gives p directly as a simple decimal and n directly as a round number; medium gives p as a simple fraction that must be converted to a decimal, and n via a one-step arithmetic derivation (e.g. a fraction of a stated base count); hard gives p implicitly via a described chance model (a spinner, a bag of marbles, a batch of components) that must first be turned into an exact fraction, combined with n via a similar one-step derivation; exam is a three-part chain from a stated population proportion and an observed sample proportion: the standard deviation of p-hat, the z-score of the observed proportion, then the normal tail probability of a sample proportion at least that large.'
 status: active
 placement_eligible: false
 prerequisites: [simple-event-probability]
@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19d_phat_mean_sd
-  params: {}
+- topic: exd_x_r2k_phat_normal
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

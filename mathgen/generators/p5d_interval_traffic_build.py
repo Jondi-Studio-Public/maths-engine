@@ -17,6 +17,7 @@ import math
 from fractions import Fraction
 
 from ..core import check, generator, pick_distractors, rounds_unambiguously
+from .r2s_ranked_distractors import pick_ranked
 
 
 # ============================================================================
@@ -31,6 +32,20 @@ def _ceils_unambiguously(value: float, margin: float = 0.01) -> bool:
     """True when ``value`` is far enough from a whole number that ceil is
     determined. Same reasoning as :func:`_rounds_unambiguously`."""
     return abs(value - round(value)) > margin
+
+
+def _margin_slips(z, confidence, phat, n, e_rounded):
+    """Further wrong margins of error, on both sides of the right one: the interval's full width, the standard
+    error with no z, the worst-case p = 0.5, and another confidence level's z."""
+    slips = {
+        2 * e_rounded: "width",
+        round(math.sqrt(phat * (1 - phat) / n), 3): "se",
+        round(z * math.sqrt(0.25 / n), 3): "worst",
+    }
+    for other_conf, other_z in Z_VALUES.items():
+        if other_conf != confidence:
+            slips[round(other_z * math.sqrt(phat * (1 - phat) / n), 3)] = other_conf
+    return {f"{v:.3f}": v for v in slips}
 
 
 @generator(
@@ -109,8 +124,14 @@ def interval_estimate_proportion_margin(rng, variant="direct"):
         forgot_comp_str = f"{forgot_comp_rounded:.3f}"
         check(forgot_comp_rounded != E_rounded, f"direct: forgot-complement distractor equals answer")
 
-        candidates = [forgot_sqrt_str, forgot_div_str, forgot_comp_str]
-        distractors = pick_distractors(answer_text, candidates)
+        pool = {
+            forgot_sqrt_str: forgot_sqrt_rounded,
+            forgot_div_str: forgot_div_rounded,
+            forgot_comp_str: forgot_comp_rounded,
+            **_margin_slips(z, confidence, phat, n, E_rounded),
+        }
+        distractors = pick_ranked(rng, answer_text, E_rounded, pool, min_gap=0.002)
+        check(distractors is not None, "interval margin: no distractor set clears the answer")
 
     elif variant == "from_counts":
         # Medium: given raw counts, compute phat first
@@ -180,8 +201,14 @@ def interval_estimate_proportion_margin(rng, variant="direct"):
         forgot_comp_str = f"{forgot_comp_rounded:.3f}"
         check(forgot_comp_rounded != E_rounded, f"from_counts: forgot-complement distractor equals answer")
 
-        candidates = [forgot_sqrt_str, forgot_div_str, forgot_comp_str]
-        distractors = pick_distractors(answer_text, candidates)
+        pool = {
+            forgot_sqrt_str: forgot_sqrt_rounded,
+            forgot_div_str: forgot_div_rounded,
+            forgot_comp_str: forgot_comp_rounded,
+            **_margin_slips(z, confidence, phat_actual, n, E_rounded),
+        }
+        distractors = pick_ranked(rng, answer_text, E_rounded, pool, min_gap=0.002)
+        check(distractors is not None, "interval margin: no distractor set clears the answer")
 
     elif variant == "solve_for_n":
         # Hard: solve for n given E_target
@@ -244,8 +271,22 @@ def interval_estimate_proportion_margin(rng, variant="direct"):
         floor_str = str(floor_val)
         check(floor_val != n_required, f"solve_for_n: floor distractor equals answer")
 
-        candidates = [forgot_z2_str, forgot_E2_str, floor_str]
-        distractors = pick_distractors(answer_text, candidates)
+        # The key is the largest of the first three, so add slips that overshoot it: the target read as the
+        # full width of the interval (n four times too big), the worst-case p = 0.5, and a higher confidence
+        # level's z (and a lower one's, which undershoots).
+        pool = {
+            forgot_z2_str: forgot_z2,
+            forgot_E2_str: forgot_E2,
+            floor_str: floor_val,
+            str(math.ceil(4 * n_exact)): math.ceil(4 * n_exact),
+            str(math.ceil(z**2 * 0.25 / E_target**2)): math.ceil(z**2 * 0.25 / E_target**2),
+        }
+        for other_conf, other_z in Z_VALUES.items():
+            if other_conf != confidence:
+                n_other = math.ceil(other_z**2 * phat * (1 - phat) / E_target**2)
+                pool[str(n_other)] = n_other
+        distractors = pick_ranked(rng, answer_text, n_required, pool, min_gap=2)
+        check(distractors is not None, "interval sample size: no distractor set clears the answer")
 
     return {
         "text": question_text,
