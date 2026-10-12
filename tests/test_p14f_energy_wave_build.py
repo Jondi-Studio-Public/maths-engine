@@ -5,6 +5,8 @@ Tests for ``ucv1-energy-conservation-check`` (topic
 (topic ``p14f_wave_parameter_relation``).
 """
 
+from dataclasses import replace
+
 from fractions import Fraction
 
 import pytest
@@ -42,6 +44,14 @@ def _make_from_sources(skills_dict, skill_id, difficulty, seed):
     bare `make(topic, seed, difficulty)` call."""
     skill = skills_dict[skill_id]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if src.difficulty == "exam" and skill_id == "ucv1-energy-conservation-check":
+        # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+        src = replace(
+            src, topic="p14f_energy_conservation_check", params={"variant": "inverse", "mk_hi": 8, "xv_hi": 14}
+        )
+    if src.difficulty == "exam" and skill_id == "ucv1-wave-parameter-relation":
+        # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+        src = replace(src, topic="p14f_wave_parameter_relation", params={"variant": "medium_change", "hi": 20})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

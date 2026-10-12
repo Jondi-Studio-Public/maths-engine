@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from collections import Counter
 
 import pytest
@@ -39,6 +40,8 @@ def _skill_sources():
 
 
 SKILL, SOURCES = _skill_sources()
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+SOURCES["exam"] = replace(SOURCES["exam"], topic="p17a_field_extension_degree", params={})
 
 
 def _make(difficulty, seed):

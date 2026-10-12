@@ -4,7 +4,7 @@ id: senior-demonstrate-an-understanding-of-the-elementary-ideas-and
 name: Demonstrate an understanding of the elementary ideas and notation of ratio
 domain: arithmetic
 description: Given two whole-number quantities, express their ratio in simplest
-  whole-number a:b form.
+  whole-number a:b form. The exam tier starts from decimal test amounts and carries the ratio to the fraction of the mixture and the amounts in a larger batch.
 status: active
 placement_eligible: false
 prerequisites:
@@ -34,9 +34,8 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: p19i_ratio_simplest_form
-  params:
-    tier: exam
+- topic: exd_x_r3i_ratio_batch
+  params: {tier: exam}
   difficulty: exam
   stages:
   - exam

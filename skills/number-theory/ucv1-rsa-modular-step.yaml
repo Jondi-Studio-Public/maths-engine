@@ -1,7 +1,10 @@
 id: ucv1-rsa-modular-step
 name: Compute one RSA modular step
 domain: number-theory
-description: Compute c = m^e mod n or m = c^d mod n for supplied small RSA parameters.
+description: >-
+  Compute c = m^e mod n or m = c^d mod n for supplied small RSA parameters. The exam tier starts
+  from the two primes, finds the modulus, Euler's totient and the private exponent, and then
+  decrypts a ciphertext.
 status: active
 placement_eligible: false
 prerequisites: [modular-multiplicative-inverse]
@@ -19,8 +22,8 @@ sources:
   params: {mode: decrypt, primes: [13, 17, 19, 23, 29, 31], exponents: [3, 5, 7]}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12f_rsa_modular_step
-  params: {mode: chain, primes: [3, 5, 7, 11, 13], exponents: [3]}
+- topic: exd_x_r3g_rsa_keypair
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

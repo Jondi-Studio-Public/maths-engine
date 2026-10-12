@@ -1,7 +1,12 @@
 id: ucv1-optimality-sensitivity
 name: Interpret a bounded optimum perturbation
 domain: optimisation
-description: Given a convex quadratic's stated minimiser and minimum value, and a stated parameter perturbation, select the one of four conclusions about the resulting change that is justified.
+description: >-
+  Given a convex quadratic's stated minimiser and minimum value, and a stated parameter
+  perturbation, select the one of four conclusions about the resulting change that is justified. The
+  exam tier gives only the quadratic and the changed coefficient, finds the minimiser and minimum
+  value before and after the change, and compares the exact new minimum with the first-order
+  estimate.
 status: active
 placement_eligible: false
 prerequisites:
@@ -20,8 +25,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p17a_optimality_sensitivity
-  params: {}
+- topic: exd_x_r3g_quadratic_sensitivity
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

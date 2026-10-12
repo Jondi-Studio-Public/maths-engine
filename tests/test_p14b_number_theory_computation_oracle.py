@@ -8,6 +8,7 @@ directly -- Python's own three-argument modular exponentiation, standard
 library, the cleanest independent check available for this skill.
 """
 
+from dataclasses import replace
 import re
 
 import pytest
@@ -57,6 +58,8 @@ def _skill_sources(skill_id):
 
 
 NTC_SOURCES = _skill_sources(NTC_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+NTC_SOURCES["exam"] = replace(NTC_SOURCES["exam"], topic="p14b_number_theory_computation", params={})
 
 
 @pytest.mark.parametrize("difficulty,seed", [(tier, s) for tier in TIERS for s in SEEDS])

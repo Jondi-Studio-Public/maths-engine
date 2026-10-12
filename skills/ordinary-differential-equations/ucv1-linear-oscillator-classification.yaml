@@ -1,7 +1,10 @@
 id: ucv1-linear-oscillator-classification
 name: Classify a linear oscillator regime
 domain: ordinary-differential-equations
-description: Classify a supplied second-order linear oscillator as underdamped, critically damped or overdamped from its coefficients.
+description: >-
+  Classify a supplied second-order linear oscillator as underdamped, critically damped or overdamped
+  from its coefficients. The exam tier works in grams, finds the critical damping constant and the
+  damping ratio, and ends on the slower decay rate of the system.
 status: active
 placement_eligible: false
 prerequisites:
@@ -20,8 +23,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p14f_linear_oscillator_classification
-  params: {}
+- topic: exd_x_r3h_oscillator_damping
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -8,6 +8,7 @@ projection arithmetic, and the Hessian route via `sympy.diff` applied to a
 polynomial parsed straight out of the rendered text.
 """
 
+from dataclasses import replace
 import math
 import re
 from fractions import Fraction
@@ -101,6 +102,8 @@ def _skill_sources(skill_id):
 
 
 GRAM_SOURCES = _skill_sources(GRAM_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+GRAM_SOURCES["exam"] = replace(GRAM_SOURCES["exam"], topic="p12f_gram_schmidt_2d", params={})
 HESS_SOURCES = _skill_sources(HESS_ID)
 
 

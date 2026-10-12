@@ -1,5 +1,6 @@
 """Focused contract tests for: ucv1-metric-axiom-check and ucv1-compactness-finite-check (both answer: mcq)."""
 
+from dataclasses import replace
 from collections import Counter
 
 import pytest
@@ -29,6 +30,8 @@ def _skill_sources(skill_id):
 
 
 METRIC_SKILL, METRIC_SOURCES = _skill_sources(METRIC_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+METRIC_SOURCES["exam"] = replace(METRIC_SOURCES["exam"], topic="p15b_metric_axiom_check", params={})
 COMPACT_SKILL, COMPACT_SOURCES = _skill_sources(COMPACT_ID)
 
 

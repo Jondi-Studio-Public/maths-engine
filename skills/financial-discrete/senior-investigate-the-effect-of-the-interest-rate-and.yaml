@@ -3,7 +3,10 @@
 id: senior-investigate-the-effect-of-the-interest-rate-and
 name: Investigate the effect of the interest rate and repayment amount on the time taken to repay a loan
 domain: financial-discrete
-description: Compute the number of periods needed to repay a flat-interest loan for a stated interest rate and repayment amount.
+description: >-
+  Compute the number of periods needed to repay a flat-interest loan for a stated interest rate and
+  repayment amount. The exam tier also asks for the total interest over the whole term and how much
+  less interest is paid on a larger repayment.
 status: active
 placement_eligible: false
 prerequisites: [simple-interest]
@@ -22,8 +25,8 @@ sources:
   params: {mode: term_difference}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p12b_loan_term_from_repayment
-  params: {mode: max_rate}
+- topic: exd_x_r3g_loan_term
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:
