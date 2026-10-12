@@ -28,4 +28,4 @@ misconceptions:
   description: Leaves one coin out of the total, or counts one twice.
 - id: stops-at-the-total
   description: Gives the value of the coins when asked how many more cents are needed.
-tags: [acara-f10-v9, early, money, coins, ac9m2n06]
+tags: [acara-f10-v9, early, money, coins, ac9m3m06, ac9m2n06]
