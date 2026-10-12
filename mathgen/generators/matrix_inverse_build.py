@@ -26,7 +26,7 @@ from types import SimpleNamespace
 import sympy
 
 from ..answers import Distractor, exact_value
-from ..core import VerificationError, check, generator, join_terms
+from ..core import VerificationError, check, generator, join_terms, paren_negative
 from ..grading import GRADERS
 from ..grading.matrix import matrix_text
 
@@ -215,7 +215,7 @@ def _inv_2x2_body(rng, dets, note, *, need_fraction):
     return dict(
         text=f"Find the inverse of A = {_shown(M)}. {note}",
         working=[
-            f"det(A) = {M[0][0]}×{M[1][1]} - {M[0][1]}×{M[1][0]} = {det}.",
+            f"det(A) = {M[0][0]}×{paren_negative(M[1][1])} - {paren_negative(M[0][1])}×{paren_negative(M[1][0])} = {det}.",
             "Swap the diagonal, negate the others, divide by det(A).",
         ],
         distractors=dis,

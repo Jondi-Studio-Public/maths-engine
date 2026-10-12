@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import itertools
 import time
+from fractions import Fraction
 from types import SimpleNamespace
 
 import pytest
@@ -290,3 +292,49 @@ def test_pathological_matrix_replies_are_quick_and_wrong(reply):
     start = time.perf_counter()
     assert not grade("matrix", _question(M, M_TEXT), reply).correct
     assert time.perf_counter() - start < 2
+
+
+SIGNED = [[{"p": -5, "q": 4}, 1], [{"p": 3, "q": 2}, -1]]
+
+
+def _spellings(rows):
+    """A matrix written the ways a learner might, each entry's sign kept on the entry."""
+
+    def entry(v, latex=False):
+        v = Fraction(v["p"], v["q"]) if isinstance(v, dict) else Fraction(v)
+        sign, v = ("-" if v < 0 else ""), abs(v)
+        if v.denominator == 1:
+            return f"{sign}{v.numerator}"
+        if latex:
+            return f"{sign}\\frac{{{v.numerator}}}{{{v.denominator}}}"
+        return f"{sign}({v.numerator}/{v.denominator})"
+
+    return [
+        r"\begin{pmatrix} " + r" \\ ".join(" & ".join(entry(v, True) for v in r) for r in rows) + r" \end{pmatrix}",
+        "; ".join(", ".join(entry(v) for v in r) for r in rows),
+        "\n".join(" ".join(entry(v) for v in r) for r in rows),
+        "[" + ", ".join("[" + ", ".join(entry(v) for v in r) + "]" for r in rows) + "]",
+    ]
+
+
+def _negated(v):
+    return {"p": -v["p"], "q": v["q"]} if isinstance(v, dict) else -v
+
+
+def test_a_leading_minus_belongs_to_the_first_entry_not_the_matrix():
+    question = _question(SIGNED, "[[-5/4, 1], [3/2, -1]]")
+    for reply in _spellings(SIGNED):
+        assert grade("matrix", question, reply).correct, reply
+    for flips in itertools.product([False, True], repeat=4):
+        if not any(flips):
+            continue
+        wrong = [[_negated(v) if flips[2 * i + j] else v for j, v in enumerate(r)] for i, r in enumerate(SIGNED)]
+        for reply in _spellings(wrong):
+            assert not grade("matrix", question, reply).correct, reply
+
+
+def test_a_divisor_on_the_last_entry_does_not_scale_the_matrix():
+    question = _question([[1, 2], [3, {"p": 4, "q": 5}]], "[[1, 2], [3, 4/5]]")
+    assert grade("matrix", question, "1, 2; 3, (4)/5").correct
+    assert not grade("matrix", question, "5, 10; 15, (4)/5").correct
+    assert grade("matrix", question, "[[5, 10], [15, 4]]/5").correct
