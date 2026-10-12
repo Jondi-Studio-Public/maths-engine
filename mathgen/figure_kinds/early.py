@@ -79,8 +79,9 @@ def money(*, collections: Iterable[Iterable[str]], alt: str, labels: Iterable[st
 
     Items are drawn left to right, wrapping, in the order given. A coin is a round disc and a
     note a wider rectangle, both generic shapes with ``denom`` printed large in the middle (the
-    renderer never reproduces real currency artwork). Coins are drawn the same size whatever
-    their value, so size never hints at value. A group's ``label`` is printed above it. At most
+    renderer never reproduces real currency artwork). A renderer may give coins their real
+    relative sizes (the $2 coin smaller than the $1, the 50c the largest): size then says
+    nothing reliable about value, which is itself worth learning. A group's ``label`` is printed above it. At most
     12 items per group and 3 groups.
     """
     cols = [list(c) for c in collections]
