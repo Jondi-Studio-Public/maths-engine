@@ -121,10 +121,18 @@ def exd_x_n4_sig_fig_product(rng, tier: str = "exam"):
             return places_ - len(str(int(x * 10**places_)))
 
         padded = min(sf_u + max(0, zeros_after_point(u, pu)), sf_v + max(0, zeros_after_point(v, pv)))
+
+        # A number answer's distractors must show the answer's decimal places, or the format gives the key away. A
+        # slip is shown at those places only when that leaves its value alone (3.8688 as 3.86880), never rounded to fit.
+        def shown(value: Fraction, places_: int, tag: str) -> list[Distractor]:
+            scaled = value * 10**places_
+            return [Distractor(_text(value, places_), tag, value)] if scaled.denominator == 1 else []
+
         cands_a = [
-            Distractor(_text(product * 10, exact_places - 1), "decimal-point-one-place-too-far-right", product * 10),
-            Distractor(_text(product / 10, exact_places + 1), "decimal-point-one-place-too-far-left", product / 10),
-            Distractor(_text(u + v, max(pu, pv)), "added-instead-of-multiplied", u + v),
+            *shown(product * 10, exact_places, "decimal-point-one-place-too-far-right"),
+            *shown(product / 10, exact_places, "decimal-point-one-place-too-far-left"),
+            *shown(u + v, exact_places, "added-instead-of-multiplied"),
+            *shown(2 * (u + v), exact_places, "perimeter-for-area"),
         ]
         cands_b = [
             Distractor(str(max(sf_u, sf_v)), "used-more-precise-measurement", max(sf_u, sf_v)),
@@ -133,12 +141,12 @@ def exd_x_n4_sig_fig_product(rng, tier: str = "exam"):
         ]
         by_places = round_half_up(product, k)
         truncated = _round_sig(product, k, truncate=True)
-        cands_c = [Distractor(_text(truncated, places), "truncated-not-rounded", truncated)]
-        if by_places > 0:
-            cands_c.insert(0, Distractor(_text(by_places, k), "counts-decimal-places-not-sig-figs", by_places))
-        if product < 1 and k > 1:
-            fewer = _round_sig(product, k - 1)
-            cands_c.append(Distractor(_text(fewer, max(0, places - 1)), "counts-leading-zeros", fewer))
+        fewer = _round_sig(product, k - 1)
+        cands_c = [
+            *(shown(by_places, places, "counts-decimal-places-not-sig-figs") if by_places > 0 else []),
+            *shown(truncated, places, "truncated-not-rounded"),
+            *shown(fewer, places, "counts-leading-zeros" if product < 1 else "rounds-to-one-fewer-sig-fig"),
+        ]
         tolerance = Fraction(1, 2 * 10**places) if places else Fraction(0)
         d_a = pick_distractors(a_text, cands_a, 3, tolerance=Fraction(1, 2 * 10**exact_places))
         d_b = pick_distractors(b_text, cands_b, 3)

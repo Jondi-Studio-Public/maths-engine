@@ -58,17 +58,18 @@ def exd_x_n3_decibel_scale(rng: random.Random, tier: str = "exam") -> dict:
         [str(10 * steps), str(steps), str(2**steps), str(10 ** (steps - 1)), str(10 ** (steps + 1))],
         3,
     )
-    b_dist = pick_distractors(
-        b_text,
-        [
-            exact_decimal_string(c * 10 * steps, 1),  # difference in decibels as the multiplier
-            exact_decimal_string(c * steps, 1),  # number of steps as the multiplier
-            exact_decimal_string(c * 10 ** (steps - 1), 1),
-            exact_decimal_string(c * 2**steps, 1),
-            str(int(c * 10 ** (steps + 1))),
-        ],
-        3,
-    )
+    # The key is a whole number, so a distractor is only worth offering if it is one too: a value that needs a
+    # decimal point would give the answer away by its format. Each wrong multiplier is kept when it lands on a whole
+    # number of microwatts per square metre.
+    b_wrong = [
+        c * 10 * steps,  # difference in decibels as the multiplier
+        c * steps,  # number of steps as the multiplier
+        c * 10 ** (steps - 1),
+        Fraction(ratio),  # the ratio itself, forgetting to multiply by the quiet sound's intensity
+        c * 2**steps,
+        c * 10 ** (steps + 1),
+    ]
+    b_dist = pick_distractors(b_text, [str(int(v)) for v in b_wrong if v.denominator == 1], 3)
     c_dist = pick_distractors(
         c3_text,
         [

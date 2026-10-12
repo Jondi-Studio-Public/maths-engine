@@ -142,7 +142,7 @@ def exd_x_n4_percentage_change(rng, tier: str = "exam"):
                 1,
             ),
             _dist(_percent, Fraction(s2 * p2), "reported-last-step-only", 1),
-            _dist(_money, after_second - price, "gave-change-not-percent", 2),
+            _dist(_percent, 100 + overall, "new-as-percent-of-original", 1),
         ]
         a_text, b_text, c_text = _money(after_first), _money(after_second), _percent(overall)
         tol2, tol1 = Fraction(1, 200), Fraction(1, 20)

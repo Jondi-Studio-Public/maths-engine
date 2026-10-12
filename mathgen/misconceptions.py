@@ -534,6 +534,12 @@ _ENTRIES = (
         "Counting the zeros after the decimal point at the start of a small number as significant figures.",
         area="rounding",
     ),
+    # -- significant-figures exam tier: a rounding slip that must keep the answer's decimal places ---------------
+    CatalogueEntry(
+        "rounds-to-one-fewer-sig-fig",
+        "Rounding a calculated result to one significant figure fewer than the data allows.",
+        area="rounding",
+    ),
     CatalogueEntry(
         "used-more-precise-measurement",
         "Rounding a calculated result to the number of significant figures of the more precise measurement "
