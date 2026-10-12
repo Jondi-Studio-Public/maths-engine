@@ -6,7 +6,10 @@ description: Given a rectangular prism's three dimensions, find its capacity in 
   1 L = 1000 cm^3 and 1 m^3 = 1000 L = 1,000,000 cm^3.
 status: active
 placement_eligible: false
-prerequisites: [rectangular-prism-volume, convert-metric-capacity]
+prerequisites:
+- rectangular-prism-volume
+- convert-metric-capacity
+- senior-recognise-relations-between-volume-and-capacity-recognising-that
 answer: number
 sources:
 - topic: prism_capacity_conversion

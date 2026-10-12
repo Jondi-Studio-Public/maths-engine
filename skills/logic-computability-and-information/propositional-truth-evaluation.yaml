@@ -3,7 +3,8 @@ name: Evaluate a propositional formula
 domain: logic-computability-and-information
 description: Evaluate a small proposition from assigned truth values using negation, conjunction, disjunction and implication.
 status: active
-prerequisites: []
+prerequisites:
+- senior-use-implication-converse-equivalence-negation-contrapositive
 answer: mcq
 sources:
 - topic: propositional_truth_value

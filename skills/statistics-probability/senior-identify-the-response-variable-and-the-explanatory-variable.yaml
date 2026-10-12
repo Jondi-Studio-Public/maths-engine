@@ -6,7 +6,9 @@ domain: statistics-probability
 description: 'Given a stated study context that measures an association between two variables and also names a third recorded quantity that is not one of the pair, choose from four offered ordered pairs the one that names the explanatory variable and the response variable. The distractors are role-swapped pairs and pairs that use the third quantity, which is only ever recorded neutrally and never described as irrelevant. The stimulus never uses the words explanatory, response or dependent: direction comes from the wording alone. Four tiers: easy, the researcher sets the level of one quantity and measures the other; medium, an observational study whose aim uses an influence verb (one quantity influences or affects the other); hard, two analyses (the sample is split by the third quantity to compare subgroup means, and a line of best fit predicts one quantity from another) and a question about the association the line of best fit describes, so the learner picks the right analysis and applies predicted quantity = response; exam, a scatterplot with the two variables on the horizontal and vertical axes, points coloured or labelled by the third quantity and a least-squares line to be fitted for making predictions, without saying which quantity is predicted, so the learner applies horizontal = explanatory, vertical = response.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- classify-data
+- variable-concept
 answer: mcq
 sources:
 - topic: p19b_response_variable

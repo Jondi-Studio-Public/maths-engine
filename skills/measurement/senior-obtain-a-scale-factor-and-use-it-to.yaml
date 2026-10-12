@@ -6,7 +6,9 @@ domain: measurement
 description: Given bounded, fully specified inputs, obtain a scale factor and use it to solve scaling problems involving the calculation of the areas of similar figures. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: [convert-metric-length]
+prerequisites:
+- convert-metric-length
+- senior-use-the-scale-factor-for-two-similar-figures
 answer: number
 sources:
 - topic: scale_factor_similar_areas

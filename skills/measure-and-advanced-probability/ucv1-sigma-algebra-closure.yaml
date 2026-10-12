@@ -4,7 +4,8 @@ domain: measure-and-advanced-probability
 description: Decide whether a supplied finite family of subsets is closed under complement and finite union.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- finite-set-operations
 answer: mcq
 sources:
 - topic: p15c_sigma_algebra_closure

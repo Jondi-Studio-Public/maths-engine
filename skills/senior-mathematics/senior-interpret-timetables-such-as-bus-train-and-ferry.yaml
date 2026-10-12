@@ -8,7 +8,9 @@ description: Given a stated timetable of several services' scheduled times at na
   named stop that reaches a second named stop by a stated time.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-timetable-itinerary-duration
+- convert-time-systems
 answer: mcq
 sources:
 - topic: p19i_timetable_latest_service

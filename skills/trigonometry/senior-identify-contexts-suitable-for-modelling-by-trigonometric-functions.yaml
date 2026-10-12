@@ -6,7 +6,9 @@ domain: trigonometry
 description: "Given a stated real-world periodic scenario modelled by a sinusoidal function with stated amplitude, period and starting condition, compute the numeric value of the modelled quantity (for example height or depth) at a stated time. Amplitude, period and starting condition are always fully stated in words; the function itself is never shown and the learner is never asked to identify or choose a suitable context."
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-understand-the-unit-circle-definition-of-cos-theta
+- angle-degrees-radians-pi-form
 answer: number
 sources:
 - topic: p19g_sinusoid_evaluate_context

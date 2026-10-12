@@ -9,7 +9,9 @@ deferred_reason: visual
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- differentiate-polynomial
+- integrate-polynomial
 answer: number
 sources:
 - topic: pv1f_ftc_derivative_read

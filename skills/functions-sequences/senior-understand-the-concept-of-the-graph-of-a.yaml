@@ -9,7 +9,9 @@ deferred_reason: visual
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- function-notation
+- coordinate-plane-readiness
 answer: mcq
 sources:
 - topic: pv1f_graph_is_function

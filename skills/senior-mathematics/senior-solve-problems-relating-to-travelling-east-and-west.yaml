@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given a travel journey's departure and arrival local clock times, its direction (east/west), flight duration and an explicit calendar-day label, find the magnitude of the time-zone difference between the two places.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-find-time-differences-between-two-places-on-earth
 answer: number
 sources:
 - topic: travel_east_west_zone_difference

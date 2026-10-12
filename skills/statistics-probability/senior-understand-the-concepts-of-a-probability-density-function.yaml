@@ -15,7 +15,9 @@ description: >-
   bound exactly at a support endpoint, requiring the learner to recognise the density is 0 outside it).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-examine-simple-examples-of-non-uniform-discrete-random
+- integrate-polynomial
 answer: number
 sources:
 - topic: p19c_density_probability

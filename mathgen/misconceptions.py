@@ -173,6 +173,33 @@ _ENTRIES = (
         "Treating a percentage as a fixed amount: undoing a 20% rise by subtracting 20.",
         area="percentages",
     ),
+    # -- sequences ------------------------------------------------------------------------------------------------
+    CatalogueEntry(
+        "term-position-off-by-one",
+        "Using the wrong term position: counting from zero when the first term is n = 1, or going one term too far.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "explicit-rule-applied-to-previous-term",
+        "Treating an explicit rule as if it built each term from the one before: finding the previous term, then "
+        "putting that value into the rule again.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "iteration-stopped-early",
+        "Stopping the repeated rule one term short, so the answer is the previous term in the sequence.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "wrong-order-of-operations",
+        "Doing the operations in the wrong order: subtracting before multiplying, or adding before multiplying.",
+        area="general",
+    ),
+    CatalogueEntry(
+        "square-applied-to-coefficient",
+        "Squaring the whole product a n instead of only n, so 3n^2 at n = 4 is read as (3 × 4)^2.",
+        area="functions",
+    ),
 )
 
 #: Every entry, by id.

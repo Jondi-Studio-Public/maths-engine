@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use the Leibniz notation δx and δy for changes or increments in the variables x and y. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- function-notation
+- rate-of-change
 answer: pair
 sources:
 - topic: p9c_leibniz_delta_x_delta_y_increments

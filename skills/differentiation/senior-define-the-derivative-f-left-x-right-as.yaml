@@ -8,6 +8,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - differentiate-polynomial
+- senior-examine-the-behaviour-of-the-difference-quotient-frac
 answer: expression
 sources:
 - topic: define_the_derivative_f_left_x_right_as

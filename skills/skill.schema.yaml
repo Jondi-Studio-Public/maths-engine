@@ -132,8 +132,24 @@ properties:
     description: 'For answer: rubric. Names the versioned rubric that marks the answer.'
     $ref: '#/$defs/rubric'
   difficulty_progression:
-    description: Prose saying how the tiers escalate in reasoning. Not read by the loader.
-    type: string
+    description: 'How the tiers escalate in reasoning. Structured: one entry per tier the sources use, each
+      with the number of reasoning steps a learner must chain and a sentence saying which; validate() rejects
+      a harder tier that asks fewer steps than an easier one. Older skills carry the same thing as prose,
+      which nothing checks.'
+    oneOf:
+    - type: string
+    - type: object
+      additionalProperties: false
+      minProperties: 1
+      properties:
+        easy:
+          $ref: '#/$defs/tier_demand'
+        medium:
+          $ref: '#/$defs/tier_demand'
+        hard:
+          $ref: '#/$defs/tier_demand'
+        exam:
+          $ref: '#/$defs/tier_demand'
 allOf:
 - if:
     properties:
@@ -179,6 +195,22 @@ allOf:
         const: true
   then: false
 $defs:
+  tier_demand:
+    description: What one tier asks of a learner.
+    type: object
+    additionalProperties: false
+    required:
+    - steps
+    - demand
+    properties:
+      steps:
+        description: Reasoning steps the learner must chain, at least 1.
+        type: integer
+        minimum: 1
+      demand:
+        description: One sentence naming those steps.
+        type: string
+        minLength: 1
   source:
     description: 'One entry of sources: mathgen.make(topic, seed=..., difficulty=..., **params).'
     type: object

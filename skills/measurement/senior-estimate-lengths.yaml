@@ -6,7 +6,9 @@ domain: measurement
 description: Given bounded, fully specified inputs, estimate lengths. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: [convert-metric-length]
+prerequisites:
+- convert-metric-length
+- senior-review-metric-units-of-length-their-abbreviations-conversions
 answer: mcq
 sources:
 - topic: estimate_length_reference

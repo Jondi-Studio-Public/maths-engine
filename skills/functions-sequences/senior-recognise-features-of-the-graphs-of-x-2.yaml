@@ -9,7 +9,9 @@ deferred_reason: visual
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- distance-two-points
+- midpoint-two-points
 answer: pair
 sources:
 - topic: pv1d_circle_centre

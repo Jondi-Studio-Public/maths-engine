@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use implication, converse, equivalence, negation, contrapositive. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow
+- senior-use-examples-and-counter-examples
 answer: mcq
 sources:
 - topic: implication_transform_identify

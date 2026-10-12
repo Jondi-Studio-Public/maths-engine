@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, review the conditions for similarity of two-dimensional figures including similar triangles. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-congruence-similarity-criteria
 answer: mcq
 sources:
 - topic: similarity_conditions_classify

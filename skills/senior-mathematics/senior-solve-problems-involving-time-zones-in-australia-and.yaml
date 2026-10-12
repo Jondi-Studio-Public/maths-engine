@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given each named place's standard UTC offset and an explicit sentence stating whether it is currently observing daylight saving, work out the magnitude of the current time difference between two Australian and/or neighbouring places, applying the daylight-saving allowance yourself where it applies.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-find-time-differences-between-two-places-on-earth
 answer: number
 sources:
 - topic: australia_timezone_conversion

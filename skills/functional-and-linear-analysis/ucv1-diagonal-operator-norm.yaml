@@ -4,7 +4,9 @@ domain: functional-and-linear-analysis
 description: Compute the Euclidean operator norm of a supplied 2-by-2 diagonal linear map.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- vector-magnitude
+- matrix-multiplication
 answer: number
 sources:
 - topic: p15c_diagonal_operator_norm

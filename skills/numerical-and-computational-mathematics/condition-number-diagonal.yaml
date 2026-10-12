@@ -3,7 +3,9 @@ name: Compute a diagonal matrix condition number
 domain: numerical-and-computational-mathematics
 description: Compute the 2-norm condition number of a nonsingular positive 2 by 2 diagonal matrix.
 status: active
-prerequisites: [matrix-determinant-2x2]
+prerequisites:
+- matrix-determinant-2x2
+- ucv1-diagonal-operator-norm
 answer: fraction
 sources:
 - topic: condition_number_diagonal

@@ -18,7 +18,8 @@ description: 'Given stated definite-integral VALUES (for example the integral of
   only combines already-evaluated integral values.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- definite-integral
 answer: number
 sources:
 - topic: p19f_integral_additivity_linearity

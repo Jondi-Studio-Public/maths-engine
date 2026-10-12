@@ -4,7 +4,9 @@ domain: measure-and-advanced-probability
 description: Compute the product measure of two supplied measurable finite sets from their component measures.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ucv1-sigma-algebra-closure
+- rectangle-area
 answer: fraction
 sources:
 - topic: p15c_product_measure_rectangle

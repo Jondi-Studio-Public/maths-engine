@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given two named places, each with its own stated "reasonable hours to call" window in its own local time and a UTC offset (stated directly, derived via a daylight-saving allowance, or looked up from a stated zone-abbreviation key), work out the length of the daily window during which both places' reasonable-hours-to-call windows overlap.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-find-time-differences-between-two-places-on-earth
 answer: number
 sources:
 - topic: timezone_call_window_overlap

@@ -9,7 +9,9 @@ deferred_reason: visual
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-exponential-relations-equations
+- senior-review-indices-including-fractional-indices-and-the-index
 answer: pair
 sources:
 - topic: pv1e_exp_asymptote

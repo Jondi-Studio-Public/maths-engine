@@ -6,6 +6,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - combine-like-terms
+- senior-identify-the-coefficients-and-the-degree-of-a
 answer: mcq
 sources:
 - topic: polynomial_classify

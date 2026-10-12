@@ -9,7 +9,9 @@ deferred_reason: visual
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- coordinate-plane-readiness
+- rate-of-change
 answer: fraction
 sources:
 - topic: pv1b_distance_time

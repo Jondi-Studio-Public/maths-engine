@@ -10,7 +10,9 @@ deferred_reason: visual
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- evaluate-powers
+- function-notation
 answer: mcq
 sources:
 - topic: pv1e_power_end_behaviour

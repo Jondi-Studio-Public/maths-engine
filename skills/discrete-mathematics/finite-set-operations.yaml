@@ -3,7 +3,8 @@ name: Compute finite set operations
 domain: discrete-mathematics
 description: Compute union, intersection, difference or symmetric difference for explicitly listed finite sets.
 status: active
-prerequisites: []
+prerequisites:
+- senior-use-everyday-occurrences-to-illustrate-set-descriptions-and
 answer: list
 sources:
 - topic: finite_set_operations

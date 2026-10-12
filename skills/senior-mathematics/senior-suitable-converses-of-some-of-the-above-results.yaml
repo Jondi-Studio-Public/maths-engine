@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, Suitable converses of some of the above results. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-implication-converse-equivalence-negation-contrapositive
+- senior-the-opposite-angles-of-a-cyclic-quadrilateral-are
 answer: mcq
 sources:
 - topic: circle_theorem_converses_classify

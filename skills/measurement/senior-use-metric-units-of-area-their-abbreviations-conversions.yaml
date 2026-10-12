@@ -6,7 +6,9 @@ domain: measurement
 description: Convert an area measurement between metric units.
 status: active
 placement_eligible: false
-prerequisites: [convert-metric-length]
+prerequisites:
+- convert-metric-length
+- senior-review-metric-units-of-length-their-abbreviations-conversions
 answer: number
 sources:
 - topic: use_metric_units_of_area
