@@ -43,6 +43,7 @@ from mathgen.grading.safe_parse import (
     too_costly,
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
+from mathgen.grading.units import unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
 from mathgen.text_quality import requested_rounding
@@ -66,6 +67,23 @@ def _label_name(text: str | None) -> str | None:
     """The variable a reply or canonical is labelled with ("x" in "x = 3"), or None when it has no label."""
     match = _LABEL_RE.match(text or "")
     return match.group(0).split("=")[0].strip() if match else None
+
+
+_VARIABLE_LABEL_RE = re.compile(r"[^\W\d_]\d?")  # "x", "λ", "x1": a variable, not a word or a function
+
+
+def _label_fits(question, canonical: str | None, label: str | None) -> bool:
+    """Whether a reply's label may be dropped: it is the canonical's own label, or the canonical has none and the
+    label is a single variable the question's text names ("x" in "Solve 3^x = 27")."""
+    if label is None:
+        return False
+    canonical_label = _label_name(canonical)
+    if canonical_label is not None:
+        return label == canonical_label
+    if not _VARIABLE_LABEL_RE.fullmatch(label):
+        return False
+    text = getattr(question, "text", None) or ""
+    return re.search(rf"(?<![^\W\d_]){re.escape(label)}(?![^\W\d_])", text) is not None
 
 
 _RATIO_RE = re.compile(r"^(-?)\s*(\d+)\s*:\s*(\d+)$")
@@ -577,6 +595,8 @@ def grade_number(question, given: str) -> GradeResult:
     correct = value is not None and (value == resolved.target or abs(value - resolved.target) <= resolved.tolerance)
     if correct and not _is_rounded_as_asked(question, given):
         correct = False
+    if correct and not unit_is_acceptable(question, given):
+        correct = False  # "30 kg" for "Convert 3 cm to mm": see mathgen.grading.units
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
@@ -634,9 +654,9 @@ def grade_fraction(question, given: str) -> GradeResult:
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         given_normalised = _normalised_values(given)
         parsed = _parse_typed_fraction(given)
-        if parsed is None and _label_name(canonical) is not None and _label_name(given) == _label_name(canonical):
-            # "x = 50/7" for a canonical shown as "x = 50/7". Only with the canonical's own label: for a bare "7"
-            # a labelled reply stays wrong, as before, and "y = 50/7" is wrong for x.
+        if parsed is None and _label_fits(question, canonical, _label_name(given)):
+            # "x = 50/7" for a canonical shown as "x = 50/7", or "x = 3" for a bare "3" when the question is about
+            # x ("Solve 3^x = 27"). "y = 50/7" is wrong for x, and so is a label the question never names.
             given = _strip_label(given)
             parsed = _parse_typed_fraction(given)
         if parsed is None:
@@ -2367,7 +2387,13 @@ _INDEX_RE = re.compile(r"-?\d{1,9}")
 def grade_mcq(question, given: str) -> GradeResult:
     options = mcq_options(question)
     canonical = question.answer_text
-    match = _INDEX_RE.search(given or "")
+    if isinstance(given, int) and not isinstance(given, bool):
+        # The documented reply is the option's 0-based index, and a library caller passes it as an int; the regex
+        # below takes text, so an int raised and every such reply was marked wrong.
+        given = str(given)
+    if not isinstance(given, str):
+        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    match = _INDEX_RE.search(given)
     if not match:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     idx = int(match.group())
