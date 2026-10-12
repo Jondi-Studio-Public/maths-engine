@@ -9,6 +9,7 @@ from mathgen.grading.typed import grade_number
 from mathgen.skills import load_skills
 from mathgen import make
 from mathgen.core import VerificationError
+from mathgen.figure_kinds.early import counters_total
 from mathgen.generators.primary_number_multiplication_build import (
     _digit_multiply_carries,
     _no_carry_multiply,
@@ -153,27 +154,28 @@ def test_multiply_divide_correct_grades_correct_and_distractors_grade_incorrect(
             assert not grade_number(question, distractor).correct
 
 
+def _stated_total(question) -> int:
+    return int(re.search(r"\d+", question.text).group())
+
+
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
 def test_multiply_divide_never_produces_a_remainder(difficulty):
     """The skill's own exclusion: division here must never leave a
     remainder. Every question is built from a groups * each = total triple;
-    asserted directly against the actual numbers parsed out of the
-    generated question text at every seed, not merely inferred from the
-    construction parameters."""
+    asserted directly against the quantities read out of the picture (and the
+    stated total) at every seed, not merely inferred from the construction
+    parameters."""
     for seed in SEEDS:
         question = make("multiply_divide_one_digit_arrays", seed=seed, difficulty=difficulty)
+        fig = question.figure
         if difficulty == "easy":
-            m = re.search(r"(\d+) equal groups with (\d+) counters", question.text)
-            groups, each = int(m.group(1)), int(m.group(2))
-            assert question.answer == groups * each
+            assert question.answer == counters_total(fig)
         elif difficulty == "medium":
-            m = re.search(r"(\d+) counters are shared equally into (\d+) equal groups", question.text)
-            total, groups = int(m.group(1)), int(m.group(2))
+            total, groups = _stated_total(question), len(fig["groups"])
             assert total % groups == 0
             assert question.answer == total // groups
         else:
-            m = re.search(r"(\d+) counters are arranged into equal groups of (\d+)", question.text)
-            total, each = int(m.group(1)), int(m.group(2))
+            total, each = _stated_total(question), fig["groups"][0]
             assert total % each == 0
             assert question.answer == total // each
 
@@ -181,10 +183,13 @@ def test_multiply_divide_never_produces_a_remainder(difficulty):
 def test_multiply_divide_easy_is_find_total_multiplication():
     for seed in SEEDS:
         question = make("multiply_divide_one_digit_arrays", seed=seed, difficulty="easy")
-        assert "altogether" in question.text
-        m = re.search(r"(\d+) equal groups with (\d+) counters", question.text)
-        assert m
-        groups, each = int(m.group(1)), int(m.group(2))
+        assert "altogether" in question.text or "in all" in question.text
+        fig = question.figure
+        if fig["layout"] == "array":
+            groups, each = fig["rows"], fig["cols"]
+        else:
+            groups, each = len(fig["groups"]), fig["groups"][0]
+            assert set(fig["groups"]) == {each}  # equal groups
         assert 2 <= groups <= 9
         assert 2 <= each <= 9
         assert question.answer == groups * each
@@ -193,10 +198,11 @@ def test_multiply_divide_easy_is_find_total_multiplication():
 def test_multiply_divide_medium_is_find_each_partitive_division():
     for seed in SEEDS:
         question = make("multiply_divide_one_digit_arrays", seed=seed, difficulty="medium")
-        assert "How many counters are in each group?" in question.text
-        m = re.search(r"(\d+) counters are shared equally into (\d+) equal groups", question.text)
-        assert m
-        total, groups = int(m.group(1)), int(m.group(2))
+        assert "each group" in question.text
+        fig = question.figure
+        assert fig["layout"] == "groups" and not any(fig["groups"])  # empty groups to share into
+        total, groups = _stated_total(question), len(fig["groups"])
+        assert 2 <= groups <= 9
         assert total % groups == 0
         assert question.answer == total // groups
 
@@ -204,10 +210,11 @@ def test_multiply_divide_medium_is_find_each_partitive_division():
 def test_multiply_divide_hard_is_find_groups_quotitive_division():
     for seed in SEEDS:
         question = make("multiply_divide_one_digit_arrays", seed=seed, difficulty="hard")
-        assert "How many equal groups are there?" in question.text
-        m = re.search(r"(\d+) counters are arranged into equal groups of (\d+)", question.text)
-        assert m
-        total, each = int(m.group(1)), int(m.group(2))
+        assert "groups" in question.text and "how many" in question.text.lower()
+        fig = question.figure
+        assert fig["layout"] == "groups" and len(fig["groups"]) == 1  # one example group
+        total, each = _stated_total(question), fig["groups"][0]
+        assert 2 <= each <= 9
         assert total % each == 0
         assert question.answer == total // each
 

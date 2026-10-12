@@ -40,10 +40,12 @@ framework ``acara-f10-v9``.
   two target areas -- prerequisites ``multiplication-facts``,
   ``equal-groups``, ``whole-number-division-facts``) -- given a one-digit
   multiplication or division situation framed via equal groups or arrays,
-  compute the result. The graded deliverable is the
-  computed number -- representing the situation with arrays, diagrams or
-  number sentences is a representation mode, not a second graded field, so no visual/diagram
-  artefact is ever required or checked. Division never produces a remainder:
+  compute the result. The graded deliverable is the computed number. The
+  situation is drawn with the ``counters`` figure kind (equal groups or an
+  array): at ``easy`` the picture is the whole situation and the learner
+  reads the group count and group size from it; at ``medium`` it is the
+  empty groups to share into (the total is stated); at ``hard`` it is one
+  example group (the total is stated). Division never produces a remainder:
   every question is built from a known ``groups * each = total`` triple, so
   it always divides exactly (verified explicitly, not just assumed by
   construction). Difficulty is driven by situational framing and which
@@ -68,7 +70,12 @@ framework ``acara-f10-v9``.
 
 from __future__ import annotations
 
+import re
+
+from .. import figures
 from ..core import check, generator, pick_distractors
+from ..figure_kinds.early import counters, counters_total
+from ..slots import NAMES
 
 # -- multidigit_multiplication -----------------------------------------------
 
@@ -257,6 +264,27 @@ def multidigit_multiplication(
 
 _VARIANTS = ("find_total", "find_each", "find_groups")
 
+_TEXT_TOTAL_GROUPS = (
+    "{n} puts counters in equal groups. How many counters altogether?",
+    "{n} sees equal groups of counters. How many counters in all?",
+    "How many counters are there altogether in these equal groups? {n} is counting.",
+)
+_TEXT_TOTAL_ARRAY = (
+    "{n} lines up counters in rows. How many counters altogether?",
+    "The counters make an array. How many counters in all, {n} asks?",
+    "{n} looks at an array. How many counters are there altogether?",
+)
+_TEXT_EACH = (
+    "{t} counters are shared equally into these groups. How many counters are in each group?",
+    "Share {t} counters equally between these groups. How many counters does each group get?",
+    "{t} counters go into these equal groups. How many counters are in each group?",
+)
+_TEXT_GROUPS = (
+    "{t} counters are put into equal groups like this one. How many equal groups are there?",
+    "Every group has this many counters. {t} counters make equal groups. How many equal groups?",
+    "{t} counters are split into groups the same size as this one. How many groups are there?",
+)
+
 
 def _verify_multiplication_repeated_addition(each: int, groups: int, total: int) -> None:
     """Independent check for the ``find_total`` (multiplication) variant:
@@ -331,7 +359,12 @@ def multiply_divide_one_digit_arrays(rng, variant="find_total", groups_range=(2,
         answer = total
         _verify_multiplication_repeated_addition(each, groups, total)
         addition_line = " + ".join([str(each)] * groups)
-        text = f"There are {groups} equal groups with {each} counters in each group. How many counters altogether?"
+        if rng.random() < 0.5:
+            fig = counters(layout="groups", alt="equal groups of counters", groups=[each] * groups)
+            text = rng.choice(_TEXT_TOTAL_GROUPS).format(n=rng.choice(NAMES))
+        else:
+            fig = counters(layout="array", alt="counters in an array of rows and columns", rows=groups, cols=each)
+            text = rng.choice(_TEXT_TOTAL_ARRAY).format(n=rng.choice(NAMES))
         working = [
             f"{groups} groups of {each}.",
             f"Repeated addition: {addition_line} = {answer}.",
@@ -341,7 +374,8 @@ def multiply_divide_one_digit_arrays(rng, variant="find_total", groups_range=(2,
     elif variant == "find_each":
         answer = each
         _verify_division_reconstructs(answer, groups, total)
-        text = f"{total} counters are shared equally into {groups} equal groups. How many counters are in each group?"
+        fig = counters(layout="groups", alt="empty groups to share counters into", groups=[0] * groups)
+        text = rng.choice(_TEXT_EACH).format(t=total)
         working = [
             f"{total} shared equally into {groups} groups.",
             f"{groups} × {answer} = {total}, so each group has {answer}.",
@@ -351,7 +385,8 @@ def multiply_divide_one_digit_arrays(rng, variant="find_total", groups_range=(2,
     else:  # find_groups
         answer = groups
         _verify_division_reconstructs(answer, each, total)
-        text = f"{total} counters are arranged into equal groups of {each}. How many equal groups are there?"
+        fig = counters(layout="groups", alt="one group of counters", groups=[each])
+        text = rng.choice(_TEXT_GROUPS).format(t=total)
         working = [
             f"{total} split into groups of {each}.",
             f"{answer} × {each} = {total}, so there are {answer} groups.",
@@ -374,6 +409,8 @@ def multiply_divide_one_digit_arrays(rng, variant="find_total", groups_range=(2,
         candidates.append(str(confusion_candidate))
     candidates.append(str(off_by_one))
 
+    figures.assert_no_leak(fig, [str(answer)])
+    check(_read_arrays(fig, text) == str(answer), "the picture does not show the keyed answer")
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -382,4 +419,21 @@ def multiply_divide_one_digit_arrays(rng, variant="find_total", groups_range=(2,
         answer_latex=str(answer),
         working=working,
         distractors=pick_distractors(str(answer), candidates),
+        figure=fig,
     )
+
+
+def _read_arrays(fig: dict, text: str) -> str:
+    """Re-derive the answer from the picture (and the total the prompt states, for the two division tiers)."""
+    stated = re.search(r"\d+", text)
+    if stated is None:  # nothing stated: the multiplication tier, the whole picture is the total
+        return str(counters_total(fig))
+    total = int(stated.group())
+    rings = fig["groups"]
+    if not any(rings):  # empty rings to share into: the number of rings is the divisor
+        return str(total // len(rings))
+    check(len(rings) == 1, "the grouping question shows one example group")
+    return str(total // rings[0])
+
+
+figures.register_reader("multiply_divide_one_digit_arrays", lambda q: _read_arrays(q.figure, q.text))

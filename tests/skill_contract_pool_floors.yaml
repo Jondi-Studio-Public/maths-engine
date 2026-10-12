@@ -29,8 +29,6 @@ condition-number-diagonal:
   condition_number_diagonal/easy: 18
 continue-patterns:
   repeating_pattern/easy: 4
-count-to-5:
-  count_objects/easy: 19
 define-variables:
   define_variable/easy: 3
 equal-groups:

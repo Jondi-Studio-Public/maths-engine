@@ -1,0 +1,31 @@
+id: f10-money-count-collection
+name: Count the value of a collection of coins
+domain: early-foundations
+learner_band: primary
+description: Read a picture of Australian coins and give its total in cents, then say how many more cents are needed to reach one or two dollars.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [australian-coin-values, skip-count-2-5-10]
+answer: number
+sources:
+- topic: money_count_collection
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: money_count_collection
+  difficulty: medium
+  stages: [3, 4]
+- topic: money_count_collection
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-coins-not-value
+  description: Gives the number of coins instead of their value in cents.
+- id: dollar-coin-as-one
+  description: Counts a dollar coin as 1 cent instead of 100 cents.
+- id: misses-or-repeats-a-coin
+  description: Leaves one coin out of the total, or counts one twice.
+- id: stops-at-the-total
+  description: Gives the value of the coins when asked how many more cents are needed.
+tags: [acara-f10-v9, early, money, coins, ac9m2n06]
