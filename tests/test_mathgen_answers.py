@@ -96,6 +96,24 @@ _NUMBER_RE = re.compile(r"-?\d+(?:\.\d+)?")
 _FRACTION_RE = re.compile(r"^-?(\d+)/(\d+)$")
 
 
+# A table answer names each blank before its value ("Month 3 Interest ($) = 67.66"). The
+# label is given text, not an asked value, so its digits are not held to the precision; a
+# blank labelled "(count)" is a whole number by its own label.
+_COUNT_PAIR_RE = re.compile(r"(^|,)[^,=]*\(count\)\s*=\s*-?\d+(?=,|$)")
+_LABEL_RE = re.compile(r"(^|,)[^,=]*=")
+
+
+def _asked_values(answer_text):
+    return _LABEL_RE.sub(r"\1=", _COUNT_PAIR_RE.sub(r"\1", answer_text))
+
+
+def test_asked_values_drops_labels_and_counts_only():
+    assert _asked_values("Month 3 Interest ($) = 67.66, Month 3 Closing ($) = 6394.01") == "= 67.66,= 6394.01"
+    assert _asked_values("18 to 34 TV (count) = 60, 18 to 34 TV (%) = 48.0") == ",= 48.0"
+    assert _asked_values("x = 0.2, y = 2") == "= 0.2,= 2"
+    assert _asked_values("0.25 or 1.5") == "0.25 or 1.5"
+
+
 @pytest.mark.parametrize("topic", BUILD_TOPICS)
 def test_answer_honours_its_own_stated_precision(topic):
     """An answer asked for to N decimal places is shown to N decimal places.
@@ -119,7 +137,7 @@ def test_answer_honours_its_own_stated_precision(topic):
                     # "Show h is 11.0 cm to 1 d.p. ... write down the exact value of h^2": the 1 d.p. is
                     # about the quantity shown in the prompt, and the answer asked for is exact.
                     continue
-                tokens = _NUMBER_RE.findall(answer_text or "")
+                tokens = _NUMBER_RE.findall(_asked_values(answer_text or ""))
                 if re.search(r"\bas an integer\b", prompt):
                     # The prompt asks for one value as an integer and the rest to `places`
                     # ("R as an integer and alpha to 1 d.p."), so one whole number is allowed.
