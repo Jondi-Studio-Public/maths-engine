@@ -12,6 +12,7 @@ from fractions import Fraction
 from sympy import symbols, expand, latex, Rational, solve, Eq, Poly, pi, simplify, together
 
 from ..core import (
+    draw_until,
     generator,
     check,
     pick_distractors,
@@ -1031,10 +1032,15 @@ def _coordinates_fourth_vertex(rng, hi):
 def coordinates(rng, kind="read", hi=9):
     if kind == "fourth_vertex":
         return _coordinates_fourth_vertex(rng, hi)
-    px = rng.randint(-hi, hi)
-    py = rng.randint(-hi, hi)
-    while px == 0 and py == 0:
-        px, py = rng.randint(-hi, hi), rng.randint(-hi, hi)
+    if hi < 1:
+        raise ValueError("coordinates needs hi >= 1: the point must not be the origin, so some coordinate is nonzero")
+    # Redraw until the point is not the origin (a point "0 units from the origin" has no direction words).
+    px, py = draw_until(
+        rng,
+        lambda r: (r.randint(-hi, hi), r.randint(-hi, hi)),
+        lambda point: point != (0, 0),
+        what="a point other than the origin",
+    )
     h_word = f"{abs(px)} units {'right' if px >= 0 else 'left'}"
     v_word = f"{abs(py)} units {'up' if py >= 0 else 'down'}"
     text = f"A point is {h_word} and {v_word} from the origin. Write its coordinates (x, y)."
