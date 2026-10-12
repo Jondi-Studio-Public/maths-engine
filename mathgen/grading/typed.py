@@ -185,7 +185,7 @@ class GradeResult:
     canonical: str
     given_normalised: str | None = None
     note: str | None = None  # Resolved misconception/near-miss text
-    note_kind: str | None = None  # "misconception" or "near_miss"; None when `note` is None
+    note_kind: str | None = None  # "misconception", "near_miss" or "unreadable_parts"; None when `note` is None
     cells: dict[str, bool] | None = None  # table: per-blank verdict, keyed "r,c"
     misconception: str | None = None  # id of the tagged distractor a wrong reply matched (mathgen/misconceptions.py)
     matched_distractor: str | None = None  # that distractor's option text, the key for its `distractor_credit`
