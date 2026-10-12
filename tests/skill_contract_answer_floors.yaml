@@ -1,8 +1,8 @@
 # Generated floor data, do not hand-edit: python scripts/build_contract_floors.py
-# skill: {topic/difficulty: distinct answers over the 60-seed sweep}. Tiers below
-# 6 distinct answers, the backlog of tiers a learner can pass by guessing; the
-# answers check holds each at its count and fails once it reaches 6 (remove it).
-# May only shrink or rise.
+# skill: {topic/difficulty: distinct answers over the 60-seed sweep}. Tiers below the minimum
+# (12 for a typed exam tier, else 6), the backlog of tiers a learner can pass
+# by guessing; the answers check holds each at exactly its count, so a widened tier is recorded again,
+# and fails once it reaches the minimum (remove it). Counts may only rise and entries only go.
 angle-types:
   classify_angle/easy: 5
 arithmetic-properties:
@@ -126,6 +126,8 @@ name-basic-shapes:
   shape_names/easy: 4
 percentage-change:
   percentage_change/easy: 4
+permutations:
+  exd_x_h2_permutations/exam: 9
 probability-representations:
   probability_representation/easy: 5
 propositional-formula-equivalence:
@@ -136,6 +138,8 @@ propositional-truth-evaluation:
   propositional_truth_value/easy: 2
   propositional_truth_value/hard: 2
   propositional_truth_value/medium: 2
+pythagorean-leg:
+  trigonometry/exam: 11
 rearrange-simple-formulas:
   rearrange/hard: 2
   rearrange/medium: 4
@@ -143,6 +147,8 @@ senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations:
   reasonableness_verdict/easy: 4
   reasonableness_verdict/hard: 4
   reasonableness_verdict/medium: 4
+senior-calculate-float-times-for-non-critical-activities:
+  exd_x_g6_delay_propagation/exam: 6
 senior-check-results-of-calculations-for-accuracy:
   locate_calculation_error/easy: 4
   locate_calculation_error/hard: 4
@@ -152,6 +158,8 @@ senior-compare-the-characteristics-of-the-shape-of-histograms:
   p19b_histogram_shape/exam: 4
   p19b_histogram_shape/hard: 4
   p19b_histogram_shape/medium: 4
+senior-consider-similar-problems-involving-compounding-for-example-population:
+  exd_x_g6_compound_threshold/exam: 7
 senior-convert-between-grams-and-milligrams:
   exd_x_grams_dose/exam: 4
 senior-convert-between-units-for-rates-for-example-km:
@@ -166,6 +174,8 @@ senior-define-the-imaginary-number-i-as-a-root:
   imaginary_number_i_root/medium: 4
 senior-define-the-natural-logarithm-ln-x-log-ex:
   natural_logarithm_define/easy: 4
+senior-describe-the-association-between-two-numerical-variables-in:
+  p19b_association_describe/exam: 10
 senior-determine-the-coordinates-of-the-midpoint-of-two:
   midpoint_coordinate_scalar/easy: 5
 senior-distinguish-between-causality-and-correlation-through-examples:
@@ -191,6 +201,7 @@ senior-examine-the-approximate-normality-of-the-distribution-of:
 senior-examine-the-relationship-between-the-angle-of-inclination:
   angle_of_inclination_gradient/easy: 3
   angle_of_inclination_gradient/hard: 2
+  exd_x_f5_incl/exam: 8
 senior-examine-the-three-cases-for-solutions-of-systems:
   pv0b_system_cases/easy: 3
   pv0b_system_cases/exam: 3
@@ -258,6 +269,8 @@ senior-recognise-the-need-for-milligrams:
   p19h_need_for_milligrams/exam: 4
   p19h_need_for_milligrams/hard: 4
   p19h_need_for_milligrams/medium: 4
+senior-represent-a-scalar-multiple-of-a-vector:
+  exd_x_g3_vec_scalar/exam: 8
 senior-review-probability-as-a-measure-of-the-likelihood:
   exd_x_s3_likelihood/exam: 3
   probability_likelihood_compare/easy: 2
@@ -275,12 +288,16 @@ senior-review-the-probability-scale-0-leq-p-a:
   probability_scale_classify/easy: 3
   probability_scale_classify/hard: 3
   probability_scale_classify/medium: 3
+senior-solve-problems-involving-bearings:
+  exd_x_bearings_cosine/exam: 11
 senior-solve-problems-involving-time-zones-in-australia-and:
   australia_timezone_conversion/easy: 3
   australia_timezone_conversion/medium: 5
 senior-solve-problems-relating-to-travelling-east-and-west:
   travel_east_west_zone_difference/easy: 2
   travel_east_west_zone_difference/medium: 4
+senior-solve-small-scale-network-flow-problems-including-the:
+  exd_x_g6_flow_upgrade/exam: 8
 senior-suitable-converses-of-some-of-the-above-results:
   circle_theorem_converses_classify/easy: 2
   circle_theorem_converses_classify/hard: 2
@@ -292,6 +309,8 @@ senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
   p19e_geometric_limit_class/medium: 3
 senior-understand-the-unit-circle-definition-of-cos-theta:
   p19g_unit_circle_coordinates/easy: 5
+senior-use-arithmetic-sequences-to-model-and-analyse-practical:
+  p12b_arith_seq_general/exam: 10
 senior-use-ests-and-lsts-to-locate-the-critical:
   p10c_critical_path_locate/easy: 2
   p10c_critical_path_locate/hard: 2
@@ -299,6 +318,8 @@ senior-use-ests-and-lsts-to-locate-the-critical:
 senior-use-examples-and-counter-examples:
   counterexample_identify/easy: 2
   counterexample_identify/medium: 2
+senior-use-forward-and-backward-scanning-to-determine-the:
+  exd_x_g6_missing_duration/exam: 11
 senior-use-implication-converse-equivalence-negation-contrapositive:
   implication_transform_identify/hard: 2
   implication_transform_identify/medium: 2
@@ -392,6 +413,8 @@ ucv1-optimality-sensitivity:
 ucv1-phase-plane-linear-classification:
   p14f_phase_plane_linear_classification/easy: 3
   p14f_phase_plane_linear_classification/medium: 3
+ucv1-poisson-count-probability:
+  p12e_poisson_count/exam: 8
 ucv1-regression-residual-diagnostic:
   p14e_residual_diagnostic/easy: 3
   p14e_residual_diagnostic/exam: 3
@@ -427,6 +450,8 @@ ucv1-topology-basis-membership:
   p15c_topology_basis_membership/exam: 4
   p15c_topology_basis_membership/hard: 4
   p15c_topology_basis_membership/medium: 4
+ucv1-tree-spanning-edge-count:
+  p14b_tree_edge_count/exam: 7
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:
