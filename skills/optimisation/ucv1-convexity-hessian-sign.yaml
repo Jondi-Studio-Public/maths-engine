@@ -1,7 +1,10 @@
 id: ucv1-convexity-hessian-sign
 name: Classify a quadratic by its Hessian sign
 domain: optimisation
-description: Classify a supplied two-variable quadratic as convex, concave or indefinite from its Hessian eigenvalue signs.
+description: >-
+  Classify a supplied two-variable quadratic as convex, concave or indefinite from its Hessian
+  eigenvalue signs. The exam tier asks for the determinant, the trace and the smaller eigenvalue of
+  the Hessian and then how many of the eigenvalues are negative.
 status: active
 placement_eligible: false
 prerequisites: [two-by-two-eigenvalues]
@@ -19,8 +22,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p14d_convexity_hessian_sign
-  params: {}
+- topic: exd_x_r3h_hessian_definiteness
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

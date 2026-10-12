@@ -6,9 +6,12 @@ name: Use first-order linear recurrence relations to model and analyse (numerica
   recorded at the end of each year and where limited recreational fishing is permitted, or the
   amount owing on a reducing balance loan after each payment is made
 domain: financial-discrete
-description: Given a first-order linear recurrence u(n+1) = a*u(n) + b with 0 < a < 1 modelling a
-  stated non-financial quantity (a fixed fraction lost, a fixed amount added each period), find by
-  iterating the long-term value the sequence settles to, to the stated precision.
+description: >-
+  Given a first-order linear recurrence u(n+1) = a*u(n) + b with 0 < a < 1 modelling a stated
+  non-financial quantity (a fixed fraction lost, a fixed amount added each period), find by
+  iterating the long-term value the sequence settles to, to the stated precision. The exam tier
+  gives three consecutive records, finds a and b from them, then the long-term value and the first
+  period within a stated distance of it.
 status: active
 placement_eligible: false
 prerequisites: [simple-interest]
@@ -26,8 +29,8 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: pv0a_recurrence_steady_state
-  params: {variant: exam}
+- topic: exd_x_r3g_recurrence_fit
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

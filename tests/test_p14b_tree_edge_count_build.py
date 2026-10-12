@@ -1,5 +1,7 @@
 """Focused contract tests for: ucv1-tree-spanning-edge-count (answer: number)."""
 
+from dataclasses import replace
+
 import re
 from collections import Counter
 
@@ -25,6 +27,8 @@ def _skill_sources(skill_id):
 
 
 TREE_SKILL, TREE_SOURCES = _skill_sources(TREE_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+TREE_SOURCES["exam"] = replace(TREE_SOURCES["exam"], topic="p14b_tree_edge_count", params={})
 
 
 def _make(difficulty, seed):

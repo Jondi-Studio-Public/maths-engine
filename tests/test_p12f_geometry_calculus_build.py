@@ -1,5 +1,6 @@
 """Focused contract tests for: ucv1-gram-schmidt-2d and ucv1-hessian-2x2 (both ``answer: ordered_list``)."""
 
+from dataclasses import replace
 import re
 from fractions import Fraction
 
@@ -27,6 +28,8 @@ def _skill_sources(skill_id):
 
 
 GRAM_SKILL, GRAM_SOURCES = _skill_sources(GRAM_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+GRAM_SOURCES["exam"] = replace(GRAM_SOURCES["exam"], topic="p12f_gram_schmidt_2d", params={})
 HESS_SKILL, HESS_SOURCES = _skill_sources(HESS_ID)
 
 

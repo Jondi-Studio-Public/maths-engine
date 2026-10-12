@@ -6,6 +6,8 @@ Parses ONLY `question.text` and `question.answer_text` (never anything from
 scratch with its own modular-exponentiation implementation.
 """
 
+from dataclasses import replace
+
 import re
 
 import pytest
@@ -71,6 +73,12 @@ def _skill_sources(skill_id):
 
 
 RSA_SOURCES = _skill_sources(RSA_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+RSA_SOURCES["exam"] = replace(
+    RSA_SOURCES["exam"],
+    topic="p12f_rsa_modular_step",
+    params={"mode": "chain", "primes": [3, 5, 7, 11, 13], "exponents": [3]},
+)
 
 
 @pytest.mark.parametrize("difficulty,seed", [(tier, s) for tier in TIERS for s in SEEDS])

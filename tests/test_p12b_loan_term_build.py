@@ -4,6 +4,8 @@ Tests for senior-investigate-the-effect-of-the-interest-rate-and (ACMEM175),
 topic p12b_loan_term_from_repayment.
 """
 
+from dataclasses import replace
+
 from fractions import Fraction
 
 import pytest
@@ -25,6 +27,9 @@ def _make_from_sources(skills_dict, difficulty, seed):
     bare `make(topic, seed, difficulty)` call."""
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if src.difficulty == "exam":
+        # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+        src = replace(src, topic="p12b_loan_term_from_repayment", params={"mode": "max_rate"})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

@@ -4,7 +4,7 @@ id: senior-examine-slope-direction-or-gradient-fields-of-a
 name: Examine slope (direction or gradient) fields of a first order differential equation
 domain: differential-equations
 description: Examine a first-order differential equation dy/dx = f(x, y) by evaluating,
-  classifying, or matching the slope (direction/gradient) it implies -- entirely in text,
+  classifying, or stepping along the slope (direction/gradient) it implies -- entirely in text,
   never from a drawn field diagram.
 status: active
 placement_eligible: false
@@ -27,9 +27,9 @@ sources:
     variant: classify_point
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13b_slope_field_examine
+- topic: exd_x_r3g_slope_euler
   params:
-    variant: match_ode
+    tier: exam
   difficulty: exam
   stages: [exam]
 misconceptions:

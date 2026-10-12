@@ -1,5 +1,6 @@
 """Focused contract tests for: ucv1-number-theory-computation (answer: number)."""
 
+from dataclasses import replace
 import re
 from collections import Counter
 
@@ -40,6 +41,8 @@ def _skill_sources(skill_id):
 
 
 NTC_SKILL, NTC_SOURCES = _skill_sources(NTC_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+NTC_SOURCES["exam"] = replace(NTC_SOURCES["exam"], topic="p14b_number_theory_computation", params={})
 
 
 def _make(difficulty, seed):

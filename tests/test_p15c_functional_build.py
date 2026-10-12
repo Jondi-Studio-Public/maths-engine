@@ -1,6 +1,8 @@
 """Focused contract tests for: ucv1-diagonal-operator-norm (answer: number) and ucv1-function-space-approximation
 (answer: pair)."""
 
+from dataclasses import replace
+
 import re
 from collections import Counter
 from fractions import Fraction
@@ -25,7 +27,12 @@ def _skill_sources(skill_id):
 
 
 NORM_SKILL, NORM_SOURCES = _skill_sources(NORM_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+NORM_SOURCES["exam"] = replace(NORM_SOURCES["exam"], topic="p15c_diagonal_operator_norm", params={"variant": "exam"})
 APPROX_SKILL, APPROX_SOURCES = _skill_sources(APPROX_ID)
+APPROX_SOURCES["exam"] = replace(
+    APPROX_SOURCES["exam"], topic="p15c_function_space_approximation", params={"basis": "sq_cube", "evaluate_fn": True}
+)
 
 
 def _make(sources, difficulty, seed):

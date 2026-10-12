@@ -1,5 +1,6 @@
 """Focused contract tests for: ucv1-residue-simple-pole and ucv1-heat-equation-mode (both answer: expression)."""
 
+from dataclasses import replace
 import re
 
 import pytest
@@ -22,6 +23,8 @@ def _skill_sources(skill_id):
 
 
 RESIDUE_SKILL, RESIDUE_SOURCES = _skill_sources(RESIDUE_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+RESIDUE_SOURCES["exam"] = replace(RESIDUE_SOURCES["exam"], topic="p13e_residue_simple_pole", params={})
 HEAT_SKILL, HEAT_SOURCES = _skill_sources(HEAT_ID)
 
 

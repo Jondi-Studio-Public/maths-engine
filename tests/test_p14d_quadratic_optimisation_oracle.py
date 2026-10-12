@@ -11,6 +11,7 @@ coefficients parsed out of the rendered f(x, y).
 """
 
 import re
+from dataclasses import replace
 from fractions import Fraction
 
 import pytest
@@ -47,6 +48,8 @@ def _skill_sources(skill_id):
 
 CRIT_SOURCES = _skill_sources(CRIT_ID)
 CONVEX_SOURCES = _skill_sources(CONVEX_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+CONVEX_SOURCES["exam"] = replace(CONVEX_SOURCES["exam"], topic="p14d_convexity_hessian_sign", params={})
 
 _F_RE = re.compile(r"f\(x, y\) = (.+?)\. ")
 _PAIR_RE = re.compile(r"x = (-?\d+(?:/\d+)?), y = (-?\d+(?:/\d+)?)")
