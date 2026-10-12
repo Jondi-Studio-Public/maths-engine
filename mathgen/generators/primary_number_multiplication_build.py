@@ -267,11 +267,11 @@ _VARIANTS = ("find_total", "find_each", "find_groups")
 _TEXT_TOTAL_GROUPS = (
     "{n} puts counters in equal groups. How many counters altogether?",
     "{n} sees equal groups of counters. How many counters in all?",
-    "How many counters are there altogether in these equal groups? {n} is counting.",
+    "{n} is counting equal groups of counters. How many counters are there altogether?",
 )
 _TEXT_TOTAL_ARRAY = (
     "{n} lines up counters in rows. How many counters altogether?",
-    "The counters make an array. How many counters in all, {n} asks?",
+    "{n} makes an array of counters. How many counters in all?",
     "{n} looks at an array. How many counters are there altogether?",
 )
 _TEXT_EACH = (

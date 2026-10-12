@@ -326,7 +326,7 @@ _CHANGE_TEXT = {
     "medium": (
         "{n} buys a drink for {p}. {n} pays with this note. How much change?",
         "A pencil case costs {p}. {n} hands over this note. What is the change?",
-        "{n} pays for a game that costs {p}. This note is used. How much change is given back?",
+        "{n} pays for a game that costs {p}. {n} uses this note. How much change is given back?",
     ),
     "hard": (
         "{n} buys a snack for {p}. {n} pays with this money. How much change?",

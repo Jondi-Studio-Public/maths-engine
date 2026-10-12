@@ -57,8 +57,8 @@ _TEXT = {
     ),
     "scattered": (
         "{n} sees some shapes spread out. How many are there?",
-        "{n} has a quick look at the shapes. How many are there?",
-        "How many shapes are there? {n} takes a quick look.",
+        "{n} glances at a group of shapes. How many are there?",
+        "{n} takes a quick look at some shapes. How many are there?",
     ),
     "clustered": (
         "{n} sees two groups of shapes. How many are there altogether?",

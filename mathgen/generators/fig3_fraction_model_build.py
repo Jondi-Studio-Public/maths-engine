@@ -9,8 +9,8 @@
 - ``fraction_compare_models`` (skill ``f10-fraction-compare-models``, ``answer: mcq``): two wholes of
   the same size, A and B; which has more shaded, or are they the same? Easy cuts both into the same
   number of parts; medium compares one shaded part of two different cuts (more parts, smaller parts);
-  hard compares fractions with different numbers of parts where the one with more shaded parts is
-  not the larger fraction, or the two are equal.
+  hard shows four models cut differently and asks for the one with the most (or least) shaded, built so
+  neither the most shaded parts nor the most parts picks it out.
 
 Prompts never state a fraction. Each topic registers a figure reader that works from the figure.
 """
@@ -54,7 +54,7 @@ _NAME_TEXT = {
     "easy": (
         "{n} shades part of a {w}. What fraction is shaded?",
         "{n} looks at a {w}. What fraction of it is shaded?",
-        "Which fraction of this {w} is shaded? {n} is not sure.",
+        "{n} colours part of a {w}. What fraction of it is shaded?",
     ),
     "medium": (
         "{n} colours some parts of a {w}. What fraction is coloured in?",
@@ -64,7 +64,7 @@ _NAME_TEXT = {
     "hard": (
         "{n} shades some of a {w}. What fraction is left unshaded?",
         "{n} looks at the {w}. What fraction has no shading?",
-        "What fraction of the {w} is not shaded? {n} wants to know.",
+        "{n} cuts a {w} into equal parts and shades some. What fraction is not shaded?",
     ),
 }
 
@@ -146,19 +146,19 @@ _A, _B = "Model A", "Model B"
 
 _CMP_TEXT = {
     "easy": (
-        "Model A and Model B are the same size. Which has more shaded, {n} asks?",
+        "Model A and Model B are the same size. Which has more shaded?",
         "{n} shades two {ws} that are the same size. Which has more shaded?",
         "{n} looks at two models. Which has more shaded?",
     ),
     "medium": (
-        "These two {ws} are the same size. Which model has more shaded, {n} asks?",
+        "{n} looks at two {ws} of the same size. Which model has more shaded?",
         "{n} compares two {ws} of the same size. Which has the larger shaded part?",
-        "{n} wonders which model shows the greater amount shaded.",
+        "{n} compares the models. Which one shows the greater amount shaded?",
     ),
     "hard": (
-        "{n} sees two models of the same size. Which shows the greater fraction shaded, or are they equal?",
-        "{n} compares two {ws} of the same size. Which has more shaded, or is it the same amount?",
-        "{n} compares the shaded amounts of the two {ws}. Which is more, or are they the same?",
+        "{n} shades four {ws} of the same size. Which model has the {w} shaded?",
+        "{n} compares four {ws} of the same size. Which one has the {w} shaded?",
+        "{n} looks at four models of the same size. Which model shows the {w} shaded?",
     ),
 }
 
@@ -167,10 +167,36 @@ def _key(a: Fraction, b: Fraction) -> str:
     return _SAME if a == b else (_A if a > b else _B)
 
 
+def _draw_four(rng):
+    """Four models; the key is the unique largest (or smallest) fraction, and neither the most
+    shaded parts nor the most parts picks it out."""
+    kind = rng.choice(("bar", "circle", "rectangle"))
+    most = rng.random() < 0.5
+    for _ in attempts(6000, "four models with a clear key"):
+        parts = rng.sample(_PARTS[kind], 4)
+        ks = [rng.randint(1, d - 1) for d in parts]
+        vals = [Fraction(k, d) for k, d in zip(ks, parts)]
+        ordered = sorted(vals)
+        gap = ordered[-1] - ordered[-2] if most else ordered[1] - ordered[0]
+        if gap < Fraction(1, 16):
+            continue
+        key = vals.index(ordered[-1] if most else ordered[0])
+        traps = {
+            ks.index(max(ks)) if ks.count(max(ks)) == 1 else None,
+            ks.index(min(ks)) if ks.count(min(ks)) == 1 else None,
+        }
+        traps |= {parts.index(max(parts))}
+        if key in traps:
+            continue
+        shapes = [_shape(kind, d, rng.sample(range(d), k), "ABCD"[i]) for i, (d, k) in enumerate(zip(parts, ks))]
+        return kind, shapes, f"Model {'ABCD'[key]}", most
+    raise AssertionError("unreachable")
+
+
 def _draw_compare(rng, tier: str):
     kind = rng.choice(("bar", "circle", "rectangle"))
     pool = _PARTS[kind]
-    want = rng.choice((_A, _B, _SAME) if tier != "medium" else (_A, _B))
+    want = rng.choice((_A, _B, _SAME) if tier == "easy" else (_A, _B))
     for _ in attempts(3000, "a fraction comparison with the intended key"):
         if tier == "easy":
             d = rng.choice([p for p in pool if p <= 8])
@@ -182,20 +208,13 @@ def _draw_compare(rng, tier: str):
             da, db = rng.sample([p for p in pool if p <= 10], 2)
             ka = kb = 1
         else:
-            da, db = rng.sample(pool, 2)
-            ka, kb = rng.randint(1, da - 1), rng.randint(1, db - 1)
+            raise ValueError(f"unknown tier {tier!r}")
         va, vb = Fraction(ka, da), Fraction(kb, db)
         if _key(va, vb) != want:
             continue
         if tier == "easy" and want != _SAME and ka == kb:
             continue
-        if tier == "hard":
-            if want != _SAME and (abs(va - vb) < Fraction(1, 16) or not (ka == kb or (ka > kb) != (va > vb))):
-                continue
-        shapes = [
-            _shape(kind, da, rng.sample(range(da), ka) if tier == "hard" else list(range(ka)), "A"),
-            _shape(kind, db, rng.sample(range(db), kb) if tier == "hard" else list(range(kb)), "B"),
-        ]
+        shapes = [_shape(kind, da, list(range(ka)), "A"), _shape(kind, db, list(range(kb)), "B")]
         return kind, shapes, want
     raise AssertionError("unreachable")
 
@@ -204,30 +223,42 @@ def _draw_compare(rng, tier: str):
 def fraction_compare_models(rng, tier="easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
-    kind, shapes, answer_text = _draw_compare(rng, tier)
+    most = True
+    if tier == "hard":
+        kind, shapes, answer_text, most = _draw_four(rng)
+        options = [f"Model {c}" for c in "ABCD"]
+    else:
+        kind, shapes, answer_text = _draw_compare(rng, tier)
+        options = [_A, _B, _SAME]
+    n = len(shapes)
     fig = fraction_model(
-        models=shapes, alt=f"two {_PLURAL[kind]} of the same size, each cut into equal parts and partly shaded"
+        models=shapes,
+        alt=f"{'two' if n == 2 else 'four'} {_PLURAL[kind]} of the same size, each cut into equal parts and partly shaded",
     )
-    text = rng.choice(_CMP_TEXT[tier]).format(n=rng.choice(NAMES), ws=_PLURAL[kind])
-    distractors = pick_distractors(answer_text, [_A, _B, _SAME], n=2)
-    check(len(distractors) == 2)
+    text = rng.choice(_CMP_TEXT[tier]).format(n=rng.choice(NAMES), ws=_PLURAL[kind], w="most" if most else "least")
+    distractors = pick_distractors(answer_text, options, n=n)
+    check(len(distractors) == len(options) - 1)
     figures.assert_no_leak(fig, [answer_text, *distractors])
-    check(_read_compare(fig) == answer_text, "the figure does not show the keyed model")
-    parts = " and ".join(f"{len(m['shaded'])}/{m['parts']}" for m in fig["models"])
+    check(_read_compare(fig, text) == answer_text, "the figure does not show the keyed model")
+    parts = ", ".join(f"{m['label']} {len(m['shaded'])}/{m['parts']}" for m in fig["models"])
     return dict(
         text=text,
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=f"plain:{answer_text}",
         distractors=distractors,
-        working=[f"Model A shows {parts.split(' and ')[0]} and Model B shows {parts.split(' and ')[1]}."],
+        working=[f"The models show {parts}."],
         figure=fig,
     )
 
 
-def _read_compare(fig: dict) -> str:
-    a, b = (Fraction(len(m["shaded"]), m["parts"]) for m in fig["models"])
-    return _key(a, b)
+def _read_compare(fig: dict, text: str) -> str:
+    vals = [Fraction(len(m["shaded"]), m["parts"]) for m in fig["models"]]
+    if len(vals) == 2:
+        return _key(*vals)
+    pick = max(vals) if "most" in text else min(vals)
+    check(vals.count(pick) == 1, "the extreme model is not unique")
+    return f"Model {fig['models'][vals.index(pick)]['label']}"
 
 
-figures.register_reader("fraction_compare_models", lambda q: _read_compare(q.figure))
+figures.register_reader("fraction_compare_models", lambda q: _read_compare(q.figure, q.text))

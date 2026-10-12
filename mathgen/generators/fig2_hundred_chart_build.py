@@ -33,12 +33,12 @@ _TEXT = {
     "medium": (
         "{n} looks at the ringed number. What is {q} it?",
         "{n} uses the chart. What number is {q} the ringed number?",
-        "What is {q} the ringed number? {n} checks the chart.",
+        "{n} checks the chart. What is {q} the ringed number?",
     ),
     "hard": (
         "{n} sees a counting pattern in the shaded squares. One is empty. What number goes in it?",
         "{n} spots a pattern in the shaded squares. What number is missing from the pattern?",
-        "Some squares are shaded in a counting pattern. What number goes in the empty one? {n} is working it out.",
+        "{n} colours some squares in a counting pattern. What number goes in the empty one?",
     ),
 }
 

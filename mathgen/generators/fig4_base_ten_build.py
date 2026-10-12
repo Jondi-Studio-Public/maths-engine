@@ -20,17 +20,17 @@ _TEXT = {
     "easy": (
         "{n} builds a number with blocks. What number is it?",
         "{n} counts the blocks. What number is shown?",
-        "What number do these blocks show? {n} wants to know.",
+        "{n} makes a number from blocks. What number is shown?",
     ),
     "medium": (
         "{n} builds a number with flats, rods and cubes. What number is it?",
         "{n} looks at the flats, rods and cubes. What number do they show?",
-        "What number do these blocks make? {n} wants to know.",
+        "{n} makes a number from flats, rods and cubes. What number do the blocks make?",
     ),
     "hard": (
         "{n} did not swap any ones for tens. What number do the blocks show?",
         "{n} has blocks that are not grouped in the tidy way. What number do they show?",
-        "Some blocks could be swapped for bigger ones. What number do {n}'s blocks show?",
+        "{n} has blocks that could be swapped for bigger ones. What number do they show?",
     ),
 }
 

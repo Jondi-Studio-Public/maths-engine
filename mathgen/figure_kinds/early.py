@@ -261,15 +261,16 @@ def fraction_model(*, models: Iterable[dict], alt: str) -> dict:
     The renderer draws every whole the same overall size (a bar the same length, a circle the
     same diameter, a rectangle the same outline), so two models can be compared fairly, and
     always cuts it into exactly equal parts. When there are two models they must be the same
-    ``shape`` and carry labels ``"A"`` and ``"B"``. No fraction numeral is ever drawn.
+    ``shape`` and carry labels ``"A"`` and ``"B"``; three or four carry ``"A"``, ``"B"``, ``"C"`` (and
+    ``"D"``) in order, drawn left to right or top to bottom. No fraction numeral is ever drawn.
     """
     return check({"kind": "fraction_model", "alt": alt, "models": [dict(m) for m in models]})
 
 
 def _validate_fraction_model(spec: dict) -> list[str]:
     models = spec.get("models")
-    if not isinstance(models, list) or not 1 <= len(models) <= 2:
-        return ["models must hold one or two models"]
+    if not isinstance(models, list) or not 1 <= len(models) <= 4:
+        return ["models must hold one to four models"]
     problems = []
     for i, m in enumerate(models):
         shape, parts, shaded = m.get("shape"), m.get("parts"), m.get("shaded")
@@ -295,11 +296,11 @@ def _validate_fraction_model(spec: dict) -> list[str]:
             problems.append(f"models[{i}].label must be a string of at most 2 characters")
     if problems:
         return problems
-    if len(models) == 2:
-        if models[0]["shape"] != models[1]["shape"]:
-            problems.append("two models must be the same shape so the wholes are the same size")
-        if [m["label"] for m in models] != ["A", "B"]:
-            problems.append("two models must be labelled A and B")
+    if len(models) > 1:
+        if len({m["shape"] for m in models}) != 1:
+            problems.append("several models must be the same shape so the wholes are the same size")
+        if [m["label"] for m in models] != list("ABCD")[: len(models)]:
+            problems.append("several models must be labelled A, B, C, D in order")
     return problems
 
 

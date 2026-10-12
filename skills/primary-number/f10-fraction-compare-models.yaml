@@ -1,7 +1,7 @@
 id: f10-fraction-compare-models
 name: Compare shaded fraction models
 domain: primary-number
-description: Compare two equal-sized models cut into equal parts and choose the one with more shaded, or say they show the same amount.
+description: Compare equal-sized models cut into equal parts and choose the one with more shaded, then pick the one with the most or least shaded from four models cut differently.
 status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
@@ -23,6 +23,6 @@ misconceptions:
   description: Chooses the model cut into more parts, because the parts are more numerous, although each part is smaller.
 - id: more-shaded-parts-wins
   description: Chooses the model with more shaded parts without allowing for the parts being different sizes.
-- id: equal-fractions-differ
-  description: Says two models with different numbers of parts cannot show the same amount.
+- id: most-parts-is-biggest
+  description: Picks the model cut into the most parts as the one with the most shaded, although its parts are the smallest.
 tags: [acara-f10-v9, primary, fractions, compare, shaded-models, ac9m3n02]

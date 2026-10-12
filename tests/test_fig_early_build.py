@@ -279,13 +279,20 @@ def test_fraction_compare_tiers_and_traps():
         med = _q("f10-fraction-compare-models", "medium", seed).figure["models"]
         assert len(med[0]["shaded"]) == len(med[1]["shaded"]) == 1 and med[0]["parts"] != med[1]["parts"]
         q = _q("f10-fraction-compare-models", "hard", seed)
-        a, b = q.figure["models"]
-        assert a["parts"] != b["parts"]
-        va, vb = Fraction(len(a["shaded"]), a["parts"]), Fraction(len(b["shaded"]), b["parts"])
-        if va != vb:  # more shaded parts must not pick out the larger fraction
-            assert len(a["shaded"]) == len(b["shaded"]) or ((len(a["shaded"]) > len(b["shaded"])) != (va > vb))
+        models = q.figure["models"]
+        assert len(models) == 4 and len({m["parts"] for m in models}) == 4
+        vals = [Fraction(len(m["shaded"]), m["parts"]) for m in models]
+        pick = max(vals) if "most" in q.text else min(vals)
+        assert vals.count(pick) == 1 and q.answer_text == f"Model {'ABCD'[vals.index(pick)]}"
+        ks = [len(m["shaded"]) for m in models]
+        key = vals.index(pick)
+        assert ks.count(max(ks)) != 1 or ks.index(max(ks)) != key  # most shaded parts is not the key
+        assert [m["parts"] for m in models].index(max(m["parts"] for m in models)) != key
     keys = {_q("f10-fraction-compare-models", "hard", s).answer_text for s in SEEDS}
-    assert keys == {"Model A", "Model B", "Same amount"}
+    assert keys == {"Model A", "Model B", "Model C", "Model D"}
+    assert {"most", "least"} <= {
+        w for s in SEEDS for w in ("most", "least") if w in _q("f10-fraction-compare-models", "hard", s).text
+    }
 
 
 def test_base_ten_tiers():
@@ -386,7 +393,7 @@ def test_fraction_model_validator():
     a, b = early.fraction_shape("bar", 4, [0], label="A"), early.fraction_shape("circle", 4, [0], label="B")
     assert any("same shape" in p for p in _bad({"kind": "fraction_model", "alt": "x", "models": [a, b]}))
     c = early.fraction_shape("bar", 4, [0], label="C")
-    assert any("labelled A and B" in p for p in _bad({"kind": "fraction_model", "alt": "x", "models": [a, c]}))
+    assert any("labelled A, B, C, D" in p for p in _bad({"kind": "fraction_model", "alt": "x", "models": [a, c]}))
 
 
 def test_counters_validator():
