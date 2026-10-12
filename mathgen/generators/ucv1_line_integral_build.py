@@ -446,7 +446,7 @@ def _single(rng, tier):
 _EXAM_STEMS = [
     "A particle moves in the force field «F(x, y) = {F}», with force in newtons and distance in metres.",
     "The force field «F(x, y) = {F}» acts on a particle. Force is measured in newtons and distance in metres.",
-    "A robot arm moves a tool through the force field «F(x, y) = {F}» (newtons, metres).",
+    "A robot arm moves a small part, modelled as a particle, through the force field «F(x, y) = {F}» (newtons, metres).",
 ]
 _A_PROMPTS = [
     "Show that F is conservative by finding its potential function «φ(x, y)», the function with «F = ∇φ» and «φ(0, 0) = 0».",
