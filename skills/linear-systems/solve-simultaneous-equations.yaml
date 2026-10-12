@@ -27,6 +27,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u3_simultaneous_prices
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-pair
   description: Swapping the x and y values in the final answer.
