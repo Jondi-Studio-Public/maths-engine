@@ -149,11 +149,14 @@ def subitise_to_5(rng, mode="canonical", count_range=(1, 5)):
     #    to combine it with the other -- a genuine failure-to-combine
     #    conceptual-subitising error, distinct from a blanket off-by-one on
     #    the final total.
-    candidates = [str(max(count - 1, 0)), str(count + 1)]
+    candidates = [count - 1, count + 1]
     if cluster_sizes is not None:
         # Provably distinct here: for count in {3,4,5} with each cluster >= 1, the smaller
         # cluster's size is always <= count-2, which can never equal count-1, count+1 or count.
-        candidates.append(str(min(cluster_sizes)))
+        candidates.append(min(cluster_sizes))
+    candidates += [count + 2, count - 2, count + 3]  # further miscounts, so a count of 1 still has three options
+    # a picture of objects is never counted as none, so 0 is not a plausible option
+    candidates = [str(c) for c in candidates if c > 0]
 
     return dict(
         text=text,

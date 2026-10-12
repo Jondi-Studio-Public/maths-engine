@@ -243,11 +243,12 @@ def clock_hours(rng):
     def hour(h):
         return f"{(h - 1) % 12 + 1} o'clock"
 
-    # Named misreadings first: the hour numeral either side (the short hand's neighbour), and 12 o'clock
-    # for reading the long hand, which points at the 12 on every o'clock.
-    rest = [hour(answer + 1), hour(answer - 1), hour(answer + 2), hour(answer - 2), hour(answer + 3)]
+    # Named misreadings: the hour numeral either side of the one the short hand points at (always offered), then one
+    # of: the 12 the long hand points at (reading the wrong hand), or the numeral two or three away (a slip in
+    # counting round the face). Which one varies, so no single option recurs.
+    rest = [hour(12), hour(answer + 2), hour(answer - 2), hour(answer + 3)]
     rng.shuffle(rest)
-    distractors = pick_distractors(hour(answer), [hour(12), *rest])
+    distractors = pick_distractors(hour(answer), [hour(answer + 1), hour(answer - 1), *rest])
     figures.assert_no_leak(fig, [hour(answer), *distractors])
     return dict(
         text=text,

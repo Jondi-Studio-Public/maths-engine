@@ -28,7 +28,7 @@ _TEXT = {
         "{n} makes a number from flats, rods and cubes. What number do the blocks make?",
     ),
     "hard": (
-        "{n} did not swap any ones for tens. What number do the blocks show?",
+        "{n} did not swap any {swap}. What number do the blocks show?",
         "{n} has blocks that are not grouped in the tidy way. What number do they show?",
         "{n} has blocks that could be swapped for bigger ones. What number do they show?",
     ),
@@ -79,7 +79,10 @@ def base_ten_read(rng, tier="easy"):
     fig = base_ten(hundreds=h, tens=t, ones=o, alt="base-ten blocks: flats, rods and cubes")
     value = 100 * h + 10 * t + o
     answer_text = str(value)
-    text = rng.choice(_TEXT[tier]).format(n=rng.choice(NAMES))
+    # The regrouping the prompt names is the place that actually overflows: ten or more ones swap for a ten,
+    # ten or more tens swap for a hundred.
+    swap = "tens for hundreds" if t >= 10 else "ones for tens"
+    text = rng.choice(_TEXT[tier]).format(n=rng.choice(NAMES), swap=swap)
     distractors = pick_distractors(answer_text, _distractors(h, t, o, value))
     check(len(distractors) >= 2, "too few distractors")
     figures.assert_no_leak(fig, [answer_text, *distractors])
