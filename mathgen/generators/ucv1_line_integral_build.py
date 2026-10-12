@@ -19,11 +19,13 @@ route integrates F·r' along the curve, so the two share nothing.
 from __future__ import annotations
 
 from fractions import Fraction
+from types import SimpleNamespace
 
 import sympy
 
 from ..answers import Distractor, exact_value
-from ..core import attempts, check, generator, pick_distractors, rational_text, value_safe_str
+from ..core import GRADER_TOLERANCE, attempts, check, generator, pick_distractors, rational_text, value_safe_str
+from ..grading import grade
 from ._ucv1_multiint import Poly, gauss_1d
 from ._ucv1_texsay import say_marked
 
@@ -255,7 +257,7 @@ def _draw_phi(rng, need_xy2: bool = False):
             names[0] = "xy2"
         if not ({"x2y", "xy2"} & set(names)) or len(set(names)) < 3:
             continue
-        coeffs = {n: _nonzero(rng, -3, 4) for n in set(names)}
+        coeffs = {n: _nonzero(rng, -3, 4) for n in dict.fromkeys(names)}
         phi = sum((dict(_PHI_MONOS)[n] * c for n, c in coeffs.items()), Poly())
         P, Q = phi.diff(0), phi.diff(1)
         if P.t and Q.t:
@@ -371,6 +373,12 @@ def _hard(rng):
     return dict(text=text, W=W, candidates=cands)
 
 
+def _ungradable(kind: str, answer, answer_text: str, distractors: list) -> list:
+    """Drop every distractor the real grader would mark correct for this answer, checked on each one."""
+    target = SimpleNamespace(answer=answer, answer_text=answer_text, answer_alt=None, answer_form=None)
+    return [d for d in distractors if not grade(kind, target, str(d)).correct]
+
+
 def _value_distractors(answer: Fraction, candidates, max_denominator: int = 24) -> list[Distractor]:
     out = []
     for tag, v in candidates:
@@ -426,7 +434,9 @@ def _single(rng, tier):
         text, latex = say_marked(d["text"])
         dist = _value_distractors(W, d["candidates"])
         working = [f"The field is conservative, with a potential φ, so the work is φ(B) - φ(A) = {answer_text}."]
-    distractors = pick_distractors(answer_text, dist, 4)
+    distractors = _ungradable(
+        "expression", machine, answer_text, pick_distractors(answer_text, dist, 4, tolerance=GRADER_TOLERANCE)
+    )
     if len(distractors) < 3:
         return None
     return dict(
@@ -520,8 +530,22 @@ def _exam_once(rng):
             out.append(("line-integral-forgot-dr", wd.value((1, 0, 0)) - wd.value((0, 0, 0))))
         return out
 
-    b_dist = pick_distractors(rational_text(W_ab), _value_distractors(W_ab, work_cands(A, B)), 4)
-    c_dist = pick_distractors(rational_text(W_c), _value_distractors(W_c, work_cands(C0, C1, (xt, yt))), 4)
+    b_dist = _ungradable(
+        "fraction",
+        exact_value(W_ab),
+        rational_text(W_ab),
+        pick_distractors(
+            rational_text(W_ab), _value_distractors(W_ab, work_cands(A, B)), 4, tolerance=GRADER_TOLERANCE
+        ),
+    )
+    c_dist = _ungradable(
+        "fraction",
+        exact_value(W_c),
+        rational_text(W_c),
+        pick_distractors(
+            rational_text(W_c), _value_distractors(W_c, work_cands(C0, C1, (xt, yt))), 4, tolerance=GRADER_TOLERANCE
+        ),
+    )
     a_dist = pick_distractors(phi_text, phi_dist, 4)
     if min(len(a_dist), len(b_dist), len(c_dist)) < 2:
         raise _Redraw
@@ -584,8 +608,12 @@ def _exam_once(rng):
     k_wrongs = [("line-integral-parameter-sign", -c2), ("line-integral-parameter-derivative-slip", 2 * c2)]
     k_wrongs += [("line-integral-parameter-other-coefficient", Fraction(coeffs[n])) for n in coeffs if n != "xy2"][:1]
     k_dist = pick_distractors(
-        rational_text(c2), [Distractor(rational_text(v), tag, exact_value(v)) for tag, v in k_wrongs if v != c2], 3
+        rational_text(c2),
+        [Distractor(rational_text(v), tag, exact_value(v)) for tag, v in k_wrongs if v != c2],
+        3,
+        tolerance=GRADER_TOLERANCE,
     )
+    k_dist = _ungradable("fraction", exact_value(Fraction(c2)), rational_text(Fraction(c2)), k_dist)
     if len(k_dist) < 2:
         raise _Redraw
     k_expr = phi.sympy("xy")

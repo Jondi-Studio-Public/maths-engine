@@ -843,7 +843,10 @@ def _exam_once(rng):
     t0_text = rational_text(t0) if t0.denominator == 1 else f"{float(t0):g}"
     t0_ft = str(t0.numerator) if t0.denominator == 1 else f"{t0.numerator}/{t0.denominator}"
     if kind == "second":
-        a_working = [f"Transforming s²Y - s({y0}) - ({v0}) + {b}(sY - {y0}) + {c}Y = 0 gives Y = {y_text}."]
+        lhs = join_terms([(1, "s²Y"), (-y0, "s"), (-v0, ""), (b, f"({join_terms([(1, 'sY'), (-y0, '')])})"), (c, "Y")])
+        a_working = [
+            f"Transforming the equation, using y(0) = {y0} and y'(0) = {v0}, gives {lhs} = 0, so Y = {y_text}."
+        ]
     else:
         a_working = [f"Transforming the equation and using y(0) = {y0} gives Y = {y_text}."]
     which = "A" if ask_first else "B"

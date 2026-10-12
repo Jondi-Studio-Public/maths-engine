@@ -41,6 +41,12 @@ EXAM_TOPIC = "exd_x_uc_lhopital"
 _TOL = 1e-6
 
 
+def _eq(shown: str, value) -> str:
+    """`shown = value`, or just the value when `shown` already reads as it (no step that equates a value to itself)."""
+    text = rational_text(value)
+    return text if shown == text else f"{shown} = {text}"
+
+
 def _q(n) -> Rational:
     n = Fraction(n)
     return Rational(n.numerator, n.denominator)
@@ -207,7 +213,7 @@ def _easy_ln(rng):
         [
             _FIRST,
             f"The numerator differentiates to {a}/({_one_plus(a)}) and the denominator to {b}.",
-            f"As x → 0 the ratio tends to {a}/{b} = {rational_text(value)}.",
+            f"As x → 0 the ratio tends to {_eq(f'{a}/{b}', value)}.",
         ],
         [
             (_q(Fraction(1, b)), "calc-chain-rule-factor-dropped"),
@@ -235,7 +241,7 @@ def _easy_two_exp(rng):
         [
             _FIRST,
             f"The numerator differentiates to {coef(a)}{_ex(a)} {_diff_term(b)} and the denominator to {c}.",
-            f"At x = 0 the ratio is {a - b}/{c} = {rational_text(value)}.",
+            f"At x = 0 the ratio is {_eq(f'{a - b}/{c}', value)}.",
         ],
         [
             (_q(Fraction(a + b, c)), "calc-sign-slip"),
@@ -320,7 +326,7 @@ def _easy_poly_quadratic(rng):
         [
             f"At x = {c} the numerator and denominator are both 0, so L'Hôpital's rule applies.",
             f"The numerator differentiates to {poly_tex(_pder(coeffs))} and the denominator to 2x.",
-            f"At x = {c} the ratio is {n_prime}/{2 * c} = {rational_text(value)}.",
+            f"At x = {c} the ratio is {_eq(f'{n_prime}/{2 * c}', value)}.",
         ],
         [
             (_q(Fraction(n_prime, c)), "calc-power-rule-exponent-dropped"),
@@ -421,7 +427,7 @@ def _med_product(rng):
             f"The form is 0/0. The first application gives (sin({ax}) + {coef(a)}x cos({ax}))/({coef(b)}sin({bx})), "
             "which is still 0/0.",
             f"The second application gives ({coef(2 * a)}cos({ax}) - {coef(a * a)}x sin({ax}))/({coef(b * b)}cos({bx})).",
-            f"At x = 0 the limit is {2 * a}/{b * b} = {rational_text(value)}.",
+            f"At x = 0 the limit is {_eq(f'{2 * a}/{b * b}', value)}.",
         ],
         [
             (_q(Fraction(a, b * b)), "product-rule-term-dropped"),
@@ -512,7 +518,7 @@ def _med_log_linear(rng):
         [
             "Numerator and denominator both tend to ∞, so L'Hôpital's rule applies.",
             f"The first application gives ({a}/x + {b})/({c}/x + {d}).",
-            f"As x → ∞ the terms in 1/x vanish, so the limit is {b}/{d} = {rational_text(value)}.",
+            f"As x → ∞ the terms in 1/x vanish, so the limit is {_eq(f'{b}/{d}', value)}.",
         ],
         [
             (_q(Fraction(a, c)), "dominant-term-misjudged"),
@@ -596,7 +602,7 @@ def _hard_x2_exp(rng):
             f"The form is ∞ × 0. Write it as (e^({a}/x) - 1 - {a}/x)/(1/x²), which is 0/0.",
             f"The first application gives ({coef(a)}x/2)(e^({a}/x) - 1), which is again ∞ × 0.",
             f"Writing that as ({a}/2)(e^({a}/x) - 1)/(1/x) and applying the rule again gives "
-            f"({a}/2) × {a} = {rational_text(value)}.",
+            f"{_eq(f'({a}/2) × {a}', value)}.",
         ],
         [
             (_q(0), "zero-times-infinity-is-zero"),

@@ -42,6 +42,7 @@ from ..core import (
     check_distinct,
     check_equivalent,
     generator,
+    join_terms,
     pick_distractors,
 )
 
@@ -87,6 +88,11 @@ def _txt(expr) -> str:
         if ends_in_exponent or not (nxt.isalpha() or nxt == "("):
             out.append("*")
     return "".join(out)
+
+
+def _w(text) -> str:
+    """Learner-facing working text: a multiplication that `_txt` keeps explicit is written with the middle dot."""
+    return str(text).replace("*", "·")
 
 
 def _num_text(value) -> str:
@@ -351,6 +357,12 @@ def _int_dist(value, tag: str) -> Distractor:
     return Distractor(str(int(value)), tag, int(value))
 
 
+def _is_zero(expr) -> bool:
+    """Exactly zero: the cheap expansion settles it for the polynomial and exponential forms used here, and the
+    full simplification only runs when the expansion leaves something that might still cancel."""
+    return sympy.expand(expr) == 0 or sympy.simplify(expr) == 0
+
+
 def _same_expr(a, b) -> bool:
     """Whether two expressions in k (or q) are identical: exact values at a few points first (the cheap way to
     say "different"), the full simplification only when every point agrees."""
@@ -358,7 +370,7 @@ def _same_expr(a, b) -> bool:
     for point in (2, 3, 5, 7):
         if (a - b).subs({sym: point for sym in symbols}) != 0:
             return False
-    return sympy.simplify(a - b) == 0
+    return _is_zero(a - b)
 
 
 @lru_cache(maxsize=None)
@@ -452,7 +464,7 @@ def _easy_term(rng):
         answer=str(t_next),
         answer_text=answer_text,
         answer_kind="expression",
-        working=[f"The nth term is {fam.general}; with n = k + 1 it is {answer_text}."],
+        working=[_w(f"The nth term is {fam.general}; with n = k + 1 it is {answer_text}.")],
         distractors=distractors[:4],
     )
 
@@ -511,7 +523,7 @@ def _medium_target(rng):
         answer=str(target),
         answer_text=answer_text,
         answer_kind="expression",
-        working=[f"Replace n by k + 1 in {fam.rhs}: {answer_text}."],
+        working=[_w(f"Replace n by k + 1 in {fam.rhs}: {answer_text}.")],
         distractors=distractors[:4],
     )
 
@@ -545,7 +557,9 @@ def _hard_factored(rng):
         answer_text=answer_text,
         answer_kind="expression",
         answer_form="factored",
-        working=[f"Sum of (k + 1) terms = {_expanded_over(fam.closed(k))} + {_txt(fam.term(k + 1))} = {answer_text}."],
+        working=[
+            _w(f"Sum of (k + 1) terms = {_expanded_over(fam.closed(k))} + {_txt(fam.term(k + 1))} = {answer_text}.")
+        ],
         distractors=distractors[:4],
     )
 
@@ -580,7 +594,7 @@ def _hard_div_number(rng):
         answer_kind="expression",
         working=[
             f"f(k + 1) = {a}·{a}^k {'+' if b > 0 else '-'} {abs(b)} = {a}({a}^k {'+' if b > 0 else '-'} {abs(b)}) "
-            f"+ ({b} - {a * b}), so m = {m}, a multiple of {d}."
+            f"+ ({join_terms([(b, ''), (-a * b, '')])}), so m = {m}, a multiple of {d}."
         ],
         distractors=distractors[:4],
     )
@@ -612,7 +626,7 @@ def _hard_div_power(rng):
         answer=str(m),
         answer_text=answer_text,
         answer_kind="expression",
-        working=[f"{a}^(k + 1) - {b}^(k + 1) = {a}({a}^k - {b}^k) + ({a} - {b}){b}^k, so m = {answer_text}."],
+        working=[_w(f"{a}^(k + 1) - {b}^(k + 1) = {a}({a}^k - {b}^k) + ({a} - {b}){b}^k, so m = {answer_text}.")],
         distractors=distractors[:4],
     )
 
@@ -627,7 +641,7 @@ def _hard_div_cubic(rng):
     label, d, f_k = rng.choice(_CUBIC)
     diff = expand(f_k.subs(k, k + 1) - f_k)
     answer = _factor(diff)
-    check(sympy.simplify(answer - diff) == 0, "factored difference disagrees")
+    check(_is_zero(answer - diff), "factored difference disagrees")
     for kk in range(1, 8):
         check((f_k.subs(k, kk)) % d == 0, "statement not true")
     answer_text = _txt(answer)
@@ -648,7 +662,7 @@ def _hard_div_cubic(rng):
         answer_text=answer_text,
         answer_kind="expression",
         answer_form="factored",
-        working=[f"f(k + 1) - f(k) = {_txt(expand(diff))} = {answer_text}."],
+        working=[_w(f"f(k + 1) - f(k) = {_txt(expand(diff))} = {answer_text}.")],
         distractors=distractors[:4],
     )
 
@@ -691,7 +705,7 @@ def _exam_sum(rng: random.Random) -> dict:
     base = fam.term(Integer(1))
     t_next = fam.term(k + 1)
     s_next = _factor(fam.closed(k) + t_next)
-    check_equivalent(s_next, fam.closed(k + 1), "S_(k+1) disagrees with the closed form")
+    check(_is_zero(s_next - fam.closed(k + 1)), "S_(k+1) disagrees with the closed form")
     hypothesis = _expanded_over(fam.closed(k))
 
     # (d): a use of the closed form
@@ -782,7 +796,7 @@ def _exam_sum(rng: random.Random) -> dict:
                 answer=str(t_next),
                 answer_text=_txt(t_next),
                 marks=1,
-                working=[f"The nth term is {fam.general}; with n = k + 1 it is {_txt(t_next)}."],
+                working=[_w(f"The nth term is {fam.general}; with n = k + 1 it is {_txt(t_next)}.")],
                 distractors=b_dist[:3],
             ),
             dict(
@@ -796,7 +810,9 @@ def _exam_sum(rng: random.Random) -> dict:
                 answer_form="factored",
                 marks=3,
                 follow_through=f"({fam.closed(k)}) + part_b",
-                working=[f"{hypothesis} + {_txt(t_next)} = {_txt(s_next)}, which is the right-hand side of P(k + 1)."],
+                working=[
+                    _w(f"{hypothesis} + {_txt(t_next)} = {_txt(s_next)}, which is the right-hand side of P(k + 1).")
+                ],
                 distractors=c_dist[:3],
             ),
             dict(
@@ -882,7 +898,9 @@ def _exam_divisibility(rng: random.Random) -> dict:
                 answer=m,
                 answer_text=str(m),
                 marks=2,
-                working=[f"f(k + 1) = {a}({a}^k {sign} {abs(b)}) + ({b} - {a * b}), so m = {m}."],
+                working=[
+                    f"f(k + 1) = {a}({a}^k {sign} {abs(b)}) + ({join_terms([(b, ''), (-a * b, '')])}), so m = {m}."
+                ],
                 distractors=b_d[:3],
             ),
             dict(
@@ -892,7 +910,7 @@ def _exam_divisibility(rng: random.Random) -> dict:
                 answer_text=_txt(quotient),
                 marks=2,
                 follow_through=f"{a}*q + part_b/{d}",
-                working=[f"f(k + 1) = {a}·{d}q + ({m}), so f(k + 1) ÷ {d} = {_txt(quotient)}, an integer."],
+                working=[_w(f"f(k + 1) = {a}·{d}q + ({m}), so f(k + 1) ÷ {d} = {_txt(quotient)}, an integer.")],
                 distractors=c_d[:3],
             ),
             dict(
