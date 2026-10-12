@@ -212,7 +212,9 @@ grade each distractor as wrong. Naming files keeps runs fast; collecting the who
 folder takes noticeably longer before anything runs.
 
 ```
-python scripts/check_generator_speed.py     # fails over 250 ms median make(); flags over 15 ms
+python scripts/check_generator_speed.py     # median make() per topic default and per skill-source call: fails over 250 ms, on an error or a call over 5 s; flags over 15 ms
+python scripts/sweep_skills.py --skills <skill-id> --seeds 5    # build, grade and check every source (the nightly job runs all, 40 seeds)
+python scripts/build_skill_index.py --where <skill-or-topic>    # which module and line define a generator
 python scripts/regrade_sweep.py --ids <skill-id> [--seeds N]    # false rejects and false accepts
 python scripts/render_skill_questions.py --ids <skill-id> --out sample.md   # read the questions
 ```

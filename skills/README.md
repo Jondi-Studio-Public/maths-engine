@@ -20,6 +20,7 @@ attribution and lists the edits.
 skills/
   domains.yaml           ordered list of domains, grouped into bands
   capability-gates.yaml  the capability gate registry
+  index.yaml             generated: each skill's source topics and the module that builds them
   <domain>/
     <id>.yaml            one skill
 ```
@@ -146,6 +147,11 @@ python scripts/render_skill_questions.py --ids <id> --out sample.md
    `regrade_sweep.py` generates many questions and confirms the grader accepts the canonical
    answer and rejects every distractor. `render_skill_questions.py` writes the questions out so
    you can read what a learner would see.
+
+`index.yaml` is generated from the skills and the generator registry. Regenerate it with
+`python scripts/build_skill_index.py --write` after adding a skill or changing a source's topic
+(a test fails while it is stale). `python scripts/build_skill_index.py --where <skill-or-topic>`
+prints the module and line of a generator.
 
 To run the validator itself:
 

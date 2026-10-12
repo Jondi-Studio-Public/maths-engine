@@ -33,21 +33,63 @@ from sympy import simplify as _simplify_uncached
 _simplify_cached = functools.lru_cache(maxsize=None)(_simplify_uncached)
 
 
+def _gaussian_rational(value):
+    """`a + b*I` for an exact number with rational real and imaginary parts, else None.
+
+    Only for deciding whether two such numbers are equal. It is not a stand-in for `simplify`, whose result can
+    be a different (equal) expression such as `I*(3 - I)/2`, and the printed answers must not change."""
+    if not isinstance(value, sp.Basic) or value.free_symbols or not value.is_number:
+        return None
+    try:
+        real, imag = value.as_real_imag()
+    except (TypeError, ValueError):
+        return None
+    if real.is_Rational and imag.is_Rational:
+        return real + imag * I
+    return None
+
+
+def _is_integer_gaussian(value) -> bool:
+    """Whether `value` is `m + n*I` with integer m and n, as sympy builds `p + q*I`, `p - q*I` or `p + I`."""
+    if not (isinstance(value, sp.Add) and len(value.args) == 2):
+        return False
+    whole, imaginary = sorted(value.args, key=lambda term: term.has(I))
+    if not whole.is_Integer:
+        return False
+    return imaginary == I or (
+        imaginary.is_Mul and len(imaginary.args) == 2 and imaginary.args[0].is_Integer and imaginary.args[1] == I
+    )
+
+
 def simplify(value):
     """`sympy.simplify`, memoised. It is pure, and this generator re-simplifies the same
     handful of expressions on every seed (the parameter pools are small), so trigsimp's
     ~60 ms per call was the bulk of a `make()`. Falls back to the plain call for anything
-    unhashable, so behaviour is unchanged."""
+    unhashable, so behaviour is unchanged. `m + n*I` with integers is returned as it is: `simplify` leaves it
+    unchanged (checked for every m, n from -13 to 13 and for `p - q*I` and `(p + 1) + q*I` too, which covers the
+    exam pools), and it ran the full pipeline on every root the exam tier prints."""
+    if _is_integer_gaussian(value):
+        return value
     try:
         return _simplify_cached(value)
     except TypeError:
         return _simplify_uncached(value)
 
 
+@functools.lru_cache(maxsize=None)
+def _same_value(left, right) -> bool:
+    """`symbolically_equal`, memoised: it is pure, and one candidate is compared with the same answer and the same
+    earlier candidates by the dedup test, by `check_distinct` and by `check_pairwise_distinct`, each probing
+    numerically at 30 digits every time. Two exact complex rationals are compared in canonical form instead of
+    through `simplify`."""
+    left_exact, right_exact = _gaussian_rational(left), _gaussian_rational(right)
+    if left_exact is not None and right_exact is not None:
+        return left_exact == right_exact  # canonical forms of exact numbers: equal values are equal expressions
+    return symbolically_equal(left, right)
+
+
 from ..core import (
     check,
-    check_distinct,
-    check_pairwise_distinct,
     fmt_signed,
     generator,
     phrase,
@@ -90,16 +132,24 @@ def _text_fmt(value) -> str:
     return str(simplify(value)).replace("**", "^").replace("*", "·")
 
 
+def _check_collisions(answer, value, offered, label):
+    """`check_distinct(answer, value)` then `check_pairwise_distinct(*offered, value)`, from the memoised comparison.
+
+    The pairs among `offered` themselves were proved when the later of each pair was offered, so only `value`
+    against each is new; the messages are the ones those helpers would raise."""
+    check(not _same_value(answer, value), f"{label} collided with the answer")
+    check(not any(_same_value(v, value) for v in offered), f"{label} collided with another candidate")
+
+
 def _offer(answer, value, offered, formatted, label):
     """Append `value` (a sympy value) to the offered list iff it genuinely differs from the answer and from every
     value already offered -- several misconceptions can land on the same wrong value (e.g. hard tier's
     wrong-pole and sign-flip both negate the answer), and only one should ever be shown. Every value actually
     offered is proven pairwise distinct, unconditionally."""
     value = simplify(value)
-    if symbolically_equal(value, answer) or any(symbolically_equal(value, v) for v in offered):
+    if _same_value(value, answer) or any(_same_value(value, v) for v in offered):
         return
-    check_distinct(answer, value, msg=f"{label} collided with the answer")
-    check_pairwise_distinct(*offered, value, msg=f"{label} collided with another candidate")
+    _check_collisions(answer, value, offered, label)
     offered.append(value)
     formatted.append(_fmt(value))
 
@@ -164,7 +214,7 @@ def _p13e_residue_easy(rng):
 
         f = c / ((_Z - a) * (_Z - b))
         indep = sp.limit((_Z - a) * f, _Z, a)
-        check(symbolically_equal(indep, answer), "easy: independent limit check failed")
+        check(_same_value(indep, answer), "easy: independent limit check failed")
 
         offered, formatted = [], []
         # wrong-pole: evaluates at the other pole b instead of the stated a
@@ -201,7 +251,7 @@ def _p13e_residue_medium(rng):
 
         f = (_Z - r) / ((_Z - a) * (_Z - b))
         indep = sp.limit((_Z - a) * f, _Z, a)
-        check(symbolically_equal(indep, answer), "medium: independent limit check failed")
+        check(_same_value(indep, answer), "medium: independent limit check failed")
 
         offered, formatted = [], []
         _offer(answer, sp.Rational(b - r, b - a), offered, formatted, "wrong-pole")
@@ -233,7 +283,7 @@ def _p13e_residue_hard(rng):
 
         f = c / (_Z**2 + k**2)
         indep = sp.limit((_Z - I * k) * f, _Z, I * k)
-        check(symbolically_equal(indep, answer), "hard: independent limit check failed")
+        check(_same_value(indep, answer), "hard: independent limit check failed")
 
         offered, formatted = [], []
         # wrong-pole: evaluates at -ik instead of ik
@@ -279,7 +329,7 @@ def _p13e_residue_exam(rng):
             "exam: decoy unexpectedly satisfies the characteristic equation",
         )
         check(
-            symbolically_equal(w_true**2 + b_coef * w_true + c_coef, 0),
+            _same_value(w_true**2 + b_coef * w_true + c_coef, 0),
             "exam: true root fails its own characteristic equation",
         )
 
@@ -287,7 +337,7 @@ def _p13e_residue_exam(rng):
 
         f = (_Z - r) / (_Z**2 + b_coef * _Z + c_coef)
         indep = sp.limit((_Z - w_true) * f, _Z, w_true)
-        check(symbolically_equal(indep, answer), "exam: independent limit check failed")
+        check(_same_value(indep, answer), "exam: independent limit check failed")
 
         offered, formatted = [], []
         # wrong-pole: applies the local-limit formula at the TRUE conjugate
@@ -393,12 +443,12 @@ def _verify_boundary(family, n, L):
     n_s, L_s = symbols("n_s L_s", positive=True, integer=True)
     spatial_generic = sin(n_s * pi * _X / L_s) if family == "dirichlet" else cos(n_s * pi * _X / L_s)
     if family == "dirichlet":
-        check(symbolically_equal(spatial_generic.subs(_X, 0), 0), "boundary check failed at x=0 (Dirichlet)")
-        check(symbolically_equal(spatial_generic.subs({_X: L_s}), 0), "boundary check failed at x=L (Dirichlet)")
+        check(_same_value(spatial_generic.subs(_X, 0), 0), "boundary check failed at x=0 (Dirichlet)")
+        check(_same_value(spatial_generic.subs({_X: L_s}), 0), "boundary check failed at x=L (Dirichlet)")
     else:
         d = sp.diff(spatial_generic, _X)
-        check(symbolically_equal(d.subs(_X, 0), 0), "boundary check failed at x=0 (Neumann)")
-        check(symbolically_equal(d.subs({_X: L_s}), 0), "boundary check failed at x=L (Neumann)")
+        check(_same_value(d.subs(_X, 0), 0), "boundary check failed at x=0 (Neumann)")
+        check(_same_value(d.subs({_X: L_s}), 0), "boundary check failed at x=L (Neumann)")
 
 
 _EASY_HEAT_PATTERNS = [
@@ -463,6 +513,22 @@ _BC_WORDS = {
 }
 
 
+def _heat_fmt(value) -> str:
+    """`_fmt` for a value built by `_mode`, without the `simplify` call.
+
+    `simplify` returns every `_mode` value unchanged, so the string is the same. That was checked for every
+    expression `_mode` can build from the pools (all 2 families, n, L (including pi), alpha and coefficient
+    values, with and without the square and with and without alpha; 12,150 expressions), comparing both `==` and
+    `str`. trigsimp on each was most of this generator's `make()` time. `tests/test_p13e_heat_canonical.py`
+    re-checks a sample."""
+    return str(value).replace("**", "^")
+
+
+def _heat_text_fmt(value) -> str:
+    """`_text_fmt` for a value built by `_mode`; see `_heat_fmt`."""
+    return str(value).replace("**", "^").replace("*", "·")
+
+
 def _offer_expr(answer, value, offered, formatted, label):
     # `symbolically_equal` (not a raw `simplify(diff) == 0`) for the initial
     # dedup test: its numeric probe proves "these differ" in one cheap
@@ -471,13 +537,12 @@ def _offer_expr(answer, value, offered, formatted, label):
     # raw-`simplify` spelling here made this generator the single slowest
     # topic in the library
     # -- every candidate was fully trigsimp'd against every prior candidate.
-    if symbolically_equal(value, answer) or any(symbolically_equal(value, v) for v in offered):
+    if _same_value(value, answer) or any(_same_value(value, v) for v in offered):
         return
-    value = simplify(value)
-    check_distinct(answer, value, msg=f"{label} collided with the answer")
-    check_pairwise_distinct(*offered, value, msg=f"{label} collided with another candidate")
+    # `value` comes from `_mode`, which `simplify` leaves unchanged: no `simplify` here (see `_heat_fmt`).
+    _check_collisions(answer, value, offered, label)
     offered.append(value)
-    formatted.append(_fmt(value))
+    formatted.append(_heat_fmt(value))
 
 
 def _p13e_heat_easy(rng):
@@ -499,13 +564,13 @@ def _p13e_heat_easy(rng):
 
         if len(formatted) < 1:
             continue
-        answer_text = _fmt(answer)
+        answer_text = _heat_fmt(answer)
         distractors = pick_distractors(answer_text, formatted)
         if len(distractors) < 1:
             continue
 
         text = phrase(rng, _EASY_HEAT_PATTERNS, alpha=alpha, n=n)
-        working = [f"u_n(x,t) = 1 x sin({fmt_signed(n, 'x')}) exp(-{alpha} x {n}^2 x t) = {_text_fmt(answer)}."]
+        working = [f"u_n(x,t) = 1 x sin({fmt_signed(n, 'x')}) exp(-{alpha} x {n}^2 x t) = {_heat_text_fmt(answer)}."]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )
@@ -530,14 +595,14 @@ def _p13e_heat_medium(rng):
 
         if len(formatted) < 1:
             continue
-        answer_text = _fmt(answer)
+        answer_text = _heat_fmt(answer)
         distractors = pick_distractors(answer_text, formatted)
         if len(distractors) < 1:
             continue
 
         text = phrase(rng, _MEDIUM_HEAT_PATTERNS, alpha=alpha, n=n, L=L, coeff=coeff)
         working = [
-            f"u_n(x,t) = {coeff} x sin({n} pi x / {L}) exp(-{alpha} x {n}^2 pi^2 t / {L}^2) = {_text_fmt(answer)}."
+            f"u_n(x,t) = {coeff} x sin({n} pi x / {L}) exp(-{alpha} x {n}^2 pi^2 t / {L}^2) = {_heat_text_fmt(answer)}."
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
@@ -563,14 +628,14 @@ def _p13e_heat_hard(rng):
 
         if len(formatted) < 1:
             continue
-        answer_text = _fmt(answer)
+        answer_text = _heat_fmt(answer)
         distractors = pick_distractors(answer_text, formatted)
         if len(distractors) < 1:
             continue
 
         text = phrase(rng, _HARD_HEAT_PATTERNS, alpha=alpha, n=n, L=L, coeff=coeff)
         working = [
-            f"u_n(x,t) = {coeff} x cos({n} pi x / {L}) exp(-{alpha} x {n}^2 pi^2 t / {L}^2) = {_text_fmt(answer)}."
+            f"u_n(x,t) = {coeff} x cos({n} pi x / {L}) exp(-{alpha} x {n}^2 pi^2 t / {L}^2) = {_heat_text_fmt(answer)}."
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
@@ -594,7 +659,7 @@ def _p13e_heat_exam(rng):
         # own boundary condition is satisfied instead, never this one, since
         # sin and cos never both vanish -- respectively have both derivatives
         # vanish -- at the same nonzero n*pi/L).
-        check(simplify(decoy - answer) != 0, "exam: decoy coincides with the true mode")
+        check(not _same_value(decoy, answer), "exam: decoy coincides with the true mode")
 
         offered, formatted = [], []
         _offer_expr(answer, decoy, offered, formatted, "uses-wrong-candidate")
@@ -604,15 +669,15 @@ def _p13e_heat_exam(rng):
 
         if len(formatted) < 1:
             continue
-        answer_text = _fmt(answer)
+        answer_text = _heat_fmt(answer)
         distractors = pick_distractors(answer_text, formatted)
         if len(distractors) < 1:
             continue
 
         if rng.random() < 0.5:
-            cand1, cand2 = _text_fmt(answer), _text_fmt(decoy)
+            cand1, cand2 = _heat_text_fmt(answer), _heat_text_fmt(decoy)
         else:
-            cand1, cand2 = _text_fmt(decoy), _text_fmt(answer)
+            cand1, cand2 = _heat_text_fmt(decoy), _heat_text_fmt(answer)
 
         text = phrase(
             rng,
@@ -627,7 +692,7 @@ def _p13e_heat_exam(rng):
         )
         working = [
             f"Only the {family} spatial factor satisfies {_BC_WORDS[family].format(L=L)}.",
-            f"u_n(x,t) = {_text_fmt(answer)}.",
+            f"u_n(x,t) = {_heat_text_fmt(answer)}.",
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
