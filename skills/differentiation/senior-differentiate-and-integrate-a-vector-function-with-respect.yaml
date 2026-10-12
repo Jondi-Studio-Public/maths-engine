@@ -22,8 +22,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c3_vector_motion
-  params: {tier: exam}
+- topic: exd_x_r2a_vector_motion_chain
+  params: {}
   difficulty: exam
   stages:
   - exam

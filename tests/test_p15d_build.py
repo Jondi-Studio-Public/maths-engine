@@ -37,6 +37,8 @@ TOPIC_TO_SKILL = {
     "p15d_validation_calibration": "ucv1-validation-calibration-check",
     "p15d_shape_sorting": "f10-shape-sorting-algorithm",
 }
+# The exam tier of the chart-Jacobian skill now serves a multi-part chain.
+_CHAIN_EXAM = {"p15d_chart_jacobian": "exd_x_r2f_chart_jacobian"}
 MCQ_TOPICS = [t for t in TOPIC_TO_SKILL if t != "p15d_chart_jacobian"]
 
 
@@ -381,7 +383,7 @@ class TestSkillLoading:
         skill = skills_by_id[skill_id]
         assert skill.placement_eligible is False
         assert skill.answer in GRADERS
-        stages = {src.difficulty: src.stages for src in skill.sources if src.topic == topic}
+        stages = {src.difficulty: src.stages for src in skill.sources if src.topic in (topic, _CHAIN_EXAM.get(topic))}
         assert set(stages) == {"easy", "medium", "hard", "exam"}
         assert stages["exam"] == ["exam"]
         for tier in ("easy", "medium", "hard"):

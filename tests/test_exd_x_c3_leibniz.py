@@ -34,7 +34,7 @@ def _independent_key(text: str) -> int:
 
 
 def test_registered():
-    sup.assert_registered_as_exam_source(SKILL, TOPIC)
+    sup.assert_registered_as_exam_source(SKILL, "exd_x_r2b_leibniz_chain")
 
 
 def test_text_and_determinism():
