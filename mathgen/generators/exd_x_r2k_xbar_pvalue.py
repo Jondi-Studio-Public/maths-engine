@@ -108,7 +108,7 @@ def _build_k_xbar_pvalue(rng: random.Random) -> dict | None:
         sensible_range=(-12, 12),  # keeps a wild z from being fed to the tail-probability expression
     )
     pc = number_part(
-        "Using your value of z rounded to 2 decimal places, find the probability, correct to 4 decimal places, of "
+        "Using your value of z from (b), find the probability, correct to 4 decimal places, of "
         "getting a sample mean at least this far from μ in either direction, if the population mean really is μ.",
         tail,
         4,

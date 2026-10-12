@@ -116,7 +116,7 @@ def _build_k_phat_normal(rng: random.Random) -> dict | None:
         sensible_range=(-12, 12),  # keeps a wild z from being fed to the tail-probability expression
     )
     pc_ = number_part(
-        f"Using your z-score rounded to 2 decimal places, find the probability, correct to 4 decimal places, that a "
+        f"Using your z-score from (b), find the probability, correct to 4 decimal places, that a "
         f"sample of {n} has a sample proportion {direction} {x}/{n}, if the population proportion really is "
         f"{pc / 100:.2f}.",
         tail,
