@@ -53,9 +53,17 @@ def pick_number_distractors(topic: str, key, candidates, n: int = 3) -> list[str
     other and from ``key``, and that the real grader marks wrong. ``candidates`` are numbers, no strings."""
     out: list[str] = []
     seen = {number_text(key)}
+    half = (
+        Fraction(key).limit_denominator(1000).denominator == 2
+    )  # a distractor must look like the answer: decimal iff it is
     slips = [key + d for d in (1, -1, 2, -2, 3)]  # a miscount by a few: always available as a last resort
     for c in [*candidates, *slips]:
-        if c is None or c <= 0 or Fraction(c).limit_denominator(1000).denominator not in (1, 2):
+        if (
+            c is None
+            or c <= 0
+            or Fraction(c).limit_denominator(1000).denominator not in (1, 2)
+            or (Fraction(c).limit_denominator(1000).denominator == 2) != half
+        ):
             continue  # only whole and half-step values read as plausible options
         s = number_text(c)
         if s in seen or not graded_wrong(topic, key, c):
@@ -94,3 +102,8 @@ def leaks(fig: dict, texts) -> bool:
     except AssertionError:
         return True
     return False
+
+
+def noun(count, singular: str, plural: str | None = None) -> str:
+    """The noun to follow ``count``: the singular for exactly one ("1 slice"), else the plural ("2 slices")."""
+    return singular if count == 1 else (plural or singular + "s")

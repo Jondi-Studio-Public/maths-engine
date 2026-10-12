@@ -547,7 +547,7 @@ def fg1_line_table(rng, tier="easy", notes=False):
     text = " ".join(p for p in (phrase(rng, _T_OPEN), phrase(rng, _T_ASK), phrase(rng, _T_NOTE[tier])) if p)
     working = [
         f"Read the line: gradient {rational_text(m)}, meeting the y-axis at {rational_text(c)}.",
-        f"So y = {rational_text(m)}x + {rational_text(c)}; check each pair against the line.",
+        f"So y = {rational_text(m)}x {'+' if c > 0 else '-'} {rational_text(abs(c))}; check each pair against the line.",
         f"The pairs on the line are {key_text}.",
     ]
     return mcq_result(

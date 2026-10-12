@@ -26,6 +26,7 @@ from mathgen.figure_kinds.data import pie_chart
 from mathgen.generators._stat_display_common import (
     mentioned_in_order,
     number_fields,
+    noun,
     pick_number_distractors,
     verify_wrong_everywhere,
 )
@@ -140,7 +141,7 @@ def _draw(rng, tier):
             )
             cand = [(sizes[hi] + sizes[lo]) * unit, sizes[hi] - sizes[lo], sizes[hi] * unit, key + unit, key - unit]
             working = [
-                f"{cats[hi]} has {sizes[hi]} slices and {cats[lo]} has {sizes[lo]}.",
+                f"{cats[hi]} has {sizes[hi]} {noun(sizes[hi], 'slice')} and {cats[lo]} has {sizes[lo]}.",
                 f"({sizes[hi]} - {sizes[lo]}) x {unit} = {key}.",
             ]
         else:
@@ -159,7 +160,10 @@ def _draw(rng, tier):
                 b=cats[j],
             )
             cand = [abs(ki - kj) * unit, ki + kj, ki * unit, kj * unit, key + unit, key - unit]
-            working = [f"{cats[i]} has {ki} slices and {cats[j]} has {kj}.", f"({ki} + {kj}) x {unit} = {key}."]
+            working = [
+                f"{cats[i]} has {ki} {noun(ki, 'slice')} and {cats[j]} has {kj}.",
+                f"({ki} + {kj}) x {unit} = {key}.",
+            ]
         return fig, f"{lead} {ask}", key, cand, working
     variant = _pick(rng, ("total", "other", "outside"))
     if variant == "total":
@@ -178,8 +182,8 @@ def _draw(rng, tier):
         )
         cand = [n * ki, n * parts, n + unit, parts, n * (parts - ki), total - unit]
         working = [
-            f"{cats[i]} has {ki} of the {parts} slices, so {ki} slices = {n}.",
-            f"One slice = {unit}, so {parts} slices = {key}.",
+            f"{cats[i]} has {ki} of the {parts} {noun(parts, 'slice')}, so {ki} {noun(ki, 'slice')} = {n}.",
+            f"One slice = {unit}, so {parts} {noun(parts, 'slice')} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     if variant == "other":
@@ -199,8 +203,8 @@ def _draw(rng, tier):
         )
         cand = [n * kj, kj, n + (kj - ki) * 1, n * ki // kj if (n * ki) % kj == 0 else None, abs(kj - ki) * unit, n]
         working = [
-            f"{cats[i]} has {ki} slices = {n}, so one slice = {unit}.",
-            f"{cats[j]} has {kj} slices: {kj} x {unit} = {key}.",
+            f"{cats[i]} has {ki} {noun(ki, 'slice')} = {n}, so one slice = {unit}.",
+            f"{cats[j]} has {kj} {noun(kj, 'slice')}: {kj} x {unit} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     key = (parts - ki) * unit
@@ -216,7 +220,7 @@ def _draw(rng, tier):
     )
     cand = [ki * unit, ki, parts - ki, key + unit, key - unit, total - parts]
     working = [
-        f"{cats[i]} has {ki} of {parts} slices, so the other {parts - ki} slices did not choose it.",
+        f"{cats[i]} has {ki} of {parts} {noun(parts, 'slice')}, so the other {parts - ki} {noun(parts - ki, 'slice')} did not choose it.",
         f"{parts - ki} x {unit} = {key}.",
     ]
     return fig, f"{lead} {ask}", key, cand, working

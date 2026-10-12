@@ -26,6 +26,7 @@ from mathgen.figure_kinds.data import dot_plot
 from mathgen.generators._stat_display_common import (
     leaks,
     number_fields,
+    noun,
     pick_number_distractors,
     verify_wrong_everywhere,
 )
@@ -256,7 +257,7 @@ def _draw(rng, tier):
         ask = phrase(rng, _COUNT_ASK, subj=ctx["subj"], has=_valphrase(ctx, v))
         nb = [counts.get(v + d, 0) for d in (-step, step)]
         cand = [*nb, v, key + 1, key - 1, sum(1 for x in vals if x >= v)]
-        working = [f"The stack above {_fmt(v)} has {key} dots."]
+        working = [f"The stack above {_fmt(v)} has {key} {noun(key, 'dot')}."]
     elif variant == "mode":
         key = modes[0]
         ask = phrase(rng, _MODE_ASK)

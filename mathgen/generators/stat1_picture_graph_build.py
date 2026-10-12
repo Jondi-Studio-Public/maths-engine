@@ -28,6 +28,7 @@ from mathgen.generators._stat_display_common import (
     leaks,
     mentioned_in_order,
     number_fields,
+    noun,
     pick_number_distractors,
     verify_wrong_everywhere,
 )
@@ -201,7 +202,7 @@ def _draw(rng, tier):
         others = [s * each for j, s in enumerate(syms) if j != i]
         cand = [syms[i] if each > 1 else None, key + each, key - each, *others, key + 1]
         working = [
-            f"The {cats[i]} row has {_fmt(syms[i])} symbols and each symbol is {each}.",
+            f"The {cats[i]} row has {_fmt(syms[i])} {noun(syms[i], 'symbol')} and each symbol is {each}.",
             f"{_fmt(syms[i])} x {each} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
@@ -233,8 +234,8 @@ def _draw(rng, tier):
             syms[b] * each,
         ]
         working = [
-            f"{cats[a]}: {_fmt(syms[a])} symbols x {each} = {_fmt(syms[a] * each)}. "
-            f"{cats[b]}: {_fmt(syms[b])} symbols x {each} = {_fmt(syms[b] * each)}.",
+            f"{cats[a]}: {_fmt(syms[a])} {noun(syms[a], 'symbol')} x {each} = {_fmt(syms[a] * each)}. "
+            f"{cats[b]}: {_fmt(syms[b])} {noun(syms[b], 'symbol')} x {each} = {_fmt(syms[b] * each)}.",
             f"{_fmt(syms[a] * each)} - {_fmt(syms[b] * each)} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
@@ -275,7 +276,7 @@ def _draw(rng, tier):
             key + each,
         ]
         working = [
-            f"Most: {_fmt(hi)} symbols. Least: {_fmt(lo)} symbols.",
+            f"Most: {_fmt(hi)} {noun(hi, 'symbol')}. Least: {_fmt(lo)} {noun(lo, 'symbol')}.",
             f"({_fmt(hi)} - {_fmt(lo)}) x {each} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
@@ -287,7 +288,7 @@ def _draw(rng, tier):
     ask = phrase(rng, _INVERSE_ASK, c=new_c, n=n, unit=unit)
     key = m
     cand = [n, m + 1, m - 1, n * each, n // each + each, m * 2]
-    working = [f"One symbol is {each}, so {n} needs {n} / {each} = {m} symbols."]
+    working = [f"One symbol is {each}, so {n} needs {n} / {each} = {m} {noun(m, 'symbol')}."]
     return fig, f"{lead} {ask}", key, cand, working
 
 
