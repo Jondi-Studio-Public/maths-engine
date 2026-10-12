@@ -1575,6 +1575,120 @@ _ENTRIES = (
         "Summing a geometric series without the factor of its first term (a/(1 - r) taken as 1/(1 - r)).",
         area="series",
     ),
+    # -- inequalities and matrix inverses -------------------------------------------------------------------------
+    CatalogueEntry(
+        "ineq-direction-not-reversed",
+        "Multiplying or dividing both sides of an inequality by a negative number without reversing the inequality "
+        "sign.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "ineq-reversed-without-need",
+        "Reversing the inequality sign when nothing needed it: after adding, subtracting, or dividing by a positive "
+        "number.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "strict-nonstrict-confused",
+        "Changing between < and ≤ (or > and ≥) while solving, so the bound is wrongly included or excluded.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "used-wrong-inverse-operation",
+        "Undoing a multiplication by multiplying again, or a division by dividing again, instead of using the "
+        "inverse operation.",
+        area="equations",
+    ),
+    CatalogueEntry(
+        "operation-on-one-term-only",
+        "Dividing, multiplying or expanding with only one term of a side: 2x + 6 > 10 becomes x + 6 > 5, or "
+        "3(x + 2) is treated as 3x + 2.",
+        area="equations",
+    ),
+    CatalogueEntry(
+        "bound-sign-not-changed",
+        "Reversing the inequality for a negative divisor but leaving the bound with the sign it had before dividing.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "compound-operation-missed-part",
+        "In a double inequality, applying a step to the middle and one end but not to the other end.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "at-least-no-more-than-swapped",
+        "Reading the direction of a context the wrong way: writing ≤ for 'at least' and ≥ for 'no more than', or "
+        "the dearer option where the cheaper was asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "rounds-wrong-way-in-context",
+        "Rounding a bound to the wrong whole number for a limit: rounding up a maximum that must not be exceeded, "
+        "or down a minimum that must be reached.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "strict-bound-taken-as-value",
+        "Giving the bound itself as the greatest or least whole number although a strict inequality excludes it.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "integer-solutions-endpoint-miscount",
+        "Miscounting the whole numbers in a range: including an excluded end, leaving out an included one, or "
+        "subtracting the ends without adding one.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "compound-bound-omitted",
+        "Combining two conditions on the same variable but giving only one of them.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "inverse-diagonal-not-swapped",
+        "Inverting a 2×2 matrix without swapping the leading-diagonal entries a and d.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "inverse-offdiag-not-negated",
+        "Inverting a 2×2 matrix without changing the signs of the off-diagonal entries b and c.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "inverse-not-divided-by-det",
+        "Writing the adjugate (or cofactor matrix) as the inverse without dividing by the determinant.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "inverse-entries-reciprocated",
+        "Inverting a matrix by taking the reciprocal of each entry.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "inverse-cofactors-not-transposed",
+        "Dividing the cofactor matrix by the determinant without transposing it first.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "inverse-cofactor-signs-missed",
+        "Using minors in place of cofactors: leaving out the alternating + − + sign pattern.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "inverse-global-sign",
+        "A sign error across the whole inverse: every entry has the wrong sign.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "matrix-equation-wrong-side",
+        "Multiplying by the inverse on the wrong side: A⁻¹B where BA⁻¹ is needed, or the reverse. Matrix "
+        "multiplication is not commutative.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "det-formula-sign-slip",
+        "Computing a 2×2 determinant as ad + bc, or as bc − ad.",
+        area="matrices",
+    ),
 )
 
 #: Every entry, by id.

@@ -2,43 +2,49 @@ id: matrix-inverse-2x2
 name: Invert a 2x2 matrix
 domain: matrices
 description: Find the inverse of a 2x2 matrix.
-status: deferred
-deferred_reason: grader
+status: active
 prerequisites:
 - matrix-determinant-2x2
-answer: list
+answer: matrix
 sources:
-- topic: matrices
-  params:
-    kinds:
-    - inverse
+- topic: mat_inv_2x2
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: matrices
-  params:
-    kinds:
-    - inverse
+- topic: mat_inv_2x2
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: matrices
-  params:
-    kinds:
-    - inverse
+- topic: mat_inv_2x2
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_mat_inv_2x2
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: forgot-swap-diagonal
-  description: Forgetting to swap the leading-diagonal entries.
-- id: forgot-negate-offdiag
-  description: Forgetting to negate the off-diagonal entries.
-- id: forgot-divide-det
-  description: Forgetting to divide by the determinant.
+- id: inverse-diagonal-not-swapped
+  description: "Forgetting to swap the leading-diagonal entries."
+- id: inverse-offdiag-not-negated
+  description: "Forgetting to negate the off-diagonal entries."
+- id: inverse-not-divided-by-det
+  description: "Forgetting to divide by the determinant."
+- id: inverse-entries-reciprocated
+  description: "Taking the reciprocal of each entry."
+- id: inverse-global-sign
+  description: "A sign error across the whole inverse."
+- id: matrix-equation-wrong-side
+  description: "Using A⁻¹B where BA⁻¹ is needed, or the reverse."
+- id: det-formula-sign-slip
+  description: "Computing the determinant as ad + bc."
 tags: []
