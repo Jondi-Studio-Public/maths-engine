@@ -299,6 +299,9 @@ OPTION_NOTES_TOPICS = frozenset(
         "f10_collect_sort_categorical",
         "f10_geometric_construction_algorithm",
         "f10_grid_reference_pathway",
+        "f10_linear_conjecture",
+        "f10_partition_tens_ones",
+        "f10_stem_and_leaf",
         "f10_symmetry_lines_rotation",
         "f10_trig_ratios_similarity",
         "f10_two_way_table",
@@ -311,7 +314,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "linear_equation",
         "percentage_change",
         "quadratic",
+        "senior_dividend_portfolio_table",
+        "senior_event_set_notation",
+        "senior_percentaged_two_way_table",
+        "senior_reducing_balance_schedule",
         "transformations_invariants",
+        "ucv1_weak_solution_regularity",
     }
 )
 

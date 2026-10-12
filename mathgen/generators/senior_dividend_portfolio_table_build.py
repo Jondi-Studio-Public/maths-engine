@@ -280,11 +280,11 @@ def _hard(rng):
             "{owner} holds shares in four companies. For each holding the table shows the number of shares held, "
             "the share price, the earnings per share and the dividend per share. Dividend paid = shares held x "
             "dividend per share; dividend yield = dividend per share / share price, as a percentage; P/E ratio = "
-            "share price / earnings per share. Complete the table, giving dollar amounts to the cent and the yield "
+            "share price / earnings per share. Complete the table, giving dollar amounts to the cent (2 decimal places) and the yield "
             "and the P/E ratio to one decimal place. Fill in each ? with a number.",
             "The table compares four shares in {owner_l} portfolio. Dividend paid = shares held x dividend per share; "
             "dividend yield = dividend per share / share price, as a percentage; P/E ratio = share price / earnings "
-            "per share. Complete the table, giving dollar amounts to the cent and the yield and the P/E ratio to "
+            "per share. Complete the table, giving dollar amounts to the cent (2 decimal places) and the yield and the P/E ratio to "
             "one decimal place. Fill in each ? with a number.",
         ],
         owner=rng.choice(_OWNERS),
@@ -441,12 +441,12 @@ def _exam(rng):
             "are missing, and different entries are missing from different rows. Dividend paid = shares held x "
             "dividend per share; dividend yield = dividend per share / share price, as a percentage; P/E ratio = "
             "share price / earnings per share. Every entry that is shown is exact. Complete the table, giving "
-            "dollar amounts to the cent and the yield and the P/E ratio to one decimal place. Fill in each ? with a "
+            "dollar amounts to the cent (2 decimal places) and the yield and the P/E ratio to one decimal place. Fill in each ? with a "
             "number.",
             "{owner_u} keeps this record of three shares, but some entries are missing and they are not the same "
             "in every row. Dividend paid = shares held x dividend per share; dividend yield = dividend per share / "
             "share price, as a percentage; P/E ratio = share price / earnings per share. Every entry that is shown "
-            "is exact. Complete the table, giving dollar amounts to the cent and the yield and the P/E ratio to "
+            "is exact. Complete the table, giving dollar amounts to the cent (2 decimal places) and the yield and the P/E ratio to "
             "one decimal place. Fill in each ? with a number.",
         ],
         owner_l=rng.choice(["an investor's", "a retiree's", "a household's"]),

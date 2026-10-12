@@ -1250,22 +1250,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         "easy",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
-        "multiply_divide_one_digit_arrays",
-        "easy",
-    ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "multiply_divide_one_digit_arrays",
-        "hard",
-    ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "multiply_divide_one_digit_arrays",
-        "medium",
-    ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "multiply_divide_one_digit_arrays",
-        None,
-    ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
         "natural_logarithm_define",
         "easy",
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",

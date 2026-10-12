@@ -4,8 +4,10 @@
   fraction of a bar, rectangle grid or circle that is shaded. Easy uses halves, thirds and quarters
   of a bar or circle with the shaded parts together; medium adds five to eight parts, rectangle grids
   and shaded parts that are not next to each other; hard goes to ten and twelve parts and asks for the
-  fraction NOT shaded. The key is written with the drawn number of parts (``2/4``); the fraction
-  grader compares by value, so ``1/2`` is accepted too.
+  fraction NOT shaded. The key is written with the drawn number of parts (``3/4``); the drawn count
+  and the number of parts never share a factor, so the key is always in lowest terms and a learner is
+  never shown ``2/4`` as the worked answer to "what fraction is shaded". The fraction grader compares
+  by value either way.
 - ``fraction_compare_models`` (skill ``f10-fraction-compare-models``, ``answer: mcq``): two wholes of
   the same size, A and B; which has more shaded, or are they the same? Easy cuts both into the same
   number of parts; medium compares one shaded part of two different cuts (more parts, smaller parts);
@@ -18,9 +20,10 @@ Prompts never state a fraction. Each topic registers a figure reader that works 
 from __future__ import annotations
 
 from fractions import Fraction
+from math import gcd
 
 from .. import figures
-from ..core import attempts, check, generator, pick_distractors
+from ..core import attempts, check, draw_until, generator, pick_distractors
 from ..figure_kinds.early import fraction_model, fraction_shape
 from ..slots import NAMES
 
@@ -98,16 +101,32 @@ def _name_distractors(k: int, d: int, asked: int):
         (asked, d - 1),
         (asked, 2 * d),
         (asked + 1, d + 1),
+        (asked - 1, d - 1),
+        (asked + 2, d),
+        (asked - 2, d),
+        (asked, d - 2),
+        (other + 1, d),
+        (other - 1, d),
     ]
     cands = [c for c in cands if c[1] in _DIMS]
-    return [_frac_text(p, q) for p, q in cands if 0 < p < q and Fraction(p, q) != Fraction(asked, d)]
+    cands += [(asked - 1, 11), (asked, 11)]  # last resort for twelfths, where the denominators run out
+    return [
+        _frac_text(p, q)
+        for p, q in cands
+        if 0 < p < q <= 12 and gcd(p, q) == 1 and Fraction(p, q) != Fraction(asked, d)
+    ]
 
 
 @generator("fraction_shaded_name", level=3, presets=_PRESETS)
 def fraction_shaded_name(rng, tier="easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
-    kind, parts, k, shaded = _draw_name(rng, tier)
+    kind, parts, k, shaded = draw_until(
+        rng,
+        lambda r: _draw_name(r, tier),
+        lambda drawn: gcd(drawn[2], drawn[1]) == 1,
+        what="a shaded count in lowest terms over the number of parts",
+    )
     fig = fraction_model(models=[_shape(kind, parts, shaded)], alt=f"a {_WORD[kind]} cut into equal parts, some shaded")
     asked = k if tier != "hard" else parts - k
     text = rng.choice(_NAME_TEXT[tier]).format(n=rng.choice(NAMES), w=_WORD[kind])
