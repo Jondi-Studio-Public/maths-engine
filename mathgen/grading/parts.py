@@ -34,6 +34,10 @@ _SYMBOL_PREFIX = "part_"
 _NUMBER_LITERAL_RE = re.compile(r"-?\d+(?:\.\d+)?")
 #: Significant digits a follow-through value is worked out to before it is rounded to the part's precision.
 _DIGITS = 30
+#: Largest follow-through value a number part states. A learner's earlier reply can drive a follow-through
+#: expression to any size (z = 999999 puts erfc(z/sqrt(2)) near 10**-217000000000), and writing such a value out
+#: exactly takes a number with that many digits, so a value outside this bound has no follow-through answer.
+_MAX_MAGNITUDE = sympy.Integer(10) ** 30
 
 
 def symbol_name(label: str) -> str:
@@ -167,7 +171,11 @@ def retarget(part, value):
     if len(literals) != 1:
         return None
     places = len(literals[0].split(".")[1]) if "." in literals[0] else 0
-    exact = Fraction(str(sympy.N(value, _DIGITS)))
+    approx = sympy.N(value, _DIGITS)
+    if not approx.is_finite or abs(approx) >= _MAX_MAGNITUDE:
+        return None
+    # Under a hundredth of the part's last place, the value states as zero; its exact digits are never needed.
+    exact = Fraction(0) if abs(approx) < sympy.Rational(1, 10 ** (places + 2)) else Fraction(str(approx))
     rounded = round_half_up(exact, places) if exact >= 0 else -round_half_up(-exact, places)
     stated = stated_precision_string(rounded, places) if places else str(int(rounded))
     answer_text = _NUMBER_LITERAL_RE.sub(stated, part.answer_text, count=1)
