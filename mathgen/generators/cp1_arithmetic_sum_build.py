@@ -238,7 +238,9 @@ def _term_from_sum(p: int, q: int) -> dict:
         "exam",
         kit.auto_ref(start, target),
         [
-            T(f"The sum of the first n terms of a sequence is S_n = {p}n^2 + {q}n. Show that the n-th term is "),
+            T(
+                f"The sum of the first n terms of a sequence is S_n = {p}n^2 + {'' if q == 1 else q}n. Show that the n-th term is "
+            ),
             M(target),
             T(", by showing that "),
             M(start),
@@ -353,13 +355,6 @@ def _more_medium() -> list[dict]:
             "(n*(2*a+(n-1)*d)/2)/n",
             "a+(n-1)*d/2",
             _S + "Show that the mean of the first n terms is a + (n - 1)d/2, that is ",
-        ),
-        _claim(
-            "twice_sum",
-            "medium",
-            "2*(n*(2*a+(n-1)*d)/2)",
-            "n*(2*a+(n-1)*d)",
-            _S + "Show that twice S_n is n(2a + (n - 1)d), that is ",
         ),
     ] + [sum_family_for(a, d) for a, d in ((20, -3), (15, -2), (30, -4))]
 

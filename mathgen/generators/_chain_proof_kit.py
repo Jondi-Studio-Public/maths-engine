@@ -128,6 +128,7 @@ def disp(sym: str) -> str:
     while "factorial(" in s:
         s = _FACT_RE.sub(fact, s)
     s = s.replace("**", "^")
+    s = re.sub(r"\^\(([A-Za-z0-9]+)\)", r"^\1", s)
     s = _drop_stars(s)
     s = re.sub(r"(?<=[\w)!])\s*([+\-])\s*(?=[\w(])", r" \1 ", s)
     s = s.replace("pi", "π") if re.search(r"(?<![A-Za-z])pi(?![A-Za-z])", s) else s

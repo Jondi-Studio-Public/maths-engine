@@ -457,7 +457,7 @@ def _build_pools() -> dict[str, list[dict]]:
     pools["easy"] += [_absorb(k) for k in (2, 3, 4)]
     pools["easy"] += [_adjacent_squares(a) for a in (0, 1, 2)]
     pools["medium"] += [_pascal("medium", a, k) for a in (1, 2) for k in (2, 3)]
-    pools["medium"] += [_ratio(k) for k in (1, 2, 3)]
+    pools["medium"] += [_ratio(k) for k in (2, 3)]
     pools["medium"] += [_shift(k) for k in (1, 2, 3)]
     pools["medium"] += [_diagonal(k) for k in (1, 2, 3)]
     pools["hard"] += [_double_pascal(k) for k in (1, 2)]

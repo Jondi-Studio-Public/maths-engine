@@ -110,6 +110,33 @@ def _change_of_base(big, small, e):
     )
 
 
+def _mixed_base(big, small, e, k, product):
+    """A product or quotient of powers in two related bases, written in the smaller base (several laws in turn)."""
+    if product:
+        ref = [
+            f"{big}**x*{small}**(x+{k})",
+            f"({small}**{e})**x*{small}**(x+{k})",
+            f"{small}**({e}*x)*{small}**(x+{k})",
+            f"{small}**({e}*x+x+{k})",
+            f"{small}**({e + 1}*x+{k})",
+        ]
+    else:
+        ref = [
+            f"{big}**x/{small}**(x-{k})",
+            f"({small}**{e})**x/{small}**(x-{k})",
+            f"{small}**({e}*x)/{small}**(x-{k})",
+            f"{small}**({e}*x-(x-{k}))",
+            f"{small}**({e - 1}*x+{k})",
+        ]
+    return _fam(
+        f"mixed_base_{big}_{small}_{k}_{'p' if product else 'q'}",
+        "medium",
+        ref,
+        symbols=_only("x"),
+        domain="Here x is a real number.",
+    )
+
+
 def _square_expansion(b):
     return _fam(
         f"conjugate_pair_{b}",
@@ -287,7 +314,7 @@ def _apply_mixed(c: int, terms: tuple[tuple[int, str], ...]) -> dict:
         e = p * frac
         check(e.denominator == 1, "apply_mixed: every exponent must come out whole")
         es.append(int(e))
-        parts.append(f"{c**p}**({ex})")
+        parts.append(f"{c**p}" if ex == "1" else f"{c**p}**({ex})")
     total = es[0] + es[1] - es[2]
     value = Fraction(c) ** total
     value_text = f"{value.numerator}" if value.denominator == 1 else f"{value.numerator}/{value.denominator}"
@@ -316,7 +343,18 @@ def _build_pools() -> dict[str, list[dict]]:
     for b in (2, 3):
         pools["medium"] += [_shifted_pair(b, p, q) for p, q in ((2, 1), (3, 1), (3, 2))]
     pools["medium"] += [
-        _change_of_base(big, small, e) for big, small, e in ((4, 2, 2), (9, 3, 2), (8, 2, 3), (27, 3, 3), (25, 5, 2))
+        _mixed_base(big, small, e, k, product)
+        for big, small, e, k, product in (
+            (4, 2, 2, 1, True),
+            (9, 3, 2, 2, True),
+            (8, 2, 3, 1, True),
+            (27, 3, 3, 1, True),
+            (25, 5, 2, 1, False),
+            (4, 2, 2, 3, False),
+            (9, 3, 2, 2, False),
+            (8, 2, 3, 1, False),
+            (125, 5, 3, 2, False),
+        )
     ]
     for b, p, q in ((2, 1, 2), (2, 1, 4), (2, 2, 4), (3, 1, 3), (3, 3, 9), (5, 1, 5), (2, 1, 8)):
         pools["hard"].append(_quadratic_in_power(b, p, q))

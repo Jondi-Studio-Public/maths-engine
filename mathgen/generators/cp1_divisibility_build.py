@@ -164,8 +164,8 @@ def _build_pools() -> dict[str, list[dict]]:
         (6, 4, 2, 5),
         (5, 2, 1, 2),
         (5, 2, 1, 4),
-        (6, 3, 1, 2),
-        (7, 3, 2, 1) if False else (6, 3, 1, 5),
+        (7, 2, 1, 4),
+        (8, 3, 1, 4),
     ):
         pools["hard"].append(_shifted(a, b, p, q, "hard"))
     pools["hard"].append(
@@ -183,7 +183,7 @@ def _build_pools() -> dict[str, list[dict]]:
         )
     )
     pools["exam"].append(_shifted(3, 2, 2, 4, "exam"))
-    for a, b in ((2, 3), (5, 3), (3, 4), (4, 5), (6, 4)):
+    for a, b in ((2, 3), (5, 3), (3, 4), (4, 5), (6, 4), (11, 12)):
         pools["exam"].append(_mixed_powers(a, b))
     pools["exam"].append(
         _family(

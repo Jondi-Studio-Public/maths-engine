@@ -97,7 +97,7 @@ def _cubic_difference(coeffs: list[int], a: int) -> dict:
     p_text = _poly(coeffs)
     xa = f"(x-{a})" if a >= 0 else f"(x+{-a})"
     shown_xa = xa.replace("x-", "x - ").replace("x+", "x + ")
-    start = f"{p_text} - ({value})"
+    start = f"{p_text} - {value}" if value > 0 else f"{p_text} + {-value}"
     target = f"{xa}*({quotient.as_expr()})"
     middle = _poly([*coeffs[:-1], coeffs[-1] - value])
     return _identity(
@@ -144,9 +144,13 @@ def _division_chain(coeffs: list[int], a: int, tier: str = "hard") -> dict:
     for i in range(1, degree + 1):
         rest = f"({_poly([b[i], *coeffs[i + 1 :]])})" if i < degree else f"({remainder})"
         lines.append(f"{peeled(i)} + {rest}")
-    target = f"{xa}*({_poly(quotient)}) + ({remainder})"
+    target = f"{xa}*({_poly(quotient)})" + (
+        "" if remainder == 0 else f" + {remainder}" if remainder > 0 else f" - {-remainder}"
+    )
     lines.append(target)
     ref = [ln for i, ln in enumerate(lines) if i == 0 or sp.sympify(ln) != sp.sympify(lines[i - 1])]
+    if remainder == 0:
+        ref[-1] = target
     kind = "quartic" if degree == 4 else "cubic"
     return _identity(
         f"division_{kind}_{'_'.join(map(str, coeffs))}_{a}",
