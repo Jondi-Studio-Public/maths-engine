@@ -40,6 +40,12 @@ EXAM_TOPIC = "exd_x_uc_series_convergence"
 _N = sympy.Symbol("n")
 
 
+def _lone_shape(answer_text: str, distractors) -> bool:
+    """Whether the answer is the only integer or only fraction among its options, so it can be picked without working."""
+    shape = "fraction" if "/" in answer_text else "integer"
+    return all(("fraction" if "/" in d.text else "integer") != shape for d in distractors)
+
+
 def _fraction_distractors(answer: Fraction, candidates, n: int = 4) -> list[Distractor]:
     """Tagged distractors, dropping any candidate that equals the answer or an earlier distractor."""
     seen = [answer]
@@ -600,6 +606,9 @@ def ucv1_series_convergence(rng: random.Random, tier: str = "easy") -> dict:
     check(tier in _TIERS, f"unknown tier {tier!r}")
     case = _TIERS[tier](rng)
     distractors = _fraction_distractors(case.answer, case.wrongs)
+    if _lone_shape(rational_text(case.answer), distractors):
+        # no wrong option reads like the answer (the only integer, or the only fraction): add the sign slip
+        distractors = _fraction_distractors(case.answer, [(-case.answer, "calc-sign-slip"), *case.wrongs])
     check(len(distractors) >= 2, "fewer than two distractors")
     text, latex = case.text
     return dict(

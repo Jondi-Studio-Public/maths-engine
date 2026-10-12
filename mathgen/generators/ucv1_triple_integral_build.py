@@ -396,6 +396,12 @@ def _distractors(value: Fraction, candidates, max_denominator: int = 5000):
     return out
 
 
+def _lone_shape(answer_text: str, distractors) -> bool:
+    """Whether the answer is the only integer or only fraction among its options, so it can be picked without working."""
+    shape = "fraction" if "/" in answer_text else "integer"
+    return all(("fraction" if "/" in d.text else "integer") != shape for d in distractors)
+
+
 @generator(
     "triple_integral",
     level=20,
@@ -412,6 +418,10 @@ def triple_integral(rng, tier="easy"):
         value = d["value"]
         answer_text = rational_text(value)
         distractors = pick_distractors(answer_text, _distractors(value, d["candidates"]), 4)
+        if _lone_shape(answer_text, distractors):
+            # no wrong option reads like the answer: the reversed-limits slip (the negative) always does
+            reversed_limits = [("triple-integral-limits-reversed", -value), *d["candidates"]]
+            distractors = pick_distractors(answer_text, _distractors(value, reversed_limits), 4)
         if len(distractors) >= 3:
             break
     else:  # pragma: no cover - attempts() raises first

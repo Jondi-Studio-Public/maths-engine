@@ -372,6 +372,22 @@ def _signed_quadratic(trace, determinant):
     return f"λ²{t}{d}"
 
 
+_EXAM_STEMS = [
+    "The matrix A = {a} has two distinct real eigenvalues.",
+    "Consider the 2×2 matrix A = {a}. Its characteristic equation has two distinct real roots.",
+    "A linear map on the plane has matrix A = {a} in the standard basis. A has two distinct real eigenvalues.",
+]
+_EXAM_PROMPTS_A = [
+    "Find the larger eigenvalue of A.",
+    "Solve the characteristic equation of A and state the larger eigenvalue.",
+    "Determine the larger of the two eigenvalues of A.",
+]
+_EXAM_PROMPTS_C = [
+    "Find an eigenvector of A corresponding to the larger eigenvalue.",
+    "Give a non-zero vector v with Av = λv, where λ is the larger eigenvalue.",
+]
+
+
 @generator("exd_x_uc_eigenvectors", level=18, presets={"exam": dict(tier="exam")})
 def exd_x_uc_eigenvectors(rng, tier="exam"):
     """Exam chain: the eigenvalues of a 2×2 matrix, then an eigenvector for each."""
@@ -439,12 +455,15 @@ def exd_x_uc_eigenvectors(rng, tier="exam"):
     d_dist = pick_distractors(d_text, vector_distractors(small_candidates, vec_small), 3)
     check(all(len(x) >= 2 for x in (a_dist, b_dist, c_dist, d_dist)), "too few distractors")
 
-    stem = f"The matrix A = {mat_str(a)} has two distinct real eigenvalues."
+    # The wording is chosen last, so the matrix and every answer are the same as for a single fixed wording.
+    stem = rng.choice(_EXAM_STEMS).format(a=mat_str(a))
+    prompt_a = rng.choice(_EXAM_PROMPTS_A)
+    prompt_c = rng.choice(_EXAM_PROMPTS_C)
     return dict(
         text=stem,
         parts=[
             dict(
-                prompt="Find the larger eigenvalue of A.",
+                prompt=prompt_a,
                 answer_kind="number",
                 answer=large,
                 answer_text=str(large),
@@ -468,7 +487,7 @@ def exd_x_uc_eigenvectors(rng, tier="exam"):
                 distractors=b_dist,
             ),
             dict(
-                prompt="Find an eigenvector of A corresponding to the larger eigenvalue.",
+                prompt=prompt_c,
                 answer_kind="matrix",
                 answer=column_value(vec_large),
                 answer_text=c_text,

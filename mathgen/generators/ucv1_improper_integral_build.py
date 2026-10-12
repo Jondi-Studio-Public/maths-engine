@@ -108,6 +108,18 @@ def _pick(rng: random.Random, values, exclude=()):
     return rng.choice([v for v in values if v not in exclude])
 
 
+def _paren_if_fraction(text: str) -> str:
+    return f"({text})" if "/" in text else text
+
+
+def _scaled_xp(q) -> str:
+    """The denominator q·x^q written for a divisor: x, (3)x² ..., never a coefficient of 1."""
+    q = Fraction(q)
+    if q == 1:
+        return "x"
+    return f"({_cx(q)}{_xp(q)})"
+
+
 def _xp(p) -> str:
     """Plain text for x^p: x, x², x³, x^4, x^(3/2)."""
     p = Fraction(p)
@@ -162,9 +174,9 @@ def _easy_power_tail(rng):
         a,
         mp.inf,
         [
-            f"An antiderivative of {c}/{_xp(p)} is -{c}/({rational_text(q)}{_xp(q) if q != 1 else 'x'}), which "
-            "tends to 0 as x → ∞.",
-            f"The integral is 0 - (-{c}/({rational_text(q)} × {rational_text(aq)})) = {rational_text(value)}.",
+            f"An antiderivative of {c}/{_xp(p)} is -{c}/{_scaled_xp(q)}, which tends to 0 as x → ∞.",
+            f"The integral is 0 - (-{c}/{rational_text(aq) if q == 1 else f'({rational_text(q)} × {rational_text(aq)})'}) "
+            f"= {rational_text(value)}.",
         ],
         [
             (C * A ** (1 - P) / P, "divides-by-p-not-p-minus-1"),
@@ -246,7 +258,7 @@ def _easy_type2(rng):
         [
             f"The integrand is unbounded at x = 0, so the integral is a limit as t → 0⁺ of the integral from t to {b}.",
             f"An antiderivative of {c}/{_xp(p) if p != Fraction(1, 2) else '√x'} is "
-            f"{c}{_xp(1 - p)}/{rational_text(1 - P)}, which tends to 0 as x → 0⁺.",
+            f"{coef(c)}{_xp(1 - p)}/{_paren_if_fraction(rational_text(1 - P))}, which tends to 0 as x → 0⁺.",
             f"At x = {b} it equals {rational_text(value)}, so the integral is {rational_text(value)}.",
         ],
         [

@@ -23,6 +23,7 @@ the limit point and compared with the exact value (SymPy's own `limit` is far to
 from __future__ import annotations
 
 import random
+import re
 from dataclasses import dataclass, field
 from fractions import Fraction
 from typing import Callable
@@ -69,6 +70,20 @@ def _expression_distractors(answer, candidates, n: int = 4) -> list[Distractor]:
         if len(out) == n:
             break
     return out
+
+
+def _text_shape(text: str) -> str | None:
+    if re.fullmatch(r"-?\d+", text.strip()):
+        return "integer"
+    if re.fullmatch(r"-?\d+/\d+", text.strip()):
+        return "fraction"
+    return None
+
+
+def _lone_shape(answer_text: str, distractors) -> bool:
+    """Whether the answer is the only integer or fraction among its options, so it can be picked without working."""
+    shape = _text_shape(answer_text)
+    return shape is not None and all(_text_shape(d.text) != shape for d in distractors)
 
 
 def _fraction_distractors(answer, candidates, n: int = 4) -> list[Distractor]:
@@ -837,6 +852,9 @@ def ucv1_lhopital(rng: random.Random, tier: str = "easy") -> dict:
     lead, tail = rng.choice(_PROMPTS)
     text, latex = say(lead, M(case.body), tail)
     distractors = _expression_distractors(case.value, case.wrongs)
+    if _lone_shape(value_text(case.value), distractors):
+        # no wrong option reads like the answer (the only fraction, say): add the sign slip, a real error of the same shape
+        distractors = _expression_distractors(case.value, [(-case.value, "calc-sign-slip"), *case.wrongs])
     check(len(distractors) >= 2, "fewer than two distractors")
     return dict(
         text=text,
