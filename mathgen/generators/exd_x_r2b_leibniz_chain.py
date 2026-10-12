@@ -110,12 +110,18 @@ def _build(rng):
         follow_through=f"Subs(part_a, (u,), ({inner},))*part_b",
     )
 
-    d_wrong = [
+    # The key is a whole number, so a wrong answer is offered only when it is one too: a decimal option would
+    # give the key away by its format.
+    d_all = [
         (slope1, "dx-dt-factor-omitted"),
         (slope1 / r, "inverted-ratio"),
         (d_outer.subs(u, u1) * r, "forgot-inner-derivative"),
         (inner.subs(x, x1) ** n * r, "value-instead-of-rate"),
+        (n * u1**n * d_inner.subs(x, x1) * r, "exponent-not-lowered"),
+        (u1 ** (n - 1) * d_inner.subs(x, x1) * r, "forgot-power-multiplier"),
+        (slope1 * r + r, "chain-rule-terms-added"),
     ]
+    d_wrong = [(v, t) for v, t in d_all if Rational(v).is_integer]
     part_d = exact_number_part(
         phrase(rng, _RATE, r=r, units="unit" if r == 1 else "units", x1=x1),
         Rational(rate),

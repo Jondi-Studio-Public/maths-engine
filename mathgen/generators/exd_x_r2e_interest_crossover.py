@@ -114,11 +114,13 @@ def interest_crossover(rng: random.Random, tier: str = "exam") -> dict:
     rate_text = stated_precision_string(rate, 1)
     ratio = Fraction(int(first_year), p_comp)  # the growth factor, e.g. 1.064
     share_of_final = round_half_up(Fraction(interest_1 * 100, int(first_year)), 1)
+    growth_percent = round_half_up(ratio * 100, 1)  # 106.4: the whole factor read as a percentage
+    cross_rate = round_half_up(Fraction(yearly * 100, p_comp), 1)  # the simple account's dollars over this principal
     cand_a = [
-        Distractor(str(interest_1), "gave-change-not-percent", interest_1),
         Distractor(stated_precision_string(share_of_final, 1), "divides-by-final", share_of_final),
-        Distractor(f"{float(ratio):.3f}", "factor-given-as-rate", ratio),
-        Distractor(str(rate_simple), "mixes-up-the-two-accounts", rate_simple),
+        Distractor(stated_precision_string(growth_percent, 1), "factor-given-as-rate", growth_percent),
+        Distractor(stated_precision_string(Fraction(rate_simple), 1), "mixes-up-the-two-accounts", rate_simple),
+        Distractor(stated_precision_string(cross_rate, 1), "mixes-up-the-two-accounts", cross_rate),
     ]
     d_a = _distractors(cand_a, rate_text, stated_precision_tolerance(1))
 

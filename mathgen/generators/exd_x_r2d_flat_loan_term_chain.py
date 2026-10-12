@@ -52,10 +52,10 @@ def _fmt(v: Fraction, dp: int) -> str:
     return stated_precision_string(round_half_up(v, dp), dp)
 
 
-def _dists(key: Fraction, pairs, dp: int, minimum: int = 2, shown_dp: int | None = None):
-    sd = dp if shown_dp is None else shown_dp
-    cands = [Distractor(_fmt(v, sd), tag, exact_value(round_half_up(v, sd))) for tag, v in pairs]
-    out = pick_distractors(_fmt(key, dp), cands, 3, tolerance=stated_precision_tolerance(max(sd, 1)))
+def _dists(key: Fraction, pairs, dp: int, minimum: int = 2):
+    """Each wrong value written to the key's own places, so the format never gives the key away."""
+    cands = [Distractor(_fmt(v, dp), tag, exact_value(round_half_up(v, dp))) for tag, v in pairs]
+    out = pick_distractors(_fmt(key, dp), cands, 3, tolerance=stated_precision_tolerance(max(dp, 1)))
     check(len(out) >= minimum, "too few distractors")
     return out
 
@@ -115,6 +115,9 @@ def exd_x_r2d_flat_loan_term_chain(rng: random.Random, tier: str = "exam") -> di
         ("substitution-sign-error", b / (12 * rep + interest_year)),
         ("used-monthly-figure-as-annual", b / rep),
         ("ignored-the-interest", b / (rep * 12 - interest_year / 12)),
+        ("wrong-number-of-periods", Fraction(12 * t)),
+        ("off-by-one-count", Fraction(t + 1)),
+        ("off-by-one-count", Fraction(t - 1)),
     ]
     d_pairs = [
         ("gave-total-not-interest", 12 * rep * t),
@@ -155,7 +158,7 @@ def exd_x_r2d_flat_loan_term_chain(rng: random.Random, tier: str = "exam") -> di
                 0,
                 2,
                 [f"Years = {int(b)} ÷ {_fmt(principal_year, 2)} = {t}."],
-                _dists(Fraction(t), c_pairs, 0, shown_dp=2),
+                _dists(Fraction(t), c_pairs, 0),
                 ft=f"{int(b)}/part_b",
             ),
             _part(
