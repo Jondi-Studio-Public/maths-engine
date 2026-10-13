@@ -1,6 +1,7 @@
 id: ucv1-complex-exponential-form
 name: Complex numbers in exponential form
 domain: complex-analysis
+year_level: [university]
 description: Use the exponential form re^(iθ) to find the argument of a complex number, of a product, quotient or conjugate
   combination of two numbers, and of the root of zⁿ = w with the least positive argument, answered as θ/π.
 status: active

@@ -1,6 +1,7 @@
 id: ucv1-complex-roots-real-polynomials
 name: Roots of real polynomials over the complex numbers
 domain: complex-analysis
+year_level: [university]
 description: Use the conjugate root theorem and the sums and products of roots to find the remaining roots of a cubic or
   quartic with real coefficients when one non-real root is given.
 status: active

@@ -1,6 +1,7 @@
 id: ucv1-tangent-plane-linear-approximation
 name: Find a tangent plane and use it to approximate a function
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: >-
   For a surface z = f(x, y) given by a polynomial, a square-root surface or an implicit
   equation, find the tangent plane at a point from the partial derivatives (or the gradient) and

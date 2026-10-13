@@ -1,6 +1,7 @@
 id: ucv1-polar-double-integral
 name: Evaluate double integrals in polar coordinates
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: >-
   Evaluate a double integral over a disc, half or quarter disc, or ring by converting to polar
   coordinates (dA = r dr dθ): radial integrands over whole discs, then angle-dependent

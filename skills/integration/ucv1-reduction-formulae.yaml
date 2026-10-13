@@ -1,6 +1,7 @@
 id: ucv1-reduction-formulae
 name: Reduction formulae for integrals
 domain: integration
+year_level: [university]
 description: Evaluate a specific member of a family of integrals, such as the integral of sin^n x, x^n e^(ax), tan^n x
   or (ln x)^n, by applying its reduction formula step by step from the base cases.
 status: active

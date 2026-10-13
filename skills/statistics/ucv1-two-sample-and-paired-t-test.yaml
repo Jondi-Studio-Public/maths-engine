@@ -1,6 +1,7 @@
 id: ucv1-two-sample-and-paired-t-test
 name: Compute the pieces of a two-sample or paired t test
 domain: statistics
+year_level: [university]
 description: >-
   From summary data, or a short list of paired differences, find the standard error of a
   difference of two sample means, the unequal-variance and pooled t statistics, the pooled

@@ -1,6 +1,7 @@
 id: ucv1-shells-surface-area
 name: Find volumes by cylindrical shells and areas of surfaces of revolution
 domain: integration
+year_level: [university]
 description: Use cylindrical shells to find the volume of a solid of revolution, including a region between two
   curves or a rotation about a line other than the axes, and use the surface-area integral for a curve rotated about
   the x-axis.

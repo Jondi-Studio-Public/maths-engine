@@ -1,6 +1,7 @@
 id: ucv1-arc-length
 name: Find the length of a curve
 domain: single-variable-calculus
+year_level: [university]
 description: 'Use the arc-length formula for a curve y = f(x) or a parametric curve: show that the expression under
   the square root is a perfect square, then integrate to give an exact length.'
 status: active

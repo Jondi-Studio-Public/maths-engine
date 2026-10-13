@@ -1,6 +1,7 @@
 id: ucv1-equivalence-relations-classes
 name: Equivalence relations and their classes
 domain: discrete-mathematics
+year_level: [university]
 description: Decide what must be added to a relation on a finite set to make it reflexive, symmetric and transitive, and
   count the classes or ordered pairs of an equivalence relation such as congruence modulo n.
 status: active

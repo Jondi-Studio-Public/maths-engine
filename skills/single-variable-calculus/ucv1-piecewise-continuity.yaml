@@ -1,6 +1,7 @@
 id: ucv1-piecewise-continuity
 name: Make a piecewise function continuous
 domain: single-variable-calculus
+year_level: [university]
 description: Find the constant that makes a piecewise-defined function continuous at a junction by matching values
   or limits, and classify the discontinuity that remains when it is not.
 status: active

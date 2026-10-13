@@ -1,6 +1,7 @@
 id: ucv1-average-value-mvt
 name: Find average values and the c of the mean value theorem
 domain: single-variable-calculus
+year_level: [university]
 description: Find the average value of a function over an interval by integrating, and find the number c guaranteed
   by Rolle's theorem, the mean value theorem for derivatives or the mean value theorem for integrals.
 status: active

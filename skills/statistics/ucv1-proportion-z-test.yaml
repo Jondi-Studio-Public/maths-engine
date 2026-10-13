@@ -1,6 +1,7 @@
 id: ucv1-proportion-z-test
 name: Compute the pieces of a one-sample z test for a proportion
 domain: statistics
+year_level: [university]
 description: >-
   Test a claimed population proportion with a large sample: find the standard error under the
   null hypothesis, the z statistic, the p-value for a two-sided or one-sided alternative, and

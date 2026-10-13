@@ -1,6 +1,7 @@
 id: ucv1-ivt-bisection
 name: Locate a root with the intermediate value theorem and bisection
 domain: single-variable-calculus
+year_level: [university]
 description: Show that a continuous function has a root between two integers by a sign change, then narrow the interval
   by bisection steps and decide how many steps a tolerance needs.
 status: active

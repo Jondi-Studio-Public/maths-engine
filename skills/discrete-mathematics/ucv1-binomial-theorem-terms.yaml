@@ -1,6 +1,7 @@
 id: ucv1-binomial-theorem-terms
 name: Terms and coefficients of a binomial expansion
 domain: discrete-mathematics
+year_level: [university]
 description: Use the general term C(n, r) aⁿ⁻ʳ bʳ of a binomial expansion to find a stated coefficient, the term independent
   of x, or the coefficient of a power of x in a product of two expansions.
 status: active

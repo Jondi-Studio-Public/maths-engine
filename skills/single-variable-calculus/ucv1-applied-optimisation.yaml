@@ -1,6 +1,7 @@
 id: ucv1-applied-optimisation
 name: Solve applied optimisation problems
 domain: single-variable-calculus
+year_level: [university]
 description: Build a function of one variable from a word problem and its constraint, find the stationary point
   and compare it with the ends of the allowed interval to give the greatest or least value.
 status: active

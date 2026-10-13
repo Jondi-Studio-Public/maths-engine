@@ -1,6 +1,7 @@
 id: ucv1-hyperbolic-functions
 name: Work with hyperbolic functions
 domain: single-variable-calculus
+year_level: [university]
 description: Evaluate hyperbolic functions from their definitions in terms of e^x, use cosh squared minus sinh squared
   equals one, differentiate and integrate them, and solve equations such as cosh x = a with natural logarithms.
 status: active

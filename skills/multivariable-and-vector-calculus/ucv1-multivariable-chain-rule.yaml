@@ -1,6 +1,7 @@
 id: ucv1-multivariable-chain-rule
 name: Apply the multivariable chain rule
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: >-
   For z = f(x, y) with x and y depending on one parameter or on two, find dz/dt along a path, a
   partial derivative after a change of variables, or a second derivative along a straight line,

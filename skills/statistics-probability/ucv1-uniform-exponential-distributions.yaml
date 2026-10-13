@@ -1,6 +1,7 @@
 id: ucv1-uniform-exponential-distributions
 name: Work with uniform and exponential distributions
 domain: statistics-probability
+year_level: [university]
 description: >-
   Use the uniform distribution on an interval and the exponential distribution: the density and
   distribution function, probabilities of intervals and tails, the mean and variance,

@@ -1,6 +1,7 @@
 id: ucv1-trig-substitution-integrals
 name: Integration by trigonometric substitution
 domain: integration
+year_level: [university]
 description: Evaluate definite integrals involving √(a² - x²), a² + x², x² - a² or a completed square by choosing
   x = a sin θ, a tan θ or a sec θ, converting the limits and integrating in θ.
 status: active

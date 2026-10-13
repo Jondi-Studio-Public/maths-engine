@@ -1,6 +1,7 @@
 id: ucv1-lines-and-planes-3d
 name: Work with lines and planes in three dimensions
 domain: vectors
+year_level: [university]
 description: >-
   Find the equation of the plane through three points from the cross product of two edges, find
   where a line meets a plane, and find the acute angle between two planes or between a line and

@@ -1,6 +1,7 @@
 id: ucv1-distances-and-triple-product-3d
 name: Find distances and volumes in three dimensions
 domain: vectors
+year_level: [university]
 description: >-
   Find the shortest distance from a point to a plane or a line, the distance between two skew
   lines, and volumes from the scalar triple product (a parallelepiped or a tetrahedron),
