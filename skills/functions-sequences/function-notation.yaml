@@ -4,7 +4,7 @@ domain: functions-sequences
 description: Interpret and evaluate expressions such as f(x), and distinguish function notation from multiplication.
 status: active
 prerequisites:
-- function-concept
+- input-output-tables
 - apply-a-rule-to-inputs
 answer: number
 sources:

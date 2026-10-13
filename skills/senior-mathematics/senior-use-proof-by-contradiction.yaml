@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use proof by contradiction. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-implication-converse-equivalence-negation-contrapositive
+- senior-use-the-quantifiers-for-all-and-there-exists
 answer: mcq
 sources:
 - topic: proof_by_contradiction_identify

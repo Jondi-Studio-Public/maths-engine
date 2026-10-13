@@ -264,7 +264,7 @@ def test_outcomes_sample_skill_loads_correctly():
     assert skill is not None
     assert skill.domain == "statistics-probability"
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["f10-chance-language-and-outcomes"]
     assert skill.placement_eligible is False
 
 
@@ -276,5 +276,5 @@ def test_probability_likelihood_skill_loads_correctly():
     assert skill is not None
     assert skill.domain == "statistics-probability"
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["f10-chance-language-and-outcomes"]
     assert skill.placement_eligible is False

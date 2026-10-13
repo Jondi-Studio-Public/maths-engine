@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, Midpoints of the sides of a quadrilateral join to form a parallelogram. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-quadrilateral-properties
+- midpoint-two-points
 answer: pair
 sources:
 - topic: midpoints_of_the_sides_of_a_quadrilateral_join

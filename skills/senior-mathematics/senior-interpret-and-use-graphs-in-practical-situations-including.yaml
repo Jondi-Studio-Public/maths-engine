@@ -19,7 +19,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- coordinate-plane-readiness
+- f10-line-graph-change-over-time
 answer: number
 sources:
 - topic: pv1a_conversion

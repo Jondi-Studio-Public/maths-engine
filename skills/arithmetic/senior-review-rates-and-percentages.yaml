@@ -6,7 +6,9 @@ domain: arithmetic
 description: 'Given bounded, fully specified inputs, review rates and percentages. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ratio-rate-proportion
+- percentage-of-quantity
 answer: number
 sources:
 - topic: rate_percentage_combined

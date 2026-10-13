@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+- senior-recognise-the-exact-values-of-cos-theta-sin
 answer: mcq
 sources:
 - topic: pv1f_trig_graph_id

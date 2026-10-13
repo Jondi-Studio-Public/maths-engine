@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, An angle in a semicircle is a right angle. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-the-angle-at-the-centre-subtended-by-an
 answer: number
 sources:
 - topic: angle_in_semicircle

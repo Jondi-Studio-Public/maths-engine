@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, work with the concepts of angle of elevation and angle of depression. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-apply-the-cosine-and-sine-ratios-to-find
+- right-triangle-angle
 answer: number
 sources:
 - topic: elevation_depression_problem

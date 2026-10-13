@@ -207,7 +207,7 @@ def test_skill_loads_with_expected_shape():
     skill = by_id["angle-degrees-radians-pi-form"]
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["angle-types", "f10-circle-measures"]
     assert len(skill.sources) == 4
     assert {source.difficulty for source in skill.sources} == {"easy", "medium", "hard", "exam"}
     assert {source.topic for source in skill.sources} == {TOPIC}

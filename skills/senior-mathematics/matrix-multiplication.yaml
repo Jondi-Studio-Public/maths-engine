@@ -3,7 +3,9 @@ name: Multiply two 2 by 2 matrices
 domain: senior-mathematics
 description: Calculate a 2 by 2 matrix product using row-by-column dot products.
 status: active
-prerequisites: [matrix-determinant-2x2]
+prerequisites:
+- matrix-determinant-2x2
+- senior-understand-the-matrix-definition-and-notation
 answer: mcq
 sources: [{topic: matrix_product_mcq, params: {}, difficulty: easy}, {topic: exd_x_h2_matrix_multiplication, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: entrywise-product, description: Multiplies corresponding entries instead of rows by columns.}]

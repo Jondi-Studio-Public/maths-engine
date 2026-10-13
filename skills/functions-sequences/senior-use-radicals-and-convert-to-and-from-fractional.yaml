@@ -6,7 +6,9 @@ domain: functions-sequences
 description: Evaluate a numeral presented in fractional-index or worded-radical notation to its exact integer value, by first identifying the integer root the notation names. Both directions (convert to and from fractional indices) are realised as the two notations a question may be displayed in (fractional-index numeral form, or a worded radical-root-then-power description), always evaluating to the same exact integer. Does not assess index law combination on a symbolic base (that is a separate skill), and every numeral is constructed as an exact perfect power, never approximated.
 status: active
 placement_eligible: false
-prerequisites: [function-notation]
+prerequisites:
+- function-notation
+- senior-review-indices-including-fractional-indices-and-the-index
 answer: number
 sources:
 - topic: radicals_fractional_indices

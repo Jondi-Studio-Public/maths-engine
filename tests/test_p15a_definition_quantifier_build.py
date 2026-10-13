@@ -67,7 +67,7 @@ def test_skill_loads_with_expected_shape():
     assert SKILL.answer == "mcq"
     assert SKILL.placement_eligible is False
     assert SKILL.domain == "proof-and-foundations"
-    assert SKILL.prerequisites == []
+    assert SKILL.prerequisites == ["senior-use-the-quantifiers-for-all-and-there-exists", "finite-set-operations"]
 
 
 def test_exam_uses_a_grid_not_a_pair_list():
