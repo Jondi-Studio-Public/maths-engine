@@ -144,3 +144,14 @@ def test_skill_loads_and_has_an_exam_tier():
     assert skill.status == "active" and skill.answer == "fraction"
     assert [s.difficulty for s in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert skill.sources[-1].stages == ["exam"]
+
+
+def test_medium_tolerance_is_never_a_boundary_case_and_reads_strictly():
+    """ "Less than" the tolerance, and N - 1 terms never already reach it (b_N is strictly above the tolerance)."""
+    for seed in SEEDS:
+        q = make(TOPIC, seed=seed, difficulty="medium")
+        f = _term_of(q.text)
+        tol = _tolerance(q.text)
+        least = _least_n(f, tol)
+        assert _b(f, least) > tol, (seed, q.text)
+        assert "within" not in q.text, q.text

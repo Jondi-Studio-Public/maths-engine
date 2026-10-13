@@ -7786,8 +7786,8 @@
 {"answer": "107/252", "id": "ucv1-alternating-series-error/hard/0/a5954bd6192b", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n³ + 1) satisfies the conditions of the alte…"}
 {"answer": "197/216", "id": "ucv1-alternating-series-error/hard/1/768f1e6f8c2e", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/n³ satisfies the conditions of the alternatin…"}
 {"answer": "5/8", "id": "ucv1-alternating-series-error/hard/2/5177c03e61e5", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n!) satisfies the conditions of the alternat…"}
-{"answer": "10", "id": "ucv1-alternating-series-error/medium/0/cdcbf8821f32", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(2n - 1) satisfies the conditions of the alte…"}
-{"answer": "4", "id": "ucv1-alternating-series-error/medium/1/e342d945e32e", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n(n + 1)) satisfies the conditions of the al…"}
+{"answer": "10", "id": "ucv1-alternating-series-error/medium/0/744c31a7543f", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(2n - 1) satisfies the conditions of the alte…"}
+{"answer": "9", "id": "ucv1-alternating-series-error/medium/1/63956ef5c066", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n² + 1) satisfies the conditions of the alte…"}
 {"answer": "5", "id": "ucv1-alternating-series-error/medium/2/9f0258debd83", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(2n - 1)² satisfies the conditions of the alt…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
@@ -8511,16 +8511,16 @@
 {"answer": "absolute_bound = 9, relative_bound = 9/5", "id": "ucv1-numerical-error-bound/medium/2/24da032ef230", "text": "It is known that ahat = 5 lies strictly inside the certified interval [1, 14], …"}
 {"answer": "3x^5", "id": "ucv1-ode-separable-product/easy/0/0c2e9264a749", "text": "Solve the initial value problem x dy/dx = 5y, y(1) = 3, x > 0, where y > 0. Giv…"}
 {"answer": "4e^(2x³)", "id": "ucv1-ode-separable-product/easy/1/e0d3b6732903", "text": "Solve the initial value problem dy/dx = 6x²y, y(0) = 4, where y > 0. Give y as …"}
-{"answer": "3e^(x²)", "id": "ucv1-ode-separable-product/easy/2/1ff0053d2a39", "text": "Solve the initial value problem dy/dx = 2xy, y(0) = 3, where y > 0. Give y as a…"}
+{"answer": "3e^(x²)", "id": "ucv1-ode-separable-product/easy/2/bc6444b49124", "text": "Solve the initial value problem dy/dx = 2xy, y(0) = 3, where y > 0. Give y as a…"}
 {"answer": "(a) 81/2; (b) 3; (c) 6.364; (d) 4.000", "id": "ucv1-ode-separable-product/exam/0/3015b89d4249", "text": "Consider the initial value problem dy/dx = -(2x)/y, y(0) = 9, where y > 0. Sepa…"}
-{"answer": "(a) -3; (b) 2/3; (c) 1.414; (d) 1.155", "id": "ucv1-ode-separable-product/exam/1/9cf29f3ea1a3", "text": "Consider the initial value problem dy/dx = 3xy², y(0) = 1/3. Separating variabl…"}
-{"answer": "(a) -3; (b) 4/11; (c) 1.732; (d) 1.225", "id": "ucv1-ode-separable-product/exam/2/dd4d35656416", "text": "Consider the initial value problem dy/dx = 2xy², y(0) = 1/3. Separating variabl…"}
+{"answer": "(a) -3; (b) 2/3; (c) 1.414; (d) 1.155", "id": "ucv1-ode-separable-product/exam/1/f48d50e714dd", "text": "Consider the initial value problem dy/dx = 3xy², y(0) = 1/3. Separating variabl…"}
+{"answer": "(a) -3; (b) 4/11; (c) 1.732; (d) 1.225", "id": "ucv1-ode-separable-product/exam/2/1f7db273d5d5", "text": "Consider the initial value problem dy/dx = 2xy², y(0) = 1/3. Separating variabl…"}
 {"answer": "tan(2x²)", "id": "ucv1-ode-separable-product/hard/0/c5ef9dd0630f", "text": "Solve the initial value problem dy/dx = 4x(1 + y²), y(0) = 0. Give y as a funct…"}
 {"answer": "5/(1 + 4e^(-15x))", "id": "ucv1-ode-separable-product/hard/1/ffa48730baec", "text": "Solve the initial value problem dy/dx = 3y(5 - y), y(0) = 1, where 0 < y < 5. G…"}
-{"answer": "tan(x²)", "id": "ucv1-ode-separable-product/hard/2/3cdca08a56e7", "text": "Solve the initial value problem dy/dx = 2x(1 + y²), y(0) = 0. Give y as a funct…"}
+{"answer": "tan(x²)", "id": "ucv1-ode-separable-product/hard/2/1cbfc7470f36", "text": "Solve the initial value problem dy/dx = 2x(1 + y²), y(0) = 0. Give y as a funct…"}
 {"answer": "ln(2x² + 1)", "id": "ucv1-ode-separable-product/medium/0/cb1382801022", "text": "Solve the initial value problem dy/dx = 4x e^(-y), y(0) = 0. Give y as a functi…"}
-{"answer": "ln(x² + 1)", "id": "ucv1-ode-separable-product/medium/1/95a0dec91305", "text": "Solve the initial value problem dy/dx = 2x e^(-y), y(0) = 0. Give y as a functi…"}
-{"answer": "1/(1 - x²)", "id": "ucv1-ode-separable-product/medium/2/50e26f692bfa", "text": "Solve the initial value problem dy/dx = 2xy², y(0) = 1. Give y as a function of…"}
+{"answer": "ln(x² + 1)", "id": "ucv1-ode-separable-product/medium/1/9319343ed1fb", "text": "Solve the initial value problem dy/dx = 2x e^(-y), y(0) = 0. Give y as a functi…"}
+{"answer": "1/(1 - x²)", "id": "ucv1-ode-separable-product/medium/2/a265d7298b96", "text": "Solve the initial value problem dy/dx = 2xy², y(0) = 1. Give y as a function of…"}
 {"answer": "0.151", "id": "ucv1-one-sample-t-test/easy/0/6fa31accbd7a", "text": "A swimming coach believes her squad's mean time for 50 m freestyle is 36 second…"}
 {"answer": "1.380", "id": "ucv1-one-sample-t-test/easy/1/135d3e34b46e", "text": "A Melbourne bakery says its sourdough loaves have a mean mass of 700 g. A rando…"}
 {"answer": "1.929", "id": "ucv1-one-sample-t-test/easy/2/e172d797d927", "text": "The timetable for a Brisbane bus route says the journey from Chermside to the c…"}

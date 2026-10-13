@@ -162,7 +162,7 @@ def _medium(rng: random.Random):
         eps = rng.choice(_EPS)
         count = _least_terms(name, eps)
         b = _b(name)
-        if count is not None and 2 <= count <= 120 and b(count) >= eps and b(count + 1) < eps:
+        if count is not None and 2 <= count <= 120 and b(count) > eps and b(count + 1) < eps:
             break
     _check_decreasing(name)
     _check_sum_bracketed(name, count)
@@ -179,7 +179,7 @@ def _medium(rng: random.Random):
     wrongs.append((count + 2, "alt-terms-uses-last-term"))
     ask = rng.choice(
         [
-            "How many terms of the series must be added to guarantee that the partial sum is within {eps} of the sum? Use the alternating series estimation theorem.",
+            "How many terms of the series must be added to guarantee that the partial sum differs from the sum by less than {eps}? Use the alternating series estimation theorem.",
             "Use the alternating series estimation theorem to find the least number of terms that guarantees an error of less than {eps} when the sum is approximated by a partial sum.",
         ]
     ).format(eps=_tolerance_text(eps))
@@ -204,7 +204,7 @@ def _hard(rng: random.Random):
         eps = rng.choice(_HARD_EPS)
         count = _least_terms(name, eps)
         b = _b(name)
-        if count is not None and 3 <= count <= 6 and b(count) >= eps and b(count + 1) < eps:
+        if count is not None and 3 <= count <= 6 and b(count) > eps and b(count + 1) < eps:
             break
     _check_decreasing(name)
     _check_sum_bracketed(name, count)
@@ -256,7 +256,7 @@ def _exam(rng: random.Random):
         count = _least_terms(name, eps)
         b = _b(name)
         n0 = rng.randint(3, 6)
-        if count is not None and 2 <= count <= 60 and b(count) >= eps and b(count + 1) < eps and count != n0:
+        if count is not None and 2 <= count <= 60 and b(count) > eps and b(count + 1) < eps and count != n0:
             break
     _check_decreasing(name)
     _check_sum_bracketed(name, n0)

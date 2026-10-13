@@ -55,8 +55,17 @@ def _check_solution(y, rate, x0, y0) -> None:
 
 
 def _num(c, body: str) -> str:
-    """`c body`, with the coefficient 1 left out."""
-    return body if c == 1 else f"{c}{body}"
+    """`c body`, with the coefficient 1 left out and a fractional coefficient bracketed: x², 3x², (3/2)x²."""
+    c = Fraction(c)
+    if c == 1:
+        return body
+    return f"{c}{body}" if c.denominator == 1 else f"({rational_text(c)}){body}"
+
+
+def _br(value) -> str:
+    """A value to follow a division sign: 3 -> 3, 1/3 -> (1/3), so that 1/(1/3) never reads as 1/1/3."""
+    text = rational_text(Fraction(value))
+    return f"({text})" if "/" in text else text
 
 
 # -- easy: h(y) = y ---------------------------------------------------------------------------------------------------
@@ -79,7 +88,10 @@ def _easy(rng: random.Random):
         ]
         ode = rf"\frac{{dy}}{{dx}} = {_num(a, 'xy')}"
         cond, point = f"y(0) = {y0}", 0
-        working = [f"dy/y = {a}x dx, so ln y = {c}x² + C.", f"y = Ae^({c}x²), and y(0) = {y0} gives A = {y0}."]
+        working = [
+            f"dy/y = {a}x dx, so ln y = {_num(c, 'x²')} + C.",
+            f"y = Ae^({_num(c, 'x²')}), and y(0) = {y0} gives A = {y0}.",
+        ]
         shown = f"dy/dx = {a}xy"
     elif kind == "x2":
         a = rng.choice([3, 6, 9])
@@ -95,7 +107,10 @@ def _easy(rng: random.Random):
         ]
         ode = rf"\frac{{dy}}{{dx}} = {_num(a, 'x^{2}y')}"
         cond, point = f"y(0) = {y0}", 0
-        working = [f"dy/y = {a}x² dx, so ln y = {c}x³ + C.", f"y = Ae^({c}x³), and y(0) = {y0} gives A = {y0}."]
+        working = [
+            f"dy/y = {a}x² dx, so ln y = {_num(c, 'x³')} + C.",
+            f"y = Ae^({_num(c, 'x³')}), and y(0) = {y0} gives A = {y0}.",
+        ]
     else:
         a = rng.choice([2, 3, 4, 5])
         y = y0 * x**a
@@ -150,8 +165,8 @@ def _medium_square(rng: random.Random):
         ". Give y as a function of x for x close to 0.",
     )
     working = [
-        f"dy/y² = {a}x dx, so -1/y = {c}x² + C.",
-        f"y(0) = {y0} gives C = {rational_text(Fraction(-1, y0))}, so y = 1/({rational_text(Fraction(1, y0))} - {c}x²).",
+        f"dy/y² = {a}x dx, so -1/y = {_num(c, 'x²')} + C.",
+        f"y(0) = {y0} gives C = {rational_text(Fraction(-1, y0))}, so y = 1/({rational_text(Fraction(1, y0))} - {_num(c, 'x²')}).",
     ]
     return prompt, Link(prompt, "expression", y, working=working, wrongs=wrongs, symbols=(x,))
 
@@ -197,7 +212,10 @@ def _medium_exponential(rng: random.Random):
         M(rf"\frac{{dy}}{{dx}} = {_num(a, 'x')}\,e^{{-y}},\; y(0) = 0"),
         ". Give y as a function of x.",
     )
-    working = [f"e^y dy = {a}x dx, so e^y = {c}x² + C.", "y(0) = 0 gives C = 1, so y = ln(1 + " + f"{c}x²)."]
+    working = [
+        f"e^y dy = {a}x dx, so e^y = {_num(c, 'x²')} + C.",
+        "y(0) = 0 gives C = 1, so y = ln(1 + " + f"{_num(c, 'x²')}).",
+    ]
     return prompt, Link(prompt, "expression", y, working=working, wrongs=wrongs, symbols=(x,))
 
 
@@ -261,8 +279,8 @@ def _hard_tangent(rng: random.Random):
         ". Give y as a function of x for x close to 0.",
     )
     working = [
-        f"dy / (1 + y²) = {a}x dx, so arctan y = {c}x² + C.",
-        f"y(0) = 0 gives C = 0, so y = tan({c}x²).",
+        f"dy / (1 + y²) = {a}x dx, so arctan y = {_num(c, 'x²')} + C.",
+        f"y(0) = 0 gives C = 0, so y = tan({_num(c, 'x²')}).",
     ]
     return prompt, Link(prompt, "expression", y, working=working, wrongs=wrongs, symbols=(x,))
 
@@ -366,7 +384,7 @@ def _exam_blow_up(rng: random.Random):
             "fraction",
             c,
             1,
-            [f"-1/{rational_text(y0)} = C, so C = {rational_text(c)}."],
+            [f"-1/{_br(y0)} = C, so C = {rational_text(c)}."],
             a_wrongs,
             sensible=(-bound, bound),
         ),
@@ -375,7 +393,7 @@ def _exam_blow_up(rng: random.Random):
             "fraction",
             y1,
             2,
-            [f"y = -1/({rational_text(Fraction(a, 2))}x² + C), so y({x1_text}) = {rational_text(y1)}."],
+            [f"y = -1/({_num(Fraction(a, 2), 'x²')} + C), so y({x1_text}) = {rational_text(y1)}."],
             b_wrongs,
             ft=f"-1/({a}*({n1}/{d1})**2/2 + part_a)",
             sensible=(-bound, bound),
@@ -385,7 +403,7 @@ def _exam_blow_up(rng: random.Random):
             "number",
             star,
             2,
-            [f"y is unbounded when {rational_text(Fraction(a, 2))}x² + C = 0, so x* = sqrt(-2C/{a}) = {star:.5f}."],
+            [f"y is unbounded when {_num(Fraction(a, 2), 'x²')} + C = 0, so x* = sqrt(-2C/{a}) = {star:.5f}."],
             c_wrongs,
             ft=f"sqrt(-2*part_a/{a})",
             sensible=(0, 50),
@@ -396,9 +414,7 @@ def _exam_blow_up(rng: random.Random):
             "number",
             xt,
             2,
-            [
-                f"-1/{rational_text(yt)} = {rational_text(Fraction(a, 2))}x² + C, so x = sqrt(2(-C - 1/{rational_text(yt)})/{a}) = {xt:.5f}."
-            ],
+            [f"-1/{_br(yt)} = {_num(Fraction(a, 2), 'x²')} + C, so x = sqrt(2(-C - 1/{_br(yt)})/{a}) = {xt:.5f}."],
             d_wrongs,
             ft=f"sqrt(2*(-part_a - 1/{yt_text})/{a})",
             sensible=(0, 50),
@@ -497,7 +513,7 @@ def _exam_stop(rng: random.Random):
             "fraction",
             s,
             2,
-            [f"y² = 2C - {a}x² = {s2}, so y({x1}) = {s} (taking y > 0)."],
+            [f"y² = 2C - {_num(a, 'x²')} = {s2}, so y({x1}) = {s} (taking y > 0)."],
             b_wrongs,
             ft=f"sqrt(2*part_a - {a}*{x1}**2)",
             sensible=(0, bound),
@@ -507,7 +523,7 @@ def _exam_stop(rng: random.Random):
             "number",
             star,
             2,
-            [f"y = 0 when {a}x² = 2C, so x* = sqrt(2C/{a}) = {star:.5f}."],
+            [f"y = 0 when {_num(a, 'x²')} = 2C, so x* = sqrt(2C/{a}) = {star:.5f}."],
             c_wrongs,
             ft=f"sqrt(2*part_a/{a})",
             sensible=(0, 50),
@@ -518,7 +534,7 @@ def _exam_stop(rng: random.Random):
             "number",
             xt,
             2,
-            [f"{yt}² = 2C - {a}x², so x = sqrt((2C - {yt * yt})/{a}) = {xt:.5f}."],
+            [f"{yt}² = 2C - {_num(a, 'x²')}, so x = sqrt((2C - {yt * yt})/{a}) = {xt:.5f}."],
             d_wrongs,
             ft=f"sqrt((2*part_a - {yt}**2)/{a})",
             sensible=(0, 50),

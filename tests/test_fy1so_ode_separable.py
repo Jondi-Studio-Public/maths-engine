@@ -127,3 +127,16 @@ def test_skill_loads_and_has_an_exam_tier():
     assert skill.status == "active" and skill.answer == "expression"
     assert [s.difficulty for s in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert skill.sources[-1].stages == ["exam"]
+
+
+def test_working_has_no_unit_coefficients_or_stacked_slashes():
+    """The worked steps never print "1x²" or "-1/1/3 = C"."""
+    for tier in ("easy", "medium", "hard", "exam"):
+        for seed in range(80):
+            q = make(EXAM if tier == "exam" else TOPIC, seed=seed, difficulty=tier)
+            steps = list(q.working or [])
+            for part in q.parts or []:
+                steps += list(part.working or [])
+            text = " ".join(steps)
+            assert not re.search(r"(?<![\d.(/])1x", text), text
+            assert not re.search(r"/\d+/\d+", text), text
