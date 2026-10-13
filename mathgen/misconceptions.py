@@ -922,6 +922,141 @@ _ENTRIES = (
         "Treating dy/dx = a x y^2 as dy/dx = a x y and giving an exponential.",
         area="ode",
     ),
+    CatalogueEntry(
+        "ode3-characteristic-polynomial-differentiated",
+        "Dividing by the derivative of the characteristic polynomial, 2k + b, instead of its value at k.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-coefficient-not-divided",
+        "Giving the forcing coefficient as the coefficient of the particular solution, without dividing by the characteristic polynomial's value.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-constant-term-dropped",
+        "Dropping the constant term of the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-constant-term-slip",
+        "An arithmetic slip in the constant term of the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-constants-swapped",
+        "Swapping the roles of the two homogeneous constants, so each belongs to the wrong exponential.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-derivative-ic-particular-dropped",
+        "Leaving the particular solution's derivative out of the condition on y'(0).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-derivative-order-ignored",
+        "Treating y' and y'' as y when substituting, so the characteristic polynomial becomes k^2 + b + c.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-derivative-terms-dropped",
+        "Dropping the y' (and y'') terms when matching coefficients, so only c times the trial solution is compared.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-exponent-sign",
+        "Evaluating the particular term with the sign of its exponent flipped.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-exponential-dropped",
+        "Treating every exponential factor as 1 when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-initial-value-reported",
+        "Reporting the initial value y(0) instead of y at the requested point.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-particular-dropped",
+        "Dropping the particular term when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-point-wrong",
+        "Evaluating the solution at x = 1 rather than the requested x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-factor-two-mishandled",
+        "Mishandling the factor of 2 produced by differentiating a repeated or resonant trial solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-first-derivative-dropped",
+        "Leaving the y' contribution out when matching the coefficient of x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-ic-ignores-particular",
+        "Fixing the constants from the initial conditions without allowing for the particular solution's value and slope.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-derivative-incomplete",
+        "Dividing by 2r instead of 2r + b when the trial solution is x e^(rx).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-factor-x-missing",
+        "Trying A e^(rx) when e^(rx) already solves the homogeneous equation, so the factor x is missing.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-order-too-high",
+        "Multiplying the trial solution by x more times than the multiplicity of the root.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-order-too-low",
+        "Multiplying by x only once when the root is repeated.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-second-derivative-dropped",
+        "Leaving the y'' contribution (2a) out of the constant-term equation.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-sign-error",
+        "A sign error when solving for the coefficients.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-sign-in-characteristic-polynomial",
+        "Substituting k^2 + bk - c instead of k^2 + bk + c for the characteristic polynomial.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-trig-coefficients-swapped",
+        "Swapping the cosine and sine coefficients of the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-trig-partner-confused",
+        "Using x cos(wx) instead of x sin(wx) as the resonant trial solution's partner.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-trig-partner-missed",
+        "Taking only a cosine term, missing the sine term that the first derivative forces.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-wrong-root-used",
+        "Using the other characteristic root in the resonant trial solution.",
+        area="ode",
+    ),
 )
 
 #: Every entry, by id.
