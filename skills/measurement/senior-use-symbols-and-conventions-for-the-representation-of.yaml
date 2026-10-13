@@ -1,0 +1,45 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-symbols-and-conventions-for-the-representation-of
+name: Use symbols and conventions for the representation of geometric information
+domain: measurement
+year_level: ['11']
+naplan_domain: [measurement, space]
+description: 'Read a site plan by its drawing conventions: dashed outlines for proposed or hidden features, the north arrow, a scale written as a ratio and dimension labels in metres. Easy picks out the one dashed feature (proposed, or hidden below ground) and names it in full from its abbreviation. Medium gives the compass direction from one feature to another with north up the page. Hard finds the area of the existing (solid) or proposed (dashed) building from its dimension labels.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-interpret-commonly-used-symbols-and-abbreviations-in-scale]
+answer: mcq
+sources:
+- topic: grid_plan_conventions
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_plan_conventions
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_plan_conventions
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: dashed-read-as-built
+  description: Treats a dashed outline as an ordinary built feature and names a solid-outlined feature instead.
+- id: direction-reversed
+  description: Gives the direction from the second feature to the first, so north-east becomes south-west.
+- id: east-west-swapped
+  description: Swaps east and west, or reads left as east, so the horizontal part of the direction is mirrored.
+- id: north-south-swapped
+  description: Swaps north and south, treating the top of the page as south or ignoring the north arrow.
+- id: solid-and-dashed-swapped
+  description: Takes the area of the solid outline when the proposed building is asked for, or the dashed one when the existing building is asked for.
+- id: perimeter-for-area
+  description: Adds the dimensions around the shape instead of multiplying length by width.
+- id: mixes-dimensions-of-two-shapes
+  description: Multiplies a dimension of one building by a dimension of the other.
+- id: counts-squares-not-dimensions
+  description: Counts grid squares and ignores the dimension labels and the scale, so the area is in squares, not square metres.
+tags: [acara-senior-v8-4, measurement, grid_plan_conventions, acmem107, scale-drawings, conventions, site-plans, compass]
