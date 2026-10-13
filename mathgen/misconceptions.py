@@ -14972,6 +14972,1251 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    CatalogueEntry(
+        "r4i-clt-no-continuity-correction",
+        "Applying the normal approximation to a whole-number total without the continuity correction, standardising the stated boundary itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-continuity-wrong-way",
+        "Applying the continuity correction in the wrong direction, moving the boundary away from the event instead of into it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-strict-inequality-ignored",
+        "Treating 'more than', 'fewer than' or 'strictly between' like 'at least', 'at most' or 'between inclusive', so the boundary is half a unit out.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-sd-of-one-observation",
+        "Standardising a total with the standard deviation of a single observation instead of the standard deviation of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-variance-as-sd",
+        "Using the variance of the total where its standard deviation belongs when standardising.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-tail-reversed",
+        "Giving the probability of the opposite tail, the complement of the event asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-round-down",
+        "Rounding the boundary down where the smallest whole number that meets the bound must be found by rounding up.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-wrong-z",
+        "Using the standard normal value for a different tail probability than the one in the question.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-ignored-spread",
+        "Dividing the load limit by the mean mass alone, ignoring the spread of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-sd-of-total-n-sigma",
+        "Taking the standard deviation of a total of n observations to be n times sigma instead of sigma times the square root of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-round-up",
+        "Rounding the largest permitted number up, so the stated probability limit is exceeded.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-off-by-one-trial",
+        "Adding the mean of one extra observation to the mean of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-mean-of-one-observation",
+        "Giving the mean of a single observation as the mean of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-second-moment-for-mean",
+        "Using the sum of x squared times its probability (the second moment) where the mean is needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-halved-total",
+        "Halving the total, as if averaging over two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-second-moment-for-variance",
+        "Taking the second moment of one observation as its variance, forgetting to subtract the square of the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-mc-inverted-ratio",
+        "Inverting the ratio in the bound, giving the threshold over the mean (or the distance over the standard deviation, squared) instead of the mean over the threshold.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-complement",
+        "Giving the complement of the bound, 1 minus the bound, where the bound itself (or the lower bound it leads to) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-squared",
+        "Squaring the ratio mean over threshold, mixing the Markov bound with the shape of the Chebyshev bound.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-shifted-threshold",
+        "Dividing the mean by the threshold plus or minus the mean, measuring the tail from the wrong place.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-square",
+        "Leaving out a square: using the standard deviation over the distance where the variance over the distance squared belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-squared-numerator-only",
+        "Squaring the standard deviation but not the distance, giving sigma squared over d.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-halved",
+        "Halving the bound, as if only one tail of the interval were counted; the bound covers both tails and cannot be halved without more information.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-farther-end",
+        "Using the end of the interval farther from the mean, which gives a bound that does not hold for the nearer side.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-half-width",
+        "Using half the width of an off-centre interval as the distance from the mean, so the interval is treated as centred.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-variance-for-second-moment",
+        "Using the variance where the second moment (variance plus mean squared) belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-mean-squared-only",
+        "Using the square of the mean alone as the second moment, leaving out the variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-sum-then-square",
+        "Squaring the sum of the mean and the standard deviation instead of adding their squares.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-sample-size",
+        "Using the variance of a single observation for the sample mean, not dividing by n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-n-squared",
+        "Dividing the variance by n squared instead of n when finding the variance of a sample mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-normal-instead-of-chebyshev",
+        "Using a normal-distribution quantile (such as 1.645) where a guarantee for any distribution was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-round-down",
+        "Rounding the sample size down, which does not meet the guarantee.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-root-of-alpha",
+        "Dividing by the square root of alpha instead of alpha when solving for the sample size.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-alpha",
+        "Leaving out the allowed tail probability, giving the variance over the squared distance as the sample size.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-root",
+        "Dividing the standard deviation by alpha instead of by the square root of alpha.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-variance-for-sd",
+        "Using the variance where the standard deviation belongs in the half-width.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-inverted-root",
+        "Multiplying by the square root of alpha instead of dividing by it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-took-the-weaker-bound",
+        "Giving the larger of the two valid bounds instead of the smaller, so the bound is not the best one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-distance-from-zero",
+        "Measuring the distance for the standard deviation bound from zero instead of from the mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-combined-bounds",
+        "Adding or multiplying the two bounds instead of taking the smaller.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-complement",
+        "Giving the upper bound for the tails where the lower bound for the interval inside them was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-root-n-for-n",
+        "Dividing by the square root of n (or by n times the distance) instead of by n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-multiplied-by-n",
+        "Multiplying the bound by n where the variance of a mean divides by n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-two-tails-doubled",
+        "Doubling the sample size for a two-sided interval that the bound already covers.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-tails-counted-twice",
+        "Doubling the bound before taking its complement, counting the two tails twice when the bound already covers both.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-averaged-with-one",
+        "Averaging the lower bound with 1, as if the guarantee were halfway to certainty.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-swapped-parameters",
+        "Swapping the two parameters of the beta density, so the share is b over a plus b instead of a over a plus b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-denominator-plus-one",
+        "Adding one to the denominator, using a over (a + b + 1), which is the variance-style denominator, for the mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-mode-for-mean",
+        "Giving the mode (a - 1)/(a + b - 2) of the beta density instead of its mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-exponent-for-parameter",
+        "Reading an exponent of the density as the parameter: x to the power a - 1 taken to mean parameter a - 1, off by one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-ratio-not-share",
+        "Giving a over b where the share a over (a + b) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-rate-times-shape",
+        "Multiplying shape and rate instead of dividing shape by the rate.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-mean",
+        "Giving the variance, shape over rate squared, where the mean was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-shape",
+        "Giving one over the rate, leaving out the shape.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-mean-for-variance",
+        "Giving the mean, shape over rate, where the variance was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-wrong-power-of-rate",
+        "Dividing by the rate cubed instead of squared in the variance of a gamma density.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-missing-square",
+        "Leaving out the square on a plus b in the denominator of the beta variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-plus-one",
+        "Dividing by a + b instead of a + b + 1 in the beta variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-division",
+        "Giving m(1 - m) without dividing by a + b + 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-plus-one-sign",
+        "Using a + b - 1 (or shape minus one) where a + b + 1 (or shape plus one) belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-square-of-mean",
+        "Giving the square of the mean as the second moment, forgetting the variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-second-moment",
+        "Giving the variance where the second moment E(X squared) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-square-of-rate",
+        "Dividing by the rate instead of the rate squared in the second moment.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-shape-not-reduced",
+        "Dividing the rate by the shape instead of by the shape minus one for the mean of 1/X.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-reciprocal-of-mean-wrong-way",
+        "Taking the reciprocal of E(X) written upside down: shape over rate for E(1/X).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-rate-inverted",
+        "Using the reciprocal of the rate where the rate belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-inverted-ratio",
+        "Inverting the ratio, multiplying the rate by the shape minus one instead of dividing.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-product-of-means",
+        "Multiplying E(X) by E(1 - X), treating X and 1 - X as independent.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-product",
+        "Giving a variance-style value for E(X(1 - X)) by dividing by an extra a + b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-constant-inverted",
+        "Giving the integral of the kernel instead of its reciprocal, so the constant is upside down.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-factorial-off-by-one",
+        "Using the factorial of p + q instead of p + q + 1 (or the wrong shape factorial) in the constant.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-top-factorial",
+        "Dividing by an extra factor of p + q + 1 where the top factorial should contain it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-factorials-dropped",
+        "Dropping the factorials and keeping only the simple ratio of the exponents.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-factorial-dropped",
+        "Dropping the factorial from the gamma constant.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-power-of-rate-dropped",
+        "Using the rate to the first power instead of the power given by the shape.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-exponential-tail-only",
+        "Giving e to the minus rate times t, the tail of an exponential, for a gamma tail with larger shape.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-poisson-sum-too-short",
+        "Stopping the Poisson sum one term early.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-poisson-sum-too-long",
+        "Carrying the Poisson sum one term too far.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-tail-reversed",
+        "Giving the probability of the opposite tail.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-wrong-limit",
+        "Integrating from the wrong limit, using 1 - t in place of t.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-single-term-only",
+        "Keeping only the first term of the expanded polynomial when integrating.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-minus-one",
+        "Forgetting to subtract one when recovering alpha plus beta from the mean and variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-minus-two",
+        "Subtracting two instead of one when recovering alpha plus beta.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-total-for-parameter",
+        "Giving alpha plus beta where the first parameter alpha was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-shape-for-rate",
+        "Giving the shape (mean squared over variance) where the rate was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-halved",
+        "Halving the correct value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-multiplied",
+        "Multiplying the mean and the variance instead of dividing.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-sd",
+        "Giving the variance where the standard deviation was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-bm-averaged",
+        "Dividing the bias by three, as if averaging the three weights.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-bias-not-squared",
+        "Adding the bias to the variance instead of the squared bias when forming the mean squared error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-bias-sign-inside",
+        "Changing a sign inside the bias, so the squared bias is for a different estimator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-bias-squared-only",
+        "Giving the squared bias alone as the mean squared error, leaving out the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-claimed-unbiased",
+        "Calling the divide-by-n variance estimator unbiased, giving a bias of zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-complement",
+        "Giving 1 - c where c was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-doubled",
+        "Doubling the correct ratio.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-expectation-for-bias",
+        "Giving the expected value of the estimator where its bias (expectation minus the true value) was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-forgot-multiplier",
+        "Leaving out the multiplier k, giving minus the mean over n + k.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-forgot-sample-size",
+        "Leaving the sample size out of the variance of the sample mean, using sigma squared instead of sigma squared over n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-forgot-to-divide",
+        "Giving the mean squared error of one estimator instead of the ratio of the two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-inverted-ratio",
+        "Inverting the factor in the expectation, giving (n + 1)/n times theta where n/(n + 1) times theta belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-mean-not-squared",
+        "Using the mean instead of its square in the optimal shrinkage constant.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-midpoint-for-expectation",
+        "Taking the expected maximum to be the midpoint theta over 2, as for a single observation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-moment-shifted",
+        "Shifting n by one in the moment of the maximum: using n - 1 or n + 2 where n + 1 belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-mse-of-other-estimator",
+        "Giving the mean squared error of the other estimator (twice the sample mean) instead of the one asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-multiplier-not-squared",
+        "Using the multiplier a rather than a squared in the variance of a X-bar.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-n-for-n-minus-one",
+        "Using n instead of n - 1 in the variance of the sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-ratio-inverted",
+        "Inverting the ratio of the two mean squared errors.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-rescaling-ignored",
+        "Giving the variance of the maximum itself, forgetting to scale it by the square of (n + 1)/n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-rescaling-not-squared",
+        "Scaling the variance by (n + 1)/n instead of its square.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-sign-reversed",
+        "Subtracting in the wrong order, so the bias has the wrong sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-square-of-sum-weights",
+        "Using the square of the sum of the weights where the sum of their squares belongs in the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-squared-denominator",
+        "Dividing by n squared instead of n in the bias.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-squared-weights",
+        "Using the sum of squared weights minus one as the bias instead of the sum of weights minus one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-unbiased-assumed",
+        "Treating the estimator as unbiased and giving only a rescaled variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-denominator-not-squared",
+        "Dividing the variance of the sum by n + 2 instead of (n + 2) squared.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-instead-of-mse",
+        "Dividing by the variance of the maximum instead of by its mean squared error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-of-mean-used",
+        "Using the variance of the sample mean (lambda over n) where the variance of the shrunk estimator belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-of-other-estimator",
+        "Giving the variance of the other estimator, twice the sample mean, instead of the one asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-only",
+        "Giving the variance alone as the mean squared error, leaving out the squared bias.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-squared",
+        "Squaring the variance term inside the shrinkage constant.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-wrong-denominator",
+        "Dividing by n (or n - 1, or n + 2) where n + k (or n + 1) belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-bound-for-parameter",
+        "Giving the bound for estimating the parameter itself where a bound for a function of it was asked, leaving out the derivative factor.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-bound-times-variance",
+        "Multiplying the bound by the variance of the estimator instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-ignored",
+        "Ignoring the derivative of the function being estimated and using the bound for the parameter, rescaled wrongly.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-ignored-factor",
+        "Dropping the constant factor from the derivative of the function being estimated.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-not-squared",
+        "Using g-prime where g-prime squared belongs in the numerator of the bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-squared-twice",
+        "Squaring the derivative twice, or squaring its reciprocal too.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-wrong-power",
+        "Raising the derivative of the function to the wrong power.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-efficiency-inverted",
+        "Giving the variance divided by the bound instead of the bound divided by the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-bound",
+        "Giving the sample size or variance ratio without the bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-info",
+        "Leaving out the Fisher information, giving g-prime squared over n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-n",
+        "Leaving out the sample size: the bound for one observation instead of for the sample.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-to-invert",
+        "Giving n times the information instead of its reciprocal.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-two-observations",
+        "Using the sample size n in place of the two observations the estimator uses.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-halved-info",
+        "Using half the correct information, giving twice the correct bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-info-per-observation",
+        "Giving the reciprocal of the information of one observation, ignoring n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-info-power-wrong",
+        "Using the wrong power of the parameter in the information.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-info-squared",
+        "Squaring the information before inverting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-n-squared",
+        "Dividing by n squared instead of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-sample-info-for-one",
+        "Giving the information of the whole sample where the information of one observation was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-shape-ignored",
+        "Ignoring the shape of the density, so the information is that of an exponential.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-square-of-sum-weights",
+        "Using the square of the sum of the weights where the sum of squared weights belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-variance-for-information",
+        "Giving the variance lambda where the information 1/lambda was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-variance-shifted",
+        "Using the wrong denominator in the variance of the unbiased estimator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-weights-not-squared",
+        "Summing the weights rather than their squares in the variance of the weighted mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-wrong-power",
+        "Using the wrong power of the parameter in the information, so the bound has the wrong form.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-gb-power-of-mean",
+        "Cubing the mean instead of finding the third moment, ignoring the variance and skew terms.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-second-moment-for-third",
+        "Giving the second moment where the third moment was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-minus-one",
+        "Subtracting one from the multiple k when finding the half-width, using (k - 1) standard deviations.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-av-absolute-not-squared",
+        "Using the absolute deviations of the group means from the grand mean instead of their squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-complement",
+        "Giving the proportion unexplained, SSW over SST, where the explained proportion was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-df-swapped",
+        "Swapping the degrees of freedom, dividing SSB by N - k and SSW by k - 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-divided-by-df",
+        "Dividing a sum of squares by its degrees of freedom when the sum of squares itself was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-divided-by-k",
+        "Dividing by the number of groups k instead of k - 1 (or giving a mean square built on k).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-doubled",
+        "Doubling the half-width, giving the full width of the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-equal-sizes-assumed",
+        "Using the first group size for both groups in 1/n1 + 1/n2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-f-inverted",
+        "Dividing the within-groups mean square by the between-groups mean square.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-f-times-sst",
+        "Multiplying F by SST and dividing by k - 1, mixing up the roles in the F formula.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-correction-term",
+        "Leaving out the correction term T squared over N when forming SSB from group totals.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-df",
+        "Leaving out a degrees-of-freedom divisor (k - 1 or N - k).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-group-size",
+        "Leaving out the group size n when summing squared deviations of group means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-square-root",
+        "Leaving out the square root: using the variance of the difference instead of its standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-weights",
+        "Adding the group variances without weighting by their degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-gave-ssw",
+        "Giving SSW = SST - SSB where SSB was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-halved",
+        "Halving the correct value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ignored-df",
+        "Ignoring the degrees of freedom, treating F as SSB over SSW.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-mixed-ss-ms",
+        "Dividing SSB by SSB plus the within-groups mean square instead of by SST.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ms-not-ss",
+        "Using the mean squares in place of the sums of squares in the proportion SSB over SST.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-n-for-n-minus-one",
+        "Using n in place of n - 1 when forming the within-groups sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-n-minus-one-for-n",
+        "Using n - 1 in place of n when weighting the squared deviations of the group means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ratio-not-share",
+        "Giving SSB over SSW (a ratio of explained to unexplained) instead of the share SSB over SST.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-sd-for-variance",
+        "Using standard deviations where variances belong in the sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-size-twice",
+        "Multiplying by the group size a second time.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ss-not-ms",
+        "Dividing the sums of squares directly, without first dividing by their degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-sst-over-df",
+        "Dividing SST by k - 1 and giving it as SSB.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ssw-for-msw",
+        "Multiplying by SSW where the mean square MSW (SSW over its degrees of freedom) belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-unweighted-grand-mean",
+        "Taking the grand mean to be the plain average of the group means when the groups have different sizes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-unweighted-variances",
+        "Averaging the group variances without weighting by degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-wrong-centre",
+        "Measuring deviations from the first group mean instead of from the grand mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-wrong-df",
+        "Using the wrong degrees of freedom for the within-groups mean square (N, N - 1 or N - 2 instead of N - k).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-wrong-divisor-in-sum",
+        "Dividing the sum of squared totals by N instead of by the group size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-z-for-t",
+        "Using the normal value 1.96 where the stated t value belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-divided-by-total-n",
+        "Dividing the within-groups sum of squares by N instead of N - k.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-correlation-for-slope",
+        "Giving the correlation coefficient r where the slope was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-denominator-dropped",
+        "Dropping the square root of 1 - r squared from the denominator of the t statistic.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-distance-not-squared",
+        "Using the distance of x0 from the mean without squaring it in the standard error of the mean response.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-divided-by-n",
+        "Dividing the residual sum of squares by n instead of n - 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-divided-by-n-minus-one",
+        "Dividing the residual sum of squares by n - 1 instead of n - 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-centering",
+        "Using the raw totals sum xy over sum x squared, without subtracting the products of the means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-distance-term",
+        "Leaving out the (x0 - mean)^2/Sxx term in the standard error of the mean response.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-division",
+        "Giving the residual sum of squares without dividing by its degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-division-by-n",
+        "Forgetting to divide by n in the corrections sum x times sum y over n and (sum x)^2 over n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-one-over-n",
+        "Leaving out the 1/n term in the standard error of the mean response.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-sxx",
+        "Dividing the slope by s instead of by s over the square root of Sxx.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-t-value",
+        "Using one standard error as the margin instead of the t value times the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-margin-only",
+        "Giving the margin of error alone instead of the confidence limit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-mean-formula-used",
+        "Using s over the square root of n, the standard error of a mean, for the slope.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-multiplied",
+        "Multiplying the slope by its standard error instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-multiplied-by-root-sxx",
+        "Multiplying s by the square root of Sxx instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-null-value-ignored",
+        "Ignoring the claimed slope and testing against zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-prediction-interval",
+        "Giving the half-width for predicting a single new value, adding 1 inside the square root.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-r-for-one-minus-r-squared",
+        "Using the square root of r in place of the square root of 1 - r squared.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-regressed-x-on-y",
+        "Dividing Sxy by Syy, the slope of x on y, instead of by Sxx.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-sd-for-variance",
+        "Giving the standard deviation where the variance was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-sign-reversed",
+        "Subtracting the estimate from the claimed slope instead of the claimed slope from the estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-slope-inverted",
+        "Giving Sxx over Sxy, the reciprocal of the slope.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-slope-times-factor",
+        "Multiplying the slope by the t factor instead of recognising the t statistic depends only on r and n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-square-root-missing",
+        "Leaving the square root off 1 - r squared in the denominator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-sxx-root-missing",
+        "Dividing s by Sxx instead of by the square root of Sxx.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-t-inverted",
+        "Dividing the standard error by the slope instead of the slope by its standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-total-for-residual",
+        "Dividing Syy, the total sum of squares, by n - 2 instead of the residual sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-variance-for-sd",
+        "Using the variance s squared where the standard deviation s belongs in the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-wrong-df",
+        "Using n - 1 (or n) in place of n - 2 degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-wrong-end",
+        "Giving the other end of the confidence interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-z-for-t",
+        "Using the normal value 1.96 where the stated t value belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-pp-complement",
+        "Giving the probability of the opposite event (one minus the answer).",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-pmf-for-wait",
+        "Giving the chance of exactly one arrival in the period where the chance of none was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-mean-as-rate",
+        "Using the mean time between arrivals as if it were the rate.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-halved-exponent",
+        "Halving the mean count in the exponent.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-forgot-memoryless",
+        "Including the time already waited, as if the wait must exceed the elapsed time plus the new time.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-waited-time-only",
+        "Using the time already waited in place of the new time.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-conditioned-on-arrival",
+        "Dividing by the chance of an arrival in the time already waited, as if the earlier wait were known to end.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-mean-for-sd",
+        "Giving the mean time to the k-th arrival where its standard deviation was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-variance-for-sd",
+        "Giving the variance where the standard deviation was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-units-not-converted",
+        "Mixing hours with minutes or seconds with minutes when forming the mean count.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-k-minus-one",
+        "Using k - 1 in place of k in the number of waits added.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-single-interarrival-sd",
+        "Giving the standard deviation of one gap instead of the time to the k-th arrival.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-off-by-one-count",
+        "Using one arrival too many or too few in the count that matches the k-th arrival.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-pmf-for-cdf",
+        "Giving the chance of exactly the stated count where the chance of at least (or fewer than) that count was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-exponential-for-erlang",
+        "Using the one-arrival formula 1 - e^(-mean count) for a later arrival.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-one-stream-only",
+        "Using the rate of one source rather than the combined rate.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-averaged-rates",
+        "Averaging the two rates instead of adding them.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-at-least",
+        "Giving the chance of at least the stated count instead of exactly it.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-product-of-streams",
+        "Multiplying the separate probabilities of the two sources.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-at-most-k",
+        "Counting k arrivals as still being within the period.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-forgot-arrangements",
+        "Leaving out the number of ways the arrivals can be ordered among the sources or among the positions.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-wrong-source",
+        "Swapping the roles of the two sources.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-ignored-third-arrival",
+        "Stopping after two arrivals instead of three.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-wrong-fraction",
+        "Using the share of the session not in the first part.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-poisson-for-conditional",
+        "Using a Poisson probability when the total count is known.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-ignored-the-condition",
+        "Using the rate and ignoring the known total count.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-none-urgent-only",
+        "Giving the chance of no urgent arrival without removing the case of no arrival at all.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-no-arrivals-at-all",
+        "Giving the chance of no arrival of any kind.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-wrong-type",
+        "Treating the non-urgent arrivals as the ones that must not occur.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-independence-assumed",
+        "Multiplying the chance of no urgent arrival by the chance of some arrival as if they were independent.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-rate-for-mean",
+        "Giving the rate per hour where the mean time between calls was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-mean-in-hours",
+        "Giving the mean time between calls in hours rather than minutes.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-rate-times-60",
+        "Multiplying the rate by 60 instead of dividing 60 by it.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-half-the-mean",
+        "Halving the mean time between calls.",
+        area="stochastic-processes",
+    ),
 )
 
 #: Every entry, by id.

@@ -5414,6 +5414,70 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+uc2-clt-approximation-sums:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_clt_sums
+    module: mathgen/generators/r4i_clt_sums_build.py
+  - topic: exd_x_r4i_clt_sums
+    module: mathgen/generators/r4i_clt_sums_build.py
+uc2-cramer-rao-lower-bound:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_cramer_rao
+    module: mathgen/generators/r4i_cramer_rao_build.py
+  - topic: exd_x_r4i_cramer_rao
+    module: mathgen/generators/r4i_cramer_rao_build.py
+uc2-estimator-bias-and-mse:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_estimator_bias_mse
+    module: mathgen/generators/r4i_estimator_bias_mse_build.py
+  - topic: exd_x_r4i_estimator_bias_mse
+    module: mathgen/generators/r4i_estimator_bias_mse_build.py
+uc2-gamma-beta-moments:
+  domain: probability
+  status: active
+  sources:
+  - topic: r4i_gamma_beta
+    module: mathgen/generators/r4i_gamma_beta_build.py
+  - topic: exd_x_r4i_gamma_beta
+    module: mathgen/generators/r4i_gamma_beta_build.py
+uc2-markov-chebyshev-bound:
+  domain: probability
+  status: active
+  sources:
+  - topic: r4i_markov_chebyshev
+    module: mathgen/generators/r4i_markov_chebyshev_build.py
+  - topic: exd_x_r4i_markov_chebyshev
+    module: mathgen/generators/r4i_markov_chebyshev_build.py
+uc2-one-way-anova-table:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_anova
+    module: mathgen/generators/r4i_anova_build.py
+  - topic: exd_x_r4i_anova
+    module: mathgen/generators/r4i_anova_build.py
+uc2-poisson-process-interarrival:
+  domain: stochastic-processes
+  status: active
+  sources:
+  - topic: r4i_poisson_process
+    module: mathgen/generators/r4i_poisson_process_build.py
+  - topic: exd_x_r4i_poisson_process
+    module: mathgen/generators/r4i_poisson_process_build.py
+uc2-regression-slope-inference:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_regression_slope
+    module: mathgen/generators/r4i_regression_slope_build.py
+  - topic: exd_x_r4i_regression_slope
+    module: mathgen/generators/r4i_regression_slope_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active

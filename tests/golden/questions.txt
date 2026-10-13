@@ -7816,6 +7816,102 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "0.3209", "id": "uc2-clt-approximation-sums/easy/0/ef0559fc19e8", "text": "A courier van is loaded for a round in Perth. The number of parcels left at a s…"}
+{"answer": "0.3292", "id": "uc2-clt-approximation-sums/easy/1/37adf4b3e75a", "text": "A courier van is loaded for a round in Perth. The number of parcels left at a s…"}
+{"answer": "0.3352", "id": "uc2-clt-approximation-sums/easy/2/dc9b6a248873", "text": "A library self-checkout in Hobart records each visit. The number of books borro…"}
+{"answer": "(a) 99.00; (b) 8.58; (c) 0.7000; (d) 113", "id": "uc2-clt-approximation-sums/exam/0/422b16c9612f", "text": "A courier van's round in Perth has 60 stops. The number of parcels left at a st…"}
+{"answer": "(a) 70.00; (b) 6.48; (c) 0.3498; (d) 81", "id": "uc2-clt-approximation-sums/exam/1/14d4d5317cd8", "text": "A courier van's round in Perth has 50 stops. The number of parcels left at a st…"}
+{"answer": "(a) 120.00; (b) 7.21; (c) 0.3137; (d) 132", "id": "uc2-clt-approximation-sums/exam/2/6ab26713540f", "text": "On each of 50 independent stops, a Perth courier leaves X parcels, where P(X = …"}
+{"answer": "9", "id": "uc2-clt-approximation-sums/hard/0/6bed172af2fc", "text": "A cable car near Cairns is rated for a total load of 800 kg. The mass of each o…"}
+{"answer": "13", "id": "uc2-clt-approximation-sums/hard/1/ac8bab384564", "text": "A cable car near Cairns is rated for a total load of 1100 kg. The mass of each …"}
+{"answer": "78", "id": "uc2-clt-approximation-sums/hard/2/976cfe571ac2", "text": "The number of emails arriving at a Canberra office each day has a Poisson distr…"}
+{"answer": "0.0202", "id": "uc2-clt-approximation-sums/medium/0/08994428c0d5", "text": "The number of customers entering a Geelong cafe each hour has a Poisson distrib…"}
+{"answer": "0.0251", "id": "uc2-clt-approximation-sums/medium/1/6a24b6020c40", "text": "The number of calls to a Darwin helpline each day has a Poisson distribution wi…"}
+{"answer": "0.0256", "id": "uc2-clt-approximation-sums/medium/2/17d801c5530b", "text": "The number of customers entering a Geelong cafe each hour has a Poisson distrib…"}
+{"answer": "3/20", "id": "uc2-cramer-rao-lower-bound/easy/0/78af082aabac", "text": "The number of faults per 100 m of cable is modelled as Poisson with mean λ, and…"}
+{"answer": "9/20", "id": "uc2-cramer-rao-lower-bound/easy/1/0e130a79c2e7", "text": "A sample of 5 independent waiting times has density f(x; r) = r e^(-rx), x > 0.…"}
+{"answer": "3/1250", "id": "uc2-cramer-rao-lower-bound/easy/2/3a303be52fc6", "text": "Each of 100 independent trials succeeds with the same unknown probability p, an…"}
+{"answer": "(a) 1/2; (b) 1/2; (c) 0.00916; (d) 1/2", "id": "uc2-cramer-rao-lower-bound/exam/0/10dcc3622d25", "text": "A sample of n = 4 independent counts is drawn from a Poisson distribution with …"}
+{"answer": "(a) 2; (b) 1/16; (c) 0.02299; (d) 1/4", "id": "uc2-cramer-rao-lower-bound/exam/1/6c7448626ee2", "text": "A sample of n = 8 independent counts is drawn from a Poisson distribution with …"}
+{"answer": "(a) 2/3; (b) 3/8; (c) 0.01867; (d) 1/2", "id": "uc2-cramer-rao-lower-bound/exam/2/13118b34b1ab", "text": "The number of faults X in a length of cable follows P(X = k) = e^(-λ) λ^k/k! fo…"}
+{"answer": "1/240", "id": "uc2-cramer-rao-lower-bound/hard/0/38d37d285778", "text": "A sample of 20 independent observations has density f(x; θ) = (θ³/2) x² e^(-θx)…"}
+{"answer": "2/5", "id": "uc2-cramer-rao-lower-bound/hard/1/e943894ba3a7", "text": "Each of 10 independent trials succeeds with the same unknown probability p, and…"}
+{"answer": "32/45", "id": "uc2-cramer-rao-lower-bound/hard/2/1d33fb3e4761", "text": "Three independent measurements X1, X2, X3 are normal with unknown mean μ and kn…"}
+{"answer": "1/40", "id": "uc2-cramer-rao-lower-bound/medium/0/1643709d5cf1", "text": "The lifetimes of 10 independent components have density f(x) = r e^(-rx), x > 0…"}
+{"answer": "9/40", "id": "uc2-cramer-rao-lower-bound/medium/1/55059eed6cf7", "text": "A sample of 20 independent measurements is normal with known mean 0 and unknown…"}
+{"answer": "2/5", "id": "uc2-cramer-rao-lower-bound/medium/2/450a7ac6e551", "text": "A sample of 20 independent measurements is normal with known mean 0 and unknown…"}
+{"answer": "19/6", "id": "uc2-estimator-bias-and-mse/easy/0/e584aac19e1b", "text": "Three independent measurements X1, X2, X3 each have mean 10. The estimator T = …"}
+{"answer": "-5/2", "id": "uc2-estimator-bias-and-mse/easy/1/42dcea61068a", "text": "A random sample X1, ..., X10 is drawn from a population with mean 15. To estima…"}
+{"answer": "-3", "id": "uc2-estimator-bias-and-mse/easy/2/9c231373f492", "text": "Readings X1, ..., X10 from a calibrated sensor are independent with variance 30…"}
+{"answer": "(a) 180/11; (b) -18/11; (c) 54/11; (d) 11/5", "id": "uc2-estimator-bias-and-mse/exam/0/7a51eac306ad", "text": "A reading is uniformly distributed on (0, θ), where in truth θ = 18. A random s…"}
+{"answer": "(a) 80/11; (b) -8/11; (c) 32/33; (d) 11/5", "id": "uc2-estimator-bias-and-mse/exam/1/fd5621fc61e1", "text": "A reading is uniformly distributed on (0, θ), where in truth θ = 8. A random sa…"}
+{"answer": "(a) 18; (b) -2; (c) 80/11; (d) 55/27", "id": "uc2-estimator-bias-and-mse/exam/2/bab0d1c1e9ff", "text": "To estimate θ, the endpoint of a uniform distribution on (0, θ), a surveyor tak…"}
+{"answer": "16/7", "id": "uc2-estimator-bias-and-mse/hard/0/953e38a94d59", "text": "The waiting times at a depot are uniform on (0, θ), where in fact θ = 8 minutes…"}
+{"answer": "20/3", "id": "uc2-estimator-bias-and-mse/hard/1/f170feec91c7", "text": "The waiting times at a depot are uniform on (0, θ), where in fact θ = 10 minute…"}
+{"answer": "9/20", "id": "uc2-estimator-bias-and-mse/hard/2/a1d1453910fa", "text": "A random sample of 8 readings is uniform on (0, θ), where θ = 6 in truth. The m…"}
+{"answer": "375/64", "id": "uc2-estimator-bias-and-mse/medium/0/dceaad50894e", "text": "A sample of size 8 comes from a normal population with variance 5. Let Q = Σ(Xi…"}
+{"answer": "29/25", "id": "uc2-estimator-bias-and-mse/medium/1/f3b1603ccbf5", "text": "A sample of size 15 comes from a normal population with variance 3. Let Q = Σ(X…"}
+{"answer": "1309/50", "id": "uc2-estimator-bias-and-mse/medium/2/8c2217ad2311", "text": "Three independent measurements X1, X2, X3 each have mean 12 and variance 4. The…"}
+{"answer": "1/8", "id": "uc2-gamma-beta-moments/easy/0/d7247b186536", "text": "The time, in hours, a technician spends on a repair has density f(x) = 16 x e^(…"}
+{"answer": "4/7", "id": "uc2-gamma-beta-moments/easy/1/0cb66ad7508b", "text": "The fraction of its capacity that a Hobart reservoir is filled to on a random d…"}
+{"answer": "5/3", "id": "uc2-gamma-beta-moments/easy/2/6bb24a195f6f", "text": "The time, in minutes, to complete a customer's order at a Geelong cafe has dens…"}
+{"answer": "(a) 12; (b) 2/5; (c) 1/25; (d) 0.200", "id": "uc2-gamma-beta-moments/exam/0/240a7c323712", "text": "A random proportion X in (0, 1) has probability density function f(x) = c x (1 …"}
+{"answer": "(a) 60; (b) 4/7; (c) 3/98; (d) 0.175", "id": "uc2-gamma-beta-moments/exam/1/1be0e824d39a", "text": "At a Cairns nursery the proportion X of seedlings that survive is modelled by a…"}
+{"answer": "(a) 280; (b) 5/9; (c) 2/81; (d) 0.157", "id": "uc2-gamma-beta-moments/exam/2/ce0b838587ac", "text": "A random proportion X in (0, 1) has probability density function f(x) = c x^4 (…"}
+{"answer": "8/3", "id": "uc2-gamma-beta-moments/hard/0/525b311bf217", "text": "The total rainfall, in cm, in a week at a Darwin station has a density of the f…"}
+{"answer": "128/3", "id": "uc2-gamma-beta-moments/hard/1/29481f085d33", "text": "The time, in minutes, to complete a customer's order at a Geelong cafe has a de…"}
+{"answer": "3", "id": "uc2-gamma-beta-moments/hard/2/1c76aa1c0a3e", "text": "A waiting time X, in hours, has a gamma distribution with mean 1 and variance 1…"}
+{"answer": "12", "id": "uc2-gamma-beta-moments/medium/0/14b863a5fd46", "text": "The time, in hours, a technician spends on a repair has density f(x) = (1/2) x^…"}
+{"answer": "5/196", "id": "uc2-gamma-beta-moments/medium/1/a7bab22e184a", "text": "The proportion of a day's solar output that a Mildura farm uses on site has den…"}
+{"answer": "1/4", "id": "uc2-gamma-beta-moments/medium/2/a52f4ff5d700", "text": "The time, in minutes, to complete a customer's order at a Geelong cafe has dens…"}
+{"answer": "6/19", "id": "uc2-markov-chebyshev-bound/easy/0/079b2fd4c671", "text": "The size of a file uploaded to a school server cannot be negative and has mean …"}
+{"answer": "4/81", "id": "uc2-markov-chebyshev-bound/easy/1/11da384654a8", "text": "The daily rainfall recorded at a Townsville weather station has mean 20 mm and …"}
+{"answer": "20/77", "id": "uc2-markov-chebyshev-bound/easy/2/56f5b19de282", "text": "The daily electricity use of a Hobart household cannot be negative and has mean…"}
+{"answer": "(a) 6/25; (b) 4/25; (c) 21/25; (d) 2/125", "id": "uc2-markov-chebyshev-bound/exam/0/e95a8bfc3a57", "text": "Nothing is known about the shape of the distribution of X, the waiting time in …"}
+{"answer": "(a) 8/29; (b) 16/169; (c) 153/169; (d) 2/169", "id": "uc2-markov-chebyshev-bound/exam/1/67aee2a37989", "text": "The time a customer waits at a Services Australia counter cannot be negative. I…"}
+{"answer": "(a) 20/61; (b) 4/49; (c) 45/49; (d) 4/245", "id": "uc2-markov-chebyshev-bound/exam/2/b0d4ee68ee35", "text": "The time a customer waits at a Services Australia counter cannot be negative. I…"}
+{"answer": "12", "id": "uc2-markov-chebyshev-bound/hard/0/6094ecd49796", "text": "The daily rainfall recorded at a Townsville weather station has mean 20 mm and …"}
+{"answer": "64/225", "id": "uc2-markov-chebyshev-bound/hard/1/0eaa10ced947", "text": "The delivery time of a parcel sent from Adelaide cannot be negative. It has mea…"}
+{"answer": "3/5", "id": "uc2-markov-chebyshev-bound/hard/2/7a8ca438e4e3", "text": "The daily electricity use of a Hobart household cannot be negative. It has mean…"}
+{"answer": "91/100", "id": "uc2-markov-chebyshev-bound/medium/0/a13ed35820b0", "text": "The change in a share price over a day has mean 30 dollars and standard deviati…"}
+{"answer": "16/225", "id": "uc2-markov-chebyshev-bound/medium/1/c4c80d765ced", "text": "The size of a file uploaded to a school server has mean 40 MB and standard devi…"}
+{"answer": "8/81", "id": "uc2-markov-chebyshev-bound/medium/2/9822f22bb495", "text": "The change in a share price over a day has mean 2 dollars and standard deviatio…"}
+{"answer": "519.00", "id": "uc2-one-way-anova-table/easy/0/086ab8156bc3", "text": "The yield (t/ha) was measured for three wheat varieties grown on farms near Esp…"}
+{"answer": "190", "id": "uc2-one-way-anova-table/easy/1/7615605a0b43", "text": "For each of three wheat varieties grown on farms near Esperance, 5 units were m…"}
+{"answer": "12.80", "id": "uc2-one-way-anova-table/easy/2/9abfacf3893e", "text": "The running time (hours) was measured for three brands of battery tested in tor…"}
+{"answer": "(a) 293.83; (b) 279.00; (c) 11.06; (d) 3.596", "id": "uc2-one-way-anova-table/exam/0/5820e5c2da1c", "text": "A study compares the test score (marks) of three teaching methods trialled in T…"}
+{"answer": "(a) 70.00; (b) 164.00; (c) 2.56; (d) 5.095", "id": "uc2-one-way-anova-table/exam/1/28312d7976ec", "text": "Researchers recorded the test score (marks) under three teaching methods triall…"}
+{"answer": "(a) 432.00; (b) 500.00; (c) 9.07; (d) 5.075", "id": "uc2-one-way-anova-table/exam/2/18e0839723e3", "text": "Researchers recorded the yield (t/ha) under three wheat varieties grown on farm…"}
+{"answer": "4.872", "id": "uc2-one-way-anova-table/hard/0/b52bb4217f58", "text": "The running time (hours) was measured for three brands of battery tested in tor…"}
+{"answer": "38.20", "id": "uc2-one-way-anova-table/hard/1/67b83c262aa9", "text": "The calls handled per hour (calls) was measured for three training programs use…"}
+{"answer": "217", "id": "uc2-one-way-anova-table/hard/2/8faf90233466", "text": "In a one-way ANOVA of reaction times across the groups, there are k = 3 groups …"}
+{"answer": "1084.00", "id": "uc2-one-way-anova-table/medium/0/05bcdfdabe1b", "text": "For each of three wheat varieties grown on farms near Esperance, 4 units were r…"}
+{"answer": "12.56", "id": "uc2-one-way-anova-table/medium/1/cc9e9a974fba", "text": "The test score (marks) was measured for three teaching methods trialled in Tasm…"}
+{"answer": "0.3490", "id": "uc2-one-way-anova-table/medium/2/bd4a686b7a2c", "text": "The running time (hours) was measured for three brands of battery tested in tor…"}
+{"answer": "0.2636", "id": "uc2-poisson-process-interarrival/easy/0/3fe1f0478856", "text": "Faults on a long fibre cable occur at random, independently, at an average rate…"}
+{"answer": "0.2231", "id": "uc2-poisson-process-interarrival/easy/1/e9a981a5701d", "text": "Customers at a self-serve kiosk occur at random, independently, at an average r…"}
+{"answer": "0.0498", "id": "uc2-poisson-process-interarrival/easy/2/131b65ca4e5e", "text": "Customers at a self-serve kiosk occur at random, independently, at an average r…"}
+{"answer": "(a) 3.75; (b) 5.30; (c) 0.2019; (d) 0.4751", "id": "uc2-poisson-process-interarrival/exam/0/6644930da79e", "text": "A help desk receives phone calls at random and independently, at a constant ave…"}
+{"answer": "(a) 5.00; (b) 10.00; (c) 0.0907; (d) 0.2213", "id": "uc2-poisson-process-interarrival/exam/1/b97cfad1e5d6", "text": "Incoming calls at a help desk form a random stream with no pattern, averaging 1…"}
+{"answer": "(a) 10.00; (b) 17.32; (c) 0.3012; (d) 0.1205", "id": "uc2-poisson-process-interarrival/exam/2/2b37480e115b", "text": "A help desk receives phone calls at random and independently, at a constant ave…"}
+{"answer": "0.3903", "id": "uc2-poisson-process-interarrival/hard/0/2c8522ea7a0f", "text": "Faults on a long fibre cable occur at random, independently, at an average rate…"}
+{"answer": "0.4019", "id": "uc2-poisson-process-interarrival/hard/1/31860ebcb1a7", "text": "Orders on a small web shop occur at random, independently, at an average rate o…"}
+{"answer": "0.4865", "id": "uc2-poisson-process-interarrival/hard/2/17d00ee93182", "text": "Patients at a country clinic's walk-in desk occur at random, independently, at …"}
+{"answer": "0.8454", "id": "uc2-poisson-process-interarrival/medium/0/a0017bb2f6e5", "text": "Customers at a self-serve kiosk occur at random, independently, at an average r…"}
+{"answer": "0.5249", "id": "uc2-poisson-process-interarrival/medium/1/9a927acfcbd1", "text": "Patients at a country clinic's walk-in desk occur at random, independently, at …"}
+{"answer": "0.9763", "id": "uc2-poisson-process-interarrival/medium/2/6a449647f341", "text": "Emails to a shared support inbox occur at random, independently, at an average …"}
+{"answer": "10.061", "id": "uc2-regression-slope-inference/easy/0/1cd283737315", "text": "A regression of weekly rent (dollars) on distance from the city centre (km) is …"}
+{"answer": "-2.705", "id": "uc2-regression-slope-inference/easy/1/c0c14cc122f7", "text": "In a simple linear regression based on 12 pairs of observations the sample corr…"}
+{"answer": "17.036", "id": "uc2-regression-slope-inference/easy/2/8c672d7f0ca1", "text": "A regression of wheat yield (tonnes) on seasonal rainfall (hundred mm) is fitte…"}
+{"answer": "(a) 1.958; (b) 0.1764; (c) 11.10; (d) 1.468", "id": "uc2-regression-slope-inference/exam/0/b85f1a6281d3", "text": "Data on weekly advertising spend (thousand dollars) and weekly sales (thousand …"}
+{"answer": "(a) 4.090; (b) 0.3317; (c) 12.33; (d) 3.237", "id": "uc2-regression-slope-inference/exam/1/6c119cf5dff6", "text": "An analyst studies how test score (marks) depends on weekly study time (hours) …"}
+{"answer": "(a) 2.066; (b) 0.1990; (c) 10.38; (d) 1.579", "id": "uc2-regression-slope-inference/exam/2/a94712c23261", "text": "Data on weekly study time (hours) and test score (marks) from 8 sites give n = …"}
+{"answer": "1.817", "id": "uc2-regression-slope-inference/hard/0/06a3fd5370ee", "text": "For 15 pairs of observations the sample correlation is r = 0.45, the standard d…"}
+{"answer": "1.646", "id": "uc2-regression-slope-inference/hard/1/53b9b41d8f2a", "text": "A researcher records weekly study time (hours) and test score (marks) for 6 uni…"}
+{"answer": "8.590", "id": "uc2-regression-slope-inference/hard/2/f710fae191a9", "text": "A regression of weekly rent (dollars) on distance from the city centre (km) is …"}
+{"answer": "12.84", "id": "uc2-regression-slope-inference/medium/0/df81f0c92496", "text": "A regression of wheat yield (tonnes) on seasonal rainfall (hundred mm) is fitte…"}
+{"answer": "-11.77", "id": "uc2-regression-slope-inference/medium/1/d8643cb9a990", "text": "A regression of cold drinks sold (dozens) on daily maximum temperature (degrees…"}
+{"answer": "-8.14", "id": "uc2-regression-slope-inference/medium/2/2f0801990b94", "text": "A regression of test score (marks) on weekly study time (hours) is fitted by le…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}

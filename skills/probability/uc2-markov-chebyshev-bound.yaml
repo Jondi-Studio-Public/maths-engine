@@ -1,0 +1,127 @@
+id: uc2-markov-chebyshev-bound
+name: Markov and Chebyshev bounds
+domain: probability
+year_level:
+- university
+description: "Bound tail probabilities from a mean and a standard deviation without assuming a distribution: decide which\
+  \ information is usable, find the guaranteed bound for a tail, an off-centre interval, a second moment or a sample mean,\
+  \ and work backwards to the sample size or interval width that a guarantee needs."
+status: active
+placement_eligible: false
+prerequisites:
+- finite-distribution-variance
+- discrete-expected-value
+answer: fraction
+sources:
+- topic: r4i_markov_chebyshev
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_markov_chebyshev
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_markov_chebyshev
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_markov_chebyshev
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-mc-inverted-ratio
+  description: "Inverting the ratio in the bound, giving the threshold over the mean (or the distance over the standard deviation,\
+    \ squared) instead of the mean over the threshold."
+- id: r4i-mc-complement
+  description: "Giving the complement of the bound, 1 minus the bound, where the bound itself (or the lower bound it leads\
+    \ to) was asked."
+- id: r4i-mc-squared
+  description: "Squaring the ratio mean over threshold, mixing the Markov bound with the shape of the Chebyshev bound."
+- id: r4i-mc-shifted-threshold
+  description: Dividing the mean by the threshold plus or minus the mean, measuring the tail from the wrong place.
+- id: r4i-mc-forgot-square
+  description: "Leaving out a square: using the standard deviation over the distance where the variance over the distance\
+    \ squared belongs."
+- id: r4i-mc-squared-numerator-only
+  description: Squaring the standard deviation but not the distance, giving sigma squared over d.
+- id: r4i-mc-halved
+  description: "Halving the bound, as if only one tail of the interval were counted; the bound covers both tails and cannot\
+    \ be halved without more information."
+- id: r4i-mc-farther-end
+  description: "Using the end of the interval farther from the mean, which gives a bound that does not hold for the nearer\
+    \ side."
+- id: r4i-mc-half-width
+  description: "Using half the width of an off-centre interval as the distance from the mean, so the interval is treated as\
+    \ centred."
+- id: r4i-mc-variance-for-second-moment
+  description: Using the variance where the second moment (variance plus mean squared) belongs.
+- id: r4i-mc-mean-squared-only
+  description: Using the square of the mean alone as the second moment, leaving out the variance.
+- id: r4i-mc-sum-then-square
+  description: Squaring the sum of the mean and the standard deviation instead of adding their squares.
+- id: r4i-mc-forgot-sample-size
+  description: Using the variance of a single observation for the sample mean, not dividing by n.
+- id: r4i-mc-n-squared
+  description: Dividing the variance by n squared instead of n when finding the variance of a sample mean.
+- id: r4i-mc-normal-instead-of-chebyshev
+  description: "Using a normal-distribution quantile (such as 1.645) where a guarantee for any distribution was asked."
+- id: r4i-mc-round-down
+  description: Rounding the sample size down, which does not meet the guarantee.
+- id: r4i-mc-root-of-alpha
+  description: Dividing by the square root of alpha instead of alpha when solving for the sample size.
+- id: r4i-mc-forgot-alpha
+  description: "Leaving out the allowed tail probability, giving the variance over the squared distance as the sample size."
+- id: r4i-mc-forgot-root
+  description: Dividing the standard deviation by alpha instead of by the square root of alpha.
+- id: r4i-mc-variance-for-sd
+  description: Using the variance where the standard deviation belongs in the half-width.
+- id: r4i-mc-inverted-root
+  description: Multiplying by the square root of alpha instead of dividing by it.
+- id: r4i-mc-took-the-weaker-bound
+  description: Giving the larger of the two valid bounds instead of the smaller, so the bound is not the best one.
+- id: r4i-mc-distance-from-zero
+  description: Measuring the distance for the standard deviation bound from zero instead of from the mean.
+- id: r4i-mc-combined-bounds
+  description: Adding or multiplying the two bounds instead of taking the smaller.
+- id: r4i-mc-forgot-complement
+  description: Giving the upper bound for the tails where the lower bound for the interval inside them was asked.
+- id: r4i-mc-root-n-for-n
+  description: Dividing by the square root of n (or by n times the distance) instead of by n.
+- id: r4i-mc-multiplied-by-n
+  description: Multiplying the bound by n where the variance of a mean divides by n.
+- id: r4i-mc-two-tails-doubled
+  description: Doubling the sample size for a two-sided interval that the bound already covers.
+- id: r4i-mc-tails-counted-twice
+  description: "Doubling the bound before taking its complement, counting the two tails twice when the bound already covers\
+    \ both."
+- id: r4i-mc-averaged-with-one
+  description: Averaging the lower bound with 1, as if the guarantee were halfway to certainty.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Decide whether the mean alone or the mean with the standard deviation applies, and evaluate the single bound\
+      \ it gives."
+  medium:
+    steps: 4
+    demand: "Prepare the information before bounding: take the nearer end of an off-centre interval, build the second moment\
+      \ from the variance and mean, or divide the variance by n for a sample mean."
+  hard:
+    steps: 5
+    demand: "Work backwards from a guarantee to a sample size or interval half-width, or compare the bounds from the mean\
+      \ alone and from the standard deviation and keep the better one."
+tags:
+- university-year-2
+- probability
+- markov-inequality
+- chebyshev-inequality
+- tail-bounds

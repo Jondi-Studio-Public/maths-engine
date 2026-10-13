@@ -1,0 +1,127 @@
+id: uc2-poisson-process-interarrival
+name: Poisson process waiting times
+domain: stochastic-processes
+year_level:
+- university
+description: "Waiting times and counts for a Poisson process with mixed time units: the chance of a long wait, waits that\
+  \ start part way through, the time to the k-th arrival, merged and split streams, and counts given a known total."
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-poisson-count-probability
+answer: number
+sources:
+- topic: r4i_poisson_process
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_poisson_process
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_poisson_process
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_poisson_process
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-pp-complement
+  description: Giving the probability of the opposite event (one minus the answer).
+- id: r4i-pp-pmf-for-wait
+  description: Giving the chance of exactly one arrival in the period where the chance of none was asked.
+- id: r4i-pp-mean-as-rate
+  description: Using the mean time between arrivals as if it were the rate.
+- id: r4i-pp-halved-exponent
+  description: Halving the mean count in the exponent.
+- id: r4i-pp-forgot-memoryless
+  description: Including the time already waited, as if the wait must exceed the elapsed time plus the new time.
+- id: r4i-pp-waited-time-only
+  description: Using the time already waited in place of the new time.
+- id: r4i-pp-conditioned-on-arrival
+  description: "Dividing by the chance of an arrival in the time already waited, as if the earlier wait were known to end."
+- id: r4i-pp-mean-for-sd
+  description: Giving the mean time to the k-th arrival where its standard deviation was asked.
+- id: r4i-pp-variance-for-sd
+  description: Giving the variance where the standard deviation was asked.
+- id: r4i-pp-units-not-converted
+  description: Mixing hours with minutes or seconds with minutes when forming the mean count.
+- id: r4i-pp-k-minus-one
+  description: Using k - 1 in place of k in the number of waits added.
+- id: r4i-pp-single-interarrival-sd
+  description: Giving the standard deviation of one gap instead of the time to the k-th arrival.
+- id: r4i-pp-off-by-one-count
+  description: Using one arrival too many or too few in the count that matches the k-th arrival.
+- id: r4i-pp-pmf-for-cdf
+  description: "Giving the chance of exactly the stated count where the chance of at least (or fewer than) that count was\
+    \ asked."
+- id: r4i-pp-exponential-for-erlang
+  description: Using the one-arrival formula 1 - e^(-mean count) for a later arrival.
+- id: r4i-pp-one-stream-only
+  description: Using the rate of one source rather than the combined rate.
+- id: r4i-pp-averaged-rates
+  description: Averaging the two rates instead of adding them.
+- id: r4i-pp-at-least
+  description: Giving the chance of at least the stated count instead of exactly it.
+- id: r4i-pp-product-of-streams
+  description: Multiplying the separate probabilities of the two sources.
+- id: r4i-pp-at-most-k
+  description: Counting k arrivals as still being within the period.
+- id: r4i-pp-forgot-arrangements
+  description: Leaving out the number of ways the arrivals can be ordered among the sources or among the positions.
+- id: r4i-pp-wrong-source
+  description: Swapping the roles of the two sources.
+- id: r4i-pp-ignored-third-arrival
+  description: Stopping after two arrivals instead of three.
+- id: r4i-pp-wrong-fraction
+  description: Using the share of the session not in the first part.
+- id: r4i-pp-poisson-for-conditional
+  description: Using a Poisson probability when the total count is known.
+- id: r4i-pp-ignored-the-condition
+  description: Using the rate and ignoring the known total count.
+- id: r4i-pp-none-urgent-only
+  description: Giving the chance of no urgent arrival without removing the case of no arrival at all.
+- id: r4i-pp-no-arrivals-at-all
+  description: Giving the chance of no arrival of any kind.
+- id: r4i-pp-wrong-type
+  description: Treating the non-urgent arrivals as the ones that must not occur.
+- id: r4i-pp-independence-assumed
+  description: "Multiplying the chance of no urgent arrival by the chance of some arrival as if they were independent."
+- id: r4i-pp-rate-for-mean
+  description: Giving the rate per hour where the mean time between calls was asked.
+- id: r4i-pp-mean-in-hours
+  description: Giving the mean time between calls in hours rather than minutes.
+- id: r4i-pp-rate-times-60
+  description: Multiplying the rate by 60 instead of dividing 60 by it.
+- id: r4i-pp-half-the-mean
+  description: Halving the mean time between calls.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Convert the rate to the stated time unit, then take one step: the chance of a long wait (also after time already\
+      \ waited) or the standard deviation of the time to the k-th arrival."
+  medium:
+    steps: 4
+    demand: "Turn a statement about the k-th arrival, or about the next k arrivals taking a stated time, into a Poisson count\
+      \ and sum it; or merge two sources into one rate before taking a count probability."
+  hard:
+    steps: 5
+    demand: "Decide which property applies: the race between two sources, the uniform placement of a known number of arrivals,\
+      \ or the split of a stream into types with a case to remove."
+tags:
+- university-year-2
+- probability
+- poisson-process
+- exponential
+- waiting-time
