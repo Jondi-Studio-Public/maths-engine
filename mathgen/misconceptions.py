@@ -16582,6 +16582,541 @@ _ENTRIES = (
         "Giving the expected count itself, where the difference from it was asked for.",
         area="chance-sampling",
     ),
+    CatalogueEntry(
+        "fr2e-money-count-not-multiplied",
+        "Using the number of items where the cost of the items was needed, so the price of one item is subtracted or added instead of the price of all of them.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-prices-added-not-multiplied",
+        "Adding the two prices once each, ignoring how many of each item were bought.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-prices-swapped",
+        "Pairing each count with the other item's price when finding a total.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-part-week-dropped",
+        "Dividing and ignoring the remainder, so the last part-week is not counted and the goal is not yet reached.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-saved-amount-ignored",
+        "Dividing the whole price by the weekly saving, forgetting the money already saved.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-voucher-ignored",
+        "Giving the bill before the voucher is taken off.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-bill-not-shared",
+        "Giving the whole bill when each person's equal share was asked for.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-remainder-as-change",
+        "Giving what is left over when the bill is divided by the note, instead of what the notes exceed the bill by.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-weeks-rounded-up-twice",
+        "Rounding the number of weeks up and then adding another week for the part-week.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-dollars-as-weeks",
+        "Giving the dollars still needed where the number of weeks was asked for.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-spending-ignored",
+        "Leaving out the money spent on something else along the way.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-deposit-ignored",
+        "Sharing the whole price into payments without taking off the deposit.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-second-item-left-out",
+        "Finding the cost of only the first kind of item in an order of two kinds.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-price-not-taken-off",
+        "Giving the money in hand after saving, without taking off the price of what was bought.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-weeks-off-by-one",
+        "Working out the money left using one week more or fewer than the weeks counted.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-week-minus-left",
+        "Giving the part of a weekly saving that was still needed instead of the part that is left over.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-on-original-price",
+        "Working out the GST on the marked price instead of on the sale price.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-left-out",
+        "Giving the price before the GST was added.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-discount-left-out",
+        "Giving the price without taking the discount off.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-net-of-two-percents",
+        "Combining a discount and GST by taking one percentage off the other, as if they applied to the same price.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-unit-price-before-discount",
+        "Comparing unit prices using the marked price of the discounted pack, not its sale price.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-pack-prices-compared",
+        "Comparing what the packs cost, ignoring that they hold different masses.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-unit-price-per-wrong-mass",
+        "Finding the difference in cost per kilogram where per 100 g was asked, or the reverse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-better-shop-reversed",
+        "Naming the dearer shop as the cheaper one.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-discount-applied-twice",
+        "Taking the discount off the price twice.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-discount-on-the-wrong-pack",
+        "Applying the discount to the pack that is not on sale.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-reported-not-total",
+        "Giving the amount of GST instead of the price with GST added.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-subtracted",
+        "Taking the GST off the price instead of adding it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-adjustments-compared",
+        "Comparing the size of the discount with the size of the GST instead of comparing the two final prices.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-one-item-only",
+        "Giving the price of one item where the cost of several was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-saving-added-to-total",
+        "Adding the saving to the total instead of leaving the total as it is.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-difference-read-as-second",
+        "Reading the first difference as the value of the second differences, or choosing a quadratic model because the values are not all equal.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-pair-only-checked",
+        "Judging the model from the first two rows only, without checking that the pattern holds for the rest of the table.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-total-change-as-step",
+        "Using the total change across the whole table as the change for each step.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-overall-ratio-as-ratio",
+        "Using the last value divided by the first as the ratio between neighbouring values.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-difference-used-for-any-model",
+        "Using the first difference as a constant slope when the first differences are not constant.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-second-difference-not-halved",
+        "Using the second difference as the coefficient of x squared, without halving it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-power-for-exponential",
+        "Writing a power of x for a pattern that multiplies by the same number each step.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-starting-value-left-out",
+        "Leaving out the starting value when writing the rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-linear-extrapolation-of-curve",
+        "Continuing a curved pattern with the last first difference as if it were constant.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-step-in-x-ignored",
+        "Using the change between rows as the change for each 1 in x when x goes up by more than 1 each row.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-ratio-per-row-used-per-unit",
+        "Using the ratio between rows as the ratio for each 1 in x when x goes up by more than 1 each row.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-x-off-by-one",
+        "Reading the value for the x-value next to the one asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-answer-one-too-early",
+        "Giving the last whole value that is still allowed instead of the first that breaks the limit.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-answer-one-too-late",
+        "Giving a whole value after the first one that breaks the limit.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-reported-as-x",
+        "Giving the limit itself where the first x-value that breaks it was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-read-from-table",
+        "Taking the end of the table as the place the model stops working.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-difference-used-as-linear-coefficient",
+        "Using the first difference as the coefficient of x in a quadratic rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-ratio-added-not-multiplied",
+        "Adding the ratio each step instead of multiplying by it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-slope-and-start-swapped",
+        "Swapping the slope and the starting value in a linear rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-last-value-used-as-start",
+        "Using the last value in the table as the starting value.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-extra-step-added",
+        "Adding one more step of change on top of the predicted value.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-wrong-start",
+        "Starting the list at the wrong number, such as zero for a list of positive multiples, or one step too late.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-stop-test-boundary",
+        'Mixing up "stop at this number or more" with "stop when more than this number", so the last number is wrongly kept or left out.',
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-wrong-step-size",
+        "Adding a different amount each time from the one the list goes up by.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-rule-fitted-to-one-step",
+        "Choosing a rule because it fits the first step it is tried on, without checking it on the later steps.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-steps-in-listed-order",
+        "Using the steps in the order they are printed instead of the order that works.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-steps-in-reverse-order",
+        "Using the steps in the reverse of the order that works.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-two-steps-swapped",
+        "Swapping two neighbouring steps, so the machine gives a different output.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-steps-run-forwards-to-undo",
+        "Running the steps forwards on the output instead of undoing them in reverse order.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-one-run-for-two",
+        "Giving the result of the first run where the result of two runs was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-input-reported-as-output",
+        "Giving the number put in where the number that came out was asked, or the reverse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-last-step-left-out",
+        "Leaving out the last step of the machine.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-first-step-left-out",
+        "Leaving out the first step of the machine.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-first-step-left-out-when-undoing",
+        "Stopping before the last undoing step, so the first step of the machine is not undone.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-steps-in-listed-order",
+        "Doing the steps of a construction in the order they are printed, when they are shuffled.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-steps-in-reverse-order",
+        "Doing the steps of a construction in the reverse of the order that works.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-two-steps-swapped",
+        "Swapping two neighbouring steps of a construction, so a step uses something not yet drawn.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-angle-not-between-the-sides",
+        "Treating two equal sides and an angle that is not between them as enough to show triangles congruent.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-fact-completes-a-different-test",
+        "Choosing a fact that would prove the triangles congruent by a different test from the one asked for.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-angle-where-side-needed",
+        "Offering an equal angle where the test needs an equal side.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-side-where-angle-needed",
+        "Offering an equal side where the test needs an equal angle.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-leg-given-for-hypotenuse",
+        "Offering the other leg of a right-angled triangle where the hypotenuse is needed.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-legs-added-for-hypotenuse",
+        "Adding the two shorter sides of a right-angled triangle to get the hypotenuse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-square-not-rooted",
+        "Giving the sum of the squares of the two shorter sides as the hypotenuse, without taking the square root.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-pythagoras-subtracted",
+        "Subtracting the squares of the sides instead of adding them to find the hypotenuse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-hypotenuse-left-out-of-perimeter",
+        "Adding only two sides of the triangle to find its perimeter.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-one-side-for-perimeter",
+        "Giving one side where the perimeter of the whole triangle was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-area-for-perimeter",
+        "Giving the area where the perimeter was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-agreement-counted-as-one",
+        "Giving 1 as the difference when the table and the rule agree, counting the match instead of subtracting.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-difference-between-neighbouring-entries",
+        "Subtracting the table's previous entry instead of the rule's prediction.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-hypotenuse-counted-twice",
+        "Counting the hypotenuse twice when adding the sides.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-side-not-next-to-the-angle",
+        "Offering an equal side that is not next to the equal angle as if it completed the SAS test.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-longer-leg-for-hypotenuse",
+        "Giving the longer of the two shorter sides as the hypotenuse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-power-ignored",
+        "Multiplying the factors by which the inputs change without raising each to the power it has in the formula.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-changes-added",
+        "Adding the factors by which two inputs change instead of multiplying their effects.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-inverse-treated-as-direct",
+        "Treating an input that is divided by as if it were multiplied, so the output changes the wrong way.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-only-one-input-changed",
+        "Working out the effect of one of the two changes and leaving the other out.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-power-on-the-wrong-input",
+        "Putting the power of one input onto the other input's change.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-later-counterexample",
+        "Giving a counterexample that is not the smallest, because a smaller one was not found.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-neighbouring-input-reported",
+        "Giving the whole number next to the smallest counterexample.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-last-input-that-works-reported",
+        "Giving the last whole number for which the conjecture still holds instead of the first that defeats it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-value-reported-as-input",
+        "Giving the value of the expression at the counterexample instead of the whole number n that was put in.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-accepted-after-partial-check",
+        "Deciding that no entry breaks the conjecture, or that it is proved, after checking only some of the table.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-entry-that-fits-reported",
+        "Naming an entry that agrees with the conjecture as the one that breaks it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-neighbouring-entry-blamed",
+        "Blaming the entry next to the one that breaks the conjecture, because the step into or out of it looks wrong.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-exponent-treated-as-multiplier",
+        "Multiplying by the exponent instead of raising to it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-table-value-reported",
+        "Giving the table's value where the value the conjecture predicts was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-difference-taken-the-wrong-way",
+        "Taking the conjecture's value minus the table's value, so the sign of the difference is reversed.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-prediction-reported",
+        "Giving the conjecture's value where the difference from the table was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-values-added",
+        "Adding the table's value and the conjecture's value instead of subtracting.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-more-tests-needed-after-counterexample",
+        "Asking for more tests after a counterexample has been found, as if one were not enough.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-counterexample-treated-as-boundary",
+        "Treating a counterexample as the point where a conjecture starts to fail, rather than showing it false.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-counterexample-needs-majority",
+        "Believing a conjecture is only false if it fails for most values.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-one-fit-treated-as-boundary",
+        "Treating a value that fits as showing the conjecture fails everywhere else.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-agreement-treated-as-counterexample",
+        "Calling a value where the conjecture agrees with the table a counterexample.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-table-size-treated-as-proof",
+        "Taking the number of entries in a table as enough to prove a rule.",
+        area="f10-modelling",
+    ),
 )
 
 #: Every entry, by id.

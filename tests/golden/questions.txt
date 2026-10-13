@@ -958,6 +958,18 @@
 {"answer": "29", "id": "f10-additive-multiplicative-patterns/medium/0/f43cb818d202", "text": "What is the next number? 32, 31, 30, __"}
 {"answer": "128", "id": "f10-additive-multiplicative-patterns/medium/1/56f3d6a011e9", "text": "What is the next number? 134, 132, 130, __"}
 {"answer": "7", "id": "f10-additive-multiplicative-patterns/medium/2/b16d2b8e0f41", "text": "What is the next number? 25, 19, 13, __"}
+{"answer": "1/12", "id": "f10-algebra-conjecture-algorithm/easy/0/00a80a0f8c3a", "text": "The kinetic energy of a moving object is E = ½mv². The speed v is halved and th…"}
+{"answer": "8", "id": "f10-algebra-conjecture-algorithm/easy/1/c7826620f79c", "text": "The volume of a cube is V = s³. The side length s is doubled, and nothing else …"}
+{"answer": "9", "id": "f10-algebra-conjecture-algorithm/easy/2/097159ee89f6", "text": "The light from a lamp reaching a wall is I = P/d². The distance d is divided by…"}
+{"answer": "(a) 243; (b) 1; (c) x = 4 is a counterexample, so the conje…", "id": "f10-algebra-conjecture-algorithm/exam/0/b30ed4cf3895", "text": "Leila conjectures that the rule y = 3 × 3^x gives every y-value in this table: …"}
+{"answer": "(a) 81; (b) 0; (c) The rule fits at x = 4, but that does no…", "id": "f10-algebra-conjecture-algorithm/exam/1/2ddb4b06dead", "text": "Jess conjectures that the rule y = 3^x gives every y-value in this table: x: 0,…"}
+{"answer": "(a) 52; (b) 1; (c) x = 5 is a counterexample, so the conjec…", "id": "f10-algebra-conjecture-algorithm/exam/2/9144e51f03d2", "text": "Leila conjectures that the rule y = 2x^2 + 2 gives every y-value in this table:…"}
+{"answer": "2", "id": "f10-algebra-conjecture-algorithm/hard/0/c70a49aefd9a", "text": "Jess conjectures that this table starts at y = 2 when x = 0 and that each y-val…"}
+{"answer": "0", "id": "f10-algebra-conjecture-algorithm/hard/1/b99c0310b706", "text": "Sam conjectures that the rule y = x^2 + 4x + 7 gives every y-value in this tabl…"}
+{"answer": "4", "id": "f10-algebra-conjecture-algorithm/hard/2/dbebfe8f184e", "text": "Kofi conjectures that this table starts at y = 2 when x = 0 and that each y-val…"}
+{"answer": "18", "id": "f10-algebra-conjecture-algorithm/medium/0/a8f610e2c933", "text": "Tom conjectures that the expression n^2 - 3n + 19 gives a prime number for ever…"}
+{"answer": "18", "id": "f10-algebra-conjecture-algorithm/medium/1/e2fdf7e3b4e8", "text": "Tom conjectures that the expression n^2 - 3n + 19 gives a prime number for ever…"}
+{"answer": "15", "id": "f10-algebra-conjecture-algorithm/medium/2/446cabbdc524", "text": "Priya conjectures that the expression n^2 + 3n + 19 gives a prime number for ev…"}
 {"answer": "137", "id": "f10-angle-relationships/easy/0/3cad2ee1cc23", "text": "The angles in the diagram meet at a point and together complete a full turn. Ca…"}
 {"answer": "135", "id": "f10-angle-relationships/easy/1/96ede31df2fe", "text": "The diagram shows angles meeting at a point and filling a full turn. Calculate …"}
 {"answer": "111", "id": "f10-angle-relationships/easy/2/d33de7b1033b", "text": "The angles in the diagram meet at a point and together complete a full turn. Wo…"}
@@ -1012,6 +1024,18 @@
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/d2edcaab9563", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/a601c8526340", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
+{"answer": "Linear: y goes up by 7 each time x goes up by 1", "id": "f10-choose-model-from-data/easy/0/e68ab5a3fd23", "text": "The table shows the number y of pages of a report written x hours after the wri…"}
+{"answer": "Exponential: each y-value is 2 times the one before", "id": "f10-choose-model-from-data/easy/1/a65e15f30029", "text": "The table shows the number y of bacteria in a dish x hours after it is prepared…"}
+{"answer": "Exponential: each y-value is half the one before", "id": "f10-choose-model-from-data/easy/2/08e2720acc09", "text": "The table shows the mass y grams of a radioactive sample x days after it is del…"}
+{"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/0/a786adb80d34", "text": "The table shows the number y of bacteria in a dish x hours after it is prepared…"}
+{"answer": "(a) Exponential: each y-value is 3 times the one before; (b…", "id": "f10-choose-model-from-data/exam/1/667ec92b1c76", "text": "The table shows the number y of followers of a community page x weeks after it …"}
+{"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/2/e7cfa3d3752d", "text": "The table shows the number y of followers of a community page x weeks after it …"}
+{"answer": "70", "id": "f10-choose-model-from-data/hard/0/1c2a617e4391", "text": "The table shows the data y megabytes used on a phone plan x days after it start…"}
+{"answer": "378", "id": "f10-choose-model-from-data/hard/1/1fceb317049b", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
+{"answer": "269", "id": "f10-choose-model-from-data/hard/2/a0a006133952", "text": "The table shows the number y of tiles in stage x of a square tile pattern. x: 0…"}
+{"answer": "y = 3x^2 + x + 1", "id": "f10-choose-model-from-data/medium/0/de19702ccb78", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
+{"answer": "y = x^2 + 3x + 1", "id": "f10-choose-model-from-data/medium/1/f75eb3ddbec3", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
+{"answer": "y = -x^2 + 10x + 6", "id": "f10-choose-model-from-data/medium/2/6173dbc7e88b", "text": "The table shows the height y metres of a rocket flare x seconds after it is fir…"}
 {"answer": "270", "id": "f10-circle-and-prism-duration-rates/easy/0/a83a9727a191", "text": "A flight departs Zone A at 10:00, arrives Zone B at 11:30, on the same day. Zon…"}
 {"answer": "210", "id": "f10-circle-and-prism-duration-rates/easy/1/5aa03c2bbbee", "text": "A flight departs Zone A at 05:30, arrives Zone B at 08:00, on the same day. Zon…"}
 {"answer": "135", "id": "f10-circle-and-prism-duration-rates/easy/2/18e85442551c", "text": "A flight departs Zone A at 07:15, arrives Zone B at 08:30, on the same day. Zon…"}
@@ -1378,6 +1402,30 @@
 {"answer": "yes", "id": "f10-factors-multiples-divisibility/medium/0/1f8267f9aa12", "text": "Does 9 divide 189 exactly (with no remainder)?"}
 {"answer": "no", "id": "f10-factors-multiples-divisibility/medium/1/ddbe2303855f", "text": "Does 14 divide 27 exactly (with no remainder)?"}
 {"answer": "yes", "id": "f10-factors-multiples-divisibility/medium/2/124cce6bc833", "text": "Does 11 divide 264 exactly (with no remainder)?"}
+{"answer": "124.80", "id": "f10-financial-multistep-percent/easy/0/a89128c51e5e", "text": "A pair of headphones is marked $156. This week every price in the shop is reduc…"}
+{"answer": "83.20", "id": "f10-financial-multistep-percent/easy/1/4349908ab53c", "text": "A cricket bat is marked $104. This week every price in the shop is reduced by 2…"}
+{"answer": "44.80", "id": "f10-financial-multistep-percent/easy/2/eb3c1df41587", "text": "A jacket is marked $56. This week every price in the shop is reduced by 20%, an…"}
+{"answer": "(a) 185.60; (b) 242.00; (c) Shop A is cheaper, by $56.40 fo…", "id": "f10-financial-multistep-percent/exam/0/322ebf641725", "text": "Jess is buying 4 identical jackets. Shop A marks each jacket at $232 and takes …"}
+{"answer": "(a) 166.40; (b) 110.00; (c) Shop B is cheaper, by $56.40 fo…", "id": "f10-financial-multistep-percent/exam/1/103cdfa33437", "text": "Mia is buying 4 identical jackets. Shop A marks each jacket at $208 and takes 2…"}
+{"answer": "(a) 78.00; (b) 121.00; (c) Shop A is cheaper, by $43.00 for…", "id": "f10-financial-multistep-percent/exam/2/4ea41c02a5b8", "text": "Aiko is buying 2 identical cricket bats. Shop A marks each cricket bat at $104 …"}
+{"answer": "0.25", "id": "f10-financial-multistep-percent/hard/0/5879d18b726c", "text": "Marcus compares two packs of cereal. Pack A is 400 g and costs $2.20. Pack B is…"}
+{"answer": "0.25", "id": "f10-financial-multistep-percent/hard/1/27cd530af322", "text": "Marcus compares two packs of flour. Pack A is 200 g and costs $2.10. Pack B is …"}
+{"answer": "0.20", "id": "f10-financial-multistep-percent/hard/2/dec2348c43e8", "text": "Jess compares two packs of pasta. Pack A is 250 g and costs $1.00. Pack B is 10…"}
+{"answer": "161.92", "id": "f10-financial-multistep-percent/medium/0/9182a20a2964", "text": "A tent is marked $184 and is on sale for 20% off. Aiko buys it, and 10% GST is …"}
+{"answer": "55.44", "id": "f10-financial-multistep-percent/medium/1/3a43e4f74feb", "text": "A pair of headphones is marked $56 and is on sale for 10% off. Dev buys it, and…"}
+{"answer": "112.64", "id": "f10-financial-multistep-percent/medium/2/30c47d9fa989", "text": "A jacket is marked $128 and is on sale for 20% off. Jess buys it, and 10% GST i…"}
+{"answer": "36", "id": "f10-financial-multistep-whole-numbers/easy/0/84bcd330ae02", "text": "At the school fete, Tom pays with a $50 note for 7 raffle tickets at $2 each. H…"}
+{"answer": "2", "id": "f10-financial-multistep-whole-numbers/easy/1/7f4ec051dc97", "text": "Mia buys 3 drink bottles from the sports shop. Each costs $6. Mia pays with a $…"}
+{"answer": "8", "id": "f10-financial-multistep-whole-numbers/easy/2/e88a42023852", "text": "Tom buys 6 drink bottles from the sports shop. Each costs $7. Tom pays with a $…"}
+{"answer": "(a) 30; (b) 20; (c) 8; (d) 4", "id": "f10-financial-multistep-whole-numbers/exam/0/24153ddc15ad", "text": "Leila orders 5 juices at $3 each and 3 pies at $5 each for a school event, and …"}
+{"answer": "(a) 53; (b) 47; (c) 12; (d) 3", "id": "f10-financial-multistep-whole-numbers/exam/1/f892fab19191", "text": "Leila orders 5 notebooks at $7 each and 3 pencil cases at $6 each for a school …"}
+{"answer": "(a) 19; (b) 31; (c) 3; (d) 4", "id": "f10-financial-multistep-whole-numbers/exam/2/588a0463db91", "text": "Ella orders 3 fruit cups at $3 each and 2 notebooks at $5 each for a school eve…"}
+{"answer": "14", "id": "f10-financial-multistep-whole-numbers/hard/0/d006c8c81c3e", "text": "Kofi wants a scooter bell set that costs $115 and has saved $20. Kofi saves $7 …"}
+{"answer": "8", "id": "f10-financial-multistep-whole-numbers/hard/1/3f9e390fd006", "text": "Priya wants a football that costs $95 and has saved $30. Priya saves $9 each we…"}
+{"answer": "20", "id": "f10-financial-multistep-whole-numbers/hard/2/14241a1987f9", "text": "Leila's family buys a football for $100 on lay-by. They pay a $20 deposit and t…"}
+{"answer": "25", "id": "f10-financial-multistep-whole-numbers/medium/0/eaaf6b5342c2", "text": "Mia orders 2 notebooks at $4 each and 4 pies at $5 each. A $3 voucher is taken …"}
+{"answer": "42", "id": "f10-financial-multistep-whole-numbers/medium/1/d84978205736", "text": "Priya orders 3 pencil cases at $7 each and 5 pies at $5 each. A $4 voucher is t…"}
+{"answer": "24", "id": "f10-financial-multistep-whole-numbers/medium/2/b837138ffa07", "text": "Jess and Ella order 3 pencil cases at $8 each and 4 notebooks at $6 each and sh…"}
 {"answer": "11/9", "id": "f10-fraction-add-subtract-equivalent/easy/0/5fa587a7a5df", "text": "Calculate 2/3 + 5/9."}
 {"answer": "7/8", "id": "f10-fraction-add-subtract-equivalent/easy/1/516fabe0e562", "text": "Calculate 3/4 + 1/8."}
 {"answer": "3/5", "id": "f10-fraction-add-subtract-equivalent/easy/2/01ffa837b279", "text": "Calculate 1/2 + 1/10."}
@@ -1693,6 +1741,18 @@
 {"answer": "5", "id": "f10-multiply-divide-one-digit-arrays/medium/0/d856db4ff816", "text": "45 counters are shared equally into these groups. How many counters are in each…"}
 {"answer": "2", "id": "f10-multiply-divide-one-digit-arrays/medium/1/20650d71c577", "text": "Share 8 counters equally between these groups. How many counters does each grou…"}
 {"answer": "8", "id": "f10-multiply-divide-one-digit-arrays/medium/2/fb9dd5ef7e10", "text": "32 counters go into these equal groups. How many counters are in each group?"}
+{"answer": "Write 8. Then repeat: add 8 to the last number written; if …", "id": "f10-number-algorithm-choose-complete/easy/0/ea5876e3a153", "text": "A list of numbers is needed: the positive multiples of 8 up to and including 40…"}
+{"answer": "Write 10. Then repeat: add 6 to the last number written; if…", "id": "f10-number-algorithm-choose-complete/easy/1/cf240e611e2a", "text": "A list of numbers is needed: the numbers that start at 10, go up by 6 each time…"}
+{"answer": "Write 9. Then repeat: add 9 to the last number written; if …", "id": "f10-number-algorithm-choose-complete/easy/2/169c52333d31", "text": "A list of numbers is needed: the positive multiples of 9 up to and including 45…"}
+{"answer": "(a) C, A, B, D; (b) 32; (c) 62; (d) 88", "id": "f10-number-algorithm-choose-complete/exam/0/84adf6326fe6", "text": "A number machine has four steps, each used once: A. Add 3; B. Multiply by 5; C.…"}
+{"answer": "(a) B, C, D, A; (b) 8; (c) 2; (d) 72", "id": "f10-number-algorithm-choose-complete/exam/1/6e0fe127ad6f", "text": "A number machine has four steps, each used once: A. Divide by 2; B. Subtract 8;…"}
+{"answer": "(a) B, C, A, D; (b) 57; (c) 142; (d) 15", "id": "f10-number-algorithm-choose-complete/exam/2/40fa9bc7d9cc", "text": "A number machine has four steps, each used once: A. Multiply by 5; B. Divide by…"}
+{"answer": "replace n by n + 1", "id": "f10-number-algorithm-choose-complete/hard/0/7a25a5b940da", "text": "An algorithm starts with n = 12 and repeats these steps: if n is a multiple of …"}
+{"answer": "replace n by n + 5", "id": "f10-number-algorithm-choose-complete/hard/1/0b4b3f02093d", "text": "An algorithm starts with n = 7 and repeats these steps: if n is even, replace n…"}
+{"answer": "replace n by n + 5", "id": "f10-number-algorithm-choose-complete/hard/2/67df5a674f80", "text": "An algorithm starts with n = 7 and repeats these steps: if n is a multiple of 3…"}
+{"answer": "C, D, A, B", "id": "f10-number-algorithm-choose-complete/medium/0/c5a85c8c0ac2", "text": "A number machine has four steps, each used once, in an order that is not shown:…"}
+{"answer": "D, C, A, B", "id": "f10-number-algorithm-choose-complete/medium/1/ca7de2f66a37", "text": "A number machine has four steps, each used once, in an order that is not shown:…"}
+{"answer": "B, A, C, D", "id": "f10-number-algorithm-choose-complete/medium/2/07ed2a3c8707", "text": "A number machine has four steps, each used once, in an order that is not shown:…"}
 {"answer": "24, 6", "id": "f10-number-algorithms-decisions/easy/0/4a881d7b7d73", "text": "If the number is even, add 4. If the number is odd, subtract 1. For inputs 20, …"}
 {"answer": "24, 16", "id": "f10-number-algorithms-decisions/easy/1/08b05b462ba0", "text": "If the number is even, add 4. If the number is odd, subtract 1. For inputs 20, …"}
 {"answer": "17, 38", "id": "f10-number-algorithms-decisions/easy/2/bbb308aff027", "text": "If the number is even, subtract 3. If the number is odd, multiply by 2. For inp…"}
@@ -2164,6 +2224,18 @@
 {"answer": "113, 118", "id": "f10-skip-count-pattern-sequences/medium/0/edcdaabf6f0f", "text": "What are the next 2 numbers? 98, 103, 108, __, __"}
 {"answer": "113, 123", "id": "f10-skip-count-pattern-sequences/medium/1/f67a1ce9fddf", "text": "What are the next 2 numbers? 83, 93, 103, __, __"}
 {"answer": "84, 94", "id": "f10-skip-count-pattern-sequences/medium/2/da1e74300f11", "text": "What are the next 2 numbers? 54, 64, 74, __, __"}
+{"answer": "B, A, D, C", "id": "f10-spatial-algorithm-choose-test/easy/0/5b5870559c8c", "text": "These steps to construct an angle of 60° have been shuffled: A. Put the compass…"}
+{"answer": "A, D, B, C", "id": "f10-spatial-algorithm-choose-test/easy/1/4a44edce67e3", "text": "These steps to construct the perpendicular from a point to a line have been shu…"}
+{"answer": "D, A, B, C", "id": "f10-spatial-algorithm-choose-test/easy/2/988feebe9133", "text": "These steps to construct the perpendicular from a point to a line have been shu…"}
+{"answer": "(a) 20; (b) RP = US; (c) 48; (d) B, A, C, D", "id": "f10-spatial-algorithm-choose-test/exam/0/809cc2568f8b", "text": "Triangle PQR has a right angle at Q, PQ = 12 cm and QR = 16 cm. Triangle STU ha…"}
+{"answer": "(a) 20; (b) CA = RP; (c) 48; (d) C, B, D, A", "id": "f10-spatial-algorithm-choose-test/exam/1/d53fd29cbc12", "text": "Triangle ABC has a right angle at B, AB = 12 cm and BC = 16 cm. Triangle PQR ha…"}
+{"answer": "(a) 15; (b) CA = FD; (c) 36; (d) D, C, B, A", "id": "f10-spatial-algorithm-choose-test/exam/2/a97502a5ce28", "text": "Triangle ABC has a right angle at B, AB = 9 cm and BC = 12 cm. Triangle DEF has…"}
+{"answer": "CA = FD", "id": "f10-spatial-algorithm-choose-test/hard/0/8a69ec85a2c4", "text": "Triangles ABC and DEF are being compared. It is known that each has a right ang…"}
+{"answer": "RP = US", "id": "f10-spatial-algorithm-choose-test/hard/1/aadd2d248d06", "text": "Triangles PQR and STU are being compared. It is known that each has a right ang…"}
+{"answer": "QR = TU", "id": "f10-spatial-algorithm-choose-test/hard/2/e34a1bb1cb81", "text": "Triangles PQR and STU are being compared. It is known that ∠Q = ∠T and PQ = ST.…"}
+{"answer": "C, D, A, B, E", "id": "f10-spatial-algorithm-choose-test/medium/0/7b530b2802d1", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
+{"answer": "A, B, D, C, E", "id": "f10-spatial-algorithm-choose-test/medium/1/6fb29d7341c6", "text": "These steps to bisect an angle have been shuffled: A. Draw rays QP and QR so th…"}
+{"answer": "A, B, E, C, D", "id": "f10-spatial-algorithm-choose-test/medium/2/bb00b88cf0d2", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
 {"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/7579e75fa997", "text": "Is 1 a perfect square? If yes, what is its square root?"}
 {"answer": "2", "id": "f10-square-roots-perfect-squares/easy/1/92f928907044", "text": "Is 4 a perfect square? If yes, what is its square root?"}
 {"answer": "11", "id": "f10-square-roots-perfect-squares/easy/2/8e0c2f749d3f", "text": "Is 121 a perfect square? If yes, what is its square root?"}
