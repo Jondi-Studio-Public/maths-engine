@@ -26,6 +26,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_sc5_jacobian_area
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: transposed-jacobian
   description: Places the x and y partial derivatives in transposed positions.

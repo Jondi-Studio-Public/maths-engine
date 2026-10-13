@@ -1,17 +1,21 @@
 id: tell-time-to-hour
 name: Tell time to the hour
 domain: early-foundations
-placement_order: 200
-placement_questions: 3
-placement_pass: 2
 learner_band: early
-description: Read an analogue clock showing an exact hour.
+description: Read a drawn analogue clock showing an exact hour.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites: [recognise-numerals-to-10]
 answer: mcq
 sources:
 - topic: clock_hours
   params: {}
   difficulty: easy
-misconceptions: []
-tags: [age-6, time, visual]
+misconceptions:
+- id: reads-long-hand
+  description: Reads the long hand, which points at the 12 on every o'clock, as the hour and answers 12 o'clock.
+- id: hour-off-by-one
+  description: Names the hour numeral next to the one the short hand points at.
+tags: [age-6, time, visual, figure]

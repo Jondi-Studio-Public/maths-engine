@@ -195,14 +195,14 @@ def test_early_foundations_pilot_pair_b_skill_contracts_load_with_expected_shape
     assert pattern.answer == "ordered_list"
     assert pattern.placement_eligible is False
     assert pattern.status == "active"
-    assert [source.difficulty for source in pattern.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in pattern.sources} == {"pattern_repeat_unit"}
-    assert [source.stages for source in pattern.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in pattern.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in pattern.sources[:3]} == {"pattern_repeat_unit"}
+    assert [source.stages for source in pattern.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert situations.prerequisites == ["add-within-10", "subtract-within-10"]
     assert situations.answer == "number"
     assert situations.placement_eligible is False
     assert situations.status == "active"
-    assert [source.difficulty for source in situations.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in situations.sources} == {"practical_situation_sum"}
-    assert [source.stages for source in situations.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in situations.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in situations.sources[:3]} == {"practical_situation_sum"}
+    assert [source.stages for source in situations.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

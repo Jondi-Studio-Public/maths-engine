@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_two_pipes_head_start
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: added-rate-and-quantity
   description: Adds the rate and the quantity/time instead of multiplying them.

@@ -232,7 +232,7 @@ def _projectile_speed(rng):
     working = [
         f"Landing: {y0} + {vy}t - 5t² = 0 gives t = {T}.",
         f"Velocity at t = {T}: {_ij(vx, vy - _G * T)} m/s.",
-        f"Speed = √({vx}² + {paren_negative(vy - _G * T)}²) = {answer} m/s.",
+        f"Speed = √({paren_negative(vx)}² + {paren_negative(vy - _G * T)}²) = {answer} m/s.",
     ]
     return _number_result(answer, cands, text, working)
 
@@ -600,8 +600,8 @@ def exd_x_g2_velocity_composition(rng, tier: str = "exam"):
             f"{_ij(*w)} km/h. {question}"
         )
         working = [
-            f"Velocity relative to the ground = {_ij(*air)} + {_ij(*w) if w[0] >= 0 else '(' + _ij(*w) + ')'} = {_ij(*g)} km/h.",
-            f"Ground speed = √({g[0]}² + {g[1]}²) = {speed} km/h"
+            f"Velocity relative to the ground = {_ij(*air)} + {'(' + _ij(*w) + ')' if _ij(*w).startswith('-') else _ij(*w)} = {_ij(*g)} km/h.",
+            f"Ground speed = √({paren_negative(g[0])}² + {paren_negative(g[1])}²) = {speed} km/h"
             + (f"; distance = {speed}×{t} = {answer} km." if t > 1 else "."),
         ]
         return _number_result(answer, cands, text, working)
@@ -641,7 +641,7 @@ def exd_x_g2_velocity_composition(rng, tier: str = "exam"):
     working = [
         f"Ground velocities: {_ij(*g1)} km/h, then {_ij(*g2)} km/h.",
         f"Total displacement = {t1}×({_ij(*g1)}) + {t2}×({_ij(*g2)}) = {_ij(*D)} km.",
-        f"Distance = √({D[0]}² + {D[1]}²) = {answer} km.",
+        f"Distance = √({paren_negative(D[0])}² + {paren_negative(D[1])}²) = {answer} km.",
     ]
     return _number_result(answer, cands, text, working)
 

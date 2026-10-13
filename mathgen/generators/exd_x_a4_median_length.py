@@ -125,7 +125,8 @@ def exd_x_a4_median_length(rng: random.Random, tier: str = "exam") -> dict:
         answer_text=answer_text,
         working=[
             f"The first midpoint is ({mx}, {my}); the point it is measured to is {target}.",
-            f"d = sqrt(({dx})^2 + ({dy})^2) = sqrt({d2}) = {answer_text}.",
+            f"d = sqrt(({dx})^2 + ({dy})^2) = sqrt({d2})"
+            + (f" = {answer_text}." if answer_text != f"sqrt({d2})" else "."),
         ],
         distractors=pick_distractors(answer_text, cands),
     )

@@ -11,7 +11,7 @@ graders that check replies. For install and a first run, see the top-level
 | `core.py` | `Question`, the `@generator` decorator, `make()`, and the shared helpers |
 | `generators/` | The generators, one decorated function each, in about 400 modules |
 | `grading/typed.py` | The graders and the `GRADERS` registry (`number`, `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, and a few structured kinds) |
-| `grading/spoken.py` | Number and expression parsing the typed graders share, and `check_answer` for transcripts of spoken answers |
+| `grading/spoken.py` | Number and expression parsing the typed graders share, and `check_answer` for transcripts of spoken answers. For a single-number answer a transcript must state one value and not negate or hedge it ("not twelve", "twelve or thirteen" and "twelve and a half" are wrong for 12) |
 | `answers.py` | The typed answer contract: `answer_spec()`, `Distractor`, the answer kinds and forms |
 | `misconceptions.py` | The shared catalogue of misconception ids that distractors are tagged with |
 | `engine.py` | Public API over skills: `load_skills()`, `make_for_skill()`, `grade()` |
@@ -158,6 +158,12 @@ labelled text) and returns `marks`, `max_marks` and a result per part. Give a pa
 through from a `sensible_range` when its answer has one, such as `(0, None)` for a length or `(0, 1)` for a
 probability, so an impossible earlier reply carries no marks forward. The design, including show-that parts,
 is in `docs/design/multi-part-questions.md`.
+
+Labelled text may mark each part as `(a)`, `a)`, `a:`, `a=` or `a.` (then a space), in any case, with whatever
+labels the parts use (`a`/`b`/`c`, `i`/`ii`/`iii`, `1`/`2`/`3`); a decimal point or a variable inside an answer is
+not a marker. Unlabelled text is split by `;` or line breaks when it has one piece per part. Text that cannot be
+split scores 0 and says so: the result's `note` explains how to label parts and its `note_kind` is
+`"unreadable_parts"`, so a front end can show it instead of a bare 0.
 
 ## Use the helpers in `core.py`
 

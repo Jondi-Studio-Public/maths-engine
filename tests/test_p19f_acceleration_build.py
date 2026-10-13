@@ -127,7 +127,8 @@ def test_skill_loads_with_correct_properties():
     assert skill.prerequisites == []
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == TOPIC
+        if source.difficulty != "exam":  # the exam tier is a multi-part chain on its own topic
+            assert source.topic == TOPIC
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

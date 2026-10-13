@@ -4,7 +4,7 @@ from fractions import Fraction
 
 from sympy import Rational, latex
 
-from ..core import generator, check, pick_distractors, rational_text, paren_negative
+from ..core import draw_until, generator, check, pick_distractors, rational_text, paren_negative
 
 
 @generator(
@@ -116,17 +116,31 @@ def division(rng, q_lo=2, q_hi=12, d_lo=2, d_hi=12):
     },
 )
 def fractions(rng, max_den=12, ops=("+", "-", "*"), three_term=False):
+    # Results must stay positive. The smallest proper fractions are 1/2 (max_den 2) and 1/3 (max_den 3), so:
+    # a two-term subtraction needs two different proper fractions (max_den >= 3), and a three-term
+    # expression that only subtracts needs a first fraction larger than the other two added (max_den >= 4,
+    # e.g. 3/4 - 1/4 - 1/3). Below those no draw can pass, and the redraw loops would never finish.
     if three_term:
         term_ops = [o for o in ("+", "-") if o in ops] or ["+", "-"]
-        while True:
-            d1, d2, d3 = (rng.randint(2, max_den) for _ in range(3))
-            n1, n2, n3 = rng.randint(1, d1 - 1), rng.randint(1, d2 - 1), rng.randint(1, d3 - 1)
-            op1, op2 = rng.choice(term_ops), rng.choice(term_ops)
+        if term_ops == ["-"] and max_den < 4:
+            raise ValueError(
+                "fractions needs max_den >= 4 when three_term=True and ops only subtracts: "
+                "the result must stay positive"
+            )
+
+        def draw_expression(r):
+            d1, d2, d3 = (r.randint(2, max_den) for _ in range(3))
+            n1, n2, n3 = r.randint(1, d1 - 1), r.randint(1, d2 - 1), r.randint(1, d3 - 1)
+            op1, op2 = r.choice(term_ops), r.choice(term_ops)
             f1, f2, f3 = Rational(n1, d1), Rational(n2, d2), Rational(n3, d3)
             partial = f1 + f2 if op1 == "+" else f1 - f2
             ans = partial + f3 if op2 == "+" else partial - f3
-            if ans > 0:  # keep results positive at this level
-                break
+            return d1, d2, d3, n1, n2, n3, op1, op2, f1, f2, f3, partial, ans
+
+        # keep results positive at this level
+        d1, d2, d3, n1, n2, n3, op1, op2, f1, f2, f3, partial, ans = draw_until(
+            rng, draw_expression, lambda expr: expr[-1] > 0, what="a three-term sum with a positive result"
+        )
         sym = {"+": "+", "-": "-"}
         text = f"{n1}/{d1} {sym[op1]} {n2}/{d2} {sym[op2]} {n3}/{d3}"
         ltx = rf"\frac{{{n1}}}{{{d1}}} {sym[op1]} \frac{{{n2}}}{{{d2}}} {sym[op2]} \frac{{{n3}}}{{{d3}}}"
@@ -150,14 +164,24 @@ def fractions(rng, max_den=12, ops=("+", "-", "*"), three_term=False):
             answer_latex=latex(ans),
             distractors=pick_distractors(rational_text(ans), [rational_text(c) for c in cands]),
         )
+    if "-" in ops and max_den < 3:
+        raise ValueError(
+            "fractions needs max_den >= 3 when ops includes '-': a subtraction must stay positive, "
+            "which needs two different proper fractions"
+        )
     op = rng.choice(list(ops))
-    while True:
-        d1, d2 = rng.randint(2, max_den), rng.randint(2, max_den)
-        n1, n2 = rng.randint(1, d1 - 1), rng.randint(1, d2 - 1)
+
+    def draw_pair(r):
+        d1, d2 = r.randint(2, max_den), r.randint(2, max_den)
+        n1, n2 = r.randint(1, d1 - 1), r.randint(1, d2 - 1)
         f1, f2 = Rational(n1, d1), Rational(n2, d2)
         ans = {"+": f1 + f2, "-": f1 - f2, "*": f1 * f2, "/": f1 / f2}[op]
-        if op != "-" or ans > 0:  # keep results positive at this level
-            break
+        return d1, d2, n1, n2, f1, f2, ans
+
+    # keep results positive at this level
+    d1, d2, n1, n2, f1, f2, ans = draw_until(
+        rng, draw_pair, lambda pair: op != "-" or pair[-1] > 0, what="a pair of fractions with a positive result"
+    )
     sym = {"+": "+", "-": "-", "*": "\u00d7", "/": "\u00f7"}[op]
     lsym = {"+": "+", "-": "-", "*": r"\times", "/": r"\div"}[op]
     # Independent check: recompute with stdlib Fractions, not SymPy Rationals.

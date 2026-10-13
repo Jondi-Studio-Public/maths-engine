@@ -15,6 +15,11 @@ sources:
 - topic: centered_difference_polynomial
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u4_richardson_difference
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: returns-exact-derivative
   description: Reports f'(x) and ignores the finite-difference step h.

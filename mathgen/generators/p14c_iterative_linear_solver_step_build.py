@@ -100,16 +100,14 @@ def _exam_eq_text(cx, cy, rhs) -> str:
 
 
 _EXAM_TEMPLATES = (
-    "For {eq1} and {eq2}, one of these two equations has an x-coefficient "
-    "LARGER IN MAGNITUDE than its own y-coefficient -- use that equation to "
-    "solve for x1 from y0, then use the OTHER equation to solve for y1 from "
-    "the just-computed x1 (a Gauss-Seidel step). Starting point (x0, y0) = "
-    "({x0}, {y0}). Give (x1, y1).",
-    "Given {eq1} and {eq2} and starting point (x0, y0) = ({x0}, {y0}): "
-    "identify which of the two equations has an x-coefficient LARGER IN "
-    "MAGNITUDE than its own y-coefficient, use it to solve for x1 from y0, "
-    "then use the other equation to solve for y1 from the just-computed x1 "
-    "(a Gauss-Seidel step). Give (x1, y1).",
+    "Take one Gauss-Seidel step on {eq1} and {eq2} from the starting point "
+    "(x0, y0) = ({x0}, {y0}). x1 comes from the equation whose x-coefficient is "
+    "LARGER IN MAGNITUDE than its own y-coefficient, using y0; y1 comes from the "
+    "other equation, using the just-computed x1. Give (x1, y1).",
+    "Given {eq1} and {eq2} and starting point (x0, y0) = ({x0}, {y0}), find "
+    "the Gauss-Seidel iterate (x1, y1), where x1 is taken from the equation "
+    "whose x-coefficient is LARGER IN MAGNITUDE than its own y-coefficient "
+    "(using y0) and y1 from the other equation (using the just-computed x1).",
 )
 
 

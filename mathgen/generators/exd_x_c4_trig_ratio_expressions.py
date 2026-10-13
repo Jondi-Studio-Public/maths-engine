@@ -13,9 +13,9 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from sympy import Rational, Symbol, simplify, solve, sqrt
+from sympy import Rational, Symbol, solve
 
-from ..core import check, check_distinct, generator, pick_distractors, rational_text
+from ..core import check, check_distinct, check_equivalent, generator, pick_distractors, rational_text
 
 _TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29)]
 
@@ -85,7 +85,7 @@ def _build(rng: random.Random) -> dict:
         "square_diff": cv**2 - sv**2,
         "ratio": (sv - cv) / (sv + cv),
     }[kind]
-    check(simplify(recomputed - Rational(answer.numerator, answer.denominator)) == 0, "expression value disagrees")
+    check_equivalent(recomputed, Rational(answer.numerator, answer.denominator), "expression value disagrees")
 
     wrong = _wrong_values(kind, o, a, h)
     for w in wrong:

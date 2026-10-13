@@ -21,8 +21,8 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: pv0a_geometric_threshold
-  params: {variant: exam}
+- topic: exd_x_r2d_geometric_phases_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

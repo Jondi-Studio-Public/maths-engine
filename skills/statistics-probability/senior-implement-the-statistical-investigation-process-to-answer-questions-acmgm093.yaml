@@ -21,12 +21,12 @@ sources:
   params: {variant: two_points}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p16a_trend_value
-  params: {variant: seasonal_two_point}
+- topic: exd_x_r2k_trend_forecast
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:
-- id: sign-error-on-slope
+- id: reversed-difference
   description: Subtracts the slope term instead of adding it (or vice versa) when evaluating the trend equation.
 - id: off-by-one-period
   description: Evaluates the trend at a period one before or after the one stated.

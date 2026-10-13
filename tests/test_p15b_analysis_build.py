@@ -8,6 +8,7 @@ import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from types import SimpleNamespace
 from mathgen import make
 
 SKILL_ID = "ucv1-completeness-cauchy-check"
@@ -26,6 +27,9 @@ def _skill_sources(skill_id):
 
 
 SKILL, SOURCES = _skill_sources(SKILL_ID)
+# The skill's exam tier is now a multi-part chain (tests/test_exd_x_r2g_cauchy_tail.py). These tests keep covering the
+# generator's own earlier exam preset, which is unchanged.
+SOURCES["exam"] = SimpleNamespace(topic="p15b_completeness_cauchy_check", difficulty="exam", params={}, stages=["exam"])
 
 
 def _make(difficulty, seed):

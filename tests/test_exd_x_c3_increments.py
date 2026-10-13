@@ -43,7 +43,7 @@ def _independent_key(text: str) -> Fraction:
 
 
 def test_registered():
-    sup.assert_registered_as_exam_source(SKILL, TOPIC)
+    sup.assert_registered_as_exam_source(SKILL, "exd_x_r2b_increments_chain")
 
 
 def test_text_and_determinism():

@@ -21,6 +21,11 @@ sources:
   params: {variant: select_quantifier}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc7_quantifier_threshold
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swaps-truth-value
   description: Reports the negation of the correct True/False value, for example after mis-evaluating the predicate on one element of the set.

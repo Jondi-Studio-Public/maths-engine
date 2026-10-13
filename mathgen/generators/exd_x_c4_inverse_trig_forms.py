@@ -50,7 +50,12 @@ def _arctan_variant(rng: random.Random) -> dict:
         f"Find ∫ from x = {lo} to x = {hi} of {kk or '1'}/({_quadratic_text(1, 2 * h, h * h + a * a)}) dx. "
         "Give your answer as an exact value in terms of pi."
     )
-    return _pack(text, answer, wrong, f"Complete the square: x^2 + {2 * h}x + {h * h + a * a} = (x + {h})^2 + {a * a}")
+    return _pack(
+        text,
+        answer,
+        wrong,
+        f"Complete the square: {_quadratic_text(1, 2 * h, h * h + a * a)} = ({join_terms([(1, 'x'), (h, '')])})^2 + {a * a}",
+    )
 
 
 def _arcsin_variant(rng: random.Random) -> dict:
@@ -76,7 +81,12 @@ def _arcsin_variant(rng: random.Random) -> dict:
         f"Find ∫ from x = {lo} to x = {hi} of {k}/sqrt({_quadratic_text(-1, -2 * h, a * a - h * h)}) dx. "
         "Give your answer as an exact value in terms of pi."
     )
-    return _pack(text, answer, wrong, f"Complete the square: {a * a - h * h} - 2·{h}x - x^2 = {a * a} - (x + {h})^2")
+    return _pack(
+        text,
+        answer,
+        wrong,
+        f"Complete the square: {_quadratic_text(-1, -2 * h, a * a - h * h)} = {a * a} - ({join_terms([(1, 'x'), (h, '')])})^2",
+    )
 
 
 def _pack(text: str, answer, wrong, first_step: str) -> dict:

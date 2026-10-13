@@ -8,11 +8,12 @@ import re
 import pytest
 
 import mathgen
-from mathgen.grading.typed import GRADERS
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1b_tangent_slope_build as gen
+from mathgen.grading.typed import GRADERS
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-interpret-the-derivative-as-the-slope-or-gradient"
@@ -38,8 +39,9 @@ def _grade(q, given):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "fraction"
     assert [x.difficulty for x in s.sources] == TIERS

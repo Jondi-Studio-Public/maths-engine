@@ -4,8 +4,7 @@ id: senior-examine-translations-and-the-graphs-of-y-f
 name: Read the corresponding point on y = f(x) + a from two graphs
 domain: functions-sequences
 description: Given the graphs of y = f(x) and y = f(x) + a drawn on the same integer grid, with a point P marked on y = f(x) and the value of a never stated, state the coordinates of the point on y = f(x) + a that has the same x-coordinate as P. Only the vertical translation y = f(x) + a is covered. Tiers change the decision, from reading an upward gap, to its direction, to ignoring a same-row crossing of the other curve, to ignoring a horizontal shift that two straight lines also support.
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false

@@ -190,19 +190,17 @@ _EXAM_PATTERNS = [
     "f(z) = (z - ({r})) / (z^2 + ({b_coef})z + ({c_coef})) has a complex "
     "conjugate pair of simple poles. Exactly one of these candidates is "
     "actually a pole of f: Candidate 1: z = {w1}. Candidate 2: z = {w2}. "
-    "Verify which candidate satisfies z^2 + ({b_coef})z + ({c_coef}) = 0 by "
-    "direct substitution, then find the residue of f at that true pole using "
+    "Find the residue of f at that pole, where "
     "Res(f, a) = lim_(z->a) (z - a) f(z).",
     "The function f(z) = (z - ({r})) / (z^2 + ({b_coef})z + ({c_coef})) has "
     "a complex conjugate pair of simple poles. Only one candidate below is a "
     "genuine root of z^2 + ({b_coef})z + ({c_coef}) = 0: Candidate 1: "
-    "z = {w1}. Candidate 2: z = {w2}. Check each candidate by substitution, "
-    "then compute Res(f, a) = lim_(z->a) (z - a) f(z) at the true pole.",
+    "z = {w1}. Candidate 2: z = {w2}. Compute Res(f, a) = lim_(z->a) (z - a) f(z) "
+    "at the true pole.",
     "Given f(z) = (z - ({r})) / (z^2 + ({b_coef})z + ({c_coef})), with "
     "candidate poles Candidate 1: z = {w1} and Candidate 2: z = {w2} (only "
-    "one of which is a genuine root of the denominator), verify the true "
-    "pole by substitution and find the residue there via "
-    "Res(f, a) = lim_(z->a) (z - a) f(z).",
+    "one of which is a genuine root of the denominator), find the residue "
+    "at the true pole, where Res(f, a) = lim_(z->a) (z - a) f(z).",
 ]
 
 

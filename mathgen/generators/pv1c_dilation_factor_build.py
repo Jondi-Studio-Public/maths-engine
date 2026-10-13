@@ -28,7 +28,7 @@ from types import SimpleNamespace
 from typing import NamedTuple
 
 from .. import figures
-from ..core import check, check_pairwise_distinct, generator, paren_negative, rational_text
+from ..core import check, check_pairwise_distinct, generator, paren_negative, rational_text, latex_from_inline
 
 TOPIC = "pv1c_dilation_factor"
 
@@ -332,7 +332,7 @@ def pv1c_dilation_factor(rng, variant: str = "stretch") -> dict:
     ]
     return {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": _fraction_dict(c),
         "answer_text": answer_text,
         "answer_latex": _latex_num(c),

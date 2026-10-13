@@ -1,5 +1,6 @@
 """Focused contract tests for: ucv1-gram-schmidt-2d and ucv1-hessian-2x2 (both ``answer: ordered_list``)."""
 
+import dataclasses
 import re
 from fractions import Fraction
 
@@ -20,10 +21,22 @@ _GRAM_ANSWER_RE = re.compile(rf"{_FRACTION_ITEM_RE}(?:, {_FRACTION_ITEM_RE}){{3}
 _HESS_ANSWER_RE = re.compile(r"-?\d+(?:, -?\d+){3}")
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-hessian-2x2": "p12f_hessian_2x2"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, _by_difficulty(skill)
 
 
 GRAM_SKILL, GRAM_SOURCES = _skill_sources(GRAM_ID)

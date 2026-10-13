@@ -121,7 +121,7 @@ def _build(rng: random.Random) -> dict:
             working=[
                 f"The conjugate {_complex_text(p, -q)} is also a root. The three roots are {r}, "
                 f"{_complex_text(p, q)} and {_complex_text(p, -q)}, so the cubic is "
-                f"(x - {r})(x^2 - {2 * p}x + {mod2}) and {target} = {answer}."
+                f"({join_terms([(1, 'x'), (-r, '')])})({join_terms([(1, 'x^2'), (-2 * p, 'x'), (mod2, '')])}) and {target} = {answer}."
             ],
             distractors=pick_distractors(str(answer), [str(w) for w in wrong]),
         )

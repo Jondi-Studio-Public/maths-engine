@@ -5,6 +5,6 @@ description: Calculate gross wages from an hourly rate and a number of regular h
 status: active
 prerequisites: [decimal-arithmetic]
 answer: number
-sources: [{topic: earnings, params: {kind: wages}, difficulty: easy}]
+sources: [{topic: earnings, params: {kind: wages}, difficulty: easy}, {topic: exd_x_sc2_wages_penalty, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: adds-rate-hours, description: Adds the hourly rate and hours instead of multiplying.}]
 tags: [expansion-batch-5, consumer-arithmetic]

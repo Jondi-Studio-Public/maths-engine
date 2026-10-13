@@ -223,14 +223,14 @@ def test_ordered_structures_pilot_skill_contracts_load_with_expected_shape():
     assert large_number.answer == "ordered_list"
     assert large_number.placement_eligible is False
     assert large_number.status == "active"
-    assert [source.difficulty for source in large_number.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in large_number.sources} == {"large_number_ordering"}
-    assert [source.stages for source in large_number.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in large_number.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in large_number.sources[:3]} == {"large_number_ordering"}
+    assert [source.stages for source in large_number.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert days_times.prerequisites == ["tell-time-to-hour"]
     assert days_times.answer == "ordered_list"
     assert days_times.placement_eligible is False
     assert days_times.status == "active"
-    assert [source.difficulty for source in days_times.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in days_times.sources} == {"day_time_sequencing"}
-    assert [source.stages for source in days_times.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in days_times.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in days_times.sources[:3]} == {"day_time_sequencing"}
+    assert [source.stages for source in days_times.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

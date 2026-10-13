@@ -8,11 +8,12 @@ import re
 import pytest
 
 import mathgen
-from mathgen.grading.typed import GRADERS
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1e_reciprocal_zeros_build as gen
+from mathgen.grading.typed import GRADERS
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-examine-the-relationship-between-the-graph-of-y"
@@ -43,8 +44,9 @@ def _values(text):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.deferred_reason == "visual" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "list" and s.prerequisites == ["function-notation"]
     assert s.mental is None
@@ -147,7 +149,7 @@ def test_prompt_states_the_conventions_and_never_names_the_zeros(tier):
         assert "each x-value once" in q.text or "(each x-value once)" in q.text
         assert "grid square" in q.text or "per grid square" in q.text
         assert r"\frac{1}{f(x)}" in q.latex
-        assert (r"\(g(x) = \frac{1}{f(x)}\)" in q.latex) == (tier == "exam")
+        assert (r"{g(x) = \frac{1}{f(x)}}" in q.latex) == (tier == "exam")
         assert "zero" not in q.text.lower() and "f(x) = 0" not in q.text and "x-intercept" not in q.text
         assert "**" not in q.text and "*" not in q.text
 

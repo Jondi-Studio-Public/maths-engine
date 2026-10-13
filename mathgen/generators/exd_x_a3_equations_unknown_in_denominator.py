@@ -88,7 +88,7 @@ def _cross(rng: random.Random) -> dict | None:
         rhs,
         x0,
         cands,
-        [f"Cross-multiply: {a}(x + {d}) = {c}(x + {b})", f"x = {x0}"],
+        [f"Cross-multiply: {a}{_den(d)} = {c}{_den(b)}", f"x = {x0}"],
     )
 
 
@@ -124,7 +124,7 @@ def _ratio(rng: random.Random) -> dict | None:
         rhs,
         x0,
         cands,
-        [f"Cross-multiply: {q}(x + {a}) = {p}(x + {b})", f"x = {x0}"],
+        [f"Cross-multiply: {q}{_den(a)} = {p}{_den(b)}", f"x = {x0}"],
     )
 
 
@@ -160,7 +160,7 @@ def _shift(rng: random.Random) -> dict | None:
         rhs,
         x0,
         cands,
-        [f"Multiply by {_den(b)}: {a} + {c}{_den(b)} = {d}", f"x = {x0}"],
+        [f"Multiply by {_den(b)}: {join_terms([(a, ''), (c, _den(b))])} = {d}", f"x = {x0}"],
     )
 
 

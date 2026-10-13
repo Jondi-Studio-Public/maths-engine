@@ -7,6 +7,7 @@ answer from scratch, using cmath/Fraction rather than any helper the
 generator itself calls.
 """
 
+import dataclasses
 import cmath
 import re
 from fractions import Fraction
@@ -145,10 +146,22 @@ def _solve_roots(text):
     return {"r1": r1, "r2": r2}
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-second-order-characteristic-roots": "p12e_characteristic_roots"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return {src.difficulty: src for src in skill.sources}
+    return _by_difficulty(skill)
 
 
 RECURRENCE_SOURCES = _skill_sources(RECURRENCE_ID)

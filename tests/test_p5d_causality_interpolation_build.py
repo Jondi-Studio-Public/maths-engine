@@ -16,7 +16,8 @@ from mathgen.generators.p5d_causality_interpolation_build import (
     OPTION_BOTH,
     OPTION_NEITHER,
     OPTION_BOTH_B,
-    OPTION_NEITHER_B,
+    OPTION_ANY_X_B,
+    OPTION_EDGE_OUTSIDE_B,
     _independent_check_skill_a,
     _independent_check_skill_b,
 )
@@ -242,10 +243,10 @@ def test_interpolation_extrapolation_classify_correct_answer_grades_correct_and_
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
 def test_interpolation_extrapolation_classify_neither_both_nor_neither_are_never_the_answer(difficulty):
-    """OPTION_BOTH_B and OPTION_NEITHER_B must never be the intended label, by construction."""
+    """OPTION_BOTH_B and the two misconception options must never be the intended label, by construction."""
     for seed in SEEDS:
         question = make("interpolation_extrapolation_classify", seed=seed, difficulty=difficulty)
-        assert question.answer_text not in (OPTION_BOTH_B, OPTION_NEITHER_B), (
+        assert question.answer_text not in (OPTION_BOTH_B, OPTION_EDGE_OUTSIDE_B, OPTION_ANY_X_B), (
             f"padding option {question.answer_text!r} should never be the answer"
         )
 

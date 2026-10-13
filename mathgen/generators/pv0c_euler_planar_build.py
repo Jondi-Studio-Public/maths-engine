@@ -255,13 +255,13 @@ _HARD_TEMPLATES = (
 _EXAM_TEMPLATES = (
     "A connected planar graph is drawn in the plane with no two edges crossing, and every edge lies "
     "on the boundary of exactly two different faces. The outer face is bounded by {outer} edges; of "
-    "the other faces, {face_text}. Using Euler's formula v + f - e = 2, find the number of vertices v.",
+    "the other faces, {face_text}. Find the number of vertices v, given that v + f - e = 2.",
     "A road network divides the plane into regions; every edge borders exactly two different faces. "
     "The outer, unbounded region is bounded by {outer} edges, and among the remaining regions, "
-    "{face_text}. Find the number of vertices v using v + f - e = 2.",
+    "{face_text}. Find the number of vertices v, given that v + f - e = 2.",
     "A connected mesh has no two edges crossing, and each edge lies on the boundary of exactly two "
-    "different faces. The outer face has {outer} sides; of the other faces, {face_text}. Use Euler's "
-    "formula v + f - e = 2 to find the number of vertices v.",
+    "different faces. The outer face has {outer} sides; of the other faces, {face_text}. Find the "
+    "number of vertices v, where v + f - e = 2.",
 )
 
 

@@ -425,3 +425,79 @@ def test_rounded_answer_keeps_half_a_unit():
     assert _correct("number", question, "0.333")
     assert _correct("number", question, "0.33")
     assert not _correct("number", question, "0.34")
+
+
+# -- a multiple-choice reply passed as an int, as the docs say -------------------------
+
+
+def test_mcq_index_as_an_int_is_read():
+    from mathgen.core import mcq_options
+
+    question = _q("4", "4", distractors=["3", "5", "6"])
+    index = mcq_options(question).index("4")
+    assert _correct("mcq", question, index)
+    assert _correct("mcq", question, str(index))
+    assert not _correct("mcq", question, (index + 1) % 4)
+    assert not _correct("mcq", question, True)
+
+
+# -- units on a typed number ------------------------------------------------------------
+
+
+def _with_text(text, answer, answer_text):
+    return Question(topic="test", level=0, seed=1, text=text, latex="", answer=answer, answer_text=answer_text)
+
+
+_CM_TO_MM = _with_text("Convert 3 cm to mm.", 30, "30")
+
+
+@pytest.mark.parametrize("given", ["30 kg", "30 furlongs", "30 cm", "30 km"])
+def test_wrong_unit_is_wrong(given):
+    assert not _correct("number", _CM_TO_MM, given)
+
+
+@pytest.mark.parametrize("given", ["30", "30 mm", "30mm", "30 millimetres", "30 MM"])
+def test_asked_unit_or_none_is_right(given):
+    assert _correct("number", _CM_TO_MM, given)
+
+
+def test_unit_shown_by_the_canonical_is_the_one_asked():
+    question = _with_text(
+        "A spring with stiffness k = 500 N/m is stretched by 0.05 m. Find the force.", 25.0, "F = 25.00 N"
+    )
+    assert _correct("number", question, "25 newtons")
+    assert not _correct("number", question, "25 kg")
+
+
+def test_a_unit_that_only_describes_the_data_is_not_the_one_asked():
+    question = _with_text(
+        "The model y = -2 ln(x) + 33 gives the time, in seconds, a worker takes after x hours of practice. "
+        "Find x (hours of practice) when y = 28, to 1 decimal place.",
+        12.2,
+        "12.2",
+    )
+    assert _correct("number", question, "12.2 hours")
+
+
+def test_nearest_cent_is_a_precision_not_the_unit():
+    question = _with_text("Find the balance. Give your answer to the nearest cent.", 4988.28, "4988.28")
+    assert _correct("number", question, "4988.28 dollars")
+
+
+def test_vector_component_is_not_joules():
+    question = _with_text("Find the j-component of the velocity, in m/s, at t = 1.", -4, "-4")
+    assert _correct("number", question, "-4 m/s")
+    assert not _correct("number", question, "-4 km/h")
+
+
+# -- a variable label on a fraction answer ----------------------------------------------
+
+
+def test_fraction_label_naming_the_question_variable_is_dropped():
+    question = Question(
+        topic="test", level=0, seed=1, text="Find x if 5^x = 125.", latex="", answer={"p": 3, "q": 1}, answer_text="3"
+    )
+    assert _correct("fraction", question, "x = 3")
+    assert _correct("fraction", question, "3")
+    assert not _correct("fraction", question, "y = 3")
+    assert not _correct("fraction", question, "x = 4")

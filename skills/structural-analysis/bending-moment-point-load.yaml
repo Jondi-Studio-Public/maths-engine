@@ -12,6 +12,11 @@ sources:
     kinds:
     - bending_moment_point_load
   difficulty: easy
+- topic: exd_x_u6_beam_udl_and_point_load
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: used-wrong-reaction
   description: Using the wrong support reaction in the moment calculation.
