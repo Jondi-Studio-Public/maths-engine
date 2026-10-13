@@ -10104,6 +10104,431 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    # -- graphs and networks: degrees, routes, Eulerian and Hamiltonian questions, adjacency matrices ---------------------
+    CatalogueEntry(
+        "net-degree-miscount",
+        "Miscounting the edges at a vertex (or the vertices of a stated kind), so the answer is one too high or one too low.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-wrong-vertex",
+        "Giving the degree of a different vertex from the one asked about.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-as-edge-total",
+        "Giving the total number of edges in the network when the degree of one vertex was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-sum-as-edges",
+        "Taking the sum of the degrees as the number of edges, forgetting that every edge is counted at both of its ends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-edges-as-degree-sum",
+        "Using the number of edges where the sum of the degrees belongs, forgetting to double it first.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-handshake-slip",
+        "Right method for the degree sum, but the arithmetic is out by one or two.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-vertices-as-edges",
+        "Giving the number of vertices when the number of edges was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-odd-even-swapped",
+        "Counting the vertices of even degree when the vertices of odd degree were asked for, or the reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-odd-degrees-summed",
+        "Adding up the odd degrees instead of counting how many vertices have an odd degree.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-half-of-missing",
+        "Halving the missing amount after subtracting from the degree sum, as if it were the number of edges at the vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-average-degree-used",
+        "Giving the average of the known degrees for the missing degree instead of using the degree sum.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-class-swapped",
+        "Giving the number of vertices of the other degree than the one asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-assumes-equal-split",
+        "Assuming half the vertices have each of the two stated degrees without using the number of edges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-forgot-divide-by-gap",
+        "Stopping at the amount the degree sum exceeds the smaller degree times the vertices, without dividing by the "
+        "difference between the two degrees.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-rounded-up-not-down",
+        "Rounding up when the greatest whole number of vertices was wanted, which would break the degree condition.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-sum-as-vertices",
+        "Giving the degree sum as the number of vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-halved-instead-of-doubled",
+        "Halving the number of edges where the degree sum (twice the edges) belongs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-listed-sum-only",
+        "Giving the sum of the degrees that are listed instead of the sum of all of them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hidden-vertex-ignored",
+        "Counting only the listed vertices, leaving out the vertex whose degree had to be found first.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-deleted-edges-kept",
+        "Giving the original number of edges after a vertex and its edges are deleted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-edges-removed-twice",
+        "Removing the edges at a deleted vertex twice, once at each end.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-answered-removed-edges",
+        "Giving the number of edges removed instead of the number that remain.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-route-too-general",
+        "Naming a route with a correct but less specific name (a walk for a trail, or a trail for a path), when the most "
+        "specific name was wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-trail-allows-repeated-edge",
+        "Calling a route a trail (or a closed trail) although it uses an edge more than once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-path-allows-repeated-vertex",
+        "Calling a route a path although it visits a vertex more than once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-circuit-cycle-confused",
+        "Calling a closed trail a cycle although it visits a vertex other than the start more than once, or the reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-open-closed-confused",
+        "Not checking whether the route ends where it starts, so an open route is given a closed name or the reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-vertices-counted-as-edges",
+        "Counting the vertices in a route instead of the edges (steps) it uses.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-repeats-not-counted",
+        "Counting each different edge of a route once when every step was to be counted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-repeats-counted-as-different",
+        "Counting a repeated edge as a different edge each time it is used.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-all-network-edges-counted",
+        "Giving the number of edges in the whole network instead of the number the route uses.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-different-edges-for-reuse",
+        "Giving the number of different edges used where the number of repeated uses was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-repeated-vertices-for-edges",
+        "Counting the repeated vertices of a route instead of the repeated uses of an edge.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-circuit-trail-confused",
+        "Mixing up an Eulerian trail (two odd vertices, different ends) with an Eulerian circuit (no odd vertices).",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-parity-reversed",
+        "Thinking a network with every degree even cannot be travelled, or that odd degrees are what make a circuit work.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-two-odd-rejected",
+        "Ruling out an Eulerian trail because there are odd vertices, forgetting that exactly two odd vertices are allowed.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-odd-vertices-ignored",
+        "Not counting the odd vertices at all, so a network with four odd vertices (or two) is judged to have an Eulerian circuit.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-many-odd-accepted",
+        "Accepting an Eulerian trail with more than two odd vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-ignores-connectedness",
+        "Checking only that every degree is even and not that the network is in one piece.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-start-highest-degree",
+        "Starting an Eulerian trail at the vertices of highest degree instead of the two odd vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-one-odd-one-even",
+        "Choosing one odd vertex and one even vertex as the ends of an Eulerian trail.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-start-even-vertices",
+        "Choosing even vertices as the ends of an Eulerian trail.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-edge-per-odd-vertex",
+        "Adding one new edge for every odd vertex, when each new edge fixes two odd vertices at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-added-edges-not-counted",
+        "Giving the original number of edges for the length of the circuit, leaving out the edges that were added.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-skipped-vertex-accepted",
+        "Accepting a closed route as a Hamiltonian cycle although it misses a vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-repeat-accepted",
+        "Accepting a route as a Hamiltonian cycle although it visits a vertex twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-path-counted-as-cycle",
+        "Counting a route that visits every vertex once but does not return to its start as a Hamiltonian cycle.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-non-edge-accepted",
+        "Accepting a route that moves between two vertices that no edge joins.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-valid-rejected",
+        "Rejecting a genuine Hamiltonian cycle, for example because it is written from a different start or in reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-miscount",
+        "Listing the Hamiltonian cycles or paths and missing one, or counting one twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-direction-counted",
+        "Counting a Hamiltonian cycle and the same cycle travelled in reverse as two different cycles.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-start-counted",
+        "Counting the same Hamiltonian cycle once for each vertex it can be started from.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-all-orderings-counted",
+        "Counting every starting vertex and both directions of each Hamiltonian cycle as different cycles.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-direction-ignored",
+        "Counting tours by starting vertex only, so a tour and its reverse are not told apart when they should be.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-start-ignored",
+        "Counting tours by direction only (or not at all), so tours from different starting vertices are not told apart "
+        "when they should be.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-any-start-counted",
+        "Counting Hamiltonian paths from every vertex when only those from the named vertex were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-path-cycle-confused",
+        "Counting only the Hamiltonian paths that can return to the start, which are the cycles, instead of all the paths.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-spanning-tree-instead-of-tour",
+        "Giving the length of a minimum spanning tree for the shortest tour, which must also return to the start.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-longest-tour-chosen",
+        "Choosing the longest tour when the shortest was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-second-cheapest-tour-chosen",
+        "Stopping at the second-shortest tour.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-cheapest-roads-chosen",
+        "Adding the shortest few roads without checking that they make a tour that visits every place once and returns.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-cents-as-dollars",
+        "Multiplying by 15 instead of 0.15, reading the price in cents as dollars.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-divided-by-price",
+        "Dividing the distance by the price per kilometre instead of multiplying.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-doubled-return",
+        "Doubling the cost of a tour that already returns to its start.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-price-decimal-slip",
+        "Misplacing the decimal point in the price per kilometre.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-edges-for-degree",
+        "Giving the number of edges in the network for the degree of one vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-sum-for-degree",
+        "Adding every entry of the matrix for the degree of one vertex instead of one row.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-vertices-for-degree",
+        "Giving the number of other vertices for the degree of one vertex, as if it were joined to all of them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-sum-as-edges",
+        "Taking the sum of all the entries of an adjacency matrix as the number of edges, forgetting each edge appears twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-one-entry-per-edge",
+        "Putting a 1 for each edge in one place only (above the diagonal), or counting one 1 per edge, when the matrix is "
+        "symmetric.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-all-entries-counted",
+        "Counting every entry of the matrix, 0s as well as 1s.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-walk-length-confused",
+        "Reading the entry of the matrix itself (walks of length 1) where walks of length 2 or 3 were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-squared-entrywise",
+        "Squaring (or cubing) each entry instead of multiplying the matrix by itself.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-row-column-added",
+        "Adding the row and the column together instead of multiplying them term by term and adding.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-degrees-multiplied",
+        "Multiplying the degrees of the two end vertices to count walks of length 2.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-one-step-only",
+        "Counting walks of length 1 (the degree) where walks of length 2 were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-all-starts-counted",
+        "Counting the walks of length 2 from every vertex when only those from one vertex were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-sum-as-walks",
+        "Giving the sum of all the degrees as the number of walks of length 2 from one vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-ends-not-restricted",
+        "Giving all the walks of length 2 from the vertex when only those that return to it were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-ends-elsewhere",
+        "Giving the walks that end elsewhere (or the walks that return) when the other kind was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-closed-walks-not-subtracted",
+        "Not taking the walks that return to the start away from the total when only those ending elsewhere were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-diagonal-ones",
+        "Writing 1s on the diagonal of an adjacency matrix, as if each vertex were joined to itself.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-edge-missed",
+        "Leaving an edge out of the adjacency matrix.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-wrong-vertex-order",
+        "Writing the rows and columns of the adjacency matrix in a different order from the alphabetical order of the vertices.",
+        area="networks",
+    ),
 )
 
 #: Every entry, by id.

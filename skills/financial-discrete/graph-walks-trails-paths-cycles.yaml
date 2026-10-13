@@ -1,0 +1,46 @@
+id: graph-walks-trails-paths-cycles
+name: Name a route through a network as a walk, trail, path, closed walk, closed trail or cycle
+domain: financial-discrete
+description: >-
+  Given a route through a stated network (the vertices it visits in order), decide whether it is closed and whether it
+  repeats an edge or a vertex, and give its most specific name: walk, trail, path, closed walk, closed trail (circuit) or
+  cycle. easy names an open route; medium may be open or closed; hard lists four routes and asks which one is a stated
+  kind; exam is a four-part chain on one route that re-uses an edge (steps, different edges, repeated uses, name). The
+  answer is a name chosen from a fixed list, or a count of steps or edges.
+status: active
+placement_eligible: false
+prerequisites: [graph-vertex-degrees-handshaking]
+answer: mcq
+sources:
+- topic: snet_route_types
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: snet_route_types
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: snet_route_types
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: snet_route_types_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: net-route-too-general
+  description: Names a route with a correct but less specific name (a walk for a trail, or a trail for a path) when the most specific name was wanted.
+- id: net-trail-allows-repeated-edge
+  description: Calls a route a trail (or a closed trail) although it uses an edge more than once.
+- id: net-path-allows-repeated-vertex
+  description: Calls a route a path although it visits a vertex more than once.
+- id: net-circuit-cycle-confused
+  description: Calls a closed trail a cycle although it visits a vertex other than the start more than once, or the reverse.
+- id: net-open-closed-confused
+  description: Does not check whether the route ends where it starts, so an open route is given a closed name or the reverse.
+difficulty_progression: Easy names an open route, which needs only the repeated-edge and repeated-vertex tests. Medium adds
+  closed routes, so the learner must first decide open or closed and then apply the same two tests. Hard reverses the task,
+  asking which of four routes is a stated kind, so each route must be classified and compared. The exam chain counts the steps
+  and the different edges of one route, uses them to count the re-used edges, and then names the route.
+tags: [graph-theory, networks, walks, trails, paths, cycles]

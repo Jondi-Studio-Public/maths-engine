@@ -1,0 +1,51 @@
+id: graph-hamiltonian-paths-cycles
+name: Find Hamiltonian paths and cycles in a small network
+domain: financial-discrete
+description: >-
+  A Hamiltonian path visits every vertex of a network exactly once, and a Hamiltonian cycle also returns to its start;
+  count them in small networks by trying the orderings of the vertices. easy counts how many of four stated routes are
+  Hamiltonian cycles (the others skip or repeat a vertex, do not return, or use a missing edge); medium counts the
+  Hamiltonian cycles of a five-vertex network; hard counts the Hamiltonian paths that start at a named vertex of a six-vertex
+  network; exam is a four-part chain on a road network with distances: the number of cycles, the number of tours when start and
+  direction matter, the shortest tour and its fuel cost. Every answer is a whole number or an amount of money.
+status: active
+placement_eligible: false
+prerequisites: [graph-walks-trails-paths-cycles]
+answer: number
+sources:
+- topic: snet_hamiltonian
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: snet_hamiltonian
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: snet_hamiltonian
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: snet_hamiltonian_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: net-hamilton-skipped-vertex-accepted
+  description: Accepts a closed route as a Hamiltonian cycle although it misses a vertex.
+- id: net-hamilton-repeat-accepted
+  description: Accepts a route as a Hamiltonian cycle although it visits a vertex twice.
+- id: net-hamilton-path-counted-as-cycle
+  description: Counts a route that visits every vertex once but does not return to its start as a Hamiltonian cycle.
+- id: net-hamilton-non-edge-accepted
+  description: Accepts a route that moves between two vertices that no edge joins.
+- id: net-hamilton-direction-counted
+  description: Counts a Hamiltonian cycle and the same cycle travelled in reverse as two different cycles.
+- id: net-hamilton-start-counted
+  description: Counts the same Hamiltonian cycle once for each vertex it can be started from.
+- id: net-spanning-tree-instead-of-tour
+  description: Gives the length of a minimum spanning tree for the shortest tour, which must also return to the start.
+difficulty_progression: Easy checks four given routes against the definition, so no search is needed. Medium has the learner
+  find the cycles, with the added idea that a cycle in reverse or from another start is the same cycle. Hard moves to open
+  paths from a fixed start in a six-vertex network, a larger search with a different counting rule. The exam chain counts
+  the cycles, multiplies out the counting convention (start and direction), finds the cheapest, and prices it.
+tags: [graph-theory, networks, hamiltonian-path, hamiltonian-cycle]
