@@ -14972,6 +14972,401 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    CatalogueEntry(
+        "gf-series-coefficients-added",
+        "Adding the coefficients of two series term by term to get the coefficient of a product, instead of convolving them.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-series-coefficients-multiplied",
+        "Multiplying the matching coefficients of two series to get the coefficient of their product, instead of convolving them.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-convolution-term-count",
+        "Summing one term too few or too many when a coefficient of a product of series is the sum of products of coefficients.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-scale-factor-dropped",
+        "Dropping the power of a when finding the coefficient of x to the k in 1/(1 - ax) to the r.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-scale-factor-not-powered",
+        "Multiplying by a times k instead of raising a to the k when the series is in powers of ax.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-shift-ignored",
+        "Ignoring a factor x to the s in the numerator, so that the coefficient of x to the k is taken instead of x to the k minus s.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-negbinomial-power-off-by-one",
+        "Using the series for 1/(1 - x) to the r plus 1 (or minus 1) because the exponent of the denominator was misread.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-negbinomial-choose-swapped",
+        "Writing the coefficient of x to the k in 1/(1 - x) to the r as C(k + r - 1, r) instead of C(k + r - 1, r - 1).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-bounded-numerator-ignored",
+        "Ignoring the numerator 1 - x to the m that caps the parts, and counting the unrestricted ways.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-correction-terms-truncated",
+        "Stopping the inclusion-exclusion correction terms of a capped count after the first or second, leaving out a later one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-cutoff-off-by-one",
+        "Subtracting the ways where a part is at least m instead of at least m + 1, so every correction term is shifted by one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-inclusion-exclusion-sign",
+        "Adding every correction term of a capped count instead of alternating the signs.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-wrong-denominator-power",
+        "Reading the coefficient of x to the k in 1/(1 - x) to the r as the coefficient for a different power of the denominator.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-coefficient-index-off-by-one",
+        "Taking the coefficient of the neighbouring power of x, one place to the left or right of the one asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-part-size-required",
+        "Counting only the sums that use every allowed part size at least once, when a size may be left out.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-order-counted",
+        "Counting sums that differ only in the order of their terms as different ways, in a partition count.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-part-size-omitted",
+        "Leaving one of the allowed part sizes out of the count.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-repeats-allowed",
+        "Allowing a part to be used more than once when the parts must all be different.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-part-range-off-by-one",
+        "Allowing parts up to one more or one less than the largest part stated.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-limit-ignored",
+        "Ignoring the limit on how many coins or notes of a kind are available, and counting as if the supply were unlimited.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-cap-off-by-one",
+        "Treating a supply of c coins as c + 1 or c - 1 in a limited-supply count.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-at-most-as-exactly",
+        "Treating 'at most c' of a coin as 'exactly c' of it when counting combinations.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-cases-not-added",
+        "Reporting one case, or too few of the disjoint cases, as the total number of ways.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-records-leaf",
+        "Writing down the leaf that is deleted instead of the vertex it was joined to when building a Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-largest-leaf",
+        "Deleting the leaf with the largest label instead of the smallest when building or reading a Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-code-too-long",
+        "Carrying on until one vertex is left, so the Pr\u00fcfer code has n - 1 entries instead of n - 2.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-code-reversed",
+        "Writing the Pr\u00fcfer code, or reading it, from the last entry to the first.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-decode-largest",
+        "Decoding a Pr\u00fcfer code by joining the largest free vertex instead of the smallest to each code entry.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-last-edge-missed",
+        "Forgetting the final edge between the last two vertices when rebuilding a tree from its Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-neighbours-from-code-positions-only",
+        "Listing only the leaves paired with a vertex in the code and missing the neighbours that come from deleting that vertex itself.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "path-direction-reversed",
+        "Listing the vertices of a path from the finish back to the start when asked to start at the first vertex.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "path-endpoints-omitted",
+        "Listing only the vertices strictly between the two ends of a path.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-leaves-are-code-entries",
+        "Taking the vertices that appear in a Pr\u00fcfer code as the leaves, when the leaves are the ones that do not appear.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-leaf-left-out",
+        "Leaving one of the leaves out of the list of vertices missing from a Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-degree-is-occurrence-count",
+        "Taking the number of times a vertex appears in its Pr\u00fcfer code as its degree, instead of that number plus one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-degree-overcounted",
+        "Adding too much to the number of appearances of a vertex in its Pr\u00fcfer code when finding its degree.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-all-trees-counted",
+        "Counting all n to the n - 2 labelled trees when a restriction on one vertex was asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-code-length-miscounted",
+        "Using the wrong exponent in a count of Pr\u00fcfer codes, forgetting that the code has n - 2 entries.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-complement-not-taken",
+        "Reporting the number of trees with a property when the number without it was asked for, or adding the two.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-minimal-maximal-swapped",
+        "Giving the maximal elements of a poset when the minimal elements were asked for, or the other way round.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-least-confused-with-minimal",
+        "Reporting only the smallest number in the set as the minimal elements, when several elements can be minimal.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-greatest-confused-with-maximal",
+        "Reporting only the largest number in the set as the maximal elements, when several elements can be maximal.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-minimal-taken-as-prime",
+        "Listing the primes in the set as its minimal elements, when a composite with no divisor in the set is minimal too.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-cover-vs-below",
+        "Listing every element below (or above) an element instead of only those it covers directly.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-cover-direction-swapped",
+        "Listing the elements that cover an element when the ones it covers were asked for, or the other way round.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-cover-ignores-missing-elements",
+        "Judging a cover by a prime factor of difference, forgetting that missing elements in the set make larger jumps covers.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-includes-element-itself",
+        "Including the element itself among the elements that it covers or that cover it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-all-elements-on-chain",
+        "Taking every element of the poset as lying on a longest chain because each lies on some maximal chain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-endpoints-only",
+        "Giving only the minimal and maximal elements as the elements on longest chains.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-single-chain",
+        "Giving the elements of one longest chain when several longest chains exist.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-chain-length-edges",
+        "Counting the links in a chain instead of its elements, one fewer than the size of the chain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-chain-antichain-swapped",
+        "Giving the size of the largest antichain when the longest chain was asked for, or the other way round.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-antichain-is-minimal-elements",
+        "Taking the number of minimal elements as the size of a largest antichain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-antichain-is-maximal-elements",
+        "Taking the number of maximal elements as the size of a largest antichain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-antichain-complement-of-chain",
+        "Taking the number of elements outside a longest chain as the size of a largest antichain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-dilworth-mirsky-swapped",
+        "Giving the longest chain size for the fewest chains that cover the poset, mixing up Dilworth's and Mirsky's theorems.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-chain-cover-one-each",
+        "Covering a poset with one chain per element, or one more chain than needed.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-tie-rule-reversed",
+        "Finalising the later label instead of the earlier one when two vertices tie for the smallest tentative distance.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-labels-not-updated",
+        "Never lowering a vertex's tentative distance after it is first set, so a shorter route found later is ignored.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-fewest-edges-order",
+        "Ordering the vertices by the number of edges from the source instead of by shortest distance.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-nearest-neighbour-walk",
+        "Moving always to the nearest neighbour of the vertex just visited instead of choosing the smallest tentative distance over the whole graph.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-alphabetical-order",
+        "Listing the vertices in alphabetical order rather than the order they are finalised.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-fewest-edges-path",
+        "Taking the route with the fewest edges, or its length, as the shortest route.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-last-edge-omitted",
+        "Giving the distance to the vertex before the target on the route, leaving out the last edge.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-distance-to-wrong-vertex",
+        "Reading the final distance of a different vertex from the table than the one asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-order-read-as-path",
+        "Giving the vertices finalised up to the target, in order, as the route to it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-rate-added-not-multiplied",
+        "Adding the rate to the distance instead of multiplying them to find a cost.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-rate-ignored",
+        "Giving the distance as the cost and leaving out the rate per unit of length.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-rate-applied-per-edge",
+        "Charging the rate once per edge of the route instead of per unit of length.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-forcing-ignored",
+        "Solving only the homogeneous recurrence and leaving out the forcing term that varies with n.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-particular-sign",
+        "Finding the particular solution of a forced recurrence with the wrong sign.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-particular-not-fitted",
+        "Adding the particular solution after fitting the homogeneous constants to the starting terms, instead of fitting them to the sum.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-forcing-used-as-particular",
+        "Taking the forcing term itself as the particular solution without substituting to find its coefficients.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-resonance-power-dropped",
+        "Trying a particular solution with one power of n too few when the forcing term matches a root of the homogeneous equation.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-root-sign",
+        "Taking the characteristic roots with the wrong sign.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-coefficients-as-roots",
+        "Reading the coefficients of a recurrence as the roots of its characteristic equation.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-index-off-by-one",
+        "Returning the term next to the one asked for from a recurrence or its closed form.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-particular-coefficient-slip",
+        "Solving for the coefficient of the particular solution of a forced recurrence and making an arithmetic slip, so the closed form no longer satisfies the recurrence.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-coefficients-swapped",
+        "Attaching the two fitted constants of a recurrence solution to the wrong characteristic roots.",
+        area="discrete-mathematics",
+    ),
 )
 
 #: Every entry, by id.

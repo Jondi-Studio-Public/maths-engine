@@ -348,6 +348,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "ucv1_proof_by_induction",
         "ucv1_series_convergence",
         "ucv1_weak_solution_regularity",
+        "r4j_dijkstra_trace",
+        "r4j_forced_recurrence",
+        "r4j_generating_function_coefficient",
+        "r4j_generating_function_partition_counting",
+        "r4j_partial_order_hasse",
+        "r4j_tree_counting_prufer",
     }
 )
 

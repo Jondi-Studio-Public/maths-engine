@@ -7816,6 +7816,78 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "A, C, F, D, B, E", "id": "uc2-dijkstra-trace/easy/0/57bcbe47e774", "text": "A courier network joins towns A to F by roads, with lengths in kilometres: A–C …"}
+{"answer": "A, E, B, D, F, C", "id": "uc2-dijkstra-trace/easy/1/f73055e794e0", "text": "A weighted graph has vertices A to F and edges A–B 5, A–E 4, B–E 1, B–F 8, C–D …"}
+{"answer": "A, C, B, E, F, D", "id": "uc2-dijkstra-trace/easy/2/e1acd225561d", "text": "Trains run between stations A to F, with travel times in minutes: A–B 2, A–C 1,…"}
+{"answer": "(a) A, G, D, F, B, C, E; (b) 10; (c) A, G, B, E; (d) 30", "id": "uc2-dijkstra-trace/exam/0/ba8b85def174", "text": "A courier company serves towns A to G. The road lengths in kilometres are A–D 5…"}
+{"answer": "(a) A, G, C, D, E, F, B; (b) 9; (c) A, G, C, B; (d) 45", "id": "uc2-dijkstra-trace/exam/1/2a801a34651a", "text": "A courier company serves towns A to G. The road lengths in kilometres are A–C 4…"}
+{"answer": "(a) A, F, C, B, D, E, G; (b) 12; (c) A, F, B, G; (d) 24", "id": "uc2-dijkstra-trace/exam/2/65f36d964607", "text": "Towns A to G are joined by roads with lengths in kilometres: A–B 8, A–C 8, A–D …"}
+{"answer": "D, C, B, E, A, F, H", "id": "uc2-dijkstra-trace/hard/0/227ca4bb1fcb", "text": "A directed graph has vertices A to H and arcs A→E 2, A→H 6, B→A 8, B→C 7, C→B 1…"}
+{"answer": "B, H, C, F, G, A, E", "id": "uc2-dijkstra-trace/hard/1/892481f15577", "text": "A directed graph has vertices A to H and arcs A→E 1, B→C 6, B→H 1, C→A 6, D→B 6…"}
+{"answer": "C, A, D, F, E, G, H", "id": "uc2-dijkstra-trace/hard/2/3ef228fc34b1", "text": "Eight depots A to H are linked by one-way roads, written from → to with the len…"}
+{"answer": "A, C, E, F, G, B, D", "id": "uc2-dijkstra-trace/medium/0/c03a9c31e76f", "text": "The road network between towns A to G has these lengths in kilometres: A–C 5, A…"}
+{"answer": "A, C, F, B, D, E, G", "id": "uc2-dijkstra-trace/medium/1/e4b42c353213", "text": "A delivery drone can fly between sites A to G along the legs A–C 4, A–F 4, B–C …"}
+{"answer": "A, C, D, F, G, B, E", "id": "uc2-dijkstra-trace/medium/2/c372dc32a13b", "text": "The road network between towns A to G has these lengths in kilometres: A–B 6, A…"}
+{"answer": "2059", "id": "uc2-generating-function-coefficient/easy/0/8ee331370c2a", "text": "Find the coefficient of x^6 in the expansion of 1/((1 − 3x)(1 − 2x)) as a power…"}
+{"answer": "1365", "id": "uc2-generating-function-coefficient/easy/1/563a67f1e69b", "text": "Write 1/((1 − 4x)(1 − x)) as a power series in x and give the term in x^5, with…"}
+{"answer": "1093", "id": "uc2-generating-function-coefficient/easy/2/4abcd94ca6ec", "text": "Expand 1/((1 − 3x)(1 − x)) as a power series in x. What is the coefficient of x…"}
+{"answer": "(a) 78; (b) 36; (c) 21; (d) 24", "id": "uc2-generating-function-coefficient/exam/0/db57cf5a3ae5", "text": "Priya shares 11 identical tickets among three friends: Ana, Ben and Cai. Ana ca…"}
+{"answer": "(a) 78; (b) 36; (c) 28; (d) 20", "id": "uc2-generating-function-coefficient/exam/1/68e890e3db29", "text": "A coach hands out 11 identical medals to three players, Dev, Eli and Fay. Dev m…"}
+{"answer": "(a) 55; (b) 28; (c) 15; (d) 15", "id": "uc2-generating-function-coefficient/exam/2/3ab542fd0560", "text": "Priya shares 9 identical tickets among three friends: Ana, Ben and Cai. Ana can…"}
+{"answer": "3", "id": "uc2-generating-function-coefficient/hard/0/71fb66f85851", "text": "How many ordered triples (p, q, r) of whole numbers, each at most 5, have p + q…"}
+{"answer": "10", "id": "uc2-generating-function-coefficient/hard/1/28c1fc3b5566", "text": "How many ordered triples (p, q, r) of whole numbers, each at most 5, have p + q…"}
+{"answer": "225", "id": "uc2-generating-function-coefficient/hard/2/6d97303f313c", "text": "Expand (1 − x^5)^2/(1 − x)^4 as a power series in x. What is the coefficient of…"}
+{"answer": "560", "id": "uc2-generating-function-coefficient/medium/0/c2cd871604c6", "text": "The generating function G(x) = x^3/(1 − 2x)^4 has the series G(x) = Σ gₙxⁿ. Fin…"}
+{"answer": "2835", "id": "uc2-generating-function-coefficient/medium/1/1f755d9debe0", "text": "Expand x^3/(1 − 3x)^4 as a power series in x. What is the coefficient of x^7?"}
+{"answer": "672", "id": "uc2-generating-function-coefficient/medium/2/9a7924424957", "text": "Expand x^2/(1 − 2x)^3 as a power series in x. What is the coefficient of x^7?"}
+{"answer": "6", "id": "uc2-generating-function-partition-counting/easy/0/d749c21b1351", "text": "A bag holds plenty of 2-point, 8-point and 9-point tokens. In how many differen…"}
+{"answer": "9", "id": "uc2-generating-function-partition-counting/easy/1/27d1c6bf1c1b", "text": "How many partitions of 19 have every part equal to 2, 3 or 5?"}
+{"answer": "7", "id": "uc2-generating-function-partition-counting/easy/2/29a29aad28c1", "text": "In how many ways can 21 be written as a sum in which every term is 2, 4 or 5? S…"}
+{"answer": "(a) 30; (b) 28; (c) 27; (d) 85", "id": "uc2-generating-function-partition-counting/exam/0/da15c31ddf88", "text": "Leah needs exactly 63 credits on an arcade card. She tops up with tokens worth …"}
+{"answer": "(a) 8; (b) 7; (c) 6; (d) 21", "id": "uc2-generating-function-partition-counting/exam/1/3d6aea9a5e4a", "text": "Tickets for a school fair are made up from stamps worth 1, 3, 4 and 7 points. A…"}
+{"answer": "(a) 13; (b) 12; (c) 11; (d) 36", "id": "uc2-generating-function-partition-counting/exam/2/c4a2540a691f", "text": "A game awards 39 points to the winner. Scores come only from 1-point, 3-point, …"}
+{"answer": "42", "id": "uc2-generating-function-partition-counting/hard/0/75b9b7b18141", "text": "The school canteen till holds only 4 of the one-dollar coins and only 4 of the …"}
+{"answer": "12", "id": "uc2-generating-function-partition-counting/hard/1/252d5eb8351b", "text": "The school canteen till holds only 3 of the one-dollar coins and only 4 of the …"}
+{"answer": "9", "id": "uc2-generating-function-partition-counting/hard/2/f4087922ee35", "text": "Count the ways to make $27 from one-dollar coins, two-dollar coins, five-dollar…"}
+{"answer": "5", "id": "uc2-generating-function-partition-counting/medium/0/380e95b6794d", "text": "6 cards are numbered 1 to 6. In how many ways can some of the cards be chosen s…"}
+{"answer": "5", "id": "uc2-generating-function-partition-counting/medium/1/90d26017975f", "text": "6 cards are numbered 1 to 6. In how many ways can some of the cards be chosen s…"}
+{"answer": "7", "id": "uc2-generating-function-partition-counting/medium/2/d7b3f02a909f", "text": "How many partitions of 27 have distinct parts, none larger than 8?"}
+{"answer": "-2*5^n - 3*3^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/easy/0/61a8da2366d4", "text": "A sequence has a₀ = -5 and satisfies aₙ = 5aₙ₋₁ + 2·3^n for n ≥ 1. Find a close…"}
+{"answer": "12*4^n - 3^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/easy/1/13d33bb3107a", "text": "Solve aₙ = 3aₙ₋₁ + 3·4^n for n ≥ 1, given a₀ = 11. Express aₙ in closed form."}
+{"answer": "-(-2)^n + 9*(-3)^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/easy/2/45cd2b5c26fb", "text": "Solve aₙ = −2aₙ₋₁ + 3·(-3)^n for n ≥ 1, given a₀ = 8. Express aₙ in closed form."}
+{"answer": "(a) -3, -2; (b) -6; (c) -6*n*(-2)^n - 2*(-2)^n - 2*(-3)^n; …", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/exam/0/3bff177f13ee", "text": "The sequence (aₙ) is defined by a₀ = -4 and a₁ = 22 and aₙ = −5aₙ₋₁ − 6aₙ₋₂ + 3…"}
+{"answer": "(a) -2, 2; (b) n + 3; (c) -3*2^n - 2*(-2)^n + n + 3; (d) -3…", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/exam/1/e6abfd71027f", "text": "A sequence has a₀ = -2 and a₁ = 2 and satisfies aₙ = 4aₙ₋₂ − 3n − 1 for n ≥ 2. …"}
+{"answer": "(a) 3, 4; (b) 16; (c) 16*n*4^n - 2*4^n - 3*3^n; (d) 382837", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/exam/2/937f9c7d76b7", "text": "A sequence has a₀ = -5 and a₁ = 47 and satisfies aₙ = 7aₙ₋₁ − 12aₙ₋₂ + 4·4^n fo…"}
+{"answer": "3*2^n - 3*(-2)^n - n - 2", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/hard/0/3164be1f9fe3", "text": "A sequence has a₀ = -2 and a₁ = 9 and satisfies aₙ = 4aₙ₋₂ + 3n − 2 for n ≥ 2. …"}
+{"answer": "3^n + 2^n - n - 1", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/hard/1/b61b957b6d34", "text": "Solve aₙ = 5aₙ₋₁ − 6aₙ₋₂ − 2n + 5 for n ≥ 2, given a₀ = 1 and a₁ = 3. Express a…"}
+{"answer": "2^n - n^2 - 4*n + 4", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/hard/2/7c69b6d46c82", "text": "A sequence has a₀ = 5 and a₁ = 1 and satisfies aₙ = 3aₙ₋₁ − 2aₙ₋₂ + 2n − 1 for …"}
+{"answer": "4*2^n - 4*n - 6", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/medium/0/140d03e94812", "text": "Solve aₙ = 2aₙ₋₁ + 4n − 2 for n ≥ 1, given a₀ = -2. Express aₙ in closed form."}
+{"answer": "4*n*2^n + 2^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/medium/1/99b0aab5e086", "text": "The sequence (aₙ) is defined by a₀ = 1 and aₙ = 2aₙ₋₁ + 4·2^n for n ≥ 1. Solve …"}
+{"answer": "2*2^n + n - 1", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/medium/2/d91919175a2c", "text": "Solve aₙ = 2aₙ₋₁ − n + 3 for n ≥ 1, given a₀ = 1. Express aₙ in closed form."}
+{"answer": "{21, 30, 70}", "id": "uc2-partial-order-hasse/easy/0/943b006e7968", "text": "The set S = {1, 3, 10, 14, 15, 21, 30, 35, 70} is ordered by divisibility (a ≤ …"}
+{"answer": "{24, 30, 40}", "id": "uc2-partial-order-hasse/easy/1/e336e5ebbfce", "text": "The set S = {1, 2, 4, 12, 20, 24, 30, 40} is ordered by divisibility (a ≤ b mea…"}
+{"answer": "{20, 90}", "id": "uc2-partial-order-hasse/easy/2/15ad56eedd68", "text": "The set S = {2, 3, 4, 5, 9, 18, 20, 90} is ordered by divisibility (a ≤ b means…"}
+{"answer": "(a) {36, 45, 60}; (b) 5; (c) 4; (d) 4", "id": "uc2-partial-order-hasse/exam/0/fe057e1fcdd8", "text": "A poset has elements {1, 2, 4, 10, 12, 15, 20, 30, 36, 45, 60}, with a ≤ b when…"}
+{"answer": "(a) {30, 42, 105}; (b) 3; (c) 4; (d) 4", "id": "uc2-partial-order-hasse/exam/1/b0a8c4db895f", "text": "Let (S, ≤) be the poset on S = {3, 5, 6, 7, 14, 15, 21, 30, 42, 105} in which a…"}
+{"answer": "(a) {30, 36, 45}; (b) 5; (c) 4; (d) 4", "id": "uc2-partial-order-hasse/exam/2/4cc09a0f0b90", "text": "A poset has elements {1, 2, 4, 5, 6, 10, 12, 18, 30, 36, 45}, with a ≤ b when a…"}
+{"answer": "{1, 2, 3, 6, 12, 24, 72}", "id": "uc2-partial-order-hasse/hard/0/89a3289d3322", "text": "The set S = {1, 2, 3, 6, 8, 9, 12, 18, 24, 72} is ordered by divisibility (a ≤ …"}
+{"answer": "{3, 5, 7, 15, 21, 35, 105}", "id": "uc2-partial-order-hasse/hard/1/e6bcf6615dcd", "text": "Under divisibility, S = {2, 3, 5, 6, 7, 10, 14, 15, 21, 35, 105} is a poset. Ca…"}
+{"answer": "{1, 5, 10, 20, 40, 60}", "id": "uc2-partial-order-hasse/hard/2/20ea06abc557", "text": "In the divisibility poset on S = {1, 3, 4, 5, 8, 10, 12, 15, 20, 24, 40, 60}, f…"}
+{"answer": "{5, 8}", "id": "uc2-partial-order-hasse/medium/0/dbb4f51b538d", "text": "The Hasse diagram of S = {1, 3, 4, 5, 6, 8, 12, 24, 40, 120} under divisibility…"}
+{"answer": "{3, 7, 10}", "id": "uc2-partial-order-hasse/medium/1/bc54557172ff", "text": "The set S = {1, 3, 7, 10, 15, 30, 35, 42, 210} is ordered by divisibility (a ≤ …"}
+{"answer": "{15, 20}", "id": "uc2-partial-order-hasse/medium/2/8a005474f6f7", "text": "The set S = {1, 2, 3, 5, 9, 15, 20, 45, 60} is ordered by divisibility (a ≤ b m…"}
+{"answer": "5, 1, 4, 1, 7", "id": "uc2-tree-counting-prufer/easy/0/5929e89b76af", "text": "The Prüfer code of a labelled tree is found by repeatedly deleting the leaf wit…"}
+{"answer": "4, 6, 3, 2, 6", "id": "uc2-tree-counting-prufer/easy/1/a5fa60ee6f6b", "text": "A tree has vertices 1 to 7 and edges 1–4, 2–3, 2–6, 3–5, 4–6, 6–7. The Prüfer c…"}
+{"answer": "4, 2, 1, 2", "id": "uc2-tree-counting-prufer/easy/2/89329ef55803", "text": "The vertices 1 to 6 are joined by the edges 1–2, 1–5, 2–4, 2–6, 3–4 to make a t…"}
+{"answer": "(a) 6, 7; (b) 2; (c) 7776; (d) 9031", "id": "uc2-tree-counting-prufer/exam/0/f8511796ad1f", "text": "Vertices 1 to 7 form a labelled tree. Its Prüfer code, found by deleting the sm…"}
+{"answer": "(a) 1, 2, 5; (b) 2; (c) 7776; (d) 9031", "id": "uc2-tree-counting-prufer/exam/1/b3ffa20910dc", "text": "The Prüfer code of a tree whose vertices are labelled 1 to 7 is (7, 3, 6, 4, 4)…"}
+{"answer": "(a) 3, 5, 6, 7; (b) 2; (c) 7776; (d) 9031", "id": "uc2-tree-counting-prufer/exam/2/81c38ad6253e", "text": "The Prüfer code of a tree whose vertices are labelled 1 to 7 is (1, 2, 4, 4, 1)…"}
+{"answer": "4, 9, 2, 6, 8, 7", "id": "uc2-tree-counting-prufer/hard/0/12e5354d022e", "text": "The Prüfer code of a tree on vertices 1 to 9 is (3, 8, 9, 8, 8, 6, 2). The Prüf…"}
+{"answer": "2, 9, 8, 5, 7", "id": "uc2-tree-counting-prufer/hard/1/3087e2940a5d", "text": "The Prüfer code of a tree on vertices 1 to 9 is (2, 8, 9, 2, 9, 5, 8). The Prüf…"}
+{"answer": "6, 5, 8, 3, 4, 1", "id": "uc2-tree-counting-prufer/hard/2/79b72425f652", "text": "The Prüfer code of a labelled tree is found by repeatedly deleting the leaf wit…"}
+{"answer": "2, 7, 8", "id": "uc2-tree-counting-prufer/medium/0/b29e8994c2b8", "text": "The Prüfer code of a labelled tree is found by repeatedly deleting the leaf wit…"}
+{"answer": "1, 3, 5", "id": "uc2-tree-counting-prufer/medium/1/7847710bceda", "text": "The code (6, 6, 5, 5, 2, 2) is the Prüfer code of a tree on vertices 1 to 8. Th…"}
+{"answer": "1, 2, 3", "id": "uc2-tree-counting-prufer/medium/2/cbc7dd382444", "text": "The code (6, 7, 3, 6, 1) is the Prüfer code of a tree on vertices 1 to 7. The P…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}

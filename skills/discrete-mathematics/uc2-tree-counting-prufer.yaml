@@ -1,0 +1,85 @@
+id: uc2-tree-counting-prufer
+name: Prüfer codes and counting labelled trees
+domain: discrete-mathematics
+year_level:
+- university
+description: 'Move between a labelled tree and its Prüfer code, written as an ordered list: encode a tree, rebuild a tree
+  from a code to read a vertex''s neighbours, and read a path between two vertices. The exam chain finds the leaves and a
+  degree from a code and counts labelled trees with a vertex as a leaf or not.'
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-tree-spanning-edge-count
+answer: ordered_list
+sources:
+- topic: r4j_tree_counting_prufer
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4j_tree_counting_prufer
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4j_tree_counting_prufer
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4j_tree_counting_prufer
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: path-direction-reversed
+  description: Listing the vertices of a path from the finish back to the start when asked to start at the first vertex.
+- id: path-endpoints-omitted
+  description: Listing only the vertices strictly between the two ends of a path.
+- id: prufer-all-trees-counted
+  description: Counting all n to the n - 2 labelled trees when a restriction on one vertex was asked for.
+- id: prufer-code-length-miscounted
+  description: Using the wrong exponent in a count of Prüfer codes, forgetting that the code has n - 2 entries.
+- id: prufer-code-reversed
+  description: Writing the Prüfer code, or reading it, from the last entry to the first.
+- id: prufer-code-too-long
+  description: Carrying on until one vertex is left, so the Prüfer code has n - 1 entries instead of n - 2.
+- id: prufer-complement-not-taken
+  description: Reporting the number of trees with a property when the number without it was asked for, or adding the two.
+- id: prufer-decode-largest
+  description: Decoding a Prüfer code by joining the largest free vertex instead of the smallest to each code entry.
+- id: prufer-degree-is-occurrence-count
+  description: Taking the number of times a vertex appears in its Prüfer code as its degree, instead of that number plus one.
+- id: prufer-degree-overcounted
+  description: Adding too much to the number of appearances of a vertex in its Prüfer code when finding its degree.
+- id: prufer-largest-leaf
+  description: Deleting the leaf with the largest label instead of the smallest when building or reading a Prüfer code.
+- id: prufer-last-edge-missed
+  description: Forgetting the final edge between the last two vertices when rebuilding a tree from its Prüfer code.
+- id: prufer-leaf-left-out
+  description: Leaving one of the leaves out of the list of vertices missing from a Prüfer code.
+- id: prufer-leaves-are-code-entries
+  description: Taking the vertices that appear in a Prüfer code as the leaves, when the leaves are the ones that do not appear.
+- id: prufer-neighbours-from-code-positions-only
+  description: Listing only the leaves paired with a vertex in the code and missing the neighbours that come from deleting
+    that vertex itself.
+- id: prufer-records-leaf
+  description: Writing down the leaf that is deleted instead of the vertex it was joined to when building a Prüfer code.
+difficulty_progression: Easy encodes a six or seven vertex tree by deleting the smallest leaf each time. Medium decodes a
+  code and lists the neighbours of a vertex in increasing order. Hard decodes a code on nine or ten vertices and gives the
+  unique path between two vertices in order. The exam chain reads leaves and a degree straight from the code and counts trees
+  with a vertex as a leaf, then the complement, following the count through.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- trees
+- prufer-code
+- labelled-trees
+- cayley-formula

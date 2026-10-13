@@ -5414,6 +5414,54 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+uc2-dijkstra-trace:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_dijkstra_trace
+    module: mathgen/generators/r4j_dijkstra_trace_build.py
+  - topic: exd_x_r4j_dijkstra_trace
+    module: mathgen/generators/r4j_dijkstra_trace_build.py
+uc2-generating-function-coefficient:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_generating_function_coefficient
+    module: mathgen/generators/r4j_generating_function_coefficient_build.py
+  - topic: exd_x_r4j_generating_function_coefficient
+    module: mathgen/generators/r4j_generating_function_coefficient_build.py
+uc2-generating-function-partition-counting:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_generating_function_partition_counting
+    module: mathgen/generators/r4j_generating_function_partition_counting_build.py
+  - topic: exd_x_r4j_generating_function_partition_counting
+    module: mathgen/generators/r4j_generating_function_partition_counting_build.py
+uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_forced_recurrence
+    module: mathgen/generators/r4j_forced_recurrence_build.py
+  - topic: exd_x_r4j_forced_recurrence
+    module: mathgen/generators/r4j_forced_recurrence_build.py
+uc2-partial-order-hasse:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_partial_order_hasse
+    module: mathgen/generators/r4j_partial_order_hasse_build.py
+  - topic: exd_x_r4j_partial_order_hasse
+    module: mathgen/generators/r4j_partial_order_hasse_build.py
+uc2-tree-counting-prufer:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_tree_counting_prufer
+    module: mathgen/generators/r4j_tree_counting_prufer_build.py
+  - topic: exd_x_r4j_tree_counting_prufer
+    module: mathgen/generators/r4j_tree_counting_prufer_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active
