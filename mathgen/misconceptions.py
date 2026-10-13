@@ -10104,6 +10104,331 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    CatalogueEntry(
+        "net-face-count-ignored",
+        "Naming a solid with the wrong number of faces: the faces of the net were not counted.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-prism-pyramid-confused",
+        "Mixing up a prism and a pyramid: a prism has two matching ends and rectangle sides, a pyramid has one base and triangle sides.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-face-shape-only",
+        "Choosing a solid because one face matches a shape in the net, without checking the other faces.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-any-six-squares",
+        "Believing any six squares joined edge to edge fold into a cube.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-overlap-seen-in-valid-net",
+        "Thinking two squares would land on the same face when a correct cube net is folded.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-faces-miscounted",
+        "Counting the squares of a net wrongly, so the reason given for the answer is about the number of faces when the count is right (or the reverse).",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-neighbours-meet",
+        "Thinking the corners next to a corner in the net are the ones that meet it when the net is folded.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-corner-half-right",
+        "Finding one corner that meets the given corner and guessing the other.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-wrong-corner",
+        "Naming the corners that meet at a different corner of the cube from the one asked about.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-strip-not-halved",
+        "Using the whole length of the strip of side faces as one length and one width, forgetting it goes round the box once and holds two of each.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-strip-length-not-removed",
+        "Halving the length of the strip of side faces but not taking away the length that is already known.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-strip-as-equal-faces",
+        "Treating the four side faces in the strip as four equal faces and dividing its length by four.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-one-of-each-face",
+        "Adding the areas of three different faces of a box and forgetting that each appears twice.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-sides-counted-once",
+        "Counting the four side faces of a box once each as if the box had one end face and one lid-sized strip.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-volume-for-area",
+        "Giving the volume of a box where its surface area was asked for.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-area-for-volume",
+        "Giving the surface area of a box where its volume was asked for.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-edges-added-for-volume",
+        "Adding the three edge lengths of a box instead of multiplying them to get its volume.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "net-base-area-for-volume",
+        "Giving the area of the base of a box as its volume, leaving out the height.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-hidden-faces-missed",
+        "Counting only the faces that can be seen in the drawing and missing the ones hidden at the back or underneath.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-hidden-edges-missed",
+        "Counting only the solid lines and leaving out the dashed (hidden) edges.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-hidden-vertices-missed",
+        "Counting only the corners that can be seen and missing those hidden at the back.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-ends-forgotten",
+        "Counting the side faces of a prism or pyramid and forgetting its base and top.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-faces-edges-vertices-mixed",
+        "Mixing up faces, edges and vertices: giving the count of one where another was asked.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-net-corners-counted",
+        "Counting the corners drawn on the net instead of the corners of the solid it folds into.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-net-lines-counted",
+        "Counting the lines drawn on the net instead of the edges of the solid it folds into.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-edges-counted-twice",
+        "Adding up the sides of every face and giving that total as the number of edges, though each edge is shared by two faces.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "solid-euler-sign",
+        "Getting the signs or the 2 wrong in Euler's formula, V - E + F = 2, when solving for the vertices.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-squares-counted",
+        "Counting the squares that have cubes on the plan instead of adding up the cubes stacked in them.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-tallest-times-squares",
+        "Multiplying the tallest stack by the number of squares on the plan, as if every stack were as tall as the tallest.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-elevation-for-total",
+        "Giving the number of squares in an elevation as the number of cubes in the whole structure, or the reverse.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-stack-left-out",
+        "Leaving out a stack, or a whole row of the plan, when adding up the cubes.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-total-for-elevation",
+        "Adding every stack on the plan for an elevation, though an elevation shows only the tallest stack in each column or row.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-wrong-side-viewed",
+        "Reading the elevation from the wrong side of the plan: using the rows for the front view, or the columns for the side view.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-tallest-times-columns",
+        "Taking the tallest stack on the whole plan as the height of every column of the elevation.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-nearest-stacks-only",
+        "Counting only the stacks nearest the viewer for an elevation, and forgetting that taller stacks behind them show above.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-line-added-for-tallest",
+        "Adding the stacks in a column or row of the plan where an elevation shows only the tallest of them.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-count-off-by-one",
+        "Finishing a sum of stacks one cube out when working back from an elevation.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-volume-edge-squared",
+        "Squaring the edge of a cube instead of cubing it to get the volume of one cube.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-volume-edge-not-cubed",
+        "Multiplying the number of cubes by the edge of one cube, not by its volume.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "plan-volume-for-surface",
+        "Finding the area of every face of every cube where the volume of the structure was asked for.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-units-not-converted",
+        "Multiplying a plan length by the scale and leaving the answer in centimetres, or stopping before the units are changed.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-converted-wrong-power",
+        "Changing centimetres to metres with the wrong power of ten after applying the scale.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-wrong-wall-read",
+        "Using the length of a different wall from the one the question names.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-applied-the-wrong-way",
+        "Dividing a plan length by the scale where it should be multiplied.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-area-linear-factor",
+        "Scaling a plan area by the ratio once instead of scaling each length, so the area grows by the ratio rather than its square.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-notch-ignored",
+        "Finding the area of the rectangle that surrounds an L-shaped plan and not taking away the corner that is missing.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-overlap-counted-twice",
+        "Adding two rectangles that overlap, so part of an L-shaped plan is counted twice.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-notch-misread",
+        "Taking away a corner rectangle of the wrong size from an L-shaped plan.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-labelled-sides-only",
+        "Adding only the marked sides of an L-shaped plan for its perimeter and leaving out the sides that are not marked.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-rectangles-perimeters-added",
+        "Adding the perimeters of the two rectangles that make up an L-shaped plan, so the shared side is counted twice.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-perimeter-halved",
+        "Adding one of each pair of opposite sides, so the answer is half the perimeter.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-tile-side-for-area",
+        "Dividing the floor area by the side of a tile instead of by its area.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-tile-area-multiplied",
+        "Multiplying the floor area by the size of a tile instead of dividing by it.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-area-given-as-tiles",
+        "Giving the floor area in square metres as the number of tiles.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "scale-one-side-scaled",
+        "Scaling only one side of the room to real size and multiplying it by the other side as measured on the plan.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-squares-not-scaled",
+        "Counting the grid squares between places and giving that count as the distance, without multiplying by the length of a square.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-off-by-one-square",
+        "Counting the square a place sits in as well as the squares between, or missing one, so the distance is a square out.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-scale-added",
+        "Adding the length of a grid square to the number of squares instead of multiplying.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-wrong-place-read",
+        "Reading the position of the wrong place on the map, such as a nearby place with a different name.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-route-one-leg",
+        "Giving the length of one leg of a walk as the length of the whole walk.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-legs-subtracted",
+        "Subtracting the lengths of two legs of a walk instead of adding them.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-bearing-not-reversed",
+        "Giving the bearing of the way there when the bearing of the way back was asked for.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-bearing-anticlockwise",
+        "Measuring a bearing anticlockwise from north instead of clockwise.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-bearing-from-east",
+        "Measuring a bearing from east, as an angle in a graph, instead of clockwise from north.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "map-bearing-reversed-wrong",
+        "Trying to reverse a bearing by adding the wrong angle, for example 90 degrees instead of 180.",
+        area="spatial",
+    ),
 )
 
 #: Every entry, by id.

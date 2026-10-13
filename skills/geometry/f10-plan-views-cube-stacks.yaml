@@ -1,0 +1,57 @@
+id: f10-plan-views-cube-stacks
+name: Read plan views and elevations of stacked cubes
+domain: geometry
+description: Given the plan view of a structure built from identical cubes, with the number of cubes stacked in each square, find the total number of cubes, the number of squares in the front or right-side elevation (the tallest stack in each column or row shows), and, working back from an elevation, the unknown stack marked on the plan.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- rectangular-prism-volume
+answer: number
+sources:
+- topic: fsp_plan_views
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fsp_plan_views
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fsp_plan_views
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: fsp_plan_views_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: plan-squares-counted
+  description: Counts the squares that have cubes on the plan instead of adding up the cubes stacked in them.
+- id: plan-tallest-times-squares
+  description: Multiplies the tallest stack by the number of squares on the plan, as if every stack were as tall as the tallest.
+- id: plan-elevation-for-total
+  description: Gives the number of squares in an elevation as the number of cubes in the whole structure, or the reverse.
+- id: plan-stack-left-out
+  description: Leaves out a stack, or a whole row of the plan, when adding up the cubes.
+- id: plan-total-for-elevation
+  description: Adds every stack on the plan for an elevation, though an elevation shows only the tallest stack in each column or row.
+- id: plan-wrong-side-viewed
+  description: Reads the elevation from the wrong side of the plan, using the rows for the front view or the columns for the side view.
+- id: plan-tallest-times-columns
+  description: Takes the tallest stack on the whole plan as the height of every column of the elevation.
+- id: plan-nearest-stacks-only
+  description: Counts only the stacks nearest the viewer for an elevation and forgets that taller stacks behind them show above.
+- id: plan-line-added-for-tallest
+  description: Adds the stacks in a column or row of the plan where an elevation shows only the tallest of them.
+- id: plan-count-off-by-one
+  description: Finishes a sum of stacks one cube out when working back from an elevation.
+- id: plan-volume-edge-squared
+  description: Squares the edge of a cube instead of cubing it to get the volume of one cube.
+- id: plan-volume-edge-not-cubed
+  description: Multiplies the number of cubes by the edge of one cube, not by its volume.
+- id: plan-volume-for-surface
+  description: Finds the area of every face of every cube where the volume of the structure was asked for.
+tags: [acara-f10-v9, geometry, plans, elevations, cubes, essential-mathematics, figure]
