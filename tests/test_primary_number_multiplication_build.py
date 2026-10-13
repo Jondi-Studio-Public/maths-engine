@@ -255,14 +255,14 @@ def test_primary_number_pilot_pair_b_skill_contracts_load_with_expected_shape():
     assert multiplication.answer == "number"
     assert multiplication.placement_eligible is False
     assert multiplication.status == "active"
-    assert [source.difficulty for source in multiplication.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in multiplication.sources} == {"multidigit_multiplication"}
-    assert [source.stages for source in multiplication.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in multiplication.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in multiplication.sources[:3]} == {"multidigit_multiplication"}
+    assert [source.stages for source in multiplication.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert arrays.prerequisites == ["multiplication-facts", "equal-groups", "whole-number-division-facts"]
     assert arrays.answer == "number"
     assert arrays.placement_eligible is False
     assert arrays.status == "active"
-    assert [source.difficulty for source in arrays.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in arrays.sources} == {"multiply_divide_one_digit_arrays"}
-    assert [source.stages for source in arrays.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in arrays.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in arrays.sources[:3]} == {"multiply_divide_one_digit_arrays"}
+    assert [source.stages for source in arrays.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

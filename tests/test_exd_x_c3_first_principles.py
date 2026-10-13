@@ -15,7 +15,10 @@ def _function(text: str):
 
 
 def test_registered():
-    sup.assert_registered_as_exam_source(SKILL, TOPIC)
+    # The skill's exam source is now the multi-part chain; this single-answer preset stays registered, unused.
+    last = sup.skill(SKILL)["sources"][-1]
+    assert last["topic"] == "exd_x_r2a_first_principles_tangent"
+    assert last["difficulty"] == "exam" and last["stages"] == ["exam"]
 
 
 def test_text_and_determinism():

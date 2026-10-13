@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc6_call_window
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: ignores-dst-or-abbreviation
   description: Uses a place's standard offset without applying its daylight-saving allowance, or without resolving its stated zone abbreviation, before shifting its window into the other place's clock frame.

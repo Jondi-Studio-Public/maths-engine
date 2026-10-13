@@ -28,7 +28,7 @@ NOT_PLURAL_NOUNS = frozenset(
     "thus versus makes needs takes goes comes shows leaves costs holds contains "
     "yes across always gets uses scores lists wins loses moves starts ends "
     "receives lands draws rolls picks chooses spends earns pays saves sells buys "
-    "reads writes says adds subtracts multiplies divides".split()
+    "reads writes says adds subtracts multiplies divides success".split()
 )
 
 # A capitalised label before the 1 ("Player 1 gets", "Year 1 students",

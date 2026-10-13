@@ -1,5 +1,6 @@
 """Tests for scripts/regrade_sweep.py."""
 
+from collections import defaultdict
 from pathlib import Path
 
 import pytest
@@ -20,6 +21,7 @@ def _load_skill(skill_id: str):
 class _FakeResult:
     def __init__(self, correct: bool):
         self.correct = correct
+        self.parts = defaultdict(lambda: self)  # multi-part (exam) questions index by part label
 
 
 @pytest.mark.parametrize(

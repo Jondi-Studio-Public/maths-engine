@@ -26,6 +26,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u3_modular_power_cycle
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: unreduced-representative
   description: Returning the original integer instead of a least non-negative residue.

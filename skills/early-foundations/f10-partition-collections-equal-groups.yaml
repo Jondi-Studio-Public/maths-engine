@@ -20,6 +20,11 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr1_share_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reverse-direction
   description: States the given number of groups as if it were the computed group size, confusing which stated quantity the answer must be.

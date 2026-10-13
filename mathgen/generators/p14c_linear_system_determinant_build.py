@@ -97,13 +97,13 @@ _HARD_TEMPLATES = (
 
 _EXAM_TEMPLATES = (
     "A 2x2 linear system A x = b has solution x = {x}, y = {y} and "
-    "D = det(A) = {D}. Using Cramer's rule x = D_x/D and y = D_y/D, find "
+    "D = det(A) = {D}. By Cramer's rule x = D_x/D and y = D_y/D. Find "
     "D_x and D_y. Give your answer as D_x = ..., D_y = ... .",
     "For a 2x2 linear system A x = b, det(A) = D = {D} and the solution is "
-    "x = {x}, y = {y}. Since x = D_x/D and y = D_y/D, find D_x and D_y. "
+    "x = {x}, y = {y}, where x = D_x/D and y = D_y/D. Find D_x and D_y. "
     "Give your answer as D_x = ..., D_y = ... .",
     "A linear system A x = b solves to x = {x}, y = {y}, with D = det(A) = "
-    "{D}. Recover D_x and D_y from x = D_x/D and y = D_y/D. Give your "
+    "{D}, where x = D_x/D and y = D_y/D. Find D_x and D_y. Give your "
     "answer as D_x = ..., D_y = ... .",
 )
 

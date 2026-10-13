@@ -32,14 +32,14 @@ from sympy import Rational
 from ..core import check, fmt_signed, generator, join_terms, phrase, pick_distractors, rational_text
 
 _PATTERNS = (
-    "Find the limit as x → {point} of {expr}.",
-    "Evaluate lim x→{point} of {expr}.",
-    "Determine the limit of {expr} as x → {point}.",
+    "Find the limit as x → {point} of {expr}. Give the exact value.",
+    "Evaluate lim x→{point} of {expr}. Give the exact value.",
+    "Determine the limit of {expr} as x → {point}. Give the exact value.",
 )
 
 _PARAMETRIC_PATTERNS = (
-    "The limit as x → {point} of {expr} exists and is finite, where k is a constant. Find the value of the limit.",
-    "For some constant k, lim x→{point} of {expr} exists and is finite. Find its value.",
+    "The limit as x → {point} of {expr} exists and is finite, where k is a constant. Find the exact value of the limit.",
+    "For some constant k, lim x→{point} of {expr} exists and is finite. Find its exact value.",
 )
 
 

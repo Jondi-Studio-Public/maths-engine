@@ -16,6 +16,11 @@ sources:
   difficulty: hard
   params: {kind: at_least}
   stages: [5, 6, maintenance]
+- topic: exd_x_u6_hypergeometric_acceptance
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-with-replacement-model
   description: Uses independent-draw or binomial counting instead of sampling without replacement.

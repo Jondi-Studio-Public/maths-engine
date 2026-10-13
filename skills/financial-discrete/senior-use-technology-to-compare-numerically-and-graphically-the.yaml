@@ -8,9 +8,11 @@ description: Given a principal, a simple interest rate and a compound interest r
   year in which the compound-interest balance exceeds the simple-interest balance. easy keeps the same
   principal and annual compounding on both sides; medium compounds the compound side monthly or quarterly
   at a stated nominal rate; hard starts the compound side with LESS principal, so it no longer cancels; exam
-  states neither rate directly, recovering both from stated growth data instead. Every prompt states a 40-year
-  horizon the crossover always lies inside. This skill does not cover reading the comparison from a graph
-  (the graphical comparison is dropped) and never asks for a single account's balance, which is the
+  is a four-part chain that states the simple account's yearly interest and the compound account's balance
+  after one year, so the compound rate is recovered first, then both balances at a stated year are found
+  before the first whole year of the crossover. Every other prompt states a 40-year horizon the crossover
+  always lies inside. This skill does not cover reading the comparison from a graph (the graphical
+  comparison is dropped) and outside the exam chain never asks for a single account's balance, which is the
   neighbouring skills simple-interest and compound-interest.
 status: active
 placement_eligible: false
@@ -29,8 +31,8 @@ sources:
   params: {mode: different_principals}
   difficulty: hard
   stages: [6, maintenance]
-- topic: pv0b_interest_crossover
-  params: {mode: recovered_rates}
+- topic: exd_x_r2e_interest_crossover
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

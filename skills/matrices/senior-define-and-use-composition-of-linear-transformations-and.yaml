@@ -22,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_g4_lt_composition
+- topic: exd_x_r2d_lt_composition_chain
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

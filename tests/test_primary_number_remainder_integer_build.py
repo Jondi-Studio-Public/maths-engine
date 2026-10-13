@@ -355,14 +355,14 @@ def test_primary_number_cluster_b_skill_contracts_load_with_expected_shape():
     assert division.answer == "number"
     assert division.placement_eligible is False
     assert division.status == "active"
-    assert [source.difficulty for source in division.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in division.sources} == {"division_remainder_context"}
-    assert [source.stages for source in division.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in division.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in division.sources[:3]} == {"division_remainder_context"}
+    assert [source.stages for source in division.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert numberline.prerequisites == ["integer-arithmetic", "coordinate-plane-readiness"]
     assert numberline.answer == "ordered_list"
     assert numberline.placement_eligible is False
     assert numberline.status == "active"
-    assert [source.difficulty for source in numberline.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in numberline.sources} == {"integer_numberline_order"}
-    assert [source.stages for source in numberline.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in numberline.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in numberline.sources[:3]} == {"integer_numberline_order"}
+    assert [source.stages for source in numberline.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

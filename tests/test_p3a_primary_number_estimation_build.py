@@ -218,7 +218,7 @@ def test_both_skills_load_through_api():
     assert set(skill1.prerequisites) == {"estimate-financial-total", "round-decimals"}
     assert skill1.answer == "number"
     assert skill1.placement_eligible is False
-    assert len(skill1.sources) == 3  # one per difficulty tier
+    assert len([s for s in skill1.sources if s.difficulty != "exam"]) == 3  # one per difficulty tier
 
     # Check second skill
     skill2 = skills_by_id.get("f10-rational-percentage-estimation")
@@ -227,7 +227,7 @@ def test_both_skills_load_through_api():
     assert set(skill2.prerequisites) == {"percentage-of-quantity", "round-decimals"}
     assert skill2.answer == "number"
     assert skill2.placement_eligible is False
-    assert len(skill2.sources) == 3
+    assert len([s for s in skill2.sources if s.difficulty != "exam"]) == 3
 
 
 def test_skill_misconceptions_match_generator_distractors():

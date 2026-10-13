@@ -172,11 +172,13 @@ def exd_x_s5_fitted_line_threshold(rng: random.Random, tier: str = "exam") -> di
 # Line of best fit from summary statistics
 # ---------------------------------------------------------------------------
 
+# (x description, y description, sign of the correlation in real data)
 _PAIRS = (
-    ("weekly hours of study", "exam mark"),
-    ("daily maximum temperature (degrees Celsius)", "number of ice creams sold"),
-    ("age of a car (years)", "resale value (thousand dollars)"),
-    ("weekly advertising spend (hundred dollars)", "weekly sales (thousand dollars)"),
+    ("weekly hours of study", "exam mark", 1),
+    ("daily maximum temperature (degrees Celsius)", "number of ice creams sold", 1),
+    ("age of a car (years)", "resale value (thousand dollars)", -1),
+    ("weekly advertising spend (hundred dollars)", "weekly sales (thousand dollars)", 1),
+    ("daily maximum temperature (degrees Celsius)", "number of hot drinks sold", -1),
 )
 
 _BESTFIT_TEMPLATES = (
@@ -200,7 +202,8 @@ def _dec(x: Fraction, places: int = 2) -> str:
 
 def _bestfit_build(rng: random.Random) -> dict:
     for _ in range(2000):
-        r = Fraction(rng.choice((4, 5, 6, 7, 8, 9)), 10) * rng.choice((1, -1))
+        a, b, sign = _PAIRS[rng.randrange(len(_PAIRS))]
+        r = Fraction(rng.choice((4, 5, 6, 7, 8, 9)), 10) * sign
         sx = rng.choice((2, 4, 5, 8, 10, 12, 15, 20))
         sy = rng.choice((3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30))
         m = r * sy / sx
@@ -228,7 +231,6 @@ def _bestfit_build(rng: random.Random) -> dict:
             continue
         if len({round(w, 2) for w in wrong.values()}) < 4:
             continue
-        a, b = _PAIRS[rng.randrange(len(_PAIRS))]
         text = phrase(
             rng,
             _BESTFIT_TEMPLATES,

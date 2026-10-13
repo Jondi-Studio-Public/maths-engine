@@ -82,3 +82,12 @@ def test_key_matches_independent_derivation_over_300_seeds():
         if sympy.simplify(got - want) != 0:
             bad.append((seed, q.text, q.answer_text))
     assert bad == [], bad
+
+
+def test_working_has_no_repeated_step():
+    from mathgen import make as _make
+
+    for seed in range(100):
+        for line in _make("exd_x_a4_median_length", seed=seed, difficulty="exam").working:
+            sides = [x.strip().rstrip(".") for x in line.split(" = ")]
+            assert len(set(sides)) == len(sides), line

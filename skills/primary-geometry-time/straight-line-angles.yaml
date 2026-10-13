@@ -8,6 +8,6 @@ needs_figure: true
 placement_eligible: false
 prerequisites: [angle-types]
 answer: number
-sources: [{topic: straight_line_angle, params: {}, difficulty: easy}]
+sources: [{topic: straight_line_angle, params: {}, difficulty: easy}, {topic: exd_x_pr3_straight_line_angles, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: uses-360, description: Subtracts from 360° instead of 180°.}]
 tags: [expansion-batch-2, primary, angles, AC9M6M04]

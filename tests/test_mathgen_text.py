@@ -118,7 +118,6 @@ def test_scientific_notation_extremes_render_positionally():
 # a new build topic here: fix its wording instead.
 TEXT_DEFECTS_GRANDFATHERED = {
     "exponent_laws_positive_zero": "double_star",
-    "decimal_tenths_hundredths_compose": "singular_count_plural",
 }
 
 

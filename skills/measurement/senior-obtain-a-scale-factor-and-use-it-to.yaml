@@ -21,6 +21,11 @@ sources:
   params: {mode: derive_length_from_areas}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m5_map_area_scale_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-linear-factor
   description: Forgets to square the scale factor ratio, applying the linear ratio directly to the area instead of the squared ratio (computes p:q instead of p²:q²).

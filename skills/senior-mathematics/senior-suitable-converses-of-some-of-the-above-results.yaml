@@ -18,6 +18,11 @@ sources:
 - topic: circle_theorem_converses_classify
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc6_circle_converses
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: assumes-converse-always-holds
   description: Picks the named conclusion whenever the configuration LOOKS like the right shape, without checking whether the stated numbers actually satisfy the hypothesis.

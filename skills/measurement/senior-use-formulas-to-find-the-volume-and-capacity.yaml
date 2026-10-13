@@ -21,6 +21,11 @@ sources:
   params: {mode: two_volume_difference}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m5_tank_capacity_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-half-factor
   description: Drops the 1/2 factor when computing a triangular prism's volume, treating the triangular cross-section as a full rectangle (computing base × height × length instead of 1/2 × base × height × length).

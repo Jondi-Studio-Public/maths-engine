@@ -47,7 +47,7 @@ def _filled(q):
 def test_skill_shape():
     assert SKILL.status == "active"
     assert SKILL.answer == "table"
-    assert [s.difficulty for s in SKILL.sources] == TIERS
+    assert [s.difficulty for s in SKILL.sources] == [*TIERS, "exam"]
     assert "AC9M10ST04" in SKILL.tags
     used = {n for tier in TIERS for s in range(80) for n in _make(tier, s).option_notes.values()}
     assert used <= {m.id for m in SKILL.misconceptions}

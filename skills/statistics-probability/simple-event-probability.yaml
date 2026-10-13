@@ -5,6 +5,14 @@ description: Express the probability of drawing one category from a collection a
 status: active
 prerequisites: [fraction-of-quantity]
 answer: fraction
-sources: [{topic: simple_probability, params: {}, difficulty: easy}]
+sources:
+- topic: simple_probability
+  params: {}
+  difficulty: easy
+- topic: exd_x_u6_probability_added_items
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions: [{id: favourable-over-other, description: Divides favourable outcomes by unfavourable outcomes instead of total outcomes.}]
 tags: [expansion-batch-3, probability]

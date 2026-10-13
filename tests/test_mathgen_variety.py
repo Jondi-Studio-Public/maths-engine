@@ -542,22 +542,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         None,
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
-        "decimal_tenths_hundredths_compose",
-        "easy",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "decimal_tenths_hundredths_compose",
-        "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "decimal_tenths_hundredths_compose",
-        "medium",
-    ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "decimal_tenths_hundredths_compose",
-        None,
-    ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
         "define_and_use_multiplication_by_a_scalar_of",
         "easy",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
@@ -2591,23 +2575,7 @@ _TIER_QUALIFYING_SKILLS = {s.id: s for s in _qualifying_skills(_TIER_ALL_SKILLS)
 # default under-detected range-only tiers). Shrink-only: a skill whose hard tier
 # is fixed (a new preset, a re-pointed YAML source -- never a mutated one) is
 # removed here, never merely left skipped.
-TIER_ESCALATION_BACKLOG: dict[str, str] = {
-    "decimal-arithmetic": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-decimal-notation-tenths-hundredths": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-decimal-order-numberline": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-fraction-percent-quantity-strategy": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-multidigit-multiplication": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-percentage-equivalence-comparison": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-rational-percentage-estimation": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "f10-round-decimals-accuracy": "investigated: hard tier's real escalation (force_five, force_carry in p9e_decimal_accuracy_order_build.py) is genuine but instrument-blind -- mathgen.text_quality.prompt_shape masks every digit run including the decimal point, so a forced boundary digit or forced carry never changes the rendered shape. Stays range-only until a text-visible, non-cosmetic escalation is found; not built.",
-    "f10-terminating-recurring-decimals": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "jacobi-iteration-2x2": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "senior-find-the-line-of-best-fit-by-eye": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "senior-review-calculating-a-percentage-of-a-given-amount": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "significant-figures": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-    "simplify-radicals-of-monomials": "confirmed range-only by scripts/measure_tiers.py at 60 seeds (120 agrees)",
-    "two-by-two-eigenvalues": "confirmed range-only by scripts/measure_tiers.py at 60 seeds",
-}
+TIER_ESCALATION_BACKLOG: dict[str, str] = {}
 
 _TIER_TESTABLE_IDS = sorted(set(_TIER_QUALIFYING_SKILLS) - set(TIER_ESCALATION_BACKLOG))
 

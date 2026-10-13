@@ -242,7 +242,7 @@ def test_both_skills_load_through_api(skills_dict):
     assert amount.answer == "number"
     assert amount.placement_eligible is False
     assert amount.status == "active"
-    assert len(amount.sources) == 3
+    assert len(amount.sources) == 4
 
     pct = skills_dict["senior-review-one-amount-expressed-as-a-percentage-of"]
     assert pct is not None
@@ -251,7 +251,7 @@ def test_both_skills_load_through_api(skills_dict):
     assert pct.answer == "number"
     assert pct.placement_eligible is False
     assert pct.status == "active"
-    assert len(pct.sources) == 3
+    assert len(pct.sources) == 4
 
 
 # --- Framing boundary: skill 2 never uses percentage-change's before/after

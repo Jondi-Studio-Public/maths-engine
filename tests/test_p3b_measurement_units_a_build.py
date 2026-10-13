@@ -269,6 +269,6 @@ def test_p3b_measurement_units_a_skill_contracts_load_with_expected_shape():
     assert area_skill.placement_eligible is False
     assert area_skill.status == "active"
     assert area_skill.learner_band == "general"
-    assert [source.difficulty for source in area_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in area_skill.sources} == {AREA_TOPIC}
-    assert [source.stages for source in area_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in area_skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in area_skill.sources if source.difficulty != "exam"} == {AREA_TOPIC}
+    assert [source.stages for source in area_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]

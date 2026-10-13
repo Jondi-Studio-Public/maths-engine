@@ -13,6 +13,7 @@ import pytest
 from mathgen import core, make
 from mathgen.core import display_question, mcq_options
 from mathgen.engine import grade, load_skills
+from mathgen.skills import Source
 from mathgen.text_quality import PYTHON_NOTATION_PATTERNS, find_python_notation
 
 REWRITES = [
@@ -170,13 +171,30 @@ GRADED = [
 ]
 
 
+# Single-answer exam generators whose skill's exam tier is now a multi-part chain. The generators are still
+# registered, so they are checked here under the skill that used them.
+RETIRED_EXAM = {
+    "exd_x_g1_vector_magnitude": "vector-magnitude",
+    "exd_x_c1_chain": "differentiate-chain-rule",
+    "exd_x_c1_trig": "differentiate-trig",
+    "exd_x_c4_solids_of_revolution": "senior-determine-volumes-of-solids-of-revolution-about-either",
+    "exd_x_c4_by_parts_cyclic": "senior-integrate-by-parts",
+}
+
+
 @pytest.fixture(scope="module")
 def sources_for_topic():
     by_topic = {}
-    for skill in load_skills()[1]:
+    skills = load_skills()[1]
+    for skill in skills:
         if skill.status == "active":
             for src in skill.sources:
                 by_topic.setdefault(src.topic, []).append((skill, src))
+    by_id = {skill.id: skill for skill in skills}
+    for topic, skill_id in RETIRED_EXAM.items():
+        if topic not in by_topic:
+            source = Source(topic=topic, params={"tier": "exam"}, difficulty="exam", stages=["exam"])
+            by_topic[topic] = [(by_id[skill_id], source)]
     return by_topic
 
 

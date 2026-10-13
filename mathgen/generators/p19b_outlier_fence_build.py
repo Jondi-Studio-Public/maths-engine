@@ -195,13 +195,13 @@ _HARD_TEMPLATES = (
     "and Q3 = {q3}. {rule} Check both ends carefully, then state the outlier.",
 )
 _EXAM_TEMPLATES = (
-    "Exam-style question. A dataset of {label} was recorded in this order: {values}. Its quartiles "
+    "A dataset of {label} was recorded in this order: {values}. Its quartiles "
     "are Q1 = {q1} and Q3 = {q3}. {rule} A value exactly on a fence is NOT an outlier. State the "
     "single value that is the outlier.",
-    "Exam-style question. Here are 10 {label}, in the order they were collected: {values}. For this "
+    "Here are 10 {label}, in the order they were collected: {values}. For this "
     "dataset, Q1 = {q1} and Q3 = {q3}. {rule} Remember that 'more than' is strict. Identify the one "
     "outlier value.",
-    "Exam-style question. The following {label} were recorded in no particular order: {values}. "
+    "The following {label} were recorded in no particular order: {values}. "
     "For this dataset, Q1 = {q1} and Q3 = {q3}. {rule} A value lying exactly on a fence does not "
     "count. State the outlier.",
 )

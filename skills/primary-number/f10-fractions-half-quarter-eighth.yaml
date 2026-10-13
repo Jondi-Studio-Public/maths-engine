@@ -19,6 +19,11 @@ sources:
   params: {variant: inverse}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr5_halving_paddock
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-direction-halving
   description: Halves the denominator instead of doubling it (e.g. 1/2 -> 1/1), going the wrong direction.

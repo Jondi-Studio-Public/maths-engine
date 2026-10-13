@@ -193,11 +193,10 @@ _HARD_TEMPLATES = (
     "engineering notation.",
 )
 _EXAM_TEMPLATES = (
-    "First combine ({c1_text} × 10^{e1}) {op} ({c2_text} × 10^{e2}), then convert "
-    "the result to engineering notation. One of the two given values may be negative.",
-    "Step 1: work out ({c1_text} × 10^{e1}) {op} ({c2_text} × 10^{e2}). Step 2: "
-    "convert that result to engineering notation. One of the two given values may be "
-    "negative.",
+    "Write ({c1_text} × 10^{e1}) {op} ({c2_text} × 10^{e2}) in engineering notation. "
+    "One of the two given values may be negative.",
+    "Find ({c1_text} × 10^{e1}) {op} ({c2_text} × 10^{e2}) and give the result in engineering "
+    "notation. One of the two given values may be negative.",
 )
 _TEMPLATES = {
     "easy": _EASY_TEMPLATES,
