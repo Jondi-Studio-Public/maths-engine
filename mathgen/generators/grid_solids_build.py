@@ -59,7 +59,11 @@ def _finish_number(tier_fn, rng):
     for _ in attempts(80, "a question with three distinct wrong answers"):
         fig, text, answer, candidates, working = tier_fn(rng)
         check(answer > 0, "the answer must be positive")
-        pool = [_fmt(c) for c in candidates if c > 0 and c != answer]
+        # Every option has the answer's shape (a whole number, or a number of halves), so the point alone gives
+        # nothing away. A miscount by a square or two pads the misconceptions when too few share that shape.
+        halves = answer != int(answer)
+        same_shape = [c for c in candidates if (c != int(c)) == halves]
+        pool = [_fmt(c) for c in [*same_shape, answer + 1, answer - 1, answer + 2] if c > 0 and c != answer]
         distractors = pick_distractors(_fmt(answer), pool)
         if len(distractors) == 3:
             break

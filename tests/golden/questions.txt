@@ -1082,7 +1082,7 @@
 {"answer": "24", "id": "f10-composite-shape-representation/easy/1/a1e7a0b63f61", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
 {"answer": "18", "id": "f10-composite-shape-representation/easy/2/d7f08f578676", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
 {"answer": "54", "id": "f10-composite-shape-representation/hard/0/2bd0b75489fa", "text": "Estimate the area, in square units, of the irregular shape on the grid, where e…"}
-{"answer": "40", "id": "f10-composite-shape-representation/hard/1/08d9581fad3c", "text": "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. …"}
+{"answer": "40", "id": "f10-composite-shape-representation/hard/1/15879a583820", "text": "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. …"}
 {"answer": "50", "id": "f10-composite-shape-representation/hard/2/6d4123f6ed64", "text": "Estimate the area of the irregular shape on the grid, in square units, where ea…"}
 {"answer": "24", "id": "f10-composite-shape-representation/medium/0/efdf403c3064", "text": "What is the area, in square units, of the shape on the grid? It is a rectangle …"}
 {"answer": "27", "id": "f10-composite-shape-representation/medium/1/3b688fb02970", "text": "The outline on the grid combines a rectangle and a triangle: the triangle is ei…"}

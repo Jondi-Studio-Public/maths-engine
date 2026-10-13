@@ -82,9 +82,11 @@ def test_reworded_skills_say_they_are_reading_skills(skill_id):
     assert not skill.name.lower().startswith(("graph", "plot"))
 
 
-def test_nets_skill_stays_deferred():
+def test_nets_skill_is_built_on_the_grid_figure():
+    # Deferred until the grid slice drew nets; it is now a figure-stimulus skill on grid_nets_build_solids.
     skill = _skills()["f10-nets-build-solids"]
-    assert skill.status == "deferred"
+    assert skill.status == "active" and skill.capability_gates == ["figure_stimulus"]
+    assert {s.topic for s in skill.sources} == {"grid_nets_build_solids"}
 
 
 # ------------------------------------------------------------------ figure, leak, reader, grader
