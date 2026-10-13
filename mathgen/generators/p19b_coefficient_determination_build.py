@@ -168,9 +168,14 @@ def _p19b_build_easy(rng):
 
         candidates = []
         candidates.append(_dec_text(r))  # r itself, not squared
-        candidates.append(_dec_text(2 * r))  # doubling instead of squaring
+        if 2 * r <= 1:  # doubling instead of squaring -- only when it is still a possible r^2
+            candidates.append(_dec_text(2 * r))
         sqrt_r = _approx_fraction(math.sqrt(float(r)), _DEC_DP)
         candidates.append(_dec_text(sqrt_r))  # took the square root instead
+        # r^2 is a proportion in [0, 1], and a value outside that is eliminated at sight, so the
+        # fallbacks stay in range: 1 - r^2 (the unexplained share) and halving instead of squaring.
+        candidates.append(_dec_text(1 - r2))
+        candidates.append(_dec_text(r / 2))
 
         seen = set()
         cand_texts = []
@@ -182,7 +187,8 @@ def _p19b_build_easy(rng):
                 continue
             seen.add(c)
             cand_texts.append(c)
-        if len(cand_texts) < 2:
+        cand_texts = cand_texts[:3]
+        if len(cand_texts) < 3:
             continue
         try:
             check_pairwise_distinct(r2, *(Fraction(c) for c in cand_texts))
@@ -250,7 +256,8 @@ def _p19b_build_medium(rng):
                 continue
             seen.add(c)
             cand_texts.append(c)
-        if len(cand_texts) < 2:
+        cand_texts = cand_texts[:3]
+        if len(cand_texts) < 3:
             continue
         try:
             check_pairwise_distinct(r2 * 100, *(Fraction(c) for c in cand_texts))
@@ -378,7 +385,8 @@ def _p19b_build_hard(rng):
                 continue
             seen.add(c)
             cand_texts.append(c)
-        if len(cand_texts) < 2:
+        cand_texts = cand_texts[:3]
+        if len(cand_texts) < 3:
             continue
         try:
             check_pairwise_distinct(stronger_sq * 100, *(Fraction(c) for c in cand_texts))
@@ -492,7 +500,8 @@ def _p19b_build_exam(rng):
                 continue
             seen.add(c)
             cand_texts.append(c)
-        if len(cand_texts) < 2:
+        cand_texts = cand_texts[:3]
+        if len(cand_texts) < 3:
             continue
         try:
             check_pairwise_distinct(diff * 100, *(Fraction(c) for c in cand_texts))

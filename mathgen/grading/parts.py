@@ -211,7 +211,10 @@ def retarget(part, value):
     approx = value.evalf(15)
     if not approx.is_finite or abs(approx) > _LARGEST:
         return None  # no answer is this big, and writing it out exactly (exp of a huge reply) takes minutes
-    exact = Fraction(str(sympy.N(value, _DIGITS)))
+    # Under a hundredth of the part's last place the value states as zero, so its digits are never written out:
+    # erfc of a large reply is near 10**-200000000, and an exact Fraction of that takes minutes to build.
+    tiny = abs(approx) < sympy.Rational(1, 10 ** (places + 2))
+    exact = Fraction(0) if tiny else Fraction(str(sympy.N(value, _DIGITS)))
     rounded = round_half_up(exact, places) if exact >= 0 else -round_half_up(-exact, places)
     stated = stated_precision_string(rounded, places) if places else str(int(rounded))
     answer_text = _NUMBER_LITERAL_RE.sub(stated, part.answer_text, count=1)

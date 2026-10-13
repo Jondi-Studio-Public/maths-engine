@@ -1,0 +1,478 @@
+# Generated baseline data, do not hand-edit: python scripts/build_contract_floors.py
+# family: {skill: [topic/difficulty]}. The tiers with each option fault over the 60-seed sweep
+# (scripts/skill_contract.py, option_faults). Multiple-choice tiers only: option_count, not always the
+# same number of options, at least 4; answer_position, number options in one unit where the
+# answer is the lowest or highest in under 20% of draws or at one rank in over
+# 75%; filler_option, an option shown in over 90% of draws that is never
+# the answer. Every skill: probability, a probability offered a wrong option above 1 or below 0.
+# May only shrink.
+answer_position:
+  add-within-100:
+  - early_addition/easy
+  before-and-after-to-10:
+  - before_after/easy
+  count-to-10:
+  - count_objects/easy
+  count-to-5:
+  - count_objects/easy
+  equal-groups:
+  - equal_groups/easy
+  f10-measure-uniform-informal-units:
+  - informal_units_measure/easy
+  f10-money-change-from-note:
+  - money_change_from_note/easy
+  - money_change_from_note/hard
+  - money_change_from_note/medium
+  f10-square-roots-perfect-squares:
+  - square_roots_perfect_squares/hard
+  fair-sharing:
+  - fair_sharing/easy
+  multiplication-facts:
+  - equal_groups/easy
+  number-bonds-to-10:
+  - number_bond/easy
+  order-numbers-to-10:
+  - number_sequence/easy
+  place-value-to-100:
+  - teen_place_value/easy
+  place-value-to-20:
+  - teen_place_value/easy
+  recognise-numerals-to-10:
+  - recognise_numeral/easy
+  senior-eview-metric-units-of-mass-and-weight-their:
+  - review_metric_units_of_mass/hard
+  - review_metric_units_of_mass/medium
+  senior-use-ests-and-lsts-to-locate-the-critical:
+  - p10c_critical_path_locate/hard
+  skip-count-2-5-10:
+  - skip_count/easy
+  subtract-within-100:
+  - early_subtraction/easy
+  subtract-within-20:
+  - early_subtraction/easy
+filler_option:
+  autonomous-equilibrium-stability:
+  - autonomous_equilibrium_stability/easy
+  - autonomous_equilibrium_stability/hard
+  - autonomous_equilibrium_stability/medium
+  classify-real-numbers:
+  - classify_real_number/easy
+  compare-common-fractions:
+  - compare_common_fractions/hard
+  compare-lengths:
+  - compare_length/easy
+  continue-patterns:
+  - repeating_pattern/easy
+  f10-chance-language-and-outcomes:
+  - chance_outcome_classify/easy
+  f10-compare-box-plots:
+  - stat5_box_plot_compare/easy
+  f10-fraction-compare-models:
+  - fraction_compare_models/medium
+  f10-money-compare-collections:
+  - money_compare_collections/medium
+  f10-position-location-language:
+  - p19a_position_language/easy
+  - p19a_position_language/medium
+  f10-prism-cross-sections:
+  - prism_cross_sections/easy
+  - prism_cross_sections/hard
+  - prism_cross_sections/medium
+  f10-quantify-compare-collections-to-20:
+  - quantify_compare_to_20/easy
+  f10-square-roots-perfect-squares:
+  - square_roots_perfect_squares/easy
+  logarithm-laws:
+  - logarithm_law/easy
+  propositional-formula-equivalence:
+  - propositional_formula_equivalence/medium
+  propositional-truth-evaluation:
+  - propositional_truth_value/easy
+  - propositional_truth_value/hard
+  - propositional_truth_value/medium
+  senior-determine-when-the-composition-of-two-functions-is:
+  - function_composition/easy
+  - function_composition/hard
+  - function_composition/medium
+  senior-distinguish-between-causality-and-correlation-through-examples:
+  - causality_correlation_classify/easy
+  - causality_correlation_classify/hard
+  - causality_correlation_classify/medium
+  senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
+  - exd_x_s3_interp/exam
+  - interpolation_extrapolation_classify/easy
+  - interpolation_extrapolation_classify/hard
+  - interpolation_extrapolation_classify/medium
+  senior-estimate-the-limit-of-frac-a-h-1:
+  - p12c_estimate_limit_ah/exam
+  senior-examine-the-approximate-normality-of-the-distribution-of:
+  - p8c_normality_approx_phat/hard
+  senior-identify-contexts-such-as-naturally-occurring-variation-that:
+  - p19d_variation_context/hard
+  - p19d_variation_context/medium
+  senior-review-probability-as-a-measure-of-the-likelihood:
+  - probability_likelihood_compare/easy
+  - probability_likelihood_compare/hard
+  senior-review-the-concepts-and-language-of-outcomes-sample:
+  - outcomes_sample_classify/easy
+  - outcomes_sample_classify/hard
+  - outcomes_sample_classify/medium
+  senior-review-the-conditions-for-similarity-of-two-dimensional:
+  - similarity_conditions_classify/easy
+  - similarity_conditions_classify/hard
+  - similarity_conditions_classify/medium
+  senior-suitable-converses-of-some-of-the-above-results:
+  - circle_theorem_converses_classify/easy
+  - circle_theorem_converses_classify/hard
+  - circle_theorem_converses_classify/medium
+  senior-use-examples-and-counter-examples:
+  - counterexample_identify/easy
+  - counterexample_identify/medium
+  senior-use-implication-converse-equivalence-negation-contrapositive:
+  - implication_transform_identify/hard
+  - implication_transform_identify/medium
+  senior-use-proof-by-contradiction:
+  - proof_by_contradiction_identify/hard
+  senior-use-the-quantifiers-for-all-and-there-exists:
+  - quantifier_forall_exists_evaluate/hard
+  senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow:
+  - implication_equivalence_symbol_classify/easy
+  - implication_equivalence_symbol_classify/medium
+  ucv1-dominated-convergence-check:
+  - p15d_dominated_convergence/easy
+  - p15d_dominated_convergence/hard
+  - p15d_dominated_convergence/medium
+  ucv1-finite-subgroup-test:
+  - p15a_finite_subgroup_test/easy
+  - p15a_finite_subgroup_test/exam
+  - p15a_finite_subgroup_test/hard
+  - p15a_finite_subgroup_test/medium
+  ucv1-fundamental-group-map:
+  - p15b_fundamental_group_map/easy
+  - p15b_fundamental_group_map/medium
+  ucv1-symmetry-conservation:
+  - p15c_symmetry_conservation/hard
+  - p15c_symmetry_conservation/medium
+option_count:
+  add-complex-numbers:
+  - complex_number/easy
+  - exd_x_r2e_complex_add/exam
+  add-within-10:
+  - early_addition/easy
+  add-within-100:
+  - early_addition/easy
+  add-within-20:
+  - early_addition/easy
+  add-within-5:
+  - early_addition/easy
+  autonomous-equilibrium-stability:
+  - exd_x_sc1_harvested_equilibria/exam
+  before-and-after-to-10:
+  - before_after/easy
+  classify-constant-coefficient-pde:
+  - constant_coefficient_pde_classification/easy
+  - constant_coefficient_pde_classification/hard
+  - constant_coefficient_pde_classification/medium
+  - exd_x_sc2_pde_parameter/exam
+  classify-data:
+  - classify_data/easy
+  classify-polynomials:
+  - polynomial_classify/easy
+  - polynomial_classify/hard
+  - polynomial_classify/medium
+  classify-real-numbers:
+  - classify_real_number/easy
+  - exd_x_sc5_rational_count/exam
+  compare-common-fractions:
+  - compare_common_fractions/easy
+  - compare_common_fractions/hard
+  - compare_common_fractions/medium
+  compare-functions-representations:
+  - fg1_compare_functions/easy
+  - fg1_compare_functions/hard
+  - fg1_compare_functions/medium
+  compare-lengths:
+  - compare_length/easy
+  compare-linear-representations:
+  - fg1_compare_linear/easy
+  - fg1_compare_linear/hard
+  - fg1_compare_linear/medium
+  compare-quantities-to-10:
+  - compare_quantities/easy
+  compare-unit-prices:
+  - p14b_compare_unit_prices/easy
+  - p14b_compare_unit_prices/exam
+  - p14b_compare_unit_prices/medium
+  complex-conjugate:
+  - complex_number/easy
+  equal-groups:
+  - equal_groups/easy
+  f10-add-subtract-number-sentences:
+  - add_sub_number_sentence/easy
+  - add_sub_number_sentence/hard
+  - add_sub_number_sentence/medium
+  f10-compare-box-plots:
+  - stat5_box_plot_compare/easy
+  - stat5_box_plot_compare/medium
+  f10-compare-measurement-attributes:
+  - compare_measurement_attributes/easy
+  - compare_measurement_attributes/hard
+  - compare_measurement_attributes/medium
+  f10-congruence-similarity-criteria:
+  - exd_x_sc2_similar_sas/exam
+  f10-factors-multiples-divisibility:
+  - factors_multiples_divisibility/easy
+  - factors_multiples_divisibility/hard
+  - factors_multiples_divisibility/medium
+  f10-fraction-compare-models:
+  - fraction_compare_models/easy
+  - fraction_compare_models/medium
+  f10-money-compare-collections:
+  - money_compare_collections/easy
+  - money_compare_collections/hard
+  - money_compare_collections/medium
+  f10-odd-even-properties:
+  - odd_even_properties/easy
+  - odd_even_properties/hard
+  - odd_even_properties/medium
+  f10-polygon-classification:
+  - p14b_polygon_classification/easy
+  - p14b_polygon_classification/hard
+  f10-position-location-language:
+  - p19a_position_language/easy
+  - p19a_position_language/hard
+  f10-prime-composite-square-properties:
+  - prime_composite_square_properties/easy
+  - prime_composite_square_properties/hard
+  - prime_composite_square_properties/medium
+  f10-prism-cross-sections:
+  - prism_cross_sections/easy
+  - prism_cross_sections/hard
+  - prism_cross_sections/medium
+  f10-quantify-compare-collections-to-20:
+  - quantify_compare_to_20/easy
+  - quantify_compare_to_20/hard
+  - quantify_compare_to_20/medium
+  f10-shape-features-classification:
+  - shape_features_classification/easy
+  f10-shape-sorting-algorithm:
+  - exd_x_r2j_shape_sorting_chain/exam
+  - p15d_shape_sorting/easy
+  f10-square-roots-perfect-squares:
+  - exd_x_sc5_square_fix/exam
+  - square_roots_perfect_squares/easy
+  - square_roots_perfect_squares/medium
+  fair-sharing:
+  - fair_sharing/easy
+  integer-polynomial-quotient-remainder:
+  - exd_x_sc1_poly_remainder_unknown/exam
+  jacobian-two-variable:
+  - exd_x_sc5_jacobian_area/exam
+  logarithm-laws:
+  - exd_x_sc5_log_equation/exam
+  matrix-multiplication:
+  - exd_x_h2_matrix_multiplication/exam
+  multiplication-facts:
+  - equal_groups/easy
+  multiply-complex-numbers:
+  - complex_number/easy
+  number-bonds-to-10:
+  - number_bond/easy
+  number-bonds-to-5:
+  - number_bond/easy
+  place-value-to-20:
+  - teen_place_value/easy
+  prime-factorisation:
+  - exd_x_sc5_factor_count/exam
+  prime-factorisation-exponent:
+  - exd_x_sc6_prime_powers/exam
+  probability-representations:
+  - exd_x_sc8_prob_rep_chain/exam
+  propositional-formula-equivalence:
+  - exd_x_sc4_prop_equiv/exam
+  propositional-truth-evaluation:
+  - exd_x_sc4_prop_eval/exam
+  recognise-numerals-to-10:
+  - recognise_numeral/easy
+  recognise-numerals-to-5:
+  - recognise_numeral/easy
+  scientific-notation:
+  - exd_x_sc6_sci_notation/exam
+  scientific-notation-ops-to-engineering:
+  - exd_e5_scientific_notation_ops_to_engineering/easy
+  - exd_e5_scientific_notation_ops_to_engineering/medium
+  senior-check-results-of-calculations-for-accuracy:
+  - exd_x_sc1_check_calculation/exam
+  senior-compare-the-characteristics-of-the-shape-of-histograms:
+  - exd_x_r2k_histogram/exam
+  senior-distinguish-between-causality-and-correlation-through-examples:
+  - causality_correlation_classify/easy
+  - causality_correlation_classify/hard
+  - causality_correlation_classify/medium
+  senior-estimate-lengths:
+  - exd_x_sc4_est_length/exam
+  senior-estimate-the-areas-of-different-shapes:
+  - exd_x_sc4_est_area/exam
+  senior-estimate-the-mass-of-different-objects:
+  - exd_x_sc5_mass_load/exam
+  senior-estimate-volume-and-capacity-of-various-objects:
+  - exd_x_sc5_tank_capacity/exam
+  senior-eview-metric-units-of-mass-and-weight-their:
+  - exd_x_sc5_mass_ladder/exam
+  senior-examine-the-position-of-two-particles-each-described:
+  - exd_x_r2i_particles_approach/exam
+  senior-examine-the-three-cases-for-solutions-of-systems:
+  - pv0b_system_cases/easy
+  - pv0b_system_cases/exam
+  - pv0b_system_cases/hard
+  - pv0b_system_cases/medium
+  senior-find-all-solutions-of-mathrm-f-left-mathrm:
+  - trig_equation_all_solutions/easy
+  - trig_equation_all_solutions/hard
+  - trig_equation_all_solutions/medium
+  senior-find-the-line-of-best-fit-by-eye:
+  - exd_x_sc8_best_fit_line_chain/exam
+  senior-identify-and-solve-linear-equations:
+  - identify_and_solve_linear_equation/easy
+  - identify_and_solve_linear_equation/hard
+  - identify_and_solve_linear_equation/medium
+  senior-identify-common-usage-of-rates-for-example-km:
+  - p19h_rate_usage_classification/easy
+  - p19h_rate_usage_classification/exam
+  - p19h_rate_usage_classification/hard
+  - p19h_rate_usage_classification/medium
+  senior-identify-contexts-such-as-naturally-occurring-variation-that:
+  - p19d_variation_context/easy
+  - p19d_variation_context/exam
+  senior-identify-contexts-suitable-for-modelling-by-bernoulli-random:
+  - exd_x_r2k_bernoulli_suitability/exam
+  senior-identify-contexts-suitable-for-modelling-by-binomial-random:
+  - exd_x_r2k_binomial_suitability/exam
+  senior-identify-possible-non-causal-explanations-for-an-association:
+  - p19b_noncausal_explanation/easy
+  - p19b_noncausal_explanation/exam
+  - p19b_noncausal_explanation/hard
+  - p19b_noncausal_explanation/medium
+  senior-identify-the-dependent-and-independent-variable:
+  - p19b_dependent_variable/easy
+  - p19b_dependent_variable/exam
+  - p19b_dependent_variable/medium
+  senior-interpret-commonly-used-probability-statements-including-possible-probable:
+  - exd_x_r2k_probability_language/exam
+  senior-interpret-timetables-such-as-bus-train-and-ferry:
+  - exd_x_r2i_timetable_chain/exam
+  senior-recognise-features-of-the-graph-of-the-general:
+  - pv1d_quadratic_root_count/easy
+  - pv1d_quadratic_root_count/exam
+  - pv1d_quadratic_root_count/hard
+  - pv1d_quadratic_root_count/medium
+  senior-recognise-features-of-the-graph-of-y-mx:
+  - pv1a_gradient_sign/easy
+  - pv1a_gradient_sign/exam
+  - pv1a_gradient_sign/hard
+  - pv1a_gradient_sign/medium
+  senior-recognise-features-of-the-graphs-of-y-x-acmmm014:
+  - pv1e_power_end_behaviour/easy
+  - pv1e_power_end_behaviour/exam
+  - pv1e_power_end_behaviour/hard
+  - pv1e_power_end_behaviour/medium
+  senior-recognise-that-a-sequence-generated-by-a-first:
+  - p19e_recurrence_long_term_class/easy
+  - p19e_recurrence_long_term_class/exam
+  - p19e_recurrence_long_term_class/hard
+  - p19e_recurrence_long_term_class/medium
+  senior-recognise-the-graphs-of-y-sin-x-y:
+  - pv1f_trig_graph_id/easy
+  - pv1f_trig_graph_id/exam
+  - pv1f_trig_graph_id/hard
+  - pv1f_trig_graph_id/medium
+  senior-review-probability-as-a-measure-of-the-likelihood:
+  - exd_x_s3_likelihood/exam
+  - probability_likelihood_compare/easy
+  - probability_likelihood_compare/hard
+  - probability_likelihood_compare/medium
+  senior-review-the-conditions-for-similarity-of-two-dimensional:
+  - exd_x_sc6_similarity/exam
+  senior-review-the-probability-scale-0-leq-p-a:
+  - probability_scale_classify/easy
+  - probability_scale_classify/hard
+  - probability_scale_classify/medium
+  senior-suitable-converses-of-some-of-the-above-results:
+  - exd_x_sc6_circle_converses/exam
+  senior-understand-the-concept-of-a-random-sample:
+  - exd_x_r2j_random_sample_strata/exam
+  senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
+  - p19e_geometric_limit_class/easy
+  - p19e_geometric_limit_class/exam
+  - p19e_geometric_limit_class/hard
+  - p19e_geometric_limit_class/medium
+  senior-use-ests-and-lsts-to-locate-the-critical:
+  - exd_x_r2e_network_crash/exam
+  - p10c_critical_path_locate/easy
+  - p10c_critical_path_locate/hard
+  - p10c_critical_path_locate/medium
+  senior-use-examples-and-counter-examples:
+  - exd_x_sc7_counterexample_search/exam
+  senior-use-implication-converse-equivalence-negation-contrapositive:
+  - exd_x_sc7_implication_counts/exam
+  senior-use-the-quantifiers-for-all-and-there-exists:
+  - exd_x_sc7_quantifier_threshold/exam
+  - quantifier_forall_exists_evaluate/easy
+  - quantifier_forall_exists_evaluate/medium
+  subtract-within-10:
+  - early_subtraction/easy
+  subtract-within-5:
+  - early_subtraction/easy
+  ucv1-compactness-finite-check:
+  - exd_x_r2g_subcover_count/exam
+  ucv1-completeness-cauchy-check:
+  - exd_x_r2g_cauchy_tail/exam
+  ucv1-convexity-hessian-sign:
+  - p14d_convexity_hessian_sign/easy
+  - p14d_convexity_hessian_sign/exam
+  - p14d_convexity_hessian_sign/hard
+  - p14d_convexity_hessian_sign/medium
+  ucv1-definition-quantifier-check:
+  - exd_x_r2g_relation_repair/exam
+  ucv1-dominated-convergence-check:
+  - exd_x_r2g_dct_integrals/exam
+  ucv1-finite-automaton-acceptance:
+  - exd_x_r2g_dfa_counting/exam
+  ucv1-formal-derivation-check:
+  - exd_x_r2g_derivation_length/exam
+  ucv1-fundamental-group-map:
+  - exd_x_r2h_circle_maps_chain/exam
+  ucv1-isomorphism-invariant:
+  - p15a_isomorphism_invariant/easy
+  - p15a_isomorphism_invariant/exam
+  - p15a_isomorphism_invariant/hard
+  - p15a_isomorphism_invariant/medium
+  ucv1-linear-oscillator-classification:
+  - p14f_linear_oscillator_classification/easy
+  - p14f_linear_oscillator_classification/exam
+  - p14f_linear_oscillator_classification/hard
+  - p14f_linear_oscillator_classification/medium
+  ucv1-regression-residual-diagnostic:
+  - p14e_residual_diagnostic/easy
+  - p14e_residual_diagnostic/exam
+  - p14e_residual_diagnostic/hard
+  - p14e_residual_diagnostic/medium
+  ucv1-sigma-algebra-closure:
+  - exd_x_r2h_sigma_generated_chain/exam
+  ucv1-structure-classification:
+  - exd_x_r2h_abelian_orders_chain/exam
+  ucv1-symmetry-conservation:
+  - exd_x_r2h_central_force_chain/exam
+  ucv1-syntactic-semantic-separation:
+  - exd_x_r2h_entailment_count_chain/exam
+  ucv1-topology-basis-membership:
+  - exd_x_r2h_finite_topology_chain/exam
+  ucv1-validation-calibration-check:
+  - exd_x_r2i_calibration_chain/exam
+probability:
+  binomial-point-probability:
+  - binomial_probability/easy
+  conditional-probability-counts:
+  - conditional_probability_counts/hard
+  simple-event-probability:
+  - simple_probability/easy

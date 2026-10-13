@@ -1858,18 +1858,18 @@
 {"answer": "a right prism", "id": "f10-prism-cross-sections/medium/0/ed8d194c48fa", "text": "A solid's cross-sections, taken perpendicular to its length, are always rectang…"}
 {"answer": "a right prism", "id": "f10-prism-cross-sections/medium/1/bfef21f602ef", "text": "A solid's cross-sections, taken perpendicular to its length, are always rectang…"}
 {"answer": "a right prism", "id": "f10-prism-cross-sections/medium/2/ac0fcf8369ca", "text": "A solid's cross-sections, taken perpendicular to its length, are always triangu…"}
-{"answer": "7/8", "id": "f10-probability-complements-compounds/easy/0/ad702d84f77d", "text": "The probability that a plant seed germinates is 1/8. What is the probability th…"}
-{"answer": "7/8", "id": "f10-probability-complements-compounds/easy/1/589c320f49ad", "text": "The probability that a customer chooses the vegetarian option is 1/8. What is t…"}
-{"answer": "1/4", "id": "f10-probability-complements-compounds/easy/2/af14b93e4301", "text": "The probability that a plant seed germinates is 3/4. What is the probability th…"}
+{"answer": "7/8", "id": "f10-probability-complements-compounds/easy/0/3dc2b75da92e", "text": "The probability that a plant seed germinates is 1/8. What is the probability th…"}
+{"answer": "7/8", "id": "f10-probability-complements-compounds/easy/1/4bd7fd03c578", "text": "The probability that a customer chooses the vegetarian option is 1/8. What is t…"}
+{"answer": "1/4", "id": "f10-probability-complements-compounds/easy/2/1a53d268ba7b", "text": "The probability that a plant seed germinates is 3/4. What is the probability th…"}
 {"answer": "36/91", "id": "f10-probability-complements-compounds/exam/0/a02179a546ef", "text": "A box holds 14 bulbs, of which 2 are defective. Three of the bulbs are chosen a…"}
 {"answer": "5/6", "id": "f10-probability-complements-compounds/exam/1/cfbf9c08a9b8", "text": "A box holds 10 tablets, of which 4 are damaged. Three of the tablets are chosen…"}
 {"answer": "99/100", "id": "f10-probability-complements-compounds/exam/2/3403884d152b", "text": "A machine has 3 independent parts. In one day the probabilities of failure are:…"}
-{"answer": "3/10", "id": "f10-probability-complements-compounds/hard/0/30d7c016a327", "text": "A proposal can only end in exactly one of two ways: approval or rejection. The …"}
-{"answer": "1/10", "id": "f10-probability-complements-compounds/hard/1/1725c87bcd2f", "text": "A proposal can only end in exactly one of two ways: approval or rejection. The …"}
-{"answer": "7/8", "id": "f10-probability-complements-compounds/hard/2/06f35de0527f", "text": "A proposal can only end in exactly one of two ways: approval or rejection. The …"}
-{"answer": "2/3", "id": "f10-probability-complements-compounds/medium/0/202eda28fcc9", "text": "The probability that a package is delivered within 2 days is 3/9. What is the p…"}
-{"answer": "2/5", "id": "f10-probability-complements-compounds/medium/1/dc44b7c23203", "text": "The probability that a customer chooses the vegetarian option is 6/10. What is …"}
-{"answer": "5/6", "id": "f10-probability-complements-compounds/medium/2/32f7cc4aae58", "text": "The probability that a plant seed germinates is 2/12. What is the probability t…"}
+{"answer": "3/10", "id": "f10-probability-complements-compounds/hard/0/43e665d2f420", "text": "A proposal can only end in exactly one of two ways: approval or rejection. The …"}
+{"answer": "1/10", "id": "f10-probability-complements-compounds/hard/1/5d9395c96aec", "text": "A proposal can only end in exactly one of two ways: approval or rejection. The …"}
+{"answer": "7/8", "id": "f10-probability-complements-compounds/hard/2/5a12da89b2e2", "text": "A proposal can only end in exactly one of two ways: approval or rejection. The …"}
+{"answer": "2/3", "id": "f10-probability-complements-compounds/medium/0/ce50792b7c3a", "text": "The probability that a package is delivered within 2 days is 3/9. What is the p…"}
+{"answer": "2/5", "id": "f10-probability-complements-compounds/medium/1/bda2e44e32f6", "text": "The probability that a customer chooses the vegetarian option is 6/10. What is …"}
+{"answer": "5/6", "id": "f10-probability-complements-compounds/medium/2/948987a5f04c", "text": "The probability that a plant seed germinates is 2/12. What is the probability t…"}
 {"answer": "0.00", "id": "f10-probability-scale-and-expectation/easy/0/7dc6eee3ea9f", "text": "A weather forecaster describes tomorrow's chance of rain as 'impossible'. On th…"}
 {"answer": "0.75", "id": "f10-probability-scale-and-expectation/easy/1/244b14569aaf", "text": "A weather forecaster describes tomorrow's chance of rain as 'likely'. On the 0-…"}
 {"answer": "0.50", "id": "f10-probability-scale-and-expectation/easy/2/313b73cca425", "text": "A weather forecaster describes tomorrow's chance of rain as 'even chance'. On t…"}
@@ -2410,18 +2410,18 @@
 {"answer": "57/289", "id": "finite-joint-covariance/medium/0/378bf24766e9", "text": "A joint distribution has P(X=-2,Y=0)=4/17; P(X=-2,Y=1)=3/17; P(X=1,Y=0)=3/17; P…"}
 {"answer": "5/147", "id": "finite-joint-covariance/medium/1/9ab20fc1bf31", "text": "A joint distribution has P(X=1,Y=-2)=6/21; P(X=1,Y=-1)=5/21; P(X=4,Y=-2)=5/21; …"}
 {"answer": "-252/625", "id": "finite-joint-covariance/medium/2/d5104b0bd3c6", "text": "A joint distribution has P(X=-2,Y=2)=4/25; P(X=-2,Y=4)=7/25; P(X=4,Y=2)=7/25; P…"}
-{"answer": "5/6", "id": "finite-sample-space-probability/easy/0/83c170eb165c", "text": "A bag contains cards numbered 1, 3, 5, 6, 7, 9. One card is drawn at random. Wh…"}
-{"answer": "1/2", "id": "finite-sample-space-probability/easy/1/ff273405d0a9", "text": "A bag contains cards numbered 3, 4, 6, 7, 9, 10. One card is drawn at random. W…"}
-{"answer": "2/3", "id": "finite-sample-space-probability/easy/2/a096f9902e68", "text": "A bag contains cards numbered 1, 2, 6, 7, 8, 10. One card is drawn at random. W…"}
+{"answer": "5/6", "id": "finite-sample-space-probability/easy/0/dca16a76bb20", "text": "A bag contains cards numbered 1, 3, 5, 6, 7, 9. One card is drawn at random. Wh…"}
+{"answer": "1/2", "id": "finite-sample-space-probability/easy/1/308e0d7541b3", "text": "A bag contains cards numbered 3, 4, 6, 7, 9, 10. One card is drawn at random. W…"}
+{"answer": "2/3", "id": "finite-sample-space-probability/easy/2/f4a07028cbb8", "text": "A bag contains cards numbered 1, 2, 6, 7, 8, 10. One card is drawn at random. W…"}
 {"answer": "4/9", "id": "finite-sample-space-probability/exam/0/29156a217e9a", "text": "Two dice, one with 6 faces and one with 8 faces, are rolled together. It is kno…"}
 {"answer": "3/4", "id": "finite-sample-space-probability/exam/1/9f289ba41ac4", "text": "Two dice, one with 6 faces and one with 8 faces, are rolled together. It is kno…"}
 {"answer": "11/14", "id": "finite-sample-space-probability/exam/2/34f0d0b476c8", "text": "Roll a fair 4-sided die and then a fair 6-sided die. Find P(the product is even…"}
-{"answer": "1/2", "id": "finite-sample-space-probability/hard/0/f54ed99081c0", "text": "A bag contains cards numbered 1, 7, 10, 11, 12, 13, 15, 16, 18, 20. One card is…"}
-{"answer": "2/5", "id": "finite-sample-space-probability/hard/1/03b68f9303ab", "text": "A bag contains cards numbered 1, 3, 5, 6, 8, 11, 12, 17, 18, 19. One card is dr…"}
-{"answer": "3/10", "id": "finite-sample-space-probability/hard/2/bea18bab12de", "text": "A bag contains cards numbered 2, 3, 5, 8, 9, 11, 12, 13, 14, 19. One card is dr…"}
-{"answer": "7/8", "id": "finite-sample-space-probability/medium/0/30153bbfa2cb", "text": "A bag contains cards numbered 1, 2, 4, 5, 7, 8, 10, 12. One card is drawn at ra…"}
-{"answer": "3/8", "id": "finite-sample-space-probability/medium/1/c947f255287b", "text": "A bag contains cards numbered 3, 5, 6, 7, 9, 10, 11, 14. One card is drawn at r…"}
-{"answer": "3/4", "id": "finite-sample-space-probability/medium/2/98c7d861e10f", "text": "A bag contains cards numbered 1, 2, 3, 4, 11, 12, 13, 14. One card is drawn at …"}
+{"answer": "1/2", "id": "finite-sample-space-probability/hard/0/6c4862996dac", "text": "A bag contains cards numbered 1, 7, 10, 11, 12, 13, 15, 16, 18, 20. One card is…"}
+{"answer": "2/5", "id": "finite-sample-space-probability/hard/1/c13960b03c40", "text": "A bag contains cards numbered 1, 3, 5, 6, 8, 11, 12, 17, 18, 19. One card is dr…"}
+{"answer": "3/10", "id": "finite-sample-space-probability/hard/2/9138b689615b", "text": "A bag contains cards numbered 2, 3, 5, 8, 9, 11, 12, 13, 14, 19. One card is dr…"}
+{"answer": "7/8", "id": "finite-sample-space-probability/medium/0/120c928dce81", "text": "A bag contains cards numbered 1, 2, 4, 5, 7, 8, 10, 12. One card is drawn at ra…"}
+{"answer": "3/8", "id": "finite-sample-space-probability/medium/1/9827c8485ba2", "text": "A bag contains cards numbered 3, 5, 6, 7, 9, 10, 11, 14. One card is drawn at r…"}
+{"answer": "3/4", "id": "finite-sample-space-probability/medium/2/0ca9c876c314", "text": "A bag contains cards numbered 1, 2, 3, 4, 11, 12, 13, 14. One card is drawn at …"}
 {"answer": "{1, 6}", "id": "finite-set-operations/easy/0/242f4cfb68ca", "text": "Let A = {1, 2, 6} and B = {2}. Find A ∖ B."}
 {"answer": "{3}", "id": "finite-set-operations/easy/1/e161437b58e0", "text": "Let A = {3} and B = {2, 3, 6}. Find A ∩ B."}
 {"answer": "{2, 4, 5, 6}", "id": "finite-set-operations/easy/2/3e421ce0f622", "text": "Let A = {2, 5, 6} and B = {4, 6}. Find A ∪ B."}
@@ -2825,14 +2825,14 @@
 {"answer": "10/27", "id": "markov-two-state-stationary/exam/1/81fd016d5326", "text": "For a chain with P(0→1)=5/6 and P(1→0)=2/3, find the long-run proportion of ste…"}
 {"answer": "1/16", "id": "markov-two-state-stationary/exam/2/6fab1a81921c", "text": "A two-state chain has P(0→1)=1/8 and P(1→0)=1/8. In the long run, what fraction…"}
 {"answer": "5/7", "id": "markov-two-state-stationary/hard/0/50d9600d6660", "text": "For P(0→1)=4/7 and a stationary probability of state 1 equal to 4/9, find P(1→0…"}
-{"answer": "2/3", "id": "markov-two-state-stationary/hard/1/db499d2ced14", "text": "For P(0→1)=1/3 and a stationary probability of state 1 equal to 1/3, find P(1→0…"}
+{"answer": "2/3", "id": "markov-two-state-stationary/hard/1/d9348b37a07d", "text": "For P(0→1)=1/3 and a stationary probability of state 1 equal to 1/3, find P(1→0…"}
 {"answer": "3/8", "id": "markov-two-state-stationary/hard/2/9ddd40bdc032", "text": "For P(0→1)=1/4 and a stationary probability of state 1 equal to 2/5, find P(1→0…"}
 {"answer": "7/13", "id": "markov-two-state-stationary/medium/0/dc37c28ec997", "text": "For P(0→1)=7/9 and P(1→0)=2/3, find the stationary probability of state 1."}
 {"answer": "1/3", "id": "markov-two-state-stationary/medium/1/a0d420817e47", "text": "For P(0→1)=1/5 and P(1→0)=2/5, find the stationary probability of state 1."}
-{"answer": "1/2", "id": "markov-two-state-stationary/medium/2/e68a0385c215", "text": "For P(0→1)=1/2 and P(1→0)=1/2, find the stationary probability of state 1."}
+{"answer": "1/2", "id": "markov-two-state-stationary/medium/2/ec7987d39b05", "text": "For P(0→1)=1/2 and P(1→0)=1/2, find the stationary probability of state 1."}
 {"answer": "3/4", "id": "markov-two-state-step/easy/0/210a0c4dce27", "text": "A two-state chain has P(0→1)=3/4, P(1→0)=3/4, and P(X₀=1)=0. Find P(X₁=1)."}
 {"answer": "18/25", "id": "markov-two-state-step/easy/1/10410756547b", "text": "A two-state chain has P(0→1)=4/5, P(1→0)=2/5, and P(X₀=1)=2/5. Find P(X₁=1)."}
-{"answer": "1/2", "id": "markov-two-state-step/easy/2/11f2701b6d3a", "text": "A two-state chain has P(0→1)=1/2, P(1→0)=1/2, and P(X₀=1)=3/4. Find P(X₁=1)."}
+{"answer": "1/2", "id": "markov-two-state-step/easy/2/c2cd786ed13a", "text": "A two-state chain has P(0→1)=1/2, P(1→0)=1/2, and P(X₀=1)=3/4. Find P(X₁=1)."}
 {"answer": "4/5", "id": "markov-two-state-step/exam/0/8f2c44daa921", "text": "A machine is in state 0 (idle) or state 1 (running). Each step it moves from id…"}
 {"answer": "170/343", "id": "markov-two-state-step/exam/1/fb5cc45852b0", "text": "The transition probabilities of a two-state chain are P(0→1)=4/7 and P(1→0)=4/7…"}
 {"answer": "1/5", "id": "markov-two-state-step/exam/2/17533978bd0e", "text": "A two-state chain has P(0→1)=1/5 and P(1→0)=3/5, and P(X₂=1)=31/125. Find P(X₀=…"}
@@ -4293,7 +4293,7 @@
 {"answer": "132", "id": "senior-determine-the-overall-change-in-a-quantity-following/medium/2/55f3d43936ba", "text": "The attendance at a concert starts at 150. First it increases by 10%. Then it d…"}
 {"answer": "1/16", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/easy/0/de2e4a401c42", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
 {"answer": "3/20", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/easy/1/fe6bce784bac", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
-{"answer": "1/3", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/easy/2/5c66a1cfdde8", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
+{"answer": "1/3", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/easy/2/3a66812bf4d5", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
 {"answer": "5/21", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/exam/0/49ed1d6d21c5", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
 {"answer": "5/11", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/exam/1/eae6f2bc84af", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
 {"answer": "1/3", "id": "senior-determine-the-probabilities-of-occurrence-of-simple-traffic/exam/2/32d4844bccf9", "text": "A commuter passes two independent traffic lights. Light 1 is green with probabi…"}
@@ -5956,12 +5956,12 @@
 {"answer": "1/18", "id": "senior-review-the-rules-p-left-overline-a-right/exam/0/fab000c3b1da", "text": "P(not A) = 30/36, P(B) = 11/36 and P(A or B) = 15/36. Find P(A and B)."}
 {"answer": "1/6", "id": "senior-review-the-rules-p-left-overline-a-right/exam/1/da33191724a1", "text": "Events A and B satisfy P(A) = 10/36, P(B) = 8/36 and P(A or B) = 12/36. Find th…"}
 {"answer": "1/18", "id": "senior-review-the-rules-p-left-overline-a-right/exam/2/266c62fc2f70", "text": "P(A) = 22/36 and P(B) = 10/36. The probability that neither event occurs is 6/3…"}
-{"answer": "9/10", "id": "senior-review-the-rules-p-left-overline-a-right/hard/0/a2cc4b77295f", "text": "Events A and B overlap. P(A) = 5/10, P(B) = 8/10, and P(A intersect B) = 4/10. …"}
-{"answer": "7/8", "id": "senior-review-the-rules-p-left-overline-a-right/hard/1/15bffc3cb6a7", "text": "Events A and B overlap. P(A) = 6/8, P(B) = 6/8, and P(A intersect B) = 5/8. Wha…"}
-{"answer": "7/8", "id": "senior-review-the-rules-p-left-overline-a-right/hard/2/37c321109840", "text": "Events A and B overlap. P(A) = 6/8, P(B) = 6/8, and P(A intersect B) = 5/8. Wha…"}
-{"answer": "3/4", "id": "senior-review-the-rules-p-left-overline-a-right/medium/0/7f3e5d25ad61", "text": "Events A and B are mutually exclusive. P(A) = 8/12 and P(B) = 1/12. What is P(A…"}
+{"answer": "9/10", "id": "senior-review-the-rules-p-left-overline-a-right/hard/0/47bac65afffc", "text": "Events A and B overlap. P(A) = 5/10, P(B) = 8/10, and P(A intersect B) = 4/10. …"}
+{"answer": "7/8", "id": "senior-review-the-rules-p-left-overline-a-right/hard/1/8eefdf5402db", "text": "Events A and B overlap. P(A) = 6/8, P(B) = 6/8, and P(A intersect B) = 5/8. Wha…"}
+{"answer": "7/8", "id": "senior-review-the-rules-p-left-overline-a-right/hard/2/4f16dcb2c7a6", "text": "Events A and B overlap. P(A) = 6/8, P(B) = 6/8, and P(A intersect B) = 5/8. Wha…"}
+{"answer": "3/4", "id": "senior-review-the-rules-p-left-overline-a-right/medium/0/26ddc77cf5cc", "text": "Events A and B are mutually exclusive. P(A) = 8/12 and P(B) = 1/12. What is P(A…"}
 {"answer": "2/3", "id": "senior-review-the-rules-p-left-overline-a-right/medium/1/7c15aec8d3a2", "text": "Events A and B are mutually exclusive. P(A) = 4/12 and P(B) = 4/12. What is P(A…"}
-{"answer": "7/8", "id": "senior-review-the-rules-p-left-overline-a-right/medium/2/1bedaf11df4c", "text": "Events A and B are mutually exclusive. P(A) = 5/8 and P(B) = 2/8. What is P(A u…"}
+{"answer": "7/8", "id": "senior-review-the-rules-p-left-overline-a-right/medium/2/808e924fc8a4", "text": "Events A and B are mutually exclusive. P(A) = 5/8 and P(B) = 2/8. What is P(A u…"}
 {"answer": "-0.16", "id": "senior-simulate-repeated-random-sampling-for-a-variety-of/easy/0/33c8d6bc7893", "text": "A statistics class records whether each spin lands on red. In this population, …"}
 {"answer": "-0.91", "id": "senior-simulate-repeated-random-sampling-for-a-variety-of/easy/1/6121b284cb0c", "text": "A basketball coach records whether each free throw is made. In this population,…"}
 {"answer": "0.56", "id": "senior-simulate-repeated-random-sampling-for-a-variety-of/easy/2/45304039da48", "text": "A horticulturalist records whether each seed germinates. In this population, p …"}
@@ -5986,9 +5986,9 @@
 {"answer": "-0.90", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139/medium/0/680ba87548d8", "text": "7 samples of size 59 were randomly and independently drawn from an exponential …"}
 {"answer": "1.56", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139/medium/1/946eb9673ef5", "text": "A simulation drew 5 independent random samples of size 61 from a normal populat…"}
 {"answer": "0.66", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139/medium/2/d3ebceeee73d", "text": "A simulation drew 8 independent random samples of size 58 from an exponential p…"}
-{"answer": "1.01", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/easy/0/521cfe3012a9", "text": "8 samples of size 20 were randomly and independently drawn from a population wh…"}
-{"answer": "0.62", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/easy/1/faaedec41faf", "text": "7 random samples, each of size 47, were drawn from an exponential population of…"}
-{"answer": "-0.63", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/easy/2/7373c95c84ba", "text": "6 samples of size 49 were randomly and independently drawn from a population wh…"}
+{"answer": "1.01", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/easy/0/c877956a0ae1", "text": "8 samples of size 20 were randomly and independently drawn from a population wh…"}
+{"answer": "0.62", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/easy/1/d11b69ceef9c", "text": "7 random samples, each of size 47, were drawn from an exponential population of…"}
+{"answer": "-0.63", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/easy/2/2c713e1a5094", "text": "6 samples of size 49 were randomly and independently drawn from a population wh…"}
 {"answer": "0.91", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/exam/0/8dcc1d2af4a5", "text": "8 random samples, each of size 42, were drawn from the number of successes in 1…"}
 {"answer": "0.12", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/exam/1/7374172c2b3a", "text": "5 random samples, each of size 37, were drawn from the number of successes in 1…"}
 {"answer": "-1.67", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/exam/2/d15da9f193d4", "text": "A simulation drew 8 independent random samples, each of size 29, from the numbe…"}
@@ -6892,18 +6892,18 @@
 {"answer": "38", "id": "senior-use-minimal-spanning-trees-to-solve-minimal-connector/medium/0/515fdaac690e", "text": "A power company is connecting towns to a single power station by cable. Every t…"}
 {"answer": "42", "id": "senior-use-minimal-spanning-trees-to-solve-minimal-connector/medium/1/d7b122bb74b0", "text": "A power company is connecting towns to a single power station by cable. Every t…"}
 {"answer": "55", "id": "senior-use-minimal-spanning-trees-to-solve-minimal-connector/medium/2/3d47c331d3cc", "text": "A power company is connecting towns to a single power station by cable. Every t…"}
-{"answer": "0.70", "id": "senior-use-numerical-integration-using-technology-f-left-t/easy/0/a3c83d667b10", "text": "Let f(t) = 0.3e^(-0.3t) for t >= 0 be the probability density function of an ex…"}
-{"answer": "0.36", "id": "senior-use-numerical-integration-using-technology-f-left-t/easy/1/c89787c355ba", "text": "The exponential random variable has probability density function f(t) = 0.2e^(-…"}
-{"answer": "0.92", "id": "senior-use-numerical-integration-using-technology-f-left-t/easy/2/6c27bdb0ce8d", "text": "The exponential random variable has probability density function f(t) = 0.6e^(-…"}
+{"answer": "0.70", "id": "senior-use-numerical-integration-using-technology-f-left-t/easy/0/d2467e608c4a", "text": "Let f(t) = 0.3e^(-0.3t) for t >= 0 be the probability density function of an ex…"}
+{"answer": "0.36", "id": "senior-use-numerical-integration-using-technology-f-left-t/easy/1/96d0323e9734", "text": "The exponential random variable has probability density function f(t) = 0.2e^(-…"}
+{"answer": "0.92", "id": "senior-use-numerical-integration-using-technology-f-left-t/easy/2/c0ac992dc1f5", "text": "The exponential random variable has probability density function f(t) = 0.6e^(-…"}
 {"answer": "(a) 0.4512; (b) 0.2476; (c) 0.3012; (d) 0.451", "id": "senior-use-numerical-integration-using-technology-f-left-t/exam/0/d4b06af7fc9f", "text": "A continuous random variable T has probability density function f(t) = 0.4e^(-0…"}
 {"answer": "(a) 0.5852; (b) 0.3509; (c) 0.0639; (d) 0.846", "id": "senior-use-numerical-integration-using-technology-f-left-t/exam/1/1d3127e51f7f", "text": "A continuous random variable T has probability density function f(t) = 1.1e^(-1…"}
 {"answer": "(a) 0.7163; (b) 0.0858; (c) 0.1979; (d) 0.302", "id": "senior-use-numerical-integration-using-technology-f-left-t/exam/2/6ed432040748", "text": "A continuous random variable T has probability density function f(t) = 1.8e^(-1…"}
-{"answer": "0.0233", "id": "senior-use-numerical-integration-using-technology-f-left-t/hard/0/27b4882db5f0", "text": "Let f(t) = 2.6e^(-2.6t) for t >= 0 be the probability density function of an ex…"}
-{"answer": "0.0019", "id": "senior-use-numerical-integration-using-technology-f-left-t/hard/1/9878370c6069", "text": "For the exponential probability density function f(t) = 1.6e^(-1.6t), t >= 0, c…"}
-{"answer": "0.0066", "id": "senior-use-numerical-integration-using-technology-f-left-t/hard/2/353dad7adefa", "text": "For the exponential probability density function f(t) = 1.4e^(-1.4t), t >= 0, c…"}
-{"answer": "0.35", "id": "senior-use-numerical-integration-using-technology-f-left-t/medium/0/1ed151c08ece", "text": "For the exponential probability density function f(t) = 0.4e^(-0.4t), t >= 0, c…"}
-{"answer": "0.52", "id": "senior-use-numerical-integration-using-technology-f-left-t/medium/1/8ddbe1b8126c", "text": "Let f(t) = 1.6e^(-1.6t) for t >= 0 be the probability density function of an ex…"}
-{"answer": "0.35", "id": "senior-use-numerical-integration-using-technology-f-left-t/medium/2/56abe042181b", "text": "The exponential random variable has probability density function f(t) = 0.3e^(-…"}
+{"answer": "0.0233", "id": "senior-use-numerical-integration-using-technology-f-left-t/hard/0/31ad3db97de7", "text": "Let f(t) = 2.6e^(-2.6t) for t >= 0 be the probability density function of an ex…"}
+{"answer": "0.0019", "id": "senior-use-numerical-integration-using-technology-f-left-t/hard/1/9fb8ce1cc765", "text": "For the exponential probability density function f(t) = 1.6e^(-1.6t), t >= 0, c…"}
+{"answer": "0.0066", "id": "senior-use-numerical-integration-using-technology-f-left-t/hard/2/4bcdfda5080d", "text": "For the exponential probability density function f(t) = 1.4e^(-1.4t), t >= 0, c…"}
+{"answer": "0.35", "id": "senior-use-numerical-integration-using-technology-f-left-t/medium/0/cdc74b32736b", "text": "For the exponential probability density function f(t) = 0.4e^(-0.4t), t >= 0, c…"}
+{"answer": "0.52", "id": "senior-use-numerical-integration-using-technology-f-left-t/medium/1/4641f5a20df3", "text": "Let f(t) = 1.6e^(-1.6t) for t >= 0 be the probability density function of an ex…"}
+{"answer": "0.35", "id": "senior-use-numerical-integration-using-technology-f-left-t/medium/2/769c54d300d6", "text": "The exponential random variable has probability density function f(t) = 0.3e^(-…"}
 {"answer": "1", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/easy/0/ea4f99686485", "text": "Point A is (4, 5). Point B is (5, 7). The vector from A to B can be written in …"}
 {"answer": "2", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/easy/1/e798899851bb", "text": "Point A is (2, 7). Point B is (3, 9). The vector from A to B can be written in …"}
 {"answer": "1", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/easy/2/d413435bba45", "text": "Point A is (6, 6). Point B is (9, 7). The vector from A to B can be written in …"}
@@ -7021,18 +7021,18 @@
 {"answer": "1521/3626", "id": "senior-use-relative-frequencies-obtained-from-data-as-point-acmmm060/medium/0/20947119452d", "text": "Of 98 students surveyed, where A is 'the student travels to school by bus' and …"}
 {"answer": "0", "id": "senior-use-relative-frequencies-obtained-from-data-as-point-acmmm060/medium/1/c77e83fecd4c", "text": "Of 96 students surveyed, where A is 'the student plays a musical instrument' an…"}
 {"answer": "283/861", "id": "senior-use-relative-frequencies-obtained-from-data-as-point-acmmm060/medium/2/faa5c47b6f6a", "text": "Of 123 students surveyed, where A is 'the student owns a pet' and B is 'the stu…"}
-{"answer": "11/81", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/0/ddf03c469918", "text": "A spinner was spun 81 times, and the colour of each was recorded: red: 18, blue…"}
-{"answer": "6/17", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/1/d331d53299bb", "text": "51 customer service calls were logged, and the outcome type of each was recorde…"}
-{"answer": "3/5", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/2/8199ad910ddb", "text": "60 customer service calls were logged, and the outcome type of each was recorde…"}
+{"answer": "11/81", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/0/19dd2712dd1e", "text": "A spinner was spun 81 times, and the colour of each was recorded: red: 18, blue…"}
+{"answer": "6/17", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/1/1f15b61d48e3", "text": "51 customer service calls were logged, and the outcome type of each was recorde…"}
+{"answer": "3/5", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/2/4d83aaec4953", "text": "60 customer service calls were logged, and the outcome type of each was recorde…"}
 {"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/0/b27fda807341", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
 {"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/1/34c623458c9a", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
 {"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/2/2d8733494f10", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
-{"answer": "60/77", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/0/9ea7245e4ea9", "text": "77 seeds from a packet were planted, and the germination outcome of each was re…"}
-{"answer": "148/165", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/1/7366d54baf0e", "text": "A six-sided die was rolled 165 times, and the outcome of each was recorded: 1: …"}
-{"answer": "49/64", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/2/843cab1531e6", "text": "A spinner was spun 128 times, and the colour of each was recorded: red: 38, blu…"}
-{"answer": "24/143", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/medium/0/96b839a3b63b", "text": "A six-sided die was rolled 143 times, and the outcome of each was recorded: 1: …"}
-{"answer": "23/38", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/medium/1/d83b434aa01a", "text": "76 seeds from a packet were planted, and the germination outcome of each was re…"}
-{"answer": "2/7", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/medium/2/f18fe1f2fcee", "text": "A six-sided die was rolled 161 times, and the outcome of each was recorded: 1: …"}
+{"answer": "60/77", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/0/661712034ef6", "text": "77 seeds from a packet were planted, and the germination outcome of each was re…"}
+{"answer": "148/165", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/1/f04af6428626", "text": "A six-sided die was rolled 165 times, and the outcome of each was recorded: 1: …"}
+{"answer": "49/64", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/2/5f78640e2d4e", "text": "A spinner was spun 128 times, and the colour of each was recorded: red: 38, blu…"}
+{"answer": "24/143", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/medium/0/42e62385fb08", "text": "A six-sided die was rolled 143 times, and the outcome of each was recorded: 1: …"}
+{"answer": "23/38", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/medium/1/e5ed4243c8f7", "text": "76 seeds from a packet were planted, and the germination outcome of each was re…"}
+{"answer": "2/7", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/medium/2/caca43fde2db", "text": "A six-sided die was rolled 161 times, and the outcome of each was recorded: 1: …"}
 {"answer": "1/5, 1/5, 3/5", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/0/051d1b565599", "text": "Over 20 batches, the number of defective items in a sample batch (X) was record…"}
 {"answer": "5/28, 17/28, 3/14", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/1/b5bdee139b5b", "text": "Over 28 hours, the number of calls a helpdesk receives per hour (X) was recorde…"}
 {"answer": "9/32, 1/4, 15/32", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/2/3f6f84bb5483", "text": "Over 32 hours, the number of calls a helpdesk receives per hour (X) was recorde…"}
@@ -7129,7 +7129,7 @@
 {"answer": "lower = 6.9, upper = 13.1", "id": "senior-use-the-approximate-confidence-interval-left-widehat-p/medium/0/99931fec8873", "text": "In a survey of 260 voters, 26 said they intend to vote yes, giving a sample pro…"}
 {"answer": "lower = 27.7, upper = 42.3", "id": "senior-use-the-approximate-confidence-interval-left-widehat-p/medium/1/f4f84a5b7a0f", "text": "In a survey of 280 voters, 98 said they intend to vote yes, giving a sample pro…"}
 {"answer": "lower = 32.0, upper = 44.0", "id": "senior-use-the-approximate-confidence-interval-left-widehat-p/medium/2/2ac79895d7c9", "text": "In a survey of 250 voters, 95 said they intend to vote yes, giving a sample pro…"}
-{"answer": "0.8464", "id": "senior-use-the-coefficient-of-determination-to-assess-the/easy/0/ef91ca8db17b", "text": "A researcher reports a correlation coefficient of r = 0.92 between age and reac…"}
+{"answer": "0.8464", "id": "senior-use-the-coefficient-of-determination-to-assess-the/easy/0/ecc3d1377ccf", "text": "A researcher reports a correlation coefficient of r = 0.92 between age and reac…"}
 {"answer": "0.2025", "id": "senior-use-the-coefficient-of-determination-to-assess-the/easy/1/e96bf5823a1d", "text": "A researcher reports a correlation coefficient of r = 0.45 between hours of pra…"}
 {"answer": "0.1764", "id": "senior-use-the-coefficient-of-determination-to-assess-the/easy/2/4b5c9569cbd3", "text": "A researcher reports a correlation coefficient of r = 0.42 between advertising …"}
 {"answer": "10.40", "id": "senior-use-the-coefficient-of-determination-to-assess-the/exam/0/24bc6248cc3b", "text": "For marathon finishing time, Model A (using weekly training distance, a negativ…"}
@@ -8485,18 +8485,18 @@
 {"answer": "unstable node", "id": "ucv1-phase-plane-linear-classification/medium/0/c24d9506da73", "text": "For the linear system x' = -3x + 8y, y' = -4x + 9y, classify the equilibrium at…"}
 {"answer": "saddle", "id": "ucv1-phase-plane-linear-classification/medium/1/72e448f93ede", "text": "For the linear system x' = -2x + 6y, y' = 4y, classify the equilibrium at the o…"}
 {"answer": "stable node", "id": "ucv1-phase-plane-linear-classification/medium/2/60494f549817", "text": "For the linear system x' = -6x + 4y, y' = -2y, classify the equilibrium at the …"}
-{"answer": "25/144", "id": "ucv1-poisson-count-probability/easy/0/b9b6dd70c128", "text": "For a Poisson process, lambda*t = 5. Using e^(-lambda t) = 1/150 (given, exact …"}
+{"answer": "25/144", "id": "ucv1-poisson-count-probability/easy/0/17bfbb06134d", "text": "For a Poisson process, lambda*t = 5. Using e^(-lambda t) = 1/150 (given, exact …"}
 {"answer": "1/16", "id": "ucv1-poisson-count-probability/easy/1/0bc3441e57ab", "text": "A Poisson process has lambda*t = 1. Take e^(-lambda t) to be 3/8 for this quest…"}
-{"answer": "8/675", "id": "ucv1-poisson-count-probability/easy/2/0f74b861583c", "text": "A Poisson process has lambda*t = 2. Take e^(-lambda t) to be 2/15 for this ques…"}
+{"answer": "8/675", "id": "ucv1-poisson-count-probability/easy/2/7e3e730b8c16", "text": "A Poisson process has lambda*t = 2. Take e^(-lambda t) to be 2/15 for this ques…"}
 {"answer": "(a) 8/55; (b) 54/55; (c) 4/27; (d) 8/9150625", "id": "ucv1-poisson-count-probability/exam/0/dbbf5e1cdbfb", "text": "Trams stop at a Melbourne tram stop as a Poisson process, at an average of 20 t…"}
 {"answer": "(a) 121/1960; (b) 244/245; (c) 121/1952; (d) 121/480200", "id": "ucv1-poisson-count-probability/exam/1/eb2be2ac6e3e", "text": "Trams stop at a Melbourne tram stop as a Poisson process, at an average of 22 t…"}
 {"answer": "(a) 32/165; (b) 54/55; (c) 16/81; (d) 32/27451875", "id": "ucv1-poisson-count-probability/exam/2/9ed1fb37953e", "text": "Customers enter a bakery in Fremantle as a Poisson process, at an average of 12…"}
 {"answer": "1/2", "id": "ucv1-poisson-count-probability/hard/0/e70e07a384bd", "text": "A Poisson process has lambda*t = 8. Find P(N(t) = 3) / P(N(t) = 4), the ratio o…"}
 {"answer": "32/3", "id": "ucv1-poisson-count-probability/hard/1/30d7d2bdcee9", "text": "A Poisson process has lambda*t = 8. Find the exact value of P(N(t) = 3) divided…"}
 {"answer": "3/512", "id": "ucv1-poisson-count-probability/hard/2/383a2b4c9929", "text": "A Poisson process has lambda*t = 8. Find P(N(t) = 0) / P(N(t) = 4), the ratio o…"}
-{"answer": "3/200", "id": "ucv1-poisson-count-probability/medium/0/2f84070a0c35", "text": "A Poisson process has rate lambda = 3. Over t = 2 units, e^(-lambda t) is taken…"}
-{"answer": "27/200", "id": "ucv1-poisson-count-probability/medium/1/47c337c14829", "text": "A Poisson process has rate lambda = 3 events per unit time. Over t = 2 units of…"}
-{"answer": "128/825", "id": "ucv1-poisson-count-probability/medium/2/0c0f5944979c", "text": "A Poisson process has rate lambda = 2 events per unit time. Over t = 2 units of…"}
+{"answer": "3/200", "id": "ucv1-poisson-count-probability/medium/0/08de76c9bd7f", "text": "A Poisson process has rate lambda = 3. Over t = 2 units, e^(-lambda t) is taken…"}
+{"answer": "27/200", "id": "ucv1-poisson-count-probability/medium/1/c01ea6d8a464", "text": "A Poisson process has rate lambda = 3 events per unit time. Over t = 2 units of…"}
+{"answer": "128/825", "id": "ucv1-poisson-count-probability/medium/2/66af35aa4229", "text": "A Poisson process has rate lambda = 2 events per unit time. Over t = 2 units of…"}
 {"answer": "-1/6 < x < 1/6", "id": "ucv1-power-series-convergence/easy/0/2996b2bb2b14", "text": "For which values of x does the power series Σ n(6x)^n, with n = 1, 2, 3, …, con…"}
 {"answer": "-1/9 < x < 1/9", "id": "ucv1-power-series-convergence/easy/1/e7344c6ff45d", "text": "Find all values of x for which the series Σ n(9x)^n, summed over n = 1, 2, 3, ……"}
 {"answer": "-3 < x < 3", "id": "ucv1-power-series-convergence/easy/2/ad3c83a1882f", "text": "Find the set of values of x for which the series Σ x^n / 3^n, summed over n = 1…"}
