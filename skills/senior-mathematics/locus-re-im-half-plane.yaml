@@ -1,0 +1,90 @@
+id: locus-re-im-half-plane
+name: Describe a half-plane or strip locus from a condition on Re and Im
+domain: senior-mathematics
+description: 'Turn a condition on the real or imaginary part of a transformation of z into a condition on x or y alone:
+  Re(z + t) and Im(z + t), Re(kz + t) with k negative so the inequality reverses, and conditions involving the conjugate
+  or a multiple of i, including strips such as -2 < Re(2z + 3) <= 5. The exam chain finds the boundary of Re(z - a) >= Im(z
+  + bi), the real numbers in the set and the least |z| over it.'
+status: active
+placement_eligible: false
+prerequisites:
+- complex-real-part
+- complex-imaginary-part
+- complex-conjugate
+answer: inequality
+sources:
+- topic: sr2l_re_im
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sr2l_re_im
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sr2l_re_im
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sr2l_re_im_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sr2l-boundary-included-or-excluded
+  description: Counting a point on the boundary for a strict inequality, or leaving it out for a non-strict one.
+- id: sr2l-coefficient-not-divided
+  description: Moving the constant but leaving the coefficient of x or y undivided.
+- id: sr2l-conjugate-sign-ignored
+  description: Forgetting that the imaginary part of a conjugate has the opposite sign, so Im of the conjugate of z is -y
+    and not y.
+- id: sr2l-constant-sign-error
+  description: Adding a constant where it should be subtracted (or the reverse) when solving for x or y.
+- id: sr2l-constant-squared
+  description: Squaring the combined constant where it should be used as it is.
+- id: sr2l-factor-two-omitted
+  description: Dividing the area by the hypotenuse without the factor of two, giving half the perpendicular distance.
+- id: sr2l-gradient-sign-wrong
+  description: Taking the gradient of the perpendicular bisector to be the reciprocal without its change of sign.
+- id: sr2l-hypotenuse-for-distance
+  description: Giving the hypotenuse of the intercept triangle as the distance from the origin to the line.
+- id: sr2l-inequality-not-reversed
+  description: Not reversing the inequality when dividing by a negative coefficient.
+- id: sr2l-intercept-for-distance
+  description: Giving an intercept of the line as its distance from the origin, rather than the length of the perpendicular.
+- id: sr2l-multiplication-by-i-sign
+  description: 'Getting the sign wrong when multiplying z by i: iz = -y + ix, so Re(iz) is -y and Im(iz) is x.'
+- id: sr2l-part-of-constant
+  description: Giving one of the two constants in the condition instead of their combination.
+- id: sr2l-re-im-confused
+  description: Reading the real part as y or the imaginary part as x, so the condition is on the wrong variable.
+- id: sr2l-re-im-constant-mixed
+  description: Combining the constants of the real and imaginary sides with the wrong sign when finding the boundary of
+    Re(z - a) >= Im(z + bi).
+- id: sr2l-root-two-omitted
+  description: Dividing the intercept by 2 instead of by the square root of 2 when finding the perpendicular distance.
+- id: sr2l-sign-lost-solving
+  description: Losing the sign of the gradient when solving mx + c = 0 for x.
+- id: sr2l-vertex-ignored
+  description: Drawing the ray or line through the origin, ignoring that Arg(z - a) measures the angle about a.
+difficulty_progression: 'Easy moves only a constant: Re(z + t) or Im(z + t) against a number. Medium multiplies z by a whole
+  number that may be negative, so the coefficient has to be divided out and the inequality may reverse. Hard uses the conjugate
+  or a multiple of i, so Re and Im change roles and the sign of y can flip, and about half the questions give a double inequality
+  describing a strip. The exam chain gives Re(z - d1) >= Im(z + d2 i) (or its mirror) and finds the boundary line, its real-axis
+  intercept, the condition on the real numbers in the set and, following through from the intercept, the least |z|.'
+tags:
+- complex-numbers
+- complex-plane-loci
+- real-part
+- imaginary-part
+- half-plane
+- acara-v8-4
+- ACMSM086

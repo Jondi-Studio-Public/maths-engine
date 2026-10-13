@@ -1,0 +1,82 @@
+id: locus-argument-ray-wedge
+name: Find the line that bounds an argument ray or wedge
+domain: senior-mathematics
+description: Find the Cartesian equation of the line that contains the ray Arg(z - a) = theta, from the equation, from a
+  ray drawn from an open dot, and for the boundary rays of a wedge theta1 <= Arg(z - a) <= theta2. The exam chain gives
+  both boundary lines of a wedge, the length it cuts from a horizontal or vertical line and the area of the triangle that
+  cut makes with the vertex.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+- senior-find-the-equation-of-a-straight-line-given
+answer: pair
+sources:
+- topic: sr2l_arg_ray
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sr2l_arg_ray
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sr2l_arg_ray
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sr2l_arg_ray_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sr2l-argument-sign-flipped
+  description: Using the opposite angle for an argument, so the ray is reflected in the horizontal line through its start.
+- id: sr2l-base-for-area
+  description: Giving half the base of a triangle as its area, forgetting to multiply by the height.
+- id: sr2l-centre-sign-flipped
+  description: 'Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred
+    at (2, -3) instead of (-2, 3).'
+- id: sr2l-chord-and-height-added
+  description: Adding two lengths of a triangle where one is to be multiplied by the other.
+- id: sr2l-chord-doubled
+  description: Doubling the length between the two boundary rays, as if the cut were measured for each ray separately.
+- id: sr2l-chord-half-only
+  description: Giving the distance from the vertex to a cutting line, or half the length it cuts off the wedge, where the
+    full length between the boundary rays was asked for.
+- id: sr2l-perpendicular-line-for-ray
+  description: Giving the line perpendicular to the ray through its start, as if the argument were measured from the imaginary
+    axis.
+- id: sr2l-real-imaginary-swapped
+  description: Swapping the real and imaginary parts of a centre or point, so the real part is plotted up the imaginary
+    axis.
+- id: sr2l-triangle-half-omitted
+  description: Giving base times height for the area of a triangle, without halving.
+- id: sr2l-vertex-ignored
+  description: Drawing the ray or line through the origin, ignoring that Arg(z - a) measures the angle about a.
+- id: sr2l-wrong-boundary-ray
+  description: Giving the line of the other boundary ray of a wedge, the one with the smaller argument where the greater
+    was asked for, or the reverse.
+difficulty_progression: Easy gives Arg(z - a) = theta with theta a multiple of pi/4 and a written with signs to resolve.
+  Medium draws the ray from an open dot with a gradient such as 2, 1/2 or -3, so the line must be read from lattice points.
+  Hard gives a wedge with a general vertex and negative or obtuse arguments and asks for the boundary with the greater or
+  smaller argument. The exam chain gives both boundary lines of a wedge, the chord it cuts from a line (counting from the
+  vertex) and the area of the triangle (following through from the chord).
+tags:
+- complex-numbers
+- complex-plane-loci
+- argument
+- argand-diagram
+- acara-v8-4
+- ACMSM086

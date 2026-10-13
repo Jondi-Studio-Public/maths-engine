@@ -1,0 +1,98 @@
+id: locus-circle-centre-radius
+name: Find the centre of a circle locus in the complex plane
+domain: senior-mathematics
+description: 'Find the centre of a circle locus as an ordered pair from the form the condition is written in: |z - w| =
+  r with the signs of w to resolve, |kz + w| = m, |z - w| = |u|, a Cartesian equation with squared terms, a z z-bar equation,
+  the image of a circle under w = kz + b, or a circle with two stated points as the ends of a diameter. The exam chain adds
+  the radius and the shortest distance from a point to the circle.'
+status: active
+placement_eligible: false
+prerequisites:
+- complex-modulus
+- senior-consider-complex-numbers-as-points-in-a-plane
+answer: pair
+sources:
+- topic: sr2l_circle_centre
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sr2l_circle_centre
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sr2l_circle_centre
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sr2l_circle_centre_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sr2l-centre-not-halved
+  description: Reading the centre of x^2 + y^2 + Dx + Ey + F = 0 as (-D, -E), forgetting to halve the coefficients.
+- id: sr2l-centre-sign-flipped
+  description: 'Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred
+    at (2, -3) instead of (-2, 3).'
+- id: sr2l-coefficient-scale-ignored
+  description: Not dividing by the coefficient of x^2 and y^2 before reading the centre from the equation of a circle.
+- id: sr2l-components-added
+  description: Adding the real and imaginary parts of a difference of complex numbers instead of taking its modulus.
+- id: sr2l-conjugate-coefficient
+  description: Reading the centre from the coefficient of z instead of the coefficient of z-bar, which gives the conjugate
+    of the centre.
+- id: sr2l-diameter-for-radius
+  description: Using the diameter of a circle where its radius belongs.
+- id: sr2l-difference-for-midpoint
+  description: Subtracting the ends of a diameter to find the centre, which gives the diameter vector and not the midpoint.
+- id: sr2l-distance-from-origin
+  description: Measuring the distance of a point from the origin where the distance from the centre was asked for.
+- id: sr2l-distance-to-centre-not-circle
+  description: Giving the distance to the centre of the circle where the distance to the circle itself was asked for.
+- id: sr2l-midpoint-not-halved
+  description: Adding the two ends of a diameter without halving, so the centre is twice as far from the origin as it should
+    be.
+- id: sr2l-nearest-and-farthest-confused
+  description: Adding the radius to the distance to the centre, which gives the farthest point of the circle instead of
+    the nearest.
+- id: sr2l-radius-modulus-as-centre
+  description: Taking the complex number on the right of |z - w| = |u| as the centre or part of it, when its modulus is
+    the radius.
+- id: sr2l-radius-squared
+  description: Using the radius squared where the radius belongs, or comparing a squared distance with the radius itself.
+- id: sr2l-real-imaginary-swapped
+  description: Swapping the real and imaginary parts of a centre or point, so the real part is plotted up the imaginary
+    axis.
+- id: sr2l-scale-factor-not-divided
+  description: Reading the centre of |kz + w| = m as -w, without dividing by the coefficient k of z.
+- id: sr2l-square-root-omitted
+  description: Leaving the distance squared, without taking the square root.
+- id: sr2l-subtracted-the-wrong-way
+  description: Subtracting the larger quantity from the smaller, which gives a negative modulus.
+- id: sr2l-transformation-ignored
+  description: Giving the centre of the original circle where the centre of its image was asked for.
+- id: sr2l-translation-only
+  description: Applying only the translation, or only the scale factor, to the centre of a circle that is dilated and translated.
+difficulty_progression: 'Easy reads the centre from |z - w| = r in three printings, so the sign of each part of w has to
+  be resolved. Medium needs a step before the centre shows: dividing out the coefficient k in |kz + w| = m, or recognising
+  that the complex number on the right of |z - w| = |u| is a radius and not a centre. Hard requires the circle to be recognised
+  first, from a Cartesian equation (sometimes scaled), a z z-bar equation, its image under w = kz + b, or the ends of a
+  diameter. The exam chain finds the centre, then the radius, the distance from a point to the centre and, following through,
+  the shortest distance from the point to the circle.'
+tags:
+- complex-numbers
+- complex-plane-loci
+- circle
+- argand-diagram
+- acara-v8-4
+- ACMSM086
+- ACMSM085

@@ -16194,6 +16194,376 @@ _ENTRIES = (
         "Reducing the area by the waste percentage instead of increasing it.",
         area="measurement",
     ),
+    CatalogueEntry(
+        "sr2l-centre-sign-flipped",
+        "Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred at (2, -3) instead of (-2, 3).",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-real-imaginary-swapped",
+        "Swapping the real and imaginary parts of a centre or point, so the real part is plotted up the imaginary axis.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-diameter-for-radius",
+        "Using the diameter of a circle where its radius belongs.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-inside-outside-reversed",
+        "Choosing the points outside the circle where the points inside were asked for, or the reverse.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-boundary-included-or-excluded",
+        "Counting a point on the boundary for a strict inequality, or leaving it out for a non-strict one.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-radius-squared",
+        "Using the radius squared where the radius belongs, or comparing a squared distance with the radius itself.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-inner-circle-ignored",
+        "Describing the region between two circles by its outer boundary alone, so the inner disc is wrongly included.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-difference-of-radii",
+        "Using the difference of the two radii as the outer radius of the region between concentric circles.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-components-added",
+        "Adding the real and imaginary parts of a difference of complex numbers instead of taking its modulus.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-larger-component-only",
+        "Taking the larger of the real and imaginary parts as the modulus.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-modulus-of-point-not-distance",
+        "Using the modulus of a point on the circle as the radius, instead of its distance from the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-greatest-and-least-confused",
+        "Giving the greatest value of |z| over a disc where the least was asked for, or the reverse.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-radius-for-modulus",
+        "Giving the radius of a disc as the greatest or least value of |z|, forgetting that the centre is not the origin.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-modulus-only",
+        "Giving the distance from the origin to the centre as the greatest or least value of |z|, forgetting the radius.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-subtracted-the-wrong-way",
+        "Subtracting the larger quantity from the smaller, which gives a negative modulus.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-modulus-compared-with-radius",
+        "Testing |z| against the radius instead of |z - c|, measuring the distance from the origin and not from the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-scale-factor-not-divided",
+        "Reading the centre of |kz + w| = m as -w, without dividing by the coefficient k of z.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-radius-modulus-as-centre",
+        "Taking the complex number on the right of |z - w| = |u| as the centre or part of it, when its modulus is the radius.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-not-halved",
+        "Reading the centre of x^2 + y^2 + Dx + Ey + F = 0 as (-D, -E), forgetting to halve the coefficients.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-coefficient-scale-ignored",
+        "Not dividing by the coefficient of x^2 and y^2 before reading the centre from the equation of a circle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-conjugate-coefficient",
+        "Reading the centre from the coefficient of z instead of the coefficient of z-bar, which gives the conjugate of the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-transformation-ignored",
+        "Giving the centre of the original circle where the centre of its image was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-translation-only",
+        "Applying only the translation, or only the scale factor, to the centre of a circle that is dilated and translated.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-midpoint-not-halved",
+        "Adding the two ends of a diameter without halving, so the centre is twice as far from the origin as it should be.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-difference-for-midpoint",
+        "Subtracting the ends of a diameter to find the centre, which gives the diameter vector and not the midpoint.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-square-root-omitted",
+        "Leaving the distance squared, without taking the square root.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-from-origin",
+        "Measuring the distance of a point from the origin where the distance from the centre was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-to-centre-not-circle",
+        "Giving the distance to the centre of the circle where the distance to the circle itself was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-nearest-and-farthest-confused",
+        "Adding the radius to the distance to the centre, which gives the farthest point of the circle instead of the nearest.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-line-for-bisector",
+        "Giving the line through the two points, through their midpoint, where the perpendicular bisector was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-bisector-through-endpoint",
+        "Drawing the perpendicular line through one of the two points instead of through their midpoint.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-gradient-sign-wrong",
+        "Taking the gradient of the perpendicular bisector to be the reciprocal without its change of sign.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-conjugate-ignored",
+        "Treating |z-bar - b| as |z - b|, forgetting that the conjugate reflects b in the real axis.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-root-sum-as-point",
+        "Using half the sum of the roots as a point on the bisector instead of finding the roots first.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-intercept-for-root",
+        "Giving the y-intercept, or its product with the gradient, where the x-intercept was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-sign-lost-solving",
+        "Losing the sign of the gradient when solving mx + c = 0 for x.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-triangle-half-omitted",
+        "Giving base times height for the area of a triangle, without halving.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-base-and-height-added",
+        "Adding the base and the height of a triangle instead of multiplying them.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-wrong-triangle-side",
+        "Using the same intercept for both the base and the height of the triangle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-intercept-for-distance",
+        "Giving an intercept of the line as its distance from the origin, rather than the length of the perpendicular.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-hypotenuse-for-distance",
+        "Giving the hypotenuse of the intercept triangle as the distance from the origin to the line.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-factor-two-omitted",
+        "Dividing the area by the hypotenuse without the factor of two, giving half the perpendicular distance.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-argument-sign-flipped",
+        "Using the opposite angle for an argument, so the ray is reflected in the horizontal line through its start.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-vertex-ignored",
+        "Drawing the ray or line through the origin, ignoring that Arg(z - a) measures the angle about a.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-wrong-boundary-ray",
+        "Giving the line of the other boundary ray of a wedge, the one with the smaller argument where the greater was asked for, or the reverse.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-half-only",
+        "Giving the distance from the vertex to a cutting line, or half the length it cuts off the wedge, where the full length between the boundary rays was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-and-height-added",
+        "Adding two lengths of a triangle where one is to be multiplied by the other.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-doubled",
+        "Doubling the length between the two boundary rays, as if the cut were measured for each ray separately.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-base-for-area",
+        "Giving half the base of a triangle as its area, forgetting to multiply by the height.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-perpendicular-line-for-ray",
+        "Giving the line perpendicular to the ray through its start, as if the argument were measured from the imaginary axis.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-inequality-not-reversed",
+        "Not reversing the inequality when dividing by a negative coefficient.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-constant-sign-error",
+        "Adding a constant where it should be subtracted (or the reverse) when solving for x or y.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-coefficient-not-divided",
+        "Moving the constant but leaving the coefficient of x or y undivided.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-re-im-confused",
+        "Reading the real part as y or the imaginary part as x, so the condition is on the wrong variable.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-conjugate-sign-ignored",
+        "Forgetting that the imaginary part of a conjugate has the opposite sign, so Im of the conjugate of z is -y and not y.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-multiplication-by-i-sign",
+        "Getting the sign wrong when multiplying z by i: iz = -y + ix, so Re(iz) is -y and Im(iz) is x.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-re-im-constant-mixed",
+        "Combining the constants of the real and imaginary sides with the wrong sign when finding the boundary of Re(z - a) >= Im(z + bi).",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-part-of-constant",
+        "Giving one of the two constants in the condition instead of their combination.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-constant-squared",
+        "Squaring the combined constant where it should be used as it is.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-root-two-omitted",
+        "Dividing the intercept by 2 instead of by the square root of 2 when finding the perpendicular distance.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-midpoint-for-centre",
+        "Taking the midpoint of the two given points as the centre of the circle |z - a| = k|z - b|, which is the centre only when k = 1.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-closer-point-for-centre",
+        "Giving one of the two given points as the centre of the circle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-internal-point-for-centre",
+        "Giving the point of the circle between the two given points as its centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-external-point-for-centre",
+        "Giving the point of the circle on the far side of the closer point as its centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-ratio-inverted",
+        "Dividing the segment between the points in the ratio 1 : k from the wrong end, so the locus point is nearer a than b.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-for-point",
+        "Giving the centre of the circle where a point of the circle was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-external-point-for-internal",
+        "Giving the point of the circle outside the segment where the point between the two given points was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-between-points-for-radius",
+        "Giving the distance between the two given points as the radius of the circle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-ratio-for-radius",
+        "Giving a third of the distance between the given points (or a similar fraction of it) as the radius, without the factor k.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-offset-ignored",
+        "Taking the radius as the half-length of a chord, forgetting that the line is not through the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-wrong-offset-used",
+        "Using the distance from the centre to the line where the half-chord was needed.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-real-for-imaginary",
+        "Using the real part of the centre where the imaginary part belongs.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-one-intersection-only",
+        "Giving only one intersection of a line with a circle, or a second value one away from the first.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-by-sum",
+        "Adding the radius and the distance from the centre to the line where the chord length was asked for.",
+        area="complex-loci",
+    ),
 )
 
 #: Every entry, by id.
