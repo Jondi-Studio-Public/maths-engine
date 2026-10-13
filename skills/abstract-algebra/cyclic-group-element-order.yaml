@@ -1,6 +1,7 @@
 id: cyclic-group-element-order
 name: Find an element order in a small cyclic group
 domain: abstract-algebra
+year_level: [university]
 description: Compute the additive order of an element of the finite cyclic group Z modulo n by repeated addition.
 status: active
 prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]

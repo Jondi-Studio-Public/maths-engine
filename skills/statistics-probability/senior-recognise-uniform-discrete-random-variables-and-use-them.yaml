@@ -6,7 +6,9 @@ domain: statistics-probability
 description: Given a stated random phenomenon with n equally likely discrete outcomes, compute the probability of any one specified outcome under the uniform discrete model. n is always DERIVED from a described context (a count of items, an arithmetic product of sub-divisions, or a choice between a uniform and a non-uniform phenomenon), never handed directly as a bare number to plug in. Never presents a probability-distribution table with unequal given fractions (that is the shipping senior-examine-simple-examples-of-non-uniform-discrete-random skill's own stimulus shape) and never asks "are these outcomes equally likely?" as its graded question (that is the shipping f10-random-equal-likelihood-outcomes skill's own graded question, a classification that never computes a probability value).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- finite-sample-space-probability
+- f10-random-equal-likelihood-outcomes
 answer: fraction
 sources:
 - topic: p19c_uniform_discrete_outcome

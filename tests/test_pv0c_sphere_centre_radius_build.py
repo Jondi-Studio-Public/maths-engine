@@ -255,7 +255,7 @@ def test_skill_loads_through_api_with_correct_properties():
     assert SKILL.status == "active"
     assert SKILL.placement_eligible is False
     assert SKILL.answer == "ordered_list"
-    assert SKILL.prerequisites == []
+    assert SKILL.prerequisites == ["f10-three-dimensional-coordinates", "coordinate-plane-readiness"]
     assert {src.difficulty for src in SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert SOURCES["exam"].stages == ["exam"]
     assert SOURCES["hard"].stages == [6, "maintenance"]

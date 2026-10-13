@@ -1,6 +1,7 @@
 id: ucv1-joint-distribution-marginal
 name: Compute marginals from a joint distribution
 domain: probability
+year_level: [university]
 description: Compute one marginal probability and one conditional probability from a supplied finite joint table.
 status: active
 placement_eligible: false

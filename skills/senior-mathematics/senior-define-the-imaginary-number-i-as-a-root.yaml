@@ -13,7 +13,9 @@ description: |
   the question text always shows lowercase i.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- classify-real-numbers
+- f10-square-roots-perfect-squares
 answer: expression
 sources:
   - topic: imaginary_number_i_root

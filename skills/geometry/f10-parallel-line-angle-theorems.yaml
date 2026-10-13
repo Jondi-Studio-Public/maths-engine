@@ -1,6 +1,8 @@
 id: f10-parallel-line-angle-theorems
 name: Apply transversal angle relationships
 domain: geometry
+naplan_domain: [measurement]
+year_level: ['7']
 description: Given a stated angle and a named relationship (corresponding, alternate or co-interior) formed by two parallel lines cut by a transversal, determine the unknown angle in degrees.
 status: active
 capability_gates: [figure_stimulus]

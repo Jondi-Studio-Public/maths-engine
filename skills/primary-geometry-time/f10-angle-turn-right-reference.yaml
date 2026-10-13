@@ -1,6 +1,7 @@
 id: f10-angle-turn-right-reference
 name: Express turns as right angles
 domain: primary-geometry-time
+year_level: ['2', '3']
 description: Express a stated everyday turn (quarter, half, three-quarter or full turn) as a number of right angles.
 status: active
 placement_eligible: false

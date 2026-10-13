@@ -1,6 +1,7 @@
 id: prime-factorisation-exponent
 name: Express prime factorisation with exponents
 domain: secondary-number
+year_level: ['7']
 description: Express a supplied natural number as a product of prime powers in exponent notation.
 status: active
 prerequisites: [prime-factorisation, evaluate-powers]

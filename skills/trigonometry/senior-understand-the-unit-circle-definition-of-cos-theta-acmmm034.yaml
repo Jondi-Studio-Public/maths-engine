@@ -6,7 +6,8 @@ domain: trigonometry
 description: "Use the unit-circle definition tan(theta) = sin(theta) / cos(theta) to evaluate tan(theta) for a stated terminal point on the unit circle, or state that it is undefined where cos(theta) = 0."
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-understand-the-unit-circle-definition-of-cos-theta
 answer: mcq
 sources:
 - topic: unit_circle_tan_evaluate

@@ -4,8 +4,8 @@ domain: linear-relations
 description: Identify and interpret the output value when the input is zero.
 status: active
 prerequisites:
-- independent-dependent-variables
-- plot-linear-points
+- input-output-tables
+- coordinate-plane-readiness
 answer: number
 sources:
 - topic: linear_from_table

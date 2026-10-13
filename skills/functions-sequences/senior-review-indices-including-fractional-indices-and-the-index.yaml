@@ -6,7 +6,9 @@ domain: functions-sequences
 description: Apply the product, quotient and power-of-a-power index laws to combine two or three like-base index terms with a symbolic base x, into a single simplified power of x. Exponents may be integers or simple fractions (1/2, 1/3, 2/3). Does not assess index laws applied to a purely numeric base (radical evaluation), the zero-index or negative-index laws as standalone identities, or index laws applied to different symbolic bases.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- evaluate-powers
+- f10-exponent-laws-positive-zero
 answer: expression
 sources:
 - topic: index_laws_review

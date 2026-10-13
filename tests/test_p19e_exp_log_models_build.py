@@ -323,7 +323,10 @@ def test_skill_exp_loads_with_correct_metadata():
     assert skill is not None
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-review-indices-including-fractional-indices-and-the-index",
+        "percentage-change",
+    ]
     all_stages = set()
     for source in skill.sources:
         all_stages.update(source.stages)
@@ -336,7 +339,10 @@ def test_skill_log_loads_with_correct_metadata():
     assert skill is not None
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-define-logarithms-as-indices-a-x-b-is",
+        "senior-identify-contexts-suitable-for-modelling-by-exponential-functions",
+    ]
     all_stages = set()
     for source in skill.sources:
         all_stages.update(source.stages)

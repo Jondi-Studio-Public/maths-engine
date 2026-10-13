@@ -1,10 +1,13 @@
 id: ucv1-finite-automaton-acceptance
 name: Evaluate a finite automaton on a supplied word
 domain: logic-computability-and-information
+year_level: [university]
 description: Decide whether a deterministic finite automaton accepts a supplied finite word by following its transition table, stating both the verdict and the state the run ends in.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- finite-set-operations
+- apply-a-rule-to-inputs
 answer: mcq
 sources:
 - topic: p15d_automaton_acceptance

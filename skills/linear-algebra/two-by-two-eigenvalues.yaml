@@ -1,6 +1,7 @@
 id: two-by-two-eigenvalues
 name: Find eigenvalues of a triangular 2x2 matrix
 domain: linear-algebra
+year_level: [university]
 description: Find the two eigenvalues of an upper-triangular 2x2 matrix by solving its characteristic equation.
 status: active
 prerequisites: [matrix-determinant-2x2]

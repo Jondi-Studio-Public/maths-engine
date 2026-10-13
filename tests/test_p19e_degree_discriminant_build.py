@@ -412,7 +412,7 @@ class TestSkillLoad:
         assert skill.domain == "functions-sequences"
         assert skill.answer == "pair"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["variable-concept", "evaluate-powers"]
         stages_covered = set()
         for source in skill.sources:
             assert source.topic == DEG_TOPIC

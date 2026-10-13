@@ -1,6 +1,8 @@
 id: f10-read-time-to-the-minute
 name: Read an analogue clock to the minute
 domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [measurement]
 description: Read the time on a drawn analogue clock to the nearest five minutes and to the minute, relating the hour hand to the minute hand, and find how much time has passed between two drawn clocks.
 status: active
 capability_gates: [figure_stimulus]

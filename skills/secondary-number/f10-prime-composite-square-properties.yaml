@@ -1,6 +1,8 @@
 id: f10-prime-composite-square-properties
 name: Prime, composite, and perfect-square classification
 domain: secondary-number
+year_level: ['6']
+naplan_domain: [number]
 description: Given a stated natural number and one of the properties prime, composite or perfect square, determine whether the number has that property.
 status: active
 placement_eligible: false

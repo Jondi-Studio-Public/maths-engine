@@ -6,7 +6,9 @@ domain: differentiation
 description: Given a cubic function with exactly one point of inflection (by construction, on every question), find that point's x-value -- where the second derivative equals zero and changes sign -- and state whether concavity changes from concave up to concave down or from concave down to concave up there. The graded answer is the x-value followed by the concavity-change phrase, typed as two items separated by a comma (e.g. "3, concave up to concave down") -- graded as an ordered_list because a pair grader cannot compare a text direction component.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- second-derivative
+- stationary-points
 answer: ordered_list
 sources:
 - topic: p19f_concavity_inflection

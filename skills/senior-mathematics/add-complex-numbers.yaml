@@ -3,7 +3,9 @@ name: Add complex numbers
 domain: senior-mathematics
 description: Add complex numbers in Cartesian form by combining real and imaginary parts.
 status: active
-prerequisites: [complex-imaginary-part]
+prerequisites:
+- complex-imaginary-part
+- senior-define-the-imaginary-number-i-as-a-root
 answer: mcq
 sources: [{topic: complex_number, params: {kind: add}, difficulty: easy}, {topic: exd_x_r2e_complex_add, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: mixes-components, description: Combines a real part with an imaginary coefficient.}]

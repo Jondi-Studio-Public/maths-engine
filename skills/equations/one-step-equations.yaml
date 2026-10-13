@@ -5,7 +5,7 @@ description: Solve equations that need a single inverse operation, with integer,
   decimal coefficients.
 status: active
 prerequisites:
-- inverse-operations
+- arithmetic-properties
 - integer-arithmetic
 - fraction-arithmetic
 - decimal-arithmetic

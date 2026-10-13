@@ -16,7 +16,9 @@ description: |
   as "compute the product" in the abstract.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- matrix-multiplication
+- coordinate-plane-readiness
 answer: pair
 sources:
   - topic: complex_mult_linear_transform

@@ -208,7 +208,6 @@ loops:
   - {module: p14f_energy_wave_build, function: _draw_nonzero, index: 0, kind: while_true}
   - {module: p15c_functional_build, function: _nonzero, index: 0, kind: rng_redraw}
   - {module: p15c_functional_build, function: _points_poly, index: 0, kind: rng_redraw}
-  - {module: p18a_line_graph_claims_build, function: _shuffled_pairs, index: 0, kind: rng_redraw}
   - {module: p19c_uniform_relative_frequency_build, function: p19c_relative_frequency_estimate, index: 0, kind: rng_redraw}
   - {module: p19c_uniform_relative_frequency_build, function: p19c_relative_frequency_estimate, index: 1, kind: rng_redraw}
   - {module: p19c_uniform_relative_frequency_build, function: p19c_relative_frequency_estimate, index: 2, kind: rng_redraw}

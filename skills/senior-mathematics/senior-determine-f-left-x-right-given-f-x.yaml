@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, determine f(x), given f'(x) and an initial condition f(a) = b. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- integrate-polynomial
+- senior-use-the-notation-int-f-left-x-right
 answer: expression
 sources:
 - topic: p10a_antiderivative_given_fprime

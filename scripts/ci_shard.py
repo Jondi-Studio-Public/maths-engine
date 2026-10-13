@@ -6,9 +6,16 @@ SHARD and COUNT are plain decimal integers with 0 <= SHARD < COUNT. Each output 
 test file path relative to the repository root, with "/" separators, so run pytest from
 the repository root.
 
-Files are balanced by size: sorted by size descending (ties by path) and each
+Work is balanced by weight: sorted by weight descending (ties by name) and each unit
 assigned greedily to the currently lightest shard (ties to the lowest index).
 Deterministic and stdlib only, so every CI shard computes the same partition.
+
+A unit's weight is its measured seconds from scripts/ci_shard_weights.txt, else its
+size in bytes times SECONDS_PER_BYTE. The weights file also names the few files that are
+small but slow; those are SPLIT, and each of their test functions is a unit of its own,
+printed as a pytest node id ("tests/test_x.py::test_fn"). The functions come from parsing
+the file, not from the weights file, so a test added later still runs, exactly once.
+CI hands every output line straight to pytest, which takes files and node ids alike.
 
 This script fails closed, because CI runs its output as the list of tests to run and an
 empty or missing list must never be mistaken for "nothing to do" or "run everything".
@@ -25,11 +32,20 @@ to stdout, one message goes to stderr, and the exit status is non-zero.
 
 from __future__ import annotations
 
+import ast
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+WEIGHTS = Path(__file__).resolve().parent / "ci_shard_weights.txt"
+
+# Converts a file size to estimated CI seconds for a file with no measured weight. Fitted so
+# that the unmeasured files and the measured sweeps sum to the shard-minutes seen on main
+# (about 9,800 s over the whole suite on 2026-10-13).
+SECONDS_PER_BYTE = 0.00057
+# What a test function of a split file costs when the weights file does not name it.
+DEFAULT_FUNCTION_SECONDS = 5.0
 
 # ASCII digits only and a length cap: int() also accepts "1_0", " 3 ", "+3" and non-ASCII
 # digits, and refuses very long digit strings, none of which is a shard number.
@@ -56,20 +72,83 @@ def test_files(root: Path = ROOT) -> list[Path]:
     return sorted(found)
 
 
-def partition(root: Path, count: int) -> list[list[str]]:
-    """Split the test files into ``count`` shards balanced by byte size.
+def load_weights(path: Path = WEIGHTS) -> dict[str, float]:
+    """Measured seconds per target, from lines of ``<seconds> <path>[::<test_function>]``.
 
-    Returns one sorted list per shard of paths relative to ``root`` with "/" separators.
-    A shard can come back empty when there are fewer files than shards.
+    A missing file means no measurements (everything falls back to size). A malformed line is
+    an error rather than being skipped, because a silently dropped weight skews the balance.
     """
-    sized = [(p.stat().st_size, p.relative_to(root).as_posix()) for p in test_files(root)]
-    sized.sort(key=lambda item: (-item[0], item[1]))
+    if not path.is_file():
+        return {}
+    weights: dict[str, float] = {}
+    for number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        parts = line.split()
+        try:
+            seconds = float(parts[0])
+        except ValueError:
+            seconds = -1.0
+        if len(parts) != 2 or not seconds >= 0 or parts[1] in weights:
+            raise ShardError(f"{path.name}:{number}: expected '<seconds> <target>' once per target, got {raw!r}", 1)
+        weights[parts[1]] = seconds
+    return weights
+
+
+def test_function_ids(path: Path) -> list[str]:
+    """Every test a module defines, as the names pytest selects them by.
+
+    ``test_fn`` for a module-level function and ``Class::test_fn`` for a method of a ``Test*``
+    class, in source order, each once. A name defined twice is one test (the later definition
+    replaces the earlier), so it is listed once.
+    """
+    names: list[str] = []
+    for node in ast.parse(path.read_text(encoding="utf-8")).body:
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test"):
+            names.append(node.name)
+        elif isinstance(node, ast.ClassDef) and node.name.startswith("Test"):
+            names += [
+                f"{node.name}::{item.name}"
+                for item in node.body
+                if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef)) and item.name.startswith("test")
+            ]
+    return list(dict.fromkeys(names))
+
+
+def work_units(root: Path, weights: dict[str, float] | None = None) -> list[tuple[float, str]]:
+    """Every unit of work as ``(seconds, target)``: a test file, or a node id of a split file."""
+    if weights is None:
+        weights = load_weights()
+    units: list[tuple[float, str]] = []
+    for path in test_files(root):
+        name = path.relative_to(root).as_posix()
+        prefix = name + "::"
+        if any(key.startswith(prefix) for key in weights):
+            functions = test_function_ids(path)
+            if not functions:
+                raise ShardError(f"{name} is split in the weights file but defines no test function", 1)
+            units += [(weights.get(prefix + fn, DEFAULT_FUNCTION_SECONDS), prefix + fn) for fn in functions]
+        else:
+            units.append((weights.get(name, path.stat().st_size * SECONDS_PER_BYTE), name))
+    return units
+
+
+def partition(root: Path, count: int, weights: dict[str, float] | None = None) -> list[list[str]]:
+    """Split the test files into ``count`` shards balanced by estimated seconds.
+
+    Returns one sorted list per shard of targets relative to ``root`` with "/" separators:
+    a test file path, or ``path::test_function`` for a file split by the weights file.
+    A shard can come back empty when there are fewer units than shards.
+    """
+    units = work_units(root, weights)
+    units.sort(key=lambda item: (-item[0], item[1]))
     shards: list[list[str]] = [[] for _ in range(count)]
-    loads = [0] * count
-    for size, name in sized:
+    loads = [0.0] * count
+    for seconds, name in units:
         target = min(range(count), key=lambda i: (loads[i], i))
         shards[target].append(name)
-        loads[target] += size
+        loads[target] += seconds
     return [sorted(s) for s in shards]
 
 

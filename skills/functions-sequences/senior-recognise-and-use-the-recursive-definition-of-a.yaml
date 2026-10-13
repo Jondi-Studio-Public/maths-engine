@@ -6,7 +6,9 @@ domain: functions-sequences
 description: Given the first several terms of a geometric sequence, state its recursive definition -- the first term and the rule t(n+1) = r times t(n). Never given t1 or r up front (that direction is the existing active catalog skill "senior-use-recursion-to-generate-a-geometric-sequence", which generates the next terms from a stated first term and rule); here only the terms are shown and the learner infers the first term and the common ratio r from them, a genuinely different cognitive operation.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- generate-sequence-from-rule
+- ratio-rate-proportion
 answer: pair
 sources:
 - topic: geometric_recursive_definition_state

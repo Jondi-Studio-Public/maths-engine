@@ -1,6 +1,8 @@
 id: f10-rational-percentage-financial-model
 name: Model rational and percentage financial problems
 domain: financial-discrete
+year_level: ['6', '7', '8']
+naplan_domain: [number]
 description: Given a stated rational-number-or-percentage financial context, determine whether a fraction or percentage operation correctly models it and compute the resulting value.
 status: active
 placement_eligible: false

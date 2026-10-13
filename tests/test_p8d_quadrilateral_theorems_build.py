@@ -234,7 +234,7 @@ class TestSkillsLoad:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-the-angle-at-the-centre-subtended-by-an"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4  # three practice tiers plus the exam source
 
@@ -244,6 +244,6 @@ class TestSkillsLoad:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["f10-quadrilateral-properties", "f10-congruence-similarity-criteria"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4  # three practice tiers plus the exam source

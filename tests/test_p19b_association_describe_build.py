@@ -322,7 +322,10 @@ def test_skill_loads_with_expected_shape():
     _domains, skills = load_skills()
     by_id = {s.id: s for s in skills}
     skill = by_id["senior-describe-the-association-between-two-numerical-variables-in"]
-    assert skill.prerequisites == ["simple-event-probability"]
+    assert skill.prerequisites == [
+        "simple-event-probability",
+        "senior-identify-the-response-variable-and-the-explanatory-variable",
+    ]
     assert skill.answer == "ordered_list"
     assert skill.placement_eligible is False
     stages = {s.difficulty: s.stages for s in skill.sources}

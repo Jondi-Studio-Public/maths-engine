@@ -1,6 +1,7 @@
 id: f10-boxplot-distribution
 name: Compare continuous distributions with boxplots
 domain: statistics-probability
+year_level: ['10']
 description: Given a small ordered numeric data set, compute the first quartile (Q1) and third quartile (Q3) using the exclusive method (split the data at the median, excluding the median itself from either half when the data set size is odd; Q1 is the median of the lower half and Q3 is the median of the upper half), then state the interquartile range Q3 minus Q1. The exclusive method is stated explicitly in every question; construction or reading of a rendered boxplot and open contextual comparison of shape/centre are excluded.
 status: active
 placement_eligible: false

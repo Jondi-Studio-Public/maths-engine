@@ -217,7 +217,15 @@ data and reads no clock; the application stores state and passes times in.
 - `fsrs` is the FSRS-5 model (the open scheduler Anki uses), matching the reference
   implementation py-fsrs 5.1.3 (like it, gaps count in whole days, rounded down). `review.score(outcome, memory, last_review_at, now)` turns a
   finished review (`advance`, `hold`, `reset`, `maintenance_pass`) into new memory and a
-  due date, and `review.memory_from_history` rebuilds memory from past outcomes.
+  due date, and `review.memory_from_history` rebuilds memory from past outcomes. A reset is
+  due a day later (`reset_gap_days`), and a hold is never due later than the gap it followed.
+- `review.outcome_from_marks(results)` turns a review's graded answers into that outcome:
+  full marks is no miss, at least half the marks is half a miss, less is a whole miss; no
+  misses advances, two or more reset, anything between holds. It reads `GradeResult`s,
+  including part-marked multi-part ones, or `(earned, available)` pairs.
+- `prerequisites.ready_to_start(skills, mastered)`, `prerequisite_closure(skill_id, skills)` and
+  `gaps_before(skill_id, skills, mastered)` read the prerequisite graph. Prerequisites are advice:
+  nothing here stops an application serving any skill.
 - `calibration.item_difficulty(rows, skills)` fits a Rasch difficulty per skill and per
   tier from `{user_id, skill_id, difficulty, correct}` rows and flags tiers answered right
   more often than an earlier tier; `calibration.fsrs_calibration` compares predicted with

@@ -1,6 +1,7 @@
 id: simple-harmonic-angular-frequency
 name: Compute simple-harmonic angular frequency
 domain: differential-equations
+year_level: [university]
 description: Compute ω = √(k/m) for a clean mass-spring oscillator.
 status: active
 prerequisites:

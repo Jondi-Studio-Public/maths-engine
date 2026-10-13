@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, examine the behaviour of the difference quotient (f(x+h)-f(x))/h as h->0. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-interpret-the-difference-quotient-frac-f-left-x
+- limit-removable
 answer: number
 sources:
 - topic: p9c_difference_quotient_behaviour

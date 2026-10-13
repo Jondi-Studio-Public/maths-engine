@@ -131,7 +131,7 @@ def test_sigma_skill_loads_through_api_with_correct_properties():
     assert SIGMA_SKILL.status == "active"
     assert SIGMA_SKILL.placement_eligible is False
     assert SIGMA_SKILL.answer == "mcq"
-    assert SIGMA_SKILL.prerequisites == []
+    assert SIGMA_SKILL.prerequisites == ["finite-set-operations"]
     assert {src.difficulty for src in SIGMA_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert SIGMA_SOURCES["exam"].stages == ["exam"]
 
@@ -209,6 +209,6 @@ def test_product_skill_loads_through_api_with_correct_properties():
     assert PRODUCT_SKILL.status == "active"
     assert PRODUCT_SKILL.placement_eligible is False
     assert PRODUCT_SKILL.answer == "fraction"
-    assert PRODUCT_SKILL.prerequisites == []
+    assert PRODUCT_SKILL.prerequisites == ["ucv1-sigma-algebra-closure", "rectangle-area"]
     assert {src.difficulty for src in PRODUCT_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert PRODUCT_SOURCES["exam"].stages == ["exam"]

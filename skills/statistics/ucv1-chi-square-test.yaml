@@ -1,6 +1,7 @@
 id: ucv1-chi-square-test
 name: Compute the pieces of a chi-square test
 domain: statistics
+year_level: [university]
 description: For a goodness-of-fit test (equal split, stated percentages or a stated
   ratio) or a test of independence on a printed 2 x 2 or 2 x 3 table, find an
   expected count, the chi-square statistic and the degrees of freedom. Critical values

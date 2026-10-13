@@ -1,6 +1,7 @@
 id: ucv1-one-sample-t-test
 name: Compute the pieces of a one-sample t test
 domain: statistics
+year_level: [university]
 description: From summary data (or a short list of paired differences) compute the
   standard error of a sample mean, the one-sample t statistic, a confidence-interval
   limit given the critical value, and the boundary sample mean of the rejection region.

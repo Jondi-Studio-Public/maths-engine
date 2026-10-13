@@ -1,0 +1,36 @@
+id: f10-compare-box-plots
+name: Compare two box plots
+domain: statistics-probability
+year_level: ['10']
+description: Compare two box plots drawn on one axis and choose from offered options - which has the higher median, which has the larger interquartile range or range (with the plots disagreeing on the other measure half the time), and at the hard tier which of four statements about medians, spreads and quartiles the plots support. The prompt never states a value read off the plots.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-read-a-box-plot]
+answer: mcq
+sources:
+- topic: stat5_box_plot_compare
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat5_box_plot_compare
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat5_box_plot_compare
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: longer-box-higher-median
+  description: Picks the plot that is further to the right overall, or has the longer box, as the one with the higher median, instead of comparing the median lines.
+- id: range-for-iqr
+  description: Compares the whisker-to-whisker range when the question asks about the interquartile range (the box), or the reverse.
+- id: overall-spread
+  description: Takes the plot that looks wider overall to have the larger spread whichever measure of spread is asked about.
+- id: quartile-for-median
+  description: Compares a median with the other plot's median where the statement compares it with that plot's quartile, or the reverse.
+- id: statement-direction
+  description: Reads a true comparison the wrong way round and chooses the statement that gives the larger value to the wrong group.
+tags: [acara-f10-v9, statistics-probability, box-plot, figure, stat5_box_plot_compare, AC9M10ST02]

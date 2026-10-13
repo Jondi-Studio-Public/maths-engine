@@ -4,8 +4,7 @@ domain: inequalities
 description: Solve one-step inequalities using equality-preserving operations.
 status: active
 prerequisites:
-- inverse-operations
-- inequality-solutions-number-line
+- one-step-equations
 answer: inequality
 sources:
 - topic: lin_ineq_one_step
