@@ -230,8 +230,8 @@ calculate-overtime:
   sources:
   - topic: earnings
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_g5_overtime
-    module: mathgen/generators/exd_x_g5_overtime.py
+  - topic: exd_x_r3a_overtime_week
+    module: mathgen/generators/exd_x_r3a_overtime_week.py
 calculate-range:
   domain: statistics-probability
   status: active
@@ -322,8 +322,8 @@ combinations:
   sources:
   - topic: combinatorics
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_h2_combinations
-    module: mathgen/generators/exd_x_h2_counting.py
+  - topic: exd_x_r3d_combinations_selection
+    module: mathgen/generators/exd_x_r3d_combinations_selection.py
 combine-like-terms:
   domain: expressions-equivalence
   status: active
@@ -372,38 +372,40 @@ compare-unit-prices:
   sources:
   - topic: p14b_compare_unit_prices
     module: mathgen/generators/p14b_compare_unit_prices_build.py
+  - topic: exd_x_r3i_unit_price_saving
+    module: mathgen/generators/exd_x_r3i_unit_price_saving.py
 complex-conjugate:
   domain: senior-mathematics
   status: active
   sources:
   - topic: complex_number
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_complex_conjugate
-    module: mathgen/generators/exd_x_complex_arith.py
+  - topic: exd_x_r3b_complex_conjugate
+    module: mathgen/generators/exd_x_r3b_complex_conjugate.py
 complex-imaginary-part:
   domain: senior-mathematics
   status: active
   sources:
   - topic: complex_number
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_complex_imaginary_part
-    module: mathgen/generators/exd_x_complex_arith.py
+  - topic: exd_x_r3c_complex_cube
+    module: mathgen/generators/exd_x_r3c_complex_cube.py
 complex-modulus:
   domain: senior-mathematics
   status: active
   sources:
   - topic: complex_number
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_complex_modulus
-    module: mathgen/generators/exd_x_complex_arith.py
+  - topic: exd_x_r3d_complex_product_modulus
+    module: mathgen/generators/exd_x_r3d_complex_product_modulus.py
 complex-real-part:
   domain: senior-mathematics
   status: active
   sources:
   - topic: complex_number
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_complex_real_part
-    module: mathgen/generators/exd_x_complex_arith.py
+  - topic: exd_x_r3e_complex_quotient
+    module: mathgen/generators/exd_x_r3e_complex_quotient.py
 composite-perimeter:
   domain: primary-geometry-time
   status: active
@@ -442,8 +444,8 @@ conditional-probability-counts:
   sources:
   - topic: conditional_probability_counts
     module: mathgen/generators/university_foundations.py
-  - topic: exd_x_s0_condprob
-    module: mathgen/generators/exd_x_s0_condprob.py
+  - topic: exd_x_r3a_survey_conditional
+    module: mathgen/generators/exd_x_r3a_survey_conditional.py
 cone-volume:
   domain: measurement
   status: active
@@ -1470,6 +1472,8 @@ f10-rational-percentage-financial-model:
   sources:
   - topic: rational_percentage_financial_model
     module: mathgen/generators/p12a_financial_model_build.py
+  - topic: exd_x_r3e_fee_discount_gst
+    module: mathgen/generators/exd_x_r3e_fee_discount_gst.py
 f10-read-measurement-scale:
   domain: measurement
   status: active
@@ -1932,8 +1936,8 @@ integrate-trig:
   sources:
   - topic: integration
     module: mathgen/generators/calculus.py
-  - topic: exd_x_c2_integrate_trig
-    module: mathgen/generators/exd_x_c2_integrate_trig_build.py
+  - topic: exd_x_r3c_trig_identity_integral
+    module: mathgen/generators/exd_x_r3c_trig_identity_integral.py
 integration-by-substitution:
   domain: integration
   status: active
@@ -2002,8 +2006,8 @@ limit-degree-comparison:
   sources:
   - topic: limits
     module: mathgen/generators/calculus.py
-  - topic: exd_x_c2_limit_degree_comparison
-    module: mathgen/generators/exd_x_c2_limit_degree_comparison_build.py
+  - topic: exd_x_r3d_limit_growth
+    module: mathgen/generators/exd_x_r3d_limit_growth.py
 limit-removable:
   domain: limits
   status: active
@@ -2062,16 +2066,16 @@ matrix-determinant-2x2:
   sources:
   - topic: matrices
     module: mathgen/generators/matrices.py
-  - topic: exd_x_g3_det2
-    module: mathgen/generators/exd_x_g3_det2.py
+  - topic: exd_x_r3a_determinant_chain
+    module: mathgen/generators/exd_x_r3a_determinant_chain.py
 matrix-determinant-3x3:
   domain: matrices
   status: active
   sources:
   - topic: matrices
     module: mathgen/generators/matrices.py
-  - topic: exd_x_g3_det3
-    module: mathgen/generators/exd_x_g3_det3.py
+  - topic: exd_x_r3b_det3
+    module: mathgen/generators/exd_x_r3b_det3.py
 matrix-inverse-2x2:
   domain: matrices
   status: active
@@ -2204,8 +2208,8 @@ multiplication-principle:
   sources:
   - topic: combinatorics
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_h2_multiplication_principle
-    module: mathgen/generators/exd_x_h2_counting.py
+  - topic: exd_x_r3e_code_counting
+    module: mathgen/generators/exd_x_r3e_code_counting.py
 multiply-complex-numbers:
   domain: senior-mathematics
   status: active
@@ -2340,8 +2344,8 @@ permutations:
   sources:
   - topic: combinatorics
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_h2_permutations
-    module: mathgen/generators/exd_x_h2_counting.py
+  - topic: exd_x_r3f_permutation_roles
+    module: mathgen/generators/exd_x_r3f_permutation_roles.py
 place-value-to-100:
   domain: early-foundations
   status: active
@@ -2614,16 +2618,16 @@ second-derivative:
   sources:
   - topic: differentiation
     module: mathgen/generators/calculus.py
-  - topic: exd_x_c1_second_derivative
-    module: mathgen/generators/exd_x_c1_second_derivative.py
+  - topic: exd_x_r3b_second_derivative
+    module: mathgen/generators/exd_x_r3b_second_derivative.py
 senior-an-angle-in-a-semicircle-is-a-right:
   domain: senior-mathematics
   status: active
   sources:
   - topic: angle_in_semicircle
     module: mathgen/generators/p5b_circle_theorems_build.py
-  - topic: exd_x_h4_semicircle_composed
-    module: mathgen/generators/exd_x_h4_semicircle_composed.py
+  - topic: exd_x_r3c_semicircle_triangle
+    module: mathgen/generators/exd_x_r3c_semicircle_triangle.py
 senior-angles-at-the-circumference-of-a-circle-subtended:
   domain: senior-mathematics
   status: active
@@ -2646,6 +2650,8 @@ senior-apply-euler-s-formula-v-f-e-2:
   sources:
   - topic: pv0c_euler_planar
     module: mathgen/generators/pv0c_euler_planar_build.py
+  - topic: exd_x_r3i_euler_edge_room
+    module: mathgen/generators/exd_x_r3i_euler_edge_room.py
 senior-apply-the-cosine-and-sine-ratios-to-find:
   domain: senior-mathematics
   status: active
@@ -2688,8 +2694,8 @@ senior-calculate-float-times-for-non-critical-activities:
   sources:
   - topic: p10c_critical_path_float
     module: mathgen/generators/p10c_critical_path_build.py
-  - topic: exd_x_g6_delay_propagation
-    module: mathgen/generators/exd_x_g6_project_network.py
+  - topic: exd_x_r3c_network_float
+    module: mathgen/generators/exd_x_r3c_network_float.py
 senior-calculate-lengths-of-arcs-and-areas-of-sectors:
   domain: trigonometry
   status: active
@@ -2824,8 +2830,8 @@ senior-consider-complex-numbers-as-points-in-a-plane:
   sources:
   - topic: complex_number_as_point
     module: mathgen/generators/p5b_complex_plane_build.py
-  - topic: exd_x_complex_point
-    module: mathgen/generators/exd_x_complex_plane.py
+  - topic: exd_x_r3f_complex_parallelogram
+    module: mathgen/generators/exd_x_r3f_complex_parallelogram.py
 senior-consider-conjugate-roots-for-polynomials-with-real-coefficients:
   domain: functions-sequences
   status: active
@@ -2840,6 +2846,8 @@ senior-consider-constant-and-non-constant-force:
   sources:
   - topic: p13b_constant_nonconstant_force
     module: mathgen/generators/p13b_mechanics_force_build.py
+  - topic: exd_x_r3h_force_work
+    module: mathgen/generators/exd_x_r3h_force_work.py
 senior-consider-inverses-of-one-to-one-function:
   domain: functions-sequences
   status: active
@@ -2862,8 +2870,8 @@ senior-consider-similar-problems-involving-compounding-for-example-population:
   sources:
   - topic: p10c_population_compounding
     module: mathgen/generators/p10c_compounding_population_build.py
-  - topic: exd_x_g6_compound_threshold
-    module: mathgen/generators/exd_x_g6_compound_threshold.py
+  - topic: exd_x_r3d_compound_two_readings
+    module: mathgen/generators/exd_x_r3d_compound_two_readings.py
 senior-convert-between-cartesian-and-polar-form:
   domain: senior-mathematics
   status: active
@@ -2876,8 +2884,8 @@ senior-convert-between-grams-and-milligrams:
   sources:
   - topic: grams_milligrams_convert
     module: mathgen/generators/p5b_journey_mass_build.py
-  - topic: exd_x_grams_dose
-    module: mathgen/generators/exd_x_grams_dose.py
+  - topic: exd_x_r3c_dose_tablets
+    module: mathgen/generators/exd_x_r3c_dose_tablets.py
 senior-convert-between-metric-units-of-area-and-other:
   domain: measurement
   status: active
@@ -2946,16 +2954,16 @@ senior-define-and-use-multiplication-by-a-scalar-of:
   sources:
   - topic: define_and_use_multiplication_by_a_scalar_of
     module: mathgen/generators/p4c_vectors_component_build.py
-  - topic: exd_x_g2_scalar_pair
-    module: mathgen/generators/exd_x_g2_vectors_build.py
+  - topic: exd_x_r3e_vector_combination
+    module: mathgen/generators/exd_x_r3e_vector_combination.py
 senior-define-and-use-unit-vectors-and-the-perpendicular:
   domain: vectors
   status: active
   sources:
   - topic: define_and_use_unit_vectors_and_the_perpendicular
     module: mathgen/generators/p4c_vectors_unit_parallel_build.py
-  - topic: exd_x_g1_unit_vectors
-    module: mathgen/generators/exd_x_g1_unit_vectors.py
+  - topic: exd_x_r3c_unit_vector_perp
+    module: mathgen/generators/exd_x_r3c_unit_vector_perp.py
 senior-define-logarithms-as-indices-a-x-b-is:
   domain: functions-sequences
   status: active
@@ -2978,8 +2986,8 @@ senior-define-the-imaginary-number-i-as-a-root:
   sources:
   - topic: imaginary_number_i_root
     module: mathgen/generators/p7c_imaginary_root_build.py
-  - topic: exd_x_complex_i_power
-    module: mathgen/generators/exd_x_complex_plane.py
+  - topic: exd_x_r3a_complex_powers
+    module: mathgen/generators/exd_x_r3a_complex_powers.py
 senior-define-the-natural-logarithm-ln-x-log-ex:
   domain: functions-sequences
   status: active
@@ -2994,6 +3002,8 @@ senior-demonstrate-an-understanding-of-the-elementary-ideas-and:
   sources:
   - topic: p19i_ratio_simplest_form
     module: mathgen/generators/p19i_ratio_build.py
+  - topic: exd_x_r3i_ratio_batch
+    module: mathgen/generators/exd_x_r3i_ratio_batch.py
 senior-describe-the-association-between-two-numerical-variables-in:
   domain: statistics-probability
   status: active
@@ -3030,16 +3040,16 @@ senior-determine-and-examine-the-n-th-roots-of-acmsm088:
   sources:
   - topic: nth_roots_of_complex_number
     module: mathgen/generators/p7c_nth_roots_build.py
-  - topic: exd_x_complex_nth_root
-    module: mathgen/generators/exd_x_complex_plane.py
+  - topic: exd_x_r3b_nth_roots
+    module: mathgen/generators/exd_x_r3b_nth_roots.py
 senior-determine-and-use-the-formulas-for-finding-the:
   domain: senior-mathematics
   status: active
   sources:
   - topic: p11c_set_union_cardinality
     module: mathgen/generators/p11c_set_union_cartesian_build.py
-  - topic: exd_x_h5_set_membership_counts
-    module: mathgen/generators/exd_x_h5_set_membership_counts.py
+  - topic: exd_x_r3c_club_overlaps
+    module: mathgen/generators/exd_x_r3c_club_overlaps.py
 senior-determine-complex-conjugate-solutions-of-real-quadratic-equations:
   domain: quadratics
   status: active
@@ -3102,8 +3112,8 @@ senior-determine-the-optimum-assignment-s-by-inspection-for:
   sources:
   - topic: determine_the_optimum_assignment_s_by_inspection_for
     module: mathgen/generators/p6b_assignment_build.py
-  - topic: exd_x_g6_assignment_max_forbidden
-    module: mathgen/generators/exd_x_g6_assignment_max_forbidden.py
+  - topic: exd_x_r3e_assignment_reduction
+    module: mathgen/generators/exd_x_r3e_assignment_reduction.py
 senior-determine-the-overall-change-in-a-quantity-following:
   domain: arithmetic
   status: active
@@ -3208,6 +3218,8 @@ senior-estimate-the-limit-of-frac-a-h-1:
   sources:
   - topic: p12c_estimate_limit_ah
     module: mathgen/generators/p12c_estimate_limit_ah_build.py
+  - topic: exd_x_r3h_limit_ah
+    module: mathgen/generators/exd_x_r3h_limit_ah.py
 senior-estimate-the-mass-of-different-objects:
   domain: measurement
   status: active
@@ -3306,6 +3318,8 @@ senior-examine-momentum-force-resultant-force-action-and-reaction:
   sources:
   - topic: p13b_momentum_force_reaction
     module: mathgen/generators/p13b_mechanics_force_build.py
+  - topic: exd_x_r3j_collision_impulse
+    module: mathgen/generators/exd_x_r3j_collision_impulse.py
 senior-examine-period-changes-and-the-graphs-of-y:
   domain: trigonometry
   status: active
@@ -3318,8 +3332,8 @@ senior-examine-properties-of-parallel-and-perpendicular-vectors-and:
   sources:
   - topic: examine_properties_of_parallel_and_perpendicular_vectors_and
     module: mathgen/generators/p4c_vectors_unit_parallel_build.py
-  - topic: exd_x_g2_parallel_perp_condition
-    module: mathgen/generators/exd_x_g2_vectors_build.py
+  - topic: exd_x_r3f_vector_perpendicular
+    module: mathgen/generators/exd_x_r3f_vector_perpendicular.py
 senior-examine-simple-examples-of-non-uniform-discrete-random:
   domain: statistics-probability
   status: active
@@ -3334,6 +3348,8 @@ senior-examine-slope-direction-or-gradient-fields-of-a:
   sources:
   - topic: p13b_slope_field_examine
     module: mathgen/generators/p13b_de_qualitative_build.py
+  - topic: exd_x_r3g_slope_euler
+    module: mathgen/generators/exd_x_r3g_slope_euler.py
 senior-examine-the-approximate-confidence-interval-left-overline-mathrm:
   domain: statistics-probability
   status: active
@@ -3356,14 +3372,16 @@ senior-examine-the-area-problem-and-use-sums-of:
   sources:
   - topic: p13c_riemann_sum_area
     module: mathgen/generators/p13c_riemann_sum_area_build.py
+  - topic: exd_x_r3d_riemann_error_chain
+    module: mathgen/generators/exd_x_r3d_riemann_error_chain.py
 senior-examine-the-behaviour-of-the-difference-quotient-frac:
   domain: senior-mathematics
   status: active
   sources:
   - topic: p9c_difference_quotient_behaviour
     module: mathgen/generators/p9c_difference_quotient_build.py
-  - topic: exd_x_h5_limit_two_points_unknown_coefficients
-    module: mathgen/generators/exd_x_h5_increments_exam.py
+  - topic: exd_x_r3d_quotient_limits_chain
+    module: mathgen/generators/exd_x_r3d_quotient_limits_chain.py
 senior-examine-the-position-of-two-particles-each-described:
   domain: vectors
   status: active
@@ -3398,6 +3416,8 @@ senior-examine-the-three-cases-for-solutions-of-systems:
   sources:
   - topic: pv0b_system_cases
     module: mathgen/generators/pv0b_system_cases_build.py
+  - topic: exd_x_r3h_system_parameters
+    module: mathgen/generators/exd_x_r3h_system_parameters.py
 senior-examine-translations-and-the-graphs-of-y-f:
   domain: functions-sequences
   status: active
@@ -3418,8 +3438,8 @@ senior-express-a-vector-in-component-form-using-the:
   sources:
   - topic: express_a_vector_in_component_form_using_the
     module: mathgen/generators/p4c_vectors_component_build.py
-  - topic: exd_x_g3_vec_component
-    module: mathgen/generators/exd_x_g3_vec_component.py
+  - topic: exd_x_r3c_vector_resultant
+    module: mathgen/generators/exd_x_r3c_vector_resultant.py
 senior-factorise-cubic-polynomials-in-cases-where-a-linear:
   domain: functions-sequences
   status: active
@@ -3442,8 +3462,8 @@ senior-find-and-use-the-derivative-of-the-inverse:
   sources:
   - topic: find_and_use_the_derivative_of_the_inverse
     module: mathgen/generators/p5e_inverse_trig_derivative_build.py
-  - topic: exd_x_c3_inverse_trig_derivative
-    module: mathgen/generators/exd_x_c3_inverse_trig_derivative.py
+  - topic: exd_x_r3e_inverse_trig_tangent
+    module: mathgen/generators/exd_x_r3e_inverse_trig_tangent.py
 senior-find-and-use-the-inverse-trigonometric-functions-arcsine:
   domain: differentiation
   status: active
@@ -3458,8 +3478,8 @@ senior-find-distances-between-two-places-on-earth-on:
   sources:
   - topic: earth_meridian_distance
     module: mathgen/generators/p9b_earth_distance_time_build.py
-  - topic: exd_x_meridian_voyage
-    module: mathgen/generators/exd_x_meridian_voyage.py
+  - topic: exd_x_r3f_meridian_voyage
+    module: mathgen/generators/exd_x_r3f_meridian_voyage.py
 senior-find-distances-between-two-places-on-earth-using:
   domain: senior-mathematics
   status: active
@@ -3552,6 +3572,8 @@ senior-formulate-differential-equations-including-the-logistic-equation-that:
   sources:
   - topic: p13b_formulate_de
     module: mathgen/generators/p13b_de_qualitative_build.py
+  - topic: exd_x_r3i_mixing_rates
+    module: mathgen/generators/exd_x_r3i_mixing_rates.py
 senior-identify-and-solve-linear-equations:
   domain: linear-relations
   status: active
@@ -3680,14 +3702,16 @@ senior-integrate-expressions-of-the-form-frac-pm1-sqrt:
   sources:
   - topic: integrate_expressions_of_the_form_frac_pm1_sqrt
     module: mathgen/generators/p6c_integration_techniques_b_build.py
-  - topic: exd_x_c4_inverse_trig_forms
-    module: mathgen/generators/exd_x_c4_inverse_trig_forms.py
+  - topic: exd_x_r3f_inverse_trig_chain
+    module: mathgen/generators/exd_x_r3f_inverse_trig_chain.py
 senior-integrate-using-the-trigonometric-identities-mathrm-s-mathrm:
   domain: integration
   status: active
   sources:
   - topic: p13c_trig_identity_integrate
     module: mathgen/generators/p13c_trig_identity_integrate_build.py
+  - topic: exd_x_r3e_trig_identity_integral
+    module: mathgen/generators/exd_x_r3e_trig_identity_integral.py
 senior-interpret-and-use-graphs-in-practical-situations-including:
   domain: senior-mathematics
   status: active
@@ -3714,6 +3738,8 @@ senior-interpret-complex-timetables-such-as-tide-charts-sunrise:
   sources:
   - topic: p19i_timetable_condition_lookup
     module: mathgen/generators/p19i_timetable_build.py
+  - topic: exd_x_r3j_tide_chart_rate
+    module: mathgen/generators/exd_x_r3j_tide_chart_rate.py
 senior-interpret-distance-versus-time-graphs:
   domain: senior-mathematics
   status: active
@@ -3798,6 +3824,8 @@ senior-investigate-the-effect-of-the-interest-rate-and:
   sources:
   - topic: p12b_loan_term_from_repayment
     module: mathgen/generators/p12b_loan_term_build.py
+  - topic: exd_x_r3g_loan_term
+    module: mathgen/generators/exd_x_r3g_loan_term.py
 senior-midpoints-of-the-sides-of-a-quadrilateral-join:
   domain: senior-mathematics
   status: active
@@ -3888,6 +3916,8 @@ senior-recognise-different-types-of-matrices-row-column-square:
   sources:
   - topic: p19g_matrix_type_and_size
     module: mathgen/generators/p19g_matrix_notation_build.py
+  - topic: exd_x_r3j_matrix_square_parameter
+    module: mathgen/generators/exd_x_r3j_matrix_square_parameter.py
 senior-recognise-features-of-the-graph-of-the-general:
   domain: quadratics
   status: active
@@ -3948,6 +3978,8 @@ senior-recognise-that-a-sequence-generated-by-a-first:
   sources:
   - topic: p19e_recurrence_long_term_class
     module: mathgen/generators/p19e_long_term_behaviour_build.py
+  - topic: exd_x_r3h_recurrence_steady_state
+    module: mathgen/generators/exd_x_r3h_recurrence_steady_state.py
 senior-recognise-the-distinction-between-functions-and-relations-and:
   domain: functions-sequences
   status: active
@@ -3978,6 +4010,8 @@ senior-recognise-the-need-for-milligrams:
   sources:
   - topic: p19h_need_for_milligrams
     module: mathgen/generators/p19h_unit_choice_build.py
+  - topic: exd_x_r3g_dose_units
+    module: mathgen/generators/exd_x_r3g_dose_units.py
 senior-recognise-the-qualitative-features-of-the-graph-of:
   domain: functions-sequences
   status: active
@@ -4002,8 +4036,8 @@ senior-represent-a-scalar-multiple-of-a-vector:
   sources:
   - topic: represent_a_scalar_multiple_of_a_vector
     module: mathgen/generators/p4c_vectors_notation_build.py
-  - topic: exd_x_g3_vec_scalar
-    module: mathgen/generators/exd_x_g3_vec_scalar.py
+  - topic: exd_x_r3d_vector_parallel_scalar
+    module: mathgen/generators/exd_x_r3d_vector_parallel_scalar.py
 senior-review-calculating-a-percentage-of-a-given-amount:
   domain: arithmetic
   status: active
@@ -4062,8 +4096,8 @@ senior-review-sine-cosine-and-tangent-as-ratios-of:
   sources:
   - topic: trig_ratio_review_tan
     module: mathgen/generators/p7a_trig_ratio_elevation_build.py
-  - topic: exd_x_c4_trig_ratio_expressions
-    module: mathgen/generators/exd_x_c4_trig_ratio_expressions.py
+  - topic: exd_x_r3a_right_triangle_chain
+    module: mathgen/generators/exd_x_r3a_right_triangle_chain.py
 senior-review-the-concepts-and-language-of-outcomes-sample:
   domain: statistics-probability
   status: active
@@ -4180,8 +4214,8 @@ senior-solve-problems-involving-bearings:
   sources:
   - topic: bearings_problem
     module: mathgen/generators/p7a_bearings_build.py
-  - topic: exd_x_bearings_cosine
-    module: mathgen/generators/exd_x_bearings_cosine.py
+  - topic: exd_x_r3a_bearings_triangle
+    module: mathgen/generators/exd_x_r3a_bearings_triangle.py
 senior-solve-problems-involving-displacement-force-and-velocity-involving:
   domain: differential-equations
   status: active
@@ -4200,8 +4234,8 @@ senior-solve-problems-involving-permutations-and-restrictions-with-or:
   sources:
   - topic: p11c_restricted_permutations
     module: mathgen/generators/p11c_counting_build.py
-  - topic: exd_x_h2_restricted_permutations
-    module: mathgen/generators/exd_x_h2_restricted_permutations.py
+  - topic: exd_x_r3a_vowel_arrangements
+    module: mathgen/generators/exd_x_r3a_vowel_arrangements.py
 senior-solve-problems-involving-time-zones-in-australia-and:
   domain: senior-mathematics
   status: active
@@ -4246,8 +4280,8 @@ senior-solve-small-scale-network-flow-problems-including-the:
   sources:
   - topic: solve_small_scale_network_flow_problems_including_the
     module: mathgen/generators/p6b_mst_flow_build.py
-  - topic: exd_x_g6_flow_upgrade
-    module: mathgen/generators/exd_x_g6_network_optim.py
+  - topic: exd_x_r3f_network_flow
+    module: mathgen/generators/exd_x_r3f_network_flow.py
 senior-suitable-converses-of-some-of-the-above-results:
   domain: senior-mathematics
   status: active
@@ -4262,16 +4296,16 @@ senior-the-alternate-segment-theorem:
   sources:
   - topic: alternate_segment_theorem
     module: mathgen/generators/p10d_alternate_segment_converses_build.py
-  - topic: exd_x_h4_tangent_pair_alternate_segment
-    module: mathgen/generators/exd_x_h4_tangent_pair_alternate_segment.py
+  - topic: exd_x_r3d_tangent_pair_chain
+    module: mathgen/generators/exd_x_r3d_tangent_pair_chain.py
 senior-the-angle-at-the-centre-subtended-by-an:
   domain: senior-mathematics
   status: active
   sources:
   - topic: the_angle_at_the_centre_subtended_by_an_arc
     module: mathgen/generators/p8d_circle_theorems_build.py
-  - topic: exd_x_h4_centre_isosceles_chords
-    module: mathgen/generators/exd_x_h4_centre_isosceles_chords.py
+  - topic: exd_x_r3e_circle_centre_chain
+    module: mathgen/generators/exd_x_r3e_circle_centre_chain.py
 senior-the-concept-of-an-interval-estimate-for-a:
   domain: statistics-probability
   status: active
@@ -4286,16 +4320,16 @@ senior-the-diagonals-of-a-parallelogram-meet-at-right:
   sources:
   - topic: the_diagonals_of_a_parallelogram_meet_at_right
     module: mathgen/generators/p8d_quadrilateral_theorems_build.py
-  - topic: exd_x_h4_rhombus_diagonals_composed
-    module: mathgen/generators/exd_x_h4_rhombus_diagonals_composed.py
+  - topic: exd_x_r3f_rhombus_chain
+    module: mathgen/generators/exd_x_r3f_rhombus_chain.py
 senior-the-opposite-angles-of-a-cyclic-quadrilateral-are:
   domain: senior-mathematics
   status: active
   sources:
   - topic: the_opposite_angles_of_a_cyclic_quadrilateral_are
     module: mathgen/generators/p8d_quadrilateral_theorems_build.py
-  - topic: exd_x_h4_cyclic_two_unknowns
-    module: mathgen/generators/exd_x_h4_cyclic_two_unknowns.py
+  - topic: exd_x_r3a_cyclic_chain
+    module: mathgen/generators/exd_x_r3a_cyclic_chain.py
 senior-the-sum-of-the-squares-of-the-lengths:
   domain: measurement
   status: active
@@ -4388,6 +4422,8 @@ senior-understand-the-matrix-definition-and-notation:
   sources:
   - topic: p19g_matrix_entry_lookup
     module: mathgen/generators/p19g_matrix_notation_build.py
+  - topic: exd_x_r3i_matrix_rule_unknown
+    module: mathgen/generators/exd_x_r3i_matrix_rule_unknown.py
 senior-understand-the-notion-of-independence-of-an-event:
   domain: statistics-probability
   status: active
@@ -4438,6 +4474,8 @@ senior-use-a-recurrence-relation-to-model-an-annuity:
   sources:
   - topic: pv0a_annuity_duration
     module: mathgen/generators/pv0a_annuity_duration_build.py
+  - topic: exd_x_r3c_annuity_payout
+    module: mathgen/generators/exd_x_r3c_annuity_payout.py
 senior-use-a-spreadsheet-to-display-examples-of-the:
   domain: arithmetic
   status: active
@@ -4470,6 +4508,8 @@ senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear:
   sources:
   - topic: p12b_arith_seq_methods
     module: mathgen/generators/p12b_arith_seq_build.py
+  - topic: exd_x_r3b_arith_seq
+    module: mathgen/generators/exd_x_r3b_arith_seq.py
 senior-use-arithmetic-sequences-to-model-and-analyse-practical:
   domain: financial-discrete
   status: active
@@ -4530,14 +4570,16 @@ senior-use-factorial-notation:
   sources:
   - topic: p11c_factorial_notation
     module: mathgen/generators/p11c_counting_build.py
-  - topic: exd_x_h2_factorial_notation
-    module: mathgen/generators/exd_x_h2_factorial_notation.py
+  - topic: exd_x_r3b_factorial
+    module: mathgen/generators/exd_x_r3b_factorial.py
 senior-use-first-order-linear-recurrence-relations-to-model:
   domain: financial-discrete
   status: active
   sources:
   - topic: pv0a_recurrence_steady_state
     module: mathgen/generators/pv0a_steady_state_build.py
+  - topic: exd_x_r3g_recurrence_fit
+    module: mathgen/generators/exd_x_r3g_recurrence_fit.py
 senior-use-formulas-to-calculate-areas-of-regular-shapes:
   domain: measurement
   status: active
@@ -4584,6 +4626,8 @@ senior-use-geometric-sequences-to-model-and-analyse-numerically:
   sources:
   - topic: pv0a_bounce_distance
     module: mathgen/generators/pv0a_bounce_distance_build.py
+  - topic: exd_x_r3d_bounce_series_chain
+    module: mathgen/generators/exd_x_r3d_bounce_series_chain.py
 senior-use-implication-converse-equivalence-negation-contrapositive:
   domain: senior-mathematics
   status: active
@@ -4628,6 +4672,8 @@ senior-use-matrices-for-storing-and-displaying-information-that:
   sources:
   - topic: p14a_matrix_table
     module: mathgen/generators/p14a_matrix_table_build.py
+  - topic: exd_x_r3h_network_journeys
+    module: mathgen/generators/exd_x_r3h_network_journeys.py
 senior-use-metric-units-of-area-their-abbreviations-conversions:
   domain: measurement
   status: active
@@ -4650,8 +4696,8 @@ senior-use-minimal-spanning-trees-to-solve-minimal-connector:
   sources:
   - topic: use_minimal_spanning_trees_to_solve_minimal_connector
     module: mathgen/generators/p6b_mst_flow_build.py
-  - topic: exd_x_g6_connector_constraint
-    module: mathgen/generators/exd_x_g6_network_optim.py
+  - topic: exd_x_r3a_connector_reroute
+    module: mathgen/generators/exd_x_r3a_connector_reroute.py
 senior-use-numerical-integration-using-technology-f-left-t:
   domain: integration
   status: active
@@ -4666,8 +4712,8 @@ senior-use-ordered-pair-notation-and-column-vector-notation:
   sources:
   - topic: use_ordered_pair_notation_and_column_vector_notation
     module: mathgen/generators/p4c_vectors_notation_build.py
-  - topic: exd_x_g3_vec_notation
-    module: mathgen/generators/exd_x_g3_vec_notation.py
+  - topic: exd_x_r3e_vector_points
+    module: mathgen/generators/exd_x_r3e_vector_points.py
 senior-use-partial-fractions-where-necessary-for-integration-in:
   domain: integration
   status: active
@@ -4758,8 +4804,8 @@ senior-use-scales-to-find-distances-such-as-on:
   sources:
   - topic: map_scale_distance
     module: mathgen/generators/p10d_map_scale_distance_build.py
-  - topic: exd_x_map_area
-    module: mathgen/generators/exd_x_map_area.py
+  - topic: exd_x_r3e_map_route
+    module: mathgen/generators/exd_x_r3e_map_route.py
 senior-use-set-language-and-notation-for-events-including:
   domain: statistics-probability
   status: active
@@ -4816,8 +4862,8 @@ senior-use-the-critical-path-to-determine-the-minimum:
   sources:
   - topic: use_the_critical_path_to_determine_the_minimum
     module: mathgen/generators/p6b_project_network_build.py
-  - topic: exd_x_g6_crash_shortest_time
-    module: mathgen/generators/exd_x_g6_project_network.py
+  - topic: exd_x_r3b_critical_path
+    module: mathgen/generators/exd_x_r3b_critical_path.py
 senior-use-the-equation-of-a-fitted-line-to:
   domain: statistics-probability
   status: active
@@ -4902,8 +4948,8 @@ senior-use-the-scale-factor-for-two-similar-figures:
   sources:
   - topic: similar_figure_scale_factor_length
     module: mathgen/generators/p10d_similarity_scale_factor_build.py
-  - topic: exd_x_h4_similar_area_volume_scale
-    module: mathgen/generators/exd_x_h4_similar_area_volume_scale.py
+  - topic: exd_x_r3b_similar_scale
+    module: mathgen/generators/exd_x_r3b_similar_scale.py
 senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow:
   domain: senior-mathematics
   status: active
@@ -4954,8 +5000,8 @@ senior-use-vector-equations-of-curves-in-two-or:
   sources:
   - topic: use_vector_equations_of_curves_in_two_or
     module: mathgen/generators/p6a_curves_position_build.py
-  - topic: exd_x_g3_vec_curves
-    module: mathgen/generators/exd_x_g3_vec_curves.py
+  - topic: exd_x_r3f_vector_curve
+    module: mathgen/generators/exd_x_r3f_vector_curve.py
 senior-when-a-secant-meeting-the-circle-at-a:
   domain: measurement
   status: active
@@ -4978,6 +5024,8 @@ senior-with-the-aid-of-a-financial-calculator-or:
   sources:
   - topic: p12b_reducing_balance_loan
     module: mathgen/generators/p12b_annuity_loan_build.py
+  - topic: exd_x_r3c_loan_first_period
+    module: mathgen/generators/exd_x_r3c_loan_first_period.py
 senior-with-the-aid-of-a-financial-calculator-or-acmgm100:
   domain: financial-discrete
   status: active
@@ -5038,8 +5086,8 @@ simple-interest:
   sources:
   - topic: financial_interest
     module: mathgen/generators/curriculum_expansion.py
-  - topic: exd_x_g5_simple_interest
-    module: mathgen/generators/exd_x_g5_simple_interest.py
+  - topic: exd_x_r3b_simple_interest
+    module: mathgen/generators/exd_x_r3b_simple_interest.py
 simplify-algebraic-fractions:
   domain: expressions-equivalence
   status: active
@@ -5302,6 +5350,8 @@ ucv1-bifurcation-sign-check:
   sources:
   - topic: p13e_bifurcation_sign_check
     module: mathgen/generators/p13e_bifurcation_curvature_build.py
+  - topic: exd_x_r3h_bifurcation_threshold
+    module: mathgen/generators/exd_x_r3h_bifurcation_threshold.py
 ucv1-bootstrap-summary:
   domain: statistics
   status: active
@@ -5364,6 +5414,8 @@ ucv1-convexity-hessian-sign:
   sources:
   - topic: p14d_convexity_hessian_sign
     module: mathgen/generators/p14d_quadratic_optimisation_build.py
+  - topic: exd_x_r3h_hessian_definiteness
+    module: mathgen/generators/exd_x_r3h_hessian_definiteness.py
 ucv1-coordinate-basis:
   domain: linear-algebra
   status: active
@@ -5384,6 +5436,8 @@ ucv1-cr-equations-check:
   sources:
   - topic: p15e_cr_equations_check
     module: mathgen/generators/p15e_complex_build.py
+  - topic: exd_x_r3i_cr_defects
+    module: mathgen/generators/exd_x_r3i_cr_defects.py
 ucv1-definition-quantifier-check:
   domain: proof-and-foundations
   status: active
@@ -5406,6 +5460,8 @@ ucv1-diagonal-operator-norm:
   sources:
   - topic: p15c_diagonal_operator_norm
     module: mathgen/generators/p15c_functional_build.py
+  - topic: exd_x_r3g_diagonal_norms
+    module: mathgen/generators/exd_x_r3g_diagonal_norms.py
 ucv1-diagonalisation:
   domain: linear-algebra
   status: active
@@ -5444,6 +5500,8 @@ ucv1-energy-conservation-check:
   sources:
   - topic: p14f_energy_conservation_check
     module: mathgen/generators/p14f_energy_wave_build.py
+  - topic: exd_x_r3g_oscillator_energy
+    module: mathgen/generators/exd_x_r3g_oscillator_energy.py
 ucv1-energy-estimate:
   domain: advanced-pdes-and-dynamics
   status: active
@@ -5458,6 +5516,8 @@ ucv1-field-extension-degree:
   sources:
   - topic: p17a_field_extension_degree
     module: mathgen/generators/p17a_field_extension_degree_build.py
+  - topic: exd_x_r3j_biquadratic_field_degree
+    module: mathgen/generators/exd_x_r3j_biquadratic_field_degree.py
 ucv1-finite-automaton-acceptance:
   domain: logic-computability-and-information
   status: active
@@ -5472,6 +5532,8 @@ ucv1-finite-subgroup-test:
   sources:
   - topic: p15a_finite_subgroup_test
     module: mathgen/generators/p15a_subgroup_isomorphism_build.py
+  - topic: exd_x_r3g_unit_group_index
+    module: mathgen/generators/exd_x_r3g_unit_group_index.py
 ucv1-floating-point-error-budget:
   domain: advanced-scientific-computing
   status: active
@@ -5500,12 +5562,16 @@ ucv1-ftc-polynomial:
   sources:
   - topic: p17a_ftc_inverse
     module: mathgen/generators/p17a_ftc_polynomial_build.py
+  - topic: exd_x_r3a_ftc_power_chain
+    module: mathgen/generators/exd_x_r3a_ftc_power_chain.py
 ucv1-function-space-approximation:
   domain: functional-and-linear-analysis
   status: active
   sources:
   - topic: p15c_function_space_approximation
     module: mathgen/generators/p15c_functional_build.py
+  - topic: exd_x_r3h_least_squares_basis
+    module: mathgen/generators/exd_x_r3h_least_squares_basis.py
 ucv1-fundamental-group-map:
   domain: advanced-geometry-and-topology
   status: active
@@ -5520,6 +5586,8 @@ ucv1-gram-schmidt-2d:
   sources:
   - topic: p12f_gram_schmidt_2d
     module: mathgen/generators/p12f_geometry_calculus_build.py
+  - topic: exd_x_r3j_gram_schmidt_qr
+    module: mathgen/generators/exd_x_r3j_gram_schmidt_qr.py
 ucv1-heat-equation-mode:
   domain: fourier-analysis-and-pdes
   status: active
@@ -5542,6 +5610,8 @@ ucv1-ideal-membership:
   sources:
   - topic: p15a_ideal_membership
     module: mathgen/generators/p15a_ideal_structure_build.py
+  - topic: exd_x_r3h_ideal_unknown_coefficients
+    module: mathgen/generators/exd_x_r3h_ideal_unknown_coefficients.py
 ucv1-improper-integral:
   domain: integration
   status: active
@@ -5564,6 +5634,8 @@ ucv1-initial-value-constant:
   sources:
   - topic: p13f_initial_value_constant
     module: mathgen/generators/p13f_initial_value_constant_build.py
+  - topic: exd_x_r3f_initial_value_chain
+    module: mathgen/generators/exd_x_r3f_initial_value_chain.py
 ucv1-inverse-regularised-solve:
   domain: advanced-scientific-computing
   status: active
@@ -5578,12 +5650,16 @@ ucv1-isomorphism-invariant:
   sources:
   - topic: p15a_isomorphism_invariant
     module: mathgen/generators/p15a_subgroup_isomorphism_build.py
+  - topic: exd_x_r3i_product_group_orders
+    module: mathgen/generators/exd_x_r3i_product_group_orders.py
 ucv1-iterative-linear-solver-step:
   domain: numerical-and-computational-mathematics
   status: active
   sources:
   - topic: p14c_iterative_linear_solver_step
     module: mathgen/generators/p14c_iterative_linear_solver_step_build.py
+  - topic: exd_x_r3b_gauss_seidel
+    module: mathgen/generators/exd_x_r3b_gauss_seidel.py
 ucv1-joint-distribution-marginal:
   domain: probability
   status: active
@@ -5620,12 +5696,16 @@ ucv1-linear-oscillator-classification:
   sources:
   - topic: p14f_linear_oscillator_classification
     module: mathgen/generators/p14f_oscillator_phaseplane_build.py
+  - topic: exd_x_r3h_oscillator_damping
+    module: mathgen/generators/exd_x_r3h_oscillator_damping.py
 ucv1-linear-system-determinant:
   domain: linear-algebra
   status: active
   sources:
   - topic: p14c_linear_system_determinant
     module: mathgen/generators/p14c_linear_system_determinant_build.py
+  - topic: exd_x_r3c_cramer_line
+    module: mathgen/generators/exd_x_r3c_cramer_line.py
 ucv1-manifold-chart-jacobian:
   domain: advanced-geometry-and-topology
   status: active
@@ -5648,12 +5728,16 @@ ucv1-metric-axiom-check:
   sources:
   - topic: p15b_metric_axiom_check
     module: mathgen/generators/p15b_metric_topology_build.py
+  - topic: exd_x_r3j_metric_missing_distance
+    module: mathgen/generators/exd_x_r3j_metric_missing_distance.py
 ucv1-multivariate-regression:
   domain: statistical-learning
   status: active
   sources:
   - topic: p14e_multivariate_regression
     module: mathgen/generators/p14e_multivariate_regression_build.py
+  - topic: exd_x_r3d_regression_summary_chain
+    module: mathgen/generators/exd_x_r3d_regression_summary_chain.py
 ucv1-null-space:
   domain: linear-algebra
   status: active
@@ -5668,6 +5752,8 @@ ucv1-number-theory-computation:
   sources:
   - topic: p14b_number_theory_computation
     module: mathgen/generators/p14b_number_theory_computation_build.py
+  - topic: exd_x_r3j_euler_power_residue
+    module: mathgen/generators/exd_x_r3j_euler_power_residue.py
 ucv1-numerical-error-bound:
   domain: numerical-and-computational-mathematics
   status: active
@@ -5688,18 +5774,24 @@ ucv1-optimality-sensitivity:
   sources:
   - topic: p17a_optimality_sensitivity
     module: mathgen/generators/p17a_optimality_sensitivity_build.py
+  - topic: exd_x_r3g_quadratic_sensitivity
+    module: mathgen/generators/exd_x_r3g_quadratic_sensitivity.py
 ucv1-parametric-curvature:
   domain: advanced-geometry-and-topology
   status: active
   sources:
   - topic: p13e_parametric_curvature
     module: mathgen/generators/p13e_bifurcation_curvature_build.py
+  - topic: exd_x_r3i_curvature_chain
+    module: mathgen/generators/exd_x_r3i_curvature_chain.py
 ucv1-phase-plane-linear-classification:
   domain: advanced-pdes-and-dynamics
   status: active
   sources:
   - topic: p14f_phase_plane_linear_classification
     module: mathgen/generators/p14f_oscillator_phaseplane_build.py
+  - topic: exd_x_r3i_phase_plane_invariants
+    module: mathgen/generators/exd_x_r3i_phase_plane_invariants.py
 ucv1-poisson-count-probability:
   domain: stochastic-processes
   status: active
@@ -5722,6 +5814,8 @@ ucv1-product-measure-rectangle:
   sources:
   - topic: p15c_product_measure_rectangle
     module: mathgen/generators/p15c_measure_build.py
+  - topic: exd_x_r3e_product_measure_complement
+    module: mathgen/generators/exd_x_r3e_product_measure_complement.py
 ucv1-proof-by-induction:
   domain: proof-and-foundations
   status: active
@@ -5736,12 +5830,16 @@ ucv1-proportion-confidence-interval:
   sources:
   - topic: proportion_confidence_interval_inverse
     module: mathgen/generators/p17b_proportion_ci_inverse_build.py
+  - topic: exd_x_r3b_proportion_ci
+    module: mathgen/generators/exd_x_r3b_proportion_ci.py
 ucv1-quotient-ring-operation:
   domain: abstract-algebra
   status: active
   sources:
   - topic: p15e_quotient_ring_operation
     module: mathgen/generators/p15e_algebra_build.py
+  - topic: exd_x_r3f_quotient_ring_roots
+    module: mathgen/generators/exd_x_r3f_quotient_ring_roots.py
 ucv1-recurrence-two-step:
   domain: discrete-mathematics
   status: active
@@ -5754,24 +5852,32 @@ ucv1-regression-residual-diagnostic:
   sources:
   - topic: p14e_residual_diagnostic
     module: mathgen/generators/p14e_residual_diagnostic_build.py
+  - topic: exd_x_r3i_regression_fit
+    module: mathgen/generators/exd_x_r3i_regression_fit.py
 ucv1-residue-simple-pole:
   domain: complex-analysis
   status: active
   sources:
   - topic: p13e_residue_simple_pole
     module: mathgen/generators/p13e_residue_heat_build.py
+  - topic: exd_x_r3j_residue_contour
+    module: mathgen/generators/exd_x_r3j_residue_contour.py
 ucv1-ridge-coefficient:
   domain: statistical-learning
   status: active
   sources:
   - topic: p13f_ridge_coefficient
     module: mathgen/generators/p13f_ridge_coefficient_build.py
+  - topic: exd_x_r3g_ridge_fit
+    module: mathgen/generators/exd_x_r3g_ridge_fit.py
 ucv1-rsa-modular-step:
   domain: number-theory
   status: active
   sources:
   - topic: p12f_rsa_modular_step
     module: mathgen/generators/p12f_ftc_rsa_build.py
+  - topic: exd_x_r3g_rsa_keypair
+    module: mathgen/generators/exd_x_r3g_rsa_keypair.py
 ucv1-second-order-characteristic-roots:
   domain: ordinary-differential-equations
   status: active
@@ -5810,6 +5916,8 @@ ucv1-stochastic-euler-step:
   sources:
   - topic: p13f_stochastic_euler
     module: mathgen/generators/p13f_stochastic_euler_build.py
+  - topic: exd_x_r3a_stochastic_two_step
+    module: mathgen/generators/exd_x_r3a_stochastic_two_step.py
 ucv1-structure-classification:
   domain: advanced-algebra
   status: active
@@ -5840,6 +5948,8 @@ ucv1-taylor-linear-approximation:
   sources:
   - topic: p12e_taylor_linear_approx
     module: mathgen/generators/p12e_taylor_poisson_build.py
+  - topic: exd_x_r3i_taylor_tangent
+    module: mathgen/generators/exd_x_r3i_taylor_tangent.py
 ucv1-topology-basis-membership:
   domain: metric-spaces-and-topology
   status: active
@@ -5854,12 +5964,16 @@ ucv1-total-variance-finite:
   sources:
   - topic: p14e_total_variance_two_case
     module: mathgen/generators/p14e_total_variance_two_case_build.py
+  - topic: exd_x_r3j_total_variance_three
+    module: mathgen/generators/exd_x_r3j_total_variance_three.py
 ucv1-tree-spanning-edge-count:
   domain: discrete-mathematics
   status: active
   sources:
   - topic: p14b_tree_edge_count
     module: mathgen/generators/p14b_tree_edge_count_build.py
+  - topic: exd_x_r3g_tree_leaves
+    module: mathgen/generators/exd_x_r3g_tree_leaves.py
 ucv1-triple-integral:
   domain: multivariable-and-vector-calculus
   status: active
@@ -5902,6 +6016,8 @@ ucv1-wave-parameter-relation:
   sources:
   - topic: p14f_wave_parameter_relation
     module: mathgen/generators/p14f_energy_wave_build.py
+  - topic: exd_x_r3j_wave_shoaling
+    module: mathgen/generators/exd_x_r3j_wave_shoaling.py
 ucv1-weak-solution-regularity:
   domain: advanced-pdes-and-dynamics
   status: active
@@ -5968,8 +6084,8 @@ vector-dot-product:
   sources:
   - topic: vectors
     module: mathgen/generators/geometry.py
-  - topic: exd_x_g1_vector_dot_product
-    module: mathgen/generators/exd_x_g1_vector_dot_product.py
+  - topic: exd_x_r3d_vector_projection
+    module: mathgen/generators/exd_x_r3d_vector_projection.py
 vector-magnitude:
   domain: vectors
   status: active
