@@ -164,7 +164,7 @@ def _hard_linear(rng):
             "Find the coefficient of x{r} in the expansion of {base}{n}.",
             "What is the coefficient of x{r} in {base}{n}?",
         ),
-        r=sup(r),
+        r="" if r == 1 else sup(r),
         base=base,
         n=sup(n),
     )

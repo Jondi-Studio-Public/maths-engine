@@ -71,7 +71,7 @@ def test_key_accepted_and_every_distractor_rejected(tier):
 
 def test_tiers_differ_in_shape():
     easy = [_q("easy", s).text for s in range(60)]
-    assert all("Find zw." in t for t in easy)
+    assert all("find zw." in t.lower() for t in easy)
     for t in easy:
         angles = [int(a) for _n, _r, a in _NUMBER.findall(t)]
         assert sum(angles) < 360
@@ -88,7 +88,7 @@ def test_tiers_differ_in_shape():
         if "zw/u" in t:
             continue
         a1, a2 = int(found[0][2]), int(found[1][2])
-        wrapped += (a1 + a2 >= 360) if "Find zw." in t else (a1 < a2)
+        wrapped += (a1 + a2 >= 360) if "find zw." in t else (a1 < a2)
     assert wrapped >= 40
 
 

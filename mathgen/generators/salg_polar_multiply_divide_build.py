@@ -92,7 +92,7 @@ def _easy(rng):
     ]
     return _pair_question(
         rng,
-        ("Let {z} and {w}. Find zw.", "The complex numbers z and w are {z} and {w}. Find zw."),
+        ("Let {z} and {w}. Find zw.", "Given {z} and {w}, find zw."),
         dict(z=_label("z", r1, t1), w=_label("w", r2, t2)),
         r,
         theta,
@@ -128,7 +128,7 @@ def _medium(rng):
     ]
     return _pair_question(
         rng,
-        ("Let {z} and {w}. Find z/w.", "The complex numbers z and w are {z} and {w}. Find z/w."),
+        ("Let {z} and {w}. Find z/w.", "Given {z} and {w}, find z/w."),
         dict(z=_label("z", r1, t1), w=_label("w", r2, t2)),
         r,
         theta,
@@ -160,7 +160,7 @@ def _hard_wrap(rng):
         ]
         return _pair_question(
             rng,
-            ("Let {z} and {w}. Find zw.", "The complex numbers z and w are {z} and {w}. Find zw."),
+            ("Let {z} and {w}. Find zw.", "Given {z} and {w}, find zw."),
             dict(z=_label("z", r1, t1), w=_label("w", r2, t2)),
             r,
             theta,
@@ -189,7 +189,7 @@ def _hard_wrap(rng):
     ]
     return _pair_question(
         rng,
-        ("Let {z} and {w}. Find z/w.", "The complex numbers z and w are {z} and {w}. Find z/w."),
+        ("Let {z} and {w}. Find z/w.", "Given {z} and {w}, find z/w."),
         dict(z=_label("z", r1, t1), w=_label("w", r2, t2)),
         r,
         theta,
@@ -237,7 +237,7 @@ def _hard_combined(rng):
     ]
     return _pair_question(
         rng,
-        ("Let {z}, {w} and {u}. Find zw/u.", "The complex numbers z, w and u are {z}, {w} and {u}. Find zw/u."),
+        ("Let {z}, {w} and {u}. Find zw/u.", "Given {z}, {w} and {u}, find zw/u."),
         dict(z=_label("z", r1, t1), w=_label("w", r2, t2), u=_label("u", r3, t3)),
         r,
         theta,

@@ -136,11 +136,16 @@ def _fn_text(fn: str) -> str:
     return fn
 
 
+def _say(expr) -> str:
+    """A typed value as the working writes it: 2*sqrt(3)/3 -> 2√(3)/3."""
+    return typed(expr).replace("*sqrt(", "√(").replace("sqrt(", "√(")
+
+
 def _working(fn, angle_text, theta, true):
     sin_v, cos_v = value("sin", theta), value("cos", theta)
-    lines = [f"sin {angle_text} = {typed(sin_v)} and cos {angle_text} = {typed(cos_v)}."]
+    lines = [f"sin {angle_text} = {_say(sin_v)} and cos {angle_text} = {_say(cos_v)}."]
     form = {"sec": "1/cos", "cosec": "1/sin", "cot": "cos/sin"}[fn]
-    lines.append(f"{fn} {angle_text} = {form} {angle_text} = {typed(true)}.")
+    lines.append(f"{fn} {angle_text} = {form} {angle_text} = {_say(true)}.")
     return lines
 
 
@@ -226,7 +231,7 @@ def _exam_angles() -> list[sp.Rational]:
     the first quadrant (the first quadrant is what the practice tiers cover)."""
     out = set()
     for den in (3, 4, 6):
-        for num in range(-2 * den, 2 * den + 1):
+        for num in range(-3 * den, 3 * den + 1):
             frac = sp.Rational(num, den)
             if (frac * 2).q == 1 or frac in out:
                 continue
@@ -268,15 +273,15 @@ def salg_exam_reciprocal_trig_values(rng, tier="exam"):
     return dict(
         text=f"Let θ = {at}.",
         parts=[
-            part("Find the exact value of sin θ.", "sin", s, 1, working=[f"sin θ = {typed(s)}."]),
-            part("Find the exact value of cos θ.", "cos", c, 1, working=[f"cos θ = {typed(c)}."]),
+            part("Find the exact value of sin θ.", "sin", s, 1, working=[f"sin θ = {_say(s)}."]),
+            part("Find the exact value of cos θ.", "cos", c, 1, working=[f"cos θ = {_say(c)}."]),
             part(
                 "Hence find the exact value of cosec θ.",
                 "cosec",
                 cosec,
                 2,
                 ft="1/part_a",
-                working=[f"cosec θ = 1/sin θ = 1/({typed(s)}) = {typed(cosec)}."],
+                working=[f"cosec θ = 1/sin θ = 1/({_say(s)}) = {_say(cosec)}."],
             ),
             part(
                 "Hence find the exact value of cot θ.",
@@ -284,7 +289,7 @@ def salg_exam_reciprocal_trig_values(rng, tier="exam"):
                 cot,
                 2,
                 ft="part_b/part_a",
-                working=[f"cot θ = cos θ / sin θ = ({typed(c)}) / ({typed(s)}) = {typed(cot)}."],
+                working=[f"cot θ = cos θ / sin θ = ({_say(c)}) / ({_say(s)}) = {_say(cot)}."],
             ),
         ],
     )

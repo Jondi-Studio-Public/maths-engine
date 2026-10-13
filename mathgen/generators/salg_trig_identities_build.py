@@ -27,7 +27,7 @@ import sympy as sp
 
 from ..answers import Distractor, exact_value
 from ..core import check, draw_until, generator, latex_answer, phrase, pick_distractors, rational_text
-from ._salg_kit import frac_dist, typed
+from ._salg_kit import frac_dist, shown, typed
 
 _TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29)]
 _QUADRANTS = {
@@ -252,6 +252,8 @@ def _solve(rng):
         s=sec,
         t=tan,
     )
+    sign = "+" if a >= b else "-"
+    gap = "" if abs(a - b) == 1 else abs(a - b)
     return dict(
         text=stem,
         answer_kind="number",
@@ -259,7 +261,7 @@ def _solve(rng):
         answer_text=str(angle),
         answer_latex=str(angle),
         working=[
-            f"Replace {sec}²θ using {sec}²θ = 1 + {tan}²θ: {a} + {a - b}{tan}²θ = {c}.",
+            f"Replace {sec}²θ using {sec}²θ = 1 + {tan}²θ: {a} {sign} {gap}{tan}²θ = {c}.",
             f"So {tan}²θ = {rational_text(sp.Rational(target.numerator, target.denominator))}, and for an acute angle θ = {angle}°.",
         ],
         distractors=distractors,
@@ -382,7 +384,7 @@ def _simplify(rng):
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer),
-        working=[f"Using 1 + tan²x = sec²x and 1 + cot²x = cosec²x, {stem_text} = {answer_text}."],
+        working=[f"Using 1 + tan²x = sec²x and 1 + cot²x = cosec²x, {stem_text} = {shown(answer_text)}."],
         distractors=picked,
     )
 

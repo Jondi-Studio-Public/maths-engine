@@ -73,7 +73,7 @@ _POWER_STEMS = ("Let {z}. Find z{n}.", "Given {z}, find z{n}.", "For {z}, find z
 
 
 def _easy(rng):
-    r0, n = rng.randint(1, 3), rng.choice([2, 3])
+    r0, n = rng.choice([2, 2, 3]), rng.choice([2, 3])
     t0 = draw_until(
         rng, lambda r: r.randrange(10, 180, 10), lambda t: n * t < 360, what="an argument with nθ below 360"
     )
@@ -128,7 +128,7 @@ def _medium_positive(rng):
         [
             f"Raise the modulus to the power {n}: {r0}^{n} = {r}.",
             f"Multiply the argument by {n}: {n} × {t0}° = {raw}°, which is {(raw - theta) // 360} full turn{'s' if raw - theta > 360 else ''} more than {theta}°.",
-            f"So z{_sup(n)} = {r} cis {theta}°.",
+            f"So z{_sup(n)} = {'' if r == 1 else f'{r} '}cis {theta}°.",
         ],
     )
 

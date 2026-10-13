@@ -10,9 +10,9 @@ binomial for a small positive integer n, reading the coefficients from Pascal's 
   of b, and a negative b alternates the signs.
 * hard: ``(ax + b)^n`` or ``(ax + by)^n`` with a of 2 or 3 and a negative or positive b, n = 4 or 5 (3 or 4 for two
   letters), so a is raised to a power as well as b.
-* exam (``salg_exam_binomial_expand``): (a) expand ``(x + a)^3``; (b) hence expand ``(x + a)^4`` by multiplying (a)
-  by ``x + a`` (follows through from (a)); (c) the coefficient of x² in (b); (d) the sum of the coefficients, found
-  by substituting x = 1 into the expansion in (b) (follows through from (b)).
+* exam (``salg_exam_binomial_expand``): (a) expand ``(x + a)^m`` for m of 3 or 4; (b) hence expand ``(x + a)^(m+1)`` by
+  multiplying (a) by ``x + a`` (follows through from (a)); (c) the coefficient of x² in (b); (d) the sum of the
+  coefficients, found by substituting x = 1 into the expansion in (b) (follows through from (b)). The letter varies.
 
 Every expansion is built from the binomial theorem term by term and confirmed against SymPy's ``expand``. Each
 distractor is the expansion a learner gets by making one named error, and is confirmed to differ from the key.
@@ -187,105 +187,104 @@ def salg_binomial_expand(rng, tier="easy"):
 
 @generator("salg_exam_binomial_expand", level=11, presets={"exam": dict(tier="exam")})
 def salg_exam_binomial_expand(rng, tier="exam"):
-    """Exam chain: expand (x + a)^3, hence (x + a)^4, a coefficient, and the sum of the coefficients."""
+    """Exam chain: expand (v + a)^m, hence (v + a)^(m+1), a coefficient, and the sum of the coefficients."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    a = rng.choice([-3, -2, 2, 3, 4])
-    x = sp.Symbol("x")
-    base = f"(x {'+' if a > 0 else '-'} {abs(a)})"
+    letter = rng.choice("xtzp")
+    m = rng.choice([3, 4])
+    n = m + 1
+    a = rng.choice([-4, -3, -2, 2, 3, 4] if m == 3 else [-3, -2, 2, 3])
+    v = sp.Symbol(letter)
+    sign = "+" if a > 0 else "-"
+    base = f"({letter} {sign} {abs(a)})"
 
-    c3, c4 = _true_coeffs(3, 1, a), _true_coeffs(4, 1, a)
-    text3, e3 = _build(3, c3, "x", None)
-    text4, e4 = _build(4, c4, "x", None)
-    check(sp.expand((x + a) ** 3 - e3) == 0 and sp.expand((x + a) ** 4 - e4) == 0, "expansion differs from SymPy")
-    check(sp.expand((x + a) * e3 - e4) == 0, "(x + a) times the cube differs from the fourth power")
-    coef2 = comb(4, 2) * a**2
-    check(sp.Poly(e4, x).coeff_monomial(x**2) == coef2, "coefficient of x^2 differs from SymPy")
-    total = (1 + a) ** 4
-    check(e4.subs(x, 1) == total, "sum of coefficients differs from SymPy")
+    cm, cn = _true_coeffs(m, 1, a), _true_coeffs(n, 1, a)
+    text_m, e_m = _build(m, cm, letter, None)
+    text_n, e_n = _build(n, cn, letter, None)
+    check(sp.expand((v + a) ** m - e_m) == 0 and sp.expand((v + a) ** n - e_n) == 0, "expansion differs from SymPy")
+    check(sp.expand((v + a) * e_m - e_n) == 0, "(v + a) times the lower power differs from the higher power")
+    coef2 = comb(n, 2) * a ** (n - 2)
+    check(sp.Poly(e_n, v).coeff_monomial(v**2) == coef2, "coefficient of v^2 differs from SymPy")
+    total = (1 + a) ** n
+    check(e_n.subs(v, 1) == total, "sum of coefficients differs from SymPy")
 
-    # (a) the cube: the same slips as any single expansion.
-    a_dist = _distractors(3, 1, a, "x", None, e3, text3)
-    # (b) the fourth power.
-    b_dist = _distractors(4, 1, a, "x", None, e4, text4)
-    # (c) the coefficient of x^2: C(4,2) a^2.
+    a_dist = _distractors(m, 1, a, letter, None, e_m, text_m)
+    b_dist = _distractors(n, 1, a, letter, None, e_n, text_n)
     c_dist = pick_distractors(
         str(coef2),
         [
-            int_dist(comb(4, 2), "binom-base-not-raised"),
-            int_dist(comb(4, 2) * a, "binom-power-of-base-missed"),
-            int_dist(comb(4, 1) * a**3, "binom-wrong-term-picked"),
-            int_dist(comb(4, 3) * a, "binom-wrong-term-picked"),
-            int_dist(4 * a * a, "binom-pascal-coefficient-misread"),
+            int_dist(comb(n, 2), "binom-base-not-raised"),
+            int_dist(comb(n, 2) * a, "binom-power-of-base-missed"),
+            int_dist(comb(n, 1) * a ** (n - 1), "binom-wrong-term-picked"),
+            int_dist(comb(n, 3) * a ** (n - 3), "binom-wrong-term-picked"),
+            int_dist(n * a * a, "binom-pascal-coefficient-misread"),
         ],
         3,
     )
-    # (d) the sum of the coefficients: (1 + a)^4.
     d_dist = pick_distractors(
         str(total),
         [
-            int_dist(1 + a**4, "binom-middle-terms-dropped"),
-            int_dist(4 * (1 + a), "binom-base-times-exponent"),
-            int_dist(a**4, "binom-constant-term-only"),
-            int_dist(sum(abs(c) for c in c4), "binom-negative-sign-dropped"),
-            int_dist(16, "binom-pascal-coefficients-only"),
+            int_dist(1 + a**n, "binom-middle-terms-dropped"),
+            int_dist(n * (1 + a), "binom-base-times-exponent"),
+            int_dist(a**n, "binom-constant-term-only"),
+            int_dist(sum(abs(c) for c in cn), "binom-negative-sign-dropped"),
+            int_dist(2**n, "binom-pascal-coefficients-only"),
         ],
         3,
     )
     for label, ds in (("a", a_dist), ("b", b_dist), ("c", c_dist), ("d", d_dist)):
         check(len(ds) >= 2, f"too few distractors in part {label}")
 
-    sign = "+" if a > 0 else "-"
-    ft_b = f"(x {sign} {abs(a)})*part_a"
+    row = ", ".join(str(comb(m, k)) for k in range(m + 1))
     return dict(
-        text=f"Consider powers of the binomial x {sign} {abs(a)}.",
+        text=f"Consider powers of the binomial {letter} {sign} {abs(a)}.",
         parts=[
             dict(
-                prompt=f"Expand {base}{sup(3)}.",
+                prompt=f"Expand {base}{sup(m)}.",
                 answer_kind="expression",
-                answer=typed(e3),
-                answer_text=text3,
-                answer_latex=latex_answer(e3),
+                answer=typed(e_m),
+                answer_text=text_m,
+                answer_latex=latex_answer(e_m),
                 answer_form=_FORM,
                 marks=2,
-                working=[f"Row 3 of Pascal's triangle is 1, 3, 3, 1.", f"{base}{sup(3)} = {text3}."],
+                working=[f"Row {m} of Pascal's triangle is {row}.", f"{base}{sup(m)} = {text_m}."],
                 distractors=a_dist,
             ),
             dict(
-                prompt=f"Hence expand {base}{sup(4)}.",
+                prompt=f"Hence expand {base}{sup(n)}.",
                 answer_kind="expression",
-                answer=typed(e4),
-                answer_text=text4,
-                answer_latex=latex_answer(e4),
+                answer=typed(e_n),
+                answer_text=text_n,
+                answer_latex=latex_answer(e_n),
                 answer_form=_FORM,
                 marks=2,
-                follow_through=ft_b,
+                follow_through=f"({letter} {sign} {abs(a)})*part_a",
                 working=[
-                    f"{base}{sup(4)} = {base}{base}{sup(3)}, so multiply your answer to (a) by {base}.",
-                    f"{base}{sup(4)} = {text4}.",
+                    f"{base}{sup(n)} = {base}{base}{sup(m)}, so multiply your answer to (a) by {base}.",
+                    f"{base}{sup(n)} = {text_n}.",
                 ],
                 distractors=b_dist,
             ),
             dict(
-                prompt=f"State the coefficient of x{sup(2)} in the expansion of {base}{sup(4)}.",
+                prompt=f"State the coefficient of {letter}{sup(2)} in the expansion of {base}{sup(n)}.",
                 answer_kind="number",
                 answer=coef2,
                 answer_text=str(coef2),
                 answer_latex=str(coef2),
                 marks=1,
-                sensible_range=(0, None),
-                working=[f"The x{sup(2)} term is C(4, 2) × x{sup(2)} × ({a}){sup(2)} = {coef2}x{sup(2)}."],
+                working=[
+                    f"The {letter}{sup(2)} term is C({n}, 2) × {letter}{sup(2)} × ({a}){sup(n - 2)}, so the coefficient is {coef2}."
+                ],
                 distractors=c_dist,
             ),
             dict(
-                prompt=f"Substitute x = 1 into your expansion in (b) to find the sum of its coefficients.",
+                prompt=f"Substitute {letter} = 1 into your expansion in (b) to find the sum of its coefficients.",
                 answer_kind="number",
                 answer=total,
                 answer_text=str(total),
                 answer_latex=str(total),
                 marks=2,
-                sensible_range=(0, None),
-                follow_through="Subs(part_b, (x,), (1,))",
-                working=[f"At x = 1 the expansion equals (1 {sign} {abs(a)}){sup(4)} = {total}."],
+                follow_through=f"Subs(part_b, ({letter},), (1,))",
+                working=[f"At {letter} = 1 the expansion equals (1 {sign} {abs(a)}){sup(n)} = {total}."],
                 distractors=d_dist,
             ),
         ],

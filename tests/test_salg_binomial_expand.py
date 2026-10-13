@@ -100,6 +100,15 @@ def test_negative_numbers_alternate_signs():
 # -- exam chain ---------------------------------------------------------------------------------------------------
 
 
+def _exam_setup(q):
+    """The variable, the shift and the two powers, read back out of the question text."""
+    letter, sign, num = re.search(r"binomial ([a-z]) ([+-]) (\d+)\.", q.text).groups()
+    a = int(num) * (1 if sign == "+" else -1)
+    m = _power(q.parts[0].prompt)[1]
+    n = _power(q.parts[1].prompt)[1]
+    return sp.Symbol(letter), a, m, n
+
+
 def test_exam_shape_and_marks():
     for seed in range(40):
         q = make(EXAM, seed=seed, difficulty="exam")
@@ -107,34 +116,40 @@ def test_exam_shape_and_marks():
         assert [p.marks for p in q.parts] == [2, 2, 1, 2]
         assert [p.answer_kind for p in q.parts] == ["expression", "expression", "number", "number"]
         assert [bool(p.follow_through) for p in q.parts] == [False, True, False, True]
-        assert q.parts[2].sensible_range == (0, None)
+
+
+def test_exam_varies_letter_and_power():
+    seen = set()
+    for seed in range(60):
+        v, a, m, n = _exam_setup(make(EXAM, seed=seed, difficulty="exam"))
+        assert n == m + 1
+        seen.add((str(v), m))
+    assert len({v for v, _m in seen}) >= 3 and {m for _v, m in seen} == {3, 4}
 
 
 def test_exam_keys_match_independent_derivation():
-    x = sp.Symbol("x")
     for seed in range(120):
         q = make(EXAM, seed=seed, difficulty="exam")
-        a = int(re.search(r"x ([+-]) (\d+)", q.text).group(2)) * (1 if "+" in q.text else -1)
-        cube = sp.expand((x + a) ** 3)
-        fourth = sp.expand((x + a) ** 4)
-        assert sp.expand(parse(q.parts[0].answer_text) - cube) == 0
-        assert sp.expand(parse(q.parts[1].answer_text) - fourth) == 0
-        assert int(q.parts[2].answer) == sp.Poly(fourth, x).coeff_monomial(x**2)
-        assert int(q.parts[3].answer) == sum(sp.Poly(fourth, x).all_coeffs())
+        v, a, m, n = _exam_setup(q)
+        lower = sp.expand((v + a) ** m)
+        higher = sp.expand((v + a) ** n)
+        assert sp.expand(parse(q.parts[0].answer_text) - lower) == 0
+        assert sp.expand(parse(q.parts[1].answer_text) - higher) == 0
+        assert int(q.parts[2].answer) == sp.Poly(higher, v).coeff_monomial(v**2)
+        assert int(q.parts[3].answer) == sum(sp.Poly(higher, v).all_coeffs())
 
 
 def test_exam_key_accepted_and_every_distractor_rejected():
     check_exam(SKILL, EXAM, seeds=60)
 
 
-def test_exam_follow_through_from_a_wrong_cube():
+def test_exam_follow_through_from_a_wrong_power():
     def wrong(q):
-        # (a) wrong: the middle terms dropped; (b) multiplied from it; (d) then summed at x = 1.
-        x = sp.Symbol("x")
-        a = q.parts[0].distractors[1]  # "x^3 + a^3": middle terms dropped
-        expr = parse(a)
-        b = sp.expand(expr * parse(re.search(r"\((x [+-] \d+)\)", q.parts[1].prompt).group(1)))
-        text_b = str(b).replace("**", "^")
-        return a, {"b": text_b, "d": str(b.subs(x, 1))}
+        # (a) wrong: the middle terms dropped; (b) multiplied from it; (d) then summed at v = 1.
+        v, a, _m, _n = _exam_setup(q)
+        wrong_a = q.parts[0].distractors[1]
+        base = parse(_power(q.parts[1].prompt)[2].replace(" ", ""))
+        b = sp.expand(parse(wrong_a) * base)
+        return wrong_a, {"b": str(b).replace("**", "^"), "d": str(b.subs(v, 1))}
 
     check_follow_through(SKILL, EXAM, "a", wrong, ["b", "d"])
