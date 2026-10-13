@@ -331,6 +331,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "senior_event_set_notation",
         "senior_percentaged_two_way_table",
         "senior_reducing_balance_schedule",
+        "sequence_term_from_rule",
         "transformations_invariants",
         "triple_integral",
         "ucv1_chi_square_test",

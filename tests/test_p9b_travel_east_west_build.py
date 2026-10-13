@@ -161,7 +161,7 @@ def test_skill_loads_with_expected_fields():
     skills_by_id = {s.id: s for s in skills}
     skill = skills_by_id.get("senior-solve-problems-relating-to-travelling-east-and-west")
     assert skill is not None
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-find-time-differences-between-two-places-on-earth"]
     assert skill.answer == "number"
     assert skill.placement_eligible is False
 

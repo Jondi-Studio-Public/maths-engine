@@ -6,7 +6,9 @@ domain: statistics-probability
 description: Given a stated, generated dataset (a small business's daily profit or loss, $) with a designated outlier, compute the difference between the dataset's mean with the outlier included and its mean with the outlier removed (mean-with minus mean-without, stated to 1 decimal place). Both means are exact integers by construction, so no rounding ever enters the computation. Never computes the median; only the effect of the outlier on the mean is assessed.
 status: active
 placement_eligible: false
-prerequisites: [simple-event-probability]
+prerequisites:
+- simple-event-probability
+- senior-recognise-and-identify-outliers
 capability_gates: [authentic_data, modelling]
 answer: number
 sources:

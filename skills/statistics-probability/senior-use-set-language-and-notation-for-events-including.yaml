@@ -8,6 +8,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - simple-event-probability
+- f10-venn-diagram-counts
 answer: set
 sources:
 - topic: senior_event_set_notation

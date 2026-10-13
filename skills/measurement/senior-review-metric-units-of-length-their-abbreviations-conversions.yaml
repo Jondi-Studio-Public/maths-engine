@@ -6,7 +6,8 @@ domain: measurement
 description: Given bounded, fully specified inputs, review metric units of length, their abbreviations, conversions between them, estimation of lengths, and appropriate choices of units. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- convert-metric-length
 answer: number
 sources:
 - topic: review_metric_units_of_length

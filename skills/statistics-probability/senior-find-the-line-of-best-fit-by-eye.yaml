@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: [simple-event-probability]
+prerequisites:
+- simple-event-probability
+- senior-identify-the-dependent-and-independent-variable
 answer: mcq
 sources:
 - topic: p8c_line_best_fit_by_eye

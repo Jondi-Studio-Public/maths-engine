@@ -6,7 +6,8 @@ domain: statistics-probability
 description: Classify a finite set of outcomes as a single outcome, the sample space itself, an event (a set of outcomes), or an invalid subset, given a bounded equally-likely sample space and the set explicitly stated.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-chance-language-and-outcomes
 answer: mcq
 sources:
 - topic: outcomes_sample_classify

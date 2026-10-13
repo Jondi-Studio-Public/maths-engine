@@ -202,7 +202,10 @@ def test_skill_loads_with_expected_shape():
     skill = by_id[SKILL_ID]
     assert skill.answer == "pair"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-examine-momentum-force-resultant-force-action-and-reaction",
+        "vector-addition",
+    ]
     assert skill.status == "active"
     difficulties = {src.difficulty for src in skill.sources}
     assert difficulties == {"easy", "medium", "hard", "exam"}

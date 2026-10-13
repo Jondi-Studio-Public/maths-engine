@@ -95,7 +95,10 @@ def test_recurrence_skill_loads_through_api_with_correct_properties():
     assert RECURRENCE_SKILL.status == "active"
     assert RECURRENCE_SKILL.placement_eligible is False
     assert RECURRENCE_SKILL.answer == "number"
-    assert RECURRENCE_SKILL.prerequisites == []
+    assert RECURRENCE_SKILL.prerequisites == [
+        "senior-recognise-and-use-the-recursive-definition-of-an",
+        "generate-sequence-from-rule",
+    ]
     assert {src.difficulty for src in RECURRENCE_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = RECURRENCE_SOURCES["exam"]
     assert exam_src.stages == ["exam"]

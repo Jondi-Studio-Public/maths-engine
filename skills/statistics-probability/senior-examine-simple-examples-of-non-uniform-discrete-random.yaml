@@ -8,6 +8,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - simple-event-probability
+- senior-recognise-uniform-discrete-random-variables-and-use-them
 answer: fraction
 sources:
 - topic: non_uniform_discrete_random_variable

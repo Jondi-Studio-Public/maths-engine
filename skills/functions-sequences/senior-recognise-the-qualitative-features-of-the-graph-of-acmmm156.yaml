@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-define-logarithms-as-indices-a-x-b-is
+- logarithm-laws
 answer: pair
 sources:
 - topic: pv1e_log_asymptote

@@ -1846,8 +1846,8 @@ generate-sequence-from-rule:
   domain: functions-sequences
   status: active
   sources:
-  - topic: function_evaluation
-    module: mathgen/generators/algebra.py
+  - topic: sequence_term_from_rule
+    module: mathgen/generators/sequence_term_from_rule.py
   - topic: exd_x_f0_sequence_recurrence
     module: mathgen/generators/exd_x_f0_sequence_recurrence.py
 gradient-descent-quadratic:
