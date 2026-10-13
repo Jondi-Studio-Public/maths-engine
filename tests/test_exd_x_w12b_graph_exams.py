@@ -290,3 +290,11 @@ def test_follow_through_equation_from_graph():
         return "a", _eq_text(wrong_m, c1), {"b": _eq_text(wrong_m, c2), "c": str(-c2 / wrong_m), "d": str(gap)}
 
     check_follow_through("equation-from-graph", CHAINS["equation-from-graph"][0], carried, 60)
+
+
+def test_gradient_length_working_is_a_decimal_not_a_fraction():
+    """The length working states "= 4.5 (1 d.p.)", never "= 9/2 (1 d.p.)"."""
+    for seed in range(60):
+        q = make("exd_x_w12b_gradient_from_graph", seed=seed, tier="exam")
+        text = " ".join(q.parts[3].working)
+        assert not re.search(r"= \d+/\d+ \(1 d\.p\.\)", text), text

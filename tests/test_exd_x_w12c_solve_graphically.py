@@ -127,3 +127,13 @@ def test_follow_through_from_a_misread_crossing():
 def test_unknown_tier_rejected():
     with pytest.raises(ValueError):
         make(TOPIC, seed=0, tier="nonsense")
+
+
+def test_working_reads_as_plain_english(questions):
+    """The worked steps never say "1 months", "a hour", "1, 2, ... 1 months", or write the letter x for times."""
+    for q in questions:
+        text = " ".join(step for part in q.parts for step in part.working)
+        assert not re.search(r"\b1 (?:weeks|hours|months)\b", text), text
+        assert "1, 2, ... 1 " not in text, text
+        assert "dollars a hour" not in text and "a hour" not in text, text
+        assert not re.search(r"\d x \d", text), text

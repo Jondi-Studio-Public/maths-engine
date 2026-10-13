@@ -125,6 +125,7 @@ def _build(rng):
     better = "A" if both[0] < both[1] else "B"
     plan = {"A": ctx["a_name"], "B": ctx["b_name"]}
     unit, plural = ctx["unit"], ctx["plural"]
+    article = "an" if unit == "hour" else "a"
     who = rng.choice(ctx["who"])
     stem = phrase(rng, (ctx["intro"],), town=rng.choice(ctx["towns"])) + (
         f" Line A shows the cost of {plan['A']} and line B the cost of {plan['B']}."
@@ -152,8 +153,8 @@ def _build(rng):
         cost,
         2,
         [
-            f"{plan['A']}: C = {fee_a} + {rate_a} x {xi} = {cost}.",
-            f"{plan['B']}: C = {fee_b} + {rate_b} x {xi} = {cost}, so the two costs agree.",
+            f"{plan['A']}: C = {fee_a} + {rate_a} × {xi} = {cost}.",
+            f"{plan['B']}: C = {fee_b} + {rate_b} × {xi} = {cost}, so the two costs agree.",
         ],
         [
             (rate_a * xi, "dropped-intercept-in-prediction"),
@@ -172,7 +173,7 @@ def _build(rng):
         1,
         [
             f"At {xi} {plural} the two costs are equal, so {plan[cheaper_first]} is not cheaper then.",
-            f"It is cheaper for 1, 2, ... {xi - 1} {plural}.",
+            (f"It is cheaper for 1 {unit}." if xi == 2 else f"It is cheaper for 1, 2, ... {xi - 1} {plural}."),
         ],
         [
             (xi, "strict-bound-taken-as-value"),
@@ -188,7 +189,7 @@ def _build(rng):
         saving,
         2,
         [
-            f"Past {xi} {plural}, {plan[better]} is cheaper. The charges differ by {diff_rate} dollars a {unit}.",
+            f"Past {xi} {plural}, {plan[better]} is cheaper. The charges differ by ${diff_rate} {article} {unit}.",
             f"The saving is {diff_rate} x ({n_stay} - {xi}) = {saving} dollars.",
             f"Check: {plan['A']} costs {both[0]} and {plan['B']} costs {both[1]} for {n_stay} {plural}.",
         ],

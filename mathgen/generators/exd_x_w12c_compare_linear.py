@@ -33,7 +33,7 @@ from fractions import Fraction as F
 import sympy
 
 from mathgen import figures
-from mathgen.core import attempts, check, generator, phrase, rational_text
+from mathgen.core import attempts, check, generator, paren_negative, phrase, rational_text
 from mathgen.generators._exd_x_w12c_kit import redraw, expression_part, fraction_part, int_part
 from mathgen.generators.fg1_line_reading_build import draw_line, eq_text, pairs_text, pick_pair
 from mathgen.generators.pv1a_line_figure_build import line_figure, read_line
@@ -62,6 +62,11 @@ _TABLE_XS = ((0, 1, 2, 3), (0, 2, 4, 6), (0, 3, 6, 9))
 def _rhs(m, c) -> str:
     """The right-hand side of ``y = mx + c`` the way a student writes it ("-x/2 + 3")."""
     return eq_text(m, c)[4:]
+
+
+def _bracketed(text: str) -> str:
+    """A coefficient written before a multiplication sign: 3 stays 3, -2 and 1/3 are bracketed."""
+    return f"({text})" if text.startswith("-") or "/" in text else text
 
 
 def _build(rng):
@@ -160,8 +165,8 @@ def _build(rng):
         gap,
         2,
         [
-            f"A: y = {rational_text(mA)} x {X} {'+' if cA > 0 else '-'} {abs(int(cA))} = {rational_text(a_far)}.",
-            f"B: y = {mB} x {X} {'+' if cB > 0 else '-'} {abs(cB)} = {b_far}.",
+            f"A: y = {_bracketed(rational_text(mA))} × {paren_negative(X)} {'+' if cA > 0 else '-'} {abs(int(cA))} = {rational_text(a_far)}.",
+            f"B: y = {paren_negative(mB)} × {paren_negative(X)} {'+' if cB > 0 else '-'} {abs(cB)} = {b_far}.",
             f"The difference is {gap}.",
         ],
         [
