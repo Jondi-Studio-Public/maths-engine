@@ -209,6 +209,29 @@ def test_figures_are_alt_text_unless_asked(learner):
     assert drawn["questions"][0]["figure"]["svg"].lstrip().startswith("<svg")
 
 
+# One skill per statistical figure kind: each is a read-the-picture question, so a learner gets nothing to read
+# unless the picture itself comes back.
+CHARTS = {
+    "bar_chart": "f3-read-a-column-graph",
+    "box_plot": "f10-compare-box-plots",
+    "dot_plot": "f6-read-a-dot-plot",
+    "histogram": "f7-read-a-histogram",
+    "picture_graph": "f2-read-a-picture-graph",
+    "pie_chart": "f6-read-a-pie-chart",
+}
+
+
+@pytest.mark.parametrize("kind, skill_id", sorted(CHARTS.items()))
+def test_every_chart_kind_reaches_the_learner_as_a_picture(learner, author, kind, skill_id):
+    args = {"skill_id": skill_id, "seed": 3, "include_figures": True}
+    data, is_error, text = call(learner, "make_questions", args)
+    assert not is_error, text
+    figure = data["questions"][0]["figure"]
+    assert figure.keys() == {"alt", "svg"} and figure["svg"].lstrip().startswith("<svg")
+    keyed, _, _ = call(author, "make_questions", {**args, "answers": True})
+    assert keyed["questions"][0]["figure"]["spec"]["kind"] == kind
+
+
 def test_find_and_describe_skills(learner):
     data, is_error, _ = call(learner, "find_skills", {"text": "surd", "limit": 3})
     assert not is_error and data["total"] >= len(data["skills"]) and len(data["skills"]) <= 3
