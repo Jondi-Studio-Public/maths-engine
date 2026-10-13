@@ -96,7 +96,8 @@ def test_tiers_differ_and_use_no_fractions():
     for tier in ORACLES:
         for seed in SEEDS:
             q = question(SKILL, tier, seed)
-            assert "/" not in q.text and "fraction" not in q.text and "%" not in q.text
+            words = q.text.replace(GATE, "")  # the diagonal of a tally group is not a fraction slash
+            assert "/" not in words and "fraction" not in words and "%" not in words
 
 
 def test_hard_tier_asks_more_than_one_kind_of_question():
