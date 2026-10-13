@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15e_contour_integral_residue
-  params: {}
+- topic: exd_x_r2f_contour_residues
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

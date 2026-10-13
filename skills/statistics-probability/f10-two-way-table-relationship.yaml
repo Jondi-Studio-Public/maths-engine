@@ -22,6 +22,11 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u6_two_way_deduction
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: misses-a-record
   description: Leaves one record out when tabulating, so a cell is one too low.

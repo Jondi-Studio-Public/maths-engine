@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15a_structure_classification
-  params: {}
+- topic: exd_x_r2h_abelian_orders_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

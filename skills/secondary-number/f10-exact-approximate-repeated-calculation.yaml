@@ -20,6 +20,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_n3_unit_price_rounding
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: reports-approximate-value
   description: Reports the approximate pathway's own final value (rounded after every step) instead of the discrepancy between the two pathways.

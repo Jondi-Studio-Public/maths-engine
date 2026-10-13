@@ -503,8 +503,8 @@ def _exam(rng):
         f"{k} independent samples of {n} trials each are drawn, and the number of successes x "
         f"is recorded for each: {sample_lines}.",
         FORMULA_SENTENCE,
-        f"For sample {stated}, first find the true probability of success p from the chance "
-        f"model, then calculate the standardised value z, to 2 decimal places.",
+        f"For sample {stated}, calculate the standardised value z, to 2 decimal places, where p is the true "
+        f"probability of success under the chance model.",
     ]
     text, latex = _assemble(sentences)
     phat_str = exact_decimal_string(Fraction(x, n), 4)

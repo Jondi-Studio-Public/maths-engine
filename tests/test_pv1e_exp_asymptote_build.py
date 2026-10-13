@@ -8,11 +8,12 @@ import re
 import pytest
 
 import mathgen
-from mathgen.grading.typed import GRADERS
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1e_exp_asymptote_build as gen
+from mathgen.grading.typed import GRADERS
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-recognise-the-qualitative-features-of-the-graph-of"
@@ -56,8 +57,9 @@ def _level_end(piece):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.deferred_reason == "visual" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "pair" and s.mental is None
     assert [x.difficulty for x in s.sources] == TIERS
@@ -162,7 +164,7 @@ def test_answer_concentration(tier):
 def test_prompt_names_the_family_without_its_values(tier):
     for seed in SEEDS:
         q = _make(tier, seed)
-        assert "a^x + k" in q.text and r"\(y = a^{x} + k\)" in q.latex
+        assert "a^x + k" in q.text and r"{y = a^{x} + k}" in q.latex
         assert "horizontal asymptote" in q.text
         assert "**" not in q.text and "*" not in q.text
     assert "2 units" in _make("hard", 0).text

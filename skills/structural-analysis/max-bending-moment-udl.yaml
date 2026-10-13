@@ -13,6 +13,11 @@ sources:
     kinds:
     - max_bm_udl
   difficulty: easy
+- topic: exd_x_u7_udl_design_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-formula-fixed-end
   description: Using the fixed-end formula wL^2/12 instead of wL^2/8.

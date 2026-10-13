@@ -20,8 +20,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15c_symmetry_conservation
-  params: {}
+- topic: exd_x_r2h_central_force_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -1,0 +1,43 @@
+id: f10-read-time-to-the-minute
+name: Read an analogue clock to the minute
+domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [measurement]
+description: Read the time on a drawn analogue clock to the nearest five minutes and to the minute, relating the hour hand to the minute hand, and find how much time has passed between two drawn clocks.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-clock-half-quarter-hour]
+answer: mcq
+sources:
+- topic: clock_read_minute
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: clock_read_minute
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: clock_read_minute
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: numeral-as-minutes
+  description: Reads the numeral the long hand points at as the number of minutes (a hand at the 5 as 5 minutes past).
+- id: nearest-numeral-hour
+  description: Takes the hour numeral nearest the short hand as the hour, so a time past the half hour gets the next hour.
+- id: swapped-hands
+  description: Takes the short hand for the minutes and the long hand for the hour.
+- id: counts-to-for-past
+  description: Counts the minutes to the next hour and reports them as minutes past.
+- id: one-tick-out
+  description: Reads the minute mark next to the one the long hand points at.
+- id: elapsed-no-regroup
+  description: Between two clocks, subtracts the smaller number of minutes from the larger without regrouping an hour.
+- id: elapsed-hours-only
+  description: Between two clocks, gives only the difference between the hours.
+- id: elapsed-minutes-only
+  description: Between two clocks, gives only the difference between the minutes.
+tags: [acara-f10-v9, primary, time, clock, elapsed-time, figure, ac9m3m04]

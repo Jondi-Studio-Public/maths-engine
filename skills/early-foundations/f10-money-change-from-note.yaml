@@ -1,0 +1,33 @@
+id: f10-money-change-from-note
+name: Work out change from a note
+domain: early-foundations
+year_level: ['2']
+naplan_domain: [number]
+learner_band: primary
+description: Read the note, or the notes and coins, a customer pays with and say how much change they get back from a stated price.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-money-count-collection, subtract-within-100]
+answer: mcq
+sources:
+- topic: money_change_from_note
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: money_change_from_note
+  difficulty: medium
+  stages: [3, 4]
+- topic: money_change_from_note
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: dollars-and-cents-separately
+  description: Takes the dollars apart and copies the cents across, so the cents of the price reappear in the change.
+- id: off-by-a-dollar
+  description: Is a whole dollar too high or too low after taking the price from the money.
+- id: adds-price
+  description: Adds the price to the money paid instead of taking it away.
+- id: ignores-the-coins
+  description: Takes the price from the note alone and leaves out the coins also paid.
+tags: [acara-f10-v9, early, money, change, ac9m2n06]

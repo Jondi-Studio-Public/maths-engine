@@ -20,6 +20,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m2_block_fencing
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses_perimeter_for_area
   description: States the perimeter when area is asked (or vice versa).

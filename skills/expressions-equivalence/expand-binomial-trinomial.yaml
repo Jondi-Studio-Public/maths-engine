@@ -1,13 +1,7 @@
 id: expand-binomial-trinomial
 name: Expand a binomial times a trinomial
 domain: expressions-equivalence
-description: Expand a binomial times a second factor (a binomial at the easy tier, a two-variable trinomial from
-  medium tier up) into a fully expanded, fully-collected polynomial. answer_form="expanded" is required on every
-  question -- the unexpanded product (the question's own text) is always rejected, and this generator's canonical
-  never needs a bracket, so no special construction effort is needed beyond that declaration. The hard tier
-  introduces a symbolic parameter `a` (always the binomial's own second term) that must be carried algebraically
-  through the expansion; the exam tier adds a second, independent parameter `b` that replaces one of the
-  trinomial's three coefficients, chosen at random each question.
+description: 'Expand a binomial times a second factor (a binomial at the easy tier, a two-variable trinomial from medium tier up) into a fully expanded, fully-collected polynomial. answer_form="expanded" is required on every question -- the unexpanded product (the question''s own text) is always rejected, and this generator''s canonical never needs a bracket, so no special construction effort is needed beyond that declaration. The hard tier introduces a symbolic parameter `a` (always the binomial''s own second term) that must be carried algebraically through the expansion; the exam tier is a three-part chain on a product with an unknown constant k: find k from the stated coefficient of x, expand and simplify, then evaluate the polynomial at a given value.'
 status: active
 placement_eligible: false
 prerequisites:
@@ -35,8 +29,9 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_e2_expand_binomial_trinomial
-  params: {}
+- topic: exd_x_r2j_expand_unknown_chain
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam

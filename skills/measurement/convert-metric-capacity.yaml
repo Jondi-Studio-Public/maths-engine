@@ -23,6 +23,11 @@ sources:
   params: {kind: capacity, max_steps: 1, value_hi: 30, combine: true}
   stages: [5, 6, maintenance]
   difficulty: hard
+- topic: exd_x_m1_metric_capacity
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: conversion-direction
   description: Reverses multiplication and division by one thousand.

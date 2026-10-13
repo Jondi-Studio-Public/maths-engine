@@ -21,6 +21,11 @@ sources:
   params: {mode: kwh_kj}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m4_energy_units_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-power-of-ten
   description: Uses 100 or 10,000 instead of 1000 when converting between J and kJ or kJ and MJ (adjacent metric-prefix confusion).

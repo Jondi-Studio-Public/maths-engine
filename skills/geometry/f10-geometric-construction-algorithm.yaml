@@ -23,6 +23,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc2_construction_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: ignores-the-refinement
   description: Answers for the original construction, as if the refined step had not been changed.

@@ -1,0 +1,37 @@
+id: f10-venn-diagram-counts
+name: Read and complete a Venn diagram of counts
+domain: statistics-probability
+year_level: ['8']
+naplan_domain: [probability]
+description: Given a Venn diagram of counts for two or three sets inside a rectangle, find a missing region from a stated total, or add the regions that a phrase such as "play Tennis", "play Tennis or Swimming or both" or "play exactly one of" picks out. Easy finds the missing region of a two-set diagram from the group total. Medium picks out the right regions of a two-set diagram for a named set, either set or exactly one set. Hard finds the missing region of a three-set diagram from the group total or from the total of one set's circle.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: []
+answer: number
+sources:
+- topic: fig_venn_counts
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fig_venn_counts
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fig_venn_counts
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-shown-without-total
+  description: Adds the numbers shown on the diagram and gives that as the missing region, never using the stated total.
+- id: leaves-out-a-region
+  description: Subtracts all but one of the shown regions from the total, so the answer is too large by the region left out.
+- id: overlap-left-out-of-set
+  description: Counts only the part of a circle outside the overlap when asked for everyone in that set.
+- id: overlap-counted-twice
+  description: Adds the whole of each circle for "either set", so the overlap is counted twice.
+- id: exactly-one-with-overlap
+  description: Includes the overlap when asked for exactly one of the sets.
+tags: [acara-f10-v9, statistics-probability, fig_venn_counts, ac9m8p02]

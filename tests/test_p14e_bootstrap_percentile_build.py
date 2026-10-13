@@ -239,7 +239,8 @@ def test_skill_loads_with_correct_properties():
     stages = [set(s.stages) for s in skill.sources]
     assert stages == [{0, 1, 2}, {3, 4}, {5, 6, "maintenance"}, {"exam"}]
     assert skill.sources[3].difficulty == "exam"
-    assert all(source.topic == TOPIC for source in skill.sources)
+    assert all(source.topic == TOPIC for source in skill.sources[:3])
+    assert skill.sources[3].topic == "exd_x_r2g_bootstrap_bias"  # the exam tier is a multi-part chain now
 
 
 # 200-seed measurement --------------

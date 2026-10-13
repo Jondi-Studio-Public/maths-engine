@@ -33,9 +33,8 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_x_c1_chain
-  params:
-    tier: exam
+- topic: exd_x_r2a_chain_tangent
+  params: {}
   difficulty: exam
   stages:
   - exam

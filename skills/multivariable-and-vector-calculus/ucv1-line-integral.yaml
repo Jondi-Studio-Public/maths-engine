@@ -1,0 +1,76 @@
+id: ucv1-line-integral
+name: Evaluate a line integral
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: Evaluate a scalar line integral over a segment, the work of a force field along a parametrised curve, and the work of a conservative field by its potential.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+- partial-derivative-x
+answer: expression
+sources:
+- topic: line_integral
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: line_integral
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: line_integral
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_line_integral
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: line-integral-forgot-speed
+  description: Leaves out |r'(t)| when turning ds into dt, so the scalar line integral loses the length factor.
+- id: line-integral-speed-squared
+  description: Uses |r'(t)|^2 for ds, leaving out the square root.
+- id: line-integral-endpoint-only
+  description: Multiplies the length of the segment by the value of f at one end instead of integrating along it.
+- id: line-integral-ds-as-dx
+  description: Treats ds as dx, multiplying by the horizontal extent instead of the length.
+- id: line-integral-r-for-r-prime
+  description: Takes the dot product of F with r(t) instead of r'(t).
+- id: line-integral-forgot-dr
+  description: Integrates P + Q with respect to t, dropping the x'(t) and y'(t) factors of dr.
+- id: line-integral-direction-sign
+  description: Takes the potential difference, or the path, in the wrong direction and gets the sign of the work wrong.
+- id: line-integral-endpoint-field
+  description: Takes the work to be the field at the final point dotted with the displacement.
+- id: line-integral-components-swapped
+  description: Pairs P with y'(t) and Q with x'(t) in F . r'(t).
+- id: line-integral-endpoints-added
+  description: Adds the potential at the two endpoints instead of subtracting.
+- id: line-integral-forgot-initial-potential
+  description: Gives phi(B) as the work without subtracting phi(A).
+- id: line-integral-potential-missing-y-part
+  description: Integrates P with respect to x and stops, leaving out the function of y alone.
+- id: line-integral-potential-missing-x-part
+  description: Integrates Q with respect to y and stops, leaving out the function of x alone.
+- id: line-integral-potential-double-counted
+  description: Adds the integral of P with respect to x to the integral of Q with respect to y, counting every term twice.
+- id: line-integral-potential-sign
+  description: Writes the potential with the wrong sign.
+- id: line-integral-parameter-sign
+  description: Gets the sign of k wrong when equating dP/dy with dQ/dx.
+- id: line-integral-parameter-derivative-slip
+  description: Forgets the factor 2 from differentiating k y^2 when equating dP/dy with dQ/dx.
+- id: line-integral-parameter-other-coefficient
+  description: Reads k from the wrong coefficient of the field instead of equating dP/dy with dQ/dx.
+tags: [university-core-v1, multivariable-calculus, line-integrals]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

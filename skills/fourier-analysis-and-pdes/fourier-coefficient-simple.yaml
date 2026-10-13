@@ -20,6 +20,11 @@ sources:
   params: {kind: step}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u2_fourier_by_parts
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-parity-sign
   description: Loses the alternating sign caused by evaluating sine or cosine at nπ.

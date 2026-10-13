@@ -28,6 +28,7 @@ from ..core import (
     check_distinct,
     check_equivalent,
     generator,
+    join_terms,
     latex_answer,
     phrase,
     pick_distractors,
@@ -155,7 +156,7 @@ def exd_x_h5_quotient_reciprocal_or_cubic(rng, tier="exam"):
             def func(v):
                 return a * v**3 + b * v
 
-            f_text = f"{a}x^3{_signed(b)}x"
+            f_text = join_terms([(a, "x^3"), (b, "x")])
             limit_value = Fraction(3 * a * p * p + b)
             f_sym = a * _x**3 + b * _x
         delta_y = func(q) - func(pf)

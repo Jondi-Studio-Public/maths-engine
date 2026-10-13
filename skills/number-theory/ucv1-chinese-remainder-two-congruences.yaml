@@ -20,6 +20,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u3_crt_leftovers
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: first-congruence-only
   description: Reports the least residue satisfying only the first congruence, ignoring the second entirely.

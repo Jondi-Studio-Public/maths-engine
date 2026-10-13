@@ -27,6 +27,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u4_trapezoid_error
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: misses-endpoint-halves
   description: Applies full weight to both endpoints instead of half weight.

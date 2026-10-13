@@ -4,21 +4,29 @@ domain: measurement
 year_level: ['7']
 description: Calculate a triangle's area from a supplied base and perpendicular height.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites: [rectangle-area, fraction-of-quantity]
 answer: number
 sources:
 - topic: triangle_area_base_height
-  params: {base_hi: 8, height_hi: 8}
+  params: {base_hi: 8, height_hi: 8, figure: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: triangle_area_base_height
-  params: {base_hi: 16, height_hi: 16}
+  params: {base_hi: 16, height_hi: 16, figure: true, units: true}
   difficulty: medium
   stages: [3, 4]
 - topic: triangle_area_base_height
-  params: {base_hi: 30, height_hi: 24, slant: true}
+  params: {base_hi: 30, height_hi: 24, slant: true, figure: true, units: true}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m6_triangle_sails
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-half
   description: Multiplies the base by the perpendicular height without taking half.

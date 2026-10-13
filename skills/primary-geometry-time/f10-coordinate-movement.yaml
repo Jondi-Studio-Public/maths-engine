@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr3_coordinate_movement
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-coordinates
   description: Reports the change in x and y coordinates swapped; states dy as the change in x and dx as the change in y.

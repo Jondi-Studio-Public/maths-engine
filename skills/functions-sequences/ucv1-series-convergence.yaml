@@ -1,0 +1,66 @@
+id: ucv1-series-convergence
+name: Sum and test infinite series
+domain: functions-sequences
+year_level: [university]
+description: Find the sum of a convergent geometric or telescoping series, the limit of the ratio test, or the radius of convergence of a power series, each as an exact value; the exam tier finishes a telescoping series (the partial-fraction constant, the partial sum, the sum to infinity and the least n within a tolerance) or a geometric series in x.
+status: active
+placement_eligible: false
+prerequisites:
+- limit-at-infinity
+- senior-use-the-formula-t-n-r-n-1
+answer: fraction
+sources:
+- topic: ucv1_series_convergence
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_series_convergence
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_series_convergence
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_series_convergence
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: geometric-sum-formula-start-mismatch
+  description: Uses the formula for a geometric series starting at n = 0 (or n = 1) whatever the actual start index is.
+- id: geometric-exponent-shift-missed
+  description: Reads the first term of a r^(n-1) as a r^n at the start index, so the exponent shift is ignored.
+- id: ratio-test-exponential-factor-ignored
+  description: Takes the ratio of the polynomial parts only, so L = 1, and ignores the factor c^n/d^n.
+- id: ratio-test-limit-of-term
+  description: Gives the limit of the terms a_n instead of the limit of the ratio a(n+1)/a(n).
+- id: factorial-ratio-misjudged
+  description: Cancels factorials wrongly in a ratio, such as treating (2n + 2)!/(2n)! as 2.
+- id: telescoping-tail-off-by-one
+  description: Keeps the wrong terms after the cancellation, starting the leftover terms one place too early or too late.
+- id: telescoping-gap-factor-dropped
+  description: Splits c/((n + r)(n + r + g)) into 1/(n + r) - 1/(n + r + g) without the factor c/g.
+- id: telescoping-leftover-terms-miscounted
+  description: Keeps only one leftover term after the cancellation when the gap is larger than 1.
+- id: radius-ratio-not-inverted
+  description: Reports L = lim |a(n+1)/a(n)| as the radius of convergence instead of 1/L.
+- id: radius-x-squared-not-rooted
+  description: For a series in x^(2n), gives the bound on x^2 as the radius instead of its square root.
+- id: least-n-off-by-one
+  description: Gives the largest n that fails the inequality, or one more than the least n that satisfies it.
+tags: [university-core-v1, series, convergence]
+framework_areas: [series]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: series
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: series
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: series

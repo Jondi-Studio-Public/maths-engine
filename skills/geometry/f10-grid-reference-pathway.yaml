@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc2_grid_hike
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-column-row
   description: Reports the row number as the column and the column number as the row (or, in the inverse question, swaps the two counts).

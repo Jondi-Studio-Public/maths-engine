@@ -1,25 +1,33 @@
 id: f10-angle-relationships
 name: Use angle relationships to find unknowns
 domain: primary-geometry-time
+naplan_domain: [measurement]
 year_level: ['6']
 description: Given a stated angle in an angles-at-a-point or vertically-opposite relationship to another angle, determine the unknown angle in degrees.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [straight-line-angles, f10-angle-turn-right-reference]
 answer: number
 sources:
 - topic: p10e_angle_relationships
-  params: {}
+  params: {figure: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p10e_angle_relationships
-  params: {}
+  params: {figure: true}
   difficulty: medium
   stages: [3, 4]
 - topic: p10e_angle_relationships
-  params: {}
+  params: {figure: true}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr2_angle_point_unknown
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-180-not-360
   description: Subtracts the given angles from 180 instead of 360 (the angles-at-a-point tiers only; the exact mirror of straight-line-angles's own uses-360 misconception, which subtracts from 360 instead of 180).
@@ -27,4 +35,4 @@ misconceptions:
   description: Omits one of the given angles from the sum before subtracting from 360 (angles-at-a-point tiers; at easy tier, with only 2 given angles, this degenerates to using only one given angle).
 - id: reports-x-not-angle
   description: Solves the vertically-opposite equation correctly for x (hard tier only) but reports x itself instead of substituting it back into the angle expression.
-tags: [f10, primary, geometry, angles, acara-v9-year-6]
+tags: [f10, primary, geometry, angles, acara-v9-year-6, AC9M6M04]

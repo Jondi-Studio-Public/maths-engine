@@ -21,6 +21,11 @@ sources:
   params: {variant: scale_product_divide_back}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr6_scale_crates
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgets-to-scale
   description: States the original stated fact's answer unchanged, ignoring the requested scale.

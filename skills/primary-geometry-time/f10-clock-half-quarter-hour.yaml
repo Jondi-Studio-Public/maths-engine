@@ -1,0 +1,37 @@
+id: f10-clock-half-quarter-hour
+name: Read an analogue clock to the half and quarter hour
+domain: primary-geometry-time
+year_level: ['2']
+naplan_domain: [measurement]
+description: Read the time on a drawn analogue clock at the hour, half past, quarter past and quarter to, choosing it from times written in words or as digital times, and pick the clock that shows a time given in words.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [tell-time-to-hour]
+answer: mcq
+sources:
+- topic: clock_half_quarter
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: clock_half_quarter
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: clock_half_quarter
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: swapped-hands
+  description: Takes the short hand for the minutes and the long hand for the hour.
+- id: hour-hand-passed-numeral
+  description: At a quarter to, names the hour numeral the short hand has passed instead of the one it is approaching.
+- id: quarter-past-to-confused
+  description: Gives a quarter past for a quarter to, or the reverse, by reading the wrong side of the face.
+- id: hour-off-by-one
+  description: Names the hour numeral next to the one the short hand points at.
+- id: half-oclock-confused
+  description: Gives a half past for an o'clock time, or the reverse.
+tags: [acara-f10-v9, primary, time, clock, figure, ac9m2m04]

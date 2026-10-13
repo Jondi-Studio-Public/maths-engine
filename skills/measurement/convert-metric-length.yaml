@@ -23,6 +23,11 @@ sources:
   params: {kind: length, max_steps: 1, value_hi: 30, combine: true}
   stages: [5, 6, maintenance]
   difficulty: hard
+- topic: exd_x_m1_metric_length
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: conversion-direction
   description: Multiplies when converting to a larger unit or divides when converting to a smaller unit.

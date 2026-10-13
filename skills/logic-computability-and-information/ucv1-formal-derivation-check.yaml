@@ -20,8 +20,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15d_formal_derivation_check
-  params: {}
+- topic: exd_x_r2g_derivation_length
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -1,0 +1,41 @@
+id: f10-probability-tree-diagrams
+name: Read and complete a probability tree diagram
+domain: statistics-probability
+year_level: ['8', '9']
+naplan_domain: [probability]
+description: Given a two-stage probability tree diagram for drawing two counters one after the other, find the probability of an outcome by working along the branches. Easy draws with replacement and asks for the marked outcome (multiply along one path). Medium draws without replacement and asks for two different colours (add two paths). Hard leaves a branch blank in two of the three sets of branches, so the learner completes the tree (each set of branches totals 1) and then finds the probability of at least one counter of a stated colour.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- f10-compound-outcomes-replacement
+- f10-probability-complements-compounds
+answer: fraction
+sources:
+- topic: fig_prob_tree
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fig_prob_tree
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fig_prob_tree
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: adds-along-the-branches
+  description: Adds the probabilities on the branches of a path instead of multiplying them.
+- id: stops-after-the-first-branch
+  description: Gives the probability on the first branch of a path and ignores the second branch.
+- id: wrong-outcome-path
+  description: Multiplies the branches of a different outcome from the one asked for, for example the other colour on one of the draws.
+- id: counts-one-order-only
+  description: Finds only one of the two paths to two different colours and leaves out the same colours in the other order.
+- id: reads-with-replacement-values
+  description: Uses the first-stage probabilities on the second stage of a tree drawn without replacement.
+- id: stops-before-the-complement
+  description: Finds the probability that neither counter is the colour and gives it as the answer for at least one.
+tags: [acara-f10-v9, statistics-probability, fig_prob_tree, ac9m9p01, ac9m8p02]

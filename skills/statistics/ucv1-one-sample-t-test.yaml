@@ -1,0 +1,69 @@
+id: ucv1-one-sample-t-test
+name: Compute the pieces of a one-sample t test
+domain: statistics
+year_level: [university]
+description: From summary data (or a short list of paired differences) compute the
+  standard error of a sample mean, the one-sample t statistic, a confidence-interval
+  limit given the critical value, and the boundary sample mean of the rejection region.
+  Critical values are always printed in the question, and a conclusion is only ever a
+  one-mark last part of the exam chain, never a question on its own.
+status: active
+placement_eligible: false
+prerequisites: [standard-deviation-from-data, z-score]
+answer: number
+sources:
+- topic: ucv1_one_sample_t_test
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_one_sample_t_test
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_one_sample_t_test
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_t_test
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: se-divides-by-n
+  description: Divides the sample standard deviation by n instead of the square root of n
+    when forming the standard error.
+- id: se-uses-n-minus-1
+  description: Divides by the square root of the degrees of freedom, n - 1, instead of
+    the square root of n.
+- id: sd-used-as-standard-error
+  description: Divides the difference of means (or scales the critical value) by s
+    itself, forgetting that the standard error of the mean is s over root n.
+- id: variance-used-as-sd
+  description: Uses the sample variance where the standard deviation belongs, so the
+    square root is never taken.
+- id: t-sign-reversed
+  description: Subtracts in the wrong order, so the t statistic or the difference
+    behind it carries the wrong sign.
+- id: sample-sd-divides-by-n
+  description: Finds the standard deviation of a paired sample with divisor n rather
+    than n - 1.
+- id: ci-margin-as-bound
+  description: Reports the margin of error as the confidence limit instead of adding
+    it to, or subtracting it from, the sample mean.
+- id: critical-value-wrong-df
+  description: Reads the critical value from the row for n degrees of freedom instead
+    of n - 1 (exam tier).
+near_misses:
+- id: ci-wrong-bound
+  description: Finds the other end of the confidence interval from the one asked for.
+tags: [university-core-v1, statistics, inference]
+framework_areas: [statistics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: statistics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: statistics

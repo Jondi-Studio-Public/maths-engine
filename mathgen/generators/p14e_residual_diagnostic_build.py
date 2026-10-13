@@ -241,13 +241,11 @@ def _hard(rng):
 
 _EXAM_TEMPLATES = (
     "A line passes exactly through the points ({x1}, {y1}) and ({x2}, {y2}). "
-    "An observed data point is ({x0}, {y0}). First find the line's equation, "
-    "then classify the point: is it above the line, below the line, or on "
-    "the line?",
+    "An observed data point is ({x0}, {y0}). Is the point above the line, "
+    "below the line, or on the line?",
     "A fitted line is exactly determined by the two points ({x1}, {y1}) and "
-    "({x2}, {y2}). For the observed point ({x0}, {y0}), determine the line's "
-    "equation and classify the point's residual: above the line, below the "
-    "line, or on the line?",
+    "({x2}, {y2}). Is the observed point ({x0}, {y0}) above the line, below "
+    "the line, or on the line?",
 )
 
 

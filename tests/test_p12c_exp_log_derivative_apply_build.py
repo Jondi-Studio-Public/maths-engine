@@ -20,6 +20,7 @@ LOG_TOPIC = "p12c_log_deriv_apply"
 EXP_SKILL_ID = "senior-use-exponential-functions-and-their-derivatives-to-solve"
 LOG_SKILL_ID = "senior-use-logarithmic-functions-and-their-derivatives-to-solve"
 DIFFICULTIES = ["easy", "medium", "hard", "exam"]
+SINGLE_ANSWER_TIERS = ["easy", "medium", "hard"]  # the exam source is a multi-part chain, tested in test_exd_x_r2b_*
 EXP_MODES = {"easy": "rate_at_zero", "medium": "rate_at_t", "hard": "time_for_rate", "exam": "rate_at_value"}
 LOG_MODES = {"easy": "rate_at_x", "medium": "rate_at_resolved_x", "hard": "x_for_rate", "exam": "value_at_rate"}
 SEEDS = range(40)
@@ -50,7 +51,7 @@ def _make_from_sources(skills_dict, skill_id, difficulty, seed):
 
 
 @pytest.mark.parametrize("topic,skill_id,modes", PARAMS)
-@pytest.mark.parametrize("difficulty", DIFFICULTIES)
+@pytest.mark.parametrize("difficulty", SINGLE_ANSWER_TIERS)
 def test_distractor_gap_exceeds_stated_precision_tolerance(skills_dict, topic, skill_id, modes, difficulty):
     for seed in SEEDS:
         q = _make_from_sources(skills_dict, skill_id, difficulty, seed)
@@ -65,7 +66,7 @@ def test_distractor_gap_exceeds_stated_precision_tolerance(skills_dict, topic, s
 
 
 @pytest.mark.parametrize("topic,skill_id,modes", PARAMS)
-@pytest.mark.parametrize("difficulty", DIFFICULTIES)
+@pytest.mark.parametrize("difficulty", SINGLE_ANSWER_TIERS)
 def test_real_grader_rejects_a_deliberately_wrong_answer(skills_dict, topic, skill_id, modes, difficulty):
     for seed in SEEDS:
         q = _make_from_sources(skills_dict, skill_id, difficulty, seed)
@@ -77,7 +78,7 @@ def test_real_grader_rejects_a_deliberately_wrong_answer(skills_dict, topic, ski
 
 
 @pytest.mark.parametrize("topic,skill_id,modes", PARAMS)
-@pytest.mark.parametrize("difficulty", DIFFICULTIES)
+@pytest.mark.parametrize("difficulty", SINGLE_ANSWER_TIERS)
 def test_answer_and_distractors_state_exactly_two_decimal_places(skills_dict, topic, skill_id, modes, difficulty):
     for seed in SEEDS:
         q = _make_from_sources(skills_dict, skill_id, difficulty, seed)

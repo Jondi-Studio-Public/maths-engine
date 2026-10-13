@@ -8,11 +8,12 @@ from collections import Counter
 import pytest
 
 import mathgen
-from mathgen.grading.typed import grade_mcq, mcq_options
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1e_power_end_behaviour_build as gen
+from mathgen.grading.typed import grade_mcq, mcq_options
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-recognise-features-of-the-graphs-of-y-x-acmmm014"
@@ -21,7 +22,7 @@ TIERS = ["easy", "medium", "hard", "exam"]
 LABELS = {gen.INC, gen.DEC, gen.APP}
 SEEDS = range(40)
 PHRASES = ("tends to infinity", "tends to negative infinity", "tends to 0 from the right", "tends to 0 from the left")
-MATHS = (r"\(x \to \infty\)", r"\(x \to -\infty\)", r"\(x \to 0^{+}\)", r"\(x \to 0^{-}\)")
+MATHS = (r"{x \to \infty}", r"{x \to -\infty}", r"{x \to 0^{+}}", r"{x \to 0^{-}}")
 
 
 @functools.lru_cache(maxsize=1)
@@ -37,8 +38,9 @@ def _make(tier, seed, notes=True):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.deferred_reason == "visual" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "mcq"
     assert s.mental is None
@@ -115,7 +117,7 @@ def test_prompt_names_the_family_and_the_end_but_never_the_answer(tier):
     both = set()
     for seed in range(60):
         q = _make(tier, seed)
-        assert "y = x^n" in q.text and r"\(y = x^n\)" in q.latex
+        assert "y = x^n" in q.text and r"{y = x^n}" in q.latex
         assert any(p in q.text for p in PHRASES)
         assert any(m in q.latex for m in MATHS)
         for lab in LABELS:

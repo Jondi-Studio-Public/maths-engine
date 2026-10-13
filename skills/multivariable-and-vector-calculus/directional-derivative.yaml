@@ -27,6 +27,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u3_directional_toward
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-gradient-magnitude
   description: Reports the gradient magnitude rather than its component in the stated direction.

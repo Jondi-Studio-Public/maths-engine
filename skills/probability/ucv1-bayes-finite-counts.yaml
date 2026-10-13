@@ -31,7 +31,7 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_x_s0_bayes2
+- topic: exd_x_r2e_bayes_chain
   params: {tier: exam}
   difficulty: exam
   stages:

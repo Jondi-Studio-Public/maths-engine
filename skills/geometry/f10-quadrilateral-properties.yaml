@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc3_quadrilateral_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: diagonal-not-halved-or-doubled
   description: Gives the whole diagonal where the half (to the crossing point) is asked, or the half where the whole diagonal is asked, ignoring that the diagonals bisect each other.

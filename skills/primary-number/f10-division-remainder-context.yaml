@@ -21,6 +21,11 @@ sources:
   params: {variant: decimal_share, total_range: [30, 199]}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr6_remainder_boxes
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-quotient
   description: In a "how many are left over" question, reports the number of full groups (the quotient) instead of what remains.

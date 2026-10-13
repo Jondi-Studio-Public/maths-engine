@@ -180,7 +180,7 @@ _HARD_TEMPLATES = (
     "cubic metres, cubic centimetres and litres.",
 )
 _EXAM_TEMPLATES = (
-    "Exam-style question. A rectangular tank measures {l} m by {w} cm by "
+    "A rectangular tank measures {l} m by {w} cm by "
     "{h} mm. Show your working to find its capacity in cubic metres, "
     "cubic centimetres and litres.",
     "This exam question gives a rectangular container {l} m long, {w} cm "

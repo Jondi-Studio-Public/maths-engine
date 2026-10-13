@@ -20,6 +20,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m2_parallelogram_slant
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses_slant_side
   description: Multiplies base by the slanted side length instead of by the perpendicular height.

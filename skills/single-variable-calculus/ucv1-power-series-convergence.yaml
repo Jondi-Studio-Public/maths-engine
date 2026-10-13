@@ -1,0 +1,89 @@
+id: ucv1-power-series-convergence
+name: Interval of convergence of a power series
+domain: single-variable-calculus
+year_level: [university]
+description: 'Find where a power series converges: the interval for a geometric-type series centred at 0, the open
+  interval of absolute convergence of a shifted series by the ratio test, and the full interval of convergence with
+  the endpoints tested.'
+status: active
+placement_eligible: false
+prerequisites:
+- limit-at-infinity
+answer: inequality
+sources:
+- topic: ucv1_power_series_convergence
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ucv1_power_series_convergence
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ucv1_power_series_convergence
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_uc_power_series
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: series-endpoints-both-included
+  description: Including both endpoints in the interval of convergence without testing them.
+- id: series-radius-reciprocal
+  description: Giving the reciprocal of the radius of convergence, 1/R, as R (the ratio test limit read as the radius).
+- id: series-radius-ignores-coefficient
+  description: Ignoring the coefficient of x inside the bracket, so the radius is not divided by it.
+- id: series-interval-centred-at-zero
+  description: Centring the interval of convergence at 0 when the series is a power of (x - a) with a not 0.
+- id: series-centre-sign-error
+  description: Taking the centre of the series (x - a)ⁿ to be -a instead of a.
+- id: series-endpoints-both-excluded
+  description: Excluding both endpoints without testing them, or after testing only one of them.
+- id: series-endpoints-swapped
+  description: Including the wrong endpoint, because the alternating and the harmonic behaviour were attached to
+    the wrong ends.
+- id: series-radius-as-endpoint
+  description: Giving the right-hand endpoint a + R of the interval as the radius of convergence R.
+- id: series-geometric-sum-sign
+  description: Getting the sign wrong in the common ratio of a geometric series, so the sum has the wrong denominator.
+- id: series-geometric-first-term-only
+  description: Giving the first term of a geometric series instead of its sum.
+- id: series-radius-as-width
+  description: Giving the length of the interval of convergence, 2R, as the radius R.
+- id: series-geometric-factor-dropped
+  description: Summing a geometric series without the factor of its first term (a/(1 - r) taken as 1/(1 - r)).
+difficulty_progression: Easy is a geometric-type series centred at 0 where both endpoints fail, so the ratio test
+  alone gives the answer. Medium shifts the centre and adds a coefficient on x and a power of n, so the ratio test
+  must be solved as an inequality in x. Hard asks for the full interval, so each endpoint has to be tested against
+  the harmonic series, an alternating series or the divergence test, and one end can be in while the other is out.
+  The exam chain finds the radius, the open interval, the full interval, and a value of the derivative from a geometric
+  series.
+tags:
+- university-core-v1
+- single-variable-calculus
+- series
+framework_areas:
+- single-variable-calculus
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: single-variable-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: single-variable-calculus
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: single-variable-calculus

@@ -36,11 +36,9 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: differential_equation
+- topic: exd_x_r2j_exponential_ode_chain
   params:
-    kinds:
-    - exponential
-    ic_mode: exam
+    tier: exam
   difficulty: exam
   stages:
   - exam
@@ -50,7 +48,7 @@ misconceptions:
     directly as the constant instead of solving for it against a nonzero x0.
 - id: dropped-k-exponent
   description: Dropping k from the exponent.
-- id: added-instead-of-multiplied
+- id: adds-instead-of-multiplies
   description: Adding the initial value to the exponential term instead of
     multiplying by it.
 tags: []

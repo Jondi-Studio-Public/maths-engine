@@ -5,9 +5,10 @@ from fractions import Fraction
 
 import pytest
 
+from mathgen import figures, make
+from mathgen.capabilities import load_capability_gates
 from mathgen.grading.typed import grade_pair
 from mathgen.skills import load_skills
-from mathgen import figures, make
 from mathgen.text_quality import prompt_shape
 
 TOPIC = "pv1a_slope_intercept"
@@ -34,10 +35,11 @@ def _mc(fig):
 
 
 def test_skill_yaml_shape(skill):
-    assert skill.status == "deferred"
-    assert skill.deferred_reason == "visual"
+    assert skill.status == "active"
+    assert skill.deferred_reason is None
     assert skill.needs_figure is True
     assert list(skill.capability_gates) == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.mental is None
     assert skill.answer == "pair"
     assert {s.difficulty for s in skill.sources} == set(DIFFICULTIES)

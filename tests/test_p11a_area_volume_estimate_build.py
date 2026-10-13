@@ -206,8 +206,10 @@ class TestEstimateAreaReference:
                 val, unit = _parse_area_option(dist)
                 assert unit == answer_unit
                 values.append(val)
-            expected = {answer_val * 10, answer_val / 10, answer_val * 100}
-            assert set(values) == expected, f"{difficulty} seed {seed}: {values} != {expected}"
+            expected = {answer_val * Fraction(10) ** k for k in (-2, -1, 1, 2, 3)}
+            assert len(set(values)) == 3 and set(values) <= expected, (
+                f"{difficulty} seed {seed}: {values} != {expected}"
+            )
 
     def test_hard_tier_squared_factor_is_ten_thousand_not_a_hundred(self):
         """Confirm by construction that a macro object's cm2 figure is
@@ -240,7 +242,7 @@ class TestEstimateAreaReference:
         assert skill.answer == "mcq"
         assert skill.prerequisites == ["convert-metric-length"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
 
 # ===========================================================================
@@ -351,8 +353,10 @@ class TestEstimateVolumeCapacityReference:
                 val, unit = _parse_capacity_option(dist)
                 assert unit == answer_unit
                 values.append(val)
-            expected = {answer_val * 10, answer_val / 10, answer_val * 100}
-            assert set(values) == expected, f"{difficulty} seed {seed}: {values} != {expected}"
+            expected = {answer_val * Fraction(10) ** k for k in (-2, -1, 1, 2, 3)}
+            assert len(set(values)) == 3 and set(values) <= expected, (
+                f"{difficulty} seed {seed}: {values} != {expected}"
+            )
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_no_question_ever_says_volume(self, difficulty):
@@ -369,7 +373,7 @@ class TestEstimateVolumeCapacityReference:
         assert skill.answer == "mcq"
         assert skill.prerequisites == ["convert-metric-length"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
 
 # ===========================================================================

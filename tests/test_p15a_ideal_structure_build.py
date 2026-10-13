@@ -4,6 +4,7 @@ import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from tests.exd_x_r2h_support import legacy_exam_sources
 from mathgen import make
 import mathgen.generators.p15a_ideal_structure_build  # noqa: F401 -- registers topics
 
@@ -19,7 +20,7 @@ TIERS = ["easy", "medium", "hard", "exam"]
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, legacy_exam_sources(skill.id, {src.difficulty: src for src in skill.sources})
 
 
 IDEAL_SKILL, IDEAL_SOURCES = _skill_sources(IDEAL_ID)

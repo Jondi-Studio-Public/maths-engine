@@ -1,0 +1,38 @@
+id: ucv1-weak-solution-regularity
+name: Classify a weak-solution regularity case
+domain: advanced-pdes-and-dynamics
+year_level: [university]
+description: For a fixed one-dimensional boundary value problem with supplied Sobolev regularity of the data, select the exact Sobolev regularity of the weak solution.
+status: active
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: ucv1_weak_solution_regularity
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_weak_solution_regularity
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_weak_solution_regularity
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ucv1_weak_solution_regularity
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: assumes-no-regularity-gain
+  description: Gives the solution the same Sobolev order as the data, as if solving the equation did not gain derivatives.
+- id: under-counts-the-regularity-gain
+  description: Gains only one derivative for a second-order equation, or fewer than the order of the equation in general.
+- id: over-counts-the-regularity-gain
+  description: Gains more derivatives than the order of the equation allows.
+- id: loses-regularity-when-solving
+  description: Gives the solution less regularity than the data, as if solving the equation cost derivatives.
+- id: uses-the-second-order-gain-for-the-fourth-order-equation
+  description: Gains two derivatives for the fourth-order beam equation, which gains four.
+tags: [university-core-v1, advanced-pdes-and-dynamics, ucv1_weak_solution_regularity]

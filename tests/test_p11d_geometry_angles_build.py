@@ -356,7 +356,7 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == ["f10-angle-relationships"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
     def test_skill2_loads(self):
         _, skills = load_skills()
@@ -366,4 +366,4 @@ class TestSkillsLoad:
         assert skill.answer == "ordered_list"
         assert set(skill.prerequisites) == {"angle-types", "f10-angle-turn-right-reference"}
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3

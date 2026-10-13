@@ -23,6 +23,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr6_market_fact_family
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-factor
   description: Reports the quotient as the OTHER family member instead of the one the fact or wording actually specifies -- the classic partitive/quotitive-divisor confusion, with the correct product.

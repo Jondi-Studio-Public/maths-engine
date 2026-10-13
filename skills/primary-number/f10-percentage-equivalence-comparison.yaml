@@ -21,6 +21,11 @@ sources:
   params: {variant: beyond_familiar_band}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr5_season_rates
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: drops-the-percent-divisor
   description: States the percentage number itself as if it were already the numerator over a denominator of 1 (e.g. 25% answered as 25/1), never dividing by 100.

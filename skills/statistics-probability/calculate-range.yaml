@@ -5,6 +5,6 @@ description: Subtract the minimum from the maximum of a small numerical data set
 status: active
 prerequisites: [subtract-within-100]
 answer: number
-sources: [{topic: summary_statistic, params: {kind: range, count: 6, hi: 50}, difficulty: easy}]
+sources: [{topic: summary_statistic, params: {kind: range, count: 6, hi: 50}, difficulty: easy}, {topic: exd_x_u5_range_compare, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: reports-maximum, description: Reports the maximum instead of maximum minus minimum.}]
 tags: [expansion-batch-3, statistics]

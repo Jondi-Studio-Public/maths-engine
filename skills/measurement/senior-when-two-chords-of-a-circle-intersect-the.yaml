@@ -21,6 +21,11 @@ sources:
   params: {variant: quadratic}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m6_chord_lengths
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: adds-instead-of-multiplies
   description: Treats AP + PB as equal to CP + PD instead of applying the product rule.

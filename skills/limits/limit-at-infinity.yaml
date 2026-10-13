@@ -33,7 +33,7 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_x_c2_limit_at_infinity
+- topic: exd_x_r2c_limit_at_infinity
   params:
     tier: exam
   difficulty: exam

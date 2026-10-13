@@ -20,6 +20,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m2_wall_paint
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits_one_section
   description: Sums only some of the sections' areas, omitting one entirely.

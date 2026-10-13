@@ -1,0 +1,35 @@
+id: f10-measure-angle-protractor
+name: Measure an angle with a protractor
+domain: primary-geometry-time
+year_level: ['5']
+naplan_domain: [measurement]
+description: Measure an angle in whole degrees from a drawn protractor with an inner and an outer scale, including a protractor whose zero is on the inner scale, one that is turned so its base is not level, and a reflex angle.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-estimate-compare-angle-names]
+answer: number
+sources:
+- topic: protractor_measure_angle
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: protractor_measure_angle
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: protractor_measure_angle
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: wrong-scale
+  description: Reads the scale that does not start at zero on the base arm, giving 180 minus the angle.
+- id: off-by-one-tick
+  description: Reads the tick next to the one the arm crosses.
+- id: reads-smaller-angle
+  description: Gives the smaller angle between the arms when the marked angle is reflex.
+- id: wrong-scale-reflex
+  description: On a reflex angle, reads the other scale and then subtracts from 360.
+tags: [acara-f10-v9, primary, angles, protractor, figure, ac9m5m04]

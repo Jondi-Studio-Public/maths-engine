@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_estimate_then_check
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: applies-the-other-named-strategy
   description: Applies front-end truncation when rounding to a stated place was asked, or the reverse.

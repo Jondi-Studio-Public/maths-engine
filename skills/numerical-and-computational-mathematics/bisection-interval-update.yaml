@@ -17,6 +17,11 @@ sources:
   params: {reversed_sign: true}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u4_bisection_steps
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: keeps-wrong-half
   description: Keeps the half interval that does not contain the positive root.

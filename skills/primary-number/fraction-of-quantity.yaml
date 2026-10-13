@@ -23,6 +23,11 @@ sources:
   params: {max_den: 12, quantity_hi: 144, find_whole: true}
   stages: [5, 6, maintenance]
   difficulty: hard
+- topic: exd_x_pr5_remainder_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: divides-by-numerator
   description: Dividing by the numerator instead of the denominator.

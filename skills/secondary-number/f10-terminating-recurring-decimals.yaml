@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_n4_decimal_sum
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: treats-recurring-as-terminating
   description: Reads the shown finite digits (dropping the ellipsis) as the exact value and reduces that.

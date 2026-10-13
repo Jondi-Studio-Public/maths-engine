@@ -20,8 +20,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15a_definition_quantifier_check
-  params: {}
+- topic: exd_x_r2g_relation_repair
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

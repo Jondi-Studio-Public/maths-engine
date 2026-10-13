@@ -23,6 +23,11 @@ sources:
   params: {shape: "backward"}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr5_trail_markers
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: scaled-numerator-only
   description: Multiplies the numerator by the scale factor but leaves the denominator unchanged (e.g. for 2/3 -> ?/12, answers 8/3 instead of 8/12).

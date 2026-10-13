@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc3_coordinates_3d_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-coordinates
   description: Reports the change in coordinates cyclically permuted -- states dz as the change in x, dx as the change in y, and dy as the change in z.

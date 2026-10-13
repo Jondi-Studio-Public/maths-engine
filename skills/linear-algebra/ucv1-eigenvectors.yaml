@@ -1,0 +1,98 @@
+id: ucv1-eigenvectors
+name: Find an eigenvector of a matrix
+domain: linear-algebra
+year_level: [university]
+description: 'Find an eigenvector of a supplied integer matrix with integer eigenvalues: solve (A - λI)v = 0 for
+  a 2×2 matrix with a stated eigenvalue, for a 2×2 matrix whose larger or smaller eigenvalue must be found first,
+  for a triangular or block 3×3 matrix, and for a dense or defective 3×3 matrix. Any non-zero multiple of the eigenvector
+  is accepted.'
+status: active
+placement_eligible: false
+prerequisites:
+- two-by-two-eigenvalues
+- matrix-solve-system
+answer: matrix
+sources:
+- topic: ucv1_eigenvectors
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ucv1_eigenvectors
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ucv1_eigenvectors
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_uc_eigenvectors
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: eigvec-other-eigenvalue
+  description: Finding the eigenvector for a different eigenvalue from the one asked for.
+- id: eigvec-component-sign-slip
+  description: 'Dropping a minus sign while solving for the eigenvector, so one component has the wrong sign: (q,
+    p) for (-q, p).'
+- id: eigvec-row-as-vector
+  description: Writing a row of A - λI as the eigenvector instead of solving (A - λI)v = 0, whose solutions are
+    perpendicular to the rows.
+- id: eigvec-components-swapped
+  description: Swapping two components of the eigenvector when reading it off the reduced system.
+- id: eigvec-unit-vector-triangular
+  description: Taking the standard basis vector in the position of the diagonal entry as the eigenvector of a triangular
+    or block matrix, without solving for the entries above it.
+- id: eigvec-padded-block
+  description: Padding the eigenvector of a 2×2 block with 1 instead of 0 for the rest of a block diagonal matrix.
+- id: eigvec-generalised
+  description: Giving a generalised eigenvector, a solution of (A - λI)w = v, instead of an eigenvector.
+- id: eigvec-eigenvalue-sign
+  description: Solving (A + λI)v = 0 instead of (A - λI)v = 0, so the eigenvalue is used with the wrong sign.
+- id: eigval-other-root
+  description: Giving the other eigenvalue when the larger or smaller one was asked for.
+- id: sign-flip-both-roots
+  description: Giving an eigenvalue with the wrong sign, reading the roots of (λ - 2)(λ + 3) = 0 as λ = -2 and λ
+    = 3.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: eigval-trace-difference-sign
+  description: Adding the known eigenvalue to the trace instead of subtracting it to find the other eigenvalue.
+- id: eigval-determinant-as-eigenvalue
+  description: Reporting the determinant of the matrix as an eigenvalue.
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+difficulty_progression: Easy gives a 2×2 matrix and one eigenvalue, so the eigenvector comes from one equation.
+  Medium either hides the eigenvalue behind "the larger" or "the smaller" (the characteristic equation comes first),
+  or moves to 3×3 triangular and block matrices where the eigenvector needs back substitution or the right block
+  and a zero in the rest. Hard needs a full 3×3 elimination for a dense matrix, or a defective matrix whose repeated
+  eigenvalue has only a one-dimensional eigenspace, where the tempting generalised eigenvector is wrong. The exam
+  chain finds both eigenvalues (the second by the trace) and then an eigenvector for each.
+tags:
+- university-core-v1
+- linear-algebra
+- eigenvectors
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

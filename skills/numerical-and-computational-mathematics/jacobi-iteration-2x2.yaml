@@ -16,6 +16,11 @@ sources:
 - topic: jacobi_iteration_2x2
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u4_jacobi_reordered
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-old-coordinate-in-wrong-row
   description: Uses the new x value while computing y in the same Jacobi iteration.

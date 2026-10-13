@@ -6,6 +6,8 @@ naplan_domain: [number]
 learner_band: early
 description: Given a concrete or virtual collection of at most five objects, identify its cardinality without counting each object and state the number.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [count-to-5]
 answer: number

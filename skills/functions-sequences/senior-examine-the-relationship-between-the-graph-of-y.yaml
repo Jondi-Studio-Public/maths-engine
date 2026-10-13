@@ -4,8 +4,7 @@ id: senior-examine-the-relationship-between-the-graph-of-y
 name: 'Find the vertical asymptotes of 1/f from the graph of f'
 domain: functions-sequences
 description: 'Given the graph of y = f(x), a straight line or a parabola on a labelled integer grid with every x-intercept at an integer, list the x-values at which the graph of y = 1/f(x) has vertical asymptotes. Neither f nor the graph of 1/f is ever shown; the learner reads the zeros of f.'
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false

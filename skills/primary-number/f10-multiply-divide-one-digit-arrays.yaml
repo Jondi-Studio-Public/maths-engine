@@ -5,6 +5,8 @@ year_level: ['2', '3']
 naplan_domain: [number]
 description: Given a one-digit multiplication or division situation framed as equal groups or an array, compute the unknown total, each-group size, or number of groups.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [multiplication-facts, equal-groups, whole-number-division-facts]
 answer: number
@@ -21,6 +23,11 @@ sources:
   params: {variant: find_groups, groups_range: [2, 9], each_range: [2, 9]}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr6_array_stacks
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-operation
   description: Applies the wrong operation for the situation -- adds instead of multiplying when finding a total, or multiplies instead of dividing when finding an unknown group count or group size.

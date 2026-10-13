@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr7_fundraiser_three_forms
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: mixed-representation-error
   description: Keeps one term in its original representation instead of converting -- e.g. adds the fraction's numerator directly to the decimal, treating 1/4 + 0.5 as 1.5 (i.e. 1 + 0.5, dropping the denominator).

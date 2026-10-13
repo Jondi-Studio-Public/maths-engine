@@ -1,0 +1,96 @@
+id: ucv1-laplace-transform
+name: Apply Laplace transforms
+domain: ordinary-differential-equations
+year_level: [university]
+description: Transform a combination of standard functions, invert a transform that needs the shift theorem, partial fractions, a repeated root or completing the square, and solve an initial value problem by Laplace transforms.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+- senior-use-partial-fractions-where-necessary-for-integration-in
+answer: expression
+sources:
+- topic: laplace_transform
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: laplace_transform
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: laplace_transform
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_laplace
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: laplace-forgot-factorial
+  description: Transforms c t^n as c/s^(n+1), leaving out the n! that belongs in the numerator.
+- id: laplace-power-off-by-one
+  description: Puts s^n, not s^(n+1), in the denominator of the transform of t^n.
+- id: laplace-constant-as-number
+  description: Transforms a constant c as c instead of c/s.
+- id: laplace-exp-sign
+  description: Takes the transform of e^(at) to be 1/(s + a), or shifts s the wrong way in the first shift theorem.
+- id: laplace-sin-cos-swap
+  description: Swaps the transforms of sin(bt) and cos(bt).
+- id: laplace-sin-missing-b
+  description: Leaves the factor b out of the numerator of the transform of sin(bt).
+- id: laplace-quad-b-not-squared
+  description: Writes s^2 + b, not s^2 + b^2, in the denominator of a sine or cosine transform.
+- id: laplace-no-shift
+  description: Ignores the exponential factor in e^(at) sin(bt), e^(at) cos(bt) or t e^(at) and transforms the rest.
+- id: laplace-shift-not-squared
+  description: Shifts s but leaves the denominator of t e^(at), or of e^(at) sin(bt), unsquared.
+- id: laplace-shift-numerator-only
+  description: Shifts the denominator of e^(at) cos(bt) but leaves s, not (s - a), in the numerator.
+- id: laplace-inverse-coefficient-swap
+  description: Attaches the partial fraction coefficients to the wrong exponentials when inverting.
+- id: laplace-inverse-pole-sign
+  description: Reads a pole at s = a as e^(-at), or a factor (s + m) as e^(mt), when inverting.
+- id: laplace-inverse-coefficient-undivided
+  description: Evaluates the numerator at each pole as the coefficient, without dividing by the other factor there.
+- id: laplace-inverse-term-dropped
+  description: Inverts only one of the terms of a partial fraction split.
+- id: laplace-inverse-numerator-split
+  description: Uses the numerator's own coefficients as the partial fraction coefficients.
+- id: laplace-repeated-root-no-t
+  description: Inverts the 1/(s - a)^2 part of a repeated root as e^(at), leaving out the factor t.
+- id: laplace-repeated-root-numerator
+  description: Uses q, not q + pa, as the coefficient of t e^(at) without rewriting the numerator in terms of (s - a).
+- id: laplace-square-sine-undivided
+  description: After completing the square, uses the numerator remainder as the sine coefficient without dividing by the frequency.
+- id: laplace-square-numerator-unshifted
+  description: After completing the square, divides the constant in the numerator by the frequency without taking out the shift.
+- id: laplace-square-no-exponential
+  description: Inverts a completed-square quotient as a plain sine and cosine, dropping the factor e^(-mt).
+- id: laplace-derivative-initial-sign
+  description: Transforms y' as sY + y(0), or adds the initial values in the transform of y'', instead of subtracting them.
+- id: laplace-initial-condition-dropped
+  description: Leaves the initial value out of the transformed equation.
+- id: laplace-forcing-ignored
+  description: Solves for Y(s) without the transform of the right-hand side.
+- id: laplace-sy0-term-dropped
+  description: Leaves the s y(0) term out of the transform of y'', or the b y(0) term out of the transform of b y'.
+- id: laplace-residue-sign
+  description: Evaluates the numerator at s = -r, not s = r, when finding the coefficient at the pole s = r.
+- id: laplace-residue-undivided
+  description: Reports the numerator at the pole as the coefficient, without dividing by the other factor.
+- id: laplace-residue-difference-order
+  description: Divides by the difference of the poles the wrong way round, giving the wrong sign.
+- id: laplace-residue-other-coefficient
+  description: Reports the coefficient of the other partial fraction.
+tags: [university-core-v1, ordinary-differential-equations, laplace-transform]
+framework_areas: [ordinary-differential-equations]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: ordinary-differential-equations
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: ordinary-differential-equations

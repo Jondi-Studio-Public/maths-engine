@@ -1,0 +1,73 @@
+id: ucv1-improper-integral
+name: Evaluate a convergent improper integral
+domain: integration
+year_level: [university]
+description: Evaluate an improper integral whose limit is infinite or whose integrand is unbounded at an endpoint, as an exact value (a power tail, an exponential, partial fractions, a substitution, an arctan or arcsin form, then integration by parts or a parameter to find); the exam tier uses improper integrals to normalise a density function and find its probability, mean and variance, or the volumes of a solid of revolution.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+- integration-by-substitution
+- limit-at-infinity
+answer: expression
+sources:
+- topic: ucv1_improper_integral
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_improper_integral
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_improper_integral
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_improper_integral
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: divides-by-p-not-p-minus-1
+  description: Integrates c/x^p to get c x^(1-p)/p, dividing by p instead of by the new exponent.
+- id: power-rule-divisor-dropped
+  description: Integrates a power of x by changing the exponent but does not divide by the new exponent.
+- id: chain-rule-divisor-dropped
+  description: Integrates e^(-kx) or e^(-x/k) without dividing by the inner coefficient.
+- id: log-quotient-inverted
+  description: Writes the logarithm of the ratio of the two limits upside down, so the sign is wrong.
+- id: partial-fraction-coefficient-dropped
+  description: Splits c/((x + r)(x + s)) into partial fractions but loses the factor c/(s - r).
+- id: forgets-lower-limit-term
+  description: Evaluates the antiderivative at the upper limit and forgets to subtract its value at the lower limit.
+- id: substitution-factor-dropped
+  description: Substitutes u = kx^m but forgets that du carries the factor mk.
+- id: arctan-scale-factor-dropped
+  description: Uses arctan(x/k) as an antiderivative of 1/(x² + k²) without the factor 1/k.
+- id: arcsin-value-misread
+  description: Misreads arcsin(1) as π, π/4 or 1 instead of π/2.
+- id: by-parts-second-integral-factor-dropped
+  description: Finishes integration by parts but leaves out the factor from the second integral.
+- id: solves-without-root
+  description: Solves k² = a and reports a, forgetting to take the square root.
+- id: tail-cdf-confusion
+  description: Finds P(X ≤ t) when P(X > t) was asked, or the reverse.
+- id: variance-second-moment-not-centred
+  description: Reports E(X²) as the variance, without subtracting the square of the mean.
+- id: disc-radius-not-squared
+  description: Uses the disc method with the radius instead of the radius squared.
+tags: [university-core-v1, integration, improper-integrals]
+framework_areas: [integration]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: integration
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: integration
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: integration

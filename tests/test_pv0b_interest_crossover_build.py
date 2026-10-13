@@ -33,6 +33,8 @@ def skills_dict():
 
 
 def _make_from_sources(skills_dict, difficulty, seed):
+    if difficulty == "exam":  # the skill's exam source is now a multi-part chain; this generator's own exam tier stays
+        return make(TOPIC, seed=seed, difficulty="exam", mode=MODES["exam"])
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))

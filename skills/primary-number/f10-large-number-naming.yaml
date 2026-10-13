@@ -21,6 +21,11 @@ sources:
   params: {digit_lengths: [5, 6, 7]}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr7_large_numbers_mixed_forms
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reversed-order
   description: Orders the numbers from largest to smallest instead of smallest to largest.

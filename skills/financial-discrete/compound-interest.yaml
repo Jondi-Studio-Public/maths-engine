@@ -7,7 +7,7 @@ prerequisites: [simple-interest, evaluate-powers]
 answer: number
 sources:
 - {topic: financial_interest, params: {kind: compound}, difficulty: easy}
-- topic: exd_x_g5_compound_interest
+- topic: exd_x_r2d_compound_growth_chain
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -20,6 +20,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc2_enlargement_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: adds-instead-of-multiplies
   description: Adds the scale factor (or one more than it) to a measurement instead of multiplying by it.

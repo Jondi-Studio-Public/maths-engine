@@ -1,0 +1,95 @@
+id: ucv1-null-space
+name: Rank, nullity and column space
+domain: linear-algebra
+year_level: [university]
+description: Use row reduction on a supplied integer matrix to find its rank, its nullity by rank-nullity, and the
+  value of a parameter k that puts a vector in its column space or gives it a non-trivial null space.
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-rank-small
+- matrix-determinant-3x3
+answer: number
+sources:
+- topic: ucv1_null_space
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ucv1_null_space
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ucv1_null_space
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_uc_null_space
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: rank-nullity-confused
+  description: Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.
+- id: rank-off-by-one
+  description: Miscounting the pivots during row reduction, so the rank is one too high or one too low.
+- id: nullity-counts-columns
+  description: Taking the nullity to be the number of columns, forgetting to subtract the rank.
+- id: rank-counts-nonzero-rows
+  description: Taking the rank to be the number of non-zero rows of the original matrix, without noticing that one
+    is a combination of the others.
+- id: nullity-uses-rows
+  description: Subtracting the rank from the number of rows instead of the number of columns to get the nullity.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it
+    should be subtracted, or the reverse.'
+- id: colspace-forgot-multiplier
+  description: Solving the consistency condition y·b = 0 without dividing by the coefficient of k.
+- id: colspace-null-vector-used
+  description: Testing whether b is in the column space by making it perpendicular to the null space of M instead
+    of the null space of Mᵀ.
+- id: det-sarrus-sign-slip
+  description: Getting the sign of one of the six products wrong when expanding a 3×3 determinant.
+- id: det-sarrus-term-dropped
+  description: Leaving out one of the six products when expanding a 3×3 determinant.
+- id: nullvec-row-as-vector
+  description: Writing a row of the matrix as a null-space vector instead of a solution of Mx = 0.
+- id: nullvec-left-null
+  description: Finding the null space of the transpose (vectors y with yᵀM = 0) instead of the null space of M.
+- id: nullvec-component-sign-slip
+  description: Dropping a minus sign when reading the null-space vector off the reduced matrix.
+- id: nullvec-column-as-vector
+  description: Writing a column of the matrix as a null-space vector.
+difficulty_progression: Easy asks for the rank of a 3×3 or 3×4 matrix with a dependent row. Medium asks for the
+  nullity of a larger matrix, so the rank has to be found and then taken from the number of columns. Hard introduces
+  a parameter k, found from the consistency condition for a vector to lie in the column space, or from the determinant
+  of a rank-2 matrix. The exam chain finds the rank, the nullity (following through), a basis vector for the null
+  space, and the k that puts a vector in the column space.
+tags:
+- university-core-v1
+- linear-algebra
+- vector-spaces
+- null-space
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

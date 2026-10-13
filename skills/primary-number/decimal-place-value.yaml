@@ -23,6 +23,11 @@ sources:
   params: {max_places: 3, whole_hi: 100, ask_place: true}
   stages: [5, 6, maintenance]
   difficulty: hard
+- topic: exd_x_pr4_decimal_place_value
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-digit
   description: Reporting the digit itself instead of its place value.

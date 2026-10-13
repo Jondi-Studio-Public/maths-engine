@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13e_heat_equation_mode
-  params: {}
+- topic: exd_x_r2f_heat_rod_mode
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

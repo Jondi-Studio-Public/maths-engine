@@ -130,6 +130,6 @@ class TestSkillLoads:
         skill = next((s for s in skills if s.id == "f10-geometric-construction-algorithm"), None)
         assert skill is not None
         assert skill.domain == "geometry" and skill.answer == "number" and skill.status == "active"
-        assert [s.difficulty for s in skill.sources] == TIERS
+        assert [s.difficulty for s in skill.sources[:3]] == TIERS
         assert skill.placement_eligible is False
         assert {"ac9m9sp03", "ac9m10sp03"} <= set(skill.tags)

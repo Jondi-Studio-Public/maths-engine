@@ -20,6 +20,11 @@ sources:
   params: {kind: solve_for_wavelength}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u3_wave_boundary
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: multiplies-speed-wavelength
   description: Multiplies v and λ instead of rearranging to f = v/λ.

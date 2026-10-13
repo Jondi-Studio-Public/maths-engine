@@ -12,7 +12,8 @@ from mathgen.skills import load_skills
 
 TOPIC = "vectors"
 
-_LIST_GRADER = GRADERS["list"]
+# A vector's components are in order (maintainer ruling, 2026-10-12), so both skills use `ordered_list`.
+_VECTOR_GRADER = GRADERS["ordered_list"]
 
 SEEDS = 600
 
@@ -45,20 +46,20 @@ def _add_sources(skill):
 def test_cross_skill_loads_via_api_skills_vector_cross_product():
     skill = _find_skill("vector-cross-product")
     assert skill is not None
-    assert skill.answer == "list"
+    assert skill.answer == "ordered_list"
     assert len(skill.sources) >= 1
 
 
 def test_add_skill_loads_via_api_skills_vector_addition():
     skill = _find_skill("vector-addition")
     assert skill is not None
-    assert skill.answer == "list"
+    assert skill.answer == "ordered_list"
     assert len(_add_sources(skill)) >= 1
 
 
 def _sweep_source_for_false_accepts(src, seeds):
     """`[(seed, answer_text, distractor), ...]` false accepts against the
-    real registered `GRADERS["list"]` grader, for one skill source, over
+    real registered `GRADERS["ordered_list"]` grader, for one skill source, over
     `seeds` seeds -- the same method `scripts/regrade_sweep.py::sweep_skill`
     uses (`load_skills()`'s own `Source.topic`/`difficulty`/`params`, never a
     bare `make()` call with a hand-picked `kinds` tuple)."""
@@ -66,11 +67,11 @@ def _sweep_source_for_false_accepts(src, seeds):
     bad = []
     for seed in range(seeds):
         q = make(src.topic, seed=seed, difficulty=src.difficulty, **params)
-        canonical_result = _LIST_GRADER(q, q.answer_text)
+        canonical_result = _VECTOR_GRADER(q, q.answer_text)
         if not canonical_result.correct:
             bad.append(("canonical-rejected", seed, q.answer_text))
         for d in q.distractors:
-            distractor_result = _LIST_GRADER(q, d)
+            distractor_result = _VECTOR_GRADER(q, d)
             if distractor_result.correct:
                 bad.append(("distractor-accepted", seed, d, q.answer_text))
     return bad
@@ -78,7 +79,7 @@ def _sweep_source_for_false_accepts(src, seeds):
 
 def test_cross_grader_accepts_canonical_and_rejects_every_distractor_over_600_seeds_per_source():
     """The zero-false-accept property test: sweeps the REAL registered grader
-    (`mathgen.grading.GRADERS["list"]`, the same grader object the skill actually uses) against every
+    (`mathgen.grading.GRADERS["ordered_list"]`, the same grader object the skill actually uses) against every
     distractor over 600 seeds per source, through `vector-cross-product`'s own declared sources
     (`easy`/`medium` kind `cross`, `hard` kind `cross_sum`) rather than a bare `make` call."""
     skill = _find_skill("vector-cross-product")

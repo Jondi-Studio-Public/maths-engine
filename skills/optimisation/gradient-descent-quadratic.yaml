@@ -16,6 +16,11 @@ sources:
 - topic: gradient_descent_quadratic
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u5_gradient_descent
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: moves-uphill
   description: Adds the learning-rate times gradient instead of subtracting it.

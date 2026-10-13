@@ -28,7 +28,7 @@ import random
 import re
 from fractions import Fraction
 
-from ..core import check, generator, phrase, pick_distractors
+from ..core import check, generator, join_terms, phrase, pick_distractors
 
 _TEMPLATES = (
     "The line through A({ax}, {ay}) and B({bx}, {by}) is {rel} line L. "
@@ -95,7 +95,7 @@ def exd_x_a4_intercept_parallel_perp(rng: random.Random, tier: str = "exam") -> 
         answer=b,
         answer_text=str(b),
         working=[
-            f"Gradient of the reference line = ({pby} - {pay}) / ({pbx} - {pax}) = {slope_ref}.",
+            f"Gradient of the reference line = ({join_terms([(pby, ''), (-pay, '')])}) / ({join_terms([(pbx, ''), (-pax, '')])}) = {slope_ref}.",
             f"Gradient of L = {slope_l}.",
             f"Intercept = {cy} - ({slope_l})({cx}) = {b}.",
         ],

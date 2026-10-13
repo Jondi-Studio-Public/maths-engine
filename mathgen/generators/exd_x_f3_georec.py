@@ -94,8 +94,9 @@ def _parametric(rng: random.Random):
         _terms_after_first(-k, r),  # sign slip when solving for k
         _terms_after_first(k, r + 1),  # off-by-one in the ratio
     ]
+    ka, kb = join_terms([(1, "k"), (a, "")]), join_terms([(1, "k"), (b, "")])
     working = [
-        f"Equal ratios: (k + {a})/k = (k + {b})/(k + {a}), so (k + {a})² = k(k + {b}), giving k = {k}",
+        f"Equal ratios: ({ka})/k = ({kb})/({ka}), so ({ka})² = k({kb}), giving k = {k}",
         f"The terms are {k}, {k * r}, {k * r * r}, so r = {r}",
         f"The next {_K} terms: {_fmt(correct)}",
     ]
