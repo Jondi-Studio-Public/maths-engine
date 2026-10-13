@@ -14589,6 +14589,389 @@ _ENTRIES = (
         "between the tides.",
         area="time",
     ),
+    CatalogueEntry(
+        "compares-gradients-only",
+        "Comparing two linear relationships at a given x using only their gradients, ignoring where each one starts.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "compares-starting-values-only",
+        "Comparing two relationships at x = 0 (their starting values) instead of at the x that was asked about.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "forgot-to-divide-by-gradient-difference",
+        "Finding where two lines meet by subtracting their y-intercepts but not dividing by the difference in gradients.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "intercept-read-with-wrong-sign",
+        "Reading the y-intercept off the graph with the wrong sign, for example writing +3 for a line that crosses "
+        "the y-axis at -3.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "reads-one-gridline-out",
+        "Reading a value one gridline or tick to the left or right of where it really is.",
+        area="graphs",
+    ),
+    CatalogueEntry(
+        "reads-where-a-line-meets-the-y-axis",
+        "Giving the point where one line meets the y-axis as the point where the two lines cross.",
+        area="graphs",
+    ),
+    CatalogueEntry(
+        "vertex-form-horizontal-sign",
+        "Writing a(x + h)^2 + k for a turning point at x = h, so the horizontal shift has the wrong sign.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "vertex-form-vertical-sign",
+        "Writing the turning point's height with the wrong sign in a(x - h)^2 + k.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "vertex-form-leading-coefficient-lost",
+        "Writing a vertex-form rule with a leading coefficient of 1 or -1 instead of finding how steeply the curve "
+        "opens from a second point on it.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "compares-the-x-coordinates-of-the-turning-points",
+        "Comparing where the turning points are along the x-axis instead of how high or low they are.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "sum-of-run-not-halved",
+        "Finding the sum of a run of consecutive integers as the count times the sum of the first and last, without "
+        "halving.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "line-gradient-sign-reversed",
+        "Reading the size of a gradient correctly but giving it the wrong sign, calling a falling line rising or the reverse.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "line-intercept-sign-reversed",
+        "Reading the size of a y-intercept correctly but giving it the wrong sign.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "intercept-left-out",
+        "Writing a line as y = mx and leaving its intercept out.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "adds-an-unstated-intercept",
+        "Adding a constant to a proportional relation, although its line passes through the origin.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "gradient-read-in-grid-squares",
+        "Counting rise and run in grid squares and ignoring the scale on each axis.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "added-gradient-to-x",
+        "Adding the gradient to x instead of multiplying x by it when finding y on a line through the origin.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "y-value-given-as-x",
+        "Giving the y-value of a point on the line where its x-value was asked for.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "solved-for-x-by-multiplying",
+        "Multiplying by the gradient instead of dividing by it when finding x from a given y.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "inverse-prediction-ignores-intercept",
+        "Finding x from a given y by dividing y by the gradient, without first taking away the intercept.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "prediction-rise-added-once",
+        "Continuing a line by adding the rise once, however many steps along it the point is.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "x-intercept-sign-reversed",
+        "Finding where a line meets the x-axis as c divided by m instead of minus c divided by m.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "x-intercept-ratio-inverted",
+        "Finding where a line meets the x-axis as minus m divided by c instead of minus c divided by m.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "parallel-line-keeps-old-intercept",
+        "Writing the parallel line with the first line's intercept, so it does not pass through the given point.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "parallel-gap-intercepts-added",
+        "Adding the two y-intercepts where the vertical gap between two parallel lines was asked for.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "parallel-gap-horizontal",
+        "Giving the horizontal distance between two parallel lines where the vertical gap was asked for.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "midpoint-sum-not-halved",
+        "Adding the coordinates of the two ends of a segment and not halving the sums.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "midpoint-half-the-difference",
+        "Halving the differences of the coordinates of the ends of a segment instead of halving their sums.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "distance-squared-not-rooted",
+        "Adding the squares of the rise and the run and stopping, without taking the square root.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "ignores-the-horizontal-component",
+        "Finding the length of a segment from its rise alone, leaving out its run.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "hist-neighbouring-bar",
+        "Reading the bar beside the class the question names.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-bar-to-nearest-gridline",
+        "Reading a bar that ends on a half line as the labelled gridline just above or below it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-boundary-for-frequency",
+        "Giving a class boundary from the horizontal axis where a frequency was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-classes-counted-for-total",
+        "Giving the number of classes for the total number of observations.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-tallest-bar-for-total",
+        "Giving the height of the tallest bar for the total number of observations.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-total-misses-a-bar",
+        "Adding every bar but one when finding the total.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-total-counts-a-bar-twice",
+        "Counting one bar twice when adding the frequencies for the total.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-upper-boundary-for-lower",
+        "Giving the upper boundary of the class where its lower boundary was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-modal-class-for-median-class",
+        "Taking the class with the highest frequency to be the class that contains the median.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-middle-class-for-median-class",
+        "Taking the middle class on the axis, not the class holding the middle value, as the median class.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-frequency-for-boundary",
+        "Giving the frequency of a class where its boundary was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-count-for-percentage",
+        "Giving the number of values where a percentage of the total was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-complement-percentage",
+        "Giving the percentage outside the stated range instead of the percentage inside it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-range-leaves-out-class",
+        "Leaving out one of the classes in the stated range when adding frequencies.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-range-adds-next-class",
+        "Adding the class that starts at the upper boundary of the stated range, which less than excludes.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-as-range",
+        "Giving the range, whisker end to whisker end, where the interquartile range was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-from-median",
+        "Giving the distance from the median to a quartile for the interquartile range.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-quartile-for-iqr",
+        "Giving a quartile on its own for the interquartile range.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-quarter-between-quartiles",
+        "Taking the box to hold a quarter of the values rather than half.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-three-quarters-between-quartiles",
+        "Counting the values below the upper quartile, three quarters of them, as those between the quartiles.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-all-values-between-quartiles",
+        "Taking the whole data set to lie between the quartiles.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-without-factor",
+        "Finding an outlier fence from one IQR instead of 1.5 times the IQR.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-omits-quartile",
+        "Giving 1.5 times the IQR as the fence, without adding it to the quartile.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-wrong-side",
+        "Subtracting 1.5 times the IQR from the lower quartile to find the upper fence.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-from-median",
+        "Adding 1.5 times the IQR to the median instead of the upper quartile to find the upper fence.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-outlier-beyond-whisker",
+        "Calling any value beyond the end of the whisker an outlier, without testing it against the 1.5 x IQR fence.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-outlier-fence-miscalculated",
+        "Judging a value to be beyond the 1.5 x IQR fence when it is inside it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-outlier-fence-too-generous",
+        "Judging a value to be inside the 1.5 x IQR fence when it is beyond it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-median-by-whisker-end",
+        "Deciding which group has the higher median from the ends of the whiskers instead of the median lines.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-spread-by-range",
+        "Deciding which group is more spread out from the whole length of the plot instead of the interquartile range.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-conclusion-both-reversed",
+        "Reading both comparisons, the centres and the spreads, the wrong way round.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-summed",
+        "Adding the two interquartile ranges where their difference was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-of-medians",
+        "Giving the difference between the medians where the difference between the interquartile ranges was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-of-ranges",
+        "Giving the difference between the ranges where the difference between the interquartile ranges was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-of-upper-quartiles",
+        "Giving the difference between the upper quartiles where the difference between the interquartile ranges was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-pm-not-converted",
+        "Writing a pm hour in 24-hour time without adding 12.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-hour-off-by-one",
+        "Converting the hour to 24-hour time but writing the hour before or after it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-base-ten-clock",
+        "Treating the minutes as hundredths of an hour when counting on to the next hour, so 35 minutes leaves 65.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-no-minutes-carry",
+        "Counting whole hours to the next hour without allowing for the minutes already past the hour.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-minutes-not-complemented",
+        "Using the minutes past the hour as the minutes left in the hour.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-gap-added-to-duration",
+        "Adding the time left in the day to the length of the trip, where it should be taken away.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-midnight-ignored",
+        "Using the length of the trip as the time after midnight, without taking off the time left before midnight.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-counted-back-from-midnight",
+        "Measuring back from midnight to the arrival instead of forward from it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-am-pm-swapped",
+        "Giving the arrival with am where it is pm, or the reverse.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-day-not-advanced",
+        "Leaving the arrival on the day of departure when the trip crosses midnight.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-clock-hour-off-by-one",
+        "Reading the arrival hour one hour early or late.",
+        area="statistics and time",
+    ),
 )
 
 #: Every entry, by id.

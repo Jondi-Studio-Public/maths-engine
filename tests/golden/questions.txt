@@ -373,6 +373,9 @@
 {"answer": "Function g", "id": "compare-functions-representations/easy/0/2c9c1c8f1668", "text": "Function f is shown in the graph. Function g takes an input, multiplies it by -…"}
 {"answer": "Function f", "id": "compare-functions-representations/easy/1/5e70222137f6", "text": "The graph shows function f. Function g takes an input, multiplies it by 3 and t…"}
 {"answer": "They are equal", "id": "compare-functions-representations/easy/2/8e5ee4168a1c", "text": "Function f is the straight line on the grid. Function g takes an input, multipl…"}
+{"answer": "(a) -3(x + 1)^2 - 4; (b) 8; (c) 8; (d) {-7, 1}", "id": "compare-functions-representations/exam/0/e927f0fc1387", "text": "The graph shows function f, a parabola. Function g is given by g(x) = -(x - 3)^…"}
+{"answer": "(a) 3(x + 4)^2 - 4; (b) 4; (c) 4; (d) {-6, -4}", "id": "compare-functions-representations/exam/1/d26ce8f7acd7", "text": "A parabola on the grid is the graph of function f. Another function is g(x) = (…"}
+{"answer": "(a) 2(x - 2)^2 - 2; (b) 9; (c) 6; (d) {2, 8}", "id": "compare-functions-representations/exam/2/886d9829ba95", "text": "Function f is the parabola drawn on the grid. Function g is defined by g(x) = (…"}
 {"answer": "They are equal", "id": "compare-functions-representations/hard/0/bf2502fc7fc2", "text": "The graph shows the function f. Function g is linear and has these (x, y) pairs…"}
 {"answer": "Function f", "id": "compare-functions-representations/hard/1/2530116a4c02", "text": "The graph shows the function f. Function g is linear and has these (x, y) pairs…"}
 {"answer": "They are equal", "id": "compare-functions-representations/hard/2/b6948f2d8d2b", "text": "Function f is shown in the graph. Function g is linear and has these (x, y) pai…"}
@@ -385,6 +388,9 @@
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/0/403ee1b71e2d", "text": "Relationship A is shown in the graph. Relationship B is y = x - 5. Which relati…"}
 {"answer": "Relationship A", "id": "compare-linear-representations/easy/1/d4f79544e8ca", "text": "The graph shows relationship A. Relationship B has the equation y = 2x + 6. Whi…"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/2/0e337d286348", "text": "The graph shows relationship A. Relationship B is given by y = 3x + 3. Which re…"}
+{"answer": "(a) x - 4; (b) 3; (c) 10; (d) -1", "id": "compare-linear-representations/exam/0/3a7c6ce39f76", "text": "The graph shows relationship A, a straight line. Relationship B follows this ru…"}
+{"answer": "(a) x + 4; (b) -3; (c) 48; (d) -2", "id": "compare-linear-representations/exam/1/ddea2be91b5b", "text": "The graph shows relationship A, a straight line. Relationship B is found by mul…"}
+{"answer": "(a) 2x - 1; (b) 4; (c) 22; (d) -3", "id": "compare-linear-representations/exam/2/85d4c2489c8a", "text": "The graph shows relationship A, a straight line. Relationship B is linear and h…"}
 {"answer": "They have the same y-value", "id": "compare-linear-representations/hard/0/34d3cde17fb3", "text": "Relationship A is the straight line on the grid. The (x, y) pairs for relations…"}
 {"answer": "Relationship A", "id": "compare-linear-representations/hard/1/f35c14e84e7b", "text": "The graph shows relationship A. The (x, y) pairs for relationship B are (0, 5),…"}
 {"answer": "They have the same y-value", "id": "compare-linear-representations/hard/2/d1541869ccc1", "text": "Relationship A is shown in the graph. Relationship B is given by this table, wr…"}
@@ -544,6 +550,9 @@
 {"answer": "15:10", "id": "convert-time-systems/easy/0/cb13958ccc93", "text": "Convert 3:10 pm to 24-hour time."}
 {"answer": "12:45 am", "id": "convert-time-systems/easy/1/9457334edab2", "text": "Convert 00:45 to 12-hour time."}
 {"answer": "2:05 pm", "id": "convert-time-systems/easy/2/cf4d40635565", "text": "Convert 14:05 to 12-hour time."}
+{"answer": "(a) 19:25; (b) 275; (c) 620; (d) 10:20 am on Sunday", "id": "convert-time-systems/exam/0/0dc27cec86ac", "text": "An overnight coach leaves the city terminal at 7:25 pm on Saturday. The trip ta…"}
+{"answer": "(a) 23:10; (b) 50; (c) 260; (d) 4:20 am on Tuesday", "id": "convert-time-systems/exam/1/81e051768758", "text": "A freight truck leaves the depot at 11:10 pm on Monday. The trip takes 5 hours …"}
+{"answer": "(a) 18:45; (b) 315; (c) 220; (d) 3:40 am on Friday", "id": "convert-time-systems/exam/2/e583505eb5f8", "text": "A night train leaves the central station at 6:45 pm on Thursday. The trip takes…"}
 {"answer": "x = 1, y = -2", "id": "convex-quadratic-minimum/easy/0/bd69e87f8edd", "text": "For f(x) = 2x² - 4x, give the minimiser x and minimum value f(x)."}
 {"answer": "x = -1/2, y = 13/4", "id": "convex-quadratic-minimum/easy/1/5818515d370a", "text": "For f(x) = 3x² + 3x + 4, give the minimiser x and minimum value f(x)."}
 {"answer": "x = 3/4, y = -21/4", "id": "convex-quadratic-minimum/easy/2/a6752f1ea5c8", "text": "For f(x) = 4x² - 6x - 3, give the minimiser x and minimum value f(x)."}
@@ -784,6 +793,9 @@
 {"answer": "y = x + 3", "id": "equation-from-graph/easy/0/761eef4adcf5", "text": "The diagram shows the graph of a straight line. Which equation describes this l…"}
 {"answer": "y = 2x - 1", "id": "equation-from-graph/easy/1/fd5e9ceccb6c", "text": "Look at the straight line shown on this grid. Which equation is the equation of…"}
 {"answer": "y = x + 3", "id": "equation-from-graph/easy/2/b6391741c3b1", "text": "The diagram shows the graph of a straight line. Which equation describes this l…"}
+{"answer": "(a) y = 3x - 7; (b) y = 3x + 5; (c) -5/3; (d) 12", "id": "equation-from-graph/exam/0/3c04831c2742", "text": "A straight line is drawn on the coordinate grid, with two points marked on it. …"}
+{"answer": "(a) y = -2x + 2; (b) y = -2x + 5; (c) 5/2; (d) 3", "id": "equation-from-graph/exam/1/4df8b8e54d6b", "text": "The grid shows a straight line with two marked points. A second line, parallel …"}
+{"answer": "(a) y = 2x/3 + 1; (b) y = 2x/3 + 6; (c) -9; (d) 5", "id": "equation-from-graph/exam/2/b39a600e20c7", "text": "A straight line is drawn on the coordinate grid, with two points marked on it. …"}
 {"answer": "y = x/3 + 6", "id": "equation-from-graph/hard/0/a51f5e5f1526", "text": "Look at the straight line shown on this grid. Which equation is the equation of…"}
 {"answer": "y = -x/3 - 3", "id": "equation-from-graph/hard/1/6e76d8108496", "text": "The graph shows a straight line on a coordinate grid. Which equation describes …"}
 {"answer": "y = -x/3 - 4", "id": "equation-from-graph/hard/2/af96566096bf", "text": "The graph shows a straight line on a coordinate grid. Which of these equations …"}
@@ -1045,6 +1057,9 @@
 {"answer": "Year 10 (the lower plot)", "id": "f10-compare-box-plots/easy/0/12f58c1d6757", "text": "Two groups of students are shown as box plots of their times. Which plot shows …"}
 {"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/easy/1/dc0bd9f27de3", "text": "These parallel box plots show the times for two groups of students. Compare the…"}
 {"answer": "Year 10 (the lower plot)", "id": "f10-compare-box-plots/easy/2/74e2372f8b6e", "text": "Two groups of plants are shown as box plots of their heights. Which group has t…"}
+{"answer": "(a) 6; (b) 5; (c) 1; (d) Class A has both the higher median…", "id": "f10-compare-box-plots/exam/0/c3632f28a038", "text": "Two groups of pumpkins are shown as box plots of their masses. (a) What is the …"}
+{"answer": "(a) 30; (b) 20; (c) 10; (d) Year 9 has both the higher medi…", "id": "f10-compare-box-plots/exam/1/83b85a019730", "text": "The box plots compare the heights of two groups of plants. (a) Find the interqu…"}
+{"answer": "(a) 8; (b) 10; (c) 2; (d) Class B has both the higher media…", "id": "f10-compare-box-plots/exam/2/911a667fa057", "text": "The box plots compare the masses of two groups of pumpkins. (a) What is the int…"}
 {"answer": "Class B has the higher median.", "id": "f10-compare-box-plots/hard/0/fd7918138fe3", "text": "These parallel box plots show the times for two groups of students. Which state…"}
 {"answer": "Year 10 has the higher median.", "id": "f10-compare-box-plots/hard/1/b6a3b943f0fb", "text": "The box plots compare the times of two groups of students. Which statement is s…"}
 {"answer": "Year 10 has the larger interquartile range.", "id": "f10-compare-box-plots/hard/2/5f732f3cd89e", "text": "The box plots compare the marks of two groups of students. Which statement is s…"}
@@ -1990,6 +2005,9 @@
 {"answer": "55", "id": "f10-read-a-box-plot/easy/0/55e05f52a987", "text": "The box plot shows the time students took to finish a puzzle. Read the maximum …"}
 {"answer": "60", "id": "f10-read-a-box-plot/easy/1/0b7e01d1fbfb", "text": "The box plot shows the time students took to finish a puzzle. Find the maximum …"}
 {"answer": "30", "id": "f10-read-a-box-plot/easy/2/67794f0dff61", "text": "The box plot shows the marks of students in a test. What is the lower quartile …"}
+{"answer": "(a) 10; (b) 70; (c) 45; (d) Yes, it is more than 1.5 × IQR …", "id": "f10-read-a-box-plot/exam/0/e6938c9e952a", "text": "The box plot shows the time students took to finish a puzzle. (a) What is the i…"}
+{"answer": "(a) 6; (b) 40; (c) 25; (d) No, it is less than 1.5 × IQR ab…", "id": "f10-read-a-box-plot/exam/1/104c328cbf81", "text": "The box plot shows the masses of pumpkins at a market. (a) Find the interquarti…"}
+{"answer": "(a) 6; (b) 20; (c) 23; (d) Yes, it is more than 1.5 × IQR a…", "id": "f10-read-a-box-plot/exam/2/c0342a21e81e", "text": "The box plot shows the masses of pumpkins at a market. (a) Find the interquarti…"}
 {"answer": "50", "id": "f10-read-a-box-plot/hard/0/067327bcabff", "text": "The box plot shows the heights of plants in a garden bed. What is the range of …"}
 {"answer": "60", "id": "f10-read-a-box-plot/hard/1/9a35f6f8827f", "text": "Here is a box plot of the times of the students. The outlier is a real value. W…"}
 {"answer": "75", "id": "f10-read-a-box-plot/hard/2/726adeef299c", "text": "Here is a box plot of the heights of the plants. About what percentage of the p…"}
@@ -2353,6 +2371,9 @@
 {"answer": "2", "id": "f7-read-a-histogram/easy/0/ca3506776703", "text": "The masses of apples picked from an orchard were recorded. How many apples had …"}
 {"answer": "7", "id": "f7-read-a-histogram/easy/1/f7991e1a2ca4", "text": "The time customers waited to be served at a cafe was recorded. How many custome…"}
 {"answer": "10", "id": "f7-read-a-histogram/easy/2/810fd0d684b6", "text": "The time customers waited to be served at a cafe was recorded. Use the histogra…"}
+{"answer": "(a) 3; (b) 25; (c) 165; (d) 36", "id": "f7-read-a-histogram/exam/0/095ec6dec24a", "text": "The heights of students in a year level were measured. The results are shown in…"}
+{"answer": "(a) 5; (b) 25; (c) 155; (d) 20", "id": "f7-read-a-histogram/exam/1/5ebdee1538ae", "text": "The heights of students in a year level were measured. The results are shown in…"}
+{"answer": "(a) 3; (b) 20; (c) 60; (d) 40", "id": "f7-read-a-histogram/exam/2/28b17d3a6900", "text": "The electricity used by households in one week was recorded. The results are sh…"}
 {"answer": "22", "id": "f7-read-a-histogram/hard/0/3984b97541bd", "text": "The electricity used by households in one week was recorded. How many more hous…"}
 {"answer": "12", "id": "f7-read-a-histogram/hard/1/a5b8f3702df7", "text": "The times taken by students to run one kilometre were recorded. How many more r…"}
 {"answer": "60", "id": "f7-read-a-histogram/hard/2/120437353474", "text": "The heights of students in a year level were measured. Work out the percentage …"}
@@ -2536,6 +2557,9 @@
 {"answer": "2", "id": "gradient-from-graph/easy/0/ed3b92d8b923", "text": "A straight line is shown on the coordinate grid below. What is the gradient of …"}
 {"answer": "2", "id": "gradient-from-graph/easy/1/4063e3464a64", "text": "A straight line is shown on the coordinate grid below. What is the gradient of …"}
 {"answer": "2", "id": "gradient-from-graph/easy/2/64ae116872e5", "text": "The graph shows a straight line on a coordinate grid. Find the gradient of the …"}
+{"answer": "(a) -10; (b) y = -10x; (c) (2, -20); (d) 20.1", "id": "gradient-from-graph/exam/0/10a231ee305b", "text": "The points A and B are marked on a straight line drawn on this coordinate grid.…"}
+{"answer": "(a) -1/2; (b) y = -x/2 - 1; (c) (-2, 0); (d) 4.5", "id": "gradient-from-graph/exam/1/afc24000cc15", "text": "A straight line passes through the marked points A and B on the grid below. (a)…"}
+{"answer": "(a) -3/2; (b) y = -3x/2; (c) (2, -3); (d) 7.2", "id": "gradient-from-graph/exam/2/412e06b0d48d", "text": "On the coordinate grid, the line through the marked points A and B is drawn. (a…"}
 {"answer": "1/4", "id": "gradient-from-graph/hard/0/a87cbd6a4df8", "text": "Study the straight line on this coordinate grid. What is the gradient of the li…"}
 {"answer": "1/5", "id": "gradient-from-graph/hard/1/279c560abb18", "text": "Look at the straight line shown on this grid. Find the gradient of the line. Us…"}
 {"answer": "2/5", "id": "gradient-from-graph/hard/2/d8ac5e3493ae", "text": "The diagram shows the graph of a straight line. What is the slope of the line? …"}
@@ -2545,6 +2569,9 @@
 {"answer": "(-1, -1), (0, 1), (1, 3)", "id": "graph-y-mx-plus-b/easy/0/392f2f00f9a7", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
 {"answer": "(0, -2), (1, 1), (2, 4)", "id": "graph-y-mx-plus-b/easy/1/d04cf9d42a0a", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
 {"answer": "(-1, -1), (0, 2), (1, 5)", "id": "graph-y-mx-plus-b/easy/2/1df402482d98", "text": "The diagram shows the graph of a straight line. Which list of (x, y) pairs show…"}
+{"answer": "(a) -2; (b) -2; (c) y = -2x - 2; (d) -1", "id": "graph-y-mx-plus-b/exam/0/2a165d2c4bdb", "text": "A straight line is drawn on the coordinate grid, with two points marked on it. …"}
+{"answer": "(a) -1/3; (b) -1; (c) y = -x/3 - 1; (d) -3", "id": "graph-y-mx-plus-b/exam/1/443d1061d999", "text": "A straight line is drawn on the coordinate grid, with two points marked on it. …"}
+{"answer": "(a) -2/3; (b) -4; (c) y = -2x/3 - 4; (d) -6", "id": "graph-y-mx-plus-b/exam/2/e825ba0a8295", "text": "Study the straight line on this coordinate grid. Two points on it are marked. (…"}
 {"answer": "(4, -3), (5, -4), (6, -5)", "id": "graph-y-mx-plus-b/hard/0/7d04d7689c9b", "text": "A straight line is shown on the coordinate grid below. Which list of (x, y) pai…"}
 {"answer": "(-7, 5), (-6, 4), (-5, 3)", "id": "graph-y-mx-plus-b/hard/1/202e35075700", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
 {"answer": "(-8, 1), (-6, 0), (-4, -1)", "id": "graph-y-mx-plus-b/hard/2/6fa1b092280e", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
@@ -2554,6 +2581,9 @@
 {"answer": "y = 2x", "id": "graph-y-mx/easy/0/546286e200a4", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
 {"answer": "y = 3x", "id": "graph-y-mx/easy/1/de3b40d786da", "text": "Look at the straight line through the origin on this grid. Which equation of th…"}
 {"answer": "y = x", "id": "graph-y-mx/easy/2/cea8d24088ef", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
+{"answer": "(a) 2; (b) y = 2x; (c) 40; (d) 2", "id": "graph-y-mx/exam/0/da190dbdb240", "text": "A straight line through the origin is drawn on the grid, with the point P marke…"}
+{"answer": "(a) 5/2; (b) y = 5x/2; (c) -40; (d) 6", "id": "graph-y-mx/exam/1/b1f5e0774569", "text": "A sloping line through the origin and a horizontal line are drawn on this grid.…"}
+{"answer": "(a) -4/3; (b) y = -4x/3; (c) -48; (d) 3", "id": "graph-y-mx/exam/2/a7e69416bd0b", "text": "A straight line through the origin is drawn on the grid, with the point P marke…"}
 {"answer": "y = 4x", "id": "graph-y-mx/hard/0/62d89a9b8e4f", "text": "A straight line through the origin is shown on the coordinate grid below. Which…"}
 {"answer": "y = 30x", "id": "graph-y-mx/hard/1/3cb47636f5c9", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
 {"answer": "y = 2x", "id": "graph-y-mx/hard/2/85b213550658", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
@@ -2602,6 +2632,9 @@
 {"answer": "x < 2", "id": "inequality-solutions-number-line/easy/0/96636e7de101", "text": "The solution of an inequality is shown on the number line. Which inequality is …"}
 {"answer": "x ≤ 3", "id": "inequality-solutions-number-line/easy/1/0ae4c9224d81", "text": "The number line shows the solution of an inequality. Which inequality has this …"}
 {"answer": "x ≤ -6", "id": "inequality-solutions-number-line/easy/2/ee0f495c1dbc", "text": "The solution of an inequality is shown on the number line. Which inequality doe…"}
+{"answer": "(a) -2 ≤ x ≤ 7; (b) x ≥ 0; (c) 8; (d) 28", "id": "inequality-solutions-number-line/exam/0/b2d3f0611696", "text": "The shaded part of the number line is the solution set of an inequality in x. (…"}
+{"answer": "(a) -6 ≤ x < 1; (b) x ≤ -2; (c) 5; (d) -20", "id": "inequality-solutions-number-line/exam/1/3a5c7ebb9c25", "text": "The number line shows the solution set of an inequality in x. (a) Write down th…"}
+{"answer": "(a) 1 < x ≤ 6; (b) x ≥ 3; (c) 4; (d) 18", "id": "inequality-solutions-number-line/exam/2/b1ab64d8348f", "text": "The shaded part of the number line is the solution set of an inequality in x. (…"}
 {"answer": "-3x - 3 < 9", "id": "inequality-solutions-number-line/hard/0/973aa020afdf", "text": "The number line shows the solution of an inequality. Solve each inequality. Whi…"}
 {"answer": "4x - 4 < 16", "id": "inequality-solutions-number-line/hard/1/4ca73aa32f09", "text": "The number line shows the solution of an inequality. Which of these inequalitie…"}
 {"answer": "2x - 1 ≤ 3", "id": "inequality-solutions-number-line/hard/2/8e7edf739fec", "text": "The shaded part of the number line is the solution of an inequality. Which ineq…"}
@@ -3181,6 +3214,9 @@
 {"answer": "(3, 7)", "id": "plot-linear-points/easy/0/21914182e5f9", "text": "A point P is marked on the coordinate grid. Which pair of coordinates (x, y) is…"}
 {"answer": "(-5, -3)", "id": "plot-linear-points/easy/1/53c3c757e1b5", "text": "The point P is shown on this coordinate grid. What are the coordinates of P?"}
 {"answer": "(-6, 1)", "id": "plot-linear-points/easy/2/45a92deb11bd", "text": "The point P is shown on this coordinate grid. Which ordered pair gives the posi…"}
+{"answer": "(a) (0, 4); (b) 2; (c) -56; (d) -11", "id": "plot-linear-points/exam/0/98e986c19cc8", "text": "Three points, A, B and C, are plotted on the coordinate grid. They lie on the s…"}
+{"answer": "(a) (-2, -2); (b) -1/2; (c) -16; (d) -28", "id": "plot-linear-points/exam/1/10c5a20b56cd", "text": "On the grid, the points A, B and C lie on a straight line. The line itself is n…"}
+{"answer": "(a) (0, 4); (b) 1/2; (c) 19; (d) 10", "id": "plot-linear-points/exam/2/a6266ec00b00", "text": "Three points, A, B and C, are plotted on the coordinate grid. They lie on the s…"}
 {"answer": "(4, -10)", "id": "plot-linear-points/hard/0/b9514fd1fbb4", "text": "The grid shows three marked points on one straight line. Which of these ordered…"}
 {"answer": "(-4, 11)", "id": "plot-linear-points/hard/1/8caa0ee665f8", "text": "The grid shows three marked points on one straight line. Which of these points …"}
 {"answer": "(6, 3)", "id": "plot-linear-points/hard/2/a9d9301eddef", "text": "Three marked points on this grid lie on the same straight line. Which of these …"}
@@ -7579,6 +7615,9 @@
 {"answer": "x = -1", "id": "solve-linear-equations-graphically/easy/0/ec3f63fa0e9d", "text": "The graphs of y = f(x) and y = g(x) are the lines A and B on the grid. Solve f(…"}
 {"answer": "x = -2", "id": "solve-linear-equations-graphically/easy/1/1021cda3d667", "text": "The graphs of y = f(x) and y = g(x) are the lines A and B on the grid. Use the …"}
 {"answer": "x = -1", "id": "solve-linear-equations-graphically/easy/2/f200d4deed99", "text": "The graphs of y = f(x) and y = g(x) are the lines A and B on the grid. Solve f(…"}
+{"answer": "(a) 3; (b) 160; (c) 2; (d) 100", "id": "solve-linear-equations-graphically/exam/0/d33f2714dd27", "text": "Two shops in Cairns hire out kayaks. Each charges a fixed hire fee plus an amou…"}
+{"answer": "(a) 2; (b) 70; (c) 1; (d) 140", "id": "solve-linear-equations-graphically/exam/1/14ccccce5c33", "text": "Two mobile phone plans from providers in Mackay each charge a connection fee an…"}
+{"answer": "(a) 3; (b) 160; (c) 2; (d) 60", "id": "solve-linear-equations-graphically/exam/2/e29def8ec3b4", "text": "Two shops in Port Macquarie hire out kayaks. Each charges a fixed hire fee plus…"}
 {"answer": "x = 2", "id": "solve-linear-equations-graphically/hard/0/076c2412e5e9", "text": "Lines A, B and C are the graphs of y = f(x), y = g(x) and y = h(x). Use the gra…"}
 {"answer": "x = 0", "id": "solve-linear-equations-graphically/hard/1/c1e2e5f22a5b", "text": "Lines A, B and C are the graphs of y = f(x), y = g(x) and y = h(x). Use the gra…"}
 {"answer": "x = -1", "id": "solve-linear-equations-graphically/hard/2/f234dc7755fa", "text": "Lines A, B and C are the graphs of y = f(x), y = g(x) and y = h(x). Solve f(x) …"}

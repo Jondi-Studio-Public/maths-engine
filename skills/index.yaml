@@ -352,6 +352,8 @@ compare-functions-representations:
   sources:
   - topic: fg1_compare_functions
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_compare_functions
+    module: mathgen/generators/exd_x_w12c_compare_functions.py
 compare-lengths:
   domain: early-foundations
   status: active
@@ -364,6 +366,8 @@ compare-linear-representations:
   sources:
   - topic: fg1_compare_linear
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_compare_linear
+    module: mathgen/generators/exd_x_w12c_compare_linear.py
 compare-quantities-to-10:
   domain: early-foundations
   status: active
@@ -502,6 +506,8 @@ convert-time-systems:
   sources:
   - topic: time_system_conversion
     module: mathgen/generators/curriculum_expansion.py
+  - topic: exd_x_w12a_time_crossing_midnight_chain
+    module: mathgen/generators/exd_x_w12a_time_crossing_midnight_chain.py
 convex-quadratic-minimum:
   domain: optimisation
   status: active
@@ -688,6 +694,8 @@ equation-from-graph:
   sources:
   - topic: fg1_equation_from_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_equation_from_graph
+    module: mathgen/generators/exd_x_w12b_equation_from_graph.py
 equation-from-table:
   domain: linear-relations
   status: active
@@ -870,6 +878,8 @@ f10-compare-box-plots:
   sources:
   - topic: stat5_box_plot_compare
     module: mathgen/generators/stat5_box_plot_build.py
+  - topic: exd_x_w12a_compare_box_plots_chain
+    module: mathgen/generators/exd_x_w12a_compare_box_plots_chain.py
 f10-compare-measurement-attributes:
   domain: measurement
   status: active
@@ -1492,6 +1502,8 @@ f10-read-a-box-plot:
   sources:
   - topic: stat5_box_plot_read
     module: mathgen/generators/stat5_box_plot_build.py
+  - topic: exd_x_w12a_box_plot_read_chain
+    module: mathgen/generators/exd_x_w12a_box_plot_read_chain.py
 f10-read-measurement-scale:
   domain: measurement
   status: active
@@ -1732,6 +1744,8 @@ f7-read-a-histogram:
   sources:
   - topic: stat4_histogram
     module: mathgen/generators/stat4_histogram_build.py
+  - topic: exd_x_w12a_histogram_chain
+    module: mathgen/generators/exd_x_w12a_histogram_chain.py
 factor-common-numerical-factor:
   domain: expressions-equivalence
   status: active
@@ -1868,6 +1882,8 @@ gradient-from-graph:
   sources:
   - topic: fg1_gradient_from_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_gradient_from_graph
+    module: mathgen/generators/exd_x_w12b_gradient_from_graph.py
 gradient-vector:
   domain: partial-derivatives
   status: deferred
@@ -1880,12 +1896,16 @@ graph-y-mx:
   sources:
   - topic: fg1_proportional_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_graph_y_mx
+    module: mathgen/generators/exd_x_w12b_graph_y_mx.py
 graph-y-mx-plus-b:
   domain: linear-relations
   status: active
   sources:
   - topic: fg1_line_table
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_graph_y_mx_plus_b
+    module: mathgen/generators/exd_x_w12b_graph_y_mx_plus_b.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -1934,6 +1954,8 @@ inequality-solutions-number-line:
   sources:
   - topic: fg1_inequality_number_line
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_inequality_number_line
+    module: mathgen/generators/exd_x_w12c_inequality_number_line.py
 inequality-symbols:
   domain: inequalities
   status: deferred
@@ -2420,6 +2442,8 @@ plot-linear-points:
   sources:
   - topic: fg1_plotted_points
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_plot_linear_points
+    module: mathgen/generators/exd_x_w12b_plot_linear_points.py
 polynomial-linear-combination:
   domain: expressions-equivalence
   status: active
@@ -5226,6 +5250,8 @@ solve-linear-equations-graphically:
   sources:
   - topic: fg1_solve_graphically
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_solve_graphically
+    module: mathgen/generators/exd_x_w12c_solve_graphically.py
 solve-ode-exponential:
   domain: differential-equations
   status: active
