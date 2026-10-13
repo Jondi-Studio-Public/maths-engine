@@ -69,12 +69,11 @@ def _roots(rng, lo=1, hi=5, gap=2):
 
 
 def _check_fixed_points(p, q, c, d):
-    g = (X**2 + c) / d
-    roots = sorted(sympy.solve(sympy.Eq(g, X), X))
-    check(roots == [p, q], "fixed points disagree with SymPy")
-    gp = sympy.diff(g, X)
-    check(abs(gp.subs(X, p)) < 1 < abs(gp.subs(X, q)), "p must attract and q repel")
-    check(sympy.Rational(2 * p, d) == gp.subs(X, p), "g' at p disagrees")
+    """g(x) = (x² + c)/d: both p and q are fixed points, and g'(x) = 2x/d is below 1 at p and above 1 at q."""
+    check(all(x * x + c == d * x for x in (p, q)) and p != q, "p and q are not both fixed points")
+    check(abs(Fraction(2 * p, d)) < 1 < abs(Fraction(2 * q, d)), "p must attract and q repel")
+    # the quadratic x² − d·x + c has exactly the roots p and q
+    check(p + q == d and p * q == c, "fixed points disagree with the sum and product of roots")
 
 
 def bound_count(lam: Fraction, delta: Fraction, tol: Fraction):
@@ -151,14 +150,7 @@ def _single(rng, tier):
             break
         _check_fixed_points(p, q, c, d)
         # second route: the logarithm formula
-        want = sympy.ceiling(
-            sympy.log(
-                sympy.Rational(tol.numerator, tol.denominator)
-                * (1 - sympy.Rational(lam.numerator, lam.denominator))
-                / sympy.Rational(x1.numerator, x1.denominator)
-            )
-            / sympy.log(sympy.Rational(lam.numerator, lam.denominator))
-        )
+        want = math.ceil(math.log(float(tol * (1 - lam) / x1)) / math.log(float(lam)))
         check(int(want) == n, "iteration count disagrees with the logarithm formula")
         # slips
         no_denom = 0

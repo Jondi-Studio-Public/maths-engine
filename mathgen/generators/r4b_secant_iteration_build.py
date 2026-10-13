@@ -19,8 +19,6 @@ from __future__ import annotations
 from fractions import Fraction
 from math import isqrt
 
-import sympy
-
 from ..core import attempts, check, generator, round_half_up
 from ._r4b_kit import (
     X,
@@ -72,17 +70,28 @@ def step_slips(f, df, a, b):
 
 
 def sympy_step(coeffs, a, b):
-    """x-intercept of the chord through (a, f(a)) and (b, f(b)), built with SymPy."""
-    f = poly_sympy(coeffs)
-    pa, pb = sympy.Rational(a.numerator, a.denominator), sympy.Rational(b.numerator, b.denominator)
-    line = f.subs(X, pb) + (f.subs(X, pb) - f.subs(X, pa)) / (pb - pa) * (X - pb)
-    root = sympy.solve(sympy.Eq(line, 0), X)[0]
-    return Fraction(int(root.p), int(root.q))
+    """x-intercept of the chord through (a, f(a)) and (b, f(b)), from the two-point form (a·f(b) − b·f(a))/(f(b) − f(a))."""
+    fa, fb = poly_eval(coeffs, a), poly_eval(coeffs, b)
+    return (a * fb - b * fa) / (fb - fa)
 
 
 def _real_root(coeffs) -> float:
-    roots = sympy.Poly(poly_sympy(coeffs), X).nroots()
-    return max(float(r) for r in roots if abs(sympy.im(r)) < 1e-9)
+    """The largest real root: Newton's method from beyond the Cauchy bound converges monotonically down to it."""
+    c = [float(v) for v in coeffs]
+    x = 1 + max(abs(v) for v in c[:-1]) / abs(c[-1])
+    for _ in range(200):
+        fx = sum(v * x**k for k, v in enumerate(c))
+        dfx = sum(k * v * x ** (k - 1) for k, v in enumerate(c) if k)
+        nxt = x - fx / dfx
+        if abs(nxt - x) < 1e-13:
+            return nxt
+        x = nxt
+    return x
+
+
+def _sqrt_exact(n) -> Fraction:
+    """√n to 40 decimal places, as an exact Fraction, from integer square roots."""
+    return Fraction(isqrt(int(n) * 10**80), 10**40)
 
 
 def _eq(a, b):
@@ -281,9 +290,8 @@ def _exam(rng):
         x2 = step(f, a, b)
         fx2 = f(x2)
         x3 = step(f, b, x2)
-        root = sympy.sqrt(n)
-        err = abs(sympy.Rational(x3.numerator, x3.denominator) - root)
-        err_f = Fraction(str(sympy.N(err, 30)))
+        root = _sqrt_exact(n)
+        err_f = abs(x3 - root)
         if fx2 == 0 or x3 == x2 or not margin_ok(err_f, 6, 0.12) or err_f < Fraction(1, 10**4):
             continue
         break
@@ -332,10 +340,10 @@ def _exam(rng):
         working=[f"x{sub(3)} = x{sub(2)} − f(x{sub(2)})(x{sub(2)} − x{sub(1)})/(f(x{sub(2)}) − f(x{sub(1)})) = {x3}."],
         value_range=(0, None),
     )
-    err_x2 = abs(sympy.Rational(x2.numerator, x2.denominator) - root)
+    err_x2 = abs(x2 - root)
     d_cands = [
         (M_SIGNED, -err_f),
-        (M_WRONG_ITERATE, Fraction(str(sympy.N(err_x2, 30)))),
+        (M_WRONG_ITERATE, err_x2),
         (M_RESID, abs(f(x3))),
         ("num2-secant-error-against-x2", abs(x3 - x2)),
     ]
@@ -346,7 +354,7 @@ def _exam(rng):
         d_cands,
         2,
         ft=f"Abs(part_c - sqrt({n}))",
-        working=[f"√{n} ≈ {dec(Fraction(str(sympy.N(root, 30))), 6)}, so |x{sub(3)} − √{n}| ≈ {dec(err_f, 6)}."],
+        working=[f"√{n} ≈ {dec(root, 6)}, so |x{sub(3)} − √{n}| ≈ {dec(err_f, 6)}."],
         value_range=(0, 5),
     )
     for p in (p_a, p_b, p_c, p_d):
