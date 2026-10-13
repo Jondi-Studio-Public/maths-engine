@@ -59,7 +59,7 @@ def _counted_area(fig):
 
 
 def _side(text):
-    m = re.search(r"side of each square on the grid is (\d+) m", text)
+    m = re.search(r"(\d+) m\b", text)  # the only length in the stem is the side of a square
     return int(m.group(1)) if m else 1
 
 

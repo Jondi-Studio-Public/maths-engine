@@ -123,6 +123,8 @@ def _effects_easy(rng):
             "The graph of y = x^2 is drawn, and so is graph B, which is y = x^2 moved without turning or stretching it. "
             "Which equation is graph B?",
             "Graph B is the graph of y = x^2 after it has been moved. Both are drawn. Which equation is graph B?",
+            "Sliding the parabola y = x^2 across and up or down gives graph B. Both curves are drawn on the grid. "
+            "Which equation is graph B?",
         ),
     )
     working = [f"The vertex of B is at ({h}, {k}), so the equation is {key}."]
@@ -429,6 +431,7 @@ def _equation_question(rng, tier):
         (
             "The graph of a parabola is drawn{pt}. Write its equation in the form y = a(x - h)^2 + k.",
             "A parabola is drawn on the grid{pt}. Find its equation in the form y = a(x - h)^2 + k.",
+            "Look at the parabola on the grid{pt}. What is its equation, written as y = a(x - h)^2 + k?",
         ),
         pt="" if p is None else ", with the point P marked on it",
     )
@@ -596,8 +599,16 @@ def _build_fr2c_parabola_equation_exam(rng):
     check(Fraction(py - k, (px - h) ** 2) == a, "the marked point does not give a")
     places = 0 if a.denominator == 1 else 1
     answer = expr_of(a, h, k)
-    stem = (
-        "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and the point P is marked on it."
+    stem = phrase(
+        rng,
+        (
+            "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and the point P is marked "
+            "on it.",
+            "A parabola is shown on the grid with the point P marked on it. The coordinates of its vertex are whole "
+            "numbers.",
+            "The grid shows a parabola. Its turning point has whole-number coordinates, and P is a point marked on "
+            "the curve.",
+        ),
     )
     parts = [
         kit.num_part(

@@ -1020,7 +1020,7 @@
 {"answer": "7", "id": "f10-additive-multiplicative-patterns/medium/2/b16d2b8e0f41", "text": "What is the next number? 25, 19, 13, __"}
 {"answer": "1/12", "id": "f10-algebra-conjecture-algorithm/easy/0/00a80a0f8c3a", "text": "The kinetic energy of a moving object is E = ½mv². The speed v is halved and th…"}
 {"answer": "8", "id": "f10-algebra-conjecture-algorithm/easy/1/c7826620f79c", "text": "The volume of a cube is V = s³. The side length s is doubled, and nothing else …"}
-{"answer": "9", "id": "f10-algebra-conjecture-algorithm/easy/2/097159ee89f6", "text": "The light from a lamp reaching a wall is I = P/d². The distance d is divided by…"}
+{"answer": "2", "id": "f10-algebra-conjecture-algorithm/easy/2/03a3276c0865", "text": "The time to fill a tank is T = V/R, where V is the volume and R is the rate of …"}
 {"answer": "(a) 243; (b) 1; (c) x = 4 is a counterexample, so the conje…", "id": "f10-algebra-conjecture-algorithm/exam/0/b30ed4cf3895", "text": "Leila conjectures that the rule y = 3 × 3^x gives every y-value in this table: …"}
 {"answer": "(a) 81; (b) 0; (c) The rule fits at x = 4, but that does no…", "id": "f10-algebra-conjecture-algorithm/exam/1/2ddb4b06dead", "text": "Jess conjectures that the rule y = 3^x gives every y-value in this table: x: 0,…"}
 {"answer": "(a) 52; (b) 1; (c) x = 5 is a counterexample, so the conjec…", "id": "f10-algebra-conjecture-algorithm/exam/2/9144e51f03d2", "text": "Leila conjectures that the rule y = 2x^2 + 2 gives every y-value in this table:…"}
@@ -1063,15 +1063,15 @@
 {"answer": "5", "id": "f10-angle-turn-right-reference/medium/0/7c60d0b47284", "text": "A shape makes a three-quarter turn, then makes another half turn. In total, how…"}
 {"answer": "7", "id": "f10-angle-turn-right-reference/medium/1/81e662efcd64", "text": "A shape makes a full turn, then makes another three-quarter turn. In total, how…"}
 {"answer": "4", "id": "f10-angle-turn-right-reference/medium/2/ce18318c44f7", "text": "A shape makes a three-quarter turn, then makes another quarter turn. In total, …"}
-{"answer": "14", "id": "f10-area-perimeter-count-squares/easy/0/8d5409e8dc8c", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
-{"answer": "16", "id": "f10-area-perimeter-count-squares/easy/1/564b613be7cc", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
+{"answer": "14", "id": "f10-area-perimeter-count-squares/easy/0/fdaf23af05fc", "text": "Each square on the grid is 1 cm by 1 cm. Find the area of the shape, in square …"}
+{"answer": "16", "id": "f10-area-perimeter-count-squares/easy/1/a2987916cc56", "text": "Every grid square has sides of 1 cm. What is the area of the shape, in square c…"}
 {"answer": "9", "id": "f10-area-perimeter-count-squares/easy/2/6af053b2d4ca", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
-{"answer": "60", "id": "f10-area-perimeter-count-squares/hard/0/3b707cea149b", "text": "The side of each square on the grid is 3 m. What is the perimeter of the shape,…"}
-{"answer": "36", "id": "f10-area-perimeter-count-squares/hard/1/9b1691124368", "text": "The side of each square on the grid is 2 m. What is the perimeter of the shape,…"}
-{"answer": "48", "id": "f10-area-perimeter-count-squares/hard/2/3651df0f1073", "text": "The side of each square on the grid is 2 m. What is the area of the shape, in s…"}
-{"answer": "20", "id": "f10-area-perimeter-count-squares/medium/0/d4a16835ff08", "text": "Each square on the grid is 1 cm by 1 cm. What is the perimeter of the shape, in…"}
-{"answer": "22", "id": "f10-area-perimeter-count-squares/medium/1/6b92a625b593", "text": "Each square on the grid is 1 cm by 1 cm. What is the perimeter of the shape, in…"}
-{"answer": "13", "id": "f10-area-perimeter-count-squares/medium/2/37b9a736ae53", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
+{"answer": "60", "id": "f10-area-perimeter-count-squares/hard/0/daaaf5018c31", "text": "A side of one grid square is 3 m long. Find the perimeter of the shape, in metr…"}
+{"answer": "36", "id": "f10-area-perimeter-count-squares/hard/1/a1816691751a", "text": "A side of one grid square is 2 m long. How far is it around the edge of the sha…"}
+{"answer": "48", "id": "f10-area-perimeter-count-squares/hard/2/6b322f236fd6", "text": "The side of each square on the grid is 2 m. The shape is shaded on the grid. Wh…"}
+{"answer": "20", "id": "f10-area-perimeter-count-squares/medium/0/2577bcc5a34c", "text": "Every grid square has sides of 1 cm. Find the perimeter of the shape, in centim…"}
+{"answer": "22", "id": "f10-area-perimeter-count-squares/medium/1/fea86bb40dca", "text": "Each square on the grid is 1 cm by 1 cm. Find the perimeter of the shape, in ce…"}
+{"answer": "13", "id": "f10-area-perimeter-count-squares/medium/2/b97c22a72eac", "text": "Each square on the grid is 1 cm by 1 cm. The shape is shaded on the grid. What …"}
 {"answer": "57", "id": "f10-base-ten-blocks-number/easy/0/3ce38269ff41", "text": "Yuki makes a number from blocks. What number is shown?"}
 {"answer": "13", "id": "f10-base-ten-blocks-number/easy/1/6a95510ccc57", "text": "Lucas counts the blocks. What number is shown?"}
 {"answer": "44", "id": "f10-base-ten-blocks-number/easy/2/64f9725761fd", "text": "Ingrid counts the blocks. What number is shown?"}
@@ -1285,15 +1285,15 @@
 {"answer": "dx = 15, dy = 3", "id": "f10-coordinate-movement/medium/0/b304d12e84f7", "text": "A point moves from (-6, -9) to (9, -6). What is the change in each coordinate?"}
 {"answer": "dx = -1, dy = -18", "id": "f10-coordinate-movement/medium/1/5037c7cb167e", "text": "A point moves from (-8, 8) to (-9, -10). What is the change in each coordinate?"}
 {"answer": "dx = -9, dy = 1", "id": "f10-coordinate-movement/medium/2/01f58aa9109d", "text": "A point moves from (2, -8) to (-7, -7). What is the change in each coordinate?"}
-{"answer": "y = (x - 1)(x - 3)^2", "id": "f10-cubic-double-root-graph/easy/0/b0513a929b60", "text": "The graph of a cubic is drawn. Its equation has the form y = (x - p)(x - q)^2, …"}
-{"answer": "y = (x + 1)(x - 1)^2", "id": "f10-cubic-double-root-graph/easy/1/0bcbf6cf2ac2", "text": "The graph of a cubic is drawn. Its equation has the form y = (x - p)(x - q)^2, …"}
+{"answer": "y = (x - 1)(x - 3)^2", "id": "f10-cubic-double-root-graph/easy/0/0f3ca270c059", "text": "Write the equation of the cubic shown, in the form y = (x - p)(x - q)^2, where …"}
+{"answer": "y = (x + 1)(x - 1)^2", "id": "f10-cubic-double-root-graph/easy/1/dae9b7ac3ac0", "text": "Write the equation of the cubic shown, in the form y = (x - p)(x - q)^2, where …"}
 {"answer": "y = (x + 4)(x + 1)^2", "id": "f10-cubic-double-root-graph/easy/2/65a93b414a85", "text": "A cubic graph is drawn on the grid. Find its equation. It has the form y = (x -…"}
 {"answer": "(a) The graph crosses the x-axis at x = 4 and touches it at…", "id": "f10-cubic-double-root-graph/exam/0/524f4a6ad598", "text": "A graph has the equation y = 2(x - 4)(x - 7)^2. (a) Which statement about the x…"}
 {"answer": "(a) The graph crosses the x-axis at x = -3 and touches it a…", "id": "f10-cubic-double-root-graph/exam/1/52f288bd9c3f", "text": "A graph has the equation y = 2(x + 3)(x - 3)^2. (a) Which statement about the x…"}
 {"answer": "(a) The graph crosses the x-axis at x = 4 and touches it at…", "id": "f10-cubic-double-root-graph/exam/2/25d4f43ea615", "text": "A graph has the equation y = 2(x - 4)(x + 2)^2. (a) Which statement about the x…"}
 {"answer": "y = (1/2)(x - 3)(x + 1)^2", "id": "f10-cubic-double-root-graph/hard/0/31c5d6af02df", "text": "The graph of a cubic is drawn, with the point P marked on it. Its equation has …"}
 {"answer": "y = (-1/2)(x - 4)(x - 1)^2", "id": "f10-cubic-double-root-graph/hard/1/7ad12ef7e32a", "text": "The graph of a cubic is drawn, with the point P marked on it. Its equation has …"}
-{"answer": "y = (-1/2)(x - 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/hard/2/ba00add78322", "text": "A cubic graph is drawn on the grid, with the point P marked on it. Find its equ…"}
+{"answer": "y = (-1/2)(x - 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/hard/2/89589e6a1120", "text": "Write the equation of the cubic shown, with the point P marked on it, in the fo…"}
 {"answer": "y = -(x + 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/medium/0/fffe10d90b2f", "text": "The graph of a cubic is drawn. Its equation has the form y = k(x - p)(x - q)^2,…"}
 {"answer": "y = (x - 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/medium/1/e46563b80f0b", "text": "A cubic graph is drawn on the grid. Find its equation. It has the form y = k(x …"}
 {"answer": "y = (x + 1)(x + 3)^2", "id": "f10-cubic-double-root-graph/medium/2/9af529d9413d", "text": "The graph of a cubic is drawn. Its equation has the form y = k(x - p)(x - q)^2,…"}
@@ -1363,9 +1363,9 @@
 {"answer": "24", "id": "f10-describe-calendar-duration/medium/0/270270c47d3f", "text": "In 2023, how many days after 24 February is 20 March?"}
 {"answer": "26", "id": "f10-describe-calendar-duration/medium/1/d6c4bfe59907", "text": "In 2023, how many days after 26 April is 22 May?"}
 {"answer": "11", "id": "f10-describe-calendar-duration/medium/2/d5d75cd94ffd", "text": "In 2023, how many days after 28 August is 8 September?"}
-{"answer": "right = 2, up = 2", "id": "f10-describe-transformation-from-points/easy/0/15fadb6b6f6a", "text": "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the trans…"}
-{"answer": "right = -6, up = -2", "id": "f10-describe-transformation-from-points/easy/1/f73e6eed3963", "text": "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the trans…"}
-{"answer": "right = -6, up = 5", "id": "f10-describe-transformation-from-points/easy/2/940cfd8fee85", "text": "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the trans…"}
+{"answer": "right = 2, up = 2", "id": "f10-describe-transformation-from-points/easy/0/3e49def3b79e", "text": "The grid shows triangle ABC and its image A'B'C' after a translation. Describe …"}
+{"answer": "right = -6, up = -2", "id": "f10-describe-transformation-from-points/easy/1/8ded396993ac", "text": "Triangle ABC has slid across the grid to the position A'B'C'. How far has it mo…"}
+{"answer": "right = -6, up = 5", "id": "f10-describe-transformation-from-points/easy/2/2a48a856e6c1", "text": "Triangle ABC has slid across the grid to the position A'B'C'. How far has it mo…"}
 {"answer": "(a) a rotation of 180° (a half turn); (b) x = 1, y = 2; (c)…", "id": "f10-describe-transformation-from-points/exam/0/a96e48c5a224", "text": "A triangular tile pattern is drawn on a coordinate grid and then copied. Triang…"}
 {"answer": "(a) a translation; (b) right = -5, up = 4; (c) 5; (d) 12", "id": "f10-describe-transformation-from-points/exam/1/c79dc37d7392", "text": "A school logo is drawn on a coordinate grid, then copied to a new position. Tri…"}
 {"answer": "(a) a rotation of 180° (a half turn); (b) x = -3, y = -3; (…", "id": "f10-describe-transformation-from-points/exam/2/a02c668257d2", "text": "A triangular tile pattern is drawn on a coordinate grid and then copied. Triang…"}
@@ -1594,9 +1594,9 @@
 {"answer": "Model A", "id": "f10-fraction-compare-models/medium/0/89281a5de185", "text": "Chloe compares the models. Which one shows the greater amount shaded?"}
 {"answer": "Model B", "id": "f10-fraction-compare-models/medium/1/85f4bcf06377", "text": "Hassan compares the models. Which one shows the greater amount shaded?"}
 {"answer": "Model A", "id": "f10-fraction-compare-models/medium/2/d3ea6fa5a7f9", "text": "Ingrid compares the models. Which one shows the greater amount shaded?"}
-{"answer": "56/100", "id": "f10-fraction-decimal-links/easy/0/c5e69745ef8b", "text": "Which fraction is the same as the decimal 0.56? Write it with a denominator of …"}
+{"answer": "89/100", "id": "f10-fraction-decimal-links/easy/0/06301cfb8d01", "text": "Write 0.89 as a fraction."}
 {"answer": "57/100", "id": "f10-fraction-decimal-links/easy/1/ed64f0c0c0b2", "text": "Which fraction is the same as the decimal 0.57? Write it with a denominator of …"}
-{"answer": "6/100", "id": "f10-fraction-decimal-links/easy/2/2c8b728f1121", "text": "Write 0.06 as a fraction."}
+{"answer": "7/100", "id": "f10-fraction-decimal-links/easy/2/7fc54f0bf5d5", "text": "Write 0.07 as a fraction."}
 {"answer": "163", "id": "f10-fraction-decimal-links/hard/0/f81df4967470", "text": "How many hundredths are there altogether in 9/10 + 0.51 + 22/100?"}
 {"answer": "162", "id": "f10-fraction-decimal-links/hard/1/7792b1d28bcf", "text": "How many hundredths are there altogether in 9/10 + 0.59 + 13/100?"}
 {"answer": "128", "id": "f10-fraction-decimal-links/hard/2/9b82a351d80d", "text": "Add 6/10, the decimal 0.19 and 49/100. Give the total as a number of hundredths."}
@@ -1805,14 +1805,14 @@
 {"answer": "0.39", "id": "f10-measurement-error-interpretation/medium/1/faf90f91cb2d", "text": "A measurement is 61 cm, but the true value is 100 cm. What is the relative erro…"}
 {"answer": "0.15", "id": "f10-measurement-error-interpretation/medium/2/5b50b31e4834", "text": "A measurement is 17 cm, but the true value is 20 cm. What is the relative error…"}
 {"answer": "(a) 84; (b) 93", "id": "f10-mental-compensation-partition/easy/0/8b73fbd33223", "text": "To work out 54 + 39 in your head, add the tens of 39 first and then the ones. (…"}
-{"answer": "(a) 69; (b) 73", "id": "f10-mental-compensation-partition/easy/1/3a01d02b2762", "text": "To work out 49 + 24 in your head, add the tens of 24 first and then the ones. (…"}
-{"answer": "(a) 95; (b) 93", "id": "f10-mental-compensation-partition/easy/2/c4e7d3f20dd8", "text": "To work out 35 + 58 in your head, round 58 up to 60 first. (a) What is 35 + 60?…"}
+{"answer": "(a) 69; (b) 73", "id": "f10-mental-compensation-partition/easy/1/791421c7482f", "text": "Sam wants to work out 49 + 24 in her head. She splits 24 into tens and ones and…"}
+{"answer": "(a) 95; (b) 93", "id": "f10-mental-compensation-partition/easy/2/800664faaac8", "text": "Sam wants to work out 35 + 58 in her head. She rounds 58 up to 60 and puts the …"}
 {"answer": "(a) 200; (b) 202", "id": "f10-mental-compensation-partition/hard/0/71aae099a1b9", "text": "To work out 801 - 599 in your head, round both numbers to the nearest hundred f…"}
 {"answer": "(a) 500; (b) 503", "id": "f10-mental-compensation-partition/hard/1/758e83b5903c", "text": "To work out 702 - 199 in your head, round both numbers to the nearest hundred f…"}
 {"answer": "(a) 1300; (b) 1295", "id": "f10-mental-compensation-partition/hard/2/c25728c886ee", "text": "To work out 798 + 497 in your head, round both numbers to the nearest hundred f…"}
-{"answer": "(a) 38; (b) 40", "id": "f10-mental-compensation-partition/medium/0/60a5eab7aace", "text": "To work out 88 - 48 in your head, round 48 up to 50 first. (a) What is 88 - 50?…"}
+{"answer": "(a) 38; (b) 40", "id": "f10-mental-compensation-partition/medium/0/24990e2be2bc", "text": "Sam wants to work out 88 - 48 in her head. She rounds 48 up to 50 and puts the …"}
 {"answer": "(a) 45; (b) 47", "id": "f10-mental-compensation-partition/medium/1/17707d4d68c0", "text": "To work out 85 - 38 in your head, round 38 up to 40 first. (a) What is 85 - 40?…"}
-{"answer": "(a) 14; (b) 16", "id": "f10-mental-compensation-partition/medium/2/0c6e88bcce20", "text": "To work out 74 - 58 in your head, round 58 up to 60 first. (a) What is 74 - 60?…"}
+{"answer": "(a) 14; (b) 16", "id": "f10-mental-compensation-partition/medium/2/7787242d06a6", "text": "Sam wants to work out 74 - 58 in her head. She rounds 58 up to 60 and puts the …"}
 {"answer": "180", "id": "f10-mental-mult-div-extension/easy/0/a234fbb4a099", "text": "Given that 9 × 2 = 18, what is 90 × 2?"}
 {"answer": "300", "id": "f10-mental-mult-div-extension/easy/1/7cd3e3a50960", "text": "Given that 5 × 6 = 30, what is 50 × 6?"}
 {"answer": "240", "id": "f10-mental-mult-div-extension/easy/2/78e96c6203b8", "text": "Given that 4 × 6 = 24, what is 40 × 6?"}
@@ -1837,7 +1837,7 @@
 {"answer": "1 1/2", "id": "f10-mixed-numerals-number-line/easy/0/e6fd5218b846", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
 {"answer": "4 1/4", "id": "f10-mixed-numerals-number-line/easy/1/c452626f41d1", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
 {"answer": "6 1/2", "id": "f10-mixed-numerals-number-line/easy/2/258c744d87de", "text": "Point P is marked on the number line. Write the number at P as a mixed numeral."}
-{"answer": "2 3/4", "id": "f10-mixed-numerals-number-line/hard/0/90b45701d529", "text": "P and Q are marked on the number line. Write the distance from P to Q as a mixe…"}
+{"answer": "2 3/4", "id": "f10-mixed-numerals-number-line/hard/0/2c4151f09173", "text": "Two points, P and Q, sit on the number line. Find the length of the gap between…"}
 {"answer": "1 3/4", "id": "f10-mixed-numerals-number-line/hard/1/244624140c62", "text": "Points P and Q are marked on the number line. How far is it from P to Q? Write …"}
 {"answer": "1 2/3", "id": "f10-mixed-numerals-number-line/hard/2/9fb56e3bc662", "text": "Points P and Q are marked on the number line. How far is it from P to Q? Write …"}
 {"answer": "13 4/5", "id": "f10-mixed-numerals-number-line/medium/0/a2adc1be3a98", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
@@ -2018,15 +2018,15 @@
 {"answer": "C, B, A, D", "id": "f10-order-events-independent-dependent/medium/1/cae4a05ed555", "text": "Here are four events. A: rolling a number greater than 4 on a fair six-sided di…"}
 {"answer": "B, C, D, A", "id": "f10-order-events-independent-dependent/medium/2/0a2e037e7002", "text": "Here are four events. A: tossing a fair coin and getting tails; B: spinning a s…"}
 {"answer": "y = -(x + 3)^2 + 3", "id": "f10-parabola-equation-from-graph/easy/0/a11f9e9171fc", "text": "The graph of a parabola is drawn. Write its equation in the form y = a(x - h)^2…"}
-{"answer": "y = (x - 5)^2 + 5", "id": "f10-parabola-equation-from-graph/easy/1/931a4ff078ac", "text": "A parabola is drawn on the grid. Find its equation in the form y = a(x - h)^2 +…"}
-{"answer": "y = -(x - 2)^2 + 3", "id": "f10-parabola-equation-from-graph/easy/2/c6e1e85c6ba5", "text": "The graph of a parabola is drawn. Write its equation in the form y = a(x - h)^2…"}
-{"answer": "(a) 1; (b) -5; (c) 0.5; (d) y = (1/2)(x - 1)^2 - 5", "id": "f10-parabola-equation-from-graph/exam/0/0b0603f5f63d", "text": "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and…"}
+{"answer": "y = (x - 5)^2 + 5", "id": "f10-parabola-equation-from-graph/easy/1/0d4a61f96887", "text": "Look at the parabola on the grid. What is its equation, written as y = a(x - h)…"}
+{"answer": "y = -(x - 2)^2 + 3", "id": "f10-parabola-equation-from-graph/easy/2/a77e7bd1eb8a", "text": "Look at the parabola on the grid. What is its equation, written as y = a(x - h)…"}
+{"answer": "(a) 1; (b) -5; (c) 0.5; (d) y = (1/2)(x - 1)^2 - 5", "id": "f10-parabola-equation-from-graph/exam/0/7a788d7ce439", "text": "A parabola is shown on the grid with the point P marked on it. The coordinates …"}
 {"answer": "(a) 2; (b) -4; (c) -0.5; (d) y = (-1/2)(x - 2)^2 - 4", "id": "f10-parabola-equation-from-graph/exam/1/5b8a2e8c9bc9", "text": "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and…"}
-{"answer": "(a) -2; (b) 5; (c) 0.5; (d) y = (1/2)(x + 2)^2 + 5", "id": "f10-parabola-equation-from-graph/exam/2/a3df2e14d2a6", "text": "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and…"}
-{"answer": "y = (1/2)(x - 5)^2 - 1", "id": "f10-parabola-equation-from-graph/hard/0/89dfb6fdd8e4", "text": "The graph of a parabola is drawn, with the point P marked on it. Write its equa…"}
+{"answer": "(a) -2; (b) 5; (c) 0.5; (d) y = (1/2)(x + 2)^2 + 5", "id": "f10-parabola-equation-from-graph/exam/2/23167512ae08", "text": "A parabola is shown on the grid with the point P marked on it. The coordinates …"}
+{"answer": "y = (1/2)(x - 5)^2 - 1", "id": "f10-parabola-equation-from-graph/hard/0/fd66c7f47f34", "text": "Look at the parabola on the grid, with the point P marked on it. What is its eq…"}
 {"answer": "y = (-1/3)(x - 4)^2 + 1", "id": "f10-parabola-equation-from-graph/hard/1/19fbb72db767", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
-{"answer": "y = (-1/2)(x + 1)^2 - 4", "id": "f10-parabola-equation-from-graph/hard/2/c49e398f16af", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
-{"answer": "y = 2(x - 2)^2 - 5", "id": "f10-parabola-equation-from-graph/medium/0/405a6628ea73", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
+{"answer": "y = (-1/2)(x + 1)^2 - 4", "id": "f10-parabola-equation-from-graph/hard/2/fa692e6cfebe", "text": "Look at the parabola on the grid, with the point P marked on it. What is its eq…"}
+{"answer": "y = 2(x - 2)^2 - 5", "id": "f10-parabola-equation-from-graph/medium/0/495d4ec454c7", "text": "Look at the parabola on the grid, with the point P marked on it. What is its eq…"}
 {"answer": "y = -2(x + 1)^2 - 1", "id": "f10-parabola-equation-from-graph/medium/1/93af73d35e30", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
 {"answer": "y = 2(x + 3)^2 - 4", "id": "f10-parabola-equation-from-graph/medium/2/6b9d6f91d670", "text": "The graph of a parabola is drawn, with the point P marked on it. Write its equa…"}
 {"answer": "104", "id": "f10-parallel-line-angle-theorems/easy/0/309eed5f7fb8", "text": "The two lines marked with arrows are parallel, and angle a is 104°. Angles a an…"}
@@ -2221,8 +2221,8 @@
 {"answer": "x^2 + 6x - 40", "id": "f10-quadratic-algebra-expansion/medium/0/6894df1fa451", "text": "Expand (x + 10)(x - 4) into a trinomial in standard form."}
 {"answer": "x^2 - 2x - 3", "id": "f10-quadratic-algebra-expansion/medium/1/7eacfd19e2c9", "text": "Expand (x + 1)(x - 3) into a trinomial in standard form."}
 {"answer": "x^2 + 3x - 54", "id": "f10-quadratic-algebra-expansion/medium/2/525e9d1a7be5", "text": "Expand (x + 9)(x - 6) into a trinomial in standard form."}
-{"answer": "y = x^2 + 5", "id": "f10-quadratic-parameter-effects/easy/0/1c7cfe64e3a9", "text": "The graph of y = x^2 is drawn, and so is graph B, which is y = x^2 moved withou…"}
-{"answer": "y = x^2 - 5", "id": "f10-quadratic-parameter-effects/easy/1/f4edadbdfcb3", "text": "Graph B is the graph of y = x^2 after it has been moved. Both are drawn. Which …"}
+{"answer": "y = x^2 + 5", "id": "f10-quadratic-parameter-effects/easy/0/2984707f3ffd", "text": "Sliding the parabola y = x^2 across and up or down gives graph B. Both curves a…"}
+{"answer": "y = x^2 - 5", "id": "f10-quadratic-parameter-effects/easy/1/2693953a4cdd", "text": "Sliding the parabola y = x^2 across and up or down gives graph B. Both curves a…"}
 {"answer": "y = (x - 3)^2", "id": "f10-quadratic-parameter-effects/easy/2/1bec89005aa6", "text": "The graph of y = x^2 is drawn, and so is graph B, which is y = x^2 moved withou…"}
 {"answer": "(a) It is narrower than y = x^2 and opens upwards; (b) 2; (…", "id": "f10-quadratic-parameter-effects/exam/0/977121d83548", "text": "A parabola has the equation y = 3(x - 2)^2 + 4. (a) Which statement about the g…"}
 {"answer": "(a) It is narrower than y = x^2 and opens downwards; (b) 2;…", "id": "f10-quadratic-parameter-effects/exam/1/8e01e228cd6a", "text": "A parabola has the equation y = -2(x - 2)^2 - 3. (a) Which statement about the …"}
@@ -2545,12 +2545,12 @@
 {"answer": "(a) x = 8, y = 4, z = 12; (b) x = 4, y = 2, z = 6; (c) 8.9;…", "id": "f10-three-d-coordinates-position-distance/exam/0/bec8042a21e8", "text": "A water tank is modelled as a box, as shown. Corner O is the origin, with the x…"}
 {"answer": "(a) x = 2, y = 12, z = 6; (b) x = 1, y = 6, z = 3; (c) 12.2…", "id": "f10-three-d-coordinates-position-distance/exam/1/13c6ccfe3a2e", "text": "A water tank is modelled as a box, as shown. Corner O is the origin, with the x…"}
 {"answer": "(a) x = 10, y = 2, z = 12; (b) x = 5, y = 1, z = 6; (c) 10.…", "id": "f10-three-d-coordinates-position-distance/exam/2/994b67984fbc", "text": "A greenhouse is modelled as a box, as shown. Corner O is the origin, with the x…"}
-{"answer": "floor = 15, straight = 25", "id": "f10-three-d-coordinates-position-distance/hard/0/0e4c5f41b1e0", "text": "A indoor sports hall is modelled as a box, as shown. Distances are in metres, a…"}
+{"answer": "floor = 15, straight = 25", "id": "f10-three-d-coordinates-position-distance/hard/0/28eb9996fcfe", "text": "An indoor sports hall is modelled as a box, as shown. Distances are in metres, …"}
 {"answer": "floor = 15, straight = 17", "id": "f10-three-d-coordinates-position-distance/hard/1/f1cff598b320", "text": "A greenhouse is modelled as a box, as shown. Distances are in metres, and the b…"}
 {"answer": "floor = 20, straight = 25", "id": "f10-three-d-coordinates-position-distance/hard/2/758d22fd377b", "text": "A cold store is modelled as a box, as shown. Distances are in metres, and the b…"}
 {"answer": "x = 0, y = 2, z = 6", "id": "f10-three-d-coordinates-position-distance/medium/0/d0153cd6b4d1", "text": "A warehouse is modelled as a box, as shown. Distances are in metres. Corner O i…"}
 {"answer": "x = 4, y = 10, z = 2", "id": "f10-three-d-coordinates-position-distance/medium/1/aa4eec5113d6", "text": "A greenhouse is modelled as a box, as shown. Distances are in metres. Corner O …"}
-{"answer": "x = 3, y = 8, z = 7", "id": "f10-three-d-coordinates-position-distance/medium/2/19524492bed5", "text": "A indoor sports hall is modelled as a box, as shown. Distances are in metres. C…"}
+{"answer": "x = 3, y = 8, z = 7", "id": "f10-three-d-coordinates-position-distance/medium/2/59f350c37e9b", "text": "An indoor sports hall is modelled as a box, as shown. Distances are in metres. …"}
 {"answer": "dx = 7, dy = -5, dz = -8", "id": "f10-three-dimensional-coordinates/easy/0/e30ae6499168", "text": "A point travels from (3, 6, 10) to (10, 1, 2). Find the change in each coordina…"}
 {"answer": "dx = 7, dy = 5, dz = 1", "id": "f10-three-dimensional-coordinates/easy/1/bb3cdd5fa6bd", "text": "A point travels from (2, 3, 1) to (9, 8, 2). Find the change in each coordinate…"}
 {"answer": "dx = -6, dy = -5, dz = -5", "id": "f10-three-dimensional-coordinates/easy/2/9db20a8f3a57", "text": "An object moves from (10, 10, 7) to (4, 5, 2). Determine the change in each coo…"}

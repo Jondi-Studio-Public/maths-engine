@@ -21,7 +21,7 @@ import math
 import re
 
 from mathgen import figures
-from mathgen.core import attempts, generator
+from mathgen.core import attempts, generator, phrase
 
 from . import _fr2c_kit as kit
 
@@ -65,14 +65,12 @@ def _boundary(cells):
             nxt[a] = b
     start = min(nxt)
     loop = [start]
-    while True:
+    for _ in range(len(nxt)):  # a closed boundary visits each directed edge once, so it ends within len(nxt) steps
         v = nxt[loop[-1]]
         if v == start:
-            break
+            return loop if len(loop) == len(nxt) else None
         loop.append(v)
-        if len(loop) > len(nxt):
-            return None
-    return loop if len(loop) == len(nxt) else None
+    return None
 
 
 def _convex_corners(loop):
@@ -189,17 +187,40 @@ def _build(rng, kind, side, with_cuts):
     fig = _figure(poly, cols, rows)
     unit = f"{side} m" if side > 1 else "1 cm"
     square = (
-        "Each square on the grid is 1 cm by 1 cm." if side == 1 else f"The side of each square on the grid is {side} m."
+        phrase(
+            rng,
+            (
+                "Each square on the grid is 1 cm by 1 cm.",
+                "The squares on the grid are each 1 cm wide and 1 cm high.",
+                "Every grid square has sides of 1 cm.",
+            ),
+        )
+        if side == 1
+        else phrase(
+            rng,
+            (
+                "The side of each square on the grid is {side} m.",
+                "Each grid square measures {side} m along every side.",
+                "A side of one grid square is {side} m long.",
+            ),
+            side=side,
+        )
     )
     if kind == "area":
         area_units = st["full"] + cuts // 2
         value = area_units * side * side
         noun = "square centimetres" if side == 1 else "square metres"
-        ask = (
-            "What is the area of the shape, in {noun}? Some squares are cut across and are half a square."
-            if cuts
-            else "What is the area of the shape, in {noun}?"
-        ).format(noun=noun)
+        ask = phrase(
+            rng,
+            (
+                "What is the area of the shape, in {noun}?",
+                "Find the area of the shape, in {noun}.",
+                "The shape is shaded on the grid. What area does it cover, in {noun}?",
+            ),
+            noun=noun,
+        )
+        if cuts:
+            ask += " Some squares are cut across and are half a square."
         wrong = [
             ("fr2c-counted-the-bounding-rectangle", st["w"] * st["h"] * side * side),
             ("fr2c-part-squares-counted-whole", st["n"] * side * side)
@@ -224,7 +245,15 @@ def _build(rng, kind, side, with_cuts):
     else:
         value = st["perimeter"] * side
         noun = "centimetres" if side == 1 else "metres"
-        ask = f"What is the perimeter of the shape, in {noun}?"
+        ask = phrase(
+            rng,
+            (
+                "What is the perimeter of the shape, in {noun}?",
+                "Find the perimeter of the shape, in {noun}.",
+                "How far is it around the edge of the shape, in {noun}?",
+            ),
+            noun=noun,
+        )
         wrong = [
             ("fr2c-perimeter-of-bounding-rectangle", 2 * (st["w"] + st["h"]) * side),
             ("area-for-perimeter", st["n"] * side * side),
@@ -292,7 +321,7 @@ def _read_grid(question) -> str:
     pairs = list(zip(poly, poly[1:] + poly[:1]))
     area = abs(sum(p[0] * q[1] - q[0] * p[1] for p, q in pairs)) / 2
     perimeter = sum(math.dist(p, q) for p, q in pairs)
-    m = re.search(r"side of each square on the grid is (\d+) m", question.text)
+    m = re.search(r"(\d+) m\b", question.text)  # the only length in the stem is the side of a square
     side = int(m.group(1)) if m else 1
     value = area * side * side if "area" in question.text else perimeter * side
     return str(round(value))

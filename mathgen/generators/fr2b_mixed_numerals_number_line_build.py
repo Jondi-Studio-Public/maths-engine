@@ -99,11 +99,13 @@ def _single(rng, tier):
         [
             "Point P is marked on the number line. Write the number at P as a mixed numeral.",
             "What number is marked by P on the number line? Write it as a mixed numeral.",
+            "A dot labelled P sits on the number line. Give its value as a mixed numeral.",
         ]
         if tier == "easy"
         else [
             "Only the two ends of the number line are labelled. Write the number at P as a mixed numeral.",
             "The number line is labelled at its two ends only. What number is marked by P? Write it as a mixed numeral.",
+            "Just the ends of the number line carry labels. P is marked between them. What is the value of P, as a mixed numeral?",
         ]
     )
     text = phrase(rng, templates)
@@ -153,6 +155,7 @@ def _hard(rng):
         [
             "Points P and Q are marked on the number line. How far is it from P to Q? Write the distance as a mixed numeral.",
             "P and Q are marked on the number line. Write the distance from P to Q as a mixed numeral.",
+            "Two points, P and Q, sit on the number line. Find the length of the gap between them as a mixed numeral.",
         ],
     )
     working = [

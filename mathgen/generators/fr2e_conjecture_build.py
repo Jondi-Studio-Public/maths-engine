@@ -137,7 +137,8 @@ def _easy(rng):
             "fr2e-conj-exponent-treated-as-multiplier",
         )
     )
-    wrong = [(v, t) for v, t in wrong if v is not None]
+    # every option shares the key's form: a whole number beside whole numbers, a fraction beside fractions
+    wrong = [(v, t) for v, t in wrong if v is not None and (Fraction(v).denominator == 1) == (factor.denominator == 1)]
     stem = f"{sentence} {wording[0].upper()}{wording[1:]}, and nothing else changes."
     part = fraction_part(
         f"By what factor does {output} change? Give a whole number or a fraction.",

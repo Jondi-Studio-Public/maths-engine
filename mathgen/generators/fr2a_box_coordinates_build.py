@@ -46,6 +46,11 @@ def _thing(rng, dims) -> str:
     return rng.choice(_SMALL if longest <= 6 else _MEDIUM if longest <= 12 else _LARGE)
 
 
+def _start(thing: str) -> str:
+    """The structure with its article, for the start of a sentence ("An aircraft hangar", "A warehouse")."""
+    return ("An " if thing[0] in "aeiou" else "A ") + thing
+
+
 def _corner(name, dims, base=(0, 0, 0)):
     v = kit.vertex(name)
     return tuple(base[i] + v[i] * dims[i] for i in range(3))
@@ -63,9 +68,9 @@ def _pair3(tag, p):
 def _setting(rng, dims, base=None):
     thing = _thing(rng, dims)
     head = (
-        f"A {thing} is modelled as a box, as shown. Distances are in metres."
+        f"{_start(thing)} is modelled as a box, as shown. Distances are in metres."
         if base is None
-        else f"A {thing} is modelled as a box, as shown. Distances are in metres, and the box is on a survey grid."
+        else f"{_start(thing)} is modelled as a box, as shown. Distances are in metres, and the box is on a survey grid."
     )
     origin = (
         "Corner O is the origin, with the x-axis along OP, the y-axis along OR and the z-axis along OS (upwards)."
@@ -335,7 +340,7 @@ def _fr2a_box_chain(rng):
     fig = _fig(dims)
     thing = _thing(rng, dims)
     stem = (
-        f"A {thing} is modelled as a box, as shown. Corner O is the origin, with the x-axis along OP, the y-axis along OR "
+        f"{_start(thing)} is modelled as a box, as shown. Corner O is the origin, with the x-axis along OP, the y-axis along OR "
         "and the z-axis along OS (upwards). Distances are in metres."
     )
     a_text, a_val = _xyz(u)

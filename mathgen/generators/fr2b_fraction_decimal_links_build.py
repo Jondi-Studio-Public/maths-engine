@@ -18,6 +18,7 @@ is the answer of one named error and is checked against the key by value.
 
 from __future__ import annotations
 
+import math
 from fractions import Fraction
 
 from ..answers import Distractor, exact_value
@@ -39,15 +40,17 @@ def _frac_dist(num: int, den: int, misconception: str) -> Distractor:
 
 
 def _easy(rng):
+    # Only decimals whose tenths or hundredths fraction is already in lowest terms (the numerator shares no factor
+    # with the denominator), so the key is exactly the fraction the place value gives and never a simplified form.
     kind = rng.choice(("tenths", "hundredths-small", "hundredths", "hundredths"))
     if kind == "tenths":
-        hundredths = rng.randint(1, 9) * 10
+        hundredths = rng.choice((1, 3, 7, 9)) * 10
     elif kind == "hundredths-small":
-        hundredths = rng.randint(1, 9)
+        hundredths = rng.choice((1, 3, 7, 9))
     else:
-        for _ in attempts(100, "two non-zero digits"):
+        for _ in attempts(500, "two non-zero digits with a numerator coprime to 100"):
             hundredths = rng.randint(11, 99)
-            if hundredths % 10:
+            if hundredths % 10 and math.gcd(hundredths, 100) == 1:
                 break
     den = 10 if hundredths % 10 == 0 else 100
     num = hundredths // 10 if den == 10 else hundredths
@@ -82,7 +85,7 @@ def _easy(rng):
         cands.append(_frac_dist(num, 1, "fr2b-decimal-point-ignored"))
         if num > 1:
             cands.append(_frac_dist(1, num, "fr2b-decimal-digits-split-into-a-fraction"))
-    cands = [c for c in cands if Fraction(c.text) != answer]
+    cands = [c for c in cands if Fraction(c.text) != answer and math.gcd(*(int(v) for v in c.text.split("/"))) == 1]
     answer_text = f"{num}/{den}"
     working = [
         f"The last digit of {decimal} is in the {'tenths' if den == 10 else 'hundredths'} place, so the denominator is {den}.",

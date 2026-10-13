@@ -172,6 +172,7 @@ def fr2c_cubic_equation(rng, tier="easy"):
         (
             "The graph of a cubic is drawn{pt}. Its equation has the form {form}, where{k}. Write the equation.",
             "A cubic graph is drawn on the grid{pt}. Find its equation. It has the form {form}, where{k}.",
+            "Write the equation of the cubic shown{pt}, in the form {form}, where{k}.",
         ),
         pt="" if not p else ", with the point P marked on it",
         form=form,

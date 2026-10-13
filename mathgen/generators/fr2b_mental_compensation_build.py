@@ -18,7 +18,7 @@ Each key is the calculation done directly, and the follow-through expression is 
 
 from __future__ import annotations
 
-from ..core import attempts, check, generator
+from ..core import attempts, check, generator, phrase
 from ._fr2b_kit import build, int_dist, tagged
 
 _TIERS = ("easy", "medium", "hard")
@@ -62,7 +62,19 @@ def _compensate_one(rng, sub, unit, low, high):
     inter = a - r if sub else a + r
     check(exact == (inter + e if sub else inter - e), "the adjustment does not give the exact answer")
     check(inter == (a - r if sub else a + r), "the intermediate value is wrong")
-    stem = f"To work out {a} {op} {b} in your head, round {b} up to {r} first."
+    stem = phrase(
+        rng,
+        (
+            "To work out {a} {op} {b} in your head, round {b} up to {r} first.",
+            "Sam wants to work out {a} {op} {b} in her head. She rounds {b} up to {r} and puts the difference back "
+            "afterwards.",
+            "A quick way to work out {a} {op} {b} is to round {b} up to {r} first and correct the answer afterwards.",
+        ),
+        a=a,
+        op=op,
+        b=b,
+        r=r,
+    )
     p_a = _part(
         f"What is {a} {op} {r}?",
         inter,
@@ -120,7 +132,18 @@ def _partition(rng, sub):
     inter = a - 10 * t if sub else a + 10 * t
     exact = a - b if sub else a + b
     check(exact == (inter - u if sub else inter + u), "partition does not give the exact answer")
-    stem = f"To work out {a} {op} {b} in your head, {'take away' if sub else 'add'} the tens of {b} first and then the ones."
+    stem = phrase(
+        rng,
+        (
+            "To work out {a} {op} {b} in your head, {move} the tens of {b} first and then the ones.",
+            "Sam wants to work out {a} {op} {b} in her head. She splits {b} into tens and ones and deals with the "
+            "tens first.",
+        ),
+        a=a,
+        op=op,
+        b=b,
+        move="take away" if sub else "add",
+    )
     p_a = _part(
         f"What is {a} {op} {10 * t}?",
         inter,

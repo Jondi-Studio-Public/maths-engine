@@ -3,6 +3,8 @@ name: Classify angles by size
 domain: primary-geometry-time
 description: Classify an angle, given by its size or read from a protractor, as acute, right, obtuse, straight or reflex.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 prerequisites: [compare-lengths]
 answer: mcq
 sources:

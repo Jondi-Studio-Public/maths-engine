@@ -130,9 +130,16 @@ def _describe(rng, tier):
                 (dict(right=dx, up=-dy), "fr2a-vector-component-sign"),
             ]
         )
-        text = (
-            "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the translation as "
-            "right = _, up = _ (use a negative number for a move to the left or down)."
+        text = phrase(
+            rng,
+            (
+                "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the translation as "
+                "right = _, up = _ (use a negative number for a move to the left or down).",
+                "Triangle ABC has slid across the grid to the position A'B'C'. How far has it moved? Answer as "
+                "right = _, up = _, with a negative number for a move left or down.",
+                "The grid shows triangle ABC and its image A'B'C' after a translation. Describe the translation "
+                "as right = _, up = _ (negative for left or down).",
+            ),
         )
         verify = [("T", dx, dy)]
         working = [
