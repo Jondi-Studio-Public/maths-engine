@@ -111,9 +111,9 @@ def figure_svg(spec: dict, *, theme: str = "light", id_prefix: str | None = None
 
 
 # Each module registers its kinds on import, and may add rules of its own to the stylesheet as `CSS`.
-from mathgen.render import cartesian, data, early, measure, space  # noqa: E402
+from mathgen.render import cartesian, data, early, grid, measure, space  # noqa: E402
 
-_STYLE = STYLE + "".join(getattr(m, "CSS", "") for m in (cartesian, data, early, measure, space))
+_STYLE = STYLE + "".join(getattr(m, "CSS", "") for m in (cartesian, data, early, grid, measure, space))
 
 
 def _style() -> str:

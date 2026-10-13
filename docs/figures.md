@@ -36,7 +36,7 @@ That means the description can state the answer when reading the figure is the w
 
 ## Kinds
 
-There are 21 kinds. Each example below is a valid spec.
+There are 22 kinds. Each example below is a valid spec.
 
 ### cartesian
 
@@ -471,6 +471,58 @@ Keys: `parts` (2, 3, 4, 5, 6, 8, 10 or 12), `sectors` (2 to 6 of `{"label", "par
   "alt": "A pie chart of how students travel to school.",
   "parts": 8,
   "sectors": [{"label": "Walk", "parts": 3}, {"label": "Bus", "parts": 4}, {"label": "Car", "parts": 1}]
+}
+```
+
+### grid_drawing
+
+A picture drawn on a grid of unit cells: a map or plan, a shape made of squares, a stack of cubes on isometric dot paper, and the empty grid a learner draws an answer on.
+
+`grid` is `{"type": "square" | "isometric", "width", "height"}`, plus `"layers"` on an isometric grid. A square grid is 1 to 30 cells each way. Cell `[x, y]` is the unit square whose lower-left corner is the lattice point `(x, y)`: `x` counts columns from the left and `y` counts rows from the bottom, both from 0. An isometric grid is 1 to 8 each way and `layers` (1 to 8) cubes up. Cube `[x, y, z]` has `x` from left to right, `y` from the front (0) to the back, and `z` up from the ground (0). It is seen from the front right, above.
+
+Keys on a square grid:
+
+- `cells`: groups of `{"cells": [[x, y], ...], "style": "shaded" | "hatched" | "dotted"}`. Shaded cells are solid, hatched cells carry diagonal lines, dotted cells carry dots, so the styles differ by more than colour.
+- `polygons`: `{"vertices": [[x, y], ...], "style": "solid" | "dashed", "label"?}`. Every vertex is a lattice point. The label is written at the centre.
+- `lines`: `{"points": [[x, y], ...], "style": ...}` through points in half steps. A `road` is a thick double line, a `river` is wavy and blue, a `rail` has cross ticks, a `wall` is thick, a `fence` is dashed with posts and a `mirror` is dash-dot.
+- `path`: `{"cells": [[x, y], ...]}`, a route drawn as arrows from the centre of each cell to the next, with a start marker on the first. Each step moves to a cell that shares an edge with the last.
+- `symbols`: `{"at": [x, y], "symbol": name}` at a point in half steps. The name is one of `house`, `school`, `church`, `hospital`, `tree`, `bridge`, `campground`, `lookout`, `post_office`, `railway_station`, `airport`, `lighthouse`, `picnic_area`, `toilets`, `parking`, `information`, `door` or `window`. Each is a plain pictogram. `"legend": true` also draws a key naming every symbol used.
+- `column_labels`, `row_labels`: one distinct short label per column (left to right, drawn below the grid) and per row (bottom to top, drawn to the left), for grid references such as C3.
+
+Keys on either grid:
+
+- `labels`: `{"at": [x, y], "text"}` written at a point of the grid.
+- `scale`: `{"text": "1 cm : 2 m", "bar_cells"?}`, the scale as written and a scale bar that many cells long.
+- `north`: `true` draws a north arrow pointing up.
+- `canvas`: `{"width", "height"}` (1 to 20) draws a blank square grid for the learner's answer, to the right of the figure, or below it when the figure is wider than it is tall. `"grid"` draws nothing extra: the learner answers on the figure's own grid, and cells already shown are given.
+
+On an isometric grid, `cubes` is a list of `[x, y, z]` and is required. Every cube stands on the ground or on another cube. Cubes show a light top, a mid left face and a dark right face, painted back to front. The other square-grid keys do not apply.
+
+Every label, legend name and the scale text are returned by `mathgen.figures.labels`, so the leak check covers them. The full description lists the squares, shapes, lines, path and symbols by position, and describes each stack of cubes one column at a time with its height. It never states the number of cubes.
+
+```json
+{
+  "kind": "grid_drawing",
+  "alt": "A map on a square grid.",
+  "grid": {"type": "square", "width": 6, "height": 4},
+  "cells": [{"cells": [[0, 0], [1, 0]], "style": "hatched"}],
+  "lines": [{"points": [[0, 2.5], [6, 2.5]], "style": "road"}],
+  "symbols": [{"at": [2.5, 3.5], "symbol": "school"}],
+  "legend": true,
+  "column_labels": ["A", "B", "C", "D", "E", "F"],
+  "row_labels": ["1", "2", "3", "4"],
+  "scale": {"text": "1 cm : 50 m", "bar_cells": 2},
+  "north": true
+}
+```
+
+```json
+{
+  "kind": "grid_drawing",
+  "alt": "A stack of cubes on isometric dot paper.",
+  "grid": {"type": "isometric", "width": 3, "height": 3, "layers": 3},
+  "cubes": [[0, 0, 0], [0, 0, 1], [1, 0, 0]],
+  "canvas": {"width": 4, "height": 4}
 }
 ```
 

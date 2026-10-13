@@ -95,4 +95,4 @@ def sentence(text: str) -> str:
 
 
 # Each module registers its kinds on import.
-from mathgen.describe import cartesian, data, early, measure, space  # noqa: E402, F401
+from mathgen.describe import cartesian, data, early, grid, measure, space  # noqa: E402, F401

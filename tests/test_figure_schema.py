@@ -35,6 +35,37 @@ EXAMPLES = {
         "numerals": "all",
         "minute_ticks": True,
     },
+    "grid_square": {
+        "kind": "grid_drawing",
+        "alt": "A map on a square grid.",
+        "grid": {"type": "square", "width": 8, "height": 6},
+        "cells": [{"cells": [[0, 0], [1, 0]], "style": "hatched"}, {"cells": [[2, 2]], "style": "dotted"}],
+        "polygons": [{"vertices": [[1, 1], [4, 1], [4, 3]], "style": "dashed", "label": "P"}],
+        "lines": [{"points": [[0, 2.5], [8, 2.5]], "style": "road"}],
+        "path": {"cells": [[5, 0], [5, 1], [6, 1]]},
+        "labels": [{"at": [3, 0.5], "text": "Park"}],
+        "symbols": [{"at": [2.5, 3.5], "symbol": "school"}],
+        "legend": True,
+        "column_labels": list("ABCDEFGH"),
+        "row_labels": ["1", "2", "3", "4", "5", "6"],
+        "scale": {"text": "1 cm : 50 m", "bar_cells": 2},
+        "north": True,
+        "canvas": {"width": 5, "height": 5},
+    },
+    "grid_cubes": {
+        "kind": "grid_drawing",
+        "alt": "A stack of cubes on isometric dot paper.",
+        "grid": {"type": "isometric", "width": 3, "height": 3, "layers": 3},
+        "cubes": [[0, 0, 0], [0, 0, 1], [1, 0, 0]],
+        "canvas": {"width": 4, "height": 4},
+    },
+    "grid_shape": {
+        "kind": "grid_drawing",
+        "alt": "A shape on a square grid.",
+        "grid": {"type": "square", "width": 6, "height": 6},
+        "cells": [{"cells": [[1, 1], [2, 1]], "style": "shaded"}],
+        "canvas": "grid",
+    },
     "venn": {
         "kind": "venn",
         "alt": "A Venn diagram.",
@@ -138,3 +169,27 @@ def test_statistical_charts_check_their_shape(validator):
     )
     assert validator.is_valid(bars)
     assert not validator.is_valid(bars | {"value_axis": {**bars["value_axis"], "min": 1}})
+
+
+def test_grid_drawing_enums_match_the_kind():
+    from mathgen.figure_kinds import grid
+
+    defs = figures.schema()["$defs"]["grid_drawing"]["properties"]
+    assert set(defs["symbols"]["items"]["properties"]["symbol"]["enum"]) == set(grid.SYMBOLS)
+    assert tuple(defs["cells"]["items"]["properties"]["style"]["enum"]) == grid.CELL_STYLES
+    assert tuple(defs["lines"]["items"]["properties"]["style"]["enum"]) == grid.LINE_STYLES
+    assert defs["cubes"]["maxItems"] == grid.MAX_CUBES
+    assert defs["path"]["properties"]["cells"]["maxItems"] == grid.MAX_PATH_CELLS
+
+
+def test_grid_drawing_checks_its_shape(validator):
+    square = _example("grid_square")
+    assert not validator.is_valid(square | {"grid": {"type": "square", "width": 31, "height": 4}})
+    assert not validator.is_valid(_example("grid_cubes") | {"grid": {"type": "isometric", "width": 3, "height": 3}})
+    assert not validator.is_valid(_example("grid_cubes") | {"cells": [{"cells": [[0, 0]], "style": "shaded"}]})
+    assert not validator.is_valid(square | {"cubes": [[0, 0, 0]]})
+    assert not validator.is_valid(square | {"cells": [{"cells": [[0, 0]], "style": "striped"}]})
+    assert not validator.is_valid(square | {"symbols": [{"at": [1, 1], "symbol": "castle"}]})
+    assert not validator.is_valid(square | {"lines": [{"points": [[0, 0]], "style": "road"}]})
+    assert not validator.is_valid(square | {"canvas": {"width": 21, "height": 3}})
+    assert validator.is_valid(square | {"canvas": "grid"})

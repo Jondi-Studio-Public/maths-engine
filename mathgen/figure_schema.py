@@ -27,6 +27,7 @@ SCHEMA = {
         {"$ref": "#/$defs/diagram"},
         {"$ref": "#/$defs/dot_plot"},
         {"$ref": "#/$defs/fraction_model"},
+        {"$ref": "#/$defs/grid_drawing"},
         {"$ref": "#/$defs/histogram"},
         {"$ref": "#/$defs/hundred_chart"},
         {"$ref": "#/$defs/money"},
@@ -1662,6 +1663,275 @@ SCHEMA = {
             },
             "required": ["kind", "alt", "range", "step", "dots", "x_label"],
             "additionalProperties": False,
+        },
+        "gridText": {
+            "type": "string",
+            "description": "Short text drawn on a grid: 1 to 24 characters, not only spaces.",
+            "minLength": 1,
+            "maxLength": 24,
+            "pattern": "\\S",
+        },
+        "gridPoint": {
+            "type": "array",
+            "description": "A point [x, y] of a square grid: x counts across from the left edge and y up from the "
+            "bottom edge, in cells. Whole numbers for a lattice point; half steps are allowed where a "
+            "key says so.",
+            "prefixItems": [
+                {"type": "number", "minimum": 0, "maximum": 30, "multipleOf": 0.5},
+                {"type": "number", "minimum": 0, "maximum": 30, "multipleOf": 0.5},
+            ],
+            "items": False,
+            "minItems": 2,
+            "maxItems": 2,
+        },
+        "gridCell": {
+            "type": "array",
+            "description": "A cell [x, y]: x is the column counted from the left and y the row counted from the "
+            "bottom, both from 0.",
+            "prefixItems": [
+                {"type": "integer", "minimum": 0, "maximum": 29},
+                {"type": "integer", "minimum": 0, "maximum": 29},
+            ],
+            "items": False,
+            "minItems": 2,
+            "maxItems": 2,
+        },
+        "grid_drawing": {
+            "type": "object",
+            "description": "A square or isometric grid of unit cells with what is drawn on it. A square grid is "
+            "'width' cells across and 'height' cells up and may hold shaded, hatched or dotted cells, "
+            "lattice shapes, lines (road, river, rail, wall, fence, mirror), a path of arrows, map "
+            "symbols with a legend, grid references, labels, a scale with a scale bar and a north "
+            "arrow. An isometric grid is dot paper with a stack of unit cubes seen from the front "
+            "right, above: x runs left to right, y front (0) to back, z up from the ground (0). "
+            "'canvas' is a blank grid drawn beside the figure for the learner's answer, or the "
+            "string 'grid' to answer on the figure's own grid.",
+            "properties": {
+                "kind": {"const": "grid_drawing", "description": "Figure kind. Always the string 'grid_drawing'."},
+                "alt": {
+                    "type": "string",
+                    "description": "Accessible description of the figure, read aloud by screen readers. Never states a value the learner is asked to read off the figure.",
+                    "minLength": 1,
+                    "pattern": "\\S",
+                },
+                "title": {"type": "string", "description": "Optional heading drawn above the figure."},
+                "grid": {
+                    "type": "object",
+                    "description": "The grid. Square: 1 to 30 cells each way. Isometric: 1 to 8 each way and "
+                    "'layers' (1 to 8) cubes up.",
+                    "properties": {
+                        "type": {"enum": ["square", "isometric"], "description": "Which grid."},
+                        "width": {"type": "integer", "minimum": 1, "maximum": 30, "description": "Cells across."},
+                        "height": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 30,
+                            "description": "Cells up (square) or cubes front to back (isometric).",
+                        },
+                        "layers": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 8,
+                            "description": "Isometric only: cubes up.",
+                        },
+                    },
+                    "required": ["type", "width", "height"],
+                    "additionalProperties": False,
+                    "if": {"properties": {"type": {"const": "isometric"}}},
+                    "then": {
+                        "required": ["layers"],
+                        "properties": {"width": {"maximum": 8}, "height": {"maximum": 8}},
+                    },
+                },
+                "cells": {
+                    "type": "array",
+                    "description": "Square grid. Groups of cells, each in a style that differs by more than "
+                    "colour: shaded (solid), hatched (diagonal lines) or dotted (dots).",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "cells": {
+                                "type": "array",
+                                "items": {"$ref": "#/$defs/gridCell"},
+                                "minItems": 1,
+                                "uniqueItems": True,
+                            },
+                            "style": {"enum": ["shaded", "hatched", "dotted"]},
+                        },
+                        "required": ["cells", "style"],
+                        "additionalProperties": False,
+                    },
+                },
+                "polygons": {
+                    "type": "array",
+                    "description": "Square grid. Shapes whose corners are lattice points, in order.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "vertices": {
+                                "type": "array",
+                                "items": {
+                                    "type": "array",
+                                    "prefixItems": [
+                                        {"type": "integer", "minimum": 0, "maximum": 30},
+                                        {"type": "integer", "minimum": 0, "maximum": 30},
+                                    ],
+                                    "items": False,
+                                    "minItems": 2,
+                                    "maxItems": 2,
+                                },
+                                "minItems": 3,
+                            },
+                            "style": {"enum": ["solid", "dashed"], "description": "Default solid."},
+                            "label": {"$ref": "#/$defs/gridText", "description": "Written at the centre."},
+                        },
+                        "required": ["vertices"],
+                        "additionalProperties": False,
+                    },
+                },
+                "lines": {
+                    "type": "array",
+                    "description": "Square grid. Lines through points in half steps.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "points": {"type": "array", "items": {"$ref": "#/$defs/gridPoint"}, "minItems": 2},
+                            "style": {"enum": ["road", "river", "rail", "wall", "fence", "mirror"]},
+                        },
+                        "required": ["points", "style"],
+                        "additionalProperties": False,
+                    },
+                },
+                "path": {
+                    "type": "object",
+                    "description": "Square grid. A route drawn as arrows from the centre of each cell to the next, "
+                    "with a start marker on the first. Each step moves to an edge-adjacent cell.",
+                    "properties": {
+                        "cells": {"type": "array", "items": {"$ref": "#/$defs/gridCell"}, "minItems": 2, "maxItems": 60}
+                    },
+                    "required": ["cells"],
+                    "additionalProperties": False,
+                },
+                "labels": {
+                    "type": "array",
+                    "description": "Text written at points of the grid (half steps allowed).",
+                    "items": {
+                        "type": "object",
+                        "properties": {"at": {"$ref": "#/$defs/gridPoint"}, "text": {"$ref": "#/$defs/gridText"}},
+                        "required": ["at", "text"],
+                        "additionalProperties": False,
+                    },
+                },
+                "symbols": {
+                    "type": "array",
+                    "description": "Square grid. Map and plan pictograms at points (half steps allowed).",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "at": {"$ref": "#/$defs/gridPoint"},
+                            "symbol": {
+                                "enum": [
+                                    "house",
+                                    "school",
+                                    "church",
+                                    "hospital",
+                                    "tree",
+                                    "bridge",
+                                    "campground",
+                                    "lookout",
+                                    "post_office",
+                                    "railway_station",
+                                    "airport",
+                                    "lighthouse",
+                                    "picnic_area",
+                                    "toilets",
+                                    "parking",
+                                    "information",
+                                    "door",
+                                    "window",
+                                ],
+                            },
+                        },
+                        "required": ["at", "symbol"],
+                        "additionalProperties": False,
+                    },
+                },
+                "legend": {"const": True, "description": "A key naming every symbol used. Only with symbols."},
+                "column_labels": {
+                    "type": "array",
+                    "description": "Square grid. One distinct label per column, left to right, drawn below the grid.",
+                    "items": {"$ref": "#/$defs/gridText"},
+                    "uniqueItems": True,
+                    "minItems": 1,
+                    "maxItems": 30,
+                },
+                "row_labels": {
+                    "type": "array",
+                    "description": "Square grid. One distinct label per row, bottom to top, drawn left of the grid.",
+                    "items": {"$ref": "#/$defs/gridText"},
+                    "uniqueItems": True,
+                    "minItems": 1,
+                    "maxItems": 30,
+                },
+                "scale": {
+                    "type": "object",
+                    "description": "The scale as written, and optionally a scale bar 'bar_cells' cells long.",
+                    "properties": {
+                        "text": {"$ref": "#/$defs/gridText"},
+                        "bar_cells": {"type": "integer", "minimum": 1, "maximum": 30},
+                    },
+                    "required": ["text"],
+                    "additionalProperties": False,
+                },
+                "north": {"const": True, "description": "Draw a north arrow pointing up the grid."},
+                "cubes": {
+                    "type": "array",
+                    "description": "Isometric grid. Unit cubes [x, y, z]; every cube stands on the ground or on "
+                    "another cube.",
+                    "items": {
+                        "type": "array",
+                        "prefixItems": [
+                            {"type": "integer", "minimum": 0, "maximum": 7},
+                            {"type": "integer", "minimum": 0, "maximum": 7},
+                            {"type": "integer", "minimum": 0, "maximum": 7},
+                        ],
+                        "items": False,
+                        "minItems": 3,
+                        "maxItems": 3,
+                    },
+                    "minItems": 1,
+                    "maxItems": 64,
+                    "uniqueItems": True,
+                },
+                "canvas": {
+                    "description": "Where the learner draws the answer: a blank square grid of this size beside "
+                    "the figure, or 'grid' to shade on the figure's own square grid.",
+                    "oneOf": [
+                        {"const": "grid"},
+                        {
+                            "type": "object",
+                            "properties": {
+                                "width": {"type": "integer", "minimum": 1, "maximum": 20},
+                                "height": {"type": "integer", "minimum": 1, "maximum": 20},
+                            },
+                            "required": ["width", "height"],
+                            "additionalProperties": False,
+                        },
+                    ],
+                },
+            },
+            "required": ["kind", "alt", "grid"],
+            "additionalProperties": False,
+            "if": {"properties": {"grid": {"properties": {"type": {"const": "isometric"}}}}},
+            "then": {
+                "required": ["cubes"],
+                "properties": {
+                    key: {"maxItems": 0}
+                    for key in ("cells", "polygons", "lines", "symbols", "column_labels", "row_labels")
+                }
+                | {"path": False, "canvas": {"type": "object"}},
+            },
+            "else": {"properties": {"cubes": {"maxItems": 0}}},
         },
         "histogram": {
             "type": "object",
