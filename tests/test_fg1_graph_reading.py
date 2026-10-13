@@ -69,7 +69,8 @@ def test_skill_loads_active_with_the_figure_gate(skill_id):
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.placement_eligible is False and skill.mental is None
     assert skill.answer == kind
-    # The exam-tier chain (a separate multi-part generator) is checked in test_exd_x_w12b_graph_exams.py.
+    # Skills with an exam-chain source are tested in tests/test_exd_x_w12*_*.py; the reading tiers are the
+    # sources before it.
     practice = [s for s in skill.sources if s.difficulty != "exam"]
     assert [s.difficulty for s in practice] == TIERS
     assert {s.topic for s in practice} == {topic}
