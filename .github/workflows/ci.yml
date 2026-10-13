@@ -272,7 +272,7 @@ jobs:
             fi
             case "$name" in
               *.py|*.yaml|*.yml|*.md|*.txt|*.toml|*.in|*.cfg) ;;
-              LICENSE|LICENSE-CONTENT|NOTICE|CODEOWNERS|Dockerfile|.gitignore|.gitattributes|.gitleaksignore) ;;
+              LICENSE|LICENSE-CONTENT|NOTICE|CODEOWNERS|Dockerfile|.dockerignore|.gitignore|.gitattributes|.gitleaksignore) ;;
               *) echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue ;;
             esac
             if [[ "$lower" =~ /(node_modules|bower_components|vendor|env|venv|virtualenv|lib|lib64)/ || "$lower" == *.dist-info/* ]]; then
