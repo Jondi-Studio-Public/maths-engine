@@ -53,6 +53,12 @@ def test_each_preset_generates(topic, difficulty):
         assert question.answer is not None
 
 
+def test_equivalence_batch_contains_both_truth_outcomes():
+    # The "Not equivalent" answers now say why (one implies the other, or neither), so compare the verdict.
+    answers = {make("propositional_formula_equivalence", seed=seed).answer_text for seed in range(80)}
+    assert {answer.split(":")[0] for answer in answers} == {"Equivalent", "Not equivalent"}
+
+
 def test_skills_are_active_with_direct_framework_alignment_and_reachable_prereqs():
     _domains, loaded = skills_mod.load_skills()
     by_id = {skill.id: skill for skill in loaded}
