@@ -234,7 +234,9 @@ def fg1_gradient_from_graph(rng, tier="easy", notes=False):
         dy = (pb[1] - pa[1]) * win.ys
         key_text = rational_text(m)
         cands = [(rational_text(v), n) for v, n in _gradient_candidates(m, M, dy, tier) if v != m and v != 0]
-        texts, note_map = take_distractors(rng, key_text, cands)
+        # A fraction key offers a fraction misconception first, so the key is never the only
+        # option of its shape (a lone '1/3' among integers is guessable).
+        texts, note_map = take_distractors(rng, key_text, cands, rank=lambda t: ("/" in t) != ("/" in key_text))
         if len(texts) < 3:
             continue
         vals = [F(t) for t in (key_text, *texts)]
@@ -547,7 +549,7 @@ def fg1_line_table(rng, tier="easy", notes=False):
     text = " ".join(p for p in (phrase(rng, _T_OPEN), phrase(rng, _T_ASK), phrase(rng, _T_NOTE[tier])) if p)
     working = [
         f"Read the line: gradient {rational_text(m)}, meeting the y-axis at {rational_text(c)}.",
-        f"So y = {rational_text(m)}x {'+' if c > 0 else '-'} {rational_text(abs(c))}; check each pair against the line.",
+        f"So {eq_text(m, c)}; check each pair against the line.",
         f"The pairs on the line are {key_text}.",
     ]
     return mcq_result(
