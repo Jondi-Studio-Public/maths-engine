@@ -1,0 +1,64 @@
+id: ucv1-related-rates
+name: Solve related-rates problems
+domain: single-variable-calculus
+description: 'Relate the rates of change of linked quantities with the chain rule: a standard formula, a relation
+  set up from Pythagoras or similar triangles, and a relation that needs a variable eliminated first.'
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-chain-rule
+answer: expression
+sources:
+- topic: fy1ca_related_rates
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_related_rates
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_related_rates
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_related_rates_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-rates-chain-rule-forgotten
+  description: Differentiates with respect to the radius only and leaves out the rate of change of the radius.
+- id: fy1ca-rates-formula-not-differentiated
+  description: Substitutes the values into the original formula and multiplies by the rate, instead of differentiating
+    first.
+- id: fy1ca-rates-power-rule-slip
+  description: Differentiates a power of the variable incorrectly.
+- id: fy1ca-rates-ratio-inverted
+  description: Inverts the ratio of the two rates when relating them.
+- id: fy1ca-rates-rates-assumed-equal
+  description: Assumes two linked quantities change at the same rate.
+- id: fy1ca-rates-sign-for-speed
+  description: Gives the signed rate when a speed was asked for, or the reverse.
+- id: fy1ca-rates-direction-sign
+  description: Treats a vehicle moving towards the junction as moving away.
+- id: fy1ca-rates-cone-third-forgotten
+  description: Drops the factor of one third from the cone's volume (or adds it where it does not belong) when relating
+    the rates.
+- id: fy1ca-rates-ratio-not-squared
+  description: Uses the ratio of radius to height without squaring it in the cone's volume.
+- id: fy1ca-rates-volume-added-not-subtracted
+  description: Takes the whole volume at the larger size instead of the volume added between the two sizes.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- related-rates
+- chain-rule

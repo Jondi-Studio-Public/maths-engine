@@ -1,0 +1,92 @@
+id: ucv1-shells-surface-area
+name: Find volumes by cylindrical shells and areas of surfaces of revolution
+domain: integration
+description: Use cylindrical shells to find the volume of a solid of revolution, including a region between two
+  curves or a rotation about a line other than the axes, and use the surface-area integral for a curve rotated about
+  the x-axis.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: fy1ca_shells_surface
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_shells_surface
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_shells_surface
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_shells_surface_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-shell-radius-forgotten
+  description: Integrates only the height of the shell and leaves out its radius.
+- id: fy1ca-shell-two-forgotten
+  description: Uses a factor of pi where 2 pi is needed (the circumference of the shell or of the strip).
+- id: fy1ca-shell-disc-formula
+  description: Applies the disc or washer formula to a rotation that needs shells.
+- id: fy1ca-shell-pi-forgotten
+  description: Leaves the factor of pi out of the answer.
+- id: fy1ca-shell-height-not-difference
+  description: Uses the upper curve alone as the height of the shell instead of the gap between the curves.
+- id: fy1ca-shell-axis-ignored
+  description: Takes the radius of the shell as x when the axis of rotation is a different vertical line.
+- id: fy1ca-shell-y-coordinate-given
+  description: Gives the y-coordinate of the intersection point where its x-coordinate was asked for.
+- id: fy1ca-shell-intersection-slip
+  description: Makes an algebra slip when solving for the point where the curves meet.
+- id: fy1ca-shell-height-sign
+  description: Subtracts the upper curve from the lower, giving a negative height.
+- id: fy1ca-shell-height-slip
+  description: Subtracts the radius from the slope instead of finding the gap between the curves at that radius.
+- id: fy1ca-shell-units-grams
+  description: Reports the mass in grams where kilograms were asked for.
+- id: fy1ca-shell-density-divided
+  description: Divides the volume by the density instead of multiplying.
+- id: fy1ca-shell-density-forgotten
+  description: Converts the volume to litres or kilograms without using the density.
+- id: fy1ca-shell-units-slip
+  description: Converts grams to kilograms by dividing by 100 instead of 1000.
+- id: fy1ca-surface-root-dropped
+  description: Integrates 2 pi y without the arc-length factor.
+- id: fy1ca-surface-radius-dropped
+  description: Integrates the arc-length factor alone, leaving out the radius y.
+- id: fy1ca-surface-two-forgotten
+  description: Uses pi where 2 pi is needed in the surface-area formula.
+- id: fy1ca-surface-volume-formula
+  description: Uses the volume integral of pi y squared for a surface area.
+- id: fy1ca-surface-arc-length-only
+  description: Gives the arc length instead of the area of the surface.
+- id: fy1ca-surface-lower-limit-ignored
+  description: Evaluates the antiderivative at the upper limit only.
+- id: fy1ca-surface-wrong-antiderivative
+  description: Sets the integral up correctly but makes a slip when integrating.
+- id: fy1ca-surface-quarter-dropped
+  description: Drops the 1/4 under the square root, integrating the square root of x + 1.
+- id: fy1ca-surface-whole-sphere
+  description: Gives the area of a whole sphere or hemisphere instead of the zone.
+- id: fy1ca-surface-endpoint-sum
+  description: Uses the sum of the limits where their difference is needed.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- volumes-of-revolution
+- cylindrical-shells
+- surface-area
