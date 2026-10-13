@@ -279,7 +279,7 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == ["f10-circle-measures"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4
         stages = {tuple(src.stages) for src in skill.sources}
         assert (6,) in stages
         assert (6, "maintenance") in stages
@@ -292,7 +292,7 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == ["senior-use-formulas-to-find-the-volume-of-pyramids"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4
         stages = {tuple(src.stages) for src in skill.sources}
         assert (6,) in stages
         assert (6, "maintenance") in stages

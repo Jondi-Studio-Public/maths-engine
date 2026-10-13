@@ -231,8 +231,13 @@ def causality_correlation_classify(rng, question_type="easy"):
 OPTION_INTERPOLATION = "Interpolation (the prediction lies within the range of the collected data)"
 OPTION_EXTRAPOLATION = "Extrapolation (the prediction lies outside the range of the collected data)"
 OPTION_BOTH_B = "Both interpolation and extrapolation apply"
-OPTION_NEITHER_B = "Cannot be determined from the information given"
-OPTIONS_B = (OPTION_INTERPOLATION, OPTION_EXTRAPOLATION, OPTION_BOTH_B, OPTION_NEITHER_B)
+# Two misconceptions in place of a "cannot be determined" filler (which is never the answer here): an end point of
+# the data is taken to be outside it, and a fitted line is taken to make every prediction interpolation.
+OPTION_EDGE_OUTSIDE_B = (
+    "Extrapolation (a prediction at the very end of the collected range already counts as outside it)"
+)
+OPTION_ANY_X_B = "Interpolation (a fitted line gives a value at every x, so any prediction from it is interpolation)"
+OPTIONS_B = (OPTION_INTERPOLATION, OPTION_EXTRAPOLATION, OPTION_BOTH_B, OPTION_EDGE_OUTSIDE_B, OPTION_ANY_X_B)
 
 # Branch labels for internal logic
 INTERPOLATION_BRANCH = "interpolation"
@@ -364,12 +369,15 @@ def interpolation_extrapolation_classify(rng, question_type="easy"):
 
     # Verify that OPTION_BOTH_B and OPTION_NEITHER_B are never the intended answer
     check(
-        answer not in (OPTION_BOTH_B, OPTION_NEITHER_B),
+        answer not in (OPTION_BOTH_B, OPTION_EDGE_OUTSIDE_B, OPTION_ANY_X_B),
         f"padding options must never be the correct answer; got {answer!r}",
     )
 
-    # Distractors: pick the other two padding options, always wrong
-    distractors = [OPTION_BOTH_B, OPTION_NEITHER_B]
+    # Distractors: the other category, "both", and the misconception that reaches the other category.
+    if label == INTERPOLATION_BRANCH:
+        distractors = [OPTION_EXTRAPOLATION, OPTION_BOTH_B, OPTION_EDGE_OUTSIDE_B]
+    else:
+        distractors = [OPTION_INTERPOLATION, OPTION_BOTH_B, OPTION_ANY_X_B]
 
     # Build working text
     if question_type == "hard":

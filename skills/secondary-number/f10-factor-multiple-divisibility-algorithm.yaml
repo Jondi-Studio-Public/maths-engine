@@ -21,6 +21,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_n3_divisibility_count_chance
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: range-includes-zero
   description: Treats 0 as if it were in the range 1 to R (0 is divisible by everything), overcounting the true count by one.

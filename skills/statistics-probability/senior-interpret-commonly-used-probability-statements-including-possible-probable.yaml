@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19c_probability_language_classify
-  params: {}
+- topic: exd_x_r2k_probability_language
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

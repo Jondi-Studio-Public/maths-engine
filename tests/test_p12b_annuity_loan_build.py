@@ -194,7 +194,8 @@ def test_annuity_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["simple-interest"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == ANN_TOPIC
+        if source.difficulty != "exam":  # the exam source is a multi-part chain with its own module
+            assert source.topic == ANN_TOPIC
     difficulties = {source.difficulty for source in skill.sources}
     assert difficulties == set(TIERS)
     exam_source = next(s for s in skill.sources if s.difficulty == "exam")

@@ -17,7 +17,7 @@ from __future__ import annotations
 
 import random
 
-from ..core import check, generator, pick_distractors
+from ..core import check, generator, join_terms, pick_distractors
 from .exd_x_f3_recdef import _parametric, _term, _term_sum
 
 _K = 4
@@ -46,7 +46,7 @@ def _sum_first(rng: random.Random):
     wrong = [(t1 + d, d)]
     working = [
         f"S{m} = {m}t1 + {tri}d = {s} and t{r} = t1 + {r - 1}d = {tr}",
-        f"Eliminate t1: {m}({tr}) - {s} = {det}d, so d = {d}",
+        f"Eliminate t1: {join_terms([(1, f'{m}({tr})'), (-s, '')])} = {det}d, so d = {d}",
         f"t1 = {tr} - {r - 1}({d}) = {t1}",
     ]
     return t1, d, text, wrong, working

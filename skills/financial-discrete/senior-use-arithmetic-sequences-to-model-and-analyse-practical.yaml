@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p12b_arith_seq_general
-  params: {}
+- topic: exd_x_r2e_arith_seq_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

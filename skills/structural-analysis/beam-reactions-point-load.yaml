@@ -12,6 +12,11 @@ sources:
     kinds:
     - reactions
   difficulty: easy
+- topic: exd_x_u6_beam_two_point_loads
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swapped-reactions
   description: Swapping the two support reactions.

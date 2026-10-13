@@ -18,6 +18,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc4_prop_equiv
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: checks-one-assignment
   description: Declares equivalence after checking one or a few truth assignments rather than all rows.

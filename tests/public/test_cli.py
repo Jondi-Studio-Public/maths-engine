@@ -145,6 +145,8 @@ def test_every_mcq_skill_can_be_answered_by_label_and_by_text(library):
         for source in sorted({0, len(skill.sources) - 1}):
             for seed in range(1, 26):
                 q = engine.make_for_skill(skill, seed=seed, source=source)
+                if q.parts:  # a multi-part exam source has no options; it is marked part by part
+                    continue
                 options = mcq_options(q)
                 labels = _labels(options)
                 key = options.index(q.answer_text)
@@ -186,7 +188,10 @@ def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys,
     assert "deferred" in err
 
 
-def test_deferred_skill_without_a_grader_prints_the_question_then_says_it_cannot_grade(capsys, library):
+def test_deferred_skill_without_a_grader_prints_the_question_then_says_it_cannot_grade(capsys, library, monkeypatch):
+    # Every kind the library's deferred skills name now has a grader, so take one away for this test: `list`, the
+    # only kind a deferred skill still names whose reason is `grader` (the inequality skills are active now).
+    monkeypatch.delitem(GRADERS, "list")
     skill = next(s for s in library if s.status == "deferred" and s.sources and s.answer not in GRADERS)
     code, out, err = run(capsys, "--skill", skill.id, "--seed", "1", "--answer", "x")
     assert code == 1
@@ -203,8 +208,10 @@ def test_deferred_skill_that_works_still_works(capsys, library):
     assert "is deferred" in err  # a note on stderr only
 
 
-def test_unknown_skill_difficulty_and_topic_preset_are_usage_errors(capsys):
-    code, err = run_error(capsys, "--skill", "simplify-surds", "--difficulty", "exam")
+def test_unknown_skill_difficulty_and_topic_preset_are_usage_errors(capsys, library):
+    # Any skill with exactly the three practice tiers; a fixed id stops working once it gains an exam tier.
+    skill = next(s for s in library if {src.difficulty for src in s.sources} == {"easy", "medium", "hard"})
+    code, err = run_error(capsys, "--skill", skill.id, "--difficulty", "exam")
     assert code == 2 and "no source with difficulty 'exam'" in err and "easy, hard, medium" in err
     code, err = run_error(capsys, "--topic", "addition", "--difficulty", "exam")
     assert code == 2 and "has no preset 'exam'; known: easy, hard, medium" in err

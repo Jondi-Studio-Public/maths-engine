@@ -39,6 +39,7 @@ from ..core import (
     check_pairwise_distinct,
     format_pi_multiple,
     generator,
+    latex_from_inline,
     latex_pi_multiple,
     rational_text,
 )
@@ -331,7 +332,7 @@ def pv1c_period(rng, variant: str = "peaks") -> dict:
     pattern = f"{_OPEN[variant][o]} {_MIDDLE[variant][m]} {_CLOSE[variant][c]}"
     return {
         "text": _fill(pattern, latex=False),
-        "latex": _fill(pattern, latex=True),
+        "latex": latex_from_inline(_fill(pattern, latex=True)),
         "answer": answer,
         "answer_text": answer_text,
         "answer_latex": latex_pi_multiple(spec.k),

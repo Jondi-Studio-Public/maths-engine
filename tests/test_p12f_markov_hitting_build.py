@@ -156,8 +156,9 @@ def test_skill_loads_with_correct_properties():
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["markov-two-state-step"]
     assert len(skill.sources) == 4
-    for source in skill.sources:
+    for source in skill.sources[:3]:
         assert source.topic == TOPIC
+    assert skill.sources[3].topic == "exd_x_r2f_markov_absorption"
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

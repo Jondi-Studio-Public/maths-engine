@@ -22,8 +22,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p19f_instantaneous_rate
-  params: {}
+- topic: exd_x_r2i_rate_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

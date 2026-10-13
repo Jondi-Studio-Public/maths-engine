@@ -2,39 +2,50 @@ id: two-step-inequalities
 name: Solve two-step linear inequalities
 domain: inequalities
 description: Solve and graph inequalities requiring two operations, including signed values.
-status: deferred
-deferred_reason: grader
+status: active
 prerequisites:
 - two-step-equations
 - inequalities-negative-mult-div
 answer: inequality
 sources:
-- topic: inequality
-  params:
-    kind: two_step
+- topic: lin_ineq_two_step
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: inequality
-  params:
-    kind: two_step
+- topic: lin_ineq_two_step
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: inequality
-  params:
-    kind: two_step
+- topic: lin_ineq_two_step
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_ineq_two_step
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Reversing at the wrong step
-- id: misconception-2
-  description: Failing to graph the final solution set
+- id: operation-on-one-term-only
+  description: "Dividing, multiplying or expanding with only one term of a side."
+- id: ineq-direction-not-reversed
+  description: "Dividing by a negative coefficient (or reversing a double inequality) without reversing the signs."
+- id: ineq-reversed-without-need
+  description: "Reversing the sign at the wrong step, when the divisor is positive."
+- id: sign-error-moving-term
+  description: "Moving a term across the sign without changing its sign."
+- id: compound-operation-missed-part
+  description: "In a double inequality, applying a step to the middle and one end but not the other end."
+- id: strict-nonstrict-confused
+  description: "Changing between < and ≤ (or > and ≥) while solving."
+- id: integer-solutions-endpoint-miscount
+  description: "Miscounting the whole numbers in a range: including an excluded end or leaving out an included one."
 tags: []

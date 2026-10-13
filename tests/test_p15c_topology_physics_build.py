@@ -8,6 +8,7 @@ import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from tests.exd_x_r2h_support import legacy_exam_sources
 from mathgen import make
 
 TOPOLOGY_ID = "ucv1-topology-basis-membership"
@@ -22,7 +23,7 @@ _QUANTITIES = {"E", "p_x", "p_y", "p_z", "L_x", "L_y", "L_z"}
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, legacy_exam_sources(skill.id, {src.difficulty: src for src in skill.sources})
 
 
 TOPOLOGY_SKILL, TOPOLOGY_SOURCES = _skill_sources(TOPOLOGY_ID)

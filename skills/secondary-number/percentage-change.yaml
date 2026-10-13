@@ -5,6 +5,6 @@ description: Calculate a percentage increase from an original and final value.
 status: active
 prerequisites: [percentage-of-quantity]
 answer: number
-sources: [{topic: percentage_change, params: {reverse: false}, difficulty: easy}]
+sources: [{topic: percentage_change, params: {reverse: false}, difficulty: easy}, {topic: exd_x_n4_percentage_change, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: divides-by-final, description: Divides the change by the final value instead of the original value.}]
 tags: [expansion-batch-4, percentages]

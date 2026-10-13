@@ -9,11 +9,12 @@ from fractions import Fraction
 import pytest
 
 import mathgen
-from mathgen.grading.typed import GRADERS
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1c_amplitude_build as gen
+from mathgen.grading.typed import GRADERS
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-examine-amplitude-changes-and-the-graphs-of-y"
@@ -43,8 +44,9 @@ def _value(q):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "fraction"
     assert s.mental is None
@@ -183,4 +185,4 @@ def test_prompts_state_the_scale_and_name_the_family():
         for seed in range(40):
             q = _make(tier, seed)
             assert "y = a sin x" in q.text and "π" in q.text and "1 unit" in q.text
-            assert r"\(y = a \sin x\)" in q.latex and r"\(\pi\)" in q.latex
+            assert r"{y = a \sin x}" in q.latex and r"{\pi}" in q.latex

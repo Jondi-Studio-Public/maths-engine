@@ -21,6 +21,7 @@ UD_GRADER = GRADERS["fraction"]
 UD_SKILL = "senior-recognise-uniform-discrete-random-variables-and-use-them"
 
 RF_TOPIC = "p19c_relative_frequency_estimate"
+RF_EXAM_SOURCE_TOPIC = "exd_x_r2k_relfreq"  # the skill's exam source is the multi-part chain, not RF_TOPIC
 RF_GRADER = GRADERS["number"]
 RF_SKILL = "senior-identify-relative-frequency-as-probability"
 
@@ -275,7 +276,8 @@ class _RFCommon:
         skill = next(s for s in skills if s.id == RF_SKILL)
         assert skill.answer == "number"
         assert skill.placement_eligible is False
-        assert any(src.topic == RF_TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        expected = RF_EXAM_SOURCE_TOPIC if self.TIER == "exam" else RF_TOPIC
+        assert any(src.topic == expected and src.difficulty == self.TIER for src in skill.sources)
 
 
 class TestRFEasy(_RFCommon):

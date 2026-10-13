@@ -3,7 +3,7 @@
 Covers ``mathgen/generators/pv1d_abs_vertex_build.py`` (topic ``pv1d_abs_vertex``,
 skill ``senior-use-and-apply-the-notation-left-x-right``): determinism, the REAL pair
 grader on the key, spelling variants, every distractor and a deliberately wrong value,
-the in-generator check firing on a corrupted figure reading, the deferred figure skill's
+the in-generator check firing on a corrupted figure reading, the active figure skill's
 shape, F1 (every tier generates a valid figure through the skill's own sources), the
 no-leak rule, the figure reader, distractor counts and the clean-pair boundary proven
 RED against the unconstrained draw.
@@ -16,10 +16,11 @@ from collections import Counter
 import pytest
 
 import mathgen.generators.pv1d_abs_vertex_build as gen
+from mathgen import figures, make
+from mathgen.capabilities import load_capability_gates
+from mathgen.core import VerificationError
 from mathgen.grading.typed import GRADERS
 from mathgen.skills import load_skills
-from mathgen import figures, make
-from mathgen.core import VerificationError
 from mathgen.text_quality import prompt_shape
 
 TOPIC = "pv1d_abs_vertex"
@@ -114,12 +115,13 @@ def test_options_never_contain_the_key_even_for_a_degenerate_pair():
 # ----------------------------------------------------------------- the skill file
 
 
-def test_skill_loads_with_the_deferred_figure_shape():
+def test_skill_loads_with_the_active_figure_shape():
     skill = _skills_dict()[SKILL]
     assert skill.answer == "pair"
-    assert skill.status == "deferred" and skill.deferred_reason == "visual"
+    assert skill.status == "active" and skill.deferred_reason is None
     assert skill.needs_figure is True
     assert skill.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.mental is None
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["function-notation"]

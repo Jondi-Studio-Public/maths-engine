@@ -9,11 +9,12 @@ from fractions import Fraction
 import pytest
 
 import mathgen
-from mathgen.grading.typed import GRADERS
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1c_dilation_factor_build as gen
+from mathgen.grading.typed import GRADERS
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-examine-dilations-and-the-graphs-of-y-cf"
@@ -43,8 +44,9 @@ def _value(q):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "fraction"
     assert s.mental is None
@@ -84,7 +86,7 @@ def test_figure_valid_and_no_leak(tier):
             assert 2 <= sum(len(p) for p in c["pieces"]) <= 200
         assert "*" not in q.text and "*" not in q.latex
         assert "y = f(x)" in q.text and "y = cf(x)" in q.text and "P" in q.text and "Q" in q.text
-        assert r"\(y = f(x)\)" in q.latex and r"\(y = cf(x)\)" in q.latex
+        assert r"{y = f(x)}" in q.latex and r"{y = cf(x)}" in q.latex
 
 
 @pytest.mark.parametrize("tier", TIERS)

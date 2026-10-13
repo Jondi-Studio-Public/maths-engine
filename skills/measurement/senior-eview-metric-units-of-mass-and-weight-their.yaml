@@ -21,6 +21,11 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_sc5_mass_ladder
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-unit-scale
   description: Picks a unit one or more steps away on the metric mass ladder (mg, g, kg, t) from the object's own natural scale.

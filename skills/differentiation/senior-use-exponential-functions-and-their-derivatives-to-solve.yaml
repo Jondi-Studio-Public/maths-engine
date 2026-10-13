@@ -22,8 +22,8 @@ sources:
   params: {mode: time_for_rate}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p12c_exp_deriv_apply
-  params: {mode: rate_at_value}
+- topic: exd_x_r2b_exp_model_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

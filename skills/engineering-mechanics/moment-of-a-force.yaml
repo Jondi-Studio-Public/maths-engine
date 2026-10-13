@@ -12,6 +12,11 @@ sources:
     kinds:
     - moment
   difficulty: easy
+- topic: exd_x_u2_lever_balance
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: added-force-distance
   description: Adding force and distance instead of multiplying.

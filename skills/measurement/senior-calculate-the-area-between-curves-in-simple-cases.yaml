@@ -21,6 +21,11 @@ sources:
   params: {mode: "unordered_line_and_line"}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_m4_area_between_curves
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-order
   description: Computes the area as negative (integrates g(x) - f(x) instead of f(x) - g(x)).

@@ -29,6 +29,7 @@ import hashlib
 import json
 
 from . import make
+from .core import display_question, paper_notation  # noqa: F401  (re-exported)
 from .grading import GradeResult, grade as _grade_kind
 from .skills import Domain, Skill, Source, load_skills  # noqa: F401  (re-exported)
 

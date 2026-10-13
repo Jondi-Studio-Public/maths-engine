@@ -21,6 +21,11 @@ sources:
   params: {mode: two_item_total}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m6_energy_serve
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-to-convert
   description: States the given Calorie (or kilojoule) figure itself, formatted the same way as the true answer, as if no conversion were needed at all.

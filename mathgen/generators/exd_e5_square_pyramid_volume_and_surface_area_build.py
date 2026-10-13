@@ -156,7 +156,7 @@ _HARD_TEMPLATES = (
     "steps.",
 )
 _EXAM_TEMPLATES = (
-    "Exam-style question. A square pyramid has a base side length of {s} cm and a "
+    "A square pyramid has a base side length of {s} cm and a "
     "perpendicular height of {h} cm. Find (a) the pyramid's volume, in cm³, and (b) "
     "its total surface area, in cm², showing your working for each part.",
     "This exam question gives a square pyramid a base side length of {s} cm and a "

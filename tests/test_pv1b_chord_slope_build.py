@@ -9,11 +9,12 @@ from fractions import Fraction
 import pytest
 
 import mathgen
-from mathgen.grading.typed import grade
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1b_chord_slope_build as gen
+from mathgen.grading.typed import grade
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-interpret-the-ratios-frac-f-left-x-h"
@@ -32,11 +33,12 @@ def _make(tier, seed):
     return mathgen.make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 
-def test_skill_loads_deferred_with_four_sources():
+def test_skill_loads_active_with_four_sources():
     s = _skill()
-    assert s.status == "deferred" and s.deferred_reason == "visual"
+    assert s.status == "active" and s.deferred_reason is None
     assert s.needs_figure is True
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "fraction" and s.mental is None
     assert [x.difficulty for x in s.sources] == TIERS

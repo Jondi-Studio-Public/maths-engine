@@ -39,6 +39,10 @@ def _make_from_sources(skill_id, difficulty, seed):
         # This skill's exam source is now the multi-part chain (tests/test_exam_parts_compound_interest.py);
         # these checks keep covering the single-answer exam preset it replaced, which the generator still has.
         return make("p16c_compound_effect", seed=seed, difficulty="exam", variant="percent_effect")
+    if src.topic == "exd_x_r2d_loan_recurrence_chain":
+        # This skill's exam source is now a multi-part chain (tests/test_exd_x_r2d_loan_recurrence_chain.py);
+        # these checks keep covering the single-answer exam variant it replaced, which the generator still has.
+        return make("p16c_loan_recurrence_balance", seed=seed, difficulty="exam", variant="rate_change")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

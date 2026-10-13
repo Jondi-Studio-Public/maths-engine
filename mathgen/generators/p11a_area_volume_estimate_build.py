@@ -47,6 +47,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
+from .r2s_scale_options import scaled_options
 from ..core import (
     check,
     check_conversion,
@@ -246,18 +247,7 @@ def _build_area(rng, tier: str) -> dict:
     correct = canonical * _AREA_DIRECT_FACTOR[(source_unit, target_unit)]
     check_conversion(canonical, source_unit, target_unit, correct, _CM2_PER_UNIT, label="estimate-area unit conversion")
 
-    x10 = correct * 10
-    tenth = correct / 10
-    x100 = correct * 100
-    check_pairwise_distinct(
-        correct, x10, tenth, x100, msg="an order-of-magnitude distractor collided with another option"
-    )
-
-    correct_text, x10_text, tenth_text, x100_text = _format_options(
-        correct, x10, tenth, x100, _AREA_UNIT_ABBR[target_unit]
-    )
-    distractors = pick_distractors(correct_text, [x10_text, tenth_text, x100_text])
-    check(len(distractors) == 3, "an order-of-magnitude distractor collapsed onto another option")
+    correct_text, distractors = scaled_options(rng, correct, f" {_AREA_UNIT_ABBR[target_unit]}")
 
     unit_word = _AREA_UNIT_WORD[target_unit]
     text = f"What is the best estimate for the area of {name}? Give your answer in {unit_word}."
@@ -300,18 +290,7 @@ def _build_capacity(rng, tier: str) -> dict:
         canonical, source_unit, target_unit, correct, _ML_PER_UNIT, label="estimate-capacity unit conversion"
     )
 
-    x10 = correct * 10
-    tenth = correct / 10
-    x100 = correct * 100
-    check_pairwise_distinct(
-        correct, x10, tenth, x100, msg="an order-of-magnitude distractor collided with another option"
-    )
-
-    correct_text, x10_text, tenth_text, x100_text = _format_options(
-        correct, x10, tenth, x100, _CAPACITY_UNIT_ABBR[target_unit]
-    )
-    distractors = pick_distractors(correct_text, [x10_text, tenth_text, x100_text])
-    check(len(distractors) == 3, "an order-of-magnitude distractor collapsed onto another option")
+    correct_text, distractors = scaled_options(rng, correct, f" {_CAPACITY_UNIT_ABBR[target_unit]}")
 
     unit_word = _CAPACITY_UNIT_WORD[target_unit]
     text = f"What is the best estimate for the capacity of {name}? Give your answer in {unit_word}."

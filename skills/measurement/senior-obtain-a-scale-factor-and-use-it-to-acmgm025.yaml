@@ -21,6 +21,11 @@ sources:
   params: {mode: cross_exponent}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m5_scale_model_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-wrong-exponent
   description: Applies the wrong exponent to the scale factor, confusing surface area scaling (k²) with volume scaling (k³) or vice versa -- the signature trap this skill tests.

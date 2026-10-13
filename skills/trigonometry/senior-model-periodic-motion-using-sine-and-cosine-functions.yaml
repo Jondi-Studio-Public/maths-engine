@@ -22,8 +22,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19g_sinusoid_amplitude_period
-  params: {}
+- topic: exd_x_r2j_periodic_motion_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

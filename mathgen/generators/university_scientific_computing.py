@@ -11,7 +11,7 @@ from __future__ import annotations
 from fractions import Fraction
 from math import isqrt
 
-from ..core import check, fmt_signed, generator, join_terms, latex_answer, pick_distractors, rational_text
+from ..core import check, draw_until, fmt_signed, generator, join_terms, latex_answer, pick_distractors, rational_text
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict, str]:
@@ -47,12 +47,25 @@ def condition_number_diagonal(rng, value_hi=10, size=2):
     entries, so the largest and smallest must be picked out of three values
     -- genuine ordering, not a bigger pair.
     """
+    # The entries are distinct integers from 1..value_hi, so that many values
+    # must exist; with fewer, the redraw loops below could never finish.
+    entries = 3 if size == 3 else 2
+    if value_hi < entries:
+        raise ValueError(
+            f"condition_number_diagonal needs value_hi >= {entries} when size={size}: "
+            f"the {entries} diagonal entries must be distinct integers in 1..value_hi"
+        )
     if size == 3:
         values: list[int] = []
-        while len(values) < 3:
-            candidate = rng.randint(1, value_hi)
-            if candidate not in values:
-                values.append(candidate)
+        for _ in range(3):
+            values.append(
+                draw_until(
+                    rng,
+                    lambda r: r.randint(1, value_hi),
+                    lambda candidate: candidate not in values,
+                    what="a diagonal entry different from the others",
+                )
+            )
         smallest, middle, largest = sorted(values)
         answer = Fraction(largest, smallest)
         direct = Fraction(largest, 1) * Fraction(1, smallest)
@@ -78,9 +91,12 @@ def condition_number_diagonal(rng, value_hi=10, size=2):
             distractors=pick_distractors(answer_text, alternatives),
         )
     first = rng.randint(1, value_hi)
-    second = rng.randint(1, value_hi)
-    while second == first:
-        second = rng.randint(1, value_hi)
+    second = draw_until(
+        rng,
+        lambda r: r.randint(1, value_hi),
+        lambda candidate: candidate != first,
+        what="a second diagonal entry different from the first",
+    )
     largest, smallest = max(first, second), min(first, second)
     answer = Fraction(largest, smallest)
     direct = Fraction(max(abs(first), abs(second)), min(abs(first), abs(second)))

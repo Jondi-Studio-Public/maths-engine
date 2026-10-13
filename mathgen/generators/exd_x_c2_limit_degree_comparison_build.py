@@ -30,9 +30,9 @@ from fractions import Fraction
 from ..core import check, generator, join_terms, phrase, pick_distractors, rational_text
 
 _PATTERNS = (
-    "Find the limit as x → {target} of {expr}.",
-    "Evaluate lim x→{target} of {expr}.",
-    "Determine the limit of {expr} as x → {target}.",
+    "Find the limit as x → {target} of {expr}. Give your answer as a number, ∞ or -∞.",
+    "Evaluate lim x→{target} of {expr}. Give your answer as a number, ∞ or -∞.",
+    "Determine the limit of {expr} as x → {target}. Give your answer as a number, ∞ or -∞.",
 )
 
 _BIG = 10**9
