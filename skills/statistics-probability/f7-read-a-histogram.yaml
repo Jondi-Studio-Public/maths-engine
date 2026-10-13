@@ -8,7 +8,7 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites: [f6-read-a-dot-plot]
 answer: number
 sources:
 - topic: stat4_histogram

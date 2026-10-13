@@ -8,7 +8,7 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites: [f2-read-a-picture-graph]
 answer: number
 sources:
 - topic: stat2_column_graph

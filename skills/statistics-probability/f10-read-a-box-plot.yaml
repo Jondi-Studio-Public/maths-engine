@@ -7,7 +7,7 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites: [calculate-median, calculate-range]
 answer: number
 sources:
 - topic: stat5_box_plot_read

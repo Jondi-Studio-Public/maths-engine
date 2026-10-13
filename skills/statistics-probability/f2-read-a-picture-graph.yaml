@@ -8,7 +8,7 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites: [skip-count-2-5-10]
 answer: number
 sources:
 - topic: stat1_picture_graph

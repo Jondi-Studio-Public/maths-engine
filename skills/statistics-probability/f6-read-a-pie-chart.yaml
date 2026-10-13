@@ -8,7 +8,7 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites: [f3-read-a-column-graph, percentage-of-quantity]
 answer: number
 sources:
 - topic: stat6_pie_chart

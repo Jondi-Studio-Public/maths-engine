@@ -8,7 +8,7 @@ capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
 prerequisites:
-- inequality-symbols
+- one-step-inequalities
 answer: mcq
 sources:
 - topic: fg1_inequality_number_line

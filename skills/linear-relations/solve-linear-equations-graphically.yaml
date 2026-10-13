@@ -10,7 +10,6 @@ needs_figure: true
 placement_eligible: false
 prerequisites:
 - graph-y-mx-plus-b
-- solution-and-solution-set
 answer: mcq
 sources:
 - topic: fg1_solve_graphically
