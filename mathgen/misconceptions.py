@@ -287,6 +287,395 @@ _ENTRIES = (
         "Computing a 2×2 determinant as ad + bc, or as bc − ad.",
         area="matrices",
     ),
+    # -- first-year linear algebra: row reduction -------------------------------------------------------------------
+    CatalogueEntry(
+        "rref-stopped-at-echelon",
+        "Stopping at a row echelon form: clearing the entries below each pivot but not the entries above it, so the "
+        "matrix is not reduced.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rref-adds-instead-of-subtracts",
+        "Clearing the entries above a pivot by adding the multiple of the pivot row instead of subtracting it, so "
+        "the non-pivot columns come out with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rref-rows-scaled-only",
+        "Dividing each row by its leading entry and stopping, without eliminating the other entries in the pivot "
+        "columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "row-operation-arithmetic-slip",
+        "A slip of one in a single entry while adding a multiple of one row to another.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-counts-all-rows",
+        "Giving the number of rows as the rank, without noticing that a row reduces to zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-counts-all-columns",
+        "Giving the number of columns as the rank.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-misses-a-pivot",
+        "Counting one pivot too few when reading the rank off the reduced matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-from-rows",
+        "Counting free variables as the number of rows minus the rank instead of the number of unknowns minus the rank.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-miscounted",
+        "Miscounting the non-pivot columns when listing the free variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-all-columns",
+        "Treating every unknown as a free variable instead of subtracting the pivots.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rref-free-column-read-unsigned",
+        "Reading a solution straight off a free column of the reduced matrix without changing its sign (the pivot "
+        "variable is minus that entry, not that entry).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-values-swapped",
+        "Giving the value 1 to the wrong free variable, so the solution is the one for the other free variable.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "pivot-variables-left-zero",
+        "Setting the free variables as asked but leaving the pivot variables at zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-column-mixed-up",
+        "Reading the pivot variables from the column of the other free variable.",
+        area="linear-algebra",
+    ),
+    # -- first-year linear algebra: systems with a parameter -------------------------------------------------------
+    CatalogueEntry(
+        "linear-solution-inverted",
+        "Solving Ck + D = 0 as k = C/D instead of k = -D/C.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "singular-means-infinitely-many",
+        "Assuming that every value of the parameter that makes the determinant zero gives infinitely many solutions, "
+        "without checking the right-hand side for consistency.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "singular-means-no-solution",
+        "Assuming that a determinant of zero always means there is no solution, when the system may be consistent "
+        "with infinitely many.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "singular-still-unique",
+        "Saying a system still has exactly one solution when its coefficient matrix has determinant zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "sum-of-roots-as-root",
+        "Giving the sum of the roots of the determinant equation (minus the linear coefficient over the quadratic "
+        "coefficient) as one of the roots.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "product-of-roots-as-root",
+        "Giving the product of the roots of the determinant equation (constant over leading coefficient) as one of "
+        "the roots.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dropped-constant-term-det",
+        "Leaving the constant term out of a determinant that depends on a parameter.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "solution-sign-slip",
+        "Reaching the right size of answer for a solution of a linear system with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cramer-numerator-not-divided",
+        "Using Cramer's rule but stopping at the determinant with the column replaced, without dividing by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cramer-ratio-inverted",
+        "Using Cramer's rule with the ratio upside down: det A over the replaced-column determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-expansion-sign-slip",
+        "Getting a sign wrong when expanding a determinant by cofactors, so a coefficient has the wrong sign.",
+        area="linear-algebra",
+    ),
+    # -- first-year linear algebra: general solutions ---------------------------------------------------------------
+    CatalogueEntry(
+        "free-variable-not-substituted",
+        "Writing the constants of the reduced equations as the pivot variables without subtracting the multiples of "
+        "the free variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-value-dropped",
+        "Using the stated value of a free variable in the working but leaving it out of the final solution, so it is "
+        "reported as zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-sign-slip",
+        "Giving a free variable the wrong sign, or adding where the free-column multiple should be subtracted, when "
+        "writing out the solution.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "particular-solution-as-direction",
+        "Giving a particular solution of the system as the direction vector of its line of solutions.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "direction-free-component-zero",
+        "Writing the direction vector with 0 for the free variable instead of 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "direction-row-as-vector",
+        "Giving a row of the coefficient matrix as the direction vector of the line of solutions.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rhs-read-as-solution",
+        "Reading the right-hand side b of the system as if it were the solution.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-set-to-one",
+        "Setting the free variables to 1 where the question asks for them to be zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "particular-solution-omitted",
+        "Writing the multiples of the parameters but leaving out the constant (the particular solution) in a general "
+        "solution.",
+        area="linear-algebra",
+    ),
+    # -- first-year linear algebra: span ----------------------------------------------------------------------------
+    CatalogueEntry(
+        "coefficients-order-swapped",
+        "Giving the coefficients of a linear combination in the wrong order: b for u1 and a for u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "span-coefficient-sign-slip",
+        "Getting the sign of a coefficient wrong when solving for the scalars in a linear combination.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "vector-entries-read-as-coefficients",
+        "Reading the entries of the target vector as the coefficients of the combination.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "span-membership-assumed",
+        "Assuming a vector is in a span without checking: saying a combination exists after the condition has failed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "span-dependence-means-infinite",
+        "Saying there are infinitely many combinations because the three vectors are dependent, when the first two "
+        "vectors are independent and so any combination that exists is unique.",
+        area="linear-algebra",
+    ),
+    # -- first-year linear algebra: linear independence ------------------------------------------------------------
+    CatalogueEntry(
+        "dependence-relation-sign-slip",
+        "Giving a coefficient of the wrong sign in a dependence relation: reading w = a·u + b·v as c1·u + c2·v + w = 0 "
+        "with c1 = a, when c1 = -a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dependence-coefficients-swapped",
+        "Reporting the coefficient of the other vector in a dependence relation.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dependence-coefficient-of-w-reported",
+        "Reporting the coefficient of the vector that was normalised to 1 in the relation instead of the one asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "root-chosen-ignoring-condition",
+        "Solving the determinant equation correctly but giving the root that the condition in the question rules out.",
+        area="linear-algebra",
+    ),
+    # -- first-year linear algebra: column space and rank-nullity ---------------------------------------------------
+    CatalogueEntry(
+        "rank-nullity-swapped",
+        "Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-uses-rows",
+        "Subtracting the rank from the number of rows where rank-nullity uses the number of columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-sum-reported",
+        "Giving the number of columns (rank plus nullity) as the answer instead of subtracting.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-off-by-one",
+        "Counting the dimension one too high when applying rank-nullity.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-vectors",
+        "Taking the dimension of a span to be the number of vectors listed, without checking for dependence.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-coordinates",
+        "Taking the dimension of a span to be the dimension of the space the vectors live in.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-dependent-vector",
+        "Counting a vector that is a combination of the others as one more dimension.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "left-null-space-confused-with-null-space",
+        "Giving the dimension of the null space of A (columns minus rank) where the null space of the transpose "
+        "(rows minus rank) was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-columns-as-basis",
+        "Choosing the non-pivot columns as a basis of the column space instead of the pivot columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "first-columns-assumed-independent",
+        "Taking the first columns as a basis of the column space without checking which columns are pivot columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-mixes-pivot-and-free-columns",
+        "Choosing a basis made of one pivot column and one non-pivot column, so the columns are not the pivot columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coefficients-read-from-wrong-column",
+        "Reading the coefficients of a dependent column from the wrong non-pivot column of the reduced matrix.",
+        area="linear-algebra",
+    ),
+    # -- first-year linear algebra: eigenvalues ---------------------------------------------------------------------
+    CatalogueEntry(
+        "eigenvalue-diagonal-entries-reported",
+        "Reporting the diagonal entries of a matrix as its eigenvalues, which is right only for a triangular matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-sign-flipped",
+        "Giving every eigenvalue the wrong sign by solving det(A + λI) = 0, or by reading the roots of the "
+        "characteristic polynomial from the factors (λ - a) as λ = -a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-third-from-trace-sign-slip",
+        "Finding two eigenvalues correctly and the third from the trace with a sign error, so it has the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-missed-one-root",
+        "Listing only two of the three eigenvalues of a 3×3 matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-trace-reported-as-root",
+        "Reporting the trace of the matrix as one of its eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-trace-and-determinant-reported",
+        "Reporting the trace and the determinant as the two eigenvalues of a 2×2 matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "sum-of-all-entries-as-trace",
+        "Adding every entry of the matrix instead of only the leading-diagonal entries to find the trace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "trace-sign-slip",
+        "Giving the trace of a matrix with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "trace-misses-a-diagonal-entry",
+        "Leaving one of the leading-diagonal entries out of the trace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "trace-reported-as-determinant",
+        "Giving the trace of a matrix where its determinant was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "determinant-as-product-of-diagonal",
+        "Taking the determinant of a matrix to be the product of its leading-diagonal entries, which is right only for "
+        "a triangular matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "product-of-others-sign-slip",
+        "Giving the product of the remaining eigenvalues with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "product-multiplied-instead-of-divided",
+        "Multiplying the determinant by the known eigenvalue instead of dividing, to find the product of the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "whole-determinant-reported-as-product",
+        "Giving the whole determinant as the product of the other two eigenvalues, without removing the known one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "sum-of-others-reported-as-product",
+        "Giving the sum of the other two eigenvalues where their product was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "discriminant-sign-slip",
+        "Computing the discriminant t² - 4d as t² + 4d.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "discriminant-forgot-to-square",
+        "Computing the discriminant t² - 4d without squaring t.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "discriminant-wrong-factor",
+        "Using the wrong multiple of d in the discriminant t² - 4d.",
+        area="linear-algebra",
+    ),
 )
 
 #: Every entry, by id.

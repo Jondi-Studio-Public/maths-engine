@@ -295,6 +295,13 @@ def test_backward_compatible_outputs_pinned(topic):
 # shrinks: a topic that stops tagging must be removed (see the test below it).
 OPTION_NOTES_TOPICS = frozenset(
     {
+        "fy1la_column_space",
+        "fy1la_consistency",
+        "fy1la_eigenvalues",
+        "fy1la_general_solution",
+        "fy1la_independence",
+        "fy1la_rref",
+        "fy1la_span",
         "enlargement_invariants",
         "f10_collect_sort_categorical",
         "f10_geometric_construction_algorithm",

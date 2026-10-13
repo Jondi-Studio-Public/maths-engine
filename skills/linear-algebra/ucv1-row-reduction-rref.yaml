@@ -1,0 +1,58 @@
+id: ucv1-row-reduction-rref
+name: Row-reduce a matrix to reduced row echelon form
+domain: linear-algebra
+description: Reduce an integer matrix to reduced row echelon form by row operations, and use the result to read off the
+  rank, the free variables and a solution.
+status: active
+placement_eligible: false
+prerequisites: [solve-simultaneous-equations, matrix-rank-small]
+answer: matrix
+sources:
+- topic: fy1la_rref
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_rref
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_rref
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_rref
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: rref-stopped-at-echelon, description: 'Stopping at a row echelon form: clearing the entries below each pivot but
+    not the entries above it, so the matrix is not reduced.'}
+- {id: rref-adds-instead-of-subtracts, description: 'Clearing the entries above a pivot by adding the multiple of the pivot
+    row instead of subtracting it, so the non-pivot columns come out with the wrong sign.'}
+- {id: rref-rows-scaled-only, description: 'Dividing each row by its leading entry and stopping, without eliminating the
+    other entries in the pivot columns.'}
+- {id: row-operation-arithmetic-slip, description: A slip of one in a single entry while adding a multiple of one row to
+    another.}
+- {id: rank-counts-all-rows, description: 'Giving the number of rows as the rank, without noticing that a row reduces to
+    zero.'}
+- {id: rank-counts-all-columns, description: Giving the number of columns as the rank.}
+- {id: rank-misses-a-pivot, description: Counting one pivot too few when reading the rank off the reduced matrix.}
+- {id: free-variables-from-rows, description: Counting free variables as the number of rows minus the rank instead of the
+    number of unknowns minus the rank.}
+- {id: free-variables-miscounted, description: Miscounting the non-pivot columns when listing the free variables.}
+- {id: free-variables-all-columns, description: Treating every unknown as a free variable instead of subtracting the pivots.}
+- {id: rref-free-column-read-unsigned, description: 'Reading a solution straight off a free column of the reduced matrix
+    without changing its sign (the pivot variable is minus that entry, not that entry).'}
+- {id: free-variable-values-swapped, description: 'Giving the value 1 to the wrong free variable, so the solution is the
+    one for the other free variable.'}
+- {id: pivot-variables-left-zero, description: Setting the free variables as asked but leaving the pivot variables at zero.}
+difficulty_progression: Easy reduces the augmented matrix of a system with one solution to [I | c]. Medium reduces a 3x4
+  matrix of rank 2, so a row of zeros and two free columns appear. Hard puts the pivots in unexpected columns (a zero first
+  column or a skipped column), so the pivot positions must be found rather than assumed. The exam chain finds the rank,
+  the reduced form, the number of free variables (following through from the rank) and a solution with chosen free variables.
+tags: [university-core-v1, linear-algebra, rref, row-reduction]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}
