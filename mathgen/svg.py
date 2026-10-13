@@ -1262,7 +1262,7 @@ def _axis_title(x: float, y: float, s: Any, *, vertical: bool = False) -> str:
 
 def _bar_chart(s: dict, ids: _Ids) -> Body:
     horizontal = s["orientation"] == "horizontal"
-    cats, series, axis = s["categories"], s["series"], s["value_axis"]
+    cats, series, axis = s["categories"], s.get("series"), s["value_axis"]
     vmax, step = axis["max"], axis["step"]
     two = len(series) == 2
     fills = (DARK, LIGHT)
