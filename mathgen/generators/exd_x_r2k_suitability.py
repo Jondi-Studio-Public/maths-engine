@@ -36,6 +36,8 @@ _CONTEXTS = (
     ("A crate holds {N} apples, {K} of which are bruised.", "apple", "apples", "bruised"),
     ("A depot holds {N} parcels, {K} of which are marked fragile.", "parcel", "parcels", "fragile"),
 )
+_EXACT = "Give an exact answer: a fraction in simplest form."
+
 _BERNOULLI_THRESHOLDS = (1, 2, 5)
 _BINOMIAL_THRESHOLDS = (2, 5, 10)
 
@@ -146,7 +148,7 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
     suited = fall < t
 
     pa = fraction_part(
-        f"Find the probability that {_article(item)} {item} chosen at random from the whole collection is {adj}.",
+        f"Find the probability that {_article(item)} {item} chosen at random from the whole collection is {adj}. {_EXACT}",
         a,
         1,
         [f"P(success) = {K}/{N} = {rational_text(a)}."],
@@ -159,7 +161,7 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
         sensible_range=(0, 1),
     )
     pb = fraction_part(
-        f"Find the probability that the next {item} is {adj}, given that {j} of the {m} already removed were {adj}.",
+        f"Find the probability that the next {item} is {adj}, given that {j} of the {m} already removed were {adj}. {_EXACT}",
         b,
         2,
         [f"Now {K - j} of the {N - m} remaining are {adj}: {K - j}/{N - m} = {rational_text(b)}."],
@@ -231,7 +233,7 @@ def _build_k_binomial_suitability(rng: random.Random) -> dict | None:
 
     pa = fraction_part(
         f"Treating the {n} draws as independent, each with the same probability, find the probability that {_all(n)} "
-        f"{plural} in the sample are {adj}.",
+        f"{plural} in the sample are {adj}. {_EXACT}",
         a,
         1,
         [f"p = {K}/{N} = {rational_text(p)}; P(X = {n}) = p^{n} = {rational_text(a)}."],
