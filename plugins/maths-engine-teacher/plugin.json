@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "maths-engine-teacher",
+  "version": "0.1.0",
+  "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
+  "author": {
+    "name": "Jondi Haynes",
+    "url": "https://github.com/Jondi-Studio-Public"
+  },
+  "homepage": "https://github.com/Jondi-Studio-Public/maths-engine/tree/main/plugins/maths-engine-teacher",
+  "repository": "https://github.com/Jondi-Studio-Public/maths-engine",
+  "license": "MIT AND CC-BY-4.0",
+  "keywords": [
+    "mathematics",
+    "education",
+    "worksheets",
+    "assessment",
+    "moodle",
+    "qti",
+    "australian-curriculum",
+    "mcp"
+  ]
+}

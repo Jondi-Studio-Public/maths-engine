@@ -62,7 +62,10 @@ def test_jsonschema_is_a_dev_dependency_only(pyproject):
 def test_the_distribution_is_not_named_after_the_taken_pypi_project(pyproject):
     project = pyproject["project"]
     assert project["name"] == "maths-engine"  # `mathgen` on PyPI is an unrelated project
-    assert pyproject["project"]["scripts"] == {"mathgen": "mathgen.__main__:main"}
+    assert pyproject["project"]["scripts"] == {
+        "mathgen": "mathgen.__main__:main",
+        "mathgen-mcp": "mathgen.mcp_server:main",  # the MCP server the plugins under plugins/ launch
+    }
 
 
 def test_metadata_is_complete(pyproject):

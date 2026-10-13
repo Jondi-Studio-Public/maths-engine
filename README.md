@@ -148,6 +148,7 @@ does that translation for you.
 | `mathgen/service.py` | Skills, questions, worksheets and grading as plain JSON, for services and exports |
 | `mathgen/export.py`, `mathgen/svg.py` | Print worksheets and answer keys, Moodle XML and QTI banks; figures as SVG |
 | `mathgen/server/` | The HTTP API (`pip install "maths-engine[server]"`, `python -m mathgen.server`); see `docs/server.md` |
+| `mathgen/mcp_server.py` | The MCP server for AI agents (`pip install "maths-engine[mcp]"`, `mathgen-mcp`); see `docs/mcp.md` |
 | `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
 | `skills/<domain>/<id>.yaml` | One skill definition per file |
 | `scripts/` | Speed check, regrade sweep and other build tooling |
@@ -162,6 +163,11 @@ are identifiers, not categories.
 by year or ACARA code, generate questions, build worksheets and tests in versions with answer keys, export them
 for print, Moodle or QTI, and grade replies by question id. It stores nothing, so a school can run its own copy.
 Keep author keys on the server side only, and read the keys, privacy and upgrade notes in `docs/server.md` before exposing it.
+
+## For AI agents
+
+`docs/mcp.md` describes an MCP server (`mathgen-mcp`), and `plugins/` holds two Agent Plugins built on it: a tutor that
+never sees answers and a teacher plugin for worksheets, answer keys and Moodle or QTI banks. See `plugins/README.md`.
 
 ## How determinism and grading work
 

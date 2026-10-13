@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "maths-engine": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main",
+        "mathgen-mcp",
+        "--role",
+        "learner",
+        "--out-dir",
+        "${CLAUDE_PLUGIN_DATA}/exports"
+      ]
+    }
+  }
+}
