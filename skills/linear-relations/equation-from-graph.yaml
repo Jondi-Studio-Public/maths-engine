@@ -1,18 +1,42 @@
 id: equation-from-graph
 name: Determine a linear equation from a graph
 domain: linear-relations
-description: Find the gradient and intercept of a straight-line graph and write its equation.
-status: deferred
-deferred_reason: visual
+year_level: ['8']
+naplan_domain: [algebra]
+description: 'A straight line is shown on a labelled grid and the learner picks the equation y = mx + c that matches it, from four options written as text. Easy has a whole-number gradient and the y-axis drawn; medium has a negative or fractional gradient; hard leaves the y-axis out of the window, so the intercept is found by running the line back to x = 0. The prompt never states the gradient or intercept.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - gradient-from-graph
 - intercept
 - graph-y-mx-plus-b
-answer: pair
-sources: []
+answer: mcq
+sources:
+- topic: fg1_equation_from_graph
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fg1_equation_from_graph
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fg1_equation_from_graph
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
 misconceptions:
-- id: misconception-1
-  description: Reading intercept from the wrong axis
-- id: misconception-2
-  description: Using a visually estimated gradient without axis scale
-tags: []
+- id: sign-error-on-gradient
+  description: Reads the intercept and size of the gradient correctly but gives the gradient the wrong sign.
+- id: sign-error-on-intercept
+  description: Reads the gradient correctly but gives the y-intercept the wrong sign.
+- id: gradient-and-intercept-swapped
+  description: Writes the intercept where the gradient belongs and the gradient where the intercept belongs.
+- id: inverted-gradient
+  description: Writes run over rise as the gradient.
+- id: intercept-read-off-the-x-axis
+  description: Gives the value where the line meets the x-axis as the intercept.
+- id: intercept-misread-by-one-square
+  description: Reads the y-intercept one gridline above or below where the line meets the y-axis.
+tags: [acara-f10-v9, linear-relations, ac9m8a02, figure]

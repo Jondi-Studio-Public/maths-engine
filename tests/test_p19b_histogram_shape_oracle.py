@@ -28,8 +28,6 @@ N_SEEDS = int(os.environ.get("P19B_ORACLE_SEEDS", 250))
 
 _LABELS = ("symmetric", "skewed left", "skewed right", "bimodal")
 
-_ROW_RE = re.compile(r"(\d+)-(\d+): (\d+)")
-
 
 def _local_peaks(freqs):
     n = len(freqs)
@@ -77,21 +75,20 @@ def _oracle_classify(freqs):
     return None
 
 
-def _parse_tables(text: str):
-    """Returns a list of tables, each a list of (lo, freq) tuples in the
-    order they were PRINTED (not necessarily class order). One table for
-    easy/medium/hard; two for exam ("Group A"/"Group B")."""
-    if "Group A" in text and "Group B" in text:
-        a_part, b_part = text.split("Group B:", 1)
-        a_part = a_part.split("Group A:", 1)[1]
-        tables = [a_part, b_part]
-    else:
-        tables = [text]
-    parsed = []
-    for chunk in tables:
-        rows = [(int(lo), int(freq)) for lo, _hi, freq in _ROW_RE.findall(chunk)]
-        parsed.append(rows)
-    return parsed
+def _parse_tables(question):
+    """The frequencies of each drawn histogram panel, in class order (one for medium/hard, two for exam)."""
+    figure = question.figure
+    assert figure["kind"] == "histogram"
+    out = []
+    for panel in figure["panels"]:
+        edges, freqs = panel["edges"], panel["frequencies"]
+        assert edges == sorted(edges) and len(freqs) == len(edges) - 1
+        out.append(list(zip(edges, freqs)))
+    return out
+
+
+def _oracle_reflect(label):
+    return {"skewed left": "skewed right", "skewed right": "skewed left"}.get(label, label)
 
 
 @pytest.mark.parametrize("tier", TIERS)
@@ -137,23 +134,23 @@ def test_oracle_agrees_with_key(tier):
             checked_easy += 1
             continue
 
-        tables = _parse_tables(q.text)
+        tables = _parse_tables(q)
         if tier == "exam":
             (rows_a, rows_b) = tables
-            rows_a_sorted = sorted(rows_a)
-            rows_b_sorted = sorted(rows_b)
             if "WIDER range" in q.text:
-                chosen = rows_a_sorted if len(rows_a_sorted) > len(rows_b_sorted) else rows_b_sorted
+                chosen = rows_a if len(rows_a) > len(rows_b) else rows_b
             else:
-                total_a = sum(f for _lo, f in rows_a_sorted)
-                total_b = sum(f for _lo, f in rows_b_sorted)
-                chosen = rows_a_sorted if total_a > total_b else rows_b_sorted
+                total_a = sum(f for _lo, f in rows_a)
+                total_b = sum(f for _lo, f in rows_b)
+                chosen = rows_a if total_a > total_b else rows_b
             freqs = [f for _lo, f in chosen]
         else:
-            rows_sorted = sorted(tables[0])
-            freqs = [f for _lo, f in rows_sorted]
+            freqs = [f for _lo, f in tables[0]]
 
         derived = _oracle_classify(freqs)
+        if tier == "hard":
+            # every value is subtracted from a number: the drawn shape is reflected
+            derived = _oracle_reflect(derived)
         assert derived == q.answer_text, (
             f"{tier} seed={seed}: oracle derived {derived!r}, key is {q.answer_text!r}\n{q.text}"
         )
@@ -174,25 +171,24 @@ def test_red_first_proof(monkeypatch):
 
 @pytest.mark.parametrize("tier", TIERS)
 def test_template_matrix_coherent(tier):
-    """Enumerate every (tier, key label, description-phrase-family / table
-    order) combination seen over the sweep; each combination must be
-    internally coherent (the oracle already checked correctness above --
-    this just asserts every combination that occurs is one of the small,
-    designed set)."""
+    """Enumerate every (tier, key label, criterion) combination seen over the sweep; each combination must be
+    one of the small, designed set (the oracle already checked correctness above)."""
     seen = set()
     for seed in range(60):
         q = make(TOPIC, seed=seed, difficulty=tier)
-        if tier == "hard":
-            bounds = [int(m) for m in re.findall(r"(\d+)-\d+:", q.text)]
-            order = "sorted" if bounds == sorted(bounds) else "shuffled"
-            seen.add((q.answer_text, order))
-        elif tier == "exam":
+        if tier == "exam":
             criterion = "range" if "WIDER range" in q.text else "total"
             seen.add((q.answer_text, criterion))
+        elif tier == "hard":
+            seen.add(
+                (
+                    q.answer_text,
+                    bool(re.search(r"subtracted|replaced by|take each value away|taking each value away", q.text)),
+                )
+            )
         else:
             seen.add(q.answer_text)
     assert seen, f"{tier}: empty matrix"
     if tier == "hard":
-        # every combination observed must be a real label with a real order tag
-        for label, order in seen:
-            assert label in _LABELS and order in ("sorted", "shuffled")
+        for label, reflected in seen:
+            assert label in _LABELS and reflected

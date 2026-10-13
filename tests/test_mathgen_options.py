@@ -12,6 +12,7 @@ The per-topic checks here (`check_*`) take the questions already built, and
 on it, so a topic is generated once instead of once per check.
 """
 
+import json
 import re
 
 import pytest
@@ -109,10 +110,16 @@ _VARIETY_SEEDS = 60
 _MIN_DISTINCT = 10
 
 
+def _question_key(q):
+    # A question is its words plus its picture: the same words over a different figure are a
+    # different question (the skill contract's variety check counts them the same way).
+    return (q.text, None if q.figure is None else json.dumps(q.figure, sort_keys=True))
+
+
 def check_each_tier_offers_enough_distinct_questions(topic, grid):
     """`grid`: `{difficulty: [make(topic, seed=s, difficulty=difficulty) ...]}`, a tier per preset and None."""
     for difficulty, questions in grid.items():
-        distinct = len({q.text for q in take(questions, _VARIETY_SEEDS)})
+        distinct = len({_question_key(q) for q in take(questions, _VARIETY_SEEDS)})
         pinned = SMALL_QUESTION_POOL.get((topic, difficulty))
         if pinned is not None:
             assert distinct >= pinned, (

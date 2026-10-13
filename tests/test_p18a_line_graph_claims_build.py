@@ -141,16 +141,24 @@ def test_monotonic_claim_check_fires_on_corrupted_break_count(monkeypatch):
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
-def test_data_sequence_shown_as_explicit_text_pairs(difficulty):
+def test_data_sequence_is_drawn_as_a_line_graph_not_listed(difficulty):
     for seed in range(20):
         q = _make(difficulty, seed)
-        assert "(" in q.text and ":" in q.text and ")" in q.text, (difficulty, seed, q.text)
-        assert "figure" not in q.text.lower() and "graph shown" not in q.text.lower()
+        fig = q.figure
+        assert fig["kind"] == "cartesian" and fig["equal_scale"] is False
+        assert len(fig["points"]) >= 4 and len(fig["segments"]) == len(fig["points"]) - 1
+        # the points are joined in time order and every value sits on a gridline
+        xs = [p["at"][0] for p in fig["points"]]
+        assert xs == sorted(xs)
+        for p in fig["points"]:
+            assert p["at"][1] % fig["y_grid"] == 0
+        assert "(" not in q.text.split("A claim is made")[0], q.text
 
 
 def test_skill_loads_through_api_with_correct_properties():
     assert SKILL.domain == "statistics-probability"
     assert SKILL.status == "active"
+    assert SKILL.needs_figure is True and SKILL.capability_gates == ["figure_stimulus"]
     assert SKILL.placement_eligible is False
     assert SKILL.answer == "mcq"
     assert SKILL.prerequisites == PREREQS
@@ -189,41 +197,12 @@ def test_exam_tier_reaches_both_variants():
     assert saw_monotonic, "exam tier never drew the monotonic-over-longer-sequence variant in 120 seeds"
 
 
-def _appearance_order_labels(text):
-    """The (label, value) labels in the order they appear in the rendered
-    text -- i.e. display order, which may or may not equal true time order."""
-    return [m.group(1).strip() for m in re.finditer(r"\(([^():]+):", text)]
-
-
-def _time_sort_key(label):
-    m = re.match(r"Week (\d+)$", label)
-    if m:
-        return int(m.group(1))
-    return int(label)
-
-
-@pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
-def test_below_exam_tiers_display_pairs_in_time_order(difficulty):
-    """The out-of-order display is exam-only: easy/medium/hard keep the display order equal
-    to time order, so the escalation is a genuinely NEW exam-tier decision,
-    not something already lurking (unused) in the lower tiers."""
+@pytest.mark.parametrize("difficulty", TIERS)
+def test_every_tier_draws_the_graph_in_time_order(difficulty):
+    """A line graph is drawn in time order; the lower tiers use 4-5 points and the exam tier a longer graph."""
     for seed in range(60):
         q = _make(difficulty, seed)
-        labels = _appearance_order_labels(q.text)
-        assert labels == sorted(labels, key=_time_sort_key), (difficulty, seed, q.text)
-
-
-def test_exam_tier_displays_pairs_out_of_time_order_and_says_so():
-    """The exam tier's data list is a genuine permutation of time
-    order (never accidentally identical), and the prompt says so in words,
-    so the learner cannot resolve the claim by reading straight down the
-    list -- they must place the points in time order themselves first."""
-    saw_out_of_order = False
-    for seed in range(60):
-        q = _make("exam", seed)
-        labels = _appearance_order_labels(q.text)
-        in_time_order = labels == sorted(labels, key=_time_sort_key)
-        assert not in_time_order, (seed, q.text)
-        saw_out_of_order = True
-        assert "not in time order" in q.text or "rather than in time order" in q.text, (seed, q.text)
-    assert saw_out_of_order
+        xs = [p["at"][0] for p in q.figure["points"]]
+        assert xs == sorted(xs) and len(set(xs)) == len(xs), (difficulty, seed)
+        assert len(xs) >= (7 if difficulty == "exam" else 4), (difficulty, seed, len(xs))
+        assert len(xs) <= (8 if difficulty == "exam" else 5), (difficulty, seed, len(xs))
