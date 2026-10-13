@@ -45,6 +45,176 @@ _ENTRIES = (
     ),
     # -- first-year multivariable, 3D geometry and statistics --
     CatalogueEntry(
+        "volume-extra-dot-term",
+        "Adding a stray dot product to a volume: |a·(b × c)| + |a·b|.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-signed-left-negative",
+        "Leaving the distance from a point to a plane negative: the signed value (n·P - d)/|n| without taking the absolute value.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-denominator-not-rooted",
+        "Dividing by a² + b² + c² instead of by its square root √(a² + b² + c²) in a distance to a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-constant-sign",
+        "Adding the constant of the plane's equation to n·P instead of subtracting it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-not-normalised",
+        "Giving |n·P - d| as the distance without dividing by the length of the normal vector.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-denominator-sum-of-coefficients",
+        "Dividing by |a| + |b| + |c| instead of √(a² + b² + c²) in a distance to a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-dot-product-used",
+        "Using the dot product instead of the cross product, so the length along the line is found instead of the distance from it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-not-normalised",
+        "Giving the size of the cross product AP × u without dividing by the length of the direction vector u.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-point-not-shifted",
+        "Crossing the position vector of P with u instead of the vector from a point on the line to P.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-to-base-point",
+        "Giving the distance from P to the line's base point A, not the shortest distance to the line.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-negative-not-absolute",
+        "Leaving a volume negative: giving the scalar triple product itself without its absolute value.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "determinant-expansion-signs-forgotten",
+        "Expanding a 3×3 determinant with every term added, missing the alternating signs of the cofactor expansion.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-as-base-area-only",
+        "Giving the area of the base, |b × c|, as the volume of the parallelepiped.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "parallelepiped-as-tetrahedron",
+        "Treating a parallelepiped's volume as the volume of the tetrahedron on the same edges (a sixth of it), or the reverse.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "skew-distance-not-normalised",
+        "Giving |(A₂ - A₁)·(u₁ × u₂)| as the distance between skew lines without dividing by |u₁ × u₂|.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "skew-distance-one-line-only",
+        "Using the point-to-line formula with one of the skew lines, ignoring the direction of the other.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "skew-distance-between-base-points",
+        "Giving the distance between the two lines' base points as the distance between the lines.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "tetrahedron-volume-factor-forgotten",
+        "Giving |AB · (AC × AD)| as the volume of a tetrahedron without dividing by 6.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "tetrahedron-volume-third-of-parallelepiped",
+        "Taking a third of the parallelepiped's volume for the tetrahedron instead of a sixth.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "tetrahedron-volume-half-of-parallelepiped",
+        "Taking half of the parallelepiped's volume for the tetrahedron instead of a sixth.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-pyramid-factor-forgotten",
+        "Dividing the tetrahedron's volume by the base area without the factor 3 in h = 3V/A.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-pyramid-factor-applied-twice",
+        "Dividing by 3 once too often when finding the height from |AD·(AB × AC)| and |AB × AC|.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "triple-product-order-reversed",
+        "Taking the scalar triple product with two of the vectors in the opposite order, which gives the negative.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "triple-product-extra-dot-term",
+        "Adding a stray dot product a·b to a scalar triple product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "triple-product-dots-multiplied",
+        "Multiplying dot products (a·b)(b·c) in place of forming a·(b × c).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-doubled",
+        "Doubling a volume: counting the parallelepiped's volume twice.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-from-dot-product",
+        "Using the dot product |a·b| for the area of the parallelogram on a and b, where the cross product |a × b| belongs.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-as-product-of-lengths",
+        "Giving |a||b| as the area of the parallelogram, which ignores the angle between the edges.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-cross-magnitude-squared",
+        "Giving the sum of squares of the cross product's components, |a × b|², where its length |a × b| was needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-parallelogram-as-triangle",
+        "Halving |a × b| for a parallelogram, which is the area of the triangle on a and b.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-volume-multiplied-by-area",
+        "Multiplying the volume by the base area instead of dividing, when finding the height.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-ratio-inverted",
+        "Dividing base area by volume instead of volume by base area, when finding the height.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-over-the-wrong-face",
+        "Dividing the volume by the area of a different face from the one the height is measured from.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-pyramid-factor-applied-to-prism",
+        "Using the pyramid formula h = 3V/A for a prism or parallelepiped, whose height is V/A.",
+        area="vectors",
+    ),
+    CatalogueEntry(
         "plane-constant-sign",
         "Giving the constant of the plane with the wrong sign, as if the normal had been found in the opposite direction.",
         area="vectors",

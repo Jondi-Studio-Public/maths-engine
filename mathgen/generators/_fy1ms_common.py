@@ -261,3 +261,31 @@ def exact_rational(value) -> sympy.Rational:
 def latex_plain(text: str) -> str:
     """`latex_answer` for a typed answer string."""
     return latex_answer(text)
+
+
+# ---------------------------------------------------------------------------
+# Three-dimensional vectors as lists of whole numbers
+
+
+def vec_text(vec) -> str:
+    """``(1, -2, 3)``."""
+    return "(" + ", ".join(str(int(c)) for c in vec) + ")"
+
+
+def cross3(u, v) -> list[int]:
+    return [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]]
+
+
+def dot3(u, v) -> int:
+    return sum(a * b for a, b in zip(u, v))
+
+
+def sub3(u, v) -> list[int]:
+    return [a - b for a, b in zip(u, v)]
+
+
+def plane_text(n, k) -> str:
+    """``2x - y + 2z = 5`` for the normal (2, -1, 2) and constant 5."""
+    from ..core import join_terms
+
+    return f"{join_terms([(n[0], 'x'), (n[1], 'y'), (n[2], 'z')])} = {k}"

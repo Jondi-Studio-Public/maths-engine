@@ -1,0 +1,152 @@
+id: ucv1-distances-and-triple-product-3d
+name: Find distances and volumes in three dimensions
+domain: vectors
+description: >-
+  Find the shortest distance from a point to a plane or a line, the distance between two skew
+  lines, and volumes from the scalar triple product (a parallelepiped or a tetrahedron),
+  including the height of a vertex above the plane through three others. The four-part exam
+  chain goes from a triple product through the volume and a face area to the height of a
+  crystal.
+status: active
+placement_eligible: false
+prerequisites: [vector-cross-product, vector-dot-product, vector-magnitude]
+answer: number
+sources:
+- topic: fy1ms_distances_3d
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_distances_3d
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_distances_3d
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_distances_3d
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: distance-signed-left-negative
+  description: >-
+    Leaving the distance from a point to a plane negative: the signed value (n·P - d)/|n|
+    without taking the absolute value.
+- id: distance-plane-denominator-not-rooted
+  description: >-
+    Dividing by a² + b² + c² instead of by its square root √(a² + b² + c²) in a distance to a
+    plane.
+- id: distance-plane-constant-sign
+  description: >-
+    Adding the constant of the plane's equation to n·P instead of subtracting it.
+- id: distance-plane-not-normalised
+  description: >-
+    Giving |n·P - d| as the distance without dividing by the length of the normal vector.
+- id: distance-plane-denominator-sum-of-coefficients
+  description: >-
+    Dividing by |a| + |b| + |c| instead of √(a² + b² + c²) in a distance to a plane.
+- id: distance-line-dot-product-used
+  description: >-
+    Using the dot product instead of the cross product, so the length along the line is found
+    instead of the distance from it.
+- id: distance-line-not-normalised
+  description: >-
+    Giving the size of the cross product AP × u without dividing by the length of the direction
+    vector u.
+- id: distance-line-point-not-shifted
+  description: >-
+    Crossing the position vector of P with u instead of the vector from a point on the line to
+    P.
+- id: distance-line-to-base-point
+  description: >-
+    Giving the distance from P to the line's base point A, not the shortest distance to the
+    line.
+- id: volume-negative-not-absolute
+  description: >-
+    Leaving a volume negative: giving the scalar triple product itself without its absolute
+    value.
+- id: determinant-expansion-signs-forgotten
+  description: >-
+    Expanding a 3×3 determinant with every term added, missing the alternating signs of the
+    cofactor expansion.
+- id: volume-as-base-area-only
+  description: >-
+    Giving the area of the base, |b × c|, as the volume of the parallelepiped.
+- id: parallelepiped-as-tetrahedron
+  description: >-
+    Treating a parallelepiped's volume as the volume of the tetrahedron on the same edges (a
+    sixth of it), or the reverse.
+- id: skew-distance-not-normalised
+  description: >-
+    Giving |(A₂ - A₁)·(u₁ × u₂)| as the distance between skew lines without dividing by |u₁ ×
+    u₂|.
+- id: skew-distance-one-line-only
+  description: >-
+    Using the point-to-line formula with one of the skew lines, ignoring the direction of the
+    other.
+- id: skew-distance-between-base-points
+  description: >-
+    Giving the distance between the two lines' base points as the distance between the lines.
+- id: tetrahedron-volume-factor-forgotten
+  description: >-
+    Giving |AB · (AC × AD)| as the volume of a tetrahedron without dividing by 6.
+- id: tetrahedron-volume-third-of-parallelepiped
+  description: >-
+    Taking a third of the parallelepiped's volume for the tetrahedron instead of a sixth.
+- id: tetrahedron-volume-half-of-parallelepiped
+  description: >-
+    Taking half of the parallelepiped's volume for the tetrahedron instead of a sixth.
+- id: height-pyramid-factor-forgotten
+  description: >-
+    Dividing the tetrahedron's volume by the base area without the factor 3 in h = 3V/A.
+- id: height-pyramid-factor-applied-twice
+  description: >-
+    Dividing by 3 once too often when finding the height from |AD·(AB × AC)| and |AB × AC|.
+- id: triple-product-order-reversed
+  description: >-
+    Taking the scalar triple product with two of the vectors in the opposite order, which gives
+    the negative.
+- id: triple-product-extra-dot-term
+  description: >-
+    Adding a stray dot product a·b to a scalar triple product.
+- id: triple-product-dots-multiplied
+  description: >-
+    Multiplying dot products (a·b)(b·c) in place of forming a·(b × c).
+- id: volume-doubled
+  description: >-
+    Doubling a volume: counting the parallelepiped's volume twice.
+- id: volume-extra-dot-term
+  description: >-
+    Adding a stray dot product to a volume: |a·(b × c)| + |a·b|.
+- id: area-from-dot-product
+  description: >-
+    Using the dot product |a·b| for the area of the parallelogram on a and b, where the cross
+    product |a × b| belongs.
+- id: area-as-product-of-lengths
+  description: >-
+    Giving |a||b| as the area of the parallelogram, which ignores the angle between the edges.
+- id: area-cross-magnitude-squared
+  description: >-
+    Giving the sum of squares of the cross product's components, |a × b|², where its length |a ×
+    b| was needed.
+- id: area-parallelogram-as-triangle
+  description: >-
+    Halving |a × b| for a parallelogram, which is the area of the triangle on a and b.
+- id: height-volume-multiplied-by-area
+  description: >-
+    Multiplying the volume by the base area instead of dividing, when finding the height.
+- id: height-ratio-inverted
+  description: >-
+    Dividing base area by volume instead of volume by base area, when finding the height.
+- id: height-over-the-wrong-face
+  description: >-
+    Dividing the volume by the area of a different face from the one the height is measured
+    from.
+- id: height-pyramid-factor-applied-to-prism
+  description: >-
+    Using the pyramid formula h = 3V/A for a prism or parallelepiped, whose height is V/A.
+- id: cross-product-middle-sign-slip
+  description: >-
+    Forgetting the minus sign on the middle component of a cross product.
+tags: [university-core-v1, linear-algebra, vectors, analytic-geometry]

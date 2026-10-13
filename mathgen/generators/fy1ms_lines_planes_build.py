@@ -26,7 +26,6 @@ import random
 from fractions import Fraction
 
 import sympy
-from sympy import Matrix
 
 from ..answers import Distractor
 from ..core import attempts, check, generator, join_terms
@@ -41,35 +40,15 @@ from ._fy1ms_common import (
     number_question,
     say,
 )
-
-
-def _v(vec) -> str:
-    return "(" + ", ".join(str(int(c)) for c in vec) + ")"
+from ._fy1ms_common import cross3 as _cross
+from ._fy1ms_common import dot3 as _dot
+from ._fy1ms_common import plane_text as _plane
+from ._fy1ms_common import sub3 as _sub
+from ._fy1ms_common import vec_text as _v
 
 
 def _pt(name: str, vec) -> str:
     return f"{name}{_v(vec)}"
-
-
-def _cross(u, v):
-    w = Matrix(u).cross(Matrix(v))
-    return [int(c) for c in w]
-
-
-def _dot(u, v) -> int:
-    return sum(a * b for a, b in zip(u, v))
-
-
-def _sub(u, v):
-    return [a - b for a, b in zip(u, v)]
-
-
-def _plane(n, k) -> str:
-    return f"{join_terms([(n[0], 'x'), (n[1], 'y'), (n[2], 'z')])} = {k}"
-
-
-def _plane_tex(n, k) -> str:
-    return _plane(n, k)
 
 
 def _line(a, u) -> Fm:
