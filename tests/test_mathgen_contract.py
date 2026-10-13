@@ -310,8 +310,16 @@ OPTION_NOTES_TOPICS = frozenset(
         "f10c_congruence_criteria",
         "f10c_quadrilateral_properties",
         "function_evaluation",
+        "laplace_transform",
         "limits",
+        "lin_ineq_negative",
+        "lin_ineq_one_step",
+        "lin_ineq_two_step",
+        "lin_ineq_word",
+        "line_integral",
         "linear_equation",
+        "mat_inv_2x2",
+        "mat_inv_3x3",
         "percentage_change",
         "quadratic",
         "senior_dividend_portfolio_table",
@@ -319,6 +327,17 @@ OPTION_NOTES_TOPICS = frozenset(
         "senior_percentaged_two_way_table",
         "senior_reducing_balance_schedule",
         "transformations_invariants",
+        "triple_integral",
+        "ucv1_chi_square_test",
+        "ucv1_diagonalisation",
+        "ucv1_eigenvectors",
+        "ucv1_improper_integral",
+        "ucv1_lhopital",
+        "ucv1_null_space",
+        "ucv1_one_sample_t_test",
+        "ucv1_power_series_convergence",
+        "ucv1_proof_by_induction",
+        "ucv1_series_convergence",
         "ucv1_weak_solution_regularity",
     }
 )
@@ -594,6 +613,8 @@ ANSWER_FORM_TOPICS = {
     "exd_x_a5_special_products_combined": "expanded",
     "exd_x_a2_expand_cubic_shapes": "expanded",
     "simplify_expression": "expanded",
+    # Eigenvector answers are graded up to a scalar multiple, so the question declares it.
+    "ucv1_eigenvectors": "scalar_multiple",
 }
 
 # Topics that set `answer_form` on only some of their question kinds: when it is
