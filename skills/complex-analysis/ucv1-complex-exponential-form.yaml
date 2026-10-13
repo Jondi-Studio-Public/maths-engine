@@ -1,0 +1,84 @@
+id: ucv1-complex-exponential-form
+name: Complex numbers in exponential form
+domain: complex-analysis
+description: Use the exponential form re^(iθ) to find the argument of a complex number, of a product, quotient or conjugate
+  combination of two numbers, and of the root of zⁿ = w with the least positive argument, answered as θ/π.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+- senior-determine-and-examine-the-n-th-roots-of-acmsm088
+answer: fraction
+sources:
+- topic: ucv1_complex_exponential
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_complex_exponential
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_complex_exponential
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy_complex_exponential
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx-arg-ignores-quadrant
+  description: Giving the angle between the point and the real axis, without placing it in the right quadrant.
+- id: cx-arg-conjugate-sign
+  description: Getting the sign of the argument wrong, so the answer is the argument of the conjugate.
+- id: cx-arg-swaps-real-imag
+  description: Using the real part over the imaginary part inside the inverse tangent, so the angle is measured from
+    the imaginary axis.
+- id: cx-arg-quarter-turn-off
+  description: Measuring the angle from the wrong axis, so the argument is a quarter turn out.
+- id: cx-arg-not-reduced
+  description: Leaving the argument outside the stated range (-π, π] instead of adding or subtracting a full turn.
+- id: cx-arg-power-ignored
+  description: Not applying the power to the argument, using θ where nθ is needed.
+- id: cx-arg-ignores-second-factor
+  description: Giving the argument of one of the numbers instead of the argument of the combination of both.
+- id: cx-product-subtracts-args
+  description: Subtracting the arguments when multiplying; the arguments add under multiplication.
+- id: cx-quotient-adds-args
+  description: Adding the arguments when dividing; the arguments subtract under division.
+- id: cx-root-skips-2pi-k
+  description: Giving the principal root and not adding 2πk before dividing by n to find the others.
+- id: cx-root-wrong-k
+  description: Choosing the wrong root, such as the one with k = 1 or the largest argument.
+- id: cx-root-divides-only-2k
+  description: Dividing only the argument of w by n, or only the 2πk term, instead of dividing their sum.
+- id: cx-root-power-instead-of-root
+  description: Multiplying the argument of w by n, as if finding a power, instead of dividing by n.
+- id: cx-modulus-forgot-root
+  description: Leaving out the square root in the modulus.
+- id: cx-modulus-real-part-only
+  description: Using only the real part or one coefficient as the modulus.
+- id: cx-modulus-drops-scale
+  description: Forgetting the common factor when finding the modulus of a multiple of a number.
+- id: cx-modulus-ignores-imaginary-part
+  description: Treating a purely imaginary number as having modulus 0.
+- id: cx-modulus-negative
+  description: Giving a negative modulus.
+- id: cx-arg-sign-after-power
+  description: Taking the argument of a power to be π minus the right angle.
+- id: cx-power-sign
+  description: Getting the sign of a real power of z wrong, as cos(nθ) is -1 when nθ is an odd multiple of π.
+- id: cx-power-as-multiplication
+  description: Multiplying the modulus by n instead of raising it to the power n.
+difficulty_progression: Easy reads the argument of a Cartesian number from the signs of its parts, so the quadrant has to
+  be chosen. Medium gives two numbers in exponential form and combines them with a power, quotient or conjugate, so
+  arguments add, subtract and multiply and the result usually has to be brought back into (-π, π]. Hard solves zⁿ = w
+  and picks one root out of n by its argument, so the principal root is often not the answer. The exam chain finds the
+  modulus and argument of z, the argument of zⁿ by following through, and zⁿ itself.
+tags:
+- university-core-v1
+- complex-numbers
+- exponential-form
+- euler-form
+framework_areas:
+- complex-analysis
