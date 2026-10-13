@@ -1,0 +1,88 @@
+id: ucv1-applied-optimisation
+name: Solve applied optimisation problems
+domain: single-variable-calculus
+description: Build a function of one variable from a word problem and its constraint, find the stationary point
+  and compare it with the ends of the allowed interval to give the greatest or least value.
+status: active
+placement_eligible: false
+prerequisites:
+- stationary-points
+answer: number
+sources:
+- topic: fy1ca_applied_optimisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_applied_optimisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_applied_optimisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_applied_optimisation_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-opt-all-sides-fenced
+  description: Treats all four sides of the rectangle as fenced when one side is a creek or wall.
+- id: fy1ca-opt-square-assumed
+  description: Assumes the best rectangle is a square without using the constraint.
+- id: fy1ca-opt-variable-reported
+  description: Gives the value of the variable at the optimum when the optimum value was asked for.
+- id: fy1ca-opt-length-not-eliminated
+  description: Leaves the second variable in the formula instead of using the constraint to eliminate it.
+- id: fy1ca-opt-derivative-slip
+  description: Makes an algebra or differentiation slip, so the stationary point is wrong.
+- id: fy1ca-opt-wrong-coefficient
+  description: Uses a wrong coefficient in the area or volume formula.
+- id: fy1ca-opt-wrong-faces
+  description: Includes the wrong set of faces when finding the surface area.
+- id: fy1ca-opt-closed-top-counted
+  description: Counts a lid on a tank that is open at the top.
+- id: fy1ca-opt-whole-triangle
+  description: Gives the area of the whole triangle instead of the best inscribed rectangle.
+- id: fy1ca-opt-endpoint-not-compared
+  description: Reports a stationary point or one end of the interval without comparing all candidates.
+- id: fy1ca-opt-ignores-constraint
+  description: Uses the stationary point even though it lies outside the allowed interval.
+- id: fy1ca-opt-costs-swapped
+  description: Swaps the two unit costs, charging each route at the other route's rate.
+- id: fy1ca-opt-water-only
+  description: Costs the whole route at the under-water rate.
+- id: fy1ca-opt-land-only
+  description: Costs the whole route at the land rate.
+- id: fy1ca-opt-area-not-squared
+  description: Divides the volume by the side instead of the side squared when finding the height.
+- id: fy1ca-opt-height-inverted
+  description: Inverts the relation between height and side when using the fixed volume.
+- id: fy1ca-opt-one-side-only
+  description: Counts the area of one side face instead of all four.
+- id: fy1ca-opt-volume-for-area
+  description: Multiplies instead of adding the faces, giving a volume where an area was asked for.
+- id: fy1ca-opt-cost-at-trial-value
+  description: Prices the area at the trial value instead of at the optimum.
+- id: fy1ca-opt-factor-dropped
+  description: Drops a numerical factor when solving the stationary-point equation.
+- id: fy1ca-opt-wrong-root
+  description: Takes the wrong root of the stationary-point equation.
+- id: fy1ca-opt-volume-for-side
+  description: Gives the volume where the side length was asked for.
+- id: fy1ca-opt-stopped-near
+  description: Stops at a nearby whole number instead of solving the stationary-point equation exactly.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- optimisation
+- word-problems

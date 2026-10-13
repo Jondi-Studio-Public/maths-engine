@@ -316,6 +316,251 @@ _ENTRIES = (
         "Carrying on to a second bisection step and reporting its midpoint, when only one step was asked for.",
         area="calculus",
     ),
+    CatalogueEntry(
+        "fy1ca-rates-variable-dropped",
+        "Differentiating the formula but losing the radius factor, so the rate does not depend on how large the shape is.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-chain-rule-forgotten",
+        "Differentiating with respect to the radius only and leaving out the rate of change of the radius.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-power-rule-slip",
+        "Differentiating a power of the variable incorrectly (the exponent not brought down, or the new exponent wrong).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-formula-not-differentiated",
+        "Substituting the values into the original formula and multiplying by the rate, instead of differentiating first.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-wrong-coefficient",
+        "Differentiating correctly but keeping a constant that should have cancelled, or cancelling one that should stay.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-ratio-inverted",
+        "Inverting the ratio of the two rates when relating them.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-rates-assumed-equal",
+        "Assuming two linked quantities change at the same rate, when their rates are related by a ratio that depends on the position.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-wrong-length",
+        "Dividing by the hypotenuse instead of the side that the rate belongs to.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-sign-for-speed",
+        "Giving the signed rate of change when a speed (positive) was asked for, or a speed when the signed rate was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-direction-sign",
+        "Treating a vehicle moving towards the junction as moving away, so the sign of its contribution is wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-division-dropped",
+        "Forgetting to divide by the distance when converting 2s ds/dt back to ds/dt.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-rates-combined",
+        "Combining the two vehicles' speeds directly instead of resolving them along the line joining the vehicles.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-components-swapped",
+        "Pairing each speed with the other vehicle's coordinate when applying the rate formula.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-shadow-tip-and-length-confused",
+        "Giving the speed of the tip of the shadow when its length was asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-similar-triangles-sum",
+        "Setting up the similar triangles with the sum of the heights instead of the difference.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-ratio-not-squared",
+        "Using the ratio of radius to height without squaring it in the cone's volume.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-cone-third-forgotten",
+        "Leaving the factor of one third out of (or putting it into) the volume of a cone when relating the rates.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-radius-equals-height",
+        "Taking the cone's radius equal to its height, ignoring the stated ratio.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-formula-confusion",
+        "Using the surface area of a sphere where the volume was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-sphere-third-forgotten",
+        "Dropping the factor of one third from the volume of a sphere.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-surface-differentiated",
+        "Differentiating the surface area formula when the volume's rate was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-wrong-derivative-used",
+        "Dividing the rate of volume by the volume instead of by its derivative with respect to the size.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-only-the-first-volume",
+        "Dividing the volume at the starting size by the rate, as if the time were to build the pile from nothing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-volume-added-not-subtracted",
+        "Taking the whole volume at the larger size instead of the volume added between the two sizes.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-linear-scaling",
+        "Assuming volume doubles when the size doubles.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-area-scaling",
+        "Assuming volume quadruples when the size doubles, as an area would.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-all-sides-fenced",
+        "Treating all four sides of the rectangle as fenced when one side is a creek or wall.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-area-not-squared",
+        "Dividing the volume by the side instead of the side squared when finding the height.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-closed-top-counted",
+        "Counting a lid on a tank or box that is open at the top.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-cost-at-trial-value",
+        "Pricing the area at the trial value instead of at the optimum.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-costs-swapped",
+        "Swapping the two unit costs, so each route is charged at the other route's rate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-derivative-slip",
+        "Making an algebra or differentiation slip in the derivative, so the stationary point is wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-endpoint-not-compared",
+        "Reporting a stationary point or a single end of the interval without comparing all candidates.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-factor-dropped",
+        "Dropping a numerical factor when solving the stationary-point equation for the variable.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-height-inverted",
+        "Inverting the relation between height and side when using the fixed volume.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-ignores-constraint",
+        "Using the stationary point even though it lies outside the allowed interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-land-only",
+        "Costing the whole route at the land rate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-length-not-eliminated",
+        "Leaving the second variable in the formula instead of using the constraint to eliminate it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-one-side-only",
+        "Counting the area of one side face instead of all four.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-square-assumed",
+        "Assuming the best rectangle is a square without using the constraint.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-stopped-near",
+        "Stopping at a nearby whole number instead of solving the stationary-point equation exactly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-variable-reported",
+        "Giving the value of the variable at the optimum when the optimum value was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-volume-for-area",
+        "Multiplying instead of adding the faces, giving a volume where an area was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-volume-for-side",
+        "Giving the volume where the side length was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-water-only",
+        "Costing the whole route at the under-water rate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-whole-triangle",
+        "Giving the area of the whole triangle instead of the best inscribed rectangle.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-wrong-coefficient",
+        "Using a wrong coefficient when setting up the area or volume formula.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-wrong-faces",
+        "Including the wrong set of faces when finding the surface area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-wrong-root",
+        "Taking the wrong root (square root for cube root) of the stationary-point equation.",
+        area="calculus",
+    ),
     # -- percentages ----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "gave-change-not-percent",

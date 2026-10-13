@@ -8,6 +8,7 @@ of every answer, and a few text formatters. Nothing here registers a generator.
 from __future__ import annotations
 
 import math
+import re
 from fractions import Fraction
 
 import sympy
@@ -89,6 +90,15 @@ def sqrt_rational(value: Fraction) -> Fraction:
 def typed(expr) -> str:
     """A SymPy expression as a learner types it: caret powers, `pi`, `sqrt(...)`, `ln(...)`."""
     return str(expr).replace("**", "^").replace("log(", "ln(")
+
+
+def shown(expr) -> str:
+    """The same expression as it is written in a worked step: 4π, 5/(4π), √3, with no asterisks."""
+    text = typed(expr)
+    text = re.sub(r"\*pi", "π", text)
+    text = re.sub(r"(?<![A-Za-z])pi(?![A-Za-z])", "π", text)
+    text = text.replace("sqrt(", "√(")
+    return text.replace("*", "·")
 
 
 # -- distractors -------------------------------------------------------------------------------------------------
@@ -175,7 +185,12 @@ def expression_distractors(answer, candidates, n: int = 3) -> list[Distractor]:
             continue
         seen.append(number)
         pool.append(Distractor(typed(value), tag, str(value)))
-    return pool[:n]
+    chosen = _balanced(typed(answer), pool[:n], pool, n)
+    if _shape(typed(answer)) in ("fraction", "decimal") and not any(
+        _shape(d.text) == _shape(typed(answer)) for d in chosen
+    ):
+        raise Redraw  # the answer would be the only option of its shape
+    return chosen
 
 
 def check_all_wrong(answer_value: float, distractors, value_of) -> None:

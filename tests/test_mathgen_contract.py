@@ -312,6 +312,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "function_evaluation",
         "fy1ca_ivt_bisection",
         "fy1ca_piecewise_continuity",
+        "fy1ca_related_rates",
+        "fy1ca_applied_optimisation",
         "limits",
         "lin_ineq_negative",
         "lin_ineq_one_step",
