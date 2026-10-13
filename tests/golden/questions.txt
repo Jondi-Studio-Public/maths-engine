@@ -1078,6 +1078,18 @@
 {"answer": "2.5", "id": "f10-compare-scale-readings/medium/0/01cb6019088c", "text": "A stick is lined up against a ruler. How long is the stick, in centimetres?"}
 {"answer": "5.5", "id": "f10-compare-scale-readings/medium/1/205f63ef9026", "text": "A ruler is held beside a leaf. Find the length of the leaf in centimetres."}
 {"answer": "3.5", "id": "f10-compare-scale-readings/medium/2/f209063be149", "text": "The ribbon lies along a ruler, but not from the end of it. How long is the ribb…"}
+{"answer": "9/22", "id": "f10-compound-event-frequencies/easy/0/9d3b5f230e27", "text": "44 seeds were planted, some in sun and some in shade, and each was checked for …"}
+{"answer": "10/29", "id": "f10-compound-event-frequencies/easy/1/6c0ea654dcc8", "text": "On each of 58 mornings, a student recorded whether it rained and whether the sc…"}
+{"answer": "21/47", "id": "f10-compound-event-frequencies/easy/2/fbf5293a6b8a", "text": "A coin was tossed and a spinner was spun together, 47 times in all. Table (coin…"}
+{"answer": "(a) 8; (b) 2/17; (c) 53/68; (d) 117", "id": "f10-compound-event-frequencies/exam/0/8449528dcdae", "text": "A coin was tossed and a spinner was spun together, 68 times in all. Let A be th…"}
+{"answer": "(a) 17; (b) 17/67; (c) 57/67; (d) 128", "id": "f10-compound-event-frequencies/exam/1/49a30f477d44", "text": "67 customers at a canteen were recorded by whether they bought a drink and whet…"}
+{"answer": "(a) 20; (b) 10/31; (c) 26/31; (d) 101", "id": "f10-compound-event-frequencies/exam/2/6ac443c77abc", "text": "A coin was tossed and a spinner was spun together, 62 times in all. Let A be th…"}
+{"answer": "23/78", "id": "f10-compound-event-frequencies/hard/0/575d20c8d2f6", "text": "A coin was tossed and a spinner was spun together, 78 times in all. Let A be th…"}
+{"answer": "5/52", "id": "f10-compound-event-frequencies/hard/1/9a339d6145ca", "text": "52 seeds were planted, some in sun and some in shade, and each was checked for …"}
+{"answer": "27/52", "id": "f10-compound-event-frequencies/hard/2/15c58de3f2ee", "text": "A basketball player took two free throws in each of 52 rounds. Let A be the eve…"}
+{"answer": "31/44", "id": "f10-compound-event-frequencies/medium/0/3978d497899b", "text": "A coin was tossed and a spinner was spun together, 44 times in all. Table (coin…"}
+{"answer": "1/2", "id": "f10-compound-event-frequencies/medium/1/45abc621a03a", "text": "A basketball player took two free throws in each of 44 rounds. Table (first thr…"}
+{"answer": "42/55", "id": "f10-compound-event-frequencies/medium/2/431dca44946f", "text": "On each of 55 mornings, a student recorded whether it rained and whether the sc…"}
 {"answer": "9/25, 6/25, 6/25, 4/25", "id": "f10-compound-outcomes-replacement/easy/0/1e923950085d", "text": "A bag contains 3 black balls and 2 white balls, 5 in total. A ball is drawn at …"}
 {"answer": "1/9, 2/9, 2/9, 4/9", "id": "f10-compound-outcomes-replacement/easy/1/dff6e033e92c", "text": "A bag contains 2 orange balls and 4 purple balls, 6 in total. A ball is drawn a…"}
 {"answer": "4/25, 6/25, 6/25, 9/25", "id": "f10-compound-outcomes-replacement/easy/2/7b9da1be59a0", "text": "A bag contains 2 green balls and 3 yellow balls, 5 in total. A ball is drawn at…"}
@@ -1294,6 +1306,18 @@
 {"answer": "670", "id": "f10-expanded-powers-ten/medium/0/c8c49eee61b8", "text": "6 × 10^2 + 7 × 10 is the expanded form of what number? (Some places are missing…"}
 {"answer": "37095", "id": "f10-expanded-powers-ten/medium/1/a71b4a4f93f3", "text": "3 × 10^4 + 7 × 10^3 + 9 × 10 + 5 is the expanded form of what number? (Some pla…"}
 {"answer": "18704", "id": "f10-expanded-powers-ten/medium/2/134adce2e978", "text": "Write 1 × 10^4 + 8 × 10^3 + 7 × 10^2 + 4 as a single number. Write the number w…"}
+{"answer": "106", "id": "f10-expected-versus-observed/easy/0/b155dea0d3c9", "text": "A bag holds 6 red, 4 blue and 5 green marbles. A marble is drawn at random and …"}
+{"answer": "118", "id": "f10-expected-versus-observed/easy/1/b9dbbd2c38bc", "text": "A fair six-sided die is rolled 354 times. How many times would you expect a num…"}
+{"answer": "87", "id": "f10-expected-versus-observed/easy/2/b1e7800cb650", "text": "A fair spinner has 4 equal sections, 1 of them green. It is spun 348 times. How…"}
+{"answer": "(a) 1/4; (b) 68; (c) 10; (d) 1100", "id": "f10-expected-versus-observed/exam/0/ef45471e6520", "text": "A spinner is spun 272 times. Its blue section has a centre angle of 90°. In the…"}
+{"answer": "(a) 5/6; (b) 440; (c) 5; (d) 1332", "id": "f10-expected-versus-observed/exam/1/52e6f372dd86", "text": "A fair six-sided die is rolled 528 times. In the experiment, a prime number or …"}
+{"answer": "(a) 2/3; (b) 294; (c) 4; (d) 576", "id": "f10-expected-versus-observed/exam/2/90768fcbc475", "text": "A fair six-sided die is rolled 441 times. In the experiment, a number greater t…"}
+{"answer": "8", "id": "f10-expected-versus-observed/hard/0/c3c3320f382f", "text": "A bag holds 7 red, 5 blue and 4 green marbles. 3 red marbles are removed and no…"}
+{"answer": "10", "id": "f10-expected-versus-observed/hard/1/b7a7840afde9", "text": "A spinner is spun 432 times. Its blue section has a centre angle of 30°. In the…"}
+{"answer": "7", "id": "f10-expected-versus-observed/hard/2/104d76ca7399", "text": "A bag holds 5 red, 6 blue and 4 green marbles. 3 red marbles are removed and no…"}
+{"answer": "8", "id": "f10-expected-versus-observed/medium/0/031d32f60a6f", "text": "A fair six-sided die is rolled 210 times. In the experiment, a number greater t…"}
+{"answer": "5", "id": "f10-expected-versus-observed/medium/1/a4be431f8330", "text": "A fair six-sided die is rolled 333 times. In the experiment, a number less than…"}
+{"answer": "16", "id": "f10-expected-versus-observed/medium/2/3b5a9710f53d", "text": "A bag holds 3 red, 5 blue and 2 green marbles. A marble is drawn at random and …"}
 {"answer": "x^7", "id": "f10-exponent-laws-integer-variable/easy/0/36803f2a694f", "text": "Simplify x^8 × x^(-1), giving your answer as a single power of x."}
 {"answer": "x^-8", "id": "f10-exponent-laws-integer-variable/easy/1/a971259ee33c", "text": "Simplify x^(-1) × x^(-7), giving your answer as a single power of x."}
 {"answer": "x^-2", "id": "f10-exponent-laws-integer-variable/easy/2/e95503ce011a", "text": "Simplify x^3 × x^(-5), giving your answer as a single power of x."}
@@ -1522,6 +1546,18 @@
 {"answer": "180", "id": "f10-logarithmic-scales/medium/0/3334483450c4", "text": "On a logarithmic scale, A is marked at 18 and B is marked at 18000, 3 equal sca…"}
 {"answer": "4000", "id": "f10-logarithmic-scales/medium/1/ecbc31830311", "text": "On a logarithmic scale, A is marked at 4 and B is marked at 40000, 4 equal scal…"}
 {"answer": "600", "id": "f10-logarithmic-scales/medium/2/394eb59d388f", "text": "On a logarithmic scale, A is marked at 6 and B is marked at 6000, 3 equal scale…"}
+{"answer": "15", "id": "f10-map-grid-routes-bearings/easy/0/b91a6569afdd", "text": "On the map shown, each grid square is 5 km across. The Falls is directly north …"}
+{"answer": "10", "id": "f10-map-grid-routes-bearings/easy/1/75dc07e90ee2", "text": "Mia is reading the map shown. The Falls is directly north of the Dam. Each grid…"}
+{"answer": "40", "id": "f10-map-grid-routes-bearings/easy/2/0f2ca4fc58da", "text": "Sam plans a trip using the map shown, where each grid square is 10 km across. H…"}
+{"answer": "(a) 60; (b) 60; (c) 120; (d) 225", "id": "f10-map-grid-routes-bearings/exam/0/8cdb6d1d805b", "text": "Leila hikes from the Mill to the Camp, due east, and on to the Pier, due north.…"}
+{"answer": "(a) 4; (b) 4; (c) 8; (d) 225", "id": "f10-map-grid-routes-bearings/exam/1/cdf5a48d5323", "text": "The map shown has grid squares 2 km across. Marcus sets out from the Quarry, wa…"}
+{"answer": "(a) 20; (b) 20; (c) 40; (d) 135", "id": "f10-map-grid-routes-bearings/exam/2/9cca3bdda8a0", "text": "On the map shown, each grid square is 10 km across. Tom's walk goes from the La…"}
+{"answer": "0", "id": "f10-map-grid-routes-bearings/hard/0/27cfa8be7904", "text": "Jess walks from the Mill to the Inn and then to the Dam on the map shown. What …"}
+{"answer": "90", "id": "f10-map-grid-routes-bearings/hard/1/4a3f693418bc", "text": "The map shown has north at the top. Dev's route is Inn, then Hill, then Falls. …"}
+{"answer": "180", "id": "f10-map-grid-routes-bearings/hard/2/2ccc8ffbd0e5", "text": "The map shown has north at the top. Tom's route is Mill, then Fort, then Beach.…"}
+{"answer": "100", "id": "f10-map-grid-routes-bearings/medium/0/1e26f5a583c0", "text": "Ben's route on the map shown starts at the Hill, goes straight to the Ridge and…"}
+{"answer": "80", "id": "f10-map-grid-routes-bearings/medium/1/6e90b2e04fb2", "text": "Each grid square on the map shown is 10 km across. A hike goes from the Hill to…"}
+{"answer": "120", "id": "f10-map-grid-routes-bearings/medium/2/9ced8b4d0ff6", "text": "On the map shown, a grid square is 20 km across. Zoe travels from the Tower to …"}
 {"answer": "40", "id": "f10-measure-angle-protractor/easy/0/cab807e4c3cd", "text": "The arm OA runs along the bottom of a protractor. What is the size of angle AOB…"}
 {"answer": "140", "id": "f10-measure-angle-protractor/easy/1/2cc5bf27ac26", "text": "Here is a protractor lying along the arm OA. How many degrees is angle AOB?"}
 {"answer": "130", "id": "f10-measure-angle-protractor/easy/2/6bcb1f738f90", "text": "A protractor is placed on the angle AOB. How many degrees is angle AOB?"}
@@ -1666,6 +1702,18 @@
 {"answer": "5", "id": "f10-multiply-divide-one-digit-arrays/medium/0/d856db4ff816", "text": "45 counters are shared equally into these groups. How many counters are in each…"}
 {"answer": "2", "id": "f10-multiply-divide-one-digit-arrays/medium/1/20650d71c577", "text": "Share 8 counters equally between these groups. How many counters does each grou…"}
 {"answer": "8", "id": "f10-multiply-divide-one-digit-arrays/medium/2/fb9dd5ef7e10", "text": "32 counters go into these equal groups. How many counters are in each group?"}
+{"answer": "Pentagonal pyramid", "id": "f10-nets-build-solids/easy/0/42b1667b4045", "text": "Which solid can be made by folding the net shown along its dashed lines? Dev is…"}
+{"answer": "Square pyramid", "id": "f10-nets-build-solids/easy/1/46c01aa5072b", "text": "Which solid can be made by folding the net shown along its dashed lines? Priya …"}
+{"answer": "Square pyramid", "id": "f10-nets-build-solids/easy/2/22d2f86c95f0", "text": "The net shown is folded along the dashed lines to make a solid. Which solid doe…"}
+{"answer": "(a) Rectangular prism; (b) 7; (c) 254; (d) 252", "id": "f10-nets-build-solids/exam/0/f92e92cd2212", "text": "Aiko builds a closed storage box from the net shown, which is not drawn to scal…"}
+{"answer": "(a) Rectangular prism; (b) 8; (c) 136; (d) 96", "id": "f10-nets-build-solids/exam/1/9c12acd4edbc", "text": "The diagram shows the net of Jess's closed pencil case, not drawn to scale. It …"}
+{"answer": "(a) Rectangular prism; (b) 6; (c) 136; (d) 84", "id": "f10-nets-build-solids/exam/2/73f96a2d90c9", "text": "The net shown (not drawn to scale) folds along the dashed lines into a closed p…"}
+{"answer": "B and E", "id": "f10-nets-build-solids/hard/0/f60fe5b2a54d", "text": "When the lettered net is folded into a cube, corner J joins with two other corn…"}
+{"answer": "F and M", "id": "f10-nets-build-solids/hard/1/e104ec70192e", "text": "Jess folds the lettered net shown into a cube. Which two corners of the net mee…"}
+{"answer": "C and P", "id": "f10-nets-build-solids/hard/2/9c33403bf62b", "text": "Aiko folds the lettered net shown into a cube. Which two corners of the net mee…"}
+{"answer": "No, two squares would fold onto the same face", "id": "f10-nets-build-solids/medium/0/1cfa70285771", "text": "Kofi is testing whether the arrangement of squares shown is a net of a cube. Wh…"}
+{"answer": "No, two squares would fold onto the same face", "id": "f10-nets-build-solids/medium/1/c02cb2dabbe4", "text": "The squares shown are joined along their shared sides. Could Kofi fold them alo…"}
+{"answer": "Yes, it folds into a cube", "id": "f10-nets-build-solids/medium/2/5bc99e70a46a", "text": "The squares shown are joined along their shared sides. Could Aiko fold them alo…"}
 {"answer": "24, 6", "id": "f10-number-algorithms-decisions/easy/0/4a881d7b7d73", "text": "If the number is even, add 4. If the number is odd, subtract 1. For inputs 20, …"}
 {"answer": "24, 16", "id": "f10-number-algorithms-decisions/easy/1/08b05b462ba0", "text": "If the number is even, add 4. If the number is odd, subtract 1. For inputs 20, …"}
 {"answer": "17, 38", "id": "f10-number-algorithms-decisions/easy/2/bbb308aff027", "text": "If the number is even, subtract 3. If the number is odd, multiply by 2. For inp…"}
@@ -1795,6 +1843,18 @@
 {"answer": "12/25", "id": "f10-percentage-equivalence-comparison/medium/0/cede4e4bad27", "text": "What fraction is equivalent to 48%, using 100% as the whole?"}
 {"answer": "17/20", "id": "f10-percentage-equivalence-comparison/medium/1/f968f8b8e400", "text": "What fraction is equivalent to 85%, using 100% as the whole?"}
 {"answer": "3/20", "id": "f10-percentage-equivalence-comparison/medium/2/9442722a3db2", "text": "What fraction is equivalent to 15%, using 100% as the whole?"}
+{"answer": "21", "id": "f10-plan-views-cube-stacks/easy/0/c477b94edc0d", "text": "A wall is made of identical cubes stacked in columns. The plan view shows the n…"}
+{"answer": "25", "id": "f10-plan-views-cube-stacks/easy/1/225c06bd7944", "text": "Aiko stacks identical cubes to make a structure. Each number on the plan view i…"}
+{"answer": "20", "id": "f10-plan-views-cube-stacks/easy/2/03b9937310d5", "text": "The plan view of Marcus's block model is shown. The number in each square is th…"}
+{"answer": "(a) 32; (b) 15; (c) 11; (d) 864", "id": "f10-plan-views-cube-stacks/exam/0/6e1e23cf4cd2", "text": "The plan view of a tower made by Priya from 3 cm cubes is shown. Each number is…"}
+{"answer": "(a) 20; (b) 12; (c) 9; (d) 540", "id": "f10-plan-views-cube-stacks/exam/1/2ea3e4e3edc4", "text": "Zoe builds a sculpture from identical cubes with edges of 3 cm. The plan view s…"}
+{"answer": "(a) 27; (b) 15; (c) 10; (d) 1728", "id": "f10-plan-views-cube-stacks/exam/2/5ca4271c8c5f", "text": "The plan view of a wall made by Kofi from 4 cm cubes is shown. Each number is a…"}
+{"answer": "5", "id": "f10-plan-views-cube-stacks/hard/0/c2de7b7f25dc", "text": "Dev's block model is made of identical cubes. The plan view shows the number of…"}
+{"answer": "6", "id": "f10-plan-views-cube-stacks/hard/1/276306577f92", "text": "Jess's building is made of identical cubes. The plan view shows the number of c…"}
+{"answer": "6", "id": "f10-plan-views-cube-stacks/hard/2/f56fb896cd3e", "text": "Priya knows that the front elevation of the block model, seen from the front, a…"}
+{"answer": "9", "id": "f10-plan-views-cube-stacks/medium/0/76d31e7bef59", "text": "The plan view of a tower built by Aiko is shown, with the number of cubes in ea…"}
+{"answer": "10", "id": "f10-plan-views-cube-stacks/medium/1/9ede121bb3a5", "text": "A sculpture is built from identical cubes, as the plan view shows. Looking at t…"}
+{"answer": "10", "id": "f10-plan-views-cube-stacks/medium/2/56c2143152f0", "text": "A wall is built from identical cubes, as the plan view shows. Looking at the ri…"}
 {"answer": "90", "id": "f10-polygon-angle-sums/easy/0/168e3888efa9", "text": "A polygon has 3 sides. 2 of its interior angles measure 61 and 29 degrees. What…"}
 {"answer": "101", "id": "f10-polygon-angle-sums/easy/1/9f25824199a4", "text": "A polygon has 3 sides. 2 of its interior angles measure 58 and 21 degrees. What…"}
 {"answer": "82", "id": "f10-polygon-angle-sums/easy/2/913a60b4d0ed", "text": "A polygon has 3 sides. 2 of its interior angles measure 27 and 71 degrees. What…"}
@@ -1879,6 +1939,9 @@
 {"answer": "6/49", "id": "f10-probability-tree-diagrams/easy/0/a2cbcf84f110", "text": "A ball is drawn at random from a bag, its colour is noted and it is put back. A…"}
 {"answer": "1/49", "id": "f10-probability-tree-diagrams/easy/1/97f37d9b0184", "text": "A counter is drawn at random from a bag, its colour is noted and it is put back…"}
 {"answer": "16/49", "id": "f10-probability-tree-diagrams/easy/2/fecbdcceae4b", "text": "A ball is drawn at random from a bag, its colour is noted and it is put back. A…"}
+{"answer": "(a) 3/5; (b) 1/3; (c) 1/3; (d) 7/15", "id": "f10-probability-tree-diagrams/exam/0/866da3322184", "text": "A bag holds green and brown counters. Two counters are drawn at random, one aft…"}
+{"answer": "(a) 3/4; (b) 2/11; (c) 6/11; (d) 13/22", "id": "f10-probability-tree-diagrams/exam/1/65167a86cdc5", "text": "A ball is drawn at random from a bag of green and brown balls and kept out, the…"}
+{"answer": "(a) 10/13; (b) 1/6; (c) 15/26; (d) 8/13", "id": "f10-probability-tree-diagrams/exam/2/895d4509d347", "text": "A ball is drawn at random from a bag of brown and green balls and kept out, the…"}
 {"answer": "20/21", "id": "f10-probability-tree-diagrams/hard/0/cc87aef0b2db", "text": "Two counters are drawn at random from a bag, one after the other, and the first…"}
 {"answer": "5/7", "id": "f10-probability-tree-diagrams/hard/1/5abd2210981b", "text": "A counter is drawn at random from a bag and kept out, then a second counter is …"}
 {"answer": "13/18", "id": "f10-probability-tree-diagrams/hard/2/64b125eff1b1", "text": "Two balls are drawn at random from a bag, one after the other, and the first is…"}
@@ -2050,6 +2113,18 @@
 {"answer": "83", "id": "f10-regular-irregular-area-perimeter/medium/0/9d54c97a365f", "text": "A rectangular sheet 11 cm by 13 cm has a rectangular notch 6 cm by 10 cm cut fr…"}
 {"answer": "100", "id": "f10-regular-irregular-area-perimeter/medium/1/25ad8cfe4b6e", "text": "A rectangular sheet 12 cm by 13 cm has a rectangular notch 8 cm by 7 cm cut fro…"}
 {"answer": "101", "id": "f10-regular-irregular-area-perimeter/medium/2/858861fb6bb4", "text": "A rectangular sheet 9 cm by 17 cm has a rectangular notch 4 cm by 13 cm cut fro…"}
+{"answer": "8/21", "id": "f10-relative-frequency-estimate/easy/0/c4dec2c8220e", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
+{"answer": "2/5", "id": "f10-relative-frequency-estimate/easy/1/1f320a98c0c5", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
+{"answer": "9/20", "id": "f10-relative-frequency-estimate/easy/2/a63bd12ca3cd", "text": "A student flicked a bottle cap many times and recorded how it landed. The resul…"}
+{"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "f10-relative-frequency-estimate/exam/0/b27fda807341", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
+{"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "f10-relative-frequency-estimate/exam/1/34c623458c9a", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
+{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "f10-relative-frequency-estimate/exam/2/2d8733494f10", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
+{"answer": "61/100", "id": "f10-relative-frequency-estimate/hard/0/b56ad675f134", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
+{"answer": "21/25", "id": "f10-relative-frequency-estimate/hard/1/5e3bec9f7e1d", "text": "A student flicked a bottle cap many times and recorded how it landed. The relat…"}
+{"answer": "37/100", "id": "f10-relative-frequency-estimate/hard/2/ce713aeaaca2", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
+{"answer": "13/34", "id": "f10-relative-frequency-estimate/medium/0/210f180866aa", "text": "Over one morning, the vehicles that passed a school gate were recorded by type.…"}
+{"answer": "11/24", "id": "f10-relative-frequency-estimate/medium/1/a659e0c3a5b8", "text": "Over one morning, the vehicles that passed a school gate were recorded by type.…"}
+{"answer": "9/17", "id": "f10-relative-frequency-estimate/medium/2/50184f069910", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
 {"answer": "33.04", "id": "f10-round-decimals-accuracy/easy/0/e13fcc0eff89", "text": "Splitting the cost of a shared takeaway order evenly works out to $33.043 per p…"}
 {"answer": "9.28", "id": "f10-round-decimals-accuracy/easy/1/f2c5866af1ba", "text": "Splitting the cost of a shared takeaway order evenly works out to $9.276 per pe…"}
 {"answer": "7.93", "id": "f10-round-decimals-accuracy/easy/2/e83c1e8f6cff", "text": "Splitting the cost of a shared takeaway order evenly works out to $7.934 per pe…"}
@@ -2062,6 +2137,30 @@
 {"answer": "49", "id": "f10-round-decimals-accuracy/medium/0/743328d47cb7", "text": "Across several school terms, the average number of students absent per day work…"}
 {"answer": "44", "id": "f10-round-decimals-accuracy/medium/1/94a6a43dc933", "text": "Across several school terms, the average number of students absent per day work…"}
 {"answer": "2.4", "id": "f10-round-decimals-accuracy/medium/2/5fe837c0b3a8", "text": "A digital calliper reads the length of a beetle as 2.36 cm. Round this length t…"}
+{"answer": "38.4", "id": "f10-sample-size-and-reliability/easy/0/d528c4dcdb8a", "text": "Dev dropped a drawing pin 220 times. It landed point up 85 times. Kiri dropped …"}
+{"answer": "65.5", "id": "f10-sample-size-and-reliability/easy/1/7dc4cee1c917", "text": "Isla took 20 free throws from the same line. 14 of the throws were scored. Kiri…"}
+{"answer": "19.6", "id": "f10-sample-size-and-reliability/easy/2/b919b062e0ba", "text": "Liam spun a fair spinner with 5 equal sections, one of them red, 190 times. It …"}
+{"answer": "(a) 78; (b) 31.2; (c) 1.2; (d) 624", "id": "f10-sample-size-and-reliability/exam/0/879844810b05", "text": "Ben drew a marble 50 times from a bag of 3 red and 7 blue marbles, putting it b…"}
+{"answer": "(a) 101; (b) 20.2; (c) 0.2; (d) 404", "id": "f10-sample-size-and-reliability/exam/1/ba4ed73569c1", "text": "Ava spun a fair spinner with 5 equal sections, one of them red, 20 times. It la…"}
+{"answer": "(a) 118; (b) 23.6; (c) 3.6; (d) 472", "id": "f10-sample-size-and-reliability/exam/2/ea3a962a1ce1", "text": "Chloe spun a fair spinner with 5 equal sections, one of them red, 40 times. It …"}
+{"answer": "67.0", "id": "f10-sample-size-and-reliability/hard/0/da9f59a7f82b", "text": "Liam took 420 free throws from the same line. 292 of the throws were scored. De…"}
+{"answer": "19.3", "id": "f10-sample-size-and-reliability/hard/1/43051ea660a8", "text": "Liam spun a fair spinner with 5 equal sections, one of them red, 140 times. It …"}
+{"answer": "4.4", "id": "f10-sample-size-and-reliability/hard/2/3a7179f251c7", "text": "The theoretical value of the probability that a spin lands on green is 1/4, or …"}
+{"answer": "24.6", "id": "f10-sample-size-and-reliability/medium/0/c6a12a526f07", "text": "Isla spun a fair spinner with 4 equal sections, one of them green, 20 times. It…"}
+{"answer": "24.8", "id": "f10-sample-size-and-reliability/medium/1/38ecd948d654", "text": "Grace spun a fair spinner with 4 equal sections, one of them green, 500 times. …"}
+{"answer": "34.2", "id": "f10-sample-size-and-reliability/medium/2/b7e7b75747f2", "text": "Hamid took 500 kicks at goal from the same spot. 171 of the kicks scored. Grace…"}
+{"answer": "5.2", "id": "f10-scale-drawing-floor-plans/easy/0/6b83471f6679", "text": "On Aiko's plan of a garage block, 1 cm stands for 200 cm. The marked lengths ar…"}
+{"answer": "8.2", "id": "f10-scale-drawing-floor-plans/easy/1/74b9ab10d200", "text": "On Marcus's plan of a gym, 1 cm stands for 200 cm. The marked lengths are plan …"}
+{"answer": "18.6", "id": "f10-scale-drawing-floor-plans/easy/2/c67a97c90b92", "text": "The plan of a town hall is drawn to a scale of 1 : 200, with some lengths marke…"}
+{"answer": "(a) 18; (b) 10; (c) 180; (d) 720", "id": "f10-scale-drawing-floor-plans/exam/0/568c45c05ec1", "text": "Zoe is tiling the floor of a warehouse bay. The plan shown is drawn to a scale …"}
+{"answer": "(a) 14; (b) 6; (c) 84; (d) 336", "id": "f10-scale-drawing-floor-plans/exam/1/708488e574ae", "text": "The plan of Mia's warehouse bay, drawn to a scale of 1 : 200, is shown. Two len…"}
+{"answer": "(a) 3.5; (b) 1.5; (c) 5.25; (d) 21", "id": "f10-scale-drawing-floor-plans/exam/2/acc5d4431764", "text": "Leila is tiling the floor of a pantry. The plan shown is drawn to a scale of 1 …"}
+{"answer": "29", "id": "f10-scale-drawing-floor-plans/hard/0/99f4bde59f82", "text": "The L-shaped plan shown is drawn to a scale of 1 : 100, with four lengths marke…"}
+{"answer": "167.72", "id": "f10-scale-drawing-floor-plans/hard/1/6a8ab93797d9", "text": "Ben's plan of a warehouse bay is L-shaped and drawn to a scale of 1 : 200. Two …"}
+{"answer": "34.8", "id": "f10-scale-drawing-floor-plans/hard/2/cee6d829b6b1", "text": "Tom's plan of a library is L-shaped and drawn to a scale of 1 : 100. Two of its…"}
+{"answer": "165.2", "id": "f10-scale-drawing-floor-plans/medium/0/8e411d5b7c54", "text": "A canteen is drawn on a plan to a scale of 1 : 200. Find the real area of the f…"}
+{"answer": "3.24", "id": "f10-scale-drawing-floor-plans/medium/1/57caa1190b78", "text": "The plan shown is drawn to a scale of 1 : 50. Dev wants to carpet room ABCD of …"}
+{"answer": "23.76", "id": "f10-scale-drawing-floor-plans/medium/2/f92c23c0dc1d", "text": "On the plan of Priya's drama room, drawn at 1 : 100, what is the floor area of …"}
 {"answer": "4140", "id": "f10-scientific-notation-measurements/easy/0/171ff4d0fc8e", "text": "An object moves at a constant speed of 6.9 × 10^4 m/s. Find the distance it tra…"}
 {"answer": "292000", "id": "f10-scientific-notation-measurements/easy/1/6d91ee688ceb", "text": "An object moves at a constant speed of 7.3 × 10^-2 m/s. Find the distance it tr…"}
 {"answer": "498000", "id": "f10-scientific-notation-measurements/easy/2/56a8d320ee8e", "text": "An object moves at a constant speed of 8.3 × 10^4 m/s. Find the distance it tra…"}
@@ -2113,6 +2212,18 @@
 {"answer": "113, 118", "id": "f10-skip-count-pattern-sequences/medium/0/edcdaabf6f0f", "text": "What are the next 2 numbers? 98, 103, 108, __, __"}
 {"answer": "113, 123", "id": "f10-skip-count-pattern-sequences/medium/1/f67a1ce9fddf", "text": "What are the next 2 numbers? 83, 93, 103, __, __"}
 {"answer": "84, 94", "id": "f10-skip-count-pattern-sequences/medium/2/da1e74300f11", "text": "What are the next 2 numbers? 54, 64, 74, __, __"}
+{"answer": "5", "id": "f10-solid-faces-edges-vertices/easy/0/6b05efde1032", "text": "Ben sketches this solid with hidden edges dashed. How many faces does it have?"}
+{"answer": "6", "id": "f10-solid-faces-edges-vertices/easy/1/fabe7ee8edc5", "text": "Mia draws the solid shown. The dashed lines are edges hidden at the back. How m…"}
+{"answer": "7", "id": "f10-solid-faces-edges-vertices/easy/2/04f0a71337fe", "text": "Mia draws the solid shown. The dashed lines are edges hidden at the back. How m…"}
+{"answer": "(a) 7; (b) 12; (c) 7; (d) 72", "id": "f10-solid-faces-edges-vertices/exam/0/3e56cea24924", "text": "Zoe is making a model of a solid. The net for it is shown, folded along the das…"}
+{"answer": "(a) 4; (b) 6; (c) 4; (d) 30", "id": "f10-solid-faces-edges-vertices/exam/1/525491d70b41", "text": "The net shown folds along the dashed lines into a solid for Zoe's model. (a) Ho…"}
+{"answer": "(a) 5; (b) 8; (c) 5; (d) 48", "id": "f10-solid-faces-edges-vertices/exam/2/6a0c6db800f6", "text": "Jess is making a model of a solid. The net for it is shown, folded along the da…"}
+{"answer": "6", "id": "f10-solid-faces-edges-vertices/hard/0/6c6e2a2e57a6", "text": "The net shown folds along the dashed lines into a solid. How many vertices does…"}
+{"answer": "7", "id": "f10-solid-faces-edges-vertices/hard/1/81976052abc2", "text": "Ben folds the net shown into a solid. How many vertices (corners) does the fini…"}
+{"answer": "8", "id": "f10-solid-faces-edges-vertices/hard/2/11600e2d895c", "text": "Dev folds the net shown into a solid. How many vertices (corners) does the fini…"}
+{"answer": "12", "id": "f10-solid-faces-edges-vertices/medium/0/0c2a8e2bc407", "text": "The solid shown is drawn with its hidden edges dashed. How many edges does Priy…"}
+{"answer": "8", "id": "f10-solid-faces-edges-vertices/medium/1/b2997d1aecb8", "text": "Kofi draws the solid shown, with hidden edges dashed. How many edges does the s…"}
+{"answer": "12", "id": "f10-solid-faces-edges-vertices/medium/2/629f4ef60f97", "text": "Zoe draws the solid shown, with hidden edges dashed. How many vertices does the…"}
 {"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/7579e75fa997", "text": "Is 1 a perfect square? If yes, what is its square root?"}
 {"answer": "2", "id": "f10-square-roots-perfect-squares/easy/1/92f928907044", "text": "Is 4 a perfect square? If yes, what is its square root?"}
 {"answer": "11", "id": "f10-square-roots-perfect-squares/easy/2/8e0c2f749d3f", "text": "Is 121 a perfect square? If yes, what is its square root?"}
@@ -2128,6 +2239,9 @@
 {"answer": "10", "id": "f10-stem-and-leaf-plots/easy/0/6fa389439e34", "text": "The stem-and-leaf plot shows how many minutes some customers waited in a queue.…"}
 {"answer": "9", "id": "f10-stem-and-leaf-plots/easy/1/d12dde26c067", "text": "The stem-and-leaf plot shows the ages in years of the members of a club. Key: 6…"}
 {"answer": "11", "id": "f10-stem-and-leaf-plots/easy/2/3efd111afe86", "text": "The stem-and-leaf plot shows the points a basketball team scored in each of its…"}
+{"answer": "(a) 21; (b) 39; (c) 18; (d) 66", "id": "f10-stem-and-leaf-plots/exam/0/4fffe33daf35", "text": "The stem-and-leaf plot shows how many minutes each of 15 customers waited in a …"}
+{"answer": "(a) 32; (b) 56; (c) 24; (d) 92", "id": "f10-stem-and-leaf-plots/exam/1/7a28f4a030a3", "text": "The stem-and-leaf plot shows how many minutes each of 11 customers waited in a …"}
+{"answer": "(a) 43; (b) 69; (c) 26; (d) 108", "id": "f10-stem-and-leaf-plots/exam/2/efb3f8bacacd", "text": "The stem-and-leaf plot shows the lengths in centimetres of 11 fish caught in a …"}
 {"answer": "8", "id": "f10-stem-and-leaf-plots/hard/0/752c928fbef7", "text": "The back-to-back stem-and-leaf plot compares the waiting times in minutes at tw…"}
 {"answer": "5", "id": "f10-stem-and-leaf-plots/hard/1/7465de7e380c", "text": "The back-to-back stem-and-leaf plot compares the heights in centimetres of seed…"}
 {"answer": "1", "id": "f10-stem-and-leaf-plots/hard/2/f105f1493587", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
@@ -2296,6 +2410,9 @@
 {"answer": "5", "id": "f10-venn-diagram-counts/easy/0/edfeab39d3bb", "text": "There are 19 people in total. The Venn diagram shows how many study Drama, Codi…"}
 {"answer": "11", "id": "f10-venn-diagram-counts/easy/1/426b08a06756", "text": "There are 43 people in total. They were asked about Music and Latin, and the Ve…"}
 {"answer": "9", "id": "f10-venn-diagram-counts/easy/2/060939024b04", "text": "There are 30 people in total. They were asked about French and Music, and the V…"}
+{"answer": "(a) 21; (b) 32; (c) 37/54; (d) 11/32", "id": "f10-venn-diagram-counts/exam/0/f65594d55c29", "text": "54 children were asked whether they study Art and Music. The Venn diagram shows…"}
+{"answer": "(a) 10; (b) 17; (c) 22/35; (d) 7/17", "id": "f10-venn-diagram-counts/exam/1/5eb604f6ac83", "text": "The Venn diagram shows how many of 35 children play Tennis and Cycling. One reg…"}
+{"answer": "(a) 15; (b) 19; (c) 25/36; (d) 4/19", "id": "f10-venn-diagram-counts/exam/2/0fb4350a0e85", "text": "The Venn diagram shows how many of 36 students study French and Art. One region…"}
 {"answer": "5", "id": "f10-venn-diagram-counts/hard/0/5cd873e5bb5c", "text": "The Venn diagram shows how many children play Cricket, Cycling and Rugby. In to…"}
 {"answer": "2", "id": "f10-venn-diagram-counts/hard/1/654fef60f5e0", "text": "In total, 7 people play Tennis. The Venn diagram shows how many play Tennis, Cr…"}
 {"answer": "6", "id": "f10-venn-diagram-counts/hard/2/638948e11d73", "text": "In total, 15 people play Netball. The Venn diagram shows how many play Netball,…"}
@@ -2806,6 +2923,18 @@
 {"answer": "x = 12", "id": "linear-equations-with-fractions/medium/0/c09a5e9ed1f2", "text": "Solve x/3 - x/4 = 1"}
 {"answer": "x = 6", "id": "linear-equations-with-fractions/medium/1/363f833c72e3", "text": "Solve x/2 + x/3 = 5"}
 {"answer": "x = 12", "id": "linear-equations-with-fractions/medium/2/4a3cf950e719", "text": "Solve x/2 - x/3 = 2"}
+{"answer": "13", "id": "linear-models/easy/0/4cb159eb500d", "text": "The length of a burning candle is modelled by the rule l = 25 - 3t, where l is …"}
+{"answer": "433", "id": "linear-models/easy/1/c33baf5d75b9", "text": "The volume of water in a tank is modelled by the rule v = 643 - 21t, where v is…"}
+{"answer": "53", "id": "linear-models/easy/2/5eeca9029ec3", "text": "The height of a sunflower is modelled by the rule h = 38 + 3t, where h is the h…"}
+{"answer": "(a) -2; (b) 27; (c) 13; (d) 9", "id": "linear-models/exam/0/cc436c0f73f0", "text": "The length of a burning candle was 23 cm after 2 hours and 19 cm after 4 hours.…"}
+{"answer": "(a) 5; (b) 24; (c) 49; (d) 11", "id": "linear-models/exam/1/1d598983e773", "text": "The height of a sunflower was 29 cm after 1 week and 39 cm after 3 weeks. It ch…"}
+{"answer": "(a) 28; (b) 299; (c) 523; (d) 14", "id": "linear-models/exam/2/3e8d59235013", "text": "The balance of a savings account was 355 dollars after 2 weeks and 467 dollars …"}
+{"answer": "16", "id": "linear-models/hard/0/4ab28f668535", "text": "The volume of water in a tank is modelled by v = 441 - 26t, where v is in litre…"}
+{"answer": "10", "id": "linear-models/hard/1/7f55c0820608", "text": "A hall hire has a $40 booking fee plus $5 for each guest. A caterer-run hall ch…"}
+{"answer": "12", "id": "linear-models/hard/2/24947abbbed5", "text": "The balance of a savings account was 242 dollars after 3 weeks and 296 dollars …"}
+{"answer": "77", "id": "linear-models/medium/0/050cb6bdc0a6", "text": "The height of a sunflower was 49 cm after 4 weeks and 69 cm after 9 weeks. Assu…"}
+{"answer": "7", "id": "linear-models/medium/1/736a758a7710", "text": "The length of a burning candle was 23 cm after 2 hours and 17 cm after 5 hours.…"}
+{"answer": "1", "id": "linear-models/medium/2/b2183be0f67c", "text": "The length of a burning candle was 25 cm after 1 hour and 13 cm after 4 hours. …"}
 {"answer": "1, 2, 3, 4, 6, 8, 12, 24", "id": "list-factors/easy/0/4bb15268ee08", "text": "List all positive factors of 24."}
 {"answer": "1, 2, 7, 14", "id": "list-factors/easy/1/4aec554674f1", "text": "List all positive factors of 14."}
 {"answer": "1, 2, 3, 4, 6, 8, 12, 16, 24, 48", "id": "list-factors/easy/2/9f30f0876e0a", "text": "List all positive factors of 48."}
@@ -2956,6 +3085,18 @@
 {"answer": "x = 4, y = -7", "id": "midpoint-two-points/medium/0/7b1aa9e16174", "text": "Calculate the exact midpoint of the points (5, -6) and (3, -8)."}
 {"answer": "x = -1, y = -1", "id": "midpoint-two-points/medium/1/0eafe9612a6f", "text": "Calculate the exact midpoint of the points (4, -3) and (-6, 1)."}
 {"answer": "x = 0, y = -1/2", "id": "midpoint-two-points/medium/2/9753d7cdcfdd", "text": "Calculate the exact midpoint of the points (-4, 4) and (4, -5)."}
+{"answer": "10n", "id": "model-relationships-with-functions/easy/0/b47c0f889b55", "text": "The table pairs the number of packs with the cost in dollars: n = 2, 3, 4, 5 gi…"}
+{"answer": "9q", "id": "model-relationships-with-functions/easy/1/b22338685790", "text": "The table pairs the litres of fuel with the cost in dollars: q = 1, 2, 3, 4 giv…"}
+{"answer": "11h", "id": "model-relationships-with-functions/easy/2/1403b2b7fe2a", "text": "The table pairs the hours worked with the pay in dollars: h = 2, 3, 4, 5 gives …"}
+{"answer": "(a) 120; (b) 120/n; (c) 12; (d) 40", "id": "model-relationships-with-functions/exam/0/ee12e15f4743", "text": "Taps of the same size fill a pool. The table pairs the number of taps with the …"}
+{"answer": "(a) 48; (b) 48/n; (c) 3; (d) 8", "id": "model-relationships-with-functions/exam/1/8c7a5845542a", "text": "Taps of the same size fill a pool. The table pairs the number of taps with the …"}
+{"answer": "(a) 96; (b) 96/n; (c) 8; (d) 48", "id": "model-relationships-with-functions/exam/2/222a1e9f4915", "text": "Taps of the same size fill a pool. The table pairs the number of taps with the …"}
+{"answer": "48/w", "id": "model-relationships-with-functions/hard/0/76fde281a993", "text": "A job is shared equally between workers. The table pairs the number of workers …"}
+{"answer": "60/w", "id": "model-relationships-with-functions/hard/1/e64f19e4a1d4", "text": "A job is shared equally between workers. The table pairs the number of workers …"}
+{"answer": "60 - 3t", "id": "model-relationships-with-functions/hard/2/5f68f5604860", "text": "A tank drains steadily. The table pairs the minutes with the litres left: t = 1…"}
+{"answer": "2n + 20", "id": "model-relationships-with-functions/medium/0/2ab72fb901ff", "text": "A function hall's bill depends on the number of guests. The table pairs the val…"}
+{"answer": "3h + 24", "id": "model-relationships-with-functions/medium/1/10a4aafe3d13", "text": "A plumber's charge depends on the hours of work. The table pairs the values: h …"}
+{"answer": "6d + 39", "id": "model-relationships-with-functions/medium/2/58490bdd945f", "text": "A taxi fare depends on the distance in km. The table pairs the values: d = 1, 4…"}
 {"answer": "1", "id": "modular-arithmetic-congruence/easy/0/50e474f08b68", "text": "Find the least non-negative residue r such that 4 ≡ r (mod 3)."}
 {"answer": "1", "id": "modular-arithmetic-congruence/easy/1/e496053f8019", "text": "Find the least non-negative residue r such that -17 ≡ r (mod 6)."}
 {"answer": "1", "id": "modular-arithmetic-congruence/easy/2/ee0c59f4fc50", "text": "Find the least non-negative residue r such that -11 ≡ r (mod 6)."}
@@ -7717,6 +7858,18 @@
 {"answer": "7 o'clock", "id": "tell-time-to-hour/easy/0/655032ffa859", "text": "A clock hangs in the kitchen. Which time is on the clock?"}
 {"answer": "10 o'clock", "id": "tell-time-to-hour/easy/1/4a6f618fc515", "text": "Ben looks at the clock in his room. Choose the time the clock shows."}
 {"answer": "11 o'clock", "id": "tell-time-to-hour/easy/2/405d6f9de20d", "text": "Look at the clock on the wall. Choose the time the clock shows."}
+{"answer": "8p", "id": "translate-word-problems-to-equations/easy/0/b915eb5369b5", "text": "Each pack holds 8 pencils. A teacher opens some packs and has 64 pencils altoge…"}
+{"answer": "s + 8", "id": "translate-word-problems-to-equations/easy/1/56471def19f7", "text": "Mia had some savings. After she earned $8 babysitting, she had $52. Write an eq…"}
+{"answer": "6g", "id": "translate-word-problems-to-equations/easy/2/ccc3f7a20cd6", "text": "A bakery puts 6 rolls in every bag. It fills some bags with 78 rolls in total. …"}
+{"answer": "(a) 9h + 25; (b) 37; (c) 148; (d) 210", "id": "translate-word-problems-to-equations/exam/0/e61942d74bf3", "text": "A tutor charges $25 to travel to the house plus $9 for each hour. The bill was …"}
+{"answer": "(a) 6g + 29; (b) 27; (c) 135; (d) 56", "id": "translate-word-problems-to-equations/exam/1/dd16b29d567e", "text": "A function hall charges a $29 booking fee plus $6 for each guest. The total bil…"}
+{"answer": "(a) 6g + 24; (b) 11; (c) 22; (d) 68", "id": "translate-word-problems-to-equations/exam/2/36a5c6bd238d", "text": "A function hall charges a $24 booking fee plus $6 for each guest. The total bil…"}
+{"answer": "n + (n + 1) + (n + 2)", "id": "translate-word-problems-to-equations/hard/0/7d6513bcb98d", "text": "The sum of three consecutive whole numbers is 57. The smallest of the three is …"}
+{"answer": "15a + 5(a + 4)", "id": "translate-word-problems-to-equations/hard/1/1b5390275cc4", "text": "Adult tickets cost $15 and child tickets cost $5. A family buys adult tickets (…"}
+{"answer": "n + (n + 1) + (n + 2)", "id": "translate-word-problems-to-equations/hard/2/f97672d677cd", "text": "The sum of three consecutive whole numbers is 48. The smallest of the three is …"}
+{"answer": "7n - 17", "id": "translate-word-problems-to-equations/medium/0/35b189108e49", "text": "Notebooks cost $7 each. With a $17 coupon taken off the bill, Sam pays $32 for …"}
+{"answer": "16t - 9", "id": "translate-word-problems-to-equations/medium/1/a983883d24b4", "text": "Each ticket to a show costs $16. Maya buys some tickets and uses a $9 voucher, …"}
+{"answer": "8n - 17", "id": "translate-word-problems-to-equations/medium/2/50e2907b1769", "text": "Notebooks cost $8 each. With a $17 coupon taken off the bill, Sam pays $7 for s…"}
 {"answer": "9", "id": "triangle-area-base-height/easy/0/d0797706775d", "text": "Determine the area of triangle ABC in the diagram, in cm²."}
 {"answer": "4", "id": "triangle-area-base-height/easy/1/d4b49c60228f", "text": "The diagram shows triangle ABC. What is its area, in cm²?"}
 {"answer": "4", "id": "triangle-area-base-height/easy/2/4a8a0c7f6c62", "text": "Determine the area of triangle LMN in the diagram, in cm²."}
