@@ -391,7 +391,7 @@ def _answer_area(entry: dict, key: bool) -> str:
     parts = []
     if kind == "mcq":
         correct = a.get("option")
-        notes = a.get("option_notes") or {}
+        notes = a.get("option_feedback") or {}
         lis = []
         for i, opt in enumerate(entry["options"] or []):
             is_right = key and i == correct
@@ -632,7 +632,7 @@ def _moodle_question(item: dict, figure_no: int | None, svg: str | None) -> str:
     ]
     if qtype == "multichoice":
         slot = only["slots"][0]
-        notes = (only["answer"] or {}).get("option_notes") or {}
+        notes = (only["answer"] or {}).get("option_feedback") or {}
         out.append("<single>true</single><shuffleanswers>0</shuffleanswers><answernumbering>abc</answernumbering>")
         out.append('<correctfeedback format="html"><text></text></correctfeedback>')
         out.append('<partiallycorrectfeedback format="html"><text></text></partiallycorrectfeedback>')
@@ -754,6 +754,7 @@ def _qti_item(item: dict, figure_file: str | None, svg: str | None) -> str:
     decls.append(
         f'<outcomeDeclaration identifier="MAXSCORE" cardinality="single" baseType="float"><defaultValue><value>{item["marks"]}</value></defaultValue></outcomeDeclaration>'
     )
+    decls.append('<outcomeDeclaration identifier="FEEDBACK" cardinality="single" baseType="identifier"/>')
     if notes:
         body.append(
             "<!-- text answers ("
@@ -809,29 +810,29 @@ def _qti_item(item: dict, figure_file: str | None, svg: str | None) -> str:
                     + "</tbody></table>"
                 )
             body.append(f"<p>{prefix}{_xml(e['text'])}{suffix}</p>{grid}<p>{_qti_slot_xml(s, rids[id(s)], 0)}</p>")
-    # response processing
-    if single and slots[0][1]["kind"] == "mcq":
-        rp = '<responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>'
-    else:
-        conds = []
-        for e, s in slots:
-            rid = rids[id(s)]
-            weight = e["marks"] / len(e["slots"])
-            var, cor = f'<variable identifier="{rid}"/>', f'<correct identifier="{rid}"/>'
-            if s["kind"] == "number":
-                tol = s["tol"]
-                attrs = 'toleranceMode="exact"' if tol == "0" else f'toleranceMode="absolute" tolerance="{tol} {tol}"'
-                test = f"<equal {attrs}>{var}{cor}</equal>"
-            elif s["kind"] == "text":
-                test = f'<stringMatch caseSensitive="false">{var}{cor}</stringMatch>'
-            else:
-                test = f"<match>{var}{cor}</match>"
-            conds.append(
-                f"<responseCondition><responseIf>{test}"
-                '<setOutcomeValue identifier="SCORE"><sum><variable identifier="SCORE"/>'
-                f'<baseValue baseType="float">{weight:g}</baseValue></sum></setOutcomeValue></responseIf></responseCondition>'
-            )
-        rp = "<responseProcessing>" + "".join(conds) + "</responseProcessing>"
+    # response processing: SCORE adds each blank's share of its part's marks, then FEEDBACK is set so the answer
+    # and working show once the item is submitted, whatever was typed
+    conds = []
+    for e, s, weight in _slot_weights(item, slots):
+        rid = rids[id(s)]
+        var, cor = f'<variable identifier="{rid}"/>', f'<correct identifier="{rid}"/>'
+        if s["kind"] == "number":
+            tol = s["tol"]
+            attrs = 'toleranceMode="exact"' if tol == "0" else f'toleranceMode="absolute" tolerance="{tol} {tol}"'
+            test = f"<equal {attrs}>{var}{cor}</equal>"
+        elif s["kind"] == "text":
+            test = f'<stringMatch caseSensitive="false">{var}{cor}</stringMatch>'
+        else:
+            test = f"<match>{var}{cor}</match>"
+        conds.append(
+            f"<responseCondition><responseIf><and><not><isNull>{var}</isNull></not>{test}</and>"
+            '<setOutcomeValue identifier="SCORE"><sum><variable identifier="SCORE"/>'
+            f'<baseValue baseType="float">{weight!r}</baseValue></sum></setOutcomeValue></responseIf></responseCondition>'
+        )
+    conds.append(
+        '<setOutcomeValue identifier="FEEDBACK"><baseValue baseType="identifier">ANSWER</baseValue></setOutcomeValue>'
+    )
+    rp = "<responseProcessing>" + "".join(conds) + "</responseProcessing>"
     feedback = _feedback_html_plain(item)
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -841,13 +842,28 @@ def _qti_item(item: dict, figure_file: str | None, svg: str | None) -> str:
         + "".join(decls)
         + f"<itemBody><div>{''.join(body)}</div></itemBody>"
         + rp
-        + f"<!-- answer: {_comment_safe(feedback)} -->"
+        + f'<modalFeedback outcomeIdentifier="FEEDBACK" showHide="show" identifier="ANSWER">{_xml(feedback)}</modalFeedback>'
         + "</assessmentItem>\n"
     )
 
 
-def _comment_safe(text: str) -> str:
-    return _xml(text).replace("--", "- -")
+def _slot_weights(item: dict, slots: list) -> list[tuple[dict, dict, float]]:
+    """`(entry, slot, weight)` for each blank: an entry's marks split evenly over its blanks, with the last blank
+    taking what is left so the weights add up to the item's marks exactly in floating point (three thirds of a
+    mark written as 0.333333 each would total 0.999999)."""
+    out = []
+    for e in item["entries"]:
+        n = len(e["slots"])
+        if not n:
+            continue
+        share = e["marks"] / n
+        given = 0.0
+        for i, s in enumerate(e["slots"]):
+            weight = e["marks"] - given if i == n - 1 else share
+            given += weight
+            out.append((e, s, weight))
+    order = {id(s): i for i, (_e, s) in enumerate(slots)}
+    return sorted(out, key=lambda t: order[id(t[1])])
 
 
 def _feedback_html_plain(item: dict) -> str:
@@ -861,9 +877,10 @@ def _feedback_html_plain(item: dict) -> str:
 def paper_qti21_zip(paper: dict, *, version: str = "A") -> bytes:
     """An IMS QTI 2.1 content package for one version: `imsmanifest.xml`, `test.xml` (an assessmentTest with one
     section per paper section), one assessmentItem per question and any figures as SVG under `figures/`. Multiple
-    choice is a choiceInteraction marked by the match_correct template; a number is a float text entry marked with
-    an `equal` tolerance; a multi-part question or table is one item with several interactions; every other answer
-    kind is a string text entry marked against the one accepted answer, ignoring case."""
+    choice is a choiceInteraction marked against its correct choice; a number is a float text entry marked with an
+    `equal` tolerance; a multi-part question or table is one item with several interactions; every other answer
+    kind is a string text entry marked against the one accepted answer, ignoring case. Each item shows its answer
+    and working as modal feedback once submitted, and the test sums SCORE and MAXSCORE over its items."""
     chosen = _one_version(paper, version)
     items = _items(chosen, need_answer=True)
     title = _clean(paper.get("title") or "Worksheet")
@@ -899,9 +916,14 @@ def paper_qti21_zip(paper: dict, *, version: str = "A") -> bytes:
         f'xsi:schemaLocation="{_QTI_NS} http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" '
         f'identifier="{test_id}" title={_qa(title)}>'
         '<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>'
+        '<outcomeDeclaration identifier="MAXSCORE" cardinality="single" baseType="float"/>'
         '<testPart identifier="part1" navigationMode="nonlinear" submissionMode="individual">'
         + "".join(sections)
-        + "</testPart></assessmentTest>\n"
+        + "</testPart>"
+        "<outcomeProcessing>"
+        '<setOutcomeValue identifier="SCORE"><sum><testVariables variableIdentifier="SCORE"/></sum></setOutcomeValue>'
+        '<setOutcomeValue identifier="MAXSCORE"><sum><testVariables variableIdentifier="MAXSCORE"/></sum></setOutcomeValue>'
+        "</outcomeProcessing></assessmentTest>\n"
     ).encode("utf-8", "replace")
 
     resources = [

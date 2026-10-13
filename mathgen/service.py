@@ -33,7 +33,7 @@ import secrets
 from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 
-from . import __version__, engine
+from . import __version__, engine, misconceptions
 from .core import display_question, mcq_options, paper_notation
 from .engine import QuestionChanged  # noqa: F401  (re-exported for callers of grade_reply)
 from .grading.typed import table_prompt
@@ -278,7 +278,7 @@ def _prompt_block(item, shown: dict, kind: str) -> dict:
     return out
 
 
-def _answer_block(item, shown: dict, kind: str) -> dict:
+def _answer_block(item, shown: dict, kind: str, skill: Skill | None = None) -> dict:
     out = {
         "text": shown["answer_text"],
         "latex": _latex(getattr(item, "answer_latex", "")),
@@ -289,6 +289,10 @@ def _answer_block(item, shown: dict, kind: str) -> dict:
         notes = getattr(item, "option_notes", None) or {}
         if notes:
             out["option_notes"] = {str(i): notes[o] for i, o in enumerate(mcq_options(item)) if o in notes}
+            # the same notes as words a learner can read: the skill's own wording first, then the catalogue's
+            said = {i: misconceptions.describe(m, skill) for i, m in out["option_notes"].items()}
+            if any(said.values()):
+                out["option_feedback"] = {i: d[0] for i, d in said.items() if d}
     return out
 
 
@@ -327,14 +331,14 @@ def question_view(skill: Skill, question, qid: str, *, answers: bool = False) ->
             entry = {"label": part.label, "answer_kind": part.answer_kind, "marks": part.marks}
             entry.update(_prompt_block(part, part_shown, part.answer_kind))
             if answers:
-                entry["answer"] = _answer_block(part, part_shown, part.answer_kind)
+                entry["answer"] = _answer_block(part, part_shown, part.answer_kind, skill)
             view["parts"].append(entry)
         view["marks"] = sum(p.marks for p in question.parts)
     else:
         view.update(_prompt_block(question, shown, kind))
         view["marks"] = 1
         if answers:
-            view["answer"] = _answer_block(question, shown, kind)
+            view["answer"] = _answer_block(question, shown, kind, skill)
     return view
 
 

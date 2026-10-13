@@ -22,11 +22,13 @@ exit status is 1 once the rest is written. See docs/banks.md.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import re
 import shutil
 import sys
 import time
+import xml.etree.ElementTree as ET
 import zipfile
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
@@ -75,6 +77,31 @@ def _path_part(text: str) -> str:
     return text.replace("/", "-").strip()
 
 
+def _check_figures(paper: dict) -> None:
+    """Raise when a figure could not be drawn: a bank must not ship "[Figure: ...]" in place of the picture."""
+    for section in paper["versions"][0]["sections"]:
+        for q in section["questions"]:
+            figure = q.get("figure")
+            if figure and not figure.get("svg"):
+                kind = (figure.get("spec") or {}).get("kind")
+                raise ValueError(f"question {q.get('number')}: no SVG renderer for figure kind {kind!r}")
+
+
+def _check_xml(moodle: str, qti: bytes) -> None:
+    """Raise unless the Moodle file and every XML file in the QTI package parse."""
+    try:
+        ET.fromstring(moodle.encode("utf-8"))
+    except ET.ParseError as exc:
+        raise ValueError(f"Moodle XML is not well-formed: {exc}") from None
+    with zipfile.ZipFile(io.BytesIO(qti)) as zf:
+        for name in zf.namelist():
+            if name.endswith(".xml"):
+                try:
+                    ET.fromstring(zf.read(name))
+                except ET.ParseError as exc:
+                    raise ValueError(f"QTI {name} is not well-formed: {exc}") from None
+
+
 def build_one(skill_id: str, per_difficulty: int, seed: int) -> dict:
     """Build one skill's bank. Returns a dict with `moodle` (str), `qti` (bytes) and `meta`, or `error`."""
     try:
@@ -92,8 +119,10 @@ def build_one(skill_id: str, per_difficulty: int, seed: int) -> dict:
         paper = service.build_paper(lib, spec)
         paper["category"] = f"$course$/top/{BANK_ROOT}/{_path_part(skill.domain)}/{_path_part(skill.name)}"
         paper["section_categories"] = True
+        _check_figures(paper)
         moodle = export.paper_moodle_xml(paper)
         qti = export.paper_qti21_zip(paper)
+        _check_xml(moodle, qti)
         summary = service.skill_summary(skill)
         questions = sum(len(s["questions"]) for s in paper["versions"][0]["sections"])
         meta = {
@@ -155,11 +184,13 @@ def _readme(fmt: str, version: str, seed: int, per_difficulty: int, count: int, 
             "     Do not unzip the inner packages: the LMS imports them as they are.\n"
             "  2. Canvas: Settings > Import Course Content > Content Type 'QTI .zip file', choose a package,\n"
             "     then Import. The questions appear in a quiz and in a question bank.\n"
-            "  3. Other tools that read IMS QTI 2.1 (Moodle with the QTI plugin, Blackboard, Inspera) take\n"
-            "     the same packages.\n"
+            "  3. Other tools that read IMS QTI 2.1 should take the same packages.\n"
+            "  EXPERIMENTAL: these packages are well-formed QTI 2.1, but no import into Canvas or another\n"
+            "  LMS has been tried yet. Import one skill and check it before importing many.\n"
             "  Each package has one section per difficulty. Multiple-choice and numeric questions are\n"
             "  marked by the LMS; expression-style answers are text answers matched exactly (ignoring\n"
-            "  case), so read those responses yourself. The full answer and working are in the feedback.\n"
+            "  case), so read those responses yourself. The full answer and working are in each\n"
+            "  question's feedback, shown once it is submitted.\n"
         )
         title = "Maths Engine question banks for Canvas and other QTI 2.1 tools"
     lines = [
