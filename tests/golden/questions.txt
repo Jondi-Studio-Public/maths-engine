@@ -430,6 +430,18 @@
 {"answer": "3", "id": "complex-real-part/exam/0/4f408b03fa52", "text": "Find Re((7 - i)/(2 - i))."}
 {"answer": "2", "id": "complex-real-part/exam/1/737e13b70100", "text": "Find the real part of (-1 + 2i)(2 - 2i)(-2 - i). Give a whole number."}
 {"answer": "2", "id": "complex-real-part/exam/2/4125005c51fe", "text": "Find Re((2 - i)^3)."}
+{"answer": "x > -1", "id": "composite-function-domain/easy/0/339c45f953ad", "text": "Let f(x) = 2x + 2 and g(x) = ln(x). Find the largest domain of the composite fu…"}
+{"answer": "x ≠ -2", "id": "composite-function-domain/easy/1/0689ae4fd33f", "text": "For f(x) = -3x - 6 and g(x) = 1/x, find the largest set of real x for which g(f…"}
+{"answer": "x ≠ -7/3", "id": "composite-function-domain/easy/2/c1257b5567df", "text": "Let f(x) = -3x - 7 and g(x) = 1/x. Find the largest domain of the composite fun…"}
+{"answer": "(a) 3; (b) 12; (c) 3 ≤ x < 12 or x > 12", "id": "composite-function-domain/exam/0/4c295c9224b7", "text": "Let f(x) = √(x - 3) and g(x) = 1/(x - 3). (a) Find the least value of x for whi…"}
+{"answer": "(a) -2; (b) 2; (c) -2 ≤ x < 2 or x > 2", "id": "composite-function-domain/exam/1/532183a8cf87", "text": "Let f(x) = √(x + 2) and g(x) = 1/(x - 2). (a) Find the least value of x for whi…"}
+{"answer": "(a) -4; (b) 5; (c) -4 ≤ x < 5 or x > 5", "id": "composite-function-domain/exam/2/2365bba29538", "text": "Let f(x) = √(x + 4) and g(x) = 1/(x - 3). (a) Find the least value of x for whi…"}
+{"answer": "x ≥ 3", "id": "composite-function-domain/hard/0/2ba85557cf5c", "text": "Let f(x) = √(x - 3) and g(x) = 1/(x + 3). Find the largest domain of the compos…"}
+{"answer": "-3 ≤ x ≤ 13", "id": "composite-function-domain/hard/1/dab69a322845", "text": "Let f(x) = √(x + 3) and g(x) = √(4 - x). Find the largest domain of the composi…"}
+{"answer": "x ≥ -4", "id": "composite-function-domain/hard/2/63567cdf3633", "text": "Let f(x) = √(x + 4) and g(x) = 1/(x + 3). Find the largest domain of the compos…"}
+{"answer": "x ≤ -2 or x ≥ 2", "id": "composite-function-domain/medium/0/b323822337c3", "text": "Let f(x) = x² - 4 and g(x) = √x. Find the largest domain of the composite funct…"}
+{"answer": "-5 < x < 5", "id": "composite-function-domain/medium/1/3ff48a9485c7", "text": "The functions f and g are given by f(x) = 25 - x² and g(x) = ln(x). What is the…"}
+{"answer": "x > 1", "id": "composite-function-domain/medium/2/a408e3c23c92", "text": "Let f(x) = 1/(x - 1) and g(x) = √x. Find the largest domain of the composite fu…"}
 {"answer": "32", "id": "composite-perimeter/easy/0/5b2e59f44506", "text": "An L-shaped boundary has consecutive side lengths 11, 2, 5, 3, 6, 5 m. Find its…"}
 {"answer": "28", "id": "composite-perimeter/easy/1/0d123e02506f", "text": "An L-shaped boundary has consecutive side lengths 8, 4, 4, 2, 4, 6 m. Find its …"}
 {"answer": "58", "id": "composite-perimeter/easy/2/271a107798e8", "text": "An L-shaped boundary has consecutive side lengths 17, 11, 13, 1, 4, 12 m. Find …"}
@@ -589,6 +601,18 @@
 {"answer": "2", "id": "count-to-5/easy/0/e12555feead5", "text": "Count the diamonds. How many?"}
 {"answer": "4", "id": "count-to-5/easy/1/41a60e653579", "text": "Ingrid counts the squares. How many are there?"}
 {"answer": "1", "id": "count-to-5/easy/2/2688b9e3f8ae", "text": "How many circles are there?"}
+{"answer": "3360", "id": "counting-with-restrictions/easy/0/ea1de881f167", "text": "The letters of the town name BLACKALL are rearranged in every possible order. H…"}
+{"answer": "907200", "id": "counting-with-restrictions/easy/1/a730090a4b09", "text": "The letters of the town name KALGOORLIE are rearranged in every possible order.…"}
+{"answer": "181440", "id": "counting-with-restrictions/easy/2/360e8eb590ad", "text": "How many different ways can all the letters of BUNDABERG be arranged in a row?"}
+{"answer": "(a) 1260; (b) 360; (c) 2/7; (d) 900", "id": "counting-with-restrictions/exam/0/481cd79a9b29", "text": "The letters of the town name GEELONG are arranged in a row in every possible or…"}
+{"answer": "(a) 30; (b) 12; (c) 2/5; (d) 18", "id": "counting-with-restrictions/exam/1/169ebca816d6", "text": "All the letters of WAGGA, the name of an Australian town, are rearranged in a r…"}
+{"answer": "(a) 907200; (b) 181440; (c) 1/5; (d) 725760", "id": "counting-with-restrictions/exam/2/933fd4912983", "text": "Consider every way of arranging the letters of the town name KALGOORLIE in a ro…"}
+{"answer": "12", "id": "counting-with-restrictions/hard/0/47a577511326", "text": "In how many different ways can 5 people sit around a circular table, with Ravi …"}
+{"answer": "240", "id": "counting-with-restrictions/hard/1/71c0960b55de", "text": "7 different people sit around a circular table, with Ravi and Sam next to each …"}
+{"answer": "155", "id": "counting-with-restrictions/hard/2/8965aabeb982", "text": "From 5 men and 5 women, a committee of 4 is chosen. In how many ways can it be …"}
+{"answer": "36", "id": "counting-with-restrictions/medium/0/de03caf68705", "text": "5 different people stand in a row for a photograph. In how many ways can they b…"}
+{"answer": "72", "id": "counting-with-restrictions/medium/1/570673b9ea0d", "text": "5 different runners line up at the start of a relay. In how many ways can they …"}
+{"answer": "48", "id": "counting-with-restrictions/medium/2/7ee5e06f44c0", "text": "In how many ways can 5 different runners be arranged when they line up at the s…"}
 {"answer": "9", "id": "cyclic-group-element-order/easy/0/202ef5928076", "text": "In the additive cyclic group Z/9Z, find the order of the element [1]."}
 {"answer": "9", "id": "cyclic-group-element-order/easy/1/27fb051bc14b", "text": "In the additive cyclic group Z/9Z, find the order of the element [4]."}
 {"answer": "9", "id": "cyclic-group-element-order/easy/2/e5cef90764af", "text": "In the additive cyclic group Z/9Z, find the order of the element [5]."}
@@ -844,6 +868,18 @@
 {"answer": "81", "id": "evaluate-powers/medium/0/48b8761f72be", "text": "9²"}
 {"answer": "27", "id": "evaluate-powers/medium/1/f8f41db66565", "text": "3³"}
 {"answer": "9", "id": "evaluate-powers/medium/2/6a21bfed7d9b", "text": "3²"}
+{"answer": "2*sqrt(2)", "id": "exact-trig-values-typed/easy/0/977c32bd5809", "text": "Evaluate 4 cos(π/4) exactly. Type surds as sqrt(3), for example."}
+{"answer": "3*sqrt(2)/2", "id": "exact-trig-values-typed/easy/1/b26d63b3faea", "text": "What is the exact value of 3 cos(π/4)?"}
+{"answer": "-2*sqrt(3)/3", "id": "exact-trig-values-typed/easy/2/3f87912df1a2", "text": "What is the exact value of 2 tan(5π/6)?"}
+{"answer": "(a) sqrt(2)/2; (b) -sqrt(2)/2; (c) -1; (d) pi/4", "id": "exact-trig-values-typed/exam/0/4e4dc9afe8a4", "text": "Consider the angle θ = 3π/4. (a) Find the exact value of sin θ. Type surds as s…"}
+{"answer": "(a) 1/2; (b) sqrt(3)/2; (c) sqrt(3)/3; (d) 5pi/6", "id": "exact-trig-values-typed/exam/1/8c9092acac76", "text": "The angle θ is π/6 radians. (a) Find the exact value of sin θ. Type surds as sq…"}
+{"answer": "(a) sqrt(2)/2; (b) sqrt(2)/2; (c) 1; (d) 3pi/4", "id": "exact-trig-values-typed/exam/2/b181539e74ed", "text": "The angle θ is π/4 radians. (a) Find the exact value of sin θ. Type surds as sq…"}
+{"answer": "2pi/3", "id": "exact-trig-values-typed/hard/0/3c4170eb26f1", "text": "Given that tan θ = -sqrt(3) and sin θ > 0, find θ in radians, where 0 ≤ θ < 2π.…"}
+{"answer": "3/4", "id": "exact-trig-values-typed/hard/1/6a5fd0ee028e", "text": "Find the exact value of sin(2π/3) × cos(π/6). Type surds as sqrt(3), for exampl…"}
+{"answer": "5pi/6", "id": "exact-trig-values-typed/hard/2/5bd87c15fbc9", "text": "Given that cos θ = -sqrt(3)/2 and sin θ > 0, find θ in radians, where 0 ≤ θ < 2…"}
+{"answer": "sqrt(3)/3", "id": "exact-trig-values-typed/medium/0/b9d7f434029e", "text": "Evaluate tan(-11π/6) exactly. Type surds as sqrt(3), for example."}
+{"answer": "-2*sqrt(3)", "id": "exact-trig-values-typed/medium/1/0fd55b7eecbb", "text": "What is the exact value of 2 tan(8π/3)?"}
+{"answer": "-8*sqrt(3)", "id": "exact-trig-values-typed/medium/2/4f84674a1548", "text": "Find the exact value of 8 tan(8π/3)."}
 {"answer": "2x^2 + 25x + 72", "id": "expand-binomial-trinomial/easy/0/b36ad14e3257", "text": "Expand and simplify (x + 8)(2x + 9)."}
 {"answer": "-3x^2 - 5x + 12", "id": "expand-binomial-trinomial/easy/1/bf5c80486e8b", "text": "Expand and simplify (x + 3)(-3x + 4)."}
 {"answer": "4x^2 + 36x + 56", "id": "expand-binomial-trinomial/easy/2/d8767b7622d0", "text": "Expand and simplify (x + 7)(4x + 8)."}
@@ -3211,6 +3247,18 @@
 {"answer": "2x^2 + 2x + 2 + (-7)/(3x - 5)", "id": "polynomial-long-division/medium/0/7c9c6acefac9", "text": "Divide f(x) = 6x^3 - 4x^2 - 4x - 17 by g(x) = 3x - 5. Give your answer as a sin…"}
 {"answer": "6x^2 + x - 1 + (2)/(2x)", "id": "polynomial-long-division/medium/1/af384e547590", "text": "Divide f(x) = 12x^3 + 2x^2 - 2x + 2 by g(x) = 2x. Give your answer as a single …"}
 {"answer": "-x^2 - 4x + 2 + (-3)/(2x + 5)", "id": "polynomial-long-division/medium/2/9cde849b518a", "text": "Divide f(x) = -2x^3 - 13x^2 - 16x + 7 by g(x) = 2x + 5. Give your answer as a s…"}
+{"answer": "0.7", "id": "position-time-graph-velocity/easy/0/59aa55994945", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "0.25", "id": "position-time-graph-velocity/easy/1/f86bce923982", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
+{"answer": "0.7", "id": "position-time-graph-velocity/easy/2/4a18f852168b", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
+{"answer": "(a) -0.75; (b) 5; (c) 9; (d) 0.9", "id": "position-time-graph-velocity/exam/0/421ceb722346", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "(a) 1; (b) 6; (c) 8; (d) 0.8", "id": "position-time-graph-velocity/exam/1/0f93bd6ce9f3", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "(a) 1; (b) 5; (c) 15; (d) 1.5", "id": "position-time-graph-velocity/exam/2/77944eef92b8", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "10", "id": "position-time-graph-velocity/hard/0/9967495a5a83", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "5", "id": "position-time-graph-velocity/hard/1/ba07034aa888", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "7", "id": "position-time-graph-velocity/hard/2/ba145b91e423", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "1.2", "id": "position-time-graph-velocity/medium/0/d7b9b198cd26", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
+{"answer": "4.2", "id": "position-time-graph-velocity/medium/1/779506bb3139", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "1.8", "id": "position-time-graph-velocity/medium/2/2720e67747e6", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/0/2e99032d3ed9", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/1/dd141497b7f2", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3² × 5²", "id": "prime-factorisation-exponent/easy/2/9790e970467f", "text": "Write 225 as a product of prime powers using exponent notation."}
@@ -3355,6 +3403,18 @@
 {"answer": "15:37", "id": "ratio-rate-proportion/medium/0/d6f6c9ff1721", "text": "Simplify the ratio 45:111"}
 {"answer": "1:55", "id": "ratio-rate-proportion/medium/1/cfe0b2e86282", "text": "Simplify the ratio 8:440"}
 {"answer": "35:52", "id": "ratio-rate-proportion/medium/2/a62c2b578efc", "text": "Simplify the ratio 140:208"}
+{"answer": "x = -3, y = 3", "id": "rational-function-features/easy/0/f6a531597f5f", "text": "The graph of y = (3x - 3)/(x + 3) has one vertical and one horizontal asymptote…"}
+{"answer": "x = -5, y = -3", "id": "rational-function-features/easy/1/4be891cd24fd", "text": "The graph of y = (-3x + 2)/(x + 5) has one vertical and one horizontal asymptot…"}
+{"answer": "x = 2, y = -1", "id": "rational-function-features/easy/2/d1c69622ed3f", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "(a) 3; (b) 6; (c) 9; (d) -2", "id": "rational-function-features/exam/0/deeee8190f29", "text": "Consider the function f(x) = (x² + 3x + 6)/(x - 3). (a) Find the value of x at …"}
+{"answer": "(a) 3; (b) 9; (c) 12; (d) -2", "id": "rational-function-features/exam/1/e019a3f8655c", "text": "Consider the function f(x) = (x² + 6x + 6)/(x - 3). (a) Find the value of x at …"}
+{"answer": "(a) -2; (b) -6; (c) -8; (d) 1", "id": "rational-function-features/exam/2/1c8ec9c09f61", "text": "Consider the function f(x) = (x² - 4x + 2)/(x + 2). (a) Find the value of x at …"}
+{"answer": "m = 2, k = -2", "id": "rational-function-features/hard/0/aeee336d8035", "text": "The graph of y = (2x² - 14x + 13)/(x - 6) has an oblique asymptote with equatio…"}
+{"answer": "x = -5, y = -5", "id": "rational-function-features/hard/1/7c17a357bcaf", "text": "The graph of y = (2x² + 15x + 25)/(x + 5) has a hole, a single point where the …"}
+{"answer": "x = 1, y = -6", "id": "rational-function-features/hard/2/98da61fe8029", "text": "The graph of y = (-2x² - 2x + 4)/(x - 1) has a hole, a single point where the f…"}
+{"answer": "x = 1/3, y = 5/3", "id": "rational-function-features/medium/0/8ecb046b6fb6", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "x = 1, y = 5/3", "id": "rational-function-features/medium/1/1b367656dfaa", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "x = 3/2, y = -1/2", "id": "rational-function-features/medium/2/a27943579b05", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
 {"answer": "(5 - sqrt(2))/23", "id": "rationalise-binomial-denominator/easy/0/8e200d6ba510", "text": "Rationalise the denominator of 1/(5 + √2). Give your answer as a single simplif…"}
 {"answer": "(9 - sqrt(11))/70", "id": "rationalise-binomial-denominator/easy/1/79a6f0a7b8a1", "text": "Rationalise the denominator of 1/(9 + √11). Give your answer as a single simpli…"}
 {"answer": "(7 + sqrt(13))/36", "id": "rationalise-binomial-denominator/easy/2/3bdfb4d35a42", "text": "Rationalise the denominator of 1/(7 - √13). Give your answer as a single simpli…"}
@@ -3385,6 +3445,18 @@
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/0/c55b4b9ed2be", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/1/c8ff1a45c975", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "-a*t/2 + s/t", "id": "rearrange-simple-formulas/powers-roots/2/0cc130ad6206", "text": "Make u the subject of the formula s = ut + ½at²"}
+{"answer": "2pi", "id": "reciprocal-and-trig-graph-features/easy/0/48ce20554d91", "text": "State the period of the graph of y = -3 tan(x/2)."}
+{"answer": "6pi", "id": "reciprocal-and-trig-graph-features/easy/1/e67f0e1f3fbb", "text": "What is the period, in radians, of the function y = -2 sec(x/3)? Give an exact …"}
+{"answer": "pi", "id": "reciprocal-and-trig-graph-features/easy/2/51f5a24a0c03", "text": "Find the period of y = 2 sec(2x). Give your answer in radians, in terms of pi."}
+{"answer": "(a) pi/2; (b) pi/4; (c) 9; (d) 4", "id": "reciprocal-and-trig-graph-features/exam/0/633dc49aa177", "text": "Consider the function f(x) = -3 cosec(4x) + 1, for 0 ≤ x ≤ 2π. (a) Find the per…"}
+{"answer": "(a) 2pi/3; (b) pi/3; (c) 7; (d) 1", "id": "reciprocal-and-trig-graph-features/exam/1/be93171f04d0", "text": "Consider the function f(x) = 4 cosec(3x) - 3, for 0 ≤ x ≤ 2π. (a) Find the peri…"}
+{"answer": "(a) pi; (b) pi/2; (c) 5; (d) 6", "id": "reciprocal-and-trig-graph-features/exam/2/1383d9d1ecb9", "text": "Consider the function f(x) = 4 cosec(2x) + 2, for 0 ≤ x ≤ 2π. (a) Find the peri…"}
+{"answer": "5pi/24", "id": "reciprocal-and-trig-graph-features/hard/0/0301314205b7", "text": "The graph of y = -2 sec(4(x - π/3)) + 1 has vertical asymptotes. What is the sm…"}
+{"answer": "-2", "id": "reciprocal-and-trig-graph-features/hard/1/f7921dd7b782", "text": "The graph of y = -2 sec(3x) - 4 takes no values between two numbers. Find the l…"}
+{"answer": "7", "id": "reciprocal-and-trig-graph-features/hard/2/04e842e12cb0", "text": "The graph of y = 4 sec(2x) + 3 takes no values between two numbers. Find the la…"}
+{"answer": "6", "id": "reciprocal-and-trig-graph-features/medium/0/eb4c1a518523", "text": "For 0 ≤ x ≤ 2π, how many vertical asymptotes does y = cosec(5x/2) have?"}
+{"answer": "8", "id": "reciprocal-and-trig-graph-features/medium/1/fe54d2434895", "text": "How many vertical asymptotes does the graph of y = -2 tan(4x) have for 0 ≤ x ≤ …"}
+{"answer": "9", "id": "reciprocal-and-trig-graph-features/medium/2/b54847132d76", "text": "How many vertical asymptotes does the graph of y = cosec(4x) have for 0 ≤ x ≤ 2…"}
 {"answer": "8", "id": "recognise-numerals-to-10/easy/0/5ad3d72248b6", "text": "Tap the number 8"}
 {"answer": "10", "id": "recognise-numerals-to-10/easy/1/35ec3258cfe6", "text": "Tap the number 10"}
 {"answer": "6", "id": "recognise-numerals-to-10/easy/2/db77affa9cef", "text": "Tap the number 6"}
@@ -3493,6 +3565,18 @@
 {"answer": "7.4", "id": "round-decimals/medium/0/b9da8826cb14", "text": "Round 7.42 to the nearest tenth."}
 {"answer": "29.4", "id": "round-decimals/medium/1/63e7c1fa240a", "text": "Round 29.41 to the nearest tenth."}
 {"answer": "97.1", "id": "round-decimals/medium/2/340184f088d7", "text": "Round 97.12 to the nearest tenth."}
+{"answer": "1824", "id": "scale-drawing-costs/easy/0/c487d9bb5895", "text": "The floor of a studio is shown on a plan with a scale of 1 : 100. It measures 8…"}
+{"answer": "1620", "id": "scale-drawing-costs/easy/1/21a25cc11d8d", "text": "The floor of a studio is shown on a plan with a scale of 1 : 100. It measures 9…"}
+{"answer": "595", "id": "scale-drawing-costs/easy/2/dc781b0e7b61", "text": "A plan of a studio is drawn to a scale of 1 : 20. On the plan the floor is 17.5…"}
+{"answer": "(a) 7; (b) 45.50; (c) 54.60; (d) 2035", "id": "scale-drawing-costs/exam/0/45e072898d74", "text": "A plan of a lounge room is drawn to a scale of 1 : 100. On the plan the floor i…"}
+{"answer": "(a) 9; (b) 58.50; (c) 70.20; (d) 2961", "id": "scale-drawing-costs/exam/1/aaa17ee6da4d", "text": "A plan of an office is drawn to a scale of 1 : 100. On the plan the floor is 9 …"}
+{"answer": "(a) 7; (b) 35.00; (c) 42.00; (d) 1224", "id": "scale-drawing-costs/exam/2/d0a70f9794c2", "text": "A plan of an office is drawn to a scale of 1 : 25. On the plan the floor is 28 …"}
+{"answer": "1380", "id": "scale-drawing-costs/hard/0/35c56612ed58", "text": "A plan of a rectangular courtyard is drawn to a scale of 1 : 50. On the plan th…"}
+{"answer": "1080", "id": "scale-drawing-costs/hard/1/cf9b4cd69294", "text": "A plan of a lounge room is drawn to a scale of 1 : 50. On the plan the floor is…"}
+{"answer": "760", "id": "scale-drawing-costs/hard/2/8cbbc5d65e92", "text": "A plan of a rectangular courtyard is drawn to a scale of 1 : 20. On the plan th…"}
+{"answer": "2355.2", "id": "scale-drawing-costs/medium/0/9f9548e562eb", "text": "The floor of a studio is shown on a plan with a scale of 1 : 20. It measures 40…"}
+{"answer": "869.4", "id": "scale-drawing-costs/medium/1/3be2dd35e35c", "text": "A plan of a lounge room is drawn to a scale of 1 : 50. On the plan the floor is…"}
+{"answer": "1106.25", "id": "scale-drawing-costs/medium/2/25198757e1c3", "text": "A plan of a hall is drawn to a scale of 1 : 100. On the plan the floor is 5 cm …"}
 {"answer": "163.4556 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/0/1bc6d238942d", "text": "Calculate (5.124 × 10^-5) × (3.19 × 10^-6), then write the result in engineerin…"}
 {"answer": "4.945584 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/1/bd12a1ad84af", "text": "(1.148 × 10^-6) × (4.308 × 10^-6) -- write your answer in engineering notation."}
 {"answer": "14.544996 × 10^-3", "id": "scientific-notation-ops-to-engineering/easy/2/6154072cfbf9", "text": "Calculate (1.927 × 10^1) × (7.548 × 10^-4), then write the result in engineerin…"}
@@ -7444,6 +7528,18 @@
 {"answer": "(a) 15; (b) 17; (c) 2", "id": "shortest-network-path/exam/0/09c38c0c5a7c", "text": "A delivery driver travels between six depots, A to F. The roads between depots …"}
 {"answer": "(a) 18; (b) 21; (c) 3", "id": "shortest-network-path/exam/1/aa6d8ed33f6a", "text": "A delivery driver travels between six depots, A to F. The roads between depots …"}
 {"answer": "(a) 10; (b) 18; (c) 8", "id": "shortest-network-path/exam/2/e433f4691326", "text": "A delivery driver travels between six depots, A to F. The roads between depots …"}
+{"answer": "5", "id": "signed-area-definite-integral/easy/0/31348fb78673", "text": "The graph of y = f(x) for 0 ≤ x ≤ 5 crosses the x-axis at x = 3. Between x = 0 …"}
+{"answer": "1", "id": "signed-area-definite-integral/easy/1/6dadedc7aed8", "text": "The graph of y = f(x) for 0 ≤ x ≤ 4 crosses the x-axis at x = 1. Between x = 0 …"}
+{"answer": "8", "id": "signed-area-definite-integral/easy/2/1cf12a6d8a40", "text": "The graph of y = f(x) for 0 ≤ x ≤ 3 crosses the x-axis at x = 1. Between x = 0 …"}
+{"answer": "(a) -4; (b) 5; (c) 29; (d) -2", "id": "signed-area-definite-integral/exam/0/a26de8007065", "text": "The graph of y = f(x) for 2 ≤ x ≤ 8 crosses the x-axis at x = 5 and x = 7. Betw…"}
+{"answer": "(a) -5; (b) 5; (c) 19; (d) -5", "id": "signed-area-definite-integral/exam/1/b19190a04c14", "text": "The graph of y = f(x) for 0 ≤ x ≤ 5 crosses the x-axis at x = 1 and x = 3. Betw…"}
+{"answer": "(a) 2; (b) 10; (c) 28; (d) 51", "id": "signed-area-definite-integral/exam/2/5246fcbade65", "text": "The graph of y = f(x) for 0 ≤ x ≤ 7 crosses the x-axis at x = 2 and x = 4. Betw…"}
+{"answer": "8", "id": "signed-area-definite-integral/hard/0/6c1a4959359b", "text": "The graph of y = f(x) for 0 ≤ x ≤ 7 crosses the x-axis at x = 3 and x = 4, and …"}
+{"answer": "24", "id": "signed-area-definite-integral/hard/1/3f570e2a0d9a", "text": "The graph of y = f(x) for 0 ≤ x ≤ 6 crosses the x-axis at x = 1 and x = 4. Betw…"}
+{"answer": "4", "id": "signed-area-definite-integral/hard/2/cfe76adb9f74", "text": "The graph of y = f(x) for 0 ≤ x ≤ 7 crosses the x-axis at x = 2 and x = 4, and …"}
+{"answer": "-9", "id": "signed-area-definite-integral/medium/0/a9dee378fc03", "text": "The graph of y = f(x) for 0 ≤ x ≤ 3 crosses the x-axis at x = 1 and x = 2. Betw…"}
+{"answer": "5", "id": "signed-area-definite-integral/medium/1/2c868fd45030", "text": "The graph of y = f(x) for 2 ≤ x ≤ 8 crosses the x-axis at x = 5 and x = 7. Betw…"}
+{"answer": "-2", "id": "signed-area-definite-integral/medium/2/11a17d7ffe85", "text": "The graph of y = f(x) for 1 ≤ x ≤ 7 crosses the x-axis at x = 4 and x = 5. Betw…"}
 {"answer": "1.134", "id": "significant-figures/easy/0/e2fc5ca0d3b0", "text": "Round 1.13352 to 4 significant figures."}
 {"answer": "75.41", "id": "significant-figures/easy/1/45c7c1cdd4b5", "text": "Round 75.40702 to 4 significant figures."}
 {"answer": "9.5", "id": "significant-figures/easy/2/3eb321053a53", "text": "Round 9.54269 to 2 significant figures."}

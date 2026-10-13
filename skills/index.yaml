@@ -408,6 +408,14 @@ complex-real-part:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_complex_real_part
     module: mathgen/generators/exd_x_complex_arith.py
+composite-function-domain:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: sr2b_composite_domain
+    module: mathgen/generators/sr2b_composite_domain_build.py
+  - topic: sr2b_exam_composite_domain
+    module: mathgen/generators/sr2b_composite_domain_build.py
 composite-perimeter:
   domain: primary-geometry-time
   status: active
@@ -538,6 +546,14 @@ count-to-5:
   sources:
   - topic: count_objects
     module: mathgen/generators/early_math.py
+counting-with-restrictions:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2b_counting_restrictions
+    module: mathgen/generators/sr2b_counting_restrictions_build.py
+  - topic: sr2b_exam_counting_restrictions
+    module: mathgen/generators/sr2b_counting_restrictions_build.py
 cyclic-group-element-order:
   domain: abstract-algebra
   status: active
@@ -724,6 +740,14 @@ evaluate-powers:
     module: mathgen/generators/arithmetic.py
   - topic: exd_x_n2_powers_growth
     module: mathgen/generators/exd_x_n2_powers_growth.py
+exact-trig-values-typed:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: sr2b_exact_trig_values
+    module: mathgen/generators/sr2b_exact_trig_values_build.py
+  - topic: sr2b_exam_exact_trig_values
+    module: mathgen/generators/sr2b_exact_trig_values_build.py
 expand-binomial-trinomial:
   domain: expressions-equivalence
   status: active
@@ -2430,6 +2454,14 @@ polynomial-long-division:
     module: mathgen/generators/p8a_special_products_build.py
   - topic: exd_x_a1_polynomial_long_division
     module: mathgen/generators/exd_x_a1_polynomial_long_division.py
+position-time-graph-velocity:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2b_position_time
+    module: mathgen/generators/sr2b_position_time_build.py
+  - topic: sr2b_exam_position_time
+    module: mathgen/generators/sr2b_position_time_build.py
 prime-factorisation:
   domain: secondary-number
   status: active
@@ -2534,6 +2566,14 @@ ratio-rate-proportion:
     module: mathgen/generators/foundations.py
   - topic: exd_x_n3_ratio_mix_cost
     module: mathgen/generators/exd_x_n3_ratio_mix_cost.py
+rational-function-features:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: sr2b_rational_features
+    module: mathgen/generators/sr2b_rational_features_build.py
+  - topic: sr2b_exam_rational_features
+    module: mathgen/generators/sr2b_rational_features_build.py
 rationalise-binomial-denominator:
   domain: secondary-number
   status: active
@@ -2558,6 +2598,14 @@ rearrange-simple-formulas:
     module: mathgen/generators/p8b_rearrange_powers_build.py
   - topic: exd_x_a3_rearrange_repeated_subject
     module: mathgen/generators/exd_x_a3_rearrange_repeated_subject.py
+reciprocal-and-trig-graph-features:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: sr2b_trig_graph_features
+    module: mathgen/generators/sr2b_trig_graph_features_build.py
+  - topic: sr2b_exam_trig_graph_features
+    module: mathgen/generators/sr2b_trig_graph_features_build.py
 recognise-equivalent-expressions:
   domain: expressions-equivalence
   status: deferred
@@ -2650,6 +2698,14 @@ round-decimals:
     module: mathgen/generators/primary_math.py
   - topic: exd_x_pr4_round_decimal_bounds
     module: mathgen/generators/exd_x_pr4_round_decimal_bounds.py
+scale-drawing-costs:
+  domain: measurement
+  status: active
+  sources:
+  - topic: sr2b_scale_costs
+    module: mathgen/generators/sr2b_scale_costs_build.py
+  - topic: sr2b_exam_scale_costs
+    module: mathgen/generators/sr2b_scale_costs_build.py
 scientific-notation:
   domain: secondary-number
   status: active
@@ -5066,6 +5122,14 @@ shortest-network-path:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_sc2_network_closure
     module: mathgen/generators/exd_x_sc2_network_closure.py
+signed-area-definite-integral:
+  domain: integration
+  status: active
+  sources:
+  - topic: sr2b_signed_area
+    module: mathgen/generators/sr2b_signed_area_build.py
+  - topic: sr2b_exam_signed_area
+    module: mathgen/generators/sr2b_signed_area_build.py
 significant-figures:
   domain: secondary-number
   status: active
