@@ -3,6 +3,7 @@ difficulty presets, distractor helper."""
 
 from __future__ import annotations
 
+import difflib
 import json
 import math
 import random
@@ -251,7 +252,10 @@ def make(topic: str, seed: int | None = None, difficulty: str | None = None, **p
     no presets simply uses its defaults for any difficulty name.
     """
     if topic not in REGISTRY:
-        raise KeyError(f"unknown topic {topic!r}; known: {', '.join(sorted(REGISTRY))}")
+        # Close matches, not the whole list: there are over a thousand topics, and `topics()` lists them.
+        close = difflib.get_close_matches(topic, REGISTRY, n=3) if isinstance(topic, str) else []
+        hint = f"; did you mean {', '.join(repr(c) for c in close)}?" if close else "; topics() lists them"
+        raise KeyError(f"unknown topic {topic!r}{hint}")
     level, fn = REGISTRY[topic]
     if seed is None:
         seed = random.randrange(2**31)
