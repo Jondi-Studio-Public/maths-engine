@@ -1,6 +1,7 @@
 id: ucv1-system-consistency-parameter
 name: Number of solutions of a linear system with a parameter
 domain: linear-algebra
+year_level: [university]
 description: Find the value of a constant k for which a linear system has no solution, no unique solution or infinitely
   many solutions, and say what happens at that value.
 status: active

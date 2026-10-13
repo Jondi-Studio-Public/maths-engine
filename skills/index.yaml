@@ -5280,6 +5280,14 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+ucv1-alternating-series-error:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fy1so_alternating_series
+    module: mathgen/generators/fy1so_alternating_series_build.py
+  - topic: fy1so_exd_alternating_series
+    module: mathgen/generators/fy1so_alternating_series_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active
@@ -5326,6 +5334,14 @@ ucv1-chinese-remainder-two-congruences:
     module: mathgen/generators/p11e_number_discrete_build.py
   - topic: exd_x_u3_crt_leftovers
     module: mathgen/generators/exd_x_u3_crt_leftovers.py
+ucv1-column-space-basis-dimension:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_column_space
+    module: mathgen/generators/fy1la_column_space_build.py
+  - topic: exd_x_fy1la_column_space
+    module: mathgen/generators/fy1la_column_space_build.py
 ucv1-compactness-finite-check:
   domain: metric-spaces-and-topology
   status: active
@@ -5430,6 +5446,14 @@ ucv1-double-integral-rectangle:
     module: mathgen/generators/p11e_calculus_build.py
   - topic: exd_x_u3_double_integral_average
     module: mathgen/generators/exd_x_u3_double_integral_average.py
+ucv1-eigenvalues-characteristic-polynomial:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_eigenvalues
+    module: mathgen/generators/fy1la_eigenvalues_build.py
+  - topic: exd_x_fy1la_eigenvalues
+    module: mathgen/generators/fy1la_eigenvalues_build.py
 ucv1-eigenvectors:
   domain: linear-algebra
   status: active
@@ -5472,6 +5496,14 @@ ucv1-finite-subgroup-test:
   sources:
   - topic: p15a_finite_subgroup_test
     module: mathgen/generators/p15a_subgroup_isomorphism_build.py
+ucv1-first-order-linear-integrating-factor:
+  domain: ordinary-differential-equations
+  status: active
+  sources:
+  - topic: fy1so_ode_integrating_factor
+    module: mathgen/generators/fy1so_ode_integrating_factor_build.py
+  - topic: fy1so_exd_ode_integrating_factor
+    module: mathgen/generators/fy1so_ode_integrating_factor_build.py
 ucv1-floating-point-error-budget:
   domain: advanced-scientific-computing
   status: active
@@ -5514,6 +5546,14 @@ ucv1-fundamental-group-map:
     module: mathgen/generators/p15b_geometry_build.py
   - topic: exd_x_r2h_circle_maps_chain
     module: mathgen/generators/exd_x_r2h_circle_maps_chain.py
+ucv1-general-solution-parametric:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_general_solution
+    module: mathgen/generators/fy1la_general_solution_build.py
+  - topic: exd_x_fy1la_general_solution
+    module: mathgen/generators/fy1la_general_solution_build.py
 ucv1-gram-schmidt-2d:
   domain: linear-algebra
   status: active
@@ -5614,6 +5654,14 @@ ucv1-line-integral:
     module: mathgen/generators/ucv1_line_integral_build.py
   - topic: exd_x_uc_line_integral
     module: mathgen/generators/ucv1_line_integral_build.py
+ucv1-linear-independence-r3:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_independence
+    module: mathgen/generators/fy1la_independence_build.py
+  - topic: exd_x_fy1la_independence
+    module: mathgen/generators/fy1la_independence_build.py
 ucv1-linear-oscillator-classification:
   domain: ordinary-differential-equations
   status: active
@@ -5674,6 +5722,14 @@ ucv1-numerical-error-bound:
   sources:
   - topic: p14d_numerical_error_bound
     module: mathgen/generators/p14d_numerical_error_bound_build.py
+ucv1-ode-separable-product:
+  domain: ordinary-differential-equations
+  status: active
+  sources:
+  - topic: fy1so_ode_separable
+    module: mathgen/generators/fy1so_ode_separable_build.py
+  - topic: fy1so_exd_ode_separable
+    module: mathgen/generators/fy1so_ode_separable_build.py
 ucv1-one-sample-t-test:
   domain: statistics
   status: active
@@ -5766,6 +5822,14 @@ ucv1-ridge-coefficient:
   sources:
   - topic: p13f_ridge_coefficient
     module: mathgen/generators/p13f_ridge_coefficient_build.py
+ucv1-row-reduction-rref:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_rref
+    module: mathgen/generators/fy1la_rref_build.py
+  - topic: exd_x_fy1la_rref
+    module: mathgen/generators/fy1la_rref_build.py
 ucv1-rsa-modular-step:
   domain: number-theory
   status: active
@@ -5780,6 +5844,14 @@ ucv1-second-order-characteristic-roots:
     module: mathgen/generators/p12e_recurrence_characteristic_build.py
   - topic: exd_x_r2f_damped_oscillation
     module: mathgen/generators/exd_x_r2f_damped_oscillation.py
+ucv1-series-comparison-tests:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fy1so_series_tests
+    module: mathgen/generators/fy1so_series_tests_build.py
+  - topic: fy1so_exd_series_tests
+    module: mathgen/generators/fy1so_series_tests_build.py
 ucv1-series-convergence:
   domain: functions-sequences
   status: active
@@ -5804,6 +5876,14 @@ ucv1-simplex-homology:
     module: mathgen/generators/p15b_geometry_build.py
   - topic: exd_x_r2h_simplicial_euler_chain
     module: mathgen/generators/exd_x_r2h_simplicial_euler_chain.py
+ucv1-span-membership:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_span
+    module: mathgen/generators/fy1la_span_build.py
+  - topic: exd_x_fy1la_span
+    module: mathgen/generators/fy1la_span_build.py
 ucv1-stochastic-euler-step:
   domain: stochastic-processes
   status: active
@@ -5834,12 +5914,36 @@ ucv1-syntactic-semantic-separation:
     module: mathgen/generators/p15b_logic_build.py
   - topic: exd_x_r2h_entailment_count_chain
     module: mathgen/generators/exd_x_r2h_entailment_count_chain.py
+ucv1-system-consistency-parameter:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: fy1la_consistency
+    module: mathgen/generators/fy1la_consistency_build.py
+  - topic: exd_x_fy1la_consistency
+    module: mathgen/generators/fy1la_consistency_build.py
 ucv1-taylor-linear-approximation:
   domain: single-variable-calculus
   status: active
   sources:
   - topic: p12e_taylor_linear_approx
     module: mathgen/generators/p12e_taylor_poisson_build.py
+ucv1-taylor-polynomial:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1so_taylor_polynomial
+    module: mathgen/generators/fy1so_taylor_polynomial_build.py
+  - topic: fy1so_exd_taylor_polynomial
+    module: mathgen/generators/fy1so_taylor_polynomial_build.py
+ucv1-taylor-remainder-bound:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1so_taylor_remainder
+    module: mathgen/generators/fy1so_taylor_remainder_build.py
+  - topic: fy1so_exd_taylor_remainder
+    module: mathgen/generators/fy1so_taylor_remainder_build.py
 ucv1-topology-basis-membership:
   domain: metric-spaces-and-topology
   status: active
@@ -5876,6 +5980,14 @@ ucv1-unconstrained-critical-point:
     module: mathgen/generators/p14d_quadratic_optimisation_build.py
   - topic: exd_x_r2f_cubic_critical_point
     module: mathgen/generators/exd_x_r2f_cubic_critical_point.py
+ucv1-undetermined-coefficients:
+  domain: ordinary-differential-equations
+  status: active
+  sources:
+  - topic: fy1so_ode_undetermined
+    module: mathgen/generators/fy1so_ode_undetermined_build.py
+  - topic: fy1so_exd_ode_undetermined
+    module: mathgen/generators/fy1so_ode_undetermined_build.py
 ucv1-validation-calibration-check:
   domain: statistical-learning
   status: active

@@ -1,6 +1,7 @@
 id: ucv1-general-solution-parametric
 name: General solution of an underdetermined system
 domain: linear-algebra
+year_level: [university]
 description: 'Solve a consistent linear system with free variables: find a solution for chosen free-variable values, a direction
   vector of the solution line, and a pivot variable in terms of the parameters.'
 status: active

@@ -1,6 +1,7 @@
 id: ucv1-undetermined-coefficients
 name: Find a particular solution by undetermined coefficients
 domain: ordinary-differential-equations
+year_level: [university]
 description: Find a particular solution of y'' + by' + cy = g(x) for exponential, polynomial, trigonometric and resonant
   forcing, and use it to solve an initial value problem.
 status: active

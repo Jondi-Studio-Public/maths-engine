@@ -1,6 +1,7 @@
 id: ucv1-row-reduction-rref
 name: Row-reduce a matrix to reduced row echelon form
 domain: linear-algebra
+year_level: [university]
 description: Reduce an integer matrix to reduced row echelon form by row operations, and use the result to read off the
   rank, the free variables and a solution.
 status: active

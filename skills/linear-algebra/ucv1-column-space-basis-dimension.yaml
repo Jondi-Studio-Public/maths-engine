@@ -1,6 +1,7 @@
 id: ucv1-column-space-basis-dimension
 name: Basis and dimension of a column space; rank-nullity
 domain: linear-algebra
+year_level: [university]
 description: Find the dimension of a column space or span, apply the rank-nullity theorem, and choose a basis of the column
   space from the pivot columns.
 status: active

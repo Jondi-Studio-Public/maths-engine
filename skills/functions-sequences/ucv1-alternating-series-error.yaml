@@ -1,6 +1,7 @@
 id: ucv1-alternating-series-error
 name: Bound and use the error of an alternating series partial sum
 domain: functions-sequences
+year_level: [university]
 description: Use the alternating series estimation theorem to bound the error of a partial sum, find how many terms give
   a stated accuracy, and bracket the sum of the series.
 status: active

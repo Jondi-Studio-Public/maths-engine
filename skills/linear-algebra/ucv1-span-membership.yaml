@@ -1,6 +1,7 @@
 id: ucv1-span-membership
 name: Linear combinations and span membership in R^3
 domain: linear-algebra
+year_level: [university]
 description: Decide when a vector lies in the span of two others and find the coefficients that write it as a linear combination
   of them.
 status: active

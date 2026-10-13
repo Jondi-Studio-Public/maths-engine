@@ -1,6 +1,7 @@
 id: ucv1-taylor-remainder-bound
 name: Bound the error of a Taylor approximation with the Lagrange remainder
 domain: single-variable-calculus
+year_level: [university]
 description: Use the Lagrange form of the remainder to bound the error of a Taylor polynomial, find the bound on the derivative
   needed for it, and find the degree that guarantees a stated accuracy.
 status: active

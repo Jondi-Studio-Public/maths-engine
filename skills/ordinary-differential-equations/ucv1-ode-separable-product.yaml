@@ -1,6 +1,7 @@
 id: ucv1-ode-separable-product
 name: Solve a separable ODE dy/dx = g(x)h(y) with an initial condition
 domain: ordinary-differential-equations
+year_level: [university]
 description: Separate variables in dy/dx = g(x)h(y), integrate both sides, and use the initial condition, including partial
   fractions and an exam chain on where the solution ends.
 status: active

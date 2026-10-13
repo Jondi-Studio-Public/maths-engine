@@ -1,6 +1,7 @@
 id: ucv1-taylor-polynomial
 name: Taylor and Maclaurin polynomials of order 2 to 4
 domain: single-variable-calculus
+year_level: [university]
 description: Find the coefficients of a Taylor or Maclaurin polynomial of degree 2 to 4 for a standard function, a shifted
   centre, a product or a composite, and use the polynomial to approximate a value and measure the error.
 status: active

@@ -1,6 +1,7 @@
 id: ucv1-linear-independence-r3
 name: Linear independence of three vectors in R^3
 domain: linear-algebra
+year_level: [university]
 description: Decide when three vectors in R^3 are linearly dependent using a determinant, and find the coefficients of a
   dependence relation.
 status: active

@@ -1,6 +1,7 @@
 id: ucv1-series-comparison-tests
 name: Decide convergence by p-series, comparison, integral and alternating series tests
 domain: functions-sequences
+year_level: [university]
 description: Apply the p-series test, limit comparison, absolute versus conditional convergence and the integral test to
   decide convergence and bound sums.
 status: active

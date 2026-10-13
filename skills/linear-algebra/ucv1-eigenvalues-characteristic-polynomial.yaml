@@ -1,6 +1,7 @@
 id: ucv1-eigenvalues-characteristic-polynomial
 name: Eigenvalues from the characteristic polynomial
 domain: linear-algebra
+year_level: [university]
 description: Find the eigenvalues of a 2x2 or 3x3 integer matrix that is not triangular by solving its characteristic equation.
 status: active
 placement_eligible: false

@@ -1,6 +1,7 @@
 id: ucv1-first-order-linear-integrating-factor
 name: Solve a first-order linear ODE with an integrating factor
 domain: ordinary-differential-equations
+year_level: [university]
 description: Find the integrating factor of a first-order linear ODE, solve initial value problems with it, and work through
   a multi-step solution.
 status: active
