@@ -23,7 +23,9 @@ different from the first line's and not zero.
 
 from __future__ import annotations
 
-from ..core import generator, phrase
+from fractions import Fraction as F
+
+from ..core import generator, join_terms, phrase
 from ._exd_x_w12b_kit import (
     F,
     check,
@@ -128,7 +130,7 @@ def _build(rng):
         xint,
         2,
         [
-            f"On the x-axis y = 0, so 0 = {frac_text(m)}x + ({frac_text(c2)}).",
+            f"On the x-axis y = 0, so 0 = {join_terms([(F(m), 'x'), (F(c2), '')])}.",
             f"x = {frac_text(-c2)} ÷ {frac_text(m)} = {frac_text(xint)}.",
         ],
         [(c2 / m, "x-intercept-sign-reversed"), (-m / c2, "x-intercept-ratio-inverted"), (c2, "intercepts-confused")],

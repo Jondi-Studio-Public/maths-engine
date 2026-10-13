@@ -23,7 +23,7 @@ from __future__ import annotations
 
 import math
 
-from ..core import generator, phrase, round_half_up
+from ..core import generator, paren_negative, phrase, round_half_up
 from ._exd_x_sc4_kit import num_part
 from ._exd_x_w12b_kit import (
     F,
@@ -124,7 +124,10 @@ def _build(rng):
         length,
         1,
         2,
-        [f"Length = √({dx}² + {dy}²) = √{dx * dx + dy * dy}.", f"= {round_half_up(length, 1)} (1 d.p.)."],
+        [
+            f"Length = √({paren_negative(dx)}² + {paren_negative(dy)}²) = √{dx * dx + dy * dy}.",
+            f"= {round_half_up(length, 1)} (1 d.p.).",
+        ],
         [
             (abs(dx) + abs(dy), "adds-instead-of-using-pythagoras"),
             (dx * dx + dy * dy, "distance-squared-not-rooted"),
