@@ -10,6 +10,7 @@ from ..core import (
     check,
     check_distinct,
     check_equivalent,
+    draw_until,
     generator,
     pick_distractors,
     rational_text,
@@ -86,6 +87,15 @@ def zero_product_property(rng, kind="medium", coef_hi=5, const_hi=9):
     product and call sympy.solve on it -- a route that never touches the
     per-factor arithmetic used to pick the roots.
     """
+    # Constants are nonzero integers in -const_hi..const_hi, so const_hi = 0 leaves none to draw. The easy
+    # kind has two monic factors (x + b1)(x + b2) whose roots must differ and must not be opposites, so it
+    # needs more than the two values +-1 that const_hi = 1 allows.
+    min_const_hi = 2 if kind == "easy" else 1
+    if const_hi < min_const_hi:
+        raise ValueError(
+            f"zero_product_property needs const_hi >= {min_const_hi} for kind={kind!r}: "
+            "each factor's constant must be a nonzero integer and the roots must be distinct and not opposites"
+        )
     if kind == "easy":
         monic_flags = [True, True]
     elif kind == "medium":
@@ -100,9 +110,12 @@ def zero_product_property(rng, kind="medium", coef_hi=5, const_hi=9):
         factors = []
         for monic in flags:
             a = 1 if monic else rng.randint(2, coef_hi)
-            b = rng.randint(-const_hi, const_hi)
-            while b == 0:
-                b = rng.randint(-const_hi, const_hi)
+            b = draw_until(
+                rng,
+                lambda r: r.randint(-const_hi, const_hi),
+                lambda constant: constant != 0,
+                what="a nonzero factor constant",
+            )
             factors.append((a, b))
         roots = [sympy.Rational(-b, a) for a, b in factors]
 

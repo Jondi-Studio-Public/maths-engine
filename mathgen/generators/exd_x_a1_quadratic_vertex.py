@@ -16,7 +16,7 @@ import random
 
 from sympy import Rational, expand, symbols
 
-from ..core import GRADER_TOLERANCE, check, check_equivalent, generator, pick_distractors
+from ..core import GRADER_TOLERANCE, check, check_equivalent, generator, join_terms, pick_distractors
 
 x = symbols("x")
 
@@ -78,6 +78,9 @@ def exd_x_a1_quadratic_vertex(rng: random.Random, tier: str = "exam") -> dict:
         answer={"x": h, "y": k},
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"y = a(x - {p})(x - {q}); the axis of symmetry is x = {h}.", f"Turning point {answer_text}."],
+        working=[
+            f"y = a({join_terms([(1, 'x'), (-p, '')])})({join_terms([(1, 'x'), (-q, '')])}); the axis of symmetry is x = {h}.",
+            f"Turning point {answer_text}.",
+        ],
         distractors=pick_distractors(answer_text, cands, tolerance=GRADER_TOLERANCE),
     )

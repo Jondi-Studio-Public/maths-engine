@@ -90,6 +90,11 @@ def _towards_minus_infinity(rng):
 _FAMILIES = (_difference_of_roots, _root_minus_linear, _towards_minus_infinity)
 
 
+def _same_shape_first(answer_text: str, wrong) -> list[str]:
+    texts = [rational_text(w) for w in wrong]
+    return sorted(texts, key=lambda t: ("/" in t) != ("/" in answer_text))
+
+
 def _exam(rng: random.Random) -> dict:
     expr, target, key, fn, probe, wrong = rng.choice(_FAMILIES)(rng)
     approx = _numeric_limit(fn, probe)
@@ -102,7 +107,9 @@ def _exam(rng: random.Random) -> dict:
         answer={"p": int(key.p), "q": int(key.q)},
         answer_text=answer_text,
         answer_latex=answer_text,
-        distractors=pick_distractors(answer_text, [rational_text(w) for w in wrong]),
+        # A sign slip on the key shares its shape (integer or fraction), and options of the answer's own shape
+        # come first, so the key can never be the only fraction (or the only integer) among the options.
+        distractors=pick_distractors(answer_text, _same_shape_first(answer_text, [*wrong, -key])),
     )
 
 

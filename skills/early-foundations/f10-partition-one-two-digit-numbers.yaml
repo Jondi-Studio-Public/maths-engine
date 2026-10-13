@@ -1,0 +1,52 @@
+id: f10-partition-one-two-digit-numbers
+name: Flexibly partition one- and two-digit numbers
+domain: early-foundations
+learner_band: early
+description: List every way to partition a one- or two-digit number, writing two-digit partitions as a number of tens and a number of ones.
+status: active
+placement_eligible: false
+prerequisites: [place-value-to-100]
+answer: set
+sources:
+- topic: f10_partition_tens_ones
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: f10_partition_tens_ones
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: f10_partition_tens_ones
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: trades-one-ten-for-one-one
+  description: Treats moving one ten into the ones as adding one to the ones, so (3, 4) is followed by (2, 5) instead of (2, 14).
+- id: lists-only-the-standard-split
+  description: Gives only the usual tens-and-ones split and does not see that 23 can also be 1 ten and 13 ones, or 0 tens and 23 ones.
+- id: leaves-out-all-ones-split
+  description: Leaves out the split with no tens, such as 0 tens and 33 ones, because it does not look like a partition.
+- id: leaves-out-a-regrouped-split
+  description: Misses one of the regrouped splits in the middle of the list.
+- id: swaps-tens-and-ones
+  description: Writes the number of ones first, so (2, 13) is written (13, 2).
+- id: lists-both-orders-as-different-splits
+  description: Counts 2 + 7 and 7 + 2 as two different partitions of 9.
+- id: leaves-out-the-split-with-zero
+  description: Leaves out the split that uses 0, such as 9 + 0.
+- id: lists-only-some-splits
+  description: Stops listing before every pair of parts has been found.
+- id: lists-parts-that-do-not-add-to-the-whole
+  description: Lists pairs of parts whose total is one more than the number.
+- id: ignores-the-stated-limit
+  description: Lists every split of the number and does not apply the stated limit on the tens or the ones.
+- id: applies-the-limit-the-wrong-way
+  description: Keeps the splits that break the limit and drops the ones that meet it.
+- id: includes-the-way-already-shown
+  description: Includes the split that the question already shows, although it asks for the other ways.
+- id: leaves-out-the-standard-split
+  description: Lists only the regrouped splits and misses the usual tens-and-ones split.
+- id: partitions-the-starting-number
+  description: Partitions the number the question starts from instead of the number after the stated change.
+tags: [acara-f10-v9, early, partition, place-value, ac9m1n02]

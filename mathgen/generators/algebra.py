@@ -6,6 +6,7 @@ from sympy import symbols, expand, solve, linsolve, Eq, latex, Rational, FiniteS
 
 from ..answers import Distractor, exact_value
 from ..core import (
+    draw_until,
     generator,
     check,
     pick_distractors,
@@ -482,12 +483,20 @@ def linear_equation(
 )
 def simultaneous(rng, sol_hi=8, coef_hi=5):
     # Backwards: choose (x0, y0), then coefficients with nonzero determinant.
+    if coef_hi < 1:
+        raise ValueError("simultaneous needs coef_hi >= 1: every coefficient must be nonzero")
     x0, y0 = rng.randint(-sol_hi, sol_hi), rng.randint(-sol_hi, sol_hi)
-    while True:
-        a1, b1 = rng.randint(-coef_hi, coef_hi), rng.randint(-coef_hi, coef_hi)
-        a2, b2 = rng.randint(-coef_hi, coef_hi), rng.randint(-coef_hi, coef_hi)
-        if a1 * b2 - a2 * b1 != 0 and a1 and b1 and a2 and b2:
-            break
+    a1, b1, a2, b2 = draw_until(
+        rng,
+        lambda r: (
+            r.randint(-coef_hi, coef_hi),
+            r.randint(-coef_hi, coef_hi),
+            r.randint(-coef_hi, coef_hi),
+            r.randint(-coef_hi, coef_hi),
+        ),
+        lambda c: c[0] * c[3] - c[2] * c[1] != 0 and all(c),
+        what="four nonzero coefficients with a nonzero determinant",
+    )
     c1, c2 = a1 * x0 + b1 * y0, a2 * x0 + b2 * y0
 
     def side(a, b):
