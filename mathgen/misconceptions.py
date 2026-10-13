@@ -15902,6 +15902,416 @@ _ENTRIES = (
         "Counting the steps from the left end of the number line and giving that count as the value, instead of reading the value at the point.",
         area="number",
     ),
+    CatalogueEntry(
+        "fr2c-subtracted-for-total",
+        "Subtracting the two counts when the total of both was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-reports-the-larger-count",
+        "Giving the larger of the two counts instead of working out the question that was asked.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-reports-the-smaller-count",
+        "Giving the smaller of the two counts instead of the difference.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-count-off-by-one",
+        "Being one out when counting units or steps.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-took-away-one-pour-only",
+        "Taking away only one of the amounts already used, so part of what was used is still counted as left.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-reports-the-amount-poured",
+        "Giving the amount already used or measured instead of the amount still needed or the difference.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-second-count-taken-as-given",
+        'Treating "some more than" as the new count itself, and adding it without first adding the extra to the first count.',
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-first-count-doubled",
+        "Doubling the first count and leaving out the extra that the second item has.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-took-away-one-item-only",
+        "Taking away only one of the two items being compared with the larger one.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-mixed-unit-sizes",
+        "Combining counts of units that are different sizes without first changing them to the same unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-big-unit-counted-as-small",
+        "Counting a big unit as one small unit, or leaving out the part left over once the big units are changed to small ones.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-too-small",
+        "Choosing a unit that is much smaller than the thing being measured, so the number would be huge.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-too-large",
+        "Choosing a unit that is much larger than the thing being measured, so the number would be tiny.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-of-wrong-attribute",
+        "Choosing a unit that measures a different attribute, such as litres for a length.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-compared-numbers-ignoring-units",
+        "Choosing the measure with the largest (or smallest) number without allowing for the units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-chose-the-largest-unit",
+        "Choosing the measure written in the largest unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-conversion-slip",
+        "Choosing a measure after changing the units with a slip, so the order of the measures is wrong.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-forgot-to-change-one-measure",
+        "Changing some of the measures to the smaller unit but leaving one in the larger unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-chose-the-wrong-power-of-ten",
+        "Changing between units with the wrong power of ten.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-added-numbers-ignoring-units",
+        "Adding the numbers as they are written without changing the measures to the same unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-answer-left-in-the-larger-unit",
+        "Working in the smaller unit but then changing the total back to the larger unit when it was asked for in the smaller one.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-added-for-leftover",
+        "Adding the amounts used to the amount held instead of taking them away.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-divided-the-wrong-way",
+        "Multiplying the total by the portion size instead of dividing by it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-took-away-the-count-not-the-amount",
+        "Taking the number of portions used away from the total instead of the amount those portions use.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-small-measure-treated-as-large",
+        "Treating a measure written in the smaller unit as if it were in the larger unit when changing units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-counted-the-bounding-rectangle",
+        "Counting every square in the rectangle that surrounds the shape, including squares that are not shaded.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-part-squares-counted-whole",
+        "Counting each half square as a whole square.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-part-squares-ignored",
+        "Leaving out the half squares and counting only the whole squares.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-scale-ignored",
+        "Counting squares or sides and not using the length that each square stands for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-perimeter-of-bounding-rectangle",
+        "Finding the perimeter of the rectangle around the shape, which misses the length of the notches.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-boundary-squares-counted",
+        "Counting the squares along the edge of the shape instead of the sides of the squares that make up the edge.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-perimeter-missed-inner-edges",
+        "Leaving out some of the sides that face into a notch when counting around the shape.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-perimeter-scaled-as-area",
+        "Multiplying a perimeter by the square of the scale, as if it were an area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-noon-not-crossed",
+        "Finding the gap between two clock readings as if both were in the same half of the day, so the interval across noon comes out wrong.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-hour-lost-at-noon",
+        "Being an hour short when crossing from the morning into the afternoon, for example by skipping the hour that starts at 12:00.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-hour-gained-at-noon",
+        "Being an hour over when crossing from the morning into the afternoon, for example by counting the hour from 12:00 to 1:00 twice.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-twelve-hour-clock-used-for-24",
+        "Reading a 24-hour time such as 17:25 as 7:25 and so taking the wrong gap between two times.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-wait-counted-twice",
+        "Counting the wait between two journeys twice when finding the total time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-wait-only",
+        "Giving the length of the wait instead of the time for the whole trip.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-hours-and-minutes-swapped",
+        "Writing the minutes where the hours belong and the hours where the minutes belong.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-minutes-remainder-lost",
+        "Changing minutes to hours and leaving out the minutes that are left over.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-added-one-each-time",
+        "Adding 1 to the count each time instead of the number of sticks that each figure really adds.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-multiplied-the-first-figure",
+        "Multiplying the count in Figure 1 by the figure number, as if the pattern started from nothing.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-rule-without-constant",
+        "Using only the number added each time as the rule, and leaving out what is needed to match Figure 1.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-added-the-first-figure-again",
+        "Adding the count in Figure 1 to the count in Figure 3 instead of the amount added each time.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-figure-number-off-by-one",
+        "Using the figure number one more or one fewer than the one asked for.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-rule-constant-taken-as-first-figure",
+        "Adding the count in Figure 1 to the rule instead of the constant that makes the rule fit Figure 1.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-leftover-rounded-up",
+        "Rounding up when the sticks that are left over are not enough to make the next figure.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-shift-direction-reversed",
+        "Moving a graph the wrong way sideways: writing (x + h) for a move to the right or (x - h) for a move to the left.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-shift-on-wrong-axis",
+        "Writing a sideways move as a change to y (x squared plus a number) or an up or down move as a change inside the bracket.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertical-shift-direction-reversed",
+        "Moving a graph the wrong way up or down: subtracting k for a move up or adding it for a move down.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-reflection-missed",
+        "Missing that a negative a turns the parabola upside down, or giving a positive a to a parabola that opens downwards.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-reflected-when-not-needed",
+        "Saying a graph is reflected or opens downwards when the equation has a positive a.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-width-reversed",
+        "Saying a parabola is wider when a is larger than 1 in size, or narrower when a is a fraction.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertex-sign-slip",
+        "Reading a coordinate of the vertex with the wrong sign.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-horizontal-shift-sign-reversed",
+        "Writing the opposite sign inside the bracket for the horizontal position of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertical-shift-sign-reversed",
+        "Writing the opposite sign for the vertical position of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-a-taken-as-the-rise",
+        "Using the rise from the vertex to a marked point as a without dividing by the square of the horizontal distance.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-width-factor-ignored",
+        "Writing a as 1 or -1 for a parabola that is narrower or wider than y = x squared.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertex-coordinates-swapped",
+        "Giving the y-coordinate of the vertex where the x-coordinate was asked for, or the reverse.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-a-taken-as-the-vertex",
+        "Reading the number in front of the bracket as a coordinate of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-bracket-not-squared",
+        "Leaving out the square on the bracket when the value is put into the equation.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-is-the-vertex-height",
+        "Giving the height of the vertex as the y-intercept.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-square-applied-after-multiplying",
+        "Multiplying by the number in front of the bracket before squaring, so that number is squared as well.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-constant-dropped",
+        "Leaving out the constant at the end of the equation when finding a value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-point-read-for-vertex",
+        "Reading a coordinate of the marked point instead of the same coordinate of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-distance-not-squared",
+        "Dividing the rise from the vertex by the horizontal distance and not by its square.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertex-height-ignored",
+        "Dividing the height of the marked point by the squared distance without taking away the height of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-double-root-swapped",
+        "Squaring the factor for the x-intercept where the graph crosses the axis instead of the one where it touches.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-root-sign-reversed",
+        "Writing the opposite sign in each factor, so the roots come out as the negatives of the x-intercepts.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-double-root-missed",
+        "Leaving out the square on the factor for the x-intercept where the graph only touches the axis.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-both-roots-squared",
+        "Squaring both factors, which would make the graph touch the axis at both x-intercepts.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-both-roots-crossed",
+        "Treating both x-intercepts as places where the graph crosses the axis.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-cubic-leading-sign-missed",
+        "Missing that a cubic with a negative leading coefficient falls to the right and rises to the left.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-leading-coefficient-ignored",
+        "Leaving out the number in front of the factors, as if it were 1 (or -1), so the graph is the wrong height.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-sign-slip",
+        "Getting the sign of the y-intercept wrong when multiplying negative numbers.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-brackets-not-squared",
+        "Leaving out the square on the factor for the double root when finding a value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-at-roots",
+        "Giving an x-intercept where an intercept or turning point value was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-turning-point-at-midpoint",
+        "Taking the turning point to be half way between the x-intercepts, as for a parabola.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-turning-point-weights-swapped",
+        "Weighting the two x-intercepts the wrong way round when finding the turning point.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-turning-point-on-axis-reported",
+        "Giving the turning point that is on the x-axis when the other one was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-x-coordinate-given-for-y",
+        "Giving the x-coordinate of a point where its y-coordinate was asked for.",
+        area="algebra",
+    ),
 )
 
 #: Every entry, by id.
