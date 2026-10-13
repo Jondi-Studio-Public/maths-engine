@@ -10967,6 +10967,352 @@ _ENTRIES = (
         "mech-one-residual-left-out",
         "Leaving the residual just calculated out of the sum of squares.",
         area="statistics",
+    # -- binomial expansion and coefficients -------------------------------------------------------------------------
+    CatalogueEntry(
+        "binom-pascal-coefficients-omitted",
+        "Expanding a power of a binomial with the powers of each term but no binomial coefficients: every coefficient "
+        "is left as 1 (or as a bare power of the number).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-middle-terms-dropped",
+        "Writing (a + b)^n as a^n + b^n: leaving out every term between the first and the last.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-coefficients-from-previous-row",
+        "Reading the coefficients from row n - 1 of Pascal's triangle instead of row n, so one coefficient is missing "
+        "and the last term is left with a coefficient of 1.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-base-not-raised",
+        "Multiplying each term by the number once instead of raising it to the power that matches its position: "
+        "reading the term in b^3 as b times the binomial coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-base-times-exponent",
+        "Multiplying the number by its exponent instead of raising it to that power: reading 3^2 as 3 x 2 in a term of "
+        "the expansion.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-sign-not-alternating",
+        "Expanding (a - b)^n with every term after the first negative, instead of letting the sign alternate with the "
+        "power of the negative number.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-negative-sign-dropped",
+        "Expanding (a - b)^n as if it were (a + b)^n: the minus sign is lost and every term is positive.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-power-of-base-missed",
+        "Finding a coefficient in a binomial expansion with the right binomial coefficient but only the first power of "
+        "the number instead of the power that matches the term.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-wrong-term-picked",
+        "Giving the coefficient of a neighbouring term (x^1 or x^3) in the expansion instead of the term asked for.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficient-misread",
+        "Reading the wrong entry from the row of Pascal's triangle: taking 4 instead of 6 as the middle coefficient of "
+        "the fourth row.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-constant-term-only",
+        "Giving the sum of the coefficients of an expansion as its constant term alone.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficients-only",
+        "Giving the sum of the binomial coefficients, 2^n, as the sum of the coefficients of an expansion whose terms "
+        "also carry powers of a number.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-permutation-for-combination",
+        "Counting arrangements, n(n - 1)...(n - r + 1), where the binomial coefficient C(n, r) was needed.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-row-sum-given",
+        "Giving the sum of row n of Pascal's triangle, 2^n, where a single binomial coefficient was asked for.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-numbers-omitted",
+        "Giving the binomial coefficient alone as the coefficient of a term, without the powers of the numbers in the "
+        "binomial.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-powers-swapped",
+        "Attaching the exponents to the wrong numbers: using the power r on one number and n - r on the other the "
+        "wrong way round.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-first-number-not-raised",
+        "Raising the second number to its power but leaving the number in front of x as it is, so the power of that "
+        "number is missing from the coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-second-number-not-raised",
+        "Raising the number in front of x to its power but leaving the constant as it is, so the power of the "
+        "constant is missing from the coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-first-number-only",
+        "Finding the constant term of (ax + b/x)^n as C(n, n/2) a^n, ignoring that half the factors are b/x.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-multipliers-omitted",
+        "Adding the two earlier coefficients without multiplying each by the number it comes with when multiplying a "
+        "power of (px + q) by (px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-multipliers-swapped",
+        "Multiplying the coefficient of x^r by q and the coefficient of x^(r+1) by p, the wrong way round, when "
+        "multiplying a power of (px + q) by (px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-one-product-only",
+        "Counting only one of the two ways a term of the next power arises when multiplying a power of (px + q) by "
+        "(px + q).",
+        area="binomial",
+    ),
+    # -- reciprocal trigonometric functions ------------------------------------------------------------------------
+    CatalogueEntry(
+        "recip-not-taken",
+        "Giving the value of cos, sin or tan where sec, cosec or cot was asked for: forgetting to take the reciprocal.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-sec-cosec-swapped",
+        "Mixing up sec and cosec: taking sec as the reciprocal of sine, or cosec as the reciprocal of cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-cot-as-tan",
+        "Reading cot as tan (or tan as cot): giving sin/cos where cos/sin was asked for.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-cot-as-cosec",
+        "Confusing cot with cosec: taking cot as the reciprocal of sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-sign-wrong-quadrant",
+        "Giving a negative value where the function is positive in the angle's quadrant.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-quadrant-sign-ignored",
+        "Giving the value of the reference angle without the negative sign the angle's quadrant requires.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-wrong-reference-angle",
+        "Using the complement of the reference angle: taking the value at 60 degrees where 30 degrees was needed, or "
+        "the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-sin-cos-swapped",
+        "Giving the value of cos at the angle where sin was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-reciprocal-given",
+        "Giving the reciprocal function's value, sec for cos or cosec for sin, where cos or sin was asked for.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-root-not-taken",
+        "Stopping at sec^2 (or tan^2, cosec^2, cot^2) from 1 + tan^2 = sec^2 and giving it as the answer, without "
+        "taking the square root.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-tan-not-squared",
+        "Adding 1 to tan (or cot) instead of to tan squared when using 1 + tan^2 = sec^2, so sec is found as 1 + tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-one-omitted",
+        "Reading sec^2 as tan^2: leaving the 1 out of 1 + tan^2 = sec^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-sign-slip",
+        "Misapplying the identity with the wrong sign, so sec^2 is taken as tan^2 - 1 or 1 - tan^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-given-repeated",
+        "Giving the value that was stated in the question (sec or cosec) as the answer for tan or cot.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-factor-left",
+        "Stopping part way through a simplification and leaving a squared function or a factor that should have "
+        "cancelled.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-not-applied",
+        "Solving an equation in sec^2 and tan^2 as if sec^2 were another tan^2, without using 1 + tan^2 = sec^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-difference-as-zero",
+        "Taking sec^2 x - tan^2 x as 0 instead of 1, so the constant terms are left on their own.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-tan-not-applied",
+        "Giving cos instead of sin by forgetting to multiply by tan when finding sin from cos and tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-tan-divided",
+        "Dividing cos by tan instead of multiplying, when finding sin from cos and tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-standard-angle-misread",
+        "Reading the wrong standard angle from the value of tan or cot, such as 45 degrees where tan is sqrt(3), or "
+        "30 degrees where tan is 1.",
+        area="trigonometry",
+    ),
+    # -- polar form of complex numbers ------------------------------------------------------------------------------
+    CatalogueEntry(
+        "polar-moduli-added",
+        "Adding the moduli instead of multiplying them when multiplying complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-moduli-subtracted",
+        "Subtracting the moduli instead of dividing them when dividing complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-arguments-subtracted-on-multiplying",
+        "Subtracting the arguments instead of adding them when multiplying complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-division-arguments-added",
+        "Adding the arguments instead of subtracting them when dividing complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-argument-of-first-only",
+        "Keeping the argument of the first number and ignoring the second, or the modulus of one number only.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-arguments-subtracted-in-wrong-order",
+        "Subtracting the arguments the wrong way round when dividing, so the argument has the wrong size.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-division-as-multiplication",
+        "Multiplying the moduli (or dividing nothing) where a quotient was needed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-angle-not-reduced",
+        "Leaving the argument as 360 degrees or more (or negative) instead of bringing it back into the range 0 to 360.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-angle-reduced-by-half-turn",
+        "Reducing an argument of more than 360 degrees by 180 degrees instead of by a full turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-argument-signs-mixed",
+        "Subtracting the arguments of w and u from that of z, instead of adding the argument of the factor in the "
+        "numerator.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-modulus-of-first-only",
+        "Giving the modulus of one of the numbers as the modulus of the product.",
+        area="complex-numbers",
+    ),
+    # -- De Moivre's theorem ---------------------------------------------------------------------------------------
+    CatalogueEntry(
+        "demoivre-modulus-not-raised",
+        "Applying De Moivre's theorem and leaving the modulus as it was, instead of raising it to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-multiplied",
+        "Multiplying the modulus by n instead of raising it to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-argument-not-multiplied",
+        "Raising the modulus to the power n but leaving the argument unchanged, instead of multiplying it by n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-negative-power-sign-lost",
+        "Giving the argument of z^n for a negative n as if n were positive, so the argument has the wrong sign.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-quadrant-ignored",
+        "Finding the argument of a number from its reference angle alone, without placing it in the quadrant of the "
+        "point.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-root-not-taken",
+        "Giving the sum of the squares of the real and imaginary parts as the modulus, without the square root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-is-one-component",
+        "Taking the modulus to be one of the two parts of the number, or their sum, instead of the square root of "
+        "the sum of their squares.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-argument-from-wrong-ratio",
+        "Finding the argument from the real part over the imaginary part, so the reference angle is the complement "
+        "of the right one.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-raised-the-wrong-way",
+        "Raising n to the power of the modulus instead of the modulus to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-conjugate-given",
+        "Writing the power in Cartesian form with the sign of the imaginary part reversed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-sine-cosine-swapped",
+        "Writing the power in Cartesian form with sine as the real part and cosine as the imaginary part.",
+        area="complex-numbers",
     ),
 )
 

@@ -355,6 +355,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "ucv1_proof_by_induction",
         "ucv1_series_convergence",
         "ucv1_weak_solution_regularity",
+        "salg_binomial_coefficient",
+        "salg_binomial_expand",
+        "salg_de_moivre_power",
+        "salg_polar_multiply_divide",
+        "salg_reciprocal_trig_values",
+        "salg_trig_identities",
     }
 )
 
@@ -631,6 +637,7 @@ ANSWER_FORM_TOPICS = {
     "simplify_expression": "expanded",
     # Eigenvector answers are graded up to a scalar multiple, so the question declares it.
     "ucv1_eigenvectors": "scalar_multiple",
+    "salg_binomial_expand": "expanded",
 }
 
 # Topics that set `answer_form` on only some of their question kinds: when it is
