@@ -503,3 +503,36 @@ def test_a_checkout_that_was_never_installed_reports_an_unknown_version(monkeypa
 
     monkeypatch.setattr(metadata, "version", missing)
     assert mathgen._version() == "0+unknown"
+
+
+# -- --present and --svg -------------------------------------------------------------------------
+
+
+def test_present_prints_the_page_as_json(capsys):
+    code, out, _ = run(capsys, "--skill", "simplify-surds", "--seed", "7", "--present")
+    assert code == 0
+    page = json.loads(out)
+    assert page["answer"] == {"text": "6√21", "tex": r"\(6 \sqrt{21}\)"}
+
+
+def test_svg_writes_the_figure(capsys, tmp_path):
+    out_file = tmp_path / "clock.svg"
+    code, out, _ = run(capsys, "--skill", "f10-clock-half-quarter-hour", "--seed", "3", "--svg", str(out_file))
+    assert code == 0 and "Q:" in out
+    assert out_file.read_text(encoding="utf-8").startswith("<svg")
+
+
+def test_svg_for_a_question_without_a_figure_is_an_error(capsys, tmp_path):
+    code, _, err = run(capsys, "--skill", "simplify-surds", "--svg", str(tmp_path / "x.svg"))
+    assert code == 1 and "draws no figure" in err
+
+
+@pytest.mark.parametrize("flag", [["--present"], ["--svg", "x.svg"]])
+def test_present_and_svg_need_a_skill(capsys, flag):
+    code, err = run_error(capsys, "--topic", "quadratic", *flag)
+    assert code == 2 and "needs --skill" in err
+
+
+def test_figure_schema_prints_the_schema(capsys):
+    code, out, _ = run(capsys, "--figure-schema")
+    assert code == 0 and json.loads(out)["$schema"].startswith("https://json-schema.org/")

@@ -12,6 +12,7 @@ Examples:
 
 import argparse
 import contextlib
+import json
 import difflib
 import os
 import sys
@@ -160,6 +161,17 @@ def _run_skills(ap, args):
             raise
         return _fail(f"cannot make a question for deferred skill {found.id!r}: {exc}")
 
+    if args.present:
+        print(json.dumps(engine.present(found, q), ensure_ascii=False, indent=2))
+        return 0
+    if args.svg is not None:
+        if not q.figure:
+            return _fail(f"skill {found.id!r} draws no figure for this question")
+        from .render import figure_svg
+
+        with open(args.svg, "w", encoding="utf-8") as fh:
+            fh.write(figure_svg(q.figure))
+
     options = None
     answer_text = q.answer_text
     print(f"[{found.id} #{q.seed}]\n  Q: {q.text}")
@@ -284,6 +296,11 @@ def _run(argv):
     g.add_argument("--all", action="store_true", help="generate for every registered topic")
     g.add_argument("--list", action="store_true", help="list topics and exit")
     g.add_argument(
+        "--figure-schema",
+        action="store_true",
+        help="print the JSON Schema for figure specs (see docs/figures.md) and exit",
+    )
+    g.add_argument(
         "--skills",
         action="store_true",
         help="list skill ids (domain/id, status) and exit; exits non-zero if a skill file does not load",
@@ -302,6 +319,13 @@ def _run(argv):
         help="with --skill: grade this answer against the question and print the verdict; "
         "for a multiple-choice question give the option's label (A, B, ... or 1, 2, ...) or its text",
     )
+    ap.add_argument(
+        "--present",
+        action="store_true",
+        help="with --skill: print everything a page shows for the question (prompt, figure as SVG, options, "
+        "answer, working) as JSON; see mathgen.present",
+    )
+    ap.add_argument("--svg", metavar="FILE", help="with --skill: also write the question's figure to FILE as SVG")
     ap.add_argument("--out", help="output file (JSONL); default stdout")
     ap.add_argument("--pretty", action="store_true", help="human-readable output instead of JSONL")
     ap.add_argument("--version", action="version", version=f"mathgen {__version__}")
@@ -309,6 +333,11 @@ def _run(argv):
 
     if args.answer is not None and args.skill is None:
         ap.error("--answer needs --skill")
+    for flag, given in (("--present", args.present), ("--svg", args.svg is not None)):
+        if given and args.skill is None:
+            ap.error(f"{flag} needs --skill")
+    if args.present and args.answer is not None:
+        ap.error("--present does not grade; drop --answer")
     if args.out == "":
         ap.error("--out needs a file name")
     mode = "--skill" if args.skill is not None else "--skills" if args.skills else "--list" if args.list else None
@@ -320,6 +349,12 @@ def _run(argv):
         ):
             if given:
                 ap.error(f"{flag} does not apply to {mode}; it is for --topic, --level and --all")
+
+    if args.figure_schema:
+        from .figures import schema
+
+        print(json.dumps(schema(), ensure_ascii=False, indent=2))
+        return 0
 
     if args.list:
         for lvl, t in topics():

@@ -163,3 +163,12 @@ def regenerate(qid: str, skills):
     if new_id != qid:
         raise QuestionChanged(qid, new_id, question)
     return question
+
+
+def present(skill: Skill, question, *, theme: str = "light", draw_figure: bool = True, reveal: bool = True) -> dict:
+    """Everything a page shows for `question`: prompt, figure as SVG, options, answer and working, each as plain
+    text plus a typesetting-ready form. ``reveal=False`` leaves out the answer, the working and the figure spec, for
+    a learner's browser. See `mathgen.present`."""
+    from .present import present as _present
+
+    return _present(question, mcq=skill.answer == "mcq", theme=theme, draw_figure=draw_figure, reveal=reveal)

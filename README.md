@@ -138,11 +138,45 @@ multiple-choice skill (`skill.answer == "mcq"`), `engine.grade` takes the 0-base
 index of the chosen option in `mathgen.core.mcq_options(q)`; the command line
 does that translation for you.
 
+## Showing a question on a page
+
+`engine.present(skill, q)` returns everything a page shows, as JSON-able data:
+
+```python
+page = engine.present(skill, q)
+page["prompt"]  # {"text": "Simplify √756. Give your answer in the form a√b.", "tex": None}
+page["answer"]  # {"text": "6√21", "tex": "\\(6 \\sqrt{21}\\)"}
+page["figure"]  # None, or {"svg": "<svg ...>", "alt": "...", "description": {...}, "spec": {...}}
+page["options"]  # multiple choice only: one pair per option, in mcq_options order
+page["working"]  # the worked solution, one pair per step
+```
+
+Every string comes as a pair. `text` is plain Unicode written as on paper
+(`x^2`, `2x`, `√21`), for pages without maths rendering, screen readers and
+exports. `tex` is the same content with the maths wrapped in `\\(...\\)` and
+the prose left as text, or `None` when there is nothing to typeset. Hand it to
+KaTeX's auto-render extension or MathJax with the `\\(...\\)` delimiter only
+(not `$`, which appears in prose about money). Because the prose is not inside
+the maths, a long question wraps on a phone.
+
+Figures come as standalone SVG with no scripts or external files, themeable
+through CSS variables, with the alt text as the SVG's title. To draw them
+yourself instead, `figure["spec"]` follows a JSON Schema (`python -m mathgen --figure-schema`); see
+[docs/figures.md](docs/figures.md). `figure["description"]` is a full text
+description for learners who cannot see the figure, to show in an accessibility
+mode; it says when it states the answer. From the command line:
+
+```
+python -m mathgen --skill simplify-surds --seed 7 --present      # the page as JSON
+python -m mathgen --skill tell-time-to-hour --seed 1 --svg clock.svg
+```
+
 ## Layout
 
 | Path | What it is |
 |---|---|
-| `mathgen/` | The package: `core.py` shared helpers, `figures.py`, `slots.py`, `engine.py`, `skills.py` loader and validator |
+| `mathgen/` | The package: `core.py` shared helpers, `figures.py`, `slots.py`, `engine.py`, `present.py`, `skills.py` loader and validator |
+| `mathgen/render/` | Draws figure specs as standalone SVG |
 | `mathgen/generators/` | The question generators, one decorated function each |
 | `mathgen/grading/` | Typed-answer graders: number, fraction, expression, list, multiple choice and others |
 | `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
