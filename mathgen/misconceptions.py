@@ -807,6 +807,121 @@ _ENTRIES = (
         "Giving the particular-solution coefficient with the opposite sign.",
         area="ode",
     ),
+    CatalogueEntry(
+        "ode2-arctan-inverse-confused",
+        "Writing arctan of the right-hand side instead of tan of it when undoing arctan y.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-arctan-not-inverted",
+        "Stopping at arctan y = (the integral) and giving that as y, without applying tan.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-constant-added-not-multiplied",
+        "Writing the exponentiated solution as y0 + e^(...) instead of y0 e^(...): the constant from e^C multiplies, not adds.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-exponent-sign",
+        "Taking the exponent of the logistic solution with the wrong sign.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-exponential-inverted",
+        "Giving e^(...) as y, when e^y is what equals that expression.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-factor-two-mishandled",
+        "Mishandling the factor of 2 produced by integrating y or x (halving or doubling once too often).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-half-forgotten",
+        "Forgetting the 1/2 when integrating y with respect to y, so the constant is y0^2 rather than y0^2/2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ic-constant-dropped",
+        "Dropping the constant from the initial condition: giving e^(...) without the factor y(0).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ic-constant-misapplied",
+        "Putting the initial condition in the wrong place when solving for the constant.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ic-squared-forgotten",
+        "Forgetting to square (or square root) the initial value when working with y^2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-integration-constant-dropped",
+        "Dropping the constant of integration, so the solution misses its '+ 1'.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ln-not-exponentiated",
+        "Leaving ln y = (the integral) as the answer instead of exponentiating to solve for y.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-partial-fraction-factor-missed",
+        "Missing the 1/M factor in the partial fractions of 1/(y(M - y)), so the exponent lacks the factor M.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-partial-fraction-sign",
+        "A sign error in the partial fractions, giving y0 - (M - y0)e^(...) in the denominator.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-power-rule-misapplied",
+        "Using the wrong power for the antiderivative (x^2 for x, or no power at all).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-power-rule-not-divided",
+        "Integrating a power of x without dividing by the new exponent.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-reciprocal-forgotten",
+        "Using y0 where 1/y0 is needed (or the reverse) after integrating 1/y^2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-reciprocal-sign",
+        "Losing the minus sign of the integral of 1/y^2 = -1/y.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-reciprocal-squared",
+        "Squaring the reciprocal: giving -1/y0^2 instead of -1/y0.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-sign-error-root",
+        "A sign error when moving to a square root or a root's argument.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-square-root-forgotten",
+        "Forgetting to take the square root after solving for x^2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-y-dy-integrated-as-y",
+        "Integrating y dy as y rather than y^2/2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-y-power-ignored",
+        "Treating dy/dx = a x y^2 as dy/dx = a x y and giving an exponential.",
+        area="ode",
+    ),
 )
 
 #: Every entry, by id.
