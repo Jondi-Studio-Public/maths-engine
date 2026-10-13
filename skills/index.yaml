@@ -5280,6 +5280,30 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+ucv1-applied-optimisation:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_applied_optimisation
+    module: mathgen/generators/fy1ca_applied_optimisation_build.py
+  - topic: fy1ca_applied_optimisation_exam
+    module: mathgen/generators/fy1ca_applied_optimisation_build.py
+ucv1-arc-length:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_arc_length
+    module: mathgen/generators/fy1ca_arc_length_build.py
+  - topic: fy1ca_arc_length_exam
+    module: mathgen/generators/fy1ca_arc_length_build.py
+ucv1-average-value-mvt:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_average_value_mvt
+    module: mathgen/generators/fy1ca_average_value_mvt_build.py
+  - topic: fy1ca_average_value_mvt_exam
+    module: mathgen/generators/fy1ca_average_value_mvt_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active
@@ -5302,6 +5326,14 @@ ucv1-bifurcation-sign-check:
   sources:
   - topic: p13e_bifurcation_sign_check
     module: mathgen/generators/p13e_bifurcation_curvature_build.py
+ucv1-binomial-theorem-terms:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: ucv1_binomial_terms
+    module: mathgen/generators/fy1cd_binomial_terms_build.py
+  - topic: exd_x_fy_binomial_terms
+    module: mathgen/generators/fy1cd_binomial_terms_build.py
 ucv1-bootstrap-summary:
   domain: statistics
   status: active
@@ -5342,6 +5374,22 @@ ucv1-completeness-cauchy-check:
     module: mathgen/generators/p15b_analysis_build.py
   - topic: exd_x_r2g_cauchy_tail
     module: mathgen/generators/exd_x_r2g_cauchy_tail.py
+ucv1-complex-exponential-form:
+  domain: complex-analysis
+  status: active
+  sources:
+  - topic: ucv1_complex_exponential
+    module: mathgen/generators/fy1cd_complex_exponential_build.py
+  - topic: exd_x_fy_complex_exponential
+    module: mathgen/generators/fy1cd_complex_exponential_build.py
+ucv1-complex-roots-real-polynomials:
+  domain: complex-analysis
+  status: active
+  sources:
+  - topic: ucv1_complex_poly_roots
+    module: mathgen/generators/fy1cd_complex_poly_roots_build.py
+  - topic: exd_x_fy_complex_poly_roots
+    module: mathgen/generators/fy1cd_complex_poly_roots_build.py
 ucv1-condition-number-sensitivity:
   domain: numerical-and-computational-mathematics
   status: active
@@ -5414,6 +5462,14 @@ ucv1-diagonalisation:
     module: mathgen/generators/ucv1_diagonalisation_build.py
   - topic: exd_x_uc_diagonalisation
     module: mathgen/generators/ucv1_diagonalisation_build.py
+ucv1-distances-and-triple-product-3d:
+  domain: vectors
+  status: active
+  sources:
+  - topic: fy1ms_distances_3d
+    module: mathgen/generators/fy1ms_distances_3d_build.py
+  - topic: exd_x_fy1ms_distances_3d
+    module: mathgen/generators/fy1ms_distances_3d_build.py
 ucv1-dominated-convergence-check:
   domain: measure-and-advanced-probability
   status: active
@@ -5452,6 +5508,14 @@ ucv1-energy-estimate:
     module: mathgen/generators/p18a_energy_estimate_build.py
   - topic: exd_x_r2g_heat_energy_decay
     module: mathgen/generators/exd_x_r2g_heat_energy_decay.py
+ucv1-equivalence-relations-classes:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: ucv1_equivalence_relations
+    module: mathgen/generators/fy1cd_equivalence_relations_build.py
+  - topic: exd_x_fy_equivalence_relations
+    module: mathgen/generators/fy1cd_equivalence_relations_build.py
 ucv1-field-extension-degree:
   domain: advanced-algebra
   status: active
@@ -5536,6 +5600,14 @@ ucv1-hessian-2x2:
     module: mathgen/generators/p12f_geometry_calculus_build.py
   - topic: exd_x_r2f_hessian_unknown
     module: mathgen/generators/exd_x_r2f_hessian_unknown.py
+ucv1-hyperbolic-functions:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_hyperbolic
+    module: mathgen/generators/fy1ca_hyperbolic_build.py
+  - topic: fy1ca_hyperbolic_exam
+    module: mathgen/generators/fy1ca_hyperbolic_build.py
 ucv1-ideal-membership:
   domain: advanced-algebra
   status: active
@@ -5584,6 +5656,14 @@ ucv1-iterative-linear-solver-step:
   sources:
   - topic: p14c_iterative_linear_solver_step
     module: mathgen/generators/p14c_iterative_linear_solver_step_build.py
+ucv1-ivt-bisection:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_ivt_bisection
+    module: mathgen/generators/fy1ca_ivt_bisection_build.py
+  - topic: fy1ca_ivt_bisection_exam
+    module: mathgen/generators/fy1ca_ivt_bisection_build.py
 ucv1-joint-distribution-marginal:
   domain: probability
   status: active
@@ -5626,6 +5706,14 @@ ucv1-linear-system-determinant:
   sources:
   - topic: p14c_linear_system_determinant
     module: mathgen/generators/p14c_linear_system_determinant_build.py
+ucv1-lines-and-planes-3d:
+  domain: vectors
+  status: active
+  sources:
+  - topic: fy1ms_lines_planes
+    module: mathgen/generators/fy1ms_lines_planes_build.py
+  - topic: exd_x_fy1ms_lines_planes
+    module: mathgen/generators/fy1ms_lines_planes_build.py
 ucv1-manifold-chart-jacobian:
   domain: advanced-geometry-and-topology
   status: active
@@ -5648,6 +5736,14 @@ ucv1-metric-axiom-check:
   sources:
   - topic: p15b_metric_axiom_check
     module: mathgen/generators/p15b_metric_topology_build.py
+ucv1-multivariable-chain-rule:
+  domain: multivariable-and-vector-calculus
+  status: active
+  sources:
+  - topic: fy1ms_chain_rule
+    module: mathgen/generators/fy1ms_chain_rule_build.py
+  - topic: exd_x_fy1ms_chain_rule
+    module: mathgen/generators/fy1ms_chain_rule_build.py
 ucv1-multivariate-regression:
   domain: statistical-learning
   status: active
@@ -5700,6 +5796,14 @@ ucv1-phase-plane-linear-classification:
   sources:
   - topic: p14f_phase_plane_linear_classification
     module: mathgen/generators/p14f_oscillator_phaseplane_build.py
+ucv1-piecewise-continuity:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_piecewise_continuity
+    module: mathgen/generators/fy1ca_piecewise_continuity_build.py
+  - topic: fy1ca_piecewise_continuity_exam
+    module: mathgen/generators/fy1ca_piecewise_continuity_build.py
 ucv1-poisson-count-probability:
   domain: stochastic-processes
   status: active
@@ -5708,6 +5812,14 @@ ucv1-poisson-count-probability:
     module: mathgen/generators/p12e_taylor_poisson_build.py
   - topic: exd_x_r2h_poisson_chain
     module: mathgen/generators/exd_x_r2h_poisson_chain.py
+ucv1-polar-double-integral:
+  domain: multivariable-and-vector-calculus
+  status: active
+  sources:
+  - topic: fy1ms_polar_integral
+    module: mathgen/generators/fy1ms_polar_integral_build.py
+  - topic: exd_x_fy1ms_polar_integral
+    module: mathgen/generators/fy1ms_polar_integral_build.py
 ucv1-power-series-convergence:
   domain: single-variable-calculus
   status: active
@@ -5736,6 +5848,14 @@ ucv1-proportion-confidence-interval:
   sources:
   - topic: proportion_confidence_interval_inverse
     module: mathgen/generators/p17b_proportion_ci_inverse_build.py
+ucv1-proportion-z-test:
+  domain: statistics
+  status: active
+  sources:
+  - topic: fy1ms_z_test_proportion
+    module: mathgen/generators/fy1ms_z_test_proportion_build.py
+  - topic: exd_x_fy1ms_z_test_proportion
+    module: mathgen/generators/fy1ms_z_test_proportion_build.py
 ucv1-quotient-ring-operation:
   domain: abstract-algebra
   status: active
@@ -5748,12 +5868,28 @@ ucv1-recurrence-two-step:
   sources:
   - topic: p12e_recurrence_two_step
     module: mathgen/generators/p12e_recurrence_characteristic_build.py
+ucv1-reduction-formulae:
+  domain: integration
+  status: active
+  sources:
+  - topic: ucv1_reduction_formulae
+    module: mathgen/generators/fy1cd_reduction_formulae_build.py
+  - topic: exd_x_fy_reduction_formulae
+    module: mathgen/generators/fy1cd_reduction_formulae_build.py
 ucv1-regression-residual-diagnostic:
   domain: statistics
   status: active
   sources:
   - topic: p14e_residual_diagnostic
     module: mathgen/generators/p14e_residual_diagnostic_build.py
+ucv1-related-rates:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: fy1ca_related_rates
+    module: mathgen/generators/fy1ca_related_rates_build.py
+  - topic: fy1ca_related_rates_exam
+    module: mathgen/generators/fy1ca_related_rates_build.py
 ucv1-residue-simple-pole:
   domain: complex-analysis
   status: active
@@ -5788,6 +5924,14 @@ ucv1-series-convergence:
     module: mathgen/generators/ucv1_series_convergence_build.py
   - topic: exd_x_uc_series_convergence
     module: mathgen/generators/ucv1_series_convergence_build.py
+ucv1-shells-surface-area:
+  domain: integration
+  status: active
+  sources:
+  - topic: fy1ca_shells_surface
+    module: mathgen/generators/fy1ca_shells_surface_build.py
+  - topic: fy1ca_shells_surface_exam
+    module: mathgen/generators/fy1ca_shells_surface_build.py
 ucv1-sigma-algebra-closure:
   domain: measure-and-advanced-probability
   status: active
@@ -5834,6 +5978,14 @@ ucv1-syntactic-semantic-separation:
     module: mathgen/generators/p15b_logic_build.py
   - topic: exd_x_r2h_entailment_count_chain
     module: mathgen/generators/exd_x_r2h_entailment_count_chain.py
+ucv1-tangent-plane-linear-approximation:
+  domain: multivariable-and-vector-calculus
+  status: active
+  sources:
+  - topic: fy1ms_tangent_plane
+    module: mathgen/generators/fy1ms_tangent_plane_build.py
+  - topic: exd_x_fy1ms_tangent_plane
+    module: mathgen/generators/fy1ms_tangent_plane_build.py
 ucv1-taylor-linear-approximation:
   domain: single-variable-calculus
   status: active
@@ -5860,6 +6012,14 @@ ucv1-tree-spanning-edge-count:
   sources:
   - topic: p14b_tree_edge_count
     module: mathgen/generators/p14b_tree_edge_count_build.py
+ucv1-trig-substitution-integrals:
+  domain: integration
+  status: active
+  sources:
+  - topic: ucv1_trig_substitution
+    module: mathgen/generators/fy1cd_trig_substitution_build.py
+  - topic: exd_x_fy_trig_substitution
+    module: mathgen/generators/fy1cd_trig_substitution_build.py
 ucv1-triple-integral:
   domain: multivariable-and-vector-calculus
   status: active
@@ -5868,6 +6028,14 @@ ucv1-triple-integral:
     module: mathgen/generators/ucv1_triple_integral_build.py
   - topic: exd_x_uc_triple_integral
     module: mathgen/generators/ucv1_triple_integral_build.py
+ucv1-two-sample-and-paired-t-test:
+  domain: statistics
+  status: active
+  sources:
+  - topic: fy1ms_t_test_two_sample
+    module: mathgen/generators/fy1ms_t_test_two_sample_build.py
+  - topic: exd_x_fy1ms_t_test_two_sample
+    module: mathgen/generators/fy1ms_t_test_two_sample_build.py
 ucv1-unconstrained-critical-point:
   domain: optimisation
   status: active
@@ -5876,6 +6044,14 @@ ucv1-unconstrained-critical-point:
     module: mathgen/generators/p14d_quadratic_optimisation_build.py
   - topic: exd_x_r2f_cubic_critical_point
     module: mathgen/generators/exd_x_r2f_cubic_critical_point.py
+ucv1-uniform-exponential-distributions:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fy1ms_uniform_exponential
+    module: mathgen/generators/fy1ms_uniform_exponential_build.py
+  - topic: exd_x_fy1ms_uniform_exponential
+    module: mathgen/generators/fy1ms_uniform_exponential_build.py
 ucv1-validation-calibration-check:
   domain: statistical-learning
   status: active
