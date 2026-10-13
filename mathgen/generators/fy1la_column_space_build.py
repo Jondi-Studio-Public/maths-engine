@@ -5,8 +5,8 @@ rank, a basis is the set of pivot columns of the ORIGINAL matrix, and rank-nulli
 columns.
 
 * easy: rank-nullity with no matrix to reduce: a linear map ℝⁿ → ℝᵐ with a stated rank (or nullity); the other one.
-* medium: the dimension of the span of four listed vectors in ℝ³ or ℝ⁴, some of which are combinations of the others,
-  so the vectors have to be reduced and the pivots counted.
+* medium: how many of four listed vectors in ℝ³ or ℝ⁴ are redundant (can be deleted without changing the span), which
+  is the number of vectors minus the dimension of the span, so the vectors have to be reduced and the pivots counted.
 * hard: the dimension of the null space of the TRANSPOSE of a given m×n matrix, which is m minus the rank (not n minus
   the rank).
 * exam (``exd_x_fy1la_column_space``): a 3×4 matrix of rank 2 whose first column is a pivot column. (a) its rank,
@@ -149,13 +149,14 @@ def _medium(rng):
         mat = _product(rng, m, n, r)
         _verify_rank(mat, r)
         vectors = [column(mat, c) for c in range(n)]
+        answer = n - r
         dist = num_distractors(
-            r,
+            answer,
             [
+                (r, "rank-nullity-swapped"),
                 (n, "dimension-counts-vectors"),
-                (m, "dimension-counts-coordinates"),
-                (r + 1, "dimension-counts-dependent-vector"),
-                (r - 1, "rank-misses-a-pivot"),
+                (answer + 1, "rank-misses-a-pivot"),
+                (answer - 1, "dimension-counts-dependent-vector"),
             ],
             lowest=0,
         )
@@ -163,18 +164,20 @@ def _medium(rng):
             continue
         names = ", ".join(f"v{i + 1} = {vec_str(v)}" for i, v in enumerate(vectors))
         stems = (
-            "Find the dimension of the subspace of ℝ{sup} spanned by {vs}.",
-            "Let W be the subspace of ℝ{sup} spanned by {vs}. What is dim W?",
+            "The vectors {vs} span a subspace W of ℝ{sup}. What is the largest number of these vectors that can be "
+            "deleted without changing W?",
+            "Let W be the subspace of ℝ{sup} spanned by {vs}. How many of these vectors are redundant, in the sense "
+            "that deleting them leaves W unchanged?",
         )
         return dict(
             text=phrase(rng, stems, sup=_sup(m), vs=names),
             answer_kind="number",
-            answer=r,
-            answer_text=str(r),
-            answer_latex=str(r),
+            answer=answer,
+            answer_text=str(answer),
+            answer_latex=str(answer),
             working=[
-                f"The dimension of the span is the rank of the matrix with these columns, {mat_str(mat)}.",
-                f"Row-reducing leaves {r} non-zero rows, so dim W = {r}.",
+                f"A basis of W is a set of independent vectors, and dim W is the rank of the matrix with these columns, {mat_str(mat)}.",
+                f"Row-reducing leaves {r} non-zero rows, so dim W = {r} and {n} - {r} = {answer} of the {n} vectors can be deleted.",
             ],
             distractors=dist,
         )

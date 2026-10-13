@@ -60,8 +60,8 @@ misconceptions:
     a linear combination.}
 - {id: coefficients-read-from-wrong-column, description: Reading the coefficients of a dependent column from the wrong non-pivot
     column of the reduced matrix.}
-difficulty_progression: Easy applies rank-nullity with no matrix to reduce. Medium finds the dimension of the span of four
-  listed vectors, so the vectors must be reduced and the pivots counted. Hard asks for the dimension of the null space of
+difficulty_progression: Easy applies rank-nullity with no matrix to reduce. Medium asks how many of four listed
+  vectors are redundant, so the vectors must be reduced, the pivots counted and the dimension subtracted from the number of vectors. Hard asks for the dimension of the null space of
   the transpose, which is rows minus rank rather than columns minus rank. The exam chain finds the rank, the nullity (following
   through from the rank), the pivot columns of A as a basis, and the coefficients that write a non-pivot column in terms
   of the basis.

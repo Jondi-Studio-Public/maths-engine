@@ -47,7 +47,7 @@ def _easy(q):
 def _medium(q):
     vs = vectors_in(q.text, [f"v{i}" for i in range(1, 5)])
     m = sympy.Matrix.hstack(*[sympy.Matrix(v) for v in vs.values()])
-    assert q.answer == m.rank() < m.cols
+    assert q.answer == m.cols - m.rank() > 0
 
 
 def _hard(q):

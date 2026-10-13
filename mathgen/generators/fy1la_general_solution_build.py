@@ -327,6 +327,7 @@ def exd_x_fy1la_general_solution(rng, tier="exam"):
                 (_param_text(-const, (-u, -v)), "solution-sign-slip"),
             ],
             prompt_d,
+            n=2,
         )
         if None in (dist_a, dist_b, dist_c, dist_d):
             continue
@@ -380,10 +381,8 @@ def _sympy_pivot(a, b, pivots, params):
     """The first pivot variable as a SymPy expression in the parameters, from the target's first row (second route:
     solve the original system with SymPy and read the same variable)."""
     n = 4
-    syms = [sympy.Symbol(f"x{c + 1}") for c in range(n)]
     free = [c for c in range(n) if c not in pivots]
-    eqs = [sum(sympy.Integer(int(a[r][c])) * syms[c] for c in range(n)) - sympy.Integer(int(b[r])) for r in range(3)]
-    solved = sympy.solve(eqs, [syms[c] for c in pivots], dict=True)
-    check(len(solved) == 1, "SymPy found no unique pivot solution")
-    expr = solved[0][syms[pivots[0]]]
-    return expr.subs({syms[c]: params[c] for c in free})
+    pivot_block = sympy.Matrix([[int(a[r][c]) for c in pivots] for r in range(3)])
+    rhs = sympy.Matrix([int(b[r]) - sum(int(a[r][c]) * params[c] for c in free) for r in range(3)])
+    solution, _ = pivot_block.gauss_jordan_solve(rhs)  # raises if the system is inconsistent or under-determined
+    return solution[0]

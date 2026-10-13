@@ -1,4 +1,4 @@
-"""Generates `fy1la_eigenvalues` questions (easy, medium, hard) and two exam chains.
+"""Generates `fy1la_eigenvalues` questions (easy, medium, hard) and an exam chain.
 
 ``ucv1-eigenvalues-characteristic-polynomial`` (``linear-algebra``, answer ``list``): the eigenvalues of a matrix are
 the roots of det(A - λI) = 0. The existing ``two-by-two-eigenvalues`` skill covers only an upper-triangular 2×2
@@ -11,8 +11,6 @@ matrix, where the eigenvalues can be read off the diagonal; this one needs the c
   rational root first.
 * exam (``exd_x_fy1la_eigenvalues``): a dense 3×3 matrix. (a) the trace, (b) the determinant, (c) the product of the two
   eigenvalues other than a stated one (follows through from (b)), (d) all three eigenvalues.
-* exam (``exd_x_fy1la_eigenvalues_2x2``, appended to ``two-by-two-eigenvalues``): a full 2×2 matrix. (a) the trace,
-  (b) the determinant, (c) the discriminant t² - 4d (follows through from (a) and (b)), (d) the eigenvalues.
 
 Each matrix is built as P D P⁻¹ with D diagonal and P unimodular, so its eigenvalues are known; they are re-derived
 by SymPy's `eigenvals()` and the characteristic polynomial is checked to factor as (λ - λ1)(λ - λ2)(λ - λ3).
@@ -256,73 +254,6 @@ def exd_x_fy1la_eigenvalues(rng, tier="exam"):
                         f"The other two eigenvalues have sum {tr} - ({e}) = {tr - e} and product {product}, "
                         f"so they are the roots of {join_terms([(1, 'λ²'), (-(tr - e), 'λ'), (product, '')])}. The eigenvalues are {text}."
                     ],
-                    distractors=dist_d,
-                ),
-            ],
-        )
-    raise VerificationError("unreachable")  # pragma: no cover
-
-
-@generator("exd_x_fy1la_eigenvalues_2x2", level=14, presets={"exam": dict(tier="exam")})
-def exd_x_fy1la_eigenvalues_2x2(rng, tier="exam"):
-    """Exam chain on a full 2×2: trace, determinant, discriminant of the characteristic polynomial, eigenvalues."""
-    check(tier == "exam", f"unknown tier {tier!r}")
-    for _ in attempts(500, "an exam 2×2 eigenvalue chain"):
-        a, eigenvalues = _full_2x2(rng, -5, 7)
-        _verify(a, eigenvalues)
-        tr, d = int(a[0][0] + a[1][1]), int(det(a))
-        disc = tr * tr - 4 * d
-        check(disc == (eigenvalues[1] - eigenvalues[0]) ** 2, "discriminant is not the squared gap between the roots")
-        dist_a = num_distractors(tr, _trace_candidates(a))
-        dist_b = num_distractors(
-            d,
-            [
-                (a[0][0] * a[1][1], "determinant-as-product-of-diagonal"),
-                (a[0][0] * a[1][1] + a[0][1] * a[1][0], "det-formula-sign-slip"),
-                (a[0][1] * a[1][0] - a[0][0] * a[1][1], "det-formula-sign-slip"),
-                (-d, "det-expansion-sign-slip"),
-            ],
-        )
-        dist_c = num_distractors(
-            disc,
-            [
-                (tr * tr + 4 * d, "discriminant-sign-slip"),
-                (tr - 4 * d, "discriminant-forgot-to-square"),
-                (tr * tr - 2 * d, "discriminant-wrong-factor"),
-                (tr * tr - d, "discriminant-wrong-factor"),
-            ],
-        )
-        dist_d = list_distractors(eigenvalues, _eigen_candidates(a, eigenvalues))
-        if None in (dist_a, dist_b, dist_c, dist_d):
-            continue
-        text = ", ".join(str(v) for v in eigenvalues)
-        return dict(
-            text=f"Let A = {mat_str(a)}, with characteristic polynomial λ² - tλ + d, where t = tr(A) and d = det(A).",
-            parts=[
-                number_part("Find t.", tr, dist_a, marks=1, working=[f"t is the sum of the diagonal entries: {tr}."]),
-                number_part(
-                    "Find d.",
-                    d,
-                    dist_b,
-                    marks=2,
-                    working=[f"d = ({a[0][0]})({a[1][1]}) - ({a[0][1]})({a[1][0]}) = {d}."],
-                ),
-                number_part(
-                    "Find the discriminant t² - 4d of the characteristic polynomial.",
-                    disc,
-                    dist_c,
-                    marks=1,
-                    follow_through="part_a**2 - 4*part_b",
-                    working=[f"t² - 4d = {tr}² - 4({d}) = {disc}."],
-                ),
-                dict(
-                    prompt="Find the eigenvalues of A.",
-                    answer_kind="list",
-                    answer=list(eigenvalues),
-                    answer_text=text,
-                    answer_latex=text,
-                    marks=2,
-                    working=[f"λ = ({tr} ± √{disc})/2, so the eigenvalues are {text}."],
                     distractors=dist_d,
                 ),
             ],

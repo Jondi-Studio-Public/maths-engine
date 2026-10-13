@@ -1,4 +1,4 @@
-"""`ucv1-eigenvalues-characteristic-polynomial` and the exam chain added to `two-by-two-eigenvalues`.
+"""`ucv1-eigenvalues-characteristic-polynomial`.
 
 The oracle reads the matrix out of the rendered text and takes its eigenvalues, trace and determinant from SymPy; it
 never imports the generator.
@@ -22,10 +22,8 @@ from fy1la_support import (
 from mathgen import make
 
 SKILL = "ucv1-eigenvalues-characteristic-polynomial"
-OLD_SKILL = "two-by-two-eigenvalues"
 PRACTICE = "fy1la_eigenvalues"
 EXAM = "exd_x_fy1la_eigenvalues"
-EXAM_2X2 = "exd_x_fy1la_eigenvalues_2x2"
 
 
 def _eigenvalues(a):
@@ -99,44 +97,10 @@ def test_follow_through_from_a_wrong_determinant():
     check_follow_through(EXAM, SKILL, "c", wrong)
 
 
-def _exam_2x2_oracle(q):
-    a = matrix_in(q.stem, "A")
-    t_part, d_part, disc_part, eig_part = q.parts
-    assert a.shape == (2, 2) and a[0, 1] != 0 and a[1, 0] != 0
-    assert t_part.answer == a.trace() and d_part.answer == a.det()
-    assert disc_part.answer == a.trace() ** 2 - 4 * a.det() and disc_part.follow_through == "part_a**2 - 4*part_b"
-    assert eig_part.answer == _eigenvalues(a)
-
-
-def test_exam_2x2_chain_matches_the_oracle_and_marks():
-    check_exam(EXAM_2X2, OLD_SKILL, _exam_2x2_oracle, [1, 2, 1, 2])
-
-
-def test_follow_through_for_the_discriminant():
-    def wrong(q):
-        t, d = q.parts[0].answer, q.parts[1].answer
-        wrong_t = t + 3 if t + 3 != 0 else t + 5  # a reply of zero earns no follow-through, by design
-        return "a", str(wrong_t), str(wrong_t**2 - 4 * d)
-
-    check_follow_through(EXAM_2X2, OLD_SKILL, "c", wrong)
-
-
-def test_the_existing_skill_gained_an_exam_source_and_nothing_else_changed():
-    old = skill(OLD_SKILL)
-    assert [(s.topic, s.difficulty) for s in old.sources] == [
-        ("two_by_two_eigenvalues", "easy"),
-        ("two_by_two_eigenvalues", "medium"),
-        ("two_by_two_eigenvalues", "hard"),
-        (EXAM_2X2, "exam"),
-    ]
-    assert old.sources[-1].stages == ["exam"] and old.answer == "list"
-
-
 def test_variety_over_200_seeds():
     for tier in ("easy", "medium", "hard"):
         check_variety(PRACTICE, tier, minimum=100)
     check_variety(EXAM, "exam", minimum=100)
-    check_variety(EXAM_2X2, "exam", minimum=80)
 
 
 def test_skill_is_active_with_a_ladder_and_documented_misconceptions():
