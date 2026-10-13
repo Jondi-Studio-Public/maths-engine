@@ -3,6 +3,7 @@
 id: senior-solve-equations-involving-exponential-functions-using-technology-and
 name: Solve equations involving exponential functions using technology, and algebraically in simple cases
 domain: functions-sequences
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, solve equations involving exponential functions using technology, and algebraically in simple cases. Return the resulting value, expression, relation, or classification. Base e throughout; every tier''s equation carries an additive constant on the exponential term (A*e^(kx) + c = d at minimum) before it can be isolated -- the shipping neighbour senior-solve-equations-involving-indices-using-logarithms (a^x = b, or a variant with a coefficient or linear exponent) never carries that extra additive-isolation step at any of its tiers. Answers are decimal-valued to 3 decimal places.'
 status: active
 placement_eligible: false

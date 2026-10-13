@@ -3,6 +3,7 @@
 id: senior-examine-simple-examples-of-non-uniform-discrete-random
 name: Examine simple examples of non-uniform discrete random variables
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a non-uniform discrete random variable presented as a probability distribution table (outcomes and probabilities with a common denominator), solve for either a missing probability using the complement rule or the expected value using a weighted mean. Answers are exact fractions. The skill distinguishes between uniform (all equal probabilities) and non-uniform distributions by construction, requiring reasoning about probability complements and weighted means in non-equiprobable settings.'
 status: active
 placement_eligible: false

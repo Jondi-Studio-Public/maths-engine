@@ -4,6 +4,7 @@ id: senior-calculate-probabilities-and-quantiles-associated-with-a-given
 name: Calculate probabilities and quantiles associated with a given normal distribution using technology,
   and use these to solve practical problems
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, calculate probabilities and quantiles associated
   with a given normal distribution using technology, and use these to solve practical problems. Return
   the resulting value, expression, relation, or classification. This is a CONTINUOUS N(mu, sigma^2)

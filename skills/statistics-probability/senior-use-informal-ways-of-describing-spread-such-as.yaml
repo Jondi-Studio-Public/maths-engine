@@ -3,6 +3,7 @@
 id: senior-use-informal-ways-of-describing-spread-such-as
 name: Use informal ways of describing spread, such as spread out/dispersed, tightly packed, clusters, gaps, more/less dense regions, outliers
 domain: statistics-probability
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use informal ways of describing spread, such as spread out/dispersed, tightly packed, clusters, gaps, more/less dense regions, outliers. Return the resulting value, expression, relation, or classification. This skill assesses the application of stated numeric rules that bind each informal term to an unambiguous criterion. Every question states its own threshold rule in the question text; no undefined "spread out" judgement is ever asked for. No item asks a learner to choose an interpretation of "informal" -- every informal descriptor in the skill''s scope is defined by construction as a numeric rule, and that rule is stated in the question itself.'
 status: active
 placement_eligible: false

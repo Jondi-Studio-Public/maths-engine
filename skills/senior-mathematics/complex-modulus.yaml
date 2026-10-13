@@ -5,6 +5,6 @@ description: Calculate the modulus of a Cartesian complex number using Pythagora
 status: active
 prerequisites: [complex-imaginary-part, pythagorean-hypotenuse]
 answer: number
-sources: [{topic: complex_number, params: {kind: modulus}, difficulty: easy}, {topic: exd_x_complex_modulus, params: {tier: exam}, difficulty: exam, stages: [exam]}]
+sources: [{topic: complex_number, params: {kind: modulus}, difficulty: easy}, {topic: exd_x_r3d_complex_product_modulus, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: adds-components, description: Adds the real and imaginary components.}]
 tags: [expansion-batch-6, complex-numbers, acara-v8-4]

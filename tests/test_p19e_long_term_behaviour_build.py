@@ -3,6 +3,7 @@ both three-way `mcq`.
 
 `p19e_geometric_limit_class` and `p19e_recurrence_long_term_class` (both `answer: mcq`, 3-way)."""
 
+from dataclasses import replace
 from collections import Counter
 
 import pytest
@@ -29,6 +30,7 @@ def _skill_sources(skill_id):
 
 GEO_SKILL, GEO_SOURCES = _skill_sources(GEO_ID)
 REC_SKILL, REC_SOURCES = _skill_sources(REC_ID)
+REC_SOURCES["exam"] = replace(REC_SOURCES["exam"], topic="p19e_recurrence_long_term_class", params={})
 
 
 def _make(sources, difficulty, seed):

@@ -3,6 +3,7 @@
 id: senior-work-with-the-concepts-of-angle-of-elevation
 name: Work with the concepts of angle of elevation and angle of depression
 domain: senior-mathematics
+year_level: ['12']
 description: Given bounded, fully specified inputs, work with the concepts of angle of elevation and angle of depression. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

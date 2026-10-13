@@ -1,5 +1,6 @@
 """Focused contract tests for: ucv1-ideal-membership and ucv1-structure-classification (both answer: mcq)."""
 
+from dataclasses import replace
 import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
@@ -25,6 +26,7 @@ def _skill_sources(skill_id):
 
 IDEAL_SKILL, IDEAL_SOURCES = _skill_sources(IDEAL_ID)
 STRUCT_SKILL, STRUCT_SOURCES = _skill_sources(STRUCT_ID)
+IDEAL_SOURCES["exam"] = replace(IDEAL_SOURCES["exam"], topic="p15a_ideal_membership", params={})
 
 
 def _make(sources, difficulty, seed):

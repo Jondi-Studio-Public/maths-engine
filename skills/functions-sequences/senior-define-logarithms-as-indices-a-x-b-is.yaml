@@ -3,6 +3,7 @@
 id: senior-define-logarithms-as-indices-a-x-b-is
 name: Define logarithms as indices
 domain: functions-sequences
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, define logarithms as indices: a^x = b is equivalent to x = log_a(b), i.e. a^(log_a(b)) = b. Return the resulting value, expression, relation, or classification. This skill assesses the definitional equivalence directly for stated integer powers in either direction (never log laws such as product/quotient/power, and never requiring a general logarithm computation for non-integer-power cases).'
 status: active
 placement_eligible: false

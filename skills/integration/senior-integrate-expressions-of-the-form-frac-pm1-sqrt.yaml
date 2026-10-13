@@ -22,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c4_inverse_trig_forms
+- topic: exd_x_r3f_inverse_trig_chain
   params: {tier: exam}
   difficulty: exam
   stages:

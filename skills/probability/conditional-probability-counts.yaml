@@ -27,7 +27,7 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_x_s0_condprob
+- topic: exd_x_r3a_survey_conditional
   params: {tier: exam}
   difficulty: exam
   stages:

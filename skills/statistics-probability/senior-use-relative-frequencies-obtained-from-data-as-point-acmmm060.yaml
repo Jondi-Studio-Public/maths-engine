@@ -3,6 +3,7 @@
 id: senior-use-relative-frequencies-obtained-from-data-as-point-acmmm060
 name: Use relative frequencies obtained from data as point estimates of conditional probabilities and as indications of possible independence of events
 domain: statistics-probability
+year_level: ['11']
 description: From a two-way frequency table, estimate the conditional probability P(A given B), then compare it with the estimate of P(A). The graded value is P(A given B) minus P(A) as an exact fraction; a value of 0 indicates the data are consistent with A and B being independent. Genuinely different from the shipping conditional-probability-counts skill, whose graded value is always the bare P(A given B) handed four raw counts directly.
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-review-the-rules-p-left-overline-a-right
 name: Review the complement and union rules for probability
 domain: statistics-probability
+year_level: ['11']
 description: Apply the complement rule P(not A) = 1 - P(A) and union rules for probability. For mutually-exclusive events, P(A union B) = P(A) + P(B). For overlapping events, P(A union B) = P(A) + P(B) - P(A intersect B).
 status: active
 placement_eligible: false

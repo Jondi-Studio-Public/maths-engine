@@ -3,6 +3,7 @@
 id: senior-use-arithmetic-sequences-to-model-and-analyse-practical
 name: Use arithmetic sequences to model and analyse practical situations
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use arithmetic sequences to model and analyse practical situations involving linear growth or decay -- for example, calculating the value of an office photocopier at the end of each year using the straight-line method of depreciation, the volume of water in a draining tank, or a venue''s growing seating capacity. Return the resulting value, expression, relation, or classification. The model is never stated directly: the learner reads two values from a small practical table and must infer the common difference (dividing by the gap between periods when the two given periods are not adjacent) before predicting forward -- a genuinely different task from the neighbouring skill senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear, which states the algebraic model outright.'
 status: active
 placement_eligible: false

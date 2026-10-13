@@ -27,6 +27,8 @@ SKILL, SOURCES = _skill_sources()
 
 def _make(difficulty, seed):
     src = SOURCES[difficulty]
+    if difficulty == "exam":  # the skill's exam source is now a multi-part chain; this file pins the old tier
+        return make(TOPIC, seed=seed, difficulty="exam")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

@@ -3,6 +3,7 @@
 id: senior-determine-the-optimum-assignment-s-by-inspection-for
 name: Determine the optimum assignment(s) by inspection for
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, determine the optimum assignment(s), by inspection for small-scale problems, or by use of the Hungarian algorithm for larger problems. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
@@ -21,7 +22,7 @@ sources:
   params: {blocked: 3}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g6_assignment_max_forbidden
+- topic: exd_x_r3e_assignment_reduction
   params: {tier: exam}
   difficulty: exam
   stages:

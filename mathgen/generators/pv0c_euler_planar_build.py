@@ -22,8 +22,10 @@ graph built in pure Python: a fan-triangulated m-gon (outer face = the
 m-gon, inner faces triangles), vertices stellated into triangular faces, and
 some edges deleted where the two faces they border share exactly that
 edge's two endpoints (so the merge keeps every face a simple cycle and the
-graph bridgeless). A pool of such graphs is built once at import time (never
-per `make()` call, to stay well under the 15ms speed budget) and every
+graph bridgeless). A pool of such graphs is built once, on the first hard or
+exam question: never per `make()` call, to stay well under the 15ms speed
+budget, and not at import, where it cost every `import mathgen` about two
+seconds. Every
 invariant is asserted on every pool entry: the face
 lengths sum to 2e, the degrees sum to 2e, v - e + f = 2, and every edge
 borders exactly two DIFFERENT faces.
@@ -31,6 +33,7 @@ borders exactly two DIFFERENT faces.
 
 from __future__ import annotations
 
+import functools
 import random
 
 from ..core import (
@@ -153,8 +156,8 @@ def _verify_plane_graph(vertices: list, edges: set, faces: list) -> dict:
 
 
 def _build_euler_pool(n_graphs: int = 2400) -> list[dict]:
-    """A fixed, deterministic pool of real graphs, built once at import time
-    (never inside `make()`) -- see the module docstring.
+    """A fixed, deterministic pool of real graphs, built once by `_euler_pool()`
+    (never per `make()` call) -- see the module docstring.
 
     The exam tier's answer is this pool entry's own `v`, so `v` is what must
     spread widely: each draw fixes a TARGET `v` first,
@@ -198,7 +201,12 @@ def _build_euler_pool(n_graphs: int = 2400) -> list[dict]:
     return pool
 
 
-_EULER_POOL = _build_euler_pool()
+@functools.cache
+def _euler_pool() -> tuple[dict, ...]:
+    """The pool, built on first use rather than at import: building it takes about two seconds, which every
+    `import mathgen` would otherwise pay. Its own fixed seed makes it the same whenever it is built."""
+    return tuple(_build_euler_pool())
+
 
 # ---------------------------------------------------------------------------
 # Wording banks
@@ -373,7 +381,7 @@ def pv0c_euler_planar(rng: random.Random, tier: str = "easy"):
             answer = v
 
     elif tier == "hard":
-        entry = rng.choice(_EULER_POOL)
+        entry = rng.choice(_euler_pool())
         v, e, f = entry["v"], entry["e"], entry["f"]
         degree_text = _degree_text(entry["degrees"])
         check(sum(entry["degrees"]) == 2 * e, "euler_planar/hard: degree list does not match e")
@@ -382,7 +390,7 @@ def pv0c_euler_planar(rng: random.Random, tier: str = "easy"):
         unknown = "f"
 
     elif tier == "exam":
-        entry = rng.choice(_EULER_POOL)
+        entry = rng.choice(_euler_pool())
         v, e, f = entry["v"], entry["e"], entry["f"]
         lengths = entry["face_lengths"]
         outer = lengths[-1]

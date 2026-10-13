@@ -3,6 +3,7 @@
 id: senior-use-set-language-and-notation-for-events-including
 name: Use set language and notation for events, including A' for the complement of an event A, A ∩ B for the intersection of events A and B, and A ∪ B for the union, and recognise mutually exclusive events
 domain: statistics-probability
+year_level: ['11']
 description: List the outcomes in an event written with set notation (a complement, an intersection, a union or a combination) over a small, fully listed sample space; the result is empty exactly when the events are mutually exclusive.
 status: active
 placement_eligible: false

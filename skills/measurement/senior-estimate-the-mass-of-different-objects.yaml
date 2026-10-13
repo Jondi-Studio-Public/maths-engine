@@ -3,6 +3,7 @@
 id: senior-estimate-the-mass-of-different-objects
 name: Estimate the mass of different objects
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, estimate the mass of different objects. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

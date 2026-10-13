@@ -1,7 +1,7 @@
 # What the source distribution carries beyond the packages and package data in pyproject.toml, so that
 # an unpacked sdist can build the wheel and run its own tests (they read skills/, .github/ and AGENTS.md,
 # and import scripts/).
-include AGENTS.md CONTRIBUTING.md SECURITY.md
+include AGENTS.md CHANGELOG.md CONTRIBUTING.md SECURITY.md
 graft .github
 graft skills
 graft scripts

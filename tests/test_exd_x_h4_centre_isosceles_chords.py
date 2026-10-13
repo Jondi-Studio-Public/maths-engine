@@ -44,7 +44,8 @@ def test_skill_yaml_has_the_exam_source_last():
     )
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
     last = skill["sources"][-1]
-    assert last["topic"] == TOPIC
+    # The skill's exam source is now the multi-part chain; this module's generator stays registered on its own.
+    assert last["topic"] == "exd_x_r3e_circle_centre_chain"
     assert last["difficulty"] == "exam"
     assert last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}

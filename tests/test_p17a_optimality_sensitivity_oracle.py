@@ -10,6 +10,7 @@ tiers, so >= 1000 questions re-derived over a full run.
 from __future__ import annotations
 
 import os
+from dataclasses import replace
 import re
 from fractions import Fraction
 
@@ -36,6 +37,8 @@ def _skill_sources():
 
 
 SOURCES = _skill_sources()
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+SOURCES["exam"] = replace(SOURCES["exam"], topic="p17a_optimality_sensitivity", params={})
 
 
 def _make(difficulty, seed):

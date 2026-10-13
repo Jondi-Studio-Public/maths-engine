@@ -2,7 +2,10 @@ id: ucv1-metric-axiom-check
 name: Check metric axioms on a finite distance table
 domain: metric-spaces-and-topology
 year_level: [university]
-description: Decide which metric axiom fails, if any, for a supplied finite symmetric distance table.
+description: >-
+  Decide which metric axiom fails, if any, for a supplied finite symmetric distance table. The exam
+  tier gives a distance table with one distance t missing and asks for the least and greatest t that
+  keep the triangle inequality, then how many whole-number values of t give a metric.
 status: active
 placement_eligible: false
 prerequisites:
@@ -22,7 +25,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15b_metric_axiom_check
+- topic: exd_x_r3j_metric_missing_distance
   params: {}
   difficulty: exam
   stages: [exam]

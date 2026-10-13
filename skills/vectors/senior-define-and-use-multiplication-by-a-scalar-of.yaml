@@ -3,6 +3,7 @@
 id: senior-define-and-use-multiplication-by-a-scalar-of
 name: Define and use multiplication by a scalar of a vector in component form
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, define and use multiplication by a scalar of a vector in component form. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
@@ -22,7 +23,7 @@ sources:
   params: {variant: inverse}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g2_scalar_pair
+- topic: exd_x_r3e_vector_combination
   params: {tier: exam}
   difficulty: exam
   stages:

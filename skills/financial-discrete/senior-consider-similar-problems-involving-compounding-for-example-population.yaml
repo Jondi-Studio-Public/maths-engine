@@ -3,6 +3,7 @@
 id: senior-consider-similar-problems-involving-compounding-for-example-population
 name: Consider similar problems involving compounding; for example, population growth
 domain: financial-discrete
+year_level: ['12']
 description: Given bounded, fully specified inputs, consider similar problems involving compounding; for example, population growth. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
@@ -21,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_g6_compound_threshold
+- topic: exd_x_r3d_compound_two_readings
   params: {tier: exam}
   difficulty: exam
   stages:

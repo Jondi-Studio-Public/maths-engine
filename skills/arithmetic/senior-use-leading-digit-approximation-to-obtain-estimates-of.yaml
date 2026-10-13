@@ -3,6 +3,7 @@
 id: senior-use-leading-digit-approximation-to-obtain-estimates-of
 name: Use leading-digit approximation to obtain estimates of calculations
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use leading-digit approximation to obtain estimates of calculations. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

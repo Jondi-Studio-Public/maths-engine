@@ -20,6 +20,7 @@ all, only what the rendered question shows.
 
 import re
 from fractions import Fraction
+from types import SimpleNamespace
 
 import pytest
 
@@ -143,7 +144,10 @@ _SOLVERS = {
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return {src.difficulty: src for src in skill.sources}
+    sources = {src.difficulty: src for src in skill.sources}
+    # The exam source moved to the multi-part chain exd_x_r3b_proportion_ci; this oracle pins the original generator.
+    sources["exam"] = SimpleNamespace(topic="proportion_confidence_interval_inverse", params={}, difficulty="exam")
+    return sources
 
 
 SOURCES = _skill_sources(SKILL_ID)

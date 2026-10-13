@@ -3,6 +3,7 @@
 id: senior-use-the-notation-frac-delta-y-delta-x
 name: Use the notation δy/δx for the difference quotient (f(x+h)-f(x))/h where y=f(x)
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, use the notation δy/δx for the difference quotient (f(x+h)-f(x))/h where y=f(x). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
