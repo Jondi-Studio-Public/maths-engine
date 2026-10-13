@@ -1,0 +1,95 @@
+id: uc2-subgroup-lattice-count
+name: Count the subgroups of a group from its lattice
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Count subgroups from the shape of the subgroup lattice: the subgroups of Z_n that contain a
+  given one, the subgroups of a dihedral group of a given order, and all subgroups of a product of
+  two cyclic groups. The exam chain counts the subgroups of a dihedral group inside and outside
+  its rotation subgroup, in total, and the normal ones.
+status: active
+placement_eligible: false
+prerequisites:
+- cyclic-group-element-order
+- ucv1-finite-subgroup-test
+answer: number
+sources:
+- topic: r4c_subgroup_lattice_count
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_subgroup_lattice_count
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_subgroup_lattice_count
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_subgroup_lattice_count
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dihedral-count-elements-not-subgroups
+  description: >-
+    Reporting the number of reflections or elements instead of the number of subgroups.
+- id: dihedral-count-forgets-reflection-type
+  description: >-
+    Counting only the rotation subgroup of the given order and forgetting the subgroups that
+    contain reflections.
+- id: dihedral-count-forgets-rotation-subgroup
+  description: >-
+    Counting only the dihedral subgroups of the given order and forgetting the rotation subgroup
+    of that order.
+- id: dihedral-count-sigma-for-tau
+  description: >-
+    Using the sum of the divisors where the number of divisors counts the rotation subgroups.
+- id: dihedral-count-tau-for-sigma
+  description: >-
+    Using the number of divisors where the sum of the divisors counts the dihedral subgroups.
+- id: lattice-contains-contained-swapped
+  description: >-
+    Counting the subgroups contained in the given subgroup where the ones that contain it were
+    asked for.
+- id: lattice-counts-all-subgroups
+  description: >-
+    Counting every subgroup of the group instead of only those that contain the given subgroup.
+- id: lattice-excludes-the-subgroup-itself
+  description: >-
+    Leaving the given subgroup out of the count of subgroups that contain it.
+- id: lattice-uses-generator-not-gcd
+  description: >-
+    Counting divisors of the generator itself instead of the gcd of the generator and the group
+    order.
+- id: normal-count-every-subgroup
+  description: >-
+    Treating every subgroup of a dihedral group as normal.
+- id: normal-count-only-rotations
+  description: >-
+    Counting only the subgroups of the rotation subgroup as normal and missing the normal dihedral
+    subgroups.
+- id: normal-count-parity-swapped
+  description: >-
+    Counting the index-2 dihedral subgroups for odd n, or missing them for even n.
+- id: subgroup-count-assumes-product-subgroups
+  description: >-
+    Taking every subgroup of a direct product to be a product of subgroups, so multiplying the
+    divisor counts.
+- id: subgroup-count-cyclic-only
+  description: >-
+    Counting only the cyclic subgroups of a direct product of cyclic groups.
+- id: subgroup-count-divisors-of-order
+  description: >-
+    Counting the divisors of the group order as if each divisor gave exactly one subgroup.
+tags: [university-core-v1, university-year-2, abstract-algebra, subgroup-lattice,counting,dihedral]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

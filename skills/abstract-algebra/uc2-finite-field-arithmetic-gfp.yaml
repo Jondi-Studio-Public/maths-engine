@@ -1,0 +1,97 @@
+id: uc2-finite-field-arithmetic-gfp
+name: Do arithmetic and solve equations in the field GF(p)
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Do arithmetic in the finite field GF(p) for a prime p: solve a linear equation, evaluate a sum
+  of fractions that needs two modular inverses, and solve a quadratic whose leading coefficient is
+  not 1, which needs the discriminant and a square root modulo p. The exam chain finds an inverse,
+  a discriminant, a Bezout cofactor and the roots of a quadratic.
+status: active
+placement_eligible: false
+prerequisites:
+- modular-arithmetic-congruence
+- euclidean-algorithm-gcd
+answer: number
+sources:
+- topic: r4c_finite_field_arithmetic_gfp
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_finite_field_arithmetic_gfp
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_finite_field_arithmetic_gfp
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_finite_field_arithmetic_gfp
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: bezout-cofactor-is-the-inverse
+  description: >-
+    Giving the inverse itself where the cofactor of p in the Bezout identity was asked.
+- id: bezout-cofactor-sign-slip
+  description: >-
+    Giving the cofactor of p in the Bezout identity with the wrong sign.
+- id: field-adds-numerators-and-denominators
+  description: >-
+    Adding fractions by adding numerators and denominators separately.
+- id: field-discriminant-sign-slip
+  description: >-
+    Adding 4ac to b squared instead of subtracting it.
+- id: field-discriminant-wrong-multiplier
+  description: >-
+    Subtracting 2ac instead of 4ac from b squared.
+- id: field-integer-division-for-inverse
+  description: >-
+    Dividing as integers, or using the whole-number quotient, where the inverse modulo p is
+    needed.
+- id: field-inverse-sign-slip
+  description: >-
+    Using p minus the inverse, the inverse of the negative, where the inverse itself is needed.
+- id: field-moves-constant-with-wrong-sign
+  description: >-
+    Adding the constant to the right side where it should be subtracted.
+- id: field-multiplies-by-a-instead-of-its-inverse
+  description: >-
+    Multiplying by a where the inverse of a modulo p is needed.
+- id: field-multiplies-by-denominator-instead-of-inverse
+  description: >-
+    Multiplying by the denominator where the inverse of the denominator modulo p is needed.
+- id: field-negative-of-the-solution
+  description: >-
+    Giving the additive inverse of the solution, p minus the solution.
+- id: field-subtraction-sign-slip
+  description: >-
+    Adding a term that should have been subtracted.
+- id: quadratic-formula-divides-by-a-not-2a
+  description: >-
+    Dividing by a instead of by 2a in the quadratic formula.
+- id: quadratic-formula-ignores-leading-coefficient
+  description: >-
+    Dividing by 2 instead of by 2a in the quadratic formula.
+- id: quadratic-formula-sign-slip-on-b
+  description: >-
+    Using b where the quadratic formula has -b.
+- id: quadratic-formula-without-the-square-root
+  description: >-
+    Giving only -b divided by 2a, the midpoint of the roots, and leaving out the square root of
+    the discriminant.
+- id: quadratic-larger-root-given
+  description: >-
+    Giving the larger root where the smaller was asked.
+tags: [university-core-v1, university-year-2, abstract-algebra, finite-fields,modular-inverse,quadratic-equations-mod-p]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
