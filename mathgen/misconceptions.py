@@ -45,6 +45,151 @@ _ENTRIES = (
     ),
     # -- first-year multivariable, 3D geometry and statistics --
     CatalogueEntry(
+        "ttest-pooled-sd-as-standard-error",
+        "Dividing the difference in means by the pooled standard deviation alone, without scaling it by √(1/n1 + 1/n2).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-welch-pooled-confused",
+        "Using the pooled standard error when the question asks for the unequal-variance (Welch) statistic, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-sd-as-se",
+        "Dividing the mean difference by the standard deviation of the differences without dividing that by √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-se-root-df",
+        "Dividing the standard deviation of the differences by √(n - 1) instead of √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-sds-added",
+        "Adding the two standard errors s1/√n1 + s2/√n2 instead of adding the variances s1²/n1 + s2²/n2 and then taking the square root.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-no-root",
+        "Forgetting the final square root: giving s1²/n1 + s2²/n2 as the standard error of the difference.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-single-sample",
+        "Using only the first sample, s1/√n1, as the standard error of a difference between two sample means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-sd-over-n",
+        "Dividing each variance by n² (each standard deviation by n) instead of dividing each variance by n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-total-n",
+        "Pooling the two samples into one: √((s1² + s2²)/(n1 + n2)), which ignores that each sample has its own size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-diff-over-sds",
+        "Dividing the difference in means by √(s1² + s2²), forgetting to divide each variance by its sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-sign-reversed",
+        "Subtracting the means (or the paired values) in the wrong order, so the statistic has the wrong sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-simple-average",
+        "Averaging the two sample variances, (s1² + s2²)/2, without weighting by the degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-weights-sds",
+        "Weighting the standard deviations by their degrees of freedom instead of the variances, so the pooled value is a standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-divisor-total-n",
+        "Dividing the pooled sum of squares by n1 + n2 instead of by the degrees of freedom n1 + n2 - 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-weights-by-n",
+        "Weighting each variance by its sample size n instead of by n - 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-sd-as-variance",
+        "Giving the pooled standard deviation where the pooled variance was asked for (or the reverse).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-se-one-sum",
+        "Using √(1/(n1 + n2)) in place of √(1/n1 + 1/n2) when scaling the pooled standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-se-unrooted",
+        "Leaving the square root off the factor in sp·√(1/n1 + 1/n2).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-se-single-n",
+        "Scaling the pooled standard deviation by one sample size only, sp/√n1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-variance-as-sd",
+        "Putting the pooled variance where the pooled standard deviation belongs in the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-sd-divisor-n",
+        "Finding the standard deviation of the paired differences with divisor n instead of n - 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-uncentred-spread",
+        "Finding the spread of the differences from the sum of d² without subtracting the mean first.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-se-over-n",
+        "Dividing the standard deviation of the differences by n instead of √n to get the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-variance-as-sd",
+        "Using the variance of the differences where their standard deviation belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-ci-other-bound",
+        "Giving the opposite end of the confidence interval from the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-ci-margin-as-bound",
+        "Giving the margin of error as if it were the confidence limit instead of adding it to (or subtracting it from) the estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-ci-normal-critical",
+        "Using the normal critical value 1.96 in place of the t critical value for the stated degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-conclusion-decision-reversed",
+        "Reading the comparison with the critical value the wrong way round: not rejecting H0 when the statistic is beyond the critical value, or rejecting when it is not.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-conclusion-means-differ",
+        "Rejecting H0 just because the two sample means are not equal, without comparing the statistic with the critical value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
         "volume-extra-dot-term",
         "Adding a stray dot product to a volume: |a·(b × c)| + |a·b|.",
         area="vectors",

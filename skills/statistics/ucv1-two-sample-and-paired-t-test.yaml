@@ -1,0 +1,140 @@
+id: ucv1-two-sample-and-paired-t-test
+name: Compute the pieces of a two-sample or paired t test
+domain: statistics
+description: >-
+  From summary data, or a short list of paired differences, find the standard error of a
+  difference of two sample means, the unequal-variance and pooled t statistics, the pooled
+  variance, the paired t statistic and a confidence-interval limit for the difference of two
+  means given the critical value. Critical values are always printed in the question. A
+  conclusion appears only as the one-mark last part of the four-part exam chain, which goes from
+  the pooled variance through the standard error and the t statistic to the decision.
+status: active
+placement_eligible: false
+prerequisites: [standard-deviation-from-data, z-score]
+answer: number
+sources:
+- topic: fy1ms_t_test_two_sample
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_t_test_two_sample
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_t_test_two_sample
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_t_test_two_sample
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ttest-se-sds-added
+  description: >-
+    Adding the two standard errors s1/√n1 + s2/√n2 instead of adding the variances s1²/n1 +
+    s2²/n2 and then taking the square root.
+- id: ttest-se-no-root
+  description: >-
+    Forgetting the final square root: giving s1²/n1 + s2²/n2 as the standard error of the
+    difference.
+- id: ttest-se-single-sample
+  description: >-
+    Using only the first sample, s1/√n1, as the standard error of a difference between two
+    sample means.
+- id: ttest-se-sd-over-n
+  description: >-
+    Dividing each variance by n² (each standard deviation by n) instead of dividing each
+    variance by n.
+- id: ttest-se-total-n
+  description: >-
+    Pooling the two samples into one: √((s1² + s2²)/(n1 + n2)), which ignores that each sample
+    has its own size.
+- id: ttest-diff-over-sds
+  description: >-
+    Dividing the difference in means by √(s1² + s2²), forgetting to divide each variance by its
+    sample size.
+- id: ttest-sign-reversed
+  description: >-
+    Subtracting the means (or the paired values) in the wrong order, so the statistic has the
+    wrong sign.
+- id: ttest-pooled-simple-average
+  description: >-
+    Averaging the two sample variances, (s1² + s2²)/2, without weighting by the degrees of
+    freedom.
+- id: ttest-pooled-weights-sds
+  description: >-
+    Weighting the standard deviations by their degrees of freedom instead of the variances, so
+    the pooled value is a standard deviation.
+- id: ttest-pooled-divisor-total-n
+  description: >-
+    Dividing the pooled sum of squares by n1 + n2 instead of by the degrees of freedom n1 + n2 -
+    2.
+- id: ttest-pooled-weights-by-n
+  description: >-
+    Weighting each variance by its sample size n instead of by n - 1.
+- id: ttest-pooled-sd-as-variance
+  description: >-
+    Giving the pooled standard deviation where the pooled variance was asked for (or the
+    reverse).
+- id: ttest-pooled-se-one-sum
+  description: >-
+    Using √(1/(n1 + n2)) in place of √(1/n1 + 1/n2) when scaling the pooled standard deviation.
+- id: ttest-pooled-se-unrooted
+  description: >-
+    Leaving the square root off the factor in sp·√(1/n1 + 1/n2).
+- id: ttest-pooled-se-single-n
+  description: >-
+    Scaling the pooled standard deviation by one sample size only, sp/√n1.
+- id: ttest-pooled-variance-as-sd
+  description: >-
+    Putting the pooled variance where the pooled standard deviation belongs in the standard
+    error.
+- id: ttest-paired-sd-divisor-n
+  description: >-
+    Finding the standard deviation of the paired differences with divisor n instead of n - 1.
+- id: ttest-paired-uncentred-spread
+  description: >-
+    Finding the spread of the differences from the sum of d² without subtracting the mean first.
+- id: ttest-paired-se-over-n
+  description: >-
+    Dividing the standard deviation of the differences by n instead of √n to get the standard
+    error.
+- id: ttest-paired-variance-as-sd
+  description: >-
+    Using the variance of the differences where their standard deviation belongs.
+- id: ttest-ci-other-bound
+  description: >-
+    Giving the opposite end of the confidence interval from the one asked for.
+- id: ttest-ci-margin-as-bound
+  description: >-
+    Giving the margin of error as if it were the confidence limit instead of adding it to (or
+    subtracting it from) the estimate.
+- id: ttest-ci-normal-critical
+  description: >-
+    Using the normal critical value 1.96 in place of the t critical value for the stated degrees
+    of freedom.
+- id: ttest-conclusion-decision-reversed
+  description: >-
+    Reading the comparison with the critical value the wrong way round: not rejecting H0 when
+    the statistic is beyond the critical value, or rejecting when it is not.
+- id: ttest-conclusion-means-differ
+  description: >-
+    Rejecting H0 just because the two sample means are not equal, without comparing the
+    statistic with the critical value.
+- id: ttest-pooled-sd-as-standard-error
+  description: >-
+    Dividing the difference in means by the pooled standard deviation alone, without scaling it
+    by √(1/n1 + 1/n2).
+- id: ttest-welch-pooled-confused
+  description: >-
+    Using the pooled standard error when the question asks for the unequal-variance (Welch)
+    statistic, or the reverse.
+- id: ttest-paired-sd-as-se
+  description: >-
+    Dividing the mean difference by the standard deviation of the differences without dividing
+    that by √n.
+- id: ttest-paired-se-root-df
+  description: >-
+    Dividing the standard deviation of the differences by √(n - 1) instead of √n.
+tags: [university-core-v1, statistics, hypothesis-testing, t-test]
