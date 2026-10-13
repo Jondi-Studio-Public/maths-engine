@@ -10,7 +10,7 @@ placement_eligible: false
 prerequisites:
 - define-variables
 - write-expressions-from-words
-- meaning-of-equality
+- variable-concept
 answer: expression
 sources:
 - topic: fpm_translate_equation

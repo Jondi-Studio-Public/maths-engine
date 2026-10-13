@@ -8,7 +8,7 @@ description: Build a linear model from a rule or from two readings, use it to pr
 status: active
 placement_eligible: false
 prerequisites:
-- compare-linear-representations
+- equation-from-table
 - define-variables
 - solve-equation-word-problems
 answer: number
