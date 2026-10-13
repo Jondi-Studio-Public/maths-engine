@@ -63,3 +63,11 @@ def grade(skill: Skill, question, given: str | dict) -> GradeResult:
     may be a dict of replies keyed by part label; the result's `marks`, `max_marks` and `parts` give the
     marks (see `mathgen.grading.parts`)."""
     return _grade_kind(skill.answer, question, given, skill=skill)
+
+
+def present(skill: Skill, question, *, theme: str = "light", draw_figure: bool = True) -> dict:
+    """Everything a page shows for `question`: prompt, figure as SVG, options, answer and working, each as plain
+    text plus a typesetting-ready form. See `mathgen.present`."""
+    from .present import present as _present
+
+    return _present(question, mcq=skill.answer == "mcq", theme=theme, draw_figure=draw_figure)

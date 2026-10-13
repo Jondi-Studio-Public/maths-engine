@@ -19,7 +19,9 @@ grid"), never the value; :func:`assert_no_leak` checks labels and alt text.
 
 from __future__ import annotations
 
+import json
 import math
+from importlib import resources
 from typing import Any, Callable, Iterable
 
 Number = int | float
@@ -85,6 +87,17 @@ def register_reader(topic: str, reader: Callable[[Any], str]) -> None:
 def get_reader(topic: str) -> Callable[[Any], str] | None:
     """The registered reader for ``topic``, or ``None`` if it has none."""
     return _READERS.get(topic)
+
+
+def schema() -> dict:
+    """The JSON Schema (draft 2020-12) for a figure spec, as a dict.
+
+    It is ``mathgen/figure_schema.json``: a ``oneOf`` over every kind in :func:`kinds`, each picked out by its
+    ``kind`` constant. It checks structure, types and ranges; :func:`validate` checks the relations a schema
+    cannot express.
+    """
+    with resources.files("mathgen").joinpath("figure_schema.json").open("r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def validate(spec: Any) -> list[str]:

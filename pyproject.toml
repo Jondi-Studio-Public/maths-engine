@@ -48,7 +48,7 @@ mathgen = "mathgen.__main__:main"
 # there is one copy in the repository. `mathgen/_paths.py` finds whichever layout it is running from. Keep
 # this list equal to every folder under mathgen/ with an __init__.py (tests/public/test_packaging.py checks).
 [tool.setuptools]
-packages = ["mathgen", "mathgen.figure_kinds", "mathgen.generators", "mathgen.grading", "mathgen.scheduling", "mathgen._skills"]
+packages = ["mathgen", "mathgen.figure_kinds", "mathgen.render", "mathgen.generators", "mathgen.grading", "mathgen.scheduling", "mathgen._skills"]
 # Only the `package-data` globs below go in the wheel; the default (true) makes setuptools treat every
 # domain folder under skills/ as a package it must be told about, and warn about each one.
 include-package-data = false
@@ -57,6 +57,7 @@ include-package-data = false
 "mathgen._skills" = "skills"
 
 [tool.setuptools.package-data]
+"mathgen" = ["figure_schema.json"]
 "mathgen._skills" = ["*.yaml", "*/*.yaml"]
 
 [tool.pytest.ini_options]
