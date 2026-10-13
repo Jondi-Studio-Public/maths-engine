@@ -555,17 +555,21 @@ def result_view(result, *, reveal: bool = False) -> dict:
     raw = asdict(result)
     for key in ("marks", "max_marks"):
         raw[key] = _number(raw.get(key))
-    for part in raw.get("parts") or []:
+    for part in (raw.get("parts") or {}).values():
         if isinstance(part, dict):
             for key in ("marks", "max_marks"):
                 if key in part:
                     part[key] = _number(part[key])
     data = _plain(raw)
-    if not reveal:
-        data.pop("canonical", None)
-        for part in data.get("parts") or []:
-            if isinstance(part, dict):
-                part.pop("canonical", None)
+    return data if reveal else _strip_canonical(data)
+
+
+def _strip_canonical(data):
+    """`data` without any `canonical` key, however deep: a multi-part result nests one per part."""
+    if isinstance(data, dict):
+        return {k: _strip_canonical(v) for k, v in data.items() if k != "canonical"}
+    if isinstance(data, list):
+        return [_strip_canonical(v) for v in data]
     return data
 
 
@@ -584,4 +588,6 @@ def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
         reply = {str(k): (str(v) if isinstance(v, int) and not isinstance(v, bool) else v) for k, v in reply.items()}
         if not all(isinstance(v, str) for v in reply.values()):
             raise BadRequest("each part's reply is text or an option index")
+        if not question.parts:
+            raise BadRequest("this question has one answer; send its reply as text, not an object of parts")
     return {"id": qid, **result_view(engine.grade(skill, question, reply), reveal=reveal)}
