@@ -314,6 +314,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "fy1so_taylor_remainder",
         "fy1so_series_tests",
         "fy1so_alternating_series",
+        "fy1so_ode_integrating_factor",
         "limits",
         "lin_ineq_negative",
         "lin_ineq_one_step",

@@ -1,6 +1,6 @@
 """Generates `fy1so_alternating_series` (easy, medium, hard) and the exam chain `fy1so_exd_alternating_series`.
 
-Skill ``ucv1-alternating-series-estimation`` (domain ``functions-sequences``, answer ``fraction``): the alternating series
+Skill ``ucv1-alternating-series-error`` (domain ``functions-sequences``, answer ``fraction``): the alternating series
 estimation theorem. For S = Σ(-1)^(n+1) b_n with b_n positive, decreasing and tending to 0, the partial sum S_N of the first
 N terms differs from S by less than the first omitted term: |S - S_N| < b_(N+1), and S lies between S_N and S_(N+1).
 

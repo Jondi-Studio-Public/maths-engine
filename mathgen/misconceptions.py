@@ -667,6 +667,146 @@ _ENTRIES = (
         "Applying the error bound in the wrong direction when bracketing the sum.",
         area="series",
     ),
+    CatalogueEntry(
+        "ode1-factor-sign-flipped",
+        "Using e^(-integral of P) rather than e^(integral of P) as the integrating factor.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-integral-skipped",
+        "Using e^(P(x)) as the integrating factor without integrating P.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-integral-not-exponentiated",
+        "Giving the integral of P as the integrating factor instead of e raised to it.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-coefficient-inverted",
+        "Using e^(x/a) as the integrating factor for a constant coefficient a.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-coefficient-dropped",
+        "Dropping the coefficient k from the integral of k/x, so the factor becomes x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-power-rule-misapplied",
+        "Integrating P(x) with the wrong power-rule step (forgetting to halve or raise the power) before exponentiating.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-coefficient-not-divided",
+        "Leaving the forcing coefficient undivided by the factor the integral produces, so the particular solution is too large.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-ignores-particular-part",
+        "Setting the constant equal to y(0) without subtracting the particular solution's value at 0.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-sign-error",
+        "Subtracting the wrong way round when fixing the constant from the initial condition.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-evaluated-at-wrong-point",
+        "Evaluating the particular solution at x = 1 rather than at the point where the initial condition is given.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-homogeneous-exponent-sign",
+        "Writing the complementary term with the wrong sign in its exponent (e^(+ax) instead of e^(-ax)).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-denominator-sign",
+        "Dividing the forcing coefficient by a - k instead of a + k.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-integrating-factor-division-skipped",
+        "Forgetting to divide the constant of integration by the integrating factor.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-lead-coefficient-not-divided",
+        "Not dividing the right-hand side by x before using the integrating factor, so the power is one too high.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-resonance-factor-x-missing",
+        "Missing the factor x in the solution when the forcing term matches the complementary solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-homogeneous-term-dropped",
+        "Dropping the arbitrary-constant term from the solution once the initial condition is applied.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-integral-over-integrated",
+        "Integrating a constant right-hand side twice (giving x^2/2 instead of x).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-constant-correction-missed",
+        "Finding the constant of the particular solution as r/a, missing the -m/a correction from integration by parts.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-integration-by-parts-sign",
+        "A sign error in the integration by parts, giving (r + m)/a instead of (r - m)/a for the constant term.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-exponent-sign",
+        "Evaluating the decaying term with the sign of its exponent flipped.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-exponential-term-dropped",
+        "Dropping the decaying term when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-exponential-dropped",
+        "Treating the exponential factor as 1 when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-particular-dropped",
+        "Dropping the particular solution when evaluating, keeping only the decaying term.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-point-wrong",
+        "Evaluating the solution at x = 1 rather than the requested x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-initial-value-reported",
+        "Reporting the initial value y(0) instead of the value at the requested x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-coefficient-divided-twice",
+        "Dividing by the exponent coefficient a twice when finding the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-linear-coefficients-swapped",
+        "Swapping the coefficient of x and the constant on the right-hand side when finding the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-coefficient-sign-flipped",
+        "Giving the particular-solution coefficient with the opposite sign.",
+        area="ode",
+    ),
 )
 
 #: Every entry, by id.

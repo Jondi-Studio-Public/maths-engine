@@ -133,7 +133,11 @@ def plain(tex: str) -> str:
             if name == r"\frac":
                 a, i = _arg(s, i)
                 b, i = _arg(s, i)
-                out.append(f"{_wrap(plain(a))}/{_wrap(plain(b))}")
+                top, bottom = plain(a), plain(b)
+                if (top, bottom) == ("dy", "dx"):  # a derivative reads dy/dx, not (dy)/(dx)
+                    out.append("dy/dx")
+                else:
+                    out.append(f"{_wrap(top)}/{_wrap(bottom)}")
             elif name == r"\text":
                 a, i = _arg(s, i)
                 out.append(a)
@@ -258,7 +262,7 @@ def _rewrite_calls(s: str) -> str:
         start = m.end() - 1
         end = _balanced(s, start)
         arg = s[start + 1 : end]
-        simple = re.fullmatch(r"-?[A-Za-z0-9]+", arg) is not None
+        simple = re.fullmatch(r"[A-Za-z0-9]+", arg) is not None
         if m.group(1) == "exp":
             new = f"e^{arg}" if simple else f"e^({arg})"
         elif m.group(1) == "log":
