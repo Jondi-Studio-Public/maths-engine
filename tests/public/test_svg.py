@@ -8,7 +8,7 @@ import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
-from mathgen.figure_kinds import data, early, measure, space
+from mathgen.figure_kinds import data, early, grid, measure, space
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -65,6 +65,51 @@ def _live_figures() -> list[dict]:
     return found
 
 
+def _grid_specimens() -> dict[str, dict]:
+    """A square map with everything, an isometric stack with a canvas, and a shape drawn on its own grid."""
+    return {
+        "map": grid.grid_drawing(
+            alt="A map on a square grid.",
+            title="Map of Kiama",
+            grid={"type": "square", "width": 8, "height": 6},
+            cells=[
+                {"cells": [[0, 0], [1, 0], [1, 1]], "style": "shaded"},
+                {"cells": [[5, 4], [6, 4]], "style": "hatched"},
+                {"cells": [[7, 0], [7, 1]], "style": "dotted"},
+            ],
+            polygons=[{"vertices": [[1, 2], [4, 2], [4, 4]], "style": "dashed", "label": "Oval"}],
+            lines=[
+                {"points": [[0, 3], [3, 3], [3, 6]], "style": "road"},
+                {"points": [[0, 5], [4, 5], [8, 4]], "style": "river"},
+                {"points": [[4, 0], [4, 2]], "style": "rail"},
+                {"points": [[5, 0], [8, 0]], "style": "wall"},
+                {"points": [[5, 2], [8, 2]], "style": "fence"},
+                {"points": [[0, 1.5], [3, 1.5]], "style": "mirror"},
+            ],
+            symbols=[{"at": [1.5, 3.5], "symbol": "school"}, {"at": [6.5, 3.5], "symbol": "post_office"}],
+            legend=True,
+            column_labels=list("ABCDEFGH"),
+            row_labels=["1", "2", "3", "4", "5", "6"],
+            labels=[{"at": [6, 3], "text": "Beach"}],
+            path=[[0, 4], [1, 4], [1, 5]],
+            scale={"text": "1 cm : 2 m", "bar_cells": 2},
+            north=True,
+        ),
+        "stack": grid.grid_drawing(
+            alt="A stack of cubes on isometric dot paper.",
+            grid={"type": "isometric", "width": 3, "height": 3, "layers": 3},
+            cubes=[[0, 0, 0], [0, 0, 1], [0, 0, 2], [1, 2, 0], [1, 2, 1], [2, 0, 0], [2, 1, 0]],
+            canvas={"width": 5, "height": 4},
+        ),
+        "shape": grid.grid_drawing(
+            alt="A shape on a square grid.",
+            grid={"type": "square", "width": 6, "height": 6},
+            cells=[{"cells": [[1, 1], [2, 1], [2, 2]], "style": "shaded"}],
+            canvas="grid",
+        ),
+    }
+
+
 def _hand_built() -> list[dict]:
     """Figures no live skill draws today, and variants a live skill might not hit."""
     frame = [[0, 1, 1, 2, 0, 1, 0, 0, 2, 1]]
@@ -95,6 +140,7 @@ def _hand_built() -> list[dict]:
         early.counters(layout="array", alt="An array", rows=2, cols=3, shape="square", colours=[[1, 2, 1], [2, 1, 2]]),
         early.counters(layout="groups", alt="Groups", groups=[3, 0, 5, 9], shape="diamond"),
         early.counters(layout="dice", alt="Dice", faces=[{"n": n, "colour": 1 + n % 2} for n in (1, 2, 6)]),
+        *_grid_specimens().values(),
     ]
 
 
@@ -550,3 +596,137 @@ def test_data_displays_validate_through_figures_check():
     ):
         with pytest.raises(ValueError):
             svg.figure_svg(fig)
+
+
+# ---------------------------------------------------------------- grid drawings
+
+
+def _grid_root(fig):
+    return ET.fromstring(svg.figure_svg(fig))
+
+
+def _assert_inside_the_drawing(root) -> None:
+    """Every x coordinate outside a scaled symbol (whose coordinates are local to it) lies in the 400 units."""
+
+    def walk(el):
+        if el.get("transform") or el.tag == SVG_NS + "pattern":
+            return
+        for key in ("x", "x1", "x2", "cx"):
+            if el.get(key) is not None:
+                assert -1 <= float(el.get(key)) <= 401, (key, el.tag, el.get(key))
+        for child in el:
+            walk(child)
+
+    walk(root)
+
+
+def _grid_texts(fig) -> list[str]:
+    return [t.text for t in _grid_root(fig).iter(SVG_NS + "text")]
+
+
+@pytest.mark.parametrize("name", ["map", "stack", "shape"])
+def test_grid_specimens_fit_the_drawing_area_and_draw_only_the_specs_own_text(name):
+    fig = _grid_specimens()[name]
+    root = _grid_root(fig)
+    assert float(root.get("viewBox").split()[2]) == 400
+    _assert_inside_the_drawing(root)
+    shown = set(_grid_texts(fig))
+    assert shown <= set(figures.labels(fig)) | {fig.get("title")}
+    assert set(figures.labels(fig)[1:]) <= shown | {""}
+    assert "<script" not in svg.figure_svg(fig) and "ZZidprefixZZ" not in svg.figure_svg(fig)
+
+
+def test_grid_cell_styles_differ_by_more_than_tone():
+    fig = _grid_specimens()["map"]
+    text = svg.figure_svg(fig)
+    root = ET.fromstring(text)
+    patterns = _tag(root, "pattern")
+    assert len(patterns) == 2
+    inner = {next(p.iter(SVG_NS + "line"), None) is not None for p in patterns}
+    assert inner == {True, False}  # one pattern is lines, the other dots
+    fills = {
+        r.get("fill") for r in _tag(root, "rect") if r.get("stroke") == "none" and r.get("width") == r.get("height")
+    }
+    assert svg.MID in fills and sum(f.startswith("url(#") for f in fills) == 2
+    ids = {p.get("id") for p in patterns}
+    assert all(f"url(#{i})" in fills for i in ids)
+    # an unused style draws no pattern
+    assert not _tag(_grid_root(_grid_specimens()["shape"]), "pattern")
+
+
+def test_grid_cubes_are_three_greys_painted_back_to_front():
+    fig = _grid_specimens()["stack"]
+    root = _grid_root(fig)
+    faces = [p for p in _tag(root, "polygon") if p.get("fill") in (svg.LIGHT, svg.MID, svg.DARK)]
+    assert len(faces) == 3 * len(fig["cubes"])
+    assert {p.get("fill") for p in faces} == {svg.LIGHT, svg.MID, svg.DARK}
+    cubes = [g for g in _tag(root, "g") if len(g) == 3 and all(p.tag == SVG_NS + "polygon" for p in g)]
+    assert len(cubes) == len(fig["cubes"])
+    assert [p.get("fill") for p in cubes[0]] == [svg.DARK, svg.MID, svg.LIGHT]
+
+    # Cubes in front (larger x, smaller y, larger z) come after the cubes behind them: check on a two-cube pair.
+    pair = grid.grid_drawing(
+        alt="Two cubes.",
+        grid={"type": "isometric", "width": 2, "height": 2, "layers": 1},
+        cubes=[[1, 0, 0], [0, 1, 0]],
+    )
+    order = [c[1].get("points") for c in _tag(_grid_root(pair), "g") if len(c) == 3]
+    back = grid.grid_drawing(alt="One cube.", grid=pair["grid"], cubes=[[0, 1, 0]])
+    back_points = next(c[1].get("points") for c in _tag(_grid_root(back), "g") if len(c) == 3)
+    assert order[0] == back_points
+
+
+def test_grid_canvas_is_below_a_wide_figure_and_beside_a_tall_one():
+    def height(fig):
+        return int(_grid_root(fig).get("viewBox").split()[3])
+
+    wide = grid.grid_drawing(alt="Grid.", grid={"type": "square", "width": 8, "height": 4})
+    wide_c = grid.grid_drawing(
+        alt="Grid.", grid={"type": "square", "width": 8, "height": 4}, canvas={"width": 5, "height": 5}
+    )
+    assert height(wide_c) > height(wide) + 40
+    tall = grid.grid_drawing(alt="Grid.", grid={"type": "square", "width": 4, "height": 8})
+    tall_c = grid.grid_drawing(
+        alt="Grid.", grid={"type": "square", "width": 4, "height": 8}, canvas={"width": 5, "height": 5}
+    )
+    assert height(tall_c) == height(tall)
+    shape = _grid_specimens()["shape"]
+    assert svg.figure_svg(shape) == svg.figure_svg({k: v for k, v in shape.items() if k != "canvas"})
+
+
+@pytest.mark.parametrize("symbol", sorted(grid.SYMBOLS))
+def test_every_grid_symbol_and_the_largest_grids_render(symbol):
+    fig = grid.grid_drawing(
+        alt="A map.",
+        grid={"type": "square", "width": 30, "height": 30},
+        symbols=[{"at": [1.5, 1.5], "symbol": symbol}],
+        legend=True,
+        column_labels=[str(i) for i in range(30)],
+        row_labels=[str(i) for i in range(30)],
+        canvas={"width": 20, "height": 20},
+    )
+    root = _grid_root(fig)
+    assert grid.SYMBOLS[symbol] in _grid_texts(fig)
+    _assert_inside_the_drawing(root)
+    full = grid.grid_drawing(
+        alt="Cubes.",
+        grid={"type": "isometric", "width": 8, "height": 8, "layers": 8},
+        cubes=[[x, y, 0] for x in range(8) for y in range(8)],
+        canvas={"width": 20, "height": 20},
+        north=True,
+    )
+    assert float(_grid_root(full).get("viewBox").split()[2]) == 400
+
+
+def test_grid_hostile_text_is_escaped():
+    evil = "<b>&amp;</b>"
+    fig = grid.grid_drawing(
+        alt=evil,
+        grid={"type": "square", "width": 2, "height": 2},
+        labels=[{"at": [1, 1], "text": evil}],
+        scale={"text": evil},
+        column_labels=[evil, "b"],
+    )
+    text = svg.figure_svg(fig)
+    assert "<b>" not in text
+    assert evil in _grid_texts(fig)
