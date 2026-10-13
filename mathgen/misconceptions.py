@@ -10285,6 +10285,237 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    # -- statistical graphs and clock time (exam chains) ----------------------------------------
+    CatalogueEntry(
+        "hist-neighbouring-bar",
+        "Reading the bar beside the class the question names.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-bar-to-nearest-gridline",
+        "Reading a bar that ends on a half line as the labelled gridline just above or below it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-boundary-for-frequency",
+        "Giving a class boundary from the horizontal axis where a frequency was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-classes-counted-for-total",
+        "Giving the number of classes for the total number of observations.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-tallest-bar-for-total",
+        "Giving the height of the tallest bar for the total number of observations.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-total-misses-a-bar",
+        "Adding every bar but one when finding the total.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-total-counts-a-bar-twice",
+        "Counting one bar twice when adding the frequencies for the total.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-upper-boundary-for-lower",
+        "Giving the upper boundary of the class where its lower boundary was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-modal-class-for-median-class",
+        "Taking the class with the highest frequency to be the class that contains the median.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-middle-class-for-median-class",
+        "Taking the middle class on the axis, not the class holding the middle value, as the median class.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-frequency-for-boundary",
+        "Giving the frequency of a class where its boundary was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-count-for-percentage",
+        "Giving the number of values where a percentage of the total was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-complement-percentage",
+        "Giving the percentage outside the stated range instead of the percentage inside it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-range-leaves-out-class",
+        "Leaving out one of the classes in the stated range when adding frequencies.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "hist-range-adds-next-class",
+        "Adding the class that starts at the upper boundary of the stated range, which less than excludes.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-as-range",
+        "Giving the range, whisker end to whisker end, where the interquartile range was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-from-median",
+        "Giving the distance from the median to a quartile for the interquartile range.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-quartile-for-iqr",
+        "Giving a quartile on its own for the interquartile range.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-quarter-between-quartiles",
+        "Taking the box to hold a quarter of the values rather than half.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-three-quarters-between-quartiles",
+        "Counting the values below the upper quartile, three quarters of them, as those between the quartiles.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-all-values-between-quartiles",
+        "Taking the whole data set to lie between the quartiles.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-without-factor",
+        "Finding an outlier fence from one IQR instead of 1.5 times the IQR.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-omits-quartile",
+        "Giving 1.5 times the IQR as the fence, without adding it to the quartile.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-wrong-side",
+        "Subtracting 1.5 times the IQR from the lower quartile to find the upper fence.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-fence-from-median",
+        "Adding 1.5 times the IQR to the median instead of the upper quartile to find the upper fence.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-outlier-beyond-whisker",
+        "Calling any value beyond the end of the whisker an outlier, without testing it against the 1.5 x IQR fence.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-outlier-fence-miscalculated",
+        "Judging a value to be beyond the 1.5 x IQR fence when it is inside it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-outlier-fence-too-generous",
+        "Judging a value to be inside the 1.5 x IQR fence when it is beyond it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-median-by-whisker-end",
+        "Deciding which group has the higher median from the ends of the whiskers instead of the median lines.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-spread-by-range",
+        "Deciding which group is more spread out from the whole length of the plot instead of the interquartile range.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-conclusion-both-reversed",
+        "Reading both comparisons, the centres and the spreads, the wrong way round.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-summed",
+        "Adding the two interquartile ranges where their difference was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-of-medians",
+        "Giving the difference between the medians where the difference between the interquartile ranges was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-of-ranges",
+        "Giving the difference between the ranges where the difference between the interquartile ranges was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "box-iqr-difference-of-upper-quartiles",
+        "Giving the difference between the upper quartiles where the difference between the interquartile ranges was asked for.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-pm-not-converted",
+        "Writing a pm hour in 24-hour time without adding 12.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-hour-off-by-one",
+        "Converting the hour to 24-hour time but writing the hour before or after it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-base-ten-clock",
+        "Treating the minutes as hundredths of an hour when counting on to the next hour, so 35 minutes leaves 65.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-no-minutes-carry",
+        "Counting whole hours to the next hour without allowing for the minutes already past the hour.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-minutes-not-complemented",
+        "Using the minutes past the hour as the minutes left in the hour.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-gap-added-to-duration",
+        "Adding the time left in the day to the length of the trip, where it should be taken away.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-midnight-ignored",
+        "Using the length of the trip as the time after midnight, without taking off the time left before midnight.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-counted-back-from-midnight",
+        "Measuring back from midnight to the arrival instead of forward from it.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-am-pm-swapped",
+        "Giving the arrival with am where it is pm, or the reverse.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-day-not-advanced",
+        "Leaving the arrival on the day of departure when the trip crosses midnight.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "time-clock-hour-off-by-one",
+        "Reading the arrival hour one hour early or late.",
+        area="statistics and time",
+    ),
 )
 
 #: Every entry, by id.
