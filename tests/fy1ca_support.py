@@ -51,7 +51,10 @@ def check_single_tier(skill, topic: str, tier: str, seeds=range(80)) -> None:
 
 def _reply_text(kind: str, template: str, value) -> str:
     """`value` written the way the part's canonical answer is written."""
-    value = sympy.nsimplify(value) if not isinstance(value, (int, Fraction)) else value
+    if kind == "number":
+        places = len(template.split(".")[1]) if "." in template else 0
+        return f"{float(sympy.N(value)):.{places}f}"
+    value = sympy.nsimplify(value) if not isinstance(value, (int, Fraction, sympy.Rational)) else value
     if kind == "fraction":
         value = sympy.Rational(value)
         return str(value.p) if value.q == 1 else f"{value.p}/{value.q}"

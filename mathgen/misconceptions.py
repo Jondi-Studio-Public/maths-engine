@@ -651,6 +651,461 @@ _ENTRIES = (
         "Divides the two lengths where their difference was asked for.",
         area="calculus",
     ),
+    CatalogueEntry(
+        "fy1ca-shell-radius-forgotten",
+        "Integrates only the height of the shell and leaves out its radius.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-two-forgotten",
+        "Uses a factor of pi where 2 pi is needed (the circumference of the shell or of the strip).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-disc-formula",
+        "Applies the disc or washer formula to a rotation that needs shells.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-pi-forgotten",
+        "Leaves the factor of pi out of the answer.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-height-not-difference",
+        "Uses the upper curve alone as the height of the shell instead of the gap between the curves.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-axis-ignored",
+        "Takes the radius of the shell as x when the axis of rotation is a different vertical line.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-y-coordinate-given",
+        "Gives the y-coordinate of the intersection point where its x-coordinate was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-intersection-slip",
+        "Makes an algebra slip when solving for the point where the curves meet.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-height-sign",
+        "Subtracts the upper curve from the lower, giving a negative height.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-height-slip",
+        "Subtracts the radius from the slope instead of finding the gap between the curves at that radius.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-units-grams",
+        "Reports the mass in grams where kilograms were asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-density-divided",
+        "Divides the volume by the density instead of multiplying.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-density-forgotten",
+        "Converts the volume to litres or kilograms without using the density.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-units-slip",
+        "Converts grams to kilograms by dividing by 100 instead of 1000.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-root-dropped",
+        "Integrates 2 pi y without the arc-length factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-radius-dropped",
+        "Integrates the arc-length factor alone, leaving out the radius y.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-two-forgotten",
+        "Uses pi where 2 pi is needed in the surface-area formula.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-volume-formula",
+        "Uses the volume integral of pi y squared for a surface area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-arc-length-only",
+        "Gives the arc length instead of the area of the surface.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-wrong-antiderivative",
+        "Sets the integral up correctly but makes a slip when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-quarter-dropped",
+        "Drops the 1/4 under the square root, integrating the square root of x + 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-whole-sphere",
+        "Gives the area of a whole sphere or hemisphere instead of the zone.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-endpoint-sum",
+        "Uses the sum of the limits where their difference is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-division-forgotten",
+        "Gives the integral without dividing by the length of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-divide-by-upper-limit",
+        "Divides by the upper limit instead of the length of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-endpoint-mean",
+        "Averages the values of the function at the two ends instead of integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-midpoint-value",
+        "Gives the value of the function at the midpoint of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-multiplied",
+        "Multiplies by the length of the interval instead of dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-wrong-antiderivative",
+        "Sets up the average correctly but integrates incorrectly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-power-rule-slip",
+        "Makes a slip applying the power rule when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-no-antiderivative",
+        "Evaluates the function at the limits instead of its antiderivative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-substitution-factor-dropped",
+        "Drops the factor of 1/2 that comes from the substitution u = x squared.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-substitution-factor-slip",
+        "Uses the wrong constant factor after a substitution.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-chain-rule-misapplied",
+        "Integrates a composite function as though it were a product of the pieces.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-divide-by-sum",
+        "Divides by the sum of the limits instead of their difference.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-percentage-of-wrong-base",
+        "Finds the excess as a percentage of the peak instead of the average.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-difference-not-percentage",
+        "Gives the difference, or the ratio, where a percentage was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-percentage-sign",
+        "Subtracts in the wrong order, giving a negative percentage.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-midpoint-assumed",
+        "Takes c to be the midpoint of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-slope-reported",
+        "Gives the slope of the chord instead of the value of c.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-value-for-c",
+        "Gives the value of the function or of its square root where c was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-root-not-squared",
+        "Stops at the square root of c and does not square it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-geometric-mean",
+        "Takes c to be the geometric mean of the ends for a square-root function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-algebra-slip",
+        "Makes an algebra slip when solving f'(c) = slope.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-root-not-taken",
+        "Stops at c squared and does not take the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-negative-root",
+        "Gives the negative square root, which lies outside the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rolle-endpoint-root",
+        "Gives the root of the derivative that is an end of the interval instead of the one inside it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rolle-wrong-factor",
+        "Solves the wrong factor of the derivative, giving the other root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rolle-algebra-slip",
+        "Makes an algebra slip when solving f'(c) = 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-half-forgotten",
+        "Leaves out the factor of 1/2 in the definition of sinh or cosh.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-half-doubled",
+        "Halves twice, dividing by 4 instead of 2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sinh-cosh-swapped",
+        "Uses the definition of cosh where sinh was needed, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-negative-exponent",
+        "Treats e to the power of minus ln k as k instead of 1/k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-tanh-inverted",
+        "Inverts tanh, giving cosh over sinh.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-squares-forgotten",
+        "Forgets to square e^x and e^(-x) when simplifying the tanh quotient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sinh-for-tanh",
+        "Gives sinh where tanh was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-denominator-slip",
+        "Makes a slip in the denominator of the tanh quotient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-root-forgotten",
+        "Gives cosh squared minus 1 without taking the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sign-of-sinh",
+        "Takes the negative root for sinh x although x is positive.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-linear-slip",
+        "Subtracts 1 from cosh x instead of using the identity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-reciprocal",
+        "Gives the reciprocal of cosh x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-product-for-ratio",
+        "Multiplies sinh and cosh where their ratio was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-chain-rule-forgotten",
+        "Leaves out the factor from the chain rule.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-derivative-sign",
+        "Borrows the minus sign from the derivative of cosine, so the derivative of cosh or tanh has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-derivative-unchanged",
+        "Differentiates sinh to sinh or cosh to cosh.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-chain-divided",
+        "Divides by the inner coefficient instead of multiplying.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-product-rule-forgotten",
+        "Differentiates only one factor of a product.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-product-rule-sign",
+        "Subtracts the two terms of the product rule.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-log-derivative-slip",
+        "Differentiates ln(cosh x) as 1 over cosh x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sech-squared-slip",
+        "Differentiates tanh with the power of the denominator dropped.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-tanh-derivative-confused",
+        "Gives the derivative of coth where the derivative of tanh was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-identity-sign",
+        "Uses cosh squared plus sinh squared equals one, with the sign of the identity wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-identity-misapplied",
+        "Uses cosh squared minus sinh squared in place of the expression that was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-exponential-not-logged",
+        "Gives e^x instead of x, forgetting to take the logarithm.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-ln-of-rhs",
+        "Takes the natural logarithm of the right-hand side directly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-ln-of-cosh",
+        "Takes the natural logarithm of cosh x as though it were e^x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-ln-of-sinh",
+        "Takes the natural logarithm of sinh x as though it were e^x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-negative-root",
+        "Takes the root of the quadratic in e^x that gives a negative value of x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-other-root",
+        "Gives the smaller solution where the larger was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-coefficient-slip",
+        "Divides by the coefficient of cosh and ignores the sinh term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sum-of-roots",
+        "Gives the logarithm of the sum of the roots instead of the larger root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-antiderivative-slip",
+        "Uses a wrong antiderivative for the hyperbolic function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-chain-divided-forgotten",
+        "Forgets to divide by the inner coefficient when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-value-for-integral",
+        "Gives the product of the two function values where the integral was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-term-dropped",
+        "Drops one of the two terms of the antiderivative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-power-rule-slip",
+        "Applies the power rule to a hyperbolic function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-double-angle-confusion",
+        "Gives sinh 2x where cosh 2x was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-double-angle-linear",
+        "Treats cosh 2x as twice cosh x or as 1 plus twice sinh x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-double-angle-constant-dropped",
+        "Forgets to subtract 1 in cosh 2x = 2cosh squared x - 1.",
+        area="calculus",
+    ),
     # -- percentages ----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "gave-change-not-percent",

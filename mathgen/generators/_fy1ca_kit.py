@@ -89,7 +89,8 @@ def sqrt_rational(value: Fraction) -> Fraction:
 
 def typed(expr) -> str:
     """A SymPy expression as a learner types it: caret powers, `pi`, `sqrt(...)`, `ln(...)`."""
-    return str(expr).replace("**", "^").replace("log(", "ln(")
+    text = str(expr).replace("**", "^").replace("log(", "ln(")
+    return re.sub(r"(?<![A-Za-z_])E(?![A-Za-z_(])", "e", text)  # SymPy writes Euler's number as E
 
 
 def shown(expr) -> str:
