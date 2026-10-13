@@ -194,9 +194,6 @@ def _sides_from_angles(rng, angles):
     raise RuntimeError(f"p14b_polygon_classification: could not derive consistent sides for angles {angles}")
 
 
-_RIGHT_TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29), (9, 40, 41), (12, 35, 37)]
-
-
 def _draw_medium(rng):
     cls = rng.choice(MEDIUM_CLASSES)
     if cls == "isosceles right-angled":
@@ -213,14 +210,8 @@ def _draw_medium(rng):
         apex = 180 - 2 * t
         angles = [t, t, apex]
     elif cls == "scalene right-angled":
-        # Exact Pythagorean triples (a, b, c), so the stated sides really do
-        # satisfy a^2 + b^2 = c^2; the two acute angles are the triple's true
-        # angles rounded to whole degrees (each pair sums to 90).
-        a, b, c = rng.choice(_RIGHT_TRIPLES)
-        k = rng.randint(1, 3)
-        x = round(math.degrees(math.atan2(a, b)))
+        x = rng.choice([v for v in range(10, 80) if v != 45])
         angles = [90, x, 90 - x]
-        sides = [c * k, a * k, b * k]
     else:  # scalene, not right-angled
         while True:
             x = rng.randint(20, 70)
@@ -230,8 +221,7 @@ def _draw_medium(rng):
                 continue
             angles = [x, y, z]
             break
-    if cls != "scalene right-angled":
-        sides = _sides_from_angles(rng, angles)
+    sides = _sides_from_angles(rng, angles)
     order = list(range(3))
     rng.shuffle(order)
     angles = [angles[i] for i in order]
