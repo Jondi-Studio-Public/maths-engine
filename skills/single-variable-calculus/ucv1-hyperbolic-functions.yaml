@@ -1,0 +1,122 @@
+id: ucv1-hyperbolic-functions
+name: Work with hyperbolic functions
+domain: single-variable-calculus
+description: Evaluate hyperbolic functions from their definitions in terms of e^x, use cosh squared minus sinh squared
+  equals one, differentiate and integrate them, and solve equations such as cosh x = a with natural logarithms.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-chain-rule
+answer: expression
+sources:
+- topic: fy1ca_hyperbolic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_hyperbolic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_hyperbolic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_hyperbolic_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-hyp-half-forgotten
+  description: Leaves out the factor of 1/2 in the definition of sinh or cosh.
+- id: fy1ca-hyp-half-doubled
+  description: Halves twice, dividing by 4 instead of 2.
+- id: fy1ca-hyp-sinh-cosh-swapped
+  description: Uses the definition of cosh where sinh was needed, or the reverse.
+- id: fy1ca-hyp-negative-exponent
+  description: Treats e to the power of minus ln k as k instead of 1/k.
+- id: fy1ca-hyp-tanh-inverted
+  description: Inverts tanh, giving cosh over sinh.
+- id: fy1ca-hyp-squares-forgotten
+  description: Forgets to square e^x and e^(-x) when simplifying the tanh quotient.
+- id: fy1ca-hyp-sinh-for-tanh
+  description: Gives sinh where tanh was asked for.
+- id: fy1ca-hyp-denominator-slip
+  description: Makes a slip in the denominator of the tanh quotient.
+- id: fy1ca-hyp-root-forgotten
+  description: Gives cosh squared minus 1 without taking the square root.
+- id: fy1ca-hyp-sign-of-sinh
+  description: Takes the negative root for sinh x although x is positive.
+- id: fy1ca-hyp-linear-slip
+  description: Subtracts 1 from cosh x instead of using the identity.
+- id: fy1ca-hyp-reciprocal
+  description: Gives the reciprocal of cosh x.
+- id: fy1ca-hyp-product-for-ratio
+  description: Multiplies sinh and cosh where their ratio was needed.
+- id: fy1ca-hyp-chain-rule-forgotten
+  description: Leaves out the factor from the chain rule.
+- id: fy1ca-hyp-derivative-sign
+  description: Borrows the minus sign from the derivative of cosine, so the derivative of cosh or tanh has the wrong
+    sign.
+- id: fy1ca-hyp-derivative-unchanged
+  description: Differentiates sinh to sinh or cosh to cosh.
+- id: fy1ca-hyp-chain-divided
+  description: Divides by the inner coefficient instead of multiplying.
+- id: fy1ca-hyp-product-rule-forgotten
+  description: Differentiates only one factor of a product.
+- id: fy1ca-hyp-product-rule-sign
+  description: Subtracts the two terms of the product rule.
+- id: fy1ca-hyp-log-derivative-slip
+  description: Differentiates ln(cosh x) as 1 over cosh x.
+- id: fy1ca-hyp-sech-squared-slip
+  description: Differentiates tanh with the power of the denominator dropped.
+- id: fy1ca-hyp-tanh-derivative-confused
+  description: Gives the derivative of coth where the derivative of tanh was asked for.
+- id: fy1ca-hyp-identity-sign
+  description: Uses cosh squared plus sinh squared equals one, with the sign of the identity wrong.
+- id: fy1ca-hyp-identity-misapplied
+  description: Uses cosh squared minus sinh squared in place of the expression that was asked for.
+- id: fy1ca-hyp-exponential-not-logged
+  description: Gives e^x instead of x, forgetting to take the logarithm.
+- id: fy1ca-hyp-ln-of-rhs
+  description: Takes the natural logarithm of the right-hand side directly.
+- id: fy1ca-hyp-ln-of-cosh
+  description: Takes the natural logarithm of cosh x as though it were e^x.
+- id: fy1ca-hyp-ln-of-sinh
+  description: Takes the natural logarithm of sinh x as though it were e^x.
+- id: fy1ca-hyp-negative-root
+  description: Takes the root of the quadratic in e^x that gives a negative value of x.
+- id: fy1ca-hyp-other-root
+  description: Gives the smaller solution where the larger was asked for.
+- id: fy1ca-hyp-coefficient-slip
+  description: Divides by the coefficient of cosh and ignores the sinh term.
+- id: fy1ca-hyp-sum-of-roots
+  description: Gives the logarithm of the sum of the roots instead of the larger root.
+- id: fy1ca-hyp-antiderivative-slip
+  description: Uses a wrong antiderivative for the hyperbolic function.
+- id: fy1ca-hyp-chain-divided-forgotten
+  description: Forgets to divide by the inner coefficient when integrating.
+- id: fy1ca-hyp-value-for-integral
+  description: Gives the product of the two function values where the integral was asked for.
+- id: fy1ca-hyp-term-dropped
+  description: Drops one of the two terms of the antiderivative.
+- id: fy1ca-hyp-power-rule-slip
+  description: Applies the power rule to a hyperbolic function.
+- id: fy1ca-hyp-double-angle-confusion
+  description: Gives sinh 2x where cosh 2x was asked for.
+- id: fy1ca-hyp-double-angle-linear
+  description: Treats cosh 2x as twice cosh x or as 1 plus twice sinh x.
+- id: fy1ca-hyp-double-angle-constant-dropped
+  description: Forgets to subtract 1 in cosh 2x = 2cosh squared x - 1.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- hyperbolic-functions
