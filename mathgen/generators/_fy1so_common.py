@@ -66,6 +66,7 @@ _ATOM = re.compile(
     r"(?:\d+(?:\.\d+)?|[A-Za-zπ∞])(?:[⁰¹²³⁴⁵⁶⁷⁸⁹]|\^(?:\d+|[A-Za-z]|\([^()]*\)))?"
     r"|(?:ln|sin|cos|tan)\([^()]*\)|√(?:\d+|[A-Za-z]|\([^()]*\))"
     r"|[A-Za-z]_(?:[A-Za-z0-9]|\([^()]*\))"
+    r"|\([^()]*\)(?:[⁰¹²³⁴⁵⁶⁷⁸⁹]|\^(?:\d+|[A-Za-z]))"
 )
 _PLAIN_EXPONENT = re.compile(r"\d+|[A-Za-z]")
 _COMMAND = re.compile(r"\\([A-Za-z]+|.)", re.S)
@@ -137,9 +138,14 @@ def plain(tex: str) -> str:
                 a, i = _arg(s, i)
                 out.append(a)
             elif name == r"\sqrt":
+                sign = "√"
+                if s[i : i + 1] == "[":  # an nth root: \sqrt[3]{n}
+                    close = s.index("]", i)
+                    sign = {"3": "∛", "4": "∜"}.get(s[i + 1 : close], f"{s[i + 1 : close]}√")
+                    i = close + 1
                 a, i = _arg(s, i)
                 inner = plain(a)
-                out.append("√" + (inner if _WORD.fullmatch(inner) else f"({inner})"))
+                out.append(sign + (inner if _WORD.fullmatch(inner) else f"({inner})"))
             elif name in (r"\int", r"\sum", r"\lim"):
                 sub = sup = None
                 for _ in range(2):

@@ -447,6 +447,226 @@ _ENTRIES = (
         "Subtracting the approximation from the bound where the bound is taken away from the approximation.",
         area="series",
     ),
+    CatalogueEntry(
+        "series-p-exponent-inverted",
+        "Reading the exponent of a p-series as its reciprocal.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-exponent-lowered",
+        "Reading the exponent p of a p-series as p - 1 (the exponent of the antiderivative's power).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-exponent-raised",
+        "Reading the exponent p of a p-series as p + 1.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-root-factor-dropped",
+        "Reading the exponent of n^k times a root as k, and leaving the root out.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-power-factor-dropped",
+        "Reading the exponent of n^k times a root as the root's exponent alone, and leaving n^k out.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-root-index-multiplied",
+        "Multiplying the whole-number exponent by the root index instead of adding the root's exponent.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-root-index-ignored",
+        "Reading the exponent of n^(m/r) as m, ignoring the root.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-test-reversed",
+        "Stating the p-series test the wrong way round: converging for p at most 1, or diverging for p above 1.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-terms-tend-to-zero-misused",
+        "Concluding that a series converges because its terms tend to 0.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-comparison-degree-difference-misread",
+        "Misjudging the difference between the degrees of the numerator and denominator by one, so comparing with the wrong p-series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-comparison-verdict-reversed",
+        "Comparing with the right series but drawing the opposite conclusion about convergence.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-comparison-harmonic-assumed",
+        "Comparing every rational term with the harmonic series 1/n whatever its degrees.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-comparison-direction-wrong",
+        "Using the inequality the wrong way round in a direct comparison: a lower bound to prove convergence, or an upper bound to prove divergence.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-alternating-means-conditional",
+        "Calling an alternating series conditionally convergent without checking whether the series of absolute values converges.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-absolute-terms-misjudged",
+        "Calling an absolutely convergent alternating series divergent because its signs change.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-alternating-test-taken-as-absolute",
+        "Calling an alternating series absolutely convergent because the terms decrease to 0, without testing the absolute values.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-divergent-because-absolute-diverges",
+        "Calling a series divergent because the series of its absolute values diverges, forgetting that the alternating series test may still apply.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-nth-term-test-missed",
+        "Not checking whether the terms tend to 0: a series whose terms do not tend to 0 diverges.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-power-rule-slip",
+        "Integrating (x + b)^(-q) without dividing by the new exponent, or with the wrong exponent.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-constant-dropped",
+        "Dropping the constant multiplier when integrating c/(x + b)^q.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-wrong-lower-limit",
+        "Evaluating an improper integral at the wrong lower limit.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-replaced-by-first-term",
+        "Giving the first term of the series where the value of the integral was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-sign-slip",
+        "Getting the sign of an improper integral wrong when the antiderivative is evaluated at the limits.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-bound-integral-omitted",
+        "Giving only the first term as the integral-test bound, leaving out the integral.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-bound-first-term-omitted",
+        "Giving only the integral as the bound for the sum, leaving out the first term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-bound-wrong-first-term",
+        "Adding the wrong term of the series to the integral in the integral-test bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-partial-sum-terms-miscounted",
+        "Adding the wrong number of terms, or starting from the wrong index, in a partial sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-tail-integral-start-off-by-one",
+        "Starting the tail integral at the wrong point, one step before or after the partial sum ends.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-tail-integral-omitted",
+        "Leaving the tail integral out of the sharper bound, or adding a single term in its place.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-partial-sum-omitted",
+        "Giving the tail integral alone where the partial sum plus the tail integral was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-last-term-used",
+        "Bounding the alternating-series error by the last term kept, b_N, instead of the first term dropped, b_(N+1).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-term-after-next",
+        "Bounding the alternating-series error by b_(N+2), skipping the first dropped term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-halved",
+        "Halving the first dropped term to get the alternating-series error bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-two-terms-added",
+        "Adding the next two terms, b_(N+1) + b_(N+2), as the error bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-signed",
+        "Giving the alternating-series error with the sign of the first dropped term rather than as a size.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-terms-uses-last-term",
+        "Requiring b_N below the tolerance rather than b_(N+1), so one term too few.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-terms-off-by-one",
+        "Counting the terms needed one too many for the tolerance.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-tolerance-misread",
+        "Misreading the tolerance as a different power of ten when finding the number of terms.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-partial-sum-wrong-count",
+        "Summing the wrong number of terms of the alternating series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-partial-sum-sign-pattern",
+        "Using the wrong sign pattern when forming an alternating partial sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-partial-sum-bound-subtracted",
+        "Subtracting the error bound from the partial sum instead of reporting the partial sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-interval-wrong-end",
+        "Taking the partial sum plus the bound as the lower end of the interval.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-interval-bound-not-applied",
+        "Reporting the partial sum as the end of the interval without applying the bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-interval-bound-subtracted-the-wrong-way",
+        "Applying the error bound in the wrong direction when bracketing the sum.",
+        area="series",
+    ),
 )
 
 #: Every entry, by id.

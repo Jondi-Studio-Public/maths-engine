@@ -34,8 +34,8 @@ def parse_text(text: str, symbols: dict | None = None):
     """A learner-facing formula (``e^(-2x) sin(3x)``, ``√(1 + 2x)``, ``x² e^(-x)``) as a SymPy expression."""
     s = text.strip()
     s = re.sub(r"([²³⁴⁵⁶⁷⁸⁹])", lambda m: "^" + m.group(1).translate(_SUPERSCRIPTS), s)
-    s = re.sub(r"√(\w+)", r"sqrt(\1)", s)
-    s = s.replace("√", "sqrt").replace("·", "*").replace("−", "-")
+    s = re.sub(r"√(\w+)", r" sqrt(\1)", s)
+    s = s.replace("√", " sqrt").replace("·", "*").replace("−", "-")
     s = re.sub(r"\bln\b", "log", s)
     s = re.sub(r"(?<![A-Za-z])e\^", "E^", s)
     names = {"E": sympy.E, "pi": sympy.pi, "x": sympy.Symbol("x"), "y": sympy.Symbol("y")}
