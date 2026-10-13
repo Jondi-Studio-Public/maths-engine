@@ -796,6 +796,14 @@ f10-additive-multiplicative-patterns:
   sources:
   - topic: additive_multiplicative_patterns
     module: mathgen/generators/p5c_patterns_algorithms_build.py
+f10-algebra-conjecture-algorithm:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fr2e_conjecture
+    module: mathgen/generators/fr2e_conjecture_build.py
+  - topic: exd_x_fr2e_conjecture
+    module: mathgen/generators/fr2e_conjecture_build.py
 f10-angle-relationships:
   domain: primary-geometry-time
   status: active
@@ -834,6 +842,14 @@ f10-chance-language-and-outcomes:
   sources:
   - topic: chance_outcome_classify
     module: mathgen/generators/p5d_chance_expectation_build.py
+f10-choose-model-from-data:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fr2e_choose_model
+    module: mathgen/generators/fr2e_model_choice_build.py
+  - topic: exd_x_fr2e_choose_model
+    module: mathgen/generators/fr2e_model_choice_build.py
 f10-circle-and-prism-duration-rates:
   domain: measurement
   status: active
@@ -1062,6 +1078,22 @@ f10-factors-multiples-divisibility:
   sources:
   - topic: factors_multiples_divisibility
     module: mathgen/generators/p3a_secondary_number_factors_build.py
+f10-financial-multistep-percent:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: fr2e_percent_multistep
+    module: mathgen/generators/fr2e_percent_multistep_build.py
+  - topic: exd_x_fr2e_percent_multistep
+    module: mathgen/generators/fr2e_percent_multistep_build.py
+f10-financial-multistep-whole-numbers:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: fr2e_money_multistep
+    module: mathgen/generators/fr2e_money_multistep_build.py
+  - topic: exd_x_fr2e_money_multistep
+    module: mathgen/generators/fr2e_money_multistep_build.py
 f10-fraction-add-subtract-equivalent:
   domain: primary-number
   status: active
@@ -1272,6 +1304,14 @@ f10-nets-build-solids:
   domain: primary-geometry-time
   status: deferred
   sources: []
+f10-number-algorithm-choose-complete:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fr2e_number_algorithm
+    module: mathgen/generators/fr2e_number_algorithm_build.py
+  - topic: exd_x_fr2e_number_algorithm
+    module: mathgen/generators/fr2e_number_algorithm_build.py
 f10-number-algorithms-decisions:
   domain: functions-sequences
   status: active
@@ -1564,6 +1604,14 @@ f10-skip-count-pattern-sequences:
   sources:
   - topic: skip_count_pattern_sequences
     module: mathgen/generators/p5c_skip_count_build.py
+f10-spatial-algorithm-choose-test:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2e_spatial_algorithm
+    module: mathgen/generators/fr2e_spatial_algorithm_build.py
+  - topic: exd_x_fr2e_spatial_algorithm
+    module: mathgen/generators/fr2e_spatial_algorithm_build.py
 f10-square-roots-perfect-squares:
   domain: secondary-number
   status: active
