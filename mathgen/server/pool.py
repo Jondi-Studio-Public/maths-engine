@@ -15,6 +15,7 @@ import math
 import multiprocessing
 import os
 import queue
+import sys
 import threading
 import time
 
@@ -62,6 +63,9 @@ def _limit_memory(megabytes: int) -> None:
 
 
 def _worker_main(conn, settings):
+    # Anything a job prints goes to stderr, never to the parent's stdout (which a stdio caller may be reading).
+    os.dup2(2, 1)
+    sys.stdout = sys.stderr
     root, extra, id_secret, memory_mb = settings
     _limit_memory(memory_mb)
     lib = service.Library.load(root, extra, id_secret=id_secret)

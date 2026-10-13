@@ -551,28 +551,26 @@ def _number(value):
 
 
 def result_view(result, *, reveal: bool = False) -> dict:
-    """A `GradeResult` as data. `canonical` (the right answer) is kept only with `reveal`, at every level: a
-    multi-part result holds each part's own result, keyed by label, with its own `canonical`."""
-    data = _plain(_numbers(asdict(result)))
-    return data if reveal else _without_canonical(data)
-
-
-def _numbers(raw: dict) -> dict:
+    """A `GradeResult` as data. `canonical` (the right answer) is kept only with `reveal`."""
+    raw = asdict(result)
     for key in ("marks", "max_marks"):
-        if key in raw:
-            raw[key] = _number(raw[key])
+        raw[key] = _number(raw.get(key))
     for part in (raw.get("parts") or {}).values():
         if isinstance(part, dict):
-            _numbers(part)
-    return raw
+            for key in ("marks", "max_marks"):
+                if key in part:
+                    part[key] = _number(part[key])
+    data = _plain(raw)
+    return data if reveal else _strip_canonical(data)
 
 
-def _without_canonical(value):
-    if isinstance(value, dict):
-        return {k: _without_canonical(v) for k, v in value.items() if k != "canonical"}
-    if isinstance(value, list):
-        return [_without_canonical(v) for v in value]
-    return value
+def _strip_canonical(data):
+    """`data` without any `canonical` key, however deep: a multi-part result nests one per part."""
+    if isinstance(data, dict):
+        return {k: _strip_canonical(v) for k, v in data.items() if k != "canonical"}
+    if isinstance(data, list):
+        return [_strip_canonical(v) for v in data]
+    return data
 
 
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
@@ -590,4 +588,6 @@ def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
         reply = {str(k): (str(v) if isinstance(v, int) and not isinstance(v, bool) else v) for k, v in reply.items()}
         if not all(isinstance(v, str) for v in reply.values()):
             raise BadRequest("each part's reply is text or an option index")
+        if not question.parts:
+            raise BadRequest("this question has one answer; send its reply as text, not an object of parts")
     return {"id": qid, **result_view(engine.grade(skill, question, reply), reveal=reveal)}

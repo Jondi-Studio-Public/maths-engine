@@ -494,3 +494,8 @@ def test_a_multi_part_grade_holds_no_part_answer_without_reveal(client):
         assert all(isinstance(p["marks"], int | str) for p in body["parts"].values())
     revealed = client.post("/v1/grade", json={"id": q["id"], "reply": wrong, "reveal": True}, headers=A).json()
     assert all(p["canonical"] for p in revealed["parts"].values())
+
+
+def test_an_object_reply_to_a_one_answer_question_is_a_bad_request(client):
+    (q,) = ask(client, "simplify-surds")
+    assert client.post("/v1/grade", json={"id": q["id"], "reply": {"a": "1"}}, headers=L).status_code == 422
