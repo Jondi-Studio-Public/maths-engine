@@ -4,8 +4,7 @@ id: senior-recognise-the-qualitative-features-of-the-graph-of
 name: 'Read the horizontal asymptote of y = a^x + k off its graph'
 domain: functions-sequences
 description: 'Given the graph of y = a^x + k (a > 0, a not 1) on a labelled integer grid with k an integer and no asymptote drawn, state the equation of its horizontal asymptote, y = k, by reading the height the level end of the curve runs along. The values of a and k are never printed.'
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false

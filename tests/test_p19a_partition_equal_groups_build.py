@@ -236,9 +236,9 @@ class TestSkillLoad:
         assert skill.placement_eligible is False
         assert skill.prerequisites == ["equal-groups", "skip-count-2-5-10"]
         stages_covered = set()
-        for source in skill.sources:
+        for source in skill.sources[:3]:
             assert source.topic == TOPIC
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance"}
         exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
-        assert len(exam_sources) == 0  # early-foundations, Year 1 -- exempt
+        assert len(exam_sources) == 1  # the pr1 exam-tier chain source, appended after hard

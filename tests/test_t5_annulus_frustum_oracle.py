@@ -102,6 +102,8 @@ def _oracle_frustum_volume(text: str) -> Fraction:
 
 def _oracle_cases(skill_id: str):
     for source in _skill_sources(skill_id):
+        if source.difficulty == "exam":
+            continue
         params = source.params or {}
         for seed in range(_SEEDS):
             yield source.difficulty, seed, params

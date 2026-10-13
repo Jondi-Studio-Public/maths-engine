@@ -581,12 +581,12 @@ _INTRO_A_EXAM = [
 ]
 
 _INSTRUCTION_A_EXAM = [
-    "Find \u03bc and \u03c3, the mean and standard deviation of this binomial count, then "
-    "calculate z, the standardised value of sample {j}'s mean, equal to the sample mean "
-    "minus \u03bc, divided by \u03c3 divided by the square root of n, to 2 decimal places.",
-    "Derive \u03bc and \u03c3 for this binomial count, then standardise sample {j}'s mean: "
-    "subtract \u03bc, and divide by \u03c3 divided by the square root of n, giving your answer "
-    "to 2 decimal places.",
+    "Calculate z, the standardised value of sample {j}'s mean, equal to the sample mean "
+    "minus \u03bc, divided by \u03c3 divided by the square root of n, to 2 decimal places, where "
+    "\u03bc and \u03c3 are the mean and standard deviation of this binomial count.",
+    "Standardise sample {j}'s mean, giving your answer to 2 decimal places: subtract \u03bc, "
+    "and divide by \u03c3 divided by the square root of n, where \u03bc and \u03c3 are the "
+    "mean and standard deviation of this binomial count.",
 ]
 
 

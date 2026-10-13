@@ -13,6 +13,11 @@ sources:
     kinds:
     - cantilever_udl
   difficulty: easy
+- topic: exd_x_u7_cantilever_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: treated-as-simply-supported
   description: Treating the cantilever as if it were simply supported at both ends.

@@ -1,6 +1,6 @@
-"""Tests `pv1f_cubic_y_intercept` (ACMMM017), a deferred visual skill, through its own sources.
+"""Tests `pv1f_cubic_y_intercept` (ACMMM017), an active figure skill, through its own sources.
 
-``pv1f_cubic_y_intercept`` (``answer: number``, ACMMM017). The skill is ``status: deferred``
+``pv1f_cubic_y_intercept`` (``answer: number``, ACMMM017). The skill is ``status: active``
 (visual), so the loader's own generation checks skip it: every tier of every source is
 generated here through the skill's own sources.
 """
@@ -10,11 +10,12 @@ import functools
 
 import pytest
 
-from mathgen.grading.typed import grade_number
-from mathgen.skills import load_skills
 from mathgen import figures, make
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1f_cubic_build as gen
+from mathgen.grading.typed import grade_number
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 from scripts.measure_tiers import classify_skill
 
@@ -41,8 +42,9 @@ def _gen(tier, seed):
 def test_skill_loads_with_the_figure_stimulus_shape():
     skill = _skill()
     assert skill.answer == "number" and skill.domain == "functions-sequences"
-    assert skill.status == "deferred" and skill.deferred_reason == "visual"
+    assert skill.status == "active" and skill.deferred_reason is None
     assert skill.needs_figure is True and skill.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.placement_eligible is False and skill.mental is None
     assert [s.difficulty for s in skill.sources] == TIERS
     assert [list(s.stages) for s in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]

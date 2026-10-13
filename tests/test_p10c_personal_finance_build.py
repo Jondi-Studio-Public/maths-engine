@@ -243,7 +243,7 @@ def test_both_skills_load_through_api(skills_dict):
     assert budget.answer == "number"
     assert budget.placement_eligible is False
     assert budget.status == "active"
-    assert len(budget.sources) == 3
+    assert len(budget.sources) == 4
 
     allowance = skills_dict["senior-calculate-payments-based-on-government-allowances-and-pensions"]
     assert allowance is not None
@@ -252,4 +252,4 @@ def test_both_skills_load_through_api(skills_dict):
     assert allowance.answer == "number"
     assert allowance.placement_eligible is False
     assert allowance.status == "active"
-    assert len(allowance.sources) == 3
+    assert len(allowance.sources) == 4

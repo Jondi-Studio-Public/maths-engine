@@ -3,39 +3,48 @@ name: Reverse an inequality after multiplying or dividing by a negative
 domain: inequalities
 description: Explain and apply the reversal of an inequality direction under multiplication or division
   by a negative.
-status: deferred
-deferred_reason: grader
+status: active
 prerequisites:
 - one-step-inequalities
 - integer-arithmetic
 answer: inequality
 sources:
-- topic: inequality
-  params:
-    kind: neg_coef
+- topic: lin_ineq_negative
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: inequality
-  params:
-    kind: neg_coef
+- topic: lin_ineq_negative
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: inequality
-  params:
-    kind: neg_coef
+- topic: lin_ineq_negative
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_ineq_negative
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Reversing for addition or subtraction of a negative
-- id: misconception-2
-  description: Forgetting to reverse after division by a negative
+- id: ineq-direction-not-reversed
+  description: "Multiplying or dividing both sides by a negative number without reversing the inequality sign."
+- id: bound-sign-not-changed
+  description: "Reversing the sign for a negative divisor but leaving the bound with the sign it had before dividing."
+- id: ineq-reversed-without-need
+  description: "Reversing the sign when only a positive number was used or nothing needed reversing."
+- id: sign-error-moving-term
+  description: "Moving a term across the sign without changing its sign."
+- id: strict-nonstrict-confused
+  description: "Changing between < and ≤ (or > and ≥) while solving."
+- id: used-wrong-inverse-operation
+  description: "Dividing where multiplying was needed (or the reverse)."
 tags: []

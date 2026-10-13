@@ -16,6 +16,14 @@
   operation) and never mixes in the turn-fraction vocabulary of
   ``f10-angle-turn-right-reference``.
 
+With ``figure=True`` (what the skill's sources use) ``p11d_parallel_line_angle_theorems`` draws the lines
+instead of describing them: two arrow-marked parallels cut by a transversal, the stated angle labelled in
+degrees (or as an expression in x at the hard tier) and the asked angle marked ``x``. The picture is marked
+"not drawn to scale" and drawn with the asked angle visibly different from its true size, so measuring does
+not give the answer; the prompt still names the relationship. The figure form re-derives its answer from the
+picture alone (``_read_parallel``), not from the text. The words-only form (``figure=False``, the default) is
+unchanged.
+
 Both generators re-derive their answer from the RENDERED question text
 (a regex parse of the final ``text`` string, not the internal variables
 construction used), independently of however construction built the
@@ -25,11 +33,15 @@ question -- the "verify the artefact the learner receives" discipline.
 from __future__ import annotations
 
 import re
+from fractions import Fraction
 
 from sympy import Eq, Symbol, solve
 from sympy import latex as sympy_latex
 
+from .. import figures
 from ..core import (
+    VerificationError,
+    attempts,
     check,
     check_equivalent,
     check_pairwise_distinct,
@@ -39,6 +51,8 @@ from ..core import (
     pick_distractors,
     reversed_and_adjacent_swap,
 )
+from ..figure_kinds import space
+from . import _space_kit as kit
 
 _X = Symbol("x")
 
@@ -110,6 +124,49 @@ def _check_easy_medium(text: str, answer_text: str):
     )
 
 
+# -- the figure form ------------------------------------------------------------
+
+# (intersection, quadrant) positions as `space.parallel_transversal` numbers them: quadrants 0 and 2 are theta
+# wide, 1 and 3 are 180 - theta wide. Each list is the position pairs that stand in that relationship.
+_PAIRS = {
+    "corresponding": [((0, k), (1, k)) for k in range(4)],
+    "alternate": [((0, 2), (1, 0)), ((0, 3), (1, 1))],
+    "co-interior": [((0, 3), (1, 0)), ((0, 2), (1, 1))],
+}
+
+_ALT_PARALLEL = "Two parallel lines, marked with arrows, cut by a transversal."
+
+
+def _width(position, theta):
+    """The true size of the angle at ``position`` when quadrants 0 and 2 are ``theta`` wide."""
+    return theta if position[1] % 2 == 0 else 180 - theta
+
+
+def _parallel_figure(rng, relationship, value, label_first, label_second, asked):
+    """(figure, first_pos, second_pos) for two angles in ``relationship``, the first being ``value`` degrees.
+
+    The pair of positions is drawn at random and either end can carry the first angle. The picture is drawn
+    not to scale: theta (50-130) is of the same kind, acute or obtuse, as the true one, and the angle the
+    question ``asked`` for (``"first"`` or ``"second"``) is drawn at least 10 degrees from its true size, so
+    measuring the picture does not give the answer."""
+    pair = rng.choice(_PAIRS[relationship])
+    first_pos, second_pos = (pair[0], pair[1]) if rng.random() < 0.5 else (pair[1], pair[0])
+    theta_true = value if first_pos[1] % 2 == 0 else 180 - value
+    asked_pos = first_pos if asked == "first" else second_pos
+    zone = (50.0, 84.0) if theta_true < 90 else (96.0, 130.0)
+    for _ in attempts(200, "a drawn transversal angle"):
+        theta = round(rng.uniform(*zone), 2)
+        if abs(_width(asked_pos, theta) - _width(asked_pos, theta_true)) >= 10 and abs(theta - theta_true) >= 3:
+            break
+    fig = space.parallel_transversal(
+        theta=theta,
+        labels={first_pos: label_first, second_pos: label_second},
+        rotation=rng.choice((-1, 1)) * rng.uniform(0, 20) + rng.choice((0, 90)),
+        alt=_ALT_PARALLEL,
+    )
+    return fig, first_pos, second_pos
+
+
 _CLOSERS_EASY_MEDIUM = (
     "Find the size of that other angle, in degrees.",
     "What is the size of that other angle, in degrees?",
@@ -117,9 +174,18 @@ _CLOSERS_EASY_MEDIUM = (
 )
 
 
-def _easy_medium_question(rng, relationship_pool):
+def _easy_medium_question(rng, relationship_pool, figure=False):
     relationship = rng.choice(relationship_pool)
-    x = _draw_easy_medium_angle(rng)
+    fig = None
+    if figure:
+        for _ in attempts(80, "a transversal picture that does not show its own answer"):
+            x = _draw_easy_medium_angle(rng)
+            shown_answer = x if relationship in _EQUAL_TYPES else 180 - x
+            fig, _first, _second = _parallel_figure(rng, relationship, x, "a", "x", asked="second")
+            if not kit.leaks(fig, str(shown_answer)):
+                break
+    else:
+        x = _draw_easy_medium_angle(rng)
     closer = rng.choice(_CLOSERS_EASY_MEDIUM)
 
     if relationship in _EQUAL_TYPES:
@@ -135,10 +201,23 @@ def _easy_medium_question(rng, relationship_pool):
         f"and it is {_PREP[relationship]} another angle formed by the same transversal. "
         f"{closer}"
     )
+    if fig is not None:
+        # The given size is stated here, not drawn: for corresponding and alternate angles the answer IS the
+        # given size, so a drawn "65°" would show the answer.
+        text = (
+            f"The two lines marked with arrows are parallel, and angle a is {x}°. Angles a and x are "
+            f"{relationship} angles. Find the size of angle x, in degrees."
+        )
     latex = rf"\text{{{text}}}"
     answer_text = str(answer_val)
 
-    _check_easy_medium(text, answer_text)
+    if fig is None:
+        _check_easy_medium(text, answer_text)
+    else:
+        check(
+            str(_read_parallel(fig, given=x)) == answer_text,
+            "p11d_parallel_line_angle_theorems: picture disagrees with answer",
+        )
 
     check_pairwise_distinct(
         answer_val,
@@ -150,7 +229,7 @@ def _easy_medium_question(rng, relationship_pool):
 
     working = [_RULE_STATEMENT[relationship], f"Answer: {answer_val} degrees."]
 
-    return text, latex, answer_text, distractors, working, answer_val
+    return text, latex, answer_text, distractors, working, answer_val, fig
 
 
 _HARD_REL_RE = re.compile(r"forming two (corresponding|alternate|co-interior) angles")
@@ -223,8 +302,9 @@ _CLOSERS_HARD = (
 )
 
 
-def _hard_question(rng):
+def _hard_question(rng, figure=False):
     found = False
+    fig = None
     for _ in range(50):
         relationship = rng.choice(_ALL_RELATIONSHIPS)
         x = rng.randint(2, 30)
@@ -239,6 +319,12 @@ def _hard_question(rng):
         a2 = target_angle - a1 * x
         other_target = target_angle if relationship in _EQUAL_TYPES else 180 - target_angle
         c2 = other_target - c1 * x
+        if figure:
+            fig, _first, _second = _parallel_figure(
+                rng, relationship, target_angle, f"({_expr_text(a1, a2)})°", f"({_expr_text(c1, c2)})°", asked="first"
+            )
+            if kit.leaks(fig, str(target_angle)):
+                continue
         found = True
         break
     check(found, "p11d_parallel_line_angle_theorems: hard tier could not find a valid draw")
@@ -260,15 +346,37 @@ def _hard_question(rng):
         f"({sympy_latex(c1 * _X + c2)})"
         rf" \text{{ degrees. {rule_statement} {closer}}}"
     )
+    if fig is not None:
+        text = (
+            "The two lines marked with arrows are parallel. The two marked angles are "
+            f"{relationship} angles. {rule_statement} Find the size of the angle marked ({expr1})°, in degrees."
+        )
+        latex = (
+            rf"\text{{The two lines marked with arrows are parallel. The two marked angles are {relationship} "
+            rf"angles. {rule_statement} Find the size of the angle marked }} ({sympy_latex(a1 * _X + a2)})^\circ"
+            r"\text{, in degrees.}"
+        )
     answer_text = str(target_angle)
 
-    _check_hard(text, answer_text)
+    if fig is None:
+        _check_hard(text, answer_text)
+    else:
+        asked = space_label_expr = f"({expr1})°"
+        check(
+            str(_read_parallel(fig, asked)) == answer_text,
+            "p11d_parallel_line_angle_theorems: hard-tier picture disagrees with answer",
+        )
 
     d_x = x  # reports-x-not-angle (misconception c)
     d_wrong_rule = _wrong_rule_angle_hard(relationship, a1, a2, c1, c2)  # misconceptions (a)/(b)
     d_offset = target_angle + 11  # generic distractor, not a named misconception
 
     raw_candidates = [d_x, d_offset] + ([d_wrong_rule] if d_wrong_rule is not None else [])
+    # The supplement of the angle (used 180 where the relationship needed no subtraction, or the reverse) and a
+    # slip of eleven back: further positive options, so dropping a negative candidate never leaves too few.
+    raw_candidates += [180 - target_angle, target_angle - 11]
+    # A negative angle is trivially eliminated, so only positive sizes are offered.
+    raw_candidates = [c for c in raw_candidates if c > 0]
     # Defensive filter, not a resample: drop any candidate that already equals
     # the answer (the honestly-disclosed degeneracy the misconception can hit)
     # or an already-kept candidate (measured: 1/400 hard-tier seeds has
@@ -292,7 +400,7 @@ def _hard_question(rng):
         f"angle = {target_angle} degrees.",
     ]
 
-    return text, latex, answer_text, distractors, working, target_angle
+    return text, latex, answer_text, distractors, working, target_angle, fig
 
 
 @generator(
@@ -304,17 +412,19 @@ def _hard_question(rng):
         "hard": dict(variant="algebraic"),
     },
 )
-def p11d_parallel_line_angle_theorems(rng, variant="equal_type"):
+def p11d_parallel_line_angle_theorems(rng, variant="equal_type", figure=False):
     if variant == "equal_type":
-        text, latex, answer_text, distractors, working, answer = _easy_medium_question(rng, _EQUAL_TYPES)
+        text, latex, answer_text, distractors, working, answer, fig = _easy_medium_question(rng, _EQUAL_TYPES, figure)
     elif variant == "all_types":
-        text, latex, answer_text, distractors, working, answer = _easy_medium_question(rng, _ALL_RELATIONSHIPS)
+        text, latex, answer_text, distractors, working, answer, fig = _easy_medium_question(
+            rng, _ALL_RELATIONSHIPS, figure
+        )
     elif variant == "algebraic":
-        text, latex, answer_text, distractors, working, answer = _hard_question(rng)
+        text, latex, answer_text, distractors, working, answer, fig = _hard_question(rng, figure)
     else:
         raise ValueError(f"unknown variant {variant!r}")
 
-    return {
+    out = {
         "text": text,
         "latex": latex,
         "answer": answer,
@@ -323,6 +433,55 @@ def p11d_parallel_line_angle_theorems(rng, variant="equal_type"):
         "distractors": distractors,
         "working": working,
     }
+    if fig is not None:
+        out["figure"] = fig
+    return out
+
+
+def _read_parallel(fig: dict, asked: str | None = None, given: int | None = None) -> int:
+    """The asked angle, re-derived from the picture alone.
+
+    Two angles are marked at the two crossings of a transversal with arrow-marked parallels, so in the drawing
+    they are either the same size (corresponding, alternate) or total 180 (co-interior); that, not the
+    relationship's name, says which rule applies. ``asked`` is the label of the asked angle (hard tier);
+    without it the asked angle is the one marked x and ``given`` is the size of the angle marked a (the
+    prompt states it, because drawing it would show the answer).
+    """
+    arcs = kit.arcs_of(fig)
+    check(len(arcs) == 2 and arcs[0]["at"] != arcs[1]["at"], "expected one marked angle at each crossing")
+    s1, s2 = arcs[0]["sweep"], arcs[1]["sweep"]
+    if abs(s1 - s2) < 0.5:
+        equal = True
+    elif abs(s1 + s2 - 180) < 0.5:
+        equal = False
+    else:
+        raise VerificationError("the two marked angles are neither equal nor supplementary in the picture")
+    if asked is None:
+        check(sorted(a["label"] for a in arcs) == ["a", "x"] and given is not None, "expected angles a and x")
+        return given if equal else 180 - given
+    first = [a for a in arcs if a["label"] == asked]
+    check(len(first) == 1, "the asked angle is not marked in the picture")
+    second = arcs[1] if first[0] is arcs[0] else arcs[0]
+    (a1, a2), (c1, c2) = kit.parse_linear_label(first[0]["label"]), kit.parse_linear_label(second["label"])
+    # equal: a1 x + a2 = c1 x + c2;  supplementary: (a1 + c1) x + a2 + c2 = 180
+    x = Fraction(c2 - a2, a1 - c1) if equal else Fraction(180 - a2 - c2, a1 + c1)
+    angle = a1 * x + a2
+    check(angle.denominator == 1, "the angle is not a whole number")
+    return int(angle)
+
+
+_ASKED_RE = re.compile(r"angle marked (\(.+?\)°)")
+_GIVEN_RE = re.compile(r"angle a is (\d+)°")
+
+
+def _read_parallel_question(question) -> str:
+    asked, given = _ASKED_RE.search(question.text), _GIVEN_RE.search(question.text)
+    return str(
+        _read_parallel(question.figure, asked.group(1) if asked else None, int(given.group(1)) if given else None)
+    )
+
+
+figures.register_reader("p11d_parallel_line_angle_theorems", _read_parallel_question)
 
 
 # -- Skill 2: p11d_compare_angle_names ------------------------------------------

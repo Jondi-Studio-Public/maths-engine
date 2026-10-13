@@ -33,7 +33,7 @@ sources:
     params: {variant: reflection}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_g4_lt_basic
+  - topic: exd_x_r2d_lt_reflection_gradient
     params: {tier: exam}
     difficulty: exam
     stages: [exam]

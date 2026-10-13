@@ -21,7 +21,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g6_missing_duration
+- topic: exd_x_r2e_network_missing
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -287,14 +287,14 @@ def test_primary_number_pilot_pair_a_skill_contracts_load_with_expected_shape():
     assert order_1000.answer == "ordered_list"
     assert order_1000.placement_eligible is False
     assert order_1000.status == "active"
-    assert [source.difficulty for source in order_1000.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in order_1000.sources} == {"order_to_1000"}
-    assert [source.stages for source in order_1000.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in order_1000.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in order_1000.sources[:3]} == {"order_to_1000"}
+    assert [source.stages for source in order_1000.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert odd_even.prerequisites == ["multiplication-facts"]
     assert odd_even.answer == "mcq"
     assert odd_even.placement_eligible is False
     assert odd_even.status == "active"
-    assert [source.difficulty for source in odd_even.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in odd_even.sources} == {"odd_even_properties"}
-    assert [source.stages for source in odd_even.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in odd_even.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in odd_even.sources[:3]} == {"odd_even_properties"}
+    assert [source.stages for source in odd_even.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

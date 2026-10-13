@@ -189,7 +189,9 @@ class _EDCommon:
         skill = next(s for s in skills if s.id == ED_SKILL)
         assert skill.answer == "ordered_list"
         assert skill.placement_eligible is False
-        assert any(src.topic == ED_TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        assert any(
+            (src.topic == ED_TOPIC or self.TIER == "exam") and src.difficulty == self.TIER for src in skill.sources
+        )
 
 
 class TestEDEasy(_EDCommon):

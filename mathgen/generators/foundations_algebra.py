@@ -7,11 +7,13 @@ nearby level numbers (no unique level is required -- see README's levels
 table)."""
 
 import math
+import re
 from fractions import Fraction
 
-from sympy import symbols, expand, latex, Rational, solve, Eq, Poly, pi, simplify, together
+from sympy import Symbol, symbols, expand, latex, Rational, solve, Eq, Poly, pi, simplify, sympify, together
 
 from ..core import (
+    draw_until,
     generator,
     check,
     pick_distractors,
@@ -1031,12 +1033,17 @@ def _coordinates_fourth_vertex(rng, hi):
 def coordinates(rng, kind="read", hi=9):
     if kind == "fourth_vertex":
         return _coordinates_fourth_vertex(rng, hi)
-    px = rng.randint(-hi, hi)
-    py = rng.randint(-hi, hi)
-    while px == 0 and py == 0:
-        px, py = rng.randint(-hi, hi), rng.randint(-hi, hi)
-    h_word = f"{abs(px)} units {'right' if px >= 0 else 'left'}"
-    v_word = f"{abs(py)} units {'up' if py >= 0 else 'down'}"
+    if hi < 1:
+        raise ValueError("coordinates needs hi >= 1: the point must not be the origin, so some coordinate is nonzero")
+    # Redraw until the point is not the origin (a point "0 units from the origin" has no direction words).
+    px, py = draw_until(
+        rng,
+        lambda r: (r.randint(-hi, hi), r.randint(-hi, hi)),
+        lambda point: point != (0, 0),
+        what="a point other than the origin",
+    )
+    h_word = f"{abs(px)} {'unit' if abs(px) == 1 else 'units'} {'right' if px >= 0 else 'left'}"
+    v_word = f"{abs(py)} {'unit' if abs(py) == 1 else 'units'} {'up' if py >= 0 else 'down'}"
     text = f"A point is {h_word} and {v_word} from the origin. Write its coordinates (x, y)."
     ans_text = f"({px}, {py})"
     # Misconceptions: swapped x and y; flipped the x-sign; flipped the y-sign.
@@ -1115,25 +1122,131 @@ def inequality(rng, kind="one_step", hi=9):
 # formulas. Symbols are single letters distinct from the module's `x`/`y` so
 # an "expression" answer like "(v - u)/t" exercises the grader on letters
 # other than x/y.
-_l, _w, _A, _P, _C, _r, _F, _m, _a, _v, _u, _t, _s = symbols("l w A P C r F m a v u t s")
-_REARRANGE_SYM_MAP = {str(sym): sym for sym in (_l, _w, _A, _P, _C, _r, _F, _m, _a, _v, _u, _t, _s)}
-
-# Each formula: display text, lhs (the side already isolated), rhs, and the
-# number of algebraic "steps" needed to isolate each rhs-variable as subject
-# (1 = a single division/multiplication; 2 = an additive move then a
-# division). Difficulty presets select by step count; `hard` always uses the
-# squared formula below.
-_REARRANGE_FORMULAS = [
-    dict(text="A = lw", tex="A = lw", lhs=_A, rhs=_l * _w, steps={"l": 1, "w": 1}),
-    dict(text="P = 2l + 2w", tex="P = 2l + 2w", lhs=_P, rhs=2 * _l + 2 * _w, steps={"l": 2, "w": 2}),
-    dict(text="C = 2πr", tex=r"C = 2\pi r", lhs=_C, rhs=2 * pi * _r, steps={"r": 1}),
-    dict(text="F = ma", tex="F = ma", lhs=_F, rhs=_m * _a, steps={"m": 1, "a": 1}),
-    dict(text="v = u + at", tex="v = u + at", lhs=_v, rhs=_u + _a * _t, steps={"u": 1, "a": 2, "t": 2}),
-    dict(text="s = vt", tex="s = vt", lhs=_s, rhs=_v * _t, steps={"v": 1, "t": 1}),
-]
-_REARRANGE_HARD = dict(
-    text="v² = u² + 2as", tex="v^2 = u^2 + 2as", lhs=_v**2, rhs=_u**2 + 2 * _a * _s, steps={"a": 2, "s": 2}
+# Each formula: display text, TeX, lhs and rhs as expression strings, and the number of algebraic "steps" needed to
+# isolate each rhs-variable as subject (1 = a single division/multiplication or one addition; 2 = an additive move
+# then a division, or two multiplicative moves). Difficulty presets select by step count; `hard` draws from the
+# squared formulas below, each solved for a letter that appears to the first power. Every target appears in the
+# right-hand side as a polynomial of degree 1, which the distractor construction relies on.
+_REARRANGE_BANK = (
+    # (text, tex, lhs, rhs, {target: steps})
+    ("A = lw", "A = lw", "A", "l*w", {"l": 1, "w": 1}),
+    ("P = 2l + 2w", "P = 2l + 2w", "P", "2*l + 2*w", {"l": 2, "w": 2}),
+    ("C = 2πr", r"C = 2\pi r", "C", "2*pi*r", {"r": 1}),
+    ("F = ma", "F = ma", "F", "m*a", {"m": 1, "a": 1}),
+    ("v = u + at", "v = u + at", "v", "u + a*t", {"u": 1, "a": 2, "t": 2}),
+    ("s = vt", "s = vt", "s", "v*t", {"v": 1, "t": 1}),
+    ("V = lwh", "V = lwh", "V", "l*w*h", {"l": 1, "w": 1, "h": 1}),
+    ("P = IV", "P = IV", "P", "I*V", {"I": 1, "V": 1}),
+    ("V = IR", "V = IR", "V", "I*R", {"I": 1, "R": 1}),
+    ("Q = It", "Q = It", "Q", "I*t", {"I": 1, "t": 1}),
+    ("W = Fd", "W = Fd", "W", "F*d", {"F": 1, "d": 1}),
+    ("p = mv", "p = mv", "p", "m*v", {"m": 1, "v": 1}),
+    ("E = Pt", "E = Pt", "E", "P*t", {"P": 1, "t": 1}),
+    ("m = DV", "m = DV", "m", "D*V", {"D": 1, "V": 1}),
+    ("C = πd", r"C = \pi d", "C", "pi*d", {"d": 1}),
+    ("D = 2r", "D = 2r", "D", "2*r", {"r": 1}),
+    ("A = bh", "A = bh", "A", "b*h", {"b": 1, "h": 1}),
+    ("P = R - C", "P = R - C", "P", "R - C", {"R": 1, "C": 1}),
+    ("T = a + b + c", "T = a + b + c", "T", "a + b + c", {"a": 1, "b": 1, "c": 1}),
+    ("d = st", "d = st", "d", "s*t", {"s": 1, "t": 1}),
+    ("C = F + rt", "C = F + rt", "C", "F + r*t", {"F": 1, "r": 2, "t": 2}),
+    ("T = nP", "T = nP", "T", "n*P", {"n": 1, "P": 1}),
+    ("A = ½bh", "A = \\frac{1}{2}bh", "A", "b*h/2", {"b": 2, "h": 2}),
+    ("y = mx + c", "y = mx + c", "y", "m*x + c", {"m": 2, "x": 2, "c": 1}),
+    ("F = 9C/5 + 32", "F = \\frac{9C}{5} + 32", "F", "9*C/5 + 32", {"C": 2}),
+    ("C = 5(F - 32)/9", "C = \\frac{5(F - 32)}{9}", "C", "5*(F - 32)/9", {"F": 2}),
+    ("M = (a + b)/2", "M = \\frac{a + b}{2}", "M", "(a + b)/2", {"a": 2, "b": 2}),
+    ("I = Prt/100", "I = \\frac{Prt}{100}", "I", "P*r*t/100", {"P": 2, "r": 2, "t": 2}),
+    ("P = 2a + b", "P = 2a + b", "P", "2*a + b", {"a": 2, "b": 1}),
+    ("C = 40 + 15h", "C = 40 + 15h", "C", "40 + 15*h", {"h": 2}),
+    ("P = nR - C", "P = nR - C", "P", "n*R - C", {"n": 2, "R": 2, "C": 1}),
+    ("A = 2πrh", "A = 2\\pi rh", "A", "2*pi*r*h", {"r": 2, "h": 2}),
+    ("V = ⅓Ah", "V = \\frac{1}{3}Ah", "V", "A*h/3", {"A": 2, "h": 2}),
+    ("s = ½(a + b + c)", "s = \\frac{a + b + c}{2}", "s", "(a + b + c)/2", {"a": 2, "b": 2, "c": 2}),
+    ("d = s + vt", "d = s + vt", "d", "s + v*t", {"s": 1, "v": 2, "t": 2}),
+    ("P = A + Dgh", "P = A + Dgh", "P", "A + D*g*h", {"A": 1, "D": 2, "g": 2, "h": 2}),
+    ("y = ax + b", "y = ax + b", "y", "a*x + b", {"a": 2, "x": 2, "b": 1}),
+    ("T = pn + f", "T = pn + f", "T", "p*n + f", {"p": 2, "n": 2, "f": 1}),
 )
+_REARRANGE_HARD_BANK = (
+    ("v² = u² + 2as", "v^2 = u^2 + 2as", "v**2", "u**2 + 2*a*s", {"a": 2, "s": 2}),
+    ("E = ½mv²", "E = \\frac{1}{2}mv^2", "E", "m*v**2/2", {"m": 2}),
+    ("K = ½mv²", "K = \\frac{1}{2}mv^2", "K", "m*v**2/2", {"m": 2}),
+    ("U = ½kx²", "U = \\frac{1}{2}kx^2", "U", "k*x**2/2", {"k": 2}),
+    ("s = ut + ½at²", "s = ut + \\frac{1}{2}at^2", "s", "u*t + a*t**2/2", {"u": 2, "a": 2}),
+    ("h = ut - ½gt²", "h = ut - \\frac{1}{2}gt^2", "h", "u*t - g*t**2/2", {"u": 2, "g": 2}),
+    ("P = I²R", "P = I^2R", "P", "I**2*R", {"R": 2}),
+    ("F = mv²/r", "F = \\frac{mv^2}{r}", "F", "m*v**2/r", {"m": 2}),
+    ("V = πr²h", "V = \\pi r^2h", "V", "pi*r**2*h", {"h": 2}),
+    ("V = ⅓πr²h", "V = \\frac{1}{3}\\pi r^2h", "V", "pi*r**2*h/3", {"h": 2}),
+    ("A = 2πr² + 2πrh", "A = 2\\pi r^2 + 2\\pi rh", "A", "2*pi*r**2 + 2*pi*r*h", {"h": 2}),
+    ("A = πr² + πrl", "A = \\pi r^2 + \\pi rl", "A", "pi*r**2 + pi*r*l", {"l": 2}),
+    ("A = πr² + πrs", "A = \\pi r^2 + \\pi rs", "A", "pi*r**2 + pi*r*s", {"s": 2}),
+    ("E = ½mv² + mgh", "E = \\frac{1}{2}mv^2 + mgh", "E", "m*v**2/2 + m*g*h", {"m": 2, "g": 2, "h": 2}),
+    ("F = Gmn/r²", "F = \\frac{Gmn}{r^2}", "F", "G*m*n/r**2", {"G": 2, "m": 2, "n": 2}),
+    ("d = ½gt²", "d = \\frac{1}{2}gt^2", "d", "g*t**2/2", {"g": 2}),
+    ("E = mc²", "E = mc^2", "E", "m*c**2", {"m": 2}),
+    ("F = mw²r", "F = mw^2r", "F", "m*w**2*r", {"m": 2, "r": 2}),
+    ("P = p + ½Dv²", "P = p + \\frac{1}{2}Dv^2", "P", "p + D*v**2/2", {"p": 2, "D": 2}),
+    ("y = ax² + c", "y = ax^2 + c", "y", "a*x**2 + c", {"a": 2, "c": 2}),
+    ("A = P(1 + r)²", "A = P(1 + r)^2", "A", "P*(1 + r)**2", {"P": 2}),
+    ("W = ½mv² - ½mu²", "W = \\frac{1}{2}mv^2 - \\frac{1}{2}mu^2", "W", "m*v**2/2 - m*u**2/2", {"m": 2}),
+    ("s = vt - ½at²", "s = vt - \\frac{1}{2}at^2", "s", "v*t - a*t**2/2", {"v": 2, "a": 2}),
+    ("E = ½CV²", "E = \\frac{1}{2}CV^2", "E", "C*V**2/2", {"C": 2}),
+    ("I = ½mr²", "I = \\frac{1}{2}mr^2", "I", "m*r**2/2", {"m": 2}),
+)
+_BARE_LETTER = re.compile(r"\b[A-Za-z]\b")
+_LETTER_RUN = re.compile(r"(\\[A-Za-z]+)|([A-Za-z]{3,})")
+
+
+def _rearrange_formula(entry):
+    text, tex, lhs_src, rhs_src, steps = entry
+    letters = {ch: Symbol(ch) for ch in _BARE_LETTER.findall(lhs_src + " " + rhs_src)}
+    # A run of three variable letters ("mgh") would read as a word to the prompt checks; thin spaces keep them apart.
+    tex = _LETTER_RUN.sub(lambda m: m.group(1) or r"\,".join(m.group(2)), tex)
+    return dict(
+        text=text,
+        tex=tex,
+        lhs=sympify(lhs_src, locals=letters),
+        rhs=sympify(rhs_src, locals=letters),
+        steps=steps,
+        symbols=letters,
+    )
+
+
+_REARRANGE_FORMULAS = [_rearrange_formula(e) for e in _REARRANGE_BANK]
+_REARRANGE_HARD = [_rearrange_formula(e) for e in _REARRANGE_HARD_BANK]
+# One (formula, target) pair per row, so a seed draws uniformly over every question the tier can ask.
+_REARRANGE_EASY = [(f, t) for f in _REARRANGE_FORMULAS for t, n in f["steps"].items() if n == 1]
+_REARRANGE_MEDIUM = [(f, t) for f in _REARRANGE_FORMULAS for t, n in f["steps"].items() if n == 2]
+_REARRANGE_HARD_POOL = [(f, t) for f in _REARRANGE_HARD for t in f["steps"]]
+
+
+_REARRANGE_SOLVED: dict = {}
+
+
+def _rearrange_solved(text, target_name, lhs, rhs, target):
+    """Solved form, answer text, LaTeX and misconception candidates for one (formula, target), built by sympy once
+    and reused: solving and simplifying are the slow part of a draw."""
+    key = (text, target_name)
+    if key not in _REARRANGE_SOLVED:
+        solutions = solve(Eq(lhs, rhs), target)
+        check(len(solutions) == 1)
+        ans_expr = solutions[0]
+        # Misconceptions, from the coefficient/remainder decomposition of rhs as a polynomial in the target: forgot
+        # to divide by the coefficient at the end; sign error moving the additive remainder across the equals sign;
+        # divided the wrong way round (inverted numerator/denominator).
+        poly = Poly(rhs, target)
+        coeff, remainder = poly.nth(1), poly.nth(0)
+        cands = []
+        if coeff != 1:
+            cands.append(str(together(lhs - remainder)))
+        if remainder != 0:
+            cands.append(str(together((lhs + remainder) / coeff)))
+        if not symbolically_equal(lhs, remainder):
+            cands.append(str(together(coeff / (lhs - remainder))))
+        _REARRANGE_SOLVED[key] = (ans_expr, str(ans_expr), latex(ans_expr), tuple(cands))
+    return _REARRANGE_SOLVED[key]
 
 
 @generator(
@@ -1147,37 +1260,16 @@ _REARRANGE_HARD = dict(
 )
 def rearrange(rng, n_steps=1, hard=False):
     if hard:
-        formula = _REARRANGE_HARD
-        target_name = rng.choice(list(formula["steps"]))
+        formula, target_name = rng.choice(_REARRANGE_HARD_POOL)
     else:
-        pool = [f for f in _REARRANGE_FORMULAS if n_steps in f["steps"].values()]
-        formula = rng.choice(pool)
-        targets = [t for t, n in formula["steps"].items() if n == n_steps]
-        target_name = rng.choice(targets)
-    target = _REARRANGE_SYM_MAP[target_name]
+        formula, target_name = rng.choice(_REARRANGE_EASY if n_steps == 1 else _REARRANGE_MEDIUM)
+    target = formula["symbols"][target_name]
     lhs, rhs = formula["lhs"], formula["rhs"]
-    solutions = solve(Eq(lhs, rhs), target)
-    check(len(solutions) == 1)
-    ans_expr = solutions[0]
+    ans_expr, ans_str, ans_latex, cands = _rearrange_solved(formula["text"], target_name, lhs, rhs, target)
     # Independent check: substitute the derived expression back into the
     # ORIGINAL (unsolved) equation. Algebraic substitution + simplification
     # is a different computational route from solve()'s equation-solving.
     check_equivalent(lhs.subs(target, ans_expr), rhs.subs(target, ans_expr))
-    ans_str = str(ans_expr)
-
-    # Misconceptions, from the coefficient/remainder decomposition of rhs as
-    # a polynomial in the target: forgot to divide by the coefficient at the
-    # end; sign error moving the additive remainder across the equals sign;
-    # divided the wrong way round (inverted numerator/denominator).
-    poly = Poly(rhs, target)
-    coeff, remainder = poly.nth(1), poly.nth(0)
-    cands = []
-    if coeff != 1:
-        cands.append(str(together(lhs - remainder)))
-    if remainder != 0:
-        cands.append(str(together((lhs + remainder) / coeff)))
-    if not symbolically_equal(lhs, remainder):
-        cands.append(str(together(coeff / (lhs - remainder))))
 
     text = f"Make {target_name} the subject of the formula {formula['text']}"
     return dict(
@@ -1185,9 +1277,9 @@ def rearrange(rng, n_steps=1, hard=False):
         latex=formula["tex"],
         answer=ans_str,
         answer_text=ans_str,
-        answer_latex=latex(ans_expr),
+        answer_latex=ans_latex,
         working=[f"Start from {formula['text']}", f"{target_name} = {ans_str}"],
-        distractors=pick_distractors(ans_str, cands),
+        distractors=pick_distractors(ans_str, list(cands)),
     )
 
 

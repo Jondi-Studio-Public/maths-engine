@@ -20,6 +20,11 @@ sources:
   params: {kind: logistic}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc1_harvested_equilibria
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reverses-attraction
   description: Calls a negative derivative repelling and a positive derivative attracting.

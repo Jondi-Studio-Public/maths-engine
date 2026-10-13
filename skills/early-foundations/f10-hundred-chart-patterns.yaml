@@ -1,0 +1,31 @@
+id: f10-hundred-chart-patterns
+name: Use a hundred chart to find missing numbers and patterns
+domain: early-foundations
+learner_band: early
+description: Read a hundred chart with blank squares to find a missing number, one more, one less, ten more or ten less than a number, and the missing number in a skip-counting pattern.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [order-numbers-to-10, skip-count-2-5-10]
+answer: number
+sources:
+- topic: hundred_chart_read
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: hundred_chart_read
+  difficulty: medium
+  stages: [3, 4]
+- topic: hundred_chart_read
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ten-more-as-one-more
+  description: Gives the next number along the row when asked for ten more or ten less, instead of moving a row.
+- id: wrong-direction
+  description: Moves the wrong way, giving one more for one less or ten more for ten less.
+- id: row-end-slip
+  description: Moves along the row past the end of a row without continuing on the next row.
+- id: counts-by-ones-in-a-pattern
+  description: Gives the next number after the last shaded one instead of continuing the skip-counting step.
+tags: [acara-f10-v9, early, number-chart, skip-counting, ac9mfn01, ac9m1n01, ac9m2n01]

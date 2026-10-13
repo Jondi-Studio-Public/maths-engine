@@ -35,6 +35,11 @@ sources:
     params: {variant: count}
     difficulty: hard
     stages: [5, 6, maintenance]
+  - topic: exd_x_m4_roots_of_unity_chain
+    params: {tier: exam}
+    difficulty: exam
+    stages:
+      - exam
 misconceptions:
   - id: off-by-one-index
     description: Applies the formula to root k+1 or k-1 instead of the stated root k.

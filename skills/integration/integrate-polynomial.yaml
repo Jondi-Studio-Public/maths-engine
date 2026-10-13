@@ -33,7 +33,7 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: exd_x_c2_integrate_polynomial
+- topic: exd_x_r2b_antiderivative_chain
   params:
     tier: exam
   difficulty: exam

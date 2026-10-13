@@ -32,6 +32,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_n3_ratio_mix_cost
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 mental:
   levels:
   - topic: ratio

@@ -545,14 +545,14 @@ def test_primary_number_estimate_percentage_cluster_b_skill_contracts_load_with_
     assert estimate.answer == "number"
     assert estimate.placement_eligible is False
     assert estimate.status == "active"
-    assert [source.difficulty for source in estimate.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in estimate.sources} == {"decimal_estimate_add_subtract"}
-    assert [source.stages for source in estimate.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in estimate.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in estimate.sources[:3]} == {"decimal_estimate_add_subtract"}
+    assert [source.stages for source in estimate.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert percent.prerequisites == ["fraction-decimal-percent", "percentage-of-quantity"]
     assert percent.answer == "fraction"
     assert percent.placement_eligible is False
     assert percent.status == "active"
-    assert [source.difficulty for source in percent.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in percent.sources} == {"percentage_to_fraction"}
-    assert [source.stages for source in percent.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in percent.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in percent.sources[:3]} == {"percentage_to_fraction"}
+    assert [source.stages for source in percent.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

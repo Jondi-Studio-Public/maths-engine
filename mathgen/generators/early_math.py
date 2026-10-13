@@ -5,7 +5,11 @@ catalogue decides that these are graded as MCQ, so the same questions work in
 any practice setting.
 """
 
+from .. import figures
 from ..core import generator, latex_answer, pick_distractors
+from ..figure_kinds.early import counters, counters_total, scatter_dots
+from ..slots import NAMES
+from ..figure_kinds import measure
 
 
 DOTS = ("●", "◆", "★", "■")
@@ -41,19 +45,43 @@ def _nearby(n, lo=0, hi=100):
     return [value for value in values if lo <= value <= hi]
 
 
+_SHAPE_OF = {
+    "●": ("circle", "circles"),
+    "◆": ("diamond", "diamonds"),
+    "★": ("star", "stars"),
+    "■": ("square", "squares"),
+}
+_COUNT_TEXT = (
+    "How many {w} are there?",
+    "{n} counts the {w}. How many are there?",
+    "Count the {w}. How many?",
+)
+
+
 @generator("count_objects", level=1)
 def count_objects(rng, lo=1, hi=5):
     count = rng.randint(lo, hi)
-    symbol = rng.choice(DOTS)
-    objects = "  ".join([symbol] * count)
-    text = f"How many?   {objects}"
-    return _number_question(
+    shape, plural = _SHAPE_OF[rng.choice(DOTS)]
+    fig = counters(
+        layout="scatter",
+        alt="a group of shapes to count",
+        shape=shape,
+        dots=scatter_dots(rng, count, arrangement="tidy"),
+    )
+    figures.assert_no_leak(fig, [str(count)])
+    text = rng.choice(_COUNT_TEXT).format(n=rng.choice(NAMES), w=plural)
+    q = _number_question(
         text,
         count,
         _nearby(count, 0, max(10, hi + 2)),
         latex=f"plain:{text}",
         working=[f"Touch each shape once while counting: {count}."],
     )
+    q["figure"] = fig
+    return q
+
+
+figures.register_reader("count_objects", lambda q: str(counters_total(q.figure)))
 
 
 @generator("recognise_numeral", level=1)
@@ -189,27 +217,59 @@ def compare_length(rng):
     return _choice_question(text, long_side, ["Left", "Right", "Same"], latex=f"plain:{text}")
 
 
+_CLOCK_OPENERS = (
+    "Here is a clock.",
+    "Look at the clock on the wall.",
+    "This clock is in the classroom.",
+    "A clock hangs in the kitchen.",
+    "Look at the clock by the door.",
+    "Ben looks at the clock in his room.",
+    "The clock at the bus stop is shown.",
+)
+_CLOCK_QUESTIONS = (
+    "What time is it?",
+    "What time does the clock show?",
+    "Which time is on the clock?",
+    "Choose the time the clock shows.",
+)
+
+
 @generator("clock_hours", level=1)
 def clock_hours(rng):
-    hours = [
-        ("🕐", 1),
-        ("🕑", 2),
-        ("🕒", 3),
-        ("🕓", 4),
-        ("🕔", 5),
-        ("🕕", 6),
-        ("🕖", 7),
-        ("🕗", 8),
-        ("🕘", 9),
-        ("🕙", 10),
-        ("🕚", 11),
-        ("🕛", 12),
-    ]
-    clock, answer = rng.choice(hours)
-    text = f"What time is it?  {clock}"
-    return _choice_question(
-        text, f"{answer} o'clock", [f"{h} o'clock" for _c, h in hours if h != answer], latex=f"plain:{text}"
+    answer = rng.randint(1, 12)
+    fig = measure.clock(hour=answer, minute=0, alt="an analogue clock", numerals="all", minute_ticks=False)
+    text = f"{rng.choice(_CLOCK_OPENERS)} {rng.choice(_CLOCK_QUESTIONS)}"
+
+    def hour(h):
+        return f"{(h - 1) % 12 + 1} o'clock"
+
+    # Named misreadings: the hour numeral either side of the one the short hand points at (always offered), then one
+    # of: the 12 the long hand points at (reading the wrong hand), or the numeral two or three away (a slip in
+    # counting round the face). Which one varies, so no single option recurs.
+    rest = [hour(12), hour(answer + 2), hour(answer - 2), hour(answer + 3)]
+    rng.shuffle(rest)
+    distractors = pick_distractors(hour(answer), [hour(answer + 1), hour(answer - 1), *rest])
+    figures.assert_no_leak(fig, [hour(answer), *distractors])
+    return dict(
+        text=text,
+        latex=f"plain:{text}",
+        answer=hour(answer),
+        answer_text=hour(answer),
+        answer_latex=latex_answer(hour(answer), plain=True),
+        working=["The long hand points at the 12, so it is an o'clock time; the short hand points at the hour."],
+        distractors=distractors,
+        figure=fig,
     )
+
+
+def _read_clock_hours(question) -> str:
+    hour, minute = measure.read_clock(question.figure)
+    if minute != 0:
+        raise ValueError("an o'clock clock must have the long hand at the 12")
+    return f"{hour} o'clock"
+
+
+figures.register_reader("clock_hours", _read_clock_hours)
 
 
 @generator("australian_coins", level=1)

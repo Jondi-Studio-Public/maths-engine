@@ -22,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c4_partial_fractions
+- topic: exd_x_r2c_partial_fractions
   params: {tier: exam}
   difficulty: exam
   stages:

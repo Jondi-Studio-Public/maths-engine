@@ -8,11 +8,12 @@ import re
 import pytest
 
 import mathgen
-from mathgen.grading.typed import GRADERS
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1e_hyperbola_build as gen
+from mathgen.grading.typed import GRADERS
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-recognise-features-of-the-graphs-of-y-frac1x"
@@ -45,8 +46,9 @@ def _grade(q, given):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.deferred_reason == "visual" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "pair"
     assert s.mental is None
@@ -158,7 +160,7 @@ def test_prompt_states_the_form_and_the_scale(tier):
     for seed in SEEDS:
         q = _make(tier, seed)
         assert "in the form x = h, y = k" in q.text
-        assert r"in the form \(x = h,\ y = k\)" in q.latex
+        assert "in the form " in q.latex and r"{x = h,\ y = k}" in q.latex
         assert r"\frac{1}{x - h}" in q.latex
         assert "grid square" in q.text or "square is" in q.text or "per grid" in q.text
         assert "**" not in q.text and "*" not in q.text

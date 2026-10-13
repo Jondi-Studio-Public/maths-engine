@@ -375,16 +375,16 @@ def _hard(rng):
 # ---------------------------------------------------------------------------
 
 _EXAM_TEMPLATES = [
-    "Exam-style question. A relay track is made of two straight sides, each "
+    "A relay track is made of two straight sides, each "
     "of length L metres, and no other straight edge -- the far end is "
     "closed by a single semicircular end of radius {C} m. The track's "
     "EXACT total perimeter is stated to be {R} + {C}·π metres. Find L, in "
     "metres.",
-    "Exam-style question. A running track has two straight sides, each of "
+    "A running track has two straight sides, each of "
     "length L metres, open at the far end except for a single semicircular "
     "end of radius {C} m. Its EXACT total perimeter is exactly "
     "{R} + {C}·π metres. Work out L, in metres.",
-    "Exam-style question. A cycling track consists of two straight sides, "
+    "A cycling track consists of two straight sides, "
     "each of length L metres, closed at one end only by a semicircular end "
     "of radius {C} m. The manufacturer states the total perimeter is "
     "exactly {R} + {C}·π metres. Determine L, in metres.",
