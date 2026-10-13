@@ -1,6 +1,7 @@
 """Focused contract tests for: ucv1-linear-oscillator-classification and ucv1-phase-plane-linear-classification
 (both answer: mcq)."""
 
+from dataclasses import replace
 import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
@@ -29,6 +30,8 @@ def _skill_sources(skill_id):
 
 OSC_SKILL, OSC_SOURCES = _skill_sources(OSC_ID)
 PP_SKILL, PP_SOURCES = _skill_sources(PP_ID)
+OSC_SOURCES["exam"] = replace(OSC_SOURCES["exam"], topic="p14f_linear_oscillator_classification", params={})
+PP_SOURCES["exam"] = replace(PP_SOURCES["exam"], topic="p14f_phase_plane_linear_classification", params={})
 
 
 def _make(sources, difficulty, seed):

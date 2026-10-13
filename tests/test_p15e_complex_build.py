@@ -35,6 +35,7 @@ def _skill_sources(skill_id):
 
 CONTOUR_SKILL, CONTOUR_SOURCES = _skill_sources(CONTOUR_ID)
 CR_SKILL, CR_SOURCES = _skill_sources(CR_ID)
+CR_SOURCES["exam"] = dataclasses.replace(CR_SOURCES["exam"], topic="p15e_cr_equations_check", params={})
 
 
 def _make(sources, difficulty, seed):

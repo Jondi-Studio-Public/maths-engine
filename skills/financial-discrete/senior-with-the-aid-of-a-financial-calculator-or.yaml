@@ -27,8 +27,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12b_reducing_balance_loan
-  params: {}
+- topic: exd_x_r3c_loan_first_period
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

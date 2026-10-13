@@ -4,13 +4,14 @@ id: senior-determine-and-examine-the-n-th-roots-of-acmsm088
 name: Determine and examine the n-th roots of complex numbers and their location in the complex plane
 domain: senior-mathematics
 description: |
-  Determine, in polar form, the n-th roots of a given non-real complex number w
-  (w != 1), including their location in the complex plane. Every w in this
-  skill has modulus base**n for a small integer base (2, 3 or 4), so w can
-  never equal 1 -- that boundary case is the sibling skill,
-  senior-determine-and-examine-the-n-th-roots-of (roots of unity, w = 1),
-  ACARA's own preceding dot point (ACMSM087). Return the resulting root or
-  roots in polar form (r, theta).
+  Determine, in polar form, the n-th roots of a given non-real complex number w (w != 1),
+  including their location in the complex plane. Every w in this skill has modulus base**n
+  for a small integer base (2, 3 or 4), so w can never equal 1 -- that boundary case is
+  the sibling skill, senior-determine-and-examine-the-n-th-roots-of (roots of unity, w =
+  1), ACARA's own preceding dot point (ACMSM087). Below the exam tier, return the
+  resulting root or roots in polar form (r, theta); the exam tier is a four-part chain
+  (|w|, Arg w in degrees, the common modulus of the roots, and the argument of the one
+  root in a stated quadrant).
 status: active
 placement_eligible: false
 prerequisites:
@@ -30,7 +31,7 @@ sources:
     params: {variant: cartesian_axis}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_complex_nth_root
+  - topic: exd_x_r3b_nth_roots
     params: {tier: exam}
     difficulty: exam
     stages:

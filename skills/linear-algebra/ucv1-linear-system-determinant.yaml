@@ -2,9 +2,11 @@ id: ucv1-linear-system-determinant
 name: Solve a two-by-two system by determinants
 domain: linear-algebra
 year_level: [university]
-description: Solve a nonsingular 2x2 linear system A x = b using determinant
-  ratios (Cramer's rule), graded on the labelled pair of determinants
-  themselves -- D_x/D_y and D = det(A) -- never the solved (x, y).
+description: |
+  Solve a nonsingular 2x2 linear system A x = b using determinant ratios (Cramer's rule),
+  graded on the labelled pair of determinants themselves -- D_x/D_y and D = det(A) --
+  never the solved (x, y). The exam tier asks D, D_x and D_y as separate parts and then
+  uses them to evaluate a third line at the intersection point.
 status: active
 placement_eligible: false
 prerequisites: [matrix-multiplication]
@@ -30,8 +32,9 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: p14c_linear_system_determinant
-  params: {}
+- topic: exd_x_r3c_cramer_line
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam

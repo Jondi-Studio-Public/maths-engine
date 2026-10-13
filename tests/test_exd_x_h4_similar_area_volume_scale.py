@@ -46,7 +46,7 @@ def test_skill_yaml_has_the_exam_source_last():
     )
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
     last = skill["sources"][-1]
-    assert last["topic"] == TOPIC
+    assert last["topic"] == "exd_x_r3b_similar_scale"  # the exam source moved to the multi-part chain
     assert last["difficulty"] == "exam"
     assert last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}

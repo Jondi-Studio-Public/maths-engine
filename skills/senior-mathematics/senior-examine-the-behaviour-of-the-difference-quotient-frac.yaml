@@ -23,7 +23,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h5_limit_two_points_unknown_coefficients
+- topic: exd_x_r3d_quotient_limits_chain
   params: {tier: exam}
   difficulty: exam
   stages:

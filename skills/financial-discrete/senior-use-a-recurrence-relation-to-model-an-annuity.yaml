@@ -21,8 +21,8 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: pv0a_annuity_duration
-  params: {variant: exam}
+- topic: exd_x_r3c_annuity_payout
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

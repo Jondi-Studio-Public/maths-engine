@@ -3,7 +3,11 @@
 id: senior-recognise-the-need-for-milligrams
 name: Recognise the need for milligrams
 domain: senior-mathematics
-description: Given a stated real-world mass description, choose the most appropriate unit among milligrams, grams, kilograms and tonnes for measuring it.
+description: >-
+  Given a stated real-world mass description, choose the most appropriate unit among milligrams,
+  grams, kilograms and tonnes for measuring it. The exam tier is a dosage problem that finds the
+  mass of one dose and a day's total in milligrams, converts the total to grams and finds what
+  remains of a tub of powder.
 status: active
 placement_eligible: false
 prerequisites:
@@ -23,7 +27,7 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p19h_need_for_milligrams
+- topic: exd_x_r3g_dose_units
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

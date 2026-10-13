@@ -3,7 +3,11 @@
 id: senior-use-matrices-for-storing-and-displaying-information-that
 name: Use matrices for storing and displaying information that can be presented in rows and columns; for example, databases, links in social or road networks
 domain: matrices
-description: Given a stated small dataset (with context) represented as a matrix of rows and columns, read off the stated entry at a specified row and column, or compute the stated row or column total.
+description: >-
+  Given a stated small dataset (with context) represented as a matrix of rows and columns, read off
+  the stated entry at a specified row and column, or compute the stated row or column total. The
+  exam tier counts the routes between two towns from a table of direct services, by a row total, the
+  services through one change of bus and the journeys of at most two services.
 status: active
 placement_eligible: false
 prerequisites:
@@ -23,8 +27,8 @@ sources:
   params: {variant: directed_adjacency}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p14a_matrix_table
-  params: {variant: directed_adjacency_larger}
+- topic: exd_x_r3h_network_journeys
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

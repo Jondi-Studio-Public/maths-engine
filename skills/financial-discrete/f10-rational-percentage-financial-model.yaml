@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: rational_percentage_financial_model
-  params: {}
+- topic: exd_x_r3e_fee_discount_gst
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

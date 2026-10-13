@@ -1,5 +1,7 @@
 """Focused contract tests for: ucv1-finite-subgroup-test and ucv1-isomorphism-invariant (both answer: mcq)."""
 
+from dataclasses import replace
+
 import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
@@ -23,7 +25,10 @@ def _skill_sources(skill_id):
 
 
 SUB_SKILL, SUB_SOURCES = _skill_sources(SUB_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+SUB_SOURCES["exam"] = replace(SUB_SOURCES["exam"], topic="p15a_finite_subgroup_test", params={})
 ISO_SKILL, ISO_SOURCES = _skill_sources(ISO_ID)
+ISO_SOURCES["exam"] = replace(ISO_SOURCES["exam"], topic="p15a_isomorphism_invariant", params={})
 
 
 def _make(sources, difficulty, seed):

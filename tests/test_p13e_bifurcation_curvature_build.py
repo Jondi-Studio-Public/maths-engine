@@ -1,6 +1,7 @@
 """Focused contract tests for: ucv1-bifurcation-sign-check (answer: number) and ucv1-parametric-curvature
 (answer: number)."""
 
+from dataclasses import replace
 import re
 
 import pytest
@@ -26,6 +27,8 @@ def _skill_sources(skill_id):
 
 BIFURCATION_SKILL, BIFURCATION_SOURCES = _skill_sources(BIFURCATION_ID)
 CURVATURE_SKILL, CURVATURE_SOURCES = _skill_sources(CURVATURE_ID)
+BIFURCATION_SOURCES["exam"] = replace(BIFURCATION_SOURCES["exam"], topic="p13e_bifurcation_sign_check", params={})
+CURVATURE_SOURCES["exam"] = replace(CURVATURE_SOURCES["exam"], topic="p13e_parametric_curvature", params={})
 
 
 def _make(sources, difficulty, seed):

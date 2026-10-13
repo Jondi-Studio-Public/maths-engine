@@ -33,6 +33,10 @@ SKILL, SOURCES = _skill_sources(SKILL_ID)
 
 def _make(difficulty, seed):
     src = SOURCES[difficulty]
+    if (
+        difficulty == "exam"
+    ):  # the skill's exam source moved to exd_x_r3b_proportion_ci; this file pins the original generator
+        return make("proportion_confidence_interval_inverse", seed=seed, difficulty="exam")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

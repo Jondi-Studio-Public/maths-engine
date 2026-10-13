@@ -3,7 +3,15 @@
 id: senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear
 name: Use arithmetic sequences in contexts involving discrete linear growth or decay
 domain: financial-discrete
-description: 'Given bounded, fully specified inputs, use arithmetic sequences in contexts involving discrete linear growth or decay, such as simple interest. Return the resulting value, expression, relation, or classification. Every question states the first term and the constant per-period change directly, and the interest amount itself is never asked for (that is the neighbouring skill simple-interest): this skill asks for a term or sum of the arithmetic sequence a discrete-linear scenario generates.'
+description: |
+  Given bounded, fully specified inputs, use arithmetic sequences in contexts involving
+  discrete linear growth or decay, such as simple interest. Return the resulting value,
+  expression, relation, or classification. Below the exam tier every question states the
+  first term and the constant per-period change directly; the exam tier gives two terms
+  and asks for the common difference, the first term, a sum and the first term past a
+  threshold. The interest amount itself is never asked for (that is the neighbouring skill
+  simple-interest): this skill asks for a term or sum of the arithmetic sequence a
+  discrete-linear scenario generates.
 status: active
 placement_eligible: false
 prerequisites: [simple-interest]
@@ -21,8 +29,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p12b_arith_seq_methods
-  params: {}
+- topic: exd_x_r3b_arith_seq
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

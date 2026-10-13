@@ -98,7 +98,10 @@ def test_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["matrix-multiplication"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == TOPIC
+        if source.difficulty == "exam":
+            assert source.topic == "exd_x_r3c_cramer_line"  # the multi-part exam source
+        else:
+            assert source.topic == TOPIC
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}
