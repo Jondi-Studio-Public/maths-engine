@@ -114,3 +114,15 @@ def test_senior_skills_without_the_senior_prefix_are_attributed_too(lib):
     paper = service.build_paper(lib, {"seed": 1, "sections": [{"items": [{"skill": "combinations"}]}]})
     assert service.ACARA_ATTRIBUTION in paper["attribution"]
     assert "attribution" not in service.skill_summary(lib.skill("simplify-surds"))
+
+
+def test_a_figure_the_renderer_cannot_draw_still_gives_a_question(monkeypatch, lib):
+    # A figure kind newer than the SVG renderer must not stop the question being served.
+    import mathgen.svg
+
+    def cannot(spec, **_):
+        raise ValueError("cannot render figure kind")
+
+    monkeypatch.setattr(mathgen.svg, "figure_svg", cannot)
+    (view,) = service.make_questions(lib, "f10-measure-angle-protractor", seed=1)
+    assert view["figure"]["svg"] is None and view["figure"]["alt"] and "spec" not in view["figure"]
