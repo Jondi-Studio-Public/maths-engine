@@ -9,16 +9,16 @@ themselves. It stores nothing. For a web service instead, see `docs/server.md`.
 The package is not on PyPI. Install it from GitHub:
 
 ```
-pip install "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@<release tag>"
+pip install "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v0.2.0"
 ```
 
 or run it without installing, with [uv](https://docs.astral.sh/uv/):
 
 ```
-uvx --from "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@<release tag>" mathgen-mcp
+uvx --from "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v0.2.0" mathgen-mcp
 ```
 
-`<release tag>` is a release tag of this repository; the plugins pin one.
+`v0.2.0` is the release the plugins pin (the first with the MCP server); use a later tag when there is one.
 
 ## Run
 

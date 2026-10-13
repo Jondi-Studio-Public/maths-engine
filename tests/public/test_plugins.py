@@ -64,7 +64,11 @@ def test_the_server_runs_in_the_plugins_role(name):
     args = load(PLUGINS / name / "mcp.json")["mcpServers"]["maths-engine"]["args"]
     start = args.index("mathgen-mcp")
     assert args[: start - 1] == ["--from"]
-    assert args[start - 1].startswith("maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@")
+    # Pinned to this version's release tag, never a branch: an installed plugin must keep running the server its
+    # skills were written for, and the tag is cut after the pull request that bumps the version merges.
+    assert args[start - 1] == (
+        f"maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v{engine_version()}"
+    )
     flags = args[start + 1 :]
     assert flags[flags.index("--role") + 1] == ROLE[name]
     assert flags[flags.index("--out-dir") + 1] == "${PLUGIN_DATA}/exports"

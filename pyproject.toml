@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 # Not `mathgen`: that name on PyPI belongs to an unrelated project. The import package and the
 # command are still `mathgen`.
 name = "maths-engine"
-version = "0.1.0"
+version = "0.2.0"
 description = "Maths question generators with verified answers, deterministic graders and a skill library."
 readme = "README.md"
 requires-python = ">=3.12" # generators use 3.12-only f-string syntax

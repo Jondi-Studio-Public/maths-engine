@@ -6,7 +6,7 @@
       "command": "uvx",
       "args": [
         "--from",
-        "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main",
+        "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v0.2.0",
         "mathgen-mcp",
         "--role",
         "author",

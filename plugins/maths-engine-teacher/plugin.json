@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "maths-engine-teacher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
   "author": {
     "name": "Jondi Haynes",
