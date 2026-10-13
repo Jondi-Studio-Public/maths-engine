@@ -1099,6 +1099,18 @@
 {"answer": "the probability of borrowing a DVD, given borrowing a novel", "id": "f10-conditional-probability-language/medium/0/21094f177627", "text": "Read this sentence: \"Of the 40 library members who borrow a novel, 19 borrow a …"}
 {"answer": "the probability of studying French, given walking to school", "id": "f10-conditional-probability-language/medium/1/f2e7d284c161", "text": "Read this sentence: \"Of the 43 students who walk to school, 20 study French.\" W…"}
 {"answer": "the probability of borrowing a novel, given borrowing a DVD", "id": "f10-conditional-probability-language/medium/2/29eaed3cbcec", "text": "Read this sentence: \"If a randomly chosen library member borrows a DVD, then th…"}
+{"answer": "14/37", "id": "f10-conditional-relative-frequency/easy/0/8e4e31323a40", "text": "A survey of 55 students asked how they get to school and whether they play a sp…"}
+{"answer": "19/29", "id": "f10-conditional-relative-frequency/easy/1/1027305a0dd9", "text": "In a game, a coin was tossed and a spinner was spun together, 64 times. Table (…"}
+{"answer": "22/31", "id": "f10-conditional-relative-frequency/easy/2/3463a3447140", "text": "A survey of 56 students asked how they get to school and whether they play a sp…"}
+{"answer": "(a) 21; (b) 7/12; (c) 20/31; (d) P(A given B) is less than …", "id": "f10-conditional-relative-frequency/exam/0/b506a5830c85", "text": "A survey of 67 students asked how they get to school and whether they play a sp…"}
+{"answer": "(a) 14; (b) 7/18; (c) 9/16; (d) P(A given B) is less than P…", "id": "f10-conditional-relative-frequency/exam/1/ddd3fa0364ec", "text": "A school garden club planted 84 seeds, some with fertiliser and some without, a…"}
+{"answer": "(a) 18; (b) 9/16; (c) 13/42; (d) P(A given B) is greater th…", "id": "f10-conditional-relative-frequency/exam/2/48ba52b54992", "text": "A cafe recorded what 74 customers bought: whether they bought a coffee and whet…"}
+{"answer": "16/69", "id": "f10-conditional-relative-frequency/hard/0/12bb20e883ab", "text": "A basketballer took 46 practice shots, some from the left of the key and some f…"}
+{"answer": "13/360", "id": "f10-conditional-relative-frequency/hard/1/fc97ff6cf7de", "text": "A basketballer took 72 practice shots, some from the left of the key and some f…"}
+{"answer": "23/180", "id": "f10-conditional-relative-frequency/hard/2/d013eb9cd6e9", "text": "A cafe recorded what 60 customers bought: whether they bought a coffee and whet…"}
+{"answer": "3/19", "id": "f10-conditional-relative-frequency/medium/0/05aadd97f9bf", "text": "A basketballer took 44 practice shots, some from the left of the key and some f…"}
+{"answer": "16/35", "id": "f10-conditional-relative-frequency/medium/1/976835649b35", "text": "A school garden club planted 73 seeds, some with fertiliser and some without, a…"}
+{"answer": "1/8", "id": "f10-conditional-relative-frequency/medium/2/0c7907d4f9e2", "text": "A survey of 53 students asked how they get to school and whether they play a sp…"}
 {"answer": "Congruent by RHS", "id": "f10-congruence-similarity-criteria/easy/0/041a64420464", "text": "Two triangles are described. Triangle PQR: angle R = 90 degrees, PQ = 16 cm and…"}
 {"answer": "Congruent by ASA", "id": "f10-congruence-similarity-criteria/easy/1/f3706964670e", "text": "In triangle GHJ, angle G = 59 degrees, GJ = 6 cm and angle J = 48 degrees. In t…"}
 {"answer": "Congruent by ASA", "id": "f10-congruence-similarity-criteria/easy/2/ec5623baec6d", "text": "Two triangles are described. Triangle PQR: angle P = 84 degrees, PQ = 8 cm and …"}
@@ -1717,6 +1729,15 @@
 {"answer": "even", "id": "f10-odd-even-properties/medium/0/adad8c076654", "text": "An even number multiplied by an odd number -- is the result odd or even?"}
 {"answer": "even", "id": "f10-odd-even-properties/medium/1/9e7a49f8bc75", "text": "An even number minus an even number -- is the result odd or even?"}
 {"answer": "odd", "id": "f10-odd-even-properties/medium/2/5af405e30cf3", "text": "An even number minus an odd number -- is the result odd or even?"}
+{"answer": "B, D, C, A", "id": "f10-order-events-independent-dependent/easy/0/06b0f392ab29", "text": "A bag holds 5 orange, 3 white, 1 red, 2 yellow and 4 black. One counter is take…"}
+{"answer": "D, C, A, B", "id": "f10-order-events-independent-dependent/easy/1/6f5830c0e83a", "text": "A bag holds 1 blue, 2 orange, 6 green, 5 red and 1 black. One counter is taken …"}
+{"answer": "A, C, B, D", "id": "f10-order-events-independent-dependent/easy/2/a754383609a6", "text": "A bag holds 1 red, 6 green, 4 blue, 3 black and 1 white. One counter is taken w…"}
+{"answer": "B, D", "id": "f10-order-events-independent-dependent/hard/0/f466068205be", "text": "Each pair below describes two events. Pair A: A number is chosen at random from…"}
+{"answer": "B", "id": "f10-order-events-independent-dependent/hard/1/665675138915", "text": "Each pair below describes two events. Pair A: Two cards are dealt from a pack a…"}
+{"answer": "A, C", "id": "f10-order-events-independent-dependent/hard/2/b50431a94475", "text": "Each pair below describes two events. Pair A: Ben draws a counter from a bag of…"}
+{"answer": "C, A, D, B", "id": "f10-order-events-independent-dependent/medium/0/66e863825ae0", "text": "Here are four events. A: spinning a spinner with 8 equal sections and stopping …"}
+{"answer": "C, B, A, D", "id": "f10-order-events-independent-dependent/medium/1/cae4a05ed555", "text": "Here are four events. A: rolling a number greater than 4 on a fair six-sided di…"}
+{"answer": "B, C, D, A", "id": "f10-order-events-independent-dependent/medium/2/0a2e037e7002", "text": "Here are four events. A: tossing a fair coin and getting tails; B: spinning a s…"}
 {"answer": "104", "id": "f10-parallel-line-angle-theorems/easy/0/309eed5f7fb8", "text": "The two lines marked with arrows are parallel, and angle a is 104°. Angles a an…"}
 {"answer": "48", "id": "f10-parallel-line-angle-theorems/easy/1/b468c7fc3ac2", "text": "The two lines marked with arrows are parallel, and angle a is 48°. Angles a and…"}
 {"answer": "55", "id": "f10-parallel-line-angle-theorems/easy/2/46e3500e4af5", "text": "The two lines marked with arrows are parallel, and angle a is 55°. Angles a and…"}
@@ -1996,6 +2017,18 @@
 {"answer": "55", "id": "f10-read-a-box-plot/medium/0/c100b1bec018", "text": "Here is a box plot of the heights of the plants. What is the range of the heigh…"}
 {"answer": "30", "id": "f10-read-a-box-plot/medium/1/801e7d87a5c7", "text": "The box plot shows the heights of plants in a garden bed. What is the interquar…"}
 {"answer": "22", "id": "f10-read-a-box-plot/medium/2/b18742ad43bf", "text": "Here is a box plot of the masses of the pumpkins. What is the range of the mass…"}
+{"answer": "8/25", "id": "f10-read-a-simulation/easy/0/60a2081d4560", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 7 and…"}
+{"answer": "1/4", "id": "f10-read-a-simulation/easy/1/8e87a14d63ea", "text": "Here is a basketball simulation. Each digit stands for one free throw. The digi…"}
+{"answer": "1/4", "id": "f10-read-a-simulation/easy/2/c2f1a2397faa", "text": "Here is a weather simulation. Each digit stands for one day. The digits 1 to 4 …"}
+{"answer": "(a) 20; (b) 4/5; (c) 16/25; (d) 4", "id": "f10-read-a-simulation/exam/0/90323aeb9cb1", "text": "Here is a weather simulation. Each digit stands for one day. The digits 3 to 6 …"}
+{"answer": "(a) 10; (b) 2/5; (c) 12/25; (d) -2", "id": "f10-read-a-simulation/exam/1/7760dda59c91", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 3 to …"}
+{"answer": "(a) 7; (b) 7/25; (c) 9/25; (d) -2", "id": "f10-read-a-simulation/exam/2/465027d15a47", "text": "Here is a basketball simulation. Each digit stands for one free throw. The digi…"}
+{"answer": "1/9", "id": "f10-read-a-simulation/hard/0/fa6fb84fc7c4", "text": "A group has 3 girls and 5 boys. A captain and then a vice-captain are chosen at…"}
+{"answer": "1/3", "id": "f10-read-a-simulation/hard/1/0d6aa412eee1", "text": "A bag holds 3 red and 3 blue counters. Two counters are drawn one after the oth…"}
+{"answer": "8/13", "id": "f10-read-a-simulation/hard/2/f12eafa17c51", "text": "A bag holds 6 red and 4 blue counters. Two counters are drawn one after the oth…"}
+{"answer": "2/5", "id": "f10-read-a-simulation/medium/0/5972b649a202", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 1 to …"}
+{"answer": "22/25", "id": "f10-read-a-simulation/medium/1/8ad7d1f0a5d2", "text": "Here is a bus simulation. Each digit stands for one morning. The digits 1 to 6 …"}
+{"answer": "7/10", "id": "f10-read-a-simulation/medium/2/055ed9e4ff60", "text": "Here is a weather simulation. Each digit stands for one day. The digits 0 to 2 …"}
 {"answer": "380", "id": "f10-read-measurement-scale/easy/0/a7b84929f603", "text": "Here is a measuring jug with water in it. What is the volume of liquid shown, i…"}
 {"answer": "15", "id": "f10-read-measurement-scale/easy/1/0b7fbdd1c996", "text": "A thermometer is shown. Read the temperature in degrees Celsius."}
 {"answer": "12", "id": "f10-read-measurement-scale/easy/2/46812ffdd248", "text": "A thermometer is shown. What is the temperature shown, in degrees Celsius?"}
@@ -2224,6 +2257,15 @@
 {"answer": "A'B' = 8 cm, angle A'B'C' = 39°, and the image is a mirror …", "id": "f10-transformations-invariants/medium/0/ce3147b4101c", "text": "A quadrilateral ABCD has AB = 8 cm and angle ABC = 39°. It is reflected in a mi…"}
 {"answer": "A'B' = 8 cm, angle A'B'C' = 44°, and the image is not a mir…", "id": "f10-transformations-invariants/medium/1/98be589006ef", "text": "A quadrilateral ABCD has AB = 8 cm and angle ABC = 44°. It is rotated 270° anti…"}
 {"answer": "A'B' = 13 cm, angle A'B'C' = 84°, and the image is not a mi…", "id": "f10-transformations-invariants/medium/2/d7b58ba7a12d", "text": "A pentagon ABCDE has AB = 13 cm and angle ABC = 84°. It is rotated 180° clockwi…"}
+{"answer": "8", "id": "f10-trial-tallies-compare-outcomes/easy/0/73e5e712d2d0", "text": "Hana spun a spinner marked with shapes. She tallied the shape it stopped on eac…"}
+{"answer": "5", "id": "f10-trial-tallies-compare-outcomes/easy/1/6689a2f59839", "text": "Tom pulled a counter from a bag, wrote down its colour and put it back, again a…"}
+{"answer": "9", "id": "f10-trial-tallies-compare-outcomes/easy/2/d1cc0bdef54b", "text": "Priya spun a spinner with 4 equal sections and recorded the colour it landed on…"}
+{"answer": "4", "id": "f10-trial-tallies-compare-outcomes/hard/0/8172b53233e2", "text": "A class drew a counter from a bag and put it back each time. They tallied the c…"}
+{"answer": "15", "id": "f10-trial-tallies-compare-outcomes/hard/1/88bf74440c7a", "text": "A class drew a counter from a bag and put it back each time. They tallied the c…"}
+{"answer": "6", "id": "f10-trial-tallies-compare-outcomes/hard/2/840b6a3f32f4", "text": "Ruby spun a spinner with 4 equal sections. She tallied the results after her fi…"}
+{"answer": "2", "id": "f10-trial-tallies-compare-outcomes/medium/0/4b87cbfda072", "text": "A spinner has 3 sections that are all the same size, each a different colour. M…"}
+{"answer": "6", "id": "f10-trial-tallies-compare-outcomes/medium/1/bb395f16bcb0", "text": "A game board spinner has 4 equal sections, each a different colour. Jack spun i…"}
+{"answer": "6", "id": "f10-trial-tallies-compare-outcomes/medium/2/915d5c702796", "text": "A game board spinner has 3 equal sections, each a different colour. Jack spun i…"}
 {"answer": "40", "id": "f10-triangular-prism-volume/easy/0/3d7d4c2183f8", "text": "A triangular prism has a triangular cross-section with a base of 10 cm and a pe…"}
 {"answer": "320", "id": "f10-triangular-prism-volume/easy/1/b2bc5d9bee81", "text": "A triangular prism has a triangular cross-section with a base of 8 cm and a per…"}
 {"answer": "60", "id": "f10-triangular-prism-volume/easy/2/597178c03088", "text": "A triangular prism has a triangular cross-section with a base of 3 cm and a per…"}

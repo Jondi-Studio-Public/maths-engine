@@ -900,6 +900,14 @@ f10-conditional-probability-language:
   sources:
   - topic: f10a_conditional_language
     module: mathgen/generators/f10a_conditional_language_build.py
+f10-conditional-relative-frequency:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fr2d_conditional_frequency
+    module: mathgen/generators/fr2d_conditional_frequency_build.py
+  - topic: fr2d_conditional_frequency_exam
+    module: mathgen/generators/fr2d_conditional_frequency_build.py
 f10-congruence-similarity-criteria:
   domain: geometry
   status: active
@@ -1306,6 +1314,12 @@ f10-odd-even-properties:
   sources:
   - topic: odd_even_properties
     module: mathgen/generators/primary_number_order_parity_build.py
+f10-order-events-independent-dependent:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fr2d_order_events
+    module: mathgen/generators/fr2d_order_events_build.py
 f10-parallel-line-angle-theorems:
   domain: geometry
   status: active
@@ -1488,6 +1502,14 @@ f10-read-a-box-plot:
   sources:
   - topic: stat5_box_plot_read
     module: mathgen/generators/stat5_box_plot_build.py
+f10-read-a-simulation:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fr2d_read_simulation
+    module: mathgen/generators/fr2d_read_simulation_build.py
+  - topic: fr2d_read_simulation_exam
+    module: mathgen/generators/fr2d_read_simulation_build.py
 f10-read-measurement-scale:
   domain: measurement
   status: active
@@ -1638,6 +1660,12 @@ f10-transformations-invariants:
   sources:
   - topic: transformations_invariants
     module: mathgen/generators/f10_transformations_invariants_build.py
+f10-trial-tallies-compare-outcomes:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fr2d_trial_tallies
+    module: mathgen/generators/fr2d_trial_tallies_build.py
 f10-triangular-prism-volume:
   domain: measurement
   status: active
