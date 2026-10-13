@@ -1266,12 +1266,6 @@ f10-geometric-construction-algorithm:
     module: mathgen/generators/f10_geometric_construction_build.py
   - topic: exd_x_sc2_construction_chain
     module: mathgen/generators/exd_x_sc2_construction_chain.py
-f10-grid-map-familiar-place:
-  domain: geometry
-  status: active
-  sources:
-  - topic: fr2a_grid_map
-    module: mathgen/generators/fr2a_grid_map_build.py
 f10-grid-reference-pathway:
   domain: geometry
   status: active

@@ -1660,15 +1660,6 @@
 {"answer": "75", "id": "f10-geometric-construction-algorithm/medium/0/bd18e24117e3", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
 {"answer": "150", "id": "f10-geometric-construction-algorithm/medium/1/11fd22c582ce", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
 {"answer": "45", "id": "f10-geometric-construction-algorithm/medium/2/c5de0743fa32", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
-{"answer": "column = 2, row = 1", "id": "f10-grid-map-familiar-place/easy/0/de5d67a47d3f", "text": "The map shows the town centre. What is the grid reference of the Post office? A…"}
-{"answer": "column = 5, row = 1", "id": "f10-grid-map-familiar-place/easy/1/c9182a51479d", "text": "The map shows the park. What is the grid reference of the Gate? Answer as colum…"}
-{"answer": "column = 5, row = 5", "id": "f10-grid-map-familiar-place/easy/2/3fef66e89c00", "text": "Look at the map of the town centre. Where is the Market? Answer as column = _, …"}
-{"answer": "east = -2, north = 5", "id": "f10-grid-map-familiar-place/hard/0/e49d427747b8", "text": "Leila walks from the Kiosk to the Penguins, then to the Reptiles. Where is the …"}
-{"answer": "east = 1, north = 4", "id": "f10-grid-map-familiar-place/hard/1/535562792597", "text": "Ben walks from the Lake to the Picnic area, then to the Car park. Where is the …"}
-{"answer": "east = -3, north = 1", "id": "f10-grid-map-familiar-place/hard/2/f2dacf05e6c6", "text": "Kofi walks from the Courts to the Library, then to the Garden. Where is the Gar…"}
-{"answer": "column = 5, row = 5", "id": "f10-grid-map-familiar-place/medium/0/e663a24cfcb0", "text": "Aiko starts at the Gate. She walks 1 square west, then 2 squares north. Which s…"}
-{"answer": "column = 4, row = 2", "id": "f10-grid-map-familiar-place/medium/1/b00cfd4189ed", "text": "Aiko starts at the Hall. She walks 2 squares west, then 3 squares south. Which …"}
-{"answer": "column = 6, row = 1", "id": "f10-grid-map-familiar-place/medium/2/2f2f6336abf0", "text": "Ben starts at the Farm. He walks 4 squares east, then 2 squares south. Which sq…"}
 {"answer": "column = 3, row = 1", "id": "f10-grid-reference-pathway/easy/0/b626b5939534", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 2, row = 4", "id": "f10-grid-reference-pathway/easy/1/0aace713887a", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 4, row = 4", "id": "f10-grid-reference-pathway/easy/2/cc7b0c414a76", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}

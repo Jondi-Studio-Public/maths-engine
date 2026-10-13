@@ -15298,46 +15298,6 @@ _ENTRIES = (
         area="geometry",
     ),
     CatalogueEntry(
-        "fr2a-row-counted-from-top",
-        "Counting the rows of a map from the top when they are numbered from the bottom.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-grid-reference-off-by-one",
-        "Giving the square next to the right one by miscounting a column or row by one.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-map-legs-added-not-netted",
-        "Adding the squares walked in each direction without taking off the squares walked back the other way.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-map-first-leg-ignored",
-        "Giving only the second leg of a two-leg walk as the whole movement.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-map-second-leg-ignored",
-        "Giving only the first leg of a two-leg walk as the whole movement.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-map-middle-landmark-taken-as-end",
-        "Using the middle stop of a walk as the end of it.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-map-leg-dropped",
-        "Leaving out the last move of a walk on a map and giving the square before it.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
-        "fr2a-map-start-square-counted",
-        "Counting the square already stood on as one of the squares moved, so the walk ends a square too far.",
-        area="coordinates",
-    ),
-    CatalogueEntry(
         "fr2a-view-wrong-side",
         "Choosing the elevation from the other side of the structure, the front view for the side view or the reverse.",
         area="space",
