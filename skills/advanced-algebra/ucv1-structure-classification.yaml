@@ -1,6 +1,7 @@
 id: ucv1-structure-classification
 name: Select a finite algebraic structure invariant
 domain: advanced-algebra
+year_level: [university]
 description: Use a supplied finite order and element-order invariant table to select the one named isomorphism class consistent with the data.
 status: active
 placement_eligible: false

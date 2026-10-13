@@ -1,6 +1,8 @@
 id: f10-probability-tree-diagrams
 name: Read and complete a probability tree diagram
 domain: statistics-probability
+year_level: ['8', '9']
+naplan_domain: [probability]
 description: Given a two-stage probability tree diagram for drawing two counters one after the other, find the probability of an outcome by working along the branches. Easy draws with replacement and asks for the marked outcome (multiply along one path). Medium draws without replacement and asks for two different colours (add two paths). Hard leaves a branch blank in two of the three sets of branches, so the learner completes the tree (each set of branches totals 1) and then finds the probability of at least one counter of a stated colour.
 status: active
 capability_gates: [figure_stimulus]

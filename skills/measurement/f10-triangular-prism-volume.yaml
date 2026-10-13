@@ -1,6 +1,7 @@
 id: f10-triangular-prism-volume
 name: Calculate triangular prism volume
 domain: measurement
+year_level: ['7', '8']
 description: Calculate the volume of a right triangular prism from its triangular cross-section and length, with units.
 status: active
 placement_eligible: false

@@ -1,6 +1,8 @@
 id: f10-rational-operation-strategy
 name: Solve multi-step problems with signed integers and rational numbers
 domain: primary-number
+year_level: ['8']
+naplan_domain: [number]
 description: Solve a multi-step four-operation problem whose operands include negative integers or negative rational numbers.
 status: active
 placement_eligible: false

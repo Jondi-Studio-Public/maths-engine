@@ -1,6 +1,7 @@
 id: ucv1-fourier-transform-gaussian
 name: Transform a Gaussian in a fixed convention
 domain: fourier-analysis-and-pdes
+year_level: [university]
 description: Return the Fourier transform of a supplied Gaussian under the repository's stated transform convention.
 status: active
 placement_eligible: false

@@ -1,6 +1,8 @@
 id: f10-base-ten-blocks-number
 name: Read a number from base-ten blocks
 domain: early-foundations
+year_level: ['1', '2']
+naplan_domain: [number]
 learner_band: primary
 description: Read a picture of hundreds flats, tens rods and ones cubes, including blocks not yet swapped for bigger ones, and say the number it shows.
 status: active

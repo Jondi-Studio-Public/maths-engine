@@ -1,6 +1,8 @@
 id: f10-quadrilateral-properties
 name: Apply quadrilateral properties to find a length or angle
 domain: geometry
+year_level: ['8']
+naplan_domain: [space]
 description: Given a stated property of a parallelogram, rectangle, rhombus or kite (from congruent triangles and angle facts) and some numbers for a named quadrilateral, find an unknown length or angle, to 1 decimal place.
 status: active
 placement_eligible: false

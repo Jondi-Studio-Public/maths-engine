@@ -1,6 +1,7 @@
 id: ucv1-rsa-modular-step
 name: Compute one RSA modular step
 domain: number-theory
+year_level: [university]
 description: Compute c = m^e mod n or m = c^d mod n for supplied small RSA parameters.
 status: active
 placement_eligible: false

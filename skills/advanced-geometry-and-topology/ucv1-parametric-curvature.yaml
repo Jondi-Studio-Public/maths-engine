@@ -1,6 +1,7 @@
 id: ucv1-parametric-curvature
 name: Compute curvature of a planar parametric curve
 domain: advanced-geometry-and-topology
+year_level: [university]
 description: Evaluate curvature of a supplied polynomial parametric curve at a stated parameter where the denominator is nonzero.
 status: active
 placement_eligible: false

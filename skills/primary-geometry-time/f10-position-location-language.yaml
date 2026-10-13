@@ -1,6 +1,8 @@
 id: f10-position-location-language
 name: Describe position and location in familiar space
 domain: primary-geometry-time
+year_level: [F]
+naplan_domain: [space]
 description: Given a stated linear arrangement of named objects or people, choose the correct positional-language term (for example above, below, next to, between, in front of, behind) describing one object's position relative to another, from a small set of offered options.
 status: active
 placement_eligible: false

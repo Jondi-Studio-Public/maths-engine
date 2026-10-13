@@ -1,6 +1,8 @@
 id: f10-number-represent-order-to-120
 name: Represent and order numbers to 120
 domain: early-foundations
+year_level: ['1']
+naplan_domain: [number]
 learner_band: early
 description: Given a stated set of whole numbers, order them by numeral, from 10 to 120.
 status: active

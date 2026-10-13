@@ -1,6 +1,8 @@
 id: f10-venn-diagram-counts
 name: Read and complete a Venn diagram of counts
 domain: statistics-probability
+year_level: ['8']
+naplan_domain: [probability]
 description: Given a Venn diagram of counts for two or three sets inside a rectangle, find a missing region from a stated total, or add the regions that a phrase such as "play Tennis", "play Tennis or Swimming or both" or "play exactly one of" picks out. Easy finds the missing region of a two-set diagram from the group total. Medium picks out the right regions of a two-set diagram for a named set, either set or exactly one set. Hard finds the missing region of a three-set diagram from the group total or from the total of one set's circle.
 status: active
 capability_gates: [figure_stimulus]

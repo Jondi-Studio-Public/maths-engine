@@ -1,6 +1,7 @@
 id: bisection-interval-update
 name: Perform one bisection interval update
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Update a positive root bracket for x squared minus c by one bisection step.
 status: active
 prerequisites: [solve-quadratics-formula]

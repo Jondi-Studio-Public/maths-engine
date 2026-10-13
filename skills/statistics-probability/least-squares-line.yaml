@@ -1,6 +1,7 @@
 id: least-squares-line
 name: Fit a least-squares line
 domain: statistics-probability
+year_level: [university]
 description: Compute the slope and intercept of a least-squares line for a small exact data set.
 status: active
 prerequisites: [equation-from-table]

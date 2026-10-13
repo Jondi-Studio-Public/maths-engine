@@ -1,6 +1,8 @@
 id: f10-money-change-from-note
 name: Work out change from a note
 domain: early-foundations
+year_level: ['2']
+naplan_domain: [number]
 learner_band: primary
 description: Read the note, or the notes and coins, a customer pays with and say how much change they get back from a stated price.
 status: active

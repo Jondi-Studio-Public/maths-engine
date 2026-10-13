@@ -1,6 +1,7 @@
 id: modular-multiplicative-inverse
 name: Find a modular multiplicative inverse
 domain: number-theory
+year_level: [university]
 description: Find the least positive inverse of a unit modulo a small positive modulus.
 status: active
 prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]
