@@ -103,6 +103,8 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z])(?<![A-Za-z]\^)(?:\d[\d,]*(?:\.\d+)?|\.\d
 # (a label, not a unit), not "to the nearest cent" (a precision: the answer is still in dollars), and not "in n = 5"
 # or "in g(x)" (a variable or a function).
 _ASKED_RE = re.compile(rf"\b(?:to|into|in|how\s+many)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])", re.IGNORECASE)
+# "Using your speed in m/s": the unit describes a value the learner already has, not the unit being asked for.
+_EARLIER_VALUE_RE = re.compile(r"\byour\s+\w+(?:\s+\w+)?\s+$", re.IGNORECASE)
 _SENTENCE_RE = re.compile(r"[^.?!]+[.?!]?")
 _ASKING_RE = re.compile(
     r"^\s*(?:find|convert|calculate|work\s+out|determine|write|express|give|estimate|state|what|how)\b", re.IGNORECASE
@@ -130,7 +132,9 @@ def _asked_unit(question) -> str | None:
         spelling
         for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
         if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
-        for spelling in _ASKED_RE.findall(sentence)
+        for match in _ASKED_RE.finditer(sentence)
+        if _EARLIER_VALUE_RE.search(sentence[: match.start()]) is None
+        for spelling in (match.group(1),)
     ]
     return _SPELLING_TO_UNIT[asked[-1].lower()] if asked else None
 
