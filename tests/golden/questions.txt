@@ -1204,6 +1204,18 @@
 {"answer": "24", "id": "f10-describe-calendar-duration/medium/0/270270c47d3f", "text": "In 2023, how many days after 24 February is 20 March?"}
 {"answer": "26", "id": "f10-describe-calendar-duration/medium/1/d6c4bfe59907", "text": "In 2023, how many days after 26 April is 22 May?"}
 {"answer": "11", "id": "f10-describe-calendar-duration/medium/2/d5d75cd94ffd", "text": "In 2023, how many days after 28 August is 8 September?"}
+{"answer": "right = 2, up = 2", "id": "f10-describe-transformation-from-points/easy/0/15fadb6b6f6a", "text": "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the trans…"}
+{"answer": "right = -6, up = -2", "id": "f10-describe-transformation-from-points/easy/1/f73e6eed3963", "text": "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the trans…"}
+{"answer": "right = -6, up = 5", "id": "f10-describe-transformation-from-points/easy/2/940cfd8fee85", "text": "Triangle ABC is translated to give A'B'C', as shown on the grid. Give the trans…"}
+{"answer": "(a) a rotation of 180° (a half turn); (b) x = 1, y = 2; (c)…", "id": "f10-describe-transformation-from-points/exam/0/a96e48c5a224", "text": "A triangular tile pattern is drawn on a coordinate grid and then copied. Triang…"}
+{"answer": "(a) a translation; (b) right = -5, up = 4; (c) 5; (d) 12", "id": "f10-describe-transformation-from-points/exam/1/c79dc37d7392", "text": "A school logo is drawn on a coordinate grid, then copied to a new position. Tri…"}
+{"answer": "(a) a rotation of 180° (a half turn); (b) x = -3, y = -3; (…", "id": "f10-describe-transformation-from-points/exam/2/a02c668257d2", "text": "A triangular tile pattern is drawn on a coordinate grid and then copied. Triang…"}
+{"answer": "right = -2, up = -6", "id": "f10-describe-transformation-from-points/hard/0/7f1a00cb4bbc", "text": "Triangle ABC is translated, and then the image is reflected in the y-axis, to g…"}
+{"answer": "right = 2, up = 6", "id": "f10-describe-transformation-from-points/hard/1/f57c06f572e4", "text": "Triangle ABC is translated, and then the image is rotated 180° about the origin…"}
+{"answer": "right = -6, up = 4", "id": "f10-describe-transformation-from-points/hard/2/8b56d60f98f8", "text": "Triangle ABC is reflected in the y-axis, and then the image is translated, to g…"}
+{"answer": "x = -4, y = 4", "id": "f10-describe-transformation-from-points/medium/0/e5fc42fefd6e", "text": "Triangle ABC is rotated 180° about a point to give A'B'C', as shown on the grid…"}
+{"answer": "x = 0, y = -2", "id": "f10-describe-transformation-from-points/medium/1/08dc9bd3332a", "text": "Triangle ABC is rotated 180° about a point to give A'B'C', as shown on the grid…"}
+{"answer": "k = -3, dist = 6", "id": "f10-describe-transformation-from-points/medium/2/d79db07d9ba5", "text": "Triangle ABC is reflected in a vertical line to give A'B'C', as shown on the gr…"}
 {"answer": "Yes, directly proportional -- the total cost is $7.50.", "id": "f10-direct-proportion-scale-model/easy/0/c338311375e5", "text": "Ribbon is priced at $1.25 per metre. Is this relationship directly proportional…"}
 {"answer": "Yes, directly proportional -- the total cost is $20.00.", "id": "f10-direct-proportion-scale-model/easy/1/a7061e84156a", "text": "Ribbon costs $4.00 per metre. Is this relationship directly proportional, and w…"}
 {"answer": "Yes, directly proportional -- the total cost is $12.00.", "id": "f10-direct-proportion-scale-model/easy/2/5a2b342885fb", "text": "Flour costs $2.00 per kg. Is this relationship directly proportional, and what …"}
@@ -1444,6 +1456,15 @@
 {"answer": "75", "id": "f10-geometric-construction-algorithm/medium/0/bd18e24117e3", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
 {"answer": "150", "id": "f10-geometric-construction-algorithm/medium/1/11fd22c582ce", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
 {"answer": "45", "id": "f10-geometric-construction-algorithm/medium/2/c5de0743fa32", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
+{"answer": "column = 2, row = 1", "id": "f10-grid-map-familiar-place/easy/0/de5d67a47d3f", "text": "The map shows the town centre. What is the grid reference of the Post office? A…"}
+{"answer": "column = 5, row = 1", "id": "f10-grid-map-familiar-place/easy/1/c9182a51479d", "text": "The map shows the park. What is the grid reference of the Gate? Answer as colum…"}
+{"answer": "column = 5, row = 5", "id": "f10-grid-map-familiar-place/easy/2/3fef66e89c00", "text": "Look at the map of the town centre. Where is the Market? Answer as column = _, …"}
+{"answer": "east = -2, north = 5", "id": "f10-grid-map-familiar-place/hard/0/e49d427747b8", "text": "Leila walks from the Kiosk to the Penguins, then to the Reptiles. Where is the …"}
+{"answer": "east = 1, north = 4", "id": "f10-grid-map-familiar-place/hard/1/535562792597", "text": "Ben walks from the Lake to the Picnic area, then to the Car park. Where is the …"}
+{"answer": "east = -3, north = 1", "id": "f10-grid-map-familiar-place/hard/2/f2dacf05e6c6", "text": "Kofi walks from the Courts to the Library, then to the Garden. Where is the Gar…"}
+{"answer": "column = 5, row = 5", "id": "f10-grid-map-familiar-place/medium/0/e663a24cfcb0", "text": "Aiko starts at the Gate. She walks 1 square west, then 2 squares north. Which s…"}
+{"answer": "column = 4, row = 2", "id": "f10-grid-map-familiar-place/medium/1/b00cfd4189ed", "text": "Aiko starts at the Hall. She walks 2 squares west, then 3 squares south. Which …"}
+{"answer": "column = 6, row = 1", "id": "f10-grid-map-familiar-place/medium/2/2f2f6336abf0", "text": "Ben starts at the Farm. He walks 4 squares east, then 2 squares south. Which sq…"}
 {"answer": "column = 3, row = 1", "id": "f10-grid-reference-pathway/easy/0/b626b5939534", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 2, row = 4", "id": "f10-grid-reference-pathway/easy/1/0aace713887a", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 4, row = 4", "id": "f10-grid-reference-pathway/easy/2/cc7b0c414a76", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
@@ -1810,6 +1831,18 @@
 {"answer": "12/25", "id": "f10-percentage-equivalence-comparison/medium/0/cede4e4bad27", "text": "What fraction is equivalent to 48%, using 100% as the whole?"}
 {"answer": "17/20", "id": "f10-percentage-equivalence-comparison/medium/1/f968f8b8e400", "text": "What fraction is equivalent to 85%, using 100% as the whole?"}
 {"answer": "3/20", "id": "f10-percentage-equivalence-comparison/medium/2/9442722a3db2", "text": "What fraction is equivalent to 15%, using 100% as the whole?"}
+{"answer": "Option B", "id": "f10-pick-the-matching-view/easy/0/14715cfb162f", "text": "Marcus builds a stepped model from identical cubes. The plan view shows the num…"}
+{"answer": "Option A", "id": "f10-pick-the-matching-view/easy/1/2f1e420ce2cc", "text": "Zoe builds a structure from identical cubes. The plan view shows the number of …"}
+{"answer": "Option C", "id": "f10-pick-the-matching-view/easy/2/5cd317514707", "text": "Leila builds a structure from identical cubes. The plan view shows the number o…"}
+{"answer": "(a) Option B; (b) 11; (c) 29; (d) 18", "id": "f10-pick-the-matching-view/exam/0/636776cde112", "text": "Aiko builds a wall from identical cubes. The plan view shows the number of cube…"}
+{"answer": "(a) Option B; (b) 8; (c) 13; (d) 5", "id": "f10-pick-the-matching-view/exam/1/8f77beae60c5", "text": "Aiko builds a tower from identical cubes. The plan view shows the number of cub…"}
+{"answer": "(a) Option B; (b) 11; (c) 15; (d) 4", "id": "f10-pick-the-matching-view/exam/2/0986f90bc49f", "text": "Kofi builds a stepped model from identical cubes. The plan view shows the numbe…"}
+{"answer": "Option D", "id": "f10-pick-the-matching-view/hard/0/7a42bca20460", "text": "The front elevation and the right-side elevation of Dev's wall are drawn. In ea…"}
+{"answer": "Option A", "id": "f10-pick-the-matching-view/hard/1/1a302a7918e1", "text": "The front elevation and the right-side elevation of Dev's sculpture are drawn. …"}
+{"answer": "Option D", "id": "f10-pick-the-matching-view/hard/2/b1b8f8820e84", "text": "Mia builds a stepped model from identical cubes. Its front elevation and right-…"}
+{"answer": "Option A", "id": "f10-pick-the-matching-view/medium/0/25d2a441269c", "text": "The plan view of Priya's building is shown, with the number of cubes stacked in…"}
+{"answer": "Option C", "id": "f10-pick-the-matching-view/medium/1/d9be629ca270", "text": "Leila builds a tower from identical cubes. The plan view shows the number of cu…"}
+{"answer": "Option D", "id": "f10-pick-the-matching-view/medium/2/d9b7f3bf04e5", "text": "The plan view of Kofi's block model is shown, with the number of cubes stacked …"}
 {"answer": "90", "id": "f10-polygon-angle-sums/easy/0/168e3888efa9", "text": "A polygon has 3 sides. 2 of its interior angles measure 61 and 29 degrees. What…"}
 {"answer": "101", "id": "f10-polygon-angle-sums/easy/1/9f25824199a4", "text": "A polygon has 3 sides. 2 of its interior angles measure 58 and 21 degrees. What…"}
 {"answer": "82", "id": "f10-polygon-angle-sums/easy/2/913a60b4d0ed", "text": "A polygon has 3 sides. 2 of its interior angles measure 27 and 71 degrees. What…"}
@@ -2185,6 +2218,27 @@
 {"answer": "323/400", "id": "f10-terminating-recurring-decimals/medium/0/48a0f7f57887", "text": "Write 0.8075 as a fraction in lowest terms."}
 {"answer": "69/625", "id": "f10-terminating-recurring-decimals/medium/1/79ca5497c99a", "text": "Write 0.1104 as a fraction in lowest terms."}
 {"answer": "38/99", "id": "f10-terminating-recurring-decimals/medium/2/6636abc3722f", "text": "Write 0.383838... as a fraction in lowest terms."}
+{"answer": "135", "id": "f10-tessellation-vertex-angles/easy/0/caf05b29c747", "text": "One corner of a regular octagon is cut from a tile. What is the size of the int…"}
+{"answer": "144", "id": "f10-tessellation-vertex-angles/easy/1/5929fed2bc19", "text": "A tiler is choosing between shapes. What is the size of one interior angle of a…"}
+{"answer": "3", "id": "f10-tessellation-vertex-angles/easy/2/436db06fc51f", "text": "Regular hexagons are fitted together round a point with no gaps and no overlaps…"}
+{"answer": "36", "id": "f10-tessellation-vertex-angles/hard/0/faff649ae845", "text": "Three regular pentagons are placed round a point, each sharing a side with the …"}
+{"answer": "6", "id": "f10-tessellation-vertex-angles/hard/1/a3bf0035a9d5", "text": "At one point of a tiling there are two equilateral triangles, and two more regu…"}
+{"answer": "90", "id": "f10-tessellation-vertex-angles/hard/2/f1bcfc477c77", "text": "Two regular octagons are fitted round a point, each touching the next along a s…"}
+{"answer": "4", "id": "f10-tessellation-vertex-angles/medium/0/e930e3391238", "text": "At one corner point of a tiling, a regular dodecagon and a regular hexagon meet…"}
+{"answer": "6", "id": "f10-tessellation-vertex-angles/medium/1/b68229bfe4cc", "text": "At one corner point of a tiling, two regular hexagons meet a third regular poly…"}
+{"answer": "18", "id": "f10-tessellation-vertex-angles/medium/2/f263fcdc6bc1", "text": "A tiling pattern has an equilateral triangle and a regular nonagon and one more…"}
+{"answer": "x = 0, y = 7, z = 2", "id": "f10-three-d-coordinates-position-distance/easy/0/030ae2169941", "text": "A storage shed is modelled as a box, as shown. Distances are in metres. Corner …"}
+{"answer": "x = 2, y = 0, z = 3", "id": "f10-three-d-coordinates-position-distance/easy/1/7c951938d9c6", "text": "A garden storage box is modelled as a box, as shown. Distances are in metres. C…"}
+{"answer": "x = 0, y = 2, z = 8", "id": "f10-three-d-coordinates-position-distance/easy/2/781dcbfa3171", "text": "A workshop is modelled as a box, as shown. Distances are in metres. Corner O is…"}
+{"answer": "(a) x = 8, y = 4, z = 12; (b) x = 4, y = 2, z = 6; (c) 8.9;…", "id": "f10-three-d-coordinates-position-distance/exam/0/bec8042a21e8", "text": "A water tank is modelled as a box, as shown. Corner O is the origin, with the x…"}
+{"answer": "(a) x = 2, y = 12, z = 6; (b) x = 1, y = 6, z = 3; (c) 12.2…", "id": "f10-three-d-coordinates-position-distance/exam/1/13c6ccfe3a2e", "text": "A water tank is modelled as a box, as shown. Corner O is the origin, with the x…"}
+{"answer": "(a) x = 10, y = 2, z = 12; (b) x = 5, y = 1, z = 6; (c) 10.…", "id": "f10-three-d-coordinates-position-distance/exam/2/994b67984fbc", "text": "A greenhouse is modelled as a box, as shown. Corner O is the origin, with the x…"}
+{"answer": "floor = 15, straight = 25", "id": "f10-three-d-coordinates-position-distance/hard/0/0e4c5f41b1e0", "text": "A indoor sports hall is modelled as a box, as shown. Distances are in metres, a…"}
+{"answer": "floor = 15, straight = 17", "id": "f10-three-d-coordinates-position-distance/hard/1/f1cff598b320", "text": "A greenhouse is modelled as a box, as shown. Distances are in metres, and the b…"}
+{"answer": "floor = 20, straight = 25", "id": "f10-three-d-coordinates-position-distance/hard/2/758d22fd377b", "text": "A cold store is modelled as a box, as shown. Distances are in metres, and the b…"}
+{"answer": "x = 0, y = 2, z = 6", "id": "f10-three-d-coordinates-position-distance/medium/0/d0153cd6b4d1", "text": "A warehouse is modelled as a box, as shown. Distances are in metres. Corner O i…"}
+{"answer": "x = 4, y = 10, z = 2", "id": "f10-three-d-coordinates-position-distance/medium/1/aa4eec5113d6", "text": "A greenhouse is modelled as a box, as shown. Distances are in metres. Corner O …"}
+{"answer": "x = 3, y = 8, z = 7", "id": "f10-three-d-coordinates-position-distance/medium/2/19524492bed5", "text": "A indoor sports hall is modelled as a box, as shown. Distances are in metres. C…"}
 {"answer": "dx = 7, dy = -5, dz = -8", "id": "f10-three-dimensional-coordinates/easy/0/e30ae6499168", "text": "A point travels from (3, 6, 10) to (10, 1, 2). Find the change in each coordina…"}
 {"answer": "dx = 7, dy = 5, dz = 1", "id": "f10-three-dimensional-coordinates/easy/1/bb3cdd5fa6bd", "text": "A point travels from (2, 3, 1) to (9, 8, 2). Find the change in each coordinate…"}
 {"answer": "dx = -6, dy = -5, dz = -5", "id": "f10-three-dimensional-coordinates/easy/2/9db20a8f3a57", "text": "An object moves from (10, 10, 7) to (4, 5, 2). Determine the change in each coo…"}
@@ -2233,6 +2287,18 @@
 {"answer": "24", "id": "f10-timetable-itinerary-duration/medium/0/833bc3400070", "text": "Bus B departs 6:40am and arrives 6:46am. Train D departs 6:35am and arrives 6:4…"}
 {"answer": "9", "id": "f10-timetable-itinerary-duration/medium/1/8361d49cee6b", "text": "Train D departs 2:40am and arrives 2:50am. Ferry E departs 2:30am and arrives 2…"}
 {"answer": "20", "id": "f10-timetable-itinerary-duration/medium/2/d1225f7ac4fa", "text": "Bus B departs 8:56am and arrives 9:16am. Train D departs 6:30am and arrives 6:4…"}
+{"answer": "x = 4, y = 1", "id": "f10-transform-image-coordinates/easy/0/51cc9bd772b8", "text": "Triangle ABC is shown on the coordinate grid. It is reflected in the x-axis. Wr…"}
+{"answer": "x = 4, y = 6", "id": "f10-transform-image-coordinates/easy/1/c2637006982d", "text": "Triangle ABC is shown on the coordinate grid. It is translated 4 units to the r…"}
+{"answer": "x = -1, y = 4", "id": "f10-transform-image-coordinates/easy/2/6fdf5f25cc6c", "text": "Triangle ABC is shown on the coordinate grid. It is reflected in the y-axis. Wr…"}
+{"answer": "(a) x = 8, y = -4; (b) x = 4, y = 0; (c) 10; (d) 24", "id": "f10-transform-image-coordinates/exam/0/06db3d0506a0", "text": "A sail is drawn as triangle ABC on a coordinate grid. The corners are A(8, 4), …"}
+{"answer": "(a) x = 5, y = 1; (b) x = 7, y = 5; (c) 5; (d) 12", "id": "f10-transform-image-coordinates/exam/1/11260fd108ac", "text": "A triangular tile is drawn on a coordinate grid. The corners are A(-5, 1), B(-1…"}
+{"answer": "(a) x = -5, y = 3; (b) x = -1, y = 1; (c) 5; (d) 12", "id": "f10-transform-image-coordinates/exam/2/23143de47aaf", "text": "A designer plots the plan of a triangular garden bed on a coordinate grid. The …"}
+{"answer": "x = 4, y = 4", "id": "f10-transform-image-coordinates/hard/0/c82e2acbf2bb", "text": "Triangle ABC is drawn on the grid. It is reflected in the y-axis, and then the …"}
+{"answer": "x = 0, y = 1", "id": "f10-transform-image-coordinates/hard/1/eab0346d1683", "text": "Triangle ABC is drawn on the grid. It is rotated 180° about the origin, and the…"}
+{"answer": "x = 2, y = -5", "id": "f10-transform-image-coordinates/hard/2/07b315c66475", "text": "The grid shows triangle ABC. The triangle is reflected in the y-axis. The image…"}
+{"answer": "x = -3, y = 2", "id": "f10-transform-image-coordinates/medium/0/9932a2298cb9", "text": "The grid shows triangle ABC. The triangle is rotated 90° clockwise about the po…"}
+{"answer": "x = -6, y = -1", "id": "f10-transform-image-coordinates/medium/1/37c926d7e2f8", "text": "The grid shows triangle ABC. The triangle is reflected in the line x = -3. Writ…"}
+{"answer": "x = 0, y = 2", "id": "f10-transform-image-coordinates/medium/2/9ded318a6136", "text": "Triangle ABC is drawn on the grid. It is rotated 90° anticlockwise about the or…"}
 {"answer": "Side lengths: the same. Angles: the same. The image is a mi…", "id": "f10-transformations-invariants/easy/0/93cbe5a80ae4", "text": "A triangle is reflected in a horizontal mirror line. A mirror image has its cor…"}
 {"answer": "Side lengths: the same. Angles: the same. The image is not …", "id": "f10-transformations-invariants/easy/1/294b59c565cc", "text": "A triangle is translated 5 cm up. A mirror image has its corners in the opposit…"}
 {"answer": "Side lengths: the same. Angles: the same. The image is not …", "id": "f10-transformations-invariants/easy/2/dea18a11ef14", "text": "A kite is rotated 90° clockwise about a point O. A mirror image has its corners…"}
