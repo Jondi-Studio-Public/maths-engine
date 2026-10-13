@@ -141,7 +141,7 @@ def test_skill_loads_through_api():
     assert skill.answer == "ordered_list"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard"}
+    assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
 
 
 def test_no_resample_deadlock_over_seed_sweep():

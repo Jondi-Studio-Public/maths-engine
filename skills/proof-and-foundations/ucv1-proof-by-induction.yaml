@@ -1,0 +1,61 @@
+id: ucv1-proof-by-induction
+name: Work the steps of a proof by induction
+domain: proof-and-foundations
+description: For a sum identity or a divisibility statement, supply one typed step of
+  its proof by induction -- the base-case value, the next term, the right-hand side the
+  inductive step must reach, the factored sum of k + 1 terms, or the rearrangement
+  f(k + 1) = a f(k) + m. The answers are numbers and expressions, never a choice of
+  which line of a proof is wrong.
+status: active
+placement_eligible: false
+prerequisites: [factorise-quadratic]
+answer: expression
+sources:
+- topic: ucv1_proof_by_induction
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_proof_by_induction
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_proof_by_induction
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_induction
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: base-case-evaluated-at-wrong-n
+  description: Checks the base case at n = 0 or n = 2 instead of at the first value
+    the statement covers.
+- id: term-index-not-shifted
+  description: Writes the kth term where the (k + 1)th term is needed.
+- id: target-uses-k-not-k-plus-1
+  description: Writes the closed form at n = k instead of replacing n by k + 1.
+- id: substitutes-k-plus-1-in-one-place-only
+  description: Replaces n by k + 1 in some places of the formula but not in all of
+    them.
+- id: adds-kth-term-not-next
+  description: Adds the kth term to the sum of k terms instead of the (k + 1)th.
+- id: forgot-to-add-the-term
+  description: Stops at the assumed sum of k terms without adding the next term.
+- id: remainder-sign-reversed
+  description: Gets the sign of the leftover term wrong when rearranging f(k + 1)
+    into a f(k) plus a remainder.
+- id: remainder-drops-the-constant
+  description: Forgets one of the constant terms when rearranging f(k + 1) into
+    a f(k) plus a remainder.
+tags: [university-core-v1, proof-and-foundations, induction]
+framework_areas: [proof-and-foundations]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: proof-and-foundations
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: proof-and-foundations

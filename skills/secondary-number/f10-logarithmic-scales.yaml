@@ -19,6 +19,10 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_n3_decibel_scale
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: linear-interpolation
   description: Computes the value (or, on the inverse-direction question, the position) as if the scale were linear -- A + t*(B-A) -- instead of using the exponential/multiplicative-ratio relationship.

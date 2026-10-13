@@ -21,6 +21,11 @@ sources:
   params: {mode: composite}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m3_window_perimeter_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-area-formula
   description: Multiplies two of the shape's dimensions together (an area computation) instead of summing every side.

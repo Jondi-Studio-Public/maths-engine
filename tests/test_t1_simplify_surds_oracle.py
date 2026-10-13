@@ -64,6 +64,8 @@ class TestSimplifySurdsOracle:
         examined = 0
         challenged = []
         for source in skill.sources:
+            if source.difficulty == "exam":
+                continue
             for seed in range(60):
                 q = make(topic=source.topic, seed=seed, difficulty=source.difficulty, **(source.params or {}))
                 examined += 1

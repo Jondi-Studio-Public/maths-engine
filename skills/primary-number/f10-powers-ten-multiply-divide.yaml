@@ -19,6 +19,11 @@ sources:
   params: {variant: decimal_power_missing_factor}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr4_powers_ten_fundraiser
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-direction-shift
   description: Applies the opposite operation to the one asked -- divides when multiplying was asked, multiplies when dividing was asked, or (for a decimal) shifts the decimal point the wrong way.

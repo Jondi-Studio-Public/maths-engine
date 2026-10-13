@@ -21,6 +21,11 @@ sources:
   params: {mode: sas}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_sc6_similarity
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: assumes-aaa-sufficient-without-checking-sides
   description: Picks the AAA option on the SSS/SAS tiers, where only side data (and, on SAS, one angle) is given -- no second angle is ever stated for AAA to apply.

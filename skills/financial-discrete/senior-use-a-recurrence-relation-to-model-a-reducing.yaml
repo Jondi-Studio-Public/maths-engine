@@ -1,0 +1,50 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-a-recurrence-relation-to-model-a-reducing
+name: Complete a reducing-balance loan schedule with a recurrence relation
+domain: financial-discrete
+description: 'Complete the blank cells (interest, repayment, opening and closing balance, and totals) of a reducing-balance loan schedule by running the recurrence A(n+1) = A(n)(1 + r) - R period by period, with the interest rounded to the nearest cent each period and every amount given in dollars to the cent.'
+difficulty_progression: 'Easy states the rate per month and the repayment in words and blanks only the last row, so the learner takes one step of the recurrence: interest on the opening balance, then the closing balance. Medium gives the loan as the recurrence A(n+1) = 1.007 A(n) - R with A(0), so the learner reads the rate off the multiplier and runs two or three steps in a row, each opening balance being the closing balance just found. Hard states an annual rate with interest added monthly or quarterly, so the learner first converts it to a rate per period, then runs the recurrence for several periods and totals the interest and the repayments. Exam states neither the rate nor the repayment: the first row shows an opening balance, the interest and the closing balance, and the learner recovers the rate (interest over opening balance) and the repayment (opening plus interest minus closing) before continuing the schedule and totalling it.'
+status: active
+placement_eligible: false
+prerequisites: [simple-interest]
+answer: table
+sources:
+- topic: senior_reducing_balance_schedule
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: senior_reducing_balance_schedule
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: senior_reducing_balance_schedule
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: senior_reducing_balance_schedule
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: charges-interest-on-the-original-balance
+  description: Charges each period's interest on the amount first borrowed instead of on the current balance, as for a flat-rate loan.
+- id: charges-interest-after-taking-off-the-repayment
+  description: Takes the repayment off the opening balance before charging the interest, instead of charging the interest on the opening balance.
+- id: uses-the-annual-rate-each-period
+  description: Charges the whole annual rate in a single month or quarter instead of dividing it by the number of periods in the year.
+- id: forgets-the-interest-in-the-closing-balance
+  description: Subtracts the repayment from the opening balance but does not add the interest.
+- id: adds-the-repayment-to-the-balance
+  description: Adds the repayment to the balance with the interest, instead of subtracting it.
+- id: forgets-the-repayment-in-the-closing-balance
+  description: Adds the interest to the opening balance but does not subtract the repayment.
+- id: takes-the-repayment-off-without-adding-interest
+  description: Finds the next opening balance by taking the repayment off the previous opening balance, leaving out the interest.
+- id: carries-the-previous-opening-balance-forward
+  description: Repeats the previous opening balance as the next one, as if the balance had not changed.
+- id: finds-the-repayment-without-the-interest
+  description: Finds the repayment as the fall from the opening balance to the closing balance, forgetting that the interest was added in the same period.
+- id: leaves-out-a-period-from-the-total
+  description: Misses one period when adding up the interest or the repayments.
+tags: [acara-senior-v8-4, financial-discrete, reducing-balance-loan, recurrence-relation, amortisation, senior_reducing_balance_schedule, ACMGM097]

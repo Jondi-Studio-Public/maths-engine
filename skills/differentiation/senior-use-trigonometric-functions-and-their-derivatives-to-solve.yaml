@@ -23,12 +23,12 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12c_trig_deriv_apply
-  params: {}
+- topic: exd_x_r2j_trig_rate_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:
-- id: evaluates-value-not-rate
+- id: evaluated-function-not-derivative
   description: Evaluates H(t) (the modelled quantity's value) instead of dH/dt (its rate of change).
 - id: dropped-chain-rule-factor
   description: Differentiates a*sin(bt) as a*cos(bt), dropping the chain-rule factor b.

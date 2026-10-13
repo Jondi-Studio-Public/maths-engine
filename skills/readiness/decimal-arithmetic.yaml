@@ -42,6 +42,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_n2_decimal_shopping
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 mental:
   levels:
   - topic: decimals

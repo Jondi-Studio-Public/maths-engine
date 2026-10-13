@@ -228,4 +228,4 @@ class TestSkillLoads:
         assert skill.answer == "number"
         assert set(skill.prerequisites) == {"straight-line-angles", "f10-angle-turn-right-reference"}
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3

@@ -8,6 +8,7 @@ import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from tests.exd_x_r2h_support import legacy_exam_sources
 from mathgen import make
 from mathgen.generators.p15b_logic_build import OPTIONS, is_well_formed
 
@@ -21,7 +22,7 @@ TIERS = ["easy", "medium", "hard", "exam"]
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, legacy_exam_sources(skill.id, {src.difficulty: src for src in skill.sources})
 
 
 SKILL, SOURCES = _skill_sources(SKILL_ID)

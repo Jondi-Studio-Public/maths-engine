@@ -21,12 +21,12 @@ sources:
   params: {mode: kwh_hard}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19h_energy_kwh_consumption
-  params: {mode: kwh_exam}
+- topic: exd_x_r2l_energy_cost_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:
-- id: added-instead-of-multiplied
+- id: adds-instead-of-multiplies
   description: Adds the power (in kW) and the duration (in hours) instead of multiplying them.
 - id: divided-instead-of-multiplied
   description: Divides the power by the duration (or the duration by the power) instead of multiplying them.

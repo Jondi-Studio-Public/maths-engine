@@ -82,10 +82,10 @@ def _load_skill(skill_id: str):
 def test_render_covers_every_source_and_tier_at_the_requested_seed_count():
     skill = _load_skill("f10-division-remainder-context")
     rendered = render_skill(skill, seeds=3)
-    assert [src.difficulty for src in rendered.sources] == ["easy", "medium", "hard"]
+    assert [src.difficulty for src in rendered.sources] == ["easy", "medium", "hard", "exam"]
     assert all(len(src.rows) == 3 for src in rendered.sources)
     assert rendered.exceptions == 0
-    assert rendered.questions == 9
+    assert rendered.questions == 12
 
 
 def test_markdown_has_one_section_per_skill_and_one_table_per_tier():

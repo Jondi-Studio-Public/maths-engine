@@ -1,0 +1,28 @@
+id: f10-fraction-shaded-name
+name: Name the fraction of a shape that is shaded
+domain: primary-number
+description: Read a bar, rectangle or circle cut into equal parts and name the fraction that is shaded, or in the hardest tier the fraction that is not shaded.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [fair-sharing]
+answer: fraction
+sources:
+- topic: fraction_shaded_name
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fraction_shaded_name
+  difficulty: medium
+  stages: [3, 4]
+- topic: fraction_shaded_name
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: names-the-unshaded-part
+  description: Gives the fraction that is not shaded when asked for the shaded part, or the shaded part when asked for the part not shaded.
+- id: shaded-over-unshaded
+  description: Writes the number of shaded parts over the number of unshaded parts instead of over the total number of parts.
+- id: miscounts-parts
+  description: Counts one part too many or too few in the numerator or the denominator.
+tags: [acara-f10-v9, primary, fractions, shaded-models, ac9m2n03, ac9m3n02]

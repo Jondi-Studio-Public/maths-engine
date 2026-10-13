@@ -54,5 +54,5 @@ def test_gap_skill_contracts_have_exact_prerequisites_answer_kinds_and_stage_sou
     assert triangle.answer == "number"
     assert prime.prerequisites == ["prime-factorisation", "evaluate-powers"]
     assert prime.answer == "mcq"
-    assert [source.stages for source in triangle.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
-    assert [source.stages for source in prime.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.stages for source in triangle.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
+    assert [source.stages for source in prime.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]

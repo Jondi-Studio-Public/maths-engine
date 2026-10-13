@@ -115,19 +115,17 @@ _EXAM_TEMPLATES = (
     "means, so the Gram matrix decouples: XtX = [[{n}, 0, 0], "
     "[0, {a}, {b}], [0, {b}, {c}]]. The lower two entries of the matching "
     "Xty vector are [{u1}, {u2}]. The sample means are x1bar = {x1bar}, "
-    "x2bar = {x2bar}, ybar = {ybar}. First solve the 2x2 sub-system for "
-    "b1, b2, then find b0 = ybar - b1×x1bar - b2×x2bar. {order}",
+    "x2bar = {x2bar}, ybar = {ybar}. Find the least-squares coefficients "
+    "b = [b0, b1, b2]. {order}",
     "x1 and x2 are centred, so the intercept row/column of XtX is "
     "[{n}, 0, 0]; the full matrix is XtX = [[{n}, 0, 0], [0, {a}, {b}], "
     "[0, {b}, {c}]]. The bottom two entries of Xty are [{u1}, {u2}]. Given "
-    "x1bar = {x1bar}, x2bar = {x2bar}, ybar = {ybar}, find b = [b0, b1, b2] "
-    "(solve the 2x2 block for b1, b2 first, then combine with the means "
-    "for b0). {order}",
+    "x1bar = {x1bar}, x2bar = {x2bar}, ybar = {ybar}, find the least-squares "
+    "coefficients b = [b0, b1, b2]. {order}",
     "A two-feature model's Gram matrix, with x1 and x2 centred, is "
     "XtX = [[{n}, 0, 0], [0, {a}, {b}], [0, {b}, {c}]], with Xty's lower "
     "two entries [{u1}, {u2}]. The sample means are x1bar = {x1bar}, "
-    "x2bar = {x2bar}, ybar = {ybar}. Solve for b = [b0, b1, b2], deriving "
-    "b0 from the means after solving for b1, b2. {order}",
+    "x2bar = {x2bar}, ybar = {ybar}. Solve for b = [b0, b1, b2]. {order}",
 )
 
 

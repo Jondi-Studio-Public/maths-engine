@@ -5,6 +5,6 @@ description: Add all boundary lengths of a rectilinear L-shape to calculate its 
 status: active
 prerequisites: [rectangle-perimeter]
 answer: number
-sources: [{topic: l_shape_perimeter, params: {side_hi: 20}, difficulty: easy}]
+sources: [{topic: l_shape_perimeter, params: {side_hi: 20}, difficulty: easy}, {topic: exd_x_pr3_composite_perimeter, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: omits-indented-sides, description: Omits the two sides around the indentation.}]
 tags: [expansion-batch-2, primary, perimeter]

@@ -4,8 +4,7 @@ id: senior-interpret-distance-versus-time-graphs
 name: Interpret distance-versus-time graphs
 domain: senior-mathematics
 description: Given a distance-time graph made of straight-line segments on a labelled integer grid, state the speed (or velocity) during a stated time interval by reading the gradient of the one segment that covers it.
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false

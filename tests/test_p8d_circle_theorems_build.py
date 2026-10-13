@@ -195,4 +195,4 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == ["convert-metric-length"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len(skill.sources) == 4

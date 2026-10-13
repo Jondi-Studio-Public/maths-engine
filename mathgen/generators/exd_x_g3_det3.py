@@ -21,7 +21,7 @@ from fractions import Fraction
 
 from sympy import Matrix, Symbol, latex, solve
 
-from ..core import check, check_equivalent, generator, pick_distractors
+from ..core import check, check_equivalent, fmt_signed, generator, pick_distractors
 
 
 def _mat_text(rows) -> str:
@@ -120,7 +120,10 @@ def _unknown(rng: random.Random) -> dict:
         answer=xv,
         answer_text=str(xv),
         answer_latex=str(xv),
-        working=[f"expand along the row or column containing x: det = {cof}x + ({rest}) = {D}", f"x = {xv}"],
+        working=[
+            f"expand along the row or column containing x: det = {fmt_signed(cof, 'x')} + ({rest}) = {D}",
+            f"x = {xv}",
+        ],
         distractors=ds[:3],
     )
 

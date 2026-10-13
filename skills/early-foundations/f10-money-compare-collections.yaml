@@ -1,0 +1,29 @@
+id: f10-money-compare-collections
+name: Compare the value of collections of coins and notes
+domain: early-foundations
+learner_band: primary
+description: Read pictures of two or three collections of Australian coins and notes and choose the one worth the most, the least, or say they are worth the same.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-money-count-collection]
+answer: mcq
+sources:
+- topic: money_compare_collections
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: money_compare_collections
+  difficulty: medium
+  stages: [3, 4]
+- topic: money_compare_collections
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: more-coins-more-money
+  description: Chooses the collection with more coins or notes, whatever they are worth.
+- id: biggest-item-wins
+  description: Chooses the collection that holds the single biggest coin or note, without adding up the rest.
+- id: same-count-same-value
+  description: Says two collections are worth the same, or picks one, by comparing how many items they hold.
+tags: [acara-f10-v9, early, money, coins, notes, ac9m2n06]

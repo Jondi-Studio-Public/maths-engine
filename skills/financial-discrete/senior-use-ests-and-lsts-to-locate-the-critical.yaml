@@ -21,7 +21,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g6_critical_path_after_change
+- topic: exd_x_r2e_network_crash
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -19,8 +19,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12f_hessian_2x2
-  params: {}
+- topic: exd_x_r2f_hessian_unknown
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

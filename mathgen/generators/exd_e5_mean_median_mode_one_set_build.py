@@ -150,7 +150,7 @@ _HARD_TEMPLATES = (
     "(to 1 decimal digit), the median (average the two middle values) and the mode.",
 )
 _EXAM_TEMPLATES = (
-    "Exam-style question. This data set has {count} values (an even count): {values}. Show "
+    "This data set has {count} values (an even count): {values}. Show "
     "your working for each part as you find the mean (to 1 decimal digit), the median (the "
     "average of the two middle values once ordered) and the mode.",
     "This exam question gives {count} values: {values}. Determine, with full working, the "

@@ -93,3 +93,12 @@ def test_grader_accepts_key_and_rejects_distractors():
         assert len(q.distractors) >= 2, (seed, q.distractors)
         for d in q.distractors:
             assert not grade(q, d).correct, (seed, d, q.answer_text)
+
+
+def test_working_has_no_repeated_step():
+    from mathgen import make as _make
+
+    for seed in range(100):
+        for line in _make("exd_x_s2_sample_space", seed=seed, difficulty="exam").working:
+            sides = [x.strip().rstrip(".") for x in line.split(" = ")]
+            assert len(set(sides)) == len(sides), line

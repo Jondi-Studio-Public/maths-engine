@@ -1,6 +1,7 @@
 """Focused contract tests for: ucv1-recurrence-two-step (answer: number) and
 ucv1-second-order-characteristic-roots (answer: pair, labelled)."""
 
+import dataclasses
 import re
 
 import pytest
@@ -19,10 +20,22 @@ _NUMBER_RE = re.compile(r"-?\d+")
 _LABELLED_PAIR_RE = re.compile(r"(\w+) = (-?\d+), (\w+) = (-?\d+)")
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-second-order-characteristic-roots": "p12e_characteristic_roots"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, _by_difficulty(skill)
 
 
 RECURRENCE_SKILL, RECURRENCE_SOURCES = _skill_sources(RECURRENCE_ID)

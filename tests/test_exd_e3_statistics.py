@@ -249,4 +249,6 @@ def test_other_summary_statistic_skills_are_untouched():
             continue
         topics_used = {s.topic for s in skill.sources}
         if "summary_statistic" in topics_used:
-            assert len(skill.sources) == 1, f"{skill.id}: unexpectedly gained a second source"
+            # A later exam source (difficulty "exam", its own topic) is allowed; the practice source stays single.
+            practice = [s for s in skill.sources if s.difficulty != "exam"]
+            assert len(practice) == 1, f"{skill.id}: unexpectedly gained a second source"

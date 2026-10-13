@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p12d_bernoulli_sequence
-  params: {}
+- topic: exd_x_r2l_bernoulli_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

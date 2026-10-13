@@ -21,6 +21,11 @@ sources:
   params: {mode: notch}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m4_composite_figure_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-a-component
   description: Drops one of the shape's components entirely from the sum or difference, undercounting (or overcounting in the subtractive case) by exactly that component's area.

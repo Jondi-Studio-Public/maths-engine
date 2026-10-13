@@ -3,7 +3,7 @@ skills.
 
 ``pv1d_quadratic_root_count`` (mcq over {0, 1, 2}, ACMMM011) and
 ``pv1d_parabola_axis_x`` (``x = b`` as a single-equation pair, ACMMM007). Both skills are
-``status: deferred`` (visual), so the loader's own generation checks skip them: every
+``status: active`` (figure_stimulus passed), and the figure is still checked here: every
 tier of every source is generated here through the skill's own sources.
 """
 
@@ -12,11 +12,12 @@ import functools
 
 import pytest
 
-from mathgen.grading.typed import GRADERS, grade_mcq, grade_pair, mcq_options
-from mathgen.skills import load_skills
 from mathgen import figures, make
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1d_parabola_build as gen
+from mathgen.grading.typed import GRADERS, grade_mcq, grade_pair, mcq_options
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 from scripts.measure_tiers import classify_skill
 
@@ -52,8 +53,9 @@ def _gen(skill_id, tier, seed):
 def test_skill_loads_with_the_figure_stimulus_shape(skill_id, answer, domain):
     skill = _skills()[skill_id]
     assert skill.answer == answer and skill.domain == domain
-    assert skill.status == "deferred" and skill.deferred_reason == "visual"
+    assert skill.status == "active" and skill.deferred_reason is None
     assert skill.needs_figure is True and skill.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.placement_eligible is False and skill.mental is None
     assert [s.difficulty for s in skill.sources] == TIERS
     assert [list(s.stages) for s in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]

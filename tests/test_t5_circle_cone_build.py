@@ -352,7 +352,7 @@ def test_skills_load_with_expected_shape():
     assert circle.answer == "number"
     assert circle.placement_eligible is False
     difficulties = {src.difficulty for src in circle.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}
     stages_by_difficulty = {src.difficulty: src.stages for src in circle.sources}
     assert stages_by_difficulty["hard"] and "maintenance" in stages_by_difficulty["hard"]
 
@@ -361,6 +361,6 @@ def test_skills_load_with_expected_shape():
     assert cone.answer == "number"
     assert cone.placement_eligible is False
     difficulties = {src.difficulty for src in cone.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}
     stages_by_difficulty = {src.difficulty: src.stages for src in cone.sources}
     assert stages_by_difficulty["hard"] and "maintenance" in stages_by_difficulty["hard"]

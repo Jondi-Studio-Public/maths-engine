@@ -14,7 +14,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import GRADER_TOLERANCE, check, generator, paren_negative, pick_distractors, rational_text
+from ..core import GRADER_TOLERANCE, check, draw_until, generator, paren_negative, pick_distractors, rational_text
 from .primary_math import _aligned
 
 
@@ -243,18 +243,36 @@ def modular_arithmetic(rng, modulus_hi=12, magnitude_hi=80, kind=None):
     their SUM, requiring the student to add first and only then reduce,
     rather than reduce a single given integer directly.
     """
-    modulus = rng.randint(2, modulus_hi)
+    # The drawn number must reach the modulus in size, whichever modulus up to
+    # modulus_hi is drawn, so the largest number that can be drawn must reach modulus_hi.
     if kind == "sum_congruence":
         half_hi = max(1, magnitude_hi // 2)
+        reach, needed = 2 * half_hi, 2 * -(-modulus_hi // 2)
+        if reach < modulus_hi:
+            raise ValueError(
+                f"modular_arithmetic needs magnitude_hi >= {needed} for modulus_hi={modulus_hi} "
+                "when kind='sum_congruence': the sum of the two integers must be able to reach the modulus"
+            )
+    elif magnitude_hi < modulus_hi:
+        raise ValueError(
+            f"modular_arithmetic needs magnitude_hi >= {modulus_hi} for modulus_hi={modulus_hi}: "
+            "the integer must be able to reach the modulus in size"
+        )
+    modulus = rng.randint(2, modulus_hi)
+    if kind == "sum_congruence":
         # Same discipline as the single-value draw below: redraw until the
         # question actually exercises reduction (the SUM's magnitude reaches
-        # the modulus), including negative representatives.
-        while True:
-            a = rng.randint(-half_hi, half_hi)
-            b = rng.randint(-half_hi, half_hi)
-            total = a + b
-            if abs(total) >= modulus:
-                break
+        # the modulus), including negative representatives. The odds of a
+        # draw reaching the modulus can be about 1 in (2 * half_hi + 1) ** 2,
+        # so the cap is scaled to stay far beyond any realistic run of misses.
+        a, b = draw_until(
+            rng,
+            lambda r: (r.randint(-half_hi, half_hi), r.randint(-half_hi, half_hi)),
+            lambda pair: abs(pair[0] + pair[1]) >= modulus,
+            tries=100 * (2 * half_hi + 1) ** 2,
+            what="two integers whose sum reaches the modulus",
+        )
+        total = a + b
         answer = total % modulus
         independent = total - modulus * math.floor(total / modulus)
         enumerated = next(r for r in range(modulus) if (total - r) % modulus == 0)
@@ -294,10 +312,13 @@ def modular_arithmetic(rng, modulus_hi=12, magnitude_hi=80, kind=None):
         )
     # Ensure the question actually exercises reduction, including negative
     # representatives, rather than mostly returning the input unchanged.
-    while True:
-        value = rng.randint(-magnitude_hi, magnitude_hi)
-        if abs(value) >= modulus:
-            break
+    value = draw_until(
+        rng,
+        lambda r: r.randint(-magnitude_hi, magnitude_hi),
+        lambda candidate: abs(candidate) >= modulus,
+        tries=100 * (2 * magnitude_hi + 1),
+        what="an integer that reaches the modulus",
+    )
     answer = value % modulus
     independent = value - modulus * math.floor(value / modulus)
     enumerated = next(r for r in range(modulus) if (value - r) % modulus == 0)
@@ -345,11 +366,14 @@ def vector_projection(rng, component_hi=5, scale_hi=3, orthogonal_hi=2, kind=Non
 
     ``kind="line_through_points"`` names the line by two points A and B, so the
     direction v = B - A has to be formed first."""
-    while True:
-        vx = rng.randint(-component_hi, component_hi)
-        vy = rng.randint(-component_hi, component_hi)
-        if (vx, vy) != (0, 0):
-            break
+    if component_hi < 1:
+        raise ValueError("vector_projection needs component_hi >= 1: the direction vector v must not be (0, 0)")
+    vx, vy = draw_until(
+        rng,
+        lambda r: (r.randint(-component_hi, component_hi), r.randint(-component_hi, component_hi)),
+        lambda v: v != (0, 0),
+        what="a nonzero direction vector",
+    )
     scale = rng.choice([x for x in range(-scale_hi, scale_hi + 1) if x])
     orthogonal_scale = rng.randint(-orthogonal_hi, orthogonal_hi)
     ux = scale * vx - orthogonal_scale * vy
@@ -456,10 +480,15 @@ def _poly_text(trace: int, determinant: int) -> str:
 )
 def two_by_two_eigenvalues(rng, eigenvalue_hi=8, off_diagonal_hi=6):
     """Find eigenvalues of an upper-triangular 2x2 matrix."""
+    if eigenvalue_hi < 1:
+        raise ValueError("two_by_two_eigenvalues needs eigenvalue_hi >= 1: the two eigenvalues must be different")
     first = rng.randint(-eigenvalue_hi, eigenvalue_hi)
-    second = rng.randint(-eigenvalue_hi, eigenvalue_hi)
-    while second == first:
-        second = rng.randint(-eigenvalue_hi, eigenvalue_hi)
+    second = draw_until(
+        rng,
+        lambda r: r.randint(-eigenvalue_hi, eigenvalue_hi),
+        lambda candidate: candidate != first,
+        what="a second eigenvalue different from the first",
+    )
     off_diagonal = rng.randint(-off_diagonal_hi, off_diagonal_hi)
     matrix = sympy.Matrix([[first, off_diagonal], [0, second]])
     lam = sympy.Symbol("λ")

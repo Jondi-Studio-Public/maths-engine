@@ -37,6 +37,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
+from .r2s_scale_options import scaled_options
 from ..core import (
     check,
     check_conversion,
@@ -169,14 +170,7 @@ def _build(rng, tier: str) -> dict:
     correct = canonical * _DIRECT_FACTOR_FROM_M[unit]
     check_conversion(canonical, "m", unit, correct, _MM_PER_UNIT, label="estimate-length unit conversion")
 
-    x10 = correct * 10
-    tenth = correct / 10
-    x100 = correct * 100
-    check_distinct(correct, x10, tenth, x100, msg="an order-of-magnitude distractor collided with the answer")
-
-    correct_text, x10_text, tenth_text, x100_text = _format_options(correct, x10, tenth, x100, unit)
-    distractors = pick_distractors(correct_text, [x10_text, tenth_text, x100_text])
-    check(len(distractors) == 3, "an order-of-magnitude distractor collapsed onto another option")
+    correct_text, distractors = scaled_options(rng, correct, f" {_UNIT_ABBR[unit]}")
 
     text = f"What is the best estimate for the {attribute} of {name}? Give your answer in {_UNIT_WORD[unit]}."
     latex = f"plain:{text}"

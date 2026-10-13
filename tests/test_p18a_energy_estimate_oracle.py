@@ -20,6 +20,7 @@ import pytest
 import sympy as sp
 
 from mathgen.skills import load_skills
+from types import SimpleNamespace
 import mathgen
 
 SKILL_ID = "ucv1-energy-estimate"
@@ -44,6 +45,9 @@ def _skill_sources():
 
 
 SOURCES = _skill_sources()
+# The skill's exam tier is now a multi-part chain (tests/test_exd_x_r2g_heat_energy_decay.py). These tests keep covering the
+# generator's own earlier exam preset, which is unchanged.
+SOURCES["exam"] = SimpleNamespace(topic="p18a_energy_estimate", difficulty="exam", params={}, stages=["exam"])
 
 _K_RE = re.compile(r"k = (-?\d+)")
 _INTERVAL_RE = re.compile(r"\[(-?\d+),\s*(-?\d+)\]")

@@ -14,6 +14,7 @@ from fractions import Fraction
 from ..core import (
     GRADER_TOLERANCE,
     check,
+    draw_until,
     fmt_signed,
     generator,
     join_terms,
@@ -375,17 +376,26 @@ def finite_joint_covariance(rng, value_hi=4, weight_hi=7, kind=None):
     derived first (total − the other three cells) before the covariance can
     be computed -- a genuine extra reasoning step, not a bigger number.
     """
-    while True:
-        x_values = sorted(rng.sample(range(-value_hi, value_hi + 1), 2))
-        y_values = sorted(rng.sample(range(-value_hi, value_hi + 1), 2))
-        weights = [[rng.randint(1, weight_hi) for _ in y_values] for _ in x_values]
+    if weight_hi < 2:
+        raise ValueError(
+            "finite_joint_covariance needs weight_hi >= 2: with every cell count equal to 1 the "
+            "variables are independent, so the covariance is always 0"
+        )
+
+    def draw_table(r):
+        x_values = sorted(r.sample(range(-value_hi, value_hi + 1), 2))
+        y_values = sorted(r.sample(range(-value_hi, value_hi + 1), 2))
+        weights = [[r.randint(1, weight_hi) for _ in y_values] for _ in x_values]
         total = sum(map(sum, weights))
         ex = Fraction(sum(x_values[i] * weights[i][j] for i in range(2) for j in range(2)), total)
         ey = Fraction(sum(y_values[j] * weights[i][j] for i in range(2) for j in range(2)), total)
         exy = Fraction(sum(x_values[i] * y_values[j] * weights[i][j] for i in range(2) for j in range(2)), total)
-        covariance = exy - ex * ey
-        if covariance != 0:
-            break
+        return x_values, y_values, weights, total, ex, ey, exy, exy - ex * ey
+
+    # Redraw until the covariance is nonzero, so the answer is not a trivial 0.
+    x_values, y_values, weights, total, ex, ey, exy, covariance = draw_until(
+        rng, draw_table, lambda table: table[-1] != 0, what="a joint table with nonzero covariance"
+    )
     direct = Fraction(
         sum((x_values[i] - ex) * (y_values[j] - ey) * weights[i][j] for i in range(2) for j in range(2)), total
     )

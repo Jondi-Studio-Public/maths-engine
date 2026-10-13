@@ -57,12 +57,13 @@ def _square(rng: random.Random) -> dict:
         raise RuntimeError("exd_x_s0_expval: no collision-free square draw")
     text = phrase(rng, _SQUARE, ks=", ".join(map(str, ks)), s=s)
     at = _text(answer)
+    raw_sum = sum(k * k * w for k, w in zip(ks, weights))
     return dict(
         text=text,
         answer={"p": answer.numerator, "q": answer.denominator},
         answer_text=at,
         answer_latex=at,
-        working=[f"c = 1/{total}; E[X^2] = {sum(k * k * w for k, w in zip(ks, weights))}/{total} = {at}."],
+        working=[f"c = 1/{total}; E[X^2] = {raw_sum}/{total}" + (f" = {at}." if at != f"{raw_sum}/{total}" else ".")],
         distractors=pick_distractors(at, [_text(c) for c in cands]),
     )
 

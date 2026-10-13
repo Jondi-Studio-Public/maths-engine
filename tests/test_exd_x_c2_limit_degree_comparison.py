@@ -96,6 +96,7 @@ _PATTERNS = (
 
 
 def _split(text):
+    text = text.replace(" Give your answer as a number, ∞ or -∞.", "")
     for i, pattern in enumerate(_PATTERNS):
         m = pattern.match(text)
         if m:
@@ -131,3 +132,8 @@ def test_all_three_answers_and_both_directions_occur():
     answers = {_exam(s).answer_text for s in range(100)}
     assert answers == {"0", "∞", "-∞"}
     assert {_split(_exam(s).text)[1] for s in range(60)} == {"∞", "-∞"}
+
+
+def test_every_prompt_allows_an_infinite_answer():
+    for seed in range(300):
+        assert "Give your answer as a number, ∞ or -∞." in _exam(seed).text

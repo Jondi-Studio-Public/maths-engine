@@ -20,6 +20,11 @@ sources:
   params: {kind: slope_form}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u5_lagrange_weighted
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reports-target
   description: Returns the unconstrained target point without enforcing the line constraint.

@@ -163,3 +163,15 @@ def test_bestfit_wrong_values_rejected():
     v = float(q.answer_text)
     for wrong in (v + 0.1, v - 0.1, v + 1, -v):
         assert not grader(q, f"{wrong:.1f}").correct, wrong
+
+
+def test_best_fit_correlation_sign_matches_the_context():
+    from mathgen import make as _make
+
+    for seed in range(300):
+        text = _make("exd_x_s5_best_fit_from_summary", seed=seed, difficulty="exam").text
+        r = float(re.search(r"r = (-?\d?\.\d+)", text).group(1))
+        if "age of a car" in text or "hot drinks" in text:
+            assert r < 0, text
+        else:
+            assert r > 0, text

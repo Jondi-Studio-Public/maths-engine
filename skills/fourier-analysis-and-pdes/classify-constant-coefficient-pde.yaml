@@ -20,6 +20,11 @@ sources:
   params: {kind: rearranged}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc2_pde_parameter
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-discriminant-sign
   description: Reverses the sign convention for B² − 4AC.
