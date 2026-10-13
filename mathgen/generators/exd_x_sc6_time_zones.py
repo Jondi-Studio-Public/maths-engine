@@ -44,6 +44,7 @@ def _clock(hours: Fraction) -> str:
     hours = Fraction(hours)
     total_minutes = int(hours * 60)
     h24, minute = divmod(total_minutes, 60)
+    h24 %= 24  # a reading past midnight (or before it) is a time on the neighbouring day
     h12 = h24 % 12 or 12
     return f"{h12}:{minute:02d} {'am' if h24 < 12 else 'pm'}"
 
