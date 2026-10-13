@@ -1,0 +1,92 @@
+id: locus-apollonius-and-intersection
+name: Find the Apollonius circle |z - a| = k|z - b| and where it meets a line
+domain: senior-mathematics
+description: Find the centre of the circle |z - a| = k|z - b| (k = 2 or 3, written three ways) and the point of it between
+  a and b, then in the exam chain its radius, the two points where it meets a vertical line and the length of the chord
+  that line cuts.
+status: active
+placement_eligible: false
+prerequisites:
+- locus-circle-centre-radius
+- locus-perpendicular-bisector
+answer: pair
+sources:
+- topic: sr2l_apollonius
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sr2l_apollonius
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sr2l_apollonius
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sr2l_apollonius_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sr2l-centre-for-point
+  description: Giving the centre of the circle where a point of the circle was asked for.
+- id: sr2l-centre-real-for-imaginary
+  description: Using the real part of the centre where the imaginary part belongs.
+- id: sr2l-centre-sign-flipped
+  description: 'Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred
+    at (2, -3) instead of (-2, 3).'
+- id: sr2l-chord-by-sum
+  description: Adding the radius and the distance from the centre to the line where the chord length was asked for.
+- id: sr2l-chord-half-only
+  description: Giving the distance from the vertex to a cutting line, or half the length it cuts off the wedge, where the
+    full length between the boundary rays was asked for.
+- id: sr2l-closer-point-for-centre
+  description: Giving one of the two given points as the centre of the circle.
+- id: sr2l-diameter-for-radius
+  description: Using the diameter of a circle where its radius belongs.
+- id: sr2l-distance-between-points-for-radius
+  description: Giving the distance between the two given points as the radius of the circle.
+- id: sr2l-distance-ratio-for-radius
+  description: Giving a third of the distance between the given points (or a similar fraction of it) as the radius, without
+    the factor k.
+- id: sr2l-external-point-for-centre
+  description: Giving the point of the circle on the far side of the closer point as its centre.
+- id: sr2l-external-point-for-internal
+  description: Giving the point of the circle outside the segment where the point between the two given points was asked
+    for.
+- id: sr2l-internal-point-for-centre
+  description: Giving the point of the circle between the two given points as its centre.
+- id: sr2l-midpoint-for-centre
+  description: Taking the midpoint of the two given points as the centre of the circle |z - a| = k|z - b|, which is the
+    centre only when k = 1.
+- id: sr2l-offset-ignored
+  description: Taking the radius as the half-length of a chord, forgetting that the line is not through the centre.
+- id: sr2l-one-intersection-only
+  description: Giving only one intersection of a line with a circle, or a second value one away from the first.
+- id: sr2l-radius-squared
+  description: Using the radius squared where the radius belongs, or comparing a squared distance with the radius itself.
+- id: sr2l-ratio-inverted
+  description: 'Dividing the segment between the points in the ratio 1 : k from the wrong end, so the locus point is nearer
+    a than b.'
+- id: sr2l-wrong-offset-used
+  description: Using the distance from the centre to the line where the half-chord was needed.
+difficulty_progression: 'Easy puts a and b on the real axis. Medium puts them anywhere and writes the relation as |z - a|
+  = k|z - b|, k|z - b| = |z - a| or the squared form. Hard asks for the point of the locus on the segment from a to b, which
+  divides it in the ratio 1 : k from b. The exam chain finds the centre, the radius, the imaginary parts of the two points
+  where the circle meets a line Re(z) = X, and the chord between them (following through from the radius).'
+tags:
+- complex-numbers
+- complex-plane-loci
+- apollonius-circle
+- argand-diagram
+- acara-v8-4
+- ACMSM086

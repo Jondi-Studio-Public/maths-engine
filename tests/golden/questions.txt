@@ -2812,6 +2812,78 @@
 {"answer": "(a) 55125; (b) 36; (c) 28", "id": "list-factors/exam/0/02937f5fe34d", "text": "A farm near Toowoomba packs N eggs, where N = 3^2 × 5^3 × 7^2. (a) Find the val…"}
 {"answer": "(a) 3024; (b) 40; (c) 10", "id": "list-factors/exam/1/b92b58a4d435", "text": "A surf club in Cronulla stocks N water bottles, where N = 2^4 × 3^3 × 7. (a) Fi…"}
 {"answer": "(a) 360; (b) 24; (c) 20", "id": "list-factors/exam/2/6bedec5ab647", "text": "A library in Ballarat shelves N novels, where N = 2^3 × 3^2 × 5. (a) Find the v…"}
+{"answer": "(-5, 0)", "id": "locus-apollonius-and-intersection/easy/0/2751695d524e", "text": "The points z with |z + 9| = 2|z + 6| lie on a circle. State the centre of the c…"}
+{"answer": "(8, 0)", "id": "locus-apollonius-and-intersection/easy/1/62fc0d6a09c5", "text": "The locus of the complex number z is given by |z + 4| = 2|z - 5|, which is a ci…"}
+{"answer": "(0, 0)", "id": "locus-apollonius-and-intersection/easy/2/ac9d604503f9", "text": "A complex number z satisfies |z - 8| = 2|z - 2|. The locus of z is a circle. St…"}
+{"answer": "(a) (-9, -5); (b) 26; (c) 19, -29; (d) 48", "id": "locus-apollonius-and-intersection/exam/0/4c15497b8553", "text": "The locus of the complex number z = x + iy is the circle 2|z - 3| = |z - 39 - 1…"}
+{"answer": "(a) (-12, -1); (b) 26; (c) 23, -25; (d) 48", "id": "locus-apollonius-and-intersection/exam/1/de90861f82c2", "text": "The locus of the complex number z = x + iy is the circle |z - 36 - 19i| = 2|z -…"}
+{"answer": "(a) (10, -11); (b) 20; (c) 1, -23; (d) 24", "id": "locus-apollonius-and-intersection/exam/2/c4c22bfd3bb1", "text": "The locus of the complex number z = x + iy is the circle |z + 22 - 13i| = 2|z -…"}
+{"answer": "(-1, -2)", "id": "locus-apollonius-and-intersection/hard/0/93a851979017", "text": "The locus of the complex number z is the circle |z + 7 + 4i|² = 4|z - 2 + i|². …"}
+{"answer": "(6, 4)", "id": "locus-apollonius-and-intersection/hard/1/3525f45c0649", "text": "The locus of the complex number z is the circle |z - 12 - 6i|² = 4|z - 3 - 3i|²…"}
+{"answer": "(0, -3)", "id": "locus-apollonius-and-intersection/hard/2/edb41e2cb1d4", "text": "The locus of the complex number z is the circle |z - 6 + 12i| = 3|z + 2|. The c…"}
+{"answer": "(1, -2)", "id": "locus-apollonius-and-intersection/medium/0/5be67a10a1d0", "text": "The points z with |z - 13 + 14i| = 2|z - 4 + 5i| lie on a circle. State the cen…"}
+{"answer": "(3, 7)", "id": "locus-apollonius-and-intersection/medium/1/d8ea4de1af9a", "text": "A complex number z satisfies |z - 7 + i| = 2|z - 4 - 5i|. The locus of z is a c…"}
+{"answer": "(-2, 5)", "id": "locus-apollonius-and-intersection/medium/2/68fbd6f8abba", "text": "The points z with |z - 6 - i| = 2|z - 4i| lie on a circle. State the centre of …"}
+{"answer": "x = -3", "id": "locus-argument-ray-wedge/easy/0/943457a576db", "text": "The points z with Arg(z + 3 - 5i) = -π/2 form a ray. Write the Cartesian equati…"}
+{"answer": "x = -6", "id": "locus-argument-ray-wedge/easy/1/9387101b1f59", "text": "The locus of the complex number z is the ray Arg(z + 6 - 3i) = π/2. Find the Ca…"}
+{"answer": "y = -x + 4", "id": "locus-argument-ray-wedge/easy/2/6411c39b58db", "text": "The locus of the complex number z is the ray Arg(z - 6 + 2i) = 3π/4. Find the C…"}
+{"answer": "(a) y = -x + 2; (b) y = x + 4; (c) 10; (d) 25.0", "id": "locus-argument-ray-wedge/exam/0/f4e9b72a90a3", "text": "The set S of complex numbers z = x + iy satisfies -3π/4 ≤ Arg(z + 1 - 3i) ≤ -π/…"}
+{"answer": "(a) y = -x; (b) y = x - 6; (c) 4; (d) 4.0", "id": "locus-argument-ray-wedge/exam/1/9f6f18877db0", "text": "The set S of complex numbers z = x + iy satisfies π/4 ≤ Arg(z - 3 + 3i) ≤ 3π/4.…"}
+{"answer": "(a) y = -x + 3; (b) x = -2; (c) 4; (d) 8.0", "id": "locus-argument-ray-wedge/exam/2/1d99e7ed528d", "text": "The set S of complex numbers z = x + iy satisfies π/2 ≤ Arg(z + 2 - 5i) ≤ 3π/4.…"}
+{"answer": "x = -6", "id": "locus-argument-ray-wedge/hard/0/7e9d42a64d1a", "text": "The set S of complex numbers z satisfies -π/4 ≤ Arg(z + 6 - i) ≤ π/2. The bound…"}
+{"answer": "y = -x - 7", "id": "locus-argument-ray-wedge/hard/1/60e979ce9511", "text": "The set S of complex numbers z satisfies -π/2 ≤ Arg(z + 3 + 4i) ≤ -π/4. The bou…"}
+{"answer": "y = -x + 1", "id": "locus-argument-ray-wedge/hard/2/97fc1f656294", "text": "The set S of complex numbers z satisfies 0 ≤ Arg(z + 4 - 5i) ≤ 3π/4. The bounda…"}
+{"answer": "y = (-1/2)x + 6", "id": "locus-argument-ray-wedge/medium/0/4666a7e89c8b", "text": "The diagram shows the locus of z, where z satisfies Arg(z - a) = θ for a comple…"}
+{"answer": "y = -2x - 3", "id": "locus-argument-ray-wedge/medium/1/0b4cf105c510", "text": "The ray in the diagram has the equation Arg(z - a) = θ, where a is marked by an…"}
+{"answer": "y = 3x + 10", "id": "locus-argument-ray-wedge/medium/2/3a66795e9632", "text": "The diagram shows the locus of z, where z satisfies Arg(z - a) = θ for a comple…"}
+{"answer": "(4, 0)", "id": "locus-circle-centre-radius/easy/0/58610b874274", "text": "A complex number z satisfies |z - 4| = 6. State the centre of the circle as an …"}
+{"answer": "(-4, 7)", "id": "locus-circle-centre-radius/easy/1/08f97be50329", "text": "The locus of the complex number z is given by |z - (-4 + 7i)| = 4. State the ce…"}
+{"answer": "(-7, 8)", "id": "locus-circle-centre-radius/easy/2/419c0f95f3ba", "text": "A complex number z satisfies |z + 7 - 8i| = 7. State the centre of the circle a…"}
+{"answer": "(a) (1, 1); (b) 2; (c) 8.54; (d) 6.54", "id": "locus-circle-centre-radius/exam/0/1d9ed100240b", "text": "The locus of the complex number z is the circle |3z - 3 - 3i| = 6. The point P …"}
+{"answer": "(a) (1, -3); (b) 3; (c) 10.44; (d) 7.44", "id": "locus-circle-centre-radius/exam/1/1a85531d374a", "text": "The complex number z = x + iy has a locus given by the equation x² + y² - 2x + …"}
+{"answer": "(a) (-1, -1); (b) 2; (c) 5.10; (d) 3.10", "id": "locus-circle-centre-radius/exam/2/9d2bfcc8c251", "text": "The locus of the complex number z is the circle |3z + 3 + 3i| = 6. The point P …"}
+{"answer": "(-4, 6)", "id": "locus-circle-centre-radius/hard/0/6ef45026c63f", "text": "The complex number z = x + iy satisfies x² + y² + 8x - 12y + 36 = 0. The locus …"}
+{"answer": "(4, -4)", "id": "locus-circle-centre-radius/hard/1/c4381a1639e4", "text": "The complex number z = x + iy satisfies x² + y² - 8x + 8y + 28 = 0. The locus o…"}
+{"answer": "(-5/2, -3/2)", "id": "locus-circle-centre-radius/hard/2/d34179675dc3", "text": "In the complex plane the points representing 3 + 5i and -8 - 8i are the ends of…"}
+{"answer": "(-2, 5)", "id": "locus-circle-centre-radius/medium/0/cc24d21e6699", "text": "The points z satisfying |3z + 6 - 15i| = 6 form a circle. State the centre of t…"}
+{"answer": "(-5, 5)", "id": "locus-circle-centre-radius/medium/1/1dcda6f9aca8", "text": "The points z satisfying |3z + 15 - 15i| = 3 form a circle. State the centre of …"}
+{"answer": "(5, 3)", "id": "locus-circle-centre-radius/medium/2/6ced17e39b9e", "text": "The locus of the complex number z is given by |4z - 20 - 12i| = 4. State the ce…"}
+{"answer": "|z + 2 - i| = 4", "id": "locus-circle-disc-pick-sketch/easy/0/9cccd4b16a0b", "text": "The diagram shows the locus of z as a circle in the complex plane. Which equati…"}
+{"answer": "|z + 3 - 2i| = 2", "id": "locus-circle-disc-pick-sketch/easy/1/e94b2e659922", "text": "A circle is drawn on the Argand diagram. Which of these equations has exactly t…"}
+{"answer": "|z - 4 + 3i| = 4", "id": "locus-circle-disc-pick-sketch/easy/2/197101e46852", "text": "The diagram shows the locus of z as a circle in the complex plane. Which equati…"}
+{"answer": "(a) 11; (b) 26; (c) 4; (d) 18i", "id": "locus-circle-disc-pick-sketch/exam/0/a58d761ed1e5", "text": "A circle in the complex plane has centre -9 + 12i and passes through the point …"}
+{"answer": "(a) 8; (b) 21; (c) 5; (d) -4 + 19i", "id": "locus-circle-disc-pick-sketch/exam/1/f5140f76b44b", "text": "A circle in the complex plane has centre 13i and passes through the point 8 + 1…"}
+{"answer": "(a) 5; (b) 15; (c) 5; (d) -6 + 9i", "id": "locus-circle-disc-pick-sketch/exam/2/60e294b016a9", "text": "A circle in the complex plane has centre -6 + 8i and passes through the point -…"}
+{"answer": "3 < |z - 2 - i| ≤ 6", "id": "locus-circle-disc-pick-sketch/hard/0/330bb0841b72", "text": "Which condition on z gives the region between the two circles in the diagram, i…"}
+{"answer": "2 < |z + 2 + i| < 3", "id": "locus-circle-disc-pick-sketch/hard/1/28aa64573f9f", "text": "The diagram shows two concentric circles. Which inequality describes the points…"}
+{"answer": "2 < |z - 1 - 2i| ≤ 5", "id": "locus-circle-disc-pick-sketch/hard/2/faa03b200603", "text": "Two concentric circles are drawn in the complex plane. Which statement describe…"}
+{"answer": "A and D only", "id": "locus-circle-disc-pick-sketch/medium/0/2edc02ad48e8", "text": "Four points are plotted in the complex plane. Which of the points A, B, C and D…"}
+{"answer": "B and C only", "id": "locus-circle-disc-pick-sketch/medium/1/307efc105c78", "text": "The points A, B, C and D are plotted on the Argand diagram. Which of them satis…"}
+{"answer": "C only", "id": "locus-circle-disc-pick-sketch/medium/2/7f008e8e3e97", "text": "Four points are plotted in the complex plane. Which of the points A, B, C and D…"}
+{"answer": "x = -2", "id": "locus-perpendicular-bisector/easy/0/f16a69c1848f", "text": "A complex number z satisfies |z + 3 + 2i| = |z + 1 + 2i|. Write the locus of z …"}
+{"answer": "y = x + 1", "id": "locus-perpendicular-bisector/easy/1/3849161a59de", "text": "The locus of the complex number z is given by |z - 2 + 3i| = |z + 4 - 3i|. Find…"}
+{"answer": "y = -x - 7", "id": "locus-perpendicular-bisector/easy/2/261ade5da53d", "text": "The locus of the complex number z is given by |z + 1| = |z + 7 + 6i|. Find its …"}
+{"answer": "(a) y = (-3/2)x + 3; (b) 2.00; (c) 3.00; (d) 1.66", "id": "locus-perpendicular-bisector/exam/0/1c549ba3e350", "text": "The complex number z = x + iy satisfies |z - 3 - 5i| = |z + 3 - i|. (a) Find th…"}
+{"answer": "(a) y = (-1/2)x + 19/4; (b) 9.50; (c) 22.56; (d) 4.25", "id": "locus-perpendicular-bisector/exam/1/9fcb96893f4f", "text": "The complex number z = x + iy satisfies |z - 1 - 3i| = |z - 2 - 5i|. (a) Find t…"}
+{"answer": "(a) y = (-2/3)x + 9/2; (b) 6.75; (c) 15.19; (d) 3.74", "id": "locus-perpendicular-bisector/exam/2/83c327f4abd3", "text": "The complex number z = x + iy satisfies |z - 5 + i| = |z - 7 - 2i|. (a) Find th…"}
+{"answer": "y = (1/3)x + 2/3", "id": "locus-perpendicular-bisector/hard/0/cde73e518681", "text": "The complex number z satisfies |2z + 2 + 6i| = |2z + 6 - 6i|. Find the Cartesia…"}
+{"answer": "y = -3x + 15", "id": "locus-perpendicular-bisector/hard/1/aeeb5dccf55d", "text": "The complex numbers a and b are the roots of z² + (-8 - 6i)z + (-1 + 18i) = 0. …"}
+{"answer": "y = (1/3)x + 17/3", "id": "locus-perpendicular-bisector/hard/2/1f13c864e3f8", "text": "The complex numbers a and b are the roots of z² + (10 - 8i)z + (17 - 34i) = 0. …"}
+{"answer": "y = (2/3)x + 47/6", "id": "locus-perpendicular-bisector/medium/0/bb53b10d2335", "text": "The points A and B on the Argand diagram represent the complex numbers a and b.…"}
+{"answer": "y = (1/2)x + 5/4", "id": "locus-perpendicular-bisector/medium/1/88ac3ba55303", "text": "A and B are plotted on the Argand diagram and represent the complex numbers a a…"}
+{"answer": "y = (2/3)x - 1", "id": "locus-perpendicular-bisector/medium/2/38e811d32da8", "text": "The points A and B on the Argand diagram represent the complex numbers a and b.…"}
+{"answer": "x ≤ 3", "id": "locus-re-im-half-plane/easy/0/4e79f47db7a3", "text": "The locus of the complex number z = x + iy is given by Re(z + 3 + 3i) ≤ 6. Writ…"}
+{"answer": "y > 9", "id": "locus-re-im-half-plane/easy/1/927a98b5e29f", "text": "The locus of the complex number z = x + iy is given by Im(z + 3 - 5i) > 4. Writ…"}
+{"answer": "x ≤ -8", "id": "locus-re-im-half-plane/easy/2/6e18c8810e95", "text": "Let z = x + iy, where Re(z + 2 - 4i) ≤ -6. Write the condition on z as an inequ…"}
+{"answer": "(a) y = x - 7; (b) 7; (c) x ≥ 7; (d) 4.95", "id": "locus-re-im-half-plane/exam/0/3cce486a730f", "text": "S is the set of complex numbers z = x + iy that satisfy Re(z - 3) ≥ Im(z + 4i).…"}
+{"answer": "(a) y = x - 2; (b) 2; (c) x ≥ 2; (d) 1.41", "id": "locus-re-im-half-plane/exam/1/8aabdb741514", "text": "S is the set of complex numbers z = x + iy that satisfy Re(z - 5) ≥ Im(z - 3i).…"}
+{"answer": "(a) y = x - 6; (b) 6; (c) x ≥ 6; (d) 4.24", "id": "locus-re-im-half-plane/exam/2/be9bfe87f8bc", "text": "S is the set of complex numbers z = x + iy that satisfy Re(z - 2) ≥ Im(z + 4i).…"}
+{"answer": "x > 2", "id": "locus-re-im-half-plane/hard/0/6efd565042d1", "text": "Let z = x + iy, where Im(-2iz̄ + 2i) < -2. Write the condition on z as an inequ…"}
+{"answer": "1/3 < x < 2", "id": "locus-re-im-half-plane/hard/1/168c5971a6f0", "text": "The complex number z = x + iy satisfies -5 < Im(3iz̄ - 6i) < 0. Write the condi…"}
+{"answer": "-1/2 ≤ x < 3/2", "id": "locus-re-im-half-plane/hard/2/dcb4620ed655", "text": "The complex number z = x + iy satisfies -4 < Im(-2iz̄ - 3 - i) ≤ 0. Write the c…"}
+{"answer": "y > -5", "id": "locus-re-im-half-plane/medium/0/d28ef805aa7f", "text": "Let z = x + iy, where Im(-z - 2 - 5i) < 0. Write the condition on z as an inequ…"}
+{"answer": "x > -7/3", "id": "locus-re-im-half-plane/medium/1/321291b76983", "text": "Let z = x + iy, where Re(-3z - 3 - 5i) < 4. Write the condition on z as an ineq…"}
+{"answer": "y > 5/2", "id": "locus-re-im-half-plane/medium/2/8e4eb27fe9c4", "text": "Let z = x + iy, where Im(-2z + 3 + 4i) < -1. Write the condition on z as an ine…"}
 {"answer": "log(a^k)", "id": "logarithm-laws/easy/0/37f22fc9340d", "text": "Which expression is equivalent to k log(a)?"}
 {"answer": "log(ab)", "id": "logarithm-laws/easy/1/a6db530da5f8", "text": "Which expression is equivalent to log(a) + log(b)?"}
 {"answer": "log(ab)", "id": "logarithm-laws/easy/2/4c027444125e", "text": "Which expression is equivalent to log(a) + log(b)?"}

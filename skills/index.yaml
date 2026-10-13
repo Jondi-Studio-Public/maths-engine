@@ -2088,6 +2088,54 @@ list-factors:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_n4_factor_count
     module: mathgen/generators/exd_x_n4_factor_count.py
+locus-apollonius-and-intersection:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2l_apollonius
+    module: mathgen/generators/sr2l_apollonius_build.py
+  - topic: sr2l_apollonius_exam
+    module: mathgen/generators/sr2l_apollonius_build.py
+locus-argument-ray-wedge:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2l_arg_ray
+    module: mathgen/generators/sr2l_arg_ray_build.py
+  - topic: sr2l_arg_ray_exam
+    module: mathgen/generators/sr2l_arg_ray_build.py
+locus-circle-centre-radius:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2l_circle_centre
+    module: mathgen/generators/sr2l_circle_centre_build.py
+  - topic: sr2l_circle_centre_exam
+    module: mathgen/generators/sr2l_circle_centre_build.py
+locus-circle-disc-pick-sketch:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2l_circle_pick
+    module: mathgen/generators/sr2l_circle_pick_build.py
+  - topic: sr2l_circle_pick_exam
+    module: mathgen/generators/sr2l_circle_pick_build.py
+locus-perpendicular-bisector:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2l_bisector
+    module: mathgen/generators/sr2l_bisector_build.py
+  - topic: sr2l_bisector_exam
+    module: mathgen/generators/sr2l_bisector_build.py
+locus-re-im-half-plane:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2l_re_im
+    module: mathgen/generators/sr2l_re_im_build.py
+  - topic: sr2l_re_im_exam
+    module: mathgen/generators/sr2l_re_im_build.py
 logarithm-laws:
   domain: secondary-number
   status: active
