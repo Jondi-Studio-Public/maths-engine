@@ -46,7 +46,7 @@ from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, s
 from mathgen.grading.units import split_unit, unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
-from mathgen.text_quality import requested_rounding
+from mathgen.text_quality import requested_rounding, requested_significant_figures, significant_figure_count
 
 logger = logging.getLogger("mathgen.grading")
 
@@ -391,6 +391,27 @@ def _value_side(text: str) -> str:
     return text.rsplit("=", 1)[1]
 
 
+def _has_no_extra_figures(question, given: str) -> bool:
+    """Whether a typed number keeps to the significant figures asked for.
+
+    "Round 22.7012 to 2 significant figures" has canonical 23, and "23.0" states 3 figures: the same value
+    but not the precision asked for, so it is wrong, as "0.550" is for 0.55. Fewer figures cannot pass the
+    value comparison, and a whole number's trailing zeros are ambiguous ("230" can be 2 figures), so only a
+    count above the one asked is refused. The count is the one the prompt states or, when it is an earlier
+    answer ("to that number of significant figures"), the part's `sig_figs`.
+    """
+    figures = requested_significant_figures(getattr(question, "text", "")) or getattr(question, "sig_figs", None)
+    if not isinstance(figures, int) or isinstance(figures, bool):
+        return True
+    shown = _NUMERIC_LITERAL_RE.findall(getattr(question, "answer_text", "") or "")
+    if len(shown) == 1:
+        # A canonical written to more places than the count asked ("0.010" for 1 figure, so that its own
+        # precision is told apart from "0.009") is itself acceptable.
+        figures = max(figures, significant_figure_count(shown[0]))
+    literal = _NUMERIC_LITERAL_RE.search(_number_text(given))
+    return literal is None or significant_figure_count(literal.group(0)) <= figures
+
+
 def _is_rounded_as_asked(question, given: str) -> bool:
     """Whether a typed number has been rounded the way the question asked.
 
@@ -403,7 +424,7 @@ def _is_rounded_as_asked(question, given: str) -> bool:
     """
     places = requested_rounding(getattr(question, "text", ""))
     if places is None:
-        return True
+        return _has_no_extra_figures(question, given)
     literal = _NUMERIC_LITERAL_RE.search(_number_text(given))
     if literal is None:
         return True

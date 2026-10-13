@@ -3157,9 +3157,9 @@
 {"answer": "(1, 2, 3)", "id": "permutation-composition/easy/0/a3a62b2681ed", "text": "Let p = (2, 3, 1) and q = (3, 1, 2), where each tuple lists the images of 1, 2,…"}
 {"answer": "(1, 2, 3)", "id": "permutation-composition/easy/1/aa2e8b5f2de3", "text": "Let p = (3, 1, 2) and q = (2, 3, 1), where each tuple lists the images of 1, 2,…"}
 {"answer": "(3, 2, 1)", "id": "permutation-composition/easy/2/e15746bac428", "text": "Let p = (1, 2, 3) and q = (3, 2, 1), where each tuple lists the images of 1, 2,…"}
-{"answer": "(a) (5, 8, 2, 1, 7, 4, 6, 3); (b) 15; (c) 5", "id": "permutation-composition/exam/0/e0d82bedc008", "text": "Let p = (1, 8, 3, 6, 2, 7, 5, 4) and q = (7, 2, 5, 1, 6, 8, 4, 3) be permutatio…"}
-{"answer": "(a) (1, 4, 5, 7, 3, 2, 8, 6); (b) 10; (c) 2", "id": "permutation-composition/exam/1/eb69337a191f", "text": "Let p = (5, 1, 6, 2, 8, 7, 4, 3) and q = (2, 7, 1, 6, 8, 4, 5, 3) be permutatio…"}
-{"answer": "(a) (6, 1, 2, 5, 8, 7, 3, 4); (b) 15; (c) 6", "id": "permutation-composition/exam/2/197d53775bc0", "text": "The permutations p = (4, 2, 1, 7, 8, 3, 5, 6) and q = (8, 3, 2, 7, 5, 4, 6, 1) …"}
+{"answer": "(a) (5, 8, 2, 1, 7, 4, 6, 3); (b) 15; (c) 5", "id": "permutation-composition/exam/0/2ced42478a3d", "text": "Let p = (1, 8, 3, 6, 2, 7, 5, 4) and q = (7, 2, 5, 1, 6, 8, 4, 3) be permutatio…"}
+{"answer": "(a) (1, 4, 5, 7, 3, 2, 8, 6); (b) 10; (c) 2", "id": "permutation-composition/exam/1/96cc478b085c", "text": "Let p = (5, 1, 6, 2, 8, 7, 4, 3) and q = (2, 7, 1, 6, 8, 4, 5, 3) be permutatio…"}
+{"answer": "(a) (6, 1, 2, 5, 8, 7, 3, 4); (b) 15; (c) 6", "id": "permutation-composition/exam/2/73aff3236f82", "text": "The permutations p = (4, 2, 1, 7, 8, 3, 5, 6) and q = (8, 3, 2, 7, 5, 4, 6, 1) …"}
 {"answer": "(5, 1, 3, 2, 4)", "id": "permutation-composition/hard/0/2e6f4f0303ad", "text": "Let p = (4, 5, 2, 3, 1) and q = (2, 5, 4, 3, 1), where each tuple lists the ima…"}
 {"answer": "(3, 2, 4, 1, 5)", "id": "permutation-composition/hard/1/c9c106577a33", "text": "Let p = (5, 4, 3, 1, 2) and q = (3, 5, 2, 4, 1), where each tuple lists the ima…"}
 {"answer": "(2, 1, 4, 3, 5)", "id": "permutation-composition/hard/2/b2a51a241ce6", "text": "Let p = (3, 5, 2, 1, 4) and q = (3, 4, 5, 1, 2), where each tuple lists the ima…"}
@@ -7036,9 +7036,9 @@
 {"answer": "1/5, 1/5, 3/5", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/0/051d1b565599", "text": "Over 20 batches, the number of defective items in a sample batch (X) was record…"}
 {"answer": "5/28, 17/28, 3/14", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/1/b5bdee139b5b", "text": "Over 28 hours, the number of calls a helpdesk receives per hour (X) was recorde…"}
 {"answer": "9/32, 1/4, 15/32", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/2/3f6f84bb5483", "text": "Over 32 hours, the number of calls a helpdesk receives per hour (X) was recorde…"}
-{"answer": "(a) 23; (b) 5; (c) 18; (d) 1/8, 3/40, 1/8, 9/40, 9/20", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/0/06d4df059074", "text": "A random variable X is the number of goals scored by a team in a match. In a st…"}
-{"answer": "(a) 31; (b) 13; (c) 18; (d) 13/60, 7/30, 13/60, 3/10, 1/30", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/1/d5e328d5559a", "text": "A random variable X is the number of children in a household. In a study, 60 ho…"}
-{"answer": "(a) 20; (b) 5; (c) 15; (d) 1/10, 1/10, 13/50, 3/10, 6/25", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/2/bddb2437c7f3", "text": "A random variable X is the number of passengers in a car. In a study, 50 cars w…"}
+{"answer": "(a) 23; (b) 5; (c) 18; (d) 1/8, 3/40, 1/8, 9/40, 9/20", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/0/f59f4e23218c", "text": "A random variable X is the number of goals scored by a team in a match. In a st…"}
+{"answer": "(a) 31; (b) 13; (c) 18; (d) 13/60, 7/30, 13/60, 3/10, 1/30", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/1/9db6bd85bafa", "text": "A random variable X is the number of children in a household. In a study, 60 ho…"}
+{"answer": "(a) 20; (b) 5; (c) 15; (d) 1/10, 1/10, 13/50, 3/10, 6/25", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/2/766a0631219a", "text": "A random variable X is the number of passengers in a car. In a study, 50 cars w…"}
 {"answer": "2/17, 9/17, 2/17, 4/17", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/hard/0/2ca14a694760", "text": "Over 34 hours in total, the number of calls a helpdesk receives per hour (X) wa…"}
 {"answer": "19/64, 17/64, 11/64, 17/64", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/hard/1/c4d7fcfca1fa", "text": "Over 64 matches in total, the number of goals scored per match by a team (X) wa…"}
 {"answer": "20/53, 6/53, 16/53, 11/53", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/hard/2/77f199161591", "text": "Over 53 hours in total, the number of calls a helpdesk receives per hour (X) wa…"}
@@ -7447,9 +7447,9 @@
 {"answer": "1.134", "id": "significant-figures/easy/0/e2fc5ca0d3b0", "text": "Round 1.13352 to 4 significant figures."}
 {"answer": "75.41", "id": "significant-figures/easy/1/45c7c1cdd4b5", "text": "Round 75.40702 to 4 significant figures."}
 {"answer": "9.5", "id": "significant-figures/easy/2/3eb321053a53", "text": "Round 9.54269 to 2 significant figures."}
-{"answer": "(a) 2.56824; (b) 3; (c) 2.57", "id": "significant-figures/exam/0/12a15ef53335", "text": "A student measures a rectangular solar panel. Its length is 2.378 m and its wid…"}
-{"answer": "(a) 0.862814; (b) 3; (c) 0.863", "id": "significant-figures/exam/1/760f083cbaa3", "text": "A student measures a rectangular sheet of aluminium. Its length is 1.51 m and i…"}
-{"answer": "(a) 22.7012; (b) 2; (c) 23", "id": "significant-figures/exam/2/47c9654f2aaa", "text": "A student measures a rectangular sheet of aluminium. Its length is 5.974 m and …"}
+{"answer": "(a) 2.56824; (b) 3; (c) 2.57", "id": "significant-figures/exam/0/16f355aedf24", "text": "A student measures a rectangular solar panel. Its length is 2.378 m and its wid…"}
+{"answer": "(a) 0.862814; (b) 3; (c) 0.863", "id": "significant-figures/exam/1/2bc6ee747565", "text": "A student measures a rectangular sheet of aluminium. Its length is 1.51 m and i…"}
+{"answer": "(a) 22.7012; (b) 2; (c) 23", "id": "significant-figures/exam/2/c65d095be336", "text": "A student measures a rectangular sheet of aluminium. Its length is 5.974 m and …"}
 {"answer": "4300", "id": "significant-figures/hard/0/59f0a3e9a295", "text": "Round 4333 to 2 significant figures."}
 {"answer": "130000", "id": "significant-figures/hard/1/1d38552ffd05", "text": "Round 127826 to 2 significant figures."}
 {"answer": "296000", "id": "significant-figures/hard/2/fb172b54bc79", "text": "Round 295563 to 3 significant figures."}
