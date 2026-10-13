@@ -1817,7 +1817,7 @@
 {"answer": "trapezium", "id": "f10-polygon-classification/hard/1/f9387e700e53", "text": "Consider a quadrilateral where only one pair of opposite sides is parallel, and…"}
 {"answer": "rhombus", "id": "f10-polygon-classification/hard/2/34efe5b6c2e1", "text": "Consider a quadrilateral where both pairs of opposite sides are parallel, and a…"}
 {"answer": "isosceles, not right-angled", "id": "f10-polygon-classification/medium/0/9ab7224625db", "text": "A triangle's sides measure 30, 24 and 30 units and its angles measure 66, 48 an…"}
-{"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/26699e56ef56", "text": "The sides of a triangle are 7, 24 and 25 units, and the angles are 16, 74 and 9…"}
+{"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/a3af937f5190", "text": "The sides of a triangle are 21, 9 and 23 units, and the angles are 67, 23 and 9…"}
 {"answer": "isosceles right-angled", "id": "f10-polygon-classification/medium/2/ba8520182154", "text": "The sides of a triangle are 17, 17 and 24 units, and the angles are 45, 45 and …"}
 {"answer": "to the right of", "id": "f10-position-location-language/easy/0/27d2a238a7a4", "text": "Items are arranged on a shelf, listed from left to right: the book, the lamp, t…"}
 {"answer": "below", "id": "f10-position-location-language/easy/1/1495ee53034d", "text": "Boxes are stacked in this order, from top to bottom: the red box, the blue box,…"}
