@@ -79,6 +79,8 @@ jobs:
             # tests/test_ci_workflow.py fails if a Markdown file that a test, script, pyproject.toml or
             # MANIFEST.in names would be read as docs-only.
             other=$(printf '%s\n' "$changed" | grep -v -E '^([^/]+/)+[^/]+\.md$' || true)
+            # Markdown under plugins/ is code: the skills are instructions agents follow, and tests read them.
+            other="$other$(printf '%s\n' "$changed" | grep -E '^plugins/' || true)"
             # An empty diff is not "docs only" either: run everything.
             if [ -n "$changed" ] && [ -z "$other" ]; then code=false; fi
           fi
@@ -273,6 +275,8 @@ jobs:
             case "$name" in
               *.py|*.yaml|*.yml|*.md|*.txt|*.toml|*.in|*.cfg) ;;
               LICENSE|LICENSE-CONTENT|NOTICE|CODEOWNERS|Dockerfile|.dockerignore|.gitignore|.gitattributes|.gitleaksignore) ;;
+              # Agent Plugins manifests (plugins/, .claude-plugin/): these exact names only, never *.json
+              plugin.json|mcp.json|marketplace.json) ;;
               *) echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue ;;
             esac
             if [[ "$lower" =~ /(node_modules|bower_components|vendor|env|venv|virtualenv|lib|lib64)/ || "$lower" == *.dist-info/* ]]; then

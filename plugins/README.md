@@ -28,7 +28,7 @@ fetched from this repository's `main` branch, so it follows the latest code; a l
 /plugin install maths-engine-teacher@maths-engine
 ```
 
-Install whichever you need. Each directory also has a `.mcp.json` in Claude Code's format.
+Install whichever you need. Claude Code reads each plugin's server settings from `.claude-plugin/marketplace.json` at the repository root.
 
 **Other MCP clients.** Add the server by hand: see `docs/mcp.md`.
 

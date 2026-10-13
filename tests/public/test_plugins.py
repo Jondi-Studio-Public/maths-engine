@@ -86,15 +86,17 @@ def test_the_server_runs_in_the_plugins_role(name):
     assert seen["role"] == ROLE[name]
 
 
-@pytest.mark.parametrize("name", sorted(ROLE))
-def test_claude_code_config_launches_the_same_server(name):
-    portable = load(PLUGINS / name / "mcp.json")["mcpServers"]
-    claude = load(PLUGINS / name / ".mcp.json")["mcpServers"]
-    assert claude.keys() == portable.keys()
-    for key, server in portable.items():
-        other = claude[key]
-        assert other["command"] == server["command"]
-        assert [a.replace("${CLAUDE_PLUGIN_DATA}", "${PLUGIN_DATA}") for a in other["args"]] == server["args"]
+def test_claude_code_launches_the_same_servers():
+    """Claude Code reads its MCP config from the marketplace entry (it does not read mcp.json); the servers must be
+    the portable mcp.json's, with Claude Code's name for the data folder."""
+    entries = {p["name"]: p for p in load(ROOT / ".claude-plugin" / "marketplace.json")["plugins"]}
+    for name in ROLE:
+        portable = load(PLUGINS / name / "mcp.json")["mcpServers"]
+        claude = entries[name]["mcpServers"]
+        assert claude.keys() == portable.keys()
+        for key, server in portable.items():
+            assert claude[key]["command"] == server["command"]
+            assert [a.replace("${CLAUDE_PLUGIN_DATA}", "${PLUGIN_DATA}") for a in claude[key]["args"]] == server["args"]
 
 
 def test_claude_code_marketplace_lists_both_plugins():
@@ -136,7 +138,9 @@ def test_shared_skill_is_the_same_in_both_plugins():
 
 def test_tutor_skills_never_name_answer_flags():
     """The tutor's server has no `answers` or `reveal` parameter; its skills must not tell an agent to use one."""
-    for path in (PLUGINS / "maths-engine-tutor" / "skills").rglob("*.md"):
+    for path in (PLUGINS / "maths-engine-tutor" / "skills").rglob("*"):
+        if path.suffix != ".md":
+            continue
         text = path.read_text(encoding="utf-8")
         assert not re.search(r"answers\s*=\s*true|reveal\s*=\s*true|html-key|moodle|qti", text, re.IGNORECASE), path
 
@@ -144,7 +148,8 @@ def test_tutor_skills_never_name_answer_flags():
 def test_skills_name_only_tools_the_server_has():
     tools = {"engine_info", "find_skills", "get_skill", "make_questions", "get_question", "grade_answer"}
     tools.add("build_paper")
-    for path in PLUGINS.rglob("*.md"):
+    # Markdown under plugins/ counts as code in ci.yml's docs-only filter, so changing a skill runs this test.
+    for path in [p for p in PLUGINS.rglob("*") if p.suffix == ".md"]:
         for called in re.findall(r"`([a-z_]+)\(", path.read_text(encoding="utf-8")):
             assert called in tools, (path, called)
 

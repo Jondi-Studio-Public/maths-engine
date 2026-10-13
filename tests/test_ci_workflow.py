@@ -962,6 +962,16 @@ def test_a_document_that_a_test_script_or_config_names_is_never_docs_only(tmp_pa
     )
 
 
+@needs_shell
+def test_markdown_under_plugins_is_code_for_the_docs_only_filter(tmp_path):
+    """The plugins' skills are instructions agents follow, and tests/public/test_plugins.py reads every one of them."""
+    verdicts = _classify(tmp_path, ["plugins/maths-engine-tutor/skills/maths-tutoring/SKILL.md", "docs/server.md"])
+    assert verdicts == {
+        "plugins/maths-engine-tutor/skills/maths-tutoring/SKILL.md": "code=true",
+        "docs/server.md": "code=false",
+    }
+
+
 def _root_files() -> list[str]:
     try:
         done = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True)
