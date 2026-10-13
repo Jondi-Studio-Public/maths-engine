@@ -1,0 +1,72 @@
+id: f10-check-given-answer-reasonable
+name: Use an estimate to check a stated answer
+domain: primary-number
+year_level: ['3', '4', '5']
+naplan_domain: [number]
+description: Round to estimate a sum, difference or change, then decide whether a stated answer is reasonable, too high or
+  too low by comparing it with the estimate.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-multidigit-add-subtract-regroup
+answer: number
+sources:
+- topic: fr2b_check_reasonable
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_check_reasonable
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_check_reasonable
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-estimate-rounds-down-instead-of-to-nearest
+  description: Rounding every number down instead of to the nearest ten, hundred or dollar.
+- id: fr2b-estimate-rounds-only-one-number
+  description: Rounding one of the two numbers and using the other exactly.
+- id: fr2b-estimate-uses-the-wrong-operation
+  description: Adding where the question needs a subtraction, or subtracting where it needs an addition, when estimating.
+- id: fr2b-rejects-a-reasonable-answer
+  description: Calling an answer wrong because it is not exactly equal to the estimate, although it is close to it.
+- id: fr2b-thinks-an-estimate-cannot-check
+  description: Believing an estimate cannot be used to check an exact answer, so there is nothing to compare.
+- id: fr2b-estimate-rounds-to-the-wrong-place
+  description: Rounding to the nearest hundred when the nearest ten was asked for, or the reverse.
+- id: fr2b-accepts-an-answer-without-comparing
+  description: Accepting a stated answer as reasonable without comparing it with the estimate.
+- id: fr2b-compares-in-the-wrong-direction
+  description: Comparing the stated answer with the estimate and getting the direction wrong, calling a too-high answer too
+    low or the reverse.
+- id: fr2b-estimate-does-not-round
+  description: Working out the exact answer and giving that as the estimate, without rounding first.
+- id: fr2b-estimate-forgets-the-quantity
+  description: Estimating with the price of one item and not multiplying by the number of items.
+- id: fr2b-estimate-gives-the-cost-not-the-change
+  description: Giving the estimated cost of the items when the change from the note was asked for.
+difficulty_progression: 'Easy rounds two three-digit numbers to the nearest ten and judges a stated sum or difference. Medium
+  rounds four-digit numbers to the nearest hundred. Hard works in money: a number of items at a price with cents and the change
+  from a note, with the price rounded to the nearest dollar. In every tier the stated answer is either exactly right or wrong
+  by a slip that an estimate can catch.'
+tags:
+- acara-f10-v9
+- primary
+- estimation
+- reasonableness
+- ac9m3n05
+- ac9m4n07
+- ac9m5n08

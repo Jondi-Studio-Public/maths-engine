@@ -844,6 +844,12 @@ f10-chance-language-and-outcomes:
   sources:
   - topic: chance_outcome_classify
     module: mathgen/generators/p5d_chance_expectation_build.py
+f10-check-given-answer-reasonable:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_check_reasonable
+    module: mathgen/generators/fr2b_check_reasonable_build.py
 f10-circle-and-prism-duration-rates:
   domain: measurement
   status: active
@@ -1038,6 +1044,14 @@ f10-exact-approximate-repeated-calculation:
     module: mathgen/generators/p10e_exact_approx_repeated_calc_build.py
   - topic: exd_x_n3_unit_price_rounding
     module: mathgen/generators/exd_x_n3_unit_price_rounding.py
+f10-expanded-notation-decompose:
+  domain: secondary-number
+  status: active
+  sources:
+  - topic: fr2b_expanded_notation
+    module: mathgen/generators/fr2b_expanded_notation_build.py
+  - topic: exd_x_fr2b_expanded_notation
+    module: mathgen/generators/fr2b_expanded_notation_build.py
 f10-expanded-powers-ten:
   domain: secondary-number
   status: active
@@ -1096,6 +1110,12 @@ f10-fraction-compare-models:
   sources:
   - topic: fraction_compare_models
     module: mathgen/generators/fig3_fraction_model_build.py
+f10-fraction-decimal-links:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_fraction_decimal_links
+    module: mathgen/generators/fr2b_fraction_decimal_links_build.py
 f10-fraction-equivalence-numberline:
   domain: primary-number
   status: active
@@ -1162,6 +1182,12 @@ f10-integer-numberline-coordinates:
     module: mathgen/generators/primary_number_remainder_integer_build.py
   - topic: exd_x_pr7_signed_temperatures_order
     module: mathgen/generators/exd_x_pr7_signed_temperatures_order.py
+f10-integer-situations-number-line:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_integer_situations
+    module: mathgen/generators/fr2b_integer_situations_build.py
 f10-irregular-composite-area:
   domain: measurement
   status: active
@@ -1218,6 +1244,12 @@ f10-measurement-error-interpretation:
     module: mathgen/generators/p4a_instrument_error_build.py
   - topic: exd_x_m2_area_limits
     module: mathgen/generators/exd_x_m2_area_limits.py
+f10-mental-compensation-partition:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_mental_compensation
+    module: mathgen/generators/fr2b_mental_compensation_build.py
 f10-mental-mult-div-extension:
   domain: primary-number
   status: active
@@ -1232,6 +1264,12 @@ f10-metric-measure-instrument-estimate:
   sources:
   - topic: metric_measure_instrument_estimate
     module: mathgen/generators/p4a_instrument_error_build.py
+f10-mixed-numerals-number-line:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_mixed_numerals_number_line
+    module: mathgen/generators/fr2b_mixed_numerals_number_line_build.py
 f10-money-change-from-note:
   domain: early-foundations
   status: active
@@ -1326,6 +1364,12 @@ f10-number-represent-order-to-20:
   sources:
   - topic: order_to_twenty
     module: mathgen/generators/foundations_subitise_order_build.py
+f10-numerals-words-and-place-value:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_numerals_place_value
+    module: mathgen/generators/fr2b_numerals_place_value_build.py
 f10-odd-even-properties:
   domain: primary-number
   status: active
@@ -1758,6 +1802,12 @@ f10-volume-surface-area-prisms-cylinders:
     module: mathgen/generators/p5a_measurement_volume_decimal_build.py
   - topic: exd_x_m3_cylinder_tin_chain
     module: mathgen/generators/exd_x_m3_cylinder_tin_chain.py
+f10-written-division:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: fr2b_written_division
+    module: mathgen/generators/fr2b_written_division_build.py
 f2-read-a-picture-graph:
   domain: statistics-probability
   status: active
