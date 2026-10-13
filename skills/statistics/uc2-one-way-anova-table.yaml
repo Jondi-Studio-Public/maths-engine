@@ -1,0 +1,128 @@
+id: uc2-one-way-anova-table
+name: One-way ANOVA table
+domain: statistics
+year_level:
+- university
+description: "Build the pieces of a one-way analysis of variance table from group sizes, means and standard deviations or\
+  \ from raw observations: sums of squares, mean squares, the F statistic, the proportion explained, and a pooled confidence\
+  \ interval for a difference of group means."
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-one-sample-t-test
+- finite-distribution-variance
+answer: number
+sources:
+- topic: r4i_anova
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_anova
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_anova
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_anova
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-av-absolute-not-squared
+  description: Using the absolute deviations of the group means from the grand mean instead of their squares.
+- id: r4i-av-complement
+  description: Giving the proportion unexplained, SSW over SST, where the explained proportion was asked.
+- id: r4i-av-df-swapped
+  description: Swapping the degrees of freedom, dividing SSB by N - k and SSW by k - 1.
+- id: r4i-av-divided-by-df
+  description: Dividing a sum of squares by its degrees of freedom when the sum of squares itself was asked.
+- id: r4i-av-divided-by-k
+  description: Dividing by the number of groups k instead of k - 1 (or giving a mean square built on k).
+- id: r4i-av-doubled
+  description: Doubling the half-width, giving the full width of the interval.
+- id: r4i-av-equal-sizes-assumed
+  description: Using the first group size for both groups in 1/n1 + 1/n2.
+- id: r4i-av-f-inverted
+  description: Dividing the within-groups mean square by the between-groups mean square.
+- id: r4i-av-f-times-sst
+  description: Multiplying F by SST and dividing by k - 1, mixing up the roles in the F formula.
+- id: r4i-av-forgot-correction-term
+  description: Leaving out the correction term T squared over N when forming SSB from group totals.
+- id: r4i-av-forgot-df
+  description: Leaving out a degrees-of-freedom divisor (k - 1 or N - k).
+- id: r4i-av-forgot-group-size
+  description: Leaving out the group size n when summing squared deviations of group means.
+- id: r4i-av-forgot-square-root
+  description: 'Leaving out the square root: using the variance of the difference instead of its standard error.'
+- id: r4i-av-forgot-weights
+  description: Adding the group variances without weighting by their degrees of freedom.
+- id: r4i-av-gave-ssw
+  description: Giving SSW = SST - SSB where SSB was asked.
+- id: r4i-av-halved
+  description: Halving the correct value.
+- id: r4i-av-ignored-df
+  description: Ignoring the degrees of freedom, treating F as SSB over SSW.
+- id: r4i-av-mixed-ss-ms
+  description: Dividing SSB by SSB plus the within-groups mean square instead of by SST.
+- id: r4i-av-ms-not-ss
+  description: Using the mean squares in place of the sums of squares in the proportion SSB over SST.
+- id: r4i-av-n-for-n-minus-one
+  description: Using n in place of n - 1 when forming the within-groups sum of squares.
+- id: r4i-av-n-minus-one-for-n
+  description: Using n - 1 in place of n when weighting the squared deviations of the group means.
+- id: r4i-av-ratio-not-share
+  description: Giving SSB over SSW (a ratio of explained to unexplained) instead of the share SSB over SST.
+- id: r4i-av-sd-for-variance
+  description: Using standard deviations where variances belong in the sum of squares.
+- id: r4i-av-size-twice
+  description: Multiplying by the group size a second time.
+- id: r4i-av-ss-not-ms
+  description: Dividing the sums of squares directly, without first dividing by their degrees of freedom.
+- id: r4i-av-sst-over-df
+  description: Dividing SST by k - 1 and giving it as SSB.
+- id: r4i-av-ssw-for-msw
+  description: Multiplying by SSW where the mean square MSW (SSW over its degrees of freedom) belongs.
+- id: r4i-av-unweighted-grand-mean
+  description: "Taking the grand mean to be the plain average of the group means when the groups have different sizes."
+- id: r4i-av-unweighted-variances
+  description: Averaging the group variances without weighting by degrees of freedom.
+- id: r4i-av-wrong-centre
+  description: Measuring deviations from the first group mean instead of from the grand mean.
+- id: r4i-av-wrong-df
+  description: "Using the wrong degrees of freedom for the within-groups mean square (N, N - 1 or N - 2 instead of N - k)."
+- id: r4i-av-wrong-divisor-in-sum
+  description: Dividing the sum of squared totals by N instead of by the group size.
+- id: r4i-av-z-for-t
+  description: Using the normal value 1.96 where the stated t value belongs.
+- id: r4i-av-divided-by-total-n
+  description: Dividing the within-groups sum of squares by N instead of N - k.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Compute one table entry from group summaries: SSB with the (weighted) grand mean, or the pooled variance with\
+      \ N - k degrees of freedom."
+  medium:
+    steps: 4
+    demand: "Run the whole table from group sizes, means and standard deviations to an F statistic or the proportion of variation\
+      \ explained, or recover MSB from group totals using the correction term."
+  hard:
+    steps: 5
+    demand: "Start from raw observations, solve for a missing entry in a partly filled table, or use the pooled variance and\
+      \ a stated t value for a confidence interval on a difference of group means."
+tags:
+- university-year-2
+- statistics
+- anova
+- f-statistic
+- inference

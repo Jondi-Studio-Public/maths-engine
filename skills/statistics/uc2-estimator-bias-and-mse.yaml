@@ -1,0 +1,126 @@
+id: uc2-estimator-bias-and-mse
+name: Bias and mean squared error of estimators
+domain: statistics
+year_level:
+- university
+description: "Find the bias, variance and mean squared error of point estimators from their definitions: scaled and weighted\
+  \ sample means, divide-by-n variance estimators, the maximum of a uniform sample, and shrinkage estimators."
+status: active
+placement_eligible: false
+prerequisites:
+- finite-distribution-variance
+- ucv1-one-sample-t-test
+answer: fraction
+sources:
+- topic: r4i_estimator_bias_mse
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_estimator_bias_mse
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_estimator_bias_mse
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_estimator_bias_mse
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-bm-averaged
+  description: Dividing the bias by three, as if averaging the three weights.
+- id: r4i-bm-bias-not-squared
+  description: Adding the bias to the variance instead of the squared bias when forming the mean squared error.
+- id: r4i-bm-bias-sign-inside
+  description: Changing a sign inside the bias, so the squared bias is for a different estimator.
+- id: r4i-bm-bias-squared-only
+  description: Giving the squared bias alone as the mean squared error, leaving out the variance.
+- id: r4i-bm-claimed-unbiased
+  description: Calling the divide-by-n variance estimator unbiased, giving a bias of zero.
+- id: r4i-bm-complement
+  description: Giving 1 - c where c was asked.
+- id: r4i-bm-doubled
+  description: Doubling the correct ratio.
+- id: r4i-bm-expectation-for-bias
+  description: "Giving the expected value of the estimator where its bias (expectation minus the true value) was asked."
+- id: r4i-bm-forgot-multiplier
+  description: Leaving out the multiplier k, giving minus the mean over n + k.
+- id: r4i-bm-forgot-sample-size
+  description: "Leaving the sample size out of the variance of the sample mean, using sigma squared instead of sigma squared\
+    \ over n."
+- id: r4i-bm-forgot-to-divide
+  description: Giving the mean squared error of one estimator instead of the ratio of the two.
+- id: r4i-bm-inverted-ratio
+  description: "Inverting the factor in the expectation, giving (n + 1)/n times theta where n/(n + 1) times theta belongs."
+- id: r4i-bm-mean-not-squared
+  description: Using the mean instead of its square in the optimal shrinkage constant.
+- id: r4i-bm-midpoint-for-expectation
+  description: Taking the expected maximum to be the midpoint theta over 2, as for a single observation.
+- id: r4i-bm-moment-shifted
+  description: 'Shifting n by one in the moment of the maximum: using n - 1 or n + 2 where n + 1 belongs.'
+- id: r4i-bm-mse-of-other-estimator
+  description: "Giving the mean squared error of the other estimator (twice the sample mean) instead of the one asked."
+- id: r4i-bm-multiplier-not-squared
+  description: Using the multiplier a rather than a squared in the variance of a X-bar.
+- id: r4i-bm-n-for-n-minus-one
+  description: Using n instead of n - 1 in the variance of the sum of squares.
+- id: r4i-bm-ratio-inverted
+  description: Inverting the ratio of the two mean squared errors.
+- id: r4i-bm-rescaling-ignored
+  description: Giving the variance of the maximum itself, forgetting to scale it by the square of (n + 1)/n.
+- id: r4i-bm-rescaling-not-squared
+  description: Scaling the variance by (n + 1)/n instead of its square.
+- id: r4i-bm-sign-reversed
+  description: Subtracting in the wrong order, so the bias has the wrong sign.
+- id: r4i-bm-square-of-sum-weights
+  description: Using the square of the sum of the weights where the sum of their squares belongs in the variance.
+- id: r4i-bm-squared-denominator
+  description: Dividing by n squared instead of n in the bias.
+- id: r4i-bm-squared-weights
+  description: Using the sum of squared weights minus one as the bias instead of the sum of weights minus one.
+- id: r4i-bm-unbiased-assumed
+  description: Treating the estimator as unbiased and giving only a rescaled variance.
+- id: r4i-bm-variance-denominator-not-squared
+  description: Dividing the variance of the sum by n + 2 instead of (n + 2) squared.
+- id: r4i-bm-variance-instead-of-mse
+  description: Dividing by the variance of the maximum instead of by its mean squared error.
+- id: r4i-bm-variance-of-mean-used
+  description: "Using the variance of the sample mean (lambda over n) where the variance of the shrunk estimator belongs."
+- id: r4i-bm-variance-of-other-estimator
+  description: Giving the variance of the other estimator, twice the sample mean, instead of the one asked.
+- id: r4i-bm-variance-only
+  description: Giving the variance alone as the mean squared error, leaving out the squared bias.
+- id: r4i-bm-variance-squared
+  description: Squaring the variance term inside the shrinkage constant.
+- id: r4i-bm-wrong-denominator
+  description: Dividing by n (or n - 1, or n + 2) where n + k (or n + 1) belongs.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Take the expectation of a stated estimator and subtract the true value to get the bias, including the divide-by-n\
+      \ variance estimator."
+  medium:
+    steps: 4
+    demand: "Build the mean squared error as variance plus squared bias for a linear or weighted estimator, or for a multiple\
+      \ of the sum of squares using the stated variance of the chi-square quantity."
+  hard:
+    steps: 5
+    demand: "Integrate the density of a sample maximum to get its bias, variance and MSE, rescale to remove bias, or minimise\
+      \ the MSE over a constant, or find the MSE of a shrunk Poisson estimator."
+tags:
+- university-year-2
+- statistics
+- estimation
+- bias
+- mean-squared-error
