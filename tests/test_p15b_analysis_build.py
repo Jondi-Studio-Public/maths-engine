@@ -146,6 +146,9 @@ def test_skill_loads_through_api_with_correct_properties():
     assert SKILL.status == "active"
     assert SKILL.placement_eligible is False
     assert SKILL.answer == "mcq"
-    assert SKILL.prerequisites == []
+    assert SKILL.prerequisites == [
+        "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty",
+        "limit-at-infinity",
+    ]
     assert {src.difficulty for src in SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert SOURCES["exam"].stages == ["exam"]

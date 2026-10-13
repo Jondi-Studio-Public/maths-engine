@@ -246,7 +246,10 @@ def test_independence_skill_loads_correctly():
     assert skill is not None
     assert skill.domain == "statistics-probability"
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-review-the-rules-p-left-overline-a-right",
+        "f10-conditional-probability-language",
+    ]
     assert skill.placement_eligible is False
 
 

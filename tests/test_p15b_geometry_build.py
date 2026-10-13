@@ -122,7 +122,7 @@ def test_fgm_skill_loads_through_api_with_correct_properties():
     assert FGM_SKILL.status == "active"
     assert FGM_SKILL.placement_eligible is False
     assert FGM_SKILL.answer == "mcq"
-    assert FGM_SKILL.prerequisites == []
+    assert FGM_SKILL.prerequisites == ["ucv1-topology-basis-membership", "integer-arithmetic"]
     assert {src.difficulty for src in FGM_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert FGM_SOURCES["exam"].stages == ["exam"]
 
@@ -220,6 +220,6 @@ def test_hom_skill_loads_through_api_with_correct_properties():
     assert HOM_SKILL.status == "active"
     assert HOM_SKILL.placement_eligible is False
     assert HOM_SKILL.answer == "ordered_list"
-    assert HOM_SKILL.prerequisites == []
+    assert HOM_SKILL.prerequisites == ["matrix-rank-small", "matrix-multiplication"]
     assert {src.difficulty for src in HOM_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert HOM_SOURCES["exam"].stages == ["exam"]

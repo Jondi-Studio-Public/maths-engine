@@ -5,27 +5,20 @@ description: Substitute term positions into a rule to generate sequence values.
 status: active
 prerequisites:
 - apply-a-rule-to-inputs
-- arithmetic-sequences
 answer: number
 sources:
-- topic: function_evaluation
-  params:
-    a_lo: 0
+- topic: sequence_term_from_rule
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: function_evaluation
-  params:
-    a_lo: 0
+- topic: sequence_term_from_rule
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: function_evaluation
-  params:
-    a_lo: 0
+- topic: sequence_term_from_rule
   difficulty: hard
   stages:
   - 5
@@ -37,8 +30,13 @@ sources:
   stages:
   - exam
 misconceptions:
-- id: misconception-1
+- id: explicit-rule-applied-to-previous-term
   description: Using the previous term when the rule is explicit
-- id: misconception-2
+- id: term-position-off-by-one
   description: Starting term position at zero without being told
 tags: []
+difficulty_progression:
+  easy: {steps: 1, demand: "Substitute a small position into an explicit rule t(n) = a n + b (n = 1 is the first term): one multiplication and one addition give the term."}
+  medium: {steps: 2, demand: "Substitute into an explicit rule that needs the order of operations, either a square (t(n) = a n^2 + b n + c) or a negative coefficient (t(n) = c - a n), so the power or product is done before the sum or difference."}
+  hard: {steps: 3, demand: "The rule is recursive, t(1) = p and t(n + 1) = r t(n) + d, so t(4) or t(5) cannot be found by substitution: the learner applies the rule k - 1 times (at least 3), carrying each new term into the next step."}
+  exam: {steps: 3, demand: "Find a term when no single-term rule is given: from the sum of the first n terms (S(k) - S(k - 1)), from a rule that needs the previous two terms, or by iterating a first-order rule with signed multipliers."}

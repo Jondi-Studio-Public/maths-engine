@@ -131,7 +131,7 @@ def test_skill_loads_with_expected_shape():
     _, skills = load_skills()
     by_id = {s.id: s for s in skills}
     skill = by_id["senior-find-the-line-of-best-fit-by-eye"]
-    assert skill.prerequisites == ["simple-event-probability"]
+    assert skill.prerequisites == ["simple-event-probability", "senior-identify-the-dependent-and-independent-variable"]
     assert skill.answer == "mcq"
     assert skill.placement_eligible is False
     assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}

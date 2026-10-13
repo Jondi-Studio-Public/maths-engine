@@ -6,7 +6,9 @@ domain: functions-sequences
 description: Given a geometric sequence's first term and common ratio r, classify the limiting behaviour of the sequence as n tends to infinity as converging to zero, diverging to infinity, or neither (oscillating/no limit). The first term is always stated positive to keep "diverges to +infinity" unambiguous. r is given directly (easy), inferred from the first few terms (medium), read from an explicit or recursive rule with r close in magnitude to 1 (hard), or recovered from two non-consecutive terms via r^3 = t5/t2 (exam). Distinct from limit-at-infinity (domain limits), which evaluates the limit of a stated rational function of a continuous variable x, never a discrete geometric sequence's term-by-term limit; from senior-use-recursion-to-generate-a-geometric-sequence, which generates further terms rather than classifying long-term behaviour; and from senior-use-geometric-sequences-in-contexts-involving-geometric-growth, which models a growth context rather than classifying the limit as n tends to infinity.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-recursion-to-generate-a-geometric-sequence
+- senior-use-the-formula-t-n-r-n-1
 answer: mcq
 sources:
 - topic: p19e_geometric_limit_class

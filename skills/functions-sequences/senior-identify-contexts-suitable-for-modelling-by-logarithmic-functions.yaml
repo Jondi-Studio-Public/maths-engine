@@ -7,7 +7,9 @@ domain: functions-sequences
 description: 'Given a stated practical scenario modelled by a fully specified logarithmic function, compute the requested numeric value (the input at which the modelled quantity reaches a stated level). The model is fully specified on every tier -- no tier fits a parameter from a data point -- and every tier SOLVES for the input, never evaluates the model at a stated input (that is the sibling skill senior-identify-contexts-suitable-for-modelling-by-exponential-functions). easy solves y = a log10(x) + b for x; medium uses a natural-log model with a negative or fractional coefficient; hard shifts the input inside the log (log10(t + c)); exam solves for the input at two stated target levels and reports the gap between them. Distinct from senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and, which solves a bare log_b(ax+c) = k for an EXACT algebraic x with an integer base 2..10 and no practical context, and from senior-define-logarithms-as-indices-a-x-b-is, which assesses the bare definitional equivalence a^x = b for stated integer powers.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-define-logarithms-as-indices-a-x-b-is
+- senior-identify-contexts-suitable-for-modelling-by-exponential-functions
 answer: number
 sources:
 - topic: p19e_log_model_solve_input

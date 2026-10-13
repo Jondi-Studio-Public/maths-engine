@@ -5,7 +5,9 @@ year_level: [university]
 description: For a supplied finite relation between two stated sets, identify one of its domain, codomain, quantifier scope, or whether it is a function.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-the-quantifiers-for-all-and-there-exists
+- finite-set-operations
 answer: mcq
 sources:
 - topic: p15a_definition_quantifier_check

@@ -287,7 +287,7 @@ def test_skill_a_loads_with_expected_shape():
     assert skill.answer == "fraction"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["fraction-arithmetic", "ratio-rate-proportion"]
     assert {source.topic for source in skill.sources} == {TOPIC_A}
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert [source.stages for source in skill.sources][-1] == ["exam"]

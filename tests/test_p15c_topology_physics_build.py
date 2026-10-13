@@ -137,7 +137,7 @@ def test_topology_skill_loads_through_api_with_correct_properties():
     assert TOPOLOGY_SKILL.status == "active"
     assert TOPOLOGY_SKILL.placement_eligible is False
     assert TOPOLOGY_SKILL.answer == "mcq"
-    assert TOPOLOGY_SKILL.prerequisites == []
+    assert TOPOLOGY_SKILL.prerequisites == ["finite-set-operations"]
     assert {src.difficulty for src in TOPOLOGY_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert TOPOLOGY_SOURCES["exam"].stages == ["exam"]
 
@@ -243,6 +243,9 @@ def test_symmetry_skill_loads_through_api_with_correct_properties():
     assert SYMMETRY_SKILL.status == "active"
     assert SYMMETRY_SKILL.placement_eligible is False
     assert SYMMETRY_SKILL.answer == "mcq"
-    assert SYMMETRY_SKILL.prerequisites == []
+    assert SYMMETRY_SKILL.prerequisites == [
+        "ucv1-energy-conservation-check",
+        "senior-examine-momentum-force-resultant-force-action-and-reaction",
+    ]
     assert {src.difficulty for src in SYMMETRY_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert SYMMETRY_SOURCES["exam"].stages == ["exam"]

@@ -138,5 +138,5 @@ def test_skill_loads_through_api_with_correct_properties():
     assert skill.status == "active"
     assert skill.placement_eligible is False
     assert skill.answer == "pair"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["function-notation", "rate-of-change"]
     assert {src.difficulty for src in skill.sources} == {"easy", "medium", "hard", "exam"}
