@@ -16831,6 +16831,478 @@ _ENTRIES = (
         area="abstract-algebra",
     ),
     # --- end r4c ---
+    # -- r4e (senior calculus and functions batch) ----
+    CatalogueEntry(
+        "simpson-trapezoidal-weights",
+        "Applying the trapezium rule's weights 1, 2, 2, ..., 2, 1 (and h/2) when the question asks for Simpson's rule.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-weights-swapped",
+        "Putting the weight 4 on the even-numbered ordinates and 2 on the odd-numbered ones, instead of 4 on the odd and 2 on the even.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-all-inner-weight-4",
+        "Giving every inner ordinate the weight 4, forgetting that the weights alternate 4, 2, 4, ...",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-wrong-multiplier",
+        "Multiplying the weighted sum by h/2 (or another factor) instead of h/3.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-strips-counted-as-ordinates",
+        "Counting the n + 1 ordinates as the number of strips, so the strip width is the interval length divided by n + 1.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-uses-interval-length-as-h",
+        "Using the whole interval length as the strip width h in Simpson's formula.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-missing-ordinate-weight",
+        "Dividing by the wrong weight when solving for an unknown ordinate (4 where it is 2, or not dividing by the weight at all).",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "error-sign-not-absolute",
+        "Giving a signed difference (estimate minus exact) when the absolute error was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "reports-estimate-not-error",
+        "Reporting the estimate itself when the question asks for the error of the estimate.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-at-n-equals-one",
+        "Reading the value of the sum at n = 1 (adding the coefficients) instead of the value it approaches as n grows.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-keeps-lower-order-terms",
+        "Keeping the terms in 1/n as well as the constant term when taking the limit of a Riemann sum as n grows.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-ignores-denominator-coefficient",
+        "Taking the leading numerator coefficient as the limit without dividing by the leading coefficient of the denominator.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-takes-wrong-order-coefficient",
+        "Taking the coefficient of the 1/n term as the limit of the sum instead of the constant term.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-drops-lower-limit",
+        "Reading a sum with sample points a + ci/n as an integral from 0 to c, ignoring the starting point a.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-width-as-upper-limit",
+        "Reading the width c in the sample points a + ci/n as the upper limit of the integral, so the interval runs from a to c.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-width-taken-as-one-over-n",
+        "Taking the strip width as 1/n and so integrating over an interval of length 1 instead of c.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-n-from-error-bound",
+        "Using the crude bound (b - a)(f(b) - f(a))/n on the error and so finding a larger n than the least one that works.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-n-drops-smaller-terms",
+        "Keeping only the 1/n term of the error of a Riemann sum and dropping the 1/n^2 term, so the n found is not the least one.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-n-off-by-one-at-threshold",
+        "Giving the n just below or just above the least one that meets the tolerance (misreading strictly less than at the boundary).",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-sum-formula-drops-linear-term",
+        "Leaving the linear term out when summing the rectangle areas with the formulas for the sums of i and i squared.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-sum-formula-uses-difference-of-ends",
+        "Using the crude estimate (b - a)(f(b) - f(a)) in place of the 1/n coefficient of the sum.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-sum-formula-halves-twice",
+        "Halving the coefficient again when expanding n(n + 1)(2n + 1)/6 and n(n + 1)/2, so the 1/n coefficient comes out half the size.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-drops-constant-term",
+        "Leaving the constant term of f out of the limit of the Riemann sum, so the area of the rectangle strip under the line y = r is missed.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-left-right-sign",
+        "Using the sign pattern of the left-endpoint error (B/n - C/n^2) for a right-endpoint sum.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-value-as-rate",
+        "Giving the value of the integrand f at the upper limit when the value of the accumulated integral F was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-ignores-lower-limit",
+        "Evaluating the antiderivative at the upper limit only, as if the integral started at 0, instead of subtracting its value at the lower limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-limits-reversed",
+        "Subtracting the antiderivative in the wrong order, so the accumulated value has the wrong sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-rectangle-for-integral",
+        "Estimating an accumulated change as the end value of the rate times the width of the interval.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-derivative-one-short",
+        "Stopping one derivative short: giving F'(c) = f(c) when F''(c) was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-derivative-too-many",
+        "Differentiating the integrand one time too many when finding the derivative of the accumulation function.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-derivative-subtracts-lower-limit",
+        "Treating F'(x) as f(x) - f(a), as if the fundamental theorem subtracted the integrand at the lower limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-differentiates-integrand",
+        "Differentiating the integrand f to find F', instead of recognising that F' is f itself.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-min-taken-for-max",
+        "Giving the stationary point where F has a local minimum (f changes from negative to positive) when the local maximum was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-max-of-integrand",
+        "Taking the x-value where f itself is greatest (its vertex) for the x-value where F is greatest.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-lower-limit-as-stationary-point",
+        "Giving the lower limit of the integral as the point where F has its extreme value.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-chain-rule-forgotten",
+        "Differentiating an integral whose upper limit is g(x) as f(g(x)) and leaving out the factor g'(x).",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-upper-limit-not-substituted",
+        "Substituting x into f instead of the upper limit g(x) when differentiating an integral with a function of x as its upper limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-chain-rule-wrong-factor",
+        "Multiplying f(g(x)) by g(x) instead of by g'(x) when differentiating an integral with a variable upper limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-increasing-decreasing-swapped",
+        "Giving the intervals where F is decreasing (f negative) when the intervals where F is increasing were asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-ignores-second-root",
+        "Finding the interval of increase from the first root of f only, as if f stayed positive after it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "curve-increasing-decreasing-swapped",
+        "Giving the intervals where f is decreasing (f' negative) when increasing was asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-drops-one-interval",
+        "Giving only one of the two intervals on which the derivative has the required sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-includes-stationary-points",
+        "Writing the intervals with closed endpoints, including the stationary points where f' is zero, when open intervals were asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-root-sign-error",
+        "Reading the roots of a factor (x + a) or of an equation with the wrong sign, so every endpoint is reflected.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-splits-at-inflexion-stationary-point",
+        "Breaking an interval of increase (or decrease) at a stationary point where f' touches zero but does not change sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-ignores-squared-factor-interval",
+        "Dropping the part of the answer beyond a squared factor of f', as if f' changed sign there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-root-order-confused",
+        "Taking the roots of f' in the wrong order when writing the intervals.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-concave-up-down-swapped",
+        "Giving the intervals where the graph is concave down when concave up was asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-concavity-from-first-derivative",
+        "Reading concavity from the sign of f' instead of the sign of f''.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-vertex-without-halving",
+        "Solving f''(x) = 0 for a quadratic f' and leaving out the factor 2, so the point of inflection is twice too far (or the sum of the roots instead of their mean).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-only-first-condition",
+        "Answering with the intervals for the first stated condition only and ignoring the other.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-only-second-condition",
+        "Answering with the intervals for the second stated condition only and ignoring the first.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-second-derivative-for-stationary",
+        "Solving f''(x) = 0 when the stationary points (f'(x) = 0) were asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-inflection-listed-as-stationary",
+        "Listing the point of inflection with the stationary points because f'' is zero there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-stationary-value-for-inflection",
+        "Giving the y-value at a stationary point instead of at the point of inflection.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-constant-term-for-value",
+        "Reading the constant term of f(x) as the value at the point of inflection.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "hybrid-wrong-rule",
+        "Using the rule for a different interval of a hybrid function than the one the input belongs to.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-boundary-point-in-wrong-piece",
+        "Using the rule on the other side of a join when the input equals the join, ignoring whether the inequality is strict.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-forgets-parameter",
+        "Leaving the unknown constant out when evaluating a rule that contains it.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-sign-error",
+        "Making a sign slip when equating the two rules at the join, so the constant has the wrong value.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-forgets-constant",
+        "Leaving a constant term of one rule out when equating the two rules at the join.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-forgets-square",
+        "Leaving the squared term out when evaluating a quadratic rule at the join.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-subtraction-reversed",
+        "Subtracting in the wrong order when solving for the constant that joins two rules, giving its negative.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-matches-derivatives",
+        "Equating the gradients of the two rules at the join, instead of their values, to make the function continuous.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-parameter-sign-slip",
+        "Dropping the sign of a negative parameter term in one rule when equating the two rules at the join.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-collects-k-one-side-only",
+        "Collecting the unknown constant on one side only when it appears in both rules, so the equation is solved for the wrong value.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-reports-one-constant",
+        "Reporting one of two constants found from the joins when their sum was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-combines-constants-wrongly",
+        "Subtracting the two constants found from the joins when their sum was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-joins-at-wrong-point",
+        "Evaluating a rule at the wrong join, using the other boundary value of x.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-domain-endpoint-open-closed",
+        "Writing an open endpoint (x < b) for the domain when the last rule includes x = b, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-domain-first-rule-only",
+        "Giving the interval of the first rule only as the domain of a hybrid function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-domain-last-rule-only",
+        "Giving the interval of the last rule only as the domain of a hybrid function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-range-vertex-misplaced",
+        "Taking the lowest value of a parabola piece to be at its vertex when the vertex lies outside that piece's interval, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-range-endpoint-open-closed",
+        "Writing a strict inequality for the range when the lowest value is actually reached, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-range-last-rule-only",
+        "Giving the range of the last rule only as the range of a hybrid function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-power",
+        "Taking only the q-th root for x^(p/q) and leaving out the power p.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-root",
+        "Raising to the power p for x^(p/q) and leaving out the q-th root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-divides-instead-of-roots",
+        "Reading the index p/q as a division of x^p by q instead of as a q-th root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-reciprocal-confused",
+        "Giving the reciprocal of the value of a power with a negative rational index (or the reverse).",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-range-confused",
+        "Giving the vertical shift k as the least x in the domain of (x - h)^(p/q) + k, or the horizontal shift h as the least value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-translation-sign",
+        "Reading the shift in (x - h) or + k with the wrong sign when finding the least x or least value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-translation-combined",
+        "Adding the horizontal and vertical shifts of a translated power function to find the least x or least value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-translation",
+        "Giving 0 as the least x or least value of a translated power function, as if it were not shifted.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-the-index",
+        "Solving a x^(p/q) = c by dividing out a but not undoing the index, so x = c/a.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-solves-for-the-value",
+        "Stopping at the value of x^(p/q) and giving it as the value of x.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-multiplier-not-divided",
+        "Not dividing by the multiplier a when solving a x^(p/q) = c.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-not-inverted",
+        "Raising both sides to the power p/q when q/p was needed to undo the index.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-root-not-undone",
+        "Dividing out a common power but not raising both sides to the power that undoes the remaining root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-inverted-the-wrong-way",
+        "Taking the n-th root where raising to the n-th power was needed, when undoing a root of x.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-power-too-high",
+        "Raising to a power one higher than needed when undoing a root of x.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-root-parity",
+        "Giving the wrong domain for x^(p/q): x ≥ 0 when the root is odd, or all real numbers when it is even.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-endpoint-open-closed",
+        "Writing x > 0 for the domain of a power function with an even root, though x = 0 is included.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-reversed",
+        "Giving x ≤ 0 as the domain of a power function with a positive index.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-multiplier-added",
+        "Adding the multiplier a to the power instead of multiplying by it.",
+        area="algebra",
+    ),
+    # -- end r4e ----
 )
 
 #: Every entry, by id.
