@@ -136,9 +136,13 @@ def test_multi_part_question(skills):
     assert all("answer" not in p and "working" not in p for p in hidden["parts"])
 
 
-def test_no_python_notation_or_broken_delimiters_anywhere(skills):
+CHUNKS = 8  # the library sweep is split so pytest-xdist can share it
+
+
+@pytest.mark.parametrize("chunk", range(CHUNKS))
+def test_no_python_notation_or_broken_delimiters_anywhere(skills, chunk):
     """Across the library: no `x**2` reaches a learner, and every tex string has balanced delimiters."""
-    for skill in skills.values():
+    for skill in sorted(skills.values(), key=lambda s: s.id)[chunk::CHUNKS]:
         for i, _ in enumerate(skill.sources):
             try:
                 q = engine.make_for_skill(skill, 1, source=i)

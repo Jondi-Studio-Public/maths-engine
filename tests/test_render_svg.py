@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import collections
 import re
 import xml.etree.ElementTree as ET
 
@@ -20,12 +19,13 @@ _NUMERIC = re.compile(r"^[−-]?(\d+(\.\d+)?)?(π)?(/\d+)?$")
 _CAPTIONS = ("P = ", "Unit: ")
 
 
-@pytest.fixture(scope="session")
-def specs_by_kind():
-    """Every figure the active skills draw, a few seeds each, grouped by kind."""
+CHUNKS = 8  # the generated-figure sweep is split so pytest-xdist can share it
+
+
+def _generated_figures(chunk):
+    """Every figure one slice of the active skills draws, a few seeds each."""
     _, skills = engine.load_skills()
-    out = collections.defaultdict(list)
-    for skill in skills:
+    for skill in sorted(skills, key=lambda s: s.id)[chunk::CHUNKS]:
         for i, _src in enumerate(skill.sources):
             try:
                 first = engine.make_for_skill(skill, 1, source=i)
@@ -36,20 +36,16 @@ def specs_by_kind():
             for seed in SEEDS:
                 q = first if seed == 1 else engine.make_for_skill(skill, seed, source=i)
                 if q.figure:
-                    out[q.figure["kind"]].append((f"{skill.id}[{i}]@{seed}", q.figure))
-    return out
+                    yield f"{skill.id}[{i}]@{seed}", q.figure
 
 
 def test_every_figure_kind_has_a_renderer():
     assert set(figures.kinds()) <= set(renderable_kinds())
 
 
-@pytest.mark.parametrize("kind", sorted(figures.kinds()))
-def test_renders_every_generated_figure(kind, specs_by_kind):
-    specs = specs_by_kind.get(kind, [])
-    if not specs:
-        pytest.skip(f"no active skill draws a {kind} figure")
-    for where, spec in specs:
+@pytest.mark.parametrize("chunk", range(CHUNKS))
+def test_renders_every_generated_figure(chunk):
+    for where, spec in _generated_figures(chunk):
         svg = figure_svg(spec)
         try:
             root = ET.fromstring(svg)
@@ -72,8 +68,9 @@ def test_renders_every_generated_figure(kind, specs_by_kind):
         assert figure_svg(spec) == svg, f"{where}: not deterministic"
 
 
-def test_ids_are_unique_between_two_figures(specs_by_kind):
-    a, b = specs_by_kind["cartesian"][0][1], specs_by_kind["cartesian"][1][1]
+def test_ids_are_unique_between_two_figures():
+    a = figures.number_line(range_=(0, 10), alt="a number line", marks=[{"at": 3}])
+    b = figures.number_line(range_=(0, 10), alt="a number line", marks=[{"at": 4}])
     ids_a = set(re.findall(r'id="([^"]+)"', figure_svg(a)))
     ids_b = set(re.findall(r'id="([^"]+)"', figure_svg(b)))
     assert ids_a and not ids_a & ids_b
