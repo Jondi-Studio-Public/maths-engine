@@ -26,6 +26,7 @@ sources:
   - 4
 - topic: sine_rule_angle
   difficulty: medium
+  key: angle
   stages:
   - 3
   - 4
@@ -40,12 +41,14 @@ sources:
   - maintenance
 - topic: sine_rule_ambiguous
   difficulty: hard
+  key: ambiguous
   stages:
   - 5
   - 6
   - maintenance
 - topic: sine_rule_solve
   difficulty: hard
+  key: solve
   stages:
   - 5
   - 6

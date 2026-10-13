@@ -1,12 +1,15 @@
 """Answer quality: distractor counts, stated precision, fractions in lowest terms.
 
-Part of the generator sweep, split across `tests/test_mathgen_*.py` so the CI
-shards can balance it (`scripts/ci_shard.py` balances files by size). Verification
+Part of the generator sweep (`tests/test_mathgen_*.py`). Verification
 is built into the generators themselves (each independently re-checks its
 answer with SymPy and raises VerificationError on mismatch), so constructing
 thousands of questions IS the correctness test; the assertions here cover the
 output contract on top of that. Set `MATHS_DEEP_SEEDS` for a deeper run of the
 text checks.
+
+The per-topic checks here (`check_*`) take the questions already built, and
+`tests/mathgen_sweep_cases.py` builds each topic's grid once and runs every check
+on it, so a topic is generated once instead of once per check.
 """
 
 import math
@@ -16,7 +19,7 @@ import pytest
 
 from mathgen import make, topics
 from mathgen.core import PRESETS, REGISTRY
-from tests.mathgen_sweep_support import TEXT_SEEDS
+from tests.mathgen_sweep_support import take, TEXT_SEEDS
 from mathgen.text_quality import requested_rounding
 
 TOPICS = [t for _lvl, t in topics()]
@@ -30,7 +33,7 @@ BUILD_TOPICS = sorted(t for t, (_lvl, fn) in REGISTRY.items() if fn.__module__.r
 # -- "the other label" -- by design, e.g. odd/even parity prediction) can
 # never reach the >=2-distractor threshold below; a strict binary answer
 # space has only one possible wrong option, ever. They are still covered by
-# test_distractors_are_valid (test_mathgen_contract.py) (no collision/duplication) and by their
+# check_distractors_are_valid (test_mathgen_contract.py) (no collision/duplication) and by their
 # own generator-specific tests.
 GENUINE_TWO_OPTION_TOPICS = {
     "odd_even_properties",
@@ -54,19 +57,26 @@ def test_multi_option_classifications_are_not_registered_as_two_option():
     assert not NEVER_TWO_OPTION_TOPICS & GENUINE_TWO_OPTION_TOPICS
 
 
-@pytest.mark.parametrize("topic", TOPICS)
-def test_all_topics_usually_have_enough_distractors(topic):
+def enough_distractor_seeds(topic):
+    return 60 if topic == "differential_equation" else 100
+
+
+def check_all_topics_usually_have_enough_distractors(topic, questions):
+    """`questions`: `make(topic, seed=s)` for s in range(n), n >= `enough_distractor_seeds(topic)`.
+
+    Not run for the topics skipped below (genuine two-option, rubric-assessed).
+    """
     if topic in GENUINE_TWO_OPTION_TOPICS:
-        pytest.skip("genuine 2-option mcq classification: exactly 1 distractor by design")
-    probe = make(topic, seed=0)
+        return  # genuine 2-option mcq classification: exactly 1 distractor by design
+    probe = questions[0]
     if isinstance(probe.answer, dict) and "checks" in probe.answer:
         # `answer: rubric` (skills/README.md): the answer is a marking block
         # for a free-entry proof, marked by rubric, never offered as options.
-        pytest.skip("rubric-assessed: no options by design")
+        return
     # Every topic now emits misconception distractors. Candidates can collide
     # with the answer for some parameters (that's expected and filtered); but
     # across seeds, most questions should keep at least 2 usable distractors.
-    n = 60 if topic == "differential_equation" else 100
+    n = enough_distractor_seeds(topic)
 
     # A multi-part question has no top-level options: each part offers its own, so count those instead. A part
     # answered yes or no is a genuine two-option classification, like the topics above, so it is left out.
@@ -77,7 +87,7 @@ def test_all_topics_usually_have_enough_distractors(topic):
         min((len(part.distractors) for part in question.parts if _offers(part)), default=2)
         if question.parts
         else len(question.distractors)
-        for question in (make(topic, seed=s) for s in range(n))
+        for question in take(questions, n)
     ]
     assert sum(1 for c in counts if c >= 2) / n >= 0.85
 
@@ -121,18 +131,18 @@ def test_asked_values_drops_labels_and_counts_only():
     assert _asked_values("0.25 or 1.5") == "0.25 or 1.5"
 
 
-@pytest.mark.parametrize("topic", BUILD_TOPICS)
-def test_answer_honours_its_own_stated_precision(topic):
+def check_answer_honours_its_own_stated_precision(topic, grid):
     """An answer asked for to N decimal places is shown to N decimal places.
 
     Every number in `answer_text` is checked, so pair and list answers count
     too: the generator this caught rendered `x = 0.2, y = 2` because its
     formatter used ":g", which strips the trailing zero that carries the
     stated precision.
+
+    `grid`: `{difficulty: [make(topic, seed=s, difficulty=difficulty) ...]}`, a tier per preset and None.
     """
-    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
-        for seed in range(TEXT_SEEDS):
-            question = make(topic, seed=seed, difficulty=difficulty)
+    for difficulty, questions in grid.items():
+        for seed, question in enumerate(take(questions, TEXT_SEEDS)):
             # A multi-part question states its precision in each part's prompt and answers each part
             # separately, so pair every part's prompt with its own answer.
             asked = [(p.prompt, p.answer_text) for p in question.parts] or [(question.text, question.answer_text)]
@@ -220,8 +230,7 @@ def test_exempt_topics_really_do_ask_for_an_unsimplified_form(topic):
     )
 
 
-@pytest.mark.parametrize("topic", BUILD_TOPICS)
-def test_fractions_are_in_lowest_terms(topic):
+def check_fractions_are_in_lowest_terms(topic, grid):
     """No option is a fraction the learner would never write.
 
     `grade_fraction` compares by value, so an unsimplified canonical answer is
@@ -232,10 +241,9 @@ def test_fractions_are_in_lowest_terms(topic):
     learner was asked to produce IS unsimplified; see the note there.
     """
     if topic in _ASKS_FOR_UNSIMPLIFIED:
-        pytest.skip(f"{topic} asks for a deliberately unsimplified fraction")
-    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
-        for seed in range(TEXT_SEEDS):
-            question = make(topic, seed=seed, difficulty=difficulty)
+        return  # asks for a deliberately unsimplified fraction: not run
+    for difficulty, questions in grid.items():
+        for seed, question in enumerate(take(questions, TEXT_SEEDS)):
             for option in [question.answer_text, *question.distractors]:
                 if not isinstance(option, str):
                     continue

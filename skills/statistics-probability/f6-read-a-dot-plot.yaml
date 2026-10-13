@@ -1,0 +1,41 @@
+id: f6-read-a-dot-plot
+name: Read a dot plot
+domain: statistics-probability
+year_level: ['7']
+naplan_domain: [statistics]
+description: Read a dot plot of a numerical variable and give a number - the count of dots at a value, then the mode, range, number of dots above a value or total, and at the hard tier the median (with a half-step answer when the number of values is even) or the mean built from the stacks. The prompt names the variable and never states a count.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f3-read-a-column-graph]
+answer: number
+sources:
+- topic: stat3_dot_plot
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: stat3_dot_plot
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: stat3_dot_plot
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: neighbouring-stack
+  description: Counts the dots above the value next to the one the question names.
+- id: value-for-count
+  description: Gives the value on the axis where the question asks for a number of dots, or the number of dots where it asks for the value.
+- id: mode-as-frequency
+  description: Gives the height of the tallest stack as the mode instead of the value it stands above.
+- id: range-from-axis
+  description: Gives the span of the whole axis, or the highest value, as the range instead of highest value minus lowest value that has data.
+- id: at-least-for-more-than
+  description: Includes the stack above the stated value when the question asks for values above it.
+- id: centre-of-axis
+  description: Gives the middle of the highest and lowest values, or the middle of the distinct values, as the median.
+- id: mean-of-distinct-values
+  description: Averages the values that have dots without counting each one as many times as it has dots.
+tags: [acara-f10-v9, statistics-probability, dot-plot, figure, stat3_dot_plot, AC9M7ST02]

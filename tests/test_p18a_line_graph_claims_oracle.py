@@ -1,6 +1,7 @@
 """It does NOT import `mathgen.generators.p18a_line_graph_claims_build` -- confirmed by the import list below
-(only `os`, `re`, `collections`, `mathgen.make`) -- and reads only `question.text`, `question.answer_text` and
-`question.distractors`, exactly as a learner sees them.
+(only `os`, `re`, `collections`, `mathgen.make`) -- and reads only `question.text`, `question.figure`,
+`question.answer_text` and `question.distractors`, exactly as a learner sees them (the data are drawn as a
+line graph, so they are read from the figure's points).
 
 Comparing option TRUTH structurally (direction + numeric magnitude / time
 labels), rather than re-deriving the generator's exact phrase and string-
@@ -37,15 +38,12 @@ _MONOTONIC_RE = re.compile(
 )
 
 
-def _parse_data(text: str) -> dict[str, int]:
-    """`{time_label: value}` parsed straight from the "(label: number unit)"
-    list, in appearance order. `[^():]+` for the label stops at the first
-    colon/paren, so it never crosses into a neighbouring pair. `\\$?` skips
-    the optional currency sign so the number itself is captured cleanly."""
-    data: dict[str, int] = {}
-    for m in re.finditer(r"\(([^():]+):\s*\$?(-?\d+)", text):
-        data[m.group(1).strip()] = int(m.group(2))
-    return data
+def _parse_data(question) -> dict[str, int]:
+    """`{time_label: value}` read from the drawn points, in time order. A year axis labels a point with the year
+    itself and a week axis with "Week N", the way the prompt's claim names it."""
+    fig = question.figure
+    week = fig["x_label"] == "Week"
+    return {(f"Week {p['at'][0]}" if week else str(p["at"][0])): p["at"][1] for p in fig["points"]}
 
 
 def _extract_delta_from_claim(claim: str) -> int:
@@ -87,12 +85,8 @@ def _parse_claim(claim: str, data: dict[str, int]):
 
 
 def _time_sort_key(label: str) -> int:
-    """The exam tier displays the (label: value) pairs in the
-    order they were filed, not in time order, so the monotonic branch below
-    -- which needs the TRUE time-adjacent pairs -- must re-sort the parsed
-    labels by their own time semantics rather than trust dict-insertion
-    (i.e. appearance) order. A "Week N" label sorts on N; a bare year label
-    (e.g. "2019") sorts on its own numeric value."""
+    """The monotonic branch below needs the time-adjacent pairs, so it sorts the labels by their own time
+    semantics. A "Week N" label sorts on N; a bare year label (e.g. "2019") sorts on its own numeric value."""
     m = re.match(r"Week (\d+)$", label)
     if m:
         return int(m.group(1))
@@ -126,9 +120,7 @@ def _option_truth(option: str, cls: str, info: dict, data: dict[str, int]) -> bo
         option_delta = _extract_delta_from_claim(option)
         return option_delta == actual_delta
 
-    # monotonic -- re-sort by TIME, never by the order the pairs
-    # happen to appear in the text (the exam tier displays them out of
-    # order; see `_time_sort_key`).
+    # monotonic -- sort by TIME (see `_time_sort_key`).
     labels = sorted(labels, key=_time_sort_key)
     diffs = [data[labels[i + 1]] - data[labels[i]] for i in range(len(labels) - 1)]
     if option == "Supported":
@@ -165,7 +157,7 @@ def test_swept_enough_questions():
 def test_answer_text_is_the_unique_true_option():
     failures = []
     for tier, q in QUESTIONS:
-        data = _parse_data(q.text)
+        data = _parse_data(q)
         claim = _CLAIM_RE.search(q.text)
         assert claim, (tier, q.text)
         cls, info = _parse_claim(claim.group(1), data)
@@ -180,7 +172,7 @@ def test_claim_class_x_key_class_matrix_report():
     """Regression guard for a previously fixed defect."""
     combos = Counter()
     for tier, q in QUESTIONS:
-        data = _parse_data(q.text)
+        data = _parse_data(q)
         claim = _CLAIM_RE.search(q.text).group(1)
         cls, _info = _parse_claim(claim, data)
         key_class = "Supported" if q.answer_text == "Supported" else "Not supported"
@@ -197,7 +189,7 @@ def test_each_tier_reaches_its_own_claim_classes(tier):
     for t, q in QUESTIONS:
         if t != tier:
             continue
-        data = _parse_data(q.text)
+        data = _parse_data(q)
         claim = _CLAIM_RE.search(q.text).group(1)
         cls, _info = _parse_claim(claim, data)
         seen.add(cls)

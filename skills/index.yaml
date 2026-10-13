@@ -348,8 +348,10 @@ compare-common-fractions:
     module: mathgen/generators/primary_math.py
 compare-functions-representations:
   domain: functions-sequences
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_compare_functions
+    module: mathgen/generators/fg1_graph_compare_build.py
 compare-lengths:
   domain: early-foundations
   status: active
@@ -358,8 +360,10 @@ compare-lengths:
     module: mathgen/generators/early_math.py
 compare-linear-representations:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_compare_linear
+    module: mathgen/generators/fg1_graph_compare_build.py
 compare-quantities-to-10:
   domain: early-foundations
   status: active
@@ -686,8 +690,10 @@ equal-groups:
     module: mathgen/generators/early_math.py
 equation-from-graph:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_equation_from_graph
+    module: mathgen/generators/fg1_line_reading_build.py
 equation-from-table:
   domain: linear-relations
   status: active
@@ -864,6 +870,12 @@ f10-collect-sort-compare-categorical-data:
   sources:
   - topic: f10_collect_sort_categorical
     module: mathgen/generators/f10_collect_sort_categorical_build.py
+f10-compare-box-plots:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat5_box_plot_compare
+    module: mathgen/generators/stat5_box_plot_build.py
 f10-compare-measurement-attributes:
   domain: measurement
   status: active
@@ -1478,6 +1490,12 @@ f10-rational-percentage-financial-model:
   sources:
   - topic: rational_percentage_financial_model
     module: mathgen/generators/p12a_financial_model_build.py
+f10-read-a-box-plot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat5_box_plot_read
+    module: mathgen/generators/stat5_box_plot_build.py
 f10-read-measurement-scale:
   domain: measurement
   status: active
@@ -1688,6 +1706,36 @@ f10-volume-surface-area-prisms-cylinders:
     module: mathgen/generators/p5a_measurement_volume_decimal_build.py
   - topic: exd_x_m3_cylinder_tin_chain
     module: mathgen/generators/exd_x_m3_cylinder_tin_chain.py
+f2-read-a-picture-graph:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat1_picture_graph
+    module: mathgen/generators/stat1_picture_graph_build.py
+f3-read-a-column-graph:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat2_column_graph
+    module: mathgen/generators/stat2_column_graph_build.py
+f6-read-a-dot-plot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat3_dot_plot
+    module: mathgen/generators/stat3_dot_plot_build.py
+f6-read-a-pie-chart:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat6_pie_chart
+    module: mathgen/generators/stat6_pie_chart_build.py
+f7-read-a-histogram:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: stat4_histogram
+    module: mathgen/generators/stat4_histogram_build.py
 factor-common-numerical-factor:
   domain: expressions-equivalence
   status: active
@@ -1820,8 +1868,10 @@ gradient-descent-quadratic:
     module: mathgen/generators/exd_x_u5_gradient_descent.py
 gradient-from-graph:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_gradient_from_graph
+    module: mathgen/generators/fg1_line_reading_build.py
 gradient-vector:
   domain: partial-derivatives
   status: deferred
@@ -1870,12 +1920,16 @@ graph-walks-trails-paths-cycles:
     module: mathgen/generators/snet_route_types_build.py
 graph-y-mx:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_proportional_graph
+    module: mathgen/generators/fg1_line_reading_build.py
 graph-y-mx-plus-b:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_line_table
+    module: mathgen/generators/fg1_line_reading_build.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -1928,8 +1982,10 @@ inequalities-negative-mult-div:
     module: mathgen/generators/linear_inequalities_build.py
 inequality-solutions-number-line:
   domain: inequalities
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_inequality_number_line
+    module: mathgen/generators/fg1_graph_compare_build.py
 inequality-symbols:
   domain: inequalities
   status: deferred
@@ -2436,8 +2492,10 @@ place-value-to-20:
     module: mathgen/generators/early_math.py
 plot-linear-points:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_plotted_points
+    module: mathgen/generators/fg1_line_reading_build.py
 polynomial-linear-combination:
   domain: expressions-equivalence
   status: active
@@ -5252,8 +5310,10 @@ solve-equation-word-problems:
     module: mathgen/generators/exd_x_a3_word_two_expressions.py
 solve-linear-equations-graphically:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fg1_solve_graphically
+    module: mathgen/generators/fg1_graph_compare_build.py
 solve-ode-exponential:
   domain: differential-equations
   status: active

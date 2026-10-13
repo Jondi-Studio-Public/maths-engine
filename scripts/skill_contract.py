@@ -26,6 +26,7 @@ if __name__ == "__main__":
     # The imports below need the repository root on sys.path, which running this file does not give.
     raise SystemExit("skill_contract.py is a library for tests and other scripts, not a command; import its checks")
 
+import json
 import os
 from functools import lru_cache
 from pathlib import Path
@@ -158,15 +159,22 @@ def pool_floors() -> dict[str, dict[str, int]]:
     return yaml.safe_load(POOL_FLOORS_PATH.read_text(encoding="utf-8")) or {}
 
 
+def _prompt_key(q) -> tuple[str, str | None]:
+    return q.text, None if q.figure is None else json.dumps(q.figure, sort_keys=True)
+
+
 def check_variety(skill_id: str) -> None:
     """>= 20 distinct prompts per source and tier over the sweep; a tier listed in the
     pool-floors file must keep at least its recorded count, and must leave the file the
-    day it reaches 20 (a stale entry is a failure, so the file only shrinks)."""
+    day it reaches 20 (a stale entry is a failure, so the file only shrinks).
+
+    A prompt is its text plus its figure: the same words over a different graph are a
+    different question, so a figure skill need not vary its wording to vary its questions."""
     floors = pool_floors().get(skill_id, {})
     need = min(MIN_DISTINCT, SEEDS)
     for src, difficulty, qs in draws(skill_id):
         key = f"{src.topic}/{difficulty}"
-        distinct = len({q.text for q in qs})
+        distinct = len({_prompt_key(q) for q in qs})
         if key in floors:
             assert distinct < need, f"{key}: now {distinct} distinct prompts; remove it from {POOL_FLOORS_PATH.name}"
             assert distinct >= floors[key], f"{key}: pool shrank to {distinct}, recorded floor is {floors[key]}"
