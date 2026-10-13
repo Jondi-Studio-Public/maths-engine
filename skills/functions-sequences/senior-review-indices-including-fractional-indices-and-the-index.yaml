@@ -3,6 +3,7 @@
 id: senior-review-indices-including-fractional-indices-and-the-index
 name: Review indices (including fractional indices) and the index laws
 domain: functions-sequences
+year_level: ['11']
 description: Apply the product, quotient and power-of-a-power index laws to combine two or three like-base index terms with a symbolic base x, into a single simplified power of x. Exponents may be integers or simple fractions (1/2, 1/3, 2/3). Does not assess index laws applied to a purely numeric base (radical evaluation), the zero-index or negative-index laws as standalone identities, or index laws applied to different symbolic bases.
 status: active
 placement_eligible: false

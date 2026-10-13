@@ -3,6 +3,7 @@
 id: senior-recognise-acceleration-as-the-second-derivative-of-position
 name: Recognise acceleration as the second derivative of position with respect to time
 domain: differentiation
+year_level: ['12']
 description: Given a particle's position function s(t) and a stated time t, compute the particle's acceleration at that time as the second derivative of position with respect to time. Every question states an explicit motion/position context (a particle, robot, lift or toy car moving along a straight path); the answer is always a numerically evaluated acceleration, never a bare symbolic second derivative. Distinguished from "second-derivative", which differentiates a bare expression symbolically with no motion context and never evaluates at a point.
 status: active
 placement_eligible: false

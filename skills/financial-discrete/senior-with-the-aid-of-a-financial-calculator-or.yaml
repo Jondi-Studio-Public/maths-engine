@@ -5,6 +5,7 @@ name: With the aid of a financial calculator or computer-based financial softwar
   reducing balance loans; for example, determining the monthly repayments required to pay off a housing
   loan
 domain: financial-discrete
+year_level: ['12']
 description: Given bounded, fully specified inputs, with the aid of a financial calculator or computer-based
   financial software, solve problems involving reducing balance loans; for example, determining the monthly
   repayments required to pay off a housing loan. Return the resulting value, expression, relation, or

@@ -3,6 +3,7 @@
 id: senior-investigate-the-effect-of-outliers-on-the-mean
 name: Investigate the effect of outliers on the mean
 domain: statistics-probability
+year_level: ['11']
 description: Given a stated, generated dataset (a small business's daily profit or loss, $) with a designated outlier, compute the difference between the dataset's mean with the outlier included and its mean with the outlier removed (mean-with minus mean-without, stated to 1 decimal place). Both means are exact integers by construction, so no rounding ever enters the computation. Never computes the median; only the effect of the outlier on the mean is assessed.
 status: active
 placement_eligible: false

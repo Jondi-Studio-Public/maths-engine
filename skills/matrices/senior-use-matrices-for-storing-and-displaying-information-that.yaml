@@ -3,6 +3,7 @@
 id: senior-use-matrices-for-storing-and-displaying-information-that
 name: Use matrices for storing and displaying information that can be presented in rows and columns; for example, databases, links in social or road networks
 domain: matrices
+year_level: ['11']
 description: >-
   Given a stated small dataset (with context) represented as a matrix of rows and columns, read off
   the stated entry at a specified row and column, or compute the stated row or column total. The

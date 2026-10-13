@@ -3,6 +3,7 @@
 id: senior-recognise-and-identify-outliers
 name: Recognise and identify outliers
 domain: statistics-probability
+year_level: ['11']
 description: 'Given a stated small numeric dataset and its computed lower and upper quartiles (Q1, Q3, stated in the prompt, never computed there), identify the single value that lies more than 1.5 times the interquartile range (IQR = Q3 - Q1) below Q1 or above Q3 -- the standard 1.5*IQR fence rule. Every dataset is constructed with exactly one such value. Four tiers: a clearly-beyond-fence outlier in an already-sorted list (always below Q1); unsorted data with the outlier drawn low or high and a "beyond 1*IQR but within 1.5*IQR" decoy on the SAME side; a decoy within 1 unit of the OPPOSITE fence while the true outlier sits past the other; and a value sitting EXACTLY on a fence (not an outlier, since "more than" is strict). Distinct from f10-boxplot-distribution, which computes Q1/Q3 itself and stops, and from senior-investigate-the-effect-of-outliers-on-the-mean, which is handed the outlier already and never applies the fence rule.'
 status: active
 placement_eligible: false

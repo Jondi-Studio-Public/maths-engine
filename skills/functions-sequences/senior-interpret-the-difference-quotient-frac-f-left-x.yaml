@@ -3,6 +3,7 @@
 id: senior-interpret-the-difference-quotient-frac-f-left-x
 name: Interpret the difference quotient \(\frac{f\left(x+h\right)-f(x)}h\) as the average rate of change of a function \(f\)
 domain: functions-sequences
+year_level: ['11']
 description: Given a stated function f, a value x and a step h, compute the difference quotient (f(x+h)-f(x))/h as the average rate of change of f over the interval from x to x+h. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

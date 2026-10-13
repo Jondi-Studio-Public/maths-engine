@@ -4,6 +4,7 @@ id: senior-examine-the-area-problem-and-use-sums-of
 name: Examine the area problem, and use sums of the form \(\sum\nolimits_if\left(x_i\right)\;\delta x_i\)
   as area under the curve \(y=f(x)\)
 domain: integration
+year_level: ['12']
 description: Given bounded, fully specified inputs, examine the area problem, and use sums of
   the form \(\sum\nolimits_if\left(x_i\right)\;\delta x_i\) as area under the curve \(y=f(x)\).
   Return the resulting value, expression, relation, or classification.

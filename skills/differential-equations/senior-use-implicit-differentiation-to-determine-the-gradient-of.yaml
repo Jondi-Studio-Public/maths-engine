@@ -4,6 +4,7 @@ id: senior-use-implicit-differentiation-to-determine-the-gradient-of
 name: Use implicit differentiation to determine the gradient of curves whose equations are given in implicit
   form
 domain: differential-equations
+year_level: ['12']
 description: Given bounded, fully specified inputs, use implicit differentiation to determine
   the gradient of curves whose equations are given in implicit form. Return the resulting value,
   expression, relation, or classification.

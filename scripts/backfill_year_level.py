@@ -1,6 +1,6 @@
 """Derive `year_level` and `naplan_domain` for each skill from the curriculum codes the file already carries.
 
-    python scripts/backfill_year_level.py --check    # list files whose fields disagree with the derivation
+    python scripts/backfill_year_level.py --check    # list files whose fields disagree with the derivation (dry run)
     python scripts/backfill_year_level.py --write    # insert or correct the two lines in place
 
 Nothing is guessed. A skill gets a value only from evidence in its own file:
@@ -16,8 +16,11 @@ Nothing is guessed. A skill gets a value only from evidence in its own file:
 
 `year_level` is every level named, in the schema's order. `naplan_domain` is the strands of the codes at
 Foundation to Year 9 only (NAPLAN numeracy tests nothing above Year 9); year tags carry no strand, so they
-add a year but no domain. Senior (`senior-*`, ACARA senior v8.4) files carry no unit or year, so they get
-neither field. A skill with no evidence is left alone, and a field set by hand on such a skill is never
+add a year but no domain. Senior (`senior-*`, ACARA senior v8.4) content codes, `ACMMM`, `ACMSM`, `ACMGM` and `ACMEM` plus a
+number (any case), are looked up in `scripts/senior_code_units.yaml`, which maps each code to its Unit 1 to 4;
+Units 1 and 2 are Year 11 and Units 3 and 4 are Year 12. A skill with codes in both halves gets
+`['11', '12']`. A senior skill with no such code stays blank, as does a code the table does not list. Senior
+codes add a year but no `naplan_domain`. A skill with no evidence is left alone, and a field set by hand on such a skill is never
 reported or changed. `exam_board` is not derived: no file names a board.
 
 Only the two lines are edited, right after `domain:`; the rest of each file is left as written.
@@ -40,6 +43,46 @@ STRANDS = {"n": "number", "a": "algebra", "m": "measurement", "sp": "space", "st
 CODE = re.compile(r"ac9m(f|10|[1-9])(sp|st|n|a|m|p)p?\d+", re.IGNORECASE)
 YEAR_TAG = re.compile(r"acara-v9-(?:foundation|year-(\d+)(?:-(?:year-)?(\d+))?)")
 FIELDS = ("year_level", "naplan_domain")
+SENIOR_CODE = re.compile(r"(acm(?:mm|sm|gm|em))(\d+)", re.IGNORECASE)
+SENIOR_TABLE = Path(__file__).resolve().parent / "senior_code_units.yaml"
+
+
+def load_senior_table(path: Path = SENIOR_TABLE) -> dict:
+    """The code-to-unit table as `{"year_of_unit": {1: "11", ...}, "ranges": {"acmmm": [(lo, hi, unit)], ...}, "absent": {...}}`."""
+    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+    ranges, absent = {}, set()
+    for subject in raw["subjects"].values():
+        prefix = subject["prefix"].lower()
+        ranges[prefix] = [(lo, hi, int(unit)) for unit, (lo, hi) in subject["units"].items()]
+        absent |= {(prefix, int(n)) for n in subject.get("absent") or []}
+    return {
+        "year_of_unit": {int(u): str(y) for u, y in raw["year_of_unit"].items()},
+        "ranges": ranges,
+        "absent": absent,
+    }
+
+
+SENIOR = load_senior_table()
+
+
+def senior_unit(code: str) -> int | None:
+    """Unit 1 to 4 of an ACARA senior content description code such as `ACMMM061`; None if the table does not list it."""
+    m = SENIOR_CODE.fullmatch(code.strip())
+    if not m:
+        return None
+    prefix, number = m.group(1).lower(), int(m.group(2))
+    if (prefix, number) in SENIOR["absent"]:
+        return None
+    for lo, hi, unit in SENIOR["ranges"][prefix]:
+        if lo <= number <= hi:
+            return unit
+    return None
+
+
+def senior_year(code: str) -> str | None:
+    """Year 11 or 12 for a senior content description code, or None."""
+    unit = senior_unit(code)
+    return SENIOR["year_of_unit"][unit] if unit else None
 
 
 def evidence_strings(data: dict) -> list[str]:
@@ -60,6 +103,10 @@ def derive(data: dict) -> dict[str, list[str]]:
             years.add(level)
             if level == "F" or int(level) <= 9:
                 strands.add(STRANDS[m.group(2).lower()])
+            continue
+        year = senior_year(text)
+        if year:
+            years.add(year)
             continue
         m = YEAR_TAG.fullmatch(text)
         if m:

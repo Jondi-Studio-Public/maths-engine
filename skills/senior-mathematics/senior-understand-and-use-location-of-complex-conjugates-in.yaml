@@ -3,6 +3,7 @@
 id: senior-understand-and-use-location-of-complex-conjugates-in
 name: Understand and use location of complex conjugates in the complex plane
 domain: senior-mathematics
+year_level: ['11']
 description: |
   Given a complex number plotted as the point (x, y) in the complex plane, state the
   coordinates of the point representing its complex conjugate, (x, -y). The point is

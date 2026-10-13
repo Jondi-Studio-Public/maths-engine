@@ -3,6 +3,7 @@
 id: senior-y-tan-x-c-and-the-relationships-sin
 name: "y=tan(x+c) and the relationships sin(x+π/2)=cos(x) and cos(x-π/2)=sin(x)"
 domain: trigonometry
+year_level: ['11']
 description: "Apply the co-function identities sin(x + pi/2) = cos(x) and cos(x - pi/2) = sin(x) to evaluate exact trig values, and find the vertical-asymptote location of y = tan(x + c) for a stated horizontal shift c."
 status: active
 placement_eligible: false

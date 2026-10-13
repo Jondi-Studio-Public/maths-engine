@@ -3,6 +3,7 @@
 id: senior-express-a-vector-in-component-form-using-the
 name: Express a vector in component form using the unit vectors
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, express a vector in component form using the unit vectors. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

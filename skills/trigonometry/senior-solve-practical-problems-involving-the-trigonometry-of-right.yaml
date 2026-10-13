@@ -3,6 +3,7 @@
 id: senior-solve-practical-problems-involving-the-trigonometry-of-right
 name: Solve practical problems involving the trigonometry of right-angled and non-right-angled triangles, including problems involving angles of elevation and depression and the use of bearings in navigation
 domain: trigonometry
+year_level: ['11']
 description: Given bounded, fully specified inputs, solve practical problems involving the trigonometry of right-angled and non-right-angled triangles, including problems involving angles of elevation and depression and the use of bearings in navigation. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

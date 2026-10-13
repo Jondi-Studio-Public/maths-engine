@@ -43,7 +43,10 @@ def test_a_naplan_domain_only_comes_with_a_year_between_f_and_9():
         (["acara-v9-foundation"], ["F"], []),
         (["acara-v9-year-7-year-8"], ["7", "8"], []),
         (["acara-v9-year-9-10"], ["9", "10"], []),
-        (["acara-senior-v8-4", "acmmm070"], [], []),
+        (["acara-senior-v8-4", "acmmm070"], ["11"], []),
+        (["acmsm077", "ACMSM144"], ["12"], []),
+        (["acmgm047", "acmgm048"], ["11", "12"], []),
+        (["acmmm040", "acmmm181", "acmxx001"], [], []),  # absent, past the last code, unknown subject
         (["university-core-v1"], ["university"], []),
     ],
 )
@@ -79,3 +82,28 @@ def test_validate_accepts_good_labels_and_rejects_bad_ones():
     assert problems(year_level=["1", "1"])  # duplicate
     assert problems(naplan_domain=["geometry"])
     assert problems(exam_board=["hsc"])
+
+
+@pytest.mark.parametrize(
+    ("code", "unit"),
+    [
+        ("ACMMM001", 1), ("ACMMM060", 1), ("ACMMM061", 2), ("acmmm097", 2), ("ACMMM098", 3), ("ACMMM150", 3),
+        ("ACMMM151", 4), ("ACMMM180", 4), ("ACMSM041", 1), ("ACMSM042", 2), ("ACMSM076", 2), ("ACMSM077", 3),
+        ("ACMSM115", 3), ("ACMSM116", 4), ("ACMSM144", 4), ("ACMGM025", 1), ("ACMGM026", 2), ("ACMGM047", 2),
+        ("ACMGM048", 3), ("ACMGM086", 3), ("ACMGM087", 4), ("ACMGM111", 4), ("ACMEM042", 1), ("ACMEM043", 2),
+        ("ACMEM089", 2), ("ACMEM090", 3), ("ACMEM147", 3), ("ACMEM148", 4), ("ACMEM175", 4),
+        ("ACMMM040", None), ("ACMSM097", None), ("ACMMM181", None), ("ACMEM176", None), ("ACMMM000", None),
+        ("ACMXX001", None), ("ac9m6n03", None),
+    ],
+)  # fmt: skip
+def test_senior_code_to_unit(code, unit):
+    assert backfill.senior_unit(code) == unit
+    assert backfill.senior_year(code) == {1: "11", 2: "11", 3: "12", 4: "12", None: None}[unit]
+
+
+def test_the_unit_table_is_contiguous_and_ordered():
+    for prefix, ranges in backfill.SENIOR["ranges"].items():
+        assert [u for _, _, u in ranges] == [1, 2, 3, 4], prefix
+        assert ranges[0][0] == 1, prefix
+        for (_, hi, _), (lo, _, _) in zip(ranges, ranges[1:], strict=False):
+            assert lo == hi + 1, prefix

@@ -3,6 +3,7 @@
 id: senior-convert-between-cartesian-and-polar-form
 name: Convert between Cartesian and polar form
 domain: senior-mathematics
+year_level: ['12']
 description: |
   Given bounded, fully specified inputs, convert between Cartesian and polar form.
   Return the resulting value, expression, relation, or classification. All angles are

@@ -3,6 +3,7 @@
 id: senior-consider-constant-and-non-constant-force
 name: Consider constant and non-constant force
 domain: differential-equations
+year_level: ['12']
 description: Given bounded, fully specified inputs, consider constant and non-constant
   force. Return the resulting value, expression, relation, or classification.
 status: active

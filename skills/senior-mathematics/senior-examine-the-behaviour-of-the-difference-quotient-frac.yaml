@@ -3,6 +3,7 @@
 id: senior-examine-the-behaviour-of-the-difference-quotient-frac
 name: Examine the behaviour of the difference quotient (f(x+h)-f(x))/h as h->0
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, examine the behaviour of the difference quotient (f(x+h)-f(x))/h as h->0. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

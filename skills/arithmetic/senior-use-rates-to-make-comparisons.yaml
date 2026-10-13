@@ -3,6 +3,7 @@
 id: senior-use-rates-to-make-comparisons
 name: Use rates to make comparisons
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use rates to make comparisons. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

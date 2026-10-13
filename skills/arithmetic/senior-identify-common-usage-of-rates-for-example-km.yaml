@@ -3,6 +3,7 @@
 id: senior-identify-common-usage-of-rates-for-example-km
 name: Identify common usage of rates; for example, km/h as a rate to describe speed, beats/minute as a rate to describe pulse
 domain: arithmetic
+year_level: ['11']
 description: Given a named real-world activity or quantity, such as one describing speed or pulse, identify which listed rate unit is the one commonly used to describe it.
 status: active
 placement_eligible: false

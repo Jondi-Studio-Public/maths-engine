@@ -3,6 +3,7 @@
 id: senior-recognise-relations-between-volume-and-capacity-recognising-that
 name: Recognise relations between volume and capacity, recognising that 1 cm^3 = 1 mL and 1 m^3 = 1 kL
 domain: measurement
+year_level: ['12']
 description: Given a volume stated in cubic centimetres or cubic metres, convert it to the equivalent capacity in millilitres or kilolitres (or convert the reverse direction), using the exact relations 1 cm^3 = 1 mL and 1 m^3 = 1 kL.
 status: active
 placement_eligible: false

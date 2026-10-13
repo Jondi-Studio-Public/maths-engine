@@ -3,6 +3,7 @@
 id: senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear
 name: Use arithmetic sequences in contexts involving discrete linear growth or decay
 domain: financial-discrete
+year_level: ['11']
 description: |
   Given bounded, fully specified inputs, use arithmetic sequences in contexts involving
   discrete linear growth or decay, such as simple interest. Return the resulting value,

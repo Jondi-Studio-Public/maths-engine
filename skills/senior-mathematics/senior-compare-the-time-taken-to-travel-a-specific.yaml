@@ -3,6 +3,7 @@
 id: senior-compare-the-time-taken-to-travel-a-specific
 name: Compare the time taken to travel a specific distance with various modes of transport
 domain: senior-mathematics
+year_level: ['11']
 description: Given a stated distance and two stated modes of transport, each with its own stated average speed, compute the travel time for each mode (time = distance / speed). The answer is the ordered pair (mode 1's time, mode 2's time), each reported to a stated precision -- never a single "winner" label with no numbers. This skill is distinguished from the existing active catalog skill "f10-timetable-itinerary-duration", which reads a duration straight from a stated timetable and never computes a time from a distance and a speed.
 status: active
 placement_eligible: false

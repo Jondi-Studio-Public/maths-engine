@@ -3,6 +3,7 @@
 id: senior-use-technology-to-investigate-the-effect-of-the
 name: Use technology to investigate the effect of the interest rate and the number of compounding periods on the future value of a loan or investment
 domain: financial-discrete
+year_level: ['12']
 description: Given a stated principal, interest rate and number of compounding periods, compute the future value of the compound-interest loan or investment.
 status: active
 placement_eligible: false

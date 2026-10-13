@@ -3,6 +3,7 @@
 id: senior-use-the-notation-p-a-vert-b
 name: Use the notation P(A|B) for conditional probability
 domain: statistics-probability
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use the notation P(A|B). Return the resulting value, expression, relation, or classification. This skill assesses conditional probability directly from given event definitions and counts or pre-computed probabilities, using the conditional probability formula P(A|B) = P(A ∩ B) / P(B).'
 status: active
 placement_eligible: false

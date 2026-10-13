@@ -3,6 +3,7 @@
 id: senior-review-cartesian-form
 name: Review Cartesian form
 domain: senior-mathematics
+year_level: ['12']
 description: |
   Given bounded, fully specified inputs, review Cartesian form. Return the resulting value,
   expression, relation, or classification. Built as equating real and imaginary parts:

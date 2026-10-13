@@ -3,6 +3,7 @@
 id: senior-find-and-use-the-inverse-trigonometric-functions-arcsine
 name: 'Find and use the inverse trigonometric functions: arcsine, arccosine and arctangent'
 domain: differentiation
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, find and use the inverse trigonometric functions: arcsine, arccosine and arctangent. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.'
 status: active
 placement_eligible: false

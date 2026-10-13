@@ -3,6 +3,7 @@
 id: senior-review-the-conditions-for-similarity-of-two-dimensional
 name: Review the conditions for similarity of two-dimensional figures including similar triangles
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, review the conditions for similarity of two-dimensional figures including similar triangles. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

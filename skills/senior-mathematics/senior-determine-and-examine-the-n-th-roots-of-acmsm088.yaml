@@ -3,6 +3,7 @@
 id: senior-determine-and-examine-the-n-th-roots-of-acmsm088
 name: Determine and examine the n-th roots of complex numbers and their location in the complex plane
 domain: senior-mathematics
+year_level: ['12']
 description: |
   Determine, in polar form, the n-th roots of a given non-real complex number w (w != 1),
   including their location in the complex plane. Every w in this skill has modulus base**n

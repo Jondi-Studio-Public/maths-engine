@@ -3,6 +3,7 @@
 id: senior-examine-addition-of-complex-numbers-as-vector-addition
 name: Examine addition of complex numbers as vector addition
 domain: vectors
+year_level: ['11', '12']
 description: |
   Given bounded, fully specified inputs, examine addition of complex numbers as vector
   addition in the complex plane. Return the resulting value, expression, relation, or
