@@ -21,6 +21,7 @@ import os
 import re
 from fractions import Fraction
 
+import mpmath
 import pytest
 import sympy as sp
 from sympy.parsing.sympy_parser import (
@@ -388,14 +389,14 @@ def test_uniform_convergence_decisions():
 
 
 def _terms(expr, count: int, start: int):
-    """Terms of the sequence at n = start .. start + count - 1, to 40 digits (so that sqrt(n^2 + 5n) - n is stable)."""
-    import mpmath
+    """Terms of the sequence at n = start .. start + count - 1, to 40 digits (so that sqrt(n^2 + 5n) - n is stable).
 
-    mpmath.mp.dps = 60
+    Call it under `mpmath.workdps(60)`."""
     f = sp.lambdify(N_, expr, modules="mpmath")
     return [f(mpmath.mpf(n)) for n in range(start, start + count)]
 
 
+@mpmath.workdps(60)  # scoped: a bare mp.dps = 60 leaked into every later test on the same worker
 def test_sequence_limit_claims():
     verdicts = set()
     for q in _qs("sequence_limit"):
