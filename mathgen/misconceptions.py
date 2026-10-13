@@ -561,6 +561,96 @@ _ENTRIES = (
         "Taking the wrong root (square root for cube root) of the stationary-point equation.",
         area="calculus",
     ),
+    CatalogueEntry(
+        "fy1ca-arc-root-dropped",
+        "Integrates 1 + (dy/dx)² without the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-chord-used",
+        "Gives the straight-line distance between the ends instead of the length along the curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-height-change-used",
+        "Gives the change in y instead of the length along the curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-wrong-antiderivative",
+        "Sets the length up correctly but makes a slip when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-cross-term-sign",
+        "Expands the square with the wrong sign on the middle term, so the integrand is not the one that appears under the root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-components-added",
+        "Adds dx/dt and dy/dt instead of combining them with Pythagoras.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-log-term-dropped",
+        "Drops the logarithmic term when integrating 1/x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-derivative-sign",
+        "Gets the sign of the second term of the derivative wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-power-rule-slip",
+        "Differentiates a power of x incorrectly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-function-not-differentiated",
+        "Gives the value of the function where its slope was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-square-dropped",
+        "Does not square the slope inside the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-integrand-is-derivative",
+        "Gives the slope where the value of the square root was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-sign-slip",
+        "Subtracts instead of adds inside the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-chord-ignored",
+        "Gives the length of the curve where its excess over the straight line was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-arc-ignored",
+        "Gives the straight-line distance where the excess of the curve over it was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-chord-added",
+        "Adds the straight-line distance to the length instead of subtracting it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-ratio-for-difference",
+        "Divides the two lengths where their difference was asked for.",
+        area="calculus",
+    ),
     # -- percentages ----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "gave-change-not-percent",

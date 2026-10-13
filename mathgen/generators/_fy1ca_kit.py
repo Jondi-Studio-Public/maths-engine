@@ -296,3 +296,31 @@ def build_with_redraws(rng, build, what: str, tries: int = 200):
 def need_distractors(distractors, n: int = 2) -> None:
     if len(distractors) < n:
         raise Redraw
+
+
+def symbolic_distractors(answer, candidates, variable, n: int = 3) -> list[Distractor]:
+    """Tagged distractors for an answer that is an expression in `variable` (a derivative, say). A candidate is dropped
+    when it is the same function as the answer or as an earlier option, judged at several sample points."""
+    points = [Rational(37, 100), Rational(11, 10), Rational(-8, 10), Rational(23, 10)]
+    fn_answer = sympy.lambdify(variable, answer, "math")
+
+    def same(f, g) -> bool:
+        return all(abs(f(float(p)) - g(float(p))) < 1e-9 * max(1.0, abs(f(float(p)))) for p in points)
+
+    kept = [fn_answer]
+    pool: list[Distractor] = []
+    for value, tag in candidates:
+        if value is None:
+            continue
+        value = sympy.sympify(value)
+        if value.free_symbols - {variable}:
+            continue
+        try:
+            fn = sympy.lambdify(variable, value, "math")
+            if any(same(fn, other) for other in kept):
+                continue
+        except (ValueError, ZeroDivisionError, OverflowError, TypeError):
+            continue
+        kept.append(fn)
+        pool.append(Distractor(typed(value), tag, str(value)))
+    return pool[:n]
