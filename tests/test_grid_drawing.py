@@ -29,6 +29,7 @@ def test_a_full_square_drawing_is_valid():
         labels=[{"at": [3, 0.5], "text": "Park"}],
         symbols=[{"at": [2.5, 3.5], "symbol": "school"}],
         legend=True,
+        path=[[0, 0], [1, 0], [1, 1], [1, 2]],
         column_labels=list("ABCDEF"),
         row_labels=["1", "2", "3", "4"],
         scale={"text": "1 cm : 50 m", "bar_cells": 2},
@@ -64,6 +65,10 @@ def test_empty_groups_are_left_out():
         {"symbols": [{"at": [1, 1], "symbol": "castle"}]},
         {"legend": True},
         {"column_labels": ["A", "B"]},
+        {"path": {"cells": [[0, 0]]}},
+        {"path": {"cells": [[0, 0], [1, 1]]}},  # a diagonal step
+        {"path": {"cells": [[5, 0], [6, 0]]}},
+        {"path": [[0, 0], [1, 0]]},
         {"row_labels": ["1", "1", "2", "3"]},
         {"scale": {"text": "1 : 100", "bar_cells": 9}},
         {"north": False},
