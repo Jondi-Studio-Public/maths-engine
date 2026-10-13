@@ -178,3 +178,25 @@ def test_bad_tier_is_refused():
     for topic in SKILLS.values():
         with pytest.raises(Exception):
             make(topic, seed=1, difficulty="easy", tier="nope")
+
+
+def test_map_symbols_are_spaced_and_the_river_keeps_off_the_road():
+    for tier in TIERS:
+        for seed in SEEDS:
+            fig = _gen(SKILL_MAP, tier, seed).figure
+            at = [tuple(s["at"]) for s in fig["symbols"]]
+            for i, a in enumerate(at):
+                for b in at[i + 1 :]:
+                    assert max(abs(a[0] - b[0]), abs(a[1] - b[1])) >= 2, (tier, seed, a, b)
+            road = next(ln for ln in fig["lines"] if ln["style"] == "road")["points"]
+            river = next(ln for ln in fig["lines"] if ln["style"] == "river")["points"]
+            assert river[0][1] != river[1][1] and river[1][1] != river[2][1]  # slanted: never along a grid line
+            assert road and all(p not in at[2:] for p in road)
+
+
+def test_distractors_share_the_shape_of_the_answer():
+    for skill_id, tier in CASES:
+        for seed in SEEDS:
+            q = _gen(skill_id, tier, seed)
+            decimal = "." in q.answer_text
+            assert all(("." in d) == decimal for d in q.distractors), (skill_id, tier, seed)

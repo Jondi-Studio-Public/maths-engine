@@ -29,7 +29,7 @@ import re
 from fractions import Fraction
 
 from .. import figures
-from ..core import VerificationError, attempts, check, generator, pick_distractors
+from ..core import VerificationError, attempts, check, generator, phrase, pick_distractors
 from ..figure_kinds import grid
 from . import _space_kit as kit
 
@@ -71,7 +71,12 @@ def _finish(rng, build):
         pool = []
         for c in candidates:
             c = Fraction(c).limit_denominator(100) if isinstance(c, float) else _fr(c)
-            if c > 0 and abs(c - answer) >= 1 and (c * 10).denominator == 1:
+            if (
+                c > 0
+                and abs(c - answer) >= 1
+                and (c * 10).denominator == 1
+                and (c.denominator == 1) == (answer.denominator == 1)
+            ):
                 pool.append(_text(c))
         distractors = pick_distractors(_text(answer), pool, tolerance=Fraction(1, 2))
         if len(distractors) == 3:
@@ -376,15 +381,56 @@ def _length(pts) -> int:
     return sum(abs(b[0] - a[0]) + abs(b[1] - a[1]) for a, b in zip(pts, pts[1:]))
 
 
+def _seg_distance(p, a, b) -> float:
+    """The distance from point ``p`` to the segment ``a``-``b``."""
+    (px, py), (ax, ay), (bx, by) = p, a, b
+    dx, dy = bx - ax, by - ay
+    t = 0.0 if dx == dy == 0 else max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)))
+    return math.hypot(px - (ax + t * dx), py - (ay + t * dy))
+
+
+def _river(rng, gw, gh, pts, spots):
+    """A slanting river that crosses the road at most briefly, never runs beside it and misses every symbol."""
+    road = list(zip(pts, pts[1:]))
+    for _ in attempts(80, "a river clear of the road and the symbols"):
+        ys = [rng.randint(1, gh - 1) for _ in range(3)]
+        xs = [0, gw // 2, gw]
+        if ys[0] == ys[1] or ys[1] == ys[2]:
+            continue
+        river = list(zip(xs, ys))
+        near = 0
+        clear = True
+        for (x1, y1), (x2, y2) in zip(river, river[1:]):
+            steps = 4 * max(x2 - x1, abs(y2 - y1))
+            for i in range(steps + 1):
+                q = (x1 + (x2 - x1) * i / steps, y1 + (y2 - y1) * i / steps)
+                if min(_seg_distance(q, a, b) for a, b in road) < 1:
+                    near += 1
+                if min(math.hypot(q[0] - sx, q[1] - sy) for sx, sy in spots) < 1.2:
+                    clear = False
+        if clear and near <= 12:  # at most about three cells of the river lie within a cell of the road
+            return [list(p) for p in river]
+    raise VerificationError("no river clear of the road")
+
+
 def _map_figure(rng, gw, gh, pts, seen, scale_text, names):
     a, b = names
+    ends = [pts[0], pts[-1]]
+    check(max(abs(ends[0][0] - ends[1][0]), abs(ends[0][1] - ends[1][1])) >= 2, "the two places touch")
     extra = [s for s in _MAP_SYMBOLS if s not in names]
     rng.shuffle(extra)
-    free = [(x, y) for x in range(1, gw) for y in range(1, gh) if (x, y) not in seen]
-    decoys = rng.sample(free, 2)
-    symbols = [{"at": list(pts[0]), "symbol": a}, {"at": list(pts[-1]), "symbol": b}]
-    symbols += [{"at": list(p), "symbol": s} for p, s in zip(decoys, extra)]
-    river = [[0, rng.randint(1, gh - 1)], [gw // 2, rng.randint(1, gh - 1)], [gw, rng.randint(1, gh - 1)]]
+    spots = list(ends)
+    for _ in range(2):  # every symbol at least 2 cells from every other
+        free = [
+            (x, y)
+            for x in range(1, gw)
+            for y in range(1, gh)
+            if (x, y) not in seen and all(max(abs(x - sx), abs(y - sy)) >= 2 for sx, sy in spots)
+        ]
+        check(bool(free), "no room for a symbol")
+        spots.append(rng.choice(free))
+    symbols = [{"at": list(p), "symbol": s} for p, s in zip(spots, [a, b] + extra)]
+    river = _river(rng, gw, gh, pts, spots)
     return grid.grid_drawing(
         alt="A map on a square grid with a road, a river and some places marked by symbols, with its scale.",
         grid={"type": "square", "width": gw, "height": gh},
@@ -716,7 +762,7 @@ figures.register_reader("grid_scale_materials", _read_materials)
 
 # ------------------------------------------------------------------------------------------- 4. conventions
 
-_RATIO_PAIRS = (100, 200, 250, 400, 500, 1000)
+_RATIO_PAIRS = (100, 200, 400, 500, 1000)
 
 
 def _wall_labelled_plan(rng, k, tier_hard):
@@ -765,7 +811,14 @@ def _conv_easy(rng):
         bar=rng.random() < 0.4,
     )
     if to_ratio:
-        text = "The scale of the plan is shown beside it. Write the scale as a ratio 1 : n. What is n?"
+        text = phrase(
+            rng,
+            (
+                "The scale of the plan is shown beside it. Write the scale as a ratio 1 : n. What is n?",
+                "The plan's scale is written beside it. Written as the ratio 1 : n, what is n?",
+                "Beside the plan is its scale. Express it as a ratio 1 : n and give the value of n.",
+            ),
+        )
         answer = n
         cands = [k, k * 10, k * 1000, n * 10, n * 100, Fraction(n, 10)]
         working = [
@@ -773,7 +826,15 @@ def _conv_easy(rng):
             f"So the ratio is 1 : {n}, and n = {n}.",
         ]
     else:
-        text = "The scale of the plan is shown beside it as a ratio. How many metres does 1 cm on the plan stand for?"
+        text = phrase(
+            rng,
+            (
+                "The scale of the plan is shown beside it as a ratio. How many metres does 1 cm on the plan stand for?",
+                "The plan is drawn to the ratio scale shown. Find the actual length, in metres, that 1 cm on the plan "
+                "represents.",
+                "Beside the plan is its scale as a ratio. What real distance, in metres, is 1 cm on the plan?",
+            ),
+        )
         answer = k
         cands = [n, Fraction(n, 10), Fraction(n, 1000), n * 100, Fraction(n, 10) * 10]
         working = [f"1 : {n} means 1 cm on the plan is {n} cm in real life.", f"{n} cm = {_text(k)} m."]
@@ -864,7 +925,7 @@ def _read_conventions(question) -> str:
     fig, text = question.figure, question.text
     if "scale" in fig:
         k = _metres_per_cm(fig)
-        if "Write the scale as a ratio" in text:
+        if "1 : n" in text:
             return _text(k * 100)
         return _text(k)
     k = _labelled_metres_per_cm(fig)
