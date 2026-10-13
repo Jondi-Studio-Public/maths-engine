@@ -4,6 +4,14 @@
 # a test fails while this file is stale. Paths are relative to the repository root. Line
 # numbers are left out because they change on every edit: for one, run
 # `python scripts/build_skill_index.py --where <skill-or-topic>`.
+accumulation-function:
+  domain: integration
+  status: active
+  sources:
+  - topic: r4e_accumulation_function
+    module: mathgen/generators/r4e_accumulation_function_build.py
+  - topic: r4e_accumulation_function_chain
+    module: mathgen/generators/r4e_accumulation_function_build.py
 add-complex-numbers:
   domain: senior-mathematics
   status: active
@@ -546,6 +554,14 @@ count-to-5:
   sources:
   - topic: count_objects
     module: mathgen/generators/early_math.py
+curve-features-from-derivative-signs:
+  domain: differentiation
+  status: active
+  sources:
+  - topic: r4e_curve_features
+    module: mathgen/generators/r4e_curve_features_build.py
+  - topic: r4e_curve_features_chain
+    module: mathgen/generators/r4e_curve_features_build.py
 cyclic-group-element-order:
   domain: abstract-algebra
   status: active
@@ -1914,6 +1930,14 @@ hookes-law:
     module: mathgen/generators/engineering.py
   - topic: exd_x_u1_spring_two_loads
     module: mathgen/generators/exd_x_u1_spring_two_loads.py
+hybrid-functions:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: r4e_hybrid_functions
+    module: mathgen/generators/r4e_hybrid_functions_build.py
+  - topic: r4e_hybrid_functions_chain
+    module: mathgen/generators/r4e_hybrid_functions_build.py
 hypergeometric-probability:
   domain: statistics-probability
   status: active
@@ -2458,6 +2482,14 @@ polynomial-long-division:
     module: mathgen/generators/p8a_special_products_build.py
   - topic: exd_x_a1_polynomial_long_division
     module: mathgen/generators/exd_x_a1_polynomial_long_division.py
+power-functions-rational-index:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: r4e_power_functions
+    module: mathgen/generators/r4e_power_functions_build.py
+  - topic: r4e_power_functions_chain
+    module: mathgen/generators/r4e_power_functions_build.py
 prime-factorisation:
   domain: secondary-number
   status: active
@@ -2664,6 +2696,14 @@ reverse-percentage:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_n4_reverse_percentage
     module: mathgen/generators/exd_x_n4_percentage_chains.py
+riemann-sum-to-definite-integral:
+  domain: integration
+  status: active
+  sources:
+  - topic: r4e_riemann_limit
+    module: mathgen/generators/r4e_riemann_limit_build.py
+  - topic: r4e_riemann_limit_chain
+    module: mathgen/generators/r4e_riemann_limit_build.py
 right-triangle-angle:
   domain: trigonometry
   status: active
@@ -5210,6 +5250,14 @@ simplify-surds:
     module: mathgen/generators/t1_simplify_surds_build.py
   - topic: exd_x_n4_surd_rectangle
     module: mathgen/generators/exd_x_n4_surd_rectangle.py
+simpsons-rule:
+  domain: integration
+  status: active
+  sources:
+  - topic: r4e_simpsons_rule
+    module: mathgen/generators/r4e_simpsons_rule_build.py
+  - topic: r4e_simpsons_rule_chain
+    module: mathgen/generators/r4e_simpsons_rule_build.py
 sine-rule:
   domain: trigonometry
   status: active

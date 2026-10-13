@@ -1,3 +1,15 @@
+{"answer": "126", "id": "accumulation-function/easy/0/bd1669766520", "text": "The function F is defined by accumulating f(t) = 3t^2 + 3 from t = 2 up to t = …"}
+{"answer": "27/2", "id": "accumulation-function/easy/1/57c8e5249c6a", "text": "Let F(x) be the integral of f(t) from t = -1 to t = x, where f(t) = t + 4. Find…"}
+{"answer": "-6", "id": "accumulation-function/easy/2/0d12cf251f40", "text": "Let F(x) be the integral of f(t) from t = -1 to t = x, where f(t) = 3t - 3. Fin…"}
+{"answer": "(a) -220/3; (b) -1 < x < 1; (c) 1; (d) 4/3", "id": "accumulation-function/exam/0/46e6b452c2ab", "text": "The function F is defined by accumulating f(t) = -2t^2 + 2 from t = 0 up to t =…"}
+{"answer": "(a) -2; (b) -1 < x < 2; (c) 2; (d) 7/2", "id": "accumulation-function/exam/1/ae664f7781bf", "text": "Let F(x) be the integral of f(t) from t = 1 to t = x, where f(t) = -3t^2 + 3t +…"}
+{"answer": "(a) -16; (b) -2 < x < 0; (c) 0; (d) 4", "id": "accumulation-function/exam/2/6c0c68d38a7d", "text": "Let F(x) be the integral of f(t) from t = 1 to t = x, where f(t) = -3t^2 - 6t. …"}
+{"answer": "5", "id": "accumulation-function/hard/0/b5486fafde52", "text": "The function F is defined by accumulating f(t) = -2t^2 + 6t + 20 from t = 2 up …"}
+{"answer": "2", "id": "accumulation-function/hard/1/c9a2a8fc3a91", "text": "Let F(x) be the integral of f(t) from t = 0 to t = x, where f(t) = -t^2 + t + 2…"}
+{"answer": "-516", "id": "accumulation-function/hard/2/b8ef6d373461", "text": "Let F(x) be the integral of f(t) from t = 1 to t = x^3, where f(t) = -t^2 + 3t …"}
+{"answer": "-35", "id": "accumulation-function/medium/0/44fc2b92a036", "text": "Let F(x) be the integral of f(t) from t = 3 to t = x, where f(t) = -2t^3 - 3t^2…"}
+{"answer": "-2", "id": "accumulation-function/medium/1/7d9eb5b28581", "text": "Let F(x) be the integral of f(t) from t = 0 to t = x, where f(t) = -t^3 - 4t^2 …"}
+{"answer": "4", "id": "accumulation-function/medium/2/c8bbf18ed952", "text": "Let F(x) be the integral of f(t) from t = -1 to t = x, where f(t) = 3t^2 + 3t -…"}
 {"answer": "-9 + 4i", "id": "add-complex-numbers/easy/0/37b670839e06", "text": "Calculate (-5 − 4i) + (-4 + 8i)."}
 {"answer": "11 − 3i", "id": "add-complex-numbers/easy/1/864e889b0e4b", "text": "Calculate (4 − 5i) + (7 + 2i)."}
 {"answer": "4 + 1i", "id": "add-complex-numbers/easy/2/4c6940550cb2", "text": "Calculate (4 + 6i) + (0 − 5i)."}
@@ -598,6 +610,18 @@
 {"answer": "2", "id": "count-to-5/easy/0/e12555feead5", "text": "Count the diamonds. How many?"}
 {"answer": "4", "id": "count-to-5/easy/1/41a60e653579", "text": "Ingrid counts the squares. How many are there?"}
 {"answer": "1", "id": "count-to-5/easy/2/2688b9e3f8ae", "text": "How many circles are there?"}
+{"answer": "-2 < x < 0", "id": "curve-features-from-derivative-signs/easy/0/53a759b5606e", "text": "A function f has f'(x) = 3(x + 2)x. Find the largest open intervals on which f …"}
+{"answer": "0 < x < 4", "id": "curve-features-from-derivative-signs/easy/1/8d20c3e2a777", "text": "A function f has f'(x) = -2x(x - 4). Find the largest open intervals on which f…"}
+{"answer": "-1 < x < 0", "id": "curve-features-from-derivative-signs/easy/2/d638fe095ce9", "text": "A function f has f'(x) = (x + 1)x. Find the largest open intervals on which f i…"}
+{"answer": "(a) 3, 5; (b) 3 < x < 5; (c) 4; (d) -54", "id": "curve-features-from-derivative-signs/exam/0/d690e283230f", "text": "A function f is given by f(x) = -x^3 + 12x^2 - 45x - 2. (a) Find the x-coordina…"}
+{"answer": "(a) 1, 3; (b) 1 < x < 3; (c) 2; (d) -4", "id": "curve-features-from-derivative-signs/exam/1/fac479e9031d", "text": "A function f is given by f(x) = -x^3 + 6x^2 - 9x - 2. (a) Find the x-coordinate…"}
+{"answer": "(a) 1, 5; (b) x < 1 or x > 5; (c) 3; (d) -1", "id": "curve-features-from-derivative-signs/exam/2/9893442ec863", "text": "A function f is given by f(x) = x^3 - 9x^2 + 15x + 8. (a) Find the x-coordinate…"}
+{"answer": "7/2 < x < 5", "id": "curve-features-from-derivative-signs/hard/0/8dfc461cbbfc", "text": "A function f has f'(x) = 3x^2 - 21x + 30. Find the largest open interval on whi…"}
+{"answer": "3/2 < x < 3", "id": "curve-features-from-derivative-signs/hard/1/2487e1407f0c", "text": "The derivative of a function f is f'(x) = -2x^2 + 6x. Find the largest open int…"}
+{"answer": "4 < x < 9/2", "id": "curve-features-from-derivative-signs/hard/2/1f56743963c3", "text": "A function f has f'(x) = 3x^2 - 27x + 60. Find the largest open interval on whi…"}
+{"answer": "x < 1/4", "id": "curve-features-from-derivative-signs/medium/0/c992a377170c", "text": "A function f has f'(x) = -2x^2 + x. Find the largest open intervals on which th…"}
+{"answer": "x < -1", "id": "curve-features-from-derivative-signs/medium/1/9fbcb4c4b7d2", "text": "The derivative of a function f is f'(x) = 2(x + 3)^2(x + 1). Find the largest o…"}
+{"answer": "x > -1", "id": "curve-features-from-derivative-signs/medium/2/d49b7bc3fb88", "text": "The derivative of a function f is f'(x) = 2(x + 1)(x - 1)^2. Find the largest o…"}
 {"answer": "9", "id": "cyclic-group-element-order/easy/0/202ef5928076", "text": "In the additive cyclic group Z/9Z, find the order of the element [1]."}
 {"answer": "9", "id": "cyclic-group-element-order/easy/1/27fb051bc14b", "text": "In the additive cyclic group Z/9Z, find the order of the element [4]."}
 {"answer": "9", "id": "cyclic-group-element-order/easy/2/e5cef90764af", "text": "In the additive cyclic group Z/9Z, find the order of the element [5]."}
@@ -2596,6 +2620,18 @@
 {"answer": "(a) 190; (b) 0.20; (c) 17.1", "id": "hookes-law/exam/0/d86dc4071e2a", "text": "A spring obeys Hooke's law. Its length is 0.27 m when a force of 13.3 N is appl…"}
 {"answer": "(a) 210; (b) 0.48; (c) 8.4", "id": "hookes-law/exam/1/cd5816cac448", "text": "A spring obeys Hooke's law. Its length is 0.56 m when a force of 16.8 N is appl…"}
 {"answer": "(a) 200; (b) 0.79; (c) 50.0", "id": "hookes-law/exam/2/8da5b6b9a24b", "text": "In a laboratory, a spring that obeys Hooke's law is 0.92 m long under a load of…"}
+{"answer": "-3", "id": "hybrid-functions/easy/0/be081094ae77", "text": "A function is defined by f(x) = x + 4 when x < 0, f(x) = -x^2 - 2 when 0 ≤ x < …"}
+{"answer": "-3", "id": "hybrid-functions/easy/1/425554671629", "text": "A function is defined by f(x) = 3x + 4 when x < 1, f(x) = -x^2 - 2 when 1 ≤ x <…"}
+{"answer": "0", "id": "hybrid-functions/easy/2/e738dfb09b9f", "text": "A function is defined by f(x) = 3x - 3 when x < 2, f(x) = -x^2 - 2 when 2 ≤ x <…"}
+{"answer": "(a) -5; (b) 4; (c) x ≤ 2; (d) y ≥ -1", "id": "hybrid-functions/exam/0/fbe3c39d590a", "text": "A function is defined by f(x) = x^2 + k for x < -2 and f(x) = 2x + 3 for -2 ≤ x…"}
+{"answer": "(a) -6; (b) 3; (c) x ≤ 2; (d) y ≥ -2", "id": "hybrid-functions/exam/1/52eb50542d10", "text": "A function is defined by f(x) = x^2 + k for x < -2 and f(x) = 2x + 2 for -2 ≤ x…"}
+{"answer": "(a) 1; (b) 10; (c) x ≤ 3; (d) y ≥ 2", "id": "hybrid-functions/exam/2/410bc5e4cf38", "text": "A function is defined by f(x) = x^2 + k for x < -1 and f(x) = x + 3 for -1 ≤ x …"}
+{"answer": "-8/3", "id": "hybrid-functions/hard/0/291b031066b4", "text": "The function f is defined by f(x) = x^2 + kx for x < 2 and f(x) = -2x - k for x…"}
+{"answer": "-2", "id": "hybrid-functions/hard/1/a58f51d423da", "text": "The function f is defined by f(x) = x^2 + kx for x < 2 and f(x) = -x - k for x …"}
+{"answer": "0", "id": "hybrid-functions/hard/2/a52c79543442", "text": "The function f is defined by f(x) = x^2 + kx for x < -2 and f(x) = -2x - k for …"}
+{"answer": "3", "id": "hybrid-functions/medium/0/73e9bf3e5ea9", "text": "The function f is defined by f(x) = kx + 1 for x < -1 and f(x) = x^2 - 3 for x …"}
+{"answer": "13/4", "id": "hybrid-functions/medium/1/992a14a1af22", "text": "The function f is defined by f(x) = kx + 2 for x < 4 and f(x) = x^2 - 1 for x ≥…"}
+{"answer": "-4", "id": "hybrid-functions/medium/2/069ed04912b1", "text": "The function f is defined by f(x) = x^2 + k for x < -2 and f(x) = 2x + 4 for x …"}
 {"answer": "1/2", "id": "hypergeometric-probability/easy/0/c395c89806ff", "text": "A population has 10 objects, 9 of them successes. If 5 objects are drawn withou…"}
 {"answer": "1/21", "id": "hypergeometric-probability/easy/1/263dc0f71612", "text": "A population has 7 objects, 2 of them successes. If 5 objects are drawn without…"}
 {"answer": "2/7", "id": "hypergeometric-probability/easy/2/059d4a09764d", "text": "A population has 7 objects, 6 of them successes. If 2 objects are drawn without…"}
@@ -3247,6 +3283,18 @@
 {"answer": "2x^2 + 2x + 2 + (-7)/(3x - 5)", "id": "polynomial-long-division/medium/0/7c9c6acefac9", "text": "Divide f(x) = 6x^3 - 4x^2 - 4x - 17 by g(x) = 3x - 5. Give your answer as a sin…"}
 {"answer": "6x^2 + x - 1 + (2)/(2x)", "id": "polynomial-long-division/medium/1/af384e547590", "text": "Divide f(x) = 12x^3 + 2x^2 - 2x + 2 by g(x) = 2x. Give your answer as a single …"}
 {"answer": "-x^2 - 4x + 2 + (-3)/(2x + 5)", "id": "polynomial-long-division/medium/2/9cde849b518a", "text": "Divide f(x) = -2x^3 - 13x^2 - 16x + 7 by g(x) = 2x + 5. Give your answer as a s…"}
+{"answer": "9", "id": "power-functions-rational-index/easy/0/b80e7e6601dc", "text": "The function f is defined by f(x) = x^(2/3). Find f(27)."}
+{"answer": "25", "id": "power-functions-rational-index/easy/1/681789579170", "text": "Let f(x) = x^(2/3). Find f(125)."}
+{"answer": "8", "id": "power-functions-rational-index/easy/2/63c69a7df532", "text": "The function f is defined by f(x) = x^(3/2). Find f(4)."}
+{"answer": "(a) 4; (b) all real numbers; (c) 36; (d) 27", "id": "power-functions-rational-index/exam/0/6d7d46278036", "text": "The curve y = ax^(2/3) goes through the point (8, 16), where a is a constant. (…"}
+{"answer": "(a) 2; (b) x ≥ 0; (c) 64; (d) 4", "id": "power-functions-rational-index/exam/1/81051ff22ddc", "text": "The curve y = ax^(5/2) goes through the point (9, 486), where a is a constant. …"}
+{"answer": "(a) 3; (b) all real numbers; (c) 9; (d) 27", "id": "power-functions-rational-index/exam/2/252878d70f60", "text": "The curve y = ax^(1/3) goes through the point (8, 6), where a is a constant. (a…"}
+{"answer": "125", "id": "power-functions-rational-index/hard/0/78fd54672adb", "text": "Solve the equation 3x^(-1/3) = 3/5. Find the value of x."}
+{"answer": "27", "id": "power-functions-rational-index/hard/1/28d4e518b6f4", "text": "Solve x^(4/3) = 3x for x > 0. Find the value of x."}
+{"answer": "125", "id": "power-functions-rational-index/hard/2/867404bcff84", "text": "Solve the equation 4x^(-2/3) = 4/25. Find the positive value of x."}
+{"answer": "4", "id": "power-functions-rational-index/medium/0/552f2c6c1190", "text": "The function f is defined by f(x) = (x + 4)^(3/2) + 4. What is the least value …"}
+{"answer": "3", "id": "power-functions-rational-index/medium/1/956b4a3c37b9", "text": "Let f(x) = (x + 1)^(5/4) + 3. What is the least value of f(x)?"}
+{"answer": "4", "id": "power-functions-rational-index/medium/2/f3eb20638b1b", "text": "Let f(x) = (x + 4)^(1/2) + 4. What is the least value of f(x)?"}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/0/2e99032d3ed9", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/1/dd141497b7f2", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3² × 5²", "id": "prime-factorisation-exponent/easy/2/9790e970467f", "text": "Write 225 as a product of prime powers using exponent notation."}
@@ -3505,6 +3553,18 @@
 {"answer": "(a) 285.00; (b) 380.00; (c) 66.50", "id": "reverse-percentage/exam/0/5767d38fbaaf", "text": "A garden centre in Toowoomba sold a rainwater tank. The original price was firs…"}
 {"answer": "(a) 648.00; (b) 480.00; (c) 232.80", "id": "reverse-percentage/exam/1/54dc6089b90b", "text": "A bike shop in Hobart sold a mountain bike. The original price was first marked…"}
 {"answer": "(a) 868.00; (b) 620.00; (c) 204.60", "id": "reverse-percentage/exam/2/92eb8be2037f", "text": "A hardware store in Perth sold a cordless drill. Its price was first marked up …"}
+{"answer": "176/3", "id": "riemann-sum-to-definite-integral/easy/0/47f99f55f7a4", "text": "For f(x) = 2x^2 + 2x on the interval [0, 4], the sum of the areas of n right-en…"}
+{"answer": "40/3", "id": "riemann-sum-to-definite-integral/easy/1/97e752d6df85", "text": "Dividing [0, 2] into n equal strips and using right endpoints for f(x) = 2x^2 +…"}
+{"answer": "84", "id": "riemann-sum-to-definite-integral/easy/2/66f4ceddd5fe", "text": "The n right-endpoint rectangles of equal width on [0, 4] under the curve y = 3x…"}
+{"answer": "(a) 8; (b) 32/3; (c) 301/1875; (d) 17", "id": "riemann-sum-to-definite-integral/exam/0/0c24b680abb1", "text": "Let f(x) = x^2 + 2x + 2. Dividing [0, 2] into n equal strips and using right en…"}
+{"answer": "(a) 12; (b) 32/3; (c) 181/300; (d) 121", "id": "riemann-sum-to-definite-integral/exam/1/9ffff6cdf998", "text": "The area under y = x^2 + 4x from x = 0 to x = 2 is approximated by the sum R_n …"}
+{"answer": "(a) 20; (b) 18; (c) 504/625; (d) 41", "id": "riemann-sum-to-definite-integral/exam/2/fa8533323534", "text": "Let f(x) = 3x^2 + 4x + 1. Dividing [0, 2] into n equal strips and using right e…"}
+{"answer": "41", "id": "riemann-sum-to-definite-integral/hard/0/50beef851b91", "text": "The function f(x) = x^2 + 3x + 1 is increasing on [0, 2]. The area under its cu…"}
+{"answer": "68", "id": "riemann-sum-to-definite-integral/hard/1/25608ab1d067", "text": "The function f(x) = x^2 + 2 is increasing on [0, 3]. The area under its curve f…"}
+{"answer": "32", "id": "riemann-sum-to-definite-integral/hard/2/37320a534166", "text": "The function f(x) = 3x^2 + 2x is increasing on [0, 2]. The area under its curve…"}
+{"answer": "632", "id": "riemann-sum-to-definite-integral/medium/0/fab2bcd7516a", "text": "Find the value that the sum Σ (i = 0 to n - 1) of [4(1 + 4i/n)^3 + 2] × (4/n) a…"}
+{"answer": "100/3", "id": "riemann-sum-to-definite-integral/medium/1/62b87f2ba133", "text": "Evaluate the limit, as n tends to infinity, of the sum Σ (i = 1 to n) of [4(-1 …"}
+{"answer": "232/3", "id": "riemann-sum-to-definite-integral/medium/2/b51647276669", "text": "Evaluate the limit, as n tends to infinity, of the sum Σ (i = 0 to n - 1) of [(…"}
 {"answer": "θ = 31.0°", "id": "right-triangle-angle/easy/0/b9ee2ce6fdd7", "text": "A right-angled triangle has opposite side 15 and adjacent side 25. Find the ang…"}
 {"answer": "θ = 77.3°", "id": "right-triangle-angle/easy/1/b56dafc40047", "text": "A right-angled triangle has opposite side 40 and adjacent side 9. Find the angl…"}
 {"answer": "θ = 47.9°", "id": "right-triangle-angle/easy/2/7264a7dd5542", "text": "A right-angled triangle has opposite side 21 and adjacent side 19. Find the ang…"}
@@ -7576,6 +7636,18 @@
 {"answer": "11*sqrt(11)", "id": "simplify-surds/medium/0/1ecb3d277388", "text": "Simplify √275 + √396. Give your answer in the form a√b."}
 {"answer": "8*sqrt(14)", "id": "simplify-surds/medium/1/261880a6becd", "text": "Simplify √56 + √504. Give your answer in the form a√b."}
 {"answer": "11*sqrt(22)", "id": "simplify-surds/medium/2/0658c3b1dc7a", "text": "Simplify √550 + √792. Give your answer in the form a√b."}
+{"answer": "180", "id": "simpsons-rule/easy/0/bd40d2e266fd", "text": "Use Simpson's rule with 2 strips to approximate the integral of f(x) = x^3 + 3x…"}
+{"answer": "102", "id": "simpsons-rule/easy/1/f6dd06d9a994", "text": "The function f is given by f(x) = -x^2 + 7x + 8. Use Simpson's rule with 2 equa…"}
+{"answer": "174", "id": "simpsons-rule/easy/2/1b718be5d4e8", "text": "The function f is given by f(x) = 3x^2 - x + 10. Use Simpson's rule with 2 equa…"}
+{"answer": "(a) 3; (b) 37.3298; (c) 37.3298; (d) 0.0035", "id": "simpsons-rule/exam/0/deb13a526fb5", "text": "The integral of f(x) = sqrt(x) from x = 4 to x = 16 is to be estimated using Si…"}
+{"answer": "(a) 1; (b) 439.2513; (c) 146.4171; (d) 0.7222", "id": "simpsons-rule/exam/1/d3ef5ed3aba4", "text": "Let f(x) = e^x. Simpson's rule with 4 equal strips is used to estimate the inte…"}
+{"answer": "(a) 1/2; (b) 104.2387; (c) 17.3731; (d) 0.0058", "id": "simpsons-rule/exam/2/3e4199865b08", "text": "Let f(x) = e^x. Simpson's rule with 4 equal strips is used to estimate the inte…"}
+{"answer": "85.25", "id": "simpsons-rule/hard/0/eeadf99769c6", "text": "Use Simpson's rule with 6 strips to estimate the integral of f(x) = 2x^4 - 2x^3…"}
+{"answer": "12.0", "id": "simpsons-rule/hard/1/06f5b597229f", "text": "A function f takes the values 14, 1, 12, 15, 10, k, 9 at x = 0, 3, 6, 9, 12, 15…"}
+{"answer": "5.0", "id": "simpsons-rule/hard/2/45799bffaee9", "text": "A function f takes the values 2, 13, 3.5, k, 1 at x = 0, 6, 12, 18, 24. Simpson…"}
+{"answer": "8.42", "id": "simpsons-rule/medium/0/07ae2729e4f6", "text": "Use Simpson's rule with 4 strips to estimate the area under y = x^4 - 2x^3 + 3x…"}
+{"answer": "84.42", "id": "simpsons-rule/medium/1/adb4bc01668f", "text": "Use Simpson's rule with 4 strips to estimate the area under y = x^4 + 2x^3 - 2x…"}
+{"answer": "3330.00", "id": "simpsons-rule/medium/2/52186b5a54f8", "text": "The flow rate of water into a tank, in litres per minute, is recorded every 3 m…"}
 {"answer": "B = 115.7°", "id": "sine-rule/ambiguous/0/7fcca541a269", "text": "In triangle ABC, angle A = 34°, side a = 18 and side b = 29 (a is opposite A, b…"}
 {"answer": "B = 113.0°", "id": "sine-rule/ambiguous/1/c6b9e260bb57", "text": "In triangle ABC, angle A = 31°, side a = 33 and side b = 59 (a is opposite A, b…"}
 {"answer": "B = 103.2°", "id": "sine-rule/ambiguous/2/09d996e5f4d5", "text": "In triangle ABC, angle A = 36°, side a = 32 and side b = 53 (a is opposite A, b…"}

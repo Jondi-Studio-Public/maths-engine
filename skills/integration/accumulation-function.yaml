@@ -1,0 +1,44 @@
+id: accumulation-function
+name: Accumulation functions F(x), the integral of f from a to x
+domain: integration
+year_level: ['12']
+description: Work with an accumulation function F(x), the integral of f(t) from a to x. Find its values, use F'(x) = f(x) (including a variable upper limit), and decide where F is increasing or has a local maximum.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+- stationary-points
+answer: fraction
+sources:
+- topic: r4e_accumulation_function
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4e_accumulation_function
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4e_accumulation_function
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r4e_accumulation_function_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: accumulation-value-as-rate
+  description: Gives the value of f at the upper limit when the accumulated value F was asked for.
+- id: accumulation-ignores-lower-limit
+  description: Evaluates the antiderivative at the upper limit only, as if the integral started at 0.
+- id: accumulation-derivative-subtracts-lower-limit
+  description: Treats F'(x) as f(x) - f(a), subtracting the integrand at the lower limit.
+- id: accumulation-differentiates-integrand
+  description: Differentiates f to find F', instead of recognising that F' is f.
+- id: accumulation-min-taken-for-max
+  description: Gives the point where F has a local minimum when the local maximum was asked for.
+- id: accumulation-max-of-integrand
+  description: Takes the x-value where f is greatest for the x-value where F is greatest.
+- id: accumulation-chain-rule-forgotten
+  description: Leaves out the factor g'(x) when the upper limit is g(x).
+tags: [senior, integration, accumulation-function, fundamental-theorem, acmmm129, year-12]
