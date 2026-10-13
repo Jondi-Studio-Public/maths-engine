@@ -30,12 +30,21 @@ ci_shard = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ci_shard)
 
 
+def _file_of(target: str) -> str:
+    """The test file of a shard line, which is a file path or a ``path::test_function`` node id."""
+    return target.split("::", 1)[0]
+
+
 def test_real_tree_union_is_exact():
     expected = sorted(p.relative_to(ROOT).as_posix() for p in ci_shard.test_files(ROOT))
     shards = ci_shard.partition(ROOT, SHARDS)
     flat = [f for shard in shards for f in shard]
-    assert len(flat) == len(set(flat)), "a file landed in two shards"
-    assert sorted(flat) == expected
+    assert len(flat) == len(set(flat)), "a file or test function landed in two shards"
+    # A split file appears as node ids and every other file as itself; either way each file is covered.
+    assert sorted(set(_file_of(f) for f in flat)) == expected
+    split = {_file_of(f) for f in flat if "::" in f}
+    assert split, "no file is split, so the sweeps are no longer balanced by function"
+    assert not split & set(flat), "a split file is also listed whole, so its tests would run twice"
     assert all(shards), "an empty shard wastes a CI job"
 
 
@@ -63,26 +72,6 @@ def test_temp_tree_balance(tmp_path):
     assert flat == sorted([f"tests/test_{n}.py" for n in sizes] + ["tests/sub/test_g.py"])
     loads = [sum((tmp_path / f).stat().st_size for f in s) for s in shards]
     assert max(loads) - min(loads) <= 40
-
-
-def test_generator_sweeps_get_a_shard_each():
-    # The sweeps run far longer than their size suggests; two in one shard timed out at 30 min.
-    shards = ci_shard.partition(ROOT, SHARDS)
-    per_shard = [sum(1 for f in s if ci_shard._SWEEP.fullmatch(f)) for s in shards]
-    assert sum(per_shard) >= 2, "expected the tests/test_mathgen_*.py sweeps on the real tree"
-    assert max(per_shard) == 1
-
-
-def test_temp_tree_sweeps_spread_before_size(tmp_path):
-    (tmp_path / "tests").mkdir()
-    sizes = {"test_mathgen_a.py": 10, "test_mathgen_b.py": 10, "test_big.py": 100, "test_mid.py": 50}
-    for name, size in sizes.items():
-        (tmp_path / "tests" / name).write_text("#" * size)
-    shards = ci_shard.partition(tmp_path, 2)
-    assert sorted(shards) == [
-        ["tests/test_big.py", "tests/test_mathgen_a.py"],
-        ["tests/test_mathgen_b.py", "tests/test_mid.py"],
-    ]
 
 
 def test_bad_arguments_rejected():
@@ -122,9 +111,9 @@ def test_real_tree_union_matches_independent_discovery():
     assert len(expected) > 100, "the independent walk found almost nothing; this check is broken"
     flat = [f for shard in ci_shard.partition(ROOT, SHARDS) for f in shard]
     assert len(flat) == len(set(flat)), "a file landed in two shards"
-    assert set(flat) == expected, (
-        f"missing from every shard: {sorted(expected - set(flat))[:5]}; "
-        f"in a shard but not on disk: {sorted(set(flat) - expected)[:5]}"
+    assert set(map(_file_of, flat)) == expected, (
+        f"missing from every shard: {sorted(expected - set(map(_file_of, flat)))[:5]}; "
+        f"in a shard but not on disk: {sorted(set(map(_file_of, flat)) - expected)[:5]}"
     )
 
 
@@ -325,3 +314,134 @@ def test_every_real_shard_succeeds_and_prints_a_newline_terminated_list():
     result = _run_cli("0", str(SHARDS))
     assert result.returncode == 0 and result.stderr == ""
     assert result.stdout.endswith("\n") and not result.stdout.endswith("\n\n")
+
+
+# ---------------------------------------------------------------------------
+# Balancing by measured seconds, and splitting the slow files by test function.
+# ---------------------------------------------------------------------------
+
+WEIGHTS_FILE = ROOT / "scripts" / "ci_shard_weights.txt"
+
+
+def _split_files() -> list[str]:
+    return sorted({_file_of(key) for key in ci_shard.load_weights(WEIGHTS_FILE) if "::" in key})
+
+
+def _module_level_tests(path: Path) -> set[str]:
+    """Test function names found by a plain-text scan, independent of ci_shard's AST walk."""
+    import re
+
+    text = path.read_text(encoding="utf-8")
+    assert not re.search(r"^class Test", text, re.M), f"{path.name} has a test class; extend this check"
+    return set(re.findall(r"^(?:async )?def (test\w*)\(", text, re.M))
+
+
+def test_split_files_emit_every_test_function_exactly_once():
+    split = _split_files()
+    assert len(split) == 5, f"expected the five tests/test_mathgen_*.py sweeps, got {split}"
+    emitted = [t for shard in ci_shard.partition(ROOT, SHARDS) for t in shard]
+    for name in split:
+        wanted = sorted(f"{name}::{fn}" for fn in _module_level_tests(ROOT / name))
+        got = sorted(t for t in emitted if _file_of(t) == name)
+        assert got == wanted, f"{name}: shard lines differ from the file's test functions"
+        assert len(got) == len(set(got))
+
+
+def test_weights_file_names_only_things_that_exist():
+    weights = ci_shard.load_weights(WEIGHTS_FILE)
+    for key in weights:
+        name, _, function = key.partition("::")
+        assert (ROOT / name).is_file(), f"{key}: no such test file (stale weights entry)"
+        if function:
+            assert function in _module_level_tests(ROOT / name), f"{key}: no such test function"
+
+
+def test_split_node_ids_resolve_and_cover_what_pytest_collects():
+    """The AST walk must not miss a test pytest collects (generated, imported, or defined oddly)."""
+    split = _split_files()
+    done = subprocess.run(
+        [sys.executable, "-m", "pytest", "--collect-only", "-q", "-p", "no:cacheprovider", "-p", "no:xdist", *split],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert done.returncode == 0, done.stdout[-500:] + done.stderr[-500:]
+    collected = {line.split("[", 1)[0] for line in done.stdout.splitlines() if "::" in line}
+    emitted = {t for shard in ci_shard.partition(ROOT, SHARDS) for t in shard}
+    assert collected, "pytest collected nothing from the split files"
+    assert collected <= emitted, f"collected but in no shard: {sorted(collected - emitted)[:5]}"
+    assert {t for t in emitted if _file_of(t) in split} <= collected, (
+        "a shard line names a test pytest does not collect"
+    )
+
+
+def test_real_shards_are_balanced_by_estimated_seconds():
+    units = ci_shard.work_units(ROOT)
+    seconds = {name: s for s, name in units}
+    shards = ci_shard.partition(ROOT, SHARDS)
+    loads = [sum(seconds[t] for t in shard) for shard in shards]
+    mean = sum(loads) / SHARDS
+    # Greedy longest-first never exceeds the mean by more than the largest single unit; require far less.
+    assert max(loads) <= mean + max(seconds.values())
+    assert max(loads) <= 1.2 * mean, f"shard loads {[round(x) for x in loads]} against a mean of {mean:.0f}"
+    assert max(seconds.values()) <= mean, "one unit outweighs an average shard; split it further"
+
+
+def test_split_file_runs_every_function_including_ones_the_weights_do_not_name(tmp_path):
+    tests = tmp_path / "tests"
+    tests.mkdir()
+    (tests / "test_slow.py").write_text(
+        "def test_listed(): pass\n"
+        "def test_new_unlisted(): pass\n"
+        "def helper(): pass\n"
+        "class TestGroup:\n"
+        "    def test_method(self): pass\n"
+        "    def _private(self): pass\n"
+        "def test_listed(): pass\n"
+    )
+    (tests / "test_fast.py").write_text("#")
+    weights = {"tests/test_slow.py::test_listed": 100.0}
+    flat = sorted(t for shard in ci_shard.partition(tmp_path, 2, weights) for t in shard)
+    assert flat == [
+        "tests/test_fast.py",
+        "tests/test_slow.py::TestGroup::test_method",
+        "tests/test_slow.py::test_listed",
+        "tests/test_slow.py::test_new_unlisted",
+    ]
+
+
+def test_measured_seconds_beat_file_size(tmp_path):
+    tests = tmp_path / "tests"
+    tests.mkdir()
+    (tests / "test_big_but_quick.py").write_text("#" * 10_000)
+    (tests / "test_small_but_slow.py").write_text("#")
+    (tests / "test_other.py").write_text("#" * 100)
+    weights = {"tests/test_small_but_slow.py": 500.0, "tests/test_big_but_quick.py": 1.0}
+    shards = ci_shard.partition(tmp_path, 2, weights)
+    assert ["tests/test_small_but_slow.py"] in shards
+
+
+@pytest.mark.parametrize("line", ["abc tests/test_a.py", "-1 tests/test_a.py", "5", "5 a b", "nan tests/test_a.py"])
+def test_malformed_weights_line_is_an_error(tmp_path, line):
+    path = tmp_path / "weights.txt"
+    path.write_text(line + "\n")
+    with pytest.raises(ci_shard.ShardError):
+        ci_shard.load_weights(path)
+
+
+def test_duplicate_weights_target_is_an_error(tmp_path):
+    path = tmp_path / "weights.txt"
+    path.write_text("1 tests/test_a.py\n2 tests/test_a.py\n")
+    with pytest.raises(ci_shard.ShardError):
+        ci_shard.load_weights(path)
+
+
+def test_missing_weights_file_means_size_only(tmp_path):
+    assert ci_shard.load_weights(tmp_path / "nope.txt") == {}
+
+
+def test_workflow_passes_shard_lines_straight_to_pytest():
+    """Node ids work only if ci.yml hands each output line to pytest unchanged."""
+    workflow = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))
+    step = next(s for s in workflow["jobs"]["test"]["steps"] if s.get("name") == "Run this shard's test files")
+    assert 'python -m pytest "${files[@]}"' in step["run"]

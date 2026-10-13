@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- quadratic-vertex
+- solve-quadratics-formula
 answer: mcq
 sources:
 - topic: pv1d_quadratic_root_count

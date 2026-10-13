@@ -244,7 +244,7 @@ class TestQuadraticComplexConjugateSolutions:
         assert skill.domain == "quadratics"
         assert skill.status == "active"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == ["quadratic-vertex"]
+        assert skill.prerequisites == ["quadratic-vertex", "senior-define-the-imaginary-number-i-as-a-root"]
         assert skill.answer == "expression"
         difficulties = [s.difficulty for s in skill.sources]
         assert difficulties == ["easy", "medium", "hard", "exam"]

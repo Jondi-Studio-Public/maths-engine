@@ -16,7 +16,9 @@ description: |
   pair, graded as answer: pair, never a choice among offered strings.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-consider-complex-numbers-as-points-in-a-plane
+- complex-conjugate
 answer: pair
 sources:
   - topic: p19g_complex_conjugate_coordinate

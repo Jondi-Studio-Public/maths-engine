@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, convert between grams and milligrams. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-recognise-the-need-for-milligrams
+- convert-metric-mass
 answer: number
 sources:
 - topic: grams_milligrams_convert

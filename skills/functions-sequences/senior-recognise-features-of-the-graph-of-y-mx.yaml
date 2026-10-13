@@ -20,7 +20,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- rate-of-change
+- intercept
 answer: mcq
 sources:
 - topic: pv1a_gradient_sign

@@ -153,7 +153,10 @@ class TestQuantifierEvaluate:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "mcq"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == [
+            "senior-use-examples-and-counter-examples",
+            "senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow",
+        ]
         assert skill.placement_eligible is False
         assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
@@ -252,7 +255,10 @@ class TestProofByContradiction:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "mcq"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == [
+            "senior-use-implication-converse-equivalence-negation-contrapositive",
+            "senior-use-the-quantifiers-for-all-and-there-exists",
+        ]
         assert skill.placement_eligible is False
         assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 

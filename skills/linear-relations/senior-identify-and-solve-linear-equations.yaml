@@ -6,7 +6,9 @@ domain: linear-relations
 description: Classify a given one-variable equation as linear or not linear. The "solve" half of the skill name is covered by the active equations set and by senior-solve-linear-equations; the deliverable here is the judgement call of deciding whether a given equation is linear in the first place (rejecting a squared term, a reciprocal-in-the-unknown term, or a bracket expansion that does or does not cancel), stating the solved value only when the equation is in fact linear.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- two-step-equations
+- variables-on-both-sides
 answer: mcq
 sources:
 - topic: identify_and_solve_linear_equation

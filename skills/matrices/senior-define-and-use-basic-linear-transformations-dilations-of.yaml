@@ -18,7 +18,8 @@ description: |
 status: active
 placement_eligible: false
 prerequisites:
-  - matrix-multiplication
+- matrix-multiplication
+- senior-examine-and-use-multiplication-as-a-linear-transformation
 answer: pair
 sources:
   - topic: linear_transform_dilation_rotation_reflection

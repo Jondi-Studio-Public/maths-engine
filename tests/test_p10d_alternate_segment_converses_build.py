@@ -128,7 +128,7 @@ class TestAlternateSegmentTheorem:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-the-angle-at-the-centre-subtended-by-an", "f10-angle-relationships"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4  # three practice tiers plus the exam source
 
@@ -247,6 +247,9 @@ class TestCircleTheoremConversesClassify:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "mcq"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == [
+            "senior-use-implication-converse-equivalence-negation-contrapositive",
+            "senior-the-opposite-angles-of-a-cyclic-quadrilateral-are",
+        ]
         assert skill.placement_eligible is False
         assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3

@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use the notation δy/δx for the difference quotient (f(x+h)-f(x))/h where y=f(x). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-the-leibniz-notation-delta-x-and-delta
+- function-notation
 answer: fraction
 sources:
 - topic: p9c_delta_y_delta_x_notation

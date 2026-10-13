@@ -242,7 +242,10 @@ def test_skillB_loads_with_correct_metadata():
     assert skill is not None
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == ["function-notation"]
+    assert skill.prerequisites == [
+        "function-notation",
+        "senior-identify-contexts-suitable-for-modelling-by-exponential-functions",
+    ]
     all_stages = set()
     for source in skill.sources:
         all_stages.update(source.stages)

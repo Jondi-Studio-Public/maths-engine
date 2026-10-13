@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, apply the cosine and sine ratios to find unknown angles and sides in right-angled triangles. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-review-sine-cosine-and-tangent-as-ratios-of
 answer: number
 sources:
 - topic: sine_cosine_ratio_triangle

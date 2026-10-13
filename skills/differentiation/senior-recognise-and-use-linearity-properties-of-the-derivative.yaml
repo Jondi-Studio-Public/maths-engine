@@ -17,7 +17,8 @@ description: 'Given two differentiable functions f and g whose derivatives f''(x
   and adds two already-given derivatives.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- differentiate-polynomial
 answer: expression
 sources:
 - topic: p19f_derivative_linearity

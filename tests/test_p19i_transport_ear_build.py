@@ -120,7 +120,7 @@ def test_skill_loads_with_answer_ordered_list_and_correct_flags():
         assert skill.answer == "ordered_list"
         assert skill.status == "active"
         assert skill.placement_eligible is False
-    assert a.prerequisites == []
+    assert a.prerequisites == ["senior-calculate-the-time-or-costs-for-a-journey"]
     assert b.prerequisites == ["simple-interest"]
     assert {src.difficulty for src in a.sources} == {"easy", "medium", "hard", "exam"}
     assert {src.difficulty for src in b.sources} == {"easy", "medium", "hard", "exam"}

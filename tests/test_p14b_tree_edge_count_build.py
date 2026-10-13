@@ -126,7 +126,10 @@ def test_skill_loads_through_api_with_correct_properties():
     assert TREE_SKILL.status == "active"
     assert TREE_SKILL.placement_eligible is False
     assert TREE_SKILL.answer == "number"
-    assert TREE_SKILL.prerequisites == []
+    assert TREE_SKILL.prerequisites == [
+        "senior-use-minimal-spanning-trees-to-solve-minimal-connector",
+        "integer-arithmetic",
+    ]
     assert {src.difficulty for src in TREE_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = TREE_SOURCES["exam"]
     assert exam_src.stages == ["exam"]

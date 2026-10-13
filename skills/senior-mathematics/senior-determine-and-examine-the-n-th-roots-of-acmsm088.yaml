@@ -13,7 +13,9 @@ description: |
   roots in polar form (r, theta).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+- multiply-complex-numbers
 answer: pair
 sources:
   - topic: nth_roots_of_complex_number

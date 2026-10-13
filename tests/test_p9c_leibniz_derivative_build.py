@@ -259,7 +259,7 @@ class TestSkillsLoad:
         skill = next((s for s in skills if s.id == SKILL_4), None)
         assert skill is not None, f"skill {SKILL_4} not found"
         assert skill.answer == "number"
-        assert skill.prerequisites == ["differentiate-polynomial"]
+        assert skill.prerequisites == ["differentiate-polynomial", "senior-use-the-notation-frac-delta-y-delta-x"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4
         assert len(skill.misconceptions) >= 1
@@ -269,7 +269,7 @@ class TestSkillsLoad:
         skill = next((s for s in skills if s.id == SKILL_5), None)
         assert skill is not None, f"skill {SKILL_5} not found"
         assert skill.answer == "fraction"
-        assert skill.prerequisites == ["differentiate-polynomial"]
+        assert skill.prerequisites == ["differentiate-polynomial", "senior-use-the-leibniz-notation-delta-x-and-delta"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4
         assert len(skill.misconceptions) >= 1

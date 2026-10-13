@@ -5,7 +5,9 @@ year_level: [university]
 description: Select the conserved quantity associated with one supplied discrete symmetry in a finite mechanics scenario.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ucv1-energy-conservation-check
+- senior-examine-momentum-force-resultant-force-action-and-reaction
 answer: mcq
 sources:
 - topic: p15c_symmetry_conservation
