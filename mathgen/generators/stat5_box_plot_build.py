@@ -466,11 +466,11 @@ def _draw_compare(rng, tier):
             (
                 "Which group has the larger {m}?",
                 "Which plot has the greater {m}?",
-                "Which group's {noun}s have the larger {m}?",
+                "Which group's {nouns} have the larger {m}?",
                 "Compare the {m}s. Which group has the larger one?",
             ),
             m=measure,
-            noun=ctx["noun"],
+            nouns=ctx["nouns"],
         )
         opts = [_opt(names, 0), _opt(names, 1), f"The {measure}s are the same"]
         working = [
