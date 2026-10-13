@@ -43,1047 +43,6 @@ _ENTRIES = (
         "Leaving out the constant term and dividing the other side by the coefficient straight away.",
         area="equations",
     ),
-    # -- first-year multivariable, 3D geometry and statistics --
-    CatalogueEntry(
-        "unif-pdf-height-width",
-        "Giving the width b - a of the interval as the height of the uniform density instead of its reciprocal 1/(b - a).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-pdf-height-upper-bound",
-        "Using 1/b for the height of the uniform density instead of 1/(b - a).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-continuous-discrete-confused",
-        "Counting the end points as if the uniform distribution were discrete, dividing by b - a + 1 instead of b - a.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-pdf-height-sum",
-        "Using 1/(a + b) for the height of the uniform density instead of 1/(b - a).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-pdf-height-half-width",
-        "Giving half the width of the interval as the height of the density.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-prob-over-upper-bound",
-        "Dividing the length of the interval by b rather than by the full width b - a.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-prob-complement",
-        "Giving the probability of the complement of the stated interval.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-prob-cdf-not-difference",
-        "Giving P(X < d) = (d - a)/(b - a) for P(c < X < d), forgetting to subtract the part below c.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-prob-width-not-divided",
-        "Giving the length d - c of the interval as the probability, without dividing by b - a.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-mean-half-width",
-        "Giving half the width, (b - a)/2, as the mean of a uniform distribution instead of the midpoint (a + b)/2.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-mean-half-upper",
-        "Giving b/2 as the mean of a uniform distribution, which is only right when a = 0.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-mean-sum-not-halved",
-        "Giving a + b as the mean of a uniform distribution, without halving.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-variance-no-square",
-        "Using (b - a)/12 for the variance of a uniform distribution, leaving out the square of the width.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-variance-divisor-two",
-        "Using (b - a)²/2 for the variance of a uniform distribution instead of (b - a)²/12.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-variance-divisor-forgotten",
-        "Giving (b - a)² as the variance of a uniform distribution, forgetting to divide by 12.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-variance-sd-confused",
-        "Giving the standard deviation of a uniform distribution where the variance was asked for.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-variance-divisor-four",
-        "Using (b - a)²/4 for the variance of a uniform distribution instead of (b - a)²/12.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-percentile-offset-forgotten",
-        "Giving q(b - a) as the q-th percentile of a uniform distribution, forgetting to add the lower end a.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-percentile-from-top",
-        "Measuring the percentile down from b instead of up from a.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-percentile-fraction-of-upper",
-        "Giving q × b as the q-th percentile of a uniform distribution, which is only right when a = 0.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-percentile-complement",
-        "Using the proportion 1 - q instead of q when finding a percentile of a uniform distribution.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-conditional-ignored",
-        "Ignoring the given condition and using the unconditional probability for a uniform distribution.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-conditional-complement",
-        "Giving the probability that X is at most c, given X > d, instead of the probability that it exceeds c.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-conditional-numerator-width",
-        "Giving (c - d)/(b - a) for a conditional probability, with the unconditional width in the denominator and the wrong length on top.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "unif-conditional-wrong-denominator",
-        "Dividing by c - d instead of by the length b - d of the interval that the condition leaves.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-rate-mean-confused",
-        "Using the mean where the rate belongs, or the rate where the mean belongs: e^(-μt) in place of e^(-t/μ).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-tail-complement",
-        "Giving P(X ≤ t) where P(X > t) was asked, or the reverse.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-time-forgotten",
-        "Leaving the time out of the exponent, so the result depends only on the rate.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-linear-not-exponential",
-        "Treating the exponential tail as linear: 1 - t/μ in place of e^(-t/μ).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-pdf-as-cdf",
-        "Giving the density λe^(-λt) where the distribution function 1 - e^(-λt) was asked for.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-density-factor-forgotten",
-        "Giving e^(-λt) for the density, leaving out the factor λ.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-cdf-as-pdf",
-        "Giving the distribution function 1 - e^(-λt) where the density λe^(-λt) was asked for.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-density-times-cdf",
-        "Multiplying λ by 1 - e^(-λt) for the density instead of by e^(-λt).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-median-as-mean",
-        "Giving the mean as the median of an exponential distribution, as if it were symmetric.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-median-halved-mean",
-        "Giving half the mean as the median of an exponential distribution.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-log-base-ten",
-        "Using log base 10 of 2 in place of the natural logarithm ln 2 when solving for the median.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-percentile-wrong-tail",
-        "Solving e^(-m/μ) = p instead of 1 - e^(-m/μ) = p, so the percentile uses the wrong tail.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-percentile-linear",
-        "Giving p × μ as a percentile of an exponential distribution, as if it were uniform.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-percentile-sign",
-        "Losing the minus sign when solving for a percentile of an exponential distribution, so the time is negative.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-memoryless-ignored",
-        "Giving the probability of lasting s + t from the start, ignoring that the item has already lasted s.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-memoryless-wrong-time",
-        "Using the elapsed time s in place of the extra time t in the exponent.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-memoryless-ratio-inverted",
-        "Dividing the probabilities the wrong way round in the conditional probability, which gives a value above 1.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-interval-width-only",
-        "Giving P(X > t - s) for P(s < X < t): applying the memoryless property to an interval, which it does not describe.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-interval-sign-reversed",
-        "Subtracting the tail probabilities in the wrong order, so P(s < X < t) comes out negative.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-tail-only",
-        "Giving P(X > s) for P(s < X < t), forgetting to subtract P(X > t).",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-interval-density-times-width",
-        "Approximating P(s < X < t) by the density at s times the width of the interval.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-rate-reciprocal-squared",
-        "Giving 1/μ² as the rate of an exponential distribution with mean μ.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-rate-from-median",
-        "Using ln 2 divided by the mean as the rate.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-rate-half-mean",
-        "Giving half the mean as the rate.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "expo-pdf-as-tail",
-        "Giving the density value λe^(-λt) where the tail probability e^(-λt) was asked for.",
-        area="statistics-probability",
-    ),
-    CatalogueEntry(
-        "ztest-se-uses-sample-proportion",
-        "Building the standard error from the sample proportion, √(p̂(1 − p̂)/n), when a test must use the hypothesised proportion p0.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-se-no-root",
-        "Forgetting the square root: giving p0(1 − p0)/n as the standard error of a sample proportion.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-se-complement-forgotten",
-        "Using √(p0/n) as the standard error, leaving out the factor 1 − p0.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-se-divides-by-n",
-        "Dividing √(p0(1 − p0)) by n instead of by √n.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-se-root-n-forgotten",
-        "Giving √(p0(1 − p0)) as the standard error without dividing by √n.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-sign-reversed",
-        "Subtracting in the wrong order, p0 − p̂, so the test statistic has the wrong sign.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-count-used-as-proportion",
-        "Using the number of successes where the sample proportion belongs, so the difference from p0 is hundreds of times too large.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-percent-not-converted",
-        "Using a sample percentage such as 41.5 where the proportion 0.415 belongs.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-hypothesised-proportion-ignored",
-        "Giving the sample proportion itself when asked for its difference from the hypothesised proportion.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-sample-proportion-wrong-denominator",
-        "Dividing the number of successes by the successes plus the sample size instead of by the sample size.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-pvalue-doubling-forgotten",
-        "Giving a single tail area as the p-value of a two-sided test.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-pvalue-cdf-as-pvalue",
-        "Giving the area to the left of |z| as the p-value instead of the area in the tail.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-pvalue-complement",
-        "Subtracting the two-sided p-value from 1.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-pvalue-wrong-tail",
-        "Taking the tail on the wrong side of z for the alternative hypothesis: the area to the left for H1: p > p0, or to the right for H1: p < p0.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-pvalue-doubled-for-one-sided",
-        "Doubling the tail area for a one-sided alternative hypothesis.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-pvalue-sign-ignored",
-        "Using the tail beyond |z| whatever the sign of z, so a statistic on the wrong side of p0 for a one-sided alternative gives a small p-value instead of a large one.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-cutoff-wrong-side",
-        "Subtracting z* × SE from p0 for the upper rejection boundary of a test of H1: p > p0.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-cutoff-margin-as-bound",
-        "Giving the margin z* × SE as the boundary instead of adding it to p0.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-wrong-critical-value",
-        "Using a critical value that does not match the stated one, such as 1.645 where the question gives 1.96.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-count-rounded-down",
-        "Rounding the boundary count down, so the count named does not actually reject H0.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-count-rounded-up-twice",
-        "Adding one to the smallest whole number above the boundary count.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-conclusion-decision-reversed",
-        "Reading the comparison with 0.05 the wrong way round: rejecting H0 for a large p-value or not rejecting it for a small one.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ztest-conclusion-sample-differs",
-        "Rejecting H0 just because the sample proportion is not exactly p0, without looking at the p-value.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-sd-as-standard-error",
-        "Dividing the difference in means by the pooled standard deviation alone, without scaling it by √(1/n1 + 1/n2).",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-welch-pooled-confused",
-        "Using the pooled standard error when the question asks for the unequal-variance (Welch) statistic, or the reverse.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-paired-sd-as-se",
-        "Dividing the mean difference by the standard deviation of the differences without dividing that by √n.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-paired-se-root-df",
-        "Dividing the standard deviation of the differences by √(n - 1) instead of √n.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-se-sds-added",
-        "Adding the two standard errors s1/√n1 + s2/√n2 instead of adding the variances s1²/n1 + s2²/n2 and then taking the square root.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-se-no-root",
-        "Forgetting the final square root: giving s1²/n1 + s2²/n2 as the standard error of the difference.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-se-single-sample",
-        "Using only the first sample, s1/√n1, as the standard error of a difference between two sample means.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-se-sd-over-n",
-        "Dividing each variance by n² (each standard deviation by n) instead of dividing each variance by n.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-se-total-n",
-        "Pooling the two samples into one: √((s1² + s2²)/(n1 + n2)), which ignores that each sample has its own size.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-diff-over-sds",
-        "Dividing the difference in means by √(s1² + s2²), forgetting to divide each variance by its sample size.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-sign-reversed",
-        "Subtracting the means (or the paired values) in the wrong order, so the statistic has the wrong sign.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-simple-average",
-        "Averaging the two sample variances, (s1² + s2²)/2, without weighting by the degrees of freedom.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-weights-sds",
-        "Weighting the standard deviations by their degrees of freedom instead of the variances, so the pooled value is a standard deviation.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-divisor-total-n",
-        "Dividing the pooled sum of squares by n1 + n2 instead of by the degrees of freedom n1 + n2 - 2.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-weights-by-n",
-        "Weighting each variance by its sample size n instead of by n - 1.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-sd-as-variance",
-        "Giving the pooled standard deviation where the pooled variance was asked for (or the reverse).",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-se-one-sum",
-        "Using √(1/(n1 + n2)) in place of √(1/n1 + 1/n2) when scaling the pooled standard deviation.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-se-unrooted",
-        "Leaving the square root off the factor in sp·√(1/n1 + 1/n2).",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-se-single-n",
-        "Scaling the pooled standard deviation by one sample size only, sp/√n1.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-pooled-variance-as-sd",
-        "Putting the pooled variance where the pooled standard deviation belongs in the standard error.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-paired-sd-divisor-n",
-        "Finding the standard deviation of the paired differences with divisor n instead of n - 1.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-paired-uncentred-spread",
-        "Finding the spread of the differences from the sum of d² without subtracting the mean first.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-paired-se-over-n",
-        "Dividing the standard deviation of the differences by n instead of √n to get the standard error.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-paired-variance-as-sd",
-        "Using the variance of the differences where their standard deviation belongs.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-ci-other-bound",
-        "Giving the opposite end of the confidence interval from the one asked for.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-ci-margin-as-bound",
-        "Giving the margin of error as if it were the confidence limit instead of adding it to (or subtracting it from) the estimate.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-ci-normal-critical",
-        "Using the normal critical value 1.96 in place of the t critical value for the stated degrees of freedom.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-conclusion-decision-reversed",
-        "Reading the comparison with the critical value the wrong way round: not rejecting H0 when the statistic is beyond the critical value, or rejecting when it is not.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "ttest-conclusion-means-differ",
-        "Rejecting H0 just because the two sample means are not equal, without comparing the statistic with the critical value.",
-        area="statistics",
-    ),
-    CatalogueEntry(
-        "volume-extra-dot-term",
-        "Adding a stray dot product to a volume: |a·(b × c)| + |a·b|.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-signed-left-negative",
-        "Leaving the distance from a point to a plane negative: the signed value (n·P - d)/|n| without taking the absolute value.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-plane-denominator-not-rooted",
-        "Dividing by a² + b² + c² instead of by its square root √(a² + b² + c²) in a distance to a plane.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-plane-constant-sign",
-        "Adding the constant of the plane's equation to n·P instead of subtracting it.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-plane-not-normalised",
-        "Giving |n·P - d| as the distance without dividing by the length of the normal vector.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-plane-denominator-sum-of-coefficients",
-        "Dividing by |a| + |b| + |c| instead of √(a² + b² + c²) in a distance to a plane.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-line-dot-product-used",
-        "Using the dot product instead of the cross product, so the length along the line is found instead of the distance from it.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-line-not-normalised",
-        "Giving the size of the cross product AP × u without dividing by the length of the direction vector u.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-line-point-not-shifted",
-        "Crossing the position vector of P with u instead of the vector from a point on the line to P.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "distance-line-to-base-point",
-        "Giving the distance from P to the line's base point A, not the shortest distance to the line.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "volume-negative-not-absolute",
-        "Leaving a volume negative: giving the scalar triple product itself without its absolute value.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "determinant-expansion-signs-forgotten",
-        "Expanding a 3×3 determinant with every term added, missing the alternating signs of the cofactor expansion.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "volume-as-base-area-only",
-        "Giving the area of the base, |b × c|, as the volume of the parallelepiped.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "parallelepiped-as-tetrahedron",
-        "Treating a parallelepiped's volume as the volume of the tetrahedron on the same edges (a sixth of it), or the reverse.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "skew-distance-not-normalised",
-        "Giving |(A₂ - A₁)·(u₁ × u₂)| as the distance between skew lines without dividing by |u₁ × u₂|.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "skew-distance-one-line-only",
-        "Using the point-to-line formula with one of the skew lines, ignoring the direction of the other.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "skew-distance-between-base-points",
-        "Giving the distance between the two lines' base points as the distance between the lines.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "tetrahedron-volume-factor-forgotten",
-        "Giving |AB · (AC × AD)| as the volume of a tetrahedron without dividing by 6.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "tetrahedron-volume-third-of-parallelepiped",
-        "Taking a third of the parallelepiped's volume for the tetrahedron instead of a sixth.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "tetrahedron-volume-half-of-parallelepiped",
-        "Taking half of the parallelepiped's volume for the tetrahedron instead of a sixth.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "height-pyramid-factor-forgotten",
-        "Dividing the tetrahedron's volume by the base area without the factor 3 in h = 3V/A.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "height-pyramid-factor-applied-twice",
-        "Dividing by 3 once too often when finding the height from |AD·(AB × AC)| and |AB × AC|.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "triple-product-order-reversed",
-        "Taking the scalar triple product with two of the vectors in the opposite order, which gives the negative.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "triple-product-extra-dot-term",
-        "Adding a stray dot product a·b to a scalar triple product.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "triple-product-dots-multiplied",
-        "Multiplying dot products (a·b)(b·c) in place of forming a·(b × c).",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "volume-doubled",
-        "Doubling a volume: counting the parallelepiped's volume twice.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "area-from-dot-product",
-        "Using the dot product |a·b| for the area of the parallelogram on a and b, where the cross product |a × b| belongs.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "area-as-product-of-lengths",
-        "Giving |a||b| as the area of the parallelogram, which ignores the angle between the edges.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "area-cross-magnitude-squared",
-        "Giving the sum of squares of the cross product's components, |a × b|², where its length |a × b| was needed.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "area-parallelogram-as-triangle",
-        "Halving |a × b| for a parallelogram, which is the area of the triangle on a and b.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "height-volume-multiplied-by-area",
-        "Multiplying the volume by the base area instead of dividing, when finding the height.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "height-ratio-inverted",
-        "Dividing base area by volume instead of volume by base area, when finding the height.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "height-over-the-wrong-face",
-        "Dividing the volume by the area of a different face from the one the height is measured from.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "height-pyramid-factor-applied-to-prism",
-        "Using the pyramid formula h = 3V/A for a prism or parallelepiped, whose height is V/A.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "plane-constant-sign",
-        "Giving the constant of the plane with the wrong sign, as if the normal had been found in the opposite direction.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "cross-product-middle-sign-slip",
-        "Forgetting the minus sign on the middle component of a cross product.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "cross-product-componentwise",
-        "Multiplying two vectors component by component and calling the result the cross product.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "cross-product-components-swapped",
-        "Writing the components of a cross product in the wrong order, such as (a, c, b) for (a, b, c).",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "cross-product-reversed-order",
-        "Taking the cross product in the wrong order, so the normal vector points the opposite way.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "plane-constant-sum-of-points",
-        "Dotting the normal with the sum of the three points instead of with one of them.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "line-plane-sign-in-numerator",
-        "Adding n·A to the plane's constant instead of subtracting it when solving for the parameter where a line meets a plane.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "line-plane-not-divided-by-direction-dot",
-        "Stopping at k - n·A without dividing by n·u, the rate at which the line moves through the plane's values.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "line-plane-ratio-inverted",
-        "Dividing in the wrong order: (n·u)/(k - n·A) where (k - n·A)/(n·u) is needed.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "line-plane-point-term-forgotten",
-        "Leaving the line's starting point out of the substitution into the plane's equation: solving k = (n·u)t.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "angle-between-planes-supplement",
-        "Giving the obtuse angle 180° - θ where the acute angle between the planes or the line and the plane was asked for.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "angle-between-planes-sine-used",
-        "Using sine where cosine belongs (or the reverse), which gives 90° - θ for the angle between the normals.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "angle-between-planes-constants-included",
-        "Including the constants of the two plane equations in the vectors whose angle is found, instead of only the normals.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "angle-given-in-radians",
-        "Leaving an angle in radians when degrees were asked for.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "line-plane-angle-cosine-used",
-        "Finding the angle between the line and the plane's normal (using cosine) and giving it as the angle between the line and the plane.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "line-plane-angle-tangent-used",
-        "Using the inverse tangent of |n·u|/(|n||u|) in place of the inverse sine for the angle between a line and a plane.",
-        area="vectors",
-    ),
-    CatalogueEntry(
-        "polar-jacobian-omitted",
-        "Integrating in polar coordinates without the extra factor r from dA = r dr dθ.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-angular-factor-ignored",
-        "Replacing the integral of the angular factor (cos θ, sin θ, ...) by the width of the angle range, as if the integrand did not depend on the angle.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-angle-factor-forgotten",
-        "Integrating over r but never multiplying by the integral over the angle.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-angle-halved",
-        "Using an angle range of half the size needed: π for a whole disc, π/2 for a half disc, or π/4 for a quarter disc.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-inner-radius-ignored",
-        "Using 0 as the lower radius for a ring, so the hole in the middle is included.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-ring-difference-before-power",
-        "Raising the difference of the radii to the power, (b - a)^n, instead of taking the difference of the powers, b^n - a^n.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-radius-limit-squared",
-        "Using x² + y² = R² as r² = R, so that the upper limit of r is R² instead of R.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "integrand-boundary-value-times-area",
-        "Multiplying the area of the region by the value of the integrand on its outer edge instead of integrating.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-quadrant-angle-forgotten",
-        "Using the whole circle, 2π, as the angle range for a region that is only a quarter of it.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "substitution-factor-half-dropped",
-        "Integrating r·e^(-r²) as e^(-r²) without the factor 1/2 that the substitution u = r² gives.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-gaussian-limit-not-squared",
-        "Substituting r = R instead of r² = R² into the antiderivative of r·e^(-r²).",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-gaussian-complement-sign",
-        "A sign slip in e^(-R²) in the value (1 - e^(-R²))/2: adding it, or subtracting in the other order.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-gaussian-bound-ignored",
-        "Taking the radius of the region to infinity so that the e^(-R²) term disappears.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-bound-radius-from-height",
-        "Using the height of the surface, instead of the radius where it meets the plane z = 0, as the outer radius of the region.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "volume-as-base-area-times-peak-height",
-        "Giving the volume as the area of the base times the greatest height of the solid.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "polar-substitution-x-as-r-squared",
-        "Writing x as r² in polar coordinates instead of r cos θ.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "centroid-not-divided-by-area",
-        "Giving the first moment ∬ x dA as the centroid coordinate, without dividing by the area.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "mean-position-ratio-inverted",
-        "Dividing the area by the first moment instead of the first moment by the area.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "mean-position-divided-by-pi",
-        "Dividing a first moment by a full-circle area where the area of the plate itself belongs.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "centroid-distance-uses-one-coordinate",
-        "Giving the x-coordinate of a centroid where the distance from the origin was asked for.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "centroid-distance-coordinates-added",
-        "Adding the two coordinates of the centroid instead of using Pythagoras' theorem for the distance.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "centroid-distance-root-forgotten",
-        "Giving x² + y² for a distance without taking the square root.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "centroid-distance-divided-by-root-two",
-        "Dividing the x-coordinate by √2 instead of multiplying, when the distance is the hypotenuse of two equal sides.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "chain-rule-inner-derivatives-omitted",
-        "Adding the two partial derivatives of z without multiplying each by the derivative of its variable with respect to the parameter.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "chain-rule-one-term-only",
-        "Using only the x term of the chain rule, fx·(dx/dt), and leaving out the y term.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "chain-rule-partials-swapped",
-        "Pairing each partial derivative with the other variable's rate of change: fy with dx/dt and fx with dy/dt.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "chain-rule-partials-evaluated-at-parameter",
-        "Evaluating the partial derivatives at the parameter value (t, t) or (u, v) instead of at the point (x, y) that the parameter gives.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "chain-rule-wrong-variable-differentiated",
-        "Differentiating the inner functions with respect to the other new variable, so the answer is for dz/dv where dz/du was asked (or the reverse).",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "partial-multiplied-by-path-derivative",
-        "Giving fx·(dx/dt) where the partial derivative fx alone was asked for.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "chain-rule-point-coordinates-swapped",
-        "Substituting the position into a partial derivative with x and y the wrong way round.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "second-derivative-cross-term-dropped",
-        "Leaving out the mixed term 2·fxy·x'·y' in the second derivative along a path.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "second-derivative-cross-term-not-doubled",
-        "Including the mixed term of the second derivative along a path as fxy·x'·y' instead of 2·fxy·x'·y'.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "second-derivative-inner-derivatives-not-squared",
-        "Multiplying fxx and fyy by x' and y' instead of by their squares in the second derivative along a path.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "second-derivative-stopped-at-first",
-        "Giving the first derivative dz/dt where the second derivative was asked for.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "rate-divided-by-interval",
-        "Dividing a rate by the time interval where the change is the rate multiplied by that interval.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "rate-times-time-not-interval",
-        "Multiplying a rate of change by the time t at which it was found instead of by the length of the time interval.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "rate-plus-interval",
-        "Adding the length of the time interval to the rate instead of multiplying the rate by the interval.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "rate-times-final-time",
-        "Multiplying a rate of change by the final time t + Δt instead of by the length Δt of the interval.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "linear-approx-omits-base-value",
-        "Giving only the change fx·h + fy·k predicted by the tangent plane, without adding the value f(x0, y0) at the point.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-partials-swapped",
-        "Using f_y where f_x belongs and f_x where f_y belongs in the tangent plane or the linear approximation.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "linear-approx-exact-value-given",
-        "Evaluating f itself at the nearby point instead of using the tangent plane, so the exact value is given where the linear estimate was asked for.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "linear-approx-one-variable-only",
-        "Changing only x in the linear approximation and leaving out the f_y·k term for the change in y.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "linear-approx-slope-times-coordinate",
-        "Multiplying each slope by the coordinate of the point instead of by the small step in that variable.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-shift-forgotten",
-        "Reading the constant term of z = Ax + By + C as f(x0, y0), forgetting that the plane is written about the point so A·x0 + B·y0 must be subtracted.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-shift-sign",
-        "Adding A·x0 + B·y0 to f(x0, y0) instead of subtracting it when expanding the point form of the tangent plane.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-shift-one-variable",
-        "Subtracting the A·x0 term but leaving out B·y0 when expanding the point form of the tangent plane.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-shift-uses-slopes-only",
-        "Subtracting the slopes A and B themselves instead of A·x0 and B·y0 when expanding the point form of the tangent plane.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-constant-negated",
-        "A sign error across the answer: the constant term or intercept has the opposite sign to the correct one.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "radial-slope-taken-as-one",
-        "Taking the partial derivatives of the square-root surface as 1, forgetting the factor x/√(x² + y²) from the chain rule.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "radial-slope-denominator-squared",
-        "Dividing by x² + y² instead of √(x² + y²) when differentiating a square root of a sum of squares.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "implicit-plane-coefficients-dropped",
-        "Writing the tangent plane to an implicit surface as x0·x + y0·y + z0·z = k, forgetting the coefficients of the surface's equation.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "implicit-plane-constant-halved",
-        "Setting the gradient dotted with (x, y, z) equal to k, which leaves out the factor 2 that the constant needs once the gradient 2a·x0, 2b·y0, 2c·z0 is used.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-wrong-axis-intercept",
-        "Finding where the tangent plane meets a different axis from the one asked for.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "partial-power-rule-multiplier-dropped",
-        "Differentiating a power by lowering its exponent but not multiplying by the old exponent: the derivative of x³ taken as x².",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "tangent-plane-point-coordinates-swapped",
-        "Substituting the point's coordinates into the partial derivative the wrong way round: x0 for y and y0 for x.",
-        area="multivariable",
-    ),
-    CatalogueEntry(
-        "partial-sign-slip",
-        "A sign slip in a partial derivative, giving the negative of its value.",
-        area="multivariable",
-    ),
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",
@@ -1185,967 +144,6 @@ _ENTRIES = (
         "substitution-sign-error",
         "Getting a sign wrong when substituting a negative value into a term.",
         area="general",
-    ),
-    # -- first-year calculus ----------------------------------------------------------------------------------------
-    CatalogueEntry(
-        "fy1ca-continuity-sign-slip",
-        "Moving a term across the equals sign without changing its sign when matching the values of two pieces, so the constant comes out with the wrong sign or size.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-constant-not-divided",
-        "Matching the two pieces correctly but forgetting to divide by the junction's x-value to isolate the slope parameter.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-gradients-matched",
-        "Equating the gradients (derivatives) of the two pieces instead of their values: smoothness is not the same as continuity.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-one-piece-only",
-        "Evaluating only one piece at the junction and reporting that value as the parameter, so the other piece is never matched.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-squared-as-doubled",
-        "Reading c squared as 2c when evaluating a piece at the junction.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-first-constant-ignored",
-        "Solving the second junction while assuming the unknown constant of the middle piece is 1, instead of first finding it from the first junction.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-first-constant-slip",
-        "Finding the first unknown constant with a sign slip and carrying the wrong value into the second junction.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-wrong-piece",
-        "Evaluating a function at a point using the piece that applies on the other side of the junction.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-constant-dropped",
-        "Dropping the constant term of a linear piece when evaluating it.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-continuity-value-at-junction",
-        "Evaluating a piece at the junction when the question asked for its value somewhere else.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-limit-by-substitution",
-        "Substituting the junction into a 0/0 quotient and reporting 0, instead of cancelling or using a standard limit.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-limit-cancel-slip",
-        "Cancelling a common factor correctly but then reporting the wrong part of what is left (the constant of the other factor, or its square).",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-limit-power-dropped",
-        "Taking the limit of x squared plus a constant as the constant alone, dropping the squared term.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-limit-equals-value",
-        "Treating the stated value of the function at the point as its limit there, when the limit is a separate quantity.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-standard-limit-factor-dropped",
-        "Quoting the standard limit sin(u)/u or (e^u - 1)/u as 1 without the factor needed when the argument is mx.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-standard-limit-inverted",
-        "Dividing by m instead of multiplying when taking the limit of sin(mx)/x or (e^(mx) - 1)/x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-removable-called-jump",
-        "Calling a break a jump discontinuity because the value at the point differs from the limit, although both one-sided limits agree.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-removable-called-continuous",
-        "Concluding there is no break because the one-sided limits agree, without checking the value at the point.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-removable-called-infinite",
-        "Calling a break an infinite discontinuity when the function is bounded near the point.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-ivt-wrong-end",
-        "Giving the upper integer of the interval that holds the root when the lower one was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-ivt-one-step-away",
-        "Giving an integer that is not one of the two either side of the root, from stopping the sign search too early or too late.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-ivt-value-at-wrong-point",
-        "Evaluating the function at an end of the interval when the midpoint was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-ivt-linear-term-slip",
-        "Evaluating bx at the midpoint as b, forgetting to multiply by the midpoint.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-ivt-cube-as-triple",
-        "Reading the cube of the midpoint as three times it.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-ivt-sign-slip",
-        "Adding the constant term where it should be subtracted when evaluating the function.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-wrong-half",
-        "Keeping the half of the interval that does not contain the sign change, from reading the sign of f at the midpoint the wrong way.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-wrong-end",
-        "Giving the other endpoint of the new interval than the one asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-midpoint-reported",
-        "Reporting the midpoint just computed instead of the endpoint of the interval kept.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-no-update",
-        "Reporting the original endpoint, as if the bisection step had not changed the interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-stops-early",
-        "Stopping one bisection step early and reporting that interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-off-by-one",
-        "Finding the number of halvings correctly but rounding it down or up by one, so the interval is not yet narrow enough or one step too many is counted.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-count-divided",
-        "Dividing the interval width by the tolerance instead of halving repeatedly until the width is small enough.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-log-base-ten",
-        "Counting digits of the ratio of width to tolerance (a base-ten logarithm) instead of halvings (a base-two logarithm).",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-bisection-two-steps",
-        "Carrying on to a second bisection step and reporting its midpoint, when only one step was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-variable-dropped",
-        "Differentiating the formula but losing the radius factor, so the rate does not depend on how large the shape is.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-chain-rule-forgotten",
-        "Differentiating with respect to the radius only and leaving out the rate of change of the radius.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-power-rule-slip",
-        "Differentiating a power of the variable incorrectly (the exponent not brought down, or the new exponent wrong).",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-formula-not-differentiated",
-        "Substituting the values into the original formula and multiplying by the rate, instead of differentiating first.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-wrong-coefficient",
-        "Differentiating correctly but keeping a constant that should have cancelled, or cancelling one that should stay.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-ratio-inverted",
-        "Inverting the ratio of the two rates when relating them.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-rates-assumed-equal",
-        "Assuming two linked quantities change at the same rate, when their rates are related by a ratio that depends on the position.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-wrong-length",
-        "Dividing by the hypotenuse instead of the side that the rate belongs to.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-sign-for-speed",
-        "Giving the signed rate of change when a speed (positive) was asked for, or a speed when the signed rate was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-direction-sign",
-        "Treating a vehicle moving towards the junction as moving away, so the sign of its contribution is wrong.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-division-dropped",
-        "Forgetting to divide by the distance when converting 2s ds/dt back to ds/dt.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-rates-combined",
-        "Combining the two vehicles' speeds directly instead of resolving them along the line joining the vehicles.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-components-swapped",
-        "Pairing each speed with the other vehicle's coordinate when applying the rate formula.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-shadow-tip-and-length-confused",
-        "Giving the speed of the tip of the shadow when its length was asked for, or the reverse.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-similar-triangles-sum",
-        "Setting up the similar triangles with the sum of the heights instead of the difference.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-ratio-not-squared",
-        "Using the ratio of radius to height without squaring it in the cone's volume.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-cone-third-forgotten",
-        "Leaving the factor of one third out of (or putting it into) the volume of a cone when relating the rates.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-radius-equals-height",
-        "Taking the cone's radius equal to its height, ignoring the stated ratio.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-formula-confusion",
-        "Using the surface area of a sphere where the volume was needed.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-sphere-third-forgotten",
-        "Dropping the factor of one third from the volume of a sphere.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-surface-differentiated",
-        "Differentiating the surface area formula when the volume's rate was needed.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-wrong-derivative-used",
-        "Dividing the rate of volume by the volume instead of by its derivative with respect to the size.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-only-the-first-volume",
-        "Dividing the volume at the starting size by the rate, as if the time were to build the pile from nothing.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-volume-added-not-subtracted",
-        "Taking the whole volume at the larger size instead of the volume added between the two sizes.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-linear-scaling",
-        "Assuming volume doubles when the size doubles.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rates-area-scaling",
-        "Assuming volume quadruples when the size doubles, as an area would.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-all-sides-fenced",
-        "Treating all four sides of the rectangle as fenced when one side is a creek or wall.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-area-not-squared",
-        "Dividing the volume by the side instead of the side squared when finding the height.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-closed-top-counted",
-        "Counting a lid on a tank or box that is open at the top.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-cost-at-trial-value",
-        "Pricing the area at the trial value instead of at the optimum.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-costs-swapped",
-        "Swapping the two unit costs, so each route is charged at the other route's rate.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-derivative-slip",
-        "Making an algebra or differentiation slip in the derivative, so the stationary point is wrong.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-endpoint-not-compared",
-        "Reporting a stationary point or a single end of the interval without comparing all candidates.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-factor-dropped",
-        "Dropping a numerical factor when solving the stationary-point equation for the variable.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-height-inverted",
-        "Inverting the relation between height and side when using the fixed volume.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-ignores-constraint",
-        "Using the stationary point even though it lies outside the allowed interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-land-only",
-        "Costing the whole route at the land rate.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-length-not-eliminated",
-        "Leaving the second variable in the formula instead of using the constraint to eliminate it.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-one-side-only",
-        "Counting the area of one side face instead of all four.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-square-assumed",
-        "Assuming the best rectangle is a square without using the constraint.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-stopped-near",
-        "Stopping at a nearby whole number instead of solving the stationary-point equation exactly.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-variable-reported",
-        "Giving the value of the variable at the optimum when the optimum value was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-volume-for-area",
-        "Multiplying instead of adding the faces, giving a volume where an area was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-volume-for-side",
-        "Giving the volume where the side length was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-water-only",
-        "Costing the whole route at the under-water rate.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-whole-triangle",
-        "Giving the area of the whole triangle instead of the best inscribed rectangle.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-wrong-coefficient",
-        "Using a wrong coefficient when setting up the area or volume formula.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-wrong-faces",
-        "Including the wrong set of faces when finding the surface area.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-opt-wrong-root",
-        "Taking the wrong root (square root for cube root) of the stationary-point equation.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-root-dropped",
-        "Integrates 1 + (dy/dx)² without the square root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-lower-limit-ignored",
-        "Evaluates the antiderivative at the upper limit only.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-chord-used",
-        "Gives the straight-line distance between the ends instead of the length along the curve.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-height-change-used",
-        "Gives the change in y instead of the length along the curve.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-wrong-antiderivative",
-        "Sets the length up correctly but makes a slip when integrating.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-cross-term-sign",
-        "Expands the square with the wrong sign on the middle term, so the integrand is not the one that appears under the root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-components-added",
-        "Adds dx/dt and dy/dt instead of combining them with Pythagoras.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-log-term-dropped",
-        "Drops the logarithmic term when integrating 1/x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-derivative-sign",
-        "Gets the sign of the second term of the derivative wrong.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-power-rule-slip",
-        "Differentiates a power of x incorrectly.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-function-not-differentiated",
-        "Gives the value of the function where its slope was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-square-dropped",
-        "Does not square the slope inside the square root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-integrand-is-derivative",
-        "Gives the slope where the value of the square root was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-sign-slip",
-        "Subtracts instead of adds inside the square root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-chord-ignored",
-        "Gives the length of the curve where its excess over the straight line was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-arc-ignored",
-        "Gives the straight-line distance where the excess of the curve over it was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-chord-added",
-        "Adds the straight-line distance to the length instead of subtracting it.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-arc-ratio-for-difference",
-        "Divides the two lengths where their difference was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-radius-forgotten",
-        "Integrates only the height of the shell and leaves out its radius.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-two-forgotten",
-        "Uses a factor of pi where 2 pi is needed (the circumference of the shell or of the strip).",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-disc-formula",
-        "Applies the disc or washer formula to a rotation that needs shells.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-pi-forgotten",
-        "Leaves the factor of pi out of the answer.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-height-not-difference",
-        "Uses the upper curve alone as the height of the shell instead of the gap between the curves.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-axis-ignored",
-        "Takes the radius of the shell as x when the axis of rotation is a different vertical line.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-y-coordinate-given",
-        "Gives the y-coordinate of the intersection point where its x-coordinate was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-intersection-slip",
-        "Makes an algebra slip when solving for the point where the curves meet.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-height-sign",
-        "Subtracts the upper curve from the lower, giving a negative height.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-height-slip",
-        "Subtracts the radius from the slope instead of finding the gap between the curves at that radius.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-units-grams",
-        "Reports the mass in grams where kilograms were asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-density-divided",
-        "Divides the volume by the density instead of multiplying.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-density-forgotten",
-        "Converts the volume to litres or kilograms without using the density.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-shell-units-slip",
-        "Converts grams to kilograms by dividing by 100 instead of 1000.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-root-dropped",
-        "Integrates 2 pi y without the arc-length factor.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-radius-dropped",
-        "Integrates the arc-length factor alone, leaving out the radius y.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-two-forgotten",
-        "Uses pi where 2 pi is needed in the surface-area formula.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-volume-formula",
-        "Uses the volume integral of pi y squared for a surface area.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-arc-length-only",
-        "Gives the arc length instead of the area of the surface.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-lower-limit-ignored",
-        "Evaluates the antiderivative at the upper limit only.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-wrong-antiderivative",
-        "Sets the integral up correctly but makes a slip when integrating.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-quarter-dropped",
-        "Drops the 1/4 under the square root, integrating the square root of x + 1.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-whole-sphere",
-        "Gives the area of a whole sphere or hemisphere instead of the zone.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-surface-endpoint-sum",
-        "Uses the sum of the limits where their difference is needed.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-division-forgotten",
-        "Gives the integral without dividing by the length of the interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-divide-by-upper-limit",
-        "Divides by the upper limit instead of the length of the interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-endpoint-mean",
-        "Averages the values of the function at the two ends instead of integrating.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-midpoint-value",
-        "Gives the value of the function at the midpoint of the interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-multiplied",
-        "Multiplies by the length of the interval instead of dividing.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-lower-limit-ignored",
-        "Evaluates the antiderivative at the upper limit only.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-wrong-antiderivative",
-        "Sets up the average correctly but integrates incorrectly.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-power-rule-slip",
-        "Makes a slip applying the power rule when integrating.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-no-antiderivative",
-        "Evaluates the function at the limits instead of its antiderivative.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-substitution-factor-dropped",
-        "Drops the factor of 1/2 that comes from the substitution u = x squared.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-substitution-factor-slip",
-        "Uses the wrong constant factor after a substitution.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-chain-rule-misapplied",
-        "Integrates a composite function as though it were a product of the pieces.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-divide-by-sum",
-        "Divides by the sum of the limits instead of their difference.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-percentage-of-wrong-base",
-        "Finds the excess as a percentage of the peak instead of the average.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-difference-not-percentage",
-        "Gives the difference, or the ratio, where a percentage was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-avg-percentage-sign",
-        "Subtracts in the wrong order, giving a negative percentage.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-midpoint-assumed",
-        "Takes c to be the midpoint of the interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-slope-reported",
-        "Gives the slope of the chord instead of the value of c.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-value-for-c",
-        "Gives the value of the function or of its square root where c was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-root-not-squared",
-        "Stops at the square root of c and does not square it.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-geometric-mean",
-        "Takes c to be the geometric mean of the ends for a square-root function.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-algebra-slip",
-        "Makes an algebra slip when solving f'(c) = slope.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-root-not-taken",
-        "Stops at c squared and does not take the square root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-mvt-negative-root",
-        "Gives the negative square root, which lies outside the interval.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rolle-endpoint-root",
-        "Gives the root of the derivative that is an end of the interval instead of the one inside it.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rolle-wrong-factor",
-        "Solves the wrong factor of the derivative, giving the other root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-rolle-algebra-slip",
-        "Makes an algebra slip when solving f'(c) = 0.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-half-forgotten",
-        "Leaves out the factor of 1/2 in the definition of sinh or cosh.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-half-doubled",
-        "Halves twice, dividing by 4 instead of 2.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-sinh-cosh-swapped",
-        "Uses the definition of cosh where sinh was needed, or the reverse.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-negative-exponent",
-        "Treats e to the power of minus ln k as k instead of 1/k.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-tanh-inverted",
-        "Inverts tanh, giving cosh over sinh.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-squares-forgotten",
-        "Forgets to square e^x and e^(-x) when simplifying the tanh quotient.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-sinh-for-tanh",
-        "Gives sinh where tanh was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-denominator-slip",
-        "Makes a slip in the denominator of the tanh quotient.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-root-forgotten",
-        "Gives cosh squared minus 1 without taking the square root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-sign-of-sinh",
-        "Takes the negative root for sinh x although x is positive.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-linear-slip",
-        "Subtracts 1 from cosh x instead of using the identity.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-reciprocal",
-        "Gives the reciprocal of cosh x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-product-for-ratio",
-        "Multiplies sinh and cosh where their ratio was needed.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-chain-rule-forgotten",
-        "Leaves out the factor from the chain rule.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-derivative-sign",
-        "Borrows the minus sign from the derivative of cosine, so the derivative of cosh or tanh has the wrong sign.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-derivative-unchanged",
-        "Differentiates sinh to sinh or cosh to cosh.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-chain-divided",
-        "Divides by the inner coefficient instead of multiplying.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-product-rule-forgotten",
-        "Differentiates only one factor of a product.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-product-rule-sign",
-        "Subtracts the two terms of the product rule.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-log-derivative-slip",
-        "Differentiates ln(cosh x) as 1 over cosh x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-sech-squared-slip",
-        "Differentiates tanh with the power of the denominator dropped.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-tanh-derivative-confused",
-        "Gives the derivative of coth where the derivative of tanh was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-identity-sign",
-        "Uses cosh squared plus sinh squared equals one, with the sign of the identity wrong.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-identity-misapplied",
-        "Uses cosh squared minus sinh squared in place of the expression that was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-exponential-not-logged",
-        "Gives e^x instead of x, forgetting to take the logarithm.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-ln-of-rhs",
-        "Takes the natural logarithm of the right-hand side directly.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-ln-of-cosh",
-        "Takes the natural logarithm of cosh x as though it were e^x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-ln-of-sinh",
-        "Takes the natural logarithm of sinh x as though it were e^x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-negative-root",
-        "Takes the root of the quadratic in e^x that gives a negative value of x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-other-root",
-        "Gives the smaller solution where the larger was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-coefficient-slip",
-        "Divides by the coefficient of cosh and ignores the sinh term.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-sum-of-roots",
-        "Gives the logarithm of the sum of the roots instead of the larger root.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-antiderivative-slip",
-        "Uses a wrong antiderivative for the hyperbolic function.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-chain-divided-forgotten",
-        "Forgets to divide by the inner coefficient when integrating.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-value-for-integral",
-        "Gives the product of the two function values where the integral was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-term-dropped",
-        "Drops one of the two terms of the antiderivative.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-power-rule-slip",
-        "Applies the power rule to a hyperbolic function.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-double-angle-confusion",
-        "Gives sinh 2x where cosh 2x was asked for.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-double-angle-linear",
-        "Treats cosh 2x as twice cosh x or as 1 plus twice sinh x.",
-        area="calculus",
-    ),
-    CatalogueEntry(
-        "fy1ca-hyp-double-angle-constant-dropped",
-        "Forgets to subtract 1 in cosh 2x = 2cosh squared x - 1.",
-        area="calculus",
     ),
     # -- percentages ----------------------------------------------------------------------------------------------
     CatalogueEntry(
@@ -12105,7 +10103,2007 @@ _ENTRIES = (
         "boundary-outside-set-only",
         "Counting only the boundary points that lie outside the set.",
         area="topology",
-    # -- complex numbers in exponential form ----------------------------------------------------------------------
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-sign-slip",
+        "Moving a term across the equals sign without changing its sign when matching the values of two pieces, so the constant comes out with the wrong sign or size.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-constant-not-divided",
+        "Matching the two pieces correctly but forgetting to divide by the junction's x-value to isolate the slope parameter.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-gradients-matched",
+        "Equating the gradients (derivatives) of the two pieces instead of their values: smoothness is not the same as continuity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-one-piece-only",
+        "Evaluating only one piece at the junction and reporting that value as the parameter, so the other piece is never matched.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-squared-as-doubled",
+        "Reading c squared as 2c when evaluating a piece at the junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-first-constant-ignored",
+        "Solving the second junction while assuming the unknown constant of the middle piece is 1, instead of first finding it from the first junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-first-constant-slip",
+        "Finding the first unknown constant with a sign slip and carrying the wrong value into the second junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-wrong-piece",
+        "Evaluating a function at a point using the piece that applies on the other side of the junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-constant-dropped",
+        "Dropping the constant term of a linear piece when evaluating it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-value-at-junction",
+        "Evaluating a piece at the junction when the question asked for its value somewhere else.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-by-substitution",
+        "Substituting the junction into a 0/0 quotient and reporting 0, instead of cancelling or using a standard limit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-cancel-slip",
+        "Cancelling a common factor correctly but then reporting the wrong part of what is left (the constant of the other factor, or its square).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-power-dropped",
+        "Taking the limit of x squared plus a constant as the constant alone, dropping the squared term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-equals-value",
+        "Treating the stated value of the function at the point as its limit there, when the limit is a separate quantity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-standard-limit-factor-dropped",
+        "Quoting the standard limit sin(u)/u or (e^u - 1)/u as 1 without the factor needed when the argument is mx.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-standard-limit-inverted",
+        "Dividing by m instead of multiplying when taking the limit of sin(mx)/x or (e^(mx) - 1)/x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-removable-called-jump",
+        "Calling a break a jump discontinuity because the value at the point differs from the limit, although both one-sided limits agree.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-removable-called-continuous",
+        "Concluding there is no break because the one-sided limits agree, without checking the value at the point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-removable-called-infinite",
+        "Calling a break an infinite discontinuity when the function is bounded near the point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-wrong-end",
+        "Giving the upper integer of the interval that holds the root when the lower one was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-one-step-away",
+        "Giving an integer that is not one of the two either side of the root, from stopping the sign search too early or too late.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-value-at-wrong-point",
+        "Evaluating the function at an end of the interval when the midpoint was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-linear-term-slip",
+        "Evaluating bx at the midpoint as b, forgetting to multiply by the midpoint.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-cube-as-triple",
+        "Reading the cube of the midpoint as three times it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-sign-slip",
+        "Adding the constant term where it should be subtracted when evaluating the function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-wrong-half",
+        "Keeping the half of the interval that does not contain the sign change, from reading the sign of f at the midpoint the wrong way.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-wrong-end",
+        "Giving the other endpoint of the new interval than the one asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-midpoint-reported",
+        "Reporting the midpoint just computed instead of the endpoint of the interval kept.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-no-update",
+        "Reporting the original endpoint, as if the bisection step had not changed the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-stops-early",
+        "Stopping one bisection step early and reporting that interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-off-by-one",
+        "Finding the number of halvings correctly but rounding it down or up by one, so the interval is not yet narrow enough or one step too many is counted.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-count-divided",
+        "Dividing the interval width by the tolerance instead of halving repeatedly until the width is small enough.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-log-base-ten",
+        "Counting digits of the ratio of width to tolerance (a base-ten logarithm) instead of halvings (a base-two logarithm).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-two-steps",
+        "Carrying on to a second bisection step and reporting its midpoint, when only one step was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-variable-dropped",
+        "Differentiating the formula but losing the radius factor, so the rate does not depend on how large the shape is.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-chain-rule-forgotten",
+        "Differentiating with respect to the radius only and leaving out the rate of change of the radius.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-power-rule-slip",
+        "Differentiating a power of the variable incorrectly (the exponent not brought down, or the new exponent wrong).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-formula-not-differentiated",
+        "Substituting the values into the original formula and multiplying by the rate, instead of differentiating first.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-wrong-coefficient",
+        "Differentiating correctly but keeping a constant that should have cancelled, or cancelling one that should stay.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-ratio-inverted",
+        "Inverting the ratio of the two rates when relating them.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-rates-assumed-equal",
+        "Assuming two linked quantities change at the same rate, when their rates are related by a ratio that depends on the position.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-wrong-length",
+        "Dividing by the hypotenuse instead of the side that the rate belongs to.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-sign-for-speed",
+        "Giving the signed rate of change when a speed (positive) was asked for, or a speed when the signed rate was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-direction-sign",
+        "Treating a vehicle moving towards the junction as moving away, so the sign of its contribution is wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-division-dropped",
+        "Forgetting to divide by the distance when converting 2s ds/dt back to ds/dt.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-rates-combined",
+        "Combining the two vehicles' speeds directly instead of resolving them along the line joining the vehicles.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-components-swapped",
+        "Pairing each speed with the other vehicle's coordinate when applying the rate formula.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-shadow-tip-and-length-confused",
+        "Giving the speed of the tip of the shadow when its length was asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-similar-triangles-sum",
+        "Setting up the similar triangles with the sum of the heights instead of the difference.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-ratio-not-squared",
+        "Using the ratio of radius to height without squaring it in the cone's volume.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-cone-third-forgotten",
+        "Leaving the factor of one third out of (or putting it into) the volume of a cone when relating the rates.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-radius-equals-height",
+        "Taking the cone's radius equal to its height, ignoring the stated ratio.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-formula-confusion",
+        "Using the surface area of a sphere where the volume was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-sphere-third-forgotten",
+        "Dropping the factor of one third from the volume of a sphere.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-surface-differentiated",
+        "Differentiating the surface area formula when the volume's rate was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-wrong-derivative-used",
+        "Dividing the rate of volume by the volume instead of by its derivative with respect to the size.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-only-the-first-volume",
+        "Dividing the volume at the starting size by the rate, as if the time were to build the pile from nothing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-volume-added-not-subtracted",
+        "Taking the whole volume at the larger size instead of the volume added between the two sizes.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-linear-scaling",
+        "Assuming volume doubles when the size doubles.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rates-area-scaling",
+        "Assuming volume quadruples when the size doubles, as an area would.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-all-sides-fenced",
+        "Treating all four sides of the rectangle as fenced when one side is a creek or wall.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-area-not-squared",
+        "Dividing the volume by the side instead of the side squared when finding the height.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-closed-top-counted",
+        "Counting a lid on a tank or box that is open at the top.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-cost-at-trial-value",
+        "Pricing the area at the trial value instead of at the optimum.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-costs-swapped",
+        "Swapping the two unit costs, so each route is charged at the other route's rate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-derivative-slip",
+        "Making an algebra or differentiation slip in the derivative, so the stationary point is wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-endpoint-not-compared",
+        "Reporting a stationary point or a single end of the interval without comparing all candidates.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-factor-dropped",
+        "Dropping a numerical factor when solving the stationary-point equation for the variable.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-height-inverted",
+        "Inverting the relation between height and side when using the fixed volume.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-ignores-constraint",
+        "Using the stationary point even though it lies outside the allowed interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-land-only",
+        "Costing the whole route at the land rate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-length-not-eliminated",
+        "Leaving the second variable in the formula instead of using the constraint to eliminate it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-one-side-only",
+        "Counting the area of one side face instead of all four.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-square-assumed",
+        "Assuming the best rectangle is a square without using the constraint.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-stopped-near",
+        "Stopping at a nearby whole number instead of solving the stationary-point equation exactly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-variable-reported",
+        "Giving the value of the variable at the optimum when the optimum value was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-volume-for-area",
+        "Multiplying instead of adding the faces, giving a volume where an area was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-volume-for-side",
+        "Giving the volume where the side length was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-water-only",
+        "Costing the whole route at the under-water rate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-whole-triangle",
+        "Giving the area of the whole triangle instead of the best inscribed rectangle.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-wrong-coefficient",
+        "Using a wrong coefficient when setting up the area or volume formula.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-wrong-faces",
+        "Including the wrong set of faces when finding the surface area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-opt-wrong-root",
+        "Taking the wrong root (square root for cube root) of the stationary-point equation.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-root-dropped",
+        "Integrates 1 + (dy/dx)² without the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-chord-used",
+        "Gives the straight-line distance between the ends instead of the length along the curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-height-change-used",
+        "Gives the change in y instead of the length along the curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-wrong-antiderivative",
+        "Sets the length up correctly but makes a slip when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-cross-term-sign",
+        "Expands the square with the wrong sign on the middle term, so the integrand is not the one that appears under the root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-components-added",
+        "Adds dx/dt and dy/dt instead of combining them with Pythagoras.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-log-term-dropped",
+        "Drops the logarithmic term when integrating 1/x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-derivative-sign",
+        "Gets the sign of the second term of the derivative wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-power-rule-slip",
+        "Differentiates a power of x incorrectly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-function-not-differentiated",
+        "Gives the value of the function where its slope was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-square-dropped",
+        "Does not square the slope inside the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-integrand-is-derivative",
+        "Gives the slope where the value of the square root was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-sign-slip",
+        "Subtracts instead of adds inside the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-chord-ignored",
+        "Gives the length of the curve where its excess over the straight line was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-arc-ignored",
+        "Gives the straight-line distance where the excess of the curve over it was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-chord-added",
+        "Adds the straight-line distance to the length instead of subtracting it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-arc-ratio-for-difference",
+        "Divides the two lengths where their difference was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-radius-forgotten",
+        "Integrates only the height of the shell and leaves out its radius.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-two-forgotten",
+        "Uses a factor of pi where 2 pi is needed (the circumference of the shell or of the strip).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-disc-formula",
+        "Applies the disc or washer formula to a rotation that needs shells.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-pi-forgotten",
+        "Leaves the factor of pi out of the answer.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-height-not-difference",
+        "Uses the upper curve alone as the height of the shell instead of the gap between the curves.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-axis-ignored",
+        "Takes the radius of the shell as x when the axis of rotation is a different vertical line.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-y-coordinate-given",
+        "Gives the y-coordinate of the intersection point where its x-coordinate was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-intersection-slip",
+        "Makes an algebra slip when solving for the point where the curves meet.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-height-sign",
+        "Subtracts the upper curve from the lower, giving a negative height.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-height-slip",
+        "Subtracts the radius from the slope instead of finding the gap between the curves at that radius.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-units-grams",
+        "Reports the mass in grams where kilograms were asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-density-divided",
+        "Divides the volume by the density instead of multiplying.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-density-forgotten",
+        "Converts the volume to litres or kilograms without using the density.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-shell-units-slip",
+        "Converts grams to kilograms by dividing by 100 instead of 1000.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-root-dropped",
+        "Integrates 2 pi y without the arc-length factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-radius-dropped",
+        "Integrates the arc-length factor alone, leaving out the radius y.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-two-forgotten",
+        "Uses pi where 2 pi is needed in the surface-area formula.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-volume-formula",
+        "Uses the volume integral of pi y squared for a surface area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-arc-length-only",
+        "Gives the arc length instead of the area of the surface.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-wrong-antiderivative",
+        "Sets the integral up correctly but makes a slip when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-quarter-dropped",
+        "Drops the 1/4 under the square root, integrating the square root of x + 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-whole-sphere",
+        "Gives the area of a whole sphere or hemisphere instead of the zone.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-surface-endpoint-sum",
+        "Uses the sum of the limits where their difference is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-division-forgotten",
+        "Gives the integral without dividing by the length of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-divide-by-upper-limit",
+        "Divides by the upper limit instead of the length of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-endpoint-mean",
+        "Averages the values of the function at the two ends instead of integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-midpoint-value",
+        "Gives the value of the function at the midpoint of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-multiplied",
+        "Multiplies by the length of the interval instead of dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-wrong-antiderivative",
+        "Sets up the average correctly but integrates incorrectly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-power-rule-slip",
+        "Makes a slip applying the power rule when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-no-antiderivative",
+        "Evaluates the function at the limits instead of its antiderivative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-substitution-factor-dropped",
+        "Drops the factor of 1/2 that comes from the substitution u = x squared.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-substitution-factor-slip",
+        "Uses the wrong constant factor after a substitution.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-chain-rule-misapplied",
+        "Integrates a composite function as though it were a product of the pieces.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-divide-by-sum",
+        "Divides by the sum of the limits instead of their difference.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-percentage-of-wrong-base",
+        "Finds the excess as a percentage of the peak instead of the average.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-difference-not-percentage",
+        "Gives the difference, or the ratio, where a percentage was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-avg-percentage-sign",
+        "Subtracts in the wrong order, giving a negative percentage.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-midpoint-assumed",
+        "Takes c to be the midpoint of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-slope-reported",
+        "Gives the slope of the chord instead of the value of c.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-value-for-c",
+        "Gives the value of the function or of its square root where c was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-root-not-squared",
+        "Stops at the square root of c and does not square it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-geometric-mean",
+        "Takes c to be the geometric mean of the ends for a square-root function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-algebra-slip",
+        "Makes an algebra slip when solving f'(c) = slope.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-root-not-taken",
+        "Stops at c squared and does not take the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-mvt-negative-root",
+        "Gives the negative square root, which lies outside the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rolle-endpoint-root",
+        "Gives the root of the derivative that is an end of the interval instead of the one inside it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rolle-wrong-factor",
+        "Solves the wrong factor of the derivative, giving the other root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-rolle-algebra-slip",
+        "Makes an algebra slip when solving f'(c) = 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-half-forgotten",
+        "Leaves out the factor of 1/2 in the definition of sinh or cosh.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-half-doubled",
+        "Halves twice, dividing by 4 instead of 2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sinh-cosh-swapped",
+        "Uses the definition of cosh where sinh was needed, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-negative-exponent",
+        "Treats e to the power of minus ln k as k instead of 1/k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-tanh-inverted",
+        "Inverts tanh, giving cosh over sinh.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-squares-forgotten",
+        "Forgets to square e^x and e^(-x) when simplifying the tanh quotient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sinh-for-tanh",
+        "Gives sinh where tanh was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-denominator-slip",
+        "Makes a slip in the denominator of the tanh quotient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-root-forgotten",
+        "Gives cosh squared minus 1 without taking the square root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sign-of-sinh",
+        "Takes the negative root for sinh x although x is positive.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-linear-slip",
+        "Subtracts 1 from cosh x instead of using the identity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-reciprocal",
+        "Gives the reciprocal of cosh x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-product-for-ratio",
+        "Multiplies sinh and cosh where their ratio was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-chain-rule-forgotten",
+        "Leaves out the factor from the chain rule.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-derivative-sign",
+        "Borrows the minus sign from the derivative of cosine, so the derivative of cosh or tanh has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-derivative-unchanged",
+        "Differentiates sinh to sinh or cosh to cosh.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-chain-divided",
+        "Divides by the inner coefficient instead of multiplying.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-product-rule-forgotten",
+        "Differentiates only one factor of a product.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-product-rule-sign",
+        "Subtracts the two terms of the product rule.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-log-derivative-slip",
+        "Differentiates ln(cosh x) as 1 over cosh x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sech-squared-slip",
+        "Differentiates tanh with the power of the denominator dropped.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-tanh-derivative-confused",
+        "Gives the derivative of coth where the derivative of tanh was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-identity-sign",
+        "Uses cosh squared plus sinh squared equals one, with the sign of the identity wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-identity-misapplied",
+        "Uses cosh squared minus sinh squared in place of the expression that was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-exponential-not-logged",
+        "Gives e^x instead of x, forgetting to take the logarithm.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-ln-of-rhs",
+        "Takes the natural logarithm of the right-hand side directly.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-ln-of-cosh",
+        "Takes the natural logarithm of cosh x as though it were e^x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-ln-of-sinh",
+        "Takes the natural logarithm of sinh x as though it were e^x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-negative-root",
+        "Takes the root of the quadratic in e^x that gives a negative value of x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-other-root",
+        "Gives the smaller solution where the larger was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-coefficient-slip",
+        "Divides by the coefficient of cosh and ignores the sinh term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-sum-of-roots",
+        "Gives the logarithm of the sum of the roots instead of the larger root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-antiderivative-slip",
+        "Uses a wrong antiderivative for the hyperbolic function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-chain-divided-forgotten",
+        "Forgets to divide by the inner coefficient when integrating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-value-for-integral",
+        "Gives the product of the two function values where the integral was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-term-dropped",
+        "Drops one of the two terms of the antiderivative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-power-rule-slip",
+        "Applies the power rule to a hyperbolic function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-double-angle-confusion",
+        "Gives sinh 2x where cosh 2x was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-double-angle-linear",
+        "Treats cosh 2x as twice cosh x or as 1 plus twice sinh x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-hyp-double-angle-constant-dropped",
+        "Forgets to subtract 1 in cosh 2x = 2cosh squared x - 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-width",
+        "Giving the width b - a of the interval as the height of the uniform density instead of its reciprocal 1/(b - a).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-upper-bound",
+        "Using 1/b for the height of the uniform density instead of 1/(b - a).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-continuous-discrete-confused",
+        "Counting the end points as if the uniform distribution were discrete, dividing by b - a + 1 instead of b - a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-sum",
+        "Using 1/(a + b) for the height of the uniform density instead of 1/(b - a).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-half-width",
+        "Giving half the width of the interval as the height of the density.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-over-upper-bound",
+        "Dividing the length of the interval by b rather than by the full width b - a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-complement",
+        "Giving the probability of the complement of the stated interval.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-cdf-not-difference",
+        "Giving P(X < d) = (d - a)/(b - a) for P(c < X < d), forgetting to subtract the part below c.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-width-not-divided",
+        "Giving the length d - c of the interval as the probability, without dividing by b - a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-mean-half-width",
+        "Giving half the width, (b - a)/2, as the mean of a uniform distribution instead of the midpoint (a + b)/2.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-mean-half-upper",
+        "Giving b/2 as the mean of a uniform distribution, which is only right when a = 0.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-mean-sum-not-halved",
+        "Giving a + b as the mean of a uniform distribution, without halving.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-no-square",
+        "Using (b - a)/12 for the variance of a uniform distribution, leaving out the square of the width.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-divisor-two",
+        "Using (b - a)²/2 for the variance of a uniform distribution instead of (b - a)²/12.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-divisor-forgotten",
+        "Giving (b - a)² as the variance of a uniform distribution, forgetting to divide by 12.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-sd-confused",
+        "Giving the standard deviation of a uniform distribution where the variance was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-divisor-four",
+        "Using (b - a)²/4 for the variance of a uniform distribution instead of (b - a)²/12.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-offset-forgotten",
+        "Giving q(b - a) as the q-th percentile of a uniform distribution, forgetting to add the lower end a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-from-top",
+        "Measuring the percentile down from b instead of up from a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-fraction-of-upper",
+        "Giving q × b as the q-th percentile of a uniform distribution, which is only right when a = 0.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-complement",
+        "Using the proportion 1 - q instead of q when finding a percentile of a uniform distribution.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-ignored",
+        "Ignoring the given condition and using the unconditional probability for a uniform distribution.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-complement",
+        "Giving the probability that X is at most c, given X > d, instead of the probability that it exceeds c.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-numerator-width",
+        "Giving (c - d)/(b - a) for a conditional probability, with the unconditional width in the denominator and the wrong length on top.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-wrong-denominator",
+        "Dividing by c - d instead of by the length b - d of the interval that the condition leaves.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-mean-confused",
+        "Using the mean where the rate belongs, or the rate where the mean belongs: e^(-μt) in place of e^(-t/μ).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-tail-complement",
+        "Giving P(X ≤ t) where P(X > t) was asked, or the reverse.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-time-forgotten",
+        "Leaving the time out of the exponent, so the result depends only on the rate.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-linear-not-exponential",
+        "Treating the exponential tail as linear: 1 - t/μ in place of e^(-t/μ).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-pdf-as-cdf",
+        "Giving the density λe^(-λt) where the distribution function 1 - e^(-λt) was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-density-factor-forgotten",
+        "Giving e^(-λt) for the density, leaving out the factor λ.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-cdf-as-pdf",
+        "Giving the distribution function 1 - e^(-λt) where the density λe^(-λt) was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-density-times-cdf",
+        "Multiplying λ by 1 - e^(-λt) for the density instead of by e^(-λt).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-median-as-mean",
+        "Giving the mean as the median of an exponential distribution, as if it were symmetric.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-median-halved-mean",
+        "Giving half the mean as the median of an exponential distribution.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-log-base-ten",
+        "Using log base 10 of 2 in place of the natural logarithm ln 2 when solving for the median.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-percentile-wrong-tail",
+        "Solving e^(-m/μ) = p instead of 1 - e^(-m/μ) = p, so the percentile uses the wrong tail.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-percentile-linear",
+        "Giving p × μ as a percentile of an exponential distribution, as if it were uniform.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-percentile-sign",
+        "Losing the minus sign when solving for a percentile of an exponential distribution, so the time is negative.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-memoryless-ignored",
+        "Giving the probability of lasting s + t from the start, ignoring that the item has already lasted s.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-memoryless-wrong-time",
+        "Using the elapsed time s in place of the extra time t in the exponent.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-memoryless-ratio-inverted",
+        "Dividing the probabilities the wrong way round in the conditional probability, which gives a value above 1.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-interval-width-only",
+        "Giving P(X > t - s) for P(s < X < t): applying the memoryless property to an interval, which it does not describe.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-interval-sign-reversed",
+        "Subtracting the tail probabilities in the wrong order, so P(s < X < t) comes out negative.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-tail-only",
+        "Giving P(X > s) for P(s < X < t), forgetting to subtract P(X > t).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-interval-density-times-width",
+        "Approximating P(s < X < t) by the density at s times the width of the interval.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-reciprocal-squared",
+        "Giving 1/μ² as the rate of an exponential distribution with mean μ.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-from-median",
+        "Using ln 2 divided by the mean as the rate.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-half-mean",
+        "Giving half the mean as the rate.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-pdf-as-tail",
+        "Giving the density value λe^(-λt) where the tail probability e^(-λt) was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "ztest-se-uses-sample-proportion",
+        "Building the standard error from the sample proportion, √(p̂(1 − p̂)/n), when a test must use the hypothesised proportion p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-no-root",
+        "Forgetting the square root: giving p0(1 − p0)/n as the standard error of a sample proportion.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-complement-forgotten",
+        "Using √(p0/n) as the standard error, leaving out the factor 1 − p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-divides-by-n",
+        "Dividing √(p0(1 − p0)) by n instead of by √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-root-n-forgotten",
+        "Giving √(p0(1 − p0)) as the standard error without dividing by √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-sign-reversed",
+        "Subtracting in the wrong order, p0 − p̂, so the test statistic has the wrong sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-count-used-as-proportion",
+        "Using the number of successes where the sample proportion belongs, so the difference from p0 is hundreds of times too large.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-percent-not-converted",
+        "Using a sample percentage such as 41.5 where the proportion 0.415 belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-hypothesised-proportion-ignored",
+        "Giving the sample proportion itself when asked for its difference from the hypothesised proportion.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-sample-proportion-wrong-denominator",
+        "Dividing the number of successes by the successes plus the sample size instead of by the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-doubling-forgotten",
+        "Giving a single tail area as the p-value of a two-sided test.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-cdf-as-pvalue",
+        "Giving the area to the left of |z| as the p-value instead of the area in the tail.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-complement",
+        "Subtracting the two-sided p-value from 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-wrong-tail",
+        "Taking the tail on the wrong side of z for the alternative hypothesis: the area to the left for H1: p > p0, or to the right for H1: p < p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-doubled-for-one-sided",
+        "Doubling the tail area for a one-sided alternative hypothesis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-sign-ignored",
+        "Using the tail beyond |z| whatever the sign of z, so a statistic on the wrong side of p0 for a one-sided alternative gives a small p-value instead of a large one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-cutoff-wrong-side",
+        "Subtracting z* × SE from p0 for the upper rejection boundary of a test of H1: p > p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-cutoff-margin-as-bound",
+        "Giving the margin z* × SE as the boundary instead of adding it to p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-wrong-critical-value",
+        "Using a critical value that does not match the stated one, such as 1.645 where the question gives 1.96.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-count-rounded-down",
+        "Rounding the boundary count down, so the count named does not actually reject H0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-count-rounded-up-twice",
+        "Adding one to the smallest whole number above the boundary count.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-conclusion-decision-reversed",
+        "Reading the comparison with 0.05 the wrong way round: rejecting H0 for a large p-value or not rejecting it for a small one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-conclusion-sample-differs",
+        "Rejecting H0 just because the sample proportion is not exactly p0, without looking at the p-value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-sd-as-standard-error",
+        "Dividing the difference in means by the pooled standard deviation alone, without scaling it by √(1/n1 + 1/n2).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-welch-pooled-confused",
+        "Using the pooled standard error when the question asks for the unequal-variance (Welch) statistic, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-sd-as-se",
+        "Dividing the mean difference by the standard deviation of the differences without dividing that by √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-se-root-df",
+        "Dividing the standard deviation of the differences by √(n - 1) instead of √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-sds-added",
+        "Adding the two standard errors s1/√n1 + s2/√n2 instead of adding the variances s1²/n1 + s2²/n2 and then taking the square root.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-no-root",
+        "Forgetting the final square root: giving s1²/n1 + s2²/n2 as the standard error of the difference.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-single-sample",
+        "Using only the first sample, s1/√n1, as the standard error of a difference between two sample means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-sd-over-n",
+        "Dividing each variance by n² (each standard deviation by n) instead of dividing each variance by n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-se-total-n",
+        "Pooling the two samples into one: √((s1² + s2²)/(n1 + n2)), which ignores that each sample has its own size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-diff-over-sds",
+        "Dividing the difference in means by √(s1² + s2²), forgetting to divide each variance by its sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-sign-reversed",
+        "Subtracting the means (or the paired values) in the wrong order, so the statistic has the wrong sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-simple-average",
+        "Averaging the two sample variances, (s1² + s2²)/2, without weighting by the degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-weights-sds",
+        "Weighting the standard deviations by their degrees of freedom instead of the variances, so the pooled value is a standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-divisor-total-n",
+        "Dividing the pooled sum of squares by n1 + n2 instead of by the degrees of freedom n1 + n2 - 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-weights-by-n",
+        "Weighting each variance by its sample size n instead of by n - 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-sd-as-variance",
+        "Giving the pooled standard deviation where the pooled variance was asked for (or the reverse).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-se-one-sum",
+        "Using √(1/(n1 + n2)) in place of √(1/n1 + 1/n2) when scaling the pooled standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-se-unrooted",
+        "Leaving the square root off the factor in sp·√(1/n1 + 1/n2).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-se-single-n",
+        "Scaling the pooled standard deviation by one sample size only, sp/√n1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-pooled-variance-as-sd",
+        "Putting the pooled variance where the pooled standard deviation belongs in the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-sd-divisor-n",
+        "Finding the standard deviation of the paired differences with divisor n instead of n - 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-uncentred-spread",
+        "Finding the spread of the differences from the sum of d² without subtracting the mean first.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-se-over-n",
+        "Dividing the standard deviation of the differences by n instead of √n to get the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-paired-variance-as-sd",
+        "Using the variance of the differences where their standard deviation belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-ci-other-bound",
+        "Giving the opposite end of the confidence interval from the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-ci-margin-as-bound",
+        "Giving the margin of error as if it were the confidence limit instead of adding it to (or subtracting it from) the estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-ci-normal-critical",
+        "Using the normal critical value 1.96 in place of the t critical value for the stated degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-conclusion-decision-reversed",
+        "Reading the comparison with the critical value the wrong way round: not rejecting H0 when the statistic is beyond the critical value, or rejecting when it is not.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ttest-conclusion-means-differ",
+        "Rejecting H0 just because the two sample means are not equal, without comparing the statistic with the critical value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "volume-extra-dot-term",
+        "Adding a stray dot product to a volume: |a·(b × c)| + |a·b|.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-signed-left-negative",
+        "Leaving the distance from a point to a plane negative: the signed value (n·P - d)/|n| without taking the absolute value.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-denominator-not-rooted",
+        "Dividing by a² + b² + c² instead of by its square root √(a² + b² + c²) in a distance to a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-constant-sign",
+        "Adding the constant of the plane's equation to n·P instead of subtracting it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-not-normalised",
+        "Giving |n·P - d| as the distance without dividing by the length of the normal vector.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-plane-denominator-sum-of-coefficients",
+        "Dividing by |a| + |b| + |c| instead of √(a² + b² + c²) in a distance to a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-dot-product-used",
+        "Using the dot product instead of the cross product, so the length along the line is found instead of the distance from it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-not-normalised",
+        "Giving the size of the cross product AP × u without dividing by the length of the direction vector u.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-point-not-shifted",
+        "Crossing the position vector of P with u instead of the vector from a point on the line to P.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "distance-line-to-base-point",
+        "Giving the distance from P to the line's base point A, not the shortest distance to the line.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-negative-not-absolute",
+        "Leaving a volume negative: giving the scalar triple product itself without its absolute value.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "determinant-expansion-signs-forgotten",
+        "Expanding a 3×3 determinant with every term added, missing the alternating signs of the cofactor expansion.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-as-base-area-only",
+        "Giving the area of the base, |b × c|, as the volume of the parallelepiped.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "parallelepiped-as-tetrahedron",
+        "Treating a parallelepiped's volume as the volume of the tetrahedron on the same edges (a sixth of it), or the reverse.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "skew-distance-not-normalised",
+        "Giving |(A₂ - A₁)·(u₁ × u₂)| as the distance between skew lines without dividing by |u₁ × u₂|.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "skew-distance-one-line-only",
+        "Using the point-to-line formula with one of the skew lines, ignoring the direction of the other.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "skew-distance-between-base-points",
+        "Giving the distance between the two lines' base points as the distance between the lines.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "tetrahedron-volume-factor-forgotten",
+        "Giving |AB · (AC × AD)| as the volume of a tetrahedron without dividing by 6.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "tetrahedron-volume-third-of-parallelepiped",
+        "Taking a third of the parallelepiped's volume for the tetrahedron instead of a sixth.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "tetrahedron-volume-half-of-parallelepiped",
+        "Taking half of the parallelepiped's volume for the tetrahedron instead of a sixth.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-pyramid-factor-forgotten",
+        "Dividing the tetrahedron's volume by the base area without the factor 3 in h = 3V/A.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-pyramid-factor-applied-twice",
+        "Dividing by 3 once too often when finding the height from |AD·(AB × AC)| and |AB × AC|.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "triple-product-order-reversed",
+        "Taking the scalar triple product with two of the vectors in the opposite order, which gives the negative.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "triple-product-extra-dot-term",
+        "Adding a stray dot product a·b to a scalar triple product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "triple-product-dots-multiplied",
+        "Multiplying dot products (a·b)(b·c) in place of forming a·(b × c).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-doubled",
+        "Doubling a volume: counting the parallelepiped's volume twice.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-from-dot-product",
+        "Using the dot product |a·b| for the area of the parallelogram on a and b, where the cross product |a × b| belongs.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-as-product-of-lengths",
+        "Giving |a||b| as the area of the parallelogram, which ignores the angle between the edges.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-cross-magnitude-squared",
+        "Giving the sum of squares of the cross product's components, |a × b|², where its length |a × b| was needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "area-parallelogram-as-triangle",
+        "Halving |a × b| for a parallelogram, which is the area of the triangle on a and b.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-volume-multiplied-by-area",
+        "Multiplying the volume by the base area instead of dividing, when finding the height.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-ratio-inverted",
+        "Dividing base area by volume instead of volume by base area, when finding the height.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-over-the-wrong-face",
+        "Dividing the volume by the area of a different face from the one the height is measured from.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "height-pyramid-factor-applied-to-prism",
+        "Using the pyramid formula h = 3V/A for a prism or parallelepiped, whose height is V/A.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "plane-constant-sign",
+        "Giving the constant of the plane with the wrong sign, as if the normal had been found in the opposite direction.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-middle-sign-slip",
+        "Forgetting the minus sign on the middle component of a cross product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-componentwise",
+        "Multiplying two vectors component by component and calling the result the cross product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-components-swapped",
+        "Writing the components of a cross product in the wrong order, such as (a, c, b) for (a, b, c).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-reversed-order",
+        "Taking the cross product in the wrong order, so the normal vector points the opposite way.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "plane-constant-sum-of-points",
+        "Dotting the normal with the sum of the three points instead of with one of them.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-sign-in-numerator",
+        "Adding n·A to the plane's constant instead of subtracting it when solving for the parameter where a line meets a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-not-divided-by-direction-dot",
+        "Stopping at k - n·A without dividing by n·u, the rate at which the line moves through the plane's values.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-ratio-inverted",
+        "Dividing in the wrong order: (n·u)/(k - n·A) where (k - n·A)/(n·u) is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-point-term-forgotten",
+        "Leaving the line's starting point out of the substitution into the plane's equation: solving k = (n·u)t.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-between-planes-supplement",
+        "Giving the obtuse angle 180° - θ where the acute angle between the planes or the line and the plane was asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-between-planes-sine-used",
+        "Using sine where cosine belongs (or the reverse), which gives 90° - θ for the angle between the normals.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-between-planes-constants-included",
+        "Including the constants of the two plane equations in the vectors whose angle is found, instead of only the normals.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-given-in-radians",
+        "Leaving an angle in radians when degrees were asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-angle-cosine-used",
+        "Finding the angle between the line and the plane's normal (using cosine) and giving it as the angle between the line and the plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-angle-tangent-used",
+        "Using the inverse tangent of |n·u|/(|n||u|) in place of the inverse sine for the angle between a line and a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "polar-jacobian-omitted",
+        "Integrating in polar coordinates without the extra factor r from dA = r dr dθ.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-angular-factor-ignored",
+        "Replacing the integral of the angular factor (cos θ, sin θ, ...) by the width of the angle range, as if the integrand did not depend on the angle.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-angle-factor-forgotten",
+        "Integrating over r but never multiplying by the integral over the angle.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-angle-halved",
+        "Using an angle range of half the size needed: π for a whole disc, π/2 for a half disc, or π/4 for a quarter disc.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-inner-radius-ignored",
+        "Using 0 as the lower radius for a ring, so the hole in the middle is included.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-ring-difference-before-power",
+        "Raising the difference of the radii to the power, (b - a)^n, instead of taking the difference of the powers, b^n - a^n.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-radius-limit-squared",
+        "Using x² + y² = R² as r² = R, so that the upper limit of r is R² instead of R.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "integrand-boundary-value-times-area",
+        "Multiplying the area of the region by the value of the integrand on its outer edge instead of integrating.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-quadrant-angle-forgotten",
+        "Using the whole circle, 2π, as the angle range for a region that is only a quarter of it.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "substitution-factor-half-dropped",
+        "Integrating r·e^(-r²) as e^(-r²) without the factor 1/2 that the substitution u = r² gives.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-gaussian-limit-not-squared",
+        "Substituting r = R instead of r² = R² into the antiderivative of r·e^(-r²).",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-gaussian-complement-sign",
+        "A sign slip in e^(-R²) in the value (1 - e^(-R²))/2: adding it, or subtracting in the other order.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-gaussian-bound-ignored",
+        "Taking the radius of the region to infinity so that the e^(-R²) term disappears.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-bound-radius-from-height",
+        "Using the height of the surface, instead of the radius where it meets the plane z = 0, as the outer radius of the region.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "volume-as-base-area-times-peak-height",
+        "Giving the volume as the area of the base times the greatest height of the solid.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-substitution-x-as-r-squared",
+        "Writing x as r² in polar coordinates instead of r cos θ.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-not-divided-by-area",
+        "Giving the first moment ∬ x dA as the centroid coordinate, without dividing by the area.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "mean-position-ratio-inverted",
+        "Dividing the area by the first moment instead of the first moment by the area.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "mean-position-divided-by-pi",
+        "Dividing a first moment by a full-circle area where the area of the plate itself belongs.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-uses-one-coordinate",
+        "Giving the x-coordinate of a centroid where the distance from the origin was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-coordinates-added",
+        "Adding the two coordinates of the centroid instead of using Pythagoras' theorem for the distance.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-root-forgotten",
+        "Giving x² + y² for a distance without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-divided-by-root-two",
+        "Dividing the x-coordinate by √2 instead of multiplying, when the distance is the hypotenuse of two equal sides.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-inner-derivatives-omitted",
+        "Adding the two partial derivatives of z without multiplying each by the derivative of its variable with respect to the parameter.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-one-term-only",
+        "Using only the x term of the chain rule, fx·(dx/dt), and leaving out the y term.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-partials-swapped",
+        "Pairing each partial derivative with the other variable's rate of change: fy with dx/dt and fx with dy/dt.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-partials-evaluated-at-parameter",
+        "Evaluating the partial derivatives at the parameter value (t, t) or (u, v) instead of at the point (x, y) that the parameter gives.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-wrong-variable-differentiated",
+        "Differentiating the inner functions with respect to the other new variable, so the answer is for dz/dv where dz/du was asked (or the reverse).",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-multiplied-by-path-derivative",
+        "Giving fx·(dx/dt) where the partial derivative fx alone was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-point-coordinates-swapped",
+        "Substituting the position into a partial derivative with x and y the wrong way round.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-cross-term-dropped",
+        "Leaving out the mixed term 2·fxy·x'·y' in the second derivative along a path.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-cross-term-not-doubled",
+        "Including the mixed term of the second derivative along a path as fxy·x'·y' instead of 2·fxy·x'·y'.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-inner-derivatives-not-squared",
+        "Multiplying fxx and fyy by x' and y' instead of by their squares in the second derivative along a path.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-stopped-at-first",
+        "Giving the first derivative dz/dt where the second derivative was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-divided-by-interval",
+        "Dividing a rate by the time interval where the change is the rate multiplied by that interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-times-time-not-interval",
+        "Multiplying a rate of change by the time t at which it was found instead of by the length of the time interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-plus-interval",
+        "Adding the length of the time interval to the rate instead of multiplying the rate by the interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-times-final-time",
+        "Multiplying a rate of change by the final time t + Δt instead of by the length Δt of the interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-omits-base-value",
+        "Giving only the change fx·h + fy·k predicted by the tangent plane, without adding the value f(x0, y0) at the point.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-partials-swapped",
+        "Using f_y where f_x belongs and f_x where f_y belongs in the tangent plane or the linear approximation.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-exact-value-given",
+        "Evaluating f itself at the nearby point instead of using the tangent plane, so the exact value is given where the linear estimate was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-one-variable-only",
+        "Changing only x in the linear approximation and leaving out the f_y·k term for the change in y.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-slope-times-coordinate",
+        "Multiplying each slope by the coordinate of the point instead of by the small step in that variable.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-forgotten",
+        "Reading the constant term of z = Ax + By + C as f(x0, y0), forgetting that the plane is written about the point so A·x0 + B·y0 must be subtracted.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-sign",
+        "Adding A·x0 + B·y0 to f(x0, y0) instead of subtracting it when expanding the point form of the tangent plane.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-one-variable",
+        "Subtracting the A·x0 term but leaving out B·y0 when expanding the point form of the tangent plane.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-uses-slopes-only",
+        "Subtracting the slopes A and B themselves instead of A·x0 and B·y0 when expanding the point form of the tangent plane.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-constant-negated",
+        "A sign error across the answer: the constant term or intercept has the opposite sign to the correct one.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "radial-slope-taken-as-one",
+        "Taking the partial derivatives of the square-root surface as 1, forgetting the factor x/√(x² + y²) from the chain rule.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "radial-slope-denominator-squared",
+        "Dividing by x² + y² instead of √(x² + y²) when differentiating a square root of a sum of squares.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "implicit-plane-coefficients-dropped",
+        "Writing the tangent plane to an implicit surface as x0·x + y0·y + z0·z = k, forgetting the coefficients of the surface's equation.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "implicit-plane-constant-halved",
+        "Setting the gradient dotted with (x, y, z) equal to k, which leaves out the factor 2 that the constant needs once the gradient 2a·x0, 2b·y0, 2c·z0 is used.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-wrong-axis-intercept",
+        "Finding where the tangent plane meets a different axis from the one asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-power-rule-multiplier-dropped",
+        "Differentiating a power by lowering its exponent but not multiplying by the old exponent: the derivative of x³ taken as x².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-point-coordinates-swapped",
+        "Substituting the point's coordinates into the partial derivative the wrong way round: x0 for y and y0 for x.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-sign-slip",
+        "A sign slip in a partial derivative, giving the negative of its value.",
+        area="multivariable",
+    ),
     CatalogueEntry(
         "cx-arg-ignores-quadrant",
         "Giving the angle between the point and the real axis, without placing it in the right quadrant.",
