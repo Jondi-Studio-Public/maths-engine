@@ -4,12 +4,13 @@ and lowest terms where the question asks for them."""
 
 from __future__ import annotations
 
+import json
 from types import SimpleNamespace
 
 import pytest
 
 from mathgen import engine
-from mathgen.core import Question, mcq_options
+from mathgen.core import Part, Question, mcq_options
 from mathgen.grading import grade
 from mathgen.grading.units import unit_is_acceptable
 
@@ -52,6 +53,71 @@ def test_mcq_letter_is_not_read_when_an_option_is_a_letter():
     question = _q("x", "x", distractors=["y", "z"])
     assert grade("mcq", question, "x").correct
     assert not grade("mcq", question, "y").correct
+
+
+def _mcq_part(label, seed, answer="7"):
+    return Part(
+        label=label,
+        prompt="p",
+        answer_kind="mcq",
+        answer=answer,
+        answer_text=answer,
+        distractors=["8", "9"],
+        seed=f"{seed}:{label}",
+    )
+
+
+def _mcq_part_question(seed):
+    parts = [_mcq_part("a", seed), _mcq_part("b", seed)]
+    return _q("7", "7", parts=parts), parts
+
+
+def test_mcq_index_as_int_for_every_option():
+    for seed in range(5):
+        skill, question = _mcq_skill_question(seed)
+        options = mcq_options(question)
+        right = options.index(question.answer_text)
+        for index in range(len(options)):
+            assert engine.grade(skill, question, index).correct == (index == right)
+            assert engine.grade(skill, question, str(index)).correct == (index == right)
+
+
+@pytest.mark.parametrize("given", [-1, 99, 4.0, True, False, None])
+def test_mcq_index_out_of_range_or_not_an_int_is_wrong(given):
+    skill, question = _mcq_skill_question()
+    assert not engine.grade(skill, question, given).correct
+
+
+def _seed_with_right_option_at(index):
+    return next(s for s in range(1, 200) if mcq_options(_mcq_part("a", s)).index("7") == index)
+
+
+def test_mcq_part_index_zero_is_a_reply_not_an_empty_box():
+    # 0 is falsy: `reply or ""` once turned the first option's index into "no reply" for a part.
+    seed = _seed_with_right_option_at(0)
+    question, parts = _mcq_part_question(seed)
+    right_b = mcq_options(parts[1]).index("7")
+    for given in (
+        {"a": 0, "b": right_b},
+        {"a": "0", "b": str(right_b)},
+        json.dumps({"a": 0, "b": right_b}),
+    ):
+        assert grade("mcq", question, given).marks == 2, given
+
+
+def test_mcq_part_index_as_int_in_a_reply_dict():
+    for seed in range(1, 20):
+        question, parts = _mcq_part_question(seed)
+        right_a, right_b = (mcq_options(part).index("7") for part in parts)
+        assert grade("mcq", question, {"a": right_a, "b": right_b}).marks == 2
+        assert grade("mcq", question, {"a": right_a, "b": True}).marks == 1
+
+
+def test_one_part_question_takes_an_int_index_including_zero():
+    for seed in range(1, 20):
+        part = _mcq_part("a", seed)
+        question = _q("7", "7", parts=[part])
+        assert grade("mcq", question, mcq_options(part).index("7")).correct
 
 
 # -- G3: fraction notations ------------------------------------------------------------------
