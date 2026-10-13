@@ -17,7 +17,7 @@ import random
 
 from sympy import Matrix
 
-from ..core import check, generator, join_terms, pick_distractors
+from ..core import check, generator, join_terms, paren_negative, pick_distractors
 
 
 def _signed(rng: random.Random, lo: int, hi: int) -> int:
@@ -123,7 +123,7 @@ def _partial_sums(rng: random.Random) -> dict:
         f"The sum of the first n terms of a sequence is S(n) = {join_terms([(a, 'n^2'), (b, 'n')])}. "
         f"Find the {_ordinal(k)} term of the sequence."
     )
-    working = [f"t({k}) = S({k}) - S({k - 1}) = {s(k)} - {s(k - 1)} = {value}."]
+    working = [f"t({k}) = S({k}) - S({k - 1}) = {s(k)} - {paren_negative(s(k - 1))} = {value}."]
     return _pack(text, value, f"t({k})", working, wrong)
 
 

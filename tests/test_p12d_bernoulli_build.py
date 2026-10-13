@@ -20,6 +20,7 @@ TIERS = ("easy", "medium", "hard", "exam")
 MODEL_TOPIC = "p12d_bernoulli_model"
 MODEL_SKILL = "senior-use-a-bernoulli-random-variable-as-a-model"
 SEQ_TOPIC = "p12d_bernoulli_sequence"
+SEQ_EXAM_TOPIC = "exd_x_r2l_bernoulli_chain"
 SEQ_SKILL = "senior-use-bernoulli-random-variables-and-associated-probabilities-to"
 
 TOPICS = (MODEL_TOPIC, SEQ_TOPIC)
@@ -316,7 +317,7 @@ def test_seq_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["simple-event-probability"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == SEQ_TOPIC
+        assert source.topic == (SEQ_EXAM_TOPIC if source.difficulty == "exam" else SEQ_TOPIC)
     difficulties = {source.difficulty for source in skill.sources}
     assert difficulties == set(TIERS)
     exam_source = next(s for s in skill.sources if s.difficulty == "exam")

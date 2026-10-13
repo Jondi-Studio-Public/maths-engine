@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n2_leading_digit_error
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: truncates-instead-of-rounds
   description: Always rounds each operand down (truncates) to its own leading digit instead of rounding to the nearest one.

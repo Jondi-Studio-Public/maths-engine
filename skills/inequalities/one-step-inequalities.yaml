@@ -2,36 +2,36 @@ id: one-step-inequalities
 name: Solve one-step linear inequalities
 domain: inequalities
 description: Solve one-step inequalities using equality-preserving operations.
-status: deferred
-deferred_reason: grader
+status: active
 prerequisites:
-- inverse-operations
-- inequality-solutions-number-line
+- one-step-equations
 answer: inequality
 sources:
-- topic: inequality
-  params:
-    kind: one_step
+- topic: lin_ineq_one_step
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: inequality
-  params:
-    kind: one_step
+- topic: lin_ineq_one_step
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: inequality
-  params:
-    kind: one_step
+- topic: lin_ineq_one_step
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_ineq_one_step
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 mental:
   levels:
   - topic: inequality
@@ -53,8 +53,16 @@ mental:
     target_s: 8
     limit_s: 20
 misconceptions:
-- id: misconception-1
-  description: Treating an inequality exactly like an equation without interpreting the set
-- id: misconception-2
-  description: Giving a single value instead of a range
+- id: ineq-reversed-without-need
+  description: "Reversing the inequality sign after adding, subtracting or dividing by a positive number."
+- id: strict-nonstrict-confused
+  description: "Changing between < and ≤ (or > and ≥), so the bound is wrongly included or excluded."
+- id: sign-error-moving-term
+  description: "Moving a term across the sign without changing its sign."
+- id: used-wrong-inverse-operation
+  description: "Multiplying where dividing was needed (or the reverse) instead of using the inverse operation."
+- id: forgot-to-divide-by-coefficient
+  description: "Stopping before dividing by the coefficient of the variable."
+- id: ineq-direction-not-reversed
+  description: "Dividing by a negative number without reversing the sign (for the bracket cases, solving the wrong step first)."
 tags: []

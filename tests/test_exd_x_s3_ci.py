@@ -80,3 +80,15 @@ def test_grader_accepts_key_and_rejects_every_distractor_over_100_seeds():
         assert len(q.distractors) == 3
         for d in q.distractors:
             assert not grader(q, d).correct, (seed, d, q.answer_text)
+
+
+def test_prompt_says_not_to_round_intermediate_values():
+    for seed in range(300):
+        assert "do not round any intermediate value" in _make(seed).text
+
+
+def test_rounding_the_half_width_midway_is_not_needed_for_the_key():
+    # The key is exact-then-rounded, so it is derivable from the prompt with the stated z values and no early rounding.
+    for seed in range(300):
+        q = _make(seed)
+        assert _bounds(q.answer_text) == _oracle(q.text)

@@ -85,7 +85,8 @@ def test_medium_tier_equivalence_check_oracle():
 
         expected_always_equal = _fresh_truth_table_identity(s_kind)
         expected_answer = "True" if expected_always_equal else "False"
-        assert q.answer_text == expected_answer, (
+        # The key is the verdict plus the identified transform ("False: it is the converse, ...").
+        assert q.answer_text.split(":")[0] == expected_answer, (
             f"seed={seed}: s_kind={s_kind} expected {expected_answer!r}, got {q.answer_text!r}\nQuestion: {q.text}"
         )
         checked += 1

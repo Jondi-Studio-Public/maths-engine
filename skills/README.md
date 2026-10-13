@@ -72,9 +72,20 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   `stages` entries come from `0` to `6`, `maintenance` and `exam`.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
-  `polyline`, `line`. `list` ignores order and `ordered_list` is positional. `grade_expression`
-  accepts a leading `name =`. `inequality` has no grader yet, so such a skill stays
-  `deferred` with reason `grader`.
+  `polyline`, `line`, `inequality`, `matrix`. `list` ignores order and `ordered_list` is positional, so a vector answer
+  is an `ordered_list` (it also reads `<5, 6, -5>` and `5i + 6j - 5k`). A `number` reply may group
+  thousands with a space (`12 345`), may be a mixed number (`2 1/2`, `2½`) and may use scientific
+  notation written `1.2 × 10^3`; calculator notation (`1.2e3`) is refused. A question with a single
+  `number` answer asks for one rounding, not two (`tests/test_rounding_asked_once.py`). A `fraction`
+  reply may be bracketed, written `\frac{a}{b}` or with another fraction bar (`⁄`, `÷`); when the
+  question says "lowest terms", "simplest form" or "simplify", a written a/b must be reduced. A `pair`
+  reply's labels must be the answer's own (in any case, without a subscript, or spelled out).
+  `grade_expression` accepts a leading `name =`, a derivative label (`f'(x) =`, `dy/dx =`) or
+  `Answer:`, and reads `÷`. An `mcq` reply is an option's index, its letter or its whole text; digits
+  are always an index. `inequality` (`mathgen/grading/inequality.py`) compares solution sets, so
+  `3 < x` and `(3, ∞)` are both `x > 3`. `matrix` (`mathgen/grading/matrix.py`) compares exact
+  entries; its `answer_form` `scalar_multiple` or `column_scalar_multiple` accepts any non-zero
+  multiple of the answer, or of each of its columns, for answers such as eigenvectors.
 - **`misconceptions` and `near_misses`:** both are lists of `id` plus `description`. A
   misconception is wrong method ("subtracts in the wrong order"). A near miss is sound
   reasoning aimed at a different question than the one asked. Ids must not collide across the
@@ -187,6 +198,8 @@ refuses one that reuses an id already loaded. Entries are split on `os.pathsep` 
 - Typed numeric answers are graded to their own stated precision. A rounded answer accepts half a
   unit in its last place; an answer shown exactly is matched exactly, so a question whose stored
   answer is rounded must say so ("to the nearest cent").
+- A number reply may give a unit. It must be the unit the canonical shows ("F = 25.00 N") or the one the
+  question asks for by name in its asking sentence ("Convert 3 cm to mm", "in km/h"), so name it there.
 - `grade_fraction` compares by value, so `2/4` is accepted for `1/2`. Never build a
   "does not simplify" distractor.
 - Every distractor and every deliberately wrong test value must clear the grader. Check every

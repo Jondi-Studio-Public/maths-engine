@@ -4,8 +4,7 @@ id: senior-interpret-piece-wise-linear-and-step-graphs-used
 name: Read the charge off a step graph
 domain: linear-relations
 description: Given a step graph drawn on a labelled integer grid (for example a postage-by-weight charging scheme) with each step's open and closed ends shown, state the charge that applies at a stated input, using the filled circle where the input sits at the end of a step. Reading a value only; no gradient is involved.
-status: deferred
-deferred_reason: visual
+status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false

@@ -212,7 +212,8 @@ def test_skill_1_loads_with_correct_properties():
     assert skill.prerequisites == ["differentiate-polynomial"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == TOPIC_1
+        # The exam tier is now a multi-part chain (tests/test_exd_x_r2j_trig_rate_chain.py).
+        assert source.topic == ("exd_x_r2j_trig_rate_chain" if source.difficulty == "exam" else TOPIC_1)
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

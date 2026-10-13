@@ -23,6 +23,11 @@ sources:
   params: {variant: negation_truth}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc7_implication_counts
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: confuses-converse-and-contrapositive
   description: Offers the contrapositive (swap and negate both clauses) when the converse (swap only) is asked for.

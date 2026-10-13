@@ -26,6 +26,10 @@ def _skills_dict():
 def _make_from_sources(difficulty, seed):
     skill = _skills_dict()[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if src.topic == "exd_x_r2d_geometric_phases_chain":
+        # This skill's exam source is now a multi-part chain (tests/test_exd_x_r2d_geometric_phases_chain.py);
+        # these checks keep covering the single-answer exam variant it replaced, which the generator still has.
+        return make("pv0a_geometric_threshold", seed=seed, difficulty="exam", variant="exam")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

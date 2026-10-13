@@ -24,7 +24,7 @@ sources:
     params: {}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_g1_vector_plane
+  - topic: exd_x_r2c_vector_plane
     params: {tier: exam}
     difficulty: exam
     stages: [exam]

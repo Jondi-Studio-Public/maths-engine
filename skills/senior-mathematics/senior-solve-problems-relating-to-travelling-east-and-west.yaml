@@ -22,6 +22,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc6_travel_zones
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-day-adjustment
   description: Reconstructs the offset from the two clock times without accounting for the stated calendar-day label at all, as if the arrival were always on the same day as departure.

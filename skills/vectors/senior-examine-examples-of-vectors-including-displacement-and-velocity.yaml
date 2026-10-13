@@ -22,7 +22,7 @@ sources:
   params: {variant: two_leg_journey}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g2_velocity_composition
+- topic: exd_x_r2d_velocity_chain
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -16,7 +16,6 @@ from mathgen import make
 from mathgen.core import VerificationError
 import mathgen.generators.p9a_quantifiers_contradiction_build as p9a_mod
 from mathgen.generators.p9a_quantifiers_contradiction_build import (
-    _GENERIC_FILLERS,
     _PAIRS,
     _PREDICATES,
     _SELECT_OPTIONS,
@@ -103,8 +102,11 @@ class TestQuantifierEvaluate:
     def test_true_false_answer_shape(self, difficulty):
         for seed in SEEDS:
             q = _make_quant(seed, difficulty)
-            assert q.answer_text in ("True", "False")
-            assert set(q.distractors) <= {"False", "True"} | set(_GENERIC_FILLERS)
+            # The options are reasoned verdicts ("True, because ..."); every distractor gives the wrong verdict.
+            verdict = q.answer_text.split(",")[0]
+            assert verdict in ("True", "False")
+            wrong = "False" if verdict == "True" else "True"
+            assert q.distractors and all(d.split(",")[0] == wrong for d in q.distractors), q.distractors
 
     def test_hard_tier_for_all_only_never_the_answer(self):
         for seed in SEEDS:
@@ -156,7 +158,7 @@ class TestQuantifierEvaluate:
             "senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow",
         ]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
 
 # ===========================================================================
@@ -258,7 +260,7 @@ class TestProofByContradiction:
             "senior-use-the-quantifiers-for-all-and-there-exists",
         ]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 3
+        assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 
     def test_single_tier_independent_check_fires_on_a_broken_pair(self):
         """Drives the ACTUAL `_single_tier` construction with a deliberately

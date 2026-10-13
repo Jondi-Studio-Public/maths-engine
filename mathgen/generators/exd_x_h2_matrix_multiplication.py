@@ -19,7 +19,7 @@ import random
 
 import sympy
 
-from ..core import check, generator, paren_negative, pick_distractors
+from ..core import check, fmt_signed, generator, paren_negative, pick_distractors
 
 
 def _mul(a, b):
@@ -144,7 +144,7 @@ def _unknowns(rng: random.Random) -> dict:
         x_wrong = int(x_entrywise)
         cands.append(f"x = {x_wrong}, y = {product[0][1] // x_wrong}")
     working = [
-        f"Entry (1,1): {e}x + {paren_negative(b)} × {paren_negative(g)} = {product[0][0]}, so x = {x0}. "
+        f"Entry (1,1): {fmt_signed(e, 'x')} + {paren_negative(b)} × {paren_negative(g)} = {product[0][0]}, so x = {x0}. "
         f"Entry (1,2): xy + {paren_negative(b)} × {paren_negative(h)} = {product[0][1]}, so y = {y0}."
     ]
     return _finish(text, answer, cands, working)

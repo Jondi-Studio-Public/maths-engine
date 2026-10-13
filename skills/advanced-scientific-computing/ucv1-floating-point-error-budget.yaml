@@ -1,0 +1,60 @@
+id: ucv1-floating-point-error-budget
+name: Bound a fixed floating-point error budget
+domain: advanced-scientific-computing
+status: active
+description: >-
+  For a fixed sequence of supplied arithmetic operations in a stated first-order floating-point model (each operation multiplies
+  its exact result by 1 + delta with |delta| at most u), compute the worst-case absolute roundoff error bound as a multiple
+  k of the unit roundoff u.
+placement_eligible: false
+prerequisites:
+- ucv1-numerical-error-bound
+answer: number
+sources:
+- topic: float_error_budget
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: float_error_budget
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: float_error_budget
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: float_error_budget
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: counts-operations
+  description: >-
+    Gives the number of operations as the error multiple, treating every rounding as one unit of error whatever the size
+    of the value that was rounded.
+- id: magnitudes-not-carried
+  description: >-
+    Adds the sizes of the intermediate results but does not carry an early rounding error through the later multiplications
+    and additions that use it.
+- id: final-rounding-only
+  description: Counts only the rounding of the last operation, as if the earlier results were exact.
+- id: misses-last-rounding
+  description: >-
+    Carries every earlier rounding correctly but leaves out the rounding of the final operation.
+- id: each-step-once
+  description: >-
+    Counts a rounding error once even when the intermediate result is used on two paths, so its effect is under-counted.
+tags:
+- university-core-v1
+- scientific-computing
+- floating-point
+- error-analysis

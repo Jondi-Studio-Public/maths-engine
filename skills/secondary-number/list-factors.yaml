@@ -5,6 +5,6 @@ description: List every positive whole-number divisor of a given composite numbe
 status: active
 prerequisites: [whole-number-division-facts]
 answer: list
-sources: [{topic: factor_list, params: {hi: 60}, difficulty: easy}]
+sources: [{topic: factor_list, params: {hi: 60}, difficulty: easy}, {topic: exd_x_n4_factor_count, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: factor-pairs-incomplete, description: Stops after finding only one factor pair.}]
 tags: [expansion-batch-4, factors]

@@ -102,7 +102,8 @@ def exd_x_s2_sample_space(rng: random.Random, tier: str = "exam") -> dict:
         working=[
             f"The sample space has {n}*{m} = {len(space)} ordered outcomes.",
             f"Outcomes where {name_b}: {len(b_set)}. Of those, outcomes where {name_a}: {len(both)}.",
-            f"P = {len(both)}/{len(b_set)} = {answer_text}.",
+            f"P = {len(both)}/{len(b_set)}"
+            + (f" = {answer_text}." if answer_text != f"{len(both)}/{len(b_set)}" else "."),
         ],
         distractors=pick_distractors(answer_text, [rational_text(c) for c in candidates]),
     )

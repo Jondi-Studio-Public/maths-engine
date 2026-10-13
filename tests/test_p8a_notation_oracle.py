@@ -25,7 +25,8 @@ def _load_sources(path):
     return skill["sources"]
 
 
-SIG_FIGS_SOURCES = _load_sources(SIG_FIGS_SKILL)
+# the exam-tier source uses a different topic and question shape
+SIG_FIGS_SOURCES = [src for src in _load_sources(SIG_FIGS_SKILL) if src["difficulty"] != "exam"]
 ENG_NOTATION_SOURCES = _load_sources(ENG_NOTATION_SKILL)
 
 

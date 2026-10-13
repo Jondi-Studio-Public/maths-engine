@@ -23,8 +23,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19c_bernoulli_suitability
-  params: {}
+- topic: exd_x_r2k_bernoulli_suitability
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

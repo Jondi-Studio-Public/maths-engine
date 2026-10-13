@@ -1,0 +1,47 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-set-language-and-notation-for-events-including
+name: Use set language and notation for events, including A' for the complement of an event A, A ∩ B for the intersection of events A and B, and A ∪ B for the union, and recognise mutually exclusive events
+domain: statistics-probability
+description: List the outcomes in an event written with set notation (a complement, an intersection, a union or a combination) over a small, fully listed sample space; the result is empty exactly when the events are mutually exclusive.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+- f10-venn-diagram-counts
+answer: set
+sources:
+- topic: senior_event_set_notation
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: senior_event_set_notation
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: senior_event_set_notation
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: senior_event_set_notation
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: confuses-intersection-with-union
+  description: Lists the outcomes in both events when the notation asks for either, or the reverse.
+- id: ignores-the-complement
+  description: Reads A' or B' as A or B and leaves the prime out of the working.
+- id: complements-the-wrong-event
+  description: Applies the complement to the wrong event, so A ∩ B' is worked out as A' ∩ B.
+- id: combines-the-events-the-other-way-round
+  description: Swaps both the complement and the intersection or union.
+- id: moves-the-complement-inside-without-swapping
+  description: Reads (A ∪ B)' as A' ∪ B' (or (A ∩ B)' as A' ∩ B'), keeping the intersection or union instead of swapping it.
+- id: reads-the-complement-as-the-other-event
+  description: Takes A' to be the other named event B.
+- id: leaves-out-an-outcome
+  description: Misses one outcome that belongs in the event.
+- id: adds-an-outcome-that-does-not-belong
+  description: Includes an outcome that is not in the event.
+tags: [acara-senior-v8-4, statistics-probability, senior_event_set_notation, acmmm050]

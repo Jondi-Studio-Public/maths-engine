@@ -3,7 +3,7 @@
 id: senior-describe-the-association-between-two-numerical-variables-in
 name: Describe the association between two numerical variables in terms of direction (positive/negative), form (linear/non-linear) and strength (strong/moderate/weak)
 domain: statistics-probability
-description: 'Given a stated scatterplot description or a stated set of summary statistics for two numerical variables, state the association''s direction (positive or negative), form (linear or non-linear) and strength (strong, moderate or weak), each chosen from its own small fixed label set, graded as an ordered list ("positive, linear, strong"). Every prompt states the exact spellings to use and, where a linear |r| is involved, the strength bands; a non-linear draw''s strength is always read from a stated closeness-to-curve description, never from r, which measures linear strength only. Four tiers: a verbal scatterplot description giving all three clues directly; a stated r (with the linear bands) or a stated curve-and-closeness description (with the non-linear bands), never both; the same two branches with the linear branch escalated to r^2 and a least-squares line, so direction and strength must be derived rather than read directly; and a prompt that gives r AND a residual-plot description together, where the learner must judge from the residual plot alone whether r''s size actually establishes linearity before trusting it for strength. Distinct from senior-use-technology-to-find-the-correlation-coefficient-an, which computes a numeric r and never classifies direction/form/strength as labels.'
+description: 'Given a stated scatterplot description or a stated set of summary statistics for two numerical variables, state the association''s direction (positive or negative), form (linear or non-linear) and strength (strong, moderate or weak), each chosen from its own small fixed label set, graded as an ordered list ("positive, linear, strong"). Every prompt states the exact spellings to use and, where a linear |r| is involved, the strength bands; a non-linear draw''s strength is always read from a stated closeness-to-curve description, never from r, which measures linear strength only. Four tiers: a verbal scatterplot description giving all three clues directly; a stated r (with the linear bands) or a stated curve-and-closeness description (with the non-linear bands), never both; the same two branches with the linear branch escalated to r^2 and a least-squares line, so direction and strength must be derived rather than read directly; and an exam chain from summary sums: compute r, find the percentage of variation explained, then state direction, form and strength, judging from the stated residual plot whether r''s size actually establishes linearity. Distinct from senior-use-technology-to-find-the-correlation-coefficient-an, which computes a numeric r and never classifies direction/form/strength as labels.'
 status: active
 placement_eligible: false
 prerequisites:
@@ -23,7 +23,7 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19b_association_describe
+- topic: exd_x_r2k_association
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

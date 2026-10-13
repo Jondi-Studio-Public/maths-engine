@@ -176,7 +176,7 @@ _HARD_TEMPLATES = (
     "working.",
 )
 _EXAM_TEMPLATES = (
-    "Exam-style question. A circle has an area of {A} cm². Calculate (a) the "
+    "A circle has an area of {A} cm². Calculate (a) the "
     "diameter and (b) the circumference of the circle, each correct to 1 decimal "
     "place, showing your working.",
     "This exam question gives a circle of area {A} cm². Find, with full working, "

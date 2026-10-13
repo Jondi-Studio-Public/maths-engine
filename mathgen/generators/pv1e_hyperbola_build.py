@@ -28,7 +28,7 @@ import re
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, generator
+from ..core import check, generator, latex_from_inline
 from . import pv1e_curve_figure_build as cf
 
 TOPIC = "pv1e_hyperbola_asymptotes"
@@ -230,7 +230,7 @@ def pv1e_hyperbola_asymptotes(rng, tier: str = "easy") -> dict:
     ]
     return {
         "text": pattern,
-        "latex": _tex(pattern),
+        "latex": latex_from_inline(_tex(pattern)),
         "answer": {"x": h, "y": k},
         "answer_text": answer_text,
         "answer_latex": rf"x = {h},\ y = {k}",

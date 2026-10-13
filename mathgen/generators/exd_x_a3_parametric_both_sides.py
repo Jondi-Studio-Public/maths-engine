@@ -112,7 +112,7 @@ def _given(rng: random.Random) -> dict | None:
         answer_text=f"{letter} = {L}",
         distractors=[f"{letter} = {v}" for v in d],
         working=[
-            f"Substitute x = {x0}: {letter}({x0} + {a}) = {n}({x0}) + {c}",
+            f"Substitute x = {x0}: {letter}({join_terms([(x0, ''), (a, '')])}) = {n}({x0}) {'+' if c >= 0 else '-'} {abs(c)}",
             f"{letter} = {L}",
         ],
     )

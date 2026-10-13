@@ -23,6 +23,11 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_sc8_best_fit_line_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: wrong-sign-gradient
   description: Picks a line sloping the wrong way, ignoring whether the data trends up or down.

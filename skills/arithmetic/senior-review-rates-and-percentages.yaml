@@ -23,6 +23,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_casual_pay_week
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: ignores-the-rate-step
   description: Applies the percentage adjustment to the bare hourly rate instead of the rate-times-hours subtotal.

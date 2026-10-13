@@ -6,6 +6,7 @@ import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from types import SimpleNamespace
 from mathgen import make
 import mathgen.generators.p15a_definition_quantifier_build  # noqa: F401
 
@@ -22,6 +23,11 @@ def _skill_sources():
 
 
 SKILL, SOURCES = _skill_sources()
+# The skill's exam tier is now a multi-part chain (tests/test_exd_x_r2g_relation_repair.py). These tests keep covering the
+# generator's own earlier exam preset, which is unchanged.
+SOURCES["exam"] = SimpleNamespace(
+    topic="p15a_definition_quantifier_check", difficulty="exam", params={}, stages=["exam"]
+)
 
 
 def _make(difficulty, seed):

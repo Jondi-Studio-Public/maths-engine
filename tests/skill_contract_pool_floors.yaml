@@ -29,8 +29,6 @@ condition-number-diagonal:
   condition_number_diagonal/easy: 18
 continue-patterns:
   repeating_pattern/easy: 4
-count-to-5:
-  count_objects/easy: 19
 define-variables:
   define_variable/easy: 3
 equal-groups:
@@ -108,16 +106,7 @@ propositional-formula-equivalence:
   propositional_formula_equivalence/medium: 8
 propositional-truth-evaluation:
   propositional_truth_value/easy: 16
-pythagorean-hypotenuse:
-  trigonometry/easy: 6
-  trigonometry/medium: 18
-pythagorean-leg:
-  trigonometry/easy: 6
-  trigonometry/medium: 18
 rearrange-simple-formulas:
-  rearrange/easy: 8
-  rearrange/hard: 2
-  rearrange/medium: 4
   rearrange_powers_roots/hard: 7
 recognise-numerals-to-10:
   recognise_numeral/easy: 11
@@ -196,8 +185,6 @@ simple-harmonic-angular-frequency:
   simple_harmonic_angular_frequency/easy: 9
 subtract-within-5:
   early_subtraction/easy: 18
-tell-time-to-hour:
-  clock_hours/easy: 12
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:

@@ -132,13 +132,13 @@ def test_skills_load_with_expected_shape():
         "convert-metric-capacity",
         "senior-recognise-relations-between-volume-and-capacity-recognising-that",
     ]
-    assert {tuple(src.stages) for src in prism.sources} == {(6,), (6, "maintenance")}
+    assert {tuple(src.stages) for src in prism.sources} == {(6,), (6, "maintenance"), ("exam",)}
 
     rect = by_id["rectangle-area-perimeter-mixed-units"]
     assert rect.answer == "number"
     assert rect.placement_eligible is False
     assert rect.prerequisites == ["rectangle-area", "rectangle-perimeter", "convert-metric-length"]
-    assert {tuple(src.stages) for src in rect.sources} == {(6,), (6, "maintenance")}
+    assert {tuple(src.stages) for src in rect.sources} == {(6,), (6, "maintenance"), ("exam",)}
 
 
 # ---------------------------------------------------------------------------

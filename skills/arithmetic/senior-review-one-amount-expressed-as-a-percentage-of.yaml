@@ -23,6 +23,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_share_and_change
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swaps-the-base
   description: Computes B/A x 100 instead of A/B x 100, dividing by the wrong quantity.

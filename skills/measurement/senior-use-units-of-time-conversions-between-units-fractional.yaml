@@ -21,6 +21,11 @@ sources:
   params: {mode: fraction_of_hour_to_minutes}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m6_time_pay
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: divides_by_100
   description: Divides minutes by 100 instead of 60 when converting to decimal hours (e.g. 45 minutes becomes 0.45 instead of 0.75).

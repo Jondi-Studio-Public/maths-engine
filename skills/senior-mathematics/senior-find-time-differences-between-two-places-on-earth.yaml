@@ -23,6 +23,11 @@ sources:
   params: {mode: inverse}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc6_longitude
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: forgot-to-divide
   description: Reports the longitude separation itself as if it were already the time difference in hours, never dividing by 15.

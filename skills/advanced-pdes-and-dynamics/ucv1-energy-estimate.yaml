@@ -20,8 +20,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p18a_energy_estimate
-  params: {}
+- topic: exd_x_r2g_heat_energy_decay
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -95,7 +95,8 @@ def test_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["matrix-rank-small"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == TOPIC
+        # The exam tier is now a multi-part chain (tests/test_exd_x_r2h_ridge_chain.py).
+        assert source.topic == ("exd_x_r2h_ridge_chain" if source.difficulty == "exam" else TOPIC)
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

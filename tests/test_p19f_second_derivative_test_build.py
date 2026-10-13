@@ -180,7 +180,7 @@ def test_skill_loads_with_correct_properties():
         "senior-understand-the-concepts-of-concavity-and-points-of",
     ]
     assert len(skill.sources) == 4
-    for source in skill.sources:
+    for source in skill.sources[:3]:  # the exam source is the multi-part chain
         assert source.topic == TOPIC
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}

@@ -95,13 +95,15 @@ _PATTERNS = (
     re.compile(r"^Evaluate lim x→(-?\d+) of (.+)\.$"),
     re.compile(r"^Determine the limit of (.+) as x → (-?\d+)\.$"),
     re.compile(
-        r"^The limit as x → (-?\d+) of (.+) exists and is finite, where k is a constant\. Find the value of the limit\.$"
+        r"^The limit as x → (-?\d+) of (.+) exists and is finite, where k is a constant\. Find the exact value of the limit\.$"
     ),
-    re.compile(r"^For some constant k, lim x→(-?\d+) of (.+) exists and is finite\. Find its value\.$"),
+    re.compile(r"^For some constant k, lim x→(-?\d+) of (.+) exists and is finite\. Find its exact value\.$"),
 )
 
 
 def _split(text):
+    # The prompt now asks for the exact value; the oracle parses what comes before that request.
+    text = text.replace(" Give the exact value.", "")
     for i, pattern in enumerate(_PATTERNS):
         m = pattern.match(text)
         if m:
@@ -144,3 +146,8 @@ def test_every_family_occurs():
     assert any("sin(" in t and "cos" not in t for t in texts)
     assert any("cos(" in t for t in texts)
     assert any("constant k" in t for t in texts)
+
+
+def test_every_prompt_asks_for_the_exact_value():
+    for seed in range(300):
+        assert "exact value" in _exam(seed).text

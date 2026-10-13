@@ -79,3 +79,12 @@ def _oracle(text):
     r, t = (int(x) for x in re.search(r"ratio (\d+):(\d+)", text).groups())
     rest = 1 - p1 - p2
     return vs[0] * p1 + vs[1] * p2 + vs[2] * rest * Fraction(r, r + t) + vs[3] * rest * Fraction(t, r + t)
+
+
+def test_working_has_no_repeated_step():
+    from mathgen import make as _make
+
+    for seed in range(100):
+        for line in _make("exd_x_s0_expval", seed=seed, difficulty="exam").working:
+            sides = [x.strip().rstrip(".") for x in line.split(" = ")]
+            assert len(set(sides)) == len(sides), line

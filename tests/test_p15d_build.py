@@ -381,7 +381,8 @@ class TestSkillLoading:
         skill = skills_by_id[skill_id]
         assert skill.placement_eligible is False
         assert skill.answer in GRADERS
-        stages = {src.difficulty: src.stages for src in skill.sources if src.topic == topic}
+        # An exam tier may be a multi-part chain on its own topic, so it is found by tier, not by topic.
+        stages = {src.difficulty: src.stages for src in skill.sources if src.topic == topic or src.difficulty == "exam"}
         assert set(stages) == {"easy", "medium", "hard", "exam"}
         assert stages["exam"] == ["exam"]
         for tier in ("easy", "medium", "hard"):

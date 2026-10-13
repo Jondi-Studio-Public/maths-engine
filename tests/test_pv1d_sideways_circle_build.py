@@ -2,7 +2,7 @@
 
 Covers ``pv1d_parabola_axis_y`` (senior-recognise-features-of-the-graph-of-y-2) and
 ``pv1d_circle_centre`` (senior-recognise-features-of-the-graphs-of-x-2), both in
-``mathgen/generators/pv1d_sideways_circle_build.py``. Both skills are ``status: deferred``
+``mathgen/generators/pv1d_sideways_circle_build.py``. Both skills are ``status: active``
 (``figure_stimulus``), so the loader never generates their questions itself: every tier is
 generated here through the skill's own sources. The independent figure-to-key derivation
 lives in ``tests/test_pv1d_sideways_circle_oracle.py``.
@@ -14,10 +14,11 @@ from collections import Counter
 import pytest
 
 import mathgen.generators.pv1d_sideways_circle_build as gen
+from mathgen import figures, make
+from mathgen.capabilities import load_capability_gates
+from mathgen.core import VerificationError
 from mathgen.grading.typed import GRADERS
 from mathgen.skills import load_skills
-from mathgen import figures, make
-from mathgen.core import VerificationError
 
 DIFFICULTIES = ["easy", "medium", "hard", "exam"]
 PARABOLA = "senior-recognise-features-of-the-graph-of-y-2"
@@ -46,12 +47,13 @@ def _make(skill_id, difficulty, seed):
 
 
 @pytest.mark.parametrize("skill_id", sorted(SKILLS))
-def test_skill_loads_deferred_with_figure_gate(skill_id):
+def test_skill_loads_active_with_figure_gate(skill_id):
     skill = _skills()[skill_id]
     assert skill.answer == "pair"
-    assert skill.status == "deferred" and skill.deferred_reason == "visual"
+    assert skill.status == "active" and skill.deferred_reason is None
     assert skill.needs_figure is True
     assert skill.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.placement_eligible is False
     assert skill.mental is None
     assert skill.prerequisites == PREREQUISITES[skill_id]
@@ -71,7 +73,7 @@ def test_registered_readers():
 
 @pytest.mark.parametrize("skill_id,tier", CASES)
 def test_every_seed_has_a_valid_figure_with_no_leak(skill_id, tier):
-    """F1: the deferred skill is skipped by the loader, so check the figure here."""
+    """F1: the loader does not draw the figure, so check it here."""
     for seed in range(300):
         q = _make(skill_id, tier, seed)
         assert q.figure is not None, (skill_id, tier, seed)

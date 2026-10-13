@@ -28,8 +28,8 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: p14e_bootstrap_percentile
-  params: {}
+- topic: exd_x_r2g_bootstrap_bias
+  params: {tier: exam}
   difficulty: exam
   stages:
   - exam

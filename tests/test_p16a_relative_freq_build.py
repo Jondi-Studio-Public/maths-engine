@@ -64,7 +64,9 @@ class _RFCommon:
         skill = next(s for s in skills if s.id == RF_SKILL)
         assert skill.answer == "fraction"
         assert skill.placement_eligible is False
-        assert any(src.topic == RF_TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        assert any(
+            (src.topic == RF_TOPIC or self.TIER == "exam") and src.difficulty == self.TIER for src in skill.sources
+        )
 
 
 class TestRFEasy(_RFCommon):
@@ -166,7 +168,9 @@ class _HPCommon:
         skill = next(s for s in skills if s.id == HP_SKILL)
         assert skill.answer == "fraction"
         assert skill.placement_eligible is False
-        assert any(src.topic == HP_TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        assert any(
+            (src.topic == HP_TOPIC or self.TIER == "exam") and src.difficulty == self.TIER for src in skill.sources
+        )
 
 
 class TestHPEasy(_HPCommon):

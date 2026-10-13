@@ -23,7 +23,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c3_leibniz
+- topic: exd_x_r2b_leibniz_chain
   params: {tier: exam}
   difficulty: exam
   stages:

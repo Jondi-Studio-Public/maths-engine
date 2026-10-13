@@ -20,8 +20,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15c_sigma_algebra_closure
-  params: {}
+- topic: exd_x_r2h_sigma_generated_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

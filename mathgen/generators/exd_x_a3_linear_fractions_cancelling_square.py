@@ -82,7 +82,7 @@ def _pair(rng: random.Random) -> dict | None:
         root,
         cands,
         [
-            f"Cross-multiply: (x + {a})(x + {d}) = (x + {c})(x + {b}); the x^2 terms cancel",
+            f"Cross-multiply: {_br(a)}{_br(d)} = {_br(c)}{_br(b)}; the x^2 terms cancel",
             f"x = {rational_text(root)}",
         ],
     )
@@ -110,7 +110,7 @@ def _minus(rng: random.Random) -> dict | None:
         l=f"{_br(a)}/{_br(b)}",
         r=f"{c}/{_br(d)}",
     )
-    return _result(text, root, cands, [f"(x + {a})/(x + {b}) - 1 = {k}/(x + {b})", f"x = {rational_text(root)}"])
+    return _result(text, root, cands, [f"{_br(a)}/{_br(b)} - 1 = {k}/{_br(b)}", f"x = {rational_text(root)}"])
 
 
 def _sum(rng: random.Random) -> dict | None:

@@ -262,9 +262,9 @@ def test_scale_factor_areas_skill_has_three_tiers():
     _, skills_list = load_skills()
     skills_by_id = {skill.id: skill for skill in skills_list}
     skill = skills_by_id.get("senior-obtain-a-scale-factor-and-use-it-to")
-    assert len(skill.sources) == 3
+    assert len(skill.sources) == 4
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}
 
 
 def test_scale_factor_solids_skill_has_three_tiers():
@@ -272,9 +272,9 @@ def test_scale_factor_solids_skill_has_three_tiers():
     _, skills_list = load_skills()
     skills_by_id = {skill.id: skill for skill in skills_list}
     skill = skills_by_id.get("senior-obtain-a-scale-factor-and-use-it-to-acmgm025")
-    assert len(skill.sources) == 3
+    assert len(skill.sources) == 4
     difficulties = {s.difficulty for s in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}
 
 
 # --- oracle-style tests: re-derive answers from rendered text -------

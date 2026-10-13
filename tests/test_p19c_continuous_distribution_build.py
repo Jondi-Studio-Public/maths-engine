@@ -15,6 +15,7 @@ from mathgen.text_quality import prompt_shape
 SEEDS = range(60)
 
 PD_TOPIC = "p19c_density_probability"
+PD_EXAM_SOURCE_TOPIC = "exd_x_r2k_density"  # the skill's exam source is the multi-part chain, not PD_TOPIC
 PD_GRADER = GRADERS["number"]
 PD_SKILL = "senior-understand-the-concepts-of-a-probability-density-function"
 
@@ -103,7 +104,8 @@ class _PDCommon:
             "senior-examine-simple-examples-of-non-uniform-discrete-random",
             "integrate-polynomial",
         ]
-        assert any(src.topic == PD_TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        expected = PD_EXAM_SOURCE_TOPIC if self.TIER == "exam" else PD_TOPIC
+        assert any(src.topic == expected and src.difficulty == self.TIER for src in skill.sources)
 
 
 class TestPDEasy(_PDCommon):

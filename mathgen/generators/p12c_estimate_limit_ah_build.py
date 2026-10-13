@@ -163,7 +163,37 @@ def _draw_mixed_a(rng):
     return _draw_easy_a(rng) if rng.random() < 0.5 else _draw_medium_a(rng)
 
 
-def _draw_valid(rng, a_pool_fn, h_values, max_attempts: int = 500) -> dict:
+def _pick_ranked(rng, key_str, key_value, pool, forced):
+    """Three distractors from ``pool`` ({text: value}) that put the key at a random rank among the four options.
+
+    ``forced`` texts are always included. Returns None when no draw for the chosen rank keeps every option at
+    least ``_MIN_OPTION_GAP`` apart, so the caller re-draws ``a``.
+    """
+    rank = rng.randint(1, 4)  # 1 = key is the smallest option
+    below = [k for k, v in pool.items() if v < key_value - 1e-9]
+    above = [k for k, v in pool.items() if v > key_value + 1e-9]
+    need_below, need_above = rank - 1, 4 - rank
+    f_below = [k for k in forced if k in below]
+    f_above = [k for k in forced if k in above]
+    if len(f_below) + len(f_above) != len(forced) or len(f_below) > need_below or len(f_above) > need_above:
+        return None
+    if len(below) < need_below or len(above) < need_above:
+        return None
+    rng.shuffle(below)
+    rng.shuffle(above)
+    chosen = f_below + [k for k in below if k not in f_below][: need_below - len(f_below)]
+    chosen += f_above + [k for k in above if k not in f_above][: need_above - len(f_above)]
+    options = [key_str, *chosen]
+    if len(set(options)) != 4:
+        return None
+    for i in range(4):
+        for j in range(i + 1, 4):
+            if abs(Fraction(options[i]) - Fraction(options[j])) < _MIN_OPTION_GAP:
+                return None
+    return chosen
+
+
+def _draw_valid(rng, a_pool_fn, h_values, require_h01: bool = False, max_attempts: int = 500) -> dict:
     """Draw a plausible, internally-consistent, distinctly-optioned question.
 
     Re-draws ``a`` (never mutates a bad draw) when any of the following
@@ -197,9 +227,22 @@ def _draw_valid(rng, a_pool_fn, h_values, max_attempts: int = 500) -> dict:
         a_minus_1_str = _fmt_signed(a_float - 1.0)
         neg_key_str = _fmt_signed(-ln_a)
 
-        cand = [h01_str, a_minus_1_str, neg_key_str]
-        distractors = pick_distractors(key_str, cand, n=3)
-        if len(distractors) != 3:
+        # Misconception pool: the first (coarsest) row, a - 1, the sign slipped, log10 for ln, a doubled and a
+        # halved estimate, the reciprocal. They fall on both sides of the key, so the key's rank among the four
+        # options is drawn at random rather than fixed by the tier.
+        pool = {
+            h01_str: values[0],
+            a_minus_1_str: a_float - 1.0,
+            neg_key_str: -ln_a,
+            _fmt_signed(math.log10(a_float)): math.log10(a_float),
+            _fmt_signed(2 * ln_a): 2 * ln_a,
+            _fmt_signed(ln_a / 2): ln_a / 2,
+            _fmt_signed(1.0 / ln_a): 1.0 / ln_a,
+        }
+        pool = {k: v for k, v in pool.items() if k != key_str}
+        forced = [h01_str] if require_h01 else []
+        distractors = _pick_ranked(rng, key_str, key_rounded, pool, forced)
+        if distractors is None:
             continue
 
         options = [key_str] + distractors
@@ -286,7 +329,7 @@ def p12c_estimate_limit_ah(rng, tier="easy"):
         raise ValueError(f"tier must be one of 'easy', 'medium', 'hard', 'exam'; got {tier!r}")
 
     a_pool_fn = {"easy": _draw_easy_a, "medium": _draw_medium_a, "hard": _draw_mixed_a}[tier]
-    result = _draw_valid(rng, a_pool_fn, _H_VALUES[tier])
+    result = _draw_valid(rng, a_pool_fn, _H_VALUES[tier], require_h01=(tier == "hard"))
 
     a_str = _fmt_a(result["a"])
     template = rng.choice(_SINGLE_TEMPLATES)
@@ -365,7 +408,8 @@ def _make_exam(rng) -> dict:
     option_first = f"The first value (a = {a1_str}) gives the estimated limit further from zero"
     option_second = f"The second value (a = {a2_str}) gives the estimated limit further from zero"
     option_equal = "The two estimated limits have the same magnitude (to 2 d.p.)"
-    option_undetermined = "Cannot be determined without a finer table (a smaller h)"
+    # The classic slip: the numerator a^h - 1 tends to 0, so "the limit is 0" for both.
+    option_zero = "Neither: both limits are 0, because a^h - 1 tends to 0 as h tends to 0"
 
     # Independent route: recompute both magnitudes via sympy, never re-using
     # the math.log calls `_draw_side` used, and confirm the winner again.
@@ -379,7 +423,7 @@ def _make_exam(rng) -> dict:
 
     answer = option_first if m1 > m2 else option_second
     other = option_second if answer == option_first else option_first
-    distractors = [other, option_equal, option_undetermined]
+    distractors = [other, option_equal, option_zero]
     # Plain string distinctness, not `check_pairwise_distinct`: these are
     # prose comparison LABELS, not numeric/symbolic values, so
     # `symbolically_equal` (which sympifies each option) is the wrong tool --

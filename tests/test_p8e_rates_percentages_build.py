@@ -115,8 +115,8 @@ def test_skill_loads_through_api(skills_dict):
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert len(skill.sources) == 3
-    assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard"}
+    assert len(skill.sources) == 4
+    assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
 
 
 # --- Resample-loop bound is never hit over a large seed sweep ------------

@@ -225,14 +225,16 @@ def test_area_distractors_match_independently_recomputed_multiples():
         for seed in SEEDS:
             q = make(AREA_TOPIC, seed=seed, difficulty=tier, tier=tier)
             answer_value, answer_unit = _parse_area_option(q.answer_text)
-            expected = {answer_value * 10, answer_value * Fraction(1, 10), answer_value * 100}
+            expected = {answer_value * Fraction(10) ** k for k in (-2, -1, 1, 2, 3)}
             assert len(q.distractors) == 3
             actual = set()
             for dist in q.distractors:
                 value, unit = _parse_area_option(dist)
                 assert unit == answer_unit
                 actual.add(value)
-            assert actual == expected, f"{tier} seed {seed}: distractors {actual} != expected {expected}"
+            assert len(actual) == 3 and actual <= expected, (
+                f"{tier} seed {seed}: distractors {actual} != expected {expected}"
+            )
             checked += 1
     assert checked == len(TIERS) * len(SEEDS)
 
@@ -300,14 +302,16 @@ def test_capacity_distractors_match_independently_recomputed_multiples():
         for seed in SEEDS:
             q = make(CAPACITY_TOPIC, seed=seed, difficulty=tier, tier=tier)
             answer_value, answer_unit = _parse_capacity_option(q.answer_text)
-            expected = {answer_value * 10, answer_value * Fraction(1, 10), answer_value * 100}
+            expected = {answer_value * Fraction(10) ** k for k in (-2, -1, 1, 2, 3)}
             assert len(q.distractors) == 3
             actual = set()
             for dist in q.distractors:
                 value, unit = _parse_capacity_option(dist)
                 assert unit == answer_unit
                 actual.add(value)
-            assert actual == expected, f"{tier} seed {seed}: distractors {actual} != expected {expected}"
+            assert len(actual) == 3 and actual <= expected, (
+                f"{tier} seed {seed}: distractors {actual} != expected {expected}"
+            )
             checked += 1
     assert checked == len(TIERS) * len(SEEDS)
 

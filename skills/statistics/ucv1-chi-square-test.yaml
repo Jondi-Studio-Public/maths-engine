@@ -1,0 +1,68 @@
+id: ucv1-chi-square-test
+name: Compute the pieces of a chi-square test
+domain: statistics
+description: For a goodness-of-fit test (equal split, stated percentages or a stated
+  ratio) or a test of independence on a printed 2 x 2 or 2 x 3 table, find an
+  expected count, the chi-square statistic and the degrees of freedom. Critical values
+  are always printed in the question, every expected count is at least 5, and a
+  conclusion is only ever a one-mark last part of the exam chain.
+status: active
+placement_eligible: false
+prerequisites: [expected-frequency]
+answer: number
+sources:
+- topic: ucv1_chi_square_test
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_chi_square_test
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_chi_square_test
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_chi_square
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: chi-divides-by-observed
+  description: Divides each squared difference by the observed count instead of the
+    expected count.
+- id: chi-no-square
+  description: Adds the differences (O - E)/E without squaring them.
+- id: chi-no-division-by-expected
+  description: Adds the squared differences without dividing each by its expected
+    count.
+- id: expected-assumes-equal-split
+  description: Shares the total equally between the categories although the
+    hypothesis gives unequal proportions (or between all cells of a table).
+- id: expected-ignores-grand-total
+  description: Multiplies the row total by the column total and never divides by the
+    grand total.
+- id: expected-from-one-total-only
+  description: Builds an expected count from a column total (or row total) alone.
+- id: df-cells-minus-one
+  description: Uses cells minus one as the degrees of freedom of a table, instead of
+    (r - 1)(c - 1).
+- id: df-adds-dimensions
+  description: Adds the table's dimensions, r + c - 2, instead of multiplying.
+- id: df-ignores-estimated-parameter
+  description: Uses categories minus one although parameters were estimated from
+    the data.
+near_misses:
+- id: expected-probability-not-count
+  description: Gives the probability of the category where the expected count was asked for.
+tags: [university-core-v1, statistics, inference]
+framework_areas: [statistics]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: statistics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: statistics

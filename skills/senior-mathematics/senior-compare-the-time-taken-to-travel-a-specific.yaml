@@ -22,8 +22,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p19i_transport_time_compare
-  params: {}
+- topic: exd_x_r2i_trip_compare
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

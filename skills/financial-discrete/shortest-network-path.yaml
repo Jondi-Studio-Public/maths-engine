@@ -5,6 +5,6 @@ description: Compare route weights in a small text-defined network to find the s
 status: active
 prerequisites: [add-within-100]
 answer: number
-sources: [{topic: shortest_path, params: {}, difficulty: easy}]
+sources: [{topic: shortest_path, params: {}, difficulty: easy}, {topic: exd_x_sc2_network_closure, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: fewest-edges, description: Chooses the route with the fewest edges without adding weights.}]
 tags: [expansion-batch-5, networks]

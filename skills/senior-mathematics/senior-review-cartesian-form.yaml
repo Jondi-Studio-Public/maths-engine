@@ -33,7 +33,7 @@ sources:
     params: {mode: hard}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_complex_equating
+  - topic: exd_x_r2e_complex_equating
     params: {tier: exam}
     difficulty: exam
     stages:
