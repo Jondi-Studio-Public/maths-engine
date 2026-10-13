@@ -79,6 +79,8 @@ jobs:
             # tests/test_ci_workflow.py fails if a Markdown file that a test, script, pyproject.toml or
             # MANIFEST.in names would be read as docs-only.
             other=$(printf '%s\n' "$changed" | grep -v -E '^([^/]+/)+[^/]+\.md$' || true)
+            # Markdown under plugins/ is code: the skills are instructions agents follow, and tests read them.
+            other="$other$(printf '%s\n' "$changed" | grep -E '^plugins/' || true)"
             # An empty diff is not "docs only" either: run everything.
             if [ -n "$changed" ] && [ -z "$other" ]; then code=false; fi
           fi
@@ -273,7 +275,13 @@ jobs:
             case "$name" in
               *.py|*.yaml|*.yml|*.md|*.txt|*.toml|*.in|*.cfg) ;;
               LICENSE|LICENSE-CONTENT|NOTICE|CODEOWNERS|Dockerfile|.dockerignore|.gitignore|.gitattributes|.gitleaksignore) ;;
-              *) echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue ;;
+              *)
+                # The plugin manifests, at these paths only: never *.json in general. A regex, because a case
+                # pattern's * also matches "/".
+                manifest='^(plugins/[^/]+/(plugin|mcp|\.claude-plugin/plugin)\.json|\.claude-plugin/marketplace\.json)$'
+                if ! [[ "$path" =~ $manifest ]]; then
+                  echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue
+                fi ;;
             esac
             if [[ "$lower" =~ /(node_modules|bower_components|vendor|env|venv|virtualenv|lib|lib64)/ || "$lower" == *.dist-info/* ]]; then
               echo "::error::${shown}: the secret scan skips files under a directory of this name"; bad=1; continue
