@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-understand-and-apply-drawing-conventions-of-scale-drawings
+name: Understand and apply drawing conventions of scale drawings, such as scales in ratio, clear indications of dimensions, and clear labelling
+domain: measurement
+year_level: ['11']
+description: 'Convert between a scale written `1 cm : 2 m` and the ratio `1 : 200`, find the scale from one wall labelled with its actual length, and find the length at which a stated actual length is drawn. Easy converts between the two ways of writing a scale. Medium finds the scale from a labelled wall. Hard finds the scale from the labelled wall and then the drawn length, in centimetres, of a stated actual length.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-direct-proportion-scale-model, convert-metric-length]
+answer: number
+sources:
+- topic: grid_scale_conventions
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_scale_conventions
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_scale_conventions
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: metre-centimetre-slip
+  description: "Slips by a power of ten when converting between metres and centimetres, so 1 cm : 2 m becomes 1 : 20 or 1 : 2000."
+- id: reads-label-as-scale
+  description: "Gives the labelled actual length, or the length counted on the plan, as the scale."
+- id: multiplies-instead-of-divides
+  description: "Multiplies the actual length by the scale to get the drawn length instead of dividing."
+- id: actual-length-unscaled
+  description: "Gives the actual length as the drawn length, or slips a power of ten in the conversion."
+tags: [acara-senior-v8-4, measurement, grid_scale_conventions, acmem111, scale-drawings, scale-ratio, dimensions]

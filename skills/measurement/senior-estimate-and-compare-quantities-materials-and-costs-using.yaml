@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-estimate-and-compare-quantities-materials-and-costs-using
+name: Estimate and compare quantities, materials and costs using actual measurements from scale drawings
+domain: measurement
+year_level: ['11']
+description: 'Given a plan drawn on a square grid with its scale, find the actual area or perimeter and use it to order materials. Easy finds the whole packs of flooring for a rectangular floor. Medium finds the whole turf rolls for an L-shaped or U-shaped lawn, or the whole fence panels for its boundary. Hard compares two options sold in different packs and finds how much the cheaper one saves.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-find-actual-measurements-from-scale-drawings-such-as, rectangle-area, rectangle-perimeter]
+answer: number
+sources:
+- topic: grid_scale_materials
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_scale_materials
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_scale_materials
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: rounds-down
+  description: "Rounds the number of packs down or to the nearest whole, so there is not enough material."
+- id: uses-plan-measurements
+  description: "Works out the packs from the area or perimeter measured on the plan, or from the linear factor, without squaring it."
+- id: wrong-measure
+  description: "Uses the perimeter where an area was needed, or leaves out a side of the boundary."
+- id: compares-unrounded-cost
+  description: "Compares the costs without rounding to whole packs, or gives a total cost or a price difference instead of the saving."
+tags: [acara-senior-v8-4, measurement, grid_scale_materials, acmem110, scale-drawings, materials, costs, rounding-up]
