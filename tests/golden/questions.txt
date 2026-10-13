@@ -7777,6 +7777,18 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "1/324", "id": "ucv1-alternating-series-error/easy/0/681e7e834819", "text": "Consider Σ_(n=1)^∞ (-1)^(n+1) 1/(n 3^n). The series satisfies the conditions of…"}
+{"answer": "1/72", "id": "ucv1-alternating-series-error/easy/1/d2307ee9af3e", "text": "Consider Σ_(n=1)^∞ (-1)^(n+1) 1/(n(n + 1)). The series satisfies the conditions…"}
+{"answer": "1/42", "id": "ucv1-alternating-series-error/easy/2/ada76b454589", "text": "Consider Σ_(n=1)^∞ (-1)^(n+1) 1/(n(n + 1)). The sum S of the alternating series…"}
+{"answer": "(a) 1/720; (b) 19/30; (c) 91/144; (d) 3", "id": "ucv1-alternating-series-error/exam/0/6c9706c09019", "text": "Let S = Σ_(n=1)^∞ (-1)^(n+1) b_n where b_n = 1/(n!). Let S_N be the sum of the …"}
+{"answer": "(a) 1/17; (b) 2/5; (c) 29/85; (d) 4", "id": "ucv1-alternating-series-error/exam/1/33110c846248", "text": "Let S = Σ_(n=1)^∞ (-1)^(n+1) b_n where b_n = 1/(n² + 1). Let S_N be the sum of …"}
+{"answer": "(a) 1/49; (b) 973/1200; (c) 46477/58800; (d) 31", "id": "ucv1-alternating-series-error/exam/2/0c09408b4814", "text": "Let S = Σ_(n=1)^∞ (-1)^(n+1) b_n where b_n = 1/n². Let S_N be the sum of the fi…"}
+{"answer": "107/252", "id": "ucv1-alternating-series-error/hard/0/a5954bd6192b", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n³ + 1) satisfies the conditions of the alte…"}
+{"answer": "197/216", "id": "ucv1-alternating-series-error/hard/1/768f1e6f8c2e", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/n³ satisfies the conditions of the alternatin…"}
+{"answer": "5/8", "id": "ucv1-alternating-series-error/hard/2/5177c03e61e5", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n!) satisfies the conditions of the alternat…"}
+{"answer": "10", "id": "ucv1-alternating-series-error/medium/0/cdcbf8821f32", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(2n - 1) satisfies the conditions of the alte…"}
+{"answer": "4", "id": "ucv1-alternating-series-error/medium/1/e342d945e32e", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(n(n + 1)) satisfies the conditions of the al…"}
+{"answer": "5", "id": "ucv1-alternating-series-error/medium/2/9f0258debd83", "text": "The series Σ_(n=1)^∞ (-1)^(n+1) 1/(2n - 1)² satisfies the conditions of the alt…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}
@@ -7849,6 +7861,18 @@
 {"answer": "50", "id": "ucv1-chinese-remainder-two-congruences/medium/0/b9bd730f5b5f", "text": "What is the smallest non-negative integer x satisfying x ≡ 2 (mod 8) and x ≡ 6 …"}
 {"answer": "33", "id": "ucv1-chinese-remainder-two-congruences/medium/1/5f4e81d5af62", "text": "What is the smallest non-negative integer x satisfying x ≡ 3 (mod 5) and x ≡ 1 …"}
 {"answer": "23", "id": "ucv1-chinese-remainder-two-congruences/medium/2/59d05178dcc4", "text": "Determine the least integer x, with x ≥ 0, for which x ≡ 3 (mod 10) and x ≡ 2 (…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/easy/0/732d40bf617a", "text": "The 5×4 matrix A has a null space of dimension 2. Find the dimension of the col…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/easy/1/053a0f22c98a", "text": "The 5×4 matrix A has rank 2. Find the dimension of the null space of A."}
+{"answer": "3", "id": "ucv1-column-space-basis-dimension/easy/2/484120fae89b", "text": "A linear map T: ℝ⁴ → ℝ⁵ has a kernel of dimension 1. What is the dimension of i…"}
+{"answer": "(a) 2; (b) 2; (c) 1, 3; (d) (-2, 1)", "id": "ucv1-column-space-basis-dimension/exam/0/4d74537197b0", "text": "The matrix A = [[2, 4, 0, -4], [1, 2, -1, -3], [0, 0, 1, 1]] has three rows and…"}
+{"answer": "(a) 2; (b) 2; (c) 1, 3; (d) (-1, 3)", "id": "ucv1-column-space-basis-dimension/exam/1/7b0f59e4c9d8", "text": "The matrix A = [[1, 2, -1, -4], [-2, -4, 1, 5], [0, 0, -1, -3]] has three rows …"}
+{"answer": "(a) 2; (b) 2; (c) 1, 3; (d) (-1, -2)", "id": "ucv1-column-space-basis-dimension/exam/2/902f2d7ca3cb", "text": "Let A = [[0, 0, 1, -2], [1, -1, 1, -3], [-2, 2, 0, 2]]. (a) Find the rank of A.…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/hard/0/ece568a35802", "text": "Let A = [[-2, -4, -5, 2, -3], [-2, -2, -4, 0, -2], [-1, 1, -1, -2, 0], [2, 4, 5…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/hard/1/64652d3d9ecf", "text": "The matrix A = [[1, 0, -2, -1], [3, 2, -3, -1], [0, 4, 3, 4], [0, 2, 6, 2], [-5…"}
+{"answer": "1", "id": "ucv1-column-space-basis-dimension/hard/2/c02c6b9c8f21", "text": "The matrix A = [[0, 4, -4], [-2, 4, 0], [3, -1, -2], [2, -2, 4]] is 4×3. What i…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/medium/0/24e97c72a901", "text": "Let W be the subspace of ℝ³ spanned by v1 = (0, 6, 2), v2 = (1, -5, -1), v3 = (…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/medium/1/223ca6736925", "text": "The vectors v1 = (-3, 2, 0), v2 = (1, -2, -4), v3 = (3, -1, 3), v4 = (-1, 1, 1)…"}
+{"answer": "2", "id": "ucv1-column-space-basis-dimension/medium/2/c43f478c35ef", "text": "The vectors v1 = (2, 2, 6), v2 = (-2, 6, 2), v3 = (2, -2, 2), v4 = (0, -2, -2) …"}
 {"answer": "{U1, U3, U4}", "id": "ucv1-compactness-finite-check/easy/0/7accceb25912", "text": "X = {I, J, L, N}. U4 = {I}; U1 = {L}; U3 = {J, N}; U2 = {J}. X and an open cove…"}
 {"answer": "{U2, U3, U4}", "id": "ucv1-compactness-finite-check/easy/1/4d22ab9dde3e", "text": "X = {F, H, M, X}. U2 = {H}; U4 = {X}; U3 = {F, M}; U1 = {F}. X and an open cove…"}
 {"answer": "{U1, U2, U3}", "id": "ucv1-compactness-finite-check/easy/2/2e513144ee17", "text": "X = {C, L, M, O}. U3 = {L}; U1 = {M}; U2 = {C, O}; U4 = {O}. X and an open cove…"}
@@ -8017,6 +8041,18 @@
 {"answer": "32", "id": "ucv1-double-integral-rectangle/medium/0/e7a206332f94", "text": "f(x, y) = (x - 2)(y - 3) over the rectangle -2 ≤ x ≤ 2, 0 ≤ y ≤ 2. Compute the …"}
 {"answer": "60", "id": "ucv1-double-integral-rectangle/medium/1/060d202bfe7b", "text": "f(x, y) = (x + 3)(y + 2) over the rectangle -1 ≤ x ≤ 1, 2 ≤ y ≤ 4. Evaluate the…"}
 {"answer": "64", "id": "ucv1-double-integral-rectangle/medium/2/48545bd3b080", "text": "f(x, y) = (x + 1)(y + 3) over the rectangle 2 ≤ x ≤ 4, -3 ≤ y ≤ 1. Evaluate the…"}
+{"answer": "0, 5", "id": "ucv1-eigenvalues-characteristic-polynomial/easy/0/eb6867872ed2", "text": "Determine the eigenvalues of A = [[-5, 10], [-5, 10]]."}
+{"answer": "3, 4", "id": "ucv1-eigenvalues-characteristic-polynomial/easy/1/66c9b90806a0", "text": "Find the eigenvalues of A = [[1, -3], [2, 6]]."}
+{"answer": "3, 5", "id": "ucv1-eigenvalues-characteristic-polynomial/easy/2/d94b5cf98ab6", "text": "Determine the eigenvalues of A = [[-1, 2], [-12, 9]]."}
+{"answer": "(a) -3; (b) 15; (c) -3; (d) -5, -1, 3", "id": "ucv1-eigenvalues-characteristic-polynomial/exam/0/150daaa78403", "text": "Consider the matrix A = [[-1, 4, 0], [8, 3, 8], [-4, -4, -5]]. (a) Find the tra…"}
+{"answer": "(a) 11; (b) 24; (c) 6; (d) 1, 4, 6", "id": "ucv1-eigenvalues-characteristic-polynomial/exam/1/1d9161f308fc", "text": "Consider the matrix A = [[3, 5, -3], [3, 1, 3], [1, -5, 7]]. (a) Find the trace…"}
+{"answer": "(a) -4; (b) 30; (c) 10; (d) -5, -2, 3", "id": "ucv1-eigenvalues-characteristic-polynomial/exam/2/42d73dd8e90b", "text": "Let A = [[-18, -16, -5], [13, 11, 5], [16, 16, 3]]. (a) Find the trace of A. (b…"}
+{"answer": "-1, 1, 4", "id": "ucv1-eigenvalues-characteristic-polynomial/hard/0/2860927f9942", "text": "Determine the eigenvalues of A = [[3, -4, 4], [-3, 7, -3], [-5, 10, -6]]."}
+{"answer": "-5, -4, -3", "id": "ucv1-eigenvalues-characteristic-polynomial/hard/1/646da936e182", "text": "Find all the eigenvalues of the 3×3 matrix A = [[0, 7, -4], [-4, -11, 4], [-3, …"}
+{"answer": "-1, 2, 3", "id": "ucv1-eigenvalues-characteristic-polynomial/hard/2/f938b4abd444", "text": "Find the eigenvalues of A = [[1, -2, -4], [-3, 2, -6], [-1, 1, 1]]."}
+{"answer": "0, 1, 5", "id": "ucv1-eigenvalues-characteristic-polynomial/medium/0/2a94fcb103b2", "text": "Determine the eigenvalues of A = [[5, 0, 0], [0, -2, 2], [0, -3, 3]]."}
+{"answer": "-5, -2, 5", "id": "ucv1-eigenvalues-characteristic-polynomial/medium/1/01848d2a893c", "text": "Determine the eigenvalues of A = [[-9, 0, 7], [0, -5, 0], [-14, 0, 12]]."}
+{"answer": "-3, 0, 1", "id": "ucv1-eigenvalues-characteristic-polynomial/medium/2/4faaf7758735", "text": "Find all the eigenvalues of the 3×3 matrix A = [[-3, 0, 0], [0, 3, 3], [0, -2, …"}
 {"answer": "(1, 2)", "id": "ucv1-eigenvectors/easy/0/e6843cceaab6", "text": "Find an eigenvector of the matrix A = [[8, -3], [18, -7]] corresponding to the …"}
 {"answer": "(1, 1)", "id": "ucv1-eigenvectors/easy/1/647cbf604fd6", "text": "One eigenvalue of A = [[-10, 6], [-12, 8]] is -4. Find a corresponding eigenvec…"}
 {"answer": "(2, 3)", "id": "ucv1-eigenvectors/easy/2/e90306217be8", "text": "One eigenvalue of A = [[4, -2], [6, -3]] is 1. Find a corresponding eigenvector."}
@@ -8089,6 +8125,18 @@
 {"answer": "not a subgroup: fails the identity condition (0 is not in S)", "id": "ucv1-finite-subgroup-test/medium/0/6e3900e9e985", "text": "Let G be the set {0, 1, ..., 8} under addition modulo 9, with identity element …"}
 {"answer": "S is a subgroup of G", "id": "ucv1-finite-subgroup-test/medium/1/6d98a01cd844", "text": "Let G be the set {0, 1, ..., 9} under addition modulo 10, with identity element…"}
 {"answer": "not a subgroup: fails the closure condition (some sum of tw…", "id": "ucv1-finite-subgroup-test/medium/2/937a59fa7698", "text": "Let G be the set {0, 1, ..., 9} under addition modulo 10, with identity element…"}
+{"answer": "e^(2x²)", "id": "ucv1-first-order-linear-integrating-factor/easy/0/d02508a08430", "text": "Consider the differential equation dy/dx + 4x y = 3. What integrating factor wo…"}
+{"answer": "e^(2x)", "id": "ucv1-first-order-linear-integrating-factor/easy/1/baf7b70854f5", "text": "Consider the differential equation dy/dx + 2y = x. Find the integrating factor …"}
+{"answer": "e^(-5x)", "id": "ucv1-first-order-linear-integrating-factor/easy/2/b54695b9cfc0", "text": "Consider the differential equation dy/dx - 5y = x². Find an integrating factor …"}
+{"answer": "(a) 3/2; (b) 1/4; (c) -17/4; (d) 1.175", "id": "ucv1-first-order-linear-integrating-factor/exam/0/48ef658ba965", "text": "Consider the initial value problem dy/dx + 2y = 3x + 2, y(0) = -4. Multiplying …"}
+{"answer": "(a) -1/2; (b) 13/4; (c) -13/4; (d) 2.310", "id": "ucv1-first-order-linear-integrating-factor/exam/1/26d8c2b5cd1f", "text": "Consider the initial value problem dy/dx + 2y = -x + 6, y(0) = 0. Multiplying b…"}
+{"answer": "(a) -5/2; (b) 1/4; (c) 11/4; (d) -3.363", "id": "ucv1-first-order-linear-integrating-factor/exam/2/50ddcc183b6b", "text": "Consider the initial value problem dy/dx + 2y = -5x - 2, y(0) = 3. Multiplying …"}
+{"answer": "(6x - 4) e^(-3x)", "id": "ucv1-first-order-linear-integrating-factor/hard/0/efe70ceb2f99", "text": "Solve the initial value problem dy/dx + 3y = 6e^(-3x), y(0) = -4. Give y as a f…"}
+{"answer": "(2x + 3) e^(-3x)", "id": "ucv1-first-order-linear-integrating-factor/hard/1/9bba6098fe62", "text": "Solve the initial value problem dy/dx + 3y = 2e^(-3x), y(0) = 3. Give y as a fu…"}
+{"answer": "(3x + 6) e^(-x)", "id": "ucv1-first-order-linear-integrating-factor/hard/2/e7fe9a952523", "text": "Solve the initial value problem dy/dx + y = 3e^(-x), y(0) = 6. Give y as a func…"}
+{"answer": "2 + 4e^(-2x)", "id": "ucv1-first-order-linear-integrating-factor/medium/0/002135fa105e", "text": "Solve the initial value problem dy/dx + 2y = 4, y(0) = 6. Give y as a function …"}
+{"answer": "-3 + 7e^(-5x)", "id": "ucv1-first-order-linear-integrating-factor/medium/1/b7cb1d305e58", "text": "Solve the initial value problem dy/dx + 5y = -15, y(0) = 4. Give y as a functio…"}
+{"answer": "-2e^x - 2e^(-3x)", "id": "ucv1-first-order-linear-integrating-factor/medium/2/770f41e089f4", "text": "Solve the initial value problem dy/dx + 3y = -8e^x, y(0) = -4. Give y as a func…"}
 {"answer": "43", "id": "ucv1-floating-point-error-budget/easy/0/e392c7289e7a", "text": "In a floating-point model, every operation returns the exact result of its two …"}
 {"answer": "360", "id": "ucv1-floating-point-error-budget/easy/1/8119b57413b0", "text": "In a floating-point model, every operation returns the exact result of its two …"}
 {"answer": "1296", "id": "ucv1-floating-point-error-budget/easy/2/386b70f2f4f1", "text": "In a floating-point model, every operation returns the exact result of its two …"}
@@ -8161,6 +8209,18 @@
 {"answer": "multiplication by 1", "id": "ucv1-fundamental-group-map/medium/0/e392574cf2dc", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
 {"answer": "multiplication by 5", "id": "ucv1-fundamental-group-map/medium/1/6b584d460df9", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
 {"answer": "multiplication by 5", "id": "ucv1-fundamental-group-map/medium/2/06d9e8869974", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
+{"answer": "(-1, 1, -1)", "id": "ucv1-general-solution-parametric/easy/0/9449088d7826", "text": "Solve x - y = -2; y + 3z = -2, given that z = -1. Give the solution as a column…"}
+{"answer": "(-2, -7, 2)", "id": "ucv1-general-solution-parametric/easy/1/480d3cb3c401", "text": "The system x - y - 3z = -1; 2x - y - 4z = -5 has infinitely many solutions. Fin…"}
+{"answer": "(-16, 11, 3)", "id": "ucv1-general-solution-parametric/easy/2/54fc3102cbef", "text": "Solve y - 3z = 2; x + y + z = -2, given that z = 3. Give the solution as a colu…"}
+{"answer": "(a) 2; (b) 2; (c) (0, 4, 0, 0); (d) 3s + 4t", "id": "ucv1-general-solution-parametric/exam/0/ded5a7ddd2d8", "text": "The system x2 - 2x3 + x4 = 4; x1 - 3x3 - 4x4 = 0; -2x1 + x2 + 4x3 + 9x4 = 4 is …"}
+{"answer": "(a) 2; (b) 2; (c) (-1, 0, -3, 0); (d) -1 - 3s + t", "id": "ucv1-general-solution-parametric/exam/1/bc1d849e5ccd", "text": "The system x1 + 3x2 - x4 = -1; -2x1 - 6x2 + x3 + 4x4 = -1; -2x1 - 6x2 + 2x3 + 6…"}
+{"answer": "(a) 2; (b) 2; (c) (4, 1, 0, 0); (d) 4 - s - 4t", "id": "ucv1-general-solution-parametric/exam/2/f6b6d6403a70", "text": "The system x1 + x3 + 4x4 = 4; x1 + x2 - 3x3 + x4 = 5; -2x2 + 8x3 + 6x4 = -2 is …"}
+{"answer": "(3, 4, 2, 1)", "id": "ucv1-general-solution-parametric/hard/0/6bf8d9244afe", "text": "Solve x2 - x3 + 2x4 = 4; x1 + x2 - 4x3 + 4x4 = 3; x1 - 3x3 + 2x4 = -1, given th…"}
+{"answer": "(4, -2, 3, 2)", "id": "ucv1-general-solution-parametric/hard/1/e7eb335de28b", "text": "The system -2x1 - x2 + x4 = -4; x1 + x2 + 2x3 - 2x4 = 4; x1 + 2x2 + 6x3 - 5x4 =…"}
+{"answer": "(-2, 8, -2, -2)", "id": "ucv1-general-solution-parametric/hard/2/8b9b8305a741", "text": "Solve x1 - x2 - 3x3 - 6x4 = 8; -x1 - x2 - 5x3 + 2x4 = 0; x2 + 4x3 + 2x4 = -4, g…"}
+{"answer": "(-1, -2, 1)", "id": "ucv1-general-solution-parametric/medium/0/ed66fe6e0a4d", "text": "The solutions of the system y + 2z = 2; x - 2y - 3z = -5; -x - z = 1 lie on a l…"}
+{"answer": "(-3, -3, 1)", "id": "ucv1-general-solution-parametric/medium/1/cee327340bba", "text": "The solutions of the system y + 3z = -4; x + 2y + 9z = -8; -2x + y - 3z = -4 li…"}
+{"answer": "(-2, -1, 1)", "id": "ucv1-general-solution-parametric/medium/2/9b0a66cab35a", "text": "All the solutions of the system x + 2z = 1; -y - z = -2; -2x + y - 3z = 0 lie o…"}
 {"answer": "28/53, 45/53, -45/53, 28/53", "id": "ucv1-gram-schmidt-2d/easy/0/2aae61934341", "text": "Given u = (28, 45) and v = (-34, 146), find the orthonormal pair produced by on…"}
 {"answer": "5/13, 12/13, -12/13, 5/13", "id": "ucv1-gram-schmidt-2d/easy/1/156d28a361d3", "text": "For u = (5, 12) and v = (-26, 39), apply one Gram-Schmidt step: orthonormalise …"}
 {"answer": "36/85, 77/85, -77/85, 36/85", "id": "ucv1-gram-schmidt-2d/easy/2/a1fd7de11f28", "text": "For u = (36, 77) and v = (-195, 185), apply one Gram-Schmidt step: orthonormali…"}
@@ -8329,6 +8389,18 @@
 {"answer": "448/15", "id": "ucv1-line-integral/medium/0/ec843eddbb28", "text": "Evaluate ∫C F · dr, where F(x, y) = (-2xy + 2) i + (2xy + 2) j and C is the cur…"}
 {"answer": "2", "id": "ucv1-line-integral/medium/1/aca888777400", "text": "A particle moves along C: r(t) = t i + t² j, -1 ≤ t ≤ 1, under the force F(x, y…"}
 {"answer": "1/5", "id": "ucv1-line-integral/medium/2/d7ad77ea1cec", "text": "A particle moves along C: r(t) = t i + t² j, 0 ≤ t ≤ 1, under the force F(x, y)…"}
+{"answer": "1", "id": "ucv1-linear-independence-r3/easy/0/b03cfa9be1d5", "text": "The vectors u = (-1, -3, 3), v = (-1, k, -3) and w = (0, 8, -12) in ℝ³ depend o…"}
+{"answer": "1", "id": "ucv1-linear-independence-r3/easy/1/a591eaa0452e", "text": "Find the value of k for which the vectors u = (0, -1, k), v = (-3, 0, 2) and w …"}
+{"answer": "-2", "id": "ucv1-linear-independence-r3/easy/2/f6dd7f98db3d", "text": "Find the value of k for which the vectors u = (-3, k, 3), v = (-1, 3, -3) and w…"}
+{"answer": "(a) 33k + 66; (b) -2; (c) 3; (d) -1", "id": "ucv1-linear-independence-r3/exam/0/485ed3f7472b", "text": "Let u = (k, -3, 2), v = (-2, -1, -3) and w = (4, 8, -9) in ℝ³, where k is a con…"}
+{"answer": "(a) -4k - 4; (b) -1; (c) -2; (d) -1", "id": "ucv1-linear-independence-r3/exam/1/bec8dd1b4b04", "text": "Let u = (-2, 1, 2), v = (3, 1, -2) and w = (k, 3, 2) in ℝ³, where k is a consta…"}
+{"answer": "(a) 10k - 30; (b) 3; (c) 3; (d) -2", "id": "ucv1-linear-independence-r3/exam/2/60f037a52fa7", "text": "Let u = (-1, 3, 1), v = (0, 2, 4) and w = (k, -5, 5) in ℝ³, where k is a consta…"}
+{"answer": "1", "id": "ucv1-linear-independence-r3/hard/0/ea125ff6537d", "text": "Given that k > 0, find the value of k for which the vectors u = (-1, -3, -3), v…"}
+{"answer": "2", "id": "ucv1-linear-independence-r3/hard/1/13c335a2f219", "text": "The vectors u = (-3, 3, -3), v = (3, k, 3) and w = (k, 3, 2) depend on a positi…"}
+{"answer": "3", "id": "ucv1-linear-independence-r3/hard/2/ad741855ee6e", "text": "Given that k > 0, find the value of k for which the vectors u = (2, -2, 1), v =…"}
+{"answer": "-3", "id": "ucv1-linear-independence-r3/medium/0/e276d995d799", "text": "The vectors u = (-1, -3, 3), v = (1, -1, 0) and w = (-2, -10, 9) are linearly d…"}
+{"answer": "-2", "id": "ucv1-linear-independence-r3/medium/1/f8f985a18e8d", "text": "Given the vectors u = (3, 4, -3), v = (-2, 1, -1) and w = (8, 7, -5), the equat…"}
+{"answer": "2", "id": "ucv1-linear-independence-r3/medium/2/ff7a307400f8", "text": "The vectors u = (2, -2, -1), v = (-2, -3, 3) and w = (-10, -5, 11) are linearly…"}
 {"answer": "overdamped", "id": "ucv1-linear-oscillator-classification/easy/0/f95edcae2e0f", "text": "An oscillator obeys x'' + 6x' + 6x = 0. Classify its damping regime."}
 {"answer": "critically damped", "id": "ucv1-linear-oscillator-classification/easy/1/bdc829d377be", "text": "An oscillator obeys x'' + 4x' + 4x = 0. Classify its damping regime."}
 {"answer": "overdamped", "id": "ucv1-linear-oscillator-classification/easy/2/ec15931d032d", "text": "An oscillator obeys x'' + 5x' + 4x = 0. Classify its damping regime."}
@@ -8437,6 +8509,18 @@
 {"answer": "absolute_bound = 9, relative_bound = 9/10", "id": "ucv1-numerical-error-bound/medium/0/9a73cab86508", "text": "It is known that ahat = 10 lies strictly inside the certified interval [5, 19],…"}
 {"answer": "absolute_bound = 16, relative_bound = 16/11", "id": "ucv1-numerical-error-bound/medium/1/91bedb5c28da", "text": "An approximation ahat = 11 is known to lie strictly inside the certified interv…"}
 {"answer": "absolute_bound = 9, relative_bound = 9/5", "id": "ucv1-numerical-error-bound/medium/2/24da032ef230", "text": "It is known that ahat = 5 lies strictly inside the certified interval [1, 14], …"}
+{"answer": "3x^5", "id": "ucv1-ode-separable-product/easy/0/0c2e9264a749", "text": "Solve the initial value problem x dy/dx = 5y, y(1) = 3, x > 0, where y > 0. Giv…"}
+{"answer": "4e^(2x³)", "id": "ucv1-ode-separable-product/easy/1/e0d3b6732903", "text": "Solve the initial value problem dy/dx = 6x²y, y(0) = 4, where y > 0. Give y as …"}
+{"answer": "3e^(x²)", "id": "ucv1-ode-separable-product/easy/2/1ff0053d2a39", "text": "Solve the initial value problem dy/dx = 2xy, y(0) = 3, where y > 0. Give y as a…"}
+{"answer": "(a) 81/2; (b) 3; (c) 6.364; (d) 4.000", "id": "ucv1-ode-separable-product/exam/0/3015b89d4249", "text": "Consider the initial value problem dy/dx = -(2x)/y, y(0) = 9, where y > 0. Sepa…"}
+{"answer": "(a) -3; (b) 2/3; (c) 1.414; (d) 1.155", "id": "ucv1-ode-separable-product/exam/1/9cf29f3ea1a3", "text": "Consider the initial value problem dy/dx = 3xy², y(0) = 1/3. Separating variabl…"}
+{"answer": "(a) -3; (b) 4/11; (c) 1.732; (d) 1.225", "id": "ucv1-ode-separable-product/exam/2/dd4d35656416", "text": "Consider the initial value problem dy/dx = 2xy², y(0) = 1/3. Separating variabl…"}
+{"answer": "tan(2x²)", "id": "ucv1-ode-separable-product/hard/0/c5ef9dd0630f", "text": "Solve the initial value problem dy/dx = 4x(1 + y²), y(0) = 0. Give y as a funct…"}
+{"answer": "5/(1 + 4e^(-15x))", "id": "ucv1-ode-separable-product/hard/1/ffa48730baec", "text": "Solve the initial value problem dy/dx = 3y(5 - y), y(0) = 1, where 0 < y < 5. G…"}
+{"answer": "tan(x²)", "id": "ucv1-ode-separable-product/hard/2/3cdca08a56e7", "text": "Solve the initial value problem dy/dx = 2x(1 + y²), y(0) = 0. Give y as a funct…"}
+{"answer": "ln(2x² + 1)", "id": "ucv1-ode-separable-product/medium/0/cb1382801022", "text": "Solve the initial value problem dy/dx = 4x e^(-y), y(0) = 0. Give y as a functi…"}
+{"answer": "ln(x² + 1)", "id": "ucv1-ode-separable-product/medium/1/95a0dec91305", "text": "Solve the initial value problem dy/dx = 2x e^(-y), y(0) = 0. Give y as a functi…"}
+{"answer": "1/(1 - x²)", "id": "ucv1-ode-separable-product/medium/2/50e26f692bfa", "text": "Solve the initial value problem dy/dx = 2xy², y(0) = 1. Give y as a function of…"}
 {"answer": "0.151", "id": "ucv1-one-sample-t-test/easy/0/6fa31accbd7a", "text": "A swimming coach believes her squad's mean time for 50 m freestyle is 36 second…"}
 {"answer": "1.380", "id": "ucv1-one-sample-t-test/easy/1/135d3e34b46e", "text": "A Melbourne bakery says its sourdough loaves have a mean mass of 700 g. A rando…"}
 {"answer": "1.929", "id": "ucv1-one-sample-t-test/easy/2/e172d797d927", "text": "The timetable for a Brisbane bus route says the journey from Chermside to the c…"}
@@ -8605,6 +8689,18 @@
 {"answer": "15/16", "id": "ucv1-ridge-coefficient/medium/0/51fe63cc8418", "text": "A ridge regression on centred one-feature data (no intercept term) has Sxx = su…"}
 {"answer": "-1/7", "id": "ucv1-ridge-coefficient/medium/1/4fff49a31835", "text": "For a centred one-feature dataset (mean-zero x, mean-zero y; fit no intercept) …"}
 {"answer": "1/8", "id": "ucv1-ridge-coefficient/medium/2/ff9ffc466adc", "text": "Given Sxx = sum(x_i^2) = 14 and Sxy = sum(x_i*y_i) = 2 for a centred one-featur…"}
+{"answer": "[[1, 0, 0, 4], [0, 1, 0, -1], [0, 0, 1, 2]]", "id": "ucv1-row-reduction-rref/easy/0/d292b8a0d526", "text": "Use row operations to bring the augmented matrix [[0, 1, -2, -5], [0, 0, 1, 2],…"}
+{"answer": "[[1, 0, 0, 3], [0, 1, 0, 4], [0, 0, 1, -2]]", "id": "ucv1-row-reduction-rref/easy/1/b7572a180267", "text": "Reduce the augmented matrix [[1, -1, 0, -1], [-1, 2, -1, 7], [0, 0, 1, -2]] of …"}
+{"answer": "[[1, 0, 0, -2], [0, 1, 0, 3], [0, 0, 1, 1]]", "id": "ucv1-row-reduction-rref/easy/2/4052dcb6f984", "text": "The augmented matrix of a system of three equations in x, y and z is [[1, -2, -…"}
+{"answer": "(a) 2; (b) [[1, 0, 3, 2], [0, 1, 4, -4], [0, 0, 0, 0]]; (c)…", "id": "ucv1-row-reduction-rref/exam/0/8223e10f5ada", "text": "A homogeneous system Ax = 0 in the unknowns x1, x2, x3 and x4 has coefficient m…"}
+{"answer": "(a) 2; (b) [[1, 0, 2, 3], [0, 1, -1, 4], [0, 0, 0, 0]]; (c)…", "id": "ucv1-row-reduction-rref/exam/1/e72cf7d6746f", "text": "The coefficient matrix of a homogeneous system Ax = 0 in x1, x2, x3 and x4 is A…"}
+{"answer": "(a) 2; (b) [[1, 0, -4, -4], [0, 1, 3, -1], [0, 0, 0, 0]]; (…", "id": "ucv1-row-reduction-rref/exam/2/fc1b2a1c4849", "text": "The coefficient matrix of a homogeneous system Ax = 0 in x1, x2, x3 and x4 is A…"}
+{"answer": "[[1, -1, 2, 0], [0, 0, 0, 1], [0, 0, 0, 0]]", "id": "ucv1-row-reduction-rref/hard/0/1396e4bfb1ad", "text": "Find the reduced row echelon form of M = [[2, -2, 4, -1], [0, 0, 0, 1], [1, -1,…"}
+{"answer": "[[1, -4, 0, 0], [0, 0, 1, -4], [0, 0, 0, 0]]", "id": "ucv1-row-reduction-rref/hard/1/e4d8ea142714", "text": "Find the reduced row echelon form of M = [[1, -4, 1, -4], [2, -8, 0, 0], [-1, 4…"}
+{"answer": "[[1, 2, 2, 0], [0, 0, 0, 1], [0, 0, 0, 0]]", "id": "ucv1-row-reduction-rref/hard/2/b323911bf925", "text": "Row-reduce M = [[-1, -2, -2, 0], [1, 2, 2, 2], [-1, -2, -2, 1]] to reduced row …"}
+{"answer": "[[1, 0, 2, 2], [0, 1, -3, -3], [0, 0, 0, 0]]", "id": "ucv1-row-reduction-rref/medium/0/999bebf858b0", "text": "Row-reduce the matrix M = [[0, 1, -3, -3], [-2, 0, -4, -4], [1, 1, -1, -1]] com…"}
+{"answer": "[[1, 0, 4, 4], [0, 1, 2, 4], [0, 0, 0, 0]]", "id": "ucv1-row-reduction-rref/medium/1/b8500089dd74", "text": "Row-reduce the matrix M = [[-2, 1, -6, -4], [1, 0, 4, 4], [-1, 1, -2, 0]] compl…"}
+{"answer": "[[1, 0, 1, -3], [0, 1, 0, 3], [0, 0, 0, 0]]", "id": "ucv1-row-reduction-rref/medium/2/5cbbe3694f30", "text": "Find the reduced row echelon form of M = [[-2, 1, -2, 9], [0, -1, 0, -3], [1, 0…"}
 {"answer": "26", "id": "ucv1-rsa-modular-step/easy/0/8de74ec642b9", "text": "RSA parameters: p = 3, q = 11, n = 33, e = 3. What is c = m^e mod n when the pl…"}
 {"answer": "13", "id": "ucv1-rsa-modular-step/easy/1/2c1da02e6303", "text": "RSA parameters: p = 5, q = 3, n = 15, e = 3. What is c = m^e mod n when the pla…"}
 {"answer": "27", "id": "ucv1-rsa-modular-step/easy/2/cb585b9b8302", "text": "RSA parameters: p = 3, q = 11, n = 33, e = 3. What is c = m^e mod n when the pl…"}
@@ -8629,6 +8725,18 @@
 {"answer": "r1 = 9, r2 = 9", "id": "ucv1-second-order-characteristic-roots/medium/0/ad1c8bc54337", "text": "y'' - 18y' + 81y = 0. The characteristic equation r^2 - 18r + 81 = 0 has a repe…"}
 {"answer": "r1 = -9, r2 = -9", "id": "ucv1-second-order-characteristic-roots/medium/1/2d15a9fef7ba", "text": "Solve r^2 + 18r + 81 = 0, the characteristic equation of y'' + 18y' + 81y = 0, …"}
 {"answer": "r1 = 15, r2 = 15", "id": "ucv1-second-order-characteristic-roots/medium/2/9465d187823f", "text": "Solve r^2 - 30r + 225 = 0, the characteristic equation of y'' - 30y' + 225y = 0…"}
+{"answer": "4", "id": "ucv1-series-comparison-tests/easy/0/10e019becca7", "text": "Find the smallest positive integer k for which the series Σ_(n=1)^∞ 1/(∛(n^k)) …"}
+{"answer": "13", "id": "ucv1-series-comparison-tests/easy/1/1ee0c97861d3", "text": "Find the smallest positive integer k for which the series Σ_(n=1)^∞ (2n²)/(∜(n^…"}
+{"answer": "7", "id": "ucv1-series-comparison-tests/easy/2/7c6d6c43aa17", "text": "Find the smallest positive integer k for which the series Σ_(n=1)^∞ (2n)/n^(k/3…"}
+{"answer": "(a) 3; (b) 6; (c) 49/12; (d) 61/12", "id": "ucv1-series-comparison-tests/exam/0/3f47317964dc", "text": "Let a_n = 3/n² for n ≥ 1, and let S = Σ_(n=1)^∞ a_n. The function f(x) = 3/x² i…"}
+{"answer": "(a) 1/6; (b) 5/18; (c) 13103/72000; (d) 17423/72000", "id": "ucv1-series-comparison-tests/exam/1/6b559bf2dead", "text": "Let a_n = 3/(n + 2)³ for n ≥ 1, and let S = Σ_(n=1)^∞ a_n. The function f(x) = …"}
+{"answer": "(a) 1/16; (b) 3/32; (c) 6103/108000; (d) 9103/108000", "id": "ucv1-series-comparison-tests/exam/2/89d0eff4538e", "text": "Let a_n = 2/(n + 3)³ for n ≥ 1, and let S = Σ_(n=1)^∞ a_n. The function f(x) = …"}
+{"answer": "3", "id": "ucv1-series-comparison-tests/hard/0/c0afe7494768", "text": "For each integer k from 1 to 11, consider the series Σ_(n=1)^∞ (-1)^n (3n)/(∜(n…"}
+{"answer": "8", "id": "ucv1-series-comparison-tests/hard/1/d1fdfdf2a89d", "text": "For each integer k from 1 to 13, consider the series Σ_(n=1)^∞ (-1)^n n²/n^(k/4…"}
+{"answer": "2", "id": "ucv1-series-comparison-tests/hard/2/e5fde045df44", "text": "For each integer k from 1 to 10, consider the series Σ_(n=1)^∞ (-1)^n (3n)/n^(k…"}
+{"answer": "1", "id": "ucv1-series-comparison-tests/medium/0/6bdb68e364a4", "text": "Let a_n = (7n + 2)/(7n³ + 5) and b_n = 1/n². Find L = lim(n →∞) a_n/b_n."}
+{"answer": "1/2", "id": "ucv1-series-comparison-tests/medium/1/26dc8f04eddb", "text": "Let a_n = (2n³ + 4n²)/(4n⁵ + 4) and b_n = 1/n². Find L = lim(n →∞) a_n/b_n."}
+{"answer": "9/4", "id": "ucv1-series-comparison-tests/medium/2/d876cb70fea8", "text": "Let a_n = (9n + 8)/(4n√n + 6) and b_n = 1/√n. Find L = lim(n →∞) a_n/b_n."}
 {"answer": "-9/8", "id": "ucv1-series-convergence/easy/0/719ade3699dd", "text": "Find the value of Σ_(n=1)^∞ 3(-3/5)^n."}
 {"answer": "-9/4", "id": "ucv1-series-convergence/easy/1/30616d22da98", "text": "Find the exact sum of Σ_(n=1)^∞ 6(-3/5)^n."}
 {"answer": "-12/5", "id": "ucv1-series-convergence/easy/2/f26e5e753876", "text": "Evaluate Σ_(n=1)^∞ 6(-2/3)^n."}
@@ -8665,6 +8773,18 @@
 {"answer": "1, 1", "id": "ucv1-simplex-homology/medium/0/f93f642fa3f9", "text": "X has vertices (E, G, C), edges [(E, G); (G, C); (E, C)], no 2-dimensional face…"}
 {"answer": "1, 1", "id": "ucv1-simplex-homology/medium/1/81743a6088c9", "text": "X has vertices (C, F, B), edges [(C, F); (F, B); (C, B)], no 2-dimensional face…"}
 {"answer": "1, 0", "id": "ucv1-simplex-homology/medium/2/8e9d48f9246c", "text": "X has vertices (B, E), edges [(B, E)], no 2-dimensional face. Give your answer …"}
+{"answer": "(1, 3)", "id": "ucv1-span-membership/easy/0/a0b473dc022d", "text": "Write v = (1, -6, 3) as a linear combination a·u + b·w of u = (1, -3, 0) and w …"}
+{"answer": "(1, 2)", "id": "ucv1-span-membership/easy/1/87f33c2248f6", "text": "Let u = (1, 0, -3), w = (0, 1, -3) and v = (1, 2, -9) in ℝ³. The vector v is a …"}
+{"answer": "(-3, 1)", "id": "ucv1-span-membership/easy/2/6d2fbd2277e8", "text": "Write v = (-3, -3, 1) as a linear combination a·u + b·w of u = (1, 2, 0) and w …"}
+{"answer": "(a) 2k + 2; (b) -1; (c) (-3, -2); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/0/144c4e9ee991", "text": "Let u = (-1, -1, -1), w = (2, 0, 2) and v = (-1, 3, k) in ℝ³, where k is a cons…"}
+{"answer": "(a) 2k - 4; (b) 2; (c) (1, 1); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/1/8ee3243f36dd", "text": "Let u = (2, -1, -1), w = (0, 3, 1) and v = (k, 2, 0) in ℝ³, where k is a consta…"}
+{"answer": "(a) 4k + 8; (b) -2; (c) (2, 1); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/2/0f88f145ddd4", "text": "Let u = (-2, 0, 1), w = (2, -2, 1) and v = (-2, k, 3) in ℝ³, where k is a const…"}
+{"answer": "(1, 2)", "id": "ucv1-span-membership/hard/0/bf81591f5128", "text": "Let u = (-1, -3, -3, -1), w = (2, 1, 0, -2) and v = (3, -1, -3, -5) in ℝ⁴. The …"}
+{"answer": "(-1, -3)", "id": "ucv1-span-membership/hard/1/9db5a30bea97", "text": "Let u = (0, -2, 1, 3), w = (3, 3, 0, 1) and v = (-9, -7, -1, -6) in ℝ⁴. The vec…"}
+{"answer": "(3, 2)", "id": "ucv1-span-membership/hard/2/0691afe410a1", "text": "Let u = (1, 3, -2, 0), w = (1, -3, -1, 2) and v = (5, 3, -8, 4) in ℝ⁴. The vect…"}
+{"answer": "(-1, -3)", "id": "ucv1-span-membership/medium/0/0bc245045eab", "text": "Given u = (1, 1, 1) and w = (1, 1, 4) in ℝ³, express v = (-4, -4, -13) in the f…"}
+{"answer": "(2, -1)", "id": "ucv1-span-membership/medium/1/a5d7110827ba", "text": "Write v = (11, 3, -1) as a linear combination a·u + b·w of u = (4, 3, -2) and w…"}
+{"answer": "(-2, -4)", "id": "ucv1-span-membership/medium/2/348dd3ce65f5", "text": "Let u = (2, -2, -3), w = (2, 2, -2) and v = (-12, -4, 14) in ℝ³. The vector v i…"}
 {"answer": "-3/2", "id": "ucv1-stochastic-euler-step/easy/0/6735c0be6234", "text": "A stochastic process satisfies dY = (3)Y dt + (1) dt + σ dW with constant σ = -…"}
 {"answer": "19/4", "id": "ucv1-stochastic-euler-step/easy/1/720224ccd8b0", "text": "A stochastic process satisfies dY = (-1)Y dt + (2) dt + σ dW with constant σ = …"}
 {"answer": "-17/2", "id": "ucv1-stochastic-euler-step/easy/2/021ce0a82a07", "text": "Use one Euler-Maruyama step of size h = 1/2 for dY = (3)Y dt + (-3) dt + σ dW, …"}
@@ -8713,6 +8833,18 @@
 {"answer": "Ill-formed (not a valid formula).", "id": "ucv1-syntactic-semantic-separation/medium/0/cb263c57eb41", "text": "Expression: ((p ∨ ∨ q) → r). Interpretation: p = True, q = False, r = True. Cla…"}
 {"answer": "Well-formed and true under the interpretation.", "id": "ucv1-syntactic-semantic-separation/medium/1/dcb5ae97e494", "text": "Expression: (¬p ∧ (q ∨ r)). Interpretation: p = False, q = False, r = True. Cla…"}
 {"answer": "Ill-formed (not a valid formula).", "id": "ucv1-syntactic-semantic-separation/medium/2/350118a8ac44", "text": "Expression: ((p → → q) ∧ ¬r). Interpretation: p = True, q = False, r = False. C…"}
+{"answer": "4", "id": "ucv1-system-consistency-parameter/easy/0/a9c8ef22d94a", "text": "Consider the system kx + 4y = -7; -3x - 3y = 2, where k is a constant. Find the…"}
+{"answer": "-1", "id": "ucv1-system-consistency-parameter/easy/1/c580c6992a53", "text": "Consider the system -2x + 2y = -5; x + ky = 0, where k is a constant. Find the …"}
+{"answer": "2", "id": "ucv1-system-consistency-parameter/easy/2/c170d47ab66b", "text": "Consider the system -2x + 2y = -1; kx - 2y = -6, where k is a constant. Find th…"}
+{"answer": "(a) 12k + 48; (b) -4; (c) No solution; (d) 1", "id": "ucv1-system-consistency-parameter/exam/0/9e99a47fea59", "text": "Consider the system Ax = b given by x + ky + 4z = 5; -2x - 2y + 4z = -7; 2x - 3…"}
+{"answer": "(a) -3k - 3; (b) -1; (c) No solution; (d) -12", "id": "ucv1-system-consistency-parameter/exam/1/b84c281e1c43", "text": "Consider the system Ax = b given by 3x + y + 4z = 7; -x + ky - z = 6; 3x + 3y +…"}
+{"answer": "(a) -11k - 22; (b) -2; (c) No solution; (d) -2", "id": "ucv1-system-consistency-parameter/exam/2/c054219fce53", "text": "Consider the system Ax = b given by kx - y + 3z = 5; 4x + 3y + 2z = 9; 2x + y -…"}
+{"answer": "2", "id": "ucv1-system-consistency-parameter/hard/0/8cf01c983126", "text": "The system -2x - y + z = -3; kx - 3y + 3z = 15; 3x - 2y + kz = 15 contains a co…"}
+{"answer": "-2", "id": "ucv1-system-consistency-parameter/hard/1/9172f1499bb2", "text": "The system 2x + ky + 3z = 9; -3x + y - 2z = -11; kx + 2y - 3z = -9 contains a c…"}
+{"answer": "1", "id": "ucv1-system-consistency-parameter/hard/2/b16d70b5a7b9", "text": "Consider the system x - y + 2z = 2; -x + ky + 2z = 2; -2x + 2y + kz = 1, where …"}
+{"answer": "-4", "id": "ucv1-system-consistency-parameter/medium/0/45544eaf47ee", "text": "The system -3x + 2y - 3z = 1; x + ky - z = -5; -x - y - 2z = -2 contains a cons…"}
+{"answer": "3", "id": "ucv1-system-consistency-parameter/medium/1/7928f7f480a6", "text": "The system kx - 3y + 3z = 0; -x - 3y + z = -5; 3x - 3y + 3z = 0 contains a cons…"}
+{"answer": "9", "id": "ucv1-system-consistency-parameter/medium/2/4c95e4b69f28", "text": "Consider the system 2x - 2y - 2z = -2; 3x + 3y + 2z = 4; kx + 3y + z = 5, where…"}
 {"answer": "0", "id": "ucv1-taylor-linear-approximation/easy/0/581d611ef623", "text": "f(x) = 3x^2 + 5x - 5. Use the first-order local approximation L(x) = f(a) + f'(…"}
 {"answer": "15", "id": "ucv1-taylor-linear-approximation/easy/1/3e06fc34e80e", "text": "f(x) = 3x^2 - 5x + 6. Near a = 4, use L(x) = f(a) + f'(a)(x - a) to estimate th…"}
 {"answer": "-21", "id": "ucv1-taylor-linear-approximation/easy/2/1879153aa2ff", "text": "f(x) = -3x^2 - 5x - 2. Using the linear approximation L(x) = f(a) + f'(a)(x - a…"}
@@ -8725,6 +8857,30 @@
 {"answer": "-18.00", "id": "ucv1-taylor-linear-approximation/medium/0/e9d1742deff3", "text": "f(x) = 2 - x^2. Near a = 4, use L(x) = f(a) + f'(a)(x - a) to estimate f(4.5) t…"}
 {"answer": "7.00", "id": "ucv1-taylor-linear-approximation/medium/1/9f717d987890", "text": "f(x) = x^2 - 5. Near a = -4, use L(x) = f(a) + f'(a)(x - a) to estimate f(-3.5)…"}
 {"answer": "-14.50", "id": "ucv1-taylor-linear-approximation/medium/2/169f71101e98", "text": "f(x) = -2x^2 - 3x + 5. Using the linear approximation L(x) = f(a) + f'(a)(x - a…"}
+{"answer": "9/2", "id": "ucv1-taylor-polynomial/easy/0/bb74915f96e1", "text": "Find the coefficient of x² in the Maclaurin series of f(x) = e^(3x)."}
+{"answer": "-1/4", "id": "ucv1-taylor-polynomial/easy/1/69e52dab5739", "text": "Write down the coefficient of x⁴ in the Maclaurin series of f(x) = ln(1 - x)."}
+{"answer": "-1/24", "id": "ucv1-taylor-polynomial/easy/2/de8ac6b7fa7f", "text": "Find the coefficient of x³ in the Maclaurin series of f(x) = ln(1 - x/2)."}
+{"answer": "(a) -9/2; (b) 9; (c) 123/250; (d) 0.0220", "id": "ucv1-taylor-polynomial/exam/0/6db8ebc4414e", "text": "Let f(x) = ln(1 + 3x), and let P(x) be the Maclaurin polynomial of degree 3 for…"}
+{"answer": "(a) -1/2; (b) 1/2; (c) 2191/2000; (d) 0.000055", "id": "ucv1-taylor-polynomial/exam/1/edd52f470f84", "text": "Let f(x) = √(1 + 2x), and let P(x) be the Maclaurin polynomial of degree 3 for …"}
+{"answer": "(a) 4; (b) -8; (c) 87/125; (d) 0.0183", "id": "ucv1-taylor-polynomial/exam/2/3003b5d67c77", "text": "Let f(x) = 1/(1 + 2x), and let P(x) be the Maclaurin polynomial of degree 3 for…"}
+{"answer": "4", "id": "ucv1-taylor-polynomial/hard/0/91c5e5a9c530", "text": "Find the coefficient of x⁴ in the Maclaurin series of f(x) = 1/(1 + 2x²)."}
+{"answer": "-100/3", "id": "ucv1-taylor-polynomial/hard/1/a407390c9987", "text": "Find the coefficient of x⁴ in the Maclaurin series of f(x) = ln(1 + 2x)/(1 + 2x…"}
+{"answer": "-1", "id": "ucv1-taylor-polynomial/hard/2/74fd2bd8aa41", "text": "Find the coefficient of x⁴ in the Maclaurin series of f(x) = e^(-x) sin(-2x)."}
+{"answer": "-1/2", "id": "ucv1-taylor-polynomial/medium/0/db927a3fb466", "text": "What is the coefficient of (x - 1)² in the Taylor expansion of f(x) = ln x abou…"}
+{"answer": "1/192", "id": "ucv1-taylor-polynomial/medium/1/3797a73ed4c7", "text": "What is the coefficient of (x - 4)³ in the Taylor expansion of f(x) = ln x abou…"}
+{"answer": "5/20736", "id": "ucv1-taylor-polynomial/medium/2/6507d51f7a08", "text": "What is the coefficient of (x - 8)³ in the Taylor expansion of f(x) = x^(1/3) a…"}
+{"answer": "27/2048", "id": "ucv1-taylor-remainder-bound/easy/0/07200621c611", "text": "The Taylor polynomial of degree 3 for f(x) = sin x about x = 0 is used to appro…"}
+{"answer": "81/125000", "id": "ucv1-taylor-remainder-bound/easy/1/0e801a948635", "text": "The Taylor polynomial of degree 4 for f(x) = cos x about x = 0 is used to appro…"}
+{"answer": "1/12000000", "id": "ucv1-taylor-remainder-bound/easy/2/8c911dfce04a", "text": "The Taylor polynomial of degree 4 for f(x) = sin x about x = 0 is used to appro…"}
+{"answer": "(a) 120; (b) 1/3125; (c) 521/625; (d) 2604/3125", "id": "ucv1-taylor-remainder-bound/exam/0/94c4a4bad1a8", "text": "Let f(x) = 1/(1 + x), and let P_4(x) be the Taylor polynomial of degree 4 for f…"}
+{"answer": "(a) 24; (b) 1/500000; (c) 11437/120000; (d) 285919/3000000", "id": "ucv1-taylor-remainder-bound/exam/1/89479ad9834a", "text": "Let f(x) = ln(1 + x), and let P_4(x) be the Taylor polynomial of degree 4 for f…"}
+{"answer": "(a) 24; (b) 1/1215; (c) 31/108; (d) 1391/4860", "id": "ucv1-taylor-remainder-bound/exam/2/20e6e7ba2d7c", "text": "Let f(x) = ln(1 + x), and let P_4(x) be the Taylor polynomial of degree 4 for f…"}
+{"answer": "3", "id": "ucv1-taylor-remainder-bound/hard/0/3213f4e90ee9", "text": "The Taylor polynomial of degree n for f(x) = e^x about x = 0 is used to approxi…"}
+{"answer": "4", "id": "ucv1-taylor-remainder-bound/hard/1/a5b973e6bc00", "text": "The Taylor polynomial of degree n for f(x) = e^x about x = 0 is used to approxi…"}
+{"answer": "4", "id": "ucv1-taylor-remainder-bound/hard/2/5f65c8555a52", "text": "The Taylor polynomial of degree n for f(x) = e^x about x = 0 is used to approxi…"}
+{"answer": "1/31104", "id": "ucv1-taylor-remainder-bound/medium/0/1467c3027f74", "text": "The Taylor polynomial of degree 2 for f(x) = √x about x = 9 is used to approxim…"}
+{"answer": "1/3888", "id": "ucv1-taylor-remainder-bound/medium/1/3cff0a778e6a", "text": "The Taylor polynomial of degree 2 for f(x) = √x about x = 9 is used to approxim…"}
+{"answer": "1/65536", "id": "ucv1-taylor-remainder-bound/medium/2/c705d3e17e4f", "text": "The Taylor polynomial of degree 4 for f(x) = 1/x about x = 2 is used to approxi…"}
 {"answer": "a basis", "id": "ucv1-topology-basis-membership/easy/0/ab325d26bb3a", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {3}; B2…"}
 {"answer": "a basis", "id": "ucv1-topology-basis-membership/easy/1/1c47b581f139", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {2}; B2…"}
 {"answer": "fails both", "id": "ucv1-topology-basis-membership/easy/2/b418272f3465", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {2, 4};…"}
@@ -8785,6 +8941,18 @@
 {"answer": "x = 2, y = 3", "id": "ucv1-unconstrained-critical-point/medium/0/ca0063c075f6", "text": "f(x, y) = x^2 - 4xy + 8x - 3y^2 + 26y. Find the critical point (x, y) where the…"}
 {"answer": "x = 1, y = 4", "id": "ucv1-unconstrained-critical-point/medium/1/1868f18fd1d1", "text": "f(x, y) = 3x^2 + 4xy - 22x + y^2 - 12y. Find the critical point (x, y) where th…"}
 {"answer": "x = -2, y = -3", "id": "ucv1-unconstrained-critical-point/medium/2/1a2e8017e2b4", "text": "f(x, y) = x^2 - 2xy - 2x + 4y^2 + 20y. Find the critical point (x, y) where the…"}
+{"answer": "3e^(-x)", "id": "ucv1-undetermined-coefficients/easy/0/8457faf2bf5a", "text": "Find a particular solution of y'' - 5y' + 6y = 36e^(-x) of the form y_p = Ae^(-…"}
+{"answer": "3 - x", "id": "ucv1-undetermined-coefficients/easy/1/99422238c33c", "text": "Find a particular solution of y'' - y' - 2y = 2x - 5 of the form y_p = ax + b."}
+{"answer": "-3e^(-x)", "id": "ucv1-undetermined-coefficients/easy/2/d6de97976be9", "text": "Find a particular solution of y'' + 2y' - 3y = 12e^(-x) of the form y_p = Ae^(-…"}
+{"answer": "(a) -2; (b) 18/5; (c) 17/5; (d) 15.349", "id": "ucv1-undetermined-coefficients/exam/0/1b8f6d41242e", "text": "Consider the initial value problem y'' - y' - 6y = 8e^(-x), y(0) = 5, y'(0) = 5…"}
+{"answer": "(a) 3; (b) 19; (c) -25; (d) 57.819", "id": "ucv1-undetermined-coefficients/exam/1/2e9a52384f76", "text": "Consider the initial value problem y'' + 5y' + 6y = 90e^(3x), y(0) = -3, y'(0) …"}
+{"answer": "(a) -3; (b) 22/5; (c) 18/5; (d) 15.933", "id": "ucv1-undetermined-coefficients/exam/2/37eef79b52df", "text": "Consider the initial value problem y'' - y' - 6y = 12e^(-x), y(0) = 5, y'(0) = …"}
+{"answer": "x e^(2x)", "id": "ucv1-undetermined-coefficients/hard/0/b564fa37385c", "text": "The characteristic equation of y'' - 5y' + 6y = 0 has roots 2 and 3. Find a par…"}
+{"answer": "x e^(-x)", "id": "ucv1-undetermined-coefficients/hard/1/27c182e72f9d", "text": "The characteristic equation of y'' - 2y' - 3y = 0 has roots -1 and 3. Find a pa…"}
+{"answer": "3x sin(4x)", "id": "ucv1-undetermined-coefficients/hard/2/234a2a1b7d27", "text": "Find a particular solution of y'' + 16y = 24cos(4x)."}
+{"answer": "3sin(2x) + cos(2x)", "id": "ucv1-undetermined-coefficients/medium/0/d09e28d6999f", "text": "Find a particular solution of y'' + 4y' + 3y = 23cos(2x) - 11sin(2x)."}
+{"answer": "2x² + 2x + 2", "id": "ucv1-undetermined-coefficients/medium/1/cfb90729aeaf", "text": "Find a particular solution of y'' - 2y' - 3y = -6x² - 14x - 6."}
+{"answer": "-2x² - 3x + 3", "id": "ucv1-undetermined-coefficients/medium/2/1f2381cb6527", "text": "Find a particular solution of y'' + 4y' + 3y = -6x² - 25x - 7."}
 {"answer": "ECE = 0.47, under-confident", "id": "ucv1-validation-calibration-check/easy/0/6ea98ffa5824", "text": "A model reports 4 validation predictions and observed outcomes: p1=1/4, o1=0; p…"}
 {"answer": "ECE = 0.78, over-confident", "id": "ucv1-validation-calibration-check/easy/1/30c818012e26", "text": "A model reports 4 validation predictions and observed outcomes: p1=3/8, o1=1; p…"}
 {"answer": "ECE = 0.78, over-confident", "id": "ucv1-validation-calibration-check/easy/2/eb082458f926", "text": "A model reports 4 validation predictions and observed outcomes: p1=7/8, o1=0; p…"}
