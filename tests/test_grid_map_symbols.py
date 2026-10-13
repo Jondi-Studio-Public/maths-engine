@@ -127,10 +127,7 @@ def test_plan_tiers_ask_for_different_reasoning():
     easy, medium, hard = (_answers(PLAN, t) for t in TIERS)
     # easy: a symbol decides the room; no fixture labels are on the plan
     for q in easy:
-        assert q.text in (
-            "Which room on this plan has the toilets symbol?",
-            "Which room on this plan has no window symbol?",
-        )
+        assert q.text in (*gen._TOILETS_ASKS, *gen._WINDOW_ASKS)
         assert not any(lb["text"] in gen.FIXTURES for lb in q.figure["labels"])
         assert q.answer_text in {gen.room_full(lb["text"]) for lb in q.figure["labels"] if gen._is_room(lb["text"])}
     # medium: a full name is decoded to a fixture abbreviation, found on the plan, then a room abbreviation decoded
@@ -140,7 +137,7 @@ def test_plan_tiers_ask_for_different_reasoning():
     # hard: the answer is a count that combines symbols and abbreviations
     for q in hard:
         assert re.fullmatch(r"\d rooms?", q.answer_text)
-        assert q.text.startswith(("How many wet areas", "A plumber must visit"))
+        assert q.text in (*gen._WET_ASKS, *gen._PLUMBER_ASKS)
 
 
 def test_plan_rooms_are_named_by_abbreviation_and_answered_in_full():
@@ -179,7 +176,7 @@ def test_plan_hard_distractors_are_real_miscounts():
         rooms = gen._plan_rooms_of(q.figure)
         wet = [r["abbr"] for r in rooms if r["abbr"] in gen.WET]
         windowed = gen._rooms_with(q.figure, rooms, "window")
-        if q.text.startswith("How many wet areas"):
+        if q.text in gen._WET_ASKS:
             n = len([a for a in wet if a in windowed])
             assert gen._rooms(n) == q.answer_text
             assert gen._rooms(len(wet)) in q.distractors or gen._rooms(len(wet) - n) in q.distractors

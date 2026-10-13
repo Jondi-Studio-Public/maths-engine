@@ -35,7 +35,7 @@ from __future__ import annotations
 import re
 
 from .. import figures
-from ..core import attempts, check, generator, pick_distractors
+from ..core import attempts, check, generator, phrase, pick_distractors
 from ..figure_kinds import grid
 from . import _space_kit as kit
 
@@ -211,6 +211,18 @@ def _toilet_rooms(rng, rooms, wet: str) -> set[str]:
     return toilets
 
 
+_TOILETS_ASKS = (
+    "Which room on this plan has the toilets symbol?",
+    "The toilets symbol is drawn in one room of this plan. What is that room called?",
+    "A room on this plan is marked with the toilets symbol. Name that room.",
+)
+_WINDOW_ASKS = (
+    "Which room on this plan has no window symbol?",
+    "Every room on this plan has a window symbol except one. Which room is it?",
+    "Look for the room on this plan that has no window. What is that room called?",
+)
+
+
 def _plan_easy(rng):
     for _ in attempts(60, "an easy plan question"):
         wet = rng.choice(("ENS", "WC"))
@@ -219,14 +231,15 @@ def _plan_easy(rng):
         if rng.random() < 0.5:
             target = by[wet]
             dark = set(rng.sample([a for a in CAN_BE_DARK if a in by and a != wet], rng.randint(0, 2)))
-            toilets, text = {wet}, "Which room on this plan has the toilets symbol?"
+            toilets = {wet}
+            text = phrase(rng, _TOILETS_ASKS)
             working = [f"The toilets symbol is in the room marked {wet}, which stands for {room_full(wet)}."]
             prefer = [by[a] for a in WET if a in by]
         else:
             lone = rng.choice([a for a in CAN_BE_DARK if a in by])
             target, dark = by[lone], {lone}
             toilets = _toilet_rooms(rng, rooms, wet)
-            text = "Which room on this plan has no window symbol?"
+            text = phrase(rng, _WINDOW_ASKS)
             working = [f"Every room has a window symbol except {lone}, which stands for {room_full(lone)}."]
             prefer = [by[a] for a in CAN_BE_DARK if a in by]
         answer = room_full(target["abbr"])
@@ -265,6 +278,20 @@ def _plan_medium(rng):
     return _question(text, answer, _room_distractors(target, rooms, others), working, fig)
 
 
+_WET_ASKS = (
+    "How many wet areas (bathroom, ensuite, toilet or laundry) on this plan have a window symbol?",
+    "The wet areas are the bathroom, ensuite, toilet and laundry. How many of the wet areas on this plan have a "
+    "window symbol?",
+    "Count the wet areas (bathroom, ensuite, toilet or laundry) that show a window symbol on this plan. "
+    "How many are there?",
+)
+_PLUMBER_ASKS = (
+    "A plumber must visit every room that has a toilets symbol or a hot water system. How many rooms is that?",
+    "How many rooms on this plan need a plumber, that is, rooms with a toilets symbol or a hot water system?",
+    "Count the rooms that have a toilets symbol, a hot water system or both. How many rooms is that?",
+)
+
+
 def _plan_hard(rng):
     for _ in attempts(80, "a hard plan question"):
         wet = rng.choice(("ENS", "WC"))
@@ -281,7 +308,7 @@ def _plan_hard(rng):
         if rng.random() < 0.5:
             wet_with_window = [a for a in wet_rooms if a not in dark]
             answer = _rooms(len(wet_with_window))
-            text = "How many wet areas (bathroom, ensuite, toilet or laundry) on this plan have a window symbol?"
+            text = phrase(rng, _WET_ASKS)
             windows = len([a for a in by if a not in dark])
             cands = [
                 len(wet_rooms),
@@ -298,10 +325,7 @@ def _plan_hard(rng):
             hws_room = next(a for a, code in fixtures.items() if code == "HWS")
             union = toilets | {hws_room}
             answer = _rooms(len(union))
-            text = (
-                "A plumber must visit every room that has a toilets symbol or a hot water system. "
-                "How many rooms is that?"
-            )
+            text = phrase(rng, _PLUMBER_ASKS)
             cands = [len(toilets), len(toilets) + 1, 1, len(union) + 1, len(union) - 1, len(union) + 2]
             working = [
                 f"Rooms with a toilets symbol: {', '.join(sorted(toilets))}. The hot water system (HWS) is in "
@@ -351,10 +375,10 @@ def _read_plan(question) -> str:
     rooms = _plan_rooms_of(fig)
     windowed = _rooms_with(fig, rooms, "window")
     toilets = _rooms_with(fig, rooms, "toilets")
-    if text == "Which room on this plan has the toilets symbol?":
+    if text in _TOILETS_ASKS:
         check(len(toilets) == 1, "the toilets symbol must be in exactly one room")
         return room_full(toilets[0])
-    if text == "Which room on this plan has no window symbol?":
+    if text in _WINDOW_ASKS:
         dark = [r["abbr"] for r in rooms if r["abbr"] not in windowed]
         check(len(dark) == 1, "exactly one room must lack a window")
         return room_full(dark[0])
@@ -365,9 +389,9 @@ def _read_plan(question) -> str:
         homes = [r["abbr"] for r in rooms if _inside(r["box"], spots[0])]
         check(len(homes) == 1, "the fixture label must sit in one room")
         return room_full(homes[0])
-    if text.startswith("How many wet areas"):
+    if text in _WET_ASKS:
         return _rooms(len([r for r in rooms if r["abbr"] in WET and r["abbr"] in windowed]))
-    if text.startswith("A plumber must visit"):
+    if text in _PLUMBER_ASKS:
         spots = [lb["at"] for lb in fig["labels"] if lb["text"] == "HWS"]
         hws = {r["abbr"] for r in rooms if spots and _inside(r["box"], spots[0])}
         return _rooms(len(set(toilets) | hws))
@@ -454,6 +478,18 @@ def _site_figure(boxes, names, *, dashed=(), dim_labels=(), scale="1 : 200", ans
     )
 
 
+_HIDDEN_ASKS = (
+    "This plan shows what is hidden below the ground as well as what can be seen. Which feature is hidden underground?",
+    "One feature on this site plan is buried and cannot be seen from above. Which feature is it?",
+    "A surveyor drew this plan to include something hidden under the ground. Name the hidden feature.",
+)
+_PLANNED_ASKS = (
+    "This plan shows what has been built and what is only planned. Which feature is proposed, not yet built?",
+    "One feature on this site plan has not been built yet. Which feature is it?",
+    "A designer drew this plan to include a new feature that is only proposed. Name the proposed feature.",
+)
+
+
 def _conv_easy(rng):
     hidden = rng.random() < 0.4
     target = rng.choice(_HIDDEN if hidden else _PLANNED)
@@ -476,12 +512,7 @@ def _conv_easy(rng):
         )
         if fig is not None:
             break
-    text = (
-        "This plan shows what is hidden below the ground as well as what can be seen. Which feature is hidden "
-        "underground?"
-        if hidden
-        else "This plan shows what has been built and what is only planned. Which feature is proposed, not yet built?"
-    )
+    text = phrase(rng, _HIDDEN_ASKS if hidden else _PLANNED_ASKS)
     kind = "hidden below the ground" if hidden else "proposed"
     working = [f"A dashed outline shows a feature that is {kind}. Only {target} is dashed: {answer}."]
     others = [FEATURES[n] for n in shuffled if n != target]
@@ -520,6 +551,20 @@ def _conv_medium(rng):
     return _question(text, direction, _three(direction, [reverse, mirror_ew, mirror_ns, *turned]), working, fig)
 
 
+_PROPOSED_AREA_ASKS = (
+    "The dimensions on this plan are in metres. What area, in square metres, will the proposed addition cover?",
+    "All lengths on this plan are in metres. Find the floor area of the proposed addition, in square metres.",
+    "A builder will construct the proposed addition shown on this plan, with lengths in metres. "
+    "How many square metres will it cover?",
+)
+_EXISTING_AREA_ASKS = (
+    "The dimensions on this plan are in metres. What is the area, in square metres, of the existing building?",
+    "All lengths on this plan are in metres. Find the floor area of the existing building, in square metres.",
+    "An owner wants to know how much ground the existing building on this plan covers, with lengths in metres. "
+    "How many square metres is that?",
+)
+
+
 def _conv_hard(rng):
     scale_m = rng.choice((2, 5))
     for _ in attempts(60, "a hard conventions question"):
@@ -550,11 +595,7 @@ def _conv_hard(rng):
         cands = [_area(c) for c in (w2 * h2, 2 * (w + h), w * h2, sizes[pick][0] * sizes[pick][1])]
         if fig is not None and len(pick_distractors(answer, cands)) >= 3:
             break
-    text = (
-        "The dimensions on this plan are in metres. What area, in square metres, will the proposed addition cover?"
-        if asks_proposed
-        else "The dimensions on this plan are in metres. What is the area, in square metres, of the existing building?"
-    )
+    text = phrase(rng, _PROPOSED_AREA_ASKS if asks_proposed else _EXISTING_AREA_ASKS)
     kind = "proposed addition is the dashed outline" if asks_proposed else "existing building is the solid outline"
     working = [f"The {kind}. Its sides are {w} m and {h} m, so its area is {w} x {h} = {w * h} square metres."]
     return _question(text, answer, _three(answer, cands), working, fig)
@@ -585,9 +626,7 @@ def _features_of(fig: dict) -> list[dict]:
 def _read_conventions(question) -> str:
     fig, text = question.figure, question.text
     feats = _features_of(fig)
-    if text.endswith("Which feature is hidden underground?") or text.endswith(
-        "Which feature is proposed, not yet built?"
-    ):
+    if text in _HIDDEN_ASKS or text in _PLANNED_ASKS:
         dashed = [f for f in feats if f["style"] == "dashed"]
         check(len(dashed) == 1, "exactly one feature is dashed")
         return FEATURES[dashed[0]["name"]]
