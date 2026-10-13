@@ -1,6 +1,7 @@
 id: compare-functions-representations
 name: Compare functions in different representations
 domain: functions-sequences
+year_level: ['10']
 description: 'Function f is shown as a graph and function g is given as a verbal rule, a vertex-form equation or a list of pairs; the learner compares a property. Easy compares the output of a line and a verbal rule at a stated input; medium compares the maximum value of a parabola with a vertex-form equation; hard compares the value at a stated x of a parabola with a linear function given as pairs, beyond the pairs listed.'
 status: active
 capability_gates: [figure_stimulus]

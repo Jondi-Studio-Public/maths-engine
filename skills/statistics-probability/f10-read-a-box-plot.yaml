@@ -1,6 +1,7 @@
 id: f10-read-a-box-plot
 name: Read a box plot
 domain: statistics-probability
+year_level: ['10']
 description: Read a single box plot against a numbered axis and give a number - one of the five-number summary, then the range or interquartile range (values may sit on half ticks), and at the hard tier the range of all the data when an outlier is plotted, the interquartile range beside an outlier, or the percentage of values below (or the number above) a stated value that is the lower quartile, median or upper quartile of the plot. The prompt never states a value read off the plot.
 status: active
 capability_gates: [figure_stimulus]

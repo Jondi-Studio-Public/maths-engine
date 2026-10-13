@@ -1,6 +1,8 @@
 id: plot-linear-points
 name: Read points representing a relationship
 domain: linear-relations
+year_level: ['8']
+naplan_domain: [algebra]
 description: 'Points plotted on a labelled grid are read back as ordered pairs. The prompts ask the learner to read the graph and do not ask them to draw, plot or sketch anything. Easy reads the coordinates of one labelled point; medium picks the list of (x, y) pairs that matches three plotted points on a line; hard picks a further ordered pair that lies on the same straight line, beyond the grid. Options come from reversed coordinates, sign errors and a wrong step along the line.'
 status: active
 capability_gates: [figure_stimulus]

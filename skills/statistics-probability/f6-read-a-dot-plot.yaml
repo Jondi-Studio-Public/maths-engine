@@ -1,6 +1,8 @@
 id: f6-read-a-dot-plot
 name: Read a dot plot
 domain: statistics-probability
+year_level: ['7']
+naplan_domain: [statistics]
 description: Read a dot plot of a numerical variable and give a number - the count of dots at a value, then the mode, range, number of dots above a value or total, and at the hard tier the median (with a half-step answer when the number of values is even) or the mean built from the stacks. The prompt names the variable and never states a count.
 status: active
 capability_gates: [figure_stimulus]

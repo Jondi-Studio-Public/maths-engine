@@ -1,6 +1,8 @@
 id: f6-read-a-pie-chart
 name: Read a pie chart
 domain: statistics-probability
+year_level: ['6']
+naplan_domain: [statistics]
 description: Read a pie chart whose circle is cut into a counted number of equal slices (no angles to measure) and give a number of people - how many chose one sector when the total is stated, how many more chose one sector than another or chose either of two, and at the hard tier work back from the count in one sector to the total or to another sector, or count everyone outside a sector. The prompt states counts of people and never a sector's size.
 status: active
 capability_gates: [figure_stimulus]

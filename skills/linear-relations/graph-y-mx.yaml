@@ -1,6 +1,8 @@
 id: graph-y-mx
 name: Match proportional relations to their graphs
 domain: linear-relations
+year_level: ['8']
+naplan_domain: [algebra]
 description: 'A straight line through the origin is shown on a labelled grid and the learner picks the equation y = mx that matches it, from four text options. The prompts ask the learner to read the graph and do not ask them to draw, plot or sketch anything. Easy has a whole-number gradient; medium a negative or fractional gradient; hard gives the axes different scales, so the gradient is read in axis units. Options include an equation with an unstated intercept added.'
 status: active
 capability_gates: [figure_stimulus]

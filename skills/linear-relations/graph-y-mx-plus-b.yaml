@@ -1,6 +1,8 @@
 id: graph-y-mx-plus-b
 name: Match linear relations in slope-intercept form to their graphs
 domain: linear-relations
+year_level: ['8']
+naplan_domain: [algebra]
 description: 'A straight line is shown on a labelled grid and the learner picks the list of (x, y) pairs, written as a table of values, that all lie on it. The prompts ask the learner to read the graph and do not ask them to draw, plot or sketch anything. Easy has a whole-number gradient and the y-axis drawn; medium has a negative or fractional gradient; hard leaves the y-axis out of the window. Options come from leaving out the intercept, a sign error, swapped coordinates and a swapped gradient and intercept.'
 status: active
 capability_gates: [figure_stimulus]

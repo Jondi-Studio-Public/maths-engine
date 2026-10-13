@@ -1,6 +1,7 @@
 id: f10-compare-box-plots
 name: Compare two box plots
 domain: statistics-probability
+year_level: ['10']
 description: Compare two box plots drawn on one axis and choose from offered options - which has the higher median, which has the larger interquartile range or range (with the plots disagreeing on the other measure half the time), and at the hard tier which of four statements about medians, spreads and quartiles the plots support. The prompt never states a value read off the plots.
 status: active
 capability_gates: [figure_stimulus]

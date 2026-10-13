@@ -1,6 +1,8 @@
 id: equation-from-graph
 name: Determine a linear equation from a graph
 domain: linear-relations
+year_level: ['8']
+naplan_domain: [algebra]
 description: 'A straight line is shown on a labelled grid and the learner picks the equation y = mx + c that matches it, from four options written as text. Easy has a whole-number gradient and the y-axis drawn; medium has a negative or fractional gradient; hard leaves the y-axis out of the window, so the intercept is found by running the line back to x = 0. The prompt never states the gradient or intercept.'
 status: active
 capability_gates: [figure_stimulus]

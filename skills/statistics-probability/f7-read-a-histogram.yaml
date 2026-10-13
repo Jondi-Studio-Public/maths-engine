@@ -1,6 +1,8 @@
 id: f7-read-a-histogram
 name: Read a histogram
 domain: statistics-probability
+year_level: ['7', '9']
+naplan_domain: [statistics]
 description: Read a histogram of equal-width classes (each includes its lower boundary and excludes its upper) and give a number - one class frequency, then the total, two classes combined or the lower boundary of the modal class, and at the hard tier how many values are at or above (or below) a boundary, how many more the modal class has than the least common class, or the percentage of the data at or above a boundary. The prompt names classes and boundaries and never states a frequency.
 status: active
 capability_gates: [figure_stimulus]

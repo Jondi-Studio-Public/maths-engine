@@ -1,6 +1,8 @@
 id: compare-linear-representations
 name: Compare linear relationships across representations
 domain: linear-relations
+year_level: ['8']
+naplan_domain: [algebra]
 description: 'Relationship A is a graph and relationship B is an equation or a list of (x, y) pairs; the learner decides which has the greater gradient, or the greater y-value at a far x, or that they match. The answer class is drawn first, and in an unequal case the intercepts point at the wrong relationship. Easy compares gradients with B an equation; medium compares gradients with B a list of pairs and any sign; hard compares the y-values at a far x where neither the gradient nor the intercept alone decides.'
 status: active
 capability_gates: [figure_stimulus]

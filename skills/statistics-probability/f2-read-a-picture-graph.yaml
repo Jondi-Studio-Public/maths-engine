@@ -1,6 +1,8 @@
 id: f2-read-a-picture-graph
 name: Read a picture graph
 domain: statistics-probability
+year_level: ['2']
+naplan_domain: [statistics]
 description: Read a picture graph drawn with a key ("each symbol = k", with half symbols only when k is even) and give a number - the count in one row, the difference between two named rows, the total of all rows, the difference between the most and least popular rows, or the number of symbols a new row needs. The prompt names categories and never states a count.
 status: active
 capability_gates: [figure_stimulus]

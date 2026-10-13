@@ -1,6 +1,8 @@
 id: solve-linear-equations-graphically
 name: Solve linear equations graphically
 domain: linear-relations
+year_level: ['8']
+naplan_domain: [algebra]
 description: 'The learner solves an equation by reading a shown graph and picks x = k from four text options. Easy shows two labelled lines and asks for f(x) = g(x) at their crossing; medium shows one line and asks for the x at which f(x) equals a stated height; hard shows three labelled lines and names the pair to solve, so the other crossings are traps. The solution is never printed on the grid.'
 status: active
 capability_gates: [figure_stimulus]

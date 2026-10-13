@@ -1,6 +1,8 @@
 id: gradient-from-graph
 name: Determine gradient from a graph
 domain: linear-relations
+year_level: ['9']
+naplan_domain: [algebra]
 description: 'A straight line is shown on a labelled grid and the learner reads its gradient as a whole number or fraction. Easy has two marked points and a whole-number gradient; medium has two marked points and a negative or fractional gradient; hard marks no points and gives the two axes different scales, so the learner chooses two grid crossings and reads rise and run in axis units rather than counting squares. No gradient, rise or run is printed.'
 status: active
 capability_gates: [figure_stimulus]

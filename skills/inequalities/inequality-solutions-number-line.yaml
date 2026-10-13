@@ -1,6 +1,7 @@
 id: inequality-solutions-number-line
 name: Represent inequality solutions on a number line
 domain: inequalities
+year_level: ['10']
 description: 'A solution set is shown on a number line with open or closed ends and shading, and the learner picks the inequality that matches from text options. Easy shows a ray with four open-or-closed and left-or-right options; medium shows a shaded interval with four endpoint combinations; hard lists unsolved inequalities of the form ax + b < c, including negative a, and the learner solves them to find the one whose solution is shown.'
 status: active
 capability_gates: [figure_stimulus]
