@@ -9,6 +9,7 @@ output contract on top of that. Set `MATHS_DEEP_SEEDS` for a deeper run of the
 text checks.
 """
 
+import json
 import re
 
 import pytest
@@ -107,7 +108,10 @@ _MIN_DISTINCT = 10
 
 
 def _distinct_prompts(topic, difficulty):
-    return {make(topic, seed=seed, difficulty=difficulty).text for seed in range(_VARIETY_SEEDS)}
+    # A question is its words plus its picture: the same words over a different figure are a
+    # different question (the skill contract's variety check counts them the same way).
+    qs = (make(topic, seed=seed, difficulty=difficulty) for seed in range(_VARIETY_SEEDS))
+    return {(q.text, None if q.figure is None else json.dumps(q.figure, sort_keys=True)) for q in qs}
 
 
 @pytest.mark.parametrize("topic", BUILD_TOPICS)
