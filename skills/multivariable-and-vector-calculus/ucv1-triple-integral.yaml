@@ -1,6 +1,7 @@
 id: ucv1-triple-integral
 name: Evaluate a triple integral
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Evaluate an exact triple integral over a box, over a solid with a sloping top or a plane face, over a region given by inequalities, and use one for the volume, mass and centre of mass of a solid with a density.
 status: active
 placement_eligible: false

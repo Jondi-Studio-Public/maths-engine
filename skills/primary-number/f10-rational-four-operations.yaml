@@ -1,6 +1,8 @@
 id: f10-rational-four-operations
 name: Combine three number representations using four operations
 domain: primary-number
+year_level: ['7']
+naplan_domain: [number]
 description: Evaluate an expression that combines a fraction, a decimal and a percentage by first converting to a common representation.
 status: active
 placement_eligible: false

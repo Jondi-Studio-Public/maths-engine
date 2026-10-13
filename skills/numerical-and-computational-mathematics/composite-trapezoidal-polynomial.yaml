@@ -1,6 +1,7 @@
 id: composite-trapezoidal-polynomial
 name: Apply the composite trapezoidal rule
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Compute an exact rational composite trapezoidal approximation for a polynomial on a stated interval.
 status: active
 prerequisites: [definite-integral]

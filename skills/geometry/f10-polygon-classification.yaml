@@ -1,6 +1,7 @@
 id: f10-polygon-classification
 name: Classify polygons by side and angle properties
 domain: geometry
+year_level: ['7']
 description: Classify a triangle or quadrilateral from its stated side lengths, angle measures and parallel-side relationships (for example, as scalene, isosceles, equilateral, right-angled, or as a parallelogram, rectangle, rhombus, trapezium or square).
 status: active
 placement_eligible: false

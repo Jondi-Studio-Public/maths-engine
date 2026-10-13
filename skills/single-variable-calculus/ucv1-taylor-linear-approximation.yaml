@@ -1,6 +1,7 @@
 id: ucv1-taylor-linear-approximation
 name: Use a first-order local approximation
 domain: single-variable-calculus
+year_level: [university]
 description: Approximate a supplied smooth function near a stated point using its
   value and derivative. The question states a and x0 (or, at the exam tier, an
   already-computed value and its local approximation) directly; never a

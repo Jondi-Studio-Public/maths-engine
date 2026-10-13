@@ -1,6 +1,7 @@
 id: propositional-truth-evaluation
 name: Evaluate a propositional formula
 domain: logic-computability-and-information
+year_level: [university]
 description: Evaluate a small proposition from assigned truth values using negation, conjunction, disjunction and implication.
 status: active
 prerequisites: []

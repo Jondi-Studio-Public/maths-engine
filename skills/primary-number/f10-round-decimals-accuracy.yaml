@@ -1,6 +1,8 @@
 id: f10-round-decimals-accuracy
 name: Round decimals to an accuracy implied by context
 domain: primary-number
+year_level: ['7']
+naplan_domain: [number]
 description: Round a decimal value to the number of decimal places appropriate to a described real-world context, where the accuracy is not stated but must be inferred from the context.
 status: active
 placement_eligible: false

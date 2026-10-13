@@ -1,6 +1,7 @@
 id: ucv1-coordinate-transformation
 name: Apply a planar coordinate transformation
 domain: geometry
+year_level: [university]
 description: Compute the image of a supplied point under a stated affine map (a rotation,
   reflection or dilation composed with a nonzero translation), and, at the exam tier,
   recover the original point from the image.

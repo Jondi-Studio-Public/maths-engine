@@ -1,6 +1,8 @@
 id: f10-fraction-percent-quantity-strategy
 name: Choose strategies for familiar fraction and percentage quantities
 domain: primary-number
+year_level: ['6']
+naplan_domain: [number]
 description: Calculate a commonly used percentage, decimal or fraction of a whole-number amount.
 status: active
 placement_eligible: false

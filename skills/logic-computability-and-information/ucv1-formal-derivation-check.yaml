@@ -1,6 +1,7 @@
 id: ucv1-formal-derivation-check
 name: Check a finite formal derivation
 domain: logic-computability-and-information
+year_level: [university]
 description: Decide whether each line of a supplied finite propositional derivation follows from its stated premises by a pinned rule set (Modus Ponens, Conjunction Introduction, Conjunction Elimination, Disjunction Introduction), naming the first line that fails or stating that every line is valid.
 status: active
 placement_eligible: false

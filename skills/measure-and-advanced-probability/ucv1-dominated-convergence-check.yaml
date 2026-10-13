@@ -1,6 +1,7 @@
 id: ucv1-dominated-convergence-check
 name: Check a dominated-convergence hypothesis
 domain: measure-and-advanced-probability
+year_level: [university]
 description: For a finite supplied sequence of functions on a finite sample space and a stated bound, decide which dominated-convergence hypothesis (pointwise convergence or domination) fails, or that all are met -- on a finite sample space the bound's integrability is never genuinely in question, and is offered only as a permanently-wrong option.
 status: active
 placement_eligible: false

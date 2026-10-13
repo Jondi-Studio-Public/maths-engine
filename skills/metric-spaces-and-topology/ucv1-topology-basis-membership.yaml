@@ -1,6 +1,7 @@
 id: ucv1-topology-basis-membership
 name: Test membership in a finite topology basis
 domain: metric-spaces-and-topology
+year_level: [university]
 description: Decide whether a supplied collection is a basis for a finite topology by checking coverage and finite intersections.
 status: active
 placement_eligible: false
