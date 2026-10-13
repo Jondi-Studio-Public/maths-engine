@@ -10428,6 +10428,8 @@ _ENTRIES = (
         "map-bearing-reversed-wrong",
         "Trying to reverse a bearing by adding the wrong angle, for example 90 degrees instead of 180.",
         area="spatial",
+    ),
+    CatalogueEntry(
         "adds-a-group-of-trials-to-the-successes",
         "Adding the number of trials in one group to the number of successes when combining results.",
         area="probability",
@@ -11041,7 +11043,7 @@ _ENTRIES = (
         "divides-by-one-plans-rate-only",
         "Dividing the joining fee by the rate of one plan alone, when the plans agree where the fee equals the difference in cost per unit.",
         area="mathematics",
-    # -- exam chains: tree diagrams, Venn diagrams and stem-and-leaf plots ----------------------------------------------
+    ),
     CatalogueEntry(
         "gives-the-sibling-branch",
         "Giving the probability written on the branch beside the missing one instead of working out what is left from 1.",
