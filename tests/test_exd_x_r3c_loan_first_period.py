@@ -29,7 +29,6 @@ from tests.exd_x_r3c_support import (
 TOPIC = "exd_x_r3c_loan_first_period"
 SKILL_ID = "senior-with-the-aid-of-a-financial-calculator-or"
 SKILL = skill_for(SKILL_ID)
-mpmath.mp.dps = 40
 _STEM = re.compile(r"\$([\d,]+) has an interest rate of ([\d.]+)% .* over (\d+) years")
 
 
@@ -48,12 +47,14 @@ def fmt(d):
 
 def oracle(q):
     p, rate, years = parse(q)
-    i = mpmath.mpf(str(rate)) / 1200
-    n = 12 * years
-    pay = cents(mpmath.mpf(str(p)) * i / (1 - (1 + i) ** (-n)))
-    interest1 = cents(mpmath.mpf(str(p)) * i)
-    balance1 = p + interest1 - pay
-    interest2 = cents(mpmath.mpf(str(balance1)) * i)
+    # 40 digits only inside the oracle: setting mpmath.mp.dps globally leaks into every later test in the worker.
+    with mpmath.workdps(40):
+        i = mpmath.mpf(str(rate)) / 1200
+        n = 12 * years
+        pay = cents(mpmath.mpf(str(p)) * i / (1 - (1 + i) ** (-n)))
+        interest1 = cents(mpmath.mpf(str(p)) * i)
+        balance1 = p + interest1 - pay
+        interest2 = cents(mpmath.mpf(str(balance1)) * i)
     return {"a": fmt(pay), "b": fmt(interest1), "c": fmt(balance1), "d": fmt(interest2)}
 
 
