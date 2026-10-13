@@ -1,16 +1,43 @@
 id: inequality-solutions-number-line
 name: Represent inequality solutions on a number line
 domain: inequalities
-description: Graph strict and inclusive one-variable solution sets using correct endpoints and shading.
-status: deferred
-deferred_reason: visual
+year_level: ['10']
+description: 'A solution set is shown on a number line with open or closed ends and shading, and the learner picks the inequality that matches from text options. Easy shows a ray with four open-or-closed and left-or-right options; medium shows a shaded interval with four endpoint combinations; hard lists unsolved inequalities of the form ax + b < c, including negative a, and the learner solves them to find the one whose solution is shown.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
-- inequality-symbols
+- one-step-inequalities
 answer: mcq
-sources: []
+sources:
+- topic: fg1_inequality_number_line
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fg1_inequality_number_line
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fg1_inequality_number_line
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
 misconceptions:
-- id: misconception-1
-  description: Using a closed endpoint for a strict inequality
-- id: misconception-2
-  description: Shading in the direction opposite the solution set
-tags: []
+- id: closed-endpoint-for-a-strict-inequality
+  description: Reads an open circle (end not included) as a closed one, choosing less-than-or-equal or greater-than-or-equal for a strict inequality.
+- id: open-endpoint-for-an-inclusive-inequality
+  description: Reads a closed circle (end included) as an open one, choosing a strict inequality for an inclusive one.
+- id: shading-direction-reversed
+  description: Matches the endpoint correctly but reads the shading as going the opposite way.
+- id: direction-and-endpoint-both-wrong
+  description: Gets both the direction of the shading and the open or closed end wrong.
+- id: forgets-to-reverse-the-sign-when-dividing-by-a-negative
+  description: Divides both sides of an inequality by a negative number without reversing the inequality sign.
+- id: inequality-direction-reversed
+  description: Reads the inequality sign in the opposite direction from the way it is written.
+- id: strict-and-inclusive-confused
+  description: Mixes up strict and inclusive inequality signs, or both ends of an interval.
+- id: sign-error-on-the-constant
+  description: Moves a constant to the other side of the inequality with the wrong sign.
+tags: [acara-f10-v9, inequalities, ac9m10a02, figure]

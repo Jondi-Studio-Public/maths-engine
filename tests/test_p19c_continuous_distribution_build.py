@@ -100,7 +100,10 @@ class _PDCommon:
         skill = next(s for s in skills if s.id == PD_SKILL)
         assert skill.answer == "number"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == []
+        assert skill.prerequisites == [
+            "senior-examine-simple-examples-of-non-uniform-discrete-random",
+            "integrate-polynomial",
+        ]
         expected = PD_EXAM_SOURCE_TOPIC if self.TIER == "exam" else PD_TOPIC
         assert any(src.topic == expected and src.difficulty == self.TIER for src in skill.sources)
 
@@ -223,7 +226,10 @@ class _CUMCommon:
         skill = next(s for s in skills if s.id == CUM_SKILL)
         assert skill.answer == "ordered_list"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == []
+        assert skill.prerequisites == [
+            "senior-understand-the-concepts-of-a-probability-density-function",
+            "integrate-polynomial",
+        ]
         assert any(src.topic == CUM_TOPIC and src.difficulty == self.TIER for src in skill.sources)
 
 

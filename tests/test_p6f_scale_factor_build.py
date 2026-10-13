@@ -242,7 +242,7 @@ def test_scale_factor_areas_skill_loads_with_correct_metadata():
     skill = skills_by_id.get("senior-obtain-a-scale-factor-and-use-it-to")
     assert skill is not None
     assert skill.answer == "number"
-    assert skill.prerequisites == ["convert-metric-length"]
+    assert skill.prerequisites == ["convert-metric-length", "senior-use-the-scale-factor-for-two-similar-figures"]
     assert skill.placement_eligible is False
 
 

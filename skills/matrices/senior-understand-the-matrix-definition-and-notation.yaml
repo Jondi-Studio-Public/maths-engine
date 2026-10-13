@@ -6,7 +6,8 @@ domain: matrices
 description: "Given a stated matrix (or, at exam level, only the rule a_{i,j} and the ranges of i and j, so the learner substitutes) and a subscript reference a_{i,j} using row-column notation, state the value of the entry in row i, column j. Pure abstract notation practice with no dataset framing, never a row/column total. Never classifies the matrix's type or reports its size: contrast the sibling senior-recognise-different-types-of-matrices-row-column-square, which never reports a single entry."
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- input-output-tables
 answer: number
 sources:
 - topic: p19g_matrix_entry_lookup

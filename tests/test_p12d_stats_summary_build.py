@@ -388,7 +388,7 @@ class TestSkillsLoad:
         assert skill.domain == "statistics-probability"
         assert skill.answer == "number"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == ["simple-event-probability"]
+        assert skill.prerequisites == ["simple-event-probability", "senior-recognise-and-identify-outliers"]
         stages_covered = set()
         for source in skill.sources:
             assert source.topic == OEM_TOPIC

@@ -6,7 +6,10 @@ domain: statistics-probability
 description: Apply the complement rule P(not A) = 1 - P(A) and union rules for probability. For mutually-exclusive events, P(A union B) = P(A) + P(B). For overlapping events, P(A union B) = P(A) + P(B) - P(A intersect B).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-review-the-concepts-and-language-of-outcomes-sample
+- senior-review-the-probability-scale-0-leq-p-a
+- f10-probability-complements-compounds
 answer: fraction
 sources:
 - topic: probability_complement_union

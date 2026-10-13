@@ -192,7 +192,7 @@ def keys_read(function_name, variable):
     return found
 
 
-NOT_READ_BY_THE_LOADER = {"difficulty_progression"}  # prose for authors, documented in the schema
+NOT_READ_BY_THE_LOADER: set[str] = set()
 
 
 def test_the_top_level_fields_are_exactly_the_ones_the_loader_reads(schema):
@@ -209,6 +209,7 @@ def test_the_top_level_fields_are_exactly_the_ones_the_loader_reads(schema):
         ("mental_level", "_mental_level_from_dict", "d"),
         ("mental", "_mental_from_dict", "d"),
         ("rubric", "_rubric_block_from_dict", "d"),
+        ("tier_demand", "_tier_demand_from_dict", "d"),
     ],
 )
 def test_each_nested_object_lists_exactly_the_fields_the_loader_reads(schema, definition, function_name, variable):

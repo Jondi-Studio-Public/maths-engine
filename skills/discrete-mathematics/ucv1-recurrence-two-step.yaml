@@ -5,7 +5,9 @@ year_level: [university]
 description: Compute the next term of a supplied second-order linear recurrence from two initial values.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-recognise-and-use-the-recursive-definition-of-an
+- generate-sequence-from-rule
 answer: number
 sources:
 - topic: p12e_recurrence_two_step

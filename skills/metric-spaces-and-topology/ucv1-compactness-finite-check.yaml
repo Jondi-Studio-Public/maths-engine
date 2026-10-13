@@ -5,7 +5,9 @@ year_level: [university]
 description: For a supplied finite open cover of a finite topological space, decide which listed subfamily is itself an open subcover.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ucv1-topology-basis-membership
+- finite-set-operations
 answer: mcq
 sources:
 - topic: p15b_compactness_subcover_check

@@ -238,7 +238,7 @@ def test_both_skills_load_through_api(skills_dict):
     amount = skills_dict["senior-review-calculating-a-percentage-of-a-given-amount"]
     assert amount is not None
     assert amount.domain == "arithmetic"
-    assert amount.prerequisites == []
+    assert amount.prerequisites == ["percentage-of-quantity"]
     assert amount.answer == "number"
     assert amount.placement_eligible is False
     assert amount.status == "active"
@@ -247,7 +247,7 @@ def test_both_skills_load_through_api(skills_dict):
     pct = skills_dict["senior-review-one-amount-expressed-as-a-percentage-of"]
     assert pct is not None
     assert pct.domain == "arithmetic"
-    assert pct.prerequisites == []
+    assert pct.prerequisites == ["percentage-of-quantity", "fraction-decimal-percent"]
     assert pct.answer == "number"
     assert pct.placement_eligible is False
     assert pct.status == "active"

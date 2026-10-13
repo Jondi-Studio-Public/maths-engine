@@ -2,7 +2,9 @@
 
 Scans ``skills/<domain>/<id>.yaml`` (plus optional ``policy.yaml`` and ``domains.yaml``) into plain
 dataclasses, then validates the whole tree: unique ids matching filename stems, domains matching folder names,
-resolvable acyclic prerequisites, registered answer kinds, and (for active skills only) that every source
+resolvable acyclic prerequisites (an active skill builds only on active ones, every active senior or university
+skill names at least one), registered answer kinds, a difficulty progression whose
+tiers never get easier, and (for active skills only) that every source
 actually generates a question via ``mathgen.make`` for a handful of seeds. Deferred skills are checked
 structurally only -- their sources may reference generators or answer kinds that don't exist yet.
 
@@ -14,6 +16,7 @@ from __future__ import annotations
 
 import copy
 import os
+import re
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -28,7 +31,11 @@ DEFAULT_SKILLS_DIR = default_skills_dir()
 VALID_STAGES = {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
 # The tier a source stands for. An active skill's sources must each name one (see `validate`).
 VALID_DIFFICULTIES = ("easy", "medium", "hard", "exam")
+SOURCE_KEY_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")  # a source `key`: lower-case words joined by hyphens
 VALID_ALIGNMENT_STATUSES = {"verified", "candidate", "unverified"}
+# Bands (skills/domains.yaml) whose active skills must name a prerequisite: nothing at that level is a
+# true starting point, and an empty list there means the graph has a hole, not that the skill has no past.
+PREREQUISITE_REQUIRED_BANDS = ("senior", "university")
 VALID_DEFERRED_REASONS = {
     "generator",
     "grader",
@@ -97,6 +104,12 @@ class Source:
     params: dict = field(default_factory=dict)
     difficulty: str | None = None
     stages: list | None = None  # None means "all stages"
+    key: str | None = None  # stable name within the skill; None means "use the difficulty label"
+
+    @property
+    def effective_key(self) -> str | None:
+        """The name that identifies this source within its skill: `key`, else the `difficulty` label."""
+        return self.key if self.key is not None else self.difficulty
 
 
 @dataclass
@@ -166,6 +179,15 @@ COVERAGE_LABELS = {"year_level": YEAR_LEVELS, "naplan_domain": NAPLAN_DOMAINS, "
 
 
 @dataclass
+class TierDemand:
+    """What one tier asks of a learner: `steps` is the number of reasoning steps they must chain
+    (substitute, then simplify, then compare is three), and `demand` says which ones in a sentence."""
+
+    steps: int
+    demand: str
+
+
+@dataclass
 class Skill:
     id: str
     name: str
@@ -201,6 +223,9 @@ class Skill:
     # answers always need the most careful marking route.
     rubric_id: str | None = None
     rubric_high_stakes: bool = False
+    # How the tiers escalate in reasoning: tier name -> TierDemand (structured, checked by `validate`), or
+    # the older one-paragraph prose, which is kept for authors and checked by nothing.
+    difficulty_progression: dict[str, TierDemand] | str | None = None
     path: Path | None = None
 
 
@@ -245,6 +270,7 @@ def _source_from_dict(d: dict) -> Source:
         params=params,
         difficulty=d.get("difficulty"),
         stages=d.get("stages"),
+        key=d.get("key"),
     )
 
 
@@ -292,6 +318,18 @@ def _rubric_block_from_dict(d: dict | None) -> tuple[str | None, bool]:
     return d.get("id"), bool(d.get("high_stakes", False))
 
 
+def _tier_demand_from_dict(d) -> TierDemand:
+    if not isinstance(d, dict):
+        return TierDemand(steps=0, demand="")
+    return TierDemand(steps=d.get("steps", 0), demand=d.get("demand", ""))
+
+
+def _progression_from_value(value) -> dict[str, TierDemand] | str | None:
+    if isinstance(value, dict):
+        return {str(tier): _tier_demand_from_dict(entry) for tier, entry in value.items()}
+    return value
+
+
 def _labels(value) -> tuple[str, ...]:
     """A YAML list of labels -> a tuple of strings, so `1` and `'1'` both read as "1"."""
     if value is None:
@@ -336,6 +374,7 @@ def _skill_from_dict(d: dict, path: Path) -> Skill:
         needs_figure=bool(d.get("needs_figure", False)),
         rubric_id=rubric_id,
         rubric_high_stakes=rubric_high_stakes,
+        difficulty_progression=_progression_from_value(d.get("difficulty_progression")),
         path=path,
     )
 
@@ -540,6 +579,41 @@ def _has_cycle(skills_by_id: dict[str, Skill]) -> str | None:
     return None
 
 
+def _progression_errors(s: Skill) -> list[str]:
+    """A structured difficulty_progression names only tiers the skill's sources use, covers every one of
+    them, gives each a whole number of steps (at least 1) and a sentence, and never asks fewer steps of a
+    harder tier than of an easier one."""
+    errors = []
+    progression = s.difficulty_progression
+    unknown = [t for t in progression if t not in VALID_DIFFICULTIES]
+    if unknown:
+        errors.append(f"{s.id}: difficulty_progression names unknown tier(s) {unknown}")
+    used = {src.difficulty for src in s.sources if src.difficulty in VALID_DIFFICULTIES}
+    missing = [t for t in VALID_DIFFICULTIES if t in used and t not in progression]
+    if missing:
+        errors.append(f"{s.id}: difficulty_progression does not describe tier(s) {missing}")
+    extra = [t for t in VALID_DIFFICULTIES if t in progression and t not in used]
+    if extra:
+        errors.append(f"{s.id}: difficulty_progression describes tier(s) {extra} that no source uses")
+    previous = None
+    for tier in VALID_DIFFICULTIES:
+        entry = progression.get(tier)
+        if entry is None:
+            continue
+        if isinstance(entry.steps, bool) or not isinstance(entry.steps, int) or entry.steps < 1:
+            errors.append(f"{s.id}: difficulty_progression.{tier}.steps must be a whole number of at least 1")
+            continue
+        if not isinstance(entry.demand, str) or not entry.demand.strip():
+            errors.append(f"{s.id}: difficulty_progression.{tier}.demand must say what the tier asks")
+        if previous is not None and entry.steps < previous[1]:
+            errors.append(
+                f"{s.id}: difficulty_progression.{tier} asks {entry.steps} step(s), fewer than "
+                f"{previous[0]} ({previous[1]}); a harder tier must not ask less"
+            )
+        previous = (tier, entry.steps)
+    return errors
+
+
 def validate(
     domains: list[Domain],
     skills: list[Skill],
@@ -577,6 +651,7 @@ def validate(
         if d.band is not None and d.band_name is None:
             report.errors.append(f"domain {d.id!r}: band {d.band!r} is not declared in bands:")
 
+    band_of = {d.id: d.band for d in domains}
     by_id: dict[str, Skill] = {}
     for s in skills:
         if not s.id:
@@ -626,6 +701,13 @@ def validate(
         for pre in s.prerequisites:
             if pre not in by_id:
                 report.errors.append(f"{s.id}: prerequisite {pre!r} does not resolve")
+            elif s.status == "active" and by_id[pre].status != "active":
+                report.errors.append(
+                    f"{s.id}: active skill has deferred prerequisite {pre!r}; a host that waits for "
+                    f"prerequisites would never offer it"
+                )
+        if s.status == "active" and not s.prerequisites and band_of.get(s.domain) in PREREQUISITE_REQUIRED_BANDS:
+            report.errors.append(f"{s.id}: active {band_of[s.domain]} skill has no prerequisites")
 
         if len(s.framework_areas) != len(set(s.framework_areas)):
             report.errors.append(f"{s.id}: framework_areas contains duplicates")
@@ -647,7 +729,27 @@ def validate(
             if alignment.framework and not alignment.area:
                 report.errors.append(f"{s.id}: framework alignment missing area")
 
-        for src in s.sources:
+        if isinstance(s.difficulty_progression, dict):
+            report.errors.extend(_progression_errors(s))
+        elif s.difficulty_progression is not None and not isinstance(s.difficulty_progression, str):
+            report.errors.append(f"{s.id}: difficulty_progression must be a mapping of tiers or prose")
+
+        seen_keys: dict[str, int] = {}
+        for i, src in enumerate(s.sources):
+            ekey = src.effective_key
+            if src.key is not None and (not isinstance(src.key, str) or not SOURCE_KEY_RE.match(src.key)):
+                report.errors.append(
+                    f"{s.id}: source {i} key {src.key!r} must be lower-case words joined by hyphens "
+                    f"(letters and digits only, matching {SOURCE_KEY_RE.pattern})"
+                )
+            elif ekey is not None:
+                if ekey in seen_keys:
+                    report.errors.append(
+                        f"{s.id}: sources {seen_keys[ekey]} and {i} share the key {ekey!r}; "
+                        f"give one of them an explicit `key` (a source's key defaults to its difficulty)"
+                    )
+                else:
+                    seen_keys[ekey] = i
             if src.stages:
                 for st in src.stages:
                     if st not in VALID_STAGES:

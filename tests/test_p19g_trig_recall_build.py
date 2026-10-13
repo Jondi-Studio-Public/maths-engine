@@ -450,9 +450,12 @@ def test_both_skills_load_with_correct_answer_kind_and_prerequisites():
     value_skill = by_id[VALUE_ID]
     coord_skill = by_id[COORD_ID]
     assert value_skill.answer == "mcq"
-    assert value_skill.prerequisites == []
+    assert value_skill.prerequisites == [
+        "senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034",
+        "angle-degrees-radians-pi-form",
+    ]
     assert coord_skill.answer == "expression"
-    assert coord_skill.prerequisites == []
+    assert coord_skill.prerequisites == ["angle-degrees-radians-pi-form", "f10-trig-ratios-similarity"]
 
 
 def test_both_skills_are_active_placement_ineligible_and_general_band():

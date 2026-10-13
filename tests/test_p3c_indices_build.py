@@ -235,7 +235,7 @@ def test_p3c_index_laws_skill_contract_loads_with_expected_shape():
 
     skill = by_id["senior-review-indices-including-fractional-indices-and-the-index"]
 
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["evaluate-powers", "f10-exponent-laws-positive-zero"]
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
     assert skill.status == "active"
@@ -250,7 +250,10 @@ def test_p3c_radicals_skill_contract_loads_with_expected_shape():
 
     skill = by_id["senior-use-radicals-and-convert-to-and-from-fractional"]
 
-    assert skill.prerequisites == ["function-notation"]
+    assert skill.prerequisites == [
+        "function-notation",
+        "senior-review-indices-including-fractional-indices-and-the-index",
+    ]
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"

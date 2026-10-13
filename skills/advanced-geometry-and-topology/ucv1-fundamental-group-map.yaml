@@ -5,7 +5,9 @@ year_level: [university]
 description: Select the induced map on the fundamental group for one supplied circle or interval map from finite labelled options.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ucv1-topology-basis-membership
+- integer-arithmetic
 answer: mcq
 sources:
 - topic: p15b_fundamental_group_map

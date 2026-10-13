@@ -302,7 +302,7 @@ def test_journey_skill_loads_with_correct_metadata():
             skill = s
             break
     assert skill is not None, "Skill not found in load_skills()"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["ratio-rate-proportion", "elapsed-time"]
     assert skill.answer == "number"
     assert skill.placement_eligible is False
 
@@ -316,7 +316,7 @@ def test_mass_skill_loads_with_correct_metadata():
             skill = s
             break
     assert skill is not None, "Skill not found in load_skills()"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-recognise-the-need-for-milligrams", "convert-metric-mass"]
     assert skill.answer == "number"
     assert skill.placement_eligible is False
 

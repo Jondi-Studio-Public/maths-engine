@@ -5,7 +5,9 @@ year_level: [university]
 description: Compute the absolute and relative error bound for a supplied approximation and certified interval.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-measurement-error-interpretation
+- significant-figures
 answer: pair
 sources:
 - topic: p14d_numerical_error_bound

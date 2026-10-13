@@ -1,0 +1,47 @@
+# Measured test durations that scripts/ci_shard.py balances the CI shards by.
+#
+# One entry per line: "<seconds> <target>". Blank lines and "#" comments are ignored.
+# A target is a test file ("tests/test_x.py") or one test function of a file
+# ("tests/test_x.py::test_fn"). Seconds are wall-clock seconds on a CI runner (4 vCPU,
+# pytest -n auto), summed over every parametrized case of the function.
+#
+# A file with any "::" entry is SPLIT: ci_shard.py parses it and hands each of its
+# test functions to a shard separately, as a pytest node id. A function the file has
+# but this list does not name still runs, once, at DEFAULT_FUNCTION_SECONDS, so a new
+# test can never be dropped. A file with no entry is weighted by its size.
+#
+# Why: the five tests/test_mathgen_*.py sweeps are 10-110 KB but each runs every topic
+# through a seed loop of make() with a SymPy check, 4-18 minutes per file on a runner.
+# Balanced by size they stacked into two or three shards (measured on 48e3c6e: shards
+# 0 and 11 took 23 and 24 minutes against a 30 minute limit). Measured 2026-10-13 as
+# per-test CPU seconds on a 4-core machine, scaled by 0.575 to CI wall time (CI ran
+# about 2.3 times slower, spread over 4 cores). Refresh with
+#   pytest <file> -n 4 --durations=0
+# and re-sum by function; only the ratios matter, so an approximate refresh is enough.
+0.1 tests/test_mathgen_answers.py::test_exempt_topics_really_do_ask_for_an_unsimplified_form
+0.3 tests/test_mathgen_contract.py::test_backward_compatible_outputs_pinned
+16.0 tests/test_mathgen_contract.py::test_determinism
+0.6 tests/test_mathgen_contract.py::test_expanded_generators_reject_the_question_copied_verbatim
+0.1 tests/test_mathgen_contract.py::test_factoring_generators_reject_expanded_form
+3.7 tests/test_mathgen_contract.py::test_new_kind_variants_fuzz
+2.4 tests/test_mathgen_contract.py::test_no_hand_rolled_symbolic_equality
+164.5 tests/test_mathgen_contract.py::test_presets_generate
+0.0 tests/test_mathgen_options.py::test_option_shape_backlog_still_dirty
+0.0 tests/test_mathgen_text.py::test_grandfathered_text_defect_still_present
+4.0 tests/test_mathgen_text.py::test_no_bad_sign_patterns_new_kind_variants
+6.2 tests/test_mathgen_text.py::test_quotient_rule_derivative_never_zero
+0.1 tests/test_mathgen_variety.py::test_one_shape_source_still_bounded
+338.5 tests/test_mathgen_variety.py::test_tier_escalation
+47.7 tests/test_mathgen_variety.py::test_variety_backlog_still_thin
+# The shared sweep (tests/mathgen_sweep_cases.py): each part file builds its topics once and
+# runs every per-topic check on them. Measured as above (4-core CPU seconds x 0.575).
+51.7 tests/test_mathgen_sweep_build_part_0.py
+65.5 tests/test_mathgen_sweep_build_part_1.py
+50.0 tests/test_mathgen_sweep_build_part_2.py
+43.7 tests/test_mathgen_sweep_build_part_3.py
+40.8 tests/test_mathgen_sweep_build_part_4.py
+78.8 tests/test_mathgen_sweep_build_part_5.py
+173.1 tests/test_mathgen_sweep_default_part_0.py
+140.3 tests/test_mathgen_sweep_default_part_1.py
+134.5 tests/test_mathgen_sweep_default_part_2.py
+146.6 tests/test_mathgen_sweep_default_part_3.py
