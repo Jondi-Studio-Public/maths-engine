@@ -43,6 +43,172 @@ _ENTRIES = (
         "Leaving out the constant term and dividing the other side by the coefficient straight away.",
         area="equations",
     ),
+    # -- first-year multivariable, 3D geometry and statistics --
+    CatalogueEntry(
+        "chain-rule-inner-derivatives-omitted",
+        "Adding the two partial derivatives of z without multiplying each by the derivative of its variable with respect to the parameter.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-one-term-only",
+        "Using only the x term of the chain rule, fx·(dx/dt), and leaving out the y term.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-partials-swapped",
+        "Pairing each partial derivative with the other variable's rate of change: fy with dx/dt and fx with dy/dt.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-partials-evaluated-at-parameter",
+        "Evaluating the partial derivatives at the parameter value (t, t) or (u, v) instead of at the point (x, y) that the parameter gives.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-wrong-variable-differentiated",
+        "Differentiating the inner functions with respect to the other new variable, so the answer is for dz/dv where dz/du was asked (or the reverse).",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-multiplied-by-path-derivative",
+        "Giving fx·(dx/dt) where the partial derivative fx alone was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "chain-rule-point-coordinates-swapped",
+        "Substituting the position into a partial derivative with x and y the wrong way round.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-cross-term-dropped",
+        "Leaving out the mixed term 2·fxy·x'·y' in the second derivative along a path.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-cross-term-not-doubled",
+        "Including the mixed term of the second derivative along a path as fxy·x'·y' instead of 2·fxy·x'·y'.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-inner-derivatives-not-squared",
+        "Multiplying fxx and fyy by x' and y' instead of by their squares in the second derivative along a path.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "second-derivative-stopped-at-first",
+        "Giving the first derivative dz/dt where the second derivative was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-divided-by-interval",
+        "Dividing a rate by the time interval where the change is the rate multiplied by that interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-times-time-not-interval",
+        "Multiplying a rate of change by the time t at which it was found instead of by the length of the time interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-plus-interval",
+        "Adding the length of the time interval to the rate instead of multiplying the rate by the interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "rate-times-final-time",
+        "Multiplying a rate of change by the final time t + Δt instead of by the length Δt of the interval.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-omits-base-value",
+        "Giving only the change fx·h + fy·k predicted by the tangent plane, without adding the value f(x0, y0) at the point.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-partials-swapped",
+        "Using f_y where f_x belongs and f_x where f_y belongs in the tangent plane or the linear approximation.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-exact-value-given",
+        "Evaluating f itself at the nearby point instead of using the tangent plane, so the exact value is given where the linear estimate was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-one-variable-only",
+        "Changing only x in the linear approximation and leaving out the f_y·k term for the change in y.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "linear-approx-slope-times-coordinate",
+        "Multiplying each slope by the coordinate of the point instead of by the small step in that variable.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-forgotten",
+        "Reading the constant term of z = Ax + By + C as f(x0, y0), forgetting that the plane is written about the point so A·x0 + B·y0 must be subtracted.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-sign",
+        "Adding A·x0 + B·y0 to f(x0, y0) instead of subtracting it when expanding the point form of the tangent plane.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-one-variable",
+        "Subtracting the A·x0 term but leaving out B·y0 when expanding the point form of the tangent plane.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-shift-uses-slopes-only",
+        "Subtracting the slopes A and B themselves instead of A·x0 and B·y0 when expanding the point form of the tangent plane.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-constant-negated",
+        "A sign error across the answer: the constant term or intercept has the opposite sign to the correct one.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "radial-slope-taken-as-one",
+        "Taking the partial derivatives of the square-root surface as 1, forgetting the factor x/√(x² + y²) from the chain rule.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "radial-slope-denominator-squared",
+        "Dividing by x² + y² instead of √(x² + y²) when differentiating a square root of a sum of squares.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "implicit-plane-coefficients-dropped",
+        "Writing the tangent plane to an implicit surface as x0·x + y0·y + z0·z = k, forgetting the coefficients of the surface's equation.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "implicit-plane-constant-halved",
+        "Setting the gradient dotted with (x, y, z) equal to k, which leaves out the factor 2 that the constant needs once the gradient 2a·x0, 2b·y0, 2c·z0 is used.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-wrong-axis-intercept",
+        "Finding where the tangent plane meets a different axis from the one asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-power-rule-multiplier-dropped",
+        "Differentiating a power by lowering its exponent but not multiplying by the old exponent: the derivative of x³ taken as x².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-plane-point-coordinates-swapped",
+        "Substituting the point's coordinates into the partial derivative the wrong way round: x0 for y and y0 for x.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-sign-slip",
+        "A sign slip in a partial derivative, giving the negative of its value.",
+        area="multivariable",
+    ),
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",
