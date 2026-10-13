@@ -1,0 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-diagrams-of-three-dimensional-objects
+name: Interpret diagrams of three-dimensional objects
+domain: measurement
+description: "Given a stack of unit cubes drawn on isometric dot paper with no gaps and no cube hidden behind another, count the cubes, work out how many more cubes would fill a stated box, or find the surface area in unit squares. Easy counts a stack one or two layers high. Medium counts a staircase three layers high, including the cubes hidden below each top. Hard either subtracts the stack from the cubes in a stated box or finds the surface area, counting the bottom and the faces that cannot be seen."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rectangular-prism-volume]
+answer: number
+sources:
+- topic: grid_cube_stack
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_cube_stack
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_cube_stack
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-columns-not-cubes
+  description: "Counts the columns seen from above, or the squares on the top layer, and so ignores the cubes stacked under each top."
+- id: assumes-a-full-box
+  description: "Multiplies width, depth and height as if the stack filled its whole box, giving the cubes in the box rather than the cubes in the stack."
+- id: counts-visible-squares
+  description: "Counts the squares of cube faces visible in the picture instead of the cubes."
+- id: gives-the-stack-for-the-gap
+  description: "Gives the cubes already in the stack, or the cubes in the whole box, when asked how many more are needed to fill the box."
+- id: surface-area-of-the-picture-only
+  description: "Finds the surface area from the faces in the picture alone, forgetting the bottom and the hidden back and left faces, or takes 6 squares for every cube."
+tags: [acara-senior-v8-4, measurement, three-dimensional-objects, isometric, cubes, acmem115]

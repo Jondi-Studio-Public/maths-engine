@@ -145,18 +145,19 @@ _ROLLS = {
 }
 
 
-def is_cube_net(cells) -> bool:
-    """True when the six cells fold into a cube.
+def cube_net_faces(cells) -> dict[Cell, str] | None:
+    """Which face of a cube lands on each cell when the net is folded, or None when the cells are not a net.
 
-    A cube is rolled across the net from one cell, so each cell is the face that lands on it. The cells fold
-    into a cube exactly when they are six, joined by edges, with no two by two block (four squares round a
-    corner cannot fold), and the roll lands a different face on each.
+    A cube is rolled across the net from its lowest-leftmost cell, so each cell is the face that lands on it. A
+    face is named by the way it pointed before the roll: the first cell is ``"bottom"``, and the cell opposite
+    it once folded is ``"top"``. The cells fold into a cube exactly when they are six, joined by edges, with no
+    two by two block (four squares round a corner cannot fold), and the roll lands a different face on each.
     """
-    cells = set(cells)
+    cells = {tuple(c) for c in cells}
     if len(cells) != 6 or not connected(cells):
-        return False
+        return None
     if any({(x + 1, y), (x, y + 1), (x + 1, y + 1)} <= cells for x, y in cells):
-        return False
+        return None
     start = min(cells)
     # orientation: which original face now points each way
     faces = {d: d for d in ("bottom", "top", "east", "west", "north", "south")}
@@ -170,7 +171,16 @@ def is_cube_net(cells) -> bool:
                 moved = {direction: here[roll.get(direction, direction)] for direction in here}
                 landed[n] = moved["bottom"]
                 todo.append((n, moved))
-    return len(set(landed.values())) == 6
+    return landed if len(set(landed.values())) == 6 else None
+
+
+#: The face opposite each face of a cube, by the names `cube_net_faces` uses.
+OPPOSITE_FACE = {"bottom": "top", "top": "bottom", "east": "west", "west": "east", "north": "south", "south": "north"}
+
+
+def is_cube_net(cells) -> bool:
+    """True when the six cells fold into a cube (see `cube_net_faces`)."""
+    return cube_net_faces(cells) is not None
 
 
 # ---------------------------------------------------------------- grader

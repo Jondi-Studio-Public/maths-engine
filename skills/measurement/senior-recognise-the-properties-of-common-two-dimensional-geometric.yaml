@@ -1,0 +1,39 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-properties-of-common-two-dimensional-geometric
+name: Recognise the properties of common two-dimensional geometric shapes and three-dimensional solids
+domain: measurement
+description: "Recognise the properties of polygons, prisms and pyramids, and the cuboid of unit cubes on isometric dot paper. Easy reads the three lengths of a drawn cuboid and counts its edges by length or its faces by shape or area. Medium, in words only, counts the faces, edges or vertices of a named prism or pyramid, or the diagonals of a polygon. Hard, in words only, uses Euler's rule that vertices plus faces minus edges is 2, and the shape of a prism or a pyramid, to find one count from another."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-nets-build-solids]
+answer: number
+sources:
+- topic: grid_solid_properties
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_solid_properties
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_solid_properties
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-the-lengths-not-the-edges
+  description: "Gives the number of lengths that match, 1, 2 or 3, instead of the number of edges, which come four to a length."
+- id: miscounts-square-faces
+  description: "Takes the faces to be squares because the end looks square, or counts the faces of a different type or pair."
+- id: forgets-a-base-or-confuses-counts
+  description: "Leaves out a base when counting the faces of a prism or pyramid, or gives the number of faces when asked for edges or vertices."
+- id: counts-every-pair-as-a-diagonal
+  description: "Counts the sides, or every pair of vertices, or forgets that each diagonal joins two vertices, when counting diagonals."
+- id: misremembers-eulers-rule
+  description: "Adds the faces and vertices and forgets to take away 2, or takes edges from faces and vertices the wrong way round."
+- id: misreads-the-base-from-the-count
+  description: "Takes the number of edges, faces or vertices of a prism or pyramid to be the number of sides of its base."
+tags: [acara-senior-v8-4, measurement, geometric-shapes, solids, faces-edges-vertices, acmem105]

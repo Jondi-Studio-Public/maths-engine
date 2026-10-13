@@ -1,14 +1,37 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
 id: f10-nets-build-solids
 name: Connect nets and three-dimensional objects
 domain: primary-geometry-time
-description: Match a net to a solid, construct a solid from a valid net and explain how faces meet.
-status: deferred
-deferred_reason: visual
-capability_gates:
-- visual_construction
-prerequisites:
-- name-basic-shapes
-answer: ""
-sources: []
-misconceptions: []
-tags: []
+year_level: ['5']
+naplan_domain: [space]
+description: "Connect nets to the solids they fold into, drawn on a square grid. Easy names the solid a drawn net folds into, from a cube, a cuboid, a square pyramid and a triangular prism. Medium picks the one net of a cube from four drawings of six squares. Hard names the face that is opposite a lettered face once a cube net is folded."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [name-basic-shapes]
+answer: mcq
+sources:
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: matches-a-net-by-face-count
+  description: "Names the solid from how many faces it has or from the face shapes alone: six rectangles taken for a cube, or any four-sided base taken for a pyramid."
+- id: picks-a-net-by-looks
+  description: "Calls any drawing of six joined squares a net of a cube, without folding it: a two by two block or a long row of squares cannot fold into a cube."
+- id: opposite-is-the-neighbour
+  description: "Names a face that touches the marked face in the net, forgetting that touching faces fold to meet at an edge."
+- id: opposite-is-across-the-row
+  description: "Names the face at the far end of the marked face's row or column, forgetting that faces two apart in a row are the ones that end up opposite."
+tags: [acara-f10-v9, primary, geometry, nets, solids, ac9m5sp01]
