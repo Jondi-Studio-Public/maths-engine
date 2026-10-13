@@ -280,7 +280,7 @@ def salg_exam_de_moivre_power(rng, tier="exam"):
         abs(complex(power) - complex(2**n * cmath.exp(1j * math.radians(n * theta0)))) < 1e-6,
         "power differs from cmath",
     )
-    power_text = _typed_complex(sp.nsimplify(power))
+    power_text = _typed_complex(power)
     check(power_text.replace("i", "I") != "", "empty power text")
     ref = {1: theta0, 2: 180 - theta0, 3: theta0 - 180, 4: 360 - theta0}[theta0 // 90 + 1]
     two_n = 2**n
@@ -309,9 +309,10 @@ def salg_exam_de_moivre_power(rng, tier="exam"):
             value = sp.conjugate(value)
         if swap:
             value = modulus * (sp.sin(sp.pi * angle / 180) + sp.I * sp.cos(sp.pi * angle / 180))
-        value = sp.nsimplify(sp.expand(value))
+        value = sp.expand(value)
         text = _typed_complex(value)
-        return Distractor(text, tag, text), sp.simplify(value - power) != 0
+        # Both sides are exact algebraic numbers, so a float comparison far above rounding error is decisive.
+        return Distractor(text, tag, text), abs(complex(value) - complex(power)) > 1e-9
 
     d_cands = []
     for args in (
@@ -372,7 +373,7 @@ def salg_exam_de_moivre_power(rng, tier="exam"):
                 answer_kind="expression",
                 answer=power_text,
                 answer_text=power_text,
-                answer_latex=latex_answer(sp.nsimplify(power)),
+                answer_latex=latex_answer(power),
                 marks=3,
                 follow_through=f"part_a**{n}*(cos({n}*part_b*pi/180) + I*sin({n}*part_b*pi/180))",
                 working=[

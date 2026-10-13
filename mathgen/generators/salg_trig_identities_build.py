@@ -411,6 +411,13 @@ def salg_trig_identities(rng, tier="easy"):
 # -- exam -------------------------------------------------------------------------------------------------------
 
 
+_EXAM_STEMS = (
+    "Given that tan θ = {tan} and {q}.",
+    "The angle θ satisfies tan θ = {tan} and {q}.",
+    "It is known that tan θ = {tan} and {q}.",
+)
+
+
 @generator("salg_exam_trig_identities", level=12, presets={"exam": dict(tier="exam")})
 def salg_exam_trig_identities(rng, tier="exam"):
     """Exam chain: sec²θ, sec θ, cos θ and sin θ from tan θ and the quadrant of θ."""
@@ -468,7 +475,7 @@ def salg_exam_trig_identities(rng, tier="exam"):
 
     sign = "sqrt(part_a)" if cos_sign > 0 else "-sqrt(part_a)"
     return dict(
-        text=f"Given that tan θ = {tan_text} and {q_text}.",
+        text=phrase(rng, _EXAM_STEMS, tan=tan_text, q=q_text),
         parts=[
             frac_part(
                 "Find the exact value of sec²θ.",

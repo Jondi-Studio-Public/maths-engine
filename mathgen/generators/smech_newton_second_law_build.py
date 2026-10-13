@@ -263,6 +263,9 @@ _EXAM_STEMS = (
     "Three forces act on a {m} kg puck sliding on smooth ice: F1 = ({f1x}, {f1y}) N, F2 = ({f2x}, {f2y}) N "
     "and a third force P that is not known. The puck's acceleration is ({ax}, {ay}) m/s², where the components "
     "are east and north.",
+    "A {m} kg trolley moves on a smooth horizontal floor under three forces, written as (east, north) components: "
+    "F1 = ({f1x}, {f1y}) N, F2 = ({f2x}, {f2y}) N and an unknown force P. Its acceleration is "
+    "({ax}, {ay}) m/s².",
 )
 
 

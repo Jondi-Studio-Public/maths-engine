@@ -87,17 +87,24 @@ def _wrong_expansions(n: int, a: int, b: int, *, with_pascal: bool = True) -> li
 
 
 def _distractors(n, a, b, first, second, true_expr, true_text, count=3) -> list[Distractor]:
+    # Two expansions in the same monomials are equal exactly when their coefficient lists are, so distinctness is
+    # decided on the integer lists; SymPy only builds the expression for the few distractors that are kept.
+    seen = {tuple(_true_coeffs(n, a, b))}
     cands = []
-    seen = [true_expr]
     for tag, coeffs in _wrong_expansions(n, a, b):
-        text, expr = _build(n, coeffs, first, second)
-        if any(sp.expand(expr - other) == 0 for other in seen):
+        if tuple(coeffs) in seen:
             continue
-        seen.append(expr)
-        cands.append(Distractor(text, tag, typed(expr)))
-    picked = pick_distractors(true_text, cands, count)
+        seen.add(tuple(coeffs))
+        text = join_terms([(coeffs[k], _term_var(first, second, n - k, k)) for k in range(n + 1)])
+        cands.append((text, tag, coeffs))
+    by_text = {text: (tag, coeffs) for text, tag, coeffs in cands}
+    picked = pick_distractors(true_text, [Distractor(text, tag, None) for text, tag, _c in cands], count)
     check(len(picked) >= 2, f"too few expansion distractors for n={n}, a={a}, b={b}")
-    return picked
+    out = []
+    for d in picked:
+        tag, coeffs = by_text[d.text]
+        out.append(Distractor(d.text, tag, typed(_build(n, coeffs, first, second)[1])))
+    return out
 
 
 def _base_text(a: int, b: int, first: str, second: str | None) -> str:

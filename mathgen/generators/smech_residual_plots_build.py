@@ -185,6 +185,17 @@ def _plot_question(rng, patterns, tier):
 # ------------------------------------------------------------------------------------------------ hard
 
 
+_TABLE_STEMS = (
+    "A least-squares line is fitted to nine observations, and the coefficient of determination is r² = {r2}. "
+    "The residuals, in order of x, are: {listed}. Which statement about using a linear model for these data "
+    "is correct?",
+    "Nine observations are modelled by a least-squares line with r² = {r2}. The residuals, in order of x, are: "
+    "{listed}. Which conclusion about the linear model is correct?",
+    "A least-squares line fitted to nine data points has a coefficient of determination of r² = {r2}. Its "
+    "residuals, in order of x, are: {listed}. What can be concluded about using a linear model?",
+)
+
+
 def _table_question(rng):
     truth = rng.choice(("curved", "random"))
     res = _draw_pattern(rng, truth)
@@ -207,11 +218,7 @@ def _table_question(rng):
                 "Not appropriate: some residuals are positive and some are negative", "mech-sign-mix-taken-as-pattern"
             ),
         ]
-    text = (
-        f"A least-squares line is fitted to nine observations, and the coefficient of determination is r² = {dec(r2)}. "
-        f"The residuals, in order of x, are: {listed}. Which statement about using a linear model for these data "
-        f"is correct?"
-    )
+    text = phrase(rng, _TABLE_STEMS, r2=dec(r2), listed=listed)
     signs = "".join("+" if r > 0 else "-" for r in res)
     working = [f"Signs of the residuals in order of x: {signs}.", f"The residuals show a {truth} pattern, so: {key}."]
     return dict(text=text, answer=key, answer_text=key, answer_kind="mcq", distractors=wrong, working=working)

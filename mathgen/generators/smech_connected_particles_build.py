@@ -28,7 +28,7 @@ from __future__ import annotations
 import math
 from fractions import Fraction
 
-from ..core import attempts, check, draw_until, generator
+from ..core import attempts, check, draw_until, generator, phrase
 from ._smech_kit import G, G_NOTE, clear_of_boundary, dec, is_exact, number_fields, number_part
 
 _VEHICLES = (("car", "trailer"), ("truck", "trailer"), ("ute", "caravan"), ("tractor", "trailer"))
@@ -200,6 +200,20 @@ def smech_connected_particles(rng, tier: str = "easy"):
 
 # ------------------------------------------------------------------------------------------------ exam
 
+_EXAM_STEMS = (
+    "A block of mass {m1} kg rests on a rough horizontal table. The coefficient of friction between the block "
+    "and the table is {mu}. The block is joined by a light inextensible string, passing over a smooth pulley "
+    "at the edge of the table, to a mass of {m2} kg hanging freely. The system is released from rest and the "
+    "string stays taut. {g}",
+    "A block of mass {m1} kg is placed on a rough horizontal table, and the coefficient of friction between the "
+    "block and the table is {mu}. A light inextensible string runs from the block over a smooth pulley at the "
+    "edge of the table to a mass of {m2} kg hanging freely. Both are released from rest and the string "
+    "stays taut. {g}",
+    "A light inextensible string joins a block of mass {m1} kg, resting on a rough horizontal table, over a "
+    "smooth pulley at the edge of the table to a mass of {m2} kg hanging freely. The coefficient of friction "
+    "between the block and the table is {mu}. The system is released from rest and the string stays taut. {g}",
+)
+
 _MUS = (Fraction(1, 10), Fraction(1, 5), Fraction(1, 4), Fraction(3, 10))
 
 
@@ -227,12 +241,7 @@ def smech_connected_particles_exam(rng):
     # Second route: F = ma for each body separately, solved together.
     check(tension - friction == m1 * a and m2 * G - tension == m2 * a, "the bodies' own equations disagree")
     check(abs(speed * speed - float(speed_sq)) < 1e-9, "speed does not square back")
-    stem = (
-        f"A block of mass {m1} kg rests on a rough horizontal table. The coefficient of friction between the block "
-        f"and the table is {dec(mu)}. The block is joined by a light inextensible string, passing over a smooth pulley "
-        f"at the edge of the table, to a mass of {m2} kg hanging freely. The system is released from rest and the "
-        f"string stays taut. {G_NOTE}"
-    )
+    stem = phrase(rng, _EXAM_STEMS, m1=m1, m2=m2, mu=dec(mu), g=G_NOTE)
     part_a = number_part(
         "Find the friction force on the block, in newtons, correct to 2 decimal places.",
         friction,

@@ -20,6 +20,7 @@ the complementary reference angle.
 from __future__ import annotations
 
 import math
+from functools import lru_cache
 
 import sympy as sp
 
@@ -46,12 +47,19 @@ _FLOAT = {
 }
 
 
+@lru_cache(maxsize=None)
 def value(fn: str, theta: sp.Expr) -> sp.Expr:
     """The exact value of `fn` at `theta` (radians), checked against the float route."""
     exact = sp.radsimp(sp.nsimplify(_FUNCS[fn](theta)))
     check(exact.is_real, f"{fn}({theta}) is not real")
     check(abs(float(exact) - _FLOAT[fn](float(theta))) < 1e-9, f"{fn}({theta}) differs from the float route")
     return exact
+
+
+@lru_cache(maxsize=None)
+def _clean(val: sp.Expr) -> sp.Expr:
+    """`val` in simplest radical form; cached, because the same few exact values recur across questions."""
+    return sp.radsimp(sp.nsimplify(val))
 
 
 def defined(fn: str, theta: sp.Expr) -> bool:
@@ -105,7 +113,7 @@ def distractors(fn, theta, true, count=3, extra=()):
     cands = []
     seen = [true]
     for val, tag in [*wrong_values(fn, theta, true), *extra]:
-        val = sp.radsimp(sp.nsimplify(val))
+        val = _clean(val)
         if any(abs(float(val) - float(s)) < 1e-9 for s in seen):
             continue
         seen.append(val)
@@ -244,6 +252,13 @@ def _exam_angles() -> list[sp.Rational]:
 _EXAM_ANGLES = _exam_angles()
 
 
+_FIRST_PROMPTS = (
+    "Find the exact value of sin θ.",
+    "Write down the exact value of sin θ.",
+    "Use the unit circle to find the exact value of sin θ.",
+)
+
+
 @generator("salg_exam_reciprocal_trig_values", level=11, presets={"exam": dict(tier="exam")})
 def salg_exam_reciprocal_trig_values(rng, tier="exam"):
     """Exam chain: sin θ, cos θ, hence cosec θ, hence cot θ at a standard angle outside the first quadrant."""
@@ -273,7 +288,7 @@ def salg_exam_reciprocal_trig_values(rng, tier="exam"):
     return dict(
         text=f"Let θ = {at}.",
         parts=[
-            part("Find the exact value of sin θ.", "sin", s, 1, working=[f"sin θ = {_say(s)}."]),
+            part(phrase(rng, _FIRST_PROMPTS), "sin", s, 1, working=[f"sin θ = {_say(s)}."]),
             part("Find the exact value of cos θ.", "cos", c, 1, working=[f"cos θ = {_say(c)}."]),
             part(
                 "Hence find the exact value of cosec θ.",

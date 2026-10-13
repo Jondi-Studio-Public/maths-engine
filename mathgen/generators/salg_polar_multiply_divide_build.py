@@ -92,7 +92,11 @@ def _easy(rng):
     ]
     return _pair_question(
         rng,
-        ("Let {z} and {w}. Find zw.", "Given {z} and {w}, find zw."),
+        (
+            "Let {z} and {w}. Find zw.",
+            "Given {z} and {w}, find zw.",
+            "Two complex numbers are {z} and {w}. Find zw.",
+        ),
         dict(z=_label("z", r1, t1), w=_label("w", r2, t2)),
         r,
         theta,
@@ -128,7 +132,11 @@ def _medium(rng):
     ]
     return _pair_question(
         rng,
-        ("Let {z} and {w}. Find z/w.", "Given {z} and {w}, find z/w."),
+        (
+            "Let {z} and {w}. Find z/w.",
+            "Given {z} and {w}, find z/w.",
+            "Two complex numbers are {z} and {w}. Find z/w.",
+        ),
         dict(z=_label("z", r1, t1), w=_label("w", r2, t2)),
         r,
         theta,
@@ -268,6 +276,13 @@ def salg_polar_multiply_divide(rng, tier="easy"):
 # -- exam -------------------------------------------------------------------------------------------------------
 
 
+_EXAM_STEMS = (
+    "Let {z}, {w} and {u}.",
+    "Three complex numbers are {z}, {w} and {u}.",
+    "Given {z}, {w} and {u}, consider the product zw and the quotient zw/u.",
+)
+
+
 @generator("salg_exam_polar_multiply_divide", level=12, presets={"exam": dict(tier="exam")})
 def salg_exam_polar_multiply_divide(rng, tier="exam"):
     """Exam chain: |zw|, Arg zw, then |zw/u| and Arg zw/u by following through."""
@@ -308,7 +323,13 @@ def salg_exam_polar_multiply_divide(rng, tier="exam"):
         return part
 
     return dict(
-        text=f"Let {_label('z', r1, t1)}, {_label('w', r2, t2)} and {_label('u', r3, t3)}.",
+        text=phrase(
+            rng,
+            _EXAM_STEMS,
+            z=_label("z", r1, t1),
+            w=_label("w", r2, t2),
+            u=_label("u", r3, t3),
+        ),
         parts=[
             number_part(
                 "Find the modulus of zw.",
