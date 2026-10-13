@@ -1,6 +1,8 @@
 id: f10-nets-build-solids
 name: Connect nets and three-dimensional objects
 domain: primary-geometry-time
+year_level: ['5']
+naplan_domain: [space]
 description: Given a drawn net, name the solid it folds into, decide whether squares joined edge to edge fold into a cube (and why not), and find which corners of a lettered cube net meet when it is folded. The exam chain works from a drawn net of a closed box with measurements marked, to its width, surface area and volume.
 status: active
 capability_gates: [figure_stimulus]

@@ -1,6 +1,8 @@
 id: f10-sample-size-and-reliability
 name: Judge how sample size affects an estimate
 domain: statistics-probability
+year_level: ['6', '7']
+naplan_domain: [probability]
 description: 'Use the number of trials to judge and improve an experimental estimate: combine results from several
   experiments into one, choose the estimate that rests on the most trials, and see that a larger experiment sits
   closer to the theoretical probability. Easy combines two sets of results. Medium picks the most reliable of three

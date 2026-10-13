@@ -1,6 +1,8 @@
 id: f10-relative-frequency-estimate
 name: Estimate a probability from relative frequency
 domain: statistics-probability
+year_level: ['5']
+naplan_domain: [probability]
 description: Estimate a probability from a table of trial results by dividing the number of times an event happened
   by the total number of trials. Easy estimates the probability of one category. Medium estimates an event made
   of two categories, or the event that a category does not occur. Hard gives the relative frequencies as percentages

@@ -1,6 +1,8 @@
 id: f10-expected-versus-observed
 name: Compare expected and observed frequencies
 domain: statistics-probability
+year_level: ['6', '7']
+naplan_domain: [probability]
 description: 'Predict how many times an event should happen in a number of trials from its theoretical probability,
   then compare the prediction with the number that happened in an experiment. Easy finds the expected count from
   a die, a spinner or a bag. Medium finds how far the observed count is from the expected count. Hard needs a second
