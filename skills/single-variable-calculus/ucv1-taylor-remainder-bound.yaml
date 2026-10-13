@@ -1,0 +1,72 @@
+id: ucv1-taylor-remainder-bound
+name: Bound the error of a Taylor approximation with the Lagrange remainder
+domain: single-variable-calculus
+description: Use the Lagrange form of the remainder to bound the error of a Taylor polynomial, find the bound on the derivative
+  needed for it, and find the degree that guarantees a stated accuracy.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-taylor-polynomial
+answer: fraction
+sources:
+- topic: fy1so_taylor_remainder
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1so_taylor_remainder
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1so_taylor_remainder
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1so_exd_taylor_remainder
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: remainder-bound-not-applied
+  description: Giving the approximation itself where the end of the interval it fixes was asked for.
+- id: remainder-bound-subtracted-the-wrong-way
+  description: Subtracting the approximation from the bound where the bound is taken away from the approximation.
+- id: remainder-degree-off-by-one
+  description: Applying the remainder formula for the polynomial one degree higher or lower than the one asked about.
+- id: remainder-derivative-bound-ignored
+  description: Leaving the bound M on the derivative out of the Lagrange error bound, as if it were 1.
+- id: remainder-derivative-order-off-by-one
+  description: Bounding the n-th derivative where the (n+1)-th derivative is needed (or the reverse) for the Lagrange remainder.
+- id: remainder-factorial-dropped
+  description: Leaving the factorial out of the Lagrange remainder altogether.
+- id: remainder-factorial-index
+  description: Dividing by n! where the Lagrange remainder of a degree-n polynomial has (n+1)!.
+- id: remainder-max-at-wrong-endpoint
+  description: Taking the largest size of a decreasing derivative at the far end of the interval instead of at the near
+    end.
+- id: remainder-power-off-by-one
+  description: Using |x - a|^n where the Lagrange remainder of a degree-n polynomial has |x - a|^(n+1).
+- id: remainder-terms-for-degree
+  description: Giving the number of terms of the polynomial (one more than its degree) where the degree was asked for.
+- id: remainder-wrong-end-of-interval
+  description: Giving the upper end of the interval (the approximation plus the bound) where the lower end was asked for.
+- id: taylor-derivative-not-divided
+  description: Giving the k-th derivative at the centre as the coefficient, without dividing by k!.
+- id: taylor-polynomial-term-dropped
+  description: Leaving the highest-degree term out when evaluating a Taylor polynomial.
+- id: taylor-polynomial-wrong-degree
+  description: Evaluating a polynomial of the wrong degree, with one term too many.
+- id: taylor-powers-of-x-ignored
+  description: Multiplying each coefficient by x instead of by the matching power of x when evaluating a polynomial.
+tags:
+- first-year-university
+- single-variable-calculus
+- taylor-series

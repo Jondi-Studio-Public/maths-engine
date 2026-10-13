@@ -287,6 +287,166 @@ _ENTRIES = (
         "Computing a 2×2 determinant as ad + bc, or as bc − ad.",
         area="matrices",
     ),
+    CatalogueEntry(
+        "taylor-derivative-not-divided",
+        "Giving the k-th derivative at the centre as the coefficient, without dividing by k!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-inner-coefficient-ignored",
+        "Using the series of the outer function and leaving out the inner coefficient: the coefficient of x^k in e^(ax) given as 1/k!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-inner-coefficient-not-powered",
+        "Writing the inner coefficient a where a^k belongs: the coefficient of x^k in e^(ax) given as a/k! instead of a^k/k!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-wrong-factorial",
+        "Dividing by the wrong factorial, or by k where k! belongs, so the coefficient is out by a factor of k or k!/(k-1)!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-series-sign-pattern",
+        "Getting the sign pattern of the standard series wrong, so the coefficient has the opposite sign.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-derivative-order-off-by-one",
+        "Using the (k-1)-th derivative for the coefficient of the k-th power.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-expansion-point-ignored",
+        "Evaluating the derivative at x = 1 (or x = 0) instead of at the stated centre of the expansion.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-product-coefficientwise",
+        "Multiplying the two coefficients of x^k instead of collecting every pair of terms whose powers add to k.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-product-cross-terms-dropped",
+        "Collecting only the terms that pair x^k with a constant, and missing the middle pairs of a product of series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-product-pair-missing",
+        "Leaving one pair of terms out when collecting the coefficient of a product of series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-composite-order-mismatch",
+        "Taking the term of the outer series that matches the power of x instead of the power of the inner expression.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-order-confused",
+        "Giving the coefficient of the wrong power of x (x^3 for x^2, or the reverse).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-polynomial-term-dropped",
+        "Leaving the highest-degree term out when evaluating a Taylor polynomial.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-polynomial-wrong-degree",
+        "Evaluating a polynomial of the wrong degree, with one term too many.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-powers-of-x-ignored",
+        "Multiplying each coefficient by x instead of by the matching power of x when evaluating a polynomial.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-error-of-lower-degree",
+        "Finding the error of a lower-degree polynomial than the one asked about.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-approximation-reported-as-error",
+        "Reporting the approximate value where the size of the error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-value-reported-as-error",
+        "Reporting the true value of the function where the size of the error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-error-sign-ignored",
+        "Reporting the signed difference between the approximation and the true value where the (positive) error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-relative-error",
+        "Reporting the error as a fraction of the true value where the absolute error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-error-of-higher-degree",
+        "Finding the error of a higher-degree polynomial than the one asked about.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-power-off-by-one",
+        "Using |x - a|^n where the Lagrange remainder of a degree-n polynomial has |x - a|^(n+1).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-factorial-index",
+        "Dividing by n! where the Lagrange remainder of a degree-n polynomial has (n+1)!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-factorial-dropped",
+        "Leaving the factorial out of the Lagrange remainder altogether.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-degree-off-by-one",
+        "Applying the remainder formula for the polynomial one degree higher or lower than the one asked about.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-derivative-order-off-by-one",
+        "Bounding the n-th derivative where the (n+1)-th derivative is needed (or the reverse) for the Lagrange remainder.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-derivative-bound-ignored",
+        "Leaving the bound M on the derivative out of the Lagrange error bound, as if it were 1.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-max-at-wrong-endpoint",
+        "Taking the largest size of a decreasing derivative at the far end of the interval instead of at the near end.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-terms-for-degree",
+        "Giving the number of terms of the polynomial (one more than its degree) where the degree was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-wrong-end-of-interval",
+        "Giving the upper end of the interval (the approximation plus the bound) where the lower end was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-bound-not-applied",
+        "Giving the approximation itself where the end of the interval it fixes was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-bound-subtracted-the-wrong-way",
+        "Subtracting the approximation from the bound where the bound is taken away from the approximation.",
+        area="series",
+    ),
 )
 
 #: Every entry, by id.

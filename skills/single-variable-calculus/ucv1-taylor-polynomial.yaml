@@ -1,0 +1,85 @@
+id: ucv1-taylor-polynomial
+name: Taylor and Maclaurin polynomials of order 2 to 4
+domain: single-variable-calculus
+description: Find the coefficients of a Taylor or Maclaurin polynomial of degree 2 to 4 for a standard function, a shifted
+  centre, a product or a composite, and use the polynomial to approximate a value and measure the error.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-taylor-linear-approximation
+answer: fraction
+sources:
+- topic: fy1so_taylor_polynomial
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1so_taylor_polynomial
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1so_taylor_polynomial
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1so_exd_taylor_polynomial
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: taylor-approximation-reported-as-error
+  description: Reporting the approximate value where the size of the error was asked for.
+- id: taylor-composite-order-mismatch
+  description: Taking the term of the outer series that matches the power of x instead of the power of the inner expression.
+- id: taylor-derivative-not-divided
+  description: Giving the k-th derivative at the centre as the coefficient, without dividing by k!.
+- id: taylor-derivative-order-off-by-one
+  description: Using the (k-1)-th derivative for the coefficient of the k-th power.
+- id: taylor-error-of-higher-degree
+  description: Finding the error of a higher-degree polynomial than the one asked about.
+- id: taylor-error-of-lower-degree
+  description: Finding the error of a lower-degree polynomial than the one asked about.
+- id: taylor-error-sign-ignored
+  description: Reporting the signed difference between the approximation and the true value where the (positive) error was
+    asked for.
+- id: taylor-expansion-point-ignored
+  description: Evaluating the derivative at x = 1 (or x = 0) instead of at the stated centre of the expansion.
+- id: taylor-inner-coefficient-ignored
+  description: 'Using the series of the outer function and leaving out the inner coefficient: the coefficient of x^k in
+    e^(ax) given as 1/k!.'
+- id: taylor-inner-coefficient-not-powered
+  description: 'Writing the inner coefficient a where a^k belongs: the coefficient of x^k in e^(ax) given as a/k! instead
+    of a^k/k!.'
+- id: taylor-order-confused
+  description: Giving the coefficient of the wrong power of x (x^3 for x^2, or the reverse).
+- id: taylor-polynomial-term-dropped
+  description: Leaving the highest-degree term out when evaluating a Taylor polynomial.
+- id: taylor-polynomial-wrong-degree
+  description: Evaluating a polynomial of the wrong degree, with one term too many.
+- id: taylor-powers-of-x-ignored
+  description: Multiplying each coefficient by x instead of by the matching power of x when evaluating a polynomial.
+- id: taylor-product-coefficientwise
+  description: Multiplying the two coefficients of x^k instead of collecting every pair of terms whose powers add to k.
+- id: taylor-product-cross-terms-dropped
+  description: Collecting only the terms that pair x^k with a constant, and missing the middle pairs of a product of series.
+- id: taylor-product-pair-missing
+  description: Leaving one pair of terms out when collecting the coefficient of a product of series.
+- id: taylor-series-sign-pattern
+  description: Getting the sign pattern of the standard series wrong, so the coefficient has the opposite sign.
+- id: taylor-value-reported-as-error
+  description: Reporting the true value of the function where the size of the error was asked for.
+- id: taylor-wrong-factorial
+  description: Dividing by the wrong factorial, or by k where k! belongs, so the coefficient is out by a factor of k or
+    k!/(k-1)!.
+tags:
+- first-year-university
+- single-variable-calculus
+- taylor-series
