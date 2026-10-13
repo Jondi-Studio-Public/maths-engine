@@ -1,6 +1,8 @@
 id: f10-number-represent-order-to-20
 name: Represent and order numbers to 20
 domain: early-foundations
+year_level: [F]
+naplan_domain: [number]
 learner_band: early
 description: Given a stated set of whole numbers, including zero, up to 20, arrange them in order.
 status: active

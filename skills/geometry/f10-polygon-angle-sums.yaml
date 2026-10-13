@@ -1,6 +1,7 @@
 id: f10-polygon-angle-sums
 name: Use polygon interior angle sums
 domain: geometry
+year_level: ['7']
 description: Given a stated polygon (by its number of sides) and all interior angles except one, determine the size of the unknown angle in degrees using the polygon's interior angle sum.
 status: active
 placement_eligible: false

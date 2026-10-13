@@ -1,6 +1,7 @@
 id: euclidean-algorithm-gcd
 name: Compute a greatest common divisor
 domain: number-theory
+year_level: [university]
 description: Compute the greatest common divisor of two or three positive integers using repeated Euclidean remainders.
 status: active
 prerequisites: [list-factors]

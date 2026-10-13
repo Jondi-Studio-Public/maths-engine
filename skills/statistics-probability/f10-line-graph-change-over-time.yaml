@@ -1,6 +1,8 @@
 id: f10-line-graph-change-over-time
 name: Interpret line graphs of change
 domain: statistics-probability
+year_level: ['5']
+naplan_domain: [statistics]
 description: Given a quantity's value at a labelled sequence of time points, drawn as a line graph on gridlines (the prompt does not list the data), and one stated claim drawn from a fixed class (the value at a stated time point, the direction or size of the change between two stated time points, or whether the value rose, fell or stayed the same across every consecutive pair of time points), classify the claim as supported or not supported by the graph. Open description of relationships/trends is excluded, as is any claim outside the three named classes.
 status: active
 capability_gates: [figure_stimulus]

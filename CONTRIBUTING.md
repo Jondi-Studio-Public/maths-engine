@@ -86,8 +86,10 @@ and the shape of what `make()` returns.
    every candidate and not only on a sample. Typed numeric answers are graded
    to their own stated precision. Fraction answers are compared by value, so a
    "does not simplify" distractor cannot be built.
-5. **Keep it fast.** `python scripts/check_generator_speed.py` fails if the
-   median `make()` takes over 250 ms and flags anything over 15 ms.
+5. **Keep it fast.** `python scripts/check_generator_speed.py` times the median of 8
+   `make()` calls for every topic's bare default and for every distinct (topic,
+   difficulty, params) a skill source uses. It fails if a median is over 250 ms, if
+   a call raises or runs for over 5 s, and flags anything over 15 ms.
 6. **Add tests** that call the generator across many seeds, grade its own
    answer as correct, and grade each distractor as wrong.
 7. **Never write an uncapped loop.** A `while True:` that redraws until a
@@ -119,6 +121,19 @@ text, its id starts with `senior-` and its file starts with the same two
 comment lines as every other `senior-*` file (copy them from any of those);
 `tests/public/test_skill_headers.py` checks this. For Australian Curriculum
 text from anywhere else, ask in the pull request how to credit it.
+
+## Finding a generator, and the nightly sweep
+
+`skills/index.yaml` lists, for every skill, the module that registers each of its source
+topics. It is generated: after adding or renaming a skill, a source topic or a generator
+module, run `python scripts/build_skill_index.py --write` (a test fails while it is stale).
+`python scripts/build_skill_index.py --where <skill-or-topic>` prints the file and line.
+
+A scheduled workflow (`.github/workflows/nightly.yml`) runs
+`python scripts/sweep_skills.py`: seeds 0 to 39 of every source of every active skill, each
+checked for an exception, a timeout of over 10 s, an answer that does not grade correct and
+a distractor that does. Run it locally with `--skills <id> --seeds 5`; add `--text-quality`
+to apply `mathgen/text_quality.py` too.
 
 ## Pull requests
 

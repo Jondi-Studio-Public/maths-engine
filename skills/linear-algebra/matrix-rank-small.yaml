@@ -1,6 +1,7 @@
 id: matrix-rank-small
 name: Compute rank of a small matrix
 domain: linear-algebra
+year_level: [university]
 description: Compute the rank of a small integer matrix by identifying independent pivot rows.
 status: active
 prerequisites: [matrix-determinant-2x2]

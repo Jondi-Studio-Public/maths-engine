@@ -1,6 +1,7 @@
 id: ucv1-definition-quantifier-check
 name: Check definitions and quantifiers
 domain: proof-and-foundations
+year_level: [university]
 description: For a supplied finite relation between two stated sets, identify one of its domain, codomain, quantifier scope, or whether it is a function.
 status: active
 placement_eligible: false

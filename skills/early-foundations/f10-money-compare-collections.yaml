@@ -1,6 +1,8 @@
 id: f10-money-compare-collections
 name: Compare the value of collections of coins and notes
 domain: early-foundations
+year_level: ['2']
+naplan_domain: [number]
 learner_band: primary
 description: Read pictures of two or three collections of Australian coins and notes and choose the one worth the most, the least, or say they are worth the same.
 status: active

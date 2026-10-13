@@ -1,6 +1,8 @@
 id: f10-multiplication-facts-3-4-5-10
 name: Derive multiplication and division fact families
 domain: primary-number
+year_level: ['3']
+naplan_domain: [algebra]
 description: Given a multiplication fact within the 3, 4, 5 or 10 times tables, state the fact's product and the quotient of one specified related division fact derived from it.
 status: active
 placement_eligible: false

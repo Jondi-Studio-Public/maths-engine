@@ -1,6 +1,8 @@
 id: midpoint-two-points
 name: Calculate the midpoint of two Cartesian points
 domain: linear-relations
+year_level: ['9']
+naplan_domain: [algebra]
 description: Calculate the exact midpoint ordered pair of two supplied Cartesian points.
 status: active
 placement_eligible: false

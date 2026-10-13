@@ -1,6 +1,7 @@
 id: ucv1-residue-simple-pole
 name: Compute the residue at a supplied simple pole
 domain: complex-analysis
+year_level: [university]
 description: Compute the residue of a supplied rational function at a stated simple pole by the local limit formula.
 status: active
 placement_eligible: false

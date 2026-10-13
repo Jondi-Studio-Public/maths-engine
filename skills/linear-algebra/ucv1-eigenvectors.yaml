@@ -1,6 +1,7 @@
 id: ucv1-eigenvectors
 name: Find an eigenvector of a matrix
 domain: linear-algebra
+year_level: [university]
 description: 'Find an eigenvector of a supplied integer matrix with integer eigenvalues: solve (A - λI)v = 0 for
   a 2×2 matrix with a stated eigenvalue, for a 2×2 matrix whose larger or smaller eigenvalue must be found first,
   for a triangular or block 3×3 matrix, and for a dense or defective 3×3 matrix. Any non-zero multiple of the eigenvector

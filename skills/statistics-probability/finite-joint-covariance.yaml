@@ -1,6 +1,7 @@
 id: finite-joint-covariance
 name: Compute covariance from a finite joint distribution
 domain: statistics-probability
+year_level: [university]
 description: Compute the exact covariance of two variables from a finite 2-by-2 joint distribution.
 status: active
 prerequisites:

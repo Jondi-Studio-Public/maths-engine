@@ -1,6 +1,8 @@
 id: f10-rational-percentage-estimation
 name: Estimate a percentage of a quantity
 domain: primary-number
+year_level: ['6']
+naplan_domain: [number]
 description: Estimate a percentage of a quantity using a stated benchmark percentage (10%, 25%, 50%).
 status: active
 placement_eligible: false

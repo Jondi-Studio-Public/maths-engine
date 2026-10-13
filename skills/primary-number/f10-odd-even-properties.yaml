@@ -1,6 +1,8 @@
 id: f10-odd-even-properties
 name: Use odd and even number properties
 domain: primary-number
+year_level: ['4']
+naplan_domain: [number]
 description: Predict whether the result of a stated addition, subtraction or multiplication of numbers with given parities is odd or even.
 status: active
 placement_eligible: false

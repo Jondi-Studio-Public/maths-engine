@@ -1,6 +1,7 @@
 id: f10-exponential-relations-equations
 name: Solve exponential equations by matching a common base
 domain: functions-sequences
+year_level: ['10']
 description: Given a bounded exponential equation (of the form a^x = b or a times b^x = c for stated positive values) whose solution for x is an integer or simple rational value obtainable by expressing both sides as powers of a common base, solve for x.
 status: active
 placement_eligible: false

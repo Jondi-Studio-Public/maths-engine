@@ -1,6 +1,8 @@
 id: f10-ratio-rate-financial-model
 name: Model ratio and rate practical problems
 domain: measurement
+year_level: ['7', '8']
+naplan_domain: [measurement]
 description: Given a stated ratio-or-rate financial context, determine whether a ratio or rate representation correctly models it and solve for the resulting value.
 status: active
 placement_eligible: false

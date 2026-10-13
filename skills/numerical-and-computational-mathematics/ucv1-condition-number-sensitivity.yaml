@@ -1,6 +1,7 @@
 id: ucv1-condition-number-sensitivity
 name: Estimate sensitivity from a condition number
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Bound relative output error from a supplied condition number kappa
   (kappa >= 1) and relative input error, via rel_out_bound = kappa * rel_in.
 status: active
