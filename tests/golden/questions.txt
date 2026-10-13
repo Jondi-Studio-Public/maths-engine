@@ -1050,7 +1050,7 @@
 {"answer": "Year 10 has the larger interquartile range.", "id": "f10-compare-box-plots/hard/2/5f732f3cd89e", "text": "The box plots compare the marks of two groups of students. Which statement is s…"}
 {"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/medium/0/7e7d9f463aa5", "text": "Two groups of students are shown as box plots of their times. Which plot has th…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/1/0b6cd048f392", "text": "These parallel box plots show the marks for two groups of students. Which group…"}
-{"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/a828b7dc75d7", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masss…"}
+{"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/75138002c59d", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masse…"}
 {"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/easy/0/b0e5473296a1", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
 {"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/1/1c261693d6b0", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
 {"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/2/5f2a0382ee16", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
@@ -1817,7 +1817,7 @@
 {"answer": "trapezium", "id": "f10-polygon-classification/hard/1/f9387e700e53", "text": "Consider a quadrilateral where only one pair of opposite sides is parallel, and…"}
 {"answer": "rhombus", "id": "f10-polygon-classification/hard/2/34efe5b6c2e1", "text": "Consider a quadrilateral where both pairs of opposite sides are parallel, and a…"}
 {"answer": "isosceles, not right-angled", "id": "f10-polygon-classification/medium/0/9ab7224625db", "text": "A triangle's sides measure 30, 24 and 30 units and its angles measure 66, 48 an…"}
-{"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/a3af937f5190", "text": "The sides of a triangle are 21, 9 and 23 units, and the angles are 67, 23 and 9…"}
+{"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/26699e56ef56", "text": "The sides of a triangle are 7, 24 and 25 units, and the angles are 16, 74 and 9…"}
 {"answer": "isosceles right-angled", "id": "f10-polygon-classification/medium/2/ba8520182154", "text": "The sides of a triangle are 17, 17 and 24 units, and the angles are 45, 45 and …"}
 {"answer": "to the right of", "id": "f10-position-location-language/easy/0/27d2a238a7a4", "text": "Items are arranged on a shelf, listed from left to right: the book, the lamp, t…"}
 {"answer": "below", "id": "f10-position-location-language/easy/1/1495ee53034d", "text": "Boxes are stacked in this order, from top to bottom: the red box, the blue box,…"}
@@ -7457,7 +7457,7 @@
 {"answer": "0.0495", "id": "significant-figures/medium/1/8dd4d24c0dc2", "text": "Round 0.04946 to 3 significant figures."}
 {"answer": "0.00027", "id": "significant-figures/medium/2/3a8213def9e3", "text": "Round 0.0002727 to 2 significant figures."}
 {"answer": "1/2", "id": "simple-event-probability/easy/0/3cde51c3c1ea", "text": "A bag has 5 red counters and 5 blue counters. What is P(red)?"}
-{"answer": "1/8", "id": "simple-event-probability/easy/1/11c414033dc3", "text": "A bag has 1 red counters and 7 blue counters. What is P(red)?"}
+{"answer": "1/8", "id": "simple-event-probability/easy/1/64bf07166224", "text": "A bag has 1 red counter and 7 blue counters. What is P(red)?"}
 {"answer": "1/2", "id": "simple-event-probability/easy/2/49b879302d05", "text": "A bag has 6 red counters and 6 blue counters. What is P(red)?"}
 {"answer": "(a) 5/16; (b) 17; (c) 3/11", "id": "simple-event-probability/exam/0/ada88c0fa7fb", "text": "A jar holds 5 red, 2 green and 9 blue lollies. (a) One lolly is taken at random…"}
 {"answer": "(a) 3/13; (b) 17; (c) 3/10", "id": "simple-event-probability/exam/1/59e7f3f44b17", "text": "A bag holds 3 red, 1 green and 9 blue counters. (a) One counter is taken at ran…"}
