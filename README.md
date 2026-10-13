@@ -14,7 +14,15 @@ contain a website, curriculum framework data, rubrics or learner data.
 
 ## Install
 
-Python 3.12 or newer.
+Python 3.12 or newer. From PyPI:
+
+```
+pip install maths-engine
+```
+
+The installed package carries the whole skill library, so everything below works without a
+clone, except the tests and `scripts/`, which live only in the repository. To work on the
+library itself, install from a clone:
 
 ```
 git clone https://github.com/Jondi-Studio-Public/maths-engine.git
@@ -101,7 +109,7 @@ Other useful forms:
 ```
 python -m mathgen --list                   # generator topics by level
 python -m mathgen --topic quadratic -n 5 --seed 42 --pretty
-python -m mathgen --level 9 -n 100 --out questions.jsonl    # prints: wrote 3100 questions to questions.jsonl
+python -m mathgen --level 9 -n 100 --out questions.jsonl    # prints how many questions it wrote
 ```
 
 The `--topic` command prints, for its first question:
@@ -118,7 +126,7 @@ From Python:
 ```python
 from mathgen import engine
 
-skills = engine.load_skills()[1]
+domains, skills = engine.load_skills()
 skill = next(s for s in skills if s.id == "simplify-surds")
 q = engine.make_for_skill(skill, seed=7)
 print(q.text, q.answer_text)
