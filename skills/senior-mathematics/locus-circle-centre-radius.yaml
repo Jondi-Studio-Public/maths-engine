@@ -1,6 +1,7 @@
 id: locus-circle-centre-radius
 name: Find the centre of a circle locus in the complex plane
 domain: senior-mathematics
+year_level: ['12']
 description: 'Find the centre of a circle locus as an ordered pair from the form the condition is written in: |z - w| =
   r with the signs of w to resolve, |kz + w| = m, |z - w| = |u|, a Cartesian equation with squared terms, a z z-bar equation,
   the image of a circle under w = kz + b, or a circle with two stated points as the ends of a diameter. The exam chain adds

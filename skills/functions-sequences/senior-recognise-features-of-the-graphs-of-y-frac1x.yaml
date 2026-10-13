@@ -3,6 +3,7 @@
 id: senior-recognise-features-of-the-graphs-of-y-frac1x
 name: 'Read the asymptotes of y = 1/(x - h) + k off its graph'
 domain: functions-sequences
+year_level: ['11']
 description: 'Given the graph of y = 1/(x - h) + k on a labelled integer grid with h and k integers and no asymptote drawn, state its two asymptote equations in the form x = h, y = k by reading where the branches break and where they level off. The values of h and k are never printed.'
 status: active
 capability_gates: [figure_stimulus]

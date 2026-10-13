@@ -3,6 +3,7 @@
 id: senior-find-all-solutions-of-mathrm-f-left-mathrm
 name: Find all solutions of \(\mathrm f\left(\mathrm a\left(\mathrm x-\mathrm b\right)\right)=\mathrm c\) where \(f\) is one of \(\sin\), \(\cos\) or \(\tan\)
 domain: trigonometry
+year_level: ['11']
 description: Find all solutions, in a stated bounded domain, of f(a(x-b)) = c where f is sin, cos or tan, using the reference-angle/CAST method.
 status: active
 placement_eligible: false

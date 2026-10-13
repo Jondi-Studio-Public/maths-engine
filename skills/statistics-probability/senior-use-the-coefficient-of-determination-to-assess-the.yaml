@@ -3,6 +3,7 @@
 id: senior-use-the-coefficient-of-determination-to-assess-the
 name: Use the coefficient of determination to assess the strength of a linear association in terms of the explained variation
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a stated correlation coefficient r for two variables, compute the coefficient of determination r^2 and report it as a decimal or percentage -- the proportion (or percentage) of variation explained. r is always GIVEN, never computed from data. Four tiers: a positive r reported as a decimal; a negative r reported as the percentage of variation explained (the sign vanishes on squaring); two explanatory variables'' r values compared by |r| (not signed r) to find which explains MORE of the variation in the same response variable; and, at the exam tier, a difference of two r^2 values (in percentage points) between two described least-squares models. Distinct from senior-use-technology-to-find-the-correlation-coefficient-an (ACMEM144), which COMPUTES r itself from a printed bivariate data set and never squares it -- one of its own misconceptions is a learner wrongly reporting r^2 there instead of r, confirming the two operations are already treated as distinct.'
 status: active
 placement_eligible: false

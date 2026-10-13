@@ -3,6 +3,7 @@
 id: senior-use-the-approximate-confidence-interval-left-widehat-p
 name: Use the approximate confidence interval for a population proportion
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use the approximate confidence interval (p-hat - z*sqrt(p-hat*(1-p-hat)/n), p-hat + z*sqrt(p-hat*(1-p-hat)/n)), as an interval estimate for p, where z is the appropriate quantile for the standard normal distribution. Returns both interval bounds, as percentages, rounded to 1 decimal place -- the full interval that the neighbouring senior-the-concept-of-an-interval-estimate-for-a skill (ACMMM177/ACMSM140) explicitly disclaims, computing only the margin of error there. Three tiers: direct substitution given the sample proportion (as a decimal) and sample size, with z stated via a named confidence level; the same substitution given raw counts instead of the sample proportion, requiring a division first; and that same derivation combined with a z value that must be selected from a three-row lookup table given inline, rather than stated directly.'
 status: active
 placement_eligible: false

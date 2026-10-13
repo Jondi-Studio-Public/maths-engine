@@ -3,6 +3,7 @@
 id: senior-use-minimal-spanning-trees-to-solve-minimal-connector
 name: Use minimal spanning trees to solve minimal connector problems
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use minimal spanning trees to solve minimal connector problems; for example, minimising the length of cable needed to provide power from a single power station to substations in several towns. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

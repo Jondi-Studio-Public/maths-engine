@@ -3,6 +3,7 @@
 id: senior-identify-the-appropriate-units-for-different-activities-such
 name: Identify the appropriate units for different activities, such as walking, running, swimming and flying
 domain: measurement
+year_level: ['11']
 description: Given a stated activity (for example walking, running, swimming or flying) and a described measurement of it, choose the most appropriate unit (such as m, km, km/h or m/s) from the offered options.
 status: active
 placement_eligible: false

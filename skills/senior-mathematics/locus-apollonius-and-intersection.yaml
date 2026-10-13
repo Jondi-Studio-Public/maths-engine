@@ -1,6 +1,7 @@
 id: locus-apollonius-and-intersection
 name: Find the Apollonius circle |z - a| = k|z - b| and where it meets a line
 domain: senior-mathematics
+year_level: ['12']
 description: Find the centre of the circle |z - a| = k|z - b| (k = 2 or 3, written three ways) and the point of it between
   a and b, then in the exam chain its radius, the two points where it meets a vertical line and the length of the chord
   that line cuts.

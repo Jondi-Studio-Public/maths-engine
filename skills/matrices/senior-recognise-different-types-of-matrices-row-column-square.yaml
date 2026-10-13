@@ -3,6 +3,7 @@
 id: senior-recognise-different-types-of-matrices-row-column-square
 name: Recognise different types of matrices (row, column, square, zero, identity) and determine their size
 domain: matrices
+year_level: ['11']
 description: "Given a stated matrix, classify its type as row, column, square, zero, identity, or none of these -- using the first of these that applies, in this order: identity, zero, row, column, square, none of these -- and state its number of rows and its number of columns. Tiers: easy uses only row, column, square and none of these on 2-3 sized matrices with small positive entries; medium adds zero and identity, with signed entries and matrices up to 4x4 including rectangles; hard adds identity/zero look-alikes (one entry off identity or zero, a diagonal matrix that is not identity, a zero row or column, an identity-looking non-square block) and 5-wide or 5-high shapes; exam is a four-part chain: it gives the rule for a_{i,j} with row and column ranges that depend on a parameter m and says the matrix is square, then asks for m, the number of rows, the sum of the diagonal entries and the sum of all the entries. Never reports a single entry's value: contrast the sibling senior-understand-the-matrix-definition-and-notation, which never classifies type or reports size."
 status: active
 placement_eligible: false

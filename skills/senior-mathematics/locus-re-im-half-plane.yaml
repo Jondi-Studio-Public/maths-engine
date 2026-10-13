@@ -1,6 +1,7 @@
 id: locus-re-im-half-plane
 name: Describe a half-plane or strip locus from a condition on Re and Im
 domain: senior-mathematics
+year_level: ['12']
 description: 'Turn a condition on the real or imaginary part of a transformation of z into a condition on x or y alone:
   Re(z + t) and Im(z + t), Re(kz + t) with k negative so the inequality reverses, and conditions involving the conjugate
   or a multiple of i, including strips such as -2 < Re(2z + 3) <= 5. The exam chain finds the boundary of Re(z - a) >= Im(z

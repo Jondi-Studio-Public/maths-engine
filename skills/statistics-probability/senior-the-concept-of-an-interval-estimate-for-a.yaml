@@ -3,6 +3,7 @@
 id: senior-the-concept-of-an-interval-estimate-for-a
 name: The concept of an interval estimate for a proportion
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, the concept of an interval estimate for a parameter associated with a random variable. This skill assesses the computational margin of error for a sample proportion, not the full interval bounds. Three tiers: direct calculation from sample proportion and size; computation of sample proportion from raw counts; and inverse recovery of required sample size given a target margin of error.'
 status: active
 placement_eligible: false

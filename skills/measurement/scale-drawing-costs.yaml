@@ -1,6 +1,7 @@
 id: scale-drawing-costs
 name: Find real quantities and costs from a scale drawing
 domain: measurement
+year_level: ['12']
 description: Turn lengths on a scale drawing into real lengths and areas (area scales by the square of the ratio), then
   into an amount of material to buy, with a waste allowance and whole boxes, and into a total cost.
 status: active

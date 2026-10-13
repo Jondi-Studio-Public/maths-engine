@@ -3,6 +3,7 @@
 id: senior-recognise-the-expected-value-variance-and-standard-deviation
 name: Recognise the expected value, variance and standard deviation of a continuous random variable and evaluate them in simple cases
 domain: statistics-probability
+year_level: ['12']
 description: Given a continuous random variable uniformly distributed on a stated interval [a, b], compute its expected value E(X), variance Var(X) and standard deviation SD(X) using the closed-form formulas for the continuous uniform distribution -- E(X) = (a+b)/2, Var(X) = (b-a)^2/12, SD(X) = sqrt(Var(X)) -- each evaluated to a stated precision, never left as an unevaluated sqrt(...) expression. Always continuous and UNIFORM on a stated interval, computed by these three closed-form formulas -- never a discrete finite-outcome-list random variable computed by a probability-weighted sum (that is the shipping discrete-expected-value and finite-distribution-variance skills' own stimulus shape).
 status: active
 placement_eligible: false

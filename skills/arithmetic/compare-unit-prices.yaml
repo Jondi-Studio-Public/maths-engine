@@ -1,6 +1,7 @@
 id: compare-unit-prices
 name: Compare unit prices
 domain: arithmetic
+year_level: ['11']
 description: Compare two supplied pack prices by unit cost and select the cheaper option, including ties. The exam tier works out the unit prices of two packs in different units, the gap between them and the saving on a bulk order.
 status: active
 placement_eligible: false

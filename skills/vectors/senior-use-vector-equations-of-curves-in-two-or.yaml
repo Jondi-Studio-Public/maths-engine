@@ -3,6 +3,7 @@
 id: senior-use-vector-equations-of-curves-in-two-or
 name: Use vector equations of curves in two or three dimensions involving a parameter, and determine a ‘corresponding’ Cartesian equation in the two-dimensional case
 domain: vectors
+year_level: ['12']
 description: Given bounded, fully specified inputs, use vector equations of curves in two or three dimensions involving a parameter, and determine a ‘corresponding’ Cartesian equation in the two-dimensional case. Return the resulting value, expression, relation, or classification. This skill is restricted to two-dimensional curves of the family x(t) = a*t (+ p), y(t) = b/t (+ c), which have Cartesian relations of the form xy = constant or y = constant/x + offset. The skill eliminates the parameter to find the constant in the relation, or evaluates the relation at a stated point.
 status: active
 placement_eligible: false

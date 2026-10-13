@@ -1,6 +1,7 @@
 id: rational-function-features
 name: Find the asymptotes, intercepts and holes of a rational function
 domain: functions-sequences
+year_level: ['12']
 description: Read the vertical, horizontal and oblique asymptotes, the intercepts and any hole of a rational function that
   is a linear expression over a linear one, or a quadratic over a linear one, from its equation, and give them as typed
   values; no sketch is asked.

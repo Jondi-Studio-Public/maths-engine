@@ -3,6 +3,7 @@
 id: senior-use-units-of-time-conversions-between-units-fractional
 name: Use units of time, conversions between units, fractional and decimal representations
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, use units of time, conversions between units, fractional, digital and decimal representations. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

@@ -1,6 +1,7 @@
 id: network-model-from-situation
 name: Model a described situation as a network and count its vertices, edges and links
 domain: financial-discrete
+year_level: ['12']
 description: 'A situation is described in words (friends, flights, roads) and the learner works with the network it describes without being shown it. Easy: count the pairs of friends, or find the greatest number of contacts, from lists that name each person''s contacts. Medium: from routes that share links, count the distinct links or the fewest flights between two places. Hard: how many new links join separate groups into one connected network, or the fewest flights after a route is cancelled. The exam chain asks the number of places, the number of distinct links, the links a complete network on those places would have (carried forward) and the extra links needed (carried forward). Every count is checked a second way inside the generator. Distinct from graph-planar-faces, which starts from a drawn or listed network and asks about regions.'
 status: active
 placement_eligible: false

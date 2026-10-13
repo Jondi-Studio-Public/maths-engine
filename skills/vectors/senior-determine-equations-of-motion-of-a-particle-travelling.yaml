@@ -3,6 +3,7 @@
 id: senior-determine-equations-of-motion-of-a-particle-travelling
 name: Determine equations of motion of a particle travelling in a straight line with both constant and variable acceleration
 domain: vectors
+year_level: ['12']
 description: Given bounded, fully specified inputs, determine equations of motion of a particle travelling in a straight line with both constant and variable acceleration. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

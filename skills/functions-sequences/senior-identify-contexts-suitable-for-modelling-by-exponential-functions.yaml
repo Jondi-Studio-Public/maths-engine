@@ -4,6 +4,7 @@ id: senior-identify-contexts-suitable-for-modelling-by-exponential-functions
 name: Identify contexts suitable for modelling by exponential functions and use them to solve practical
   problems
 domain: functions-sequences
+year_level: ['11']
 description: 'Given a practical exponential growth or decay context with a stated initial value, growth or decay rate, and elapsed time, compute the modelled quantity at that time. Every tier is EVALUATION only: no prompt ever asks "after how long" or "when will" -- that inversion belongs to the sibling skill senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions, which solves a stated logarithmic model for its input instead. easy states the growth/decay direction and rate/time period explicitly; medium requires inferring the direction from context wording, or converting a stated time into a fractional number of rate-periods; hard evaluates a continuous e^(kt) model or a half-life/doubling-time model; exam chains two successive rate phases, or asks for the difference between the modelled quantity at two stated times.'
 status: active
 placement_eligible: false

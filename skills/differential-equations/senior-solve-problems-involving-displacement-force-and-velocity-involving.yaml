@@ -3,6 +3,7 @@
 id: senior-solve-problems-involving-displacement-force-and-velocity-involving
 name: Solve problems involving displacement, force and velocity involving the above concepts
 domain: differential-equations
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, solve problems involving displacement, force and velocity involving the above concepts. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

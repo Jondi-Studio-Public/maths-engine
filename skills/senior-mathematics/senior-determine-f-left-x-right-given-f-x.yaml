@@ -3,6 +3,7 @@
 id: senior-determine-f-left-x-right-given-f-x
 name: Determine f(x), given f'(x) and an initial condition f(a) = b
 domain: senior-mathematics
+year_level: ['12']
 description: Given bounded, fully specified inputs, determine f(x), given f'(x) and an initial condition f(a) = b. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

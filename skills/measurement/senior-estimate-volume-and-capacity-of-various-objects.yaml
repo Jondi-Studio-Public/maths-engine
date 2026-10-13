@@ -3,6 +3,7 @@
 id: senior-estimate-volume-and-capacity-of-various-objects
 name: Estimate volume and capacity of various objects
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, estimate the capacity (in litres or millilitres) of various containers and vessels -- solid-object volume in cm3/m3 is out of scope, since conflating a container's holding capacity with its own material volume on the same object is incoherent. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

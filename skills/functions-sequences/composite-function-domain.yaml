@@ -1,6 +1,7 @@
 id: composite-function-domain
 name: Find the largest domain of a composite function
 domain: functions-sequences
+year_level: ['12']
 description: Write the largest domain of g(f(x)) as an inequality (or a union) for functions involving a square root, a
   reciprocal or a logarithm, including cases where f has its own domain and f(x) must also lie in the domain of g.
 status: active

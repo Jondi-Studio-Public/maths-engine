@@ -1,6 +1,7 @@
 id: signed-area-definite-integral
 name: Find definite integrals and total areas from the areas above and below the axis
 domain: integration
+year_level: ['12']
 description: Given the areas of the regions between a graph and the x-axis, find the value of a definite integral (regions
   below the axis count as negative), the total area, an unknown region from the integral and total together, and the integral
   of k f(x) + m.

@@ -3,6 +3,7 @@
 id: senior-use-the-critical-path-to-determine-the-minimum
 name: Use the critical path to determine the minimum time to complete the project
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use the critical path to determine the minimum time for a project to be completed. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

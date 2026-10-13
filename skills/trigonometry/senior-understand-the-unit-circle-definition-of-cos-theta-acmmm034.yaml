@@ -3,6 +3,7 @@
 id: senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
 name: Understand the unit circle definition of \(\cos\theta,\;\sin\theta\) and \(\tan\theta\)
 domain: trigonometry
+year_level: ['11']
 description: "Use the unit-circle definition tan(theta) = sin(theta) / cos(theta) to evaluate tan(theta) for a stated terminal point on the unit circle, or state that it is undefined where cos(theta) = 0."
 status: active
 placement_eligible: false

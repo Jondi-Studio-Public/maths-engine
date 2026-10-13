@@ -3,6 +3,7 @@
 id: senior-examine-the-relationship-between-the-angle-of-inclination
 name: Angle of inclination and gradient
 domain: trigonometry
+year_level: ['11']
 description: Examine the relationship between the angle of inclination of a line and its gradient, given bounded, fully specified inputs, returning the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

@@ -1,6 +1,7 @@
 id: position-time-graph-velocity
 name: 'Combine the segments of a position-time graph: average velocity, average speed and time of return'
 domain: senior-mathematics
+year_level: ['11']
 description: From a position-time graph made of straight segments, with positions above and below a fixed point, find the
   average velocity over the whole journey, the average speed (total distance over time), the time the object first returns
   to its start, and the velocity on a segment.

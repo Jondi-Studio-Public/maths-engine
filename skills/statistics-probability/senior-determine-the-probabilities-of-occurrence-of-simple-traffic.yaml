@@ -3,6 +3,7 @@
 id: senior-determine-the-probabilities-of-occurrence-of-simple-traffic
 name: Determine probabilities in simple traffic-light problems
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, determine the probabilities of occurrence of simple traffic-light problems. This skill assesses the computation of probabilities for independent events using the product rule, the sum rule for mutually exclusive outcomes, and the complement rule. Three tiers: both of two lights green (product rule); exactly one of two lights green (sum of products); at least one of three lights green (complement rule over products).'
 status: active
 placement_eligible: false

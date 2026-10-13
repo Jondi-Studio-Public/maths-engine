@@ -3,6 +3,7 @@
 id: senior-use-the-line-of-best-fit-to-make
 name: Use the line of best fit to make predictions, both by interpolation and extrapolation
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use the line of best fit to make predictions, both by interpolation and extrapolation. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

@@ -1,6 +1,7 @@
 id: counting-with-restrictions
 name: Count arrangements and selections with restrictions
 domain: senior-mathematics
+year_level: ['11']
 description: Count the arrangements of letters with repeats, of people or objects in a row with some together, apart or
   at the ends, of people round a circular table, and the committees chosen with at-least, at-most or must-include conditions,
   and use a count to find a probability.

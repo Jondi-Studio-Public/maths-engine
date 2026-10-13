@@ -1,6 +1,7 @@
 id: locus-argument-ray-wedge
 name: Find the line that bounds an argument ray or wedge
 domain: senior-mathematics
+year_level: ['12']
 description: Find the Cartesian equation of the line that contains the ray Arg(z - a) = theta, from the equation, from a
   ray drawn from an open dot, and for the boundary rays of a wedge theta1 <= Arg(z - a) <= theta2. The exam chain gives
   both boundary lines of a wedge, the length it cuts from a horizontal or vertical line and the area of the triangle that

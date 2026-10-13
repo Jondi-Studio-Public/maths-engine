@@ -3,6 +3,7 @@
 id: senior-examine-properties-of-parallel-and-perpendicular-vectors-and
 name: Examine properties of parallel and perpendicular vectors and determine if two vectors are parallel or perpendicular
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, examine properties of parallel and perpendicular vectors and determine if two vectors are parallel or perpendicular. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

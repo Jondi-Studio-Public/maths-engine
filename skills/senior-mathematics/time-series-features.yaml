@@ -1,6 +1,7 @@
 id: time-series-features
 name: Read the features of a time series from its line graph
 domain: senior-mathematics
+year_level: ['12']
 description: 'A time series is drawn as a line graph with seasonal variation, a steady change of level from one cycle to the next, and sometimes one value changed by a one-off event. Easy: the difference between two plotted readings. Medium: forecast the next value from the stated cycle length and the change from one cycle to the next. Hard: which time point is the irregular one, or a forecast whose nearest same-season value is the irregular one. The exam chain asks the cycle length, the irregular time point, the change of level per cycle and a forecast (carried forward). The prompt never lists the values. Distinct from senior-deseasonalise-a-time-series-by-using-a-seasonal, which divides by given seasonal indices.'
 status: active
 capability_gates: [figure_stimulus]

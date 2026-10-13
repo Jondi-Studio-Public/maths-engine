@@ -3,6 +3,7 @@
 id: senior-complete-a-five-number-summary-for-different-datasets
 name: Complete a five number summary for different datasets
 domain: statistics-probability
+year_level: ['11']
 description: Given a nine-value integer dataset, complete its five-number summary (min, Q1, median, Q3, max) using the median-of-the-lower/upper-half (Tukey/inclusive) method, stated explicitly in the question. Every value in the summary is a literal element of the dataset -- no interpolation.
 status: active
 placement_eligible: false

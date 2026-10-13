@@ -3,6 +3,7 @@
 id: senior-model-periodic-motion-using-sine-and-cosine-functions
 name: Model periodic motion using sine and cosine functions and understand the relevance of the period and amplitude of these functions in the model
 domain: trigonometry
+year_level: ['11']
 description: "Given a sine or cosine function of the form y = A*sin(B*x + C) + D (or the cosine equivalent) modelling a periodic motion, state its amplitude and its period. The function is always fully stated with its x-coefficient written as a multiple of pi (pi/k, or an unsimplified m*pi/n on the harder tiers), so the period is always a plain positive integer and the amplitude is always a plain integer or terminating decimal."
 status: active
 placement_eligible: false

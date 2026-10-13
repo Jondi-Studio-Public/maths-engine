@@ -1,6 +1,7 @@
 id: locus-perpendicular-bisector
 name: Find the perpendicular-bisector locus |z - a| = |z - b|
 domain: senior-mathematics
+year_level: ['12']
 description: 'Find the Cartesian equation of the locus |z - a| = |z - b| as a line y = mx + c (or x = k): the perpendicular
   bisector of the segment joining a and b, from written complex numbers, from two plotted points, and from forms that need
   rewriting first (a conjugate, a common factor, or the two roots of a quadratic). The exam chain adds the intercept on

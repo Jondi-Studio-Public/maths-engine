@@ -6,6 +6,7 @@ name: Use first-order linear recurrence relations to model and analyse (numerica
   recorded at the end of each year and where limited recreational fishing is permitted, or the
   amount owing on a reducing balance loan after each payment is made
 domain: financial-discrete
+year_level: ['12']
 description: >-
   Given a first-order linear recurrence u(n+1) = a*u(n) + b with 0 < a < 1 modelling a stated
   non-financial quantity (a fixed fraction lost, a fixed amount added each period), find by

@@ -3,6 +3,7 @@
 id: senior-use-the-equation-of-a-fitted-line-to
 name: Use the equation of a fitted line to make predictions
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use the equation of a fitted line to make predictions. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

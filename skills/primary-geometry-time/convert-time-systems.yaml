@@ -5,6 +5,8 @@ description: Convert a clock time between 12-hour notation with am or pm and 24-
 status: active
 prerequisites: [tell-time-to-hour]
 answer: mcq
-sources: [{topic: time_system_conversion, params: {}, difficulty: easy}]
+sources:
+- {topic: time_system_conversion, params: {}, difficulty: easy}
+- {topic: exd_x_w12a_time_crossing_midnight_chain, params: {tier: exam}, difficulty: exam, stages: [exam]}
 misconceptions: [{id: noon-midnight, description: Confuses 12 am with noon or 12 pm with midnight.}]
 tags: [expansion-batch-2, primary, time]

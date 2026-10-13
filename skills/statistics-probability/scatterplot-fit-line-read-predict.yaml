@@ -1,6 +1,7 @@
 id: scatterplot-fit-line-read-predict
 name: 'Read a drawn line of best fit: gradient, prediction and residual'
 domain: statistics-probability
+year_level: ['12']
 description: 'A line of best fit is drawn on a scatterplot of ten points and its equation is never stated. Easy: the gradient of the line. Medium: predict the value for an x that has a plotted point, so reading the point instead of the line is a real mistake. Hard: the residual of a labelled point (actual minus predicted), or the x at which the line predicts a stated value. The exam chain asks the gradient, a prediction (carried forward), the residual of the point there (carried forward) and why predicting far outside the data is unreliable. Every drawn line is within a small tolerance of the least-squares line of its points. Distinct from senior-use-the-line-of-best-fit-to-make, which works from a stated equation.'
 status: active
 capability_gates: [figure_stimulus]

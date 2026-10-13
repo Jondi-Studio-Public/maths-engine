@@ -3,6 +3,7 @@
 id: senior-identify-contexts-suitable-for-modelling-by-binomial-random
 name: Identify contexts suitable for modelling by binomial random variables
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a stated random-phenomenon context, identify whether it is suited to modelling by a binomial random variable (a fixed number of independent trials, each with the same two possible outcomes and the same success probability) or not, and, if not, which single one of those four conditions it fails. Never computes a probability -- boundary against binomial-point-probability, which takes n, p and x as GIVEN and computes the point probability once a model is already assumed. Boundary against the sibling senior-identify-contexts-suitable-for-modelling-by-bernoulli-random: a binomial-suited scenario always names a FIXED number of repeats and asks about a count of successes across them, while a Bernoulli-suited scenario always describes exactly ONE trial.'
 status: active
 placement_eligible: false

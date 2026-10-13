@@ -3,6 +3,7 @@
 id: senior-use-pascal-s-triangle-and-its-properties
 name: Use Pascal’s triangle and its properties
 domain: statistics-probability
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use Pascal’s triangle and its properties. Return the resulting value, expression, relation, or classification. This skill assesses direct entry lookup in Pascal''s triangle, application of the additive recurrence rule to find entries, and inverse application to find missing parent values.'
 status: active
 placement_eligible: false

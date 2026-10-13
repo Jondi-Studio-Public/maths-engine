@@ -1,6 +1,7 @@
 id: reciprocal-and-trig-graph-features
 name: Find the period, asymptotes and range gap of reciprocal trigonometric and tangent graphs
 domain: trigonometry
+year_level: ['11']
 description: From the equation of a secant, cosecant or tangent graph, state its period, count its vertical asymptotes in
   an interval, locate the first positive asymptote of a shifted graph, and find the edge of the band of values the graph
   never takes; exact values are typed in terms of pi.

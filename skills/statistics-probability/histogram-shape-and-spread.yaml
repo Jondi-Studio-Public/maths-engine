@@ -1,6 +1,7 @@
 id: histogram-shape-and-spread
 name: Read the modal class, spread and middle of a drawn histogram
 domain: statistics-probability
+year_level: ['11']
 description: 'A histogram of equal-width classes is drawn and the frequencies are never listed. Easy: the lower boundary or the frequency of the modal class. Medium: the greatest possible range (empty classes at an end are not counted), or how many values lie below a class boundary. Hard: the lower boundary of the class that holds the median, or an estimate of how many values lie below a value in the middle of a class. The exam chain asks the total, the position of the median (carried forward), the class that holds it and whether the mean is greater than, less than or about equal to the median for the shape drawn. Distinct from senior-compare-the-characteristics-of-the-shape-of-histograms, which classifies the shape only.'
 status: active
 capability_gates: [figure_stimulus]

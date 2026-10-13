@@ -3,6 +3,7 @@
 id: senior-use-factorial-notation
 name: Use factorial notation
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, use factorial notation. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

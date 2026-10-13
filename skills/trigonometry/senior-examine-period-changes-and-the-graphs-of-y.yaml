@@ -3,6 +3,7 @@
 id: senior-examine-period-changes-and-the-graphs-of-y
 name: Read the period of y = sin(bx) off its graph
 domain: trigonometry
+year_level: ['11']
 description: Given the graph of y = sin(bx) drawn on labelled axes whose x-axis is ticked and labelled in multiples of a fraction of pi (no point on the curve is labelled and b is never given), state the period of the curve as an expression in pi, for example 2pi/3. Easy reads the distance between successive peaks; medium reads the spacing of the zero crossings, which is half a period; hard counts the complete cycles in the fixed window 0 to 2pi (b a nonzero whole number, negative on half the draws); exam shows less than about one cycle, so the period comes from the first quarter.
 status: active
 capability_gates: [figure_stimulus]

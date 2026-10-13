@@ -3,6 +3,7 @@
 id: senior-define-the-imaginary-number-i-as-a-root
 name: Define the imaginary number i as a root of the equation x^2=-1
 domain: senior-mathematics
+year_level: ['11']
 description: |
   Given bounded, fully specified inputs, define the imaginary number i as a root of the
   equation x^2=-1. Return the resulting value, expression, relation, or classification.

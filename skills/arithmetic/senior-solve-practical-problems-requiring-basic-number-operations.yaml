@@ -3,6 +3,7 @@
 id: senior-solve-practical-problems-requiring-basic-number-operations
 name: Solve practical problems requiring basic number operations
 domain: arithmetic
+year_level: ['11']
 description: Given a cents-precision practical money situation, apply one percentage-based step (a discount or a GST/service-charge addition) together with a genuinely non-percentage step (a flat add/subtract, a per-item multiply, or an equal split) to compute the final amount.
 status: active
 placement_eligible: false

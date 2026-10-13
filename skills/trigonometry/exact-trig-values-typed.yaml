@@ -1,6 +1,7 @@
 id: exact-trig-values-typed
 name: Find exact values of sine, cosine and tangent at multiples of pi/6 and pi/4, and the angle for a value
 domain: trigonometry
+year_level: ['11']
 description: Type the exact value of sin, cos or tan at a multiple of pi/6 or pi/4 in any quadrant, including negative angles
   and angles above 2 pi, and find the angle in 0 to 2 pi from a value together with a sign condition.
 status: active

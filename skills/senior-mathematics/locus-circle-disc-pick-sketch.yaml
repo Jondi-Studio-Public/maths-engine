@@ -1,6 +1,7 @@
 id: locus-circle-disc-pick-sketch
 name: Read circle and disc loci from an Argand diagram
 domain: senior-mathematics
+year_level: ['12']
 description: 'Read a circle, a set of plotted points or a pair of concentric circles from an Argand diagram and choose the
   relation that describes them: the equation |z - w| = r of a drawn circle, which labelled points satisfy a disc inequality,
   and the double inequality for the region between two circles. The exam chain finds the radius of a circle through a point,

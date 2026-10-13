@@ -1,6 +1,7 @@
 id: graph-planar-faces
 name: Count the regions of a planar network and decide how many edges it can have
 domain: financial-discrete
+year_level: ['12']
 description: 'Use Euler''s formula and the edge bounds for planar networks on a stated network or family of networks. Easy: count the regions (outer region included) of a ring with non-crossing chords given as an edge list. Medium: how many edges a stated complete or complete bipartite network has beyond the most a planar network on those vertices can have (3v - 6, or 2v - 4 when there are no triangles). Hard: how many more edges can be added while it stays planar, the regions of the finished triangulated network, or how many vertices a network has when every region has the same number of edges. The exam chain asks the edges of a complete network, how many to remove to reach the planar bound, the regions that remain (carried forward) and a multiple-choice decision on planarity. Distinct from senior-apply-euler-s-formula-v-f-e-2, which only substitutes into V - E + F = 2.'
 status: active
 placement_eligible: false
