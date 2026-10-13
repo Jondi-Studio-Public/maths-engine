@@ -14,7 +14,8 @@ SCHEMA = {
     "is drawn, so a client can draw it without doing any maths. Alt text and labels never state "
     "the answer to the question the figure belongs to. This schema checks structure, types and "
     "ranges. The engine also checks relations the schema cannot express (for example min < max, "
-    "hand angles that match the time, sibling probabilities that total 1).",
+    "hand angles that match the time, sibling probabilities that total 1). A full description for a learner who "
+    "cannot see the figure is computed from the spec (mathgen.describe), so it is not part of the spec.",
     "oneOf": [
         {"$ref": "#/$defs/bar_chart"},
         {"$ref": "#/$defs/base_ten"},

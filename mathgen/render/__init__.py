@@ -9,7 +9,8 @@ to a ``.svg`` file, or convert it to PNG or PDF with any SVG tool. Every number 
 renderer evaluates no maths beyond mapping the spec's coordinates onto the drawing.
 
 Accessibility: the root carries ``role="img"`` and a ``<title>`` holding the spec's ``alt``, so a screen reader
-announces the figure as one image with that description.
+announces the figure as one image with that description. ``describe=True`` adds the full description from
+`mathgen.describe` as a ``<desc>``, for an accessibility mode.
 
 Theming: every colour is a CSS custom property with a light default. A page sets any of them on the SVG or on
 an ancestor to restyle every figure at once (see :data:`THEME_VARIABLES`):
@@ -72,8 +73,13 @@ def _defaults(theme: str) -> str:
     return ";".join(f"--_{name[6:]}:var({name},{pair[col]})" for name, pair in THEME_VARIABLES.items())
 
 
-def figure_svg(spec: dict, *, theme: str = "light", id_prefix: str | None = None) -> str:
-    """The SVG for figure ``spec``. Raises ValueError for an invalid spec or a kind with no renderer."""
+def figure_svg(spec: dict, *, theme: str = "light", id_prefix: str | None = None, describe: bool = False) -> str:
+    """The SVG for figure ``spec``. Raises ValueError for an invalid spec or a kind with no renderer.
+
+    ``describe=True`` adds the figure's full description (`mathgen.describe`) as a ``<desc>`` that the root's
+    ``aria-describedby`` points at, so a screen reader reads it after the alt text. Use it only in an
+    accessibility mode: the description can state the value a question asks the learner to read off.
+    """
     if theme not in ("light", "dark"):
         raise ValueError("theme must be 'light' or 'dark'")
     figures.check(spec)
@@ -87,11 +93,18 @@ def figure_svg(spec: dict, *, theme: str = "light", id_prefix: str | None = None
     ctx = Ctx(id_prefix)
     w, h, body = renderer(spec, ctx)
     title_id = ctx.uid("title")
+    desc, described_by = "", ""
+    if describe:
+        from mathgen.describe import describe as _describe
+
+        desc_id = ctx.uid("desc")
+        desc = f'<desc id="{desc_id}">{esc(_describe(spec))}</desc>'
+        described_by = f' aria-describedby="{desc_id}"'
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" class="mgf mgf-{esc(kind)}" viewBox="0 0 {fmt(w)} {fmt(h)}" '
-        f'width="{fmt(w)}" height="{fmt(h)}" role="img" aria-labelledby="{title_id}" '
+        f'width="{fmt(w)}" height="{fmt(h)}" role="img" aria-labelledby="{title_id}"{described_by} '
         f'style="{_defaults(theme)}">'
-        f'<title id="{title_id}">{esc(spec["alt"])}</title>'
+        f'<title id="{title_id}">{esc(spec["alt"])}</title>{desc}'
         f"<style>{_style()}</style>"
         f"{body}</svg>"
     )

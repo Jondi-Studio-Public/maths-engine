@@ -18,8 +18,15 @@
 Keys:
 
 - ``prompt``: the question.
-- ``figure``: ``None``, or ``{"svg", "alt", "spec"}``: the drawing as standalone SVG (`mathgen.render`), its
-  accessible description, and the spec it was drawn from, for a platform that draws figures itself.
+- ``figure``: ``None``, or ``{"svg", "alt", "description", "spec"}``: the drawing as standalone SVG
+  (`mathgen.render`), its short alt text, its full description, and the spec it was drawn from, for a platform
+  that draws figures itself. ``description`` is ``{"text", "reveals_answer"}``: ``text`` states everything the
+  figure shows, for a learner who cannot see it (`mathgen.describe`); show it in an accessibility mode, not by
+  default. ``reveals_answer`` is true when the text states the answer, as it does when reading the figure is the
+  whole question (a protractor's arm at 140). The picture shows that too, so the description stays in the
+  learner's view; the flag lets a platform treat such an attempt differently (not count it towards mastery, say).
+  It is found by matching the answer's numbers (by value) or words in the text, so it errs towards true: it is
+  also true when the answer's number appears for another reason, such as an axis numeral.
 - ``options``: for a multiple-choice question, the options in the order `mathgen.core.mcq_options` gives, so
   grading the chosen index with `engine.grade` agrees with what was shown. Absent otherwise.
 - ``answer``: the expected answer.
@@ -28,12 +35,14 @@ Keys:
   with the shared information in ``prompt`` (the stem). Absent for a single-answer question.
 
 ``reveal=False`` drops ``answer``, ``working`` and ``figure.spec`` for the learner's view: the spec of a
-read-the-picture figure (a clock, a protractor, a scale) holds the answer. The question itself is not changed.
+read-the-picture figure (a clock, a protractor, a scale) holds the answer. It keeps ``figure.description``, which
+holds only what the picture shows. The question itself is not changed.
 """
 
 from __future__ import annotations
 
 import re
+from fractions import Fraction
 from typing import Any
 
 from mathgen.core import latex_answer, mcq_options, paper_notation
@@ -180,7 +189,12 @@ def present(
             from mathgen.render import figure_svg
 
             svg = figure_svg(question.figure, theme=theme)
-        page["figure"] = {"svg": svg, "alt": question.figure["alt"], "spec": question.figure}
+        page["figure"] = {
+            "svg": svg,
+            "alt": question.figure["alt"],
+            "description": _description(question, mcq=mcq),
+            "spec": question.figure,
+        }
     parts = getattr(question, "parts", None)
     if parts:
         stem = question.stem if question.stem is not None else question.text
@@ -206,6 +220,46 @@ def _hide(page: dict) -> dict:
     if page["figure"] is not None:
         page["figure"] = {k: v for k, v in page["figure"].items() if k != "spec"}
     return page
+
+
+_NUMBER = re.compile(r"(?<![\w.])-?\d+(?:\.\d+)?(?:/\d+)?(?![\w.]|/\d)")
+
+
+def _values(text: str) -> set[Fraction]:
+    out = set()
+    for token in _NUMBER.findall(text):
+        try:
+            out.add(Fraction(token))
+        except (ValueError, ZeroDivisionError):
+            pass
+    return out
+
+
+def _mentions(text: str, answer: str) -> bool:
+    """Whether ``text`` states ``answer``: every number in it (compared by value), or else its words."""
+    answer = paper_notation(answer).replace("−", "-").strip()
+    if not answer:
+        return False
+    numbers = _values(answer)
+    if numbers:
+        return numbers <= _values(text)
+    return re.search(rf"(?<!\w){re.escape(answer)}(?!\w)", text, re.I) is not None
+
+
+def _description(question, *, mcq: bool) -> dict:
+    """The figure's full description, and whether it states the answer (see the module docstring)."""
+    from mathgen.describe import describe
+
+    text = describe(question.figure)
+    plain = text.replace("−", "-")
+    parts = getattr(question, "parts", None) or []
+    answers = [question.answer_text, *(p.answer_text for p in parts)]
+    reveals = any(_mentions(plain, a) for a in answers)
+    if reveals and mcq and not parts:
+        # Naming every option singles none out: a multiple-choice figure that labels each option is no leak.
+        others = [o for o in mcq_options(question) if o != question.answer_text]
+        reveals = not others or not all(_mentions(plain, o) for o in others)
+    return {"text": text, "reveals_answer": reveals}
 
 
 def _stem_latex(text: str) -> str:

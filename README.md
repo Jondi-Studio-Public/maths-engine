@@ -146,7 +146,7 @@ does that translation for you.
 page = engine.present(skill, q)
 page["prompt"]  # {"text": "Simplify √756. Give your answer in the form a√b.", "tex": None}
 page["answer"]  # {"text": "6√21", "tex": "\\(6 \\sqrt{21}\\)"}
-page["figure"]  # None, or {"svg": "<svg ...>", "alt": "...", "spec": {...}}
+page["figure"]  # None, or {"svg": "<svg ...>", "alt": "...", "description": {...}, "spec": {...}}
 page["options"]  # multiple choice only: one pair per option, in mcq_options order
 page["working"]  # the worked solution, one pair per step
 ```
@@ -162,7 +162,9 @@ the maths, a long question wraps on a phone.
 Figures come as standalone SVG with no scripts or external files, themeable
 through CSS variables, with the alt text as the SVG's title. To draw them
 yourself instead, `figure["spec"]` follows a JSON Schema (`python -m mathgen --figure-schema`); see
-[docs/figures.md](docs/figures.md). From the command line:
+[docs/figures.md](docs/figures.md). `figure["description"]` is a full text
+description for learners who cannot see the figure, to show in an accessibility
+mode; it says when it states the answer. From the command line:
 
 ```
 python -m mathgen --skill simplify-surds --seed 7 --present      # the page as JSON

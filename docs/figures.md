@@ -23,6 +23,17 @@ Some kinds also take an optional `title`, drawn above the figure.
 
 All coordinates and sizes in a spec are plain JSON numbers.
 
+## Full descriptions for blind learners
+
+`alt` is vague on purpose, so it leaves a learner who cannot see the figure unable to answer. `mathgen.describe.describe(spec)` returns a full description instead. It states everything a sighted learner sees: every value, label, mark and position, in reading order. It never works anything out that the picture does not show. For example, a clock is described by where its hands point, not by the time it reads. A blind learner gets the same information as the picture and no more.
+
+That means the description can state the answer when reading the figure is the whole question, as with a protractor's arm crossing the scale at 140. The picture shows that too, so the description is as safe to send to a learner as the SVG. Show it in an accessibility mode, and keep `alt` as the default.
+
+- `engine.present(skill, q)` returns it as `figure.description`, which is `{"text", "reveals_answer"}`. `reveals_answer` is true when the text states the answer, so a platform can treat that attempt differently (for example, not count it towards mastery). The engine finds this by matching the answer's numbers by value, or its words, so it errs towards true: an axis numeral that equals the answer also sets it.
+- `engine.present(skill, q, reveal=False)` keeps the description and drops the spec.
+- `figure_svg(spec, describe=True)` puts it in the SVG as a `<desc>` that `aria-describedby` points at, so a screen reader reads it after the title.
+- The description is computed from the spec, so it is not a key of the spec and the schema does not list it.
+
 ## Kinds
 
 There are 21 kinds. Each example below is a valid spec.

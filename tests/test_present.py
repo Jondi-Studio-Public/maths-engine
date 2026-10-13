@@ -9,7 +9,9 @@ import pytest
 
 from mathgen import engine
 from mathgen.core import mcq_options
-from mathgen.present import present, prompt_tex, value_tex
+from mathgen.describe import describe
+from mathgen.present import _mentions, present, prompt_tex, value_tex
+from mathgen.render import figure_svg
 
 SPAN = re.compile(r"\\\((.*?)\\\)", re.S)
 
@@ -107,9 +109,48 @@ def test_learner_view_hides_the_answer(skills):
     q = engine.make_for_skill(skill, seed=1)
     page = engine.present(skill, q, reveal=False)
     assert "answer" not in page and "working" not in page
-    assert set(page["figure"]) == {"svg", "alt"}
+    assert set(page["figure"]) == {"svg", "alt", "description"}
     assert [o["text"] for o in page["options"]] == mcq_options(q)
     assert "spec" in engine.present(skill, q)["figure"]
+
+
+def test_figure_description(skills):
+    skill = skills["f10-clock-half-quarter-hour"]
+    q = engine.make_for_skill(skill, seed=3)
+    desc = engine.present(skill, q)["figure"]["description"]
+    assert desc["text"] == describe(q.figure) and len(desc["text"]) > len(q.figure["alt"])
+    assert isinstance(desc["reveals_answer"], bool)
+    svg = figure_svg(q.figure, describe=True)
+    desc_id = re.search(r'aria-describedby="([^"]+)"', svg).group(1)
+    assert f'<desc id="{desc_id}">' in svg and "<desc" not in figure_svg(q.figure)
+
+
+def test_reveals_answer_flags_a_read_off_value(skills):
+    """A protractor question asks for the angle its arm crosses; the description says where it crosses."""
+    skill = skills["f10-measure-angle-protractor"]
+    q = engine.make_for_skill(skill, 1, source=0)
+    page = engine.present(skill, q, draw_figure=False)
+    assert q.answer_text in page["figure"]["description"]["text"]
+    assert page["figure"]["description"]["reveals_answer"]
+    assert (
+        engine.present(skill, q, draw_figure=False, reveal=False)["figure"]["description"]
+        == page["figure"]["description"]
+    )
+
+
+@pytest.mark.parametrize(
+    ("text", "answer", "states"),
+    [
+        ("The pointer is at 4.5 kg.", "4.50", True),  # numbers compare by value
+        ("The axis runs from 0 to 10.", "3", False),
+        ("The axis runs from 0 to 13.", "3", False),  # a whole number, not a digit inside one
+        ("A point at (-3, 2).", "−3", True),
+        ("The circle on the left is labelled Tennis.", "tennis", True),
+        ("Two lines meet.", "Obtuse", False),
+    ],
+)
+def test_reveals_answer_matching(text, answer, states):
+    assert _mentions(text, answer) is states
 
 
 def test_multi_part_question(skills):
