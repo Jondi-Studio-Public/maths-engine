@@ -474,3 +474,23 @@ def test_default_workers_follow_the_cpus_this_process_may_use(monkeypatch):
     monkeypatch.setattr(pool_module, "_cgroup_cpus", lambda: None)
     monkeypatch.setattr(os, "process_cpu_count", lambda: None, raising=False)
     assert 1 <= pool_module.default_workers() <= 8
+
+
+def test_a_multi_part_grade_holds_no_part_answer_without_reveal(client):
+    # A multi-part result keeps each part's own result, `canonical` included, keyed by label.
+    (q,) = ask(client, "permutation-composition", headers=A, answers=True, source="exam")
+    assert "parts" in q
+    right = {p["label"]: p["answer"]["text"] for p in q["parts"]}
+    wrong = {p["label"]: "0" for p in q["parts"]}
+
+    def has_canonical(value):
+        if isinstance(value, dict):
+            return "canonical" in value or any(has_canonical(v) for v in value.values())
+        return isinstance(value, list) and any(has_canonical(v) for v in value)
+
+    for reply in (right, wrong):
+        body = client.post("/v1/grade", json={"id": q["id"], "reply": reply}, headers=L).json()
+        assert body["parts"] and not has_canonical(body)
+        assert all(isinstance(p["marks"], int | str) for p in body["parts"].values())
+    revealed = client.post("/v1/grade", json={"id": q["id"], "reply": wrong, "reveal": True}, headers=A).json()
+    assert all(p["canonical"] for p in revealed["parts"].values())

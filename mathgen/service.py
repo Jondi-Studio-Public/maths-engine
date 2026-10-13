@@ -551,22 +551,28 @@ def _number(value):
 
 
 def result_view(result, *, reveal: bool = False) -> dict:
-    """A `GradeResult` as data. `canonical` (the right answer) is kept only with `reveal`."""
-    raw = asdict(result)
+    """A `GradeResult` as data. `canonical` (the right answer) is kept only with `reveal`, at every level: a
+    multi-part result holds each part's own result, keyed by label, with its own `canonical`."""
+    data = _plain(_numbers(asdict(result)))
+    return data if reveal else _without_canonical(data)
+
+
+def _numbers(raw: dict) -> dict:
     for key in ("marks", "max_marks"):
-        raw[key] = _number(raw.get(key))
-    for part in raw.get("parts") or []:
+        if key in raw:
+            raw[key] = _number(raw[key])
+    for part in (raw.get("parts") or {}).values():
         if isinstance(part, dict):
-            for key in ("marks", "max_marks"):
-                if key in part:
-                    part[key] = _number(part[key])
-    data = _plain(raw)
-    if not reveal:
-        data.pop("canonical", None)
-        for part in data.get("parts") or []:
-            if isinstance(part, dict):
-                part.pop("canonical", None)
-    return data
+            _numbers(part)
+    return raw
+
+
+def _without_canonical(value):
+    if isinstance(value, dict):
+        return {k: _without_canonical(v) for k, v in value.items() if k != "canonical"}
+    if isinstance(value, list):
+        return [_without_canonical(v) for v in value]
+    return value
 
 
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
