@@ -28,6 +28,10 @@ sources:
   params: {tier: exam}
   difficulty: exam
   stages: [exam]
+- topic: exd_x_r2x_boxplot_two_groups
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: tukey-inclusive
   description: Computes Q1/Q3 by the Tukey/inclusive method (including the overall median in both halves for an odd-sized data set) instead of the exclusive method the question states. Offered whenever it actually differs.

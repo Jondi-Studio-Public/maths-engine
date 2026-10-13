@@ -980,8 +980,11 @@
 {"answer": "Q1 = 63, Q3 = 88, IQR = 25", "id": "f10-boxplot-distribution/easy/1/189d61cc8044", "text": "A sample of test scores (out of 100), already sorted from smallest to largest, …"}
 {"answer": "Q1 = 54, Q3 = 81, IQR = 27", "id": "f10-boxplot-distribution/easy/2/125635cebc16", "text": "Here are 7 test scores (out of 100), listed from smallest to largest: 41, 54, 5…"}
 {"answer": "Q1 = 128, Q3 = 171, IQR = 43", "id": "f10-boxplot-distribution/exam/0/23fb5e3eec9a", "text": "Two groups' seedling heights (cm) were recorded. Group A: 142, 157, 149, 171, 1…"}
+{"answer": "(a) 21.0; (b) 37.0; (c) 61.0; (d) 27.3; (e) 7.0", "id": "f10-boxplot-distribution/exam/0/7573d6793b55", "text": "Two classes, A and B, timed how long each student took to finish the same puzzl…"}
+{"answer": "(a) 40.0; (b) 59.0; (c) 87.5; (d) 47.9; (e) 20.0", "id": "f10-boxplot-distribution/exam/1/7ae740893899", "text": "Two cycling clubs, A and B, recorded how far each rider travelled last weekend.…"}
 {"answer": "Q1 = 133, Q3 = 184.5, IQR = 51.5", "id": "f10-boxplot-distribution/exam/1/c3f1285b2954", "text": "Two groups' seedling heights (cm) were recorded. Group A: 157, 121, 190, 143, 1…"}
 {"answer": "Q1 = 38, Q3 = 82, IQR = 44", "id": "f10-boxplot-distribution/exam/2/b4bba614d8e9", "text": "Two groups' test scores (out of 100) were recorded. Group A: 33, 50, 64, 57, 71…"}
+{"answer": "(a) 16.0; (b) 38.0; (c) 71.0; (d) 23.4; (e) 6.0", "id": "f10-boxplot-distribution/exam/2/d6e030090462", "text": "Two classes, A and B, timed how long each student took to finish the same puzzl…"}
 {"answer": "Q1 = 34.5, Q3 = 72.5, IQR = 38", "id": "f10-boxplot-distribution/hard/0/df10ac053b21", "text": "Here is a frequency table (value: count) of 12 delivery times (minutes): 77: 3,…"}
 {"answer": "Q1 = 13, Q3 = 43, IQR = 30", "id": "f10-boxplot-distribution/hard/1/dd44bcee9ce5", "text": "The following frequency table (value: count) records 13 delivery times (minutes…"}
 {"answer": "Q1 = 23.5, Q3 = 61.5, IQR = 38", "id": "f10-boxplot-distribution/hard/2/b144fa892ccd", "text": "A sample of delivery times (minutes) is given as a frequency table (value: coun…"}
@@ -1082,8 +1085,11 @@
 {"answer": "1/9, 2/9, 2/9, 4/9", "id": "f10-compound-outcomes-replacement/easy/1/dff6e033e92c", "text": "A bag contains 2 orange balls and 4 purple balls, 6 in total. A ball is drawn a…"}
 {"answer": "4/25, 6/25, 6/25, 9/25", "id": "f10-compound-outcomes-replacement/easy/2/7b9da1be59a0", "text": "A bag contains 2 green balls and 3 yellow balls, 5 in total. A ball is drawn at…"}
 {"answer": "5/18, 5/18, 1/6, 5/18", "id": "f10-compound-outcomes-replacement/exam/0/3b1f02ce2a64", "text": "A bag contains 5 green balls and 4 yellow balls, 9 in total. Two balls are draw…"}
+{"answer": "(a) 77/324; (b) 77/162; (c) 203/324; (d) 77/5508", "id": "f10-compound-outcomes-replacement/exam/0/62454cb94e98", "text": "A tin has 7 red marbles and 11 blue marbles. A marble is picked at random, note…"}
 {"answer": "7/30, 1/15, 7/30, 7/15", "id": "f10-compound-outcomes-replacement/exam/1/0990cbb12bc8", "text": "A bag contains 7 orange balls and 3 purple balls, 10 in total. Two balls are dr…"}
+{"answer": "(a) 39/256; (b) 39/128; (c) 247/256; (d) 13/1280", "id": "f10-compound-outcomes-replacement/exam/1/e64e4cde85fd", "text": "A jar contains 13 blue jelly beans and 3 green jelly beans. Two are taken at ra…"}
 {"answer": "35/132, 7/22, 35/132, 5/33", "id": "f10-compound-outcomes-replacement/exam/2/26a11eeeea5c", "text": "A bag contains 5 green balls and 7 yellow balls, 12 in total. Two balls are dra…"}
+{"answer": "(a) 3/16; (b) 3/8; (c) 7/16; (d) 3/112", "id": "f10-compound-outcomes-replacement/exam/2/8da255c64d32", "text": "A bag holds 2 green counters and 6 yellow counters. Two counters are drawn at r…"}
 {"answer": "16/25, 4/25, 1/25, 4/25", "id": "f10-compound-outcomes-replacement/hard/0/f71461702661", "text": "A bag contains 2 green balls and 8 yellow balls, 10 in total. A ball is drawn a…"}
 {"answer": "14/81, 14/81, 4/81, 49/81", "id": "f10-compound-outcomes-replacement/hard/1/922f05ee59aa", "text": "A bag contains 2 green balls and 7 yellow balls, 9 in total. A ball is drawn at…"}
 {"answer": "1/16, 3/16, 9/16, 3/16", "id": "f10-compound-outcomes-replacement/hard/2/dc764ca1a589", "text": "A bag contains 2 green balls and 6 yellow balls, 8 in total. A ball is drawn at…"}
@@ -1093,6 +1099,9 @@
 {"answer": "the probability of having solar panels, given growing veget…", "id": "f10-conditional-probability-language/easy/0/c60e94161509", "text": "Read this sentence: \"What is the probability that a randomly chosen resident ha…"}
 {"answer": "the probability of shopping online, given using a loyalty c…", "id": "f10-conditional-probability-language/easy/1/2d0a387b6971", "text": "Read this sentence: \"What is the probability that a randomly chosen shopper sho…"}
 {"answer": "the probability of buying fruit, given using a loyalty card", "id": "f10-conditional-probability-language/easy/2/fd7ef9058e56", "text": "Read this sentence: \"Knowing that a randomly chosen shopper uses a loyalty card…"}
+{"answer": "(a) 180; (b) 3/10; (c) 3/10; (d) 0.0", "id": "f10-conditional-probability-language/exam/0/bc6e43f76a0b", "text": "220 students were asked how they get to school and whether they have a part-tim…"}
+{"answer": "(a) 80; (b) 7/20; (c) 53/100; (d) -18.0", "id": "f10-conditional-probability-language/exam/1/7aa46358c35f", "text": "200 students were asked how they get to school and whether they have a part-tim…"}
+{"answer": "(a) 40; (b) 1/4; (c) 37/100; (d) -12.0", "id": "f10-conditional-probability-language/exam/2/f5a460e0e0b9", "text": "100 commuters at a railway station were asked how they travel and whether they …"}
 {"answer": "the probability of borrowing a DVD, given attending story t…", "id": "f10-conditional-probability-language/hard/0/db20144f60f4", "text": "In a survey of 67 library members, 19 attend story time, 32 borrow a DVD and 10…"}
 {"answer": "the probability of shopping online, given bringing their ow…", "id": "f10-conditional-probability-language/hard/1/0807da766600", "text": "In a survey of 76 shoppers, 35 bring their own bag, 32 shop online and 10 do bo…"}
 {"answer": "the probability of swimming, given walking to school", "id": "f10-conditional-probability-language/hard/2/86016edf2d58", "text": "In a survey of 82 students, 27 walk to school, 37 swim and 12 do both. Read thi…"}
@@ -1193,8 +1202,11 @@
 {"answer": "Yes, directly proportional -- the total cost is $20.00.", "id": "f10-direct-proportion-scale-model/easy/1/a7061e84156a", "text": "Ribbon costs $4.00 per metre. Is this relationship directly proportional, and w…"}
 {"answer": "Yes, directly proportional -- the total cost is $12.00.", "id": "f10-direct-proportion-scale-model/easy/2/5a2b342885fb", "text": "Flour costs $2.00 per kg. Is this relationship directly proportional, and what …"}
 {"answer": "Yes, directly proportional -- the total cost is $300.00.", "id": "f10-direct-proportion-scale-model/exam/0/5d9a6ac3d253", "text": "A subscription service's monthly bill depends on the GB used: for 4 GB the tota…"}
+{"answer": "(a) 37.50; (b) 412.50; (c) 14", "id": "f10-direct-proportion-scale-model/exam/0/edf39259dbe5", "text": "A cafe pays its casual staff by the hour, with no fixed payment. A 4 hour shift…"}
 {"answer": "Yes, directly proportional -- the total cost is $105.00.", "id": "f10-direct-proportion-scale-model/exam/1/30bf4e87b087", "text": "A subscription service's monthly bill depends on the GB used: for 4 GB the tota…"}
+{"answer": "(a) 1.60; (b) 96.00; (c) 63", "id": "f10-direct-proportion-scale-model/exam/1/77b93f36f714", "text": "A landscape supplier sells crushed gravel in bags, and the price depends only o…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/exam/2/710b9fae246f", "text": "A tradesperson's total charge depends on the number of hours worked: for 7 hour…"}
+{"answer": "(a) 0.45; (b) 13.95; (c) 39", "id": "f10-direct-proportion-scale-model/exam/2/a4bd0d50a3fd", "text": "A landscape supplier sells crushed gravel in bags, and the price depends only o…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/hard/0/9996d078f426", "text": "A car rental costs a $30.00 flat booking fee plus $15.00 per day of hire. Is th…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/hard/1/699187bad9bf", "text": "A phone plan costs $10.00 a month plus $40.00 per GB used. Is this relationship…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/hard/2/4b7a00f6776f", "text": "A plumber charges a $20.00 call-out fee plus $15.00 per hour. Is this relations…"}
@@ -5866,6 +5878,9 @@
 {"answer": "160", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/easy/0/853be3c37a7f", "text": "Convert 16 cm to mm."}
 {"answer": "11", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/easy/1/f562df3a31c1", "text": "Convert 110 mm to cm."}
 {"answer": "19", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/easy/2/5056a3873094", "text": "Convert 1900 cm to m."}
+{"answer": "(a) 1320; (b) 3420; (c) 44382.00; (d) 118.00", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/exam/0/506279ae5f71", "text": "A council is fencing a rectangular reserve 390 m long and 1.32 km wide. A gate …"}
+{"answer": "(a) 1315; (b) 3470; (c) 62370.00; (d) 630.00", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/exam/1/569a9558c6c4", "text": "A council is fencing a rectangular reserve 420 m long and 1.315 km wide. A gate…"}
+{"answer": "(a) 1185; (b) 3810; (c) 68526.00; (d) 474.00", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/exam/2/b7bebf99b7d9", "text": "A council is fencing a rectangular reserve 720 m long and 1.185 km wide. A gate…"}
 {"answer": "1121", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/hard/0/4b1416267644", "text": "Path A is 861 mm and Path B is 26 cm. What is their combined length, in mm?"}
 {"answer": "1636", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/hard/1/b96fabc98a51", "text": "Path A is 864 cm and Path B is 25 m. What is the difference in length between t…"}
 {"answer": "565", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/hard/2/1cb2a76f936a", "text": "Path A is 55 mm and Path B is 62 cm. What is the difference in length between t…"}
@@ -7613,7 +7628,10 @@
 {"answer": "x = -5 or x = 5", "id": "solve-quadratics-factorable/easy/1/e4023388358a", "text": "Solve x**2 - 25 = 0"}
 {"answer": "x = -1 or x = 5", "id": "solve-quadratics-factorable/easy/2/3c624cb21eb2", "text": "Solve x**2 - 4*x - 5 = 0"}
 {"answer": "x = 0 or x = 2", "id": "solve-quadratics-factorable/exam/0/791072a6b0a7", "text": "0 = 2x^2 - 4x"}
+{"answer": "(a) 1.20; (b) 3.00; (c) 1.80; (d) 8.10", "id": "solve-quadratics-factorable/exam/0/fd5030a48f17", "text": "A gardener's hose throws water along the path y = -10x^2 + 42x - 36, where x is…"}
+{"answer": "(a) 0.80; (b) 3.00; (c) 2.20; (d) 6.05", "id": "solve-quadratics-factorable/exam/1/a3e90d9b62b5", "text": "A jet of water from a fountain follows the path y = -5x^2 + 19x - 12, where x i…"}
 {"answer": "x = -2 or x = 3", "id": "solve-quadratics-factorable/exam/1/cc682b95e0cc", "text": "0 = 3x^2 - 3x - 18"}
+{"answer": "(a) 8.40; (b) 10.00; (c) 1.60; (d) 6.40", "id": "solve-quadratics-factorable/exam/2/36cdb9631083", "text": "A jet of water from a fountain follows the path y = -10x^2 + 184x - 840, where …"}
 {"answer": "x = -8 or x = 0", "id": "solve-quadratics-factorable/exam/2/742e6259f17a", "text": "Solve 3x^2 + 24x = 0"}
 {"answer": "x = -14 or x = -8", "id": "solve-quadratics-factorable/hard/0/9465733c49c2", "text": "Solve x**2 + 22*x + 112 = 0"}
 {"answer": "x = -12 or x = -2", "id": "solve-quadratics-factorable/hard/1/5f92883b6b03", "text": "Solve x**2 + 14*x + 24 = 0"}

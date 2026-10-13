@@ -30,6 +30,10 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_r2x_compound_outcomes_replacement
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: no-replacement-values
   description: Computes each two-stage probability as if the second draw did not replace the first, using (count - 1) and (total - 1) on the second draw.

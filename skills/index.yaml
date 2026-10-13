@@ -822,6 +822,8 @@ f10-boxplot-distribution:
   sources:
   - topic: p18a_boxplot_quartiles
     module: mathgen/generators/p18a_boxplot_quartiles_build.py
+  - topic: exd_x_r2x_boxplot_two_groups
+    module: mathgen/generators/exd_x_r2x_boxplot_two_groups.py
 f10-bracketed-number-equations:
   domain: equations
   status: active
@@ -894,12 +896,16 @@ f10-compound-outcomes-replacement:
     module: mathgen/generators/p11d_probability_build.py
   - topic: exd_x_s1_replacement
     module: mathgen/generators/exd_x_s1_replacement.py
+  - topic: exd_x_r2x_compound_outcomes_replacement
+    module: mathgen/generators/exd_x_r2x_compound_outcomes_replacement.py
 f10-conditional-probability-language:
   domain: statistics-probability
   status: active
   sources:
   - topic: f10a_conditional_language
     module: mathgen/generators/f10a_conditional_language_build.py
+  - topic: exd_x_r2x_conditional_probability_language
+    module: mathgen/generators/exd_x_r2x_conditional_probability_language.py
 f10-congruence-similarity-criteria:
   domain: geometry
   status: active
@@ -966,6 +972,8 @@ f10-direct-proportion-scale-model:
   sources:
   - topic: p13a_direct_proportion_scale
     module: mathgen/generators/p13a_direct_proportion_scale_build.py
+  - topic: exd_x_r2x_direct_proportion_table
+    module: mathgen/generators/exd_x_r2x_direct_proportion_table.py
 f10-division-remainder-context:
   domain: primary-number
   status: active
@@ -4090,6 +4098,8 @@ senior-review-metric-units-of-length-their-abbreviations-conversions:
   sources:
   - topic: review_metric_units_of_length
     module: mathgen/generators/p3b_measurement_units_a_build.py
+  - topic: exd_x_r2x_metric_length_fencing
+    module: mathgen/generators/exd_x_r2x_metric_length_fencing.py
 senior-review-one-amount-expressed-as-a-percentage-of:
   domain: arithmetic
   status: active
@@ -5200,6 +5210,8 @@ solve-quadratics-factorable:
   sources:
   - topic: quadratic
     module: mathgen/generators/algebra.py
+  - topic: exd_x_r2x_quadratic_nonmonic_roots
+    module: mathgen/generators/exd_x_r2x_quadratic_nonmonic_roots.py
 solve-quadratics-formula:
   domain: quadratics
   status: active
