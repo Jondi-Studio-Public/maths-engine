@@ -35,7 +35,7 @@ def test_percent_is_read_as_grade_number_reads_it(reply):
     assert grade("fraction", _q("Find the error.", 36, 5, "36/5"), reply).correct
 
 
-@pytest.mark.parametrize("reply", ["1185/8 kg", "148.125 cm", "1185/8 s", "$1185/8"])
+@pytest.mark.parametrize("reply", ["1185/8 kg", "148.125 cm", "1185/8 s", "1185/8 dollars"])
 def test_a_unit_the_question_rules_out_is_rejected(reply):
     question = _q("Find the area in m^2.", 1185, 8, "1185/8")
     assert not grade("fraction", question, reply).correct

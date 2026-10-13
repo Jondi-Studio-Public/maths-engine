@@ -139,9 +139,20 @@ def split_unit(text: str) -> tuple[str, str | None]:
 
 
 def _unit_of(text: str) -> str | None:
-    """The recognised unit written with the number in `text` (see `split_unit`), or None."""
+    """The recognised unit written straight after the last number in `text`, or None. A leading "$" is not
+    judged: "$501" for an amount in cents has always been read as the number 501."""
     unit = split_unit(text)[1]
-    return None if unit == "%" else unit
+    return None if unit in ("%", "dollar") and not _trailing_unit(text) else unit
+
+
+def _trailing_unit(text: str) -> bool:
+    """Whether `text` writes a recognised unit straight after its last number."""
+    numbers = list(_NUMBER_RE.finditer(text or ""))
+    if not numbers:
+        return False
+    rest = text[numbers[-1].end() :].strip().rstrip(".!")
+    match = _MENTION_RE.match(rest)
+    return match is not None and match.end() == len(rest.rstrip())
 
 
 def _asked_unit(question) -> str | None:

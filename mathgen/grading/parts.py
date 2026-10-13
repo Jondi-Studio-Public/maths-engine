@@ -448,8 +448,7 @@ def _plausible_size(value, canonical) -> bool:
 def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
     """Whether a follow-through answer still asks for real work: not when a tiny earlier answer rounds it to
     zero while the canonical answer is not zero, nor when it is the very value of an earlier reply it uses
-    while the canonical answers differ (unless every earlier reply it uses is a known answer: a chain carried
-    wholly from those may land on the same value by real working). Writing the same number again is not following through (a constant
+    while the canonical answers differ. Writing the same number again is not following through (a constant
     dy/dx is its own gradient at P; "1" for every part matches an arc of 1 radian). Nor when it is 0, 1 or -1
     and the canonical answer is not, and either it does not move when an earlier reply it uses is multiplied by ten
     (the floor or ceiling of any tiny reply), or two earlier replies it uses are the same wrong number while
@@ -466,15 +465,9 @@ def _not_trivial(parts, part, target, values, known=frozenset()) -> bool:
         return False  # a tiny earlier answer that rounds this part's answer away to nothing
     by_label = {p.label: p for p in parts}
     names = named_parts(part)
-    carried_from_known = set(names) <= known  # real working, even when it lands on the earlier reply's value
     for name in names:
         earlier = values.get(name)
-        if (
-            not carried_from_known
-            and earlier is not None
-            and _same(earlier, value)
-            and not _same(_canonical_value(by_label[name]), canonical)
-        ):
+        if earlier is not None and _same(earlier, value) and not _same(_canonical_value(by_label[name]), canonical):
             return False
     if not any(_same(value, small) for small in (0, 1, -1)) or _same(canonical, value):
         return True
