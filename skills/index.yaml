@@ -5414,6 +5414,78 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+uc2-finite-field-arithmetic-gfp:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_finite_field_arithmetic_gfp
+    module: mathgen/generators/r4c_finite_field_arithmetic_gfp_build.py
+  - topic: exd_x_r4c_finite_field_arithmetic_gfp
+    module: mathgen/generators/r4c_finite_field_arithmetic_gfp_build.py
+uc2-first-isomorphism-theorem-orders:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_first_isomorphism_theorem_orders
+    module: mathgen/generators/r4c_first_isomorphism_theorem_orders_build.py
+  - topic: exd_x_r4c_first_isomorphism_theorem_orders
+    module: mathgen/generators/r4c_first_isomorphism_theorem_orders_build.py
+uc2-irreducibility-test-over-zp:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_irreducibility_test_over_zp
+    module: mathgen/generators/r4c_irreducibility_test_over_zp_build.py
+  - topic: exd_x_r4c_irreducibility_test_over_zp
+    module: mathgen/generators/r4c_irreducibility_test_over_zp_build.py
+uc2-normal-subgroup-test:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_normal_subgroup_test
+    module: mathgen/generators/r4c_normal_subgroup_test_build.py
+  - topic: exd_x_r4c_normal_subgroup_test
+    module: mathgen/generators/r4c_normal_subgroup_test_build.py
+uc2-quotient-group-order-and-structure:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_quotient_group_order_and_structure
+    module: mathgen/generators/r4c_quotient_group_order_and_structure_build.py
+  - topic: exd_x_r4c_quotient_group_order_and_structure
+    module: mathgen/generators/r4c_quotient_group_order_and_structure_build.py
+uc2-ring-ideal-gcd-in-polynomial-ring:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_ring_ideal_gcd_in_polynomial_ring
+    module: mathgen/generators/r4c_ring_ideal_gcd_in_polynomial_ring_build.py
+  - topic: exd_x_r4c_ring_ideal_gcd_in_polynomial_ring
+    module: mathgen/generators/r4c_ring_ideal_gcd_in_polynomial_ring_build.py
+uc2-subgroup-lattice-count:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_subgroup_lattice_count
+    module: mathgen/generators/r4c_subgroup_lattice_count_build.py
+  - topic: exd_x_r4c_subgroup_lattice_count
+    module: mathgen/generators/r4c_subgroup_lattice_count_build.py
+uc2-symmetric-group-conjugacy:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_symmetric_group_conjugacy
+    module: mathgen/generators/r4c_symmetric_group_conjugacy_build.py
+  - topic: exd_x_r4c_symmetric_group_conjugacy
+    module: mathgen/generators/r4c_symmetric_group_conjugacy_build.py
+uc2-units-and-zero-divisors-zn:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_units_and_zero_divisors_zn
+    module: mathgen/generators/r4c_units_and_zero_divisors_zn_build.py
+  - topic: exd_x_r4c_units_and_zero_divisors_zn
+    module: mathgen/generators/r4c_units_and_zero_divisors_zn_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active

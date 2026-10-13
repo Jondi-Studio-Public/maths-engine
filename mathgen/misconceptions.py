@@ -14972,6 +14972,698 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    # --- r4c abstract-algebra tranche 2 ---
+    CatalogueEntry(
+        "lattice-contains-contained-swapped",
+        "Counting the subgroups contained in the given subgroup where the ones that contain it were asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lattice-counts-all-subgroups",
+        "Counting every subgroup of the group instead of only those that contain the given subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lattice-uses-generator-not-gcd",
+        "Counting divisors of the generator itself instead of the gcd of the generator and the group order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lattice-excludes-the-subgroup-itself",
+        "Leaving the given subgroup out of the count of subgroups that contain it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-forgets-rotation-subgroup",
+        "Counting only the dihedral subgroups of the given order and forgetting the rotation subgroup of that order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-forgets-reflection-type",
+        "Counting only the rotation subgroup of the given order and forgetting the subgroups that contain reflections.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-elements-not-subgroups",
+        "Reporting the number of reflections or elements instead of the number of subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-count-assumes-product-subgroups",
+        "Taking every subgroup of a direct product to be a product of subgroups, so multiplying the divisor counts.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-count-cyclic-only",
+        "Counting only the cyclic subgroups of a direct product of cyclic groups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-count-divisors-of-order",
+        "Counting the divisors of the group order as if each divisor gave exactly one subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-sigma-for-tau",
+        "Using the sum of the divisors where the number of divisors counts the rotation subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-tau-for-sigma",
+        "Using the number of divisors where the sum of the divisors counts the dihedral subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normal-count-only-rotations",
+        "Counting only the subgroups of the rotation subgroup as normal and missing the normal dihedral subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normal-count-every-subgroup",
+        "Treating every subgroup of a dihedral group as normal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normal-count-parity-swapped",
+        "Counting the index-2 dihedral subgroups for odd n, or missing them for even n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-is-index",
+        "Giving the index of the subgroup as the number of its conjugates, which overcounts when pairs of reflections give the same conjugate.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-assumes-normal",
+        "Taking the subgroup to be normal and so reporting a single conjugate.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-all-reflections",
+        "Giving the number of reflections as the number of conjugates of a dihedral subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-is-order",
+        "Giving the order of the subgroup as the number of its conjugates.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-is-normaliser-order",
+        "Giving the order of the normaliser where the number of conjugates, its index, was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-elements-not-subgroups",
+        "Counting the permutations that are conjugate to a generator where the conjugate subgroups were asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-conjugate-count",
+        "Giving the number of conjugates of the subgroup as the order of its normaliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-subgroup-order",
+        "Taking the normaliser to be the subgroup itself.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-centraliser",
+        "Giving the order of the centraliser of a generator as the order of the normaliser of the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-whole-group",
+        "Giving the order of the whole group as the order of the normaliser, which is true only for a normal subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-order-is-generator-order",
+        "Giving the order of one generator as the order of the subgroup the generators produce.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-order-is-index",
+        "Giving the index of the subgroup where its order was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-element-order-is-group-order",
+        "Giving the order of the quotient group as the order of the element in it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-element-order-in-the-big-group",
+        "Giving the order of the representative in the original group as its order in the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-element-order-is-subgroup-order",
+        "Giving the order of the subgroup that was divided out as the order of an element of the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-order-is-subgroup-order",
+        "Giving the order of the subgroup generated as the order of the quotient group.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "pair-order-taken-as-product-of-component-orders",
+        "Taking the order of a pair to be the product of the orders of its components instead of their least common multiple.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-order-forgets-the-subgroup",
+        "Giving the order of the whole group as the order of the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-assumed-cyclic",
+        "Writing the quotient as a single cyclic group Z_1 x Z_N without checking whether it splits.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "invariant-factors-order-swapped",
+        "Listing the invariant factors with the larger one first, so that the smaller does not divide the larger.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-factorwise-instead-of-by-lattice",
+        "Taking the quotient of each coordinate by its own component of the generator, which ignores that the generator ties the coordinates together.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-ignores-the-subgroup",
+        "Giving the order of the representative in the big group as the order of its coset in the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-is-exponent",
+        "Giving the exponent of the quotient as the order of one particular coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "solution-counts-added-not-multiplied",
+        "Adding the numbers of solutions in the two factors of a direct product instead of multiplying them.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-solutions-from-largest-factor-only",
+        "Counting solutions of kg = 0 in the larger cyclic factor only and ignoring the smaller one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "elements-killed-by-k-taken-as-k",
+        "Taking the number of elements with kg = 0 to be k itself, as in a cyclic group where k divides the order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-forgets-repeated-cycle-symmetry",
+        "Leaving out the factor for interchanging cycles of the same length, which counts each permutation more than once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-forgets-cycle-rotations",
+        "Leaving out the factor for the different starting points of each cycle, which counts each permutation more than once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-is-centraliser-order",
+        "Giving the order of the centraliser where the size of the conjugacy class was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-counts-cycles",
+        "Giving the number of cycles of the permutation as the number of conjugates.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-order-is-class-size",
+        "Giving the size of the conjugacy class where the order of the centraliser was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-order-is-product-of-cycle-lengths",
+        "Taking the order of the centraliser to be the product of the cycle lengths, forgetting that equal cycles can be swapped.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-order-is-element-order",
+        "Giving the order of the permutation as the order of its centraliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-forgets-repeated-cycle-symmetry",
+        "Leaving out the m! ways of swapping m cycles of the same length when finding the centraliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-order-divides-instead-of-equals",
+        "Counting permutations whose order divides k instead of those whose order is exactly k.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-misses-a-cycle-type",
+        "Leaving one of the cycle types with the right least common multiple out of the sum.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-single-cycle-type",
+        "Counting only the largest cycle type with the right order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-types-not-elements",
+        "Giving the number of cycle types instead of the number of permutations.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-keeps-cycle-type",
+        "Giving the cycle type of the permutation itself as the cycle type of one of its powers.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-cycle-lengths-without-splitting",
+        "Shortening each cycle by the gcd but forgetting that it splits into that many cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "perm-order-is-product-of-cycle-lengths",
+        "Taking the order of a permutation to be the product of its cycle lengths instead of their least common multiple.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-exponent-off-by-one",
+        "Finding the cycle type of the permutation raised to a neighbouring power.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-image-order",
+        "Giving the order of the image where the order of the kernel was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-gcd-with-the-generator",
+        "Taking the kernel order to be the gcd of the multiplier and the order of the domain, instead of dividing by the image order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-assumes-image-is-the-codomain",
+        "Assuming the homomorphism is onto the codomain, so dividing the order of the domain by the order of the codomain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-gcd-with-the-codomain",
+        "Taking the kernel order to be the gcd of the multiplier and the order of the codomain, which is the order of the generator's complement in the image.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-ignores-one-generator",
+        "Finding the image from only one of the two terms of the map, so dividing by the wrong image order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-assumes-cyclic-unit-group",
+        "Assuming the unit group is cyclic, so that raising to the e-th power divides the order by gcd(e, order).",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-assumes-kernel-has-e-elements",
+        "Assuming exactly e elements satisfy x^e = 1, so dividing the order of the group by e.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-is-kernel-order",
+        "Giving the number of elements with x^e = 1 where the size of the image was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-assumes-onto",
+        "Assuming every element is an e-th power, so reporting the order of the whole group.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-is-gcd-not-index",
+        "Giving the gcd that generates the image as its order, when the order is the modulus divided by that gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-group-order",
+        "Giving the order of the whole domain as the order of the kernel.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-taken-from-the-domain",
+        "Giving the order of the generator in the domain as the order of its coset modulo the kernel.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "fibre-size-assumes-injective",
+        "Assuming each element of the image has exactly one preimage, which holds only when the kernel is trivial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-not-monic",
+        "Giving a scalar multiple of the gcd as the generator of the ideal, so that the generator is not the monic one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-is-lcm",
+        "Giving the lcm of the two polynomials as the generator of the ideal they generate, instead of the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-is-one-of-the-polynomials",
+        "Taking one of the two generators, up to a scalar, as the generator of the ideal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-misses-a-common-factor",
+        "Finding only one of the common factors, so that the generator has too low a degree.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-root-sign-slip",
+        "Writing the factor x + r where the common root r gives the factor x - r.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-stopped-at-first-remainder",
+        "Stopping Euclid's algorithm at the first remainder instead of continuing to the last non-zero one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-generated-by-the-product",
+        "Taking the product fg as the generator of the intersection, which counts the common factor twice.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-confused-with-sum",
+        "Giving the gcd, the generator of the sum of the ideals, as the generator of the intersection.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lcm-drops-the-common-factor",
+        "Multiplying only the parts that are not shared and leaving the common factor out of the lcm.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "remainder-confused-with-quotient",
+        "Giving the quotient of the division where the remainder was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "division-sign-slip",
+        "Giving the negative of the remainder, which is the remainder of the division of the opposite polynomial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "remainder-made-monic",
+        "Scaling the remainder to be monic, although a remainder is not normalised.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "division-step-incomplete",
+        "Subtracting g from f once without matching the leading term, and calling that the remainder.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-dimension-is-degree-of-f",
+        "Taking the dimension of the quotient ring to be the degree of f instead of the degree of the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-dimension-counts-the-constant-term-twice",
+        "Giving one more than the degree as the dimension, counting the constant term as an extra basis element.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ring-size-is-dimension-times-p",
+        "Multiplying the dimension by p where the number of elements is p to the power of the dimension.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ring-size-is-dimension",
+        "Giving the dimension of the quotient ring as its number of elements.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-include-zero",
+        "Counting 0 as a zero divisor, although a zero divisor is defined to be non-zero.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-counted-as-units",
+        "Giving the number of units where the number of zero divisors was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-only-the-even-residues",
+        "Counting only the even residues as zero divisors, which is right only when 2 is the sole prime factor of n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-every-nonzero-element",
+        "Treating every non-zero element of Z_n as a zero divisor, as if n had no units.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-single-solution-only",
+        "Giving only the solution found after dividing by the gcd, and missing the other solutions modulo n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-spacing-uses-the-gcd",
+        "Spacing the solutions by the gcd instead of by n divided by the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-misses-a-solution",
+        "Leaving out one of the gcd solutions of the congruence modulo n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-divides-only-the-right-side",
+        "Dividing the right side by the gcd but not the coefficient or the modulus.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-only-the-trivial-ones",
+        "Listing only 0 and 1 as the idempotents, although a modulus with several primes has more.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-confused-with-square-roots-of-one",
+        "Giving the solutions of x^2 = 1 where the solutions of e^2 = e were asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-confused-with-nilpotents",
+        "Giving the nilpotent elements where the idempotent elements were asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-misses-one",
+        "Leaving one of the non-trivial idempotents out of the list.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "units-counted-as-non-units",
+        "Giving the number of non-units where the number of units was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "units-only-the-odd-residues",
+        "Counting the odd residues as the units, which ignores the other prime factors of n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-only-zero",
+        "Taking 0 to be the only nilpotent element, which is right only when n has no repeated prime factor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-counted-by-radical",
+        "Giving the radical of n, the product of its distinct primes, as the number of nilpotent elements instead of n divided by it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-counted-as-non-units",
+        "Counting every non-unit as nilpotent.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-multiples-of-one-prime",
+        "Taking the multiples of one prime factor of n as the nilpotent elements, when every prime factor must divide a.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-confused-with-multiples-of-n-over-radical",
+        "Taking the multiples of n divided by the radical as the nilpotent elements instead of the multiples of the radical.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-square-zero-only",
+        "Listing only the elements whose square is 0, which misses nilpotents of higher index when a prime appears to a power above 2.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-leave-out-zero",
+        "Leaving 0 out of the nilpotent elements, although 0 to the first power is 0.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-multiplies-by-a-instead-of-its-inverse",
+        "Multiplying by a where the inverse of a modulo p is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-moves-constant-with-wrong-sign",
+        "Adding the constant to the right side where it should be subtracted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-integer-division-for-inverse",
+        "Dividing as integers, or using the whole-number quotient, where the inverse modulo p is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-negative-of-the-solution",
+        "Giving the additive inverse of the solution, p minus the solution.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-inverse-sign-slip",
+        "Using p minus the inverse, the inverse of the negative, where the inverse itself is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-adds-numerators-and-denominators",
+        "Adding fractions by adding numerators and denominators separately.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-subtraction-sign-slip",
+        "Adding a term that should have been subtracted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-multiplies-by-denominator-instead-of-inverse",
+        "Multiplying by the denominator where the inverse of the denominator modulo p is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-larger-root-given",
+        "Giving the larger root where the smaller was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-without-the-square-root",
+        "Giving only -b divided by 2a, the midpoint of the roots, and leaving out the square root of the discriminant.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-ignores-leading-coefficient",
+        "Dividing by 2 instead of by 2a in the quadratic formula.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-sign-slip-on-b",
+        "Using b where the quadratic formula has -b.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-divides-by-a-not-2a",
+        "Dividing by a instead of by 2a in the quadratic formula.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-discriminant-sign-slip",
+        "Adding 4ac to b squared instead of subtracting it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-discriminant-wrong-multiplier",
+        "Subtracting 2ac instead of 4ac from b squared.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "bezout-cofactor-sign-slip",
+        "Giving the cofactor of p in the Bezout identity with the wrong sign.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "bezout-cofactor-is-the-inverse",
+        "Giving the inverse itself where the cofactor of p in the Bezout identity was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "irreducible-assumed-without-checking",
+        "Calling a polynomial irreducible without searching for any factor of degree 2 or more.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "no-root-taken-as-irreducible",
+        "Concluding that a polynomial of degree 4 or more with no root is irreducible, although it may have a quadratic factor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-search-stops-after-one-linear-factor",
+        "Stopping once one linear factor is found and treating the quotient as a single irreducible factor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "repeated-factor-counted-once",
+        "Listing the degree of a repeated factor only once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "every-factor-taken-as-linear",
+        "Giving every factor degree 1, as if the polynomial split completely.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-factor-split-into-linears",
+        "Splitting an irreducible quadratic factor into two linear factors, which would need roots in Z_p.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-degrees-in-descending-order",
+        "Listing the degrees of the factors in descending order where increasing order was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factors-merged-into-one",
+        "Merging two of the irreducible factors into one factor whose degree is the sum.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "linear-factors-counted-without-multiplicity",
+        "Counting each root once, so that a repeated linear factor is counted only once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-degree-left-is-the-linear-count",
+        "Giving the number of linear factors where the degree of what is left was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-degree-left-is-the-whole-degree",
+        "Giving the degree of f itself where the degree of the part left after dividing out the linear factors was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "maximal-ideals-counted-with-multiplicity",
+        "Counting each irreducible factor once for each time it repeats, which gives the number of factors, not of distinct ones.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "maximal-ideals-assumed-one",
+        "Assuming the quotient ring has a single maximal ideal.",
+        area="abstract-algebra",
+    ),
+    # --- end r4c ---
 )
 
 #: Every entry, by id.

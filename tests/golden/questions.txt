@@ -7816,6 +7816,114 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "59", "id": "uc2-finite-field-arithmetic-gfp/easy/0/81c3f6a39162", "text": "Find the residue x from 0 to 60 with 4x + 1 ≡ 54 (mod 61)."}
+{"answer": "84", "id": "uc2-finite-field-arithmetic-gfp/easy/1/e667143a1f4a", "text": "Find the residue x from 0 to 96 with 10x + 71 ≡ 38 (mod 97)."}
+{"answer": "11", "id": "uc2-finite-field-arithmetic-gfp/easy/2/f4a442405e3f", "text": "Over the finite field of 37 elements, the equation 20x + 15 = 13 has exactly on…"}
+{"answer": "(a) 77; (b) 72; (c) -38; (d) {24, 53}", "id": "uc2-finite-field-arithmetic-gfp/exam/0/540a6d42c8e7", "text": "Work in the field GF(79) = Z_79, and let f(x) = 39x² + 78x + 75. Unless a part …"}
+{"answer": "(a) 67; (b) 63; (c) -46; (d) {17, 38}", "id": "uc2-finite-field-arithmetic-gfp/exam/1/4710163789c6", "text": "All arithmetic is in GF(83), the integers modulo the prime 83, and f(x) = 57x² …"}
+{"answer": "(a) 43; (b) 17; (c) -32; (d) {4, 19}", "id": "uc2-finite-field-arithmetic-gfp/exam/2/5563d8aa7cc9", "text": "Let f(x) = 35x² + 41x + 28 be a polynomial over the field GF(47) = Z_47. Unless…"}
+{"answer": "33", "id": "uc2-finite-field-arithmetic-gfp/hard/0/40b86bd30481", "text": "The quadratic 25x² + 24x + 19 has two roots in GF(43). Give the smaller root, a…"}
+{"answer": "26", "id": "uc2-finite-field-arithmetic-gfp/hard/1/7bb7cb33cd60", "text": "Solve 60x² + 66x + 1 = 0 over Z_67. It has two solutions among the residues 0 t…"}
+{"answer": "13", "id": "uc2-finite-field-arithmetic-gfp/hard/2/b0175af91ed7", "text": "The quadratic 18x² + 44x + 4 has two roots in GF(67). Give the smaller root, as…"}
+{"answer": "20", "id": "uc2-finite-field-arithmetic-gfp/medium/0/d827db981263", "text": "Working modulo 31, where every non-zero residue has an inverse, what is 3/21 + …"}
+{"answer": "15", "id": "uc2-finite-field-arithmetic-gfp/medium/1/46b879250c6f", "text": "Working modulo 83, where every non-zero residue has an inverse, what is 60/78 +…"}
+{"answer": "17", "id": "uc2-finite-field-arithmetic-gfp/medium/2/e4c977270ba8", "text": "Working modulo 73, where every non-zero residue has an inverse, what is 30/15 +…"}
+{"answer": "9", "id": "uc2-first-isomorphism-theorem-orders/easy/0/6d07a2bc4247", "text": "The map φ: Z_27 → Z_30 given by φ(x) = 20x (mod 30) is a homomorphism. Find the…"}
+{"answer": "3", "id": "uc2-first-isomorphism-theorem-orders/easy/1/2f8de497f024", "text": "Let φ: Z_15 → Z_20 be the homomorphism φ(x) = 12x mod 20. How many elements x o…"}
+{"answer": "9", "id": "uc2-first-isomorphism-theorem-orders/easy/2/a1853365dc1f", "text": "Let φ: Z_81 → Z_18 be the homomorphism φ(x) = 10x mod 18. How many elements x o…"}
+{"answer": "(a) 15; (b) 45; (c) 15; (d) 45", "id": "uc2-first-isomorphism-theorem-orders/exam/0/596fd8d2e993", "text": "Let φ(x, y) = 2x + 18y (mod 30), a homomorphism from G = Z_45 × Z_15 to Z_30. (…"}
+{"answer": "(a) 6; (b) 18; (c) 6; (d) 18", "id": "uc2-first-isomorphism-theorem-orders/exam/1/628698c4b025", "text": "Let φ(x, y) = 30x + 12y (mod 36), a homomorphism from G = Z_18 × Z_6 to Z_36. (…"}
+{"answer": "(a) 10; (b) 30; (c) 5; (d) 30", "id": "uc2-first-isomorphism-theorem-orders/exam/2/ecd451cfa024", "text": "Let φ(x, y) = 32x + 28y (mod 40), a homomorphism from G = Z_10 × Z_30 to Z_40. …"}
+{"answer": "3", "id": "uc2-first-isomorphism-theorem-orders/hard/0/e3bcbddd9494", "text": "Let U be the group of units of Z_35 and consider φ: U → U, φ(x) = x^4. Find the…"}
+{"answer": "2", "id": "uc2-first-isomorphism-theorem-orders/hard/1/81e9fa7fe02a", "text": "Raising to the power 2 is a homomorphism φ(x) = x^2 of the unit group U of Z_16…"}
+{"answer": "5", "id": "uc2-first-isomorphism-theorem-orders/hard/2/e8c30225b216", "text": "Raising to the power 6 is a homomorphism φ(x) = x^6 of the unit group U of Z_99…"}
+{"answer": "54", "id": "uc2-first-isomorphism-theorem-orders/medium/0/4feee16180cb", "text": "The map φ: Z_27 × Z_18 → Z_18 given by φ(x, y) = 16x + 10y (mod 18) is a homomo…"}
+{"answer": "18", "id": "uc2-first-isomorphism-theorem-orders/medium/1/09d6a264af64", "text": "φ(x, y) = 12x + 10y (mod 18) defines a homomorphism from Z_9 × Z_18 to Z_18. Ho…"}
+{"answer": "20", "id": "uc2-first-isomorphism-theorem-orders/medium/2/8777cfa10f1c", "text": "Let φ: Z_10 × Z_40 → Z_60 be the homomorphism φ(x, y) = 12x + 9y mod 60. Find |…"}
+{"answer": "(1, 1, 1)", "id": "uc2-irreducibility-test-over-zp/easy/0/7fe82d90e39b", "text": "Factor f = x^3 + x^2 + 3x completely into irreducibles in Z_5[x] (coefficients …"}
+{"answer": "(1, 1, 1)", "id": "uc2-irreducibility-test-over-zp/easy/1/e6bddc5fe531", "text": "Let f = x^3 + x^2 in Z_5[x], with coefficients taken modulo 5. Factor f into ir…"}
+{"answer": "(1, 2)", "id": "uc2-irreducibility-test-over-zp/easy/2/cfa1b0948dcb", "text": "Over Z_7, the polynomial f = x^3 + x^2 + 2x + 5 is a product of irreducible pol…"}
+{"answer": "(a) 2; (b) 3; (c) (1, 1, 3); (d) 2", "id": "uc2-irreducibility-test-over-zp/exam/0/49624dd91e47", "text": "Let f = x^5 + 2x^3 + x + 2 in Z_3[x], with coefficients taken modulo 3. (a) How…"}
+{"answer": "(a) 5; (b) 0; (c) (1, 1, 1, 1, 1); (d) 3", "id": "uc2-irreducibility-test-over-zp/exam/1/6ff15925bd41", "text": "Over Z_3 (coefficients modulo 3), let f = x^5 + x^3 + x. (a) How many linear fa…"}
+{"answer": "(a) 2; (b) 3; (c) (1, 1, 3); (d) 2", "id": "uc2-irreducibility-test-over-zp/exam/2/de77aec50645", "text": "Let f = x^5 + 2x^4 + x^3 + x^2 in Z_3[x], with coefficients taken modulo 3. (a)…"}
+{"answer": "(1, 2, 3)", "id": "uc2-irreducibility-test-over-zp/hard/0/ba38f3f32aa1", "text": "Factor f = x^6 + x^4 + x + 1 completely into irreducibles in Z_2[x] (coefficien…"}
+{"answer": "(1, 5)", "id": "uc2-irreducibility-test-over-zp/hard/1/483072254689", "text": "Over Z_2, the polynomial f = x^6 + x^4 + x^3 + x^2 + x is a product of irreduci…"}
+{"answer": "(1, 1, 1, 3)", "id": "uc2-irreducibility-test-over-zp/hard/2/19a5e7634180", "text": "Let f = x^6 + x^3 + x + 1 in Z_2[x], with coefficients taken modulo 2. Factor f…"}
+{"answer": "(1, 2, 2)", "id": "uc2-irreducibility-test-over-zp/medium/0/a6be9bc7b440", "text": "Over Z_3, the polynomial f = x^5 + 2x^4 + 2x^2 + 2x is a product of irreducible…"}
+{"answer": "(1, 3)", "id": "uc2-irreducibility-test-over-zp/medium/1/dd463df27457", "text": "Factor f = x^4 + 3x^3 + x^2 + 4x + 2 completely into irreducibles in Z_5[x] (co…"}
+{"answer": "(2, 3)", "id": "uc2-irreducibility-test-over-zp/medium/2/4c638b66febb", "text": "Factor f = x^5 + 2x^4 + x^3 + 2x^2 + x + 1 completely into irreducibles in Z_3[…"}
+{"answer": "5", "id": "uc2-normal-subgroup-test/easy/0/23b7de91f5ca", "text": "In D_40 (order 80, with rotation r of order 40 and reflection s) the subgroup H…"}
+{"answer": "3", "id": "uc2-normal-subgroup-test/easy/1/eb7d83a62488", "text": "In D_12 (order 24, with rotation r of order 12 and reflection s) the subgroup H…"}
+{"answer": "11", "id": "uc2-normal-subgroup-test/easy/2/1f2f1107f3e3", "text": "D_22 is the dihedral group of order 44 with rotation r and reflection s. Find t…"}
+{"answer": "(a) 6; (b) 12; (c) 10", "id": "uc2-normal-subgroup-test/exam/0/407ad988a669", "text": "In S_5, permutations are composed right to left. Let H be the subgroup of S_5 g…"}
+{"answer": "(a) 3; (b) 12; (c) 10", "id": "uc2-normal-subgroup-test/exam/1/0e75df8be559", "text": "Work in S_5, composing permutations right to left. The subgroup H = ⟨(1 5 3)⟩ h…"}
+{"answer": "(a) 6; (b) 12; (c) 10", "id": "uc2-normal-subgroup-test/exam/2/21e5f1d049f3", "text": "In S_5, permutations are composed right to left. Let H be the subgroup of S_5 g…"}
+{"answer": "20", "id": "uc2-normal-subgroup-test/hard/0/55a9e69deb85", "text": "In S_5, permutations are composed right to left. Let H be the subgroup generate…"}
+{"answer": "12", "id": "uc2-normal-subgroup-test/hard/1/9b60d5479f68", "text": "For the subgroup H = ⟨(2 4)⟩ of S_5 (right-to-left composition), find |N(H)|, w…"}
+{"answer": "8", "id": "uc2-normal-subgroup-test/hard/2/93c8ab95091c", "text": "In S_5, permutations are composed right to left. Let H be the subgroup generate…"}
+{"answer": "4", "id": "uc2-normal-subgroup-test/medium/0/6fe8ed044b70", "text": "In S_4, permutations are composed right to left. Let H be the subgroup generate…"}
+{"answer": "4", "id": "uc2-normal-subgroup-test/medium/1/7d6670053b61", "text": "The subgroup H of S_4 is generated by (1 2 4) (composition is right to left). H…"}
+{"answer": "1", "id": "uc2-normal-subgroup-test/medium/2/d2b2f2721b1d", "text": "The subgroup H of S_4 is generated by (1 4)(2 3), (1 2)(3 4) (composition is ri…"}
+{"answer": "9", "id": "uc2-quotient-group-order-and-structure/easy/0/c534fa93d715", "text": "Let Q = Z_108 / ⟨45⟩. What is the order of the coset 38 + ⟨45⟩ in Q?"}
+{"answer": "3", "id": "uc2-quotient-group-order-and-structure/easy/1/6c3fbbd6e025", "text": "In the quotient group Z_84 / ⟨60⟩, find the order of the element 28 + ⟨60⟩."}
+{"answer": "5", "id": "uc2-quotient-group-order-and-structure/easy/2/60063804e989", "text": "Let Q = Z_90 / ⟨10⟩. What is the order of the coset 2 + ⟨10⟩ in Q?"}
+{"answer": "(a) 5; (b) 12; (c) 3; (d) (2, 6)", "id": "uc2-quotient-group-order-and-structure/exam/0/766535f84c01", "text": "Let G = Z_6 × Z_10 and let H be the subgroup of G generated by (0, 8). (a) Find…"}
+{"answer": "(a) 12; (b) 12; (c) 3; (d) (2, 6)", "id": "uc2-quotient-group-order-and-structure/exam/1/2cbad57aef36", "text": "Consider G = Z_6 × Z_24 under componentwise addition, and the cyclic subgroup H…"}
+{"answer": "(a) 5; (b) 20; (c) 5; (d) (2, 10)", "id": "uc2-quotient-group-order-and-structure/exam/2/d1ab1be6442e", "text": "Consider G = Z_10 × Z_10 under componentwise addition, and the cyclic subgroup …"}
+{"answer": "12", "id": "uc2-quotient-group-order-and-structure/hard/0/1d623d8bc03c", "text": "How many cosets g + H of H = ⟨(6, 4)⟩ in Z_12 × Z_12 satisfy 6(g + H) = H?"}
+{"answer": "9", "id": "uc2-quotient-group-order-and-structure/hard/1/8af40b8112b8", "text": "Let H be the subgroup of Z_15 × Z_12 generated by (9, 6), and let Q = (Z_15 × Z…"}
+{"answer": "4", "id": "uc2-quotient-group-order-and-structure/hard/2/6ab2d213e605", "text": "With G = Z_24 × Z_4, H = ⟨(20, 0)⟩ and Q = G / H, count the elements g of Q for…"}
+{"answer": "15", "id": "uc2-quotient-group-order-and-structure/medium/0/a3c93fa391f9", "text": "Find |G / H|, where G = Z_20 × Z_15 and H = ⟨(3, 12)⟩."}
+{"answer": "4", "id": "uc2-quotient-group-order-and-structure/medium/1/66721e579b86", "text": "Let H be the subgroup of Z_8 × Z_20 generated by (3, 11). Find the order of the…"}
+{"answer": "9", "id": "uc2-quotient-group-order-and-structure/medium/2/e808785ee2d8", "text": "The element (9, 2) of Z_18 × Z_9 generates a subgroup H. How many cosets of H a…"}
+{"answer": "x - 1", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/easy/0/e4ba47ab455e", "text": "In Q[x], the ideal I is generated by f = 2x^3 - 16x^2 + 38x - 24 and g = 2x^2 +…"}
+{"answer": "x^2 + x + 1", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/easy/1/6497f1b18fd6", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Q[x], where f = x^3 - 2x^2 - 2x…"}
+{"answer": "x - 2", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/easy/2/22c0c2bcac0a", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Q[x], where f = 2x^2 - 4x and g…"}
+{"answer": "(a) 2x^3 + x^2 + x + 1; (b) x + 4; (c) 1; (d) 5", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/exam/0/a0ded70c9f73", "text": "Work in Z_5[x] with f = 4x^4 + 2x^3 + 2x^2 + x + 1 and g = 2x^4 + 3x^2, and wri…"}
+{"answer": "(a) 3x^2 + 4x + 3; (b) x + 4; (c) 1; (d) 5", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/exam/1/093fa82cfc82", "text": "Let I be the ideal of Z_5[x] generated by f = x^4 + 3x^3 + x^2 + 2x + 3 and g =…"}
+{"answer": "(a) 3x^3 + 6x^2 + 3x + 6; (b) x^2 + 1; (c) 2; (d) 49", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/exam/2/b42f8552bcec", "text": "Let I be the ideal of Z_7[x] generated by f = 5x^4 + 5x^3 + 5x + 2 and g = 5x^4…"}
+{"answer": "x^4 + 3x^3 + 6x^2 + x + 4", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/hard/0/d6a28b6ae56a", "text": "In Z_7[x], with f = x^3 + 5x^2 + 2x + 5 and g = x^3 + 2x^2 + 4x + 4, a polynomi…"}
+{"answer": "x^4 + 2x^3 + x^2 + 2x", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/hard/1/aa77ee3334d4", "text": "In Z_5[x] let I = ⟨f⟩ and J = ⟨g⟩, where f = 4x^3 + x^2 + x and g = 4x^3 + 3x^2…"}
+{"answer": "x^5 + 2x^4 + 6x^2 + 5x", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/hard/2/b1b8d0d4316a", "text": "In Z_7[x], with f = 2x^3 + 5x^2 + 6x + 1 and g = 3x^3 + 3x^2 + 3x, a polynomial…"}
+{"answer": "x", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/medium/0/c79b5f84adee", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Z_7[x], where f = 6x^3 + 6x^2 +…"}
+{"answer": "x^2 + 4x + 4", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/medium/1/dd10eeedd05c", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Z_5[x], where f = 2x^4 + 4x^3 +…"}
+{"answer": "x + 6", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/medium/2/f8a2fbdc4afd", "text": "Let I = ⟨f, g⟩ be the ideal of Z_7[x] generated by f = 4x^2 + 5x + 5 and g = 2x…"}
+{"answer": "8", "id": "uc2-subgroup-lattice-count/easy/0/bf959dcf2233", "text": "In the cyclic group Z_168 under addition, how many subgroups contain the subgro…"}
+{"answer": "5", "id": "uc2-subgroup-lattice-count/easy/1/3244f656bd93", "text": "Z_96 is the group of integers modulo 96 under addition. How many subgroups K of…"}
+{"answer": "5", "id": "uc2-subgroup-lattice-count/easy/2/1f9621d3140d", "text": "Let H = ⟨112⟩ be the subgroup of (Z_144, +) generated by 112. Count the subgrou…"}
+{"answer": "(a) 5; (b) 31; (c) 36; (d) 8", "id": "uc2-subgroup-lattice-count/exam/0/4c8528f21107", "text": "Consider the symmetries of a regular 16-gon, the group D_16 of order 32 with ro…"}
+{"answer": "(a) 6; (b) 42; (c) 48; (d) 9", "id": "uc2-subgroup-lattice-count/exam/1/e358ae789097", "text": "Let D_20 be the dihedral group of order 40, generated by a rotation r of order …"}
+{"answer": "(a) 8; (b) 60; (c) 68; (d) 11", "id": "uc2-subgroup-lattice-count/exam/2/64d79c1434a0", "text": "Let D_24 be the dihedral group of order 48, generated by a rotation r of order …"}
+{"answer": "16", "id": "uc2-subgroup-lattice-count/hard/0/e13ab0546808", "text": "Count every subgroup of the direct product Z_20 × Z_2 (with componentwise addit…"}
+{"answer": "10", "id": "uc2-subgroup-lattice-count/hard/1/7b85f8706d64", "text": "The group G = Z_9 × Z_3 is formed with componentwise addition. How many subgrou…"}
+{"answer": "22", "id": "uc2-subgroup-lattice-count/hard/2/6d4f8cf39fea", "text": "How many subgroups does Z_2 × Z_24 have, counting the trivial subgroup and the …"}
+{"answer": "7", "id": "uc2-subgroup-lattice-count/medium/0/bc9f2889161f", "text": "The symmetries of a regular 54-gon form the dihedral group D_54, of order 108. …"}
+{"answer": "5", "id": "uc2-subgroup-lattice-count/medium/1/ececee94a51c", "text": "The symmetries of a regular 28-gon form the dihedral group D_28, of order 56. C…"}
+{"answer": "3", "id": "uc2-subgroup-lattice-count/medium/2/f3bcc20f65c0", "text": "How many different subgroups of order 8 does the dihedral group D_8 (of order 1…"}
+{"answer": "1680", "id": "uc2-symmetric-group-conjugacy/easy/0/e51ea9459ead", "text": "In the symmetric group S_8, let σ = (8 6 7)(4 1)(5 3) (points not listed are fi…"}
+{"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/1/b3e2359e445d", "text": "Let σ = (1 6)(2 5)(3 4) be a permutation in S_6; points not written are fixed. …"}
+{"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/2/36705a38c195", "text": "In the symmetric group S_6, let σ = (6 3)(2 1)(4 5) (points not listed are fixe…"}
+{"answer": "(a) 6; (b) 420; (c) 12; (d) (2, 1, 1, 1, 1, 1)", "id": "uc2-symmetric-group-conjugacy/exam/0/f8c4afbfc4fa", "text": "Let σ = (1 2 7)(6 4) be a permutation in S_7; points that are not written are f…"}
+{"answer": "(a) 6; (b) 1680; (c) 24; (d) (3, 1, 1, 1, 1, 1)", "id": "uc2-symmetric-group-conjugacy/exam/1/f0cff639c08a", "text": "Let σ = (1 5 8)(4 7)(6 2) be a permutation in S_8; points that are not written …"}
+{"answer": "(a) 12; (b) 3360; (c) 12; (d) (4, 1, 1, 1, 1)", "id": "uc2-symmetric-group-conjugacy/exam/2/b6a2c578f7f2", "text": "The permutation σ = (6 7 5 2)(4 1 3) belongs to S_8, with the points not listed…"}
+{"answer": "80", "id": "uc2-symmetric-group-conjugacy/hard/0/fbcc83b0ebce", "text": "How many elements of the symmetric group S_6 have order exactly 3?"}
+{"answer": "80", "id": "uc2-symmetric-group-conjugacy/hard/1/af4e8cde08b6", "text": "Count the permutations in S_6 whose order is exactly 3."}
+{"answer": "240", "id": "uc2-symmetric-group-conjugacy/hard/2/c3d24d6bded0", "text": "Count the permutations in S_6 whose order is exactly 6."}
+{"answer": "288", "id": "uc2-symmetric-group-conjugacy/medium/0/a45bc5d2ea16", "text": "Find |C(σ)|, the number of elements of S_9 that commute with σ = (7 1)(6 3)(9 2…"}
+{"answer": "32", "id": "uc2-symmetric-group-conjugacy/medium/1/42fa34543053", "text": "In the symmetric group S_9, let σ = (3 9 2 8)(4 1 5 6) (points not listed are f…"}
+{"answer": "18", "id": "uc2-symmetric-group-conjugacy/medium/2/26907bf2bdb1", "text": "Let σ = (1 7 3)(5 6 4) be a permutation in S_7 (unlisted points are fixed). How…"}
+{"answer": "{0, 10, 20, 30, 40}", "id": "uc2-units-and-zero-divisors-zn/easy/0/96963139f48b", "text": "List every a from 0 to 49 for which some power of a is 0 in the ring Z_50. Give…"}
+{"answer": "{0, 6}", "id": "uc2-units-and-zero-divisors-zn/easy/1/3d2354d1174b", "text": "An element a of the ring Z_12 is nilpotent if a^k = 0 for some positive integer…"}
+{"answer": "{0, 14}", "id": "uc2-units-and-zero-divisors-zn/easy/2/66dcb1452de5", "text": "List every a from 0 to 27 for which some power of a is 0 in the ring Z_28. Give…"}
+{"answer": "(a) 60; (b) 38; (c) 3; (d) {0, 1, 45, 55}", "id": "uc2-units-and-zero-divisors-zn/exam/0/8968d77030a6", "text": "Consider the ring Z_99. A non-zero element a is a zero divisor if ab = 0 for so…"}
+{"answer": "(a) 6; (b) 11; (c) 3; (d) {0, 1, 9, 10}", "id": "uc2-units-and-zero-divisors-zn/exam/1/9b7182504597", "text": "Consider the ring Z_18. A non-zero element a is a zero divisor if ab = 0 for so…"}
+{"answer": "(a) 12; (b) 23; (c) 6; (d) {0, 1, 9, 28}", "id": "uc2-units-and-zero-divisors-zn/exam/2/a8b0301832e7", "text": "In the ring Z_36, an element is nilpotent if some power of it is 0 and idempote…"}
+{"answer": "{0, 1, 25, 51, 75, 76, 100, 126}", "id": "uc2-units-and-zero-divisors-zn/hard/0/b6ecda2f3d18", "text": "List every e from 0 to 149 with e² ≡ e (mod 150). Give the answer as a set, for…"}
+{"answer": "{0, 1, 16, 21, 25, 36, 40, 45}", "id": "uc2-units-and-zero-divisors-zn/hard/1/8c2253042715", "text": "Which elements of the ring Z_60 equal their own square? Give them as a set of r…"}
+{"answer": "{0, 1, 28, 81}", "id": "uc2-units-and-zero-divisors-zn/hard/2/4a5ed3ca3f83", "text": "Which elements of the ring Z_108 equal their own square? Give them as a set of …"}
+{"answer": "{1, 5, 9, 13, 17, 21, 25, 29, 33, 37}", "id": "uc2-units-and-zero-divisors-zn/medium/0/369be7366a5f", "text": "Which residues x modulo 40 satisfy 10x ≡ 10 (mod 40)? Give all of them as a set…"}
+{"answer": "{4, 12, 20, 28}", "id": "uc2-units-and-zero-divisors-zn/medium/1/1f24bbe611a2", "text": "Solve 28x = 16 in the ring Z_32. List every solution x as a residue from 0 to 3…"}
+{"answer": "{5, 29}", "id": "uc2-units-and-zero-divisors-zn/medium/2/8c87916b102e", "text": "Find every solution x from 0 to 47 of the congruence 22x ≡ 14 (mod 48). Give th…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}
