@@ -25,7 +25,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from ..core import attempts, check, generator, join_terms, phrase
+from ..core import attempts, check, fmt_signed, generator, join_terms, phrase
 from ._sr2b_kit import Pair, int_dist, pair_candidates, pick, retry_short, sup
 
 _FORM = " Give your answer as {l1} = ..., {l2} = ...."
@@ -90,7 +90,7 @@ def _easy(rng):
         text=stem,
         working=[
             f"The denominator is zero when x = {-d}, and the numerator is not zero there, so x = {-d} is the vertical asymptote.",
-            f"As x grows large the function approaches {a}x/x = {a}, so y = {a} is the horizontal asymptote.",
+            f"As x grows large the function approaches {fmt_signed(a, 'x')}/x = {a}, so y = {a} is the horizontal asymptote.",
         ],
         distractors=pick(ans.text, pair_candidates(ans, wrong)),
         **ans.fields(),

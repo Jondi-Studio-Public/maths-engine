@@ -88,6 +88,9 @@ difficulty_progression:
     steps: 5
     demand: Take logarithms of u(x) to the power v(x) where both the base and the exponent need the chain rule, differentiate
       with the product rule, and evaluate the exact value at a point.
+  exam:
+    steps: 6
+    demand: Differentiate the logarithm of (x + a)^x, use it to find the derivative at x = 1, then find the tangent's y-intercept and the normal's gradient from that value.
 tags:
 - university-core-v1
 - differentiation

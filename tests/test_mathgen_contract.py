@@ -335,6 +335,14 @@ OPTION_NOTES_TOPICS = frozenset(
         "senior_percentaged_two_way_table",
         "senior_reducing_balance_schedule",
         "sequence_term_from_rule",
+        "sr2a_bipartite",
+        "sr2a_box_plots",
+        "sr2a_histogram_shape",
+        "sr2a_network_model",
+        "sr2a_planar_faces",
+        "sr2a_scatter_assoc",
+        "sr2a_scatter_fit",
+        "sr2a_time_series",
         "sr2b_composite_domain",
         "sr2b_counting_restrictions",
         "sr2b_exact_trig_values",
@@ -370,6 +378,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "ucv1_proof_by_induction",
         "ucv1_series_convergence",
         "ucv1_weak_solution_regularity",
+        "y910_classify_number_sets",
+        "y910_geometric_proof_reasons",
+        "y910_graph_inequality_match",
+        "y910_graph_inequality_region",
+        "y910_graph_system_solution",
+        "y910_line_plane_angle",
     }
 )
 

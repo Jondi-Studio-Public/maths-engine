@@ -73,6 +73,9 @@ difficulty_progression:
     steps: 5
     demand: Work backwards from a required probability to a z-value, solve z sigma over root n at most d for n, square and
       round up, and judge which z and how many tails the wording needs.
+  exam:
+    steps: 6
+    demand: Find the standard error of a sample mean, a probability for the mean and for the total using the normal approximation, then the sample size for a two-sided 95% bound.
 tags:
 - university-core-v1
 - statistics

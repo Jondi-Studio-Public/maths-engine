@@ -99,6 +99,9 @@ difficulty_progression:
     steps: 4
     demand: Complete the square to find where a quadratic stops being one-to-one or the least value it takes, or count the
       multipliers a for which x to ax + b is a bijection of the integers modulo n.
+  exam:
+    steps: 5
+    demand: Restrict a quadratic to the domain on which it is injective, find the codomain that makes it onto, evaluate the inverse at a value and count the integers in the domain below a bound.
 tags:
 - university-core-v1
 - discrete-mathematics

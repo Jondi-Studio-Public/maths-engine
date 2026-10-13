@@ -97,6 +97,9 @@ difficulty_progression:
     steps: 4
     demand: Complete the square, locate the vertex or centre, and place a directrix using p for a parabola or a squared
       over c measured from the centre for an ellipse or hyperbola.
+  exam:
+    steps: 5
+    demand: Complete the square on a general-form ellipse to find its centre, the focal distance, the eccentricity and the distance from the centre to a directrix, carrying the focal distance forward.
 tags:
 - university-core-v1
 - geometry

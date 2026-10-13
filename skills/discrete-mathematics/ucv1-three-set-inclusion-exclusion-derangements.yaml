@@ -84,6 +84,9 @@ difficulty_progression:
     steps: 4
     demand: Count integers divisible by none of three numbers using least common multiples, permutations with exactly k
       fixed points, or permutations with several forbidden places.
+  exam:
+    steps: 5
+    demand: Use inclusion-exclusion on a three-subject survey to find the triple overlap, the numbers taking exactly one and exactly two subjects, then count the derangements of the exactly-two group.
 tags:
 - university-core-v1
 - discrete-mathematics

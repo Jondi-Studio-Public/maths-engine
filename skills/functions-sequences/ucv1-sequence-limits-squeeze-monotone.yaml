@@ -100,6 +100,9 @@ difficulty_progression:
     steps: 5
     demand: Use monotonicity and a bound to justify that a recursive sequence converges, solve the fixed-point equation
       for both roots, and use the starting value to decide which root is the limit.
+  exam:
+    steps: 6
+    demand: Find the possible limits of a quadratic recurrence, compute a term, decide which limit applies, then use it to find the limit of a related rational expression in n.
 tags:
 - university-core-v1
 - functions-sequences

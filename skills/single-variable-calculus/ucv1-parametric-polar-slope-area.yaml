@@ -101,6 +101,9 @@ difficulty_progression:
     steps: 5
     demand: Choose the limits of a polar region (one petal, a region between two curves, a whole loop), set up half the
       integral of r squared, and evaluate it exactly with a double-angle identity.
+  exam:
+    steps: 6
+    demand: Differentiate a parametric curve to find dy/dx in t, evaluate the slope at a parameter value, find the second derivative there and the gradient of the normal.
 tags:
 - university-core-v1
 - single-variable-calculus

@@ -88,6 +88,9 @@ difficulty_progression:
     steps: 5
     demand: Find a complex square root by equating real and imaginary parts and choosing the root with positive real part,
       or find the right root of a quadratic with complex coefficients whose discriminant is a complex square.
+  exam:
+    steps: 6
+    demand: Solve a linear equation in z and its conjugate given that z is a perfect square, then find its reciprocal in Cartesian form and its square root with positive real part, carrying each result forward.
 tags:
 - university-core-v1
 - complex-analysis

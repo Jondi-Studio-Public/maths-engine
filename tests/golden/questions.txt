@@ -3648,7 +3648,7 @@
 {"answer": "35:52", "id": "ratio-rate-proportion/medium/2/a62c2b578efc", "text": "Simplify the ratio 140:208"}
 {"answer": "x = -3, y = 3", "id": "rational-function-features/easy/0/f6a531597f5f", "text": "The graph of y = (3x - 3)/(x + 3) has one vertical and one horizontal asymptote…"}
 {"answer": "x = -5, y = -3", "id": "rational-function-features/easy/1/4be891cd24fd", "text": "The graph of y = (-3x + 2)/(x + 5) has one vertical and one horizontal asymptot…"}
-{"answer": "x = 2, y = -1", "id": "rational-function-features/easy/2/d1c69622ed3f", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "x = 2, y = -1", "id": "rational-function-features/easy/2/5dd7b12d67b0", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
 {"answer": "(a) 3; (b) 6; (c) 9; (d) -2", "id": "rational-function-features/exam/0/deeee8190f29", "text": "Consider the function f(x) = (x² + 3x + 6)/(x - 3). (a) Find the value of x at …"}
 {"answer": "(a) 3; (b) 9; (c) 12; (d) -2", "id": "rational-function-features/exam/1/e019a3f8655c", "text": "Consider the function f(x) = (x² + 6x + 6)/(x - 3). (a) Find the value of x at …"}
 {"answer": "(a) -2; (b) -6; (c) -8; (d) 1", "id": "rational-function-features/exam/2/1c8ec9c09f61", "text": "Consider the function f(x) = (x² - 4x + 2)/(x + 2). (a) Find the value of x at …"}
