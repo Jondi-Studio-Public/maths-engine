@@ -102,12 +102,22 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z])(?<![A-Za-z]\^)(?:\d[\d,]*(?:\.\d+)?|\.\d
 # "to mm", "into grams", "in km/h", "how many kilojoules": the unit the question asks for by name. Not "in year 3"
 # (a label, not a unit), not "to the nearest cent" (a precision: the answer is still in dollars), and not "in n = 5"
 # or "in g(x)" (a variable or a function).
-_ASKED_RE = re.compile(rf"\b(?:to|into|in|how\s+many)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])", re.IGNORECASE)
+_ASKED_RE = re.compile(
+    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])(?!\s*(?:per\b|[/·⋅×*]))",
+    re.IGNORECASE,
+)
 # "Using your speed in m/s": the unit describes a value the learner already has, not the unit being asked for.
 _EARLIER_VALUE_RE = re.compile(r"\byour\s+\w+(?:\s+\w+)?\s+$", re.IGNORECASE)
-_SENTENCE_RE = re.compile(r"[^.?!]+[.?!]?")
+# ... but "Give your answer in dollars" asks for the answer's unit: the verb in front of "your" says so.
+_ASKING_VERB_BEFORE_RE = re.compile(
+    r"\b(?:give|write|state|express|show|leave|round|present|enter|type)\s+$", re.IGNORECASE
+)
+# A full stop inside a number ("4.5 seconds") does not end a sentence.
+_SENTENCE_RE = re.compile(r"(?:[^.?!]|\.(?=\d))+[.?!]?")
 _ASKING_RE = re.compile(
-    r"^\s*(?:find|convert|calculate|work\s+out|determine|write|express|give|estimate|state|what|how)\b", re.IGNORECASE
+    r"^\s*(?:find|convert|calculate|work\s+out|determine|write|express|give|estimate|state|what|how|"
+    r"hence|therefore|thus|then|round|using\s+(?:your|the)|use\s+(?:your|the))\b",
+    re.IGNORECASE,
 )
 
 
@@ -155,6 +165,12 @@ def _trailing_unit(text: str) -> bool:
     return match is not None and match.end() == len(rest.rstrip())
 
 
+def _describes_earlier_value(before: str) -> bool:
+    """Whether the words in front of an "in <unit>" make it describe a value the learner already has."""
+    found = _EARLIER_VALUE_RE.search(before)
+    return found is not None and _ASKING_VERB_BEFORE_RE.search(before[: found.start()]) is None
+
+
 def _asked_unit(question) -> str | None:
     """The unit the question asks for: the canonical's own unit, else the last unit it asks for by name."""
     shown = _unit_of(getattr(question, "answer_text", "") or "")
@@ -165,7 +181,7 @@ def _asked_unit(question) -> str | None:
         for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
         if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
         for match in _ASKED_RE.finditer(sentence)
-        if _EARLIER_VALUE_RE.search(sentence[: match.start()]) is None
+        if not _describes_earlier_value(sentence[: match.start()])
         for spelling in (match.group(1),)
     ]
     return _SPELLING_TO_UNIT[asked[-1].lower()] if asked else None
