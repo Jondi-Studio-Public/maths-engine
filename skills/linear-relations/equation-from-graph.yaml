@@ -26,6 +26,10 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w12b_equation_from_graph
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: sign-error-on-gradient
   description: Reads the intercept and size of the gradient correctly but gives the gradient the wrong sign.

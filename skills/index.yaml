@@ -686,6 +686,8 @@ equation-from-graph:
   sources:
   - topic: fg1_equation_from_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_equation_from_graph
+    module: mathgen/generators/exd_x_w12b_equation_from_graph.py
 equation-from-table:
   domain: linear-relations
   status: active
@@ -1864,6 +1866,8 @@ gradient-from-graph:
   sources:
   - topic: fg1_gradient_from_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_gradient_from_graph
+    module: mathgen/generators/exd_x_w12b_gradient_from_graph.py
 gradient-vector:
   domain: partial-derivatives
   status: deferred
@@ -1876,12 +1880,16 @@ graph-y-mx:
   sources:
   - topic: fg1_proportional_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_graph_y_mx
+    module: mathgen/generators/exd_x_w12b_graph_y_mx.py
 graph-y-mx-plus-b:
   domain: linear-relations
   status: active
   sources:
   - topic: fg1_line_table
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_graph_y_mx_plus_b
+    module: mathgen/generators/exd_x_w12b_graph_y_mx_plus_b.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -2416,6 +2424,8 @@ plot-linear-points:
   sources:
   - topic: fg1_plotted_points
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_plot_linear_points
+    module: mathgen/generators/exd_x_w12b_plot_linear_points.py
 polynomial-linear-combination:
   domain: expressions-equivalence
   status: active

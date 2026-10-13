@@ -6159,6 +6159,101 @@ _ENTRIES = (
         area="transformations",
     ),
     CatalogueEntry(
+        "line-gradient-sign-reversed",
+        "Reading the size of a gradient correctly but giving it the wrong sign, calling a falling line rising or the reverse.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "line-intercept-sign-reversed",
+        "Reading the size of a y-intercept correctly but giving it the wrong sign.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "intercept-left-out",
+        "Writing a line as y = mx and leaving its intercept out.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "adds-an-unstated-intercept",
+        "Adding a constant to a proportional relation, although its line passes through the origin.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "gradient-read-in-grid-squares",
+        "Counting rise and run in grid squares and ignoring the scale on each axis.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "added-gradient-to-x",
+        "Adding the gradient to x instead of multiplying x by it when finding y on a line through the origin.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "y-value-given-as-x",
+        "Giving the y-value of a point on the line where its x-value was asked for.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "solved-for-x-by-multiplying",
+        "Multiplying by the gradient instead of dividing by it when finding x from a given y.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "inverse-prediction-ignores-intercept",
+        "Finding x from a given y by dividing y by the gradient, without first taking away the intercept.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "prediction-rise-added-once",
+        "Continuing a line by adding the rise once, however many steps along it the point is.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "x-intercept-sign-reversed",
+        "Finding where a line meets the x-axis as c divided by m instead of minus c divided by m.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "x-intercept-ratio-inverted",
+        "Finding where a line meets the x-axis as minus m divided by c instead of minus c divided by m.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "parallel-line-keeps-old-intercept",
+        "Writing the parallel line with the first line's intercept, so it does not pass through the given point.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "parallel-gap-intercepts-added",
+        "Adding the two y-intercepts where the vertical gap between two parallel lines was asked for.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "parallel-gap-horizontal",
+        "Giving the horizontal distance between two parallel lines where the vertical gap was asked for.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "midpoint-sum-not-halved",
+        "Adding the coordinates of the two ends of a segment and not halving the sums.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "midpoint-half-the-difference",
+        "Halving the differences of the coordinates of the ends of a segment instead of halving their sums.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "distance-squared-not-rooted",
+        "Adding the squares of the rise and the run and stopping, without taking the square root.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
+        "ignores-the-horizontal-component",
+        "Finding the length of a segment from its rise alone, leaving out its run.",
+        area="linear-graphs",
+    ),
+    CatalogueEntry(
         "confused-reflection-with-rotation",
         "Using a rotation matrix where a reflection matrix is needed, so the second row has the wrong signs.",
         area="transformations",
