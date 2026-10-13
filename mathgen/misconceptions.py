@@ -912,6 +912,728 @@ _ENTRIES = (
         "Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.",
         area="limits",
     ),
+    # -- first-year university batch u2 (begin)
+    CatalogueEntry(
+        "inj-count-all-functions",
+        "Counting every function from the first set to the second (n^m) when only the one-to-one ones were asked for.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inj-count-unordered",
+        "Choosing which m images are used (a combination) without arranging them, so the count is too small by a factor of m!.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inj-count-roles-swapped",
+        "Raising the size of the domain to the power of the size of the codomain instead of the other way round.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "bij-count-ignores-conditions",
+        "Counting all bijections and ignoring that some values are already fixed.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "bij-count-one-condition",
+        "Using only one of the two fixed values and letting the other be free.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "surj-count-no-add-back",
+        "Subtracting the functions that miss one target but not adding back the ones that miss two, so some functions are removed twice.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "surj-count-no-correction",
+        "Subtracting only the functions that miss one target without inclusion-exclusion at all, or using n^m - n for more than two targets.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "surj-count-choose-preimages",
+        "Counting the ways to pick n elements of the domain and send them to distinct targets, forgetting the rest of the domain.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "noninj-count-wrong-complement",
+        "Subtracting the surjections or the wrong total instead of the one-to-one functions when counting the functions that are not one-to-one.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inj-vertex-sign",
+        "Reading the vertex x-coordinate with the wrong sign when finding where a quadratic stops being one-to-one.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inj-vertex-missing-two",
+        "Taking -b/a as the vertex x-coordinate instead of -b/(2a).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inj-vertex-value-not-position",
+        "Giving the minimum value of the quadratic where the x-value of the turning point was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "range-min-intercept",
+        "Taking the value at x = 0 (the constant term) as the minimum of a quadratic.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "range-min-sign",
+        "Adding the square term instead of subtracting it when completing the square, so the minimum value has the wrong sign.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inverse-wrong-branch",
+        "Choosing the root on the wrong side of the turning point when inverting a quadratic, outside the stated domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "count-both-sides",
+        "Counting solutions on both sides of the turning point although the domain only holds one side.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "count-fencepost",
+        "Counting the steps between the end values instead of the integers including both ends.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "unit-count-single-prime",
+        "Counting the integers coprime to a number as if it had only one prime factor.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "unit-count-nonzero",
+        "Counting every non-zero multiplier as invertible modulo the number.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inverse-value-not-solved",
+        "Giving the offset from the turning point, or the output value itself, instead of solving for the input.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inex3-sign-reversed",
+        "Reversing the signs of the inclusion-exclusion formula, so the missing intersection comes out negative.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-pairs-added",
+        "Adding the pairwise intersections instead of subtracting them in the three-set formula.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-forgot-singles",
+        "Leaving the three set sizes out of the three-set formula.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-forgot-triple",
+        "Subtracting the pairwise intersections but never adding the triple intersection back.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-forgot-overlaps",
+        "Using the sum of the set sizes as the union, ignoring every overlap.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-union-not-complement",
+        "Giving the number in at least one set where the number in none, or the reverse, was asked.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-exactly-two-keeps-triple",
+        "Reading a pairwise intersection as the number in exactly those two sets, although it includes those in all three.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-exactly-one-keeps-overlaps",
+        "Finding the number in exactly one set without removing all the overlaps correctly, so some students are still counted twice.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-product-not-lcm",
+        "Using the product of two divisors instead of their least common multiple when divisors share a factor.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-truncated-sum",
+        "Stopping the inclusion-exclusion sum for derangements after only a few terms.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-first-not-fixed-only",
+        "Forbidding only one object from its own place, or counting arrangements as (n - 1)!, instead of forbidding all of them.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-at-least-k-fixed",
+        "Counting arrangements with at least k fixed points by leaving the rest unrestricted, instead of exactly k.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-choose-fixed-forgotten",
+        "Counting the derangements of the remaining objects but forgetting to choose which ones keep their own place.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-wrong-remaining",
+        "Applying the derangement count to the wrong number of objects, or multiplying the wrong factors together.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "complex-div-conjugate-not-used",
+        "Multiplying top and bottom by the divisor itself instead of by its conjugate, so the denominator is not made real.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-i-squared-sign",
+        "Treating i squared as +1 when multiplying out, so the sign of the real part is wrong.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-div-by-parts",
+        "Dividing real part by real part and imaginary part by imaginary part.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-div-denominator-difference",
+        "Using c squared minus d squared instead of c squared plus d squared as the new denominator.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-div-conjugate-result",
+        "Giving the conjugate of the quotient, flipping the sign of the imaginary part.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-conjugate-answer",
+        "Solving the equations for the real and imaginary parts but returning the conjugate of the solution.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-treat-conjugate-as-z",
+        "Treating the conjugate of z as if it were z, so the two terms combine into one multiple of z.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-sign-conjugate-part",
+        "Forgetting that the conjugate changes the sign of the imaginary part, so the real and imaginary equations share a coefficient.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-parts-swapped",
+        "Pairing the real equation with y and the imaginary equation with x.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-sign-constant",
+        "Adding the constant to both sides instead of subtracting it.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-sqrt-wrong-branch",
+        "Giving the root with negative real part when the root with positive real part was asked for.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-sqrt-sign-imaginary",
+        "Taking the imaginary part of the square root with the wrong sign, when 2xy has the opposite sign.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-sqrt-parts-swapped",
+        "Swapping the real and imaginary parts of the square root.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-other-root",
+        "Giving the root with the smaller imaginary part when the larger was asked for.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-conjugate-root",
+        "Giving the conjugate of a root, as if the roots of a quadratic with complex coefficients came in conjugate pairs.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-sign-root",
+        "Giving the negative of a root, forgetting to add the sum of the roots.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-reciprocal-conjugate-only",
+        "Taking the conjugate as the reciprocal without dividing by the squared modulus.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-midpoint",
+        "Halving the sum of the roots and stopping, without adding or subtracting the square root of the discriminant.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-uses-b",
+        "Using the semi-minor (or conjugate) axis b in place of the focal distance c, so e = b/a.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-inverted",
+        "Dividing the semi-axis by the focal distance instead of the focal distance by the semi-axis.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-denominator-b",
+        "Dividing the focal distance by the wrong semi-axis, so the eccentricity uses b instead of a.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-squared",
+        "Stopping at c squared over a squared, the square of the eccentricity.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-ellipse-hyperbola-formula",
+        "Using c squared equals a squared plus b squared for an ellipse, or a squared minus b squared for a hyperbola.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-parabola-4p-as-p",
+        "Reading the coefficient 4p of a parabola as p, or doubling or squaring it instead of dividing by four.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-parabola-focus-directrix",
+        "Putting the directrix on the same side of the vertex as the focus, so the sign of the offset is wrong.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-focal-distance-half",
+        "Giving the distance from the centre to one focus (or a semi-axis) where the distance between the foci was asked for.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-axis-length-not-focal",
+        "Giving the length of the major or minor axis instead of the distance between the foci.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-focal-distance-squared",
+        "Giving c squared, or twice c squared, without taking the square root.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-completing-square-sign",
+        "Reading the centre from a completed square with the wrong sign, so (x - 3) gives -3.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-centre-swapped",
+        "Swapping the coordinates of the centre.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-centre-forgot-coefficient",
+        "Taking the centre as minus half the linear coefficients without dividing by the coefficient of the squared term.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-wrong-side",
+        "Giving the directrix on the other side of the centre from the one asked for.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-forgot-centre",
+        "Giving the distance a squared over c from the centre as the coordinate, forgetting to add the coordinate of the centre.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-uses-c-squared",
+        "Using c squared over a for the directrix distance instead of a squared over c.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-uses-a-over-c",
+        "Using a over c for the directrix distance instead of a squared over c.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-uses-b-squared",
+        "Using b squared over c for the directrix distance instead of a squared over c.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-half",
+        "Giving half the latus rectum (the semi-latus rectum) where the full chord length was asked for.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-swapped",
+        "Swapping a and b in the latus rectum formula 2b squared over a.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-b-not-squared",
+        "Using 2b over a instead of 2b squared over a for the latus rectum.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-uses-c",
+        "Using the focal distance c in place of the semi-axis b in the latus rectum formula.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "inverse-forgot-square-root",
+        "Stopping at the squared offset (x - h)^2 = t^2 and using t squared as the offset, without taking the square root.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "log-diff-power-rule-on-variable-exponent",
+        "Applying the power rule to a power whose exponent is a variable, bringing the exponent down and reducing it by one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-base-derivative",
+        "Differentiating only the exponent's effect (as for a to the x) and forgetting that the base also varies.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-original-function",
+        "Stopping at the derivative of ln y, without multiplying by y to get dy/dx.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-exponent-derivative",
+        "Differentiating the base's effect but forgetting to differentiate the variable exponent, so the log term loses its factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-denominator-sign",
+        "Giving the factors in the denominator a positive exponent in the logarithmic derivative, so their terms are added instead of subtracted.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-exponent-dropped",
+        "Leaving the exponent out of each term of the logarithmic derivative, so every factor contributes 1 over its base.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-product-rule-one-factor",
+        "Differentiating only one factor of the product and leaving the others unchanged.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-base-derivative-log",
+        "Differentiating x ln(x + a) as if only the second factor changed, dropping the ln(x + a) from the product rule.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-product-rule-dropped-x",
+        "Differentiating x ln(x + a) with the derivative of ln(x + a) as 1/(x + a) but without the factor x on that term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-sign",
+        "Taking the tangent's y-intercept as y(1) plus the slope, or the slope minus y(1), instead of y(1) minus the slope.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-forgot-slope",
+        "Giving the value of the function at the point of tangency as the y-intercept of the tangent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "normal-gradient-not-negated",
+        "Taking the reciprocal of the tangent's gradient without the minus sign for the normal.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "normal-gradient-not-reciprocal",
+        "Negating the tangent's gradient without taking the reciprocal for the normal.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "normal-gradient-is-tangent",
+        "Giving the gradient of the tangent where the gradient of the normal was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-multiplied-not-divided",
+        "Multiplying each exponent by its base instead of dividing, when differentiating the logarithm of a power of x plus a constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "seqlim-leading-ratio-unequal-degree",
+        "Taking the ratio of the leading coefficients as the limit even though the numerator has a lower degree than the denominator.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-ratio-inverted",
+        "Inverting the ratio of leading coefficients (or of the dominant terms) when reading off the limit.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-next-coefficient",
+        "Using the ratio of the second coefficients instead of the leading ones after dividing by the highest power.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-substitute-n-equals-one",
+        "Substituting n = 1 (or adding the coefficients) instead of letting n grow.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-ignores-denominator",
+        "Giving the leading coefficient of the numerator alone, forgetting to divide by the denominator's.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-picks-smaller-base",
+        "Reading the limit from the smaller exponential terms instead of the dominant ones.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-root-conjugate-dropped-half",
+        "Forgetting the 2 that appears after multiplying by the conjugate (the two square roots each tend to n).",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-infinity-minus-infinity-is-zero",
+        "Concluding that a difference of two terms tending to infinity must tend to zero.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-root-constant-term",
+        "Letting the constant term under the root contribute to the limit, although it vanishes against n.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-root-sum-for-difference",
+        "Adding the coefficients under the roots where the conjugate method gives their difference.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-oscillation-treated-as-limit",
+        "Adding the bound of a bounded oscillating term into the limit, instead of seeing that it vanishes against n.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-oscillation-no-limit-claimed",
+        "Claiming the limit is zero or does not exist because the numerator oscillates.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-fixed-point-sign",
+        "A sign error when solving L = f(L) for the fixed point.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-fixed-point-multiplied",
+        "Multiplying where the fixed-point equation requires dividing, or taking the product of the roots as the root.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-limit-is-first-term",
+        "Giving the first (or second) term of the recurrence as the limit.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-ignores-multiplier",
+        "Taking the constant added in the recurrence as the limit, ignoring the multiplier on the previous term.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-wrong-fixed-point-root",
+        "Choosing the wrong root of the limit equation, ignoring where the sequence starts or that the terms are positive.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-fixed-point-squared",
+        "Squaring or doubling where the fixed-point equation requires a square root, or stopping at L squared.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-precedence-in-recurrence",
+        "Squaring only the first term in (a squared plus c) over s, adding c over s instead of dividing the whole sum.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-square-dropped",
+        "Forgetting to square the previous term when applying the recurrence.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-divisor-dropped",
+        "Forgetting to divide by the divisor in the recurrence.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-combined-limit-factor-dropped",
+        "Forgetting that the factor multiplying the sequence also has a limit that must be included.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-combined-limit-uses-constants",
+        "Combining the limit with the constant terms of the factor instead of the leading coefficients.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "param-slope-inverted",
+        "Dividing dx/dt by dy/dt instead of dy/dt by dx/dt when finding dy/dx for a parametric curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-slope-numerator-only",
+        "Giving dy/dt as the gradient, forgetting to divide by dx/dt.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-slope-second-derivatives",
+        "Dividing the second derivatives d2y/dt2 by d2x/dt2 to get the gradient or the second derivative along the curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-second-derivative-not-divided",
+        "Differentiating dy/dx with respect to t but not dividing by dx/dt again to get d2y/dx2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-second-derivative-wrong-divisor",
+        "Dividing the second derivative of y by dx/dt (or similar) instead of differentiating dy/dx and then dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-second-derivative-is-first",
+        "Giving dy/dx where d2y/dx2 was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "polar-slope-inverted",
+        "Inverting the polar gradient formula, so the cosine and sine terms of the numerator and denominator swap.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-is-dr-over-r",
+        "Taking dr/dθ divided by r as the gradient of the curve.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-sign-slip",
+        "Using the wrong signs in the polar gradient formula (a minus where there should be a plus).",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-is-tan-theta",
+        "Taking tan θ as the gradient, which is the gradient of the radius, not of the curve.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-half-range",
+        "Integrating over only part of the range, so the area is a fraction of the true area.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-forgot-half",
+        "Omitting the factor 1/2 from the polar area formula, so the area is doubled.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-r-not-squared",
+        "Integrating r instead of r squared.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-expansion-slip",
+        "A slip expanding (1 + cos θ) squared or integrating cos squared θ, so one term of the area is wrong.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-petal-count-ignored",
+        "Using the area of a whole rose-sized sector, ignoring that a petal spans an angle of π/n.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-whole-rose",
+        "Giving the area of the whole rose, not one petal.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-circle-subtracted-wrong",
+        "Subtracting the circle's area wrongly, or keeping only the linear term of the expanded integral.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-limits-whole-turn",
+        "Using the whole turn 0 to 2π for the region between two curves, instead of only where the cardioid is outside the circle.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-forgot-dr",
+        "Ignoring dr/dθ in the polar gradient formula, so only the r terms are used.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-trig-dropped",
+        "Leaving out the sine and cosine factors of the polar gradient formula, keeping only r and dr/dθ.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "clt-sd-not-reduced",
+        "Standardising a sample mean with the population standard deviation, without dividing by the square root of n.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-sd-divided-by-n",
+        "Dividing the standard deviation by n instead of by the square root of n to get the standard error.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-tail-reversed",
+        "Giving the probability of the opposite tail, the complement of the one asked for.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-variance-as-sd",
+        "Using the variance where the standard deviation belongs when standardising.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-total-sd-sigma",
+        "Using the standard deviation of one observation as the standard deviation of a total of n.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-total-sd-n-sigma",
+        "Taking the standard deviation of a total of n observations to be n times sigma instead of sigma times the square root of n.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-total-mean-not-scaled",
+        "Centring a total at the mean of one observation instead of n times the mean.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-two-sided-one-tail",
+        "Giving the one-sided area Phi(z) where a two-sided probability of lying within a distance is asked.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-n-not-rounded-up",
+        "Rounding the required sample size down, or to the nearest whole number, when it must be rounded up to guarantee the bound.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-n-forgot-square",
+        "Stopping at the square root of n, forgetting to square when solving for the sample size.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-n-wrong-z",
+        "Using the z-value for a different confidence level or the wrong number of tails when finding the sample size.",
+        area="clt",
+    ),
+    # -- first-year university batch u2 (end)
     CatalogueEntry(
         "calc-power-rule-exponent-dropped",
         "Applying the power rule without bringing the exponent down (or dividing by the new exponent), so a factor such as the 2 in (x^2)' is lost.",

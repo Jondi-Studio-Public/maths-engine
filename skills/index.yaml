@@ -5386,6 +5386,14 @@ ucv1-chinese-remainder-two-congruences:
     module: mathgen/generators/p11e_number_discrete_build.py
   - topic: exd_x_u3_crt_leftovers
     module: mathgen/generators/exd_x_u3_crt_leftovers.py
+ucv1-clt-sample-mean-probability:
+  domain: statistics
+  status: active
+  sources:
+  - topic: u2_clt_sample_mean
+    module: mathgen/generators/u2_clt_sample_mean_build.py
+  - topic: exd_x_u2_clt_sample_mean
+    module: mathgen/generators/u2_clt_sample_mean_build.py
 ucv1-compactness-finite-check:
   domain: metric-spaces-and-topology
   status: active
@@ -5402,6 +5410,14 @@ ucv1-completeness-cauchy-check:
     module: mathgen/generators/p15b_analysis_build.py
   - topic: exd_x_r2g_cauchy_tail
     module: mathgen/generators/exd_x_r2g_cauchy_tail.py
+ucv1-complex-equations-division:
+  domain: complex-analysis
+  status: active
+  sources:
+  - topic: u2_complex_equations
+    module: mathgen/generators/u2_complex_equations_build.py
+  - topic: exd_x_u2_complex_equations
+    module: mathgen/generators/u2_complex_equations_build.py
 ucv1-condition-number-sensitivity:
   domain: numerical-and-computational-mathematics
   status: active
@@ -5410,6 +5426,14 @@ ucv1-condition-number-sensitivity:
     module: mathgen/generators/p14c_condition_sensitivity_build.py
   - topic: exd_x_r2g_condition_matrix
     module: mathgen/generators/exd_x_r2g_condition_matrix.py
+ucv1-conic-sections-features:
+  domain: geometry
+  status: active
+  sources:
+  - topic: u2_conic_features
+    module: mathgen/generators/u2_conic_features_build.py
+  - topic: exd_x_u2_conic_features
+    module: mathgen/generators/u2_conic_features_build.py
 ucv1-contour-integral-residue:
   domain: complex-analysis
   status: active
@@ -5566,6 +5590,14 @@ ucv1-function-space-approximation:
   sources:
   - topic: p15c_function_space_approximation
     module: mathgen/generators/p15c_functional_build.py
+ucv1-functions-injective-surjective:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: u2_functions_injective_surjective
+    module: mathgen/generators/u2_functions_inj_surj_build.py
+  - topic: exd_x_u2_functions_injective_surjective
+    module: mathgen/generators/u2_functions_inj_surj_build.py
 ucv1-fundamental-group-map:
   domain: advanced-geometry-and-topology
   status: active
@@ -5686,6 +5718,14 @@ ucv1-linear-system-determinant:
   sources:
   - topic: p14c_linear_system_determinant
     module: mathgen/generators/p14c_linear_system_determinant_build.py
+ucv1-logarithmic-differentiation:
+  domain: differentiation
+  status: active
+  sources:
+  - topic: u2_log_differentiation
+    module: mathgen/generators/u2_log_differentiation_build.py
+  - topic: exd_x_u2_log_differentiation
+    module: mathgen/generators/u2_log_differentiation_build.py
 ucv1-manifold-chart-jacobian:
   domain: advanced-geometry-and-topology
   status: active
@@ -5754,6 +5794,14 @@ ucv1-parametric-curvature:
   sources:
   - topic: p13e_parametric_curvature
     module: mathgen/generators/p13e_bifurcation_curvature_build.py
+ucv1-parametric-polar-slope-area:
+  domain: single-variable-calculus
+  status: active
+  sources:
+  - topic: u2_parametric_polar
+    module: mathgen/generators/u2_parametric_polar_build.py
+  - topic: exd_x_u2_parametric_polar
+    module: mathgen/generators/u2_parametric_polar_build.py
 ucv1-phase-plane-linear-classification:
   domain: advanced-pdes-and-dynamics
   status: active
@@ -5840,6 +5888,14 @@ ucv1-second-order-characteristic-roots:
     module: mathgen/generators/p12e_recurrence_characteristic_build.py
   - topic: exd_x_r2f_damped_oscillation
     module: mathgen/generators/exd_x_r2f_damped_oscillation.py
+ucv1-sequence-limits-squeeze-monotone:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: u2_sequence_limits
+    module: mathgen/generators/u2_sequence_limits_build.py
+  - topic: exd_x_u2_sequence_limits
+    module: mathgen/generators/u2_sequence_limits_build.py
 ucv1-series-convergence:
   domain: functions-sequences
   status: active
@@ -5900,6 +5956,14 @@ ucv1-taylor-linear-approximation:
   sources:
   - topic: p12e_taylor_linear_approx
     module: mathgen/generators/p12e_taylor_poisson_build.py
+ucv1-three-set-inclusion-exclusion-derangements:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: u2_three_set_ie
+    module: mathgen/generators/u2_three_set_ie_build.py
+  - topic: exd_x_u2_three_set_ie
+    module: mathgen/generators/u2_three_set_ie_build.py
 ucv1-topology-basis-membership:
   domain: metric-spaces-and-topology
   status: active

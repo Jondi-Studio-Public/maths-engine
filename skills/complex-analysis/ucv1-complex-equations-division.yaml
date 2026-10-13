@@ -1,0 +1,94 @@
+id: ucv1-complex-equations-division
+name: Divide complex numbers and solve complex equations
+domain: complex-analysis
+year_level:
+- university
+description: Divide complex numbers in Cartesian form, solve equations that mix a complex number with its conjugate, find
+  square roots of complex numbers and solve quadratics with complex coefficients.
+status: active
+placement_eligible: false
+prerequisites:
+- multiply-complex-numbers
+- complex-conjugate
+answer: expression
+sources:
+- topic: u2_complex_equations
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_complex_equations
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_complex_equations
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_complex_equations
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: complex-div-by-parts
+  description: Dividing real part by real part and imaginary part by imaginary part.
+- id: complex-div-conjugate-not-used
+  description: Multiplying top and bottom by the divisor itself instead of by its conjugate, so the denominator is not made
+    real.
+- id: complex-div-conjugate-result
+  description: Giving the conjugate of the quotient, flipping the sign of the imaginary part.
+- id: complex-div-denominator-difference
+  description: Using c squared minus d squared instead of c squared plus d squared as the new denominator.
+- id: complex-eq-conjugate-answer
+  description: Solving the equations for the real and imaginary parts but returning the conjugate of the solution.
+- id: complex-eq-parts-swapped
+  description: Pairing the real equation with y and the imaginary equation with x.
+- id: complex-eq-sign-conjugate-part
+  description: Forgetting that the conjugate changes the sign of the imaginary part, so the real and imaginary equations
+    share a coefficient.
+- id: complex-eq-sign-constant
+  description: Adding the constant to both sides instead of subtracting it.
+- id: complex-eq-treat-conjugate-as-z
+  description: Treating the conjugate of z as if it were z, so the two terms combine into one multiple of z.
+- id: complex-i-squared-sign
+  description: Treating i squared as +1 when multiplying out, so the sign of the real part is wrong.
+- id: complex-quadratic-conjugate-root
+  description: Giving the conjugate of a root, as if the roots of a quadratic with complex coefficients came in conjugate
+    pairs.
+- id: complex-quadratic-midpoint
+  description: Halving the sum of the roots and stopping, without adding or subtracting the square root of the discriminant.
+- id: complex-quadratic-other-root
+  description: Giving the root with the smaller imaginary part when the larger was asked for.
+- id: complex-quadratic-sign-root
+  description: Giving the negative of a root, forgetting to add the sum of the roots.
+- id: complex-sqrt-parts-swapped
+  description: Swapping the real and imaginary parts of the square root.
+- id: complex-sqrt-sign-imaginary
+  description: Taking the imaginary part of the square root with the wrong sign, when 2xy has the opposite sign.
+- id: complex-sqrt-wrong-branch
+  description: Giving the root with negative real part when the root with positive real part was asked for.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Divide two complex numbers in Cartesian form by multiplying by the conjugate of the divisor and collecting real
+      and imaginary parts.
+  medium:
+    steps: 4
+    demand: Solve an equation mixing z and its conjugate by equating real and imaginary parts, or solve a linear equation
+      with complex coefficients where the last step is a complex division.
+  hard:
+    steps: 5
+    demand: Find a complex square root by equating real and imaginary parts and choosing the root with positive real part,
+      or find the right root of a quadratic with complex coefficients whose discriminant is a complex square.
+tags:
+- university-core-v1
+- complex-analysis
+- complex-numbers

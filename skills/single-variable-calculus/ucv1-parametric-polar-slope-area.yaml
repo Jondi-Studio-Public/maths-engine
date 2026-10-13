@@ -1,0 +1,108 @@
+id: ucv1-parametric-polar-slope-area
+name: 'Parametric and polar curves: gradient and area'
+domain: single-variable-calculus
+year_level:
+- university
+description: Find gradients and second derivatives of curves given parametrically, gradients of polar curves, and exact
+  areas enclosed by polar curves such as cardioids, lemniscates and rose petals.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-chain-rule
+- differentiate-trig
+answer: expression
+sources:
+- topic: u2_parametric_polar
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_parametric_polar
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_parametric_polar
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_parametric_polar
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: calc-sign-slip
+  description: 'Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating,
+    integrating or substituting.'
+- id: normal-gradient-is-tangent
+  description: Giving the gradient of the tangent where the gradient of the normal was asked for.
+- id: normal-gradient-not-negated
+  description: Taking the reciprocal of the tangent's gradient without the minus sign for the normal.
+- id: normal-gradient-not-reciprocal
+  description: Negating the tangent's gradient without taking the reciprocal for the normal.
+- id: param-second-derivative-is-first
+  description: Giving dy/dx where d2y/dx2 was asked for.
+- id: param-second-derivative-not-divided
+  description: Differentiating dy/dx with respect to t but not dividing by dx/dt again to get d2y/dx2.
+- id: param-second-derivative-wrong-divisor
+  description: Dividing the second derivative of y by dx/dt (or similar) instead of differentiating dy/dx and then dividing.
+- id: param-slope-inverted
+  description: Dividing dx/dt by dy/dt instead of dy/dt by dx/dt when finding dy/dx for a parametric curve.
+- id: param-slope-numerator-only
+  description: Giving dy/dt as the gradient, forgetting to divide by dx/dt.
+- id: param-slope-second-derivatives
+  description: Dividing the second derivatives d2y/dt2 by d2x/dt2 to get the gradient or the second derivative along the
+    curve.
+- id: polar-area-circle-subtracted-wrong
+  description: Subtracting the circle's area wrongly, or keeping only the linear term of the expanded integral.
+- id: polar-area-expansion-slip
+  description: A slip expanding (1 + cos θ) squared or integrating cos squared θ, so one term of the area is wrong.
+- id: polar-area-forgot-half
+  description: Omitting the factor 1/2 from the polar area formula, so the area is doubled.
+- id: polar-area-half-range
+  description: Integrating over only part of the range, so the area is a fraction of the true area.
+- id: polar-area-limits-whole-turn
+  description: Using the whole turn 0 to 2π for the region between two curves, instead of only where the cardioid is outside
+    the circle.
+- id: polar-area-petal-count-ignored
+  description: Using the area of a whole rose-sized sector, ignoring that a petal spans an angle of π/n.
+- id: polar-area-r-not-squared
+  description: Integrating r instead of r squared.
+- id: polar-area-whole-rose
+  description: Giving the area of the whole rose, not one petal.
+- id: polar-slope-forgot-dr
+  description: Ignoring dr/dθ in the polar gradient formula, so only the r terms are used.
+- id: polar-slope-inverted
+  description: Inverting the polar gradient formula, so the cosine and sine terms of the numerator and denominator swap.
+- id: polar-slope-is-dr-over-r
+  description: Taking dr/dθ divided by r as the gradient of the curve.
+- id: polar-slope-is-tan-theta
+  description: Taking tan θ as the gradient, which is the gradient of the radius, not of the curve.
+- id: polar-slope-sign-slip
+  description: Using the wrong signs in the polar gradient formula (a minus where there should be a plus).
+- id: polar-slope-trig-dropped
+  description: Leaving out the sine and cosine factors of the polar gradient formula, keeping only r and dr/dθ.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Differentiate x(t) and y(t), divide dy/dt by dx/dt and evaluate the gradient at a parameter value.
+  medium:
+    steps: 4
+    demand: Find a second derivative by differentiating dy/dx with respect to t and dividing again by dx/dt, or find a polar
+      gradient by writing x = r cos and y = r sin and differentiating with respect to the angle.
+  hard:
+    steps: 5
+    demand: Choose the limits of a polar region (one petal, a region between two curves, a whole loop), set up half the
+      integral of r squared, and evaluate it exactly with a double-angle identity.
+tags:
+- university-core-v1
+- single-variable-calculus
+- parametric-curves
+- polar-curves

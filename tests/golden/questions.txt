@@ -7849,6 +7849,18 @@
 {"answer": "50", "id": "ucv1-chinese-remainder-two-congruences/medium/0/b9bd730f5b5f", "text": "What is the smallest non-negative integer x satisfying x ≡ 2 (mod 8) and x ≡ 6 …"}
 {"answer": "33", "id": "ucv1-chinese-remainder-two-congruences/medium/1/5f4e81d5af62", "text": "What is the smallest non-negative integer x satisfying x ≡ 3 (mod 5) and x ≡ 1 …"}
 {"answer": "23", "id": "ucv1-chinese-remainder-two-congruences/medium/2/59d05178dcc4", "text": "Determine the least integer x, with x ≥ 0, for which x ≡ 3 (mod 10) and x ≡ 2 (…"}
+{"answer": "0.0668", "id": "ucv1-clt-sample-mean-probability/easy/0/785ef3494cab", "text": "The weekly rainfall at a station near Cairns has mean 80 mm and standard deviat…"}
+{"answer": "0.9878", "id": "ucv1-clt-sample-mean-probability/easy/1/17f8ad3ff8d3", "text": "The weekly rainfall at a station near Cairns has mean 50 mm and standard deviat…"}
+{"answer": "0.5987", "id": "ucv1-clt-sample-mean-probability/easy/2/f32938edc8e4", "text": "The waiting times at a regional hospital's emergency department have mean 40 mi…"}
+{"answer": "(a) 9.00; (b) 0.0668; (c) 0.3085; (d) 312", "id": "ucv1-clt-sample-mean-probability/exam/0/b6a8cc262666", "text": "The mass of an apple from an orchard in Batlow has mean 210 g and standard devi…"}
+{"answer": "(a) 4.00; (b) 0.0401; (c) 0.2266; (d) 246", "id": "ucv1-clt-sample-mean-probability/exam/1/2f9d0df7d365", "text": "Apples from a Batlow orchard are packed in crates. The mass of one apple follow…"}
+{"answer": "(a) 2.50; (b) 0.3085; (c) 0.2266; (d) 171", "id": "ucv1-clt-sample-mean-probability/exam/2/deb48f19bbcf", "text": "Apples from a Batlow orchard are packed in crates. The mass of one apple follow…"}
+{"answer": "136", "id": "ucv1-clt-sample-mean-probability/hard/0/ade787de7440", "text": "The weekly rainfall at a station near Cairns has mean 40 mm and standard deviat…"}
+{"answer": "8", "id": "ucv1-clt-sample-mean-probability/hard/1/137cf3ec09c6", "text": "The masses of Pink Lady apples from an orchard in Batlow have mean 170 g and st…"}
+{"answer": "8", "id": "ucv1-clt-sample-mean-probability/hard/2/277f639f9819", "text": "The daily electricity use of households in Adelaide has mean 16 kWh and standar…"}
+{"answer": "0.9199", "id": "ucv1-clt-sample-mean-probability/medium/0/4ac04bacad21", "text": "The waiting times at a regional hospital's emergency department have mean 30 mi…"}
+{"answer": "0.6915", "id": "ucv1-clt-sample-mean-probability/medium/1/9a6c5d40b063", "text": "The weekly rainfall at a station near Cairns has mean 80 mm and standard deviat…"}
+{"answer": "0.9199", "id": "ucv1-clt-sample-mean-probability/medium/2/b2a185bd5571", "text": "The daily electricity use of households in Adelaide has mean 20 kWh and standar…"}
 {"answer": "{U1, U3, U4}", "id": "ucv1-compactness-finite-check/easy/0/7accceb25912", "text": "X = {I, J, L, N}. U4 = {I}; U1 = {L}; U3 = {J, N}; U2 = {J}. X and an open cove…"}
 {"answer": "{U2, U3, U4}", "id": "ucv1-compactness-finite-check/easy/1/4d22ab9dde3e", "text": "X = {F, H, M, X}. U2 = {H}; U4 = {X}; U3 = {F, M}; U1 = {F}. X and an open cove…"}
 {"answer": "{U1, U2, U3}", "id": "ucv1-compactness-finite-check/easy/2/2e513144ee17", "text": "X = {C, L, M, O}. U3 = {L}; U1 = {M}; U2 = {C, O}; U4 = {O}. X and an open cove…"}
@@ -7873,6 +7885,18 @@
 {"answer": "All rows are consistent.", "id": "ucv1-completeness-cauchy-check/medium/0/366a76f1ca25", "text": "The finite sequence has terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/27, a_4 = …"}
 {"answer": "Row 1 is inconsistent.", "id": "ucv1-completeness-cauchy-check/medium/1/7e16b3075a15", "text": "The finite sequence has terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/27, a_4 = …"}
 {"answer": "Row 3 is inconsistent.", "id": "ucv1-completeness-cauchy-check/medium/2/587a15d12560", "text": "Consider the finite sequence with terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/…"}
+{"answer": "-10/13 - (24/13)i", "id": "ucv1-complex-equations-division/easy/0/059d48c19380", "text": "Write (4 - 6i) ÷ (2 + 3i) in the form x + yi, where x and y are real."}
+{"answer": "-5/13 + (14/13)i", "id": "ucv1-complex-equations-division/easy/1/df70dd66e032", "text": "Write (1 + 4i) ÷ (3 - 2i) in the form x + yi, where x and y are real."}
+{"answer": "9/5 - (8/5)i", "id": "ucv1-complex-equations-division/easy/2/fb2a0e49887f", "text": "Write (7 - 3i) ÷ (3 + i) in the form x + yi, where x and y are real."}
+{"answer": "(a) 1; (b) 1/2 + (1/2)i; (c) 2 + (5/3)i", "id": "ucv1-complex-equations-division/exam/0/f1915b477969", "text": "Let k be a real number and let w = (k - 2i) ÷ (-1 - 3i). (a) Find the value of …"}
+{"answer": "(a) -2; (b) 1 + i; (c) -3/2 + (1/2)i", "id": "ucv1-complex-equations-division/exam/1/d1ecf01f1d42", "text": "Let k be a real number and let w = (k + 6i) ÷ (2 + 4i). (a) Find the value of k…"}
+{"answer": "(a) -2; (b) -1 - i; (c) 2/5 - 2i", "id": "ucv1-complex-equations-division/exam/2/ea906161697d", "text": "Let k be a real number and let w = (k + 4i) ÷ (-1 - 3i). (a) Find the value of …"}
+{"answer": "i", "id": "ucv1-complex-equations-division/hard/0/ed980e4f3fe7", "text": "The equation z² - (-i)z + (2) = 0 has two distinct roots. Find the root with th…"}
+{"answer": "1 + 2i", "id": "ucv1-complex-equations-division/hard/1/a87dc5a156a4", "text": "Find the square root of -3 + 4i that has a positive real part, giving it in the…"}
+{"answer": "3 - 2i", "id": "ucv1-complex-equations-division/hard/2/50d6c3d72ffe", "text": "Find the square root of 5 - 12i that has a positive real part, giving it in the…"}
+{"answer": "-4 - 3i", "id": "ucv1-complex-equations-division/medium/0/f0021af55a0b", "text": "Find the complex number z such that -2z - 3z̄ = 20 - 3i."}
+{"answer": "-18/17 - (4/17)i", "id": "ucv1-complex-equations-division/medium/1/25ff306af4b7", "text": "Solve (4 + i)z + (1 - i) = -3 - 3i for z, giving z in the form x + yi."}
+{"answer": "-7/3 - (1/3)i", "id": "ucv1-complex-equations-division/medium/2/aa213e6fd04a", "text": "Solve (3 - 3i)z + (3 - 4i) = -5 + 2i for z, giving z in the form x + yi."}
 {"answer": "10/19", "id": "ucv1-condition-number-sensitivity/easy/0/6231d5a0efa8", "text": "A computation has condition number kappa = 5 and relative input error 2/19. Usi…"}
 {"answer": "3/4", "id": "ucv1-condition-number-sensitivity/easy/1/5ec5f4809598", "text": "A computation has condition number kappa = 2 and relative input error 3/8. Usin…"}
 {"answer": "3/7", "id": "ucv1-condition-number-sensitivity/easy/2/5461f65555a9", "text": "A computation has condition number kappa = 6 and relative input error 1/14. Usi…"}
@@ -7885,6 +7909,18 @@
 {"answer": "3/2", "id": "ucv1-condition-number-sensitivity/medium/0/c53b6d5d2a9a", "text": "For a problem with condition number kappa = 4, a relative input error of 3/8 pr…"}
 {"answer": "20/51", "id": "ucv1-condition-number-sensitivity/medium/1/f4a91549e8ae", "text": "Given condition number kappa = 5/3 and relative input error 4/17, compute the b…"}
 {"answer": "1/12", "id": "ucv1-condition-number-sensitivity/medium/2/7b8c1cda3fa6", "text": "A computation has condition number kappa = 3/2 and relative input error 1/18. U…"}
+{"answer": "5/13", "id": "ucv1-conic-sections-features/easy/0/bcfe6d361fa5", "text": "Find the eccentricity of the ellipse x²/169 + y²/144 = 1."}
+{"answer": "5", "id": "ucv1-conic-sections-features/easy/1/2e75eb4bd546", "text": "The parabola y² = -20x has a directrix perpendicular to the x-axis. Find the x-…"}
+{"answer": "5/4", "id": "ucv1-conic-sections-features/easy/2/7c30ab1feb9b", "text": "Find the eccentricity of the hyperbola x²/64 - y²/36 = 1."}
+{"answer": "(a) (2, -4); (b) 4; (c) 4/5; (d) 25/4", "id": "ucv1-conic-sections-features/exam/0/806e9407ab3f", "text": "The curve 25x² + 9y² - 100x + 72y + 19 = 0 is an ellipse with vertical major ax…"}
+{"answer": "(a) (-2, -5); (b) 8; (c) 4/5; (d) 25/2", "id": "ucv1-conic-sections-features/exam/1/7961a431c6df", "text": "The curve 25x² + 9y² + 100x + 90y - 575 = 0 is an ellipse with vertical major a…"}
+{"answer": "(a) (-3, 5); (b) 4; (c) 4/5; (d) 25/4", "id": "ucv1-conic-sections-features/exam/2/64d60ef325fd", "text": "The curve 9x² + 25y² + 54x - 250y + 481 = 0 is an ellipse with horizontal major…"}
+{"answer": "1", "id": "ucv1-conic-sections-features/hard/0/fdc16994bdd9", "text": "The parabola y² - 8x + 2y + 25 = 0 has its axis parallel to the x-axis. Its dir…"}
+{"answer": "0", "id": "ucv1-conic-sections-features/hard/1/438142ad2a60", "text": "The parabola x² - 2x - 12y + 37 = 0 has its axis parallel to the y-axis. Its di…"}
+{"answer": "65/3", "id": "ucv1-conic-sections-features/hard/2/23264df2179d", "text": "The curve 25x² + 16y² + 150x - 160y - 975 = 0 is an ellipse with vertical major…"}
+{"answer": "20", "id": "ucv1-conic-sections-features/medium/0/60bc6acf2ef0", "text": "The curve -16x² + 9y² + 96x + 18y - 711 = 0 is a hyperbola. Find the distance b…"}
+{"answer": "20", "id": "ucv1-conic-sections-features/medium/1/b8ed552549b6", "text": "The curve -9x² + 16y² + 36x - 32y - 596 = 0 is a hyperbola. Find the distance b…"}
+{"answer": "10", "id": "ucv1-conic-sections-features/medium/2/366422dc70a2", "text": "The curve 169x² + 144y² - 1690x - 576y - 19535 = 0 is an ellipse. Find the dist…"}
 {"answer": "9*pi", "id": "ucv1-contour-integral-residue/easy/0/f22ef796567e", "text": "Given f(z) = 9 / (z^2 + 1), and a positively oriented simple closed contour C e…"}
 {"answer": "-2*pi/5", "id": "ucv1-contour-integral-residue/easy/1/63cab6cb99cc", "text": "The function f(z) = -2 / (z^2 + 25) has simple poles at z = +/-5i. C is a posit…"}
 {"answer": "2*pi", "id": "ucv1-contour-integral-residue/easy/2/46ff1e6f1703", "text": "Given f(z) = 6 / (z^2 + 9), and a positively oriented simple closed contour C e…"}
@@ -8149,6 +8185,18 @@
 {"answer": "c1 = -1, c2 = -4", "id": "ucv1-function-space-approximation/medium/0/c3550528f818", "text": "A function is sampled on the basis {x, x^2} at x = 2, x = -3, x = 5, giving y1 …"}
 {"answer": "c1 = 3, c2 = -4", "id": "ucv1-function-space-approximation/medium/1/619fe895a380", "text": "A function is sampled on the basis {x, x^2} at x = 3, x = 5, x = 2, giving y1 =…"}
 {"answer": "c1 = 4, c2 = 1", "id": "ucv1-function-space-approximation/medium/2/840d48c52900", "text": "A function is sampled on the basis {x, x^2} at x = -5, x = 5, x = -1, giving y1…"}
+{"answer": "360", "id": "ucv1-functions-injective-surjective/easy/0/605daf4809c5", "text": "Let A = {1, 2, 3, 4} and B = {1, 2, ..., 6}. How many one-to-one (injective) fu…"}
+{"answer": "120", "id": "ucv1-functions-injective-surjective/easy/1/0630c411c443", "text": "Let A = {1, 2, 3} and B = {1, 2, ..., 6}. How many one-to-one (injective) funct…"}
+{"answer": "360", "id": "ucv1-functions-injective-surjective/easy/2/7afcd7d59b38", "text": "Let A = {1, 2, 3, 4} and B = {1, 2, ..., 6}. How many one-to-one (injective) fu…"}
+{"answer": "(a) 5; (b) -53; (c) 8; (d) 6", "id": "ucv1-functions-injective-surjective/exam/0/ef1821e276df", "text": "Let f(x) = 2x² - 20x - 3, defined for real x ≥ a, where a is the least value fo…"}
+{"answer": "(a) 3; (b) -20; (c) 5; (d) 4", "id": "ucv1-functions-injective-surjective/exam/1/547af6e00310", "text": "Let f(x) = 2x² - 12x - 2, defined for real x ≥ a, where a is the least value fo…"}
+{"answer": "(a) 5; (b) -55; (c) 8; (d) 3", "id": "ucv1-functions-injective-surjective/exam/2/b6bdcf90ab6c", "text": "Let f(x) = 2x² - 20x - 5, defined for real x ≥ a, where a is the least value fo…"}
+{"answer": "-27", "id": "ucv1-functions-injective-surjective/hard/0/674bce165f3c", "text": "The function f : ℝ → [m, ∞), f(x) = 2x² - 16x + 5, is onto (every value in [m, …"}
+{"answer": "5", "id": "ucv1-functions-injective-surjective/hard/1/0ae4b963b581", "text": "The function f(x) = 3x² - 30x + 9 is defined for all real x ≤ a. Find the large…"}
+{"answer": "5", "id": "ucv1-functions-injective-surjective/hard/2/a9b39c08ec0a", "text": "The function f(x) = 3x² - 30x is defined for all real x ≥ a. Find the smallest …"}
+{"answer": "96", "id": "ucv1-functions-injective-surjective/medium/0/457ea5203a11", "text": "How many functions f : {1, 2, 3} → {1, 2, ..., 6} are not one-to-one? (A functi…"}
+{"answer": "14287", "id": "ucv1-functions-injective-surjective/medium/1/56ff243774fc", "text": "How many functions f : {1, 2, 3, 4, 5} → {1, 2, ..., 7} are not one-to-one? (A …"}
+{"answer": "26048", "id": "ucv1-functions-injective-surjective/medium/2/76e61a0e0e1c", "text": "How many functions f : {1, 2, 3, 4, 5} → {1, 2, ..., 8} are not one-to-one? (A …"}
 {"answer": "multiplication by 4", "id": "ucv1-fundamental-group-map/easy/0/9c9afa0e3ed8", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
 {"answer": "multiplication by -4", "id": "ucv1-fundamental-group-map/easy/1/80077b3370b7", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
 {"answer": "multiplication by 3", "id": "ucv1-fundamental-group-map/easy/2/e285c5b6882e", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
@@ -8353,6 +8401,18 @@
 {"answer": "D_y = -80, D = 16", "id": "ucv1-linear-system-determinant/medium/0/aa32bb8ec79f", "text": "Given the system A x = b where A = [4 3; -4 1] and b = (-3, -17), compute D = d…"}
 {"answer": "D_y = -24, D = 24", "id": "ucv1-linear-system-determinant/medium/1/81676fd76f23", "text": "For the linear system A x = b with A = [4 -4; 5 1] and b = (-12, -21), find D =…"}
 {"answer": "D_y = 12, D = -2", "id": "ucv1-linear-system-determinant/medium/2/fbd3c7c0aeb6", "text": "Given the system A x = b where A = [1 -1; 3 -5] and b = (4, 24), compute D = de…"}
+{"answer": "(7x)^x (ln(7x) + 1)", "id": "ucv1-logarithmic-differentiation/easy/0/6f992c94325f", "text": "Find dy/dx, for x > 0, where y = (7x)^x."}
+{"answer": "(x + 3)^(3x)(3x/(x + 3) + 3ln(x + 3))", "id": "ucv1-logarithmic-differentiation/easy/1/84d00eb054b7", "text": "Find dy/dx, for x > 0, where y = (x + 3)^(3x)."}
+{"answer": "x^(4x)(4ln(x) + 4)", "id": "ucv1-logarithmic-differentiation/easy/2/3caea71c5848", "text": "Find dy/dx, for x > 0, where y = x^(4x)."}
+{"answer": "(a) x/(x + 2) + ln(x + 2); (b) 1 + 3ln(3); (c) 2 - 3ln(3); …", "id": "ucv1-logarithmic-differentiation/exam/0/716f16e05b46", "text": "A function is defined by f(x) = (x + 2)^x for x > 0. (a) Find the derivative of…"}
+{"answer": "(a) 3x/(x + 1) + 3ln(x + 1); (b) 12 + 24ln(2); (c) -24ln(2)…", "id": "ucv1-logarithmic-differentiation/exam/1/8862ccf4dd6d", "text": "Consider the function f given by f(x) = (x + 1)^(3x), where x > 0. (a) Find the…"}
+{"answer": "(a) 2x/(x + 3) + 2ln(x + 3); (b) 8 + 64ln(2); (c) 8 - 64ln(…", "id": "ucv1-logarithmic-differentiation/exam/2/2df5b507eba0", "text": "Let f(x) = (x + 3)^(2x) for x > 0. (a) Find the derivative of ln f(x) with resp…"}
+{"answer": "3 + 24ln(2)", "id": "ucv1-logarithmic-differentiation/hard/0/39ba309870e3", "text": "Let y = (3x + 2)^(x - 1). Find the exact value of dy/dx when x = 2."}
+{"answer": "125ln(5) + 225", "id": "ucv1-logarithmic-differentiation/hard/1/996ee19a2b86", "text": "Let y = (3x - 1)^(x + 1). Find the exact value of dy/dx when x = 2."}
+{"answer": "150 + 250ln(5)", "id": "ucv1-logarithmic-differentiation/hard/2/c723b16286ef", "text": "Let y = (2x + 3)^(2x + 1). Find the exact value of dy/dx when x = 1."}
+{"answer": "-192/125", "id": "ucv1-logarithmic-differentiation/medium/0/25f5dcb0fc21", "text": "Let y = ((x - 1)^4)/((x - 2)^4 (x + 2)^2). Find the value of dy/dx when x = 3."}
+{"answer": "-125/3456", "id": "ucv1-logarithmic-differentiation/medium/1/ac8ee2cd4a46", "text": "Let y = ((x + 2)^4)/((x + 3)^3 (x + 1)^2). Find the value of dy/dx when x = 3."}
+{"answer": "1225/432", "id": "ucv1-logarithmic-differentiation/medium/2/722e97dc865a", "text": "Let y = ((x - 3)^3 (x + 3)^3)/((x + 4)^3 (x - 1)^2). Find the value of dy/dx wh…"}
 {"answer": "12, -3, -6, 0, -18", "id": "ucv1-manifold-chart-jacobian/easy/0/a14eef5a6274", "text": "A 2-dimensional chart is given by u(x,y) = 3x^2 - 3y - 2 and v(x,y) = 3xy - 3x …"}
 {"answer": "10, -5, 6, 10, 130", "id": "ucv1-manifold-chart-jacobian/easy/1/6d66a98351d1", "text": "A 2-dimensional chart is given by u(x,y) = -3x^2 + xy - 3y - 3 and v(x,y) = -3x…"}
 {"answer": "5, -2, 3, 1, 11", "id": "ucv1-manifold-chart-jacobian/easy/2/f2133be25bc0", "text": "A 2-dimensional chart is given by u(x,y) = x^2 - 3xy + y and v(x,y) = -3xy - 2y…"}
@@ -8473,6 +8533,18 @@
 {"answer": "0.192", "id": "ucv1-parametric-curvature/medium/0/b7b498fb038a", "text": "A curve is given by x(t) = 3t, y(t) = 4t^2 + 12t. Find the curvature kappa(-1) …"}
 {"answer": "0.176", "id": "ucv1-parametric-curvature/medium/1/329b985b99e2", "text": "A curve is given by x(t) = -2t^2 - 9t, y(t) = t^2 + 10t. Find the curvature kap…"}
 {"answer": "0.080", "id": "ucv1-parametric-curvature/medium/2/f7e6fb699256", "text": "A curve is given by x(t) = -t^2 + 5t, y(t) = -3t^2 + 10t. Find the curvature ka…"}
+{"answer": "-2", "id": "ucv1-parametric-polar-slope-area/easy/0/473e8fbe5097", "text": "A curve is given by x = 2cos t, y = 4sin t. Find dy/dx at t = π/4."}
+{"answer": "-7/8", "id": "ucv1-parametric-polar-slope-area/easy/1/7c51cc612393", "text": "A curve is given by x = 2t² + 5, y = -t³ + 5t - 2. Find dy/dx at t = 2."}
+{"answer": "-2sqrt(3)/3", "id": "ucv1-parametric-polar-slope-area/easy/2/407cd9071a90", "text": "A curve is given by x = 3cos t, y = 6sin t. Find dy/dx at t = π/3."}
+{"answer": "(a) (3t^2 - 1)/(6t); (b) -13/9; (c) -7/243; (d) 9/13", "id": "ucv1-parametric-polar-slope-area/exam/0/350c7395e691", "text": "A curve is given parametrically by x = 3t², y = t³ - t. (a) Find dy/dx as a fun…"}
+{"answer": "(a) (3t^2 - 1)/(6t); (b) 11/12; (c) 13/288; (d) -12/11", "id": "ucv1-parametric-polar-slope-area/exam/1/65b9505f0a57", "text": "A curve is given parametrically by x = 3t², y = t³ - t. (a) Find dy/dx as a fun…"}
+{"answer": "(a) (3t^2 - 2)/(6t); (b) -5/6; (c) -7/144; (d) 6/5", "id": "ucv1-parametric-polar-slope-area/exam/2/b5ec8c781b34", "text": "A curve is given parametrically by x = 3t², y = t³ - 2t. (a) Find dy/dx as a fu…"}
+{"answer": "16", "id": "ucv1-parametric-polar-slope-area/hard/0/80534a90c9be", "text": "Find the exact area enclosed by the lemniscate r² = 16cos 2θ."}
+{"answer": "4π + 32", "id": "ucv1-parametric-polar-slope-area/hard/1/06c8a992861e", "text": "Find the exact area of the region inside the cardioid r = 4(1 + cos θ) and outs…"}
+{"answer": "3π/2", "id": "ucv1-parametric-polar-slope-area/hard/2/eb5bf0d5b7ef", "text": "Find the exact area enclosed by the cardioid r = 1 + cos θ."}
+{"answer": "31/250", "id": "ucv1-parametric-polar-slope-area/medium/0/e56cb413bfd7", "text": "A curve is given by x = t² + 4t, y = t³ + t. Find d²y/dx² at t = 3."}
+{"answer": "3/2", "id": "ucv1-parametric-polar-slope-area/medium/1/b2d43e1398f1", "text": "Find the gradient dy/dx of the polar curve r = 3cos θ + 2 at θ = π/2."}
+{"answer": "-1", "id": "ucv1-parametric-polar-slope-area/medium/2/633b572c1648", "text": "Find the gradient dy/dx of the polar curve r = 4sin 2θ + 1 at θ = π/4."}
 {"answer": "unstable node", "id": "ucv1-phase-plane-linear-classification/easy/0/d6cb41f69165", "text": "For the linear system x' = 6x, y' = 3y, classify the equilibrium at the origin."}
 {"answer": "saddle", "id": "ucv1-phase-plane-linear-classification/easy/1/d52876a98160", "text": "For the linear system x' = -x, y' = 2y, classify the equilibrium at the origin."}
 {"answer": "stable node", "id": "ucv1-phase-plane-linear-classification/easy/2/a2b8658c6f9f", "text": "For the linear system x' = -4x, y' = -y, classify the equilibrium at the origin."}
@@ -8629,6 +8701,18 @@
 {"answer": "r1 = 9, r2 = 9", "id": "ucv1-second-order-characteristic-roots/medium/0/ad1c8bc54337", "text": "y'' - 18y' + 81y = 0. The characteristic equation r^2 - 18r + 81 = 0 has a repe…"}
 {"answer": "r1 = -9, r2 = -9", "id": "ucv1-second-order-characteristic-roots/medium/1/2d15a9fef7ba", "text": "Solve r^2 + 18r + 81 = 0, the characteristic equation of y'' + 18y' + 81y = 0, …"}
 {"answer": "r1 = 15, r2 = 15", "id": "ucv1-second-order-characteristic-roots/medium/2/9465d187823f", "text": "Solve r^2 - 30r + 225 = 0, the characteristic equation of y'' - 30y' + 225y = 0…"}
+{"answer": "0", "id": "ucv1-sequence-limits-squeeze-monotone/easy/0/8fea9251b578", "text": "Find the limit as n tends to infinity of (n + 3) / (5n² + 2n - 5)."}
+{"answer": "-3/4", "id": "ucv1-sequence-limits-squeeze-monotone/easy/1/32657b8d57d9", "text": "Find the limit as n tends to infinity of (3n³ - n² + 5n - 3) / (-4n³ - 6n + 5)."}
+{"answer": "2/5", "id": "ucv1-sequence-limits-squeeze-monotone/easy/2/83a7614c6153", "text": "Find the limit as n tends to infinity of (-2n² + 3) / (-5n² + 3n + 5)."}
+{"answer": "(a) 1, 7; (b) 4; (c) 1; (d) 2", "id": "ucv1-sequence-limits-squeeze-monotone/exam/0/2370d81e0d63", "text": "A sequence is defined by a₁ = 5 and aₙ₊₁ = (aₙ² + 7)/8. It can be shown that th…"}
+{"answer": "(a) 1, 6; (b) 31/7; (c) 1; (d) 2", "id": "ucv1-sequence-limits-squeeze-monotone/exam/1/accec3125cbc", "text": "A sequence is defined by a₁ = 5 and aₙ₊₁ = (aₙ² + 6)/7. It can be shown that th…"}
+{"answer": "(a) 3, 5; (b) 31/8; (c) 3; (d) 6", "id": "ucv1-sequence-limits-squeeze-monotone/exam/2/9e3090f79b65", "text": "Consider the sequence given by a₁ = 4 and aₙ₊₁ = (aₙ² + 15)/8. This sequence is…"}
+{"answer": "2", "id": "ucv1-sequence-limits-squeeze-monotone/hard/0/b85c6ef3399c", "text": "A sequence is defined by a₁ = 3 and aₙ₊₁ = √(2 + aₙ). It is monotonic and bound…"}
+{"answer": "6", "id": "ucv1-sequence-limits-squeeze-monotone/hard/1/cce0386eee05", "text": "A sequence is defined by a₁ = 8 and aₙ₊₁ = (aₙ + 36/aₙ)/2. It is bounded below …"}
+{"answer": "1", "id": "ucv1-sequence-limits-squeeze-monotone/hard/2/8fd113aeb406", "text": "A sequence is defined by a₁ = 5 and aₙ₊₁ = (aₙ² + 6)/7. The sequence is monoton…"}
+{"answer": "-7", "id": "ucv1-sequence-limits-squeeze-monotone/medium/0/c112c099c841", "text": "Find the limit as n tends to infinity of (7n + 5sin(n)) / (-1n + 9)."}
+{"answer": "1/2", "id": "ucv1-sequence-limits-squeeze-monotone/medium/1/17106fea449b", "text": "Find the limit as n tends to infinity of (2·6ⁿ + 3·2ⁿ) / (4·6ⁿ - 3·3ⁿ)."}
+{"answer": "27", "id": "ucv1-sequence-limits-squeeze-monotone/medium/2/1072e679abb1", "text": "The sequence is defined by a₁ = -3 and aₙ₊₁ = (2/3)aₙ + 9. Find the limit of aₙ."}
 {"answer": "-9/8", "id": "ucv1-series-convergence/easy/0/719ade3699dd", "text": "Find the value of Σ_(n=1)^∞ 3(-3/5)^n."}
 {"answer": "-9/4", "id": "ucv1-series-convergence/easy/1/30616d22da98", "text": "Find the exact sum of Σ_(n=1)^∞ 6(-3/5)^n."}
 {"answer": "-12/5", "id": "ucv1-series-convergence/easy/2/f26e5e753876", "text": "Evaluate Σ_(n=1)^∞ 6(-2/3)^n."}
@@ -8725,6 +8809,18 @@
 {"answer": "-18.00", "id": "ucv1-taylor-linear-approximation/medium/0/e9d1742deff3", "text": "f(x) = 2 - x^2. Near a = 4, use L(x) = f(a) + f'(a)(x - a) to estimate f(4.5) t…"}
 {"answer": "7.00", "id": "ucv1-taylor-linear-approximation/medium/1/9f717d987890", "text": "f(x) = x^2 - 5. Near a = -4, use L(x) = f(a) + f'(a)(x - a) to estimate f(-3.5)…"}
 {"answer": "-14.50", "id": "ucv1-taylor-linear-approximation/medium/2/169f71101e98", "text": "f(x) = -2x^2 - 3x + 5. Using the linear approximation L(x) = f(a) + f'(a)(x - a…"}
+{"answer": "3", "id": "ucv1-three-set-inclusion-exclusion-derangements/easy/0/b2ee98bf7a14", "text": "All 37 staff at an Adelaide hospital work at least one of night shifts, weekend…"}
+{"answer": "2", "id": "ucv1-three-set-inclusion-exclusion-derangements/easy/1/50e9834ff5ef", "text": "All 68 staff at an Adelaide hospital work at least one of night shifts, weekend…"}
+{"answer": "4", "id": "ucv1-three-set-inclusion-exclusion-derangements/easy/2/55f0f0c5a499", "text": "All 60 students at a Hobart college take at least one of Mathematical Methods, …"}
+{"answer": "(a) 6; (b) 33; (c) 5; (d) 44", "id": "ucv1-three-set-inclusion-exclusion-derangements/exam/0/7bbf36ffe25c", "text": "Of 50 first-year students at a Brisbane university who were surveyed, 6 take no…"}
+{"answer": "(a) 5; (b) 40; (c) 5; (d) 44", "id": "ucv1-three-set-inclusion-exclusion-derangements/exam/1/73f7b07ce25f", "text": "62 students at a Hobart college were asked which of Mathematical Methods, Physi…"}
+{"answer": "(a) 5; (b) 35; (c) 6; (d) 265", "id": "ucv1-three-set-inclusion-exclusion-derangements/exam/2/056911f9fdac", "text": "A survey of 54 first-year students at a Brisbane university found that 8 take n…"}
+{"answer": "362", "id": "ucv1-three-set-inclusion-exclusion-derangements/hard/0/32d324dd1fad", "text": "6 people are to be seated in a row of 6 numbered seats. Asha, Ben, Chloe and De…"}
+{"answer": "64", "id": "ucv1-three-set-inclusion-exclusion-derangements/hard/1/7cf7b3a16c66", "text": "5 people are to be seated in a row of 5 numbered seats. Asha, Ben and Chloe eac…"}
+{"answer": "41", "id": "ucv1-three-set-inclusion-exclusion-derangements/hard/2/24a1ffbfdc06", "text": "How many integers from 1 to 120 inclusive are divisible by none of 2, 5 and 7?"}
+{"answer": "3", "id": "ucv1-three-set-inclusion-exclusion-derangements/medium/0/13d5c6f6390b", "text": "A survey of 63 households in a Darwin suburb asked about a bicycle, a kayak and…"}
+{"answer": "10", "id": "ucv1-three-set-inclusion-exclusion-derangements/medium/1/9f786063af92", "text": "A survey of 63 members of a Perth surf club asked about surfing, paddling and r…"}
+{"answer": "9", "id": "ucv1-three-set-inclusion-exclusion-derangements/medium/2/0d6de3134b79", "text": "4 tickets, each addressed to a different person, are put one into each of 4 env…"}
 {"answer": "a basis", "id": "ucv1-topology-basis-membership/easy/0/ab325d26bb3a", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {3}; B2…"}
 {"answer": "a basis", "id": "ucv1-topology-basis-membership/easy/1/1c47b581f139", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {2}; B2…"}
 {"answer": "fails both", "id": "ucv1-topology-basis-membership/easy/2/b418272f3465", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {2, 4};…"}
