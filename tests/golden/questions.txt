@@ -118,12 +118,12 @@
 {"answer": "Straight", "id": "angle-types/easy/0/8e0367ddbd37", "text": "What type of angle measures 180°?"}
 {"answer": "Straight", "id": "angle-types/easy/1/52d929ef3950", "text": "An angle turns through 180°. Is it acute, right, obtuse, straight or reflex?"}
 {"answer": "Straight", "id": "angle-types/easy/2/23c190b406ab", "text": "Which name describes an angle of 180°?"}
-{"answer": "Obtuse", "id": "angle-types/hard/0/28768aaad330", "text": "A protractor sits on the corner of angle AOB. Classify the marked angle AOB."}
-{"answer": "Acute", "id": "angle-types/hard/1/908c1231de11", "text": "A protractor is placed on the angle AOB. Name the type of the marked angle AOB."}
-{"answer": "Obtuse", "id": "angle-types/hard/2/6edae810698b", "text": "A protractor is placed on the angle AOB. Name the type of the marked angle AOB."}
-{"answer": "Obtuse", "id": "angle-types/medium/0/69992c0191a5", "text": "A protractor is placed on the angle AOB. Classify the marked angle AOB."}
-{"answer": "Obtuse", "id": "angle-types/medium/1/0dedb027f911", "text": "Angle AOB is drawn with a protractor lined up on the arm OA. What type of angle…"}
-{"answer": "Reflex", "id": "angle-types/medium/2/3b730ec9eb9a", "text": "A protractor sits on the corner of angle AOB. Name the type of the marked angle…"}
+{"answer": "Obtuse", "id": "angle-types/hard/0/a487f9291e54", "text": "Angle AOB is drawn with a protractor lined up on the arm OA. Name the type of t…"}
+{"answer": "Acute", "id": "angle-types/hard/1/083014657c20", "text": "A protractor sits on the corner of angle AOB. What type of angle is the marked …"}
+{"answer": "Obtuse", "id": "angle-types/hard/2/3f3c9fd4081d", "text": "A protractor sits on the corner of angle AOB. Name the type of the marked angle…"}
+{"answer": "Obtuse", "id": "angle-types/medium/0/dc8bfd372862", "text": "A protractor is placed on the angle AOB. Classify the marked angle AOB."}
+{"answer": "Obtuse", "id": "angle-types/medium/1/3c1cfb22e5cb", "text": "Angle AOB is drawn with a protractor lined up on the arm OA. What type of angle…"}
+{"answer": "Reflex", "id": "angle-types/medium/2/ad2d2e96ee8f", "text": "A protractor sits on the corner of angle AOB. Name the type of the marked angle…"}
 {"answer": "301.6", "id": "annulus-cross-section-area/easy/0/12f0684fca38", "text": "A hollow cylindrical shaft has an outer radius of 10 cm and an inner radius of …"}
 {"answer": "2199.1", "id": "annulus-cross-section-area/easy/1/2810df571bc9", "text": "A hollow cylindrical shaft has an outer radius of 32 cm and an inner radius of …"}
 {"answer": "628.3", "id": "annulus-cross-section-area/easy/2/e8fb16d1e501", "text": "A hollow cylindrical shaft has an outer radius of 15 cm and an inner radius of …"}
