@@ -1000,6 +1000,15 @@
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/d2edcaab9563", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/a601c8526340", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
+{"answer": "(a) 870; (b) It is reasonable: it is close to the estimate", "id": "f10-check-given-answer-reasonable/easy/0/4cb6cbc6f516", "text": "A bakery sold 728 pies in June and 141 pies in July. Priya says it sold 869 pie…"}
+{"answer": "(a) 1280; (b) It is too high: it is much more than the esti…", "id": "f10-check-given-answer-reasonable/easy/1/b0f1fcf7abff", "text": "A bakery sold 506 pies in June and 773 pies in July. Noah says it sold 1 379 pi…"}
+{"answer": "(a) 440; (b) It is reasonable: it is close to the estimate", "id": "f10-check-given-answer-reasonable/easy/2/c53084843446", "text": "A library had 814 books on its shelves. 373 were borrowed. Ravi says 441 books …"}
+{"answer": "(a) 55; (b) It is too high: it is much more than the estima…", "id": "f10-check-given-answer-reasonable/hard/0/1ba2cbc3d6c4", "text": "Aisha buys 9 exercise books at $5.25 each and pays with a $100 note. Aisha says…"}
+{"answer": "(a) 88; (b) It is too low: it is much less than the estimate", "id": "f10-check-given-answer-reasonable/hard/1/46ca76e28460", "text": "At the school shop, Priya buys 4 sports caps for $3.25 each and pays with a $10…"}
+{"answer": "(a) 80; (b) It is reasonable: it is close to the estimate", "id": "f10-check-given-answer-reasonable/hard/2/2bb01dc5a30f", "text": "Jack buys 5 sports caps at $3.50 each and pays with a $100 note. Jack says the …"}
+{"answer": "(a) 2200; (b) It is reasonable: it is close to the estimate", "id": "f10-check-given-answer-reasonable/medium/0/ae0b85cd9874", "text": "A stadium holds 5 838 people. 3 576 seats are empty. Ravi says 2 262 people are…"}
+{"answer": "(a) 16500; (b) It is too low: it is much less than the esti…", "id": "f10-check-given-answer-reasonable/medium/1/4087c9d56a1b", "text": "A football club sold 7 618 tickets to its first game and 8 892 to its second. Z…"}
+{"answer": "(a) 14400; (b) It is reasonable: it is close to the estimate", "id": "f10-check-given-answer-reasonable/medium/2/f4212fddad2a", "text": "A football club sold 6 761 tickets to its first game and 7 619 to its second. I…"}
 {"answer": "270", "id": "f10-circle-and-prism-duration-rates/easy/0/a83a9727a191", "text": "A flight departs Zone A at 10:00, arrives Zone B at 11:30, on the same day. Zon…"}
 {"answer": "210", "id": "f10-circle-and-prism-duration-rates/easy/1/5aa03c2bbbee", "text": "A flight departs Zone A at 05:30, arrives Zone B at 08:00, on the same day. Zon…"}
 {"answer": "135", "id": "f10-circle-and-prism-duration-rates/easy/2/18e85442551c", "text": "A flight departs Zone A at 07:15, arrives Zone B at 08:30, on the same day. Zon…"}
@@ -1282,6 +1291,18 @@
 {"answer": "0.03", "id": "f10-exact-approximate-repeated-calculation/medium/0/c1870ca82e76", "text": "Start with 4.62. Multiply by 1.2; then multiply by 8.5; then add 2.5, in that o…"}
 {"answer": "0.05", "id": "f10-exact-approximate-repeated-calculation/medium/1/7acb591b9228", "text": "Start with 6.12. Multiply by 1.2; then multiply by 11.5; then add 5, in that or…"}
 {"answer": "0.01", "id": "f10-exact-approximate-repeated-calculation/medium/2/580e35d14d6a", "text": "Start with 5.79. Multiply by 1.8; then multiply by 3.5; then add 6.5, in that o…"}
+{"answer": "5, 2, 1, 0", "id": "f10-expanded-notation-decompose/easy/0/e2b92803b242", "text": "Write 700 653 in expanded notation: 700 653 = 7 × 10^a + 6 × 10^b + 5 × 10^c + …"}
+{"answer": "3, 2, 0", "id": "f10-expanded-notation-decompose/easy/1/6b4f7ea5fdfb", "text": "The number 4 608 is written in expanded notation as 4 × 10^a + 6 × 10^b + 8 × 1…"}
+{"answer": "5, 3, 1, 0", "id": "f10-expanded-notation-decompose/easy/2/8208b2d02051", "text": "The number 602 089 is written in expanded notation as 6 × 10^a + 2 × 10^b + 8 ×…"}
+{"answer": "(a) 4; (b) -2; (c) 6; (d) 2", "id": "f10-expanded-notation-decompose/exam/0/ca30a35627c0", "text": "A surveyor records a distance of 50 200.37 m. (a) The digit 5 is written 5 × 10…"}
+{"answer": "(a) 3; (b) -2; (c) 5; (d) 1", "id": "f10-expanded-notation-decompose/exam/1/7f2deb8162bc", "text": "A lab measures a volume of 3 004.06 mL. (a) The digit 3 is written 3 × 10^n in …"}
+{"answer": "(a) 3; (b) -1; (c) 4; (d) 1", "id": "f10-expanded-notation-decompose/exam/2/72739fae3a7f", "text": "A lab measures a volume of 6 040.3 mL. (a) The digit 6 is written 6 × 10^n in t…"}
+{"answer": "4, 2, 1, 0", "id": "f10-expanded-notation-decompose/hard/0/15350db38513", "text": "A number is 2 × 10² + 4 × 10⁰ + 7 × 10⁻¹ + 9 × 10⁻². It is multiplied by 100. T…"}
+{"answer": "6, 4, 3, 2", "id": "f10-expanded-notation-decompose/hard/1/5ab81d02f7d0", "text": "A number is 4 × 10⁴ + 4 × 10² + 5 × 10¹ + 2 × 10⁰. It is multiplied by 100. The…"}
+{"answer": "7, 5, 3", "id": "f10-expanded-notation-decompose/hard/2/ca4c1ac79cae", "text": "A number is 2 × 10⁴ + 1 × 10² + 4 × 10⁰. It is multiplied by 1 000. The new num…"}
+{"answer": "2, 0, -1, -2", "id": "f10-expanded-notation-decompose/medium/0/630dc827eaa5", "text": "The number 407.65 is written in expanded notation as 4 × 10^a + 7 × 10^b + 6 × …"}
+{"answer": "0, -2, -3", "id": "f10-expanded-notation-decompose/medium/1/a1944bfdb9cb", "text": "The number 8.079 is written in expanded notation as 8 × 10^a + 7 × 10^b + 9 × 1…"}
+{"answer": "1, -1, -2", "id": "f10-expanded-notation-decompose/medium/2/bcac52db7255", "text": "Write 10.17 in expanded notation: 10.17 = 1 × 10^a + 1 × 10^b + 7 × 10^c. Give …"}
 {"answer": "9145", "id": "f10-expanded-powers-ten/easy/0/c412c024b8d6", "text": "What number is 9 × 10^3 + 1 × 10^2 + 4 × 10 + 5? Write the number without space…"}
 {"answer": "6597", "id": "f10-expanded-powers-ten/easy/1/523e059c6c90", "text": "6 × 10^3 + 5 × 10^2 + 9 × 10 + 7 is the expanded form of what number? Write the…"}
 {"answer": "7969", "id": "f10-expanded-powers-ten/easy/2/b3619edf3bc8", "text": "Write 7 × 10^3 + 9 × 10^2 + 6 × 10 + 9 as a single number. Write the number wit…"}
@@ -1372,6 +1393,15 @@
 {"answer": "Model A", "id": "f10-fraction-compare-models/medium/0/89281a5de185", "text": "Chloe compares the models. Which one shows the greater amount shaded?"}
 {"answer": "Model B", "id": "f10-fraction-compare-models/medium/1/85f4bcf06377", "text": "Hassan compares the models. Which one shows the greater amount shaded?"}
 {"answer": "Model A", "id": "f10-fraction-compare-models/medium/2/d3ea6fa5a7f9", "text": "Ingrid compares the models. Which one shows the greater amount shaded?"}
+{"answer": "56/100", "id": "f10-fraction-decimal-links/easy/0/c5e69745ef8b", "text": "Which fraction is the same as the decimal 0.56? Write it with a denominator of …"}
+{"answer": "57/100", "id": "f10-fraction-decimal-links/easy/1/ed64f0c0c0b2", "text": "Which fraction is the same as the decimal 0.57? Write it with a denominator of …"}
+{"answer": "6/100", "id": "f10-fraction-decimal-links/easy/2/2c8b728f1121", "text": "Write 0.06 as a fraction."}
+{"answer": "163", "id": "f10-fraction-decimal-links/hard/0/f81df4967470", "text": "How many hundredths are there altogether in 9/10 + 0.51 + 22/100?"}
+{"answer": "162", "id": "f10-fraction-decimal-links/hard/1/7792b1d28bcf", "text": "How many hundredths are there altogether in 9/10 + 0.59 + 13/100?"}
+{"answer": "128", "id": "f10-fraction-decimal-links/hard/2/9b82a351d80d", "text": "Add 6/10, the decimal 0.19 and 49/100. Give the total as a number of hundredths."}
+{"answer": "0.19", "id": "f10-fraction-decimal-links/medium/0/4d6dd0706296", "text": "Work out 3/10 - 11/100. Write the answer as a decimal."}
+{"answer": "0.96", "id": "f10-fraction-decimal-links/medium/1/18eb45c8a361", "text": "Work out 6/10 + 36/100. Write the answer as a decimal."}
+{"answer": "0.05", "id": "f10-fraction-decimal-links/medium/2/ec2b104fd735", "text": "Write 8/10 - 75/100 as a decimal."}
 {"answer": "1/4, 2/3, 3/4", "id": "f10-fraction-equivalence-numberline/easy/0/d9df4247573c", "text": "Arrange these fractions from smallest to largest: 1/4, 2/3, 3/4."}
 {"answer": "1/3, 1/2, 2/3", "id": "f10-fraction-equivalence-numberline/easy/1/e8b12a513a9a", "text": "Arrange these fractions from smallest to largest: 1/3, 2/3, 1/2."}
 {"answer": "1/3, 1/2, 3/4", "id": "f10-fraction-equivalence-numberline/easy/2/73e28e875620", "text": "Arrange these fractions from smallest to largest: 3/4, 1/2, 1/3."}
@@ -1462,6 +1492,15 @@
 {"answer": "-19, 0, 6, 10", "id": "f10-integer-numberline-coordinates/medium/0/b6da08631fbe", "text": "Order these integers from smallest to largest: 10, 0, -19, 6."}
 {"answer": "-11, 0, 3, 11", "id": "f10-integer-numberline-coordinates/medium/1/ef059d47ac62", "text": "Order these integers from smallest to largest: -11, 3, 0, 11."}
 {"answer": "-19, 0, 1, 6", "id": "f10-integer-numberline-coordinates/medium/2/b3351a09f87d", "text": "Order these integers from smallest to largest: 6, 1, -19, 0."}
+{"answer": "-2", "id": "f10-integer-situations-number-line/easy/0/449281ef013c", "text": "The number line shows the levels of a building, where 0 is the ground floor and…"}
+{"answer": "8", "id": "f10-integer-situations-number-line/easy/1/342dbfecf45f", "text": "The number line shows temperatures in degrees Celsius on a mountain. A marks th…"}
+{"answer": "-11", "id": "f10-integer-situations-number-line/easy/2/ef8f9c7e27a8", "text": "The number line shows heights in metres, where 0 is sea level and negative heig…"}
+{"answer": "3", "id": "f10-integer-situations-number-line/hard/0/5c8aac6b89c9", "text": "The number line shows the levels of a building, where 0 is the ground floor and…"}
+{"answer": "-1", "id": "f10-integer-situations-number-line/hard/1/877c5a9e92a1", "text": "The number line shows the levels of a building, where 0 is the ground floor and…"}
+{"answer": "2", "id": "f10-integer-situations-number-line/hard/2/2d9b4a56200a", "text": "The number line shows the levels of a building, where 0 is the ground floor and…"}
+{"answer": "10", "id": "f10-integer-situations-number-line/medium/0/38fe413c54a2", "text": "The number line shows the balance of a bank account in dollars, where a negativ…"}
+{"answer": "25", "id": "f10-integer-situations-number-line/medium/1/af2d7cff9f77", "text": "The number line shows the balance of a bank account in dollars, where a negativ…"}
+{"answer": "40", "id": "f10-integer-situations-number-line/medium/2/21ae4b7a6cf8", "text": "The number line shows the balance of a bank account in dollars, where a negativ…"}
 {"answer": "130", "id": "f10-irregular-composite-area/easy/0/c6271cfe21d7", "text": "A shape is made of two rectangular sections. Section 1 is 12 m by 9 m. Section …"}
 {"answer": "68", "id": "f10-irregular-composite-area/easy/1/6a0ed5fa499f", "text": "A shape is made of two rectangular sections. Section 1 is 6 m by 3 m. Section 2…"}
 {"answer": "63", "id": "f10-irregular-composite-area/easy/2/59daa5c58834", "text": "A shape is made of two rectangular sections. Section 1 is 7 m by 5 m. Section 2…"}
@@ -1552,6 +1591,15 @@
 {"answer": "0.68", "id": "f10-measurement-error-interpretation/medium/0/fd51ae8a30ac", "text": "A measurement is 84 cm, but the true value is 50 cm. What is the relative error…"}
 {"answer": "0.39", "id": "f10-measurement-error-interpretation/medium/1/faf90f91cb2d", "text": "A measurement is 61 cm, but the true value is 100 cm. What is the relative erro…"}
 {"answer": "0.15", "id": "f10-measurement-error-interpretation/medium/2/5b50b31e4834", "text": "A measurement is 17 cm, but the true value is 20 cm. What is the relative error…"}
+{"answer": "(a) 84; (b) 93", "id": "f10-mental-compensation-partition/easy/0/8b73fbd33223", "text": "To work out 54 + 39 in your head, add the tens of 39 first and then the ones. (…"}
+{"answer": "(a) 69; (b) 73", "id": "f10-mental-compensation-partition/easy/1/3a01d02b2762", "text": "To work out 49 + 24 in your head, add the tens of 24 first and then the ones. (…"}
+{"answer": "(a) 95; (b) 93", "id": "f10-mental-compensation-partition/easy/2/c4e7d3f20dd8", "text": "To work out 35 + 58 in your head, round 58 up to 60 first. (a) What is 35 + 60?…"}
+{"answer": "(a) 200; (b) 202", "id": "f10-mental-compensation-partition/hard/0/71aae099a1b9", "text": "To work out 801 - 599 in your head, round both numbers to the nearest hundred f…"}
+{"answer": "(a) 500; (b) 503", "id": "f10-mental-compensation-partition/hard/1/758e83b5903c", "text": "To work out 702 - 199 in your head, round both numbers to the nearest hundred f…"}
+{"answer": "(a) 1300; (b) 1295", "id": "f10-mental-compensation-partition/hard/2/c25728c886ee", "text": "To work out 798 + 497 in your head, round both numbers to the nearest hundred f…"}
+{"answer": "(a) 38; (b) 40", "id": "f10-mental-compensation-partition/medium/0/60a5eab7aace", "text": "To work out 88 - 48 in your head, round 48 up to 50 first. (a) What is 88 - 50?…"}
+{"answer": "(a) 45; (b) 47", "id": "f10-mental-compensation-partition/medium/1/17707d4d68c0", "text": "To work out 85 - 38 in your head, round 38 up to 40 first. (a) What is 85 - 40?…"}
+{"answer": "(a) 14; (b) 16", "id": "f10-mental-compensation-partition/medium/2/0c6e88bcce20", "text": "To work out 74 - 58 in your head, round 58 up to 60 first. (a) What is 74 - 60?…"}
 {"answer": "180", "id": "f10-mental-mult-div-extension/easy/0/a234fbb4a099", "text": "Given that 9 × 2 = 18, what is 90 × 2?"}
 {"answer": "300", "id": "f10-mental-mult-div-extension/easy/1/7cd3e3a50960", "text": "Given that 5 × 6 = 30, what is 50 × 6?"}
 {"answer": "240", "id": "f10-mental-mult-div-extension/easy/2/78e96c6203b8", "text": "Given that 4 × 6 = 24, what is 40 × 6?"}
@@ -1573,6 +1621,15 @@
 {"answer": "96", "id": "f10-metric-measure-instrument-estimate/medium/0/41612c969c17", "text": "A scale has major marks every 20 g. Each major interval is split into 5 small d…"}
 {"answer": "32", "id": "f10-metric-measure-instrument-estimate/medium/1/c4e6ac128d08", "text": "A scale has major marks every 10 g. Each major interval is split into 5 small d…"}
 {"answer": "30", "id": "f10-metric-measure-instrument-estimate/medium/2/2fd039f5281d", "text": "A ruler has major marks every 20 cm. Each major interval is split into 2 small …"}
+{"answer": "1 1/2", "id": "f10-mixed-numerals-number-line/easy/0/e6fd5218b846", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
+{"answer": "4 1/4", "id": "f10-mixed-numerals-number-line/easy/1/c452626f41d1", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
+{"answer": "6 1/2", "id": "f10-mixed-numerals-number-line/easy/2/258c744d87de", "text": "Point P is marked on the number line. Write the number at P as a mixed numeral."}
+{"answer": "2 3/4", "id": "f10-mixed-numerals-number-line/hard/0/90b45701d529", "text": "P and Q are marked on the number line. Write the distance from P to Q as a mixe…"}
+{"answer": "1 3/4", "id": "f10-mixed-numerals-number-line/hard/1/244624140c62", "text": "Points P and Q are marked on the number line. How far is it from P to Q? Write …"}
+{"answer": "1 2/3", "id": "f10-mixed-numerals-number-line/hard/2/9fb56e3bc662", "text": "Points P and Q are marked on the number line. How far is it from P to Q? Write …"}
+{"answer": "13 4/5", "id": "f10-mixed-numerals-number-line/medium/0/a2adc1be3a98", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
+{"answer": "16 1/5", "id": "f10-mixed-numerals-number-line/medium/1/a6e99f6ca884", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
+{"answer": "16 2/5", "id": "f10-mixed-numerals-number-line/medium/2/ee10789c334f", "text": "The number line is labelled at its two ends only. What number is marked by P? W…"}
 {"answer": "$3", "id": "f10-money-change-from-note/easy/0/90d19360f399", "text": "Beatrice pays for a kite that costs $7 with this note. How much change does Bea…"}
 {"answer": "$6", "id": "f10-money-change-from-note/easy/1/a1f21b85f27a", "text": "A book costs $4. Amir pays with this note. What is the change?"}
 {"answer": "$2", "id": "f10-money-change-from-note/easy/2/219d620e4568", "text": "Ravi buys a toy for $3. Ravi pays with this note. How much change?"}
@@ -1708,6 +1765,15 @@
 {"answer": "12, 15, 17, 18", "id": "f10-number-represent-order-to-20/medium/0/5b5962959b11", "text": "Arrange these numbers from smallest to largest: 18, 17, 15, 12."}
 {"answer": "0, 11, 13, 19", "id": "f10-number-represent-order-to-20/medium/1/56221cf11643", "text": "Arrange these numbers from smallest to largest: 11, 13, 0, 19."}
 {"answer": "1, 3, 12, 18", "id": "f10-number-represent-order-to-20/medium/2/474dbb6ce045", "text": "Arrange these numbers from smallest to largest: 1, 12, 3, 18."}
+{"answer": "84105", "id": "f10-numerals-words-and-place-value/easy/0/c865ca04a569", "text": "Write eighty-four thousand, one hundred and five in numerals."}
+{"answer": "57803", "id": "f10-numerals-words-and-place-value/easy/1/190eb43dbd74", "text": "Write fifty-seven thousand, eight hundred and three in numerals."}
+{"answer": "75077", "id": "f10-numerals-words-and-place-value/easy/2/8c8d55c6e800", "text": "A sign says seventy-five thousand and seventy-seven people visited the museum t…"}
+{"answer": "50347", "id": "f10-numerals-words-and-place-value/hard/0/3338a8d18c2f", "text": "What number is one thousand more than forty-nine thousand, three hundred and fo…"}
+{"answer": "17506", "id": "f10-numerals-words-and-place-value/hard/1/74e030eba319", "text": "What number is ten more than seventeen thousand, four hundred and ninety-six? W…"}
+{"answer": "80414", "id": "f10-numerals-words-and-place-value/hard/2/14ffcc9e3907", "text": "What number is one thousand more than seventy-nine thousand, four hundred and f…"}
+{"answer": "10000", "id": "f10-numerals-words-and-place-value/medium/0/abce71569cd3", "text": "The digit 1 is in the number 314 975. What is its value?"}
+{"answer": "400", "id": "f10-numerals-words-and-place-value/medium/1/ebf040fe002a", "text": "The digit 4 is in the number 561 409. What is its value?"}
+{"answer": "700", "id": "f10-numerals-words-and-place-value/medium/2/7b0a80bfa05e", "text": "The digit 7 is in the number 238 749. What is its value?"}
 {"answer": "odd", "id": "f10-odd-even-properties/easy/0/2c1b8cbc0b52", "text": "An odd number plus an even number -- is the result odd or even?"}
 {"answer": "even", "id": "f10-odd-even-properties/easy/1/0f50aadae2d5", "text": "An even number plus an even number -- is the result odd or even?"}
 {"answer": "odd", "id": "f10-odd-even-properties/easy/2/cd7137759c7a", "text": "An odd number plus an even number -- is the result odd or even?"}
@@ -2314,6 +2380,15 @@
 {"answer": "113.0", "id": "f10-volume-surface-area-prisms-cylinders/medium/0/4b8a10c9c4a8", "text": "A cylinder has a radius of 2 cm and a height of 7 cm. Using π = 3.14, what is i…"}
 {"answer": "565.2", "id": "f10-volume-surface-area-prisms-cylinders/medium/1/fb70ea883a42", "text": "A cylinder has a radius of 5 cm and a height of 13 cm. Using π = 3.14, what is …"}
 {"answer": "565.2", "id": "f10-volume-surface-area-prisms-cylinders/medium/2/0597f74957bb", "text": "A cylinder has a radius of 6 cm and a height of 9 cm. Using π = 3.14, what is i…"}
+{"answer": "801", "id": "f10-written-division/easy/0/fb34b0bd1c08", "text": "2 403 stickers are packed equally into 3 boxes. How many stickers are in each b…"}
+{"answer": "909", "id": "f10-written-division/easy/1/8ebb8d65d902", "text": "A farm packs 1 818 eggs into 2 equal crates. How many eggs are in each crate?"}
+{"answer": "509", "id": "f10-written-division/easy/2/edef75aa455b", "text": "1 018 stickers are packed equally into 2 boxes. How many stickers are in each b…"}
+{"answer": "157.625", "id": "f10-written-division/hard/0/6913ada4bb7e", "text": "A cycle path is 1 261 m long. It is split into 8 equal sections. How long is ea…"}
+{"answer": "579.8", "id": "f10-written-division/hard/1/6f2ff82d11e8", "text": "A cycle path is 2 899 m long. It is split into 5 equal sections. How long is ea…"}
+{"answer": "994.5", "id": "f10-written-division/hard/2/463bd45660e3", "text": "A water tank holds 1 989 L. The water is shared equally among 2 paddocks. How m…"}
+{"answer": "405 1/3", "id": "f10-written-division/medium/0/278322dd930d", "text": "A water tank holds 1 216 L. The water is shared equally among 3 paddocks. How m…"}
+{"answer": "128 1/8", "id": "f10-written-division/medium/1/8b14312effd1", "text": "A cycle path is 1 025 m long. It is split into 8 equal sections. How long is ea…"}
+{"answer": "259 2/3", "id": "f10-written-division/medium/2/fc4fb981302e", "text": "A water tank holds 779 L. The water is shared equally among 3 paddocks. How muc…"}
 {"answer": "12", "id": "f2-read-a-picture-graph/easy/0/f73f92885638", "text": "Students voted for the sport they would most like to play. Use the graph to fin…"}
 {"answer": "2", "id": "f2-read-a-picture-graph/easy/1/ecc72a7cbd32", "text": "A class voted for their favourite fruit. Use the graph to find how many student…"}
 {"answer": "3", "id": "f2-read-a-picture-graph/easy/2/70551372381a", "text": "A class voted for their favourite pet. Use the graph to find how many students …"}

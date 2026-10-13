@@ -10131,6 +10131,456 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    CatalogueEntry(
+        "fr2b-numeral-written-without-placeholder-zero",
+        "Writing the parts of a number side by side and leaving out the 0 for an empty place: twenty-three thousand and six written as 236.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-numeral-has-wrong-number-of-zeros",
+        "Writing a numeral with one zero too many or too few, so it is ten times too big or too small.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-numeral-digits-transposed",
+        "Swapping two neighbouring digits when writing a number from its words.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-digit-value-is-the-digit-itself",
+        "Giving the digit itself as its value, as if 7 in 472 036 were worth 7.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-digit-value-from-wrong-place",
+        "Reading the digit's place one or two places out, so its value is ten or a hundred times too big or too small.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-place-name-given-for-digit-value",
+        "Giving the value of the place (such as 10 000) instead of the value of the digit in it (such as 70 000).",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-no-regrouping-across-a-zero-or-nine",
+        "Changing only the digit in the named place, so 9 becomes 0 or 0 becomes 9 and the next place is not regrouped.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-changes-the-wrong-place",
+        "Adding or taking away ten times too much or too little, because the place named was mixed up with a neighbouring place.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-more-and-less-reversed",
+        "Adding when the question says less, or taking away when it says more.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-place-gives-wrong-denominator",
+        "Choosing the denominator from the wrong place: writing 0.07 as 7/10 or 0.7 as 7/100.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-digits-split-into-a-fraction",
+        "Reading the digits after the decimal point as a numerator and a denominator: 0.43 as 4/3.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-point-ignored",
+        "Ignoring the decimal point and writing the digits as a whole number: 0.07 as 7/1.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-tenths-added-as-hundredths",
+        "Adding the numerators of tenths and hundredths as if both were hundredths: 6/10 + 25/100 as 31/100.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-ignores-the-hundredths-part",
+        "Leaving out the hundredths fraction and giving only the tenths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-ignores-the-tenths-part",
+        "Leaving out the tenths fraction and giving only the hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-hundredths-read-as-tenths",
+        "Treating a number of hundredths as a number of tenths, so the amount is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-tenths-counted-as-hundredths",
+        "Counting 3 tenths as 3 hundredths instead of 30 hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-tenths-counted-as-hundreds-of-hundredths",
+        "Counting 3 tenths as 300 hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-counted-in-tenths",
+        "Counting the digits of a two-place decimal as tenths, so 0.45 is taken as 4 hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-thousandths-not-hundredths",
+        "Counting in thousandths when hundredths were asked for, so the total is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-marks-not-steps",
+        "Counting the marks between two whole numbers, including both whole numbers, instead of the equal steps, so the denominator is one too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-whole-number-after-the-point",
+        "Reading the whole number to the right of the point instead of the one to its left.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-steps-from-the-next-whole-number",
+        "Counting the steps back from the whole number on the right but writing them as if counted forward from the left.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-whole-number-before-the-point",
+        "Reading the label two whole numbers back instead of the whole number just to the left of the point.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-from-the-left-end-as-zero",
+        "Treating the left end of the line as zero, so the whole number part ignores the number printed at the end.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-subtracts-parts-without-regrouping",
+        "Subtracting the whole numbers and the fractions separately and always taking the smaller fraction from the larger, so a mixed numeral is not regrouped.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-gives-the-position-not-the-distance",
+        "Giving the number at the end point instead of the distance between the two points.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-ignores-the-fractions",
+        "Counting only the whole numbers between the points and leaving out the fractions.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-adds-the-two-readings",
+        "Adding the two readings when the distance between them was asked for.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-division-zero-in-quotient-left-out",
+        "Leaving out the 0 in a quotient when a step of the written method gives 0, so 603 is written as 63.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-division-quotient-place-value-wrong",
+        "Writing the quotient digits in the wrong places, so the answer is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-division-regrouping-slip",
+        "Regrouping wrongly during a step of the written method, so one digit of the quotient is out by one.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-written-over-the-quotient",
+        "Writing the remainder over the quotient instead of over the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-written-over-the-dividend",
+        "Writing the remainder over the number that was divided instead of over the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-and-divisor-swapped",
+        "Writing the divisor over the remainder instead of the remainder over the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-dropped-or-rounded-up",
+        "Giving the whole-number quotient, or the next whole number, and not saying what is left over.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-written-as-decimal-digits",
+        "Writing the remainder after the decimal point as it is, so a remainder of 3 becomes .3 whatever the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-point-misplaced",
+        "Putting the decimal point in the wrong place, so the answer is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-rejects-a-reasonable-answer",
+        "Calling an answer wrong because it is not exactly equal to the estimate, although it is close to it.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-thinks-an-estimate-cannot-check",
+        "Believing an estimate cannot be used to check an exact answer, so there is nothing to compare.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-accepts-an-answer-without-comparing",
+        "Accepting a stated answer as reasonable without comparing it with the estimate.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compares-in-the-wrong-direction",
+        "Comparing the stated answer with the estimate and getting the direction wrong, calling a too-high answer too low or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-rounds-down-instead-of-to-nearest",
+        "Rounding every number down instead of to the nearest ten, hundred or dollar.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-rounds-only-one-number",
+        "Rounding one of the two numbers and using the other exactly.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-uses-the-wrong-operation",
+        "Adding where the question needs a subtraction, or subtracting where it needs an addition, when estimating.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-rounds-to-the-wrong-place",
+        "Rounding to the nearest hundred when the nearest ten was asked for, or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-forgets-the-quantity",
+        "Estimating with the price of one item and not multiplying by the number of items.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-gives-the-cost-not-the-change",
+        "Giving the estimated cost of the items when the change from the note was asked for.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-does-not-round",
+        "Working out the exact answer and giving that as the estimate, without rounding first.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-counts-digits-not-zeros",
+        "Giving the number of digits in the place value as the exponent instead of the number of zeros, so 10 000 is taken as 10 to the power 5.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-skips-zero-digits",
+        "Counting the powers of ten only across the non-zero digits, so a zero digit does not take up a place.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponents-listed-in-reverse-order",
+        "Listing the exponents from the smallest to the largest when the terms were written from the largest place down.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-exponent-sign-dropped",
+        "Dropping the minus sign on an exponent for a place after the decimal point.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-first-decimal-place-counted-as-power-zero",
+        "Counting the first place after the decimal point as power 0, one place too high.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-shifts-exponents-the-wrong-way",
+        "Lowering every exponent when the number is multiplied by a power of ten, or raising them when it is divided.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-shift-counts-digits",
+        "Shifting the exponents by the number of digits in the power of ten instead of the number of zeros.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-leaves-exponents-unchanged",
+        "Keeping the old exponents after multiplying or dividing by a power of ten.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-shifts-only-the-first-term",
+        "Changing the exponent of the first term only and leaving the others as they were.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-given-as-the-place-value",
+        "Giving the place value (such as 10) where the exponent of ten (such as 1) was asked for.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-off-by-one",
+        "Giving an exponent one too high or one too low when counting the places from the units digit.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-places-apart-adds-the-exponents",
+        "Adding the two exponents instead of subtracting them to find how far apart two digits are.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-places-apart-counts-digits-between",
+        "Counting only the digits between the two digits, not the step to each one, so the answer is one too small.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-places-apart-counts-both-ends",
+        "Counting both of the digits as well as the steps between them, so the answer is one too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-multiplies-the-exponent",
+        "Multiplying the exponent by the number of tens instead of adding to it.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-place-slip",
+        "Slipping by a ten or a hundred (or by one) while adding or taking away the round number in your head.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-tens-treated-as-ones",
+        "Adding or taking away the number of tens as if it were ones, so 30 is treated as 3.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compensation-adjusts-the-wrong-way",
+        "Putting back the difference the wrong way after rounding: adding it where it should be taken off, or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-forgets-to-compensate",
+        "Stopping at the answer for the rounded number and not putting back the difference.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compensation-adjusts-twice",
+        "Putting back the difference twice.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compensation-adjusts-only-one-number",
+        "Putting back the difference for one of the two rounded numbers and forgetting the other.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-subtracts-smaller-ones-from-larger",
+        "Taking the smaller ones digit from the larger one when the ones cannot be taken away, instead of bridging the ten.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-adds-the-ones-when-subtracting",
+        "Adding the ones of the second number when they should be taken away.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-subtracts-the-ones-when-adding",
+        "Taking away the ones of the second number when they should be added.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-carry-slip",
+        "Making a slip of ten when the ones carry over to the next ten or borrow from it.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-ones-treated-as-tens",
+        "Adding the ones of the second number as if they were tens.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-ones-left-out",
+        "Leaving out the ones of the second number after adding its tens.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-uses-the-wrong-operation",
+        "Adding the two rounded numbers when they should be subtracted, or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-wrong-side-of-zero",
+        "Reading a point on the wrong side of zero, so a negative value is given as positive or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-wrong-tick",
+        "Reading the tick next to the marked point, so the value is one step out.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-subtracts-sizes-across-zero",
+        "Subtracting the sizes of two values on opposite sides of zero instead of adding them, as if both were on the same side.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-adds-sizes-on-one-side-of-zero",
+        "Adding the sizes of two values on the same side of zero instead of subtracting them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-adds-the-readings",
+        "Adding the two readings to get the change between them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-change-direction-reversed",
+        "Giving the change from B to A instead of from A to B, so the sign is wrong.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-rise-and-fall-treated-the-same",
+        "Adding both moves, or taking away both, when one was a rise and the other a fall.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-rise-and-fall-swapped",
+        "Taking away the rise and adding the fall.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-sign-of-the-start-ignored",
+        "Using the size of a negative starting value as if it were positive.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-negative-sign-dropped-at-the-end",
+        "Finding the right size for the final value but giving it the wrong sign.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-half-the-distance-given-as-the-position",
+        "Giving half the distance between two points instead of the value halfway between them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-no-halving",
+        "Adding the two values and forgetting to halve the total to find the value halfway between them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-steps-from-the-left-end",
+        "Counting the steps from the left end of the number line and giving that count as the value, instead of reading the value at the point.",
+        area="number",
+    ),
 )
 
 #: Every entry, by id.

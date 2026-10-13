@@ -1,0 +1,67 @@
+id: f10-mixed-numerals-number-line
+name: Read mixed numerals on a number line
+domain: primary-number
+year_level: ['4']
+naplan_domain: [number]
+description: Read a marked point on a number line with equal steps between the whole numbers as a mixed numeral, and find
+  the distance between two marked points.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- f10-fractions-half-quarter-eighth
+answer: fraction
+sources:
+- topic: fr2b_mixed_numerals_number_line
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_mixed_numerals_number_line
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_mixed_numerals_number_line
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-counts-marks-not-steps
+  description: Counting the marks between two whole numbers, including both whole numbers, instead of the equal steps, so
+    the denominator is one too big.
+- id: fr2b-reads-the-whole-number-after-the-point
+  description: Reading the whole number to the right of the point instead of the one to its left.
+- id: fr2b-reads-the-whole-number-before-the-point
+  description: Reading the label two whole numbers back instead of the whole number just to the left of the point.
+- id: fr2b-counts-steps-from-the-next-whole-number
+  description: Counting the steps back from the whole number on the right but writing them as if counted forward from the
+    left.
+- id: fr2b-subtracts-parts-without-regrouping
+  description: Subtracting the whole numbers and the fractions separately and always taking the smaller fraction from the
+    larger, so a mixed numeral is not regrouped.
+- id: fr2b-gives-the-position-not-the-distance
+  description: Giving the number at the end point instead of the distance between the two points.
+- id: fr2b-ignores-the-fractions
+  description: Counting only the whole numbers between the points and leaving out the fractions.
+difficulty_progression: Easy uses halves or quarters with every whole number labelled. Medium uses thirds or fifths with only
+  the two ends labelled, so the whole numbers have to be counted across the line. Hard marks two points and asks for the distance
+  between them as a mixed numeral, where the fraction at the second point is the smaller and the subtraction has to regroup.
+tags:
+- acara-f10-v9
+- primary
+- fractions
+- mixed-numerals
+- number-line
+- ac9m4n04
