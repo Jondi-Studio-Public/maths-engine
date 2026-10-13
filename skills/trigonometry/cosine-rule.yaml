@@ -35,6 +35,7 @@ sources:
   - maintenance
 - topic: cosine_rule_angle
   difficulty: hard
+  key: angle
   stages:
   - 5
   - 6

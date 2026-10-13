@@ -31,6 +31,7 @@ sources:
     h_hi: 9
     x0_hi: 9
   difficulty: medium
+  key: binomial
   stages:
   - 4
 - topic: linear_equation_fraction
