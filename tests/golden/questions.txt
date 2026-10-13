@@ -445,9 +445,9 @@
 {"answer": "x > -1", "id": "composite-function-domain/easy/0/339c45f953ad", "text": "Let f(x) = 2x + 2 and g(x) = ln(x). Find the largest domain of the composite fu…"}
 {"answer": "x ≠ -2", "id": "composite-function-domain/easy/1/0689ae4fd33f", "text": "For f(x) = -3x - 6 and g(x) = 1/x, find the largest set of real x for which g(f…"}
 {"answer": "x ≠ -7/3", "id": "composite-function-domain/easy/2/c1257b5567df", "text": "Let f(x) = -3x - 7 and g(x) = 1/x. Find the largest domain of the composite fun…"}
-{"answer": "(a) 3; (b) 12; (c) 3 ≤ x < 12 or x > 12", "id": "composite-function-domain/exam/0/4c295c9224b7", "text": "Let f(x) = √(x - 3) and g(x) = 1/(x - 3). (a) Find the least value of x for whi…"}
-{"answer": "(a) -2; (b) 2; (c) -2 ≤ x < 2 or x > 2", "id": "composite-function-domain/exam/1/532183a8cf87", "text": "Let f(x) = √(x + 2) and g(x) = 1/(x - 2). (a) Find the least value of x for whi…"}
-{"answer": "(a) -4; (b) 5; (c) -4 ≤ x < 5 or x > 5", "id": "composite-function-domain/exam/2/2365bba29538", "text": "Let f(x) = √(x + 4) and g(x) = 1/(x - 3). (a) Find the least value of x for whi…"}
+{"answer": "(a) 3; (b) 12; (c) 3 ≤ x < 12 or x > 12", "id": "composite-function-domain/exam/0/c9c0f7791ca0", "text": "Two functions are given by f(x) = √(x - 3) and g(x) = 1/(x - 3). (a) Find the l…"}
+{"answer": "(a) -2; (b) 2; (c) -2 ≤ x < 2 or x > 2", "id": "composite-function-domain/exam/1/2e7250118362", "text": "Consider the functions f(x) = √(x + 2) and g(x) = 1/(x - 2). (a) Find the least…"}
+{"answer": "(a) -4; (b) 5; (c) -4 ≤ x < 5 or x > 5", "id": "composite-function-domain/exam/2/cc4b924366af", "text": "Consider the functions f(x) = √(x + 4) and g(x) = 1/(x - 3). (a) Find the least…"}
 {"answer": "x ≥ 3", "id": "composite-function-domain/hard/0/2ba85557cf5c", "text": "Let f(x) = √(x - 3) and g(x) = 1/(x + 3). Find the largest domain of the compos…"}
 {"answer": "-3 ≤ x ≤ 13", "id": "composite-function-domain/hard/1/dab69a322845", "text": "Let f(x) = √(x + 3) and g(x) = √(4 - x). Find the largest domain of the composi…"}
 {"answer": "x ≥ -4", "id": "composite-function-domain/hard/2/63567cdf3633", "text": "Let f(x) = √(x + 4) and g(x) = 1/(x + 3). Find the largest domain of the compos…"}
@@ -997,8 +997,8 @@
 {"answer": "18.4", "id": "f10-angle-line-and-plane/easy/0/1d4b0eec9b20", "text": "A shipping container model is the cuboid ABCDEFGH. Its base ABCD is horizontal …"}
 {"answer": "32.7", "id": "f10-angle-line-and-plane/easy/1/836bee046ca4", "text": "A storage crate is the cuboid ABCDEFGH. Its base ABCD is horizontal with AB = 1…"}
 {"answer": "36.9", "id": "f10-angle-line-and-plane/easy/2/cc311350e06b", "text": "A rectangular fish tank is the cuboid ABCDEFGH. Its base ABCD is horizontal wit…"}
-{"answer": "(a) 25; (b) 29.7; (c) 32.6; (d) 13.6", "id": "f10-angle-line-and-plane/exam/0/095c1b9a1f88", "text": "A rectangular steel frame is the cuboid ABCDEFGH. Its base ABCD is horizontal w…"}
-{"answer": "(a) 5; (b) 8.6; (c) 54.5; (d) 20.4", "id": "f10-angle-line-and-plane/exam/1/e7294e7ee341", "text": "A rectangular steel frame is the cuboid ABCDEFGH. Its base ABCD is horizontal w…"}
+{"answer": "(a) 25; (b) 29.7; (c) 32.6; (d) 13.6", "id": "f10-angle-line-and-plane/exam/0/20a74218fb44", "text": "A wooden crate is the cuboid ABCDEFGH, standing on its horizontal base ABCD wit…"}
+{"answer": "(a) 5; (b) 8.6; (c) 54.5; (d) 20.4", "id": "f10-angle-line-and-plane/exam/1/ce89fd60de70", "text": "A wooden crate is the cuboid ABCDEFGH, standing on its horizontal base ABCD wit…"}
 {"answer": "(a) 25; (b) 26.9; (c) 21.8; (d) 63.0", "id": "f10-angle-line-and-plane/exam/2/bd377dde4129", "text": "A rectangular steel frame is the cuboid ABCDEFGH. Its base ABCD is horizontal w…"}
 {"answer": "29.2", "id": "f10-angle-line-and-plane/hard/0/d5067903552d", "text": "A concrete block is the cuboid ABCDEFGH. Its base ABCD is horizontal with AB = …"}
 {"answer": "60.3", "id": "f10-angle-line-and-plane/hard/1/c94211a63e11", "text": "A pyramid VABCD has a horizontal rectangular base ABCD with AB = 18 cm and BC =…"}
@@ -1522,9 +1522,9 @@
 {"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-systems-of-lines/exam/0/4221193a4558", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
 {"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/1/93ed970cbfb1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
 {"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/2/25c5ee1d3edb", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
-{"answer": "(12, -34)", "id": "f10-graphical-systems-of-lines/hard/0/a93ce3f2c1e4", "text": "The line A is drawn on the grid and continues in both directions. The line B ha…"}
+{"answer": "(12, -34)", "id": "f10-graphical-systems-of-lines/hard/0/18babb170609", "text": "Line A is drawn on the grid and extends in both directions. Line B has gradient…"}
 {"answer": "(-7, -5)", "id": "f10-graphical-systems-of-lines/hard/1/f8746dc28b68", "text": "The line A is drawn on the grid and continues in both directions. The line B ha…"}
-{"answer": "(11, 32)", "id": "f10-graphical-systems-of-lines/hard/2/85f24eed7b12", "text": "The line A is drawn on the grid and continues in both directions. The line B ha…"}
+{"answer": "(11, 32)", "id": "f10-graphical-systems-of-lines/hard/2/bac0889b5199", "text": "On the grid, the line A continues in both directions. A second line, B, has gra…"}
 {"answer": "(0.5, 0)", "id": "f10-graphical-systems-of-lines/medium/0/1de517790b90", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
 {"answer": "(-1.5, -0.5)", "id": "f10-graphical-systems-of-lines/medium/1/847761a2c797", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
 {"answer": "(1.5, 1.5)", "id": "f10-graphical-systems-of-lines/medium/2/71537e613a11", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
@@ -1623,15 +1623,15 @@
 {"answer": "600", "id": "f10-logarithmic-scales/medium/2/394eb59d388f", "text": "On a logarithmic scale, A is marked at 6 and B is marked at 6000, 3 equal scale…"}
 {"answer": "y ≤ -2x - 4", "id": "f10-match-inequality-to-line/easy/0/c9a005c6f369", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
 {"answer": "y > x + 2", "id": "f10-match-inequality-to-line/easy/1/54a15f756091", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
-{"answer": "y > -3x - 3", "id": "f10-match-inequality-to-line/easy/2/9ed70e7b6dc4", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
+{"answer": "y > -3x - 3", "id": "f10-match-inequality-to-line/easy/2/336218f3ad48", "text": "The grid shows the line L. A region is bounded by L and contains the point (-4,…"}
 {"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-match-inequality-to-line/exam/0/4221193a4558", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
 {"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/1/93ed970cbfb1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
 {"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/2/25c5ee1d3edb", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
-{"answer": "y ≥ 2x + 1", "id": "f10-match-inequality-to-line/hard/0/8c37212a97d9", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
-{"answer": "y ≤ x/2 + 2", "id": "f10-match-inequality-to-line/hard/1/e2693b2610b8", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
-{"answer": "y > 3x + 1", "id": "f10-match-inequality-to-line/hard/2/2d32d499e223", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
+{"answer": "y ≥ 2x + 1", "id": "f10-match-inequality-to-line/hard/0/f4ca7666dbcf", "text": "The grid shows the line L. A region is bounded by L and contains the point (12,…"}
+{"answer": "y ≤ x/2 + 2", "id": "f10-match-inequality-to-line/hard/1/423e9207a256", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
+{"answer": "y > 3x + 1", "id": "f10-match-inequality-to-line/hard/2/fd33dde17fb2", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
 {"answer": "y ≤ -3x/2 + 3", "id": "f10-match-inequality-to-line/medium/0/8c1ad24af465", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
-{"answer": "y ≤ -3x - 3", "id": "f10-match-inequality-to-line/medium/1/9b912ef47d3a", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
+{"answer": "y ≤ -3x - 3", "id": "f10-match-inequality-to-line/medium/1/22220f662034", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
 {"answer": "y < 3x - 3", "id": "f10-match-inequality-to-line/medium/2/66b449712878", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
 {"answer": "40", "id": "f10-measure-angle-protractor/easy/0/cab807e4c3cd", "text": "The arm OA runs along the bottom of a protractor. What is the size of angle AOB…"}
 {"answer": "140", "id": "f10-measure-angle-protractor/easy/1/2cc5bf27ac26", "text": "Here is a protractor lying along the arm OA. How many degrees is angle AOB?"}
@@ -3455,16 +3455,16 @@
 {"answer": "6x^2 + x - 1 + (2)/(2x)", "id": "polynomial-long-division/medium/1/af384e547590", "text": "Divide f(x) = 12x^3 + 2x^2 - 2x + 2 by g(x) = 2x. Give your answer as a single …"}
 {"answer": "-x^2 - 4x + 2 + (-3)/(2x + 5)", "id": "polynomial-long-division/medium/2/9cde849b518a", "text": "Divide f(x) = -2x^3 - 13x^2 - 16x + 7 by g(x) = 2x + 5. Give your answer as a s…"}
 {"answer": "0.7", "id": "position-time-graph-velocity/easy/0/59aa55994945", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
-{"answer": "0.25", "id": "position-time-graph-velocity/easy/1/f86bce923982", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
+{"answer": "0.6", "id": "position-time-graph-velocity/easy/1/f41d82bae7f4", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
 {"answer": "0.7", "id": "position-time-graph-velocity/easy/2/4a18f852168b", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
-{"answer": "(a) -0.75; (b) 5; (c) 9; (d) 0.9", "id": "position-time-graph-velocity/exam/0/421ceb722346", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
-{"answer": "(a) 1; (b) 6; (c) 8; (d) 0.8", "id": "position-time-graph-velocity/exam/1/0f93bd6ce9f3", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
-{"answer": "(a) 1; (b) 5; (c) 15; (d) 1.5", "id": "position-time-graph-velocity/exam/2/77944eef92b8", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "(a) -0.75; (b) 5; (c) 9; (d) 0.9", "id": "position-time-graph-velocity/exam/0/e3edaf0420f3", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "(a) 1; (b) 6; (c) 8; (d) 0.8", "id": "position-time-graph-velocity/exam/1/eb4320ab53c4", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "(a) -2; (b) 7; (c) 12; (d) 1.2", "id": "position-time-graph-velocity/exam/2/9c5a7035988c", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
 {"answer": "10", "id": "position-time-graph-velocity/hard/0/9967495a5a83", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
 {"answer": "5", "id": "position-time-graph-velocity/hard/1/ba07034aa888", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
 {"answer": "7", "id": "position-time-graph-velocity/hard/2/ba145b91e423", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
 {"answer": "1.2", "id": "position-time-graph-velocity/medium/0/d7b9b198cd26", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
-{"answer": "4.2", "id": "position-time-graph-velocity/medium/1/779506bb3139", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "5.4", "id": "position-time-graph-velocity/medium/1/44046c140fb2", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
 {"answer": "1.8", "id": "position-time-graph-velocity/medium/2/2720e67747e6", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/0/2e99032d3ed9", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/1/dd141497b7f2", "text": "Write 9 as a product of prime powers using exponent notation."}
@@ -3655,9 +3655,9 @@
 {"answer": "2pi", "id": "reciprocal-and-trig-graph-features/easy/0/48ce20554d91", "text": "State the period of the graph of y = -3 tan(x/2)."}
 {"answer": "6pi", "id": "reciprocal-and-trig-graph-features/easy/1/e67f0e1f3fbb", "text": "What is the period, in radians, of the function y = -2 sec(x/3)? Give an exact …"}
 {"answer": "pi", "id": "reciprocal-and-trig-graph-features/easy/2/51f5a24a0c03", "text": "Find the period of y = 2 sec(2x). Give your answer in radians, in terms of pi."}
-{"answer": "(a) pi/2; (b) pi/4; (c) 9; (d) 4", "id": "reciprocal-and-trig-graph-features/exam/0/633dc49aa177", "text": "Consider the function f(x) = -3 cosec(4x) + 1, for 0 ≤ x ≤ 2π. (a) Find the per…"}
-{"answer": "(a) 2pi/3; (b) pi/3; (c) 7; (d) 1", "id": "reciprocal-and-trig-graph-features/exam/1/be93171f04d0", "text": "Consider the function f(x) = 4 cosec(3x) - 3, for 0 ≤ x ≤ 2π. (a) Find the peri…"}
-{"answer": "(a) pi; (b) pi/2; (c) 5; (d) 6", "id": "reciprocal-and-trig-graph-features/exam/2/1383d9d1ecb9", "text": "Consider the function f(x) = 4 cosec(2x) + 2, for 0 ≤ x ≤ 2π. (a) Find the peri…"}
+{"answer": "(a) pi/2; (b) pi/4; (c) 9; (d) 4", "id": "reciprocal-and-trig-graph-features/exam/0/1c2a6c081c58", "text": "Let f(x) = -3 cosec(4x) + 1, where 0 ≤ x ≤ 2π. (a) Find the period of f. Give a…"}
+{"answer": "(a) 2pi/3; (b) pi/3; (c) 7; (d) 1", "id": "reciprocal-and-trig-graph-features/exam/1/e7993e810769", "text": "A function is given by f(x) = 4 cosec(3x) - 3, for 0 ≤ x ≤ 2π. (a) Find the per…"}
+{"answer": "(a) pi; (b) pi/2; (c) 5; (d) 6", "id": "reciprocal-and-trig-graph-features/exam/2/e5288c4eb5fe", "text": "A function is given by f(x) = 4 cosec(2x) + 2, for 0 ≤ x ≤ 2π. (a) Find the per…"}
 {"answer": "5pi/24", "id": "reciprocal-and-trig-graph-features/hard/0/0301314205b7", "text": "The graph of y = -2 sec(4(x - π/3)) + 1 has vertical asymptotes. What is the sm…"}
 {"answer": "-2", "id": "reciprocal-and-trig-graph-features/hard/1/f7921dd7b782", "text": "The graph of y = -2 sec(3x) - 4 takes no values between two numbers. Find the l…"}
 {"answer": "7", "id": "reciprocal-and-trig-graph-features/hard/2/04e842e12cb0", "text": "The graph of y = 4 sec(2x) + 3 takes no values between two numbers. Find the la…"}

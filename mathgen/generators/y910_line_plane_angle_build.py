@@ -32,6 +32,7 @@ from mathgen.core import (
     generator,
     latex_answer,
     numeric_answer,
+    phrase,
     pick_distractors,
     round_half_up,
     rounds_unambiguously,
@@ -421,10 +422,22 @@ def exd_x_y910_line_plane_angle(rng, tier="exam"):
     space_key = round_half_up(Fraction(space), 1)
     base_key = _shown(base_deg)
     face_key = _shown(face_deg)
-    text = (
-        f"A rectangular steel frame is the cuboid ABCDEFGH. Its base ABCD is horizontal with AB = {a} cm and "
-        f"BC = {b} cm, and the vertical edges (AE, BF, CG and DH) are {h} cm long. "
-        f"The diagonal AG joins corner A to the opposite top corner G."
+    text = phrase(
+        rng,
+        (
+            "A rectangular steel frame is the cuboid ABCDEFGH. Its base ABCD is horizontal with AB = {a} cm and "
+            "BC = {b} cm, and the vertical edges (AE, BF, CG and DH) are {h} cm long. "
+            "The diagonal AG joins corner A to the opposite top corner G.",
+            "A wooden crate is the cuboid ABCDEFGH, standing on its horizontal base ABCD with AB = {a} cm and "
+            "BC = {b} cm, and the vertical edges (AE, BF, CG and DH) are {h} cm long. "
+            "A diagonal AG runs from corner A to the opposite top corner G.",
+            "The glass display case is the cuboid ABCDEFGH. Its floor ABCD is level, with AB = {a} cm and "
+            "BC = {b} cm, and the vertical edges (AE, BF, CG and DH) are {h} cm long. "
+            "The line AG joins corner A to the opposite top corner G.",
+        ),
+        a=a,
+        b=b,
+        h=h,
     )
     margin1 = 2 * stated_precision_tolerance(1)
 

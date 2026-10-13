@@ -622,8 +622,20 @@ def _hard_system(rng):
         wrongs.append((x, ca, "y-replaced-by-the-intercept"))
         wrongs.append((y, x, "x-and-y-swapped"))
         res = _system_result(
-            f"The line A is drawn on the grid and continues in both directions. The line B has gradient {mb} and passes through the point ({p}, {q}). "
-            f"Find the point where A and B cross, as (x, y).",
+            phrase(
+                rng,
+                (
+                    "The line A is drawn on the grid and continues in both directions. The line B has gradient {mb} and passes through the point ({p}, {q}). "
+                    "Find the point where A and B cross, as (x, y).",
+                    "Line A is drawn on the grid and extends in both directions. Line B has gradient {mb} and passes through the point ({p}, {q}). "
+                    "Where do the two lines meet? Give the point as (x, y).",
+                    "On the grid, the line A continues in both directions. A second line, B, has gradient {mb} and passes through the point ({p}, {q}). "
+                    "What are the coordinates (x, y) of the point where A and B intersect?",
+                ),
+                mb=mb,
+                p=p,
+                q=q,
+            ),
             (x, y),
             wrongs,
             [
@@ -731,9 +743,19 @@ def y910_graph_inequality_match(rng, tier="easy"):
         else "The boundary line is not included in the region."
     )
     fig = _draw_one(win, m, c, rng)
-    text = (
-        f"The line L is drawn on the grid. A region lies on the same side of L as the point ({px}, {py}). "
-        f"{boundary} Which inequality describes the region?"
+    text = phrase(
+        rng,
+        (
+            "The line L is drawn on the grid. A region lies on the same side of L as the point ({px}, {py}). "
+            "{boundary} Which inequality describes the region?",
+            "The grid shows the line L. A region is bounded by L and contains the point ({px}, {py}) on one side of it. "
+            "{boundary} Which of the inequalities describes the region?",
+            "Look at the line L on the grid. Take the region on the same side of L as the point ({px}, {py}). "
+            "{boundary} Choose the inequality that gives this region.",
+        ),
+        px=px,
+        py=py,
+        boundary=boundary,
     )
     working = [
         f"Read the line: L is {eq_text(m, c)}.",

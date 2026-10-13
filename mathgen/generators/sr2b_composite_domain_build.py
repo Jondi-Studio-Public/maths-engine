@@ -478,7 +478,16 @@ def sr2b_exam_composite_domain(rng, tier="exam"):
     fx = f"√({_shift(p)})"
     gx = f"1/(x - {q})"
     return dict(
-        text=f"Let f(x) = {fx} and g(x) = {gx}.",
+        text=phrase(
+            rng,
+            (
+                "Let f(x) = {fx} and g(x) = {gx}.",
+                "Two functions are given by f(x) = {fx} and g(x) = {gx}.",
+                "Consider the functions f(x) = {fx} and g(x) = {gx}.",
+            ),
+            fx=fx,
+            gx=gx,
+        ),
         parts=[
             dict(
                 prompt="Find the least value of x for which f(x) is defined.",

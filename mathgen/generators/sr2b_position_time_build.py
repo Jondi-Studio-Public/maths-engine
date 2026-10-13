@@ -56,6 +56,17 @@ _CONTEXTS = (
         tword="seconds",
         dword="metres",
     ),
+    dict(
+        intro="The graph shows the position of a skateboarder on a straight boardwalk, in metres east of a bench "
+        "(a negative position is west of the bench), against the time in seconds.",
+        x_label="Time (seconds)",
+        y_label="Position (m east of bench)",
+        vel="metres per second",
+        vsym="m/s",
+        dsym="m",
+        tword="seconds",
+        dword="metres",
+    ),
 )
 
 

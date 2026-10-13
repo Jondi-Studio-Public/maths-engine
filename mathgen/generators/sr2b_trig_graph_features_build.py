@@ -359,7 +359,15 @@ def sr2b_exam_trig_graph_features(rng, tier="exam"):
         int_dist(a * d, "sr2b-reciprocal-gap-product"),
     ]
     return dict(
-        text=f"Consider the function {expr}, for 0 ≤ x ≤ 2π.",
+        text=phrase(
+            rng,
+            (
+                "Consider the function {expr}, for 0 ≤ x ≤ 2π.",
+                "Let {expr}, where 0 ≤ x ≤ 2π.",
+                "A function is given by {expr}, for 0 ≤ x ≤ 2π.",
+            ),
+            expr=expr,
+        ),
         parts=[
             dict(
                 prompt="Find the period of f. Give an exact value in radians.",
