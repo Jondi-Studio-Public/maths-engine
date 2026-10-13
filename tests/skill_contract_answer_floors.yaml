@@ -47,6 +47,8 @@ f10-angle-turn-right-reference:
   angle_turn_right_reference/hard: 4
 f10-chance-language-and-outcomes:
   chance_outcome_classify/easy: 2
+f10-clock-half-quarter-hour:
+  clock_half_quarter/hard: 4
 f10-compare-measurement-attributes:
   compare_measurement_attributes/easy: 4
   compare_measurement_attributes/medium: 4
@@ -60,12 +62,22 @@ f10-factors-multiples-divisibility:
   factors_multiples_divisibility/easy: 2
   factors_multiples_divisibility/hard: 2
   factors_multiples_divisibility/medium: 2
+f10-fraction-compare-models:
+  fraction_compare_models/easy: 3
+  fraction_compare_models/hard: 4
+  fraction_compare_models/medium: 2
 f10-fraction-equivalence-numberline:
   p10e_fraction_equivalence_numberline/medium: 5
+f10-fraction-shaded-name:
+  fraction_shaded_name/easy: 5
 f10-fractions-half-quarter-eighth:
   fraction_halving/easy: 2
   fraction_halving/hard: 3
   fraction_halving/medium: 2
+f10-money-compare-collections:
+  money_compare_collections/easy: 3
+  money_compare_collections/hard: 3
+  money_compare_collections/medium: 2
 f10-odd-even-properties:
   odd_even_properties/easy: 2
   odd_even_properties/hard: 2
@@ -131,18 +143,15 @@ permutations:
 probability-representations:
   probability_representation/easy: 5
 propositional-formula-equivalence:
-  propositional_formula_equivalence/easy: 1
-  propositional_formula_equivalence/hard: 2
-  propositional_formula_equivalence/medium: 2
+  propositional_formula_equivalence/easy: 4
+  propositional_formula_equivalence/hard: 4
+  propositional_formula_equivalence/medium: 3
 propositional-truth-evaluation:
   propositional_truth_value/easy: 2
   propositional_truth_value/hard: 2
   propositional_truth_value/medium: 2
 pythagorean-leg:
   trigonometry/exam: 11
-rearrange-simple-formulas:
-  rearrange/hard: 2
-  rearrange/medium: 4
 senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations:
   reasonableness_verdict/easy: 4
   reasonableness_verdict/hard: 4
@@ -155,7 +164,6 @@ senior-check-results-of-calculations-for-accuracy:
   locate_calculation_error/medium: 4
 senior-compare-the-characteristics-of-the-shape-of-histograms:
   p19b_histogram_shape/easy: 4
-  p19b_histogram_shape/exam: 4
   p19b_histogram_shape/hard: 4
   p19b_histogram_shape/medium: 4
 senior-consider-similar-problems-involving-compounding-for-example-population:
@@ -174,8 +182,6 @@ senior-define-the-imaginary-number-i-as-a-root:
   imaginary_number_i_root/medium: 4
 senior-define-the-natural-logarithm-ln-x-log-ex:
   natural_logarithm_define/easy: 4
-senior-describe-the-association-between-two-numerical-variables-in:
-  p19b_association_describe/exam: 10
 senior-determine-the-coordinates-of-the-midpoint-of-two:
   midpoint_coordinate_scalar/easy: 5
 senior-distinguish-between-causality-and-correlation-through-examples:
@@ -183,14 +189,17 @@ senior-distinguish-between-causality-and-correlation-through-examples:
   causality_correlation_classify/hard: 2
   causality_correlation_classify/medium: 1
 senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
-  exd_x_s3_interp/exam: 2
   interpolation_extrapolation_classify/easy: 2
   interpolation_extrapolation_classify/hard: 2
   interpolation_extrapolation_classify/medium: 1
 senior-eview-metric-units-of-mass-and-weight-their:
   review_metric_units_of_mass/easy: 4
+senior-examine-dilations-and-the-graphs-of-y-cf:
+  pv1c_dilation_factor/easy: 5
 senior-examine-examples-of-quadratically-related-variables:
   p7d_examine_quadratic_variation/hard: 4
+senior-examine-period-changes-and-the-graphs-of-y:
+  pv1c_period/exam: 6
 senior-examine-slope-direction-or-gradient-fields-of-a:
   p13b_slope_field_examine/hard: 4
 senior-examine-the-approximate-normality-of-the-distribution-of:
@@ -202,6 +211,8 @@ senior-examine-the-relationship-between-the-angle-of-inclination:
   angle_of_inclination_gradient/easy: 3
   angle_of_inclination_gradient/hard: 2
   exd_x_f5_incl/exam: 8
+senior-examine-the-relationship-between-the-graph-of-y:
+  pv1e_reciprocal_zeros/exam: 11
 senior-examine-the-three-cases-for-solutions-of-systems:
   pv0b_system_cases/easy: 3
   pv0b_system_cases/exam: 3
@@ -223,12 +234,10 @@ senior-identify-contexts-such-as-naturally-occurring-variation-that:
   p19d_variation_context/medium: 5
 senior-identify-contexts-suitable-for-modelling-by-bernoulli-random:
   p19c_bernoulli_suitability/easy: 4
-  p19c_bernoulli_suitability/exam: 4
   p19c_bernoulli_suitability/hard: 4
   p19c_bernoulli_suitability/medium: 4
 senior-identify-contexts-suitable-for-modelling-by-binomial-random:
   p19c_binomial_suitability/easy: 5
-  p19c_binomial_suitability/exam: 5
   p19c_binomial_suitability/hard: 5
   p19c_binomial_suitability/medium: 5
 senior-identify-possible-non-causal-explanations-for-an-association:
@@ -246,12 +255,30 @@ senior-integrate-expressions-of-the-form-frac-pm1-sqrt:
   integrate_expressions_of_the_form_frac_pm1_sqrt/medium: 3
 senior-interpret-commonly-used-probability-statements-including-possible-probable:
   p19c_probability_language_classify/easy: 4
-  p19c_probability_language_classify/exam: 4
   p19c_probability_language_classify/hard: 4
   p19c_probability_language_classify/medium: 4
 senior-investigate-the-effect-of-the-interest-rate-and:
   p12b_loan_term_from_repayment/easy: 5
   p12b_loan_term_from_repayment/hard: 4
+senior-recognise-features-of-the-graph-of-the-general:
+  pv1d_quadratic_root_count/easy: 3
+  pv1d_quadratic_root_count/exam: 3
+  pv1d_quadratic_root_count/hard: 3
+  pv1d_quadratic_root_count/medium: 3
+senior-recognise-features-of-the-graph-of-y-2:
+  pv1d_parabola_axis_y/exam: 10
+senior-recognise-features-of-the-graph-of-y-mx:
+  pv1a_gradient_sign/easy: 3
+  pv1a_gradient_sign/exam: 3
+  pv1a_gradient_sign/hard: 3
+  pv1a_gradient_sign/medium: 3
+senior-recognise-features-of-the-graphs-of-y-x:
+  pv1d_parabola_axis_x/exam: 10
+senior-recognise-features-of-the-graphs-of-y-x-acmmm014:
+  pv1e_power_end_behaviour/easy: 3
+  pv1e_power_end_behaviour/exam: 3
+  pv1e_power_end_behaviour/hard: 3
+  pv1e_power_end_behaviour/medium: 3
 senior-recognise-that-a-sequence-generated-by-a-first:
   p19e_recurrence_long_term_class/easy: 3
   p19e_recurrence_long_term_class/exam: 3
@@ -264,6 +291,11 @@ senior-recognise-the-distinction-between-functions-and-relations-and:
   p19e_function_or_relation/medium: 4
 senior-recognise-the-exact-values-of-cos-theta-sin:
   p19g_exact_trig_value/easy: 5
+senior-recognise-the-graphs-of-y-sin-x-y:
+  pv1f_trig_graph_id/easy: 3
+  pv1f_trig_graph_id/exam: 3
+  pv1f_trig_graph_id/hard: 3
+  pv1f_trig_graph_id/medium: 3
 senior-recognise-the-need-for-milligrams:
   p19h_need_for_milligrams/easy: 4
   p19h_need_for_milligrams/exam: 4
@@ -309,8 +341,6 @@ senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
   p19e_geometric_limit_class/medium: 3
 senior-understand-the-unit-circle-definition-of-cos-theta:
   p19g_unit_circle_coordinates/easy: 5
-senior-use-arithmetic-sequences-to-model-and-analyse-practical:
-  p12b_arith_seq_general/exam: 10
 senior-use-ests-and-lsts-to-locate-the-critical:
   p10c_critical_path_locate/easy: 2
   p10c_critical_path_locate/hard: 2
@@ -318,11 +348,9 @@ senior-use-ests-and-lsts-to-locate-the-critical:
 senior-use-examples-and-counter-examples:
   counterexample_identify/easy: 2
   counterexample_identify/medium: 2
-senior-use-forward-and-backward-scanning-to-determine-the:
-  exd_x_g6_missing_duration/exam: 11
 senior-use-implication-converse-equivalence-negation-contrapositive:
   implication_transform_identify/hard: 2
-  implication_transform_identify/medium: 2
+  implication_transform_identify/medium: 3
 senior-use-pascal-s-triangle-and-its-properties:
   pascals_triangle_properties/easy: 5
 senior-use-radicals-and-convert-to-and-from-fractional:
@@ -348,7 +376,6 @@ ucv1-compactness-finite-check:
   p15b_compactness_subcover_check/medium: 4
 ucv1-completeness-cauchy-check:
   p15b_completeness_cauchy_check/easy: 5
-  p15b_completeness_cauchy_check/exam: 5
   p15b_completeness_cauchy_check/hard: 5
   p15b_completeness_cauchy_check/medium: 5
 ucv1-convexity-hessian-sign:
@@ -363,12 +390,10 @@ ucv1-cr-equations-check:
   p15e_cr_equations_check/medium: 4
 ucv1-definition-quantifier-check:
   p15a_definition_quantifier_check/easy: 4
-  p15a_definition_quantifier_check/exam: 4
   p15a_definition_quantifier_check/hard: 4
   p15a_definition_quantifier_check/medium: 4
 ucv1-dominated-convergence-check:
   p15d_dominated_convergence/easy: 3
-  p15d_dominated_convergence/exam: 3
   p15d_dominated_convergence/hard: 3
   p15d_dominated_convergence/medium: 3
 ucv1-field-extension-degree:
@@ -383,7 +408,6 @@ ucv1-finite-subgroup-test:
   p15a_finite_subgroup_test/medium: 3
 ucv1-formal-derivation-check:
   p15d_formal_derivation_check/easy: 4
-  p15d_formal_derivation_check/exam: 4
   p15d_formal_derivation_check/medium: 5
 ucv1-ideal-membership:
   p15a_ideal_membership/easy: 4
@@ -405,6 +429,9 @@ ucv1-metric-axiom-check:
   p15b_metric_axiom_check/exam: 4
   p15b_metric_axiom_check/hard: 4
   p15b_metric_axiom_check/medium: 4
+ucv1-null-space:
+  ucv1_null_space/easy: 3
+  ucv1_null_space/medium: 3
 ucv1-optimality-sensitivity:
   p17a_optimality_sensitivity/easy: 4
   p17a_optimality_sensitivity/exam: 4
@@ -413,8 +440,6 @@ ucv1-optimality-sensitivity:
 ucv1-phase-plane-linear-classification:
   p14f_phase_plane_linear_classification/easy: 3
   p14f_phase_plane_linear_classification/medium: 3
-ucv1-poisson-count-probability:
-  p12e_poisson_count/exam: 8
 ucv1-regression-residual-diagnostic:
   p14e_residual_diagnostic/easy: 3
   p14e_residual_diagnostic/exam: 3
@@ -422,32 +447,26 @@ ucv1-regression-residual-diagnostic:
   p14e_residual_diagnostic/medium: 3
 ucv1-sigma-algebra-closure:
   p15c_sigma_algebra_closure/easy: 4
-  p15c_sigma_algebra_closure/exam: 4
   p15c_sigma_algebra_closure/hard: 4
   p15c_sigma_algebra_closure/medium: 4
 ucv1-simplex-homology:
   p15b_simplex_homology/easy: 3
-  p15b_simplex_homology/exam: 3
   p15b_simplex_homology/hard: 3
   p15b_simplex_homology/medium: 3
 ucv1-structure-classification:
   p15a_structure_classification/easy: 4
-  p15a_structure_classification/exam: 4
   p15a_structure_classification/hard: 4
   p15a_structure_classification/medium: 4
 ucv1-symmetry-conservation:
   p15c_symmetry_conservation/easy: 4
-  p15c_symmetry_conservation/exam: 4
   p15c_symmetry_conservation/hard: 3
   p15c_symmetry_conservation/medium: 3
 ucv1-syntactic-semantic-separation:
   p15b_syntactic_semantic_separation/easy: 4
-  p15b_syntactic_semantic_separation/exam: 4
   p15b_syntactic_semantic_separation/hard: 4
   p15b_syntactic_semantic_separation/medium: 4
 ucv1-topology-basis-membership:
   p15c_topology_basis_membership/easy: 4
-  p15c_topology_basis_membership/exam: 4
   p15c_topology_basis_membership/hard: 4
   p15c_topology_basis_membership/medium: 4
 ucv1-tree-spanning-edge-count:

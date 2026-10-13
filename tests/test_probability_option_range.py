@@ -14,6 +14,7 @@ from fractions import Fraction
 import pytest
 
 import mathgen
+from mathgen.core import PRESETS
 from mathgen.skills import load_skills
 
 # (topic, difficulty) -> distractors per question (the count before the range fix; the fix keeps it).
@@ -52,6 +53,8 @@ _NUMBER = re.compile(r"-?\d+(?:\.\d+)?(?:/\d+)?")
 
 
 def _cases():
+    """Each fixed (topic, tier) with every params set a live skill gives it, and with its preset alone when no
+    skill draws on it any more (an exam preset a multi-part chain replaced is still a generator to keep right)."""
     seen = set()
     for skill in load_skills()[1]:
         for src in skill.sources:
@@ -60,11 +63,15 @@ def _cases():
                 seen.add((key, tuple(sorted(src.params.items()))))
                 params = {k: tuple(v) if isinstance(v, list) else v for k, v in src.params.items()}
                 yield pytest.param(src.topic, src.difficulty, params, id=f"{src.topic}-{src.difficulty}")
+    for topic, difficulty in sorted(set(EXPECTED_COUNT) - {key for key, _ in seen}):
+        yield pytest.param(topic, difficulty, {}, id=f"{topic}-{difficulty}-preset")
 
 
 def test_every_fixed_topic_is_covered():
     covered = {(c.values[0], c.values[1]) for c in _cases()}
     assert covered == set(EXPECTED_COUNT)
+    for topic, difficulty in EXPECTED_COUNT:
+        assert difficulty in PRESETS[topic], (topic, difficulty)
 
 
 @pytest.mark.parametrize(("topic", "difficulty", "params"), list(_cases()))

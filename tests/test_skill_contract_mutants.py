@@ -217,19 +217,17 @@ def test_options_quality_notices_an_answer_always_in_the_middle(monkeypatch):
     sc.check_options_quality(MCQ)
     sc.draws.cache_clear()
     _patch_make(monkeypatch, lambda q: _numbered(q, [-1, 1, 2]))
-    with pytest.raises(AssertionError, match="answer_position"):
-        sc.check_options_quality(MCQ)
+    assert sc.option_faults(MCQ)["answer_position"]  # direct: padding to four options also fixes option_count
 
 
 def test_options_quality_notices_an_answer_always_the_smallest(monkeypatch):
     _patch_make(monkeypatch, lambda q: _numbered(q, [1, 2, 3], unit="%"))
-    with pytest.raises(AssertionError, match="answer_position"):
-        sc.check_options_quality(MCQ)
+    assert sc.option_faults(MCQ)["answer_position"]
 
 
 def test_options_quality_notices_a_filler_option(monkeypatch):
     def filler(q):
-        q.distractors[-1] = "Cannot be determined"
+        q.distractors = [*q.distractors[:-1], "Cannot be determined"]
         return q
 
     _patch_make(monkeypatch, filler)
