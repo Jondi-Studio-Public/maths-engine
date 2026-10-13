@@ -1,0 +1,197 @@
+id: ucv1-uniform-exponential-distributions
+name: Work with uniform and exponential distributions
+domain: statistics-probability
+description: >-
+  Use the uniform distribution on an interval and the exponential distribution: the density and
+  distribution function, probabilities of intervals and tails, the mean and variance,
+  percentiles and the median, and the memoryless property of the exponential, including the
+  difference between a mean given in the question and the rate the formulas need. The four-part
+  exam chain runs from the rate of an exponential waiting time through a tail probability and
+  the median to a conditional probability.
+status: active
+placement_eligible: false
+prerequisites: [senior-understand-the-concepts-of-a-probability-density-function]
+answer: number
+sources:
+- topic: fy1ms_uniform_exponential
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_uniform_exponential
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_uniform_exponential
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_uniform_exponential
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: unif-pdf-height-width
+  description: >-
+    Giving the width b - a of the interval as the height of the uniform density instead of its
+    reciprocal 1/(b - a).
+- id: unif-pdf-height-upper-bound
+  description: >-
+    Using 1/b for the height of the uniform density instead of 1/(b - a).
+- id: unif-continuous-discrete-confused
+  description: >-
+    Counting the end points as if the uniform distribution were discrete, dividing by b - a + 1
+    instead of b - a.
+- id: unif-pdf-height-sum
+  description: >-
+    Using 1/(a + b) for the height of the uniform density instead of 1/(b - a).
+- id: unif-pdf-height-half-width
+  description: >-
+    Giving half the width of the interval as the height of the density.
+- id: unif-prob-over-upper-bound
+  description: >-
+    Dividing the length of the interval by b rather than by the full width b - a.
+- id: unif-prob-complement
+  description: >-
+    Giving the probability of the complement of the stated interval.
+- id: unif-prob-cdf-not-difference
+  description: >-
+    Giving P(X < d) = (d - a)/(b - a) for P(c < X < d), forgetting to subtract the part below c.
+- id: unif-prob-width-not-divided
+  description: >-
+    Giving the length d - c of the interval as the probability, without dividing by b - a.
+- id: unif-mean-half-width
+  description: >-
+    Giving half the width, (b - a)/2, as the mean of a uniform distribution instead of the
+    midpoint (a + b)/2.
+- id: unif-mean-half-upper
+  description: >-
+    Giving b/2 as the mean of a uniform distribution, which is only right when a = 0.
+- id: unif-mean-sum-not-halved
+  description: >-
+    Giving a + b as the mean of a uniform distribution, without halving.
+- id: unif-variance-no-square
+  description: >-
+    Using (b - a)/12 for the variance of a uniform distribution, leaving out the square of the
+    width.
+- id: unif-variance-divisor-two
+  description: >-
+    Using (b - a)²/2 for the variance of a uniform distribution instead of (b - a)²/12.
+- id: unif-variance-divisor-forgotten
+  description: >-
+    Giving (b - a)² as the variance of a uniform distribution, forgetting to divide by 12.
+- id: unif-variance-sd-confused
+  description: >-
+    Giving the standard deviation of a uniform distribution where the variance was asked for.
+- id: unif-variance-divisor-four
+  description: >-
+    Using (b - a)²/4 for the variance of a uniform distribution instead of (b - a)²/12.
+- id: unif-percentile-offset-forgotten
+  description: >-
+    Giving q(b - a) as the q-th percentile of a uniform distribution, forgetting to add the
+    lower end a.
+- id: unif-percentile-from-top
+  description: >-
+    Measuring the percentile down from b instead of up from a.
+- id: unif-percentile-fraction-of-upper
+  description: >-
+    Giving q × b as the q-th percentile of a uniform distribution, which is only right when a =
+    0.
+- id: unif-percentile-complement
+  description: >-
+    Using the proportion 1 - q instead of q when finding a percentile of a uniform distribution.
+- id: unif-conditional-ignored
+  description: >-
+    Ignoring the given condition and using the unconditional probability for a uniform
+    distribution.
+- id: unif-conditional-complement
+  description: >-
+    Giving the probability that X is at most c, given X > d, instead of the probability that it
+    exceeds c.
+- id: unif-conditional-numerator-width
+  description: >-
+    Giving (c - d)/(b - a) for a conditional probability, with the unconditional width in the
+    denominator and the wrong length on top.
+- id: unif-conditional-wrong-denominator
+  description: >-
+    Dividing by c - d instead of by the length b - d of the interval that the condition leaves.
+- id: expo-rate-mean-confused
+  description: >-
+    Using the mean where the rate belongs, or the rate where the mean belongs: e^(-μt) in place
+    of e^(-t/μ).
+- id: expo-tail-complement
+  description: >-
+    Giving P(X ≤ t) where P(X > t) was asked, or the reverse.
+- id: expo-time-forgotten
+  description: >-
+    Leaving the time out of the exponent, so the result depends only on the rate.
+- id: expo-linear-not-exponential
+  description: >-
+    Treating the exponential tail as linear: 1 - t/μ in place of e^(-t/μ).
+- id: expo-pdf-as-cdf
+  description: >-
+    Giving the density λe^(-λt) where the distribution function 1 - e^(-λt) was asked for.
+- id: expo-density-factor-forgotten
+  description: >-
+    Giving e^(-λt) for the density, leaving out the factor λ.
+- id: expo-cdf-as-pdf
+  description: >-
+    Giving the distribution function 1 - e^(-λt) where the density λe^(-λt) was asked for.
+- id: expo-density-times-cdf
+  description: >-
+    Multiplying λ by 1 - e^(-λt) for the density instead of by e^(-λt).
+- id: expo-median-as-mean
+  description: >-
+    Giving the mean as the median of an exponential distribution, as if it were symmetric.
+- id: expo-median-halved-mean
+  description: >-
+    Giving half the mean as the median of an exponential distribution.
+- id: expo-log-base-ten
+  description: >-
+    Using log base 10 of 2 in place of the natural logarithm ln 2 when solving for the median.
+- id: expo-percentile-wrong-tail
+  description: >-
+    Solving e^(-m/μ) = p instead of 1 - e^(-m/μ) = p, so the percentile uses the wrong tail.
+- id: expo-percentile-linear
+  description: >-
+    Giving p × μ as a percentile of an exponential distribution, as if it were uniform.
+- id: expo-percentile-sign
+  description: >-
+    Losing the minus sign when solving for a percentile of an exponential distribution, so the
+    time is negative.
+- id: expo-memoryless-ignored
+  description: >-
+    Giving the probability of lasting s + t from the start, ignoring that the item has already
+    lasted s.
+- id: expo-memoryless-wrong-time
+  description: >-
+    Using the elapsed time s in place of the extra time t in the exponent.
+- id: expo-memoryless-ratio-inverted
+  description: >-
+    Dividing the probabilities the wrong way round in the conditional probability, which gives a
+    value above 1.
+- id: expo-interval-width-only
+  description: >-
+    Giving P(X > t - s) for P(s < X < t): applying the memoryless property to an interval, which
+    it does not describe.
+- id: expo-interval-sign-reversed
+  description: >-
+    Subtracting the tail probabilities in the wrong order, so P(s < X < t) comes out negative.
+- id: expo-tail-only
+  description: >-
+    Giving P(X > s) for P(s < X < t), forgetting to subtract P(X > t).
+- id: expo-interval-density-times-width
+  description: >-
+    Approximating P(s < X < t) by the density at s times the width of the interval.
+- id: expo-rate-reciprocal-squared
+  description: >-
+    Giving 1/μ² as the rate of an exponential distribution with mean μ.
+- id: expo-rate-from-median
+  description: >-
+    Using ln 2 divided by the mean as the rate.
+- id: expo-rate-half-mean
+  description: >-
+    Giving half the mean as the rate.
+- id: expo-pdf-as-tail
+  description: >-
+    Giving the density value λe^(-λt) where the tail probability e^(-λt) was asked for.
+tags: [university-core-v1, probability, continuous-distributions]

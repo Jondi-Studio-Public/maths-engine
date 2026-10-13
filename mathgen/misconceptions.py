@@ -45,6 +45,256 @@ _ENTRIES = (
     ),
     # -- first-year multivariable, 3D geometry and statistics --
     CatalogueEntry(
+        "unif-pdf-height-width",
+        "Giving the width b - a of the interval as the height of the uniform density instead of its reciprocal 1/(b - a).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-upper-bound",
+        "Using 1/b for the height of the uniform density instead of 1/(b - a).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-continuous-discrete-confused",
+        "Counting the end points as if the uniform distribution were discrete, dividing by b - a + 1 instead of b - a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-sum",
+        "Using 1/(a + b) for the height of the uniform density instead of 1/(b - a).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-pdf-height-half-width",
+        "Giving half the width of the interval as the height of the density.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-over-upper-bound",
+        "Dividing the length of the interval by b rather than by the full width b - a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-complement",
+        "Giving the probability of the complement of the stated interval.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-cdf-not-difference",
+        "Giving P(X < d) = (d - a)/(b - a) for P(c < X < d), forgetting to subtract the part below c.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-prob-width-not-divided",
+        "Giving the length d - c of the interval as the probability, without dividing by b - a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-mean-half-width",
+        "Giving half the width, (b - a)/2, as the mean of a uniform distribution instead of the midpoint (a + b)/2.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-mean-half-upper",
+        "Giving b/2 as the mean of a uniform distribution, which is only right when a = 0.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-mean-sum-not-halved",
+        "Giving a + b as the mean of a uniform distribution, without halving.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-no-square",
+        "Using (b - a)/12 for the variance of a uniform distribution, leaving out the square of the width.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-divisor-two",
+        "Using (b - a)²/2 for the variance of a uniform distribution instead of (b - a)²/12.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-divisor-forgotten",
+        "Giving (b - a)² as the variance of a uniform distribution, forgetting to divide by 12.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-sd-confused",
+        "Giving the standard deviation of a uniform distribution where the variance was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-variance-divisor-four",
+        "Using (b - a)²/4 for the variance of a uniform distribution instead of (b - a)²/12.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-offset-forgotten",
+        "Giving q(b - a) as the q-th percentile of a uniform distribution, forgetting to add the lower end a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-from-top",
+        "Measuring the percentile down from b instead of up from a.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-fraction-of-upper",
+        "Giving q × b as the q-th percentile of a uniform distribution, which is only right when a = 0.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-percentile-complement",
+        "Using the proportion 1 - q instead of q when finding a percentile of a uniform distribution.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-ignored",
+        "Ignoring the given condition and using the unconditional probability for a uniform distribution.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-complement",
+        "Giving the probability that X is at most c, given X > d, instead of the probability that it exceeds c.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-numerator-width",
+        "Giving (c - d)/(b - a) for a conditional probability, with the unconditional width in the denominator and the wrong length on top.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "unif-conditional-wrong-denominator",
+        "Dividing by c - d instead of by the length b - d of the interval that the condition leaves.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-mean-confused",
+        "Using the mean where the rate belongs, or the rate where the mean belongs: e^(-μt) in place of e^(-t/μ).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-tail-complement",
+        "Giving P(X ≤ t) where P(X > t) was asked, or the reverse.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-time-forgotten",
+        "Leaving the time out of the exponent, so the result depends only on the rate.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-linear-not-exponential",
+        "Treating the exponential tail as linear: 1 - t/μ in place of e^(-t/μ).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-pdf-as-cdf",
+        "Giving the density λe^(-λt) where the distribution function 1 - e^(-λt) was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-density-factor-forgotten",
+        "Giving e^(-λt) for the density, leaving out the factor λ.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-cdf-as-pdf",
+        "Giving the distribution function 1 - e^(-λt) where the density λe^(-λt) was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-density-times-cdf",
+        "Multiplying λ by 1 - e^(-λt) for the density instead of by e^(-λt).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-median-as-mean",
+        "Giving the mean as the median of an exponential distribution, as if it were symmetric.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-median-halved-mean",
+        "Giving half the mean as the median of an exponential distribution.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-log-base-ten",
+        "Using log base 10 of 2 in place of the natural logarithm ln 2 when solving for the median.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-percentile-wrong-tail",
+        "Solving e^(-m/μ) = p instead of 1 - e^(-m/μ) = p, so the percentile uses the wrong tail.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-percentile-linear",
+        "Giving p × μ as a percentile of an exponential distribution, as if it were uniform.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-percentile-sign",
+        "Losing the minus sign when solving for a percentile of an exponential distribution, so the time is negative.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-memoryless-ignored",
+        "Giving the probability of lasting s + t from the start, ignoring that the item has already lasted s.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-memoryless-wrong-time",
+        "Using the elapsed time s in place of the extra time t in the exponent.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-memoryless-ratio-inverted",
+        "Dividing the probabilities the wrong way round in the conditional probability, which gives a value above 1.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-interval-width-only",
+        "Giving P(X > t - s) for P(s < X < t): applying the memoryless property to an interval, which it does not describe.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-interval-sign-reversed",
+        "Subtracting the tail probabilities in the wrong order, so P(s < X < t) comes out negative.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-tail-only",
+        "Giving P(X > s) for P(s < X < t), forgetting to subtract P(X > t).",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-interval-density-times-width",
+        "Approximating P(s < X < t) by the density at s times the width of the interval.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-reciprocal-squared",
+        "Giving 1/μ² as the rate of an exponential distribution with mean μ.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-from-median",
+        "Using ln 2 divided by the mean as the rate.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-rate-half-mean",
+        "Giving half the mean as the rate.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
+        "expo-pdf-as-tail",
+        "Giving the density value λe^(-λt) where the tail probability e^(-λt) was asked for.",
+        area="statistics-probability",
+    ),
+    CatalogueEntry(
         "ztest-se-uses-sample-proportion",
         "Building the standard error from the sample proportion, √(p̂(1 − p̂)/n), when a test must use the hypothesised proportion p0.",
         area="statistics",
