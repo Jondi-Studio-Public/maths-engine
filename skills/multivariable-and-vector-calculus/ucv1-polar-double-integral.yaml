@@ -1,0 +1,109 @@
+id: ucv1-polar-double-integral
+name: Evaluate double integrals in polar coordinates
+domain: multivariable-and-vector-calculus
+description: >-
+  Evaluate a double integral over a disc, half or quarter disc, or ring by converting to polar
+  coordinates (dA = r dr dθ): radial integrands over whole discs, then angle-dependent
+  integrands over sectors and rings, then iterated Cartesian integrals, Gaussian integrals and
+  volumes under a paraboloid or a cone. The four-part exam chain finds the area, first moment
+  and centroid of a quarter ring.
+status: active
+placement_eligible: false
+prerequisites: [ucv1-double-integral-rectangle]
+answer: number
+sources:
+- topic: fy1ms_polar_integral
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_polar_integral
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_polar_integral
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_polar_integral
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: polar-jacobian-omitted
+  description: >-
+    Integrating in polar coordinates without the extra factor r from dA = r dr dθ.
+- id: polar-angular-factor-ignored
+  description: >-
+    Replacing the integral of the angular factor (cos θ, sin θ, ...) by the width of the angle
+    range, as if the integrand did not depend on the angle.
+- id: polar-angle-factor-forgotten
+  description: >-
+    Integrating over r but never multiplying by the integral over the angle.
+- id: polar-angle-halved
+  description: >-
+    Using an angle range of half the size needed: π for a whole disc, π/2 for a half disc, or
+    π/4 for a quarter disc.
+- id: polar-inner-radius-ignored
+  description: >-
+    Using 0 as the lower radius for a ring, so the hole in the middle is included.
+- id: polar-ring-difference-before-power
+  description: >-
+    Raising the difference of the radii to the power, (b - a)^n, instead of taking the
+    difference of the powers, b^n - a^n.
+- id: polar-radius-limit-squared
+  description: >-
+    Using x² + y² = R² as r² = R, so that the upper limit of r is R² instead of R.
+- id: integrand-boundary-value-times-area
+  description: >-
+    Multiplying the area of the region by the value of the integrand on its outer edge instead
+    of integrating.
+- id: polar-quadrant-angle-forgotten
+  description: >-
+    Using the whole circle, 2π, as the angle range for a region that is only a quarter of it.
+- id: substitution-factor-half-dropped
+  description: >-
+    Integrating r·e^(-r²) as e^(-r²) without the factor 1/2 that the substitution u = r² gives.
+- id: polar-gaussian-limit-not-squared
+  description: >-
+    Substituting r = R instead of r² = R² into the antiderivative of r·e^(-r²).
+- id: polar-gaussian-complement-sign
+  description: >-
+    A sign slip in e^(-R²) in the value (1 - e^(-R²))/2: adding it, or subtracting in the other
+    order.
+- id: polar-gaussian-bound-ignored
+  description: >-
+    Taking the radius of the region to infinity so that the e^(-R²) term disappears.
+- id: polar-bound-radius-from-height
+  description: >-
+    Using the height of the surface, instead of the radius where it meets the plane z = 0, as
+    the outer radius of the region.
+- id: volume-as-base-area-times-peak-height
+  description: >-
+    Giving the volume as the area of the base times the greatest height of the solid.
+- id: polar-substitution-x-as-r-squared
+  description: >-
+    Writing x as r² in polar coordinates instead of r cos θ.
+- id: centroid-not-divided-by-area
+  description: >-
+    Giving the first moment ∬ x dA as the centroid coordinate, without dividing by the area.
+- id: mean-position-ratio-inverted
+  description: >-
+    Dividing the area by the first moment instead of the first moment by the area.
+- id: mean-position-divided-by-pi
+  description: >-
+    Dividing a first moment by a full-circle area where the area of the plate itself belongs.
+- id: centroid-distance-uses-one-coordinate
+  description: >-
+    Giving the x-coordinate of a centroid where the distance from the origin was asked for.
+- id: centroid-distance-coordinates-added
+  description: >-
+    Adding the two coordinates of the centroid instead of using Pythagoras' theorem for the
+    distance.
+- id: centroid-distance-root-forgotten
+  description: >-
+    Giving x² + y² for a distance without taking the square root.
+- id: centroid-distance-divided-by-root-two
+  description: >-
+    Dividing the x-coordinate by √2 instead of multiplying, when the distance is the hypotenuse
+    of two equal sides.
+tags: [university-core-v1, multivariable-calculus, integration, polar-coordinates]

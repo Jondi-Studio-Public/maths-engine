@@ -1,0 +1,90 @@
+id: ucv1-multivariable-chain-rule
+name: Apply the multivariable chain rule
+domain: multivariable-and-vector-calculus
+description: >-
+  For z = f(x, y) with x and y depending on one parameter or on two, find dz/dt along a path, a
+  partial derivative after a change of variables, or a second derivative along a straight line,
+  by combining the partial derivatives of f with the derivatives of the inner functions. The
+  four-part exam chain follows a sensor moving across a heated plate from the partial
+  derivatives to the rate of change and a short-time estimate.
+status: active
+placement_eligible: false
+prerequisites: [partial-derivative-x, partial-derivative-y, differentiate-chain-rule]
+answer: number
+sources:
+- topic: fy1ms_chain_rule
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_chain_rule
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_chain_rule
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_chain_rule
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: chain-rule-inner-derivatives-omitted
+  description: >-
+    Adding the two partial derivatives of z without multiplying each by the derivative of its
+    variable with respect to the parameter.
+- id: chain-rule-one-term-only
+  description: >-
+    Using only the x term of the chain rule, fx·(dx/dt), and leaving out the y term.
+- id: chain-rule-partials-swapped
+  description: >-
+    Pairing each partial derivative with the other variable's rate of change: fy with dx/dt and
+    fx with dy/dt.
+- id: chain-rule-partials-evaluated-at-parameter
+  description: >-
+    Evaluating the partial derivatives at the parameter value (t, t) or (u, v) instead of at the
+    point (x, y) that the parameter gives.
+- id: chain-rule-wrong-variable-differentiated
+  description: >-
+    Differentiating the inner functions with respect to the other new variable, so the answer is
+    for dz/dv where dz/du was asked (or the reverse).
+- id: second-derivative-cross-term-dropped
+  description: >-
+    Leaving out the mixed term 2·fxy·x'·y' in the second derivative along a path.
+- id: second-derivative-cross-term-not-doubled
+  description: >-
+    Including the mixed term of the second derivative along a path as fxy·x'·y' instead of
+    2·fxy·x'·y'.
+- id: second-derivative-inner-derivatives-not-squared
+  description: >-
+    Multiplying fxx and fyy by x' and y' instead of by their squares in the second derivative
+    along a path.
+- id: second-derivative-stopped-at-first
+  description: >-
+    Giving the first derivative dz/dt where the second derivative was asked for.
+- id: partial-multiplied-by-path-derivative
+  description: >-
+    Giving fx·(dx/dt) where the partial derivative fx alone was asked for.
+- id: chain-rule-point-coordinates-swapped
+  description: >-
+    Substituting the position into a partial derivative with x and y the wrong way round.
+- id: partial-sign-slip
+  description: >-
+    A sign slip in a partial derivative, giving the negative of its value.
+- id: rate-divided-by-interval
+  description: >-
+    Dividing a rate by the time interval where the change is the rate multiplied by that
+    interval.
+- id: rate-times-time-not-interval
+  description: >-
+    Multiplying a rate of change by the time t at which it was found instead of by the length of
+    the time interval.
+- id: rate-plus-interval
+  description: >-
+    Adding the length of the time interval to the rate instead of multiplying the rate by the
+    interval.
+- id: rate-times-final-time
+  description: >-
+    Multiplying a rate of change by the final time t + Δt instead of by the length Δt of the
+    interval.
+tags: [university-core-v1, multivariable-calculus, chain-rule]
