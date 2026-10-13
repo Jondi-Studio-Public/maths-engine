@@ -16,6 +16,7 @@ Every shape has three connected parts: (a) the missing measurement, (b) the scal
 
 from __future__ import annotations
 
+import math
 import random
 from fractions import Fraction
 from math import gcd
@@ -28,20 +29,22 @@ from mathgen.core import (
     generator,
     latex_answer,
     pick_distractors,
+    round_half_up,
     rounded_decimal_string,
     stated_precision_string,
 )
 
 _NAMES = [("PQR", "XYZ"), ("ABC", "DEF"), ("KLM", "RST"), ("GHJ", "UVW")]
-# (∠A, ∠B, ∠C) of the angle shape. AB and BC are the given sides, opposite ∠C and ∠A, so ∠A and ∠C must be 30° and 90°
-# (in either order) or equal, or the sine rule cannot give whole-number lengths.
-_AA_ANGLES = [(30, 60, 90), (90, 60, 30)] + [(a, 180 - 2 * a, a) for a in range(35, 81) if a != 60]
 # Scale factors p/q (larger over smaller) that terminate as decimals, so every answer is exact.
 _SCALES = [(p, q) for q in (2, 4, 5) for p in range(q + 1, 3 * q + 1) if gcd(p, q) == 1]
 
 
 def _dec(value: Fraction) -> str:
     return exact_decimal_string(value, 2)
+
+
+def _dec_up(value: Fraction) -> str:
+    return stated_precision_string(value, 2)
 
 
 def _cand(value: Fraction, misconception: str) -> Distractor | None:
@@ -55,6 +58,8 @@ def _tag(true: Fraction, cands, dp: int | None = None) -> list[Distractor]:
     cands = [c for c in cands if c is not None]
     key = stated_precision_string(true, dp) if dp else _dec(true)
     picked = pick_distractors(key, cands, 3)
+    if dp:  # every option is written to the key's decimal places
+        picked = [Distractor(stated_precision_string(Fraction(d.value), dp), d.misconception, d.value) for d in picked]
     check(len(picked) >= 2, "too few distractors")
     check(all(Fraction(d.value) != true for d in picked), "a distractor equals the key")
     return picked
@@ -220,25 +225,35 @@ def _sss(rng: random.Random):
 def _aa(rng: random.Random):
     n1, n2 = rng.choice(_NAMES)
     p, q = rng.choice(_SCALES)
-    # The figure must exist: by the sine rule two sides are in the ratio of the sines of their opposite angles, and
-    # among whole-degree angles that ratio is a whole-number ratio only for 30° against 90° (1 : 2) or for equal
-    # angles (1 : 1). So the angles are a 30-60-90 triangle in some order, or an isosceles triangle, and the two
-    # given sides are the pair opposite those angles.
-    angles = rng.choice(_AA_ANGLES)
-    a_ang, b_ang, c_ang = angles
-    u = rng.randint(2, 5)
-    # AB is opposite ∠C and BC opposite ∠A: lengths 1 : 2 (C = 30°), 2 : 1 (C = 90°) or 1 : 1, each a multiple of q
-    ab = q * u * (2 if c_ang == 90 else 1)
-    bc = ab // 2 if c_ang == 90 else (ab * 2 if c_ang == 30 else ab)
+    # The figure must exist, so the second given side comes from the sine rule: BC = AB sin A / sin C, shown to 1 decimal
+    # place. Every later key is computed from the printed BC. No two angles are equal, so nothing is read off for free.
+    for _ in range(1000):
+        a_ang, b_ang = rng.randint(30, 80), rng.randint(35, 85)
+        c_ang = 180 - a_ang - b_ang
+        if len({a_ang, b_ang, c_ang}) < 3 or not 20 <= c_ang <= 110:
+            continue
+        ab = q * rng.randint(2, 5)
+        exact_bc = ab * math.sin(math.radians(a_ang)) / math.sin(math.radians(c_ang))
+        if abs(exact_bc * 10 % 1 - 0.5) < 1e-6:
+            continue
+        bc = round_half_up(Fraction(exact_bc), 1)
+        ef_exact = Fraction(p, q) * bc
+        # keep (c) clear of a rounding tie, and the sides distinct from each other and from the scale partner
+        if bc == ab or (ef_exact * 100) % 1 == Fraction(1, 2) or bc <= 0:
+            continue
+        break
+    else:
+        raise AssertionError("no consistent angle figure in 1000 draws")
     de = p * ab // q
     k = Fraction(p, q)
-    ef = p * bc // q
+    ef = round_half_up(ef_exact, 2)
+    bc_text = exact_decimal_string(bc, 1)
     s1, s2 = f"{n1[0]}{n1[1]}", f"{n1[1]}{n1[2]}"
     t1, t2 = f"{n2[0]}{n2[1]}", f"{n2[1]}{n2[2]}"
     stem = (
         f"In triangle {n1}, ∠{n1[0]} = {a_ang}° and ∠{n1[1]} = {b_ang}°. In triangle {n2}, ∠{n2[0]} = {a_ang}° and "
         f"∠{n2[2]} = θ. The triangles are similar, with {n1[0]} corresponding to {n2[0]}, {n1[1]} to {n2[1]} and "
-        f"{n1[2]} to {n2[2]}. Also {s1} = {ab} cm, {s2} = {bc} cm and {t1} = {de} cm."
+        f"{n1[2]} to {n2[2]}. Also {s1} = {ab} cm, {s2} = {bc_text} cm and {t1} = {de} cm."
     )
     theta = Fraction(c_ang)
     a_cands = [
@@ -275,12 +290,12 @@ def _aa(rng: random.Random):
         ),
         _part(
             f"Hence find the length of {t2}, in centimetres, correct to 2 decimal places.",
-            Fraction(ef),
+            ef,
             2,
             dp=2,
-            follow_through=f"part_b * {bc}",
-            working=[f"{t2} = {_dec(k)} × {bc} = {ef}."],
-            distractors=_tag(Fraction(ef), c_cands, 2),
+            follow_through=f"part_b * {bc_text}",
+            working=[f"{t2} = {_dec(k)} × {bc_text} = {_dec_up(ef)}."],
+            distractors=_tag(ef, c_cands, 2),
         ),
     ]
     return stem, parts
