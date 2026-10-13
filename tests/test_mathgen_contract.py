@@ -362,6 +362,10 @@ OPTION_NOTES_TOPICS = frozenset(
         "ucv1_power_series_convergence",
         "ucv1_proof_by_induction",
         "ucv1_series_convergence",
+        "r4f_am_gm",
+        "r4f_induction_divisibility",
+        "r4f_induction_inequality",
+        "r4f_vector_proof",
         "ucv1_weak_solution_regularity",
     }
 )

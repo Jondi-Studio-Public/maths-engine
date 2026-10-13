@@ -76,6 +76,18 @@
 {"answer": "-12", "id": "algebraic-notation/medium/0/f961ad2008f5", "text": "If x = -6 and y = 2, what is xy?"}
 {"answer": "-32", "id": "algebraic-notation/medium/1/edde221e9dee", "text": "If x = 8 and y = -4, what is xy?"}
 {"answer": "72", "id": "algebraic-notation/medium/2/eb9addf8ea1a", "text": "If x = -9 and y = -8, what is xy?"}
+{"answer": "18", "id": "am-gm-inequality/easy/0/74b76fabba26", "text": "Find the minimum value of f(x) = 3x + 27/x for x > 0."}
+{"answer": "36", "id": "am-gm-inequality/easy/1/438b60959292", "text": "Find the minimum value of f(x) = 12x + 27/x for x > 0."}
+{"answer": "42", "id": "am-gm-inequality/easy/2/205e01b43c72", "text": "Find the minimum value of f(x) = 3x + 147/x for x > 0."}
+{"answer": "(a) 4; (b) 54; (c) 9; (d) 6", "id": "am-gm-inequality/exam/0/eb0d514d1318", "text": "A rectangular pen is divided into two equal parts by one fence parallel to its …"}
+{"answer": "(a) 55; (b) 44; (c) 11; (d) 880", "id": "am-gm-inequality/exam/1/ab2df5f8dfed", "text": "A rectangular paddock of area 242 m² is to be fenced on three sides, the fourth…"}
+{"answer": "(a) 150; (b) 36; (c) 126; (d) 9", "id": "am-gm-inequality/exam/2/c1bcd73e5f4c", "text": "A machine is run at x units per hour, and its cost is C = 162/x + 2x + 90 dolla…"}
+{"answer": "16", "id": "am-gm-inequality/hard/0/f33b3bdaa4ba", "text": "A rectangular paddock of area 32 m² is to be fenced on three sides, the fourth …"}
+{"answer": "60", "id": "am-gm-inequality/hard/1/493492b08346", "text": "A rectangular paddock of area 450 m² is to be fenced on three sides, the fourth…"}
+{"answer": "96", "id": "am-gm-inequality/hard/2/c86192a51c90", "text": "A bakery bakes x trays per hour, and its running cost is C = 363/x + 3x + 30 do…"}
+{"answer": "18", "id": "am-gm-inequality/medium/0/1ee9659b0f6d", "text": "The positive numbers x and y satisfy 2x + 3y = 72, and the product xy is greate…"}
+{"answer": "4", "id": "am-gm-inequality/medium/1/0682981a802e", "text": "For x > 0 the function f(x) = 5x + 80/x has a least value. Find the value of x …"}
+{"answer": "18", "id": "am-gm-inequality/medium/2/9865f97193e2", "text": "The positive numbers x and y satisfy x + 3y = 36, and the product xy is greates…"}
 {"answer": "pi/4", "id": "angle-degrees-radians-pi-form/easy/0/54bfa8f596ce", "text": "Convert 45 degrees to radians. Give your answer as an exact value in terms of p…"}
 {"answer": "11pi/6", "id": "angle-degrees-radians-pi-form/easy/1/942748b0678d", "text": "Convert 330 degrees to radians. Give your answer as an exact value in terms of …"}
 {"answer": "5pi/3", "id": "angle-degrees-radians-pi-form/easy/2/8f6e5e92dbfd", "text": "Convert 300 degrees to radians. Give your answer as an exact value in terms of …"}
@@ -3343,6 +3355,30 @@
 {"answer": "(a) 15; (b) 6; (c) 23.5", "id": "probability-representations/exam/0/22dbc13c2e76", "text": "40 students at a Brisbane high school each chose one summer sport. A student is…"}
 {"answer": "(a) 24; (b) 6; (c) 47.4", "id": "probability-representations/exam/1/69a55600c5db", "text": "25 students in a Perth Year 7 cohort each named their favourite canteen drink. …"}
 {"answer": "(a) 42; (b) 21; (c) 34.5", "id": "probability-representations/exam/2/daa0c8542b9a", "text": "50 students in a surf life saving program at a Wollongong school each named the…"}
+{"answer": "26", "id": "proof-by-induction-divisibility/easy/0/69eb4b68b3bc", "text": "P(n): f(n) = 3^(2n + 2) + 7^(2n) is divisible by 5, for every integer n ≥ 1. P(…"}
+{"answer": "477", "id": "proof-by-induction-divisibility/easy/1/9e0f66192484", "text": "P(n): f(n) = 7^(2n + 2) - 4^(n + 1) is divisible by 5, for every integer n ≥ 1.…"}
+{"answer": "211", "id": "proof-by-induction-divisibility/easy/2/5c927f717ab4", "text": "P(n): f(n) = 2^(2n + 1) + 5^(2n + 2) is divisible by 3, for every integer n ≥ 1…"}
+{"answer": "(a) 81; (b) 45; (c) 118161; (d) 39387", "id": "proof-by-induction-divisibility/exam/0/32ed025dfac4", "text": "Let P(n) be the statement that f(n) = 7^(2n) + 2^(2n + 3) is divisible by 3, fo…"}
+{"answer": "(a) 52; (b) -16; (c) 17812; (d) 4453", "id": "proof-by-induction-divisibility/exam/1/108e7ce929f1", "text": "Let P(n) be the statement that f(n) = 3^(2n + 1) + 5^(2n) is divisible by 4, fo…"}
+{"answer": "(a) 2405; (b) 5; (c) 117665; (d) 23533", "id": "proof-by-induction-divisibility/exam/2/89bc8268868c", "text": "Let P(n) be the statement that f(n) = 7^(n + 3) + 2^(n + 1) is divisible by 5, …"}
+{"answer": "4*5^(2*k)", "id": "proof-by-induction-divisibility/hard/0/f968c9015350", "text": "P(n): f(n) = 7^(2n + 2) - 5^(2n) is divisible by 6, for every integer n ≥ 1. In…"}
+{"answer": "15*7^(2*k + 1)", "id": "proof-by-induction-divisibility/hard/1/86c60064037a", "text": "P(n): f(n) = 7^(2n + 1) - 4^(n + 3) is divisible by 3, for every integer n ≥ 1.…"}
+{"answer": "14*9^(2*k)", "id": "proof-by-induction-divisibility/hard/2/119ef4e6e8ef", "text": "P(n): f(n) = 9^(2n) - 5^(2n) is divisible by 4, for every integer n ≥ 1. In the…"}
+{"answer": "18*5^(2*k + 1)", "id": "proof-by-induction-divisibility/medium/0/8b10e7ace1d5", "text": "P(n): f(n) = 5^(2n + 1) + 7^(n + 3) is divisible by 3, for every integer n ≥ 1.…"}
+{"answer": "-16*3^(2*k + 1)", "id": "proof-by-induction-divisibility/medium/1/8c78b2923eed", "text": "P(n): f(n) = 3^(2n + 1) + 5^(2n) is divisible by 4, for every integer n ≥ 1. In…"}
+{"answer": "77*9^(2*k)", "id": "proof-by-induction-divisibility/medium/2/7b19ec98feda", "text": "P(n): f(n) = 9^(2n) - 2^(2n + 3) is divisible by 7, for every integer n ≥ 1. In…"}
+{"answer": "19", "id": "proof-by-induction-inequality-or-recurrence/easy/0/7938002e4b8f", "text": "P(n): 2^n > 3n⁴. P(n) is true for every integer n from some point on, and the p…"}
+{"answer": "9", "id": "proof-by-induction-inequality-or-recurrence/easy/1/abf5f68d8e9a", "text": "P(n): n! > 4n⁵. P(n) is true for every integer n from some point on, and the pr…"}
+{"answer": "5", "id": "proof-by-induction-inequality-or-recurrence/easy/2/b0e35237808f", "text": "P(n): n! > 2n². P(n) is true for every integer n from some point on, and the pr…"}
+{"answer": "(a) 10; (b) 9049; (c) 4; (d) 76795", "id": "proof-by-induction-inequality-or-recurrence/exam/0/a2946df2bc16", "text": "Let P(n) be the statement 3^n > 5n⁴. P(n) is to be proved by induction for ever…"}
+{"answer": "(a) 5; (b) 399; (c) 2; (d) 1420", "id": "proof-by-induction-inequality-or-recurrence/exam/1/ceb952a98364", "text": "Let P(n) be the statement 4^n > 5n³. P(n) is to be proved by induction for ever…"}
+{"answer": "(a) 3; (b) 17; (c) 2; (d) 284", "id": "proof-by-induction-inequality-or-recurrence/exam/2/2d88179b16d3", "text": "Let P(n) be the statement 5^n > 4n³. P(n) is to be proved by induction for ever…"}
+{"answer": "5", "id": "proof-by-induction-inequality-or-recurrence/hard/0/266e2f2f2681", "text": "A sequence has u(1) = 13 and u(n + 1) = 2u(n) + 4n - 11. It is to be proved by …"}
+{"answer": "-2", "id": "proof-by-induction-inequality-or-recurrence/hard/1/f88b8f2ca105", "text": "A sequence has u(1) = -8 and u(n + 1) = 4u(n) + 6n - 8. It is to be proved by i…"}
+{"answer": "6", "id": "proof-by-induction-inequality-or-recurrence/hard/2/2991f8dd65b9", "text": "A sequence has u(1) = 9 and u(n + 1) = 2u(n) + 3n - 9. It is to be proved by in…"}
+{"answer": "4", "id": "proof-by-induction-inequality-or-recurrence/medium/0/f21edcf4929c", "text": "P(n): 4^n > 2n⁵. In the inductive step P(k) is assumed true, so 4^(k + 1) = 4 ×…"}
+{"answer": "2", "id": "proof-by-induction-inequality-or-recurrence/medium/1/377335ebf135", "text": "P(n): 5^n > 5n³. In the inductive step P(k) is assumed true, so 5^(k + 1) = 5 ×…"}
+{"answer": "3", "id": "proof-by-induction-inequality-or-recurrence/medium/2/bf247905cafb", "text": "P(n): 2^n > n². In the inductive step P(k) is assumed true, so 2^(k + 1) = 2 × …"}
 {"answer": "Not equivalent: the first formula implies the second, but n…", "id": "propositional-formula-equivalence/easy/0/90a731f89204", "text": "Are the propositional formulas (p ∧ q) and (p ∨ q) logically equivalent? Check …"}
 {"answer": "Equivalent", "id": "propositional-formula-equivalence/easy/1/7401453047ec", "text": "Are the propositional formulas (p ∨ q) and (q ∨ p) logically equivalent? Check …"}
 {"answer": "Not equivalent: neither formula implies the other", "id": "propositional-formula-equivalence/easy/2/f409ad4b7fc8", "text": "Are the propositional formulas (p ∧ ¬q) and (¬p ∨ q) logically equivalent? Chec…"}
@@ -9169,6 +9205,18 @@
 {"answer": "(-2, 3)", "id": "vector-projection/medium/0/e41df6f1638c", "text": "Project u = (4, 7) onto v = (-2, 3)."}
 {"answer": "(1, -1)", "id": "vector-projection/medium/1/dea72eccc17d", "text": "Project u = (1, -1) onto v = (1, -1)."}
 {"answer": "(2, -8)", "id": "vector-projection/medium/2/b5e436c331ec", "text": "Project u = (6, -7) onto v = (-1, 4)."}
+{"answer": "-a + b", "id": "vector-proof-geometry/easy/0/e8b849540ce5", "text": "O is the centre of a circle and AB is a diameter, with vector OA = a and vector…"}
+{"answer": "a + b/2", "id": "vector-proof-geometry/easy/1/85bf48c111ed", "text": "PQRS is a parallelogram with vector PQ = a and vector PS = b. The point X is th…"}
+{"answer": "-a - b/2", "id": "vector-proof-geometry/easy/2/ec8ad7b1d322", "text": "OABC is a parallelogram with vector OA = a and vector OC = b. The point X is th…"}
+{"answer": "(a) a - b; (b) a/2 + b; (c) 2/3; (d) 1/3", "id": "vector-proof-geometry/exam/0/6e321f12ecf9", "text": "PQRS is a trapezium in which SR is parallel to PQ, with vector PQ = a, vector P…"}
+{"answer": "(a) -a + b; (b) 3a/2 + b; (c) 2/5; (d) 3/5", "id": "vector-proof-geometry/exam/1/5ce7cf6494e1", "text": "OABC is a trapezium in which CB is parallel to OA, with vector OA = a, vector O…"}
+{"answer": "(a) -a + b; (b) a + b; (c) -32; (d) 32", "id": "vector-proof-geometry/exam/2/97008445f1d1", "text": "O is the centre of a circle and AB is a diameter, with vector OA = a and vector…"}
+{"answer": "-75", "id": "vector-proof-geometry/hard/0/d06690796697", "text": "O is the centre of a circle and AB is a diameter, with vector OA = a and vector…"}
+{"answer": "5a/4", "id": "vector-proof-geometry/hard/1/9bacda67e024", "text": "OABC is a trapezium in which CB is parallel to OA, with vector OA = a, vector O…"}
+{"answer": "40", "id": "vector-proof-geometry/hard/2/cc2ab503b1a6", "text": "OABC is a parallelogram with vector OA = a and vector OC = b, where |a| = 9 and…"}
+{"answer": "1/5", "id": "vector-proof-geometry/medium/0/32859e8b4595", "text": "PQRS is a trapezium in which SR is parallel to PQ, with vector PQ = a, vector P…"}
+{"answer": "2/7", "id": "vector-proof-geometry/medium/1/b3af25f8effc", "text": "PQRS is a trapezium in which SR is parallel to PQ, with vector PQ = a, vector P…"}
+{"answer": "1/4", "id": "vector-proof-geometry/medium/2/280d54a9595d", "text": "PQRS is a trapezium in which SR is parallel to PQ, with vector PQ = a, vector P…"}
 {"answer": "1", "id": "wave-frequency-from-speed-wavelength/easy/0/90e12f866805", "text": "A travelling wave has speed v = 5 m/s and wavelength λ = 5 m. Find its frequenc…"}
 {"answer": "2", "id": "wave-frequency-from-speed-wavelength/easy/1/b0a49a88c1d2", "text": "A travelling wave has speed v = 2 m/s and wavelength λ = 1 m. Find its frequenc…"}
 {"answer": "4", "id": "wave-frequency-from-speed-wavelength/easy/2/c6ddebb95db3", "text": "A travelling wave has speed v = 16 m/s and wavelength λ = 4 m. Find its frequen…"}
