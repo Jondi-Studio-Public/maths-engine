@@ -1,6 +1,7 @@
 id: ucv1-diagonal-operator-norm
 name: Compute a diagonal operator norm
 domain: functional-and-linear-analysis
+year_level: [university]
 description: Compute the Euclidean operator norm of a supplied 2-by-2 diagonal linear map.
 status: active
 placement_eligible: false

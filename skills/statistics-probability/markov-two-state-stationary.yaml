@@ -1,6 +1,7 @@
 id: markov-two-state-stationary
 name: Find a two-state stationary probability
 domain: statistics-probability
+year_level: [university]
 description: Find the stationary probability of state 1 for an irreducible two-state Markov chain.
 status: active
 prerequisites:

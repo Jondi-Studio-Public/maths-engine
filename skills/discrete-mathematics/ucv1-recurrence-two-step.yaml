@@ -1,6 +1,7 @@
 id: ucv1-recurrence-two-step
 name: Evaluate a second-order recurrence
 domain: discrete-mathematics
+year_level: [university]
 description: Compute the next term of a supplied second-order linear recurrence from two initial values.
 status: active
 placement_eligible: false

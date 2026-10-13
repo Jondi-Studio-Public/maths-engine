@@ -1,6 +1,7 @@
 id: ucv1-linear-system-determinant
 name: Solve a two-by-two system by determinants
 domain: linear-algebra
+year_level: [university]
 description: Solve a nonsingular 2x2 linear system A x = b using determinant
   ratios (Cramer's rule), graded on the labelled pair of determinants
   themselves -- D_x/D_y and D = det(A) -- never the solved (x, y).

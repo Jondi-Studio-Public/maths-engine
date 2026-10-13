@@ -1,6 +1,8 @@
 id: f10-quantify-compare-collections-to-20
 name: Quantify and compare collections to 20
 domain: early-foundations
+year_level: [F]
+naplan_domain: [number]
 learner_band: early
 description: Given two named collections (counts, or two named sub-groups to combine first), decide which has more, which has fewer, or whether they are equal.
 status: active

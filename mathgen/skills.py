@@ -162,6 +162,14 @@ class Mental:
     entry_stage: int | None = None  # None = use the global mental.entry_stage
 
 
+# Coverage labels, in the order a list must be written. year_level: F, 1 to 12, or university.
+# naplan_domain: Australian Curriculum v9 mathematics strands. exam_board: senior exam boards.
+YEAR_LEVELS = ("F", *(str(n) for n in range(1, 13)), "university")
+NAPLAN_DOMAINS = ("number", "algebra", "measurement", "space", "statistics", "probability")
+EXAM_BOARDS = ("nesa", "vcaa", "qcaa", "scsa", "sace", "tasc", "ib")
+COVERAGE_LABELS = {"year_level": YEAR_LEVELS, "naplan_domain": NAPLAN_DOMAINS, "exam_board": EXAM_BOARDS}
+
+
 @dataclass
 class TierDemand:
     """What one tier asks of a learner: `steps` is the number of reasoning steps they must chain
@@ -193,6 +201,11 @@ class Skill:
     placement_pass: int = 3
     placement_eligible: bool = True
     learner_band: str = "general"
+    # Coverage, all optional (see skills/README.md): year levels the content belongs to, the Australian
+    # Curriculum v9 strands NAPLAN numeracy can test it under, and the senior exam boards that cover it.
+    year_level: tuple[str, ...] = ()
+    naplan_domain: tuple[str, ...] = ()
+    exam_board: tuple[str, ...] = ()
     mental: Mental | None = None
     # The skill's questions carry a figure the learner must see
     # it has no spoken form, so the skill may not have a mental block.
@@ -308,6 +321,15 @@ def _progression_from_value(value) -> dict[str, TierDemand] | str | None:
     return value
 
 
+def _labels(value) -> tuple[str, ...]:
+    """A YAML list of labels -> a tuple of strings, so `1` and `'1'` both read as "1"."""
+    if value is None:
+        return ()
+    if isinstance(value, (str, int)):
+        value = [value]
+    return tuple(str(v) for v in value)
+
+
 def _skill_from_dict(d: dict, path: Path) -> Skill:
     sources = [_source_from_dict(s) for s in (d.get("sources") or [])]
     misconceptions = [
@@ -336,6 +358,9 @@ def _skill_from_dict(d: dict, path: Path) -> Skill:
         placement_pass=int(d.get("placement_pass", 3)),
         placement_eligible=bool(d.get("placement_eligible", True)),
         learner_band=str(d.get("learner_band", "general")),
+        year_level=_labels(d.get("year_level")),
+        naplan_domain=_labels(d.get("naplan_domain")),
+        exam_board=_labels(d.get("exam_board")),
         mental=_mental_from_dict(d.get("mental")),
         needs_figure=bool(d.get("needs_figure", False)),
         rubric_id=rubric_id,
@@ -648,6 +673,15 @@ def validate(
             report.errors.append(f"{s.id}: placement_pass must be between 1 and placement_questions")
         if s.learner_band not in ("early", "primary", "general"):
             report.errors.append(f"{s.id}: learner_band must be early, primary or general")
+        for name, allowed in COVERAGE_LABELS.items():
+            got = getattr(s, name)
+            if len(got) != len(set(got)):
+                report.errors.append(f"{s.id}: {name} contains duplicates")
+            bad = [g for g in got if g not in allowed]
+            if bad:
+                report.errors.append(f"{s.id}: {name} has unknown labels {bad} (allowed: {', '.join(allowed)})")
+            elif list(got) != [a for a in allowed if a in got]:
+                report.errors.append(f"{s.id}: {name} must be listed in this order: {', '.join(allowed)}")
         if s.status == "deferred" and not s.deferred_reason:
             report.errors.append(f"{s.id}: deferred skill missing deferred_reason")
         if s.status == "deferred" and s.deferred_reason not in VALID_DEFERRED_REASONS:

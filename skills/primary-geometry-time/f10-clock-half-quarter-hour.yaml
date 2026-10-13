@@ -1,6 +1,8 @@
 id: f10-clock-half-quarter-hour
 name: Read an analogue clock to the half and quarter hour
 domain: primary-geometry-time
+year_level: ['2']
+naplan_domain: [measurement]
 description: Read the time on a drawn analogue clock at the hour, half past, quarter past and quarter to, choosing it from times written in words or as digital times, and pick the clock that shows a time given in words.
 status: active
 capability_gates: [figure_stimulus]

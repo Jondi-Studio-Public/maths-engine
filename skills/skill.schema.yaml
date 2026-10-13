@@ -121,6 +121,51 @@ properties:
     - early
     - primary
     - general
+  year_level:
+    description: 'Year levels the skill''s content belongs to, written in this order: F, 1 to 12, university. A list because one skill often spans years. Quote the digits so YAML keeps them strings. Omit when nothing in the file says which year.'
+    type: array
+    uniqueItems: true
+    items:
+      enum:
+      - 'F'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '10'
+      - '11'
+      - '12'
+      - 'university'
+  naplan_domain:
+    description: 'Australian Curriculum v9 mathematics strands the skill assesses, for content NAPLAN numeracy can test (Foundation to Year 9). Omit for skills with no such content.'
+    type: array
+    uniqueItems: true
+    items:
+      enum:
+      - number
+      - algebra
+      - measurement
+      - space
+      - statistics
+      - probability
+  exam_board:
+    description: 'Senior exam boards whose syllabus covers the skill. Optional; fill it only where the library itself names the board.'
+    type: array
+    uniqueItems: true
+    items:
+      enum:
+      - nesa
+      - vcaa
+      - qcaa
+      - scsa
+      - sace
+      - tasc
+      - ib
   needs_figure:
     description: True when the questions carry a figure the learner must see. Such a skill may not have
       a mental block.

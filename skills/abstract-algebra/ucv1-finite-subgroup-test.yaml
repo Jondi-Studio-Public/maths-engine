@@ -1,6 +1,7 @@
 id: ucv1-finite-subgroup-test
 name: Test a finite subset for subgroup closure
 domain: abstract-algebra
+year_level: [university]
 description: Decide whether an explicitly listed subset of a finite group is a subgroup by checking identity, closure and inverses in that order, reporting the first condition that fails.
 status: active
 placement_eligible: false

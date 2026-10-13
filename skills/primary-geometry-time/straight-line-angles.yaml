@@ -1,6 +1,8 @@
 id: straight-line-angles
 name: Find a missing angle on a straight line
 domain: primary-geometry-time
+year_level: ['6']
+naplan_domain: [measurement]
 description: Use the 180-degree angle sum on a straight line to find one missing adjacent angle.
 status: active
 capability_gates: [figure_stimulus]

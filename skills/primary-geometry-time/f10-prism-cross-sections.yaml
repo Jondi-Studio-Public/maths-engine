@@ -1,6 +1,8 @@
 id: f10-prism-cross-sections
 name: Classify solids as right prisms from cross-section descriptions
 domain: primary-geometry-time
+year_level: ['6']
+naplan_domain: [space]
 description: Given a description of how a solid's cross-sections parallel to a stated direction compare, classify the solid as a right prism or not.
 status: active
 placement_eligible: false

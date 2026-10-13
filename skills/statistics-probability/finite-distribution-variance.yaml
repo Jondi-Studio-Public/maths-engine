@@ -1,6 +1,7 @@
 id: finite-distribution-variance
 name: Calculate variance of a finite distribution
 domain: statistics-probability
+year_level: [university]
 description: Compute the exact variance of a small finite discrete distribution.
 status: active
 prerequisites: [calculate-mean, simple-event-probability]

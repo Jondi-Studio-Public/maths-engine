@@ -1,6 +1,7 @@
 id: ucv1-symmetry-conservation
 name: Select a symmetry-conservation pairing
 domain: mathematical-physics
+year_level: [university]
 description: Select the conserved quantity associated with one supplied discrete symmetry in a finite mechanics scenario.
 status: active
 placement_eligible: false

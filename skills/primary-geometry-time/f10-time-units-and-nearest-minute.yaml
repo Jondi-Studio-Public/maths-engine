@@ -1,6 +1,8 @@
 id: f10-time-units-and-nearest-minute
 name: Convert time units
 domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [measurement]
 description: Convert a stated duration between days, hours, minutes and seconds.
 status: active
 placement_eligible: false

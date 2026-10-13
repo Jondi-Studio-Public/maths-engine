@@ -1,6 +1,7 @@
 id: fraction-decimal-percent
 name: Connect fractions, decimals and percentages
 domain: primary-number
+year_level: ['6']
 placement_order: 50
 placement_questions: 3
 placement_pass: 2

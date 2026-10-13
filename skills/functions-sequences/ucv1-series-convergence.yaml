@@ -1,6 +1,7 @@
 id: ucv1-series-convergence
 name: Sum and test infinite series
 domain: functions-sequences
+year_level: [university]
 description: Find the sum of a convergent geometric or telescoping series, the limit of the ratio test, or the radius of convergence of a power series, each as an exact value; the exam tier finishes a telescoping series (the partial-fraction constant, the partial sum, the sum to infinity and the least n within a tolerance) or a geometric series in x.
 status: active
 placement_eligible: false

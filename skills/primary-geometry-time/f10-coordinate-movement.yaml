@@ -1,6 +1,8 @@
 id: f10-coordinate-movement
 name: Determine coordinate change from movement
 domain: primary-geometry-time
+year_level: ['6']
+naplan_domain: [space]
 description: Given a point's coordinates before and after a supplied movement in the Cartesian plane, state the change in each coordinate.
 status: active
 placement_eligible: false

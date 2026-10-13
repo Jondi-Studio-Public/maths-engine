@@ -1,6 +1,8 @@
 id: f10-measure-angle-protractor
 name: Measure an angle with a protractor
 domain: primary-geometry-time
+year_level: ['5']
+naplan_domain: [measurement]
 description: Measure an angle in whole degrees from a drawn protractor with an inner and an outer scale, including a protractor whose zero is on the inner scale, one that is turned so its base is not level, and a reflex angle.
 status: active
 capability_gates: [figure_stimulus]

@@ -1,6 +1,7 @@
 id: ucv1-number-theory-computation
 name: Apply a bounded arithmetic number-theory method
 domain: number-theory
+year_level: [university]
 description: Use modular exponentiation and a supplied factorisation to compute one arithmetic residue.
 status: active
 placement_eligible: false

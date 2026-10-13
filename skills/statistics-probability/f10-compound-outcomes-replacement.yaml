@@ -1,6 +1,8 @@
 id: f10-compound-outcomes-replacement
 name: Enumerate compound outcomes with replacement rules
 domain: statistics-probability
+year_level: ['9']
+naplan_domain: [probability]
 description: >-
   List all outcomes for a two-stage event with or without replacement and assign
   probabilities using an appropriate representation.

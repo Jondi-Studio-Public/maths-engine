@@ -1,6 +1,8 @@
 id: f10-sequence-days-times
 name: Sequence days and daily times
 domain: primary-geometry-time
+year_level: [F]
+naplan_domain: [measurement]
 description: Order familiar day-parts or days of the week, each shown with a matching event, into their correct chronological sequence.
 status: active
 placement_eligible: false

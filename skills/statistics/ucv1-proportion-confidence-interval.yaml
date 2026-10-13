@@ -1,6 +1,7 @@
 id: ucv1-proportion-confidence-interval
 name: Recover a sample from a proportion confidence interval
 domain: statistics
+year_level: [university]
 description: Given a stated normal-approximation confidence interval for a Bernoulli
   proportion (and, from medium on, its critical value z), recover the sample that
   produced it -- the centre and half-width, the sample size and success count, or
