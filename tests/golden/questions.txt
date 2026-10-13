@@ -7816,6 +7816,114 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "188", "id": "uc2-burnside-counting/easy/0/c0c0beab556c", "text": "A necklace has 11 beads, each of 2 possible colours. Necklaces that differ only…"}
+{"answer": "51", "id": "uc2-burnside-counting/easy/1/ca0f9b3331b3", "text": "How many different necklaces can be made by threading 5 beads onto a circular s…"}
+{"answer": "315", "id": "uc2-burnside-counting/easy/2/d8b21468f62f", "text": "A necklace has 7 beads, each of 3 possible colours. Necklaces that differ only …"}
+{"answer": "(a) 4; (b) 128; (c) 224; (d) 352", "id": "uc2-burnside-counting/exam/0/ebbf0c362406", "text": "A bracelet is made from 12 beads on a circular wire, each bead one of 2 colours…"}
+{"answer": "(a) 4; (b) 32; (c) 30; (d) 36", "id": "uc2-burnside-counting/exam/1/9cf2b0de0ef6", "text": "A wire ring carries 8 beads, each of one of 2 colours. A rotation of the ring o…"}
+{"answer": "(a) 4; (b) 16; (c) 13; (d) 14", "id": "uc2-burnside-counting/exam/2/0cba2345dafb", "text": "A bracelet is made from 6 beads on a circular wire, each bead one of 2 colours.…"}
+{"answer": "10", "id": "uc2-burnside-counting/hard/0/5a642a207e7f", "text": "A bracelet has 9 beads, exactly 4 gold and 5 silver. Bracelets that differ by a…"}
+{"answer": "29", "id": "uc2-burnside-counting/hard/1/1ec42cd78fca", "text": "A bracelet has 12 beads, exactly 4 gold and 8 silver. Bracelets that differ by …"}
+{"answer": "10", "id": "uc2-burnside-counting/hard/2/c7ae19624810", "text": "How many different bracelets can be made from 11 beads on a circular wire when …"}
+{"answer": "21", "id": "uc2-burnside-counting/medium/0/547839db4715", "text": "A bracelet has 4 beads, each of 3 possible colours. Bracelets that differ only …"}
+{"answer": "18", "id": "uc2-burnside-counting/medium/1/a3455f003a18", "text": "How many different bracelets can be made from 7 beads on a circular wire, each …"}
+{"answer": "231", "id": "uc2-burnside-counting/medium/2/96988bdb0b26", "text": "A bracelet has 4 beads, each of 6 possible colours. Bracelets that differ only …"}
+{"answer": "{4, 9, 14, 19}", "id": "uc2-cosets-and-index/easy/0/cbe8e1868946", "text": "In the group Z_20 under addition modulo 20, let H = ⟨15⟩ be the subgroup genera…"}
+{"answer": "{1, 6, 11, 16}", "id": "uc2-cosets-and-index/easy/1/14e874b245f9", "text": "In the group Z_20 under addition modulo 20, let H = ⟨15⟩ be the subgroup genera…"}
+{"answer": "{4, 14, 24}", "id": "uc2-cosets-and-index/easy/2/26b95ae73a66", "text": "In the group Z_30 under addition modulo 30, let H = ⟨20⟩ be the subgroup genera…"}
+{"answer": "(a) 6; (b) 4; (c) 3; (d) {3, 7, 11, 15, 19, 23}", "id": "uc2-cosets-and-index/exam/0/7b834aaf9c05", "text": "In the group Z_24 under addition modulo 24, let H = ⟨20⟩ be the subgroup genera…"}
+{"answer": "(a) 7; (b) 6; (c) 4; (d) {4, 10, 16, 22, 28, 34, 40}", "id": "uc2-cosets-and-index/exam/1/75f04984ad30", "text": "In the group Z_42 under addition modulo 42, let H = ⟨24⟩ be the subgroup genera…"}
+{"answer": "(a) 4; (b) 10; (c) 3; (d) {3, 13, 23, 33}", "id": "uc2-cosets-and-index/exam/2/f6260c60a5b8", "text": "In the group Z_40 under addition modulo 40, let H = ⟨30⟩ be the subgroup genera…"}
+{"answer": "{(4, 1, 2, 3), (4, 1, 3, 2)}", "id": "uc2-cosets-and-index/hard/0/ce56da2d0cd7", "text": "In S_4, permutations are composed right to left and written in one-line notatio…"}
+{"answer": "{(1, 3, 2, 4), (2, 4, 1, 3), (3, 2, 4, 1), (4, 1, 3, 2)}", "id": "uc2-cosets-and-index/hard/1/253ec1581960", "text": "In S_4, permutations are composed right to left and written in one-line notatio…"}
+{"answer": "{(2, 1, 3, 4), (4, 1, 3, 2)}", "id": "uc2-cosets-and-index/hard/2/4a953d5ab147", "text": "In S_4, permutations are composed right to left and written in one-line notatio…"}
+{"answer": "{8, 13, 23, 28, 38, 43}", "id": "uc2-cosets-and-index/medium/0/34dd677d1d09", "text": "The units of Z_45 form a group G under multiplication modulo 45. Let H = ⟨41⟩ b…"}
+{"answer": "{7, 16, 34, 43}", "id": "uc2-cosets-and-index/medium/1/20156d537a65", "text": "The units of Z_45 form a group G under multiplication modulo 45. Let H = ⟨37⟩ b…"}
+{"answer": "{7, 22, 37}", "id": "uc2-cosets-and-index/medium/2/28beebf575a7", "text": "The units of Z_45 form a group G under multiplication modulo 45. Let H = ⟨16⟩ b…"}
+{"answer": "(1, 1)", "id": "uc2-dihedral-group-compositions/easy/0/81eee99b3fdf", "text": "In the dihedral group D_8 of order 16, r is a rotation with r^8 = e, s is a ref…"}
+{"answer": "(0, 1)", "id": "uc2-dihedral-group-compositions/easy/1/593cfaa0adee", "text": "In the dihedral group D_11 of order 22, r is a rotation with r^11 = e, s is a r…"}
+{"answer": "(10, 0)", "id": "uc2-dihedral-group-compositions/easy/2/e40cee7159d5", "text": "In the dihedral group D_12 of order 24, r is a rotation with r^12 = e, s is a r…"}
+{"answer": "(a) (3, 0); (b) 5; (c) 6; (d) 5", "id": "uc2-dihedral-group-compositions/exam/0/1e7ac84a5c61", "text": "In the dihedral group D_15 of order 30, r is a rotation with r^15 = e, s is a r…"}
+{"answer": "(a) (6, 0); (b) 7; (c) 4; (d) 7", "id": "uc2-dihedral-group-compositions/exam/1/d04cee240709", "text": "In the dihedral group D_14 of order 28, r is a rotation with r^14 = e, s is a r…"}
+{"answer": "(a) (3, 0); (b) 3; (c) 6; (d) 3", "id": "uc2-dihedral-group-compositions/exam/2/4dbaf9dea2b1", "text": "In the dihedral group D_9 of order 18, r is a rotation with r^9 = e, s is a ref…"}
+{"answer": "(2, 0)", "id": "uc2-dihedral-group-compositions/hard/0/0cfa47e5c0f4", "text": "In the dihedral group D_6 of order 12, r is a rotation with r^6 = e, s is a ref…"}
+{"answer": "(9, 1)", "id": "uc2-dihedral-group-compositions/hard/1/50fb677770b6", "text": "In the dihedral group D_11 of order 22, r is a rotation with r^11 = e, s is a r…"}
+{"answer": "(6, 1)", "id": "uc2-dihedral-group-compositions/hard/2/ca707c622a71", "text": "In the dihedral group D_10 of order 20, r is a rotation with r^10 = e, s is a r…"}
+{"answer": "(2, 0)", "id": "uc2-dihedral-group-compositions/medium/0/c3ebe60b8966", "text": "In the dihedral group D_6 of order 12, r is a rotation with r^6 = e, s is a ref…"}
+{"answer": "(5, 0)", "id": "uc2-dihedral-group-compositions/medium/1/d96467edc94b", "text": "In the dihedral group D_11 of order 22, r is a rotation with r^11 = e, s is a r…"}
+{"answer": "(1, 1)", "id": "uc2-dihedral-group-compositions/medium/2/0904dfa636bd", "text": "In the dihedral group D_5 of order 10, r is a rotation with r^5 = e, s is a ref…"}
+{"answer": "n h = u, n w = z, x x = e", "id": "uc2-group-table-check/easy/0/cc57f70de51a", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
+{"answer": "q p = s, q z = g, s p = q, s z = y, z g = s", "id": "uc2-group-table-check/easy/1/698b83b1acbf", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
+{"answer": "f z = u, s u = f, u w = s, w z = s, z w = u", "id": "uc2-group-table-check/easy/2/189e82aa4dd4", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
+{"answer": "(a) n t = r, n y = p, w t = p, w y = r; (b) 2; (c) 4; (d) 1", "id": "uc2-group-table-check/exam/0/8f26d184e12c", "text": "The table below is the Cayley table of a group G of order 8 under the operation…"}
+{"answer": "(a) f k = q, f p = s, w k = s, w p = q; (b) 2; (c) 8; (d) 1", "id": "uc2-group-table-check/exam/1/fa187deb787a", "text": "The table below is the Cayley table of a group G of order 8 under the operation…"}
+{"answer": "(a) f w = k, f z = u, m w = u, m z = k; (b) 4; (c) 4; (d) 3", "id": "uc2-group-table-check/exam/2/23d7d89e0587", "text": "The table below is the Cayley table of a group G of order 8 under the operation…"}
+{"answer": "m g = z, m p = f, m z = g, p g = f, p p = z, z f = t", "id": "uc2-group-table-check/hard/0/fbd5a061cb96", "text": "The table below is the Cayley table of a non-abelian group under the operation …"}
+{"answer": "m s = t, p p = m, p u = s, y m = u, y p = s, y u = m", "id": "uc2-group-table-check/hard/1/bae3a62c9212", "text": "The table below is the Cayley table of a non-abelian group under the operation …"}
+{"answer": "k q = w, k z = u, u w = f, x q = u, x x = p, x z = w", "id": "uc2-group-table-check/hard/2/9509b1deaec0", "text": "The table below is the Cayley table of a non-abelian group under the operation …"}
+{"answer": "n n = f, n t = v, t n = v, t t = f", "id": "uc2-group-table-check/medium/0/c280aa4830fa", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
+{"answer": "k g = p, k z = h, t g = h, t z = p", "id": "uc2-group-table-check/medium/1/2fab8a2a8996", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
+{"answer": "r q = f, r s = g, u q = g, u s = f", "id": "uc2-group-table-check/medium/2/810119f15bc4", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
+{"answer": "9", "id": "uc2-homomorphism-kernel-image/easy/0/11fecd343594", "text": "Let φ: Z_27 → Z_15 be the homomorphism of additive groups given by φ(x) = 10x m…"}
+{"answer": "3", "id": "uc2-homomorphism-kernel-image/easy/1/801be2db7336", "text": "Let φ: Z_27 → Z_18 be the homomorphism of additive groups given by φ(x) = 10x m…"}
+{"answer": "4", "id": "uc2-homomorphism-kernel-image/easy/2/543eca1c3e3c", "text": "Let φ: Z_80 → Z_40 be the homomorphism of additive groups given by φ(x) = 38x m…"}
+{"answer": "(a) 5; (b) 4; (c) 8; (d) 3", "id": "uc2-homomorphism-kernel-image/exam/0/79763010c2cd", "text": "The map φ: Z_20 → Z_30, φ(x) = 18x mod 30, is a group homomorphism under additi…"}
+{"answer": "(a) 8; (b) 3; (c) 6; (d) 6", "id": "uc2-homomorphism-kernel-image/exam/1/e423c1c6a8b1", "text": "The map φ: Z_24 → Z_40, φ(x) = 15x mod 40, is a group homomorphism under additi…"}
+{"answer": "(a) 12; (b) 4; (c) 8; (d) 7", "id": "uc2-homomorphism-kernel-image/exam/2/5bafe26c13fe", "text": "The map φ: Z_48 → Z_24, φ(x) = 2x mod 24, is a group homomorphism under additio…"}
+{"answer": "14", "id": "uc2-homomorphism-kernel-image/hard/0/dc46d762c059", "text": "Let φ(x, y) = 12x + 32y mod 42 define a homomorphism of additive groups Z_14 × …"}
+{"answer": "8", "id": "uc2-homomorphism-kernel-image/hard/1/7151b709fda3", "text": "Let φ(x, y) = 9x + 6y mod 12 define a homomorphism of additive groups Z_8 × Z_4…"}
+{"answer": "12", "id": "uc2-homomorphism-kernel-image/hard/2/b86d7b96e0a2", "text": "The map φ: Z_20 × Z_6 → Z_20, φ(x, y) = 12x + 10y mod 20, is a group homomorphi…"}
+{"answer": "3", "id": "uc2-homomorphism-kernel-image/medium/0/6eb92e87b62d", "text": "The units of Z_84 form a group G under multiplication modulo 84. The map φ(x) =…"}
+{"answer": "3", "id": "uc2-homomorphism-kernel-image/medium/1/0dbe4ac19310", "text": "The units of Z_65 form a group G under multiplication modulo 65. The map φ(x) =…"}
+{"answer": "4", "id": "uc2-homomorphism-kernel-image/medium/2/1103652ee29f", "text": "The units of Z_16 form a group G under multiplication modulo 16. The map φ(x) =…"}
+{"answer": "125", "id": "uc2-lagranges-theorem-applications/easy/0/fae8b649db6f", "text": "Let K ≤ H ≤ G be finite groups with [G:H] = 5, [H:K] = 5 and |K| = 5. What is |…"}
+{"answer": "9", "id": "uc2-lagranges-theorem-applications/easy/1/4bb1917bf823", "text": "An element a of a group G of order 36 has order 4. Find the number of distinct …"}
+{"answer": "294", "id": "uc2-lagranges-theorem-applications/easy/2/be54dab0dc92", "text": "G is a finite group with subgroups K ≤ H ≤ G. The index of H in G is 7, the ind…"}
+{"answer": "(a) 36; (b) 18; (c) 10; (d) 90", "id": "uc2-lagranges-theorem-applications/exam/0/99e632aefc83", "text": "G is a finite group of order 180. H and K are subgroups of G with H ≤ K, where …"}
+{"answer": "(a) 12; (b) 6; (c) 6; (d) 18", "id": "uc2-lagranges-theorem-applications/exam/1/84a8fcff0bd3", "text": "G is a finite group of order 36. H and K are subgroups of G with H ≤ K, where |…"}
+{"answer": "(a) 56; (b) 14; (c) 16; (d) 112", "id": "uc2-lagranges-theorem-applications/exam/2/f2a929725c43", "text": "G is a finite group of order 224. H and K are subgroups of G with H ≤ K, where …"}
+{"answer": "36", "id": "uc2-lagranges-theorem-applications/hard/0/9e03f68488d7", "text": "Two distinct subgroups H and K of a finite group both have order 72. Find the g…"}
+{"answer": "3", "id": "uc2-lagranges-theorem-applications/hard/1/9c67540027ca", "text": "G is a group of order 180 with subgroups H and K of orders 60 and 12. By Lagran…"}
+{"answer": "4", "id": "uc2-lagranges-theorem-applications/hard/2/c0b56760fd95", "text": "G is a group of order 96 with subgroups H and K of orders 12 and 24. By Lagrang…"}
+{"answer": "44", "id": "uc2-lagranges-theorem-applications/medium/0/bdd48b20ca07", "text": "G is a finite group of order 50. Of the integers 1, 2, ..., 50, how many can La…"}
+{"answer": "33", "id": "uc2-lagranges-theorem-applications/medium/1/770f6d2ec0ab", "text": "Let G be a group of order 66 with subgroups H and K, where |H| = 11 and |K| = 3…"}
+{"answer": "27", "id": "uc2-lagranges-theorem-applications/medium/2/1b70a038c278", "text": "G is a finite group of order 36. Of the integers 1, 2, ..., 36, how many can La…"}
+{"answer": "10", "id": "uc2-orbit-stabiliser-count/easy/0/4fa9934cdcbd", "text": "Let σ = (11 9)(4 1 12 7)(10 6 8 2 5) in S_12 and let G = ⟨σ⟩ act on {1, ..., 12…"}
+{"answer": "5", "id": "uc2-orbit-stabiliser-count/easy/1/2ce91d8ff26e", "text": "Let σ = (6 1 3)(7 2 5 8 4) in S_10 and let G = ⟨σ⟩ act on {1, ..., 10}. Find th…"}
+{"answer": "7", "id": "uc2-orbit-stabiliser-count/easy/2/3301766f17c3", "text": "Let σ = (4 7 6 11 5 9 8)(10 1 2) in S_11 and let G = ⟨σ⟩ act on {1, ..., 11}. F…"}
+{"answer": "(a) 8; (b) 3; (c) 8; (d) 6", "id": "uc2-orbit-stabiliser-count/exam/0/7c4af1cbe0bf", "text": "The vertices of a regular 12-gon are labelled 0, 1, ..., 11 in order. The dihed…"}
+{"answer": "(a) 8; (b) 3; (c) 8; (d) 12", "id": "uc2-orbit-stabiliser-count/exam/1/0c6a6c9a70e7", "text": "The vertices of a regular 12-gon are labelled 0, 1, ..., 11 in order. The dihed…"}
+{"answer": "(a) 4; (b) 5; (c) 4; (d) 10", "id": "uc2-orbit-stabiliser-count/exam/2/06e5819674a2", "text": "The vertices of a regular 10-gon are labelled 0, 1, ..., 9 in order. The dihedr…"}
+{"answer": "3", "id": "uc2-orbit-stabiliser-count/hard/0/27caab9c14b5", "text": "The 9 vertices of a regular 9-gon, numbered 0, 1, ..., 8 in order, are coloured…"}
+{"answer": "7", "id": "uc2-orbit-stabiliser-count/hard/1/4100909c79ec", "text": "A regular 14-gon has its vertices 0, ..., 13 coloured RBRRRBRRBRRRBR (R red, G …"}
+{"answer": "4", "id": "uc2-orbit-stabiliser-count/hard/2/262c7aaf9f41", "text": "The 16 vertices of a regular 16-gon, numbered 0, 1, ..., 15 in order, are colou…"}
+{"answer": "5", "id": "uc2-orbit-stabiliser-count/medium/0/077233b0fa3d", "text": "The vertices of a regular 15-gon are labelled 0, 1, ..., 14 in order. The dihed…"}
+{"answer": "3", "id": "uc2-orbit-stabiliser-count/medium/1/bc18952a9947", "text": "A regular 12-gon has vertices 0, 1, ..., 11 in order. Its symmetry group D_12, …"}
+{"answer": "5", "id": "uc2-orbit-stabiliser-count/medium/2/1a0631a43515", "text": "The vertices of a regular 15-gon are labelled 0, 1, ..., 14 in order. The dihed…"}
+{"answer": "{(1, 5, 2, 4), (3, 6)}", "id": "uc2-permutation-cycle-notation/easy/0/1bda5aab53ac", "text": "The permutation σ of {1, ..., 6} sends 1, 2, ..., 6 to 5, 4, 6, 1, 2, 3 respect…"}
+{"answer": "{(1, 7, 6, 3), (2, 5, 4)}", "id": "uc2-permutation-cycle-notation/easy/1/6c931395d3b8", "text": "The permutation σ of {1, ..., 7} sends 1, 2, ..., 7 to 7, 5, 1, 2, 4, 3, 6 resp…"}
+{"answer": "{(1, 3, 4, 5), (2, 6)}", "id": "uc2-permutation-cycle-notation/easy/2/8ff584ce8574", "text": "The permutation σ of {1, ..., 6} sends 1, 2, ..., 6 to 3, 6, 4, 5, 1, 2 respect…"}
+{"answer": "(a) {(1, 6, 2, 7, 8), (3, 4)}; (b) 10; (c) 4; (d) 2", "id": "uc2-permutation-cycle-notation/exam/0/da90ff5b2318", "text": "In S_8, let σ = (2 1 7 3)(6 2 1)(6 3 8)(4 7 3), where cycles are composed right…"}
+{"answer": "(a) {(2, 8, 4, 3, 5), (6, 7)}; (b) 10; (c) 2; (d) 5", "id": "uc2-permutation-cycle-notation/exam/1/937dd1eb577c", "text": "In S_8, let σ = (4 3 6)(8 6 4)(6 7 3)(5 2 4 3), where cycles are composed right…"}
+{"answer": "(a) {(1, 2, 6, 3), (4, 7, 5)}; (b) 12; (c) 11; (d) 7", "id": "uc2-permutation-cycle-notation/exam/2/5e03052fb950", "text": "In S_8, let σ = (7 5 2)(2 4)(1 5 2)(3 2 6), where cycles are composed right to …"}
+{"answer": "{(1, 5, 7), (2, 4, 3)}", "id": "uc2-permutation-cycle-notation/hard/0/547912244a22", "text": "Compute the product (4 7 2)(7 3)(7 1 5 4) in S_7, composing the cycles right to…"}
+{"answer": "{(1, 6, 4, 5), (2, 7)}", "id": "uc2-permutation-cycle-notation/hard/1/2bdae6b2db80", "text": "In S_7, let σ = (5 1 2)(4 2 6)(1 2 7), where cycles are composed right to left …"}
+{"answer": "{(1, 4), (2, 3), (5, 7)}", "id": "uc2-permutation-cycle-notation/hard/2/3ec6333dbf6d", "text": "In S_7, let σ = (2 4 1)(3 7 2)(1 7 5 3), where cycles are composed right to lef…"}
+{"answer": "{(1, 8, 3, 4, 6), (5, 7)}", "id": "uc2-permutation-cycle-notation/medium/0/8d9303072c8f", "text": "Permutations of {1, ..., 8} are given by their images of 1, ..., 8: p = (8, 1, …"}
+{"answer": "{(1, 6), (2, 3, 4)}", "id": "uc2-permutation-cycle-notation/medium/1/0ce57d3d1bf8", "text": "Permutations of {1, ..., 8} are given by their images of 1, ..., 8: p = (6, 5, …"}
+{"answer": "{(1, 5, 6, 3, 2), (4, 7)}", "id": "uc2-permutation-cycle-notation/medium/2/2122ceeddd34", "text": "Permutations of {1, ..., 7} are given by their images of 1, ..., 7: p = (1, 5, …"}
+{"answer": "12", "id": "uc2-permutation-sign-and-order/easy/0/17cf49effaa4", "text": "The permutation σ of {1, ..., 9} sends 1, 2, ..., 9 to 9, 8, 1, 3, 6, 7, 5, 2, …"}
+{"answer": "6", "id": "uc2-permutation-sign-and-order/easy/1/425450e5d662", "text": "The permutation σ of {1, ..., 9} sends 1, 2, ..., 9 to 1, 8, 7, 9, 3, 2, 5, 6, …"}
+{"answer": "6", "id": "uc2-permutation-sign-and-order/easy/2/a6f1c041019f", "text": "The permutation σ of {1, ..., 12} sends 1, 2, ..., 12 to 11, 4, 5, 9, 3, 6, 7, …"}
+{"answer": "(a) 15; (b) 6; (c) 5; (d) 46", "id": "uc2-permutation-sign-and-order/exam/0/743cb3fa271d", "text": "The permutation σ of {1, ..., 9} sends 1, 2, ..., 9 to 7, 6, 3, 5, 9, 8, 2, 1, …"}
+{"answer": "(a) 15; (b) 6; (c) 5; (d) 30", "id": "uc2-permutation-sign-and-order/exam/1/41e1607bce67", "text": "The permutation σ of {1, ..., 9} sends 1, 2, ..., 9 to 4, 6, 5, 3, 9, 7, 2, 8, …"}
+{"answer": "(a) 20; (b) 7; (c) 2; (d) 36", "id": "uc2-permutation-sign-and-order/exam/2/fba31953402a", "text": "The permutation σ of {1, ..., 9} sends 1, 2, ..., 9 to 7, 3, 6, 8, 9, 4, 5, 2, …"}
+{"answer": "14", "id": "uc2-permutation-sign-and-order/hard/0/f25dead700f0", "text": "The permutation σ of {1, ..., 13} sends 1, 2, ..., 13 to 6, 4, 8, 9, 1, 7, 13, …"}
+{"answer": "12", "id": "uc2-permutation-sign-and-order/hard/1/054fc98367e8", "text": "The permutation σ of {1, ..., 13} sends 1, 2, ..., 13 to 13, 4, 9, 5, 12, 7, 10…"}
+{"answer": "21", "id": "uc2-permutation-sign-and-order/hard/2/3067798a0cb4", "text": "The permutation σ of {1, ..., 13} sends 1, 2, ..., 13 to 4, 9, 1, 8, 12, 10, 5,…"}
+{"answer": "4", "id": "uc2-permutation-sign-and-order/medium/0/d7d7e47a4474", "text": "Five permutations in S_9 are written as products of disjoint cycles: (a) (4 7 1…"}
+{"answer": "1", "id": "uc2-permutation-sign-and-order/medium/1/e45e685b6bdb", "text": "Five permutations in S_10 are written as products of disjoint cycles: (a) (10 5…"}
+{"answer": "2", "id": "uc2-permutation-sign-and-order/medium/2/b84f680b0d6d", "text": "Five permutations in S_10 are written as products of disjoint cycles: (a) (2 10…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}

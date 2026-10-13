@@ -1,0 +1,95 @@
+id: uc2-dihedral-group-compositions
+name: Multiply elements of a dihedral group
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Multiply elements r^i s^j of the dihedral group D_n using s r = r^(-1) s, giving the product as
+  the pair (i, j): two elements, a word of five or six factors, a conjugate and a commutator. The
+  exam chain multiplies two reflections and follows through to the order of the product, the index
+  of the subgroup it generates and the order of a commutator.
+status: active
+placement_eligible: false
+prerequisites:
+- permutation-composition
+- cyclic-group-element-order
+answer: ordered_list
+sources:
+- topic: r4a_dihedral_group_compositions
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_dihedral_group_compositions
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_dihedral_group_compositions
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_dihedral_group_compositions
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dihedral-assumes-conjugation-fixes-element
+  description: >-
+    Taking the conjugate of an element to be the element itself, as if g and x commuted.
+- id: dihedral-assumes-elements-commute
+  description: >-
+    Taking the commutator to be the identity, as if the two elements commuted.
+- id: dihedral-commutator-order-as-product-order
+  description: >-
+    Taking the order of the commutator to be the order of the product, when it is the order of its
+    square.
+- id: dihedral-commutator-stops-at-product
+  description: >-
+    Stopping at the product xy and not multiplying by the inverses to complete the commutator.
+- id: dihedral-conjugation-by-inverse
+  description: >-
+    Conjugating by the inverse of g, g^(-1) x g, where g x g^(-1) was asked for.
+- id: dihedral-index-uses-n-not-2n
+  description: >-
+    Using n instead of 2n as the order of the dihedral group when finding an index.
+- id: dihedral-inverse-taken-as-self
+  description: >-
+    Replacing each inverse in a commutator by the element itself, which is only right for a
+    reflection.
+- id: dihedral-order-of-rotation-taken-as-n
+  description: >-
+    Giving n as the order of every rotation, as if it generated all the rotations.
+- id: dihedral-order-read-as-exponent
+  description: >-
+    Giving the exponent i of the rotation r^i as its order.
+- id: dihedral-product-order-reversed
+  description: >-
+    Multiplying the factors in the opposite order, which gives a different element because the
+    dihedral group is not abelian.
+- id: dihedral-reflection-count-wrong
+  description: >-
+    Getting the parity of the number of reflections wrong, so a rotation is reported as a reflection
+    or the reverse.
+- id: dihedral-reflection-not-moved-past-rotation
+  description: >-
+    Adding the rotation exponents without flipping the sign of the second one when a reflection s is
+    moved past a rotation (using s r = r s instead of s r = r^(-1) s).
+- id: dihedral-sign-flip-on-wrong-factor
+  description: >-
+    Applying the sign change to the first rotation exponent instead of the one that the reflection
+    is moved past.
+- id: index-confused-with-subgroup-order
+  description: >-
+    Reporting the order of the subgroup where its index was asked.
+- id: index-of-trivial-subgroup-confusion
+  description: >-
+    Reporting the order of the whole group, the index of the trivial subgroup, as the index.
+tags: [university-core-v1, university-year-2, abstract-algebra, dihedral-group, group-products]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

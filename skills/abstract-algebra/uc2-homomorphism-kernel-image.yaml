@@ -1,0 +1,89 @@
+id: uc2-homomorphism-kernel-image
+name: Find the kernel and image of a homomorphism
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Find the order of the kernel or image of an explicit homomorphism between small abelian groups: x
+  to kx between cyclic groups, the power map on the units modulo n, and a map from a product of
+  cyclic groups that is not onto. The exam chain finds the image, kernel and fibre sizes and the
+  least preimage of an element.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-finite-subgroup-test
+- cyclic-group-element-order
+answer: number
+sources:
+- topic: r4a_homomorphism_kernel_image
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_homomorphism_kernel_image
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_homomorphism_kernel_image
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_homomorphism_kernel_image
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: image-order-confused-with-kernel-order
+  description: >-
+    Giving the order of the kernel where the order of the image was asked.
+- id: image-order-divides-by-exponent
+  description: >-
+    Dividing the order of the group by the exponent of a power map to find the order of its image.
+- id: image-order-read-as-gcd
+  description: >-
+    Giving the gcd of the multiplier and the modulus as the order of the image, when it is the
+    modulus divided by the gcd.
+- id: image-order-whole-codomain
+  description: >-
+    Taking the image to be the whole codomain.
+- id: image-order-whole-domain
+  description: >-
+    Taking the image to have as many elements as the domain.
+- id: kernel-order-assumes-one-to-one
+  description: >-
+    Taking the kernel to be trivial, as if the homomorphism were one-to-one.
+- id: kernel-order-assumes-surjective
+  description: >-
+    Dividing the order of the domain by the order of the codomain to find the kernel, as if the map
+    were onto.
+- id: kernel-order-confused-with-image-order
+  description: >-
+    Giving the order of the image where the order of the kernel was asked.
+- id: kernel-order-gcd-with-codomain-only
+  description: >-
+    Giving gcd(k, n) as the order of the kernel, using the multiplier and the codomain but not the
+    domain.
+- id: kernel-order-whole-domain
+  description: >-
+    Taking the kernel to be the whole domain.
+- id: preimage-count-assumes-one-to-one
+  description: >-
+    Counting one preimage for each element, as if the homomorphism were one-to-one.
+- id: preimage-count-one-fibre-only
+  description: >-
+    Counting the preimage of only one of two elements of the image.
+- id: preimage-greatest-not-least
+  description: >-
+    Giving the greatest solution where the least non-negative one was asked.
+- id: preimage-taken-as-the-image
+  description: >-
+    Reading the target value as the element that maps to it.
+tags: [university-core-v1, university-year-2, abstract-algebra, homomorphism, kernel, first-isomorphism-theorem]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
