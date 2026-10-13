@@ -36,6 +36,7 @@ sources:
     lo2: -12
     hi2: 12
   difficulty: medium
+  key: multiplication
   stages:
   - 3
   - 4
