@@ -57,6 +57,11 @@ def _brute_force(a: int, b: int):
     )
 
 
+def _a(word: str) -> str:
+    """The indefinite article for a colour word."""
+    return "an" if word[:1].lower() in "aeiou" else "a"
+
+
 def _build(rng: random.Random, cols: tuple, noun: str, plural: str) -> dict:
     for _ in attempts(300, "a tree whose answers stay off the figure"):
         t = rng.randint(6, 16)
@@ -82,7 +87,7 @@ def _build(rng: random.Random, cols: tuple, noun: str, plural: str) -> dict:
     stem = phrase(rng, _STEMS, c1=c1, c2=c2, noun=noun, plural=plural)
     r_t = rational_text
     part_a = fraction_part(
-        f"Find the missing probability on the branch for a {c1} {noun} on the first draw.",
+        f"Find the missing probability on the branch for {_a(c1)} {c1} {noun} on the first draw.",
         key_a,
         1,
         [
@@ -96,12 +101,12 @@ def _build(rng: random.Random, cols: tuple, noun: str, plural: str) -> dict:
         ],
     )
     part_b = fraction_part(
-        f"Find the missing probability on the branch for a {c2} {noun} on the second draw, after a {c2} {noun} on "
+        f"Find the missing probability on the branch for {_a(c2)} {c2} {noun} on the second draw, after {_a(c2)} {c2} {noun} on "
         "the first draw.",
         key_b,
         1,
         [
-            f"After a {c2} {noun} is removed the second-draw branches add to 1: 1 - {r_t(second[1][0])} = {r_t(key_b)}.",
+            f"After {_a(c2)} {c2} {noun} is removed the second-draw branches add to 1: 1 - {r_t(second[1][0])} = {r_t(key_b)}.",
         ],
         [
             (second[1][0], "gives-the-sibling-branch"),

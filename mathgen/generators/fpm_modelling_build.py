@@ -47,6 +47,11 @@ class _Short(Exception):
     """A draw that cannot give three distinct wrong options; the generator redraws."""
 
 
+def _an(text: str) -> str:
+    """'a $8' -> 'an $8': the article before an amount that is spoken with a vowel sound (8, 11, 18, 80-89)."""
+    return re.sub(r"\b([aA]) (?=\$(?:11|18|8\d?)(?!\d))", lambda m: m.group(1) + "n ", text)
+
+
 def _redraw(fn):
     @functools.wraps(fn)
     def wrapper(rng, *args, **kwargs):
@@ -241,7 +246,7 @@ def fpm_translate_equation(rng, tier: str = "easy"):
                 (f"{v} - {b}", "uses-the-wrong-operation-for-the-change"),
                 (f"{v} + {b}", "uses-the-wrong-operation-for-the-change"),
             ]
-        story = story_fmt.format(a="", b=b, T=total)
+        story = _an(story_fmt.format(a="", b=b, T=total))
         _verify_expression(answer, v, x0, total)
         working = [
             f"Name the unknown {v}, the number of {what}.",
@@ -285,7 +290,7 @@ def fpm_translate_equation(rng, tier: str = "easy"):
             ]
             if total <= 0:
                 raise _Short
-        story = story_fmt.format(a=a, b=b if kind != "share" else 0, T=total, k=k if kind == "share" else 0)
+        story = _an(story_fmt.format(a=a, b=b if kind != "share" else 0, T=total, k=k if kind == "share" else 0))
         _verify_expression(answer, v, x0, total)
         working = [
             f"Let {v} be the number of {what}." if kind != "share" else f"Let {v} be Tom's number.",
@@ -390,7 +395,7 @@ def fpm_translate_equation_exam(rng):
     check(saving > 0, "the cheaper rate must save money")
     answer = join_terms([(b, v), (a, "")])
     _verify_expression(answer, v, x0, total)
-    story = story_fmt.format(a=a, b=b, T=total)
+    story = _an(story_fmt.format(a=a, b=b, T=total))
     stem = f"{story} A second supplier charges ${c} for each {single}, with no other charge."
     a_d = _expr_distractors(
         answer,
@@ -743,7 +748,7 @@ def _lm_hard(rng):
             if 20 <= a <= 400:
                 break
         check(a + b * n == c * n, "the plans do not agree at n")
-        text = f"{story.format(a=a, b=b, c=c)} For how many {unit} do the two cost exactly the same?"
+        text = f"{_an(story.format(a=a, b=b, c=c))} For how many {unit} do the two cost exactly the same?"
         distractors = _num_distractors(
             n,
             [

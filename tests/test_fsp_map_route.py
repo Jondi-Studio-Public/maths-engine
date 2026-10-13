@@ -181,7 +181,10 @@ def test_exam_answers_recomputed_from_the_map():
         a, b, c = (places[n] for n in _in_order(q.stem, places)[:3])
         s = _scale(q.stem)
         first, second = abs(b[0] - a[0]) * s, abs(c[1] - b[1]) * s
-        assert b[1] == a[1] and c[0] == b[0] and c[0] > a[0] and c[1] > a[1]
+        assert b[1] == a[1] and c[0] == b[0]
+        # the stem names the directions of the two legs, and the drawn legs go that way
+        assert ("due east" in q.stem) == (b[0] > a[0]) and ("due west" in q.stem) == (b[0] < a[0])
+        assert ("due north" in q.stem) == (c[1] > b[1]) and ("due south" in q.stem) == (c[1] < b[1])
         angle = round(math.degrees(math.atan2(a[0] - c[0], a[1] - c[1]))) % 360
         assert [int(p.answer_text) for p in q.parts] == [first, second, first + second, angle], (seed, q.text)
 
@@ -207,6 +210,10 @@ def test_exam_follow_through_from_a_wrong_first_leg():
         result = grade(_SKILL, q, {**canon, "a": str(wrong), "c": str(wrong + second)})
         assert result.parts["a"].marks == 0
         assert result.parts["c"].marks == q.parts[2].marks and result.parts["c"].follow_through
+
+
+def test_exam_legs_and_bearing_vary():
+    assert len({int(_exam(s).parts[3].answer_text) for s in range(60)}) == 4
 
 
 def test_exam_prompts_vary():

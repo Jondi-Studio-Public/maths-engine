@@ -20,6 +20,8 @@ one decimal place and the stated precision of the key is its true value.
 
 from __future__ import annotations
 
+import math
+
 import functools
 from fractions import Fraction
 
@@ -181,7 +183,7 @@ def fpm_relative_frequency(rng, tier: str = "easy"):
     check(Fraction(total - sum(outside), total) == p, "relative frequency disagrees with the complement route")
     check(0 < p < 1, "estimate is not a proper probability")
 
-    table = ", ".join(f"{cat} {n}" for cat, n in zip(cats, counts))
+    table = ", ".join(f"{cat}: {n}" for cat, n in zip(cats, counts))
     event = _event(ctx, [cats[j] for j in chosen], negate)
     stem = f"{ctx['lead']} The results were: {table}. " + phrase(rng, _FREQ_ASK, event=event)
 
@@ -271,7 +273,7 @@ def _freq_hard(rng, ctx):
     # second route: the event is everything except the categories outside it
     check(p == 1 - Fraction(sum(shares[j] for j in range(k) if j not in (missing, other)), 100), "second route differs")
 
-    shown = ", ".join(f"{cats[j]} {shares[j]}%" for j in range(k) if j != missing)
+    shown = ", ".join(f"{cats[j]}: {shares[j]}%" for j in range(k) if j != missing)
     event = ctx["pos"].format(c=_join_or([cats[i] for i in sorted((missing, other))]))
     stem = (
         f"{ctx['lead']} The relative frequencies of the results were: {shown}. "
@@ -313,6 +315,13 @@ _DIE_UNIONS = (
 _ANGLES = (30, 40, 45, 60, 72, 75, 80, 90, 108, 120, 135, 150)
 _EO_SPINNER_M = ((5, 1), (5, 2), (8, 3), (8, 5), (10, 3), (10, 7), (4, 1), (6, 1))
 _EO_BAGS = ((3, 5, 2), (4, 3, 5), (6, 4, 5), (5, 5, 5), (7, 3, 2), (2, 6, 7))
+
+
+def _plausible_delta(rng, n: int, p: Fraction, expected: int) -> int:
+    """A gap between observed and expected counts that a real experiment could produce: at most two standard
+    deviations of a count of ``n`` trials (so a fair die is never 'observed' far from its expected value)."""
+    sd = math.sqrt(n * float(p) * (1 - float(p)))
+    return rng.randint(3, max(4, min(int(2 * sd), expected - 1)))
 
 
 def _device_simple(rng):
@@ -480,7 +489,7 @@ def fpm_expected_vs_observed(rng, tier: str = "easy"):
             distractors=distractors,
         )
 
-    delta = rng.randint(3, max(4, expected // 4))
+    delta = _plausible_delta(rng, n, p, expected)
     sign = rng.choice([-1, 1])
     observed = expected + sign * delta
     check(observed > 0 and observed != expected, "observed count is not a plausible different count")
@@ -521,7 +530,7 @@ def fpm_expected_observed_exam(rng):
     p = dev["p"]
     n = _n_for(p, rng, 80, 600)
     expected = int(p * n)
-    delta = rng.randint(3, max(4, expected // 4))
+    delta = _plausible_delta(rng, n, p, expected)
     observed = expected + rng.choice([-1, 1]) * delta
     check(observed > 0, "observed count must be positive")
     need = _n_for(p, rng, 150, 1500)
@@ -652,12 +661,12 @@ _SS_CONTEXTS = (
 )
 _SS_UNKNOWN = (
     dict(
-        action="took {n} free throws.",
+        action="took {n} free throws from the same line.",
         result="{s} of the throws were scored.",
         unit="throw",
         p=None,
         hidden=Fraction(13, 20),
-        thing="the probability that this player scores a free throw",
+        thing="the probability that a free throw from that line scores",
     ),
     dict(
         action="dropped a drawing pin {n} times.",

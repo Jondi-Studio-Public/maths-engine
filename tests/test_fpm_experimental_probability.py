@@ -107,7 +107,7 @@ def rel_oracle(text: str) -> Fraction:
         body = text.split("The relative frequencies of the results were: ")[1].split(". The relative")[0]
         shares = {}
         for item in body.split(", "):
-            name, pct = item.rsplit(" ", 1)
+            name, pct = item.rsplit(": ", 1)
             shares[name] = int(pct.rstrip("%"))
         missing = re.search(r"relative frequency for (.+?) was not recorded", text).group(1)
         shares[missing] = 100 - sum(shares.values())
@@ -117,7 +117,7 @@ def rel_oracle(text: str) -> Fraction:
         body = text.split("The results were: ")[1].split(". ")[0]
         counts = {}
         for item in body.split(", "):
-            name, n = item.rsplit(" ", 1)
+            name, n = item.rsplit(": ", 1)
             counts[name] = int(n)
         total = sum(counts.values())
     chosen = _categories_in(event, list(counts))

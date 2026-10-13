@@ -362,15 +362,17 @@ figures.register_reader("fsp_map_route", _read_map)
 
 @generator("fsp_map_route_exam", level=9, presets={"exam": {}})
 def fsp_map_route_exam(rng):
-    """A walk due east and then due north on a grid map: each leg, the whole walk, then the bearing of the start from
-    the finish."""
-    for _ in attempts(1000, "a walk east then north with equal legs' squares apart from the decoys"):
+    """A walk due east or west and then due north or south on a grid map: each leg, the whole walk, then the bearing
+    of the start from the finish."""
+    first, second = rng.choice(("east", "west")), rng.choice(("north", "south"))
+    sx, sy = _DIRS[first][0], _DIRS[second][1]
+    for _ in attempts(1000, "a walk with equal legs whose places are clear of the decoys"):
         width, height, pts = _layout(rng, 4)
         a = pts[0]
         n1 = rng.randint(2, 6)
         n2 = n1  # equal legs make the straight line back a diagonal, so its bearing is a whole 45 degrees
-        b = (a[0] + n1, a[1])
-        c = (b[0], b[1] + n2)
+        b = (a[0] + sx * n1, a[1])
+        c = (b[0], b[1] + sy * n2)
         decoys = pts[2:]
         if _inside(b, width, height) and _inside(c, width, height) and not ({b, c} & set(decoys)):
             break
@@ -380,17 +382,17 @@ def fsp_map_route_exam(rng):
     leg = n1 * s
     total = 2 * leg
     back = bearing(a[0] - c[0], a[1] - c[1])
-    check(back == 225, "the start is not south-west of the finish")
+    check(back == _EIGHT[(-sx, -sy)], "the start is not on the expected diagonal from the finish")
     stem = phrase(
         rng,
         (
-            "{who} walks from the {a} due east to the {b}, then due north to the {c}, on the map shown. Each grid "
+            "{who} walks from the {a} due {d1} to the {b}, then due {d2} to the {c}, on the map shown. Each grid "
             "square is {s} km across.",
-            "On the map shown, each grid square is {s} km across. {who}'s walk goes from the {a} due east to the "
-            "{b} and then due north to the {c}.",
-            "The map shown has grid squares {s} km across. {who} sets out from the {a}, walks due east to the {b} "
-            "and finishes by walking due north to the {c}.",
-            "{who} hikes from the {a} to the {b}, due east, and on to the {c}, due north. Each grid square on the "
+            "On the map shown, each grid square is {s} km across. {who}'s walk goes from the {a} due {d1} to the "
+            "{b} and then due {d2} to the {c}.",
+            "The map shown has grid squares {s} km across. {who} sets out from the {a}, walks due {d1} to the {b} "
+            "and finishes by walking due {d2} to the {c}.",
+            "{who} hikes from the {a} to the {b}, due {d1}, and on to the {c}, due {d2}. Each grid square on the "
             "map shown is {s} km across.",
         ),
         who=rng.choice(_NAMES),
@@ -398,6 +400,8 @@ def fsp_map_route_exam(rng):
         b=names[1],
         c=names[2],
         s=s,
+        d1=first,
+        d2=second,
     )
 
     def part(prompt, value, marks, working, candidates, **extra):
@@ -461,13 +465,18 @@ def fsp_map_route_exam(rng):
             back,
             2,
             [
-                f"The {names[0]} is as far south as it is west of the {names[2]}, so it lies south-west of it.",
-                "South-west is 225 degrees, measured clockwise from north.",
+                f"The {names[0]} is as far {_OPPOSITE[second]} as it is {_OPPOSITE[first]} of the {names[2]}, so it "
+                f"lies {_compass((-sx, -sy))} of it.",
+                f"{_compass((-sx, -sy)).capitalize()} is {back} degrees, measured clockwise from north.",
             ],
             [
-                Distractor("45", "map-bearing-not-reversed", 45),
-                Distractor("135", "map-bearing-reversed-wrong", 135),
-                Distractor("315", "map-bearing-anticlockwise", 315),
+                Distractor(str((back + 180) % 360), "map-bearing-not-reversed", (back + 180) % 360),
+                Distractor(str((360 - back) % 360), "map-bearing-anticlockwise", (360 - back) % 360),
+                Distractor(
+                    str(next(v for v in (45, 135, 225, 315) if v not in (back, (back + 180) % 360, 360 - back))),
+                    "map-bearing-reversed-wrong",
+                    next(v for v in (45, 135, 225, 315) if v not in (back, (back + 180) % 360, 360 - back)),
+                ),
             ],
         ),
     ]
