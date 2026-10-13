@@ -138,8 +138,8 @@ def test_tiers_differ_in_shape():
     medium = [_q("medium", s).text for s in range(30)]
     hard = [_q("hard", s).text for s in range(30)]
     assert all("satisfy I_k = ((k - 1)/k)" in t for t in easy)  # a homogeneous formula, given
-    assert all("satisfy K_k" in t and "e^" in t for t in medium)  # a formula with a boundary term, given
-    assert not any("satisfy" in t for t in hard)  # the formula has to be derived
+    assert all("e^" in t and "K_(k-1)" in t for t in medium)  # a formula with a boundary term, given
+    assert not any("satisfy" in t or "K_(k-1)" in t or "I_(k-1)" in t for t in hard)  # the formula has to be derived
 
 
 @pytest.mark.parametrize("tier", TIERS)
