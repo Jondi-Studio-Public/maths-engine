@@ -57,7 +57,6 @@ include-package-data = false
 "mathgen._skills" = "skills"
 
 [tool.setuptools.package-data]
-"mathgen" = ["figure_schema.json"]
 "mathgen._skills" = ["*.yaml", "*/*.yaml"]
 
 [tool.pytest.ini_options]

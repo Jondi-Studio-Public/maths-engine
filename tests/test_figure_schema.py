@@ -1,4 +1,4 @@
-"""The published JSON Schema (`mathgen/figure_schema.json`) describes every figure the engine draws."""
+"""The published JSON Schema (`mathgen/figure_schema.py`) describes every figure the engine draws."""
 
 from __future__ import annotations
 

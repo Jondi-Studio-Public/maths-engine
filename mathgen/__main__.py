@@ -296,6 +296,11 @@ def _run(argv):
     g.add_argument("--all", action="store_true", help="generate for every registered topic")
     g.add_argument("--list", action="store_true", help="list topics and exit")
     g.add_argument(
+        "--figure-schema",
+        action="store_true",
+        help="print the JSON Schema for figure specs (see docs/figures.md) and exit",
+    )
+    g.add_argument(
         "--skills",
         action="store_true",
         help="list skill ids (domain/id, status) and exit; exits non-zero if a skill file does not load",
@@ -344,6 +349,12 @@ def _run(argv):
         ):
             if given:
                 ap.error(f"{flag} does not apply to {mode}; it is for --topic, --level and --all")
+
+    if args.figure_schema:
+        from .figures import schema
+
+        print(json.dumps(schema(), ensure_ascii=False, indent=2))
+        return 0
 
     if args.list:
         for lvl, t in topics():

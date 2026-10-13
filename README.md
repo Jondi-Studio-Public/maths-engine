@@ -161,7 +161,7 @@ the maths, a long question wraps on a phone.
 
 Figures come as standalone SVG with no scripts or external files, themeable
 through CSS variables, with the alt text as the SVG's title. To draw them
-yourself instead, `figure["spec"]` follows `mathgen/figure_schema.json`; see
+yourself instead, `figure["spec"]` follows a JSON Schema (`python -m mathgen --figure-schema`); see
 [docs/figures.md](docs/figures.md). From the command line:
 
 ```

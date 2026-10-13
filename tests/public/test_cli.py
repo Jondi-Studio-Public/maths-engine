@@ -531,3 +531,8 @@ def test_svg_for_a_question_without_a_figure_is_an_error(capsys, tmp_path):
 def test_present_and_svg_need_a_skill(capsys, flag):
     code, err = run_error(capsys, "--topic", "quadratic", *flag)
     assert code == 2 and "needs --skill" in err
+
+
+def test_figure_schema_prints_the_schema(capsys):
+    code, out, _ = run(capsys, "--figure-schema")
+    assert code == 0 and json.loads(out)["$schema"].startswith("https://json-schema.org/")

@@ -2,7 +2,7 @@
 
 A question can carry a figure: a graph, a clock, a chart, a diagram. The engine describes it as a JSON object called a figure spec. This guide is for developers who show those figures in their own platform.
 
-A spec holds every number and label that is drawn. You never need to do maths to draw it. The machine-readable description is [`mathgen/figure_schema.json`](../mathgen/figure_schema.json) (JSON Schema, draft 2020-12). From Python, `mathgen.figures.schema()` returns it as a dict.
+A spec holds every number and label that is drawn. You never need to do maths to draw it. The machine-readable description is a JSON Schema (draft 2020-12): `python -m mathgen --figure-schema > figure_schema.json` writes it, and from Python `mathgen.figures.schema()` returns it as a dict. Its source is [`mathgen/figure_schema.py`](../mathgen/figure_schema.py).
 
 The schema checks structure, types and ranges. The engine also checks relations a schema cannot state, such as `min < max`, or hand angles that match the time. Call `mathgen.figures.validate(spec)` for the full check. It returns a list of problems, empty when the spec is valid.
 
