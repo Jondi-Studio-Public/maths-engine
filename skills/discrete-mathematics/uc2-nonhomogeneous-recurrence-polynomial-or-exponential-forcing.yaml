@@ -1,0 +1,76 @@
+id: uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing
+name: Recurrences with polynomial or exponential forcing
+domain: discrete-mathematics
+year_level:
+- university
+description: Solve a linear recurrence whose forcing term varies with n, a polynomial or an exponential, for a closed form
+  in n, including the resonant case where the forcing matches a characteristic root. The exam chain finds the roots, the particular
+  solution, the closed form and a later term.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-recurrence-two-step
+- ucv1-second-order-characteristic-roots
+answer: expression
+sources:
+- topic: r4j_forced_recurrence
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4j_forced_recurrence
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4j_forced_recurrence
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4j_forced_recurrence
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: recurrence-coefficients-as-roots
+  description: Reading the coefficients of a recurrence as the roots of its characteristic equation.
+- id: recurrence-coefficients-swapped
+  description: Attaching the two fitted constants of a recurrence solution to the wrong characteristic roots.
+- id: recurrence-forcing-ignored
+  description: Solving only the homogeneous recurrence and leaving out the forcing term that varies with n.
+- id: recurrence-forcing-used-as-particular
+  description: Taking the forcing term itself as the particular solution without substituting to find its coefficients.
+- id: recurrence-index-off-by-one
+  description: Returning the term next to the one asked for from a recurrence or its closed form.
+- id: recurrence-particular-coefficient-slip
+  description: Solving for the coefficient of the particular solution of a forced recurrence and making an arithmetic slip,
+    so the closed form no longer satisfies the recurrence.
+- id: recurrence-particular-not-fitted
+  description: Adding the particular solution after fitting the homogeneous constants to the starting terms, instead of fitting
+    them to the sum.
+- id: recurrence-particular-sign
+  description: Finding the particular solution of a forced recurrence with the wrong sign.
+- id: recurrence-resonance-power-dropped
+  description: Trying a particular solution with one power of n too few when the forcing term matches a root of the homogeneous
+    equation.
+- id: recurrence-root-sign
+  description: Taking the characteristic roots with the wrong sign.
+difficulty_progression: Easy is first order with an exponential forcing term that is not a root. Medium is first order with
+  either a linear forcing term or a resonant exponential. Hard is second order, with a linear forcing term, a forcing term
+  equal to a root, or a linear forcing term with 1 as a root. The exam chain finds the roots, the particular solution, the
+  closed form and a later term, following the closed form through.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- recurrence-relations
+- nonhomogeneous
+- undetermined-coefficients
+- closed-form
