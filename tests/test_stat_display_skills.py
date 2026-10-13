@@ -322,6 +322,11 @@ def test_pie_chart_sectors_are_countable_slices():
 # ------------------------------------------------------------------ the converted skills draw their data
 
 
+# The histogram skill's exam tier is the r2k frequency-table chain, which draws no figure, and
+# its easy tier names the shape in words, so only its medium and hard sources draw.
+_DRAWN_SOURCES = {"senior-compare-the-characteristics-of-the-shape-of-histograms": 2}
+
+
 def test_converted_skills_register_readers_and_draw_figures():
     for skill_id, (topic, kind) in CONVERTED.items():
         assert figures.get_reader(topic) is not None
@@ -333,7 +338,7 @@ def test_converted_skills_register_readers_and_draw_figures():
                 assert q.figure["kind"] == kind
                 assert figures.get_reader(topic)(q) == q.answer_text
                 drawn += 1
-        assert drawn >= 3
+        assert drawn >= _DRAWN_SOURCES.get(skill_id, 3), (skill_id, drawn)
 
 
 def test_line_graph_values_sit_on_gridlines_and_are_not_listed():
