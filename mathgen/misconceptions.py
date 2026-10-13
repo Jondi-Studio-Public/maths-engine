@@ -45,6 +45,201 @@ _ENTRIES = (
     ),
     # -- first-year multivariable, 3D geometry and statistics --
     CatalogueEntry(
+        "plane-constant-sign",
+        "Giving the constant of the plane with the wrong sign, as if the normal had been found in the opposite direction.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-middle-sign-slip",
+        "Forgetting the minus sign on the middle component of a cross product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-componentwise",
+        "Multiplying two vectors component by component and calling the result the cross product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-components-swapped",
+        "Writing the components of a cross product in the wrong order, such as (a, c, b) for (a, b, c).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "cross-product-reversed-order",
+        "Taking the cross product in the wrong order, so the normal vector points the opposite way.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "plane-constant-sum-of-points",
+        "Dotting the normal with the sum of the three points instead of with one of them.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-sign-in-numerator",
+        "Adding n·A to the plane's constant instead of subtracting it when solving for the parameter where a line meets a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-not-divided-by-direction-dot",
+        "Stopping at k - n·A without dividing by n·u, the rate at which the line moves through the plane's values.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-ratio-inverted",
+        "Dividing in the wrong order: (n·u)/(k - n·A) where (k - n·A)/(n·u) is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-point-term-forgotten",
+        "Leaving the line's starting point out of the substitution into the plane's equation: solving k = (n·u)t.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-between-planes-supplement",
+        "Giving the obtuse angle 180° - θ where the acute angle between the planes or the line and the plane was asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-between-planes-sine-used",
+        "Using sine where cosine belongs (or the reverse), which gives 90° - θ for the angle between the normals.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-between-planes-constants-included",
+        "Including the constants of the two plane equations in the vectors whose angle is found, instead of only the normals.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "angle-given-in-radians",
+        "Leaving an angle in radians when degrees were asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-angle-cosine-used",
+        "Finding the angle between the line and the plane's normal (using cosine) and giving it as the angle between the line and the plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "line-plane-angle-tangent-used",
+        "Using the inverse tangent of |n·u|/(|n||u|) in place of the inverse sine for the angle between a line and a plane.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "polar-jacobian-omitted",
+        "Integrating in polar coordinates without the extra factor r from dA = r dr dθ.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-angular-factor-ignored",
+        "Replacing the integral of the angular factor (cos θ, sin θ, ...) by the width of the angle range, as if the integrand did not depend on the angle.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-angle-factor-forgotten",
+        "Integrating over r but never multiplying by the integral over the angle.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-angle-halved",
+        "Using an angle range of half the size needed: π for a whole disc, π/2 for a half disc, or π/4 for a quarter disc.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-inner-radius-ignored",
+        "Using 0 as the lower radius for a ring, so the hole in the middle is included.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-ring-difference-before-power",
+        "Raising the difference of the radii to the power, (b - a)^n, instead of taking the difference of the powers, b^n - a^n.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-radius-limit-squared",
+        "Using x² + y² = R² as r² = R, so that the upper limit of r is R² instead of R.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "integrand-boundary-value-times-area",
+        "Multiplying the area of the region by the value of the integrand on its outer edge instead of integrating.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-quadrant-angle-forgotten",
+        "Using the whole circle, 2π, as the angle range for a region that is only a quarter of it.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "substitution-factor-half-dropped",
+        "Integrating r·e^(-r²) as e^(-r²) without the factor 1/2 that the substitution u = r² gives.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-gaussian-limit-not-squared",
+        "Substituting r = R instead of r² = R² into the antiderivative of r·e^(-r²).",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-gaussian-complement-sign",
+        "A sign slip in e^(-R²) in the value (1 - e^(-R²))/2: adding it, or subtracting in the other order.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-gaussian-bound-ignored",
+        "Taking the radius of the region to infinity so that the e^(-R²) term disappears.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-bound-radius-from-height",
+        "Using the height of the surface, instead of the radius where it meets the plane z = 0, as the outer radius of the region.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "volume-as-base-area-times-peak-height",
+        "Giving the volume as the area of the base times the greatest height of the solid.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "polar-substitution-x-as-r-squared",
+        "Writing x as r² in polar coordinates instead of r cos θ.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-not-divided-by-area",
+        "Giving the first moment ∬ x dA as the centroid coordinate, without dividing by the area.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "mean-position-ratio-inverted",
+        "Dividing the area by the first moment instead of the first moment by the area.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "mean-position-divided-by-pi",
+        "Dividing a first moment by a full-circle area where the area of the plate itself belongs.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-uses-one-coordinate",
+        "Giving the x-coordinate of a centroid where the distance from the origin was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-coordinates-added",
+        "Adding the two coordinates of the centroid instead of using Pythagoras' theorem for the distance.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-root-forgotten",
+        "Giving x² + y² for a distance without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "centroid-distance-divided-by-root-two",
+        "Dividing the x-coordinate by √2 instead of multiplying, when the distance is the hypotenuse of two equal sides.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
         "chain-rule-inner-derivatives-omitted",
         "Adding the two partial derivatives of z without multiplying each by the derivative of its variable with respect to the parameter.",
         area="multivariable",

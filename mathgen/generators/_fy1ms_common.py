@@ -121,23 +121,44 @@ def clear_of_tie(value, dp: int, margin: Fraction = Fraction(1, 10)) -> bool:
     return abs(frac - Fraction(1, 2)) > margin
 
 
-class TooFewDistractors(VerificationError):
-    """A draw whose wrong answers collapse onto the right one or onto each other: redraw it (see `build_until`)."""
+class Redraw(VerificationError):
+    """This draw is unusable (see `build_until`); the generator should try another."""
+
+
+class TooFewDistractors(Redraw):
+    """A draw whose wrong answers collapse onto the right one or onto each other."""
 
 
 def build_until(rng: random.Random, build, what: str, tries: int = 300):
-    """`build(rng)`, redrawn while it raises `TooFewDistractors`. Any other error is a real failure and propagates."""
+    """`build(rng)`, redrawn while it raises `Redraw`. Any other error is a real failure and propagates."""
     for _ in attempts(tries, what):
         try:
             return build(rng)
-        except TooFewDistractors:
+        except Redraw:
             continue
     raise AssertionError("unreachable")  # pragma: no cover
+
+
+def ft_close(follow_value, answer_text: str, dp: int) -> None:
+    """Redraw unless a learner's follow-through value (worked from the earlier parts' ROUNDED answers) rounds to
+    within one unit of the last place of the part's own answer: `make()` demands exactly that."""
+    ours = Fraction(answer_text)
+    theirs = Fraction(dp_text(follow_value, dp))
+    if abs(ours - theirs) > (Fraction(1, 10**dp) if dp else 0):
+        raise Redraw(f"follow-through {theirs} is too far from {ours}")
 
 
 def num_dist(value, dp: int, tag: str) -> Distractor:
     text = dp_text(value, dp)
     return Distractor(text, tag, int(text) if dp == 0 else float(text))
+
+
+def frac_dist(value, tag: str) -> Distractor:
+    """A wrong answer to a whole-number question that may itself be a fraction (what a learner types: 7/2)."""
+    f = to_fraction(value)
+    if f.denominator == 1:
+        return Distractor(str(f.numerator), tag, f.numerator)
+    return Distractor(f"{f.numerator}/{f.denominator}", tag, float(f))
 
 
 def pick_nums(answer_text: str, cands: list[Distractor], dp: int, n: int = 4) -> list[Distractor]:
