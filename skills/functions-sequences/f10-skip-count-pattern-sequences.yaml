@@ -1,6 +1,8 @@
 id: f10-skip-count-pattern-sequences
 name: Continue skip-count pattern sequences
 domain: functions-sequences
+year_level: ['1']
+naplan_domain: [algebra]
 description: Continue a numeral skip-counting sequence by two, five or ten to the next terms.
 status: active
 placement_eligible: false

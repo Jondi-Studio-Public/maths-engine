@@ -1,6 +1,7 @@
 id: ucv1-initial-value-constant
 name: Apply an initial condition to a first-order solution
 domain: ordinary-differential-equations
+year_level: [university]
 description: Determine the integration constant in a supplied first-order separable
   solution from one initial condition. F(x) is always supplied already-integrated; the
   learner never derives it from an ODE here (that is solve-ode-separable-poly's own

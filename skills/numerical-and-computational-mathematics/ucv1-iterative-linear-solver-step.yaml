@@ -1,6 +1,7 @@
 id: ucv1-iterative-linear-solver-step
 name: Perform one iterative linear-solver step
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Compute one Gauss-Seidel update for a supplied diagonally dominant
   two-variable linear system, starting from a stated point (x0, y0). The second
   equation's update uses the just-computed x1, not x0, which is the boundary

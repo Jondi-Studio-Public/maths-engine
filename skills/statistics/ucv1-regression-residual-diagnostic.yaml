@@ -1,6 +1,7 @@
 id: ucv1-regression-residual-diagnostic
 name: Diagnose a small regression residual
 domain: statistics
+year_level: [university]
 description: Given a fitted line and one observed point, compute its residual and select
   the correct residual interpretation.
 status: active

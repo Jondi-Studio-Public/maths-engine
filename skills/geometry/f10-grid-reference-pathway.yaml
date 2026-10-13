@@ -1,6 +1,8 @@
 id: f10-grid-reference-pathway
 name: Follow a pathway on a grid reference map
 domain: geometry
+year_level: ['4']
+naplan_domain: [space]
 description: Given a lettered-column, numbered-row grid, how its rows are numbered, a starting square and a stated sequence of directional moves, state the finishing square as a column number and row number (or, in the hardest tier, count the squares travelled in each of two named directions between two references).
 status: active
 placement_eligible: false

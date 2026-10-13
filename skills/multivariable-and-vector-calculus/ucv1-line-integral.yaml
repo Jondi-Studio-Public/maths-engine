@@ -1,6 +1,7 @@
 id: ucv1-line-integral
 name: Evaluate a line integral
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Evaluate a scalar line integral over a segment, the work of a force field along a parametrised curve, and the work of a conservative field by its potential.
 status: active
 placement_eligible: false

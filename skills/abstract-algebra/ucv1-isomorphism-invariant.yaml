@@ -1,6 +1,7 @@
 id: ucv1-isomorphism-invariant
 name: Compare a finite-group invariant
 domain: abstract-algebra
+year_level: [university]
 description: Use supplied element orders and group sizes to reject or retain a claimed isomorphism between two finite groups.
 status: active
 placement_eligible: false

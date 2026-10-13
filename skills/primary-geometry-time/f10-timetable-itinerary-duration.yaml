@@ -1,6 +1,8 @@
 id: f10-timetable-itinerary-duration
 name: Timetable itinerary duration lookup
 domain: primary-geometry-time
+year_level: ['6']
+naplan_domain: [measurement]
 description: Given a stated timetable listing named events or journeys' start and end times, determine the duration of a named event or journey.
 status: active
 placement_eligible: false

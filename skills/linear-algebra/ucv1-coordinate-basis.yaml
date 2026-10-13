@@ -1,6 +1,7 @@
 id: ucv1-coordinate-basis
 name: Coordinates in a supplied two-dimensional basis
 domain: linear-algebra
+year_level: [university]
 description: 'Compute the ordered coordinates of a supplied vector in a supplied independent two-dimensional basis (at the exam tier, a four-part chain: the determinant of the basis matrix, both coordinates, then the image of the vector under a linear map that scales along the two basis vectors).'
 status: active
 placement_eligible: false

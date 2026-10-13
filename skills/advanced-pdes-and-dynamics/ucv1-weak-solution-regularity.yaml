@@ -1,6 +1,7 @@
 id: ucv1-weak-solution-regularity
 name: Classify a weak-solution regularity case
 domain: advanced-pdes-and-dynamics
+year_level: [university]
 description: For a fixed one-dimensional boundary value problem with supplied Sobolev regularity of the data, select the exact Sobolev regularity of the weak solution.
 status: active
 placement_eligible: false

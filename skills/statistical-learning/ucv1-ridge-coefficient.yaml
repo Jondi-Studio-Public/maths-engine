@@ -1,6 +1,7 @@
 id: ucv1-ridge-coefficient
 name: Compute a one-feature ridge coefficient
 domain: statistical-learning
+year_level: [university]
 description: Compute the closed-form ridge coefficient beta = Sxy / (Sxx + lambda)
   for a supplied centred one-feature dataset (mean-zero x, mean-zero y, no
   intercept fitted) and a stated penalty lambda >= 2. lambda never draws 0 or 1,

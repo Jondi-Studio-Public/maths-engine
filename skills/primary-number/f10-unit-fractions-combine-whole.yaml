@@ -1,6 +1,8 @@
 id: f10-unit-fractions-combine-whole
 name: Represent and combine unit fractions to complete a whole
 domain: primary-number
+year_level: ['3']
+naplan_domain: [number]
 description: Represent listed unit fractions and their multiples and combine same-denominator fractions to complete a whole.
 status: active
 placement_eligible: false

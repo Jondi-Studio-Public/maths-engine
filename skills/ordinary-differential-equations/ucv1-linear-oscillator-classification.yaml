@@ -1,6 +1,7 @@
 id: ucv1-linear-oscillator-classification
 name: Classify a linear oscillator regime
 domain: ordinary-differential-equations
+year_level: [university]
 description: Classify a supplied second-order linear oscillator as underdamped, critically damped or overdamped from its coefficients.
 status: active
 placement_eligible: false
