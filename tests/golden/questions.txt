@@ -208,6 +208,18 @@
 {"answer": "0.3594", "id": "binomial-point-probability/exam/0/4c5feceee60b", "text": "A player takes 7 shots and scores each independently with probability 0.25. Fin…"}
 {"answer": "0.5798", "id": "binomial-point-probability/exam/1/c9f134a72a5e", "text": "Suppose 6 seeds are planted and each independently germinates with probability …"}
 {"answer": "0.6329", "id": "binomial-point-probability/exam/2/497207272863", "text": "Suppose a multiple-choice quiz has 8 questions and each is answered by guessing…"}
+{"answer": "[[1, 0, 1, 0, 1], [0, 1, 1, 0, 1], [0, 1, 1, 0, 0], [0, 1, …", "id": "bipartite-matching-matrix/easy/0/2b75a56b66fb", "text": "A bus company has 5 drivers to roster onto 5 routes, one driver to each route. …"}
+{"answer": "[[1, 0, 0, 1, 1], [0, 0, 1, 1, 1], [1, 0, 0, 0, 1], [0, 1, …", "id": "bipartite-matching-matrix/easy/1/8c31d310d744", "text": "A school has 5 students to place at 5 lab stations, one student to each station…"}
+{"answer": "[[0, 1, 0, 1], [1, 0, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1]]", "id": "bipartite-matching-matrix/easy/2/99b772e5aa8f", "text": "A school has 4 students to place at 4 lab stations, one student to each station…"}
+{"answer": "(a) [[1, 0, 1, 1], [0, 0, 0, 1], [1, 0, 1, 1], [0, 0, 0, 1]…", "id": "bipartite-matching-matrix/exam/0/575715a4de4c", "text": "A school has 4 students to place at 4 lab stations, one student to each station…"}
+{"answer": "(a) [[0, 0, 0, 1], [1, 0, 1, 1], [0, 0, 0, 1], [1, 1, 1, 0]…", "id": "bipartite-matching-matrix/exam/1/51ce26805827", "text": "A school has 4 students to place at 4 lab stations, one student to each station…"}
+{"answer": "(a) [[1, 1, 0, 0, 1], [0, 1, 0, 0, 1], [1, 1, 1, 0, 0], [1,…", "id": "bipartite-matching-matrix/exam/2/9c7affb3a0f8", "text": "A bus company has 5 drivers to roster onto 5 routes, one driver to each route. …"}
+{"answer": "[[0, 1, 1], [1, 0, 1], [0, 1, 1]]", "id": "bipartite-matching-matrix/hard/0/afbed646cb08", "text": "A building firm has 5 tradespeople and 5 jobs to hand out, one job to each pers…"}
+{"answer": "[[0, 1, 1, 0], [0, 0, 1, 1], [1, 0, 1, 1], [1, 1, 0, 0]]", "id": "bipartite-matching-matrix/hard/1/733485c1705c", "text": "A building firm has 5 tradespeople and 5 jobs to hand out, one job to each pers…"}
+{"answer": "[[1, 1, 1, 0], [0, 0, 1, 1], [0, 1, 0, 1], [1, 0, 1, 0]]", "id": "bipartite-matching-matrix/hard/2/1c65d1ffb1c6", "text": "A school has 5 students to place at 5 lab stations, one student to each station…"}
+{"answer": "[[1, 1, 0, 1, 0], [1, 1, 0, 1, 0], [1, 1, 0, 0, 1], [1, 0, …", "id": "bipartite-matching-matrix/medium/0/9fb8f46c28eb", "text": "A school has 5 students to place at 5 lab stations, one student to each station…"}
+{"answer": "[[1, 1, 1, 0, 1], [1, 1, 0, 1, 1], [0, 1, 1, 1, 1], [1, 1, …", "id": "bipartite-matching-matrix/medium/1/8acb9cfbe9ec", "text": "A building firm has 5 tradespeople and 5 jobs to hand out, one job to each pers…"}
+{"answer": "[[0, 1, 0, 1], [1, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1]]", "id": "bipartite-matching-matrix/medium/2/d21edf436385", "text": "A bus company has 4 drivers to roster onto 4 routes, one driver to each route. …"}
 {"answer": "left = 1, right = 2", "id": "bisection-interval-update/easy/0/01726fbae598", "text": "For f(x) = x² − 3, the current positive bracket is [0, 2]. Perform one bisectio…"}
 {"answer": "left = 1, right = 2", "id": "bisection-interval-update/easy/1/6610ebfb5752", "text": "For f(x) = x² − 2, the current positive bracket is [0, 2]. Perform one bisectio…"}
 {"answer": "left = 2, right = 4", "id": "bisection-interval-update/easy/2/8d18e828fb29", "text": "For f(x) = x² − 11, the current positive bracket is [0, 4]. Perform one bisecti…"}
@@ -2542,6 +2554,18 @@
 {"answer": "-3/2", "id": "gradient-from-graph/medium/0/a13ccf80e42a", "text": "The graph shows a straight line on a coordinate grid. What is the slope of the …"}
 {"answer": "-2", "id": "gradient-from-graph/medium/1/1a313516b1fb", "text": "Study the straight line on this coordinate grid. What is the gradient of the li…"}
 {"answer": "-2/3", "id": "gradient-from-graph/medium/2/01f837c3f1fc", "text": "The diagram shows the graph of a straight line. What is the slope of the line? …"}
+{"answer": "6", "id": "graph-planar-faces/easy/0/1b91d804b7bb", "text": "A council has built bike paths between suburbs A to I. The bike paths are: AB, …"}
+{"answer": "4", "id": "graph-planar-faces/easy/1/9c40da2afc60", "text": "A rail network joins stations A to G. The rail links are: AC, AE, AG, BC, BF, C…"}
+{"answer": "5", "id": "graph-planar-faces/easy/2/7f7cd035d03f", "text": "A rail network joins stations A to I. The rail links are: AE, AG, AI, BE, BF, B…"}
+{"answer": "(a) 15; (b) 3; (c) 8; (d) No: it has more than 3v - 6 edges…", "id": "graph-planar-faces/exam/0/51307069c479", "text": "Plans show 6 towns that are each to be joined directly to every other by a sepa…"}
+{"answer": "(a) 28; (b) 10; (c) 12; (d) No: it has more than 3v - 6 edg…", "id": "graph-planar-faces/exam/1/75a5f3e85039", "text": "A council wants to join 8 suburbs so that every suburb has its own direct bike …"}
+{"answer": "(a) 15; (b) 3; (c) 8; (d) No: it has more than 3v - 6 edges…", "id": "graph-planar-faces/exam/2/7453db12c38d", "text": "A council wants to join 6 towns so that every town has its own direct road to e…"}
+{"answer": "10", "id": "graph-planar-faces/hard/0/0645a0f18fc2", "text": "Every region of a connected plane network, the outside region included, is encl…"}
+{"answer": "20", "id": "graph-planar-faces/hard/1/377788bef7af", "text": "A connected network is drawn on a map with no crossing rail links. Every region…"}
+{"answer": "7", "id": "graph-planar-faces/hard/2/fe323d5d7670", "text": "A connected network of 10 towns has 17 roads, drawn with none crossing. A conne…"}
+{"answer": "10", "id": "graph-planar-faces/medium/0/e8ddbe1e86cf", "text": "8 suburbs are to be joined so that every suburb has its own direct bike path to…"}
+{"answer": "6", "id": "graph-planar-faces/medium/1/6f9225bde434", "text": "7 stations are to be joined so that every station has its own direct rail link …"}
+{"answer": "4", "id": "graph-planar-faces/medium/2/455c52495c56", "text": "A council plans a separate cable from each of 4 houses to each of 4 depots, 16 …"}
 {"answer": "(-1, -1), (0, 1), (1, 3)", "id": "graph-y-mx-plus-b/easy/0/392f2f00f9a7", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
 {"answer": "(0, -2), (1, 1), (2, 4)", "id": "graph-y-mx-plus-b/easy/1/d04cf9d42a0a", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
 {"answer": "(-1, -1), (0, 2), (1, 5)", "id": "graph-y-mx-plus-b/easy/2/1df402482d98", "text": "The diagram shows the graph of a straight line. Which list of (x, y) pairs show…"}
@@ -2560,6 +2584,18 @@
 {"answer": "y = -x/3", "id": "graph-y-mx/medium/0/1b7e68d5334d", "text": "The graph shows a straight line through the origin of a coordinate grid. Which …"}
 {"answer": "y = x/2", "id": "graph-y-mx/medium/1/a4f157f86397", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
 {"answer": "y = x/3", "id": "graph-y-mx/medium/2/25254ae5fd07", "text": "Look at the straight line through the origin on this grid. Choose the equation …"}
+{"answer": "170", "id": "histogram-shape-and-spread/easy/0/5d1280017711", "text": "The histogram shows the heights of adult women. Find the lower boundary of the …"}
+{"answer": "1.0", "id": "histogram-shape-and-spread/easy/1/0510e62fcda4", "text": "The histogram shows the water used by households in one day. Find the lower bou…"}
+{"answer": "14", "id": "histogram-shape-and-spread/easy/2/2d8f811f99f9", "text": "The histogram shows the masses of bags of flour from a packing line. What is th…"}
+{"answer": "(a) 63; (b) 32; (c) 1.0; (d) The mean is greater than the m…", "id": "histogram-shape-and-spread/exam/0/73ce4efe773c", "text": "The histogram shows the water used by households in one day. (a) How many value…"}
+{"answer": "(a) 51; (b) 26; (c) 495; (d) The mean and the median are ab…", "id": "histogram-shape-and-spread/exam/1/a8a15950fa0b", "text": "The histogram shows the masses of bags of flour from a packing line. (a) How ma…"}
+{"answer": "(a) 45; (b) 23; (c) 165; (d) The mean and the median are ab…", "id": "histogram-shape-and-spread/exam/2/e66274fa507c", "text": "The histogram shows the heights of adult women. (a) How many values are shown i…"}
+{"answer": "6", "id": "histogram-shape-and-spread/hard/0/8aebecbc667c", "text": "The histogram shows how many days patients stayed in a hospital ward. What is t…"}
+{"answer": "1.0", "id": "histogram-shape-and-spread/hard/1/9b72d6681c91", "text": "The histogram shows the water used by households in one day. What is the lower …"}
+{"answer": "39", "id": "histogram-shape-and-spread/hard/2/124462f13a35", "text": "The histogram shows the ages at which people retired. Assume the values in each…"}
+{"answer": "3", "id": "histogram-shape-and-spread/medium/0/c057973891c4", "text": "The histogram shows the masses of bags of flour from a packing line. How many o…"}
+{"answer": "20", "id": "histogram-shape-and-spread/medium/1/691ed043557a", "text": "The histogram shows the ages at which people retired. How many of the values ar…"}
+{"answer": "35", "id": "histogram-shape-and-spread/medium/2/08abcbfe5a97", "text": "The histogram shows the masses of bags of flour from a packing line. What is th…"}
 {"answer": "F = 25.00 N", "id": "hookes-law/easy/0/37fbef22e47d", "text": "A spring with stiffness k = 500 N/m is stretched by 0.05 m. Use Hooke's law to …"}
 {"answer": "F = 10.0 N", "id": "hookes-law/easy/1/d35725470be6", "text": "A spring with stiffness k = 100 N/m is stretched by 0.1 m. Use Hooke's law to f…"}
 {"answer": "F = 5.00 N", "id": "hookes-law/easy/2/c3e22c14bbc3", "text": "A spring with stiffness k = 100 N/m is stretched by 0.05 m. Use Hooke's law to …"}
@@ -3016,6 +3052,18 @@
 {"answer": "Circle", "id": "name-basic-shapes/easy/0/6f68474ec188", "text": "What shape is this? ●"}
 {"answer": "Triangle", "id": "name-basic-shapes/easy/1/a122238c8ba2", "text": "What shape is this? ▲"}
 {"answer": "Square", "id": "name-basic-shapes/easy/2/85878d60cb04", "text": "What shape is this? ■"}
+{"answer": "9", "id": "network-model-from-situation/easy/0/0344528e1d52", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
+{"answer": "5", "id": "network-model-from-situation/easy/1/4b26a27faf4b", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
+{"answer": "4", "id": "network-model-from-situation/easy/2/2c7a2956cb8b", "text": "7 friends keep a list of the people they message regularly. Messaging goes both…"}
+{"answer": "(a) 6; (b) 9; (c) 15; (d) 6", "id": "network-model-from-situation/exam/0/fbb69612080e", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "(a) 7; (b) 9; (c) 21; (d) 12", "id": "network-model-from-situation/exam/1/dd07e06c2940", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
+{"answer": "(a) 7; (b) 9; (c) 21; (d) 12", "id": "network-model-from-situation/exam/2/58ca5b5b8e9c", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
+{"answer": "2", "id": "network-model-from-situation/hard/0/9773cde4cecc", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "3", "id": "network-model-from-situation/hard/1/90dd38da005a", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
+{"answer": "3", "id": "network-model-from-situation/hard/2/28f76065f359", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "6", "id": "network-model-from-situation/medium/0/1064dc0bfc44", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "7", "id": "network-model-from-situation/medium/1/5b4f86154c6c", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "3", "id": "network-model-from-situation/medium/2/65e0038ebe32", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
 {"answer": "-1", "id": "newton-method-iteration/easy/0/e38210a5f353", "text": "For f(x) = x^2 - x + 2, take one Newton step from x₀ = 1. Find x₁."}
 {"answer": "-1/3", "id": "newton-method-iteration/easy/1/6663563f7393", "text": "For f(x) = x^2 + x + 3, take one Newton step from x₀ = -2. Find x₁."}
 {"answer": "0", "id": "newton-method-iteration/easy/2/1761a5dd06a4", "text": "For f(x) = x^2 + 3x + 1, take one Newton step from x₀ = 1. Find x₁."}
@@ -3100,6 +3148,18 @@
 {"answer": "36", "id": "order-of-operations/medium/0/17e5a0423ab4", "text": "Evaluate 6 × 6 + 4 - 4"}
 {"answer": "-17", "id": "order-of-operations/medium/1/32b2e098befb", "text": "Evaluate 1 - 2 - 4 × 4"}
 {"answer": "96", "id": "order-of-operations/medium/2/00ed55c406e7", "text": "Evaluate 9 × 11 + 8 - 11"}
+{"answer": "8", "id": "parallel-box-plots-outlier-fences/easy/0/30730d9aeab2", "text": "The box plots compare the marks of two classes on the same test. By how many ma…"}
+{"answer": "20", "id": "parallel-box-plots-outlier-fences/easy/1/106bba620582", "text": "The box plots compare the battery life of two brands of torch. What is the inte…"}
+{"answer": "16", "id": "parallel-box-plots-outlier-fences/easy/2/5f1b796406b7", "text": "The box plots compare the weekly screen time of two year groups. Find the inter…"}
+{"answer": "(a) 10; (b) 49; (c) 5; (d) Courier B is more variable, beca…", "id": "parallel-box-plots-outlier-fences/exam/0/d39db8d2a1c7", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "(a) 8; (b) 40; (c) 28; (d) Brand X is more variable, becaus…", "id": "parallel-box-plots-outlier-fences/exam/1/1b35e3a1656d", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
+{"answer": "(a) 12; (b) 56; (c) 22; (d) Class B is more variable, becau…", "id": "parallel-box-plots-outlier-fences/exam/2/da575d60e760", "text": "The box plots compare the marks of two classes on the same test. A value is an …"}
+{"answer": "5", "id": "parallel-box-plots-outlier-fences/hard/0/bcea694d26be", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
+{"answer": "51", "id": "parallel-box-plots-outlier-fences/hard/1/7cf5ed749168", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "62", "id": "parallel-box-plots-outlier-fences/hard/2/804b03d1f456", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "1", "id": "parallel-box-plots-outlier-fences/medium/0/2649e8bb5c26", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
+{"answer": "53", "id": "parallel-box-plots-outlier-fences/medium/1/e8077bb72fb4", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "6", "id": "parallel-box-plots-outlier-fences/medium/2/edcc7b940a4a", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
 {"answer": "-9*x**2 + 4*x*y**2", "id": "partial-derivative-x/easy/0/79bda499059b", "text": "f(x, y) = -3*x**3 + 2*x**2*y**2 + y**3. Find ∂f/∂x"}
 {"answer": "6*x + y", "id": "partial-derivative-x/easy/1/1332edf3560f", "text": "f(x, y) = 3*x**2 + x*y + 2*y**2. Find ∂f/∂x"}
 {"answer": "4*x - 2*y**2", "id": "partial-derivative-x/easy/2/de5dd6478310", "text": "f(x, y) = 2*x**2 - 2*x*y**2 - 2*y**3. Find ∂f/∂x"}
@@ -3493,6 +3553,30 @@
 {"answer": "7.4", "id": "round-decimals/medium/0/b9da8826cb14", "text": "Round 7.42 to the nearest tenth."}
 {"answer": "29.4", "id": "round-decimals/medium/1/63e7c1fa240a", "text": "Round 29.41 to the nearest tenth."}
 {"answer": "97.1", "id": "round-decimals/medium/2/340184f088d7", "text": "Round 97.12 to the nearest tenth."}
+{"answer": "positive, strong", "id": "scatterplot-describe-association/easy/0/0d7e03e31b32", "text": "The scatterplot shows the exam mark of each of 12 pianists against the hours th…"}
+{"answer": "positive, moderate", "id": "scatterplot-describe-association/easy/1/093012809602", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "positive, strong", "id": "scatterplot-describe-association/easy/2/e31df62e3d9b", "text": "The scatterplot shows the exam mark of each of 12 pianists against the hours th…"}
+{"answer": "(a) positive, linear, strong; (b) 96; (c) 4; (d) There is a…", "id": "scatterplot-describe-association/exam/0/f5454ef81f77", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "(a) positive, linear, strong; (b) 96; (c) 4; (d) There is a…", "id": "scatterplot-describe-association/exam/1/e93df555f0a5", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "(a) positive, linear, strong; (b) 96; (c) 4; (d) There is a…", "id": "scatterplot-describe-association/exam/2/3e29733a3064", "text": "The scatterplot shows the solar power generated by a household on each of 12 da…"}
+{"answer": "negative, strong, weaker", "id": "scatterplot-describe-association/hard/0/7e3c6b4c6880", "text": "The scatterplot shows the night temperature at each of 12 campsites against the…"}
+{"answer": "positive, strong, weaker", "id": "scatterplot-describe-association/hard/1/5dac4f7c0ef1", "text": "The scatterplot shows the solar power generated by a household on each of 12 da…"}
+{"answer": "positive, strong, weaker", "id": "scatterplot-describe-association/hard/2/96b86978c040", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "negative, non-linear, moderate", "id": "scatterplot-describe-association/medium/0/2ddf555fe630", "text": "The scatterplot shows the value of each of 12 used cars of one model against it…"}
+{"answer": "positive, linear, moderate", "id": "scatterplot-describe-association/medium/1/972c10b67ff7", "text": "The scatterplot shows the exam mark of each of 12 pianists against the hours th…"}
+{"answer": "positive, non-linear, strong", "id": "scatterplot-describe-association/medium/2/f35aa0a11b44", "text": "The scatterplot shows the solar power generated by a household on each of 12 da…"}
+{"answer": "-1", "id": "scatterplot-fit-line-read-predict/easy/0/c51a2a27ec7e", "text": "The scatterplot shows the value of each of 10 used cars of one model against it…"}
+{"answer": "2", "id": "scatterplot-fit-line-read-predict/easy/1/c18b176fe1db", "text": "The scatterplot shows the exam mark of each of 10 pianists against the hours th…"}
+{"answer": "2", "id": "scatterplot-fit-line-read-predict/easy/2/49ee3a00aea7", "text": "The scatterplot shows the test score of each of 10 students against the time th…"}
+{"answer": "(a) -1.5; (b) 19; (c) -3; (d) The prediction is unreliable,…", "id": "scatterplot-fit-line-read-predict/exam/0/3292b81a2b05", "text": "The scatterplot shows the value of each of 10 used cars of one model against it…"}
+{"answer": "(a) -1.5; (b) 4; (c) -2; (d) The prediction is unreliable, …", "id": "scatterplot-fit-line-read-predict/exam/1/4a8978cf2e94", "text": "The scatterplot shows the water left in a farm tank on each of 10 days against …"}
+{"answer": "(a) -1.5; (b) 15; (c) 3; (d) The prediction is unreliable, …", "id": "scatterplot-fit-line-read-predict/exam/2/9dd50de868d6", "text": "The scatterplot shows the night temperature at each of 10 campsites against the…"}
+{"answer": "2", "id": "scatterplot-fit-line-read-predict/hard/0/decb200bcf68", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
+{"answer": "-2", "id": "scatterplot-fit-line-read-predict/hard/1/e4367bca83a0", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
+{"answer": "7", "id": "scatterplot-fit-line-read-predict/hard/2/e3fa0c29a4b8", "text": "The scatterplot shows the test score of each of 10 students against the time th…"}
+{"answer": "14", "id": "scatterplot-fit-line-read-predict/medium/0/9a7ffa8341b4", "text": "The scatterplot shows the value of each of 10 used cars of one model against it…"}
+{"answer": "22", "id": "scatterplot-fit-line-read-predict/medium/1/88b73fe8a8ac", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
+{"answer": "9", "id": "scatterplot-fit-line-read-predict/medium/2/66f244f39e1f", "text": "The scatterplot shows the exam mark of each of 10 pianists against the hours th…"}
 {"answer": "163.4556 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/0/1bc6d238942d", "text": "Calculate (5.124 × 10^-5) × (3.19 × 10^-6), then write the result in engineerin…"}
 {"answer": "4.945584 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/1/bd12a1ad84af", "text": "(1.148 × 10^-6) × (4.308 × 10^-6) -- write your answer in engineering notation."}
 {"answer": "14.544996 × 10^-3", "id": "scientific-notation-ops-to-engineering/easy/2/6154072cfbf9", "text": "Calculate (1.927 × 10^1) × (7.548 × 10^-4), then write the result in engineerin…"}
@@ -7717,6 +7801,18 @@
 {"answer": "7 o'clock", "id": "tell-time-to-hour/easy/0/655032ffa859", "text": "A clock hangs in the kitchen. Which time is on the clock?"}
 {"answer": "10 o'clock", "id": "tell-time-to-hour/easy/1/4a6f618fc515", "text": "Ben looks at the clock in his room. Choose the time the clock shows."}
 {"answer": "11 o'clock", "id": "tell-time-to-hour/easy/2/405d6f9de20d", "text": "Look at the clock on the wall. Choose the time the clock shows."}
+{"answer": "10", "id": "time-series-features/easy/0/dbe98e77bf90", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "70", "id": "time-series-features/easy/1/bcf4da9a33ec", "text": "The graph shows the number of customers who visited a cafe on each of 21 consec…"}
+{"answer": "20", "id": "time-series-features/easy/2/996d375c4649", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "(a) 4; (b) 7; (c) -30; (d) 0", "id": "time-series-features/exam/0/51ece82c7401", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "(a) 6; (b) 8; (c) 80; (d) 440", "id": "time-series-features/exam/1/055043329adb", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "(a) 7; (b) 10; (c) 30; (d) 230", "id": "time-series-features/exam/2/55894c5248bc", "text": "The graph shows the number of customers who visited a cafe on each of 21 consec…"}
+{"answer": "200", "id": "time-series-features/hard/0/316d51b804b2", "text": "The graph shows the number of customers who visited a cafe on each of 21 consec…"}
+{"answer": "180", "id": "time-series-features/hard/1/157bf67afeb5", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "180", "id": "time-series-features/hard/2/a860bf853c01", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "140", "id": "time-series-features/medium/0/c53b4b7a9107", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "340", "id": "time-series-features/medium/1/5d101ff5d629", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "55", "id": "time-series-features/medium/2/2f9bdd18fd9b", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
 {"answer": "9", "id": "triangle-area-base-height/easy/0/d0797706775d", "text": "Determine the area of triangle ABC in the diagram, in cm²."}
 {"answer": "4", "id": "triangle-area-base-height/easy/1/d4b49c60228f", "text": "The diagram shows triangle ABC. What is its area, in cm²?"}
 {"answer": "4", "id": "triangle-area-base-height/easy/2/4a8a0c7f6c62", "text": "Determine the area of triangle LMN in the diagram, in cm²."}

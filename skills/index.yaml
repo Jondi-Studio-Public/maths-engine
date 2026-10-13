@@ -192,6 +192,14 @@ binomial-point-probability:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_h2_binomial_point_probability
     module: mathgen/generators/exd_x_h2_binomial_point_probability.py
+bipartite-matching-matrix:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: sr2a_bipartite
+    module: mathgen/generators/sr2a_bipartite_build.py
+  - topic: sr2a_bipartite_chain
+    module: mathgen/generators/sr2a_bipartite_build.py
 bisection-interval-update:
   domain: numerical-and-computational-mathematics
   status: active
@@ -1870,6 +1878,14 @@ gradient-vector:
   sources:
   - topic: partial_derivatives
     module: mathgen/generators/calculus.py
+graph-planar-faces:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: sr2a_planar_faces
+    module: mathgen/generators/sr2a_planar_faces_build.py
+  - topic: sr2a_planar_faces_chain
+    module: mathgen/generators/sr2a_planar_faces_build.py
 graph-y-mx:
   domain: linear-relations
   status: active
@@ -1882,6 +1898,14 @@ graph-y-mx-plus-b:
   sources:
   - topic: fg1_line_table
     module: mathgen/generators/fg1_line_reading_build.py
+histogram-shape-and-spread:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: sr2a_histogram_shape
+    module: mathgen/generators/sr2a_histogram_shape_build.py
+  - topic: sr2a_histogram_chain
+    module: mathgen/generators/sr2a_histogram_shape_build.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -2276,6 +2300,14 @@ name-basic-shapes:
   sources:
   - topic: shape_names
     module: mathgen/generators/early_math.py
+network-model-from-situation:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: sr2a_network_model
+    module: mathgen/generators/sr2a_network_model_build.py
+  - topic: sr2a_network_model_chain
+    module: mathgen/generators/sr2a_network_model_build.py
 newton-method-iteration:
   domain: numerical-and-computational-mathematics
   status: active
@@ -2342,6 +2374,14 @@ order-of-operations:
     module: mathgen/generators/foundations.py
   - topic: exd_x_n3_order_ops_unknown
     module: mathgen/generators/exd_x_n3_order_ops_unknown.py
+parallel-box-plots-outlier-fences:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: sr2a_box_plots
+    module: mathgen/generators/sr2a_box_plots_build.py
+  - topic: sr2a_box_plots_chain
+    module: mathgen/generators/sr2a_box_plots_build.py
 partial-derivative-x:
   domain: partial-derivatives
   status: active
@@ -2650,6 +2690,22 @@ round-decimals:
     module: mathgen/generators/primary_math.py
   - topic: exd_x_pr4_round_decimal_bounds
     module: mathgen/generators/exd_x_pr4_round_decimal_bounds.py
+scatterplot-describe-association:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: sr2a_scatter_assoc
+    module: mathgen/generators/sr2a_scatter_assoc_build.py
+  - topic: sr2a_scatter_assoc_chain
+    module: mathgen/generators/sr2a_scatter_assoc_build.py
+scatterplot-fit-line-read-predict:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: sr2a_scatter_fit
+    module: mathgen/generators/sr2a_scatter_fit_build.py
+  - topic: sr2a_scatter_fit_chain
+    module: mathgen/generators/sr2a_scatter_fit_build.py
 scientific-notation:
   domain: secondary-number
   status: active
@@ -5294,6 +5350,14 @@ tell-time-to-hour:
   sources:
   - topic: clock_hours
     module: mathgen/generators/early_math.py
+time-series-features:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sr2a_time_series
+    module: mathgen/generators/sr2a_time_series_build.py
+  - topic: sr2a_time_series_chain
+    module: mathgen/generators/sr2a_time_series_build.py
 translate-word-problems-to-equations:
   domain: equations
   status: deferred

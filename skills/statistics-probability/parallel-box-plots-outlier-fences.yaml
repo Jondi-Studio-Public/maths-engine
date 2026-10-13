@@ -1,0 +1,49 @@
+id: parallel-box-plots-outlier-fences
+name: Use two parallel box plots to find fences, outliers and variability
+domain: statistics-probability
+description: 'Two box plots are drawn on one axis and the 1.5 x IQR rule is stated in the prompt. Easy: the interquartile range of one group, or how much higher one median is than the other. Medium: the upper or lower fence of a named group. Hard: how far a drawn outlier lies beyond its fence, or the smallest whole number that would be an outlier above a plot with none (the ''more than'' is strict). The exam chain asks the interquartile range, the fence on the outlier''s side (carried forward), how far the outlier lies beyond it (carried forward) and which group is more variable; the group with the outlier has the larger range but the smaller interquartile range. Distinct from senior-recognise-and-identify-outliers, which works from stated quartiles, and from f10-compare-box-plots, which compares without fences.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-read-a-box-plot]
+answer: number
+sources:
+- topic: sr2a_box_plots
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_box_plots
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_box_plots
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_box_plots_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: bp-iqr-as-range
+  description: Gives the range from one end of the whiskers to the other where the interquartile range was asked for.
+- id: bp-iqr-as-quartile
+  description: Gives the value of the third quartile in place of the interquartile range.
+- id: bp-iqr-half-box
+  description: Gives only half of the box, from the median to one quartile, as the interquartile range.
+- id: bp-iqr-to-whisker
+  description: Measures the interquartile range from the first quartile to the end of the upper whisker.
+- id: bp-gridline-slip
+  description: Reads a value from the axis one tick-mark away from the correct one.
+- id: bp-median-diff-quartile
+  description: Compares the quartiles of the two plots instead of the medians.
+- id: bp-median-diff-whisker
+  description: Compares the ends of the whiskers instead of the medians.
+- id: bp-median-diff-range
+  description: Compares the ranges of the two plots where the difference between the medians was asked for.
+tags: [acara-senior-v8-4, statistics-probability, box-plot, outlier, fence, iqr, figure, sr2a_box_plots, acmgm031, acmem059]
