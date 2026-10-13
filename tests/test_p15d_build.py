@@ -390,9 +390,9 @@ class TestSkillLoading:
 
     def test_expected_prerequisites_and_answer_kinds(self, skills_by_id):
         expected = {
-            "ucv1-finite-automaton-acceptance": ([], "mcq"),
+            "ucv1-finite-automaton-acceptance": (["finite-set-operations", "apply-a-rule-to-inputs"], "mcq"),
             "ucv1-formal-derivation-check": (["propositional-formula-equivalence"], "mcq"),
-            "ucv1-dominated-convergence-check": ([], "mcq"),
+            "ucv1-dominated-convergence-check": (["ucv1-sigma-algebra-closure", "limit-at-infinity"], "mcq"),
             "ucv1-manifold-chart-jacobian": (["jacobian-two-variable"], "ordered_list"),
             "ucv1-validation-calibration-check": (["least-squares-line"], "mcq"),
             "f10-shape-sorting-algorithm": (["f10-polygon-classification"], "mcq"),

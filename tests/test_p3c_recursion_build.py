@@ -328,15 +328,15 @@ def test_both_skills_load_with_answer_ordered_list():
 
 
 def test_both_skills_have_correct_prerequisites():
-    """Both skills have prerequisites: [function-notation]."""
+    """Each skill builds on function notation and on the recursive definition of its own sequence."""
     _, skills = load_skills(ROOT / "skills")
     by_id = {skill.id: skill for skill in skills}
 
     arith_skill = by_id["senior-use-recursion-to-generate-an-arithmetic-sequence"]
     geom_skill = by_id["senior-use-recursion-to-generate-a-geometric-sequence"]
 
-    assert arith_skill.prerequisites == ["function-notation"]
-    assert geom_skill.prerequisites == ["function-notation"]
+    assert arith_skill.prerequisites == ["function-notation", "senior-recognise-and-use-the-recursive-definition-of-an"]
+    assert geom_skill.prerequisites == ["function-notation", "senior-recognise-and-use-the-recursive-definition-of-a"]
 
 
 def test_both_skills_are_active_and_not_placement_eligible():

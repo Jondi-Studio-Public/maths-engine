@@ -88,7 +88,7 @@ def test_skill_loads_with_correct_properties():
     assert skill is not None, f"{SKILL} not found"
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["definite-integral"]
     assert len(skill.sources) == 4
     for source in skill.sources:
         if source.difficulty != "exam":  # the exam tier is a multi-part chain on its own topic

@@ -456,7 +456,7 @@ def test_binomial_skill_loads_correctly():
     assert skill is not None
     assert skill.domain == "statistics-probability"
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-identify-contexts-suitable-for-modelling-by-bernoulli-random"]
     assert skill.placement_eligible is False
 
 
@@ -467,7 +467,10 @@ def test_bernoulli_skill_loads_correctly():
     assert skill is not None
     assert skill.domain == "statistics-probability"
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-review-the-concepts-and-language-of-outcomes-sample",
+        "simple-event-probability",
+    ]
     assert skill.placement_eligible is False
 
 

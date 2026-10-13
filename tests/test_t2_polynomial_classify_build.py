@@ -180,7 +180,7 @@ class TestSkillLoads:
         assert skill.domain == "expressions-equivalence"
         assert skill.answer == "mcq"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == ["combine-like-terms"]
+        assert skill.prerequisites == ["combine-like-terms", "senior-identify-the-coefficients-and-the-degree-of-a"]
         stages_covered = set()
         for source in skill.sources:
             if source.difficulty == "exam":

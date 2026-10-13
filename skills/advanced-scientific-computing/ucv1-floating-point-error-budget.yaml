@@ -8,7 +8,8 @@ description: >-
   its exact result by 1 + delta with |delta| at most u), compute the worst-case absolute roundoff error bound as a multiple
   k of the unit roundoff u.
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ucv1-numerical-error-bound
 answer: number
 sources:
 - topic: float_error_budget

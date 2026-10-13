@@ -6,7 +6,9 @@ domain: statistics-probability
 description: 'Given a described real-world scenario, classify whether it is suitable for modelling by a Bernoulli random variable -- a single trial with exactly two possible outcomes and a fixed probability of success -- choosing the correct classification from the offered options: genuinely suited, or, if not, one of (a) a fixed-count-of-trials binomial setup in disguise, (b) a continuous-outcome setup, or (c) a dependent-trials setup. Never computes E(X)/Var(X) -- boundary against the active senior-use-a-bernoulli-random-variable-as-a-model (ACMMM143), which takes the Bernoulli model as already chosen. Boundary against the sibling senior-identify-contexts-suitable-for-modelling-by-binomial-random: a Bernoulli-suited scenario always describes exactly ONE trial/draw/measurement, while a binomial-suited scenario always names a fixed number of repeats and asks about a count of successes across them.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-review-the-concepts-and-language-of-outcomes-sample
+- simple-event-probability
 answer: mcq
 sources:
 - topic: p19c_bernoulli_suitability

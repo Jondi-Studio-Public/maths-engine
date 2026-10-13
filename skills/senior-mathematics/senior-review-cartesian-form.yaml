@@ -17,7 +17,8 @@ description: |
   ACMSM070's separate, unbuilt arithmetic-division row.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-define-the-imaginary-number-i-as-a-root
 answer: pair
 sources:
   - topic: p11c_cartesian_form_equating

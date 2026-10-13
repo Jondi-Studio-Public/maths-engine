@@ -33,7 +33,7 @@ name: Simplify surds
 domain: secondary-number        # equal to the folder name, listed in domains.yaml
 description: One sentence naming the observable operation.
 status: active                  # active or deferred
-prerequisites: [prime-factorisation]   # skill ids; may be empty; no cycles
+prerequisites: [prime-factorisation]   # skill ids; no cycles (rules below)
 answer: expression              # which grader checks replies (below)
 sources:
 - topic: t1_simplify_surds      # a generator topic name
@@ -57,6 +57,12 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
 
 - **Required in practice:** `id`, `name`, `domain`, `status`, `answer`, and at least one
   entry in `sources` for an active skill. `description` is one sentence.
+- **`prerequisites`:** the skills a learner normally has first: the direct ones, not every ancestor.
+  They are advice for ordering and review, never a gate. An active skill may only name active skills,
+  since a host that waited for a deferred one would never offer it. An active skill in a senior or
+  university domain must name at least one; `validate()` checks both. In this library every other
+  active skill also names one or is named by one (`tests/test_prerequisite_graph.py`): only the
+  genuine starting points, such as counting to 5, have none, and later skills name them.
 - **`sources`:** `topic` must be a registered generator topic (see `python -m mathgen --list`).
   `params` are passed to the generator, whose signature is the authority on which keyword
   arguments exist. `difficulty` is the tier the source stands for, one of `easy`, `medium`, `hard` or `exam`, and an
@@ -133,6 +139,20 @@ Give a skill several sources, one per tier, and make the tiers differ in reasoni
 range. A hard tier that only uses bigger numbers is not a harder skill. Good escalations add a
 step, a new question shape, a sign or form the easier tier never shows, or a situation that needs
 a different method. Tune a tier by editing `params`, then check the questions across many seeds.
+
+Write the escalation down as `difficulty_progression`, one entry per tier the sources use:
+
+```yaml
+difficulty_progression:
+  easy: {steps: 1, demand: Substitute the term number into an explicit linear rule.}
+  medium: {steps: 2, demand: Square the term number, then combine the terms in order.}
+  hard: {steps: 4, demand: Apply a recursive rule term after term from the first.}
+```
+
+`steps` is the number of reasoning steps a learner must chain, and `demand` names them.
+`validate()` rejects a tier the sources do not use, a used tier left out, and a harder tier
+that asks fewer steps than an easier one. Older skills carry the same thing as one paragraph of
+prose, which is accepted and checked by nothing.
 
 ## The `mental` block
 

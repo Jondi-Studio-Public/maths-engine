@@ -190,7 +190,7 @@ class TestTanShiftComplementaryIdentitySkillLoading:
         skill = by_id["senior-y-tan-x-c-and-the-relationships-sin"]
 
         assert skill.placement_eligible is False
-        assert skill.prerequisites == ["right-triangle-angle"]
+        assert skill.prerequisites == ["right-triangle-angle", "senior-recognise-the-exact-values-of-cos-theta-sin"]
         assert skill.answer == "expression"
         assert len(skill.sources) == 4
         assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]

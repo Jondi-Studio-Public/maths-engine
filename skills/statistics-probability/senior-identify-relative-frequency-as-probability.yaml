@@ -6,7 +6,9 @@ domain: statistics-probability
 description: 'Given a stated count of times an outcome occurred in a stated number of trials, compute its relative frequency as an estimate of its probability. Always exactly ONE stated count out of exactly ONE stated total number of trials -- never a frequency table with several categories to distinguish (that is the shipping senior-use-relative-frequencies-obtained-from-data-as-point / ...-as-point-acmmm060 / ...-to-obtain skills'' own stimulus shape, each strictly more complex). Graded as a decimal to a stated precision that the prompt itself states; the exam tier is a multi-part chain that pools the trials of two stated stages, projects the pooled relative frequency onto a stated number of future items, and finds the chance of at least one event among the next two.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- simple-event-probability
+- expected-frequency
 answer: number
 sources:
 - topic: p19c_relative_frequency_estimate
