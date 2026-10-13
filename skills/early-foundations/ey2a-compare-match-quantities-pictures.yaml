@@ -1,0 +1,44 @@
+id: ey2a-compare-match-quantities-pictures
+name: Compare and match quantities in pictures
+domain: early-foundations
+year_level: [F, '1']
+naplan_domain: [number]
+learner_band: early
+description: "Compare rings of counters: how many in the ring with more, how many have no partner when pairing, and how many more the biggest of three rings has."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [compare-quantities-to-10, count-to-10]
+answer: number
+sources:
+- topic: ey2a_compare_match_quantities
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey2a_compare_match_quantities
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey2a_compare_match_quantities
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ey2a-reports-smaller-group
+  description: "Giving the size of the smaller group when the bigger group was asked for."
+- id: ey2a-reports-the-difference
+  description: "Giving how many more the bigger group has instead of how many it has."
+- id: ey2a-count-one-over
+  description: "Counting one too many: counting a counter twice or going one past the end."
+- id: ey2a-count-one-short
+  description: "Counting one too few: missing a counter or stopping early."
+- id: ey2a-adds-groups
+  description: "Adding the sizes of the groups together when the groups should be compared."
+- id: ey2a-reports-larger-group
+  description: "Giving the size of the bigger group instead of how many more it has."
+- id: ey2a-fixes-one-ring-only
+  description: "Adding counters to only one of the smaller rings to match the biggest."
+- id: ey2a-compares-wrong-rings
+  description: "Comparing two of the three rings, but not the biggest and the smallest."
+tags: [acara-f10-v9, early, ac9mfn03, ac9m1n01, comparing, matching, visual]

@@ -898,6 +898,51 @@
 {"answer": "-5/2", "id": "explicit-euler-linear-ode/medium/0/7b04194147bd", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-4)y + (1), starting from…"}
 {"answer": "4/3", "id": "explicit-euler-linear-ode/medium/1/6b95d4f0ba01", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-5)y + (5), starting from…"}
 {"answer": "3", "id": "explicit-euler-linear-ode/medium/2/168adcd308d3", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (5)y + (-4), starting from…"}
+{"answer": "7", "id": "ey2a-compare-match-quantities-pictures/easy/0/4c07c5dac6c6", "text": "Look at the two rings. How many counters are in the ring with more?"}
+{"answer": "6", "id": "ey2a-compare-match-quantities-pictures/easy/1/7401c6746211", "text": "Sione looks at the two rings. How many squares does the bigger ring have?"}
+{"answer": "6", "id": "ey2a-compare-match-quantities-pictures/easy/2/33af4d58dd29", "text": "Sione looks at the two rings. How many counters does the bigger ring have?"}
+{"answer": "7", "id": "ey2a-compare-match-quantities-pictures/hard/0/114e61391c9d", "text": "Freya adds counters until all three rings match the biggest. How many counters …"}
+{"answer": "4", "id": "ey2a-compare-match-quantities-pictures/hard/1/d5836082dad5", "text": "How many diamonds are added in all to make every ring as big as the biggest?"}
+{"answer": "6", "id": "ey2a-compare-match-quantities-pictures/hard/2/fad55cbdbd57", "text": "Beatrice compares the biggest and smallest rings. How many more counters are in…"}
+{"answer": "2", "id": "ey2a-compare-match-quantities-pictures/medium/0/88380d031a48", "text": "Freya pairs up the stars in the two rings. How many have no partner?"}
+{"answer": "2", "id": "ey2a-compare-match-quantities-pictures/medium/1/b34a0fb07eaf", "text": "Talia pairs up the squares in the two rings. How many have no partner?"}
+{"answer": "3", "id": "ey2a-compare-match-quantities-pictures/medium/2/4418b2bc765f", "text": "Pair up the stars in the two rings. How many are left without a partner?"}
+{"answer": "16", "id": "ey2a-count-principles-to-20/easy/0/1b5f0cbc5ce0", "text": "Ava counts the counters. How many are there?"}
+{"answer": "18", "id": "ey2a-count-principles-to-20/easy/1/c83b9fa6e2b8", "text": "Kenji counts the diamonds. How many are there?"}
+{"answer": "20", "id": "ey2a-count-principles-to-20/easy/2/79ce948c72bf", "text": "Ava counts the stars. How many are there?"}
+{"answer": "7", "id": "ey2a-count-principles-to-20/hard/0/54b36677d4e3", "text": "Count the ringed ones. How many more make 12 ringed?"}
+{"answer": "4", "id": "ey2a-count-principles-to-20/hard/1/c1a30027ccdf", "text": "Hassan needs 12 ringed squares. How many more ringed ones are needed?"}
+{"answer": "5", "id": "ey2a-count-principles-to-20/hard/2/aec0fe263144", "text": "Count the ringed ones. How many more make 17 ringed?"}
+{"answer": "6", "id": "ey2a-count-principles-to-20/medium/0/f9afd2263550", "text": "One is taken away. How many squares are left?"}
+{"answer": "16", "id": "ey2a-count-principles-to-20/medium/1/27af136a9c44", "text": "Chloe adds one more. How many diamonds are there now?"}
+{"answer": "13", "id": "ey2a-count-principles-to-20/medium/2/ee0ec8eae7cf", "text": "One is taken away. How many counters are left?"}
+{"answer": "3", "id": "ey2a-equal-groups-sharing-halves-pictures/easy/0/dcc1fb36377f", "text": "There are 15 counters in all, in equal rings. How many are in each ring?"}
+{"answer": "12", "id": "ey2a-equal-groups-sharing-halves-pictures/easy/1/0b3b39627492", "text": "Chloe counts all the squares in the rings. How many?"}
+{"answer": "2", "id": "ey2a-equal-groups-sharing-halves-pictures/easy/2/d85122caee3f", "text": "There are 6 stars in all, in equal rings. How many are in each ring?"}
+{"answer": "4", "id": "ey2a-equal-groups-sharing-halves-pictures/hard/0/191ded719a51", "text": "Share the stars equally among 4 children. How many does each child get?"}
+{"answer": "3", "id": "ey2a-equal-groups-sharing-halves-pictures/hard/1/f2d52e154a98", "text": "Share the stars equally among 4 children. How many does each child get?"}
+{"answer": "1", "id": "ey2a-equal-groups-sharing-halves-pictures/hard/2/a841cc1d91eb", "text": "Priya deals the counters equally among 2 children. How many are left over?"}
+{"answer": "3", "id": "ey2a-equal-groups-sharing-halves-pictures/medium/0/54905c12a5c1", "text": "Ingrid shares the diamonds equally among 3 children. How many does each get?"}
+{"answer": "5", "id": "ey2a-equal-groups-sharing-halves-pictures/medium/1/0160df6bf31e", "text": "Share the counters equally among 3 children. How many does each child get?"}
+{"answer": "6", "id": "ey2a-equal-groups-sharing-halves-pictures/medium/2/783ea52f6ef4", "text": "Liam takes half of the counters. How many does Liam take?"}
+{"answer": "8", "id": "ey2a-part-part-whole-pictures/easy/0/cf436ced2b5c", "text": "Santiago has plain and ringed counters. How many counters in all?"}
+{"answer": "5", "id": "ey2a-part-part-whole-pictures/easy/1/b4dc4629fdf0", "text": "Count the plain and the ringed stars. How many in all?"}
+{"answer": "5", "id": "ey2a-part-part-whole-pictures/easy/2/e40658a6b9d5", "text": "Mateo has plain and ringed stars. How many stars in all?"}
+{"answer": "13", "id": "ey2a-part-part-whole-pictures/hard/0/14f115eab888", "text": "Count the plain and the ringed counters on both frames. How many in all?"}
+{"answer": "8", "id": "ey2a-part-part-whole-pictures/hard/1/f320b28c988e", "text": "There are 14 counters. Only the ringed ones are shown. How many are plain?"}
+{"answer": "12", "id": "ey2a-part-part-whole-pictures/hard/2/2d37c0b929f6", "text": "Count the plain and the ringed stars on both frames. How many in all?"}
+{"answer": "3", "id": "ey2a-part-part-whole-pictures/medium/0/f8ec091d529a", "text": "There are 5 counters. Only the ringed ones are shown. How many are plain?"}
+{"answer": "2", "id": "ey2a-part-part-whole-pictures/medium/1/4b69520f5972", "text": "There are 9 diamonds. Only the ringed ones are shown. How many are plain?"}
+{"answer": "2", "id": "ey2a-part-part-whole-pictures/medium/2/6c1e1472e461", "text": "Kai has 9 squares. The ringed ones are shown. How many are plain?"}
+{"answer": "5", "id": "ey2a-ten-frame-numbers/easy/0/1245440ce729", "text": "Freya wants a full ten frame. How many more squares?"}
+{"answer": "4", "id": "ey2a-ten-frame-numbers/easy/1/cd13a2e10f41", "text": "How many counters are on the ten frame?"}
+{"answer": "3", "id": "ey2a-ten-frame-numbers/easy/2/4e8eee706477", "text": "How many stars are on the ten frame?"}
+{"answer": "7", "id": "ey2a-ten-frame-numbers/hard/0/ef8c7a3e8385", "text": "How many more diamonds fill both ten frames?"}
+{"answer": "11", "id": "ey2a-ten-frame-numbers/hard/1/706f30c0b02d", "text": "How many counters are on both ten frames?"}
+{"answer": "8", "id": "ey2a-ten-frame-numbers/hard/2/f93ec6f8d886", "text": "How many more stars fill both ten frames?"}
+{"answer": "3", "id": "ey2a-ten-frame-numbers/medium/0/2c5f0a3ee8e3", "text": "Yuki moves diamonds from the right frame to fill the left frame. How many move?"}
+{"answer": "17", "id": "ey2a-ten-frame-numbers/medium/1/2e17f0717585", "text": "How many diamonds are on the two ten frames?"}
+{"answer": "19", "id": "ey2a-ten-frame-numbers/medium/2/257673adc7cb", "text": "How many diamonds are on the two ten frames?"}
 {"answer": "17 - 14 = □", "id": "f10-add-subtract-number-sentences/easy/0/49bc200338d6", "text": "There are 17 children in a class. 14 of the children walk to school and the res…"}
 {"answer": "19 - □ = 16", "id": "f10-add-subtract-number-sentences/easy/1/77b88bda6770", "text": "Liam had 19 tickets. Liam gave 16 tickets to a friend. How many tickets does Li…"}
 {"answer": "□ - 15 = 3", "id": "f10-add-subtract-number-sentences/easy/2/aaafad064f0a", "text": "Kai has 3 boxes. A friend gives Kai 15 more. How many boxes does Kai have in to…"}

@@ -1,0 +1,58 @@
+id: ey2a-equal-groups-sharing-halves-pictures
+name: Equal groups, sharing and halves in pictures
+domain: early-foundations
+year_level: [F, '1', '2']
+naplan_domain: [number]
+learner_band: early
+description: "Count equal groups, share counters equally, and find a half or a quarter of a group of counters or of a shape cut into equal parts."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [equal-groups, fair-sharing, f10-fractions-half-quarter-eighth]
+answer: number
+sources:
+- topic: ey2a_equal_groups_sharing_halves
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey2a_equal_groups_sharing_halves
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey2a_equal_groups_sharing_halves
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ey2a-counts-rings-not-counters
+  description: "Giving the number of rings instead of the number of counters."
+- id: ey2a-reports-the-whole
+  description: "Giving the whole (the total) instead of the part, share or answer the question asked for."
+- id: ey2a-subtracts-for-sharing
+  description: "Subtracting the number of groups from the total when sharing equally means dividing it."
+- id: ey2a-count-one-over
+  description: "Counting one too many: counting a counter twice or going one past the end."
+- id: ey2a-count-one-short
+  description: "Counting one too few: missing a counter or stopping early."
+- id: ey2a-adds-rings-and-size
+  description: "Adding the number of equal groups to the number in each group instead of multiplying."
+- id: ey2a-reports-group-size
+  description: "Giving the number in one group when the number in all the groups was asked for."
+- id: ey2a-reports-the-divisor
+  description: "Giving the number of children (the number of shares) instead of the size of a share or of what is left."
+- id: ey2a-mixes-half-and-quarter
+  description: "Mixing up a half and a quarter: dividing by 2 when 4 was needed, or by 4 when 2 was needed."
+- id: ey2a-reports-the-left-over
+  description: "Giving how many are left over when the size of each share was asked for."
+- id: ey2a-rounds-sharing-up
+  description: "Giving a share one bigger than the whole shares that can be dealt out, ignoring the leftover counters."
+- id: ey2a-reports-each-share
+  description: "Giving the size of each share when how many are left over was asked for."
+- id: ey2a-fraction-as-the-rest
+  description: "Giving what is left after taking the fraction, instead of the fraction itself."
+- id: ey2a-left-over-the-wrong-way
+  description: "Finding how many more are needed to make another full share instead of how many are left over."
+- id: ey2a-wrong-divisor
+  description: "Sharing among the wrong number of children."
+tags: [acara-f10-v9, early, ac9mfn06, ac9m1n06, ac9m2n03, equal-groups, sharing, halves, visual]
