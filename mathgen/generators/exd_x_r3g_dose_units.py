@@ -19,7 +19,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 _NAMES = ("Mia", "Noah", "Ava", "Leo", "Isla", "Jack", "Ella", "Sam")
@@ -35,7 +35,7 @@ _STEMS = (
 
 
 @generator("exd_x_r3g_dose_units", level=9, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_dose_units(rng: random.Random, tier: str = "exam") -> dict:
     """A paediatric dose: one dose in mg, the daily mass in mg and in g, and what is left of a tub."""
     if tier != "exam":

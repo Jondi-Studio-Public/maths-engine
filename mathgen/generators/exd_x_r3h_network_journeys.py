@@ -17,7 +17,7 @@ from fractions import Fraction
 import sympy
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
 _TOWNS = [
@@ -41,7 +41,7 @@ def _render(names, matrix) -> str:
 
 
 @generator("exd_x_r3h_network_journeys", level=14, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_network_journeys(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

@@ -39,7 +39,7 @@ from ..core import (
     paren_negative,
     pick_distractors,
 )
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _ARCTAN_LIMITS = [(-1, 1), (0, 1), (-1, 0)]
 _ARCSIN_LIMITS = [(Rational(-1, 2), Rational(1, 2)), (0, Rational(1, 2)), (Rational(-1, 2), 0)]

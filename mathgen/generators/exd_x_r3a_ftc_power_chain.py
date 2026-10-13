@@ -35,7 +35,7 @@ from mathgen.core import (
     round_half_up,
     stated_precision_string,
 )
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _X = Symbol("x", positive=True)
 _A = Symbol("a", positive=True)

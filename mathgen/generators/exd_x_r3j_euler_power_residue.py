@@ -23,7 +23,7 @@ import math
 from sympy import primerange
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 _PRIMES = list(primerange(5, 24))
@@ -35,7 +35,7 @@ _STEMS = [
 
 
 @generator("exd_x_r3j_euler_power_residue", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_euler_power_residue(rng):
     for _ in attempts(2000, "a modulus, base and exponent with a small reduced exponent"):
         p, q = sorted(rng.sample(_PRIMES, 2))

@@ -16,14 +16,18 @@ import pytest
 
 from mathgen import make
 from mathgen.engine import grade, load_skills
-from mathgen.generators._exd_x_r3_distinct import answer_key, distinct_answers
+from mathgen.generators._exd_distinct_parts import answer_key, distinct_part_answers
+
+
+#: Round 3b's chain prefixes; r3a to r3f are round 3a's, checked in test_exd_x_r3_integration.py.
+_BATCH = ("exd_x_r3g", "exd_x_r3h", "exd_x_r3i", "exd_x_r3j")
 
 
 def _chains():
     found = []
     for skill in load_skills()[1]:
         for source in skill.sources:
-            if source.difficulty == "exam" and source.topic.startswith("exd_x_r3"):
+            if source.difficulty == "exam" and source.topic.startswith(_BATCH):
                 found.append((skill, source))
     return found
 
@@ -96,7 +100,7 @@ def test_residue_contour_has_exactly_two_poles_inside():
         assert d not in (a, b, c), seed
 
 
-def test_distinct_answers_draws_again_until_the_parts_differ():
+def test_distinct_part_answers_draws_again_until_the_parts_differ():
     class _Rng:
         def __init__(self):
             self.draws = 0
@@ -107,7 +111,7 @@ def test_distinct_answers_draws_again_until_the_parts_differ():
         return {"parts": [{"answer_text": "2"}, {"answer_text": "2.0" if same else "3"}]}
 
     rng = _Rng()
-    out = distinct_answers(fake)(rng)
+    out = distinct_part_answers(fake)(rng)
     assert rng.draws == 3 and [p["answer_text"] for p in out["parts"]] == ["2", "3"]
 
 

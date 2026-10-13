@@ -18,7 +18,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, fraction_part, number_part
 
 _STEMS = (
@@ -37,7 +37,7 @@ def _centred(rng: random.Random, spread: int) -> list[int]:
 
 
 @generator("exd_x_r3g_ridge_fit", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_ridge_fit(rng: random.Random, tier: str = "exam") -> dict:
     """From five centred observations: Sxx, Sxy, the ridge coefficient, then a prediction."""
     if tier != "exam":

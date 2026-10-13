@@ -20,7 +20,7 @@ import random
 from ..core import attempts, check, generator, phrase
 from .exd_x_g6_project_network import _TEMPLATES, _analyse, _forward, _length, _network_text, _routes
 from .exd_x_r3b_common import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STEMS = (
     "A project has the activities below. The project starts at time 0. {net}",

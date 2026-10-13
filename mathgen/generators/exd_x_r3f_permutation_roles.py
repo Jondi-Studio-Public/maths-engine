@@ -21,7 +21,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator
 from ._exd_r3f_parts import fraction_part, number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _ROLE_POOLS = (
     (

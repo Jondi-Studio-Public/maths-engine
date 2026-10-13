@@ -21,7 +21,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms, paren_negative, phrase, rational_text
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import fraction_part, number_part
 
 
@@ -30,7 +30,7 @@ def _poly_text(c3: int, c2: int, c1: int, c0: int) -> str:
 
 
 @generator("exd_x_r3i_taylor_tangent", level=14, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_taylor_tangent(rng, tier: str = "exam") -> dict:
     """Derivative, linear approximation, its error and the tangent's x-intercept for a cubic."""
     check(tier == "exam", f"unknown tier {tier!r}")

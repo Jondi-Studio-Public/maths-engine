@@ -19,7 +19,7 @@ from fractions import Fraction
 from mathgen.core import attempts, check, generator, latex_answer
 
 from .exd_x_r3d_common import tagged
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STEMS = (
     "The function f is given by f(x) = ax² + bx, where a and b are constants. The difference quotient "

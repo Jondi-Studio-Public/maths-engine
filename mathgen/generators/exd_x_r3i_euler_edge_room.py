@@ -22,7 +22,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 _FACE_WORDS = (("triangle", 3), ("quadrilateral", 4), ("pentagon", 5))
@@ -38,7 +38,7 @@ def _faces_text(counts: list[int]) -> str:
 
 
 @generator("exd_x_r3i_euler_edge_room", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_euler_edge_room(rng, tier: str = "exam") -> dict:
     """Edges and vertices from face lengths, the edge bound for simple planar graphs, and the spare edges."""
     check(tier == "exam", f"unknown tier {tier!r}")

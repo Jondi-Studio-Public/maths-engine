@@ -19,7 +19,7 @@ from fractions import Fraction
 from mathgen.core import attempts, check, exact_decimal_string, generator
 
 from .exd_x_r3c_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STRENGTHS_MG = (100, 125, 200, 250, 400, 500)
 _RATES = (10, 15, 20, 25, 30, 40, 50, 60, 75, 100)

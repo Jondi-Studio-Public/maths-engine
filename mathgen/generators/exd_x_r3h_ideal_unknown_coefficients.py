@@ -21,14 +21,14 @@ import sympy
 
 from ..core import attempts, check, generator, join_terms
 from ..core import paren_negative as pn
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
 X = sympy.Symbol("x")
 
 
 @generator("exd_x_r3h_ideal_unknown_coefficients", level=18, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_ideal_unknown_coefficients(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

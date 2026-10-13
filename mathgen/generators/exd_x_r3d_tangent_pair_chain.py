@@ -23,7 +23,7 @@ from sympy import Symbol, solve
 from mathgen.core import attempts, check, generator, join_terms, latex_answer
 
 from .exd_x_r3d_common import tagged
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _LETTERS = (("P", "A", "B", "Q"), ("T", "M", "N", "R"), ("E", "C", "D", "F"))
 _STEMS = (

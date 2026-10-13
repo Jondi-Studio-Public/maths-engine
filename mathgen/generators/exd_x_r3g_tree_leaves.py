@@ -18,7 +18,7 @@ from __future__ import annotations
 import random
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 
@@ -42,7 +42,7 @@ _KINDS = {2: "binary", 3: "ternary", 4: "4-ary"}
 
 
 @generator("exd_x_r3g_tree_leaves", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_tree_leaves(rng: random.Random, tier: str = "exam") -> dict:
     """Leaves, vertices and edges of a tree from its degree structure, then the edges to delete from a larger graph."""
     if tier != "exam":

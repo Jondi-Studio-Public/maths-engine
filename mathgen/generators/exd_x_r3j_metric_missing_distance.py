@@ -21,7 +21,7 @@ triangle on each side is not the same, so both bounds need both triples.
 from __future__ import annotations
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 _STEMS = [
@@ -40,7 +40,7 @@ def _triangle(x: int, y: int, z: int) -> bool:
 
 
 @generator("exd_x_r3j_metric_missing_distance", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_metric_missing_distance(rng):
     for _ in attempts(3000, "five distances that leave an interval of two to nine integers for t"):
         ab, ac, bc, bd, cd = (rng.randint(2, 40) for _ in range(5))

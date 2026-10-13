@@ -23,7 +23,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms, phrase
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 Poly = dict[tuple[int, int], int]  # {(power of x, power of y): coefficient}
@@ -83,7 +83,7 @@ def _build(rng) -> tuple[Poly, Poly]:
 
 
 @generator("exd_x_r3i_cr_defects", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_cr_defects(rng, tier: str = "exam") -> dict:
     """The two Cauchy-Riemann discrepancies at a point of u + iv, and their total."""
     check(tier == "exam", f"unknown tier {tier!r}")

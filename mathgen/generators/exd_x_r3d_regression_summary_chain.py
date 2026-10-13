@@ -25,7 +25,7 @@ from sympy import Matrix
 from mathgen.core import attempts, check, generator, latex_answer
 
 from .exd_x_r3d_common import tagged
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _PROMPT_A = ("Find the value of b1.", "Calculate b1.")
 _PROMPT_B = ("Hence find b2.", "Using your value of b1, find b2.")

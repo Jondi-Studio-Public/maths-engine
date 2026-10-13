@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from ..answers import Distractor
 from ..core import check, generator, phrase, pick_distractors
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _COORD = [n for n in range(-9, 10)]
 _COMP = [n for n in range(-8, 9) if n != 0]

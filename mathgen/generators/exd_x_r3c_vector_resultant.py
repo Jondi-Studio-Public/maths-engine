@@ -18,7 +18,7 @@ from fractions import Fraction
 from mathgen.core import check, generator, join_terms
 
 from .exd_x_r3c_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _TRIPLES = ((3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29))
 _MAX_SCALE = {5: 5, 13: 2, 17: 2, 25: 1, 29: 1}

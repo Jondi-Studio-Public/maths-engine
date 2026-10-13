@@ -19,7 +19,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms, rational_text
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, fraction_part
 
 _STEMS = (
@@ -32,7 +32,7 @@ _STEMS = (
 
 
 @generator("exd_x_r3g_quadratic_sensitivity", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_quadratic_sensitivity(rng: random.Random, tier: str = "exam") -> dict:
     """Minimiser, minimum value, the minimum after a perturbation of b, and the error of the linear estimate."""
     if tier != "exam":

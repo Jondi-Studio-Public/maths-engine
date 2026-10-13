@@ -25,7 +25,7 @@ import math
 from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 
@@ -34,7 +34,7 @@ def _lcm(a: int, b: int) -> int:
 
 
 @generator("exd_x_r3i_product_group_orders", level=18, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_product_group_orders(rng, tier: str = "exam") -> dict:
     """|G|, the order of an element, the largest element order and the cyclic subgroup's index in Z_m x Z_n."""
     check(tier == "exam", f"unknown tier {tier!r}")

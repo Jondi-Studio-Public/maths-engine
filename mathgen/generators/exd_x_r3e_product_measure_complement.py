@@ -21,7 +21,7 @@ from itertools import product
 
 from ..answers import Distractor
 from ..core import check, generator, pick_distractors, rational_text
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _MASSES = sorted({Fraction(n, d) for d in (2, 3, 4, 6) for n in range(1, d + 2)})
 

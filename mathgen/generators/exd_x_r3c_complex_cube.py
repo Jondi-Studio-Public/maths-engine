@@ -14,7 +14,7 @@ import sympy
 from mathgen.core import attempts, check, generator, join_terms, paren_negative, phrase
 
 from .exd_x_r3c_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STEMS = (
     "Let z = {z}.",

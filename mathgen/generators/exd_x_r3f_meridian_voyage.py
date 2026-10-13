@@ -21,7 +21,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
 from ._exd_r3f_parts import clear_of_boundary, number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 #: vessel -> (steady speeds in knots, fuel burn rates in litres per hour), plausible for the kind of vessel
 _VESSELS = {

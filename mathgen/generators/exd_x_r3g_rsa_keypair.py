@@ -26,7 +26,7 @@ import math
 import random
 
 from ..core import attempts, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 _PRIMES = (7, 11, 13, 17, 19, 23)
@@ -59,7 +59,7 @@ def _draw(rng: random.Random):
 
 
 @generator("exd_x_r3g_rsa_keypair", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_rsa_keypair(rng: random.Random, tier: str = "exam") -> dict:
     """From two primes, e and a ciphertext: n, phi(n), d, then the plaintext."""
     if tier != "exam":

@@ -25,7 +25,7 @@ from fractions import Fraction
 from mathgen.core import attempts, check, generator, latex_answer
 
 from .exd_x_r3d_common import tagged
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _RATES = (10, 20, 25, 30, 40, 50)
 

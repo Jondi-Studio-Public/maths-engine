@@ -17,7 +17,7 @@ import random
 
 from ..core import attempts, check, generator, phrase
 from ._exd_r3f_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STEMS = (
     "The vectors u = ({u1}, {u2}) and v = ({v1}, {v2}) are given. Let w = 2u - v and p = u + kv, "

@@ -19,7 +19,7 @@ from fractions import Fraction
 import sympy
 
 from ..core import attempts, check, generator, join_terms
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import fraction_part, number_part
 
 _STEMS = (
@@ -45,7 +45,7 @@ def _p(value) -> str:
 
 
 @generator("exd_x_r3h_least_squares_basis", level=19, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_least_squares_basis(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

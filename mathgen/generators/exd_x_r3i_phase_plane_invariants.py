@@ -27,14 +27,14 @@ import math
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 _KINDS = ("real", "real", "complex", "complex", "complex-or-zero")
 
 
 @generator("exd_x_r3i_phase_plane_invariants", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_phase_plane_invariants(rng, tier: str = "exam") -> dict:
     """Trace, determinant, discriminant and largest real eigenvalue part of a 2-by-2 linear system."""
     check(tier == "exam", f"unknown tier {tier!r}")

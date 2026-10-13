@@ -19,7 +19,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase, round_half_up
 from .exd_x_r3b_common import number_part, number_text
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _NAMES = ("Chloe", "Ava", "Mia", "Liam", "Noah", "Isla", "Ethan", "Grace", "Lucas", "Ruby", "Jack", "Olivia")
 _PRODUCTS = ("a term deposit", "a fixed-term savings account", "a term investment")

@@ -20,7 +20,7 @@ chart also lists a second low and high tide, a day's worth, which serve as decoy
 from __future__ import annotations
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 _PLACES = [
@@ -49,7 +49,7 @@ def _metres(centimetres: int) -> str:
 
 
 @generator("exd_x_r3j_tide_chart_rate", level=11, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_tide_chart_rate(rng):
     place = rng.choice(_PLACES)
     for _ in attempts(5000, "a duration and rate with whole-centimetre rise and whole-minute ramp time"):

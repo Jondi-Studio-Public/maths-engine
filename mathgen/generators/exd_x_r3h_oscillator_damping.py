@@ -19,7 +19,7 @@ import math
 from fractions import Fraction
 
 from ..core import attempts, check, generator, round_half_up
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
 _MARGIN = Fraction(1, 50)
@@ -43,7 +43,7 @@ def _root(value: Fraction) -> Fraction:
 
 
 @generator("exd_x_r3h_oscillator_damping", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_oscillator_damping(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

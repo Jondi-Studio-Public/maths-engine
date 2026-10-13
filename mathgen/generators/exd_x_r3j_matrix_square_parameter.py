@@ -24,7 +24,7 @@ Every canonical answer is also summed entry by entry as an independent check.
 from __future__ import annotations
 
 from ..core import attempts, check, generator, join_terms
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 _STEMS = [
@@ -50,7 +50,7 @@ def _product_sums(k: int, e: int, n: int) -> tuple[int, int]:
 
 
 @generator("exd_x_r3j_matrix_square_parameter", level=11, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_matrix_square_parameter(rng):
     p, q = rng.randint(1, 3), rng.randint(1, 4)
     m = p + q

@@ -22,7 +22,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 _SETTINGS = [
@@ -41,7 +41,7 @@ def _speed_phrase(v: int) -> str:
 
 
 @generator("exd_x_r3j_collision_impulse", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_collision_impulse(rng):
     opening, noun, factor, kmax, vmax = rng.choice(_SETTINGS)
     for _ in attempts(2000, "masses and velocities with a whole-number approach velocity"):

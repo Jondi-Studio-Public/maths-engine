@@ -19,7 +19,7 @@ from itertools import permutations
 
 from ..answers import Distractor
 from ..core import check, generator, phrase, pick_distractors
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _N = 4
 _TASKS = "ABCD"

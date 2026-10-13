@@ -17,7 +17,7 @@ import random
 
 from ..core import attempts, check, generator, join_terms, phrase
 from ._exd_r3f_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STEMS = (
     "A curve has vector equation r(t) = ({a}t{p_term}, b/t{c_term}) for t \u2260 0, where b is a constant. "

@@ -20,7 +20,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
 from .exd_x_r3b_common import fraction_part, number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _STEMS = (
     "Let z = ({num})/({den}).",

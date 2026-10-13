@@ -17,7 +17,7 @@ from __future__ import annotations
 from mathgen.core import attempts, check, generator
 
 from .exd_x_r3c_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 # Activities are lettered in topological order, so a pass in alphabetical order is a valid pass.
 _TEMPLATES = (

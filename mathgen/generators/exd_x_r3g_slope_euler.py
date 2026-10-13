@@ -20,7 +20,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 _STEPS = (Fraction(1, 10), Fraction(1, 5), Fraction(1, 2))
@@ -37,7 +37,7 @@ def _text(value: Fraction) -> str:
 
 
 @generator("exd_x_r3g_slope_euler", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_slope_euler(rng: random.Random, tier: str = "exam") -> dict:
     """Two Euler steps along the solution curve of dy/dx = a x + b y + c, with the gradient found at each stage."""
     if tier != "exam":

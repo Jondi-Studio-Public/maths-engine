@@ -24,7 +24,7 @@ import re
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms, phrase
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 #: (text with {c}, coefficient of k, rest) as functions of (i, j, c)
@@ -60,7 +60,7 @@ def _latex_of(text: str) -> str:
 
 
 @generator("exd_x_r3i_matrix_rule_unknown", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_matrix_rule_unknown(rng, tier: str = "exam") -> dict:
     """Find k from one entry of a rule-defined matrix, read another entry, locate a value in a row, read again."""
     check(tier == "exam", f"unknown tier {tier!r}")

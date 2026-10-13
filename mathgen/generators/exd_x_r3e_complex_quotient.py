@@ -18,7 +18,7 @@ import sympy
 
 from ..answers import Distractor
 from ..core import check, generator, join_terms, phrase, pick_distractors
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _RANGE = [n for n in range(-7, 8) if n != 0]
 _DIVISOR = [n for n in range(-4, 5) if n != 0]

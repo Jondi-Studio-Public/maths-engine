@@ -23,7 +23,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 # amplitude (in tenths of a metre) -> displacements (in tenths) at which the speed is a whole number of tenths times w
@@ -50,7 +50,7 @@ def _g(tenths: int | Fraction) -> str:
 
 
 @generator("exd_x_r3g_oscillator_energy", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_oscillator_energy(rng: random.Random, tier: str = "exam") -> dict:
     """One state of a spring-mass oscillator: its energy, amplitude, maximum speed and speed at another position."""
     if tier != "exam":

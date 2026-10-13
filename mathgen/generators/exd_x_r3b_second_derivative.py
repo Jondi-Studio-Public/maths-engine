@@ -27,7 +27,7 @@ from sympy import Poly, Rational
 from ..core import attempts, check, generator, phrase, value_safe_str
 from .exd_x_c1_common import X, lin_text, powered, tex, x_pow
 from .exd_x_r3b_common import expression_part, fraction_part, number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 # (m, n): f = c x^m (ax + b)^n
 _FAMILIES = ((1, 3), (1, 4), (3, 1))

@@ -22,7 +22,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms, paren_negative, phrase, round_half_up
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 _PAIRS = ((3, 4), (4, 3), (5, 12), (12, 5), (8, 15), (15, 8), (6, 8), (8, 6))
@@ -35,7 +35,7 @@ def _near_tie(value: Fraction, dp: int) -> bool:
 
 
 @generator("exd_x_r3i_curvature_chain", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_curvature_chain(rng, tier: str = "exam") -> dict:
     """Speed, cross term, curvature and radius of curvature of a parametric cubic at t = t0."""
     check(tier == "exam", f"unknown tier {tier!r}")

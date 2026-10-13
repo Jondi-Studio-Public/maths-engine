@@ -88,7 +88,9 @@ def test_answer_space(questions):
 def test_follow_through_from_wrong_dot_and_length(questions):
     def chain(q):
         a = int(q.parts[0].distractors[0])
-        b = int(q.parts[1].distractors[0])
+        # Two equal wrong replies whose quotient is 1 carry nothing: the grader takes that as one number typed
+        # twice (mathgen/grading/parts.py, `_not_trivial`), so (b) takes its next distractor when the first is a's.
+        b = next(int(d) for d in q.parts[1].distractors if int(d) != a)
         c = round(a / b)
         if c in (a, b) or a % b:
             return None
@@ -98,7 +100,9 @@ def test_follow_through_from_wrong_dot_and_length(questions):
             return None
         return {"a": str(a), "b": str(b), "c": str(c), "d": str(d)}, {"c", "d"}
 
-    S.check_follow_through(SKILL, questions, chain, n=300)
+    # At least 150 follow-through cases, as before; the junk-reply guard draws different questions, so 400
+    # seeds are searched for them rather than 300.
+    S.check_follow_through(SKILL, S.build(TOPIC, range(400)), chain, n=400, minimum=150)
 
 
 def test_follow_through_with_correct_length(questions):

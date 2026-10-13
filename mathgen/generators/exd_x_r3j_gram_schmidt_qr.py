@@ -20,7 +20,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import fraction_part
 
 _TRIPLES = [
@@ -56,7 +56,7 @@ _STEMS = [
 
 
 @generator("exd_x_r3j_gram_schmidt_qr", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_gram_schmidt_qr(rng):
     for _ in attempts(1000, "a column pair with non-zero dot product and determinant"):
         a0, b0, c = rng.choice(_TRIPLES)

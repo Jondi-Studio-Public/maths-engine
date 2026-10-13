@@ -24,7 +24,7 @@ from fractions import Fraction
 from math import floor
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 # (frequency in Hz, plausible range of crest spacing in metres for ocean swell of that period: about 1.56 T^2)
@@ -49,7 +49,7 @@ def _plain(value: Fraction) -> str:
 
 
 @generator("exd_x_r3j_wave_shoaling", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_wave_shoaling(rng):
     for _ in attempts(2000, "a frequency, spacing, shallow speed and section length that avoid rounding edges"):
         f, low, high = rng.choice(_SWELL)

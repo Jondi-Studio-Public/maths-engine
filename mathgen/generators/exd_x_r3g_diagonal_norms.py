@@ -18,7 +18,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, generator, rational_text
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, fraction_part
 
 _STEMS = (
@@ -41,7 +41,7 @@ def _draw_entry(rng: random.Random) -> Fraction:
 
 
 @generator("exd_x_r3g_diagonal_norms", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_diagonal_norms(rng: random.Random, tier: str = "exam") -> dict:
     """Norm, norm of a power, norm of the inverse and condition number of a 2 x 2 diagonal map."""
     if tier != "exam":

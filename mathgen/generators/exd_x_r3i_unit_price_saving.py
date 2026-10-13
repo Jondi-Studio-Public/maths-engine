@@ -22,7 +22,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
 #: (item, family, plural unit label for the 100-unit price, bulk-order unit, price range in cents per 100 units)
@@ -53,7 +53,7 @@ def _kg_text(value: Fraction) -> str:
 
 
 @generator("exd_x_r3i_unit_price_saving", level=7, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3i_unit_price_saving(rng, tier: str = "exam") -> dict:
     """Unit prices of two packs in different units, their gap, and the saving on a bulk order."""
     check(tier == "exam", f"unknown tier {tier!r}")

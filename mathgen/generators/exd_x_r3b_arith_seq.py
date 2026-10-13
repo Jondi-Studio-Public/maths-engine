@@ -21,7 +21,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase, rational_text
 from .exd_x_r3b_common import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 # stem uses {A}, {B} (already with unit text), {p}, {q}; sign is the direction of change.
 _CONTEXTS = (

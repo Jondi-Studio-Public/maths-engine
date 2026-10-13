@@ -36,7 +36,7 @@ from ..core import (
     round_half_up,
     stated_precision_string,
 )
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 PI = Fraction("3.14159265358979323846264338327950288419716939937510")
 _PLACES = 2

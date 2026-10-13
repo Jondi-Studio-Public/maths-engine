@@ -17,7 +17,7 @@ from math import comb, perm
 
 from ..answers import Distractor
 from ..core import check, generator, phrase, pick_distractors
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _LIMIT = 10**9
 

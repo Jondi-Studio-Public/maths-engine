@@ -19,7 +19,7 @@ import math
 import random
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 _MODULI = tuple(range(30, 451))  # primes, prime powers and products alike
@@ -49,7 +49,7 @@ def _distinct_primes(n: int) -> list[int]:
 
 
 @generator("exd_x_r3g_unit_group_index", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_unit_group_index(rng: random.Random, tier: str = "exam") -> dict:
     """Order of the unit group modulo n, order of a generated subgroup, its index and the elements outside it."""
     if tier != "exam":

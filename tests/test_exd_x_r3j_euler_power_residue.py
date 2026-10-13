@@ -92,7 +92,9 @@ def test_follow_through_from_wrong_totient():
         if r2 < 2:
             continue
         final = pow(m, r2, n)
-        if len({int(canon["a"]), phi2, r2, final}) < 4 or final == 0:
+        # A carried power of 1 is not credited: the grader withholds a carried 1 that stays 1 when the reply it
+        # comes from is multiplied by 10 (mathgen/grading/parts.py, `_insensitive`), since 1 is a guess.
+        if len({int(canon["a"]), phi2, r2, final}) < 4 or final in (0, 1):
             continue
         result = grade(sk, q, {**canon, "b": str(phi2), "c": str(r2), "d": str(final)})
         assert result.parts["b"].marks == 0

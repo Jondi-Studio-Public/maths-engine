@@ -18,7 +18,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator, join_terms
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
 # (|u|, |c|, w) with u^2 + c^2 = w^2; u may be 0 (c = w) and the two legs may swap.
@@ -46,7 +46,7 @@ _TRIPLES = [
 
 
 @generator("exd_x_r3h_hessian_definiteness", level=17, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_hessian_definiteness(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

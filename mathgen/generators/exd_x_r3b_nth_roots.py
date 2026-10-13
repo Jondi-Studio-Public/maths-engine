@@ -22,7 +22,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
 from .exd_x_r3b_common import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _ANGLES = (30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330)
 _ORDINAL = {1: "first", 2: "second", 3: "third", 4: "fourth"}

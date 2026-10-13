@@ -17,7 +17,7 @@ from pathlib import Path
 import pytest
 
 from mathgen import make
-from mathgen.generators._exd_r3_distinct import answers_distinct
+from mathgen.generators._exd_distinct_parts import answers_distinct
 from mathgen.grading import typed
 from mathgen.grading.parts import grade_parts
 from mathgen.misconceptions import CATALOGUE
@@ -94,10 +94,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SEEDS = range(1, 61)
 DEGENERATE_SEEDS = range(1, 16)
 
-#: Ids removed or merged in integration: a generator must not tag with them again.
+#: Ids removed or merged in integration: a generator must not tag with them again. Main's catalogue has since
+#: defined adds-instead-of-multiplies, lower-limit-forgotten and multiplied-instead-of-divided for chains outside
+#: round 3, in general wording that fits round 3's uses, so they are live ids again and not listed here.
 RETIRED = {
-    "multiplied-instead-of-divided",
-    "adds-instead-of-multiplies",
     "gave-total-not-difference",
     "reversed-sign",
     "wrong-axis-component",
@@ -114,7 +114,6 @@ RETIRED = {
     "reports-est-not-float",
     "summed-all-durations",
     "restricted-position-ignored",
-    "lower-limit-forgotten",
     "evaluation-not-reduced-mod-p",
     "reads-imaginary-coefficient-as-real-part",
     "reported-real-part-for-imaginary",

@@ -16,7 +16,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator, round_half_up
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
 # factor -> the step F must be a multiple of so that b is a whole number
@@ -40,7 +40,7 @@ def _clear(value: Fraction) -> bool:
 
 
 @generator("exd_x_r3h_recurrence_steady_state", level=14, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_recurrence_steady_state(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

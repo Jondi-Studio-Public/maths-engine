@@ -26,7 +26,7 @@ from ..core import (
     round_half_up,
     stated_precision_string,
 )
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _WALK = dict(scales=[10000, 20000, 50000], speeds=[3, 4, 5], max_km=18)
 _RIDE = dict(scales=[50000, 100000], speeds=[12, 15, 18, 20], max_km=60)

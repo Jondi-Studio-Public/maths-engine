@@ -20,7 +20,7 @@ from fractions import Fraction
 from mathgen.core import attempts, check, generator, round_half_up
 
 from .exd_x_r3c_parts import fraction_part, number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 PI = Fraction(math.pi)  # exact value of the double nearest pi: far finer than the 3 d.p. asked
 _MARGIN = Fraction(1, 50)  # keep the 3 d.p. key this far (in thousandths) from a rounding boundary

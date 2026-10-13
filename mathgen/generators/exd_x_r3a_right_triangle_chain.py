@@ -25,7 +25,7 @@ from sympy import Rational, Symbol, solve, sqrt
 
 from mathgen.answers import Distractor, exact_value
 from mathgen.core import attempts, check, generator, latex_answer, pick_distractors, rational_text
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29), (9, 40, 41), (12, 35, 37), (11, 60, 61)]
 _WORLD = [

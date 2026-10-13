@@ -17,7 +17,7 @@ import math
 from fractions import Fraction
 
 from ..core import attempts, generator, round_half_up
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
 _H_ROWS = (Fraction(1, 10), Fraction(1, 100), Fraction(1, 1000), Fraction(1, 10000))
@@ -61,7 +61,7 @@ def _row(a: float, h: Fraction) -> str:
 
 
 @generator("exd_x_r3h_limit_ah", level=12, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3h_limit_ah(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

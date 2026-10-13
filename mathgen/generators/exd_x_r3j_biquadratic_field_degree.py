@@ -23,7 +23,7 @@ from __future__ import annotations
 from math import isqrt
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import number_part
 
 # (case, weight): see the module docstring
@@ -65,7 +65,7 @@ def _quadratic_text(s: int, t: int) -> str:
 
 
 @generator("exd_x_r3j_biquadratic_field_degree", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_biquadratic_field_degree(rng):
     case = rng.choices([c for c, _ in _CASES], weights=[w for _, w in _CASES])[0]
     for _ in attempts(5000, "two positive roots matching the case"):

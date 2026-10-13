@@ -20,7 +20,7 @@ from fractions import Fraction
 from mathgen.core import attempts, check, generator, round_half_up
 
 from .exd_x_r3c_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _PERIODS = (("monthly", 12, "month"), ("quarterly", 4, "quarter"))
 

@@ -18,7 +18,7 @@ from fractions import Fraction
 
 from ..answers import Distractor
 from ..core import check, generator, join_terms, pick_distractors
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _NONZERO = [n for n in range(-6, 7) if n != 0]
 

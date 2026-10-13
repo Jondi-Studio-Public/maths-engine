@@ -26,7 +26,7 @@ from math import comb, factorial
 
 from mathgen.answers import Distractor, exact_value
 from mathgen.core import attempts, check, generator, latex_answer, pick_distractors, rational_text
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _VOWELS = frozenset("AEIOU")
 _WORDS = tuple(

@@ -18,7 +18,7 @@ from __future__ import annotations
 from mathgen.core import check, generator
 
 from .exd_x_r3c_parts import number_part
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 # (people noun, opening sentence, plural for the groups, singular for one group, three group names)
 _CONTEXTS = (

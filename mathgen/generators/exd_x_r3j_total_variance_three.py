@@ -21,7 +21,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import fraction_part
 
 _SETTINGS = [
@@ -76,7 +76,7 @@ def _case_list(names: list[str]) -> str:
 
 
 @generator("exd_x_r3j_total_variance_three", level=17, presets={"exam": {}})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3j_total_variance_three(rng):
     opening, names, what, unit, base, spread, vmax = rng.choice(_SETTINGS)
     for _ in attempts(1000, "three unequal probabilities and distinct conditional means"):

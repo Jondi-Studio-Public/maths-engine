@@ -23,7 +23,7 @@ from fractions import Fraction
 from ..core import attempts, check, generator, phrase, round_half_up, stated_precision_string
 from .exd_x_r3b_common import number_part
 from .p17b_proportion_ci_inverse_build import _draw_base
-from ._exd_r3_distinct import distinct_part_answers
+from ._exd_distinct_parts import distinct_part_answers
 
 _CONTEXTS = (
     "A survey of households in a regional town reports {art} {level}% confidence interval for the proportion who recycle "

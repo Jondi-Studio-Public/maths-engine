@@ -21,7 +21,7 @@ import random
 from fractions import Fraction
 
 from ..core import attempts, check, generator, rational_text, stated_precision_string
-from ._exd_x_r3_distinct import distinct_answers
+from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
 _SITUATIONS = (
@@ -45,7 +45,7 @@ def _dec(value: Fraction, places: int) -> str:
 
 
 @generator("exd_x_r3g_recurrence_fit", level=11, presets={"exam": dict(tier="exam")})
-@distinct_answers
+@distinct_part_answers
 def exd_x_r3g_recurrence_fit(rng: random.Random, tier: str = "exam") -> dict:
     """From three recorded values: a, b, the long-term value and the time to come within 1 unit of it."""
     if tier != "exam":
