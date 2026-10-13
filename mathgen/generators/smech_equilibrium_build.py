@@ -136,7 +136,7 @@ def _medium(rng):
         ]
         working = [
             f"Vertically: T sin α = {m}g = {dec(weight)}.",
-            f"T = {dec(weight)} / {_frac(sin)} = {dec(slanting)} N.",
+            f"T = {dec(weight)} / ({_frac(sin)}) = {dec(slanting)} N.",
         ]
     else:
         text = base + " Find the tension in the horizontal string, in newtons, correct to 2 decimal places."
@@ -265,7 +265,7 @@ def smech_equilibrium_exam(rng):
         tension,
         2,
         2,
-        [f"Vertically: T cos θ = W, so T = {dec(weight)} / {_frac(cos)} = {dec(tension)} N."],
+        [f"Vertically: T cos θ = W, so T = {dec(weight)} / ({_frac(cos)}) = {dec(tension)} N."],
         [
             (weight * cos, "mech-sin-cos-swapped"),
             (weight / sin, "mech-sin-cos-swapped"),

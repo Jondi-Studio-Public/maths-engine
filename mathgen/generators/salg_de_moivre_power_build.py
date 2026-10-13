@@ -28,7 +28,7 @@ from ..answers import Distractor
 from ..core import check, draw_until, generator, latex_answer, phrase, pick_distractors
 from ._salg_kit import int_dist, polar_dist, polar_pair
 
-_PAIR_ASK = "Give the result as r cis θ, stating r and theta, with theta in degrees and 0 ≤ theta < 360."
+_PAIR_ASK = "Give the result as r cis θ by writing the pair (r, θ), with θ in degrees and 0 ≤ θ < 360."
 
 
 def _norm(angle: int) -> int:

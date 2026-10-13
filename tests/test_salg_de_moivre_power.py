@@ -16,6 +16,7 @@ import sympy as sp
 import mathgen.generators.salg_de_moivre_power_build  # noqa: F401  (registers the topics)
 from mathgen import make
 from mathgen.engine import grade
+from mathgen.grading import grade as grade_reply
 from salg_support import check_exam, check_follow_through, check_single, parse, skill
 
 TOPIC = "salg_de_moivre_power"
@@ -152,3 +153,15 @@ def test_exam_follow_through_from_a_wrong_argument():
         return str(bad), {"d": text}
 
     check_follow_through(SKILL, EXAM, "b", wrong, ["d"], seeds=40, min_checked=15)
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_typed_reply_may_use_the_theta_symbol_or_the_word(tier):
+    """The pair is answered as (r, θ): "r = 4, θ = 90", "r=4 theta=90" and "4, 90" all grade correct."""
+    for seed in range(30):
+        q = _q(tier, seed)
+        r, theta = (int(v) for v in re.findall(r"\d+", q.answer_text))
+        for reply in (f"r = {r}, θ = {theta}", f"r={r}, theta={theta}", f"{r}, {theta}", f"({r}, {theta})"):
+            assert grade_reply(q.answer_kind, q, reply).correct, (seed, q.answer_text, reply)
+        if r != theta:
+            assert not grade_reply(q.answer_kind, q, f"{theta}, {r}").correct, (seed, q.answer_text)

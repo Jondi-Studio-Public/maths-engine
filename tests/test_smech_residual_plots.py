@@ -185,3 +185,23 @@ def test_exam_distractors_keep_the_precision_and_text_varies():
 def test_deterministic():
     for topic, d in (("smech_residual_plots", "medium"), ("smech_residual_plots_exam", "exam")):
         assert make(topic, seed=7, difficulty=d).to_dict() == make(topic, seed=7, difficulty=d).to_dict()
+
+
+def test_plotted_and_listed_residuals_add_to_zero():
+    """The residuals of a least-squares line sum to zero, so the plotted points and the tabled values must too."""
+    for difficulty in ("easy", "medium"):
+        for seed in SEEDS:
+            q = make("smech_residual_plots", seed=seed, difficulty=difficulty)
+            assert sum(plotted(q)) == 0, (difficulty, seed, plotted(q))
+    for seed in SEEDS:
+        q = make("smech_residual_plots", seed=seed, difficulty="hard")
+        listed = [Fraction(v) for v in re.findall(r"x = \d+: (" + NUM + ")", q.text)]
+        assert len(listed) == 9 and sum(listed) == 0, (seed, listed)
+
+
+def test_exam_five_residuals_add_to_zero():
+    for seed in SEEDS:
+        q = make("smech_residual_plots_exam", seed=seed, difficulty="exam")
+        listed = [Fraction(v) for v in re.findall(r"x = -?\d+: (" + NUM + ")", q.text)]
+        hidden = Fraction(q.parts[1].answer_text)
+        assert len(listed) == 4 and sum(listed) + hidden == 0, (seed, listed, hidden)

@@ -38,11 +38,26 @@ def int_dist(value: int, tag: str) -> Distractor:
     return Distractor(str(int(value)), tag, int(value))
 
 
-def polar_pair(r: int, theta: int):
-    """A modulus and an argument in degrees as the labelled pair the polar-form skills answer with."""
-    from .p5b_complex_plane_build import ComplexPair
+class PolarPair:
+    """A modulus and an argument in degrees, answered as the pair (r, θ).
 
-    return ComplexPair("r", float(r), "theta", float(theta))
+    The answer text is the bare pair "(128, 330)", not "r = 128, theta = 330": a labelled text makes the grader insist
+    on the exact label spelling, and a learner may write the symbol θ or the word theta. A bare pair accepts either,
+    with or without "r =" and "θ =", and still rejects the two values in the wrong order."""
+
+    def __init__(self, r: int, theta: int):
+        self.r, self.theta = int(r), int(theta)
+
+    def answer_dict(self) -> dict:
+        return {"r": float(self.r), "theta": float(self.theta)}
+
+    def answer_text(self) -> str:
+        return f"({self.r}, {self.theta})"
+
+
+def polar_pair(r: int, theta: int) -> PolarPair:
+    """A modulus and an argument in degrees as the pair the polar-form skills answer with."""
+    return PolarPair(r, theta)
 
 
 def polar_dist(r: int, theta: int, tag: str) -> Distractor:

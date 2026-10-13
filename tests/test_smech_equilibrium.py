@@ -184,3 +184,14 @@ def test_exam_distractors_keep_the_precision_and_text_varies():
 def test_deterministic():
     for topic, d in (("smech_equilibrium", "hard"), ("smech_equilibrium_exam", "exam")):
         assert make(topic, seed=7, difficulty=d).to_dict() == make(topic, seed=7, difficulty=d).to_dict()
+
+
+def test_working_brackets_a_fraction_divisor():
+    """"T = 58.8 / 3/5" reads as 58.8 / 3 / 5: a fractional divisor is bracketed."""
+    for tier in ("medium", "hard", "exam"):
+        for s in range(60):
+            q = make("smech_equilibrium_exam" if tier == "exam" else "smech_equilibrium", seed=s, difficulty=tier)
+            steps = list(q.working or [])
+            for part in q.parts or []:
+                steps += list(part.working or [])
+            assert not re.search(r"/ \d+/\d+", " ".join(steps)), steps

@@ -73,8 +73,21 @@ def _classify(res) -> str:
     return "unclear"
 
 
+def _balanced(res):
+    """`res` with the sum moved to exactly zero, as the residuals of a least-squares line always are.
+
+    The surplus is taken off in steps of 0.1, round and round the residuals of greatest size, so the pattern is kept."""
+    res = list(res)
+    surplus = int(sum(res) * 10)
+    step = Fraction(1 if surplus > 0 else -1, 10)
+    order = sorted(range(len(res)), key=lambda i: -abs(res[i]))
+    for k in range(abs(surplus)):
+        res[order[k % len(res)]] -= step
+    return res
+
+
 def _draw_pattern(rng, pattern: str, n: int = _N):
-    """Residuals (in tenths, no zeros) that show `pattern`, accepted only if `_classify` agrees."""
+    """Residuals (in tenths, no zeros, adding to zero) that show `pattern`, accepted only if `_classify` agrees."""
     for _ in attempts(2000, f"residuals showing a {pattern} pattern"):
         if pattern == "random":
             res = [_tenths(rng.choice((-1, 1)) * rng.choice((3, 5, 8, 10, 12, 15, 18, 22, 24)) / 10) for _ in range(n)]
@@ -85,7 +98,8 @@ def _draw_pattern(rng, pattern: str, n: int = _N):
         else:
             g = rng.choice((0.25, 0.3, 0.35))
             res = [_tenths(rng.choice((-1, 1)) * (0.2 + g * i * rng.uniform(0.8, 1.2))) for i in range(1, n + 1)]
-        if _classify(res) == pattern and abs(sum(res)) <= 2:
+        res = _balanced(res)
+        if _classify(res) == pattern and sum(res) == 0:
             return res
     raise AssertionError("unreachable")  # pragma: no cover
 
