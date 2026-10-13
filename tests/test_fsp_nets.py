@@ -179,7 +179,7 @@ def test_exam_shape_and_marks():
         q = _exam(seed)
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
         assert [p.marks for p in q.parts] == [1, 2, 2, 1]
-        assert [p.answer_kind for p in q.parts] == ["mcq", "number", "number", "number"]
+        assert [p.answer_kind for p in q.parts] == ["number", "number", "number", "number"]
         assert [p.follow_through is not None for p in q.parts] == [False, False, True, True]
         assert q.figure["not_to_scale"] is True
 
@@ -191,7 +191,7 @@ def test_exam_parts_follow_from_the_measurements():
         w = perimeter // 2 - l
         assert (l, w, h) != (w, l, h) and len({l, w, h}) == 3
         assert {p.label: p.answer_text for p in q.parts} == {
-            "a": "Rectangular prism",
+            "a": str(l * h),
             "b": str(w),
             "c": str(2 * (l * w + l * h + w * h)),
             "d": str(l * w * h),

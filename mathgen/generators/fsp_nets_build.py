@@ -12,7 +12,7 @@ tiers, each a different thing to do with the net:
 - hard: a cube net whose corners are lettered. When it is folded, three corners of the net meet at one corner of the
   cube. Which two others meet corner X? Answering means folding the net in the head, face by face.
 
-``fsp_nets_exam`` is the exam chain on a drawn net of a closed box: (a) name the solid, (b) find the unlabelled width from
+``fsp_nets_exam`` is the exam chain on a drawn net of a closed box: (a) the area of a side face, (b) find the unlabelled width from
 the measurements on the net, (c) the surface area, (d) the volume (both follow through from (b)).
 
 Whether six squares fold into a cube is decided twice, by rolling a cube over the squares and by tracking which face
@@ -484,7 +484,7 @@ def _exam_dims(rng):
 
 @generator("fsp_nets_exam", level=8, presets={"exam": {}})
 def fsp_nets_exam(rng):
-    """A drawn net of a closed box with measurements on it: name the solid, find the missing width, then the
+    """A drawn net of a closed box with measurements on it: the area of a side face, the missing width, then the
     surface area and the volume (both follow through from the width)."""
     l, w, h = _exam_dims(rng)
     perimeter = 2 * (l + w)
@@ -528,11 +528,13 @@ def fsp_nets_exam(rng):
             ("gift box", "pencil case", "jewellery box", "tissue box", "storage box", "shoe box", "toy box", "tea box")
         ),
     )
-    a_options = [
-        Distractor("Triangular prism", "net-face-count-ignored"),
-        Distractor("Square pyramid", "net-prism-pyramid-confused"),
-        Distractor("Cube", "net-face-shape-only"),
+    side_area = l * h
+    a_candidates = [
+        Distractor(str(2 * (l + h)), "perimeter-for-area", 2 * (l + h)),
+        Distractor(str(l + h), "net-face-sides-added", l + h),
+        Distractor(str(2 * l * h), "net-two-faces-for-one", 2 * l * h),
     ]
+    a_d = pick_distractors(str(side_area), a_candidates, 3, tolerance=GRADER_TOLERANCE)
     b_candidates = [
         Distractor(str(perimeter - l), "net-strip-not-halved", perimeter - l),
         Distractor(str(perimeter // 2), "net-strip-length-not-removed", perimeter // 2),
@@ -555,19 +557,22 @@ def fsp_nets_exam(rng):
     c_d = pick_distractors(str(area), c_candidates, 3, tolerance=GRADER_TOLERANCE)
     d_d = pick_distractors(str(volume), d_candidates, 3, tolerance=GRADER_TOLERANCE)
     # distractors must also be wrong for the follow-through route from the canonical (b)
-    check(len(b_d) >= 2 and len(c_d) >= 2 and len(d_d) >= 2, "too few distractors in a part")
+    check(len(a_d) >= 2 and len(b_d) >= 2 and len(c_d) >= 2 and len(d_d) >= 2, "too few distractors in a part")
     return dict(
         text=stem,
         figure=spec,
         parts=[
             dict(
-                prompt="Name the solid the net makes.",
-                answer_kind="mcq",
-                answer="Rectangular prism",
-                answer_text="Rectangular prism",
+                prompt=f"Find the area of one of the side faces that is {l} cm long and {h} cm high, in square "
+                "centimetres.",
+                answer_kind="number",
+                answer=side_area,
+                answer_text=str(side_area),
+                answer_latex=latex_answer(str(side_area)),
                 marks=1,
-                distractors=a_options,
-                working=["Six rectangles, none of them squares, fold into a rectangular prism."],
+                sensible_range=(0, None),
+                working=[f"Area = {l} × {h} = {side_area} cm²."],
+                distractors=a_d,
             ),
             dict(
                 prompt="Find the width of the box (the other side of the top face), in centimetres.",
@@ -627,8 +632,7 @@ def _read_exam(question) -> str:
     """Re-derive every part from the measurements on the net."""
     l, perimeter, h = _exam_measurements(question.figure)
     w = perimeter // 2 - l
-    solid = _name_from_figure(question.figure)
-    return f"(a) {solid}; (b) {w}; (c) {2 * (l * w + l * h + w * h)}; (d) {l * w * h}"
+    return f"(a) {l * h}; (b) {w}; (c) {2 * (l * w + l * h + w * h)}; (d) {l * w * h}"
 
 
 # No sweep reader is registered for the exam topic: a multiple-choice skill's sweep would treat the labelled

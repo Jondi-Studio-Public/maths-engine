@@ -10172,6 +10172,16 @@ _ENTRIES = (
         area="spatial",
     ),
     CatalogueEntry(
+        "net-two-faces-for-one",
+        "Doubling a face's area because the box has two faces of that size, when only one face was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "net-face-sides-added",
+        "Adding a face's length and height once instead of multiplying them to get its area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
         "net-wrong-corner",
         "Naming the corners that meet at a different corner of the cube from the one asked about.",
         area="spatial",
