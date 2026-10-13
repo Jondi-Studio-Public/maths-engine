@@ -1,0 +1,97 @@
+id: f10-choose-unit-and-convert
+name: Choose a metric unit, then compare and total measures in different units
+domain: measurement
+year_level:
+- '3'
+- '5'
+naplan_domain:
+- measurement
+description: Choose the most sensible metric unit for a length, mass or capacity; compare four measures written in different
+  units; and find a total or an amount left over from measures written in two units, in the smaller unit. The exam chain goes
+  from a sensible unit to a total, a number of portions and an amount left over.
+status: active
+placement_eligible: false
+prerequisites:
+- convert-metric-length
+- convert-metric-mass
+- convert-metric-capacity
+answer: mcq
+sources:
+- topic: fr2c_choose_unit_convert
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_choose_unit_convert
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_choose_unit_convert
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fr2c_choose_unit_convert_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Judge the size of the thing and pick the unit that gives a sensible number.
+  medium:
+    steps: 2
+    demand: Change four measures to one unit to compare them; the biggest number is not the biggest measure.
+  hard:
+    steps: 3
+    demand: Change each measure to the smaller unit, then add or take away.
+  exam:
+    steps: 4
+    demand: Choose a unit, then a total in the smaller unit, then divide into portions, then find what is left.
+misconceptions:
+- id: fr2c-unit-too-small
+  description: Choosing a unit that is much smaller than the thing being measured, so the number would be huge.
+- id: fr2c-unit-too-large
+  description: Choosing a unit that is much larger than the thing being measured, so the number would be tiny.
+- id: fr2c-unit-of-wrong-attribute
+  description: Choosing a unit that measures a different attribute, such as litres for a length.
+- id: fr2c-chose-the-largest-unit
+  description: Choosing the measure written in the largest unit.
+- id: fr2c-unit-conversion-slip
+  description: Choosing a measure after changing the units with a slip, so the order of the measures is wrong.
+- id: fr2c-compared-numbers-ignoring-units
+  description: Choosing the measure with the largest (or smallest) number without allowing for the units.
+- id: fr2c-forgot-to-change-one-measure
+  description: Changing some of the measures to the smaller unit but leaving one in the larger unit.
+- id: fr2c-chose-the-wrong-power-of-ten
+  description: Changing between units with the wrong power of ten.
+- id: fr2c-added-for-leftover
+  description: Adding the amounts used to the amount held instead of taking them away.
+- id: fr2c-small-measure-treated-as-large
+  description: Treating a measure written in the smaller unit as if it were in the larger unit when changing units.
+- id: fr2c-added-numbers-ignoring-units
+  description: Adding the numbers as they are written without changing the measures to the same unit.
+- id: fr2c-divided-the-wrong-way
+  description: Multiplying the total by the portion size instead of dividing by it.
+- id: fr2c-count-off-by-one
+  description: Being one out when counting units or steps.
+- id: fr2c-took-away-the-count-not-the-amount
+  description: Taking the number of portions used away from the total instead of the amount those portions use.
+- id: fr2c-reports-the-amount-poured
+  description: Giving the amount already used or measured instead of the amount still needed or the difference.
+tags:
+- acara-f10-v9
+- primary
+- measurement
+- metric-units
+- choose-unit
+- conversion
+- ac9m3m01
+- ac9m5m01

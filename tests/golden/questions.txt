@@ -946,6 +946,18 @@
 {"answer": "29", "id": "f10-additive-multiplicative-patterns/medium/0/f43cb818d202", "text": "What is the next number? 32, 31, 30, __"}
 {"answer": "128", "id": "f10-additive-multiplicative-patterns/medium/1/56f3d6a011e9", "text": "What is the next number? 134, 132, 130, __"}
 {"answer": "7", "id": "f10-additive-multiplicative-patterns/medium/2/b16d2b8e0f41", "text": "What is the next number? 25, 19, 13, __"}
+{"answer": "265", "id": "f10-ampm-elapsed-and-24h-practical/easy/0/9b94c9a092d3", "text": "A bushwalk begins at 10:05 am and ends at 2:30 pm. How many minutes does it las…"}
+{"answer": "310", "id": "f10-ampm-elapsed-and-24h-practical/easy/1/a648199d76b0", "text": "A film starts at 11:30 am and ends at 4:40 pm. How long is that, in minutes?"}
+{"answer": "305", "id": "f10-ampm-elapsed-and-24h-practical/easy/2/d2465cc20ded", "text": "A music lesson and rehearsal starts at 7:40 am and finishes at 12:45 pm. How lo…"}
+{"answer": "(a) 200; (b) 20; (c) 75; (d) 295; (e) (4, 55)", "id": "f10-ampm-elapsed-and-24h-practical/exam/0/dd3e5cc2efe1", "text": "Dev travels from Perth to Bunbury. The coach leaves Perth at 6:15 am and arrive…"}
+{"answer": "(a) 75; (b) 45; (c) 70; (d) 190; (e) (3, 10)", "id": "f10-ampm-elapsed-and-24h-practical/exam/1/7aad62922234", "text": "Kofi travels from Darwin to Katherine. The coach leaves Darwin at 11:05 am and …"}
+{"answer": "(a) 165; (b) 75; (c) 60; (d) 300; (e) (5, 0)", "id": "f10-ampm-elapsed-and-24h-practical/exam/2/ea5faae3e507", "text": "Sam travels from Darwin to Katherine. The coach leaves Darwin at 8:45 am and ar…"}
+{"answer": "215", "id": "f10-ampm-elapsed-and-24h-practical/hard/0/592dc9ca82cd", "text": "Sam takes a bus from Darwin that leaves at 8:35 am and arrives at 10:30. A trai…"}
+{"answer": "430", "id": "f10-ampm-elapsed-and-24h-practical/hard/1/d9cd6362e4e6", "text": "Aiko takes a bus from Cairns that leaves at 8:25 am and arrives at 12:00. A tra…"}
+{"answer": "300", "id": "f10-ampm-elapsed-and-24h-practical/hard/2/ab6a8faf7df6", "text": "Dev takes a bus from Brisbane that leaves at 10:55 am and arrives at 12:50. A t…"}
+{"answer": "130", "id": "f10-ampm-elapsed-and-24h-practical/medium/0/1fa5f3722f90", "text": "A music lesson and rehearsal starts at 2:15 pm and finishes at 16:25. How many …"}
+{"answer": "150", "id": "f10-ampm-elapsed-and-24h-practical/medium/1/9bd1be8104b0", "text": "The timetable shows that a music lesson and rehearsal starts at 16:00 and finis…"}
+{"answer": "75", "id": "f10-ampm-elapsed-and-24h-practical/medium/2/9176e890552d", "text": "A soccer tournament starts at 16:50 and finishes at 6:05 pm. How many minutes d…"}
 {"answer": "137", "id": "f10-angle-relationships/easy/0/3cad2ee1cc23", "text": "The angles in the diagram meet at a point and together complete a full turn. Ca…"}
 {"answer": "135", "id": "f10-angle-relationships/easy/1/96ede31df2fe", "text": "The diagram shows angles meeting at a point and filling a full turn. Calculate …"}
 {"answer": "111", "id": "f10-angle-relationships/easy/2/d33de7b1033b", "text": "The angles in the diagram meet at a point and together complete a full turn. Wo…"}
@@ -967,6 +979,15 @@
 {"answer": "5", "id": "f10-angle-turn-right-reference/medium/0/7c60d0b47284", "text": "A shape makes a three-quarter turn, then makes another half turn. In total, how…"}
 {"answer": "7", "id": "f10-angle-turn-right-reference/medium/1/81e662efcd64", "text": "A shape makes a full turn, then makes another three-quarter turn. In total, how…"}
 {"answer": "4", "id": "f10-angle-turn-right-reference/medium/2/ce18318c44f7", "text": "A shape makes a three-quarter turn, then makes another quarter turn. In total, …"}
+{"answer": "14", "id": "f10-area-perimeter-count-squares/easy/0/8d5409e8dc8c", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
+{"answer": "16", "id": "f10-area-perimeter-count-squares/easy/1/564b613be7cc", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
+{"answer": "9", "id": "f10-area-perimeter-count-squares/easy/2/6af053b2d4ca", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
+{"answer": "60", "id": "f10-area-perimeter-count-squares/hard/0/3b707cea149b", "text": "The side of each square on the grid is 3 m. What is the perimeter of the shape,…"}
+{"answer": "36", "id": "f10-area-perimeter-count-squares/hard/1/9b1691124368", "text": "The side of each square on the grid is 2 m. What is the perimeter of the shape,…"}
+{"answer": "48", "id": "f10-area-perimeter-count-squares/hard/2/3651df0f1073", "text": "The side of each square on the grid is 2 m. What is the area of the shape, in s…"}
+{"answer": "20", "id": "f10-area-perimeter-count-squares/medium/0/d4a16835ff08", "text": "Each square on the grid is 1 cm by 1 cm. What is the perimeter of the shape, in…"}
+{"answer": "22", "id": "f10-area-perimeter-count-squares/medium/1/6b92a625b593", "text": "Each square on the grid is 1 cm by 1 cm. What is the perimeter of the shape, in…"}
+{"answer": "13", "id": "f10-area-perimeter-count-squares/medium/2/37b9a736ae53", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
 {"answer": "57", "id": "f10-base-ten-blocks-number/easy/0/3ce38269ff41", "text": "Yuki makes a number from blocks. What number is shown?"}
 {"answer": "13", "id": "f10-base-ten-blocks-number/easy/1/6a95510ccc57", "text": "Lucas counts the blocks. What number is shown?"}
 {"answer": "44", "id": "f10-base-ten-blocks-number/easy/2/64f9725761fd", "text": "Ingrid counts the blocks. What number is shown?"}
@@ -997,9 +1018,30 @@
 {"answer": "29", "id": "f10-bracketed-number-equations/medium/0/510c83f46c89", "text": "Find the value of ? in 8 × (? - 4) + 56 = 256"}
 {"answer": "14", "id": "f10-bracketed-number-equations/medium/1/56d15877a5ab", "text": "Solve: 2 × (? - 7) + 4 = 18"}
 {"answer": "-16", "id": "f10-bracketed-number-equations/medium/2/b132d3d5cf90", "text": "Solve: 7 × (? - 11) + 35 = -154"}
+{"answer": "19", "id": "f10-capacity-mass-informal-units/easy/0/16ed519b0686", "text": "The bottle holds 11 mugs of water and the fish tank holds 8 mugs. How many mugs…"}
+{"answer": "18", "id": "f10-capacity-mass-informal-units/easy/1/91f4ca56c10a", "text": "The fish tank holds 13 mugs of water and the saucepan holds 5 mugs. How many mu…"}
+{"answer": "3", "id": "f10-capacity-mass-informal-units/easy/2/c6c11a4a3c28", "text": "The teapot balances 9 blocks and the book balances 6 blocks. How many more bloc…"}
+{"answer": "26", "id": "f10-capacity-mass-informal-units/hard/0/9c18262c84ef", "text": "One big weight balances 4 small weights. To balance the shoe, Sam uses 6 full b…"}
+{"answer": "24", "id": "f10-capacity-mass-informal-units/hard/1/9ca508bb0b03", "text": "One mug holds 3 spoons. To fill the bucket, Aiko uses 7 full mugs and then 3 sp…"}
+{"answer": "3", "id": "f10-capacity-mass-informal-units/hard/2/78489e6ad200", "text": "One mug holds 4 spoons. The tub holds 5 mugs of water. The bowl holds 23 spoons…"}
+{"answer": "17", "id": "f10-capacity-mass-informal-units/medium/0/acc593bde134", "text": "The watering can holds 28 scoops of water. Leila pours in 8 scoops and then 3 m…"}
+{"answer": "5", "id": "f10-capacity-mass-informal-units/medium/1/bec73141c456", "text": "The apple balances 20 cubes. The melon balances 7 cubes and the pencil case bal…"}
+{"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/05efcb2ca8de", "text": "The teapot balances 5 cubes. The shoe balances 5 cubes more than the teapot. Ho…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/d2edcaab9563", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/a601c8526340", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
+{"answer": "metres", "id": "f10-choose-unit-and-convert/easy/0/3721176a8958", "text": "Which metric unit would you choose to measure the length of a netball court?"}
+{"answer": "kilograms", "id": "f10-choose-unit-and-convert/easy/1/a8a407ac40bf", "text": "Mia needs to measure the mass of a watermelon. Which unit should she use?"}
+{"answer": "millimetres", "id": "f10-choose-unit-and-convert/easy/2/e3024eb434ec", "text": "Which metric unit would you choose to measure the thickness of a coin?"}
+{"answer": "(a) grams; (b) 4000; (c) 8; (d) 1500", "id": "f10-choose-unit-and-convert/exam/0/f9cbb8975a8c", "text": "Tom is preparing a batch of trail mix. The recipe uses 2 kg of nuts, 1500 g of …"}
+{"answer": "(a) grams; (b) 6000; (c) 12; (d) 3000", "id": "f10-choose-unit-and-convert/exam/1/2ac4fde98aef", "text": "Jess is preparing a batch of trail mix. The recipe uses 4.2 kg of nuts, 1000 g …"}
+{"answer": "(a) millilitres; (b) 3750; (c) 15; (d) 1250", "id": "f10-choose-unit-and-convert/exam/2/04252bf2b30d", "text": "Priya is preparing fruit punch. The recipe uses 3 L of juice, 250 mL of lemonad…"}
+{"answer": "80 cm", "id": "f10-choose-unit-and-convert/hard/0/75fcbe0c5958", "text": "A roll holds 3 m of rope. Zoe cuts off 20 cm and then 2 m. How much rope is lef…"}
+{"answer": "1643 mm", "id": "f10-choose-unit-and-convert/hard/1/d9499e7fbae5", "text": "A roll holds 6 m of rope. Sam cuts off 357 mm and then 4 m. How much rope is le…"}
+{"answer": "5770 mg", "id": "f10-choose-unit-and-convert/hard/2/c3759b18f18e", "text": "A lab sample is made from three powders weighing 1.4 g, 370 mg and 4 g. What is…"}
+{"answer": "347.4 cm", "id": "f10-choose-unit-and-convert/medium/0/bcc22f48889f", "text": "Four lengths are written in different units: 461.1 cm, 347.4 cm, 5.03 m and 427…"}
+{"answer": "4.26 L", "id": "f10-choose-unit-and-convert/medium/1/98684768046e", "text": "Four capacities are written in different units: 3.13 L, 4.26 L, 4.06 L and 3795…"}
+{"answer": "303.5 cm", "id": "f10-choose-unit-and-convert/medium/2/9d3c5ac655a9", "text": "Four lengths are written in different units: 3.53 m, 303.5 cm, 438 cm and 4790 …"}
 {"answer": "270", "id": "f10-circle-and-prism-duration-rates/easy/0/a83a9727a191", "text": "A flight departs Zone A at 10:00, arrives Zone B at 11:30, on the same day. Zon…"}
 {"answer": "210", "id": "f10-circle-and-prism-duration-rates/easy/1/5aa03c2bbbee", "text": "A flight departs Zone A at 05:30, arrives Zone B at 08:00, on the same day. Zon…"}
 {"answer": "135", "id": "f10-circle-and-prism-duration-rates/easy/2/18e85442551c", "text": "A flight departs Zone A at 07:15, arrives Zone B at 08:30, on the same day. Zon…"}
@@ -1123,6 +1165,18 @@
 {"answer": "dx = 15, dy = 3", "id": "f10-coordinate-movement/medium/0/b304d12e84f7", "text": "A point moves from (-6, -9) to (9, -6). What is the change in each coordinate?"}
 {"answer": "dx = -1, dy = -18", "id": "f10-coordinate-movement/medium/1/5037c7cb167e", "text": "A point moves from (-8, 8) to (-9, -10). What is the change in each coordinate?"}
 {"answer": "dx = -9, dy = 1", "id": "f10-coordinate-movement/medium/2/01f58aa9109d", "text": "A point moves from (2, -8) to (-7, -7). What is the change in each coordinate?"}
+{"answer": "y = (x - 1)(x - 3)^2", "id": "f10-cubic-double-root-graph/easy/0/b0513a929b60", "text": "The graph of a cubic is drawn. Its equation has the form y = (x - p)(x - q)^2, …"}
+{"answer": "y = (x + 1)(x - 1)^2", "id": "f10-cubic-double-root-graph/easy/1/0bcbf6cf2ac2", "text": "The graph of a cubic is drawn. Its equation has the form y = (x - p)(x - q)^2, …"}
+{"answer": "y = (x + 4)(x + 1)^2", "id": "f10-cubic-double-root-graph/easy/2/65a93b414a85", "text": "A cubic graph is drawn on the grid. Find its equation. It has the form y = (x -…"}
+{"answer": "(a) The graph crosses the x-axis at x = 4 and touches it at…", "id": "f10-cubic-double-root-graph/exam/0/524f4a6ad598", "text": "A graph has the equation y = 2(x - 4)(x - 7)^2. (a) Which statement about the x…"}
+{"answer": "(a) The graph crosses the x-axis at x = -3 and touches it a…", "id": "f10-cubic-double-root-graph/exam/1/52f288bd9c3f", "text": "A graph has the equation y = 2(x + 3)(x - 3)^2. (a) Which statement about the x…"}
+{"answer": "(a) The graph crosses the x-axis at x = 4 and touches it at…", "id": "f10-cubic-double-root-graph/exam/2/25d4f43ea615", "text": "A graph has the equation y = 2(x - 4)(x + 2)^2. (a) Which statement about the x…"}
+{"answer": "y = (1/2)(x - 3)(x + 1)^2", "id": "f10-cubic-double-root-graph/hard/0/31c5d6af02df", "text": "The graph of a cubic is drawn, with the point P marked on it. Its equation has …"}
+{"answer": "y = (-1/2)(x - 4)(x - 1)^2", "id": "f10-cubic-double-root-graph/hard/1/7ad12ef7e32a", "text": "The graph of a cubic is drawn, with the point P marked on it. Its equation has …"}
+{"answer": "y = (-1/2)(x - 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/hard/2/ba00add78322", "text": "A cubic graph is drawn on the grid, with the point P marked on it. Find its equ…"}
+{"answer": "y = -(x + 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/medium/0/fffe10d90b2f", "text": "The graph of a cubic is drawn. Its equation has the form y = k(x - p)(x - q)^2,…"}
+{"answer": "y = (x - 1)(x - 2)^2", "id": "f10-cubic-double-root-graph/medium/1/e46563b80f0b", "text": "A cubic graph is drawn on the grid. Find its equation. It has the form y = k(x …"}
+{"answer": "y = (x + 1)(x + 3)^2", "id": "f10-cubic-double-root-graph/medium/2/9af529d9413d", "text": "The graph of a cubic is drawn. Its equation has the form y = k(x - p)(x - q)^2,…"}
 {"answer": "histogram", "id": "f10-data-display-selection/easy/0/b37805d84fff", "text": "A gardener measures the height, to the nearest 0.1 cm, of each of 140 sunflower…"}
 {"answer": "histogram", "id": "f10-data-display-selection/easy/1/030cd4adc1cc", "text": "A gardener measures the height, to the nearest 0.1 cm, of each of 120 sunflower…"}
 {"answer": "scatterplot", "id": "f10-data-display-selection/easy/2/aa5e35424960", "text": "A coach records the weekly training hours and the 5 km run time of each of 100 …"}
@@ -1441,6 +1495,18 @@
 {"answer": "column = 3, row = 3", "id": "f10-grid-reference-pathway/medium/0/91e8ac695b83", "text": "A map grid has columns A to H from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 8, row = 8", "id": "f10-grid-reference-pathway/medium/1/887d4d23ed1f", "text": "A map grid has columns A to H from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 5, row = 7", "id": "f10-grid-reference-pathway/medium/2/222d601e3dea", "text": "A map grid has columns A to H from left to right. Row 1 is the bottom row and r…"}
+{"answer": "17", "id": "f10-growing-visual-patterns/easy/0/c4f15bc7f41a", "text": "Priya builds a pattern of squares in a row, each with a diagonal match across i…"}
+{"answer": "21", "id": "f10-growing-visual-patterns/easy/1/85d0010d6416", "text": "A pattern of squares in a row, each with a diagonal match across it is built fr…"}
+{"answer": "21", "id": "f10-growing-visual-patterns/easy/2/96d716fb8c43", "text": "A pattern of squares in a row, each with a diagonal match across it is built fr…"}
+{"answer": "(a) 16; (b) 3n + 1; (c) 91; (d) 39", "id": "f10-growing-visual-patterns/exam/0/e4f66b0533d1", "text": "The pictures show Figures 1, 2 and 3 of a pattern. Each figure is made from squ…"}
+{"answer": "(a) 16; (b) 3n + 1; (c) 121; (d) 15", "id": "f10-growing-visual-patterns/exam/1/5caa0d5c8e3c", "text": "The pictures show Figures 1, 2 and 3 of a pattern. Each figure is made from squ…"}
+{"answer": "(a) 27; (b) 5n + 2; (c) 202; (d) 28", "id": "f10-growing-visual-patterns/exam/2/f6eea4afb13e", "text": "Ben builds a pattern of squares in two rows out of matches. The first three fig…"}
+{"answer": "34", "id": "f10-growing-visual-patterns/hard/0/f359ebfe0b09", "text": "The pictures show Figures 1, 2 and 3 of a pattern. Each figure is made from tri…"}
+{"answer": "16", "id": "f10-growing-visual-patterns/hard/1/0f64213fdf88", "text": "The pictures show Figures 1, 2 and 3 of a pattern. Each figure is made from squ…"}
+{"answer": "27", "id": "f10-growing-visual-patterns/hard/2/34689f242a46", "text": "A pattern of squares in two rows is built from toothpicks. Figures 1, 2 and 3 a…"}
+{"answer": "25", "id": "f10-growing-visual-patterns/medium/0/140f99674f3e", "text": "The pictures show Figures 1, 2 and 3 of a pattern. Each figure is made from squ…"}
+{"answer": "25", "id": "f10-growing-visual-patterns/medium/1/370965c02f2b", "text": "Marcus builds a pattern of triangles in a strip out of straws. The first three …"}
+{"answer": "33", "id": "f10-growing-visual-patterns/medium/2/29985976a21a", "text": "The pictures show Figures 1, 2 and 3 of a pattern. Each figure is made from squ…"}
 {"answer": "69", "id": "f10-hundred-chart-patterns/easy/0/a11717024e69", "text": "Beatrice finds one shaded square that is empty. What number goes in it?"}
 {"answer": "41", "id": "f10-hundred-chart-patterns/easy/1/4b6ec671dec4", "text": "Santiago finds one shaded square that is empty. What number goes in it?"}
 {"answer": "22", "id": "f10-hundred-chart-patterns/easy/2/df67af36917b", "text": "Talia is filling in a number chart. What number goes in the shaded square?"}
@@ -1717,6 +1783,18 @@
 {"answer": "even", "id": "f10-odd-even-properties/medium/0/adad8c076654", "text": "An even number multiplied by an odd number -- is the result odd or even?"}
 {"answer": "even", "id": "f10-odd-even-properties/medium/1/9e7a49f8bc75", "text": "An even number minus an even number -- is the result odd or even?"}
 {"answer": "odd", "id": "f10-odd-even-properties/medium/2/5af405e30cf3", "text": "An even number minus an odd number -- is the result odd or even?"}
+{"answer": "y = -(x + 3)^2 + 3", "id": "f10-parabola-equation-from-graph/easy/0/a11f9e9171fc", "text": "The graph of a parabola is drawn. Write its equation in the form y = a(x - h)^2…"}
+{"answer": "y = (x - 5)^2 + 5", "id": "f10-parabola-equation-from-graph/easy/1/931a4ff078ac", "text": "A parabola is drawn on the grid. Find its equation in the form y = a(x - h)^2 +…"}
+{"answer": "y = -(x - 2)^2 + 3", "id": "f10-parabola-equation-from-graph/easy/2/c6e1e85c6ba5", "text": "The graph of a parabola is drawn. Write its equation in the form y = a(x - h)^2…"}
+{"answer": "(a) 1; (b) -5; (c) 0.5; (d) y = (1/2)(x - 1)^2 - 5", "id": "f10-parabola-equation-from-graph/exam/0/0b0603f5f63d", "text": "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and…"}
+{"answer": "(a) 2; (b) -4; (c) -0.5; (d) y = (-1/2)(x - 2)^2 - 4", "id": "f10-parabola-equation-from-graph/exam/1/5b8a2e8c9bc9", "text": "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and…"}
+{"answer": "(a) -2; (b) 5; (c) 0.5; (d) y = (1/2)(x + 2)^2 + 5", "id": "f10-parabola-equation-from-graph/exam/2/a3df2e14d2a6", "text": "The graph of a parabola is drawn. Its vertex is on whole-number coordinates and…"}
+{"answer": "y = (1/2)(x - 5)^2 - 1", "id": "f10-parabola-equation-from-graph/hard/0/89dfb6fdd8e4", "text": "The graph of a parabola is drawn, with the point P marked on it. Write its equa…"}
+{"answer": "y = (-1/3)(x - 4)^2 + 1", "id": "f10-parabola-equation-from-graph/hard/1/19fbb72db767", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
+{"answer": "y = (-1/2)(x + 1)^2 - 4", "id": "f10-parabola-equation-from-graph/hard/2/c49e398f16af", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
+{"answer": "y = 2(x - 2)^2 - 5", "id": "f10-parabola-equation-from-graph/medium/0/405a6628ea73", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
+{"answer": "y = -2(x + 1)^2 - 1", "id": "f10-parabola-equation-from-graph/medium/1/93af73d35e30", "text": "A parabola is drawn on the grid, with the point P marked on it. Find its equati…"}
+{"answer": "y = 2(x + 3)^2 - 4", "id": "f10-parabola-equation-from-graph/medium/2/6b9d6f91d670", "text": "The graph of a parabola is drawn, with the point P marked on it. Write its equa…"}
 {"answer": "104", "id": "f10-parallel-line-angle-theorems/easy/0/309eed5f7fb8", "text": "The two lines marked with arrows are parallel, and angle a is 104°. Angles a an…"}
 {"answer": "48", "id": "f10-parallel-line-angle-theorems/easy/1/b468c7fc3ac2", "text": "The two lines marked with arrows are parallel, and angle a is 48°. Angles a and…"}
 {"answer": "55", "id": "f10-parallel-line-angle-theorems/easy/2/46e3500e4af5", "text": "The two lines marked with arrows are parallel, and angle a is 55°. Angles a and…"}
@@ -1897,6 +1975,18 @@
 {"answer": "x^2 + 6x - 40", "id": "f10-quadratic-algebra-expansion/medium/0/6894df1fa451", "text": "Expand (x + 10)(x - 4) into a trinomial in standard form."}
 {"answer": "x^2 - 2x - 3", "id": "f10-quadratic-algebra-expansion/medium/1/7eacfd19e2c9", "text": "Expand (x + 1)(x - 3) into a trinomial in standard form."}
 {"answer": "x^2 + 3x - 54", "id": "f10-quadratic-algebra-expansion/medium/2/525e9d1a7be5", "text": "Expand (x + 9)(x - 6) into a trinomial in standard form."}
+{"answer": "y = x^2 + 5", "id": "f10-quadratic-parameter-effects/easy/0/1c7cfe64e3a9", "text": "The graph of y = x^2 is drawn, and so is graph B, which is y = x^2 moved withou…"}
+{"answer": "y = x^2 - 5", "id": "f10-quadratic-parameter-effects/easy/1/f4edadbdfcb3", "text": "Graph B is the graph of y = x^2 after it has been moved. Both are drawn. Which …"}
+{"answer": "y = (x - 3)^2", "id": "f10-quadratic-parameter-effects/easy/2/1bec89005aa6", "text": "The graph of y = x^2 is drawn, and so is graph B, which is y = x^2 moved withou…"}
+{"answer": "(a) It is narrower than y = x^2 and opens upwards; (b) 2; (…", "id": "f10-quadratic-parameter-effects/exam/0/977121d83548", "text": "A parabola has the equation y = 3(x - 2)^2 + 4. (a) Which statement about the g…"}
+{"answer": "(a) It is narrower than y = x^2 and opens downwards; (b) 2;…", "id": "f10-quadratic-parameter-effects/exam/1/8e01e228cd6a", "text": "A parabola has the equation y = -2(x - 2)^2 - 3. (a) Which statement about the …"}
+{"answer": "(a) It is narrower than y = x^2 and opens upwards; (b) 2; (…", "id": "f10-quadratic-parameter-effects/exam/2/efd5c01b05af", "text": "A parabola has the equation y = 3(x - 2)^2 - 3. (a) Which statement about the g…"}
+{"answer": "y = f(x + 4) + 2", "id": "f10-quadratic-parameter-effects/hard/0/c0c0a7887649", "text": "The graph of y = f(x) is drawn, with graph B, which is the same shape in a new …"}
+{"answer": "It is wider than y = x^2, opens downwards, and has its vert…", "id": "f10-quadratic-parameter-effects/hard/1/60a22d6640a1", "text": "A second parabola, B, is drawn on the same axes as y = x^2. Which statement abo…"}
+{"answer": "It is narrower than y = x^2, opens upwards, and has its ver…", "id": "f10-quadratic-parameter-effects/hard/2/6f00dc1fc0d5", "text": "A second parabola, B, is drawn on the same axes as y = x^2. Which statement abo…"}
+{"answer": "The graph of y = x^2 reflected in the x-axis and then trans…", "id": "f10-quadratic-parameter-effects/medium/0/751d0979d397", "text": "How is the graph of y = -(x - 5)^2 + 1 related to the graph of y = x^2?"}
+{"answer": "The graph of y = x^2 reflected in the x-axis and then trans…", "id": "f10-quadratic-parameter-effects/medium/1/f41c03301325", "text": "Which statement describes the graph of y = -(x + 1)^2 + 1 compared with the gra…"}
+{"answer": "The graph of y = x^2 translated 2 units to the left and 6 u…", "id": "f10-quadratic-parameter-effects/medium/2/851825dfa824", "text": "How is the graph of y = (x + 2)^2 + 6 related to the graph of y = x^2?"}
 {"answer": "11.0", "id": "f10-quadrilateral-properties/easy/0/3da0c6a6d320", "text": "The diagonals of a parallelogram bisect each other. In parallelogram WXYZ, the …"}
 {"answer": "20.0", "id": "f10-quadrilateral-properties/easy/1/2397619ba446", "text": "In parallelogram ABCD the diagonals AC and BD cross at M, where AC = 40 cm and …"}
 {"answer": "34.0", "id": "f10-quadrilateral-properties/easy/2/e8208cc81f57", "text": "A kite has two pairs of equal adjacent sides. In kite WXYZ, WX = WZ = 11 cm and…"}

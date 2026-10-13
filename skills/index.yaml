@@ -796,6 +796,14 @@ f10-additive-multiplicative-patterns:
   sources:
   - topic: additive_multiplicative_patterns
     module: mathgen/generators/p5c_patterns_algorithms_build.py
+f10-ampm-elapsed-and-24h-practical:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: fr2c_clock_elapsed
+    module: mathgen/generators/fr2c_clock_elapsed_build.py
+  - topic: fr2c_clock_elapsed_exam
+    module: mathgen/generators/fr2c_clock_elapsed_build.py
 f10-angle-relationships:
   domain: primary-geometry-time
   status: active
@@ -810,6 +818,12 @@ f10-angle-turn-right-reference:
   sources:
   - topic: angle_turn_right_reference
     module: mathgen/generators/p4b_angle_shape_build.py
+f10-area-perimeter-count-squares:
+  domain: measurement
+  status: active
+  sources:
+  - topic: fr2c_grid_area_perimeter
+    module: mathgen/generators/fr2c_grid_area_perimeter_build.py
 f10-base-ten-blocks-number:
   domain: early-foundations
   status: active
@@ -828,12 +842,26 @@ f10-bracketed-number-equations:
   sources:
   - topic: p13a_bracketed_number
     module: mathgen/generators/p13a_bracketed_number_equations_build.py
+f10-capacity-mass-informal-units:
+  domain: measurement
+  status: active
+  sources:
+  - topic: fr2c_informal_capacity_mass
+    module: mathgen/generators/fr2c_informal_capacity_mass_build.py
 f10-chance-language-and-outcomes:
   domain: statistics-probability
   status: active
   sources:
   - topic: chance_outcome_classify
     module: mathgen/generators/p5d_chance_expectation_build.py
+f10-choose-unit-and-convert:
+  domain: measurement
+  status: active
+  sources:
+  - topic: fr2c_choose_unit_convert
+    module: mathgen/generators/fr2c_choose_unit_convert_build.py
+  - topic: fr2c_choose_unit_convert_exam
+    module: mathgen/generators/fr2c_choose_unit_convert_build.py
 f10-circle-and-prism-duration-rates:
   domain: measurement
   status: active
@@ -916,6 +944,14 @@ f10-coordinate-movement:
     module: mathgen/generators/p4b_coordinate_prism_build.py
   - topic: exd_x_pr3_coordinate_movement
     module: mathgen/generators/exd_x_pr3_coordinate_movement.py
+f10-cubic-double-root-graph:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fr2c_cubic_equation
+    module: mathgen/generators/fr2c_cubic_double_root_build.py
+  - topic: fr2c_cubic_features_exam
+    module: mathgen/generators/fr2c_cubic_double_root_build.py
 f10-data-display-selection:
   domain: statistics-probability
   status: active
@@ -1122,6 +1158,14 @@ f10-grid-reference-pathway:
     module: mathgen/generators/f10_grid_reference_build.py
   - topic: exd_x_sc2_grid_hike
     module: mathgen/generators/exd_x_sc2_grid_hike.py
+f10-growing-visual-patterns:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: fr2c_growing_patterns
+    module: mathgen/generators/fr2c_growing_patterns_build.py
+  - topic: fr2c_growing_patterns_exam
+    module: mathgen/generators/fr2c_growing_patterns_build.py
 f10-hundred-chart-patterns:
   domain: early-foundations
   status: active
@@ -1306,6 +1350,14 @@ f10-odd-even-properties:
   sources:
   - topic: odd_even_properties
     module: mathgen/generators/primary_number_order_parity_build.py
+f10-parabola-equation-from-graph:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: fr2c_parabola_equation
+    module: mathgen/generators/fr2c_parabola_build.py
+  - topic: fr2c_parabola_equation_exam
+    module: mathgen/generators/fr2c_parabola_build.py
 f10-parallel-line-angle-theorems:
   domain: geometry
   status: active
@@ -1426,6 +1478,14 @@ f10-quadratic-algebra-expansion:
     module: mathgen/generators/p7b_quadratics_build.py
   - topic: exd_x_a2_expand_binomial_sums
     module: mathgen/generators/exd_x_a2_expand_binomial_sums_build.py
+f10-quadratic-parameter-effects:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: fr2c_parabola_effects
+    module: mathgen/generators/fr2c_parabola_build.py
+  - topic: fr2c_parabola_effects_exam
+    module: mathgen/generators/fr2c_parabola_build.py
 f10-quadrilateral-properties:
   domain: geometry
   status: active
