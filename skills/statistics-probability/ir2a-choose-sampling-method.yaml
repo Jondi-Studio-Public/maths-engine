@@ -1,0 +1,105 @@
+id: ir2a-choose-sampling-method
+name: Choose and apply a sampling method
+domain: statistics-probability
+year_level: ['6', '8', '9']
+naplan_domain: [statistics]
+description: 'Given a described survey, name the sampling method (census, simple random, systematic, stratified or convenience) from five options, then work out a typed number that follows from it: the interval between systematic picks, the nth or last member chosen, or the number drawn from each stratum. The exam chain follows one survey through the method, the interval or strata counts and a chance of selection.'
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: mcq
+sources:
+- topic: ir2a_choose_sampling_method
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_choose_sampling_method
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_choose_sampling_method
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_choose_sampling_method
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-applies-the-percentage-to-the-population
+  description: Taking the group's percentage of the whole population instead of of the sample.
+- id: ir2a-calls-a-sample-a-census
+  description: Calling a survey of only some of the group a census, which asks every member.
+- id: ir2a-calls-any-chance-selection-simple-random
+  description: Calling any sample that uses chance somewhere a simple random sample, even when the draw is made group by group or at a fixed gap.
+- id: ir2a-calls-any-grouping-stratified
+  description: Calling a sample stratified because groups are mentioned, when members are not drawn from every group in proportion to its size.
+- id: ir2a-calls-any-quick-sample-convenience
+  description: Calling a sample convenience when its members were chosen by chance from a full list.
+- id: ir2a-calls-any-regular-pattern-systematic
+  description: Calling a sample systematic because it looks evenly spread, when it is not chosen by a fixed gap down a list.
+- id: ir2a-chance-of-one-draw-only
+  description: Giving the chance of being picked on the first draw alone, one out of the whole population, instead of the chance of being among all those picked.
+- id: ir2a-converts-minutes-by-100
+  description: Dividing minutes by 100 instead of 60 to get hours.
+- id: ir2a-counts-one-gap-too-few
+  description: Adding one gap fewer than needed when counting along from the starting member to the last one chosen.
+- id: ir2a-counts-one-gap-too-many
+  description: Adding as many gaps as members chosen so far, instead of one fewer than that, when counting along from the starting member.
+- id: ir2a-equal-allocation-ignores-size
+  description: Taking the same number from every group instead of a number in proportion to the size of each group.
+- id: ir2a-forgets-the-random-start
+  description: Counting the gaps from zero and leaving out the random starting number.
+- id: ir2a-gap-counts-the-start
+  description: Adding one to the gap because the starting member is counted as well.
+- id: ir2a-gap-from-the-difference
+  description: Finding the gap by subtracting the sample size from the population size instead of dividing.
+- id: ir2a-gives-the-chance-of-being-chosen
+  description: Giving the chance of being chosen when the chance of not being chosen was asked.
+- id: ir2a-gives-the-share-who-cannot-be-chosen
+  description: Giving the percentage who could never be chosen instead of the percentage who could.
+- id: ir2a-leaves-minutes-unconverted
+  description: Giving the total in minutes when hours were asked.
+- id: ir2a-leftover-ignores-a-group
+  description: Finding the last group's number by taking only one of the other groups' numbers from the sample size.
+- id: ir2a-reachable-over-sample
+  description: Dividing the number who could be chosen by the sample size instead of by the population.
+- id: ir2a-reads-another-groups-count
+  description: Giving the number taken from a different group from the one asked about.
+- id: ir2a-reports-the-group-size-not-its-share
+  description: Giving the number of members in a group instead of how many of that group the sample is expected to hold.
+- id: ir2a-reports-the-percentage-as-a-count
+  description: Giving a group's percentage as if it were the number of members chosen.
+- id: ir2a-reports-the-sample-size
+  description: Giving the sample size when a number built from the population was asked.
+- id: ir2a-reports-the-whole-not-the-extra
+  description: Giving the whole population or its cost when only the extra beyond a sample was asked.
+- id: ir2a-takes-the-end-of-the-list
+  description: Giving the end of the list as the last member chosen, though the gap may not land exactly on it.
+- id: ir2a-uses-sample-size-as-the-gap
+  description: Using the sample size as the gap between the members chosen, instead of the population size divided by the sample size.
+- id: ir2a-uses-the-sample-not-the-reachable-group
+  description: Dividing the sample by the population when the share of the population who could be chosen was asked.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_choose_sampling_method
+- AC9M6ST02
+- AC9M8ST01
+- AC9M9ST02
