@@ -17,6 +17,7 @@ SEEDS = range(1, 7)
 _NUMERIC = re.compile(r"^[−-]?(\d+(\.\d+)?)?(π)?(/\d+)?$")
 # Fixed captions a renderer writes in front of one of the spec's strings ("P = 9/25", "Unit: block").
 _CAPTIONS = ("P = ", "Unit: ")
+_NON_FINITE = re.compile(r"\b(nan|inf|infinity)\b", re.I)
 
 
 CHUNKS = 8  # the generated-figure sweep is split so pytest-xdist can share it
@@ -57,7 +58,10 @@ def test_renders_every_generated_figure(chunk):
         assert title is not None and title.text == spec["alt"], where
         _, _, vw, vh = (float(v) for v in root.get("viewBox").split())
         assert 40 <= vw <= 1600 and 40 <= vh <= 1600, f"{where}: viewBox {vw} x {vh}"
-        assert "nan" not in svg.lower().replace("nanosecond", ""), where
+        # A non-finite coordinate shows up as "nan" or "inf" in an attribute; text (a "banana" label) may say anything.
+        for node in root.iter():
+            for name, value in node.attrib.items():
+                assert not _NON_FINITE.search(value), f"{where}: {node.tag} {name}={value!r}"
         assert 'href="http' not in svg and "<script" not in svg, where
         shown = set(figures.labels(spec))
         for node in root.iter(f"{SVG}text"):

@@ -25,7 +25,7 @@ All coordinates and sizes in a spec are plain JSON numbers.
 
 ## Kinds
 
-There are 15 kinds. Each example below is a valid spec.
+There are 21 kinds. Each example below is a valid spec.
 
 ### cartesian
 
@@ -354,6 +354,112 @@ Keys: `universe` (label in the rectangle corner, for example `"U"`), `sets` (2 o
   "universe": "U",
   "sets": [{"id": "A", "name": "Tennis"}, {"id": "B", "name": "Chess"}],
   "regions": {"A": "5", "B": "7", "AB": "3", "none": "?"}
+}
+```
+
+### bar_chart
+
+A bar (column) graph with a gridded value axis. One series, or two drawn side by side with a legend.
+
+Keys: `orientation` (`"vertical"`: columns, first category at the left; `"horizontal"`: bars growing rightwards, first category at the top), `categories` (1 to 10 distinct names; at most 6 with two series), `series` (one or two `{"name", "values"}`, one value per category), `value_axis`, `x_label`, `y_label`.
+
+`value_axis` is `{"min": 0, "max", "step", "minor"}`: a gridline and numeral at every `step` from 0 to `max`, and with `minor` an unlabelled half line between them. Every value sits on a gridline, or a half line when `minor` is true.
+
+```json
+{
+  "kind": "bar_chart",
+  "alt": "A bar graph of books read each day.",
+  "orientation": "vertical",
+  "categories": ["Mon", "Tue", "Wed"],
+  "series": [{"name": "", "values": [2, 5, 3]}],
+  "value_axis": {"min": 0, "max": 6, "step": 1, "minor": false},
+  "x_label": "Day",
+  "y_label": "Books"
+}
+```
+
+### picture_graph
+
+A pictograph: one row of repeated symbols per category, the first row at the top, and a key written as `Each symbol = k` followed by the unit.
+
+Keys: `symbol` (`circle`, `square`, `triangle`, `star`, `heart` or `diamond`), `key` (`{"each": k, "unit"}`), `rows` (`{"label", "symbols"}`; `symbols` is a whole number or ends in `.5`, drawn as the left half of a symbol, and a half is allowed only when `k` is even; at most 12).
+
+```json
+{
+  "kind": "picture_graph",
+  "alt": "A picture graph of favourite fruit.",
+  "symbol": "circle",
+  "key": {"each": 2, "unit": "students"},
+  "rows": [{"label": "Apple", "symbols": 3}, {"label": "Pear", "symbols": 1.5}]
+}
+```
+
+### dot_plot
+
+A number axis with a column of equal dots above each value, one dot per observation.
+
+Keys: `range` and `step` (a tick and numeral at every step, at most 40), `dots` (`{"at", "count"}` in increasing order of `at`; each `at` is a tick, `count` is 1 to 12), `x_label`.
+
+```json
+{
+  "kind": "dot_plot",
+  "alt": "A dot plot of goals scored.",
+  "range": [0, 5],
+  "step": 1,
+  "dots": [{"at": 1, "count": 2}, {"at": 2, "count": 4}, {"at": 4, "count": 1}],
+  "x_label": "Goals"
+}
+```
+
+### histogram
+
+Equal-width classes with touching bars. Two panels are stacked, each with its own axes and a label above it, to compare two data sets.
+
+Keys: `panels` (one or two of `{"label", "edges", "frequencies", "frequency_axis"}`), `x_label`, `y_label`. `edges` are the class boundaries (3 to 13, one width apart); a class includes its lower edge and excludes its upper edge. `frequency_axis` has the same shape as a bar chart's `value_axis`.
+
+```json
+{
+  "kind": "histogram",
+  "alt": "A histogram of heights.",
+  "panels": [
+    {"label": "", "edges": [150, 155, 160, 165], "frequencies": [3, 6, 2],
+     "frequency_axis": {"min": 0, "max": 6, "step": 1, "minor": false}}
+  ],
+  "x_label": "Height (cm)",
+  "y_label": "Frequency"
+}
+```
+
+### box_plot
+
+One or two box-and-whisker plots on a shared horizontal axis, the first at the top.
+
+Keys: `range`, `step` and `minor` (as for `dot_plot`, with unlabelled half ticks when `minor`), `plots` (one or two of `{"label", "min", "q1", "median", "q3", "max", "outliers"}`), `x_label`. `min` and `max` are the whisker ends, the extreme values that are not outliers. Each outlier is drawn as a cross and lies beyond the 1.5 × IQR fences.
+
+```json
+{
+  "kind": "box_plot",
+  "alt": "A box plot of test scores.",
+  "range": [0, 20],
+  "step": 2,
+  "minor": false,
+  "plots": [{"label": "", "min": 4, "q1": 8, "median": 10, "q3": 12, "max": 16, "outliers": [20]}],
+  "x_label": "Score"
+}
+```
+
+### pie_chart
+
+A circle cut into `parts` equal wedges, with a thin radius at every boundary, so each sector's share can be counted. The first sector starts at 12 o'clock and the rest follow clockwise.
+
+Keys: `parts` (2, 3, 4, 5, 6, 8, 10 or 12), `sectors` (2 to 6 of `{"label", "parts"}`, whose parts sum to the chart's).
+
+```json
+{
+  "kind": "pie_chart",
+  "alt": "A pie chart of how students travel to school.",
+  "parts": 8,
+  "sectors": [{"label": "Walk", "parts": 3}, {"label": "Bus", "parts": 4}, {"label": "Car", "parts": 1}]
 }
 ```
 

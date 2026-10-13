@@ -8,6 +8,7 @@ import pytest
 from jsonschema import Draft202012Validator
 
 from mathgen import engine, figures
+from mathgen.figure_kinds import data
 
 SEEDS = range(1, 5)
 
@@ -126,3 +127,14 @@ def test_unknown_key_fails(validator):
 def test_not_an_object_fails(validator):
     assert not validator.is_valid([])
     assert not validator.is_valid({"alt": "x"})
+
+
+def test_statistical_charts_check_their_shape(validator):
+    pie = data.pie_chart(parts=4, sectors=[{"label": "Tea", "parts": 1}, {"label": "Milk", "parts": 3}], alt="A pie.")
+    assert validator.is_valid(pie)
+    assert not validator.is_valid(pie | {"parts": 7})
+    bars = data.bar_chart(
+        categories=["Mon", "Tue"], series=[{"name": "", "values": [2, 4]}], value_max=4, value_step=1, alt="Bars."
+    )
+    assert validator.is_valid(bars)
+    assert not validator.is_valid(bars | {"value_axis": {**bars["value_axis"], "min": 1}})
