@@ -261,6 +261,21 @@ def questions() -> dict[str, tuple[str, Question]]:
             _hand_built(answer={"pieces": [{"vertices": [[0, 0], [1, 1], [2, 0]]}]}, answer_text="x"),
         ),
         "line": ("line", _hand_built(answer=[[0, 0], [1, 1]], answer_text="x")),
+        "grid_cells": (
+            "grid_cells",
+            _hand_built(answer={"cells": [[0, 0], [1, 0]], "grid": [20, 20], "match": "congruent"}, answer_text="x"),
+        ),
+        "grid_cells, cube_net": (
+            "grid_cells",
+            _hand_built(
+                answer={
+                    "cells": [[1, 0], [0, 1], [1, 1], [2, 1], [1, 2], [1, 3]],
+                    "grid": [20, 20],
+                    "match": "cube_net",
+                },
+                answer_text="x",
+            ),
+        ),  # fmt: skip
     }
     for form in ("simplified_surd", "factored", "expanded", "single_fraction", "rationalised"):
         out[f"expression, {form}"] = ("expression", dataclasses.replace(expression, answer_form=form))
@@ -286,7 +301,7 @@ CASES = [
     "pair", "pair, equation", "list", "ordered_list", "mcq",
     "expression", "expression, simplified_surd", "expression, factored", "expression, expanded",
     "expression, single_fraction", "expression, rationalised", "expression, line_standard_form",
-    "table", "set", "points", "polyline", "line",
+    "table", "set", "points", "polyline", "line", "grid_cells", "grid_cells, cube_net",
 ]  # fmt: skip
 
 
