@@ -7829,8 +7829,8 @@
 {"answer": "A, C, F, B, D, E, G", "id": "uc2-dijkstra-trace/medium/1/e4b42c353213", "text": "A delivery drone can fly between sites A to G along the legs A–C 4, A–F 4, B–C …"}
 {"answer": "A, C, D, F, G, B, E", "id": "uc2-dijkstra-trace/medium/2/c372dc32a13b", "text": "The road network between towns A to G has these lengths in kilometres: A–B 6, A…"}
 {"answer": "2059", "id": "uc2-generating-function-coefficient/easy/0/8ee331370c2a", "text": "Find the coefficient of x^6 in the expansion of 1/((1 − 3x)(1 − 2x)) as a power…"}
-{"answer": "1365", "id": "uc2-generating-function-coefficient/easy/1/563a67f1e69b", "text": "Write 1/((1 − 4x)(1 − x)) as a power series in x and give the term in x^5, with…"}
-{"answer": "1093", "id": "uc2-generating-function-coefficient/easy/2/4abcd94ca6ec", "text": "Expand 1/((1 − 3x)(1 − x)) as a power series in x. What is the coefficient of x…"}
+{"answer": "1365", "id": "uc2-generating-function-coefficient/easy/1/0568c13b805f", "text": "Write 1/((1 − 4x)(1 − x)) as a power series in x and give the term in x^5, with…"}
+{"answer": "1093", "id": "uc2-generating-function-coefficient/easy/2/0c0ff20f5e20", "text": "Expand 1/((1 − 3x)(1 − x)) as a power series in x. What is the coefficient of x…"}
 {"answer": "(a) 78; (b) 36; (c) 21; (d) 24", "id": "uc2-generating-function-coefficient/exam/0/db57cf5a3ae5", "text": "Priya shares 11 identical tickets among three friends: Ana, Ben and Cai. Ana ca…"}
 {"answer": "(a) 78; (b) 36; (c) 28; (d) 20", "id": "uc2-generating-function-coefficient/exam/1/68e890e3db29", "text": "A coach hands out 11 identical medals to three players, Dev, Eli and Fay. Dev m…"}
 {"answer": "(a) 55; (b) 28; (c) 15; (d) 15", "id": "uc2-generating-function-coefficient/exam/2/3ab542fd0560", "text": "Priya shares 9 identical tickets among three friends: Ana, Ben and Cai. Ana can…"}

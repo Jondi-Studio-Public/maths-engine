@@ -139,11 +139,15 @@ def _easy(rng):
         value,
         _cands(value, items),
         [
-            f"1/{_ft(a)} = 1 + {a}x + {a**2}x² + …, and 1/{_ft(b)} = 1 + {b}x + {b**2}x² + ….",
+            f"1/{_ft(a)} = 1 + {_c(a)}x + {_c(a**2)}x² + …, and 1/{_ft(b)} = 1 + {_c(b)}x + {_c(b**2)}x² + ….",
             f"The coefficient of x^{k} in the product is the sum over i from 0 to {k} of {a}^i · {b}^({k} − i).",
             f"That sum is {value}.",
         ],
     )
+
+
+def _c(n):
+    return "" if n == 1 else str(n)
 
 
 # -- medium --------------------------------------------------------------------------------------------------------
