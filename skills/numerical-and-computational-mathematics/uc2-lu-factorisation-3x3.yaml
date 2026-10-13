@@ -1,0 +1,99 @@
+id: uc2-lu-factorisation-3x3
+name: Factorise a 3x3 matrix as LU
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Find the Doolittle LU factorisation of a 3x3 matrix with no row interchanges, use it to solve the first stage
+  of a linear system, and read the determinant from U.
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-solve-system
+- matrix-determinant-3x3
+answer: matrix
+sources:
+- topic: r4b_lu_factorisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_lu_factorisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_lu_factorisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_lu_factorisation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-lu-multiplier-sign-wrong
+  description: Adding a multiple of the pivot row where Doolittle elimination subtracts it, so the upper factor has the
+    wrong signs.
+- id: num2-lu-second-column-not-eliminated
+  description: Eliminating below the first pivot only and not the second, so the second column of the upper factor is not
+    cleared.
+- id: num2-lu-upper-triangle-of-a-taken
+  description: Reading the upper triangle of A as U without eliminating anything.
+- id: num2-lu-l-and-u-swapped
+  description: Giving the other factor of the factorisation, the lower triangle where the upper is asked for or the reverse.
+- id: num2-lu-factor-transposed
+  description: Giving the transpose of the factor, with its entries on the wrong side of the diagonal.
+- id: num2-lu-l-entries-negated
+  description: Recording the multipliers in L with the opposite sign, as the numbers subtracted from the rows rather than
+    the multipliers themselves.
+- id: num2-lu-multiplier-inverted
+  description: Dividing the pivot by the entry below it, so each multiplier is the reciprocal of the right one.
+- id: num2-lu-multiplier-not-divided-by-pivot
+  description: Using the entry below the pivot as the multiplier without dividing by the pivot.
+- id: num2-lu-right-hand-side-copied
+  description: Giving the right-hand side b as y, without forward substitution through L.
+- id: num2-lu-forward-substitution-term-missed
+  description: Leaving a term out of forward substitution, so a later entry of y ignores an earlier one.
+- id: num2-lu-solved-with-u-instead-of-l
+  description: Back-substituting with U in place of forward substitution with L when solving the first stage.
+- id: num2-lu-pivot-update-sign
+  description: Adding the product of the multiplier and the upper entry to the entry above it, instead of subtracting.
+- id: num2-lu-pivot-left-unchanged
+  description: Taking the pivot to be the original entry of A, with no elimination update.
+- id: num2-lu-pivot-uses-wrong-entry
+  description: Using the wrong entry of the first row in the pivot update, a13 in place of a12.
+- id: num2-lu-pivot-multiplier-dropped
+  description: Subtracting the entry of the first row without multiplying it by the multiplier.
+- id: num2-lu-second-multiplier-without-first-column-term
+  description: Dividing a32 by the pivot without first subtracting l31 u12.
+- id: num2-lu-second-multiplier-wrong-pivot
+  description: Dividing by the original entry a22 instead of the updated pivot u22.
+- id: num2-lu-determinant-as-diagonal-sum
+  description: Adding the diagonal entries of U instead of multiplying them to find the determinant.
+- id: num2-lu-determinant-first-pivot-missed
+  description: Multiplying only the last two pivots of U, leaving the first out of the determinant.
+- id: num2-lu-determinant-from-diagonal-of-a
+  description: Multiplying the diagonal entries of A instead of the diagonal entries of U.
+- id: num2-lu-last-pivot-without-second-multiplier
+  description: Updating the last pivot with the first column only, leaving out the l32 u23 term.
+- id: num2-lu-multiplier-from-wrong-row
+  description: Giving the multiplier for the third row where the multiplier for the second row is asked for.
+difficulty_progression: Easy asks for U when the multipliers are whole numbers. Medium asks for L when the multipliers are
+  fractions, so each is an entry divided by an updated pivot. Hard asks for the intermediate column y in Ly = b, which needs
+  L first and then forward substitution. The exam chain finds l₂₁, then the pivot u₂₂, then l₃₂ and finally det A from the
+  diagonal of U, each built on the learner's earlier value.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- lu-factorisation
+- linear-systems-numerical
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics
