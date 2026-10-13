@@ -1,0 +1,119 @@
+id: counting-with-restrictions
+name: Count arrangements and selections with restrictions
+domain: senior-mathematics
+description: Count the arrangements of letters with repeats, of people or objects in a row with some together, apart or
+  at the ends, of people round a circular table, and the committees chosen with at-least, at-most or must-include conditions,
+  and use a count to find a probability.
+status: active
+placement_eligible: false
+prerequisites:
+- permutations
+- combinations
+- senior-use-factorial-notation
+answer: number
+sources:
+- topic: sr2b_counting_restrictions
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_counting_restrictions
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_counting_restrictions
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_counting_restrictions
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-repeats-ignored
+  description: Counting the arrangements as though every letter were different.
+- id: sr2b-one-repeat-only
+  description: Dividing by the factorial of one repeated letter and ignoring the other repeats.
+- id: sr2b-repeat-counts-added
+  description: Dividing by the factorial of the total number of repeated letters instead of by each factorial in turn.
+- id: sr2b-divided-by-counts-not-factorials
+  description: Dividing by the number of times a letter is repeated instead of by the factorial of that number.
+- id: sr2b-letter-fixed
+  description: Arranging one fewer letter, as if one letter were fixed in place.
+- id: sr2b-internal-order-missed
+  description: Forgetting that two items arranged as a block can be in either order.
+- id: sr2b-together-treated-as-half
+  description: Taking half of all the arrangements as those with a pair together.
+- id: sr2b-apart-count-given
+  description: Giving the number of arrangements with two items together when the number with them apart was asked.
+- id: sr2b-block-and-rest-miscounted
+  description: Treating a pair as one object but counting the arrangements of the objects wrongly.
+- id: sr2b-together-count-given
+  description: Giving the number of arrangements with the pair together when the number with them apart was asked.
+- id: sr2b-one-end-only
+  description: Counting the arrangements with the item at one end only, not at either end.
+- id: sr2b-restriction-ignored
+  description: Giving the count without applying the restriction in the question.
+- id: sr2b-end-order-missed
+  description: Forgetting that the two items at the ends can swap places.
+- id: sr2b-rotations-counted-as-different
+  description: Counting seatings that are rotations of each other as different arrangements.
+- id: sr2b-reflection-halved
+  description: Halving a round-table count as though a seating and its mirror image were the same.
+- id: sr2b-two-people-fixed
+  description: Fixing two people in place at a round table instead of one.
+- id: sr2b-at-least-double-counted
+  description: Choosing the required number of women first and then filling the rest from everyone, which counts committees
+    with more women several times.
+- id: sr2b-exactly-for-at-least
+  description: Counting committees with exactly the stated number of women when at least that number was asked.
+- id: sr2b-complement-given
+  description: Finding the number of committees that fail the condition and giving it as the answer.
+- id: sr2b-complement-taken-wrongly
+  description: Subtracting the wrong complement, so the count is for a different condition from the one asked.
+- id: sr2b-exactly-for-at-most
+  description: Counting committees with exactly the stated number of women when at most that number was asked.
+- id: sr2b-case-left-out
+  description: Leaving out one of the cases that make up the count.
+- id: sr2b-named-person-left-off
+  description: Choosing the whole committee from the people other than the named person.
+- id: sr2b-named-person-arranged
+  description: Multiplying the count by the size of the committee as though the named person had a position on it.
+- id: sr2b-internal-order-counted-for-identical
+  description: Doubling the count for the order of two identical letters in a block, which cannot be told apart.
+- id: sr2b-pair-position-fixed
+  description: Counting arrangements with the pair in one fixed place, not sliding it along the row.
+- id: sr2b-pair-places-miscounted
+  description: Counting the number of places a pair can occupy as the length of the row instead of one fewer.
+- id: sr2b-apart-probability-given
+  description: Giving the probability that the two items are apart when the probability that they are together was asked.
+- id: sr2b-odds-for-probability
+  description: Giving the ratio of favourable to unfavourable arrangements as the probability.
+- id: sr2b-probability-over-wrong-total
+  description: Dividing the favourable arrangements by the total plus the favourable ones.
+- id: sr2b-equally-likely-assumed
+  description: Giving a probability of one half because the letters are either next to each other or not.
+- id: sr2b-together-subtracted-twice
+  description: Subtracting the number of arrangements with the pair together twice from the total.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Divide n! by the factorial of each repeat count for the letters of a word.
+  medium:
+    steps: 3
+    demand: Treat a restricted group as a block, or subtract the together count from the total, for objects in a row.
+  hard:
+    steps: 4
+    demand: Count round a circle (fix one seat) with a restriction, or build an at-least committee count by cases or by
+      complement.
+  exam:
+    steps: 5
+    demand: Chain all arrangements, those with a repeated letter together, the probability of that and the number apart.
+tags:
+- acara-senior-v8-4
+- senior-mathematics
+- combinatorics
+- arrangements
+- committees
+- ACMSM001
+- ACMSM008
+- ACMMM044

@@ -1,0 +1,96 @@
+id: reciprocal-and-trig-graph-features
+name: Find the period, asymptotes and range gap of reciprocal trigonometric and tangent graphs
+domain: trigonometry
+description: From the equation of a secant, cosecant or tangent graph, state its period, count its vertical asymptotes in
+  an interval, locate the first positive asymptote of a shifted graph, and find the edge of the band of values the graph
+  never takes; exact values are typed in terms of pi.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-examine-period-changes-and-the-graphs-of-y
+- senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+answer: expression
+sources:
+- topic: sr2b_trig_graph_features
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_trig_graph_features
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_trig_graph_features
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_trig_graph_features
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-period-wrong-base
+  description: Using pi as the basic period of secant or cosecant, or 2 pi for tangent.
+- id: sr2b-period-multiplied-by-b
+  description: Multiplying the basic period by the coefficient of x instead of dividing by it.
+- id: sr2b-period-b-ignored
+  description: Giving the period of the basic graph and ignoring the coefficient of x.
+- id: sr2b-asymptote-count-endpoints-missed
+  description: Leaving out the asymptotes at the two ends of the interval, where sin(bx) is zero.
+- id: sr2b-asymptote-count-endpoints-included
+  description: Counting an asymptote at each end of the interval when the graph has none there.
+- id: sr2b-asymptote-count-off-by-one
+  description: Counting the asymptotes in an interval with the number off by one.
+- id: sr2b-asymptote-count-one-period-only
+  description: Giving the number of asymptotes in one period instead of in the whole interval.
+- id: sr2b-asymptote-count-periods-not-asymptotes
+  description: Giving the number of periods in the interval as the number of asymptotes.
+- id: sr2b-asymptote-count-doubled
+  description: Counting each asymptote twice, once from each side of it.
+- id: sr2b-asymptote-first-member-of-pattern
+  description: Taking the asymptote from the first value of k tried without checking whether an earlier one is still positive.
+- id: sr2b-asymptote-shift-ignored
+  description: Giving the first asymptote of the unshifted graph and ignoring the horizontal shift.
+- id: sr2b-asymptote-shift-direction
+  description: Moving the first asymptote of the unshifted graph the wrong way, subtracting a shift that should be added.
+- id: sr2b-asymptote-at-the-shift
+  description: Giving the horizontal shift itself as the position of an asymptote.
+- id: sr2b-asymptote-next-member
+  description: Stepping on to the next asymptote in the pattern instead of the smallest positive one.
+- id: sr2b-reciprocal-gap-wrong-edge
+  description: Giving the lower edge of the gap between the branches instead of the upper one.
+- id: sr2b-reciprocal-gap-shift-ignored
+  description: Giving the size of the coefficient as the edge of the gap and leaving out the vertical shift.
+- id: sr2b-reciprocal-gap-sign-of-a
+  description: Adding or subtracting the signed coefficient instead of its size, so a negative coefficient moves the edge
+    the wrong way.
+- id: sr2b-reciprocal-gap-product
+  description: Multiplying the amplitude by the vertical shift to find the edge of the gap between the branches.
+- id: sr2b-asymptote-whole-period
+  description: Taking a whole period as the first asymptote of a cosecant graph, whose asymptotes come twice per period.
+- id: sr2b-asymptote-quarter-period
+  description: Taking a quarter of the period as the first asymptote of a cosecant graph.
+- id: sr2b-asymptote-b-ignored
+  description: Ignoring the coefficient of x when locating the asymptote.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Recall the base period of sec, cosec or tan and divide it by the coefficient of x.
+  medium:
+    steps: 3
+    demand: Find where cos(bx) or sin(bx) is zero and count the solutions in 0 to 2 pi, deciding whether the end points
+      count.
+  hard:
+    steps: 4
+    demand: Solve for the smallest positive asymptote of a shifted graph by stepping back through the pattern, or find the
+      edge of the band the graph never enters.
+  exam:
+    steps: 5
+    demand: Chain the period, the first asymptote, the number of asymptotes in 0 to 2 pi and the edge of the band for one
+      cosecant graph.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- reciprocal-trigonometric-functions
+- graph-features
+- ACMSM043
+- ACMMM036

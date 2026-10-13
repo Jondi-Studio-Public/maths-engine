@@ -15334,6 +15334,866 @@ _ENTRIES = (
         "Uses the size of the median as a measure of how spread out the data are.",
         area="statistics",
     ),
+    CatalogueEntry(
+        "sr2b-asymptotes-swapped",
+        "Giving the horizontal asymptote's value as the vertical asymptote and the other way round.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-vertical-asymptote-sign",
+        "Reading the vertical asymptote of a function with x + d in the denominator as x = d instead of x = -d.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-horizontal-asymptote-constant-term",
+        "Taking the constant term of the numerator as the horizontal asymptote instead of the ratio of the leading coefficients.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-horizontal-asymptote-negated",
+        "Giving the horizontal asymptote with the sign of the ratio of leading coefficients reversed.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-coefficient-of-x-ignored",
+        "Ignoring the coefficient of x in the denominator: reading the asymptote as -d or a instead of -d/c or a/c.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-ratio-of-coefficients-inverted",
+        "Writing the horizontal asymptote as the denominator's leading coefficient over the numerator's instead of the other way round.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-intercepts-swapped",
+        "Giving the y-intercept's value as the x-intercept and the other way round.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-x-intercept-sign",
+        "Solving ax + b = 0 for x and losing the sign: x = b/a instead of x = -b/a.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-intercept-from-leading-coefficients",
+        "Using the ratio of the leading coefficients, which gives the horizontal asymptote, as the y-intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-x-intercept-from-denominator",
+        "Setting the denominator, not the numerator, equal to zero to find the x-intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-y-intercept-from-numerator",
+        "Reading the numerator's constant term as the y-intercept without dividing by the denominator's constant term.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-leading-coefficient-not-divided",
+        "Taking the numerator's leading coefficient as the gradient of the oblique asymptote without dividing by the denominator's.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-term-read-as-intercept",
+        "Reading the numerator's x coefficient as the intercept of the oblique asymptote instead of dividing out.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-division-sign-slip",
+        "A sign slip in the long division: adding the term that should be subtracted when forming the quotient's constant.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-remainder-for-intercept",
+        "Giving the remainder of the division as the oblique asymptote's intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-constants-divided",
+        "Dividing the constant terms of the numerator and denominator to get the oblique asymptote's intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-height-from-constant",
+        "Giving the constant of the cancelled linear factor as the height of the hole, forgetting to substitute the x-value.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-x-sign",
+        "Reading the factor x - h as giving x = -h for the hole.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-height-from-coefficient",
+        "Giving the numerator's x coefficient as the height of the hole.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-height-quotient-slope-only",
+        "Substituting into only the x term of the simplified function, leaving out its constant.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-vertical-asymptote-from-numerator",
+        "Taking a number from the numerator, not the zero of the denominator, as the vertical asymptote.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-quotient-constant-negated",
+        "Giving the constant of the oblique asymptote with its sign reversed.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-from-k",
+        "Giving the constant of the oblique asymptote as the height where the asymptotes cross, without adding the x-value.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-product",
+        "Multiplying the x-value of the vertical asymptote by the constant instead of adding it.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-sign",
+        "Subtracting the x-value of the vertical asymptote from the constant instead of adding it.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-from-x",
+        "Giving the x-value of the vertical asymptote as the height where the asymptotes cross.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-y-intercept-sign",
+        "Finding f(0) correctly and then reversing its sign, or dividing the numerator's constant by h instead of -h.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-at-the-shift",
+        "Giving the horizontal shift itself as the position of an asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-b-ignored",
+        "Ignoring the coefficient of x when locating the asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-doubled",
+        "Counting each asymptote twice, once from each side of it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-endpoints-included",
+        "Counting an asymptote at each end of the interval when the graph has none there.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-endpoints-missed",
+        "Leaving out the asymptotes at the two ends of the interval, where sin(bx) is zero.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-off-by-one",
+        "Counting the asymptotes in an interval with the number off by one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-one-period-only",
+        "Giving the number of asymptotes in one period instead of in the whole interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-periods-not-asymptotes",
+        "Giving the number of periods in the interval as the number of asymptotes.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-first-member-of-pattern",
+        "Taking the asymptote from the first value of k tried without checking whether an earlier one is still positive.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-next-member",
+        "Stepping on to the next asymptote in the pattern instead of the smallest positive one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-quarter-period",
+        "Taking a quarter of the period as the first asymptote of a cosecant graph.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-shift-direction",
+        "Moving the first asymptote of the unshifted graph the wrong way, subtracting a shift that should be added.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-shift-ignored",
+        "Giving the first asymptote of the unshifted graph and ignoring the horizontal shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-whole-period",
+        "Taking a whole period as the first asymptote of a cosecant graph, whose asymptotes come twice per period.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-period-b-ignored",
+        "Giving the period of the basic graph and ignoring the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-period-multiplied-by-b",
+        "Multiplying the basic period by the coefficient of x instead of dividing by it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-period-wrong-base",
+        "Using pi as the basic period of secant or cosecant, or 2 pi for tangent.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-product",
+        "Multiplying the amplitude by the vertical shift to find the edge of the gap between the branches.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-shift-ignored",
+        "Giving the size of the coefficient as the edge of the gap and leaving out the vertical shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-sign-of-a",
+        "Adding or subtracting the signed coefficient instead of its size, so a negative coefficient moves the edge the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-wrong-edge",
+        "Giving the lower edge of the gap between the branches instead of the upper one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-added-pi",
+        "Adding pi to the angle instead of finding the other angle with the same value, which is pi minus it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-negated",
+        "Giving the negative of the angle, taken into [0, 2 pi), as the other angle with the same value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-reference-angle-given",
+        "Giving the reference angle as the answer without placing it in the quadrant the conditions require.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-wrong-quadrant",
+        "Choosing the other angle that has the stated value, whose other function has the wrong sign.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-complement-used",
+        "Using the value for the complementary angle, swapping the values of one half and root three over two.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-reciprocal-given",
+        "Giving the reciprocal of the value, as for the reciprocal function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-sign-error",
+        "Taking the right size of the exact value but the wrong sign for the quadrant.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-sin-cos-swapped",
+        "Giving the value of cosine for the angle where sine was asked, or the other way round.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-sum-for-product",
+        "Adding the two exact values where they should be multiplied.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-tan-inverted",
+        "Finding tangent as cosine over sine instead of sine over cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-wrong-function",
+        "Giving the value of a different trigonometric function at the reference angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-multiplier-dropped",
+        "Finding the exact value of the trigonometric function and forgetting to multiply by the number in front of it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-average-speed-for-average-velocity",
+        "Giving the total distance over the time (average speed) when the net change in position over the time (average velocity) was asked.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-average-velocity-for-average-speed",
+        "Giving the net change in position over the time (average velocity) when the total distance over the time (average speed) was asked.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-average-velocity-for-segment-velocity",
+        "Giving the average velocity over the whole journey when the velocity on one segment was asked.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-displacement-for-distance",
+        "Giving the net change in position as the total distance travelled, so the legs that double back cancel.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-displacement-not-divided",
+        "Finding the net change in position and not dividing by the time taken.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-distance-not-divided",
+        "Finding the total distance travelled and not dividing by the time taken.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-distance-over-segments",
+        "Dividing the total distance by the number of segments instead of by the time.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-end-of-graph-for-return",
+        "Giving the end of the journey as the time of the first return to the starting position.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-farthest-point-only",
+        "Using only the greatest distance from the start as the distance travelled, leaving out the legs that follow it.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-neighbouring-segment",
+        "Reading the velocity of the segment next to the one asked about.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-next-vertex-for-crossing",
+        "Giving the time of the next corner of the graph as the time it crosses the starting level, which happens part-way along a segment.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-origin-for-start-position",
+        "Looking for the time the graph reaches zero when the question asks for the time it is back at its starting position.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-out-and-back-only",
+        "Doubling the greatest distance from the start as the distance travelled, leaving out the final stage.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-return-leg-lost",
+        "Leaving out one leg of the journey when adding the distances.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-return-time-off-by-one",
+        "Reading the time of the return one unit away from where the graph crosses the starting level.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-rise-not-divided",
+        "Giving the change in position over the segment without dividing by the time it took.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-segment-speeds-averaged",
+        "Averaging the speeds of the segments, ignoring that the segments last different lengths of time.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-segment-velocities-averaged",
+        "Averaging the velocities of the segments, ignoring that the segments last different lengths of time.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-start-position-counted",
+        "Adding the starting position to the distance travelled.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-start-position-ignored",
+        "Dividing the final position by the time, forgetting that the journey did not start at zero.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-turning-point-for-return",
+        "Giving the time of the turning point, where the object is farthest from the start, as the time it returns.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-velocity-sign-dropped",
+        "Giving the size of a negative velocity without its sign, so the direction of travel is lost.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-velocity-sign-reversed",
+        "Giving a velocity with its sign reversed, so it points the wrong way.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-not-integrated-over-width",
+        "Integrating a constant term over an interval as if the constant were simply added, without multiplying by the width of the interval.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-sign-reversed",
+        "Subtracting the integral of a positive constant, or adding that of a negative one, so the constant term has the wrong sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-term-dropped",
+        "Integrating only the multiple of f(x) and leaving out the integral of the constant term.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-integral-for-area",
+        "Giving the value of a definite integral when the area of a region was asked for, so a region below the axis is subtracted.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-integral-for-total-area",
+        "Giving the definite integral when the total area was asked for, so the region below the axis is subtracted instead of added.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-one-region-only",
+        "Giving the signed area of a single region instead of combining the regions in the interval.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-region-left-out",
+        "Leaving one of the regions out when combining the areas.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-regions-assumed-equal",
+        "Assuming the two unknown regions have equal areas and halving their total.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-regions-swapped",
+        "Giving the area of the other unknown region.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-scale-factor-dropped",
+        "Integrating the constant term and f(x) but not multiplying the integral of f(x) by its coefficient.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-sign-pattern-wrong",
+        "Using the wrong signs for the regions, as if a region above the axis lay below it or the other way round.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-signed-and-total-mixed",
+        "Mixing the value of the integral and the total area when solving for an unknown region, using one where the other belongs.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-signed-area-sign-reversed",
+        "Giving the right size of the definite integral with the wrong sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-total-area-for-integral",
+        "Adding all the areas when the definite integral was asked for, so a region below the axis is counted as positive.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-two-regions-combined",
+        "Giving the combined area of the two unknown regions as the area of one of them.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-wrong-interval",
+        "Giving the integral over the whole graph when an integral over part of it was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-boundary-sign-slip",
+        "Solving the condition on the composite correctly but giving the boundary value with the wrong sign.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-boundary-wrongly-excluded",
+        "Using a strict inequality where the end-point is allowed, so a value that makes the composite defined is left out.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-boundary-wrongly-included",
+        "Using a non-strict inequality where the end-point is not allowed, so a value that makes the composite undefined is included.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-excluded-value-missed",
+        "Finding the domain of the inner function only and missing the value that the outer function cannot accept.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-excluded-value-not-converted",
+        "Excluding the value the outer function cannot accept, but not solving for the x that produces it.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-inequality-direction-wrong",
+        "Not reversing the inequality when dividing by a negative coefficient, or reversing it when the coefficient is positive.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-inner-domain-missed",
+        "Applying only the condition from the outer function and leaving out the domain of the inner function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-inner-not-squared",
+        "Removing a square root from one side of an inequality or equation without squaring the other side.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-negative-branch-dropped",
+        "Solving x squared against a number and keeping only the positive root, so the negative branch of the domain is lost.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-no-restriction-found",
+        "Concluding the composite is defined for every real number when the outer function excludes a value the inner function takes.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-one-root-only",
+        "Excluding only the positive solution of x squared equal to a number and missing the negative one.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-one-side-only",
+        "Giving only one side of an excluded value as the domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-outer-condition-missed",
+        "Applying only the domain of the inner function and missing the condition the outer function puts on the inner function's values.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-outer-domain-used-for-x",
+        "Using the domain of the outer function g as the domain of x, without substituting f(x).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-quadratic-inequality-wrong-way",
+        "Solving a quadratic inequality for the inside of the roots when the outside is needed, or the other way round.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-shift-ignored",
+        "Leaving out the shift in the inner function when turning a condition on f(x) into one on x.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-sign-condition-ignored",
+        "Excluding only the value where the reciprocal is undefined and missing that the square root then needs it to be positive.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-square-root-not-taken",
+        "Treating x squared against a number as x against that number, without taking the square root.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-squared-negative-bound",
+        "Squaring a condition that a square root exceeds a negative number and using the result as a bound, when the condition always holds.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-apart-count-given",
+        "Giving the number of arrangements with two items together when the number with them apart was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-apart-probability-given",
+        "Giving the probability that the two items are apart when the probability that they are together was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-at-least-double-counted",
+        "Choosing the required number of women first and then filling the rest from everyone, which counts committees with more women several times.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-block-and-rest-miscounted",
+        "Treating a pair as one object but counting the arrangements of the objects wrongly.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-case-left-out",
+        "Leaving out one of the cases that make up the count.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-complement-given",
+        "Finding the number of committees that fail the condition and giving it as the answer.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-complement-taken-wrongly",
+        "Subtracting the wrong complement, so the count is for a different condition from the one asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-divided-by-counts-not-factorials",
+        "Dividing by the number of times a letter is repeated instead of by the factorial of that number.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-equally-likely-assumed",
+        "Giving a probability of one half because the letters are either next to each other or not.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-exactly-for-at-least",
+        "Counting committees with exactly the stated number of women when at least that number was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-exactly-for-at-most",
+        "Counting committees with exactly the stated number of women when at most that number was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-internal-order-counted-for-identical",
+        "Doubling the count for the order of two identical letters in a block, which cannot be told apart.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-internal-order-missed",
+        "Forgetting that two items arranged as a block can be in either order.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-letter-fixed",
+        "Arranging one fewer letter, as if one letter were fixed in place.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-named-person-arranged",
+        "Multiplying the count by the size of the committee as though the named person had a position on it.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-named-person-left-off",
+        "Choosing the whole committee from the people other than the named person.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-odds-for-probability",
+        "Giving the ratio of favourable to unfavourable arrangements as the probability.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-one-end-only",
+        "Counting the arrangements with the item at one end only, not at either end.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-one-repeat-only",
+        "Dividing by the factorial of one repeated letter and ignoring the other repeats.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-probability-over-wrong-total",
+        "Dividing the favourable arrangements by the total plus the favourable ones.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-reflection-halved",
+        "Halving a round-table count as though a seating and its mirror image were the same.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-repeat-counts-added",
+        "Dividing by the factorial of the total number of repeated letters instead of by each factorial in turn.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-repeats-ignored",
+        "Counting the arrangements as though every letter were different.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-restriction-ignored",
+        "Giving the count without applying the restriction in the question.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-rotations-counted-as-different",
+        "Counting seatings that are rotations of each other as different arrangements.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-together-count-given",
+        "Giving the number of arrangements with the pair together when the number with them apart was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-together-subtracted-twice",
+        "Subtracting the number of arrangements with the pair together twice from the total.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-together-treated-as-half",
+        "Taking half of all the arrangements as those with a pair together.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-two-people-fixed",
+        "Fixing two people in place at a round table instead of one.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-end-order-missed",
+        "Forgetting that the two items at the ends can swap places.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-pair-position-fixed",
+        "Counting arrangements with the pair in one fixed place, not sliding it along the row.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-pair-places-miscounted",
+        "Counting the number of places a pair can occupy as the length of the row instead of one fewer.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-area-given-for-cost",
+        "Giving the floor area in square metres as the cost, without multiplying by the price per square metre.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-area-scaled-linearly",
+        "Multiplying the plan area by the scale as if area scaled like length, instead of by the square of the scale.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-box-coverage-priced-as-box",
+        "Multiplying the area the boxes cover by the price of a box.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-boxes-not-rounded-up",
+        "Using a part-box count in the cost, when only whole boxes can be bought.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-boxes-rounded-down",
+        "Rounding the number of boxes down, which leaves the floor short of material.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-centimetres-not-converted-to-metres",
+        "Multiplying a plan length by the scale and leaving the answer in centimetres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-centimetres-to-metres-with-10",
+        "Changing centimetres to metres by dividing by 10 instead of 100.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-gap-not-removed",
+        "Charging fencing for the whole distance round, including the gate opening.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-ignored",
+        "Costing the whole distance round as fencing and leaving out the gate completely.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-price-counted-twice",
+        "Adding the price of the gate twice.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-price-left-out",
+        "Costing the fencing correctly but leaving out the price of the gate.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-one-side-scaled",
+        "Scaling only one of the two plan lengths before multiplying them to find the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-other-side-used",
+        "Giving the real width of the room when its real length was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-perimeter-for-area",
+        "Adding up the lengths round the edge of the floor when the area was needed.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-scale-applied-the-wrong-way",
+        "Dividing a plan length by the scale where it should be multiplied.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-scale-ignored",
+        "Using the plan measurements as though they were real measurements.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-square-centimetres-to-metres-with-100",
+        "Changing square centimetres to square metres by dividing by 100 instead of 10 000.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-added-to-price",
+        "Adding the waste percentage to the price per square metre instead of increasing the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-allowance-left-out",
+        "Working with the floor area exactly and leaving out the extra ordered for waste.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-only",
+        "Giving only the extra area for waste instead of the floor area plus the waste.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-percentage-added-as-area",
+        "Adding the waste percentage as square metres to the floor area instead of taking a percentage of it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-subtracted",
+        "Reducing the area by the waste percentage instead of increasing it.",
+        area="measurement",
+    ),
 )
 
 #: Every entry, by id.

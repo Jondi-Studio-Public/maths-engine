@@ -1,0 +1,111 @@
+id: rational-function-features
+name: Find the asymptotes, intercepts and holes of a rational function
+domain: functions-sequences
+description: Read the vertical, horizontal and oblique asymptotes, the intercepts and any hole of a rational function that
+  is a linear expression over a linear one, or a quadratic over a linear one, from its equation, and give them as typed
+  values; no sketch is asked.
+status: active
+placement_eligible: false
+prerequisites:
+- polynomial-long-division
+- senior-examine-examples-of-inverse-proportion
+answer: pair
+sources:
+- topic: sr2b_rational_features
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_rational_features
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_rational_features
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_rational_features
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-asymptotes-swapped
+  description: Giving the horizontal asymptote's value as the vertical asymptote and the other way round.
+- id: sr2b-vertical-asymptote-sign
+  description: Reading the vertical asymptote of a function with x + d in the denominator as x = d instead of x = -d.
+- id: sr2b-horizontal-asymptote-constant-term
+  description: Taking the constant term of the numerator as the horizontal asymptote instead of the ratio of the leading
+    coefficients.
+- id: sr2b-horizontal-asymptote-negated
+  description: Giving the horizontal asymptote with the sign of the ratio of leading coefficients reversed.
+- id: sr2b-coefficient-of-x-ignored
+  description: 'Ignoring the coefficient of x in the denominator: reading the asymptote as -d or a instead of -d/c or a/c.'
+- id: sr2b-ratio-of-coefficients-inverted
+  description: Writing the horizontal asymptote as the denominator's leading coefficient over the numerator's instead of
+    the other way round.
+- id: sr2b-intercepts-swapped
+  description: Giving the y-intercept's value as the x-intercept and the other way round.
+- id: sr2b-x-intercept-sign
+  description: 'Solving ax + b = 0 for x and losing the sign: x = b/a instead of x = -b/a.'
+- id: sr2b-intercept-from-leading-coefficients
+  description: Using the ratio of the leading coefficients, which gives the horizontal asymptote, as the y-intercept.
+- id: sr2b-x-intercept-from-denominator
+  description: Setting the denominator, not the numerator, equal to zero to find the x-intercept.
+- id: sr2b-y-intercept-from-numerator
+  description: Reading the numerator's constant term as the y-intercept without dividing by the denominator's constant term.
+- id: sr2b-leading-coefficient-not-divided
+  description: Taking the numerator's leading coefficient as the gradient of the oblique asymptote without dividing by the
+    denominator's.
+- id: sr2b-constant-term-read-as-intercept
+  description: Reading the numerator's x coefficient as the intercept of the oblique asymptote instead of dividing out.
+- id: sr2b-division-sign-slip
+  description: 'A sign slip in the long division: adding the term that should be subtracted when forming the quotient''s
+    constant.'
+- id: sr2b-remainder-for-intercept
+  description: Giving the remainder of the division as the oblique asymptote's intercept.
+- id: sr2b-constants-divided
+  description: Dividing the constant terms of the numerator and denominator to get the oblique asymptote's intercept.
+- id: sr2b-hole-height-from-constant
+  description: Giving the constant of the cancelled linear factor as the height of the hole, forgetting to substitute the
+    x-value.
+- id: sr2b-hole-x-sign
+  description: Reading the factor x - h as giving x = -h for the hole.
+- id: sr2b-hole-height-from-coefficient
+  description: Giving the numerator's x coefficient as the height of the hole.
+- id: sr2b-hole-height-quotient-slope-only
+  description: Substituting into only the x term of the simplified function, leaving out its constant.
+- id: sr2b-vertical-asymptote-from-numerator
+  description: Taking a number from the numerator, not the zero of the denominator, as the vertical asymptote.
+- id: sr2b-quotient-constant-negated
+  description: Giving the constant of the oblique asymptote with its sign reversed.
+- id: sr2b-asymptote-meeting-height-from-k
+  description: Giving the constant of the oblique asymptote as the height where the asymptotes cross, without adding the
+    x-value.
+- id: sr2b-asymptote-meeting-height-product
+  description: Multiplying the x-value of the vertical asymptote by the constant instead of adding it.
+- id: sr2b-asymptote-meeting-height-sign
+  description: Subtracting the x-value of the vertical asymptote from the constant instead of adding it.
+- id: sr2b-asymptote-meeting-height-from-x
+  description: Giving the x-value of the vertical asymptote as the height where the asymptotes cross.
+- id: sr2b-y-intercept-sign
+  description: Finding f(0) correctly and then reversing its sign, or dividing the numerator's constant by h instead of
+    -h.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the zero of a denominator x + d and the ratio of leading coefficients for (ax + b)/(x + d).
+  medium:
+    steps: 3
+    demand: Do the same when the denominator has a coefficient of x (so the asymptotes are fractions), or find both intercepts.
+  hard:
+    steps: 4
+    demand: Divide a quadratic by a linear expression to find an oblique asymptote, or factorise to find a hole and its
+      height.
+  exam:
+    steps: 5
+    demand: Chain the vertical asymptote, the oblique asymptote, where they meet and the intercept of one function.
+tags:
+- acara-senior-v8-4
+- functions-sequences
+- rational-functions
+- asymptotes
+- ACMSM100
