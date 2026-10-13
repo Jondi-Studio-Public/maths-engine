@@ -22,7 +22,7 @@ from __future__ import annotations
 import re
 
 from .. import figures
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, paren_negative, phrase
 from ._sr2a_kit import corr, mcq_part, number_part, single
 
 _POSITIVE = (
@@ -93,6 +93,11 @@ def _clip(v):
 
 def _fmt(v: float) -> str:
     return str(int(v)) if v == int(v) else f"{v:.1f}"
+
+
+def _fmt_paren(v: float) -> str:
+    """`_fmt` with a negative value bracketed, so it can follow an operator."""
+    return paren_negative(int(v) if v == int(v) else round(v, 1))
 
 
 def _dp(v: float) -> int:
@@ -228,7 +233,7 @@ def _medium(rng):
         ask = phrase(rng, _MEDIUM_ASK, yq=fit.ctx["yq"], xat=fit.ctx["xat"].format(k=k, Y=0))
         working = [
             f"The line crosses the vertical axis at {fit.c} and has gradient {_fmt(fit.m)}.",
-            f"At {k}: {fit.c} + {_fmt(fit.m)} x {k} = {_fmt(key)}.",
+            f"At {k}: {fit.c} + {_fmt_paren(fit.m)} x {k} = {_fmt(key)}.",
         ]
         q = single(f"{fit.ctx['lead']} {ask}", key, working, wrong, dp=_dp(key), lo=0, figure=fit.figure())
         if q:
@@ -271,7 +276,7 @@ def _hard(rng):
                 (key + 1, "sr2a-fl-predict-gridline-slip"),
             ]
             working = [
-                f"P is at ({x}, {y}). The line predicts {fit.c} + {_fmt(fit.m)} x {x} = {_fmt(pred)} at {x}.",
+                f"P is at ({x}, {y}). The line predicts {fit.c} + {_fmt_paren(fit.m)} x {x} = {_fmt(pred)} at {x}.",
                 f"Residual = {y} - {_fmt(pred)} = {_fmt(key)}.",
             ]
             q = single(
@@ -298,7 +303,7 @@ def _hard(rng):
             ]
             ask = phrase(rng, _INVERSE_ASK, xq=fit.ctx["xq"], yat=fit.ctx["yat"].format(Y=Y, k=0))
             working = [
-                f"The line is y = {fit.c} + {_fmt(fit.m)} x. Set it equal to {Y}: {fit.c} + {_fmt(fit.m)} x = {Y}.",
+                f"The line is y = {fit.c} + {_fmt_paren(fit.m)} x. Set it equal to {Y}: {fit.c} + {_fmt_paren(fit.m)} x = {Y}.",
                 f"{_fmt(fit.m)} x = {Y - fit.c}, so x = {x0}.",
             ]
             q = single(
@@ -371,7 +376,7 @@ def sr2a_scatter_fit_chain(rng, tier="exam"):
             f"Use the line to predict the {ctx['yq']} for {ctx['xat'].format(k=k, Y=0)}.",
             pred,
             2,
-            [f"{fit.c} + {_fmt(fit.m)} x {k} = {pred}."],
+            [f"{fit.c} + {_fmt_paren(fit.m)} x {k} = {pred}."],
             [
                 (actual, "sr2a-fl-predict-nearest-point"),
                 (int(fit.m * k), "sr2a-fl-predict-forgets-intercept"),

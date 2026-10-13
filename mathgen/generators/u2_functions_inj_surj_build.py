@@ -343,11 +343,17 @@ def _hard(rng):
 def u2_functions_injective_surjective(rng, tier="easy"):
     """Counting and deciding one-to-one, onto and bijective functions; the tiers are in the module docstring."""
     if tier == "easy":
-        return _easy(rng)
-    if tier == "medium":
-        return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
-    return _hard(rng)
+        question = _easy(rng)
+    elif tier == "medium":
+        question = _medium(rng)
+    else:
+        check(tier == "hard", f"unknown tier {tier!r}")
+        question = _hard(rng)
+    # A stem that writes a set with braces ("{1, 2, ..., 6}") is plain prose to the prompt converter, which would
+    # turn it into italic maths letters, so it is shown as plain text.
+    if "{" in question["text"]:
+        question["latex"] = "plain:" + question["text"]
+    return question
 
 
 # -- exam -----------------------------------------------------------------------------------------------------------

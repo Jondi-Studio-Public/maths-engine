@@ -36,7 +36,7 @@ import re
 from statistics import median
 
 from .. import figures
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, paren_negative, phrase
 from ._sr2a_kit import number_part, num_text, single
 
 _CONTEXTS = (
@@ -228,7 +228,7 @@ def _medium(rng):
         ]
         working = [
             f"{_label(s, n + 1)} is in the same season as {_label(s, n + 1 - p)}, which was {prev}, and {_label(s, n + 1 - 2 * p)}, which was {before}.",
-            f"The level changed by {prev} - {before} = {step_up} over a cycle, so the prediction is {prev} + {step_up} = {key}.",
+            f"The level changed by {prev} - {before} = {step_up} over a cycle, so the prediction is {prev} + {paren_negative(step_up)} = {key}.",
         ]
         q = single(text, key, working, wrong, lo=1, figure=s.figure())
         if q:
@@ -302,7 +302,7 @@ def _hard_forecast(rng):
         working = [
             f"The cycle is {p} {s.ctx['units']} long. {_label(s, n + 1)} is in the same season as {_label(s, t)}, but {_label(s, t)} was broken by the one-off event.",
             f"Use the cycle before: {_label(s, n + 1 - 2 * p)} was {s.y(n + 1 - 2 * p)}, and the level changes by {step_up} each cycle.",
-            f"Two cycles on: {s.y(n + 1 - 2 * p)} + 2 x {step_up} = {key}.",
+            f"Two cycles on: {s.y(n + 1 - 2 * p)} + 2 x {paren_negative(step_up)} = {key}.",
         ]
         q = single(text, key, working, wrong, lo=1, figure=s.figure())
         if q:
@@ -400,7 +400,7 @@ def sr2a_time_series_chain(rng, tier="exam"):
             2,
             [
                 f"{_label(s, n + 1)} is in the same season as {_label(s, n + 1 - p)}, which was {prev}.",
-                f"{prev} + {step_up} = {key}.",
+                f"{prev} + {paren_negative(step_up)} = {key}.",
             ],
             [
                 (prev, "sr2a-ts-no-trend-added"),
