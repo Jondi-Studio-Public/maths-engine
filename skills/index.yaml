@@ -2012,6 +2012,78 @@ inverse-operations:
   sources:
   - topic: linear_equation
     module: mathgen/generators/algebra.py
+ir2a-choose-sampling-method:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_choose_sampling_method
+    module: mathgen/generators/ir2a_choose_sampling_method_build.py
+  - topic: exd_x_ir2a_choose_sampling_method
+    module: mathgen/generators/ir2a_choose_sampling_method_build.py
+ir2a-compare-groups-evidence:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_compare_groups_evidence
+    module: mathgen/generators/ir2a_compare_groups_evidence_build.py
+  - topic: exd_x_ir2a_compare_groups_evidence
+    module: mathgen/generators/ir2a_compare_groups_evidence_build.py
+ir2a-investigation-step-order:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_investigation_step_order
+    module: mathgen/generators/ir2a_investigation_step_order_build.py
+  - topic: exd_x_ir2a_investigation_step_order
+    module: mathgen/generators/ir2a_investigation_step_order_build.py
+ir2a-judge-stated-conclusion:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_judge_stated_conclusion
+    module: mathgen/generators/ir2a_judge_stated_conclusion_build.py
+  - topic: exd_x_ir2a_judge_stated_conclusion
+    module: mathgen/generators/ir2a_judge_stated_conclusion_build.py
+ir2a-limits-of-a-bivariate-claim:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_limits_of_a_bivariate_claim
+    module: mathgen/generators/ir2a_limits_of_a_bivariate_claim_build.py
+  - topic: exd_x_ir2a_limits_of_a_bivariate_claim
+    module: mathgen/generators/ir2a_limits_of_a_bivariate_claim_build.py
+ir2a-misleading-graph-figure:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_misleading_graph_figure
+    module: mathgen/generators/ir2a_misleading_graph_figure_build.py
+  - topic: exd_x_ir2a_misleading_graph_figure
+    module: mathgen/generators/ir2a_misleading_graph_figure_build.py
+ir2a-pick-display-for-question:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_pick_display_for_question
+    module: mathgen/generators/ir2a_pick_display_for_question_build.py
+  - topic: exd_x_ir2a_pick_display_for_question
+    module: mathgen/generators/ir2a_pick_display_for_question_build.py
+ir2a-question-to-data-needed:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_question_to_data_needed
+    module: mathgen/generators/ir2a_question_to_data_needed_build.py
+  - topic: exd_x_ir2a_question_to_data_needed
+    module: mathgen/generators/ir2a_question_to_data_needed_build.py
+ir2a-spot-bias:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ir2a_spot_bias
+    module: mathgen/generators/ir2a_spot_bias_build.py
+  - topic: exd_x_ir2a_spot_bias
+    module: mathgen/generators/ir2a_spot_bias_build.py
 jacobi-iteration-2x2:
   domain: numerical-and-computational-mathematics
   status: active

@@ -1,0 +1,132 @@
+id: ir2a-pick-display-for-question
+name: Pick the display for a question
+domain: statistics-probability
+year_level: ['4', '9']
+naplan_domain: [statistics]
+description: Choose the display or summary that answers a stated question (compare the typical value of two groups, show change over time, compare spread, show the shape of a distribution), then read or compute one value from the data. The exam chain compares two box plots or a time series through several linked steps.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: mcq
+sources:
+- topic: ir2a_pick_display_for_question
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_pick_display_for_question
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_pick_display_for_question
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_pick_display_for_question
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-instead-of-multiplying
+  description: Adding the slope to the x-value instead of multiplying them.
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-adds-the-whole-change-not-one-month
+  description: Adding the whole change over the series to the last value, instead of one month's average change.
+- id: ir2a-averages-the-last-value-not-the-change
+  description: Dividing the final value by the number of intervals instead of the change.
+- id: ir2a-compares-means-not-medians
+  description: Working with the means of two groups when the medians were asked.
+- id: ir2a-compares-medians-not-spreads
+  description: Comparing the centres of two groups when their spreads were asked.
+- id: ir2a-compares-ranges-not-interquartile-ranges
+  description: Comparing the ranges of two groups when the interquartile ranges were asked.
+- id: ir2a-compares-the-largest-values
+  description: Comparing the largest value in each group instead of the medians.
+- id: ir2a-compares-the-smallest-values
+  description: Subtracting the smallest values of two groups when the difference in medians was asked.
+- id: ir2a-compares-with-the-wrong-group
+  description: Taking the difference from the second smallest value instead of the smallest.
+- id: ir2a-divides-by-the-number-of-years-listed
+  description: Dividing a total change by the number of values listed instead of by the number of intervals between them.
+- id: ir2a-divides-by-the-rest-of-the-whole
+  description: Dividing a group's count by the count of everything else instead of by the whole.
+- id: ir2a-divides-by-the-wrong-total
+  description: Dividing a class count by something other than the number of values.
+- id: ir2a-divides-by-too-few-intervals
+  description: Dividing a total change by one fewer interval than there are between the first and last month.
+- id: ir2a-divides-instead-of-subtracting
+  description: Dividing the last value by the first when the change between them was asked.
+- id: ir2a-doubles-the-average-change
+  description: Doubling the average change per step when finding it from the total change.
+- id: ir2a-flips-the-sign-of-the-slope-term
+  description: Subtracting the slope term from the constant when it should be added.
+- id: ir2a-forgets-the-intercept
+  description: Predicting from a line by multiplying the slope by x and leaving out the constant term.
+- id: ir2a-forgets-to-divide-by-the-intervals
+  description: Giving the total change when the average change per interval was asked.
+- id: ir2a-gives-the-percentage-as-the-angle
+  description: Giving a sector's percentage as its angle in degrees.
+- id: ir2a-gives-the-rest-of-the-whole
+  description: Giving the percentage or angle left over for the other groups instead of the group's own.
+- id: ir2a-includes-the-upper-boundary
+  description: Counting values equal to the upper end of a class as being in the class.
+- id: ir2a-miscounts-by-one
+  description: Miscounting the values in a class by one.
+- id: ir2a-miscounts-the-average-change
+  description: Giving an average change one more than the correct value after a slip in dividing the total change.
+- id: ir2a-picks-a-column-graph-for-the-wrong-purpose
+  description: Choosing a column graph for a question about change over time, a spread of measurements, association or two groups' centres.
+- id: ir2a-picks-a-histogram-for-the-wrong-purpose
+  description: Choosing a histogram for a question about categories, change over time, association, or the centres of two groups.
+- id: ir2a-picks-a-line-graph-for-the-wrong-purpose
+  description: Choosing a line graph when the data are not ordered in time, such as categories or two numerical variables.
+- id: ir2a-picks-a-pie-chart-for-the-wrong-purpose
+  description: Choosing a pie chart for a question that is not about how a whole is shared, such as change over time or the spread of measurements.
+- id: ir2a-picks-a-scatterplot-for-the-wrong-purpose
+  description: Choosing a scatterplot when only one measurement is recorded, or when the question is about change over time.
+- id: ir2a-picks-box-plots-for-the-wrong-purpose
+  description: Choosing box plots for categories, counts, change over time or association.
+- id: ir2a-reads-the-neighbouring-class
+  description: Counting the class below the one asked about.
+- id: ir2a-reads-the-neighbouring-value
+  description: Reading the value for a neighbouring month or case instead of the one asked for.
+- id: ir2a-reads-x-for-y
+  description: Giving the x-value of a pair when its y-value was asked.
+- id: ir2a-reports-the-change-not-the-value
+  description: Giving the change from the month before when the value itself was asked.
+- id: ir2a-reports-the-count-as-a-percentage
+  description: Giving a group's count as if it were its percentage.
+- id: ir2a-reports-the-largest-value
+  description: Giving the largest value in the data instead of the quantity asked for.
+- id: ir2a-reports-the-last-value
+  description: Giving the last value in the series when the change over the series was asked.
+- id: ir2a-reports-the-range
+  description: Giving the range of the values instead of the largest rise between neighbouring values.
+- id: ir2a-subtracts-in-the-wrong-order
+  description: Subtracting the later value from the earlier one, so a rise is given as a fall.
+- id: ir2a-takes-a-value-next-to-the-median
+  description: Giving a value next to the middle one in the ordered list instead of the median.
+- id: ir2a-takes-the-middle-of-the-list-unsorted
+  description: Taking the middle value of the list as it was written instead of putting the values in order first.
+- id: ir2a-uses-first-and-last-only
+  description: Giving the total change from first to last instead of the largest change from one month to the next.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_pick_display_for_question
+- AC9M4ST02
+- AC9M9ST04

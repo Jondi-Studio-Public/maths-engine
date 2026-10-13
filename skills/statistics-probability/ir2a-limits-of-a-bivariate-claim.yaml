@@ -1,0 +1,98 @@
+id: ir2a-limits-of-a-bivariate-claim
+name: Know the limits of a claim from a line of fit
+domain: statistics-probability
+year_level: ['10']
+description: Use a stated line of fit to predict a value, say whether the prediction is interpolation or extrapolation and whether to trust it, find where the line reaches a limit, and name the lurking variable that fits a scenario. The exam chain predicts, finds the change, and judges the claim.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: number
+sources:
+- topic: ir2a_limits_of_a_bivariate_claim
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_limits_of_a_bivariate_claim
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_limits_of_a_bivariate_claim
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_limits_of_a_bivariate_claim
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-instead-of-multiplying
+  description: Adding the slope to the x-value instead of multiplying them.
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-adds-the-intercept-instead-of-subtracting
+  description: Adding the constant term to the limit instead of subtracting it when solving for x.
+- id: ir2a-assumes-the-line-holds-everywhere
+  description: Assuming a fitted line keeps describing the data at every value of x.
+- id: ir2a-blames-the-data-for-an-impossible-value
+  description: Blaming an error in the data when a line predicts an impossible value far outside the range it was fitted to.
+- id: ir2a-blames-the-slope-for-an-impossible-value
+  description: Blaming the slope when a line predicts an impossible value far outside the range it was fitted to.
+- id: ir2a-calls-a-link-a-coincidence
+  description: Calling a link between two measurements a coincidence, without reason.
+- id: ir2a-calls-extrapolation-interpolation
+  description: Calling a prediction outside the range of the data interpolation, and so trusting it.
+- id: ir2a-calls-interpolation-extrapolation
+  description: Calling a prediction inside the range of the data extrapolation, and so distrusting it.
+- id: ir2a-flips-the-sign-of-the-slope-term
+  description: Subtracting the slope term from the constant when it should be added.
+- id: ir2a-forgets-the-intercept
+  description: Predicting from a line by multiplying the slope by x and leaving out the constant term.
+- id: ir2a-gives-a-prediction-not-a-change
+  description: Giving a predicted y-value when the change in y was asked.
+- id: ir2a-gives-the-change-not-the-prediction
+  description: Giving the change in y for the step when the predicted value of y was asked.
+- id: ir2a-gives-the-excess-in-x-not-y
+  description: Giving how far x is past the limit's x-value when the excess in y was asked.
+- id: ir2a-names-a-variable-with-no-link-to-both
+  description: Naming a variable that has no link to both of the measured variables as the one that drives them.
+- id: ir2a-reads-cause-from-a-line
+  description: Reading a cause from a line of fit, because the line has a slope.
+- id: ir2a-rejects-a-prediction-for-the-wrong-reason
+  description: Calling a prediction unreliable for a reason that does not matter, such as the line missing the origin or the value not appearing in the data.
+- id: ir2a-rejects-all-predictions
+  description: Thinking a line of fit can never be used to make a prediction.
+- id: ir2a-reports-the-prediction-not-the-excess
+  description: Giving the predicted value when how far it passes the limit was asked.
+- id: ir2a-reverses-cause-and-effect
+  description: Reversing cause and effect when two measurements are linked.
+- id: ir2a-solves-for-one-step-past
+  description: Giving a value of x one step past where the line reaches the limit.
+- id: ir2a-solves-for-one-step-short
+  description: Giving a value of x one step short of where the line reaches the limit.
+- id: ir2a-swaps-the-slope-and-intercept
+  description: Using the constant term as the slope and the slope as the constant term when predicting from a line.
+- id: ir2a-thinks-only-recorded-values-can-be-predicted
+  description: Thinking a line of fit can only predict at x-values that appear in the data.
+- id: ir2a-thinks-the-line-passes-through-every-point
+  description: Thinking a line of fit passes through every data point, so its predictions are exact.
+- id: ir2a-trusts-a-sensible-looking-prediction
+  description: Trusting a prediction far outside the data because the number it gives looks sensible.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_limits_of_a_bivariate_claim
+- AC9M10ST05

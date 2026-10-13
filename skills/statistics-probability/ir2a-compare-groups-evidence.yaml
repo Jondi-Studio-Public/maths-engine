@@ -1,0 +1,78 @@
+id: ir2a-compare-groups-evidence
+name: Judge the strength of evidence between two groups
+domain: statistics-probability
+year_level: ['7', '9']
+naplan_domain: [statistics]
+description: Using a stated rule, find the difference between the medians and the interquartile ranges of two groups and decide whether the evidence of a real difference is strong, weak or cannot be judged for lack of values. The exam chain works from the five-number summaries of two groups.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: number
+sources:
+- topic: ir2a_compare_groups_evidence
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_compare_groups_evidence
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_compare_groups_evidence
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_compare_groups_evidence
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-any-difference-counts-as-evidence
+  description: Treating any difference between two medians as strong evidence, whatever the spread.
+- id: ir2a-compares-the-largest-values
+  description: Comparing the largest value in each group instead of the medians.
+- id: ir2a-compares-the-smallest-values
+  description: Subtracting the smallest values of two groups when the difference in medians was asked.
+- id: ir2a-compares-upper-quartiles-not-medians
+  description: Subtracting the upper quartiles of the two groups when the difference in medians was asked.
+- id: ir2a-compares-with-the-smaller-spread
+  description: Judging the difference against the smaller interquartile range instead of the larger.
+- id: ir2a-gives-the-upper-quartile-not-the-iqr
+  description: Giving the upper quartile itself when the interquartile range was asked.
+- id: ir2a-halves-the-iqr
+  description: Giving the distance from the lower quartile to the median instead of the whole interquartile range.
+- id: ir2a-ignores-the-size-rule
+  description: Judging the difference as if a group that is too small were large enough.
+- id: ir2a-invents-a-size-problem
+  description: Saying no judgement can be made because of group size when both groups are large enough.
+- id: ir2a-misjudges-the-difference-against-the-spread
+  description: Reaching the opposite verdict by comparing the difference in medians with the interquartile range the wrong way round.
+- id: ir2a-subtracts-in-the-wrong-order
+  description: Subtracting the later value from the earlier one, so a rise is given as a fall.
+- id: ir2a-takes-the-smaller-spread
+  description: Giving the smaller interquartile range when the larger was asked.
+- id: ir2a-uses-a-miscalculated-difference
+  description: Basing the verdict on a wrong difference between the groups, such as the difference in means or in the largest values.
+- id: ir2a-uses-the-range-not-the-iqr
+  description: Using the range of each group in place of the interquartile range.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_compare_groups_evidence
+- AC9M7ST03
+- AC9M9ST05

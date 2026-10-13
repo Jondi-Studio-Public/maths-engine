@@ -1,0 +1,85 @@
+id: ir2a-question-to-data-needed
+name: Match a question to the data needed
+domain: statistics-probability
+year_level: ['3', '4', '5', '6', '7']
+naplan_domain: [statistics]
+description: For a stated investigation question, put the variables to record in order, say whether a variable is categorical or numerical, choose the plan that collects the right data, and work out the sample size or the number of values to record. The exam chain follows one question through variables, type, plan and counts.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: ordered_list
+sources:
+- topic: ir2a_question_to_data_needed
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_question_to_data_needed
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_question_to_data_needed
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_question_to_data_needed
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-the-variable-count
+  description: Adding the number of variables to the sample size instead of multiplying.
+- id: ir2a-asks-the-wrong-population
+  description: Choosing a plan that collects data from a population the question is not about.
+- id: ir2a-collects-an-unrelated-variable
+  description: Choosing a plan that records a variable the question does not ask about.
+- id: ir2a-collects-from-one-group-only
+  description: Choosing a plan that asks only one of the groups being compared, so no comparison is possible.
+- id: ir2a-collects-one-variable-only
+  description: Choosing a plan that records only one of the two variables the question needs.
+- id: ir2a-confuses-discrete-and-continuous
+  description: Calling a count a measurement, or a measurement a count.
+- id: ir2a-confuses-nominal-and-ordinal
+  description: Calling an ordered category unordered, or an unordered category ordered.
+- id: ir2a-counts-one-variable-only
+  description: Counting the members of the sample but not the second variable recorded for each.
+- id: ir2a-gives-those-left-out
+  description: Giving the number left out of the sample instead of the number in it.
+- id: ir2a-lists-the-groups-before-the-measurement
+  description: Giving the variable that sorts the members into groups first and the measurement second, the wrong way round.
+- id: ir2a-picks-an-unrelated-variable
+  description: Choosing a variable that has nothing to do with the question as one of the two that must be recorded.
+- id: ir2a-reports-the-percentage-as-the-count
+  description: Giving the percentage who agreed as if it were the number of people.
+- id: ir2a-says-the-type-cannot-be-known
+  description: Saying the type of a variable cannot be known until the data are collected, when the way it is measured already settles it.
+- id: ir2a-takes-half-the-population
+  description: Taking half the population as the sample whatever percentage was stated.
+- id: ir2a-treats-a-category-as-a-number
+  description: Calling a category numerical because it is recorded with a code.
+- id: ir2a-treats-a-number-as-a-category
+  description: Calling a numerical measurement categorical because it falls into groups.
+- id: ir2a-uses-the-whole-population
+  description: Counting values for the whole population instead of for the sample.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_question_to_data_needed
+- AC9M3ST01
+- AC9M4ST03
+- AC9M5ST03
+- AC9M6ST03
+- AC9M7ST03

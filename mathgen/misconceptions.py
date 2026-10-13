@@ -10131,6 +10131,872 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    # -- statistical investigation steps (ir2a) ---------------------------------------------------------------
+    CatalogueEntry(
+        "ir2a-calls-a-sample-a-census",
+        "Calling a survey of only some of the group a census, which asks every member.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-chance-selection-simple-random",
+        "Calling any sample that uses chance somewhere a simple random sample, even when the draw is made group by group or at a fixed gap.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-regular-pattern-systematic",
+        "Calling a sample systematic because it looks evenly spread, when it is not chosen by a fixed gap down a list.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-grouping-stratified",
+        "Calling a sample stratified because groups are mentioned, when members are not drawn from every group in proportion to its size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-quick-sample-convenience",
+        "Calling a sample convenience when its members were chosen by chance from a full list.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-sample-size-as-the-gap",
+        "Using the sample size as the gap between the members chosen, instead of the population size divided by the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gap-from-the-difference",
+        "Finding the gap by subtracting the sample size from the population size instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gap-counts-the-start",
+        "Adding one to the gap because the starting member is counted as well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-counts-one-gap-too-many",
+        "Adding as many gaps as members chosen so far, instead of one fewer than that, when counting along from the starting member.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-the-random-start",
+        "Counting the gaps from zero and leaving out the random starting number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-the-end-of-the-list",
+        "Giving the end of the list as the last member chosen, though the gap may not land exactly on it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-equal-allocation-ignores-size",
+        "Taking the same number from every group instead of a number in proportion to the size of each group.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-applies-the-percentage-to-the-population",
+        "Taking the group's percentage of the whole population instead of of the sample.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-percentage-as-a-count",
+        "Giving a group's percentage as if it were the number of members chosen.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-leftover-ignores-a-group",
+        "Finding the last group's number by taking only one of the other groups' numbers from the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-chance-of-one-draw-only",
+        "Giving the chance of being picked on the first draw alone, one out of the whole population, instead of the chance of being among all those picked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-chance-of-being-chosen",
+        "Giving the chance of being chosen when the chance of not being chosen was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-group-size-not-its-share",
+        "Giving the number of members in a group instead of how many of that group the sample is expected to hold.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-whole-not-the-extra",
+        "Giving the whole population or its cost when only the extra beyond a sample was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-instead-of-subtracting",
+        "Adding the sample to the population when finding how much more a census needs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-sample-size",
+        "Giving the sample size when a number built from the population was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-leaves-minutes-unconverted",
+        "Giving the total in minutes when hours were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-converts-minutes-by-100",
+        "Dividing minutes by 100 instead of 60 to get hours.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-sample-not-the-reachable-group",
+        "Dividing the sample by the population when the share of the population who could be chosen was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reachable-over-sample",
+        "Dividing the number who could be chosen by the sample size instead of by the population.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-share-who-cannot-be-chosen",
+        "Giving the percentage who could never be chosen instead of the percentage who could.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-another-groups-count",
+        "Giving the number taken from a different group from the one asked about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-undercoverage",
+        "Naming undercoverage (a list that leaves people out) as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-voluntary-response",
+        "Naming voluntary response (people choosing themselves) as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-easy-to-reach-sample",
+        "Naming an easy-to-reach sample as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-leading-question",
+        "Naming a leading question as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-non-response",
+        "Naming non-response as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-flags-a-sound-feature-as-biased",
+        "Counting a sound part of a survey as a source of bias.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-misses-a-biased-feature",
+        "Leaving a source of bias out of the list of biased statements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-percentage-as-the-count",
+        "Giving the percentage who agreed as if it were the number of people.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-those-who-disagree",
+        "Giving the number who did not agree when the number who agreed was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-slips-a-power-of-ten",
+        "Taking one tenth of the correct share, by dividing by 1000 instead of 100.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-biased-survey-percentage",
+        "Estimating from the percentage in the biased survey when a properly drawn sample was available.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-sample-count-not-the-population-estimate",
+        "Giving the number who agreed in the sample instead of scaling up to the whole population.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-percentages-not-counts",
+        "Giving the difference in percentage points when the difference in the numbers of people was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-better-estimate",
+        "Giving the better estimate itself instead of the amount by which the other estimate is too high.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-lists-the-groups-before-the-measurement",
+        "Giving the variable that sorts the members into groups first and the measurement second, the wrong way round.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-an-unrelated-variable",
+        "Choosing a variable that has nothing to do with the question as one of the two that must be recorded.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-nominal-and-ordinal",
+        "Calling an ordered category unordered, or an unordered category ordered.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-discrete-and-continuous",
+        "Calling a count a measurement, or a measurement a count.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-says-the-type-cannot-be-known",
+        "Saying the type of a variable cannot be known until the data are collected, when the way it is measured already settles it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-treats-a-number-as-a-category",
+        "Calling a numerical measurement categorical because it falls into groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-treats-a-category-as-a-number",
+        "Calling a category numerical because it is recorded with a code.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-one-variable-only",
+        "Choosing a plan that records only one of the two variables the question needs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-an-unrelated-variable",
+        "Choosing a plan that records a variable the question does not ask about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-from-one-group-only",
+        "Choosing a plan that asks only one of the groups being compared, so no comparison is possible.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-asks-the-wrong-population",
+        "Choosing a plan that collects data from a population the question is not about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-those-left-out",
+        "Giving the number left out of the sample instead of the number in it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-half-the-population",
+        "Taking half the population as the sample whatever percentage was stated.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-counts-one-variable-only",
+        "Counting the members of the sample but not the second variable recorded for each.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-the-variable-count",
+        "Adding the number of variables to the sample size instead of multiplying.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-whole-population",
+        "Counting values for the whole population instead of for the sample.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-column-graph-for-the-wrong-purpose",
+        "Choosing a column graph for a question about change over time, a spread of measurements, association or two groups' centres.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-pie-chart-for-the-wrong-purpose",
+        "Choosing a pie chart for a question that is not about how a whole is shared, such as change over time or the spread of measurements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-histogram-for-the-wrong-purpose",
+        "Choosing a histogram for a question about categories, change over time, association, or the centres of two groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-line-graph-for-the-wrong-purpose",
+        "Choosing a line graph when the data are not ordered in time, such as categories or two numerical variables.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-scatterplot-for-the-wrong-purpose",
+        "Choosing a scatterplot when only one measurement is recorded, or when the question is about change over time.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-box-plots-for-the-wrong-purpose",
+        "Choosing box plots for categories, counts, change over time or association.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-neighbouring-value",
+        "Reading the value for a neighbouring month or case instead of the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-change-not-the-value",
+        "Giving the change from the month before when the value itself was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-first-and-last-only",
+        "Giving the total change from first to last instead of the largest change from one month to the next.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-largest-value",
+        "Giving the largest value in the data instead of the quantity asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-range",
+        "Giving the range of the values instead of the largest rise between neighbouring values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-number-of-years-listed",
+        "Dividing a total change by the number of values listed instead of by the number of intervals between them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-to-divide-by-the-intervals",
+        "Giving the total change when the average change per interval was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-instead-of-subtracting",
+        "Dividing the last value by the first when the change between them was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-x-for-y",
+        "Giving the x-value of a pair when its y-value was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-the-intercept",
+        "Predicting from a line by multiplying the slope by x and leaving out the constant term.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-flips-the-sign-of-the-slope-term",
+        "Subtracting the slope term from the constant when it should be added.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-instead-of-multiplying",
+        "Adding the slope to the x-value instead of multiplying them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-count-as-a-percentage",
+        "Giving a group's count as if it were its percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-rest-of-the-whole",
+        "Giving the percentage or angle left over for the other groups instead of the group's own.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-rest-of-the-whole",
+        "Dividing a group's count by the count of everything else instead of by the whole.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-percentage-as-the-angle",
+        "Giving a sector's percentage as its angle in degrees.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-with-the-wrong-group",
+        "Taking the difference from the second smallest value instead of the smallest.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-means-not-medians",
+        "Working with the means of two groups when the medians were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-the-largest-values",
+        "Comparing the largest value in each group instead of the medians.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-the-middle-of-the-list-unsorted",
+        "Taking the middle value of the list as it was written instead of putting the values in order first.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-ranges-not-interquartile-ranges",
+        "Comparing the ranges of two groups when the interquartile ranges were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-medians-not-spreads",
+        "Comparing the centres of two groups when their spreads were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-includes-the-upper-boundary",
+        "Counting values equal to the upper end of a class as being in the class.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-neighbouring-class",
+        "Counting the class below the one asked about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-miscounts-by-one",
+        "Miscounting the values in a class by one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-wrong-total",
+        "Dividing a class count by something other than the number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-subtracts-in-the-wrong-order",
+        "Subtracting the later value from the earlier one, so a rise is given as a fall.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-last-value",
+        "Giving the last value in the series when the change over the series was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-too-few-intervals",
+        "Dividing a total change by one fewer interval than there are between the first and last month.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-the-whole-change-not-one-month",
+        "Adding the whole change over the series to the last value, instead of one month's average change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-organising-with-displaying",
+        "Treating sorting results into a table as drawing a display, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-analysing-with-concluding",
+        "Treating finding the summary statistics as stating the conclusion, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-posing-with-collecting",
+        "Treating collecting the first measurements as posing the question.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-names-the-wrong-stage",
+        "Naming a stage of the investigation that the described action does not belong to.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-before-posing-the-question",
+        "Putting data collection before deciding what question the investigation answers.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-organises-before-collecting",
+        "Putting the sorting of results before the results have been collected.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-displays-before-collecting",
+        "Putting the drawing of a display before the data have been collected.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-displays-before-organising",
+        "Putting the drawing of a display before the results have been sorted into a table.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-analyses-before-displaying",
+        "Putting the calculation of summary statistics before the data have been displayed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-concludes-before-analysing",
+        "Putting the conclusion before the data have been analysed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-swaps-two-neighbouring-steps",
+        "Swapping two steps that are next to each other in a sound investigation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reverses-the-whole-order",
+        "Giving the steps of the investigation in reverse order.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-keeps-the-unsound-action",
+        "Keeping an action that makes the investigation unsound, such as changing the question after seeing the result, as one of its steps.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-to-divide-by-the-count",
+        "Giving the total of the values when their mean was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-a-middle-value-for-the-mean",
+        "Giving the middle value of the list when the mean was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-totals-not-means",
+        "Comparing the totals of two groups when the difference in their means was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-rejects-a-sound-claim",
+        "Judging that a claim is flawed when the figures match the data and the study was designed to test it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-accepts-a-flawed-claim",
+        "Accepting a claim because its figures are right, without checking the size of the sample, how the groups were formed, or the range of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-names-the-wrong-flaw",
+        "Naming a flaw that the claim does not have, and missing the one it does.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-counts-not-percentages",
+        "Subtracting the numbers of cases in two groups of different sizes instead of their percentages.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-a-relative-change-not-points",
+        "Giving the gap as a percentage of the smaller group's percentage instead of in percentage points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-one-too-few",
+        "Dividing a total by one fewer than the number of values when finding the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-mean-not-the-excess",
+        "Giving the mean itself when how far it sits above the median was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-median-not-the-excess",
+        "Giving the median itself when how far the mean sits above it was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-mean-for-the-median",
+        "Giving the mean when the median was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-both-groups",
+        "Dividing a group's count by the size of both groups together instead of by its own size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-misjudges-the-difference-against-the-spread",
+        "Reaching the opposite verdict by comparing the difference in medians with the interquartile range the wrong way round.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-a-miscalculated-difference",
+        "Basing the verdict on a wrong difference between the groups, such as the difference in means or in the largest values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-with-the-smaller-spread",
+        "Judging the difference against the smaller interquartile range instead of the larger.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-any-difference-counts-as-evidence",
+        "Treating any difference between two medians as strong evidence, whatever the spread.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-range-not-the-iqr",
+        "Using the range of each group in place of the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-invents-a-size-problem",
+        "Saying no judgement can be made because of group size when both groups are large enough.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-ignores-the-size-rule",
+        "Judging the difference as if a group that is too small were large enough.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-upper-quartiles-not-medians",
+        "Subtracting the upper quartiles of the two groups when the difference in medians was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-the-smaller-spread",
+        "Giving the smaller interquartile range when the larger was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-upper-quartile-not-the-iqr",
+        "Giving the upper quartile itself when the interquartile range was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-halves-the-iqr",
+        "Giving the distance from the lower quartile to the median instead of the whole interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-counts-one-gap-too-few",
+        "Adding one gap fewer than needed when counting along from the starting member to the last one chosen.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-swaps-the-slope-and-intercept",
+        "Using the constant term as the slope and the slope as the constant term when predicting from a line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-interpolation-extrapolation",
+        "Calling a prediction inside the range of the data extrapolation, and so distrusting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-extrapolation-interpolation",
+        "Calling a prediction outside the range of the data interpolation, and so trusting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-thinks-the-line-passes-through-every-point",
+        "Thinking a line of fit passes through every data point, so its predictions are exact.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-thinks-only-recorded-values-can-be-predicted",
+        "Thinking a line of fit can only predict at x-values that appear in the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-rejects-all-predictions",
+        "Thinking a line of fit can never be used to make a prediction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-trusts-a-sensible-looking-prediction",
+        "Trusting a prediction far outside the data because the number it gives looks sensible.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-assumes-the-line-holds-everywhere",
+        "Assuming a fitted line keeps describing the data at every value of x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-data-for-an-impossible-value",
+        "Blaming an error in the data when a line predicts an impossible value far outside the range it was fitted to.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-slope-for-an-impossible-value",
+        "Blaming the slope when a line predicts an impossible value far outside the range it was fitted to.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-names-a-variable-with-no-link-to-both",
+        "Naming a variable that has no link to both of the measured variables as the one that drives them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-cause-from-a-line",
+        "Reading a cause from a line of fit, because the line has a slope.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reverses-cause-and-effect",
+        "Reversing cause and effect when two measurements are linked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-a-link-a-coincidence",
+        "Calling a link between two measurements a coincidence, without reason.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-solves-for-one-step-past",
+        "Giving a value of x one step past where the line reaches the limit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-solves-for-one-step-short",
+        "Giving a value of x one step short of where the line reaches the limit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-the-intercept-instead-of-subtracting",
+        "Adding the constant term to the limit instead of subtracting it when solving for x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-a-prediction-not-a-change",
+        "Giving a predicted y-value when the change in y was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-prediction-not-the-excess",
+        "Giving the predicted value when how far it passes the limit was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-excess-in-x-not-y",
+        "Giving how far x is past the limit's x-value when the excess in y was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-rejects-a-prediction-for-the-wrong-reason",
+        "Calling a prediction unreliable for a reason that does not matter, such as the line missing the origin or the value not appearing in the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-horizontal-axis",
+        "Calling a graph misleading because of its horizontal axis when the flaw is the vertical axis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-vertical-steps",
+        "Calling a graph misleading because the vertical steps are uneven when they are evenly spaced.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-a-small-rise-large",
+        "Calling a rise large because it looks steep on the graph, without working out its percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-final-value",
+        "Dividing the rise by the final value instead of the starting value to find a percentage rise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-one-height-not-the-ratio",
+        "Giving one bar or point height when the ratio of the two heights was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-final-value-as-a-percentage-of-the-first",
+        "Giving the final value as a percentage of the first value when the percentage rise was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-rise-as-a-percentage",
+        "Giving the raw rise as the percentage rise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-measures-heights-from-zero-not-from-the-axis",
+        "Measuring the heights of two points from zero when the axis starts higher, so the ratio is wrong.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-bottom-of-the-axis",
+        "Reading the lowest value on the vertical axis instead of the value of the point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-gridline-above",
+        "Reading the gridline above a point instead of the value of the point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-gridline-below",
+        "Reading the gridline below a point instead of the value of the point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-says-a-line-graph-is-the-wrong-display",
+        "Calling a line graph the wrong display for values that change over time.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-says-the-graph-cannot-be-read",
+        "Saying a graph with a labelled scale cannot be read.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-sees-a-flaw-in-an-honest-axis",
+        "Calling a graph misleading when its vertical axis starts at zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-trusts-a-graph-that-does-not-start-at-zero",
+        "Trusting how large a change looks on a graph whose vertical axis does not start at zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-a-value-next-to-the-median",
+        "Giving a value next to the middle one in the ordered list instead of the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-the-smallest-values",
+        "Subtracting the smallest values of two groups when the difference in medians was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-averages-the-last-value-not-the-change",
+        "Dividing the final value by the number of intervals instead of the change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-doubles-the-average-change",
+        "Doubling the average change per step when finding it from the total change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-miscounts-the-average-change",
+        "Giving an average change one more than the correct value after a slip in dividing the total change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-change-not-the-prediction",
+        "Giving the change in y for the step when the predicted value of y was asked.",
+        area="statistics",
+    ),
 )
 
 #: Every entry, by id.
