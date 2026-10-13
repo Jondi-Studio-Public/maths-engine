@@ -500,6 +500,8 @@ convert-time-systems:
   sources:
   - topic: time_system_conversion
     module: mathgen/generators/curriculum_expansion.py
+  - topic: exd_x_w12a_time_crossing_midnight_chain
+    module: mathgen/generators/exd_x_w12a_time_crossing_midnight_chain.py
 convex-quadratic-minimum:
   domain: optimisation
   status: active
@@ -868,6 +870,8 @@ f10-compare-box-plots:
   sources:
   - topic: stat5_box_plot_compare
     module: mathgen/generators/stat5_box_plot_build.py
+  - topic: exd_x_w12a_compare_box_plots_chain
+    module: mathgen/generators/exd_x_w12a_compare_box_plots_chain.py
 f10-compare-measurement-attributes:
   domain: measurement
   status: active
@@ -1488,6 +1492,8 @@ f10-read-a-box-plot:
   sources:
   - topic: stat5_box_plot_read
     module: mathgen/generators/stat5_box_plot_build.py
+  - topic: exd_x_w12a_box_plot_read_chain
+    module: mathgen/generators/exd_x_w12a_box_plot_read_chain.py
 f10-read-measurement-scale:
   domain: measurement
   status: active
@@ -1728,6 +1734,8 @@ f7-read-a-histogram:
   sources:
   - topic: stat4_histogram
     module: mathgen/generators/stat4_histogram_build.py
+  - topic: exd_x_w12a_histogram_chain
+    module: mathgen/generators/exd_x_w12a_histogram_chain.py
 factor-common-numerical-factor:
   domain: expressions-equivalence
   status: active
