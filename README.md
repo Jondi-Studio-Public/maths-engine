@@ -144,9 +144,9 @@ does that translation for you.
 
 ```python
 page = engine.present(skill, q)
-page["prompt"]   # {"text": "Simplify √756. Give your answer in the form a√b.", "tex": None}
-page["answer"]   # {"text": "6√21", "tex": "\\(6 \\sqrt{21}\\)"}
-page["figure"]   # None, or {"svg": "<svg ...>", "alt": "...", "spec": {...}}
+page["prompt"]  # {"text": "Simplify √756. Give your answer in the form a√b.", "tex": None}
+page["answer"]  # {"text": "6√21", "tex": "\\(6 \\sqrt{21}\\)"}
+page["figure"]  # None, or {"svg": "<svg ...>", "alt": "...", "spec": {...}}
 page["options"]  # multiple choice only: one pair per option, in mcq_options order
 page["working"]  # the worked solution, one pair per step
 ```
