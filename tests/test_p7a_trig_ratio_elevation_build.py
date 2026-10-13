@@ -313,7 +313,7 @@ class TestSkillsLoad:
         skill = next((s for s in skills if s.id == "senior-review-sine-cosine-and-tangent-as-ratios-of"), None)
         assert skill is not None
         assert skill.answer == "fraction"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["f10-trig-ratios-similarity"]
         assert skill.placement_eligible is False
         assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
         assert len(skill.misconceptions) >= 1
@@ -323,7 +323,7 @@ class TestSkillsLoad:
         skill = next((s for s in skills if s.id == "senior-work-with-the-concepts-of-angle-of-elevation"), None)
         assert skill is not None
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-apply-the-cosine-and-sine-ratios-to-find", "right-triangle-angle"]
         assert skill.placement_eligible is False
         assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
         assert len(skill.misconceptions) >= 1

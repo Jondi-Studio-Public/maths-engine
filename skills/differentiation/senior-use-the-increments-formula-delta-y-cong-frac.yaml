@@ -8,6 +8,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - differentiate-polynomial
+- senior-use-the-leibniz-notation-delta-x-and-delta
 answer: fraction
 sources:
 - topic: p9c_increments_formula_estimate

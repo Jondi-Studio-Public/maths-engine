@@ -5,7 +5,8 @@ year_level: [university]
 description: Decide whether a supplied collection is a basis for a finite topology by checking coverage and finite intersections.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- finite-set-operations
 answer: mcq
 sources:
 - topic: p15c_topology_basis_membership

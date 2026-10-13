@@ -220,7 +220,7 @@ class TestIdentifyAndSolveLinearEquations:
         assert skill.domain == "linear-relations"
         assert skill.status == "active"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["two-step-equations", "variables-on-both-sides"]
         assert skill.answer == "mcq"
         difficulties = [s.difficulty for s in skill.sources]
         assert difficulties == ["easy", "medium", "hard", "exam"]

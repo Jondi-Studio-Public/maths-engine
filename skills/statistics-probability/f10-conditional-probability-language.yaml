@@ -6,7 +6,8 @@ description: Given a plain-language sentence built on exactly one of four fixed 
 status: active
 placement_eligible: false
 prerequisites:
-- conditional-probability-counts
+- finite-sample-space-probability
+- f10-chance-language-and-outcomes
 answer: mcq
 sources:
 - topic: f10a_conditional_language

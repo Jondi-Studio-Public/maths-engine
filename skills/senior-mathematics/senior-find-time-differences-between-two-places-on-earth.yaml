@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, find time differences between two places on Earth. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-units-of-time-conversions-between-units-fractional
+- elapsed-time
 answer: number
 sources:
 - topic: earth_longitude_time_difference

@@ -122,16 +122,16 @@ def test_skill_loads_through_api(topic):
     assert {0, 1, 2, 3, 4, 5, 6, "maintenance"} <= stages_seen
 
 
-def test_mult_skill_has_no_prerequisites():
+def test_mult_skill_builds_on_matrix_multiplication():
     _, skills = load_skills()
     skill = next(s for s in skills if s.id == "senior-examine-and-use-multiplication-as-a-linear-transformation")
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["matrix-multiplication", "coordinate-plane-readiness"]
 
 
 def test_addition_skill_has_vector_addition_prerequisite():
     _, skills = load_skills()
     skill = next(s for s in skills if s.id == "senior-examine-addition-of-complex-numbers-as-vector-addition")
-    assert skill.prerequisites == ["vector-addition"]
+    assert skill.prerequisites == ["vector-addition", "senior-consider-complex-numbers-as-points-in-a-plane"]
 
 
 # ---------------------------------------------------------------------------

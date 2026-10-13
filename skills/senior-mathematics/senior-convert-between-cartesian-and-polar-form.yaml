@@ -14,7 +14,9 @@ description: |
   with an obtuse theta (90 to 180 degrees).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-consider-complex-numbers-as-points-in-a-plane
+- complex-modulus
 answer: pair
 sources:
   - topic: cartesian_polar_convert

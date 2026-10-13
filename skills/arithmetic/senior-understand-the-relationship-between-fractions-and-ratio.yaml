@@ -7,7 +7,9 @@ description: Given a stated two-term ratio a:b, express the fraction of the whol
   that one named term represents (a/(a+b) or b/(a+b)).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- fraction-arithmetic
+- ratio-rate-proportion
 answer: fraction
 sources:
 - topic: p19i_ratio_fraction_share

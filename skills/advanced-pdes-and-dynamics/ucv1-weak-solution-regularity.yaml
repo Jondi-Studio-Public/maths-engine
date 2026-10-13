@@ -5,7 +5,9 @@ year_level: [university]
 description: For a fixed one-dimensional boundary value problem with supplied Sobolev regularity of the data, select the exact Sobolev regularity of the weak solution.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ucv1-energy-estimate
+- ucv1-diagonal-operator-norm
 answer: mcq
 sources:
 - topic: ucv1_weak_solution_regularity

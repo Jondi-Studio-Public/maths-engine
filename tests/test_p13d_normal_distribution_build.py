@@ -147,7 +147,10 @@ def test_skill_sources_and_stages(skills_dict):
     skill = skills_dict[SKILL_ID]
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == ["simple-event-probability"]
+    assert skill.prerequisites == [
+        "simple-event-probability",
+        "senior-identify-contexts-such-as-naturally-occurring-variation-that",
+    ]
     by_difficulty = {s.difficulty: s for s in skill.sources}
     assert set(by_difficulty) == {"easy", "medium", "hard", "exam"}
     assert by_difficulty["exam"].stages == ["exam"]

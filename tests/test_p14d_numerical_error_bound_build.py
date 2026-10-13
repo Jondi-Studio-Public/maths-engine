@@ -171,7 +171,7 @@ def test_skill_loads_through_api_with_correct_properties():
     assert SKILL.status == "active"
     assert SKILL.placement_eligible is False
     assert SKILL.answer == "pair"
-    assert SKILL.prerequisites == []
+    assert SKILL.prerequisites == ["f10-measurement-error-interpretation", "significant-figures"]
     assert {src.difficulty for src in SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = SOURCES["exam"]
     assert exam_src.stages == ["exam"]

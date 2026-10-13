@@ -6,7 +6,9 @@ domain: measurement
 description: Given bounded, fully specified inputs, calculate the area between curves in simple cases. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: [convert-metric-length]
+prerequisites:
+- convert-metric-length
+- senior-recognise-and-use-the-additivity-and-linearity-of
 answer: number
 sources:
 - topic: area_between_curves_simple_cases

@@ -342,6 +342,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "smech_newton_second_law",
         "smech_residual_plots",
         "smech_residuals",
+        "sequence_term_from_rule",
         "transformations_invariants",
         "triple_integral",
         "ucv1_chi_square_test",

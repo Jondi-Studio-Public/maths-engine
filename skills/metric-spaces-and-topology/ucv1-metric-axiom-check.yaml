@@ -5,7 +5,9 @@ year_level: [university]
 description: Decide which metric axiom fails, if any, for a supplied finite symmetric distance table.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- distance-two-points
+- finite-set-operations
 answer: mcq
 sources:
 - topic: p15b_metric_axiom_check

@@ -6,7 +6,8 @@ domain: statistics-probability
 description: Compare the likelihood of two events given their probabilities as fractions or counts, determining which is more likely or whether they are equally likely.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-chance-language-and-outcomes
 answer: mcq
 sources:
 - topic: probability_likelihood_compare

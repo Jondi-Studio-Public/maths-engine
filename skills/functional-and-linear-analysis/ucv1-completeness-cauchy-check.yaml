@@ -5,7 +5,9 @@ year_level: [university]
 description: For a supplied finite sequence and (epsilon, N) witness table, identify which row's claim is inconsistent with the sequence, or that every row is consistent.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-understand-the-limiting-behaviour-as-n-rightarrow-infty
+- limit-at-infinity
 answer: mcq
 sources:
 - topic: p15b_completeness_cauchy_check

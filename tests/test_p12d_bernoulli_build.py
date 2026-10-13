@@ -295,7 +295,10 @@ def test_model_skill_loads_with_correct_properties():
     assert skill is not None, f"{MODEL_SKILL} not found"
     assert skill.answer == "fraction"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == ["simple-event-probability"]
+    assert skill.prerequisites == [
+        "simple-event-probability",
+        "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random",
+    ]
     assert len(skill.sources) == 4
     for source in skill.sources:
         assert source.topic == MODEL_TOPIC

@@ -4,7 +4,8 @@ domain: trigonometry
 description: 'Convert an angle given in degrees to its radian value, rounded to a stated number of decimal places. Three tiers: a whole-number degree value (easy); a signed, one-decimal-place degree value (medium); and a degrees-and-minutes (DMS) angle, e.g. 63°28'', converted to radians (hard). This is the decimal-answer half of an exam-style item''s degree-radian conversion questions; a separate skill covers the exact pi-form answer and another covers the reverse (radians to DMS) direction, split because each declares a genuinely different grader kind.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- angle-degrees-radians-pi-form
 answer: number
 sources:
 - topic: t4_degrees_to_radians_decimal

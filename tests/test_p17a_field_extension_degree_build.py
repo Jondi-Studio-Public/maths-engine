@@ -99,7 +99,7 @@ def test_skill_loads_with_expected_shape():
     assert SKILL.answer == "number"
     assert SKILL.placement_eligible is False
     assert SKILL.domain == "advanced-algebra"
-    assert SKILL.prerequisites == []
+    assert SKILL.prerequisites == ["factorise-quadratic", "simplify-surds"]
 
 
 # Root naming: never "rational"/"irrational", every ---- --- polynomial prompt names alpha by

@@ -6,7 +6,8 @@ domain: arithmetic
 description: 'Given bounded, fully specified inputs, review calculating a percentage of a given amount. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- percentage-of-quantity
 answer: number
 sources:
 - topic: percentage_of_amount_review
