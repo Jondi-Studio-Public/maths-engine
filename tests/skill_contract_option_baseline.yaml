@@ -65,6 +65,8 @@ filler_option:
   - repeating_pattern/easy
   f10-chance-language-and-outcomes:
   - chance_outcome_classify/easy
+  f10-compare-box-plots:
+  - stat5_box_plot_compare/easy
   f10-fraction-compare-models:
   - fraction_compare_models/medium
   f10-money-compare-collections:
@@ -185,8 +187,16 @@ option_count:
   - compare_common_fractions/easy
   - compare_common_fractions/hard
   - compare_common_fractions/medium
+  compare-functions-representations:
+  - fg1_compare_functions/easy
+  - fg1_compare_functions/hard
+  - fg1_compare_functions/medium
   compare-lengths:
   - compare_length/easy
+  compare-linear-representations:
+  - fg1_compare_linear/easy
+  - fg1_compare_linear/hard
+  - fg1_compare_linear/medium
   compare-quantities-to-10:
   - compare_quantities/easy
   compare-unit-prices:
@@ -201,6 +211,9 @@ option_count:
   - add_sub_number_sentence/easy
   - add_sub_number_sentence/hard
   - add_sub_number_sentence/medium
+  f10-compare-box-plots:
+  - stat5_box_plot_compare/easy
+  - stat5_box_plot_compare/medium
   f10-compare-measurement-attributes:
   - compare_measurement_attributes/easy
   - compare_measurement_attributes/hard

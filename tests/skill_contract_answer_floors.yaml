@@ -25,8 +25,16 @@ classify-real-numbers:
 compare-common-fractions:
   compare_common_fractions/easy: 3
   compare_common_fractions/medium: 3
+compare-functions-representations:
+  fg1_compare_functions/easy: 3
+  fg1_compare_functions/hard: 3
+  fg1_compare_functions/medium: 3
 compare-lengths:
   compare_length/easy: 2
+compare-linear-representations:
+  fg1_compare_linear/easy: 3
+  fg1_compare_linear/hard: 3
+  fg1_compare_linear/medium: 3
 compare-quantities-to-10:
   compare_quantities/easy: 3
 compare-unit-prices:
@@ -123,6 +131,10 @@ fair-sharing:
   fair_sharing/easy: 5
 finite-sample-space-probability:
   finite_sample_space_probability/easy: 4
+gradient-from-graph:
+  fg1_gradient_from_graph/easy: 2
+graph-y-mx:
+  fg1_proportional_graph/easy: 3
 limit-degree-comparison:
   exd_x_c2_limit_degree_comparison/exam: 3
   limits/easy: 3
