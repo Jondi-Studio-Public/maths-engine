@@ -132,8 +132,8 @@ def _usable(key, wrong) -> list:
     return out
 
 
+@mpmath.workdps(30)  # scoped: a bare mp.dps = 30 changed the precision for everything else in the process
 def _build(rng: random.Random) -> dict:
-    mpmath.mp.dps = 30
     for _ in attempts(1000, "a pulse with answers well away from zero"):
         amp = rng.choice(_AMPLITUDES)
         wid = rng.choice(_WIDTHS)
