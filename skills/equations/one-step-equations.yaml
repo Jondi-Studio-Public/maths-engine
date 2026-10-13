@@ -23,6 +23,7 @@ sources:
   params:
     b_zero: true
   difficulty: easy
+  key: no-constant
   stages:
   - 0
   - 1

@@ -278,6 +278,13 @@ $defs:
         - medium
         - hard
         - exam
+      key:
+        description: A stable name for this source within its skill, part of every question id
+          (<skill>/<key>/<seed>/<hash>). Optional; it defaults to the difficulty label. Needed only when two
+          sources of one skill share a difficulty. Keys must be unique within a skill. Changing a key
+          changes the ids of that source's questions, so it is not a rename.
+        type: string
+        pattern: '^[a-z0-9]+(-[a-z0-9]+)*$'
       stages:
         description: Learning stages that draw this source. Omitted means all stages.
         type: array
