@@ -106,6 +106,15 @@ _ASKED_RE = re.compile(
     rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])(?!\s*(?:per\b|[/·⋅×*]))",
     re.IGNORECASE,
 )
+# "in N/m", "in kL per hour", "how many cents per 100 g": the question asks for a compound unit that the table has
+# no spelling for. Its parts are read so that a reply in some other unit ("45 kg") can still be refused.
+_ASKED_COMPOUND_RE = re.compile(
+    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})"
+    rf"\s*(?:per\b|[/·⋅×*])\s*(?:\d[\d,]*(?:\.\d+)?\s*)?({_SPELLING_PATTERN})?(?![\w'’])",
+    re.IGNORECASE,
+)
+#: Units that are themselves rates: a reply in one of them is not refused for a compound unit asked by its parts.
+_RATE_UNITS = frozenset({"km/h", "m/s", "mph"})
 # "Using your speed in m/s": the unit describes a value the learner already has, not the unit being asked for.
 _EARLIER_VALUE_RE = re.compile(r"\byour\s+\w+(?:\s+\w+)?\s+$", re.IGNORECASE)
 # ... but "Give your answer in dollars" asks for the answer's unit: the verb in front of "your" says so.
@@ -171,20 +180,33 @@ def _describes_earlier_value(before: str) -> bool:
     return found is not None and _ASKING_VERB_BEFORE_RE.search(before[: found.start()]) is None
 
 
+def _asking_matches(question, pattern: re.Pattern) -> list[re.Match]:
+    """Every match of `pattern` in a sentence of the question that asks for the answer, in order, leaving out
+    an "in <unit>" that describes a value the learner already has."""
+    return [
+        match
+        for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
+        if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
+        for match in pattern.finditer(sentence)
+        if not _describes_earlier_value(sentence[: match.start()])
+    ]
+
+
 def _asked_unit(question) -> str | None:
     """The unit the question asks for: the canonical's own unit, else the last unit it asks for by name."""
     shown = _unit_of(getattr(question, "answer_text", "") or "")
     if shown is not None:
         return shown
-    asked = [
-        spelling
-        for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
-        if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
-        for match in _ASKED_RE.finditer(sentence)
-        if not _describes_earlier_value(sentence[: match.start()])
-        for spelling in (match.group(1),)
-    ]
-    return _SPELLING_TO_UNIT[asked[-1].lower()] if asked else None
+    asked = _asking_matches(question, _ASKED_RE)
+    return _SPELLING_TO_UNIT[asked[-1].group(1).lower()] if asked else None
+
+
+def _asked_compound_parts(question) -> frozenset[str] | None:
+    """The recognised parts of the last compound unit the question asks for ("N/m" gives N and m), or None."""
+    asked = _asking_matches(question, _ASKED_COMPOUND_RE)
+    if not asked:
+        return None
+    return frozenset(_SPELLING_TO_UNIT[spelling.lower()] for spelling in asked[-1].groups() if spelling)
 
 
 def unit_is_acceptable(question, given: str) -> bool:
@@ -193,4 +215,7 @@ def unit_is_acceptable(question, given: str) -> bool:
     if unit is None:
         return True
     asked = _asked_unit(question)
-    return asked is None or unit == asked
+    if asked is not None:
+        return unit == asked
+    parts = _asked_compound_parts(question)
+    return parts is None or unit in parts or unit in _RATE_UNITS
