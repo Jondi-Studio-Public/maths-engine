@@ -43,6 +43,65 @@ _ENTRIES = (
         "Leaving out the constant term and dividing the other side by the coefficient straight away.",
         area="equations",
     ),
+    # -- comparing and reading graphs (exam chains for the graph-reading skills) ------------------------------------
+    CatalogueEntry(
+        "compares-gradients-only",
+        "Comparing two linear relationships at a given x using only their gradients, ignoring where each one starts.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "compares-starting-values-only",
+        "Comparing two relationships at x = 0 (their starting values) instead of at the x that was asked about.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "forgot-to-divide-by-gradient-difference",
+        "Finding where two lines meet by subtracting their y-intercepts but not dividing by the difference in gradients.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "intercept-read-with-wrong-sign",
+        "Reading the y-intercept off the graph with the wrong sign, for example writing +3 for a line that crosses "
+        "the y-axis at -3.",
+        area="linear",
+    ),
+    CatalogueEntry(
+        "reads-one-gridline-out",
+        "Reading a value one gridline or tick to the left or right of where it really is.",
+        area="graphs",
+    ),
+    CatalogueEntry(
+        "reads-where-a-line-meets-the-y-axis",
+        "Giving the point where one line meets the y-axis as the point where the two lines cross.",
+        area="graphs",
+    ),
+    CatalogueEntry(
+        "vertex-form-horizontal-sign",
+        "Writing a(x + h)^2 + k for a turning point at x = h, so the horizontal shift has the wrong sign.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "vertex-form-vertical-sign",
+        "Writing the turning point's height with the wrong sign in a(x - h)^2 + k.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "vertex-form-leading-coefficient-lost",
+        "Writing a vertex-form rule with a leading coefficient of 1 or -1 instead of finding how steeply the curve "
+        "opens from a second point on it.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "compares-the-x-coordinates-of-the-turning-points",
+        "Comparing where the turning points are along the x-axis instead of how high or low they are.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "sum-of-run-not-halved",
+        "Finding the sum of a run of consecutive integers as the count times the sum of the first and last, without "
+        "halving.",
+        area="inequalities",
+    ),
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",

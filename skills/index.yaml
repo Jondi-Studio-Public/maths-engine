@@ -352,6 +352,8 @@ compare-functions-representations:
   sources:
   - topic: fg1_compare_functions
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_compare_functions
+    module: mathgen/generators/exd_x_w12c_compare_functions.py
 compare-lengths:
   domain: early-foundations
   status: active
@@ -364,6 +366,8 @@ compare-linear-representations:
   sources:
   - topic: fg1_compare_linear
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_compare_linear
+    module: mathgen/generators/exd_x_w12c_compare_linear.py
 compare-quantities-to-10:
   domain: early-foundations
   status: active
@@ -1930,6 +1934,8 @@ inequality-solutions-number-line:
   sources:
   - topic: fg1_inequality_number_line
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_inequality_number_line
+    module: mathgen/generators/exd_x_w12c_inequality_number_line.py
 inequality-symbols:
   domain: inequalities
   status: deferred
@@ -5178,6 +5184,8 @@ solve-linear-equations-graphically:
   sources:
   - topic: fg1_solve_graphically
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_solve_graphically
+    module: mathgen/generators/exd_x_w12c_solve_graphically.py
 solve-ode-exponential:
   domain: differential-equations
   status: active
