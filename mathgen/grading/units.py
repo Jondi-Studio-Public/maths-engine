@@ -111,16 +111,37 @@ _ASKING_RE = re.compile(
 )
 
 
+_LEADING_DOLLAR_RE = re.compile(r"^\s*\$\s*(?=\S)")
+_PERCENT_RE = re.compile(r"\s*(?:%|percent)\s*$", re.IGNORECASE)
+
+
+def split_unit(text: str) -> tuple[str, str | None]:
+    """`text` as (the number it states, the recognised unit written with it).
+
+    The unit is a trailing one ("1185/8 m^2", "109.5 m/s", "71 dollars") or a leading "$" ("$71"); the number
+    is the rest, unit removed. With no recognised unit the text comes back unchanged with None. A percent
+    sign or the word "percent" is taken off too and reported as the unit "%", which is not in the unit table
+    and so is never judged against what the question asks for."""
+    text = text or ""
+    numbers = list(_NUMBER_RE.finditer(text))
+    if numbers:
+        rest = text[numbers[-1].end() :].strip().rstrip(".!")
+        match = _MENTION_RE.match(rest)
+        if match is not None and match.end() == len(rest.rstrip()):
+            return text[: numbers[-1].end()], _SPELLING_TO_UNIT[match.group(0).lower()]
+    dollar = _LEADING_DOLLAR_RE.match(text)
+    if dollar is not None:
+        return text[dollar.end() :], "dollar"
+    percent = _PERCENT_RE.search(text)
+    if percent is not None and numbers:
+        return text[: percent.start()], "%"
+    return text, None
+
+
 def _unit_of(text: str) -> str | None:
-    """The recognised unit written straight after the last number in `text`, or None."""
-    numbers = list(_NUMBER_RE.finditer(text or ""))
-    if not numbers:
-        return None
-    rest = text[numbers[-1].end() :].strip().rstrip(".!")
-    match = _MENTION_RE.match(rest)
-    if match is None or match.end() != len(rest.rstrip()):
-        return None
-    return _SPELLING_TO_UNIT[match.group(0).lower()]
+    """The recognised unit written with the number in `text` (see `split_unit`), or None."""
+    unit = split_unit(text)[1]
+    return None if unit == "%" else unit
 
 
 def _asked_unit(question) -> str | None:

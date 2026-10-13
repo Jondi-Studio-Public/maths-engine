@@ -43,7 +43,7 @@ from mathgen.grading.safe_parse import (
     too_costly,
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
-from mathgen.grading.units import unit_is_acceptable
+from mathgen.grading.units import split_unit, unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
 from mathgen.text_quality import requested_rounding
@@ -699,12 +699,25 @@ def grade_fraction(question, given: str) -> GradeResult:
     answer = _as_exact_fraction(answer)
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         given_normalised = _normalised_values(given)
+        given_with_unit = given
         parsed = _parse_typed_fraction(given)
         if parsed is None and _label_fits(question, canonical, _label_name(given)):
             # "x = 50/7" for a canonical shown as "x = 50/7", or "x = 3" for a bare "3" when the question is about
             # x ("Solve 3^x = 27"). "y = 50/7" is wrong for x, and so is a label the question never names.
             given = _strip_label(given)
             parsed = _parse_typed_fraction(given)
+        if parsed is None:
+            # "1185/8 m^2", "$71": a number with a unit it may carry, as `grade_number` allows. The unit still has
+            # to be one the question allows (see `mathgen.grading.units`).
+            bare, unit = split_unit(given)
+            if unit is not None:
+                parsed = _parse_typed_fraction(bare)
+                if parsed is None and _label_fits(question, canonical, _label_name(bare)):
+                    parsed = _parse_typed_fraction(_strip_label(bare))
+                if parsed is not None:
+                    given = bare
+                    if not unit_is_acceptable(question, given_with_unit):
+                        parsed = None
         if parsed is None:
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
         expected = Fraction(answer["p"], answer["q"])
