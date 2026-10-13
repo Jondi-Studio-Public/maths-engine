@@ -103,6 +103,7 @@ _STEMS = {
     "easy": (
         "The augmented matrix of a system of three equations in x, y and z is {m}. Reduce it to reduced row echelon form. {n}",
         "Reduce the augmented matrix {m} of a system of three equations in x, y and z to reduced row echelon form. {n}",
+        "Use row operations to bring the augmented matrix {m} of a system in x, y and z to reduced row echelon form. {n}",
     ),
     "medium": (
         "Find the reduced row echelon form of M = {m}. {n}",
@@ -112,6 +113,7 @@ _STEMS = {
     "hard": (
         "Find the reduced row echelon form of M = {m}. {n}",
         "Row-reduce M = {m} to reduced row echelon form. {n}",
+        "Use row operations to find the reduced row echelon form of M = {m}. {n}",
     ),
 }
 
@@ -220,7 +222,15 @@ def exd_x_fy1la_rref(rng, tier="exam"):
         names = [f"x{c + 1}" for c in range(4)]
         reduced_text = mat_str(reduced)
         return dict(
-            text=f"A homogeneous system Ax = 0 in the unknowns x1, x2, x3 and x4 has coefficient matrix A = {mat_str(a)}.",
+            text=phrase(
+                rng,
+                (
+                    "A homogeneous system Ax = 0 in the unknowns x1, x2, x3 and x4 has coefficient matrix A = {a}.",
+                    "Consider the homogeneous system Ax = 0 in the unknowns x1, x2, x3 and x4, where A = {a}.",
+                    "The coefficient matrix of a homogeneous system Ax = 0 in x1, x2, x3 and x4 is A = {a}.",
+                ),
+                a=mat_str(a),
+            ),
             parts=[
                 number_part(
                     "Find the rank of A.",

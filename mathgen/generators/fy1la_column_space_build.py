@@ -316,7 +316,11 @@ def exd_x_fy1la_column_space(rng, tier="exam"):
             distractors=dist_c,
         )
         return dict(
-            text=f"Let A = {mat_str(mat)}.",
+            text=phrase(
+                rng,
+                ("Let A = {a}.", "Consider the matrix A = {a}.", "The matrix A = {a} has three rows and four columns."),
+                a=mat_str(mat),
+            ),
             parts=[
                 number_part(
                     "Find the rank of A.",

@@ -196,9 +196,12 @@ def plain(tex: str) -> str:
 
 
 def tidy(line: str) -> str:
-    """A worked line with ``+ -3`` written ``- 3`` and ``- -3`` written ``+ 3``: a sign never follows an operator."""
+    """A worked line with ``+ -3`` written ``- 3`` and ``- -3`` written ``+ 3`` (a sign never follows an operator) and a unit
+    coefficient of x left out (``1x`` is ``x``)."""
     line = re.sub(r"\+ -(?=\d)", "- ", line)
-    return re.sub(r" - -(?=\d)", " + ", line)
+    line = re.sub(r" - -(?=\d)", " + ", line)
+    line = re.sub(r"(?<![\d.])(-?)1(?=x\b)", r"\1", line)  # a unit coefficient is not written: e^(1x) is e^(x)
+    return re.sub(r"(?<![\d.^(])1(?=[A-Z]e\^)", "", line)  # and 1Ae^(x) is Ae^(x)
 
 
 def say(*parts) -> tuple[str, str]:

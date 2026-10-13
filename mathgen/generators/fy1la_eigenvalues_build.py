@@ -217,7 +217,11 @@ def exd_x_fy1la_eigenvalues(rng, tier="exam"):
             continue
         text = ", ".join(str(v) for v in eigenvalues)
         return dict(
-            text=f"Let A = {mat_str(a)}.",
+            text=phrase(
+                rng,
+                ("Let A = {a}.", "Consider the matrix A = {a}.", "The 3×3 matrix A = {a} is given."),
+                a=mat_str(a),
+            ),
             parts=[
                 number_part(
                     "Find the trace of A.",

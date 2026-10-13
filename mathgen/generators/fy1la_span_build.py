@@ -132,6 +132,7 @@ def _single(rng, tier):
             "Let u = {u}, w = {w} and v = {v} in ℝ{sup}. The vector v is a linear combination of u and w. Find the scalars a and b "
             "such that v = a·u + b·w. " + _NOTE,
             "Write v = {v} as a linear combination a·u + b·w of u = {u} and w = {w}. " + _NOTE,
+            "Given u = {u} and w = {w} in ℝ{sup}, express v = {v} in the form a·u + b·w. " + _NOTE,
         )
         return dict(
             text=phrase(rng, stems, u=vec_str(u), w=vec_str(w), v=vec_str(v), sup="³" if n == 3 else "⁴"),

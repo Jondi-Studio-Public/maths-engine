@@ -175,6 +175,7 @@ def _medium(rng):
         stems = (
             "The vectors {vs} are linearly dependent, with c1·u + c2·v + w = 0 for some constants c1 and c2. Find c1.",
             "For the vectors {vs}, there are constants c1 and c2 such that c1·u + c2·v + w = 0. Find c1.",
+            "Given the vectors {vs}, the equation c1·u + c2·v + w = 0 holds for some constants c1 and c2. What is c1?",
         )
         return dict(
             text=phrase(rng, stems, vs=vs),
