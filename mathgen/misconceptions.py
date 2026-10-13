@@ -10104,7 +10104,6 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
-    # -- graphs and networks: degrees, routes, Eulerian and Hamiltonian questions, adjacency matrices ---------------------
     CatalogueEntry(
         "net-degree-miscount",
         "Miscounting the edges at a vertex (or the vertices of a stated kind), so the answer is one too high or one too low.",
@@ -10528,6 +10527,7 @@ _ENTRIES = (
         "net-adjacency-wrong-vertex-order",
         "Writing the rows and columns of the adjacency matrix in a different order from the alphabetical order of the vertices.",
         area="networks",
+    ),
     CatalogueEntry(
         "mech-forgot-divide-by-mass",
         "Reporting the resultant force in newtons where the acceleration was asked, without dividing by the mass.",
@@ -10967,7 +10967,7 @@ _ENTRIES = (
         "mech-one-residual-left-out",
         "Leaving the residual just calculated out of the sum of squares.",
         area="statistics",
-    # -- binomial expansion and coefficients -------------------------------------------------------------------------
+    ),
     CatalogueEntry(
         "binom-pascal-coefficients-omitted",
         "Expanding a power of a binomial with the powers of each term but no binomial coefficients: every coefficient "
@@ -11093,7 +11093,6 @@ _ENTRIES = (
         "(px + q).",
         area="binomial",
     ),
-    # -- reciprocal trigonometric functions ------------------------------------------------------------------------
     CatalogueEntry(
         "recip-not-taken",
         "Giving the value of cos, sin or tan where sec, cosec or cot was asked for: forgetting to take the reciprocal.",
@@ -11198,7 +11197,6 @@ _ENTRIES = (
         "30 degrees where tan is 1.",
         area="trigonometry",
     ),
-    # -- polar form of complex numbers ------------------------------------------------------------------------------
     CatalogueEntry(
         "polar-moduli-added",
         "Adding the moduli instead of multiplying them when multiplying complex numbers in polar form.",
@@ -11255,7 +11253,6 @@ _ENTRIES = (
         "Giving the modulus of one of the numbers as the modulus of the product.",
         area="complex-numbers",
     ),
-    # -- De Moivre's theorem ---------------------------------------------------------------------------------------
     CatalogueEntry(
         "demoivre-modulus-not-raised",
         "Applying De Moivre's theorem and leaving the modulus as it was, instead of raising it to the power n.",
