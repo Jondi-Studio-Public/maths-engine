@@ -10104,6 +10104,164 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    # -- exam chains: tree diagrams, Venn diagrams and stem-and-leaf plots ----------------------------------------------
+    CatalogueEntry(
+        "gives-the-sibling-branch",
+        "Giving the probability written on the branch beside the missing one instead of working out what is left from 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "second-draw-total-on-first-draw",
+        "Dividing by the number left after the first draw (one fewer) when the probability is for the first draw.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "first-draw-total-on-second-draw",
+        "Dividing by the whole bag when the probability is for the second draw, forgetting that one item has gone.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "copies-a-branch-from-another-set",
+        "Copying a probability from a different set of branches into the missing branch.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "forgets-the-removed-counter",
+        "Dividing by the number left but not taking away the item of the same colour that was removed, so the "
+        "numerator is one too big.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "adds-along-a-path",
+        "Adding the probabilities along a path of a tree diagram instead of multiplying them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "stops-at-the-first-branch",
+        "Giving the probability on the first branch of a path and ignoring the second branch.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "multiplies-the-wrong-path",
+        "Multiplying along a different path from the one asked for, for example the other colour twice.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "leaves-out-a-path",
+        "Finding the probability of one path of a tree and leaving out the other path that also fits the event.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "multiplies-paths-instead-of-adding",
+        "Multiplying the probabilities of two different paths together where they should be added.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "adds-shown-without-total",
+        "Adding the numbers shown on a diagram and giving that as the missing one, never using the stated total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "leaves-out-a-region",
+        "Subtracting all but one of the shown regions from the total, so the answer is too big by the region left out.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "overlap-left-out-of-set",
+        "Counting only the part of a circle outside the overlap when asked for everyone in that set.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "reads-the-other-circle",
+        "Adding up the circle of the other set when the set named in the question was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "counts-either-set-for-one-set",
+        "Adding every region inside both circles when only the people in one named set were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "gives-the-overlap-alone",
+        "Giving only the overlap of two sets as the number in one of them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "exactly-one-with-overlap",
+        "Including the overlap when asked for exactly one of two sets.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "denominator-leaves-out-neither",
+        "Dividing by the number of people inside the circles instead of the whole group, leaving out those who do "
+        "neither.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "counts-one-circle-only",
+        "Counting only the people in one circle only, when the event includes the other circle's only-part as well.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "gives-the-smallest-value-as-the-lower-quartile",
+        "Giving the smallest value in the data as the lower quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "gives-the-largest-value-as-the-upper-quartile",
+        "Giving the largest value in the data as the upper quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "quartile-one-position-out",
+        "Reading the value next to the quartile in the ordered list, one place too early or too late.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "reads-the-leaf-alone",
+        "Giving only the leaf as the value (for example 7 from 3 | 7), ignoring the stem and the key.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "gives-the-range-as-the-iqr",
+        "Giving the largest value minus the smallest (the range) where the interquartile range was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "subtracts-the-median-from-q3",
+        "Finding the interquartile range as the upper quartile minus the median instead of minus the lower quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "subtracts-q1-from-the-median",
+        "Finding the interquartile range as the median minus the lower quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "adds-the-quartiles",
+        "Adding the two quartiles where the interquartile range needs their difference.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "uses-one-times-the-iqr",
+        "Adding one interquartile range to the upper quartile instead of one and a half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "uses-three-times-the-iqr",
+        "Adding three interquartile ranges to the upper quartile, reading 1.5 x IQR as 3 x IQR.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "leaves-out-q3-from-the-boundary",
+        "Giving 1.5 times the interquartile range alone, without adding it to the upper quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "uses-the-lower-boundary",
+        "Finding the boundary below which values are outliers (Q1 less 1.5 x IQR) where the upper one was asked for.",
+        area="statistics",
+    ),
 )
 
 #: Every entry, by id.
