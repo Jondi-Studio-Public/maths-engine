@@ -1,29 +1,27 @@
 """Generates `fy1so_series_tests` (easy, medium, hard) and the exam chain `fy1so_exd_series_tests`.
 
-Skill ``ucv1-series-comparison-tests`` (domain ``functions-sequences``, answer ``mcq``): deciding whether a series of
+Skill ``ucv1-series-comparison-tests`` (domain ``functions-sequences``, answer ``fraction``): deciding whether a series of
 positive or alternating terms converges, by the p-series test, comparison and limit comparison, the integral test, and the
 absolute and conditional convergence of alternating series. The geometric, ratio-test, telescoping and radius-of-convergence
-questions belong to ``ucv1-series-convergence``.
-
-Every answer is a statement, a verdict together with the fact that justifies it, and each wrong option is a different
-statement that is false for a named reason, so exactly one option is true.
+questions belong to ``ucv1-series-convergence``. Every answer is a whole number or a fraction, so the whole skill (including
+the exam chain) is marked by the same grader.
 
 Tiers (the reasoning escalates; the numbers stay small):
 
-- ``easy``: a p-series, possibly written with roots (1/(n√n), 3/n^(2/3)). The learner reads off the exponent p, then compares
-  it with 1. Wrong options misread p (inverted, shifted by one, or one factor dropped).
-- ``medium``: a series whose terms behave like c/n^p (a ratio of polynomials, or a root), settled by limit comparison, and
-  series settled by direct comparison with a bounded numerator (sin²n or 2 + cos n). The learner finds the comparison series
-  from the degrees; the wrong options misjudge the degree difference, reverse the verdict or reverse the inequality.
-- ``hard``: classify Σ(-1)^n a_n as absolutely convergent, conditionally convergent or divergent. The terms may fail to
-  tend to 0, or Σ|a_n| may be a p-series on either side of 1, or need the integral test (1/(n ln n), 1/(n (ln n)²)).
+- ``easy``: the p-series test with a parameter. Find the least positive integer k for which Σ n^m / (r-th root of n^k)
+  converges: the terms are 1/n^p with p = k/r - m, and p has to exceed 1 (not just reach it).
+- ``medium``: limit comparison. For a_n a ratio of polynomials (or with a root) compared with b_n = 1/n^p, find
+  L = lim a_n / b_n, the number that licenses the comparison. The leading terms decide it; the lower terms drop out.
+- ``hard``: absolute versus conditional convergence across a family. For Σ(-1)^n n^m / (r-th root of n^k) with k = 1, 2, ..., N,
+  count the values of k for which the series converges absolutely, converges conditionally, or diverges. Each k gives its own
+  p = k/r - m: divergent for p <= 0 (the terms do not tend to 0), conditional for 0 < p <= 1, absolute for p > 1.
 - ``exam`` (topic ``fy1so_exd_series_tests``): a four-part chain on a_n = c/(n + b)^q (q a whole number of at least 2).
   (a) the improper integral from 1 to infinity of c/(x + b)^q dx, (b) the integral-test upper bound on the sum, a_1 plus (a)
   (follows through from (a)), (c) the partial sum S_3, (d) the sharper upper bound S_3 plus the integral from 3 (follows
   through from (c)).
 
-Each behaviour (the exponent p, the constant c) is checked against the numeric slope of log a_n between n = 10^5 and
-10^6, and the exam bounds are checked against a long partial sum.
+Each behaviour (the exponent p, the limit L) is checked against the numeric slope of log a_n between n = 10^5 and 10^6, and the
+exam bounds are checked against a long partial sum.
 """
 
 from __future__ import annotations
@@ -35,36 +33,10 @@ from fractions import Fraction
 import sympy
 
 from ..core import attempts, check, generator, rational_text
-from ._fy1so_common import Link, M, build_part, build_single, plain, say, tex_rational
+from ._fy1so_common import Link, M, build_part, build_single, say
 
 TOPIC = "fy1so_series_tests"
 EXAM_TOPIC = "fy1so_exd_series_tests"
-
-
-def _exp_tex(p: Fraction) -> str:
-    """The exponent of n as TeX braces content: 2, 3/2."""
-    return str(p.numerator) if p.denominator == 1 else f"{p.numerator}/{p.denominator}"
-
-
-def _term_tex(c: Fraction, p: Fraction, var: str = "n") -> str:
-    """c/n^p as TeX: 3/n², 1/n, 3/(2n²) for a fractional c."""
-    power = var if p == 1 else f"{var}^{{{_exp_tex(p)}}}"
-    if c.denominator == 1:
-        return rf"\frac{{{c.numerator}}}{{{power}}}"
-    return rf"\frac{{{c.numerator}}}{{{c.denominator}{power}}}"
-
-
-def _behaves(c: Fraction, p: Fraction) -> str:
-    """c/n^p as learner text: 3/n², 1/n, 2/n^(3/2)."""
-    return plain(_term_tex(c, p))
-
-
-def _series_of(p: Fraction) -> str:
-    return "Σ " + plain(_term_tex(Fraction(1), p))
-
-
-def _verdict(p: Fraction) -> str:
-    return "Converges" if p > 1 else "Diverges"
 
 
 def _slope(term, ns=(10**5, 10**6)) -> float:
@@ -73,339 +45,225 @@ def _slope(term, ns=(10**5, 10**6)) -> float:
     return -(b - a) / (math.log(ns[1]) - math.log(ns[0]))
 
 
-# -- easy: p-series ----------------------------------------------------------------------------------------------------
+def _term_tex(c: int, m: int, r: int, k: int | str, style: str) -> str:
+    """c n^m divided by the r-th root of n^k (``style`` "root") or by n^(k/r) (``style`` "power") as TeX."""
+    top = ("" if c == 1 else str(c)) + ("" if m == 0 else "n" if m == 1 else f"n^{{{m}}}")
+    top = top or "1"
+    if style == "root":
+        bottom = rf"\sqrt{{n^{{{k}}}}}" if r == 2 else rf"\sqrt[{r}]{{n^{{{k}}}}}"
+    else:
+        bottom = f"n^{{{k}/{r}}}"
+    return rf"\frac{{{top}}}{{{bottom}}}"
 
 
-def _rule(converges: bool) -> str:
-    return "p-series converge when p > 1" if converges else "p-series diverge when p ≤ 1"
+def _exponent(m: int, r: int, k: int) -> Fraction:
+    """p with n^m / (r-th root of n^k) = 1 / n^p."""
+    return Fraction(k, r) - m
 
 
-def _p_statement(p: Fraction, flip: bool = False) -> str:
-    """A verdict on a p-series with the rule it rests on; `flip` states the rule the wrong way round."""
-    converges = p > 1
-    shown = (not converges) if flip else converges
-    return f"{'Converges' if shown else 'Diverges'}: a p-series with p = {rational_text(p)}, and {_rule(shown)}"
+def _check_exponent(m: int, r: int, k: int) -> None:
+    """Second route: the numeric slope of log a_n reproduces p = k/r - m."""
+    p = _exponent(m, r, k)
+    check(abs(_slope(lambda n: n**m / n ** (k / r)) - float(p)) < 1e-6, "the exponent disagrees with the numeric slope")
+
+
+# -- easy: the least k for a p-series -----------------------------------------------------------------------------
 
 
 def _easy(rng: random.Random):
-    kind = rng.choice(["power", "power", "root", "frac"])
-    c = rng.choice([1, 1, 2, 3, 5])
-    if kind == "power":
-        p = rng.choice(
-            [
-                Fraction(1, 2),
-                Fraction(2, 3),
-                Fraction(3, 4),
-                Fraction(1),
-                Fraction(5, 4),
-                Fraction(4, 3),
-                Fraction(3, 2),
-            ]
-            + [Fraction(2), Fraction(5, 2), Fraction(3)]
-        )
-        body = (
-            rf"\frac{{{c}}}{{n^{{{_exp_tex(p)}}}}}" if p.denominator != 1 else rf"\frac{{{c}}}{{n^{{{p.numerator}}}}}"
-        )
-        if p == 1:
-            body = rf"\frac{{{c}}}{{n}}"
-        term = lambda n: c / n ** float(p)  # noqa: E731
-        misreads = [
-            (1 / p, "series-p-exponent-inverted"),
-            (p - 1, "series-p-exponent-lowered"),
-            (p + 1, "series-p-exponent-raised"),
-        ]
-    elif kind == "root":
-        k = rng.choice([1, 2, 3])
-        r = rng.choice([2, 3])
-        p = Fraction(k) + Fraction(1, r)
-        root = r"\sqrt{n}" if r == 2 else r"\sqrt[3]{n}"
-        body = rf"\frac{{{c}}}{{n^{{{k}}}\,{root}}}" if k > 1 else rf"\frac{{{c}}}{{n\,{root}}}"
-        term = lambda n: c / (n**k * n ** (1 / r))  # noqa: E731
-        misreads = [
-            (Fraction(k), "series-p-root-factor-dropped"),
-            (Fraction(1, r), "series-p-power-factor-dropped"),
-            (Fraction(k * r), "series-p-root-index-multiplied"),
-        ]
-    else:
-        m = rng.choice([1, 2, 3, 4, 5, 6, 7])
-        r = rng.choice([2, 3])
-        p = Fraction(m, r)
-        if p.denominator == 1:
-            m, r = rng.choice([(1, 2), (3, 2), (5, 2), (1, 3), (2, 3), (4, 3), (5, 3)])
-            p = Fraction(m, r)
-        body = rf"\frac{{{c}}}{{n^{{{m}/{r}}}}}"
-        term = lambda n: c / n ** float(p)  # noqa: E731
-        misreads = [
-            (Fraction(m), "series-p-root-index-ignored"),
-            (Fraction(r, m), "series-p-exponent-inverted"),
-            (Fraction(m + r, r), "series-p-exponent-raised"),
-        ]
-    check(abs(_slope(term) - float(p)) < 1e-3, f"p = {p} disagrees with the numeric slope")
-    answer = _p_statement(p)
-    wrongs = []
-    for q, tag in misreads:
-        if q > 0 and q != p:
-            wrongs.append((_p_statement(Fraction(q)), tag))
-    # the same exponent with the test the wrong way round
-    wrongs.insert(1, (_p_statement(p, flip=True), "series-p-test-reversed"))
-    if p <= 1 and c:
-        wrongs.append(("Converges: the terms tend to 0", "series-terms-tend-to-zero-misused"))
-    ask = rng.choice(
-        [
-            "Which statement about the series is correct?",
-            "Decide whether the series converges, and choose the correct statement.",
-            "Which of the following is true of the series?",
-        ]
-    )
-    prompt = say("Consider ", M(rf"\sum_{{n=1}}^{{\infty}} {body}"), ". " + ask)
-    working = [
-        f"The terms are {c}/n^{rational_text(p)}, so the series is {c} times a p-series with p = {rational_text(p)}.",
-        f"A p-series converges when p > 1 and diverges when p ≤ 1. Here p {'>' if p > 1 else '≤'} 1, so it {_verdict(p).lower()}.",
-    ]
-    return prompt, Link(prompt, "mcq", answer, working=working, wrongs=wrongs)
-
-
-# -- medium: comparison and limit comparison ---------------------------------------------------------------------------
-
-
-def _lim_statement(c: Fraction, p: Fraction) -> str:
-    return (
-        f"{_verdict(p)}: the terms behave like {_behaves(c, p)}, and {_series_of(p)} "
-        f"{'converges' if p > 1 else 'diverges'}"
-    )
-
-
-def _medium_limit(rng: random.Random):
-    family = rng.choice(["lin_cubic", "quad_quartic", "lin_quad", "root_top", "root_bottom", "shifted"])
-    b = rng.choice([1, 2, 3, 5])
-    d = rng.choice([1, 2, 3, 4, 7])
-    if family == "lin_cubic":
-        a = rng.choice([1, 2, 3, 5])
-        tex = rf"\frac{{{a}n + {b}}}{{n^{{3}} + {d}n}}"
-        c, p = Fraction(a), Fraction(2)
-        term = lambda n: (a * n + b) / (n**3 + d * n)  # noqa: E731
-    elif family == "quad_quartic":
-        a = rng.choice([2, 3, 5])
-        g = rng.choice([1, 2, 3])
-        tex = (
-            rf"\frac{{{a}n^{{2}} + {b}}}{{{g}n^{{4}} + {d}}}"
-            if g > 1
-            else rf"\frac{{{a}n^{{2}} + {b}}}{{n^{{4}} + {d}}}"
-        )
-        c, p = Fraction(a, g), Fraction(2)
-        term = lambda n: (a * n**2 + b) / (g * n**4 + d)  # noqa: E731
-    elif family == "lin_quad":
-        a = rng.choice([1, 2, 3, 4])
-        g = rng.choice([1, 2, 3])
-        tex = rf"\frac{{{a}n + {b}}}{{{g}n^{{2}} + {d}}}" if g > 1 else rf"\frac{{{a}n + {b}}}{{n^{{2}} + {d}}}"
-        c, p = Fraction(a, g), Fraction(1)
-        term = lambda n: (a * n + b) / (g * n**2 + d)  # noqa: E731
-    elif family == "root_top":
-        tex = rf"\frac{{\sqrt{{n}}}}{{n^{{2}} + {d}}}"
-        c, p = Fraction(1), Fraction(3, 2)
-        term = lambda n: math.sqrt(n) / (n**2 + d)  # noqa: E731
-    elif family == "root_bottom":
-        a = rng.choice([1, 2, 3])
-        tex = (
-            rf"\frac{{{a}n + {b}}}{{\sqrt{{n^{{3}} + {d}}}}}"
-            if a > 1
-            else rf"\frac{{n + {b}}}{{\sqrt{{n^{{3}} + {d}}}}}"
-        )
-        c, p = Fraction(a), Fraction(1, 2)
-        term = lambda n: (a * n + b) / math.sqrt(n**3 + d)  # noqa: E731
-    else:
-        a = rng.choice([1, 2, 3])
-        tex = rf"\frac{{{a}}}{{n^{{2}} + {b}n + {d}}}"
-        c, p = Fraction(a), Fraction(2)
-        term = lambda n: a / (n**2 + b * n + d)  # noqa: E731
-    check(abs(_slope(term) - float(p)) < 1e-3, f"p = {p} disagrees with the numeric slope")
-    big = 10**6
-    check(
-        abs(term(big) * big ** float(p) - float(c)) < 1e-4 * max(1, float(c)),
-        f"c = {c} disagrees with the numeric limit",
-    )
-    answer = _lim_statement(c, p)
-    # the degree difference misjudged by one, on whichever side flips the verdict
-    shifted = p - 1 if (p - 1 > 0 and (p - 1 > 1) != (p > 1)) else p + 1
+    r = rng.choice([2, 3, 4])
+    m = rng.choice([0, 1, 2])
+    c = rng.choice([1, 1, 2, 3, 4, 5])
+    style = rng.choice(["root", "power"])
+    least = r * (m + 1) + 1
+    _check_exponent(m, r, least)
+    _check_exponent(m, r, least - 1)
+    check(_exponent(m, r, least) > 1 >= _exponent(m, r, least - 1), "the least k is wrong")
     wrongs = [
-        (_lim_statement(c, shifted), "series-comparison-degree-difference-misread"),
-        (
-            f"{'Diverges' if p > 1 else 'Converges'}: the terms behave like {_behaves(c, p)}, and {_series_of(p)} "
-            f"{'converges' if p > 1 else 'diverges'}",
-            "series-comparison-verdict-reversed",
-        ),
+        (least - 1, "series-p-boundary-included"),
+        (least + 1, "series-k-overshoot"),
+        (r + 1, "series-numerator-power-ignored"),
+        (m + 2, "series-root-index-ignored"),
+        (r * m + 1, "series-numerator-power-ignored"),
+        (r * (m + 1) + r, "series-k-overshoot"),
     ]
-    if p > 1:
-        wrongs.append((_lim_statement(c, Fraction(1)), "series-comparison-harmonic-assumed"))
-        wrongs.append((_lim_statement(c, Fraction(1, 2)), "series-comparison-degree-difference-misread"))
-    else:
-        wrongs.append(("Converges: the terms tend to 0", "series-terms-tend-to-zero-misused"))
-        wrongs.append((_lim_statement(c, Fraction(2)), "series-comparison-degree-difference-misread"))
-    ask = rng.choice(
-        [
-            "Use limit comparison to decide which statement is correct.",
-            "Which statement, justified by limit comparison, is correct?",
-            "Decide whether the series converges. Which justification is correct?",
-        ]
-    )
-    prompt = say("Consider ", M(rf"\sum_{{n=1}}^{{\infty}} {tex}"), ". " + ask)
-    working = [
-        f"For large n the terms behave like {_behaves(c, p)}: the ratio of a_n to 1/n^{rational_text(p)} tends to {rational_text(c)}.",
-        f"{_series_of(p)} {'converges' if p > 1 else 'diverges'} (p {'>' if p > 1 else '≤'} 1), so by limit comparison the series {'converges' if p > 1 else 'diverges'}.",
-    ]
-    return prompt, Link(prompt, "mcq", answer, working=working, wrongs=wrongs)
-
-
-def _medium_direct(rng: random.Random):
-    below = rng.random() < 0.5
-    d = rng.choice([1, 2, 3, 4, 5])
-    if below:
-        a_tex = rf"\frac{{(\sin n)^{{2}}}}{{n^{{2}} + {d}}}"
-        fact = "0 ≤ a_n ≤ 1/n²"
-        answer = f"Converges: {fact}, and Σ 1/n² converges"
-        wrongs = [
-            (f"Diverges: {fact}, and Σ 1/n² converges", "series-comparison-verdict-reversed"),
-            ("Converges: a_n ≥ 1/n², and Σ 1/n² converges", "series-comparison-direction-wrong"),
-            ("Diverges: a_n ≥ 1/n², and Σ 1/n² diverges", "series-comparison-verdict-reversed"),
-            ("Converges: the terms tend to 0", "series-terms-tend-to-zero-misused"),
-        ]
-        working = [
-            "Since 0 ≤ sin²n ≤ 1 and n² + " + str(d) + " > n², we have 0 ≤ a_n ≤ 1/n².",
-            "Σ 1/n² converges, so by direct comparison the series converges.",
-        ]
-    else:
-        k = rng.choice([1, 2, 3])
-        a_tex = rf"\frac{{{k + 1} + \cos n}}{{n}}"
-        fact = f"a_n ≥ {k}/n"
-        answer = f"Diverges: {fact}, and Σ 1/n diverges"
-        wrongs = [
-            (f"Converges: {fact}, and Σ 1/n diverges", "series-comparison-verdict-reversed"),
-            ("Converges: a_n ≤ 1/n, and Σ 1/n diverges", "series-comparison-direction-wrong"),
-            ("Converges: the terms tend to 0", "series-terms-tend-to-zero-misused"),
-            ("Converges: a_n ≤ 3/n, and Σ 1/n converges", "series-comparison-harmonic-assumed"),
-        ]
-        working = [
-            f"Since cos n ≥ -1, a_n ≥ {k}/n > 0.",
-            f"Σ {k}/n diverges (a multiple of the harmonic series), so by direct comparison the series diverges.",
-        ]
     prompt = say(
-        "Consider ",
-        M(rf"\sum_{{n=1}}^{{\infty}} a_{{n}}"),
-        " where ",
-        M(rf"a_{{n}} = {a_tex}"),
-        ". Use direct comparison to decide which statement is correct.",
+        "Find the smallest positive integer ",
+        M("k"),
+        " for which the series ",
+        M(rf"\sum_{{n=1}}^{{\infty}} {_term_tex(c, m, r, 'k', style)}"),
+        " converges.",
     )
-    return prompt, Link(prompt, "mcq", answer, working=working, wrongs=wrongs)
+    working = [
+        f"The terms equal 1/n^p with p = k/{r} - {m} = (k - {r * m})/{r}.",
+        f"The series converges when p > 1, so k > {r * (m + 1)}. At k = {r * (m + 1)} the series is the harmonic series, which diverges.",
+        f"The smallest integer is k = {least}.",
+    ]
+    return prompt, Link(prompt, "fraction", least, working=working, wrongs=wrongs)
+
+
+# -- medium: the limit in a limit comparison ---------------------------------------------------------------------
 
 
 def _medium(rng: random.Random):
-    return _medium_limit(rng) if rng.random() < 0.75 else _medium_direct(rng)
+    return _medium_rational(rng) if rng.random() < 0.6 else _medium_root(rng)
 
 
-# -- hard: absolute and conditional convergence ------------------------------------------------------------------------
+def _medium_rational(rng: random.Random):
+    for _ in attempts(200, "a polynomial ratio"):
+        u, v = rng.randint(1, 9), rng.randint(1, 9)
+        s, w = rng.randint(2, 7), rng.randint(1, 9)
+        deg = rng.choice([1, 2, 3])
+        if math.gcd(u, s) == 1 or rng.random() < 0.3:
+            break
+    numerator_degree, denominator_degree = deg, deg + 2
+    p = 2
+    limit = Fraction(u, s)
 
-_ABS = "Absolutely convergent"
-_COND = "Conditionally convergent"
-_DIV = "Divergent"
+    def a(n):
+        return (u * n**numerator_degree + v * n ** (numerator_degree - 1)) / (s * n**denominator_degree + w)
+
+    check(abs(_slope(a) - p) < 1e-4, "the comparison series has the wrong exponent")
+    check(abs(a(10**7) * 10**14 - float(limit)) < 1e-5, "the limit disagrees with a_n n^2")
+    top = f"{u}n^{{{numerator_degree}}}" if numerator_degree > 1 else f"{u}n"
+    top = top.replace("1n", "n")
+    lower = (
+        f"{v}n^{{{numerator_degree - 1}}}"
+        if numerator_degree - 1 > 1
+        else f"{v}n"
+        if numerator_degree - 1 == 1
+        else str(v)
+    )
+    bottom = f"{s}n^{{{denominator_degree}}} + {w}"
+    wrongs = [
+        (Fraction(s, u), "series-limit-inverted"),
+        (Fraction(u), "series-denominator-coefficient-dropped"),
+        (Fraction(u + v, s), "series-lower-terms-kept"),
+        (Fraction(1, s), "series-numerator-coefficient-dropped"),
+        (Fraction(u * w, s), "series-lower-terms-kept"),
+        (Fraction(u, s + w), "series-lower-terms-kept"),
+    ]
+    prompt = say(
+        "Let ",
+        M(rf"a_{{n}} = \frac{{{top} + {lower}}}{{{bottom}}}"),
+        " and ",
+        M(r"b_{n} = \frac{1}{n^{2}}"),
+        ". Find ",
+        M(r"L = \lim_{n \to \infty} \frac{a_{n}}{b_{n}}"),
+        ".",
+    )
+    working = [
+        f"a_n / b_n = n²({top.replace('{', '').replace('}', '')} + {lower.replace('{', '').replace('}', '')}) / ({bottom.replace('{', '').replace('}', '')}).",
+        f"Dividing top and bottom by n^{denominator_degree}, the limit is {u}/{s} = {rational_text(limit)}.",
+    ]
+    return prompt, Link(prompt, "fraction", limit, working=working, wrongs=wrongs)
 
 
-def _classes(truth: str):
-    """The two wrong classifications for a series whose truth is `truth`, each with the misconception behind it."""
-    if truth == _ABS:
-        return [(_COND, "series-alternating-means-conditional"), (_DIV, "series-absolute-terms-misjudged")]
-    if truth == _COND:
-        return [
-            (_ABS, "series-alternating-test-taken-as-absolute"),
-            (_DIV, "series-divergent-because-absolute-diverges"),
-        ]
-    return [(_COND, "series-nth-term-test-missed"), (_ABS, "series-nth-term-test-missed")]
+def _medium_root(rng: random.Random):
+    for _ in attempts(200, "a ratio with a root"):
+        u, v = rng.randint(1, 9), rng.randint(1, 9)
+        s, w = rng.randint(2, 7), rng.randint(1, 9)
+        if math.gcd(u, s) == 1:
+            break
+    limit = Fraction(u, s)
+
+    def a(n):
+        return (u * n + v) / (s * n * math.sqrt(n) + w)
+
+    check(abs(_slope(a) - 0.5) < 1e-4, "the comparison series has the wrong exponent")
+    check(abs(a(10**10) * 10**5 - float(limit)) < 1e-4, "the limit disagrees with a_n sqrt(n)")
+    wrongs = [
+        (Fraction(s, u), "series-limit-inverted"),
+        (Fraction(u), "series-denominator-coefficient-dropped"),
+        (Fraction(u + v, s), "series-lower-terms-kept"),
+        (Fraction(1, s), "series-numerator-coefficient-dropped"),
+        (Fraction(u, s + w), "series-lower-terms-kept"),
+    ]
+    prompt = say(
+        "Let ",
+        M(rf"a_{{n}} = \frac{{{u if u > 1 else ''}n + {v}}}{{{s}n\sqrt{{n}} + {w}}}"),
+        " and ",
+        M(r"b_{n} = \frac{1}{\sqrt{n}}"),
+        ". Find ",
+        M(r"L = \lim_{n \to \infty} \frac{a_{n}}{b_{n}}"),
+        ".",
+    )
+    working = [
+        f"a_n / b_n = √n({u}n + {v}) / ({s}n√n + {w}).",
+        f"Dividing top and bottom by n√n, the limit is {u}/{s} = {rational_text(limit)}.",
+    ]
+    return prompt, Link(prompt, "fraction", limit, working=working, wrongs=wrongs)
+
+
+# -- hard: absolute, conditional or divergent across a family --------------------------------------------------------
+
+
+def _classify(m: int, r: int, k: int) -> str:
+    """Absolutely convergent, conditionally convergent or divergent, from the numeric exponent of the terms."""
+    p = _slope(lambda n: n**m / n ** (k / r))
+    if p < 1e-6:
+        return "divergent"
+    return "conditional" if p < 1 + 1e-6 else "absolute"
 
 
 def _hard(rng: random.Random):
-    kind = rng.choice(["power", "power", "ratio", "log", "root"])
-    if kind == "power":
-        p = rng.choice(
-            [
-                Fraction(1, 2),
-                Fraction(1, 3),
-                Fraction(2, 3),
-                Fraction(3, 4),
-                Fraction(1),
-                Fraction(4, 3),
-                Fraction(3, 2),
-                Fraction(2),
-                Fraction(5, 2),
-                Fraction(3),
-            ]
-        )
-        tex = rf"\frac{{(-1)^{{n}}}}{{n^{{{_exp_tex(p)}}}}}" if p != 1 else r"\frac{(-1)^{n}}{n}"
-        truth = _ABS if p > 1 else _COND
-        start = 1
-        reason = f"Σ|a_n| is a p-series with p = {rational_text(p)}, which {'converges' if p > 1 else 'diverges'}" + (
-            "." if p > 1 else ", but the terms 1/n^p decrease to 0, so the alternating series test gives convergence."
-        )
-        term = lambda n: 1 / n ** float(p)  # noqa: E731
-        slope = float(p)
-    elif kind == "ratio":
-        a = rng.choice([1, 2, 3])
-        g = rng.choice([1, 2, 3, 5])
-        b = rng.choice([1, 2, 3])
-        tex = (
-            rf"(-1)^{{n}}\,\frac{{{'' if a == 1 else a}n}}{{{g}n + {b}}}"
-            if g > 1
-            else rf"(-1)^{{n}}\,\frac{{{'' if a == 1 else a}n}}{{n + {b}}}"
-        )
-        truth = _DIV
-        start = 1
-        limit = Fraction(a, g)
-        reason = f"|a_n| tends to {rational_text(limit)}, not 0, so the terms do not tend to 0 and the series diverges."
-        term = None
-        slope = None
-    elif kind == "log":
-        s = rng.choice([1, 2])
-        tex = rf"\frac{{(-1)^{{n}}}}{{n\,\ln n}}" if s == 1 else rf"\frac{{(-1)^{{n}}}}{{n\,(\ln n)^{{2}}}}"
-        truth = _COND if s == 1 else _ABS
-        start = 2
-        reason = (
-            "By the integral test Σ 1/(n ln n) diverges (the integral of 1/(x ln x) is ln(ln x)), but the terms decrease to 0."
-            if s == 1
-            else "By the integral test Σ 1/(n (ln n)²) converges (the integral of 1/(x (ln x)²) is -1/ln x)."
-        )
-        term = None
-        slope = None
-    else:
-        shape = rng.choice(["quad_over_quad", "sqrt_den", "sqrt_num", "cubic"])
-        d = rng.choice([1, 2, 3])
-        if shape == "quad_over_quad":
-            tex, p = rf"\frac{{(-1)^{{n}}\,n}}{{n^{{2}} + {d}}}", Fraction(1)
-            term = lambda n: n / (n**2 + d)  # noqa: E731
-        elif shape == "sqrt_den":
-            tex, p = rf"\frac{{(-1)^{{n}}}}{{\sqrt{{n^{{2}} + {d}}}}}", Fraction(1)
-            term = lambda n: 1 / math.sqrt(n**2 + d)  # noqa: E731
-        elif shape == "sqrt_num":
-            tex, p = rf"\frac{{(-1)^{{n}}\sqrt{{n}}}}{{n + {d}}}", Fraction(1, 2)
-            term = lambda n: math.sqrt(n) / (n + d)  # noqa: E731
-        else:
-            tex, p = rf"\frac{{(-1)^{{n}}\,n}}{{n^{{3}} + {d}}}", Fraction(2)
-            term = lambda n: n / (n**3 + d)  # noqa: E731
-        truth = _ABS if p > 1 else _COND
-        start = 1
-        reason = (
-            f"|a_n| behaves like 1/n^{rational_text(p)}, so by limit comparison Σ|a_n| {'converges' if p > 1 else 'diverges'}"
-            + ("." if p > 1 else ", but the terms decrease to 0, so the alternating series test gives convergence.")
-        )
-        slope = float(p)
-    if term is not None and slope is not None:
-        check(abs(_slope(term) - slope) < 1e-3, f"the behaviour of {tex} disagrees with the numeric slope")
-        # the terms decrease from the start (needed for the alternating series test)
-        check(all(term(n + 1) <= term(n) + 1e-15 for n in range(2 + start, 40)), "the terms do not decrease")
-    wrongs = [(label, tag) for label, tag in _classes(truth)]
+    r = rng.choice([2, 3, 4])
+    m = rng.choice([1, 2])
+    extra = rng.randint(1, 4)
+    n_max = r * (m + 1) + extra
+    c = rng.choice([1, 2, 3])
+    style = rng.choice(["root", "power"])
+    ask = rng.choice(["absolute", "conditional", "divergent"])
+    counts = {"absolute": 0, "conditional": 0, "divergent": 0}
+    for k in range(1, n_max + 1):
+        counts[_classify(m, r, k)] += 1
+    expected = {"absolute": extra, "conditional": r, "divergent": r * m}
+    check(counts == expected, "the counts disagree with the numeric classification")
+    answer = counts[ask]
+    everything = n_max
+    wrongs_for = {
+        "absolute": [
+            (extra + 1, "series-p-boundary-included"),
+            (n_max - r * m, "series-converges-counted-as-absolute"),
+            (max(extra - 1, 0), "series-p-boundary-excluded"),
+            (extra + r, "series-p-boundary-included"),
+            (n_max - r * m - extra + 1, "series-converges-counted-as-absolute"),
+        ],
+        "conditional": [
+            (r - 1, "series-p-boundary-excluded"),
+            (r + 1, "series-p-boundary-included"),
+            (n_max - r * m, "series-converges-counted-as-absolute"),
+            (0, "series-conditional-confused-with-divergent"),
+            (r * m, "series-conditional-confused-with-divergent"),
+            (extra, "series-absolute-confused-with-conditional"),
+        ],
+        "divergent": [
+            (r * m + r, "series-conditional-confused-with-divergent"),
+            (r * m - 1, "series-p-boundary-excluded"),
+            (r * m + 1, "series-p-boundary-included"),
+            (everything - r * m, "series-converges-counted-as-absolute"),
+            (r * (m - 1) if m > 1 else r, "series-numerator-power-ignored"),
+        ],
+    }
+    words = {
+        "absolute": "absolutely convergent",
+        "conditional": "conditionally convergent (convergent, but not absolutely convergent)",
+        "divergent": "divergent",
+    }
     prompt = say(
-        "Classify the series ",
-        M(rf"\sum_{{n={start}}}^{{\infty}} {tex}"),
-        " as absolutely convergent, conditionally convergent or divergent.",
+        "For each integer ",
+        M("k"),
+        f" from 1 to {n_max}, consider the series ",
+        M(rf"\sum_{{n=1}}^{{\infty}} (-1)^{{n}}\,{_term_tex(c, m, r, 'k', style)}"),
+        f". For how many of these values of k is the series {words[ask]}?",
     )
-    return prompt, Link(prompt, "mcq", truth, working=[reason], wrongs=wrongs)
+    working = [
+        f"The terms have size 1/n^p with p = k/{r} - {m}.",
+        f"Divergent when p <= 0 (the terms do not tend to 0): k <= {r * m}. Conditionally convergent when 0 < p <= 1: {r * m} < k <= {r * (m + 1)}. "
+        f"Absolutely convergent when p > 1: k > {r * (m + 1)}.",
+        f"Among k = 1, ..., {n_max} that gives {counts['divergent']} divergent, {counts['conditional']} conditional and {counts['absolute']} absolute, so the answer is {answer}.",
+    ]
+    return prompt, Link(prompt, "fraction", answer, working=working, wrongs=wrongs_for[ask])
 
 
 @generator(
@@ -414,7 +272,7 @@ def _hard(rng: random.Random):
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def fy1so_series_tests(rng: random.Random, tier: str = "easy") -> dict:
-    """A convergence verdict with its justification: a p-series, comparison, or absolute versus conditional convergence."""
+    """A convergence-test quantity: the least k for a p-series, the limit in a limit comparison, a count of conditional cases."""
     check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
     prompt, link = {"easy": _easy, "medium": _medium, "hard": _hard}[tier](rng)
     return build_single(prompt, link)
@@ -482,18 +340,18 @@ def _exam(rng: random.Random):
     )
     p_a = say("Find ", M(r"\int_{1}^{\infty} f(x)\,dx"), " exactly.")
     p_b = say(
-        "Hence write down the upper bound ",
-        M(r"a_{1} + \int_{1}^{\infty} f(x)\,dx"),
-        " that the integral test gives for ",
+        "Hence write down the upper bound for ",
         M("S"),
+        " that the integral test gives: ",
+        M(r"a_{1} + \int_{1}^{\infty} f(x)\,dx"),
         ".",
     )
     p_c = say("Find the partial sum ", M(r"S_{3} = a_{1} + a_{2} + a_{3}"), " exactly.")
     p_d = say(
-        "Hence find the sharper upper bound ",
-        M(r"S_{3} + \int_{3}^{\infty} f(x)\,dx"),
-        " for ",
+        "Hence find the sharper upper bound for ",
         M("S"),
+        ": ",
+        M(r"S_{3} + \int_{3}^{\infty} f(x)\,dx"),
         ".",
     )
     k = q - 1

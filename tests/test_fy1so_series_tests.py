@@ -1,8 +1,8 @@
-"""`ucv1-series-comparison-tests`: p-series, comparison, limit comparison, the integral test, absolute and conditional
-convergence.
+"""`ucv1-series-comparison-tests`: the p-series test, limit comparison, absolute and conditional convergence, the integral test.
 
-The oracle reads the series out of the question's own text and decides it by its own numerical behaviour (the exponent p
-and constant c that a_n n^p settles to); it never imports the generator module.
+The oracle reads each series out of the question's own text and decides it by the numerical behaviour of its terms (the
+exponent p that |a_n| settles to, and the limit of a_n / b_n at a very large n); it never imports the generator module. The
+exam chain is re-derived with SymPy's integrals and exact partial sums.
 """
 
 from __future__ import annotations
@@ -28,109 +28,71 @@ TOPIC = "fy1so_series_tests"
 EXAM = "fy1so_exd_series_tests"
 n = sympy.Symbol("n")
 mpmath.mp.dps = 40
+_ROOTS = {"√": 2, "∛": 3, "∜": 4}
 
 
-def _series_term(text: str):
-    """The general term of a ``Σ_(n=a)^∞ ...`` in a prompt, as a SymPy expression in n."""
-    body = re.search(r"Σ_\(n=\d+\)\^∞ (.+?)(?:\. |\.$| as absolutely| where)", text).group(1)
-    body = body.replace("∛n", "n^(1/3)").replace("(-1)^n", "(-1)**n")
+def _term(text: str, k: int):
+    """The general term in `text` with k put in: ``3n²/∛(n^k)`` or ``n/n^(k/3)`` as a SymPy expression in n."""
+    body = re.search(r"Σ_\(n=1\)\^∞ (?:\(-1\)\^n )?(.+?)(?: converges\.|\. For how many)", text).group(1)
+    body = re.sub(r"([√∛∜])\(n\^k\)", lambda m: f"n^({k}/{_ROOTS[m.group(1)]})", body)
+    body = body.replace("n^(k/", f"n^({k}/")
     return parse_text(body, {"n": n})
 
 
-def _behaviour(term, sign: bool = False):
-    """(p, c) with |term| ~ c / n^p, read from the term at two huge n."""
-    f = sympy.lambdify(n, abs(term) if not sign else term, "mpmath")
+def _exponent(text: str, k: int) -> float:
+    """The exponent p of a term, from the slope of log |a_n| between two huge n (never from a formula for p)."""
+    f = sympy.lambdify(n, abs(_term(text, k)), "mpmath")
     a, b = mpmath.mpf(10) ** 12, mpmath.mpf(10) ** 14
-    p = -(mpmath.log(f(b)) - mpmath.log(f(a))) / (mpmath.log(b) - mpmath.log(a))
-    c = f(b) * b**p
-    return Fraction(str(round(float(p), 4))).limit_denominator(12), Fraction(str(round(float(c), 4))).limit_denominator(
-        12
-    )
+    return float(-(mpmath.log(f(b)) - mpmath.log(f(a))) / (mpmath.log(b) - mpmath.log(a)))
 
 
-def _p_in(statement: str) -> Fraction:
-    return Fraction(re.search(r"p = (\d+(?:/\d+)?)", statement).group(1))
+def test_easy_least_k_oracle():
+    for seed in SEEDS:
+        q = make(TOPIC, seed=seed, difficulty="easy")
+        first = next(k for k in range(1, 60) if _exponent(q.text, k) > 1 + 1e-6)
+        assert int(q.answer_text) == first, (seed, q.text, q.answer_text, first)
+        assert _exponent(q.text, first - 1) <= 1 + 1e-6  # just below it the series is the harmonic series or worse
+
+
+def _limit_of_ratio(text: str):
+    body = re.search(r"a_n = (.+?) and b_n = (.+?)\. Find", text)
+    a = parse_text(body.group(1), {"n": n})
+    b = parse_text(body.group(2).replace("1/", "1/"), {"n": n})
+    f = sympy.lambdify(n, a / b, "mpmath")
+    return f(mpmath.mpf(10) ** 30)
+
+
+def test_medium_limit_comparison_oracle():
+    for seed in SEEDS:
+        q = make(TOPIC, seed=seed, difficulty="medium")
+        want = _limit_of_ratio(q.text)
+        got = mpmath.mpf(Fraction(q.answer_text).numerator) / Fraction(q.answer_text).denominator
+        assert abs(got - want) < mpmath.mpf(10) ** -12, (seed, q.text, q.answer_text, want)
+
+
+def test_hard_counts_oracle():
+    for seed in SEEDS:
+        q = make(TOPIC, seed=seed, difficulty="hard")
+        upper = int(re.search(r"to (\d+)", q.text).group(1))
+        question = q.text.split("For how many")[1]
+        ask = "conditional" if "conditionally" in question else "absolute" if "absolutely" in question else "divergent"
+        counts = {"absolute": 0, "conditional": 0, "divergent": 0}
+        for k in range(1, upper + 1):
+            p = _exponent(q.text, k)
+            counts["divergent" if p < 1e-6 else "conditional" if p < 1 + 1e-6 else "absolute"] += 1
+        assert int(q.answer_text) == counts[ask], (seed, q.text, q.answer_text, counts)
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
 def test_tier_answers_and_distractors(difficulty):
-    check_single(TOPIC, difficulty, "mcq")
-
-
-def test_exactly_one_option_per_question_agrees_with_the_oracle():
-    """The easy and medium oracles: the verdict and the exponent (and constant) in the true option are the series' own."""
-    for seed in SEEDS:
-        q = make(TOPIC, seed=seed, difficulty="easy")
-        p, c = _behaviour(_series_term(q.text))
-        assert _p_in(q.answer_text) == p, (seed, q.text, q.answer_text)
-        assert q.answer_text.startswith("Converges" if p > 1 else "Diverges"), (seed, q.text)
-        for d in q.distractors:  # a wrong option misstates the exponent, the verdict or the rule
-            assert d.startswith("Converges: the terms tend") or _p_in(d) != p or not d.startswith(q.answer_text[:9])
-
-        q = make(TOPIC, seed=seed, difficulty="medium")
-        if "direct comparison" in q.text:
-            term = _series_term(q.text.replace("where a_n = ", "").replace("Σ_(n=1)^∞ a_n", "Σ_(n=1)^∞ "))
-            continue
-        term = _series_term(q.text)
-        p, c = _behaviour(term)
-        statement = re.search(r"behave like (\S+), and", q.answer_text).group(1)
-        match = re.fullmatch(r"(?:(\d+)/)?(?:\((\d+)/(\d+)n[^)]*\)|(\d+)/)?.*", statement)
-        assert match
-        shown_p = Fraction(1)
-        if "n^(" in statement:
-            shown_p = Fraction(re.search(r"n\^\((\d+/\d+)\)", statement).group(1))
-        elif "²" in statement:
-            shown_p = Fraction(2)
-        elif "³" in statement:
-            shown_p = Fraction(3)
-        assert shown_p == p, (seed, q.text, q.answer_text, p)
-        assert q.answer_text.startswith("Converges" if p > 1 else "Diverges")
-
-
-def test_direct_comparison_questions_are_sound():
-    seen = 0
-    for seed in SEEDS:
-        q = make(TOPIC, seed=seed, difficulty="medium")
-        if "direct comparison" not in q.text:
-            continue
-        seen += 1
-        body = re.search(r"a_n = (.+?)\. Use direct", q.text).group(1)
-        a = sympy.lambdify(n, parse_text(body.replace("(-1)^n", "(-1)**n"), {"n": n}), "mpmath")
-        values = [a(k) for k in range(1, 400)]
-        assert all(v >= 0 for v in values)
-        if q.answer_text.startswith("Converges"):
-            assert "0 ≤ a_n ≤ 1/n²" in q.answer_text
-            assert all(a(k) <= mpmath.mpf(1) / k**2 for k in range(1, 400))
-        else:
-            k0 = int(re.search(r"a_n ≥ (\d)/n", q.answer_text).group(1))
-            assert all(a(k) >= mpmath.mpf(k0) / k for k in range(1, 400))
-    assert seen >= 8
-
-
-def test_hard_classification_oracle():
-    labels = {"Absolutely convergent", "Conditionally convergent", "Divergent"}
-    for seed in SEEDS:
-        q = make(TOPIC, seed=seed, difficulty="hard")
-        assert q.answer_text in labels and set(q.distractors) < labels
-        term = _series_term(q.text)
-        if "ln n" in q.text:
-            expected = "Conditionally convergent" if "(ln n)²" not in q.text else "Absolutely convergent"
-        else:
-            magnitude = abs(term)
-            f = sympy.lambdify(n, magnitude, "mpmath")
-            if f(mpmath.mpf(10) ** 14) > f(mpmath.mpf(10) ** 12) / 2:  # the terms do not tend to 0
-                expected = "Divergent"
-            else:
-                p, _c = _behaviour(term)
-                expected = "Absolutely convergent" if p > 1 else "Conditionally convergent"
-        assert q.answer_text == expected, (seed, q.text, q.answer_text, expected)
+    check_single(TOPIC, difficulty, "fraction")
 
 
 def test_tiers_differ_in_shape():
     pools = check_tiers_differ(TOPIC)
-    assert all("Which" in t or "Decide" in t for t in pools["easy"])
-    assert all(t.startswith("Classify") for t in pools["hard"])
-    assert all(("limit comparison" in t or "direct comparison" in t or "justification" in t) for t in pools["medium"])
+    assert all(t.startswith("Find the smallest positive integer") for t in pools["easy"])
+    assert all("lim" in t for t in pools["medium"])
+    assert all(t.startswith("For each integer") for t in pools["hard"])
 
 
 def test_exam_chain_shape_and_marks():
@@ -167,5 +129,5 @@ def test_skill_loads_and_has_an_exam_tier():
 
     _, skills = load_skills()
     skill = next(s for s in skills if s.id == "ucv1-series-comparison-tests")
-    assert skill.status == "active" and skill.answer == "mcq"
+    assert skill.status == "active" and skill.answer == "fraction"
     assert [s.difficulty for s in skill.sources] == ["easy", "medium", "hard", "exam"]

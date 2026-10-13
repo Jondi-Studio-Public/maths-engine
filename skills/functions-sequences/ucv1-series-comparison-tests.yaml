@@ -1,14 +1,14 @@
 id: ucv1-series-comparison-tests
 name: Decide convergence by p-series, comparison, integral and alternating series tests
 domain: functions-sequences
-description: Decide whether a series converges using the p-series test, direct and limit comparison, and the integral test,
-  and classify an alternating series as absolutely convergent, conditionally convergent or divergent.
+description: Apply the p-series test, limit comparison, absolute versus conditional convergence and the integral test to
+  decide convergence and bound sums.
 status: active
 placement_eligible: false
 prerequisites:
 - senior-understand-the-limiting-behaviour-as-n-rightarrow-infty
 - integrate-polynomial
-answer: mcq
+answer: fraction
 sources:
 - topic: fy1so_series_tests
   params: {}
@@ -36,33 +36,21 @@ sources:
   stages:
   - exam
 misconceptions:
-- id: series-absolute-terms-misjudged
-  description: Calling an absolutely convergent alternating series divergent because its signs change.
-- id: series-alternating-means-conditional
-  description: Calling an alternating series conditionally convergent without checking whether the series of absolute values
-    converges.
-- id: series-alternating-test-taken-as-absolute
-  description: Calling an alternating series absolutely convergent because the terms decrease to 0, without testing the
-    absolute values.
+- id: series-absolute-confused-with-conditional
+  description: Giving the count of absolutely convergent cases when asked for the conditionally convergent ones.
 - id: series-bound-first-term-omitted
   description: Giving only the integral as the bound for the sum, leaving out the first term.
 - id: series-bound-integral-omitted
   description: Giving only the first term as the integral-test bound, leaving out the integral.
 - id: series-bound-wrong-first-term
   description: Adding the wrong term of the series to the integral in the integral-test bound.
-- id: series-comparison-degree-difference-misread
-  description: Misjudging the difference between the degrees of the numerator and denominator by one, so comparing with
-    the wrong p-series.
-- id: series-comparison-direction-wrong
-  description: 'Using the inequality the wrong way round in a direct comparison: a lower bound to prove convergence, or
-    an upper bound to prove divergence.'
-- id: series-comparison-harmonic-assumed
-  description: Comparing every rational term with the harmonic series 1/n whatever its degrees.
-- id: series-comparison-verdict-reversed
-  description: Comparing with the right series but drawing the opposite conclusion about convergence.
-- id: series-divergent-because-absolute-diverges
-  description: Calling a series divergent because the series of its absolute values diverges, forgetting that the alternating
-    series test may still apply.
+- id: series-conditional-confused-with-divergent
+  description: Counting the conditionally convergent cases as divergent (or the reverse) because the series does not converge
+    absolutely.
+- id: series-converges-counted-as-absolute
+  description: Counting every convergent case, absolute and conditional together, as the absolutely convergent ones.
+- id: series-denominator-coefficient-dropped
+  description: Dropping the denominator's leading coefficient when finding the limit in a limit comparison.
 - id: series-integral-constant-dropped
   description: Dropping the constant multiplier when integrating c/(x + b)^q.
 - id: series-integral-power-rule-slip
@@ -73,34 +61,32 @@ misconceptions:
   description: Getting the sign of an improper integral wrong when the antiderivative is evaluated at the limits.
 - id: series-integral-wrong-lower-limit
   description: Evaluating an improper integral at the wrong lower limit.
-- id: series-nth-term-test-missed
-  description: 'Not checking whether the terms tend to 0: a series whose terms do not tend to 0 diverges.'
-- id: series-p-exponent-inverted
-  description: Reading the exponent of a p-series as its reciprocal.
-- id: series-p-exponent-lowered
-  description: Reading the exponent p of a p-series as p - 1 (the exponent of the antiderivative's power).
-- id: series-p-exponent-raised
-  description: Reading the exponent p of a p-series as p + 1.
-- id: series-p-power-factor-dropped
-  description: Reading the exponent of n^k times a root as the root's exponent alone, and leaving n^k out.
-- id: series-p-root-factor-dropped
-  description: Reading the exponent of n^k times a root as k, and leaving the root out.
-- id: series-p-root-index-ignored
-  description: Reading the exponent of n^(m/r) as m, ignoring the root.
-- id: series-p-root-index-multiplied
-  description: Multiplying the whole-number exponent by the root index instead of adding the root's exponent.
-- id: series-p-test-reversed
-  description: 'Stating the p-series test the wrong way round: converging for p at most 1, or diverging for p above 1.'
+- id: series-k-overshoot
+  description: Giving a larger exponent than the least one that works.
+- id: series-limit-inverted
+  description: 'Inverting the limit: finding lim b_n / a_n instead of lim a_n / b_n.'
+- id: series-lower-terms-kept
+  description: Letting the lower-order terms change the limit, adding them to the leading coefficients or multiplying by
+    them.
+- id: series-numerator-coefficient-dropped
+  description: Dropping the numerator's leading coefficient when finding the limit in a limit comparison.
+- id: series-numerator-power-ignored
+  description: Ignoring the power of n in the numerator when finding the exponent p of the p-series.
+- id: series-p-boundary-excluded
+  description: Excluding a boundary case that belongs in the count (off by one at p = 1 or p = 0).
+- id: series-p-boundary-included
+  description: 'Treating p = 1 as convergent (or counting the boundary case on the wrong side): the harmonic series diverges.'
 - id: series-partial-sum-omitted
   description: Giving the tail integral alone where the partial sum plus the tail integral was asked for.
 - id: series-partial-sum-terms-miscounted
   description: Adding the wrong number of terms, or starting from the wrong index, in a partial sum.
+- id: series-root-index-ignored
+  description: Ignoring the root index when finding the exponent p, so the exponent of n under the root is not divided by
+    it.
 - id: series-tail-integral-omitted
   description: Leaving the tail integral out of the sharper bound, or adding a single term in its place.
 - id: series-tail-integral-start-off-by-one
   description: Starting the tail integral at the wrong point, one step before or after the partial sum ends.
-- id: series-terms-tend-to-zero-misused
-  description: Concluding that a series converges because its terms tend to 0.
 tags:
 - first-year-university
 - functions-sequences

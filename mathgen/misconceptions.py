@@ -448,96 +448,6 @@ _ENTRIES = (
         area="series",
     ),
     CatalogueEntry(
-        "series-p-exponent-inverted",
-        "Reading the exponent of a p-series as its reciprocal.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-exponent-lowered",
-        "Reading the exponent p of a p-series as p - 1 (the exponent of the antiderivative's power).",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-exponent-raised",
-        "Reading the exponent p of a p-series as p + 1.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-root-factor-dropped",
-        "Reading the exponent of n^k times a root as k, and leaving the root out.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-power-factor-dropped",
-        "Reading the exponent of n^k times a root as the root's exponent alone, and leaving n^k out.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-root-index-multiplied",
-        "Multiplying the whole-number exponent by the root index instead of adding the root's exponent.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-root-index-ignored",
-        "Reading the exponent of n^(m/r) as m, ignoring the root.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-p-test-reversed",
-        "Stating the p-series test the wrong way round: converging for p at most 1, or diverging for p above 1.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-terms-tend-to-zero-misused",
-        "Concluding that a series converges because its terms tend to 0.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-comparison-degree-difference-misread",
-        "Misjudging the difference between the degrees of the numerator and denominator by one, so comparing with the wrong p-series.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-comparison-verdict-reversed",
-        "Comparing with the right series but drawing the opposite conclusion about convergence.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-comparison-harmonic-assumed",
-        "Comparing every rational term with the harmonic series 1/n whatever its degrees.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-comparison-direction-wrong",
-        "Using the inequality the wrong way round in a direct comparison: a lower bound to prove convergence, or an upper bound to prove divergence.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-alternating-means-conditional",
-        "Calling an alternating series conditionally convergent without checking whether the series of absolute values converges.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-absolute-terms-misjudged",
-        "Calling an absolutely convergent alternating series divergent because its signs change.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-alternating-test-taken-as-absolute",
-        "Calling an alternating series absolutely convergent because the terms decrease to 0, without testing the absolute values.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-divergent-because-absolute-diverges",
-        "Calling a series divergent because the series of its absolute values diverges, forgetting that the alternating series test may still apply.",
-        area="series",
-    ),
-    CatalogueEntry(
-        "series-nth-term-test-missed",
-        "Not checking whether the terms tend to 0: a series whose terms do not tend to 0 diverges.",
-        area="series",
-    ),
-    CatalogueEntry(
         "series-integral-power-rule-slip",
         "Integrating (x + b)^(-q) without dividing by the new exponent, or with the wrong exponent.",
         area="series",
@@ -1056,6 +966,66 @@ _ENTRIES = (
         "ode3-wrong-root-used",
         "Using the other characteristic root in the resonant trial solution.",
         area="ode",
+    ),
+    CatalogueEntry(
+        "series-absolute-confused-with-conditional",
+        "Giving the count of absolutely convergent cases when asked for the conditionally convergent ones.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-conditional-confused-with-divergent",
+        "Counting the conditionally convergent cases as divergent (or the reverse) because the series does not converge absolutely.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-converges-counted-as-absolute",
+        "Counting every convergent case, absolute and conditional together, as the absolutely convergent ones.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-denominator-coefficient-dropped",
+        "Dropping the denominator's leading coefficient when finding the limit in a limit comparison.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-k-overshoot",
+        "Giving a larger exponent than the least one that works.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-limit-inverted",
+        "Inverting the limit: finding lim b_n / a_n instead of lim a_n / b_n.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-lower-terms-kept",
+        "Letting the lower-order terms change the limit, adding them to the leading coefficients or multiplying by them.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-numerator-coefficient-dropped",
+        "Dropping the numerator's leading coefficient when finding the limit in a limit comparison.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-numerator-power-ignored",
+        "Ignoring the power of n in the numerator when finding the exponent p of the p-series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-boundary-excluded",
+        "Excluding a boundary case that belongs in the count (off by one at p = 1 or p = 0).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-boundary-included",
+        "Treating p = 1 as convergent (or counting the boundary case on the wrong side): the harmonic series diverges.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-root-index-ignored",
+        "Ignoring the root index when finding the exponent p, so the exponent of n under the root is not divided by it.",
+        area="series",
     ),
 )
 

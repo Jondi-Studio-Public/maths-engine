@@ -113,10 +113,8 @@ def _easy(rng: random.Random):
     domain = ", x > 0" if kind == "power" else ""
     prompt = say(
         "Solve the initial value problem ",
-        M(ode),
+        M(rf"{ode},\; {cond}"),
         domain,
-        ", ",
-        M(cond),
         ", where y > 0. Give y as a function of x.",
     )
     del point
@@ -148,9 +146,7 @@ def _medium_square(rng: random.Random):
     ]
     prompt = say(
         "Solve the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'xy^{2}')}"),
-        ", ",
-        M(f"y(0) = {y0}"),
+        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'xy^{2}')},\; y(0) = {y0}"),
         ". Give y as a function of x for x close to 0.",
     )
     working = [
@@ -174,9 +170,7 @@ def _medium_reciprocal(rng: random.Random):
     ]
     prompt = say(
         "Solve the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = \frac{{{_num(a, 'x')}}}{{y}}"),
-        ", ",
-        M(f"y(0) = {y0}"),
+        M(rf"\frac{{dy}}{{dx}} = \frac{{{_num(a, 'x')}}}{{y}},\; y(0) = {y0}"),
         ", where y > 0. Give y as a function of x.",
     )
     working = [
@@ -200,9 +194,7 @@ def _medium_exponential(rng: random.Random):
     ]
     prompt = say(
         "Solve the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'x')}\,e^{{-y}}"),
-        ", ",
-        M("y(0) = 0"),
+        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'x')}\,e^{{-y}},\; y(0) = 0"),
         ". Give y as a function of x.",
     )
     working = [f"e^y dy = {a}x dx, so e^y = {c}x² + C.", "y(0) = 0 gives C = 1, so y = ln(1 + " + f"{c}x²)."]
@@ -240,9 +232,7 @@ def _hard_logistic(rng: random.Random):
     ]
     prompt = say(
         "Solve the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = {_num(k, 'y')}({big} - y)"),
-        ", ",
-        M(f"y(0) = {y0}"),
+        M(rf"\frac{{dy}}{{dx}} = {_num(k, 'y')}({big} - y),\; y(0) = {y0}"),
         f", where 0 < y < {big}. Give y as a function of x.",
     )
     working = [
@@ -267,9 +257,7 @@ def _hard_tangent(rng: random.Random):
     ]
     prompt = say(
         "Solve the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'x')}(1 + y^{{2}})"),
-        ", ",
-        M("y(0) = 0"),
+        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'x')}(1 + y^{{2}}),\; y(0) = 0"),
         ". Give y as a function of x for x close to 0.",
     )
     working = [
@@ -322,9 +310,7 @@ def _exam_blow_up(rng: random.Random):
     check(abs(float(y1) - 1 / (1 / float(y0) - a * float(x1) ** 2 / 2)) < 1e-9, "y(x1) disagrees")
     stem = say(
         "Consider the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'xy^{2}')}"),
-        ", ",
-        M(f"y(0) = {rational_text(y0)}"),
+        M(rf"\frac{{dy}}{{dx}} = {_num(a, 'xy^{2}')},\; y(0) = {rational_text(y0)}"),
         ". Separating variables and integrating gives ",
         M(rf"-\frac{{1}}{{y}} = {_coef_half(a)}x^{{2}} + C"),
         ".",
@@ -335,10 +321,8 @@ def _exam_blow_up(rng: random.Random):
     p_c = say(
         "The solution becomes unbounded as ",
         M("x"),
-        " increases to a value ",
-        M("X"),
-        ". Find ",
-        M("X"),
+        " increases to a finite value. Find that value of ",
+        M("x"),
         ", correct to 3 decimal places.",
     )
     p_d = say(
@@ -457,9 +441,7 @@ def _exam_stop(rng: random.Random):
     _check_solution(lambda t: math.sqrt(y0 * y0 - a * t * t), lambda t, v: -a * t / v, 0, y0)
     stem = say(
         "Consider the initial value problem ",
-        M(rf"\frac{{dy}}{{dx}} = -\frac{{{_num(a, 'x')}}}{{y}}"),
-        ", ",
-        M(f"y(0) = {y0}"),
+        M(rf"\frac{{dy}}{{dx}} = -\frac{{{_num(a, 'x')}}}{{y}},\; y(0) = {y0}"),
         ", where y > 0. Separating variables and integrating gives ",
         M(rf"\frac{{y^{{2}}}}{{2}} = -{_coef_half(a)}x^{{2}} + C"),
         ".",
@@ -467,11 +449,9 @@ def _exam_stop(rng: random.Random):
     p_a = say("Use the initial condition to find the value of ", M("C"), ".")
     p_b = say("Hence find ", M(f"y({x1})"), " exactly.")
     p_c = say(
-        "The solution is defined for 0 ≤ x < ",
-        M("X"),
-        ", where y reaches 0. Find ",
-        M("X"),
-        ", correct to 3 decimal places.",
+        "The solution stops where y reaches 0. Find the value of ",
+        M("x"),
+        " at which this happens, correct to 3 decimal places.",
     )
     p_d = say("Find the value of ", M("x"), f" at which y = {yt}, correct to 3 decimal places.")
     a_wrongs = [

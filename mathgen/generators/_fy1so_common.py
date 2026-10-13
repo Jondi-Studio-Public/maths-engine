@@ -195,6 +195,12 @@ def plain(tex: str) -> str:
     return re.sub(r" {2,}", " ", "".join(out)).strip()
 
 
+def tidy(line: str) -> str:
+    """A worked line with ``+ -3`` written ``- 3`` and ``- -3`` written ``+ 3``: a sign never follows an operator."""
+    line = re.sub(r"\+ -(?=\d)", "- ", line)
+    return re.sub(r" - -(?=\d)", " + ", line)
+
+
 def say(*parts) -> tuple[str, str]:
     """``(text, latex)`` for a sentence made of prose strings and `M` formulas."""
     text: list[str] = []
@@ -254,7 +260,7 @@ def _balanced(s: str, open_at: int) -> int:
 def _rewrite_calls(s: str) -> str:
     """exp(a) -> e^(a), log(a) -> ln(a), sqrt(a) -> √(a), innermost first."""
     pattern = re.compile(r"(?<![A-Za-z])(exp|log|sqrt)\(")
-    while True:
+    for _ in range(len(s) + 1):  # each pass removes one call, so this is more than enough
         calls = list(pattern.finditer(s))
         if not calls:
             return s
@@ -270,6 +276,7 @@ def _rewrite_calls(s: str) -> str:
         else:
             new = f"√{arg}" if re.fullmatch(r"[A-Za-z0-9]+", arg) else f"√({arg})"
         s = s[: m.start()] + new + s[end + 1 :]
+    raise ValueError(f"could not rewrite the function calls in {s!r}")
 
 
 def expr_text(expr) -> str:
@@ -447,7 +454,7 @@ def build_answer(link: Link) -> dict:
         answer, text, latex, options = expression_options(link.value, link.wrongs, link.symbols)
     elif link.kind == "mcq":
         text = link.value
-        answer, latex = text, text
+        answer, latex = text, f"plain:{text}"
         seen = {text}
         options = []
         for option, misconception in link.wrongs:
@@ -468,7 +475,7 @@ def build_part(link: Link) -> dict:
         prompt=link.prompt[0],
         prompt_latex=link.prompt[1],
         marks=link.marks,
-        working=list(link.working),
+        working=[tidy(line) for line in link.working],
         **built,
     )
     if link.ft:
@@ -482,7 +489,7 @@ def build_single(prompt: tuple, link: Link) -> dict:
     """A single-answer question from a prompt ``(text, latex)`` and its `Link`."""
     built = build_answer(link)
     text, latex = prompt
-    return dict(text=text, latex=latex, working=list(link.working), **built)
+    return dict(text=text, latex=latex, working=[tidy(line) for line in link.working], **built)
 
 
 def n_to_places(value, places: int) -> Fraction:
