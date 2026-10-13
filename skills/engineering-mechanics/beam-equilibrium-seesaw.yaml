@@ -12,6 +12,11 @@ sources:
     kinds:
     - equilibrium
   difficulty: easy
+- topic: exd_x_u1_loaded_plank
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: assumed-equal-force
   description: Assuming the same force balances regardless of distance.

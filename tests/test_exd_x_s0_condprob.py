@@ -81,3 +81,9 @@ def test_every_option_is_a_probability_300_seeds():
         q = _exam(s)
         for text in (q.answer_text, *q.distractors):
             assert 0 <= Fraction(text) <= 1, (s, text)
+
+
+def test_no_plural_verb_phrase_after_a_singular_subject():
+    banned = ("who speak", "who take", "who play", "who own", "who subscribe", "who follow")
+    bad = [(s, w) for s in range(300) for w in banned if w in _exam(s).text]
+    assert bad == []

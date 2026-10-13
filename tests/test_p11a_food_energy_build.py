@@ -212,4 +212,4 @@ def test_skill_loads_with_expected_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["convert-metric-length"]
-    assert len(skill.sources) == 3
+    assert len(skill.sources) == 4

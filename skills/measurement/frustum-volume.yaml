@@ -23,6 +23,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m3_frustum_slant_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: treats_as_full_cone
   description: Treats the frustum as a full cone, computing one third of pi times the base radius squared times the height and ignoring the top radius entirely.

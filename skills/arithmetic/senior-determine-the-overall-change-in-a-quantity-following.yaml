@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n1_repeated_change_and_reverse
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: adds-the-percentages
   description: Sums the stated percentages and applies the total as a single change to the original quantity, instead of compounding each change in turn.

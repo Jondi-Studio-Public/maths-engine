@@ -135,5 +135,5 @@ class TestOwnVerification:
     def test_skill_shape(self):
         skill = _skill()
         assert skill.answer == "number" and skill.status == "active"
-        assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard"}
+        assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
         assert "ac9m8sp02" in skill.tags

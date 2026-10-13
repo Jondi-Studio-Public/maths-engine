@@ -23,7 +23,8 @@ _SCI_RE = re.compile(r"(\d+(?:\.\d+)?) × 10\^(-?\d+)")
 def _load_sources():
     with open(SKILL_PATH, encoding="utf-8") as f:
         skill = yaml.safe_load(f)
-    return skill["sources"]
+    # the exam-tier source uses a different topic and question shape
+    return [src for src in skill["sources"] if src["difficulty"] != "exam"]
 
 
 SOURCES = _load_sources()

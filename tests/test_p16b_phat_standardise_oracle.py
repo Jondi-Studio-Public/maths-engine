@@ -34,7 +34,7 @@ _PHAT_SAMPLE_RE = re.compile(r"sample (\d+): (-?[\d.]+)(?=[;.])")
 _X_SAMPLE_RE = re.compile(r"sample (\d+): x = (-?\d+)")
 _EASY_STATED_RE = re.compile(r"For sample (\d+), calculate the standardised value")
 _MEDIUM_STATED_RE = re.compile(r"For sample (\d+), first find p̂ = x/n")
-_EXAM_STATED_RE = re.compile(r"For sample (\d+), first find the true probability")
+_EXAM_STATED_RE = re.compile(r"For sample (\d+), calculate the standardised value z, to 2 decimal places, where p is")
 _HARD_PAIR_RE = re.compile(r"Samples (\d+) and (\d+) are on opposite sides of p")
 
 _SPINNER_RE = re.compile(r"a spinner with (\d+) equal sectors, (\d+) of which (?:is|are) coloured red")

@@ -364,6 +364,9 @@ def test_skill_contracts_load_with_expected_shape(skill_id, topic):
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert {source.topic for source in skill.sources} == {topic}
+    # the s-estimated skill's exam source is the multi-part chain exd_x_r2k_xbar_pvalue, not its single-question topic
+    exam_topic = "exd_x_r2k_xbar_pvalue" if skill_id == S_ID else topic
+    assert {source.topic for source in skill.sources if source.difficulty != "exam"} == {topic}
+    assert [source.topic for source in skill.sources if source.difficulty == "exam"] == [exam_topic]
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert [source.stages for source in skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]

@@ -19,8 +19,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15d_automaton_acceptance
-  params: {}
+- topic: exd_x_r2g_dfa_counting
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

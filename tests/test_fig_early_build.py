@@ -56,7 +56,9 @@ def _q(skill_id, difficulty, seed):
 
 
 def _tiers(skill_id):
-    return [s.difficulty for s in _skills()[skill_id].sources]
+    # The figure tiers. A skill may also carry an exam chain from another generator (an optional exam tier on
+    # a primary skill), which draws no figure and is tested with that generator.
+    return [s.difficulty for s in _skills()[skill_id].sources if s.topic == ALL[skill_id][0]]
 
 
 def _is_right(skill_id, q, text):
@@ -77,7 +79,7 @@ def test_skill_is_active_with_the_figure_gate(skill_id):
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.mental is None
     assert skill.answer == ALL[skill_id][1]
-    assert {s.topic for s in skill.sources} == {ALL[skill_id][0]}
+    assert {s.topic for s in skill.sources if s.difficulty != "exam"} == {ALL[skill_id][0]}
 
 
 @pytest.mark.parametrize("skill_id", sorted(NEW))

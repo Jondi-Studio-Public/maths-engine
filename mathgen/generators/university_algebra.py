@@ -447,7 +447,33 @@ def propositional_formula_equivalence(rng, complexity=2):
             (("implies", p, q), ("implies", ("not", p), ("not", q))),
             (("or", p, ("and", q, r)), ("and", ("or", p, q), r)),
         ]
-    left, right = rng.choice(equivalent_pairs if complexity <= 1 or rng.random() < 0.5 else non_equivalent_pairs)
+    if complexity <= 1:
+        # Easy: short two-variable pairs, with the relation drawn first so each of the four is the key on a fair
+        # share of seeds (equivalent, first implies second only, second implies first only, neither).
+        easy_pairs = [
+            (p, ("or", ("and", p, q), ("and", p, ("not", q)))),
+            (("or", p, q), ("or", q, p)),
+            (("implies", p, q), ("or", ("not", p), q)),
+            (("and", p, q), ("or", p, q)),
+            (("and", p, q), p),
+            (("not", ("or", p, q)), ("and", ("not", p), ("not", q))),
+            (("or", p, q), ("and", p, q)),
+            (p, ("and", p, q)),
+            (("not", ("and", p, q)), ("and", ("not", p), ("not", q))),
+            (("implies", p, q), ("implies", q, p)),
+            (("and", p, ("not", q)), ("or", ("not", p), q)),
+            (("or", p, q), ("and", p, ("not", q))),
+        ]
+        groups: dict = {}
+        for pair in easy_pairs:
+            rows = list(product([False, True], repeat=2))
+            lv = [_prop_eval(pair[0], dict(zip("pq", row))) for row in rows]
+            rv = [_prop_eval(pair[1], dict(zip("pq", row))) for row in rows]
+            kind = (all(not a or b for a, b in zip(lv, rv)), all(not b or a for a, b in zip(lv, rv)))
+            groups.setdefault(kind, []).append(pair)
+        left, right = rng.choice(groups[rng.choice(sorted(groups))])
+    else:
+        left, right = rng.choice(equivalent_pairs if rng.random() < 0.5 else non_equivalent_pairs)
     atoms = sorted(_prop_atoms(left) | _prop_atoms(right))
     rows = list(product([False, True], repeat=len(atoms)))
     left_values = [_prop_eval(left, dict(zip(atoms, row))) for row in rows]
@@ -460,13 +486,28 @@ def propositional_formula_equivalence(rng, complexity=2):
     ]
     check(equivalent == (not witnesses), "truth-table equivalence mismatch")
 
-    answer_text = "Equivalent" if equivalent else "Not equivalent"
-    alternatives = [
-        "Equivalent",
-        "Not equivalent",
-        "Equivalent only when p is true",
-        "Cannot be determined from the formulas",
-    ]
+    # The four relations a pair of formulas can have, read off the truth table. Exactly one holds, and each is
+    # the key for some pairs, so every option is a genuine answer. The slips they catch: declaring equivalence from
+    # the rows that agree, and getting the direction of implication wrong (the converse slip).
+    left_implies_right = all((not lv) or rv for lv, rv in zip(left_values, right_values))
+    right_implies_left = all((not rv) or lv for lv, rv in zip(left_values, right_values))
+    relation_options = {
+        "equivalent": "Equivalent",
+        "left": "Not equivalent: the first formula implies the second, but not the other way round",
+        "right": "Not equivalent: the second formula implies the first, but not the other way round",
+        "neither": "Not equivalent: neither formula implies the other",
+    }
+    if left_implies_right and right_implies_left:
+        relation = "equivalent"
+    elif left_implies_right:
+        relation = "left"
+    elif right_implies_left:
+        relation = "right"
+    else:
+        relation = "neither"
+    check((relation == "equivalent") == equivalent, "implication directions disagree with the equivalence check")
+    answer_text = relation_options[relation]
+    alternatives = [t for k, t in relation_options.items() if k != relation]
     return dict(
         text=(
             f"Are the propositional formulas {_prop_render(left)} and "

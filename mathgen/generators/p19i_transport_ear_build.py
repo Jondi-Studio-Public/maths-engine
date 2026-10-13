@@ -544,8 +544,14 @@ _WRONG_N = {"daily": 30, "monthly": 13, "quarterly": 3, "six-monthly": 6}
 # harder than for a nominal rate (six-monthly's "6" would be over 3x the key).
 _WRONG_N_PERIOD = {"monthly": 13, "quarterly": 3, "six-monthly": 1}
 
+
 # Scenario nouns widen prompt variety; the rate sentences the
 # oracle test parses are unchanged.
+def _a(noun: str) -> str:
+    """The noun with its indefinite article: "an investment", "a loan"."""
+    return ("an " if noun[0] in "aeiou" else "a ") + noun
+
+
 _SCENARIOS = ["savings account", "term deposit", "investment", "bank account", "fixed deposit", "loan"]
 
 
@@ -608,8 +614,8 @@ def _try_build_ear(rng, variant):
         check_equivalent(ear2, _ear_iterative(r, n2), "EAR closed form disagrees with iterative recomputation")
         r_pct = r * 100
         question_text = (
-            f"A nominal annual interest rate of {stated_precision_string(r_pct, 0)}% is applied to a "
-            f"{scenario}. Calculate the effective annual rate of interest (EAR) when compounded {name1} and "
+            f"A nominal annual interest rate of {stated_precision_string(r_pct, 0)}% is applied to "
+            f"{_a(scenario)}. Calculate the effective annual rate of interest (EAR) when compounded {name1} and "
             f"when compounded {name2}, each as a percentage to 2 decimal places."
         )
 
@@ -622,8 +628,8 @@ def _try_build_ear(rng, variant):
         check_equivalent(ear2, _ear_iterative(r, n2), "EAR closed form disagrees with iterative recomputation")
         r_pct = r * 100
         question_text = (
-            f"A nominal annual interest rate of {stated_precision_string(r_pct, 0)}% is applied to a "
-            f"{scenario}. Calculate the effective annual rate of interest (EAR) when compounded {name1} and "
+            f"A nominal annual interest rate of {stated_precision_string(r_pct, 0)}% is applied to "
+            f"{_a(scenario)}. Calculate the effective annual rate of interest (EAR) when compounded {name1} and "
             f"when compounded {name2}, each as a percentage to 2 decimal places."
         )
 
@@ -670,7 +676,7 @@ def _try_build_ear(rng, variant):
         period_noun = {"daily": "day", "monthly": "month", "quarterly": "quarter", "six-monthly": "six months"}[name1]
         scenario = rng.choice(_SCENARIOS)
         question_text = (
-            f"A {scenario} is opened. "
+            f"{_a(scenario).capitalize()} is opened. "
             f"A rate of {stated_precision_string(per_period_pct, 2)}% is applied every "
             f"{period_noun} ({name1} compounding). Calculate the effective annual rate of interest (EAR) at this "
             f"same {name1} frequency, and the EAR the equivalent nominal annual rate would give if "

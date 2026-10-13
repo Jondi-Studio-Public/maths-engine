@@ -22,8 +22,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c3_tangent_normal
-  params: {tier: exam}
+- topic: exd_x_r2a_parallel_tangent_normal
+  params: {}
   difficulty: exam
   stages:
   - exam

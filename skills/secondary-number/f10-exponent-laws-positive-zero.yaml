@@ -19,5 +19,9 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_n3_common_base_powers
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions: []
 tags: [acara-f10-v9, secondary, exponents]

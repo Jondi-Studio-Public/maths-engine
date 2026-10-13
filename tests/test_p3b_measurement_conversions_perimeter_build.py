@@ -221,15 +221,15 @@ def test_p3b_conversions_perimeter_skill_contracts_load_with_expected_shape():
     assert area_skill.placement_eligible is False
     assert area_skill.status == "active"
     assert area_skill.learner_band == "general"
-    assert [source.difficulty for source in area_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in area_skill.sources} == {AREA_TOPIC}
-    assert [source.stages for source in area_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in area_skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in area_skill.sources if source.difficulty != "exam"} == {AREA_TOPIC}
+    assert [source.stages for source in area_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]
 
     assert perimeter_skill.prerequisites == ["convert-metric-length"]
     assert perimeter_skill.answer == "number"
     assert perimeter_skill.placement_eligible is False
     assert perimeter_skill.status == "active"
     assert perimeter_skill.learner_band == "general"
-    assert [source.difficulty for source in perimeter_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in perimeter_skill.sources} == {PERIMETER_TOPIC}
-    assert [source.stages for source in perimeter_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in perimeter_skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in perimeter_skill.sources if source.difficulty != "exam"} == {PERIMETER_TOPIC}
+    assert [source.stages for source in perimeter_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]

@@ -133,6 +133,6 @@ def test_skill_loads_with_expected_shape():
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
     assert skill.status == "active"
-    assert {source.topic for source in skill.sources} == {TOPIC}
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard"]
-    assert [source.stages for source in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert {source.topic for source in skill.sources} == {TOPIC, "exd_x_n3_exponent_two_variables"}
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert [source.stages for source in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]

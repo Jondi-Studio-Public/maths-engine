@@ -5,6 +5,6 @@ description: Calculate the volume of a rectangular prism from three whole-number
 status: active
 prerequisites: [rectangle-area]
 answer: number
-sources: [{topic: rectangular_prism_volume, params: {side_hi: 12}, difficulty: easy}]
+sources: [{topic: rectangular_prism_volume, params: {side_hi: 12}, difficulty: easy}, {topic: exd_x_pr3_prism_volume, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: uses-surface-area, description: Adds face areas instead of multiplying all three dimensions.}]
 tags: [expansion-batch-2, primary, volume]

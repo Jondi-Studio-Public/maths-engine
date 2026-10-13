@@ -67,9 +67,16 @@ def test_all_topics_usually_have_enough_distractors(topic):
     # with the answer for some parameters (that's expected and filtered); but
     # across seeds, most questions should keep at least 2 usable distractors.
     n = 60 if topic == "differential_equation" else 100
-    # A multi-part question has no top-level options: each part offers its own, so count those instead.
+
+    # A multi-part question has no top-level options: each part offers its own, so count those instead. A part
+    # answered yes or no is a genuine two-option classification, like the topics above, so it is left out.
+    def _offers(part):
+        return {part.answer_text.strip().lower(), *(d.strip().lower() for d in part.distractors)} != {"yes", "no"}
+
     counts = [
-        min(len(part.distractors) for part in question.parts) if question.parts else len(question.distractors)
+        min((len(part.distractors) for part in question.parts if _offers(part)), default=2)
+        if question.parts
+        else len(question.distractors)
         for question in (make(topic, seed=s) for s in range(n))
     ]
     assert sum(1 for c in counts if c >= 2) / n >= 0.85

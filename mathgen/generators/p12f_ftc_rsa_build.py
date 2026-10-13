@@ -116,12 +116,9 @@ _DECRYPT_TEMPLATES_LATEX = (
 
 _CHAIN_TEMPLATES_TEXT = (
     "An RSA system uses primes p = {p} and q = {q}, with public exponent "
-    "e = {e}. First find n = p*q, then encrypt the message m = {m}: find "
-    "c = m^e mod n.",
-    "RSA setup: p = {p}, q = {q}, e = {e}. Determine n = p*q, and then "
-    "compute c = m^e mod n for the plaintext m = {m}.",
-    "Given RSA primes p = {p}, q = {q} and public exponent e = {e}: work "
-    "out n = p*q, and use it to find c = m^e mod n for m = {m}.",
+    "e = {e}. Encrypt the message m = {m}: find c = m^e mod n, where n = p*q.",
+    "RSA setup: p = {p}, q = {q}, e = {e}. Find c = m^e mod n for the plaintext m = {m}, where n = p*q.",
+    "Given RSA primes p = {p}, q = {q} and public exponent e = {e}, find c = m^e mod n for m = {m}, where n = p*q.",
 )
 _CHAIN_TEMPLATES_LATEX = (
     r"p={p},\,q={q},\,e={e},\,m={m};\quad n=pq;\quad \text{{find }} c = m^e \bmod n.",

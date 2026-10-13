@@ -27,8 +27,8 @@ _INVERSE_TEXT_RE = re.compile(
     r"A fraction was halved (once|twice), and the result is (\S+)\. "
     r"What was the original fraction, before it was halved\?"
 )
-_SINGLE_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) (tenths|hundredths) as a decimal\.")
-_BOTH_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) tenths and (\d+) hundredths as a decimal\.")
+_SINGLE_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) (tenths?|hundredths?) as a decimal\.")
+_BOTH_DECIMAL_TEXT_RE = re.compile(r"Write (\d+) tenths? and (\d+) hundredths? as a decimal\.")
 
 _STEP_WORD_TO_N = {"once": 1, "twice": 2}
 
@@ -264,7 +264,7 @@ def test_fraction_halving_never_produces_an_unreduced_display():
 def _parse_single(question):
     m = _SINGLE_DECIMAL_TEXT_RE.match(question.text)
     assert m, f"unexpected single-place question text shape: {question.text!r}"
-    return int(m.group(1)), m.group(2)
+    return int(m.group(1)), m.group(2).rstrip("s") + "s"  # "1 tenth" is singular
 
 
 def test_single_place_easy_both_sub_cases_occur_and_answer_is_correct():
@@ -339,7 +339,7 @@ def _identify_hard_trap(question):
     assert both_match is None, f"hard tier unexpectedly used the dual-clause shape: {question.text!r}"
     single_match = _SINGLE_DECIMAL_TEXT_RE.match(question.text)
     assert single_match, f"unexpected hard question text shape: {question.text!r}"
-    count, place = int(single_match.group(1)), single_match.group(2)
+    count, place = int(single_match.group(1)), single_match.group(2).rstrip("s") + "s"
     if place == "hundredths":
         return "leading_zero", count
     return "regrouping", count
@@ -441,14 +441,14 @@ def test_primary_number_fraction_decimal_cluster_a_skill_contracts_load_with_exp
     assert halving.answer == "fraction"
     assert halving.placement_eligible is False
     assert halving.status == "active"
-    assert [source.difficulty for source in halving.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in halving.sources} == {"fraction_halving"}
-    assert [source.stages for source in halving.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in halving.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in halving.sources[:3]} == {"fraction_halving"}
+    assert [source.stages for source in halving.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
 
     assert decimal_compose.prerequisites == ["decimal-place-value", "fraction-decimal-percent"]
     assert decimal_compose.answer == "number"
     assert decimal_compose.placement_eligible is False
     assert decimal_compose.status == "active"
-    assert [source.difficulty for source in decimal_compose.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in decimal_compose.sources} == {"decimal_tenths_hundredths_compose"}
-    assert [source.stages for source in decimal_compose.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    assert [source.difficulty for source in decimal_compose.sources[:3]] == ["easy", "medium", "hard"]
+    assert {source.topic for source in decimal_compose.sources[:3]} == {"decimal_tenths_hundredths_compose"}
+    assert [source.stages for source in decimal_compose.sources[:3]] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]

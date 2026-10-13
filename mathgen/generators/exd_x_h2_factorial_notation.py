@@ -92,10 +92,7 @@ def _finish_value(rng: random.Random, expression_text: str, expr, candidates: li
     check(len(wrong) >= 1, "no usable distractor")
     distractors = pick_distractors(str(key), [str(w) for w in wrong])
     check(len(distractors) >= 1, "no usable distractor")
-    text = (
-        f"Simplify {expression_text} for integers n >= 2, then find the value of the simplified expression "
-        f"when n = {n_value}."
-    )
+    text = f"Simplify {expression_text} for integers n >= 2 and evaluate it when n = {n_value}."
     working = [*working, f"At n = {n_value}, {_w(sympy.factor(expr))} = {key}."]
     return dict(
         text=text,

@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p19f_acceleration_second_derivative
-  params: {}
+- topic: exd_x_r2i_motion_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

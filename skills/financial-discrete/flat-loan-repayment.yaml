@@ -7,7 +7,7 @@ prerequisites: [simple-interest, decimal-arithmetic]
 answer: number
 sources:
 - {topic: flat_loan_repayment, params: {}, difficulty: easy}
-- topic: exd_x_g5_flat_loan
+- topic: exd_x_r2d_flat_loan_term_chain
   params: {tier: exam}
   difficulty: exam
   stages:

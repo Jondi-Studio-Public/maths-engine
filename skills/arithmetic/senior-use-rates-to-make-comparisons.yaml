@@ -21,6 +21,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_n2_rates_unit_cost
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sum-instead-of-difference
   description: Adds the two rates instead of finding their difference.

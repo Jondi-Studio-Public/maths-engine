@@ -1040,7 +1040,8 @@ def test_skill_a_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert skill.status == "active"
     assert skill.prerequisites == []
-    assert {source.topic for source in skill.sources} == {TOPIC_A}
+    # The exam tier is a multi-part chain on its own topic (exd_x_r2i_timetable_chain).
+    assert {source.topic for source in skill.sources if source.difficulty != "exam"} == {TOPIC_A}
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert [source.stages for source in skill.sources][-1] == ["exam"]
 
