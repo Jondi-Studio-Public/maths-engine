@@ -145,6 +145,9 @@ does that translation for you.
 | `mathgen/` | The package: `core.py` shared helpers, `figures.py`, `slots.py`, `engine.py`, `skills.py` loader and validator |
 | `mathgen/generators/` | The question generators, one decorated function each |
 | `mathgen/grading/` | Typed-answer graders: number, fraction, expression, list, multiple choice and others |
+| `mathgen/service.py` | Skills, questions, worksheets and grading as plain JSON, for services and exports |
+| `mathgen/export.py`, `mathgen/svg.py` | Print worksheets and answer keys, Moodle XML and QTI banks; figures as SVG |
+| `mathgen/server/` | The HTTP API (`pip install "maths-engine[server]"`, `python -m mathgen.server`); see `docs/server.md` |
 | `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
 | `skills/<domain>/<id>.yaml` | One skill definition per file |
 | `scripts/` | Speed check, regrade sweep and other build tooling |
@@ -152,6 +155,12 @@ does that translation for you.
 
 Generator file names carry historical batch prefixes (such as `p19h_`). They
 are identifiers, not categories.
+
+## Over HTTP, for schools and other services
+
+`docs/server.md` describes an HTTP API and a Docker image (`Dockerfile`, `compose.example.yaml`): search skills
+by year or ACARA code, generate questions, build worksheets and tests in versions with answer keys, export them
+for print, Moodle or QTI, and grade replies by question id. It stores nothing, so a school can run its own copy.
 
 ## How determinism and grading work
 
