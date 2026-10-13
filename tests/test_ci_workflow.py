@@ -1010,6 +1010,11 @@ ALLOWED_TREE = {
     "mathgen/library/helpers.py": "x = 1\n",  # a directory called library, not lib
     "tests/envelope/test_a.py": "x = 1\n",  # a directory called envelope, not env
     "docs/vendor_notes.md": "x\n",  # vendor only as part of a file name
+    # the Agent Plugins manifests, at their own paths
+    "plugins/p/plugin.json": "{}\n",
+    "plugins/p/mcp.json": "{}\n",
+    "plugins/p/.claude-plugin/plugin.json": "{}\n",
+    ".claude-plugin/marketplace.json": "{}\n",
 }
 
 
@@ -1064,6 +1069,13 @@ REFUSED_PATHS = [
     "Pipfile.lock",
     "poetry.lock",
     "data.json",
+    "plugin.json",  # the manifest names pass only at the plugins' own paths
+    "mcp.json",
+    "marketplace.json",
+    "docs/mcp.json",
+    "plugins/plugin.json",
+    "plugins/p/marketplace.json",
+    "plugins/p/data.json",
     "page.html",
     "run.sh",
     "Makefile",

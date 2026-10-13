@@ -15,7 +15,7 @@ use the tools.
 ## Install
 
 You need [uv](https://docs.astral.sh/uv/) on your `PATH`: the plugins launch the server with `uvx`. The server is
-fetched from this repository's `main` branch, so it follows the latest code; a later release will pin a tag.
+fetched from this repository at `@<release tag>`: a release tag, which each plugin pins. The package is not on PyPI.
 
 **Any Agent Plugins client.** Point the client at the plugin directory (`plugins/maths-engine-tutor` or
 `plugins/maths-engine-teacher`). Each holds `plugin.json`, `mcp.json` and `skills/`.
@@ -28,19 +28,22 @@ fetched from this repository's `main` branch, so it follows the latest code; a l
 /plugin install maths-engine-teacher@maths-engine
 ```
 
-Install whichever you need. Claude Code reads each plugin's server settings from `.claude-plugin/marketplace.json` at the repository root.
+Install whichever you need. Each plugin has a `.claude-plugin/plugin.json` that carries its MCP server, so the marketplace and
+`claude --plugin-dir plugins/maths-engine-tutor` both start the server and load the skills.
 
 **Other MCP clients.** Add the server by hand: see `docs/mcp.md`.
 
 Files the teacher plugin writes (worksheets, keys, banks) go to the plugin's data directory under `exports`, and the
-agent reports the path.
+agent reports the path. If you run `mathgen-mcp` by hand, the default folder is `~/maths-engine-exports`; do not share
+one output folder between a teacher server and a learner agent, because answer keys land there.
 
 ## Why the tutor never sees answers
 
 If the tutor's server could return answers, the agent would have them in front of it, and a model asked to be helpful
 will sometimes give them away. So the learner role has no tool or flag that returns an answer, and marking says
 whether a reply is right and what misconception it shows, nothing more. The tutor skill also tells the agent to coach
-the method rather than work out and state the result. Marking always goes through the engine, which accepts
+the method rather than work out and state the result, not to use the marker as an oracle (trying options or candidate
+answers), and to describe figures from their alt text. Marking always goes through the engine, which accepts
 equivalent forms and applies each question's precision rules.
 
 This is a safeguard for practice, not security. The source is public and a question id names its seed, so someone
@@ -49,7 +52,8 @@ plugin can show every answer: do not give it to learners.
 
 ## Licences
 
-- Code: MIT (`LICENSE`).
-- Skill definitions and these plugin skills: CC BY 4.0 (`LICENSE-CONTENT`).
+- The plugins in this folder (instructions and configuration only): MIT.
+- Engine code: MIT (`LICENSE`).
+- Skill library definitions under `skills/`: CC BY 4.0 (`LICENSE-CONTENT`).
 - Senior secondary content is adapted from the Australian Curriculum (ACARA) under CC BY 4.0 and must keep its
   attribution; see `NOTICE`. ACARA does not endorse this product.

@@ -103,5 +103,9 @@ def test_the_sdist_carries_every_folder_the_tests_read():
     """An unpacked sdist runs its own tests; `tests/test_ci_*.py` read `.github/`."""
     lines = (ROOT / "MANIFEST.in").read_text(encoding="utf-8").splitlines()
     grafted = {line.split()[1] for line in lines if line.startswith("graft ")}
-    folders = {name for name in (".github", "skills", "scripts", "tests") if (ROOT / name).is_dir()}
+    folders = {
+        name
+        for name in (".github", "skills", "scripts", "tests", "plugins", ".claude-plugin")
+        if (ROOT / name).is_dir()
+    }
     assert folders and folders <= grafted

@@ -6,30 +6,35 @@ themselves. It stores nothing. For a web service instead, see `docs/server.md`.
 
 ## Install
 
+The package is not on PyPI. Install it from GitHub:
+
 ```
-pip install "maths-engine[mcp]"
+pip install "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@<release tag>"
 ```
 
 or run it without installing, with [uv](https://docs.astral.sh/uv/):
 
 ```
-uvx --from "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main" mathgen-mcp
+uvx --from "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@<release tag>" mathgen-mcp
 ```
+
+`<release tag>` is a release tag of this repository; the plugins pin one.
 
 ## Run
 
 ```
 mathgen-mcp                                  # learner role: questions and marking, never an answer
 mathgen-mcp --role author                    # adds answers, answer keys and LMS exports
-mathgen-mcp --role author --out-dir ./out    # where files are written
+mathgen-mcp --role author --out-dir ~/out    # where files are written
 ```
 
 | Flag | Default | |
 |---|---|---|
 | `--role learner\|author` | `learner` | what the server may return, below |
-| `--out-dir DIR` | `./maths-engine-exports` | where worksheets and exports are written |
+| `--out-dir DIR` | `~/maths-engine-exports` | where worksheets and exports are written |
 | `--skills DIR` | none | an extra folder of skill YAML; repeat the flag for more |
-| `--timeout SECONDS` | `30` | how long one generate or mark call may run |
+| `--workers N` | `1` | worker processes for generating and marking |
+| `--timeout SECONDS` | `30` | how long one generate or mark call may run; must be greater than 0 |
 | `--version` | | print the version and exit |
 
 An MCP client normally launches the server itself. A generic configuration:
@@ -45,7 +50,7 @@ An MCP client normally launches the server itself. A generic configuration:
 }
 ```
 
-Without an install, use `"command": "uvx"` and put the `--from ...` arguments from above, then `mathgen-mcp`, in
+If you run the server by hand, give each role its own `--out-dir`. Without an install, use `"command": "uvx"` and put the `--from ...` arguments from above, then `mathgen-mcp`, in
 `args`.
 
 ## Roles
@@ -59,8 +64,12 @@ In the learner role no tool takes an `answers` or `reveal` flag, so nothing the 
 
 - question views carry no answer;
 - figures carry the alt text and, if asked for, the SVG drawing, but never the figure spec (for a read-the-picture
-  question the spec is the answer);
-- a marked reply carries no `canonical`.
+  question the spec is the answer). **With `include_figures=true` the drawing's coordinates can still reveal a
+  read-the-picture answer to a model that parses the SVG.** Tutors should use the alt text unless the client really
+  displays the image to the learner;
+- a marked reply carries no `canonical`;
+- an error from inside the engine comes back as a fixed "the engine failed on this request; try another seed or
+  skill", because the engine's own messages can name an answer.
 
 **This keeps answers out of the conversation. It is not a lock.** A question id names its seed and the engine is
 public, so anyone with the engine installed can rebuild any question and read its answer. Use the learner role for
@@ -84,14 +93,27 @@ Both roles have these. Replies are JSON.
 | `build_paper` | `spec`, `format`, `version` | JSON, or the path of a file written; see below |
 
 `reply` is the learner's text. For multiple choice it is the 0-based option index or the option text; for a
-multi-part question an object keyed by part label. The same seed gives the same questions on any machine running the
+multi-part question an object keyed by part label.
+
+A table question's reply is one string (not an object), in any of three forms. The question's `table` lists the
+blanks, each named by a 0-based `"row,column"` key.
+
+- values in reading order, separated by commas, semicolons or new lines, exactly one per blank: `12, 7`;
+- `label = value` pairs, the label being the row label and column header, ignoring case and spaces:
+  `Mon Sales = 12; Tue Sales = 7`;
+- JSON keyed by blank: `{"0,1": "12", "2,3": "7"}`.
+
+In a multi-part question a table part's reply is the same kind of string. A marked table reply has a `cells` field
+saying which blanks are right. The same seed gives the same questions on any machine running the
 same library. Skills that are not gradeable (proofs, explanations) are marked by a person and cannot be sent to
 `grade_answer`. An id from an older library version is refused with a "no longer generated" message; set a new
 question.
 
 `build_paper` takes the paper spec described in `mathgen/service.py` (`build_paper`): a title, a seed, 1 to 10
 versions, optional shuffling, and sections of `{skill, source, count}` items. `version` picks one version
-(`A`, `B`, ...) of a multi-version paper for the file formats.
+(`A`, `B`, ...) of a multi-version paper for the file formats. A `json` build holds at most 30 questions in total
+(like `make_questions`, to protect the agent's context) and drops figure SVGs unless `include_figures` is true; build
+a larger paper as `html`.
 
 | Role | `format` values |
 |---|---|
@@ -109,22 +131,24 @@ The author role adds these parameters:
 ## Where files go
 
 JSON comes back in the reply. Every other format is written under the output folder (`--out-dir`, default
-`./maths-engine-exports`, created when needed) and the tool returns `{"path", "media_type", "bytes"}`. The server
+`~/maths-engine-exports`, created when needed) and the tool returns `{"path", "media_type", "bytes"}`. The server
 chooses the name from the paper's title, its version and a hash of the content, so different papers never overwrite
 each other and the caller never supplies a path.
 
+Do not share one output folder between a teacher (author) server and a learner agent: answer keys land there.
+
 ## Deadline and workers
 
-Every call that generates or marks runs in a worker process with a deadline (`--timeout`, 30 s), the same pool as the
-HTTP API. A generator that never finishes costs one call: the worker is stopped and replaced, the tool returns an
+Every call that generates or marks runs in a worker process (`--workers`, default 1) with a deadline (`--timeout`,
+30 s), the same pool as the HTTP API. A generator that never finishes costs one call: the worker is stopped and replaced, the tool returns an
 error such as "the engine took longer than 30 s; try another seed or skill", and the session carries on. If the
 engine is busy the error says so; try again. The worker pool and the library start on first use, so the handshake is
 quick.
 
 ## Agent plugins
 
-`plugins/` holds two Agent Plugins that start this server and add skills (instructions) for tutoring, worksheets and
-LMS export. See `plugins/README.md`.
+`plugins/` holds two Agent Plugins that start this server, pinned to a release tag, and add skills (instructions) for
+tutoring, worksheets and LMS export. See `plugins/README.md`.
 
 ## Licensing in what it returns
 

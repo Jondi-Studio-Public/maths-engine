@@ -1,0 +1,37 @@
+{
+  "name": "maths-engine-teacher",
+  "version": "0.1.0",
+  "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
+  "author": {
+    "name": "Jondi Haynes",
+    "url": "https://github.com/Jondi-Studio-Public"
+  },
+  "homepage": "https://github.com/Jondi-Studio-Public/maths-engine/tree/main/plugins/maths-engine-teacher",
+  "repository": "https://github.com/Jondi-Studio-Public/maths-engine",
+  "license": "MIT",
+  "keywords": [
+    "mathematics",
+    "education",
+    "worksheets",
+    "assessment",
+    "moodle",
+    "qti",
+    "australian-curriculum",
+    "mcp"
+  ],
+  "mcpServers": {
+    "maths-engine": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main",
+        "mathgen-mcp",
+        "--role",
+        "author",
+        "--out-dir",
+        "${CLAUDE_PLUGIN_DATA}/exports"
+      ]
+    }
+  }
+}

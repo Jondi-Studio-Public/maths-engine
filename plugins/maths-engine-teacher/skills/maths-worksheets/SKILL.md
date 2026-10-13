@@ -46,7 +46,7 @@ Build the JSON paper spec (see the reference). Typical choices:
 
 ### 5. Build and review
 
-1. `build_paper(spec, format="json", answers=true)` and read it through. Check the number of questions and marks, and spot-check a few answers against what you would expect. Fix the spec and rebuild if something is off.
+1. `build_paper(spec, format="json", answers=true)` and read it through. A json paper holds at most 30 questions in total and drops figure drawings unless you pass `include_figures=true`; for a larger paper, review a sample with `make_questions` and build the `html` files. Check the number of questions and marks, and spot-check a few answers against what you would expect. Fix the spec and rebuild if something is off.
 2. `build_paper(spec, format="html")` writes the student worksheet. It has a name and date bar and the marks per question. With several versions, every version is in the file with a page break between them.
 3. `build_paper(spec, format="html-key")` writes the answer key with working.
 
@@ -64,11 +64,11 @@ Tell the teacher:
 
 ## Keep attribution
 
-A built paper carries an `attribution` list. Senior secondary skills (ids beginning `senior-`, framework `acara-senior-v8-4`) add the ACARA attribution. If you share, publish or reuse material from these skills, keep that text with it. The HTML files already include it.
+A built paper carries an `attribution` list. Any skill whose summary carries an `attribution` field (ACARA senior content) adds the ACARA attribution to the paper. If you share, publish or reuse material from these skills, keep that text with it. The HTML files already include it.
 
 ## Limits and cautions
 
-- A paper has at most 400 questions across all versions, at most 100 questions per item and at most 10 versions.
+- A paper has at most 400 questions across all versions (a `json` build, at most 30), at most 100 questions per item and at most 10 versions.
 - Questions are generated, not written by a person. Always sample and read before handing a paper to a class.
 - A paper rebuilt after the library is updated may differ. Keep the spec, the seed and the engine version (from `engine_info`) with the files.
 - Do not change a paper's key by hand. Rebuild from the spec.

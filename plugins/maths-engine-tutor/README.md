@@ -24,4 +24,4 @@ clients.
 
 ## Licences
 
-Code MIT, skills CC BY 4.0, senior content adapted from ACARA under CC BY 4.0.
+Plugin MIT, engine code MIT, skill library CC BY 4.0, senior content adapted from ACARA under CC BY 4.0.

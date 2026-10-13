@@ -72,31 +72,35 @@ def test_the_server_runs_in_the_plugins_role(name):
     seen = {}
 
     class Fake:
-        _maths_engine = type("E", (), {"close": lambda self: None})()
+        _maths_engine = type("E", (), {"close": lambda self: None, "warm_up": lambda self: None})()
 
         def run(self, transport):
             pass
 
-    real = mcp_server.build_server
+    real, real_signal = mcp_server.build_server, mcp_server.signal.signal
     try:
         mcp_server.build_server = lambda role, **kw: seen.update(role=role, **kw) or Fake()
+        mcp_server.signal.signal = lambda *a: None
         assert mcp_server.main(flags) == 0
     finally:
-        mcp_server.build_server = real
+        mcp_server.build_server, mcp_server.signal.signal = real, real_signal
     assert seen["role"] == ROLE[name]
 
 
-def test_claude_code_launches_the_same_servers():
-    """Claude Code reads its MCP config from the marketplace entry (it does not read mcp.json); the servers must be
-    the portable mcp.json's, with Claude Code's name for the data folder."""
-    entries = {p["name"]: p for p in load(ROOT / ".claude-plugin" / "marketplace.json")["plugins"]}
-    for name in ROLE:
-        portable = load(PLUGINS / name / "mcp.json")["mcpServers"]
-        claude = entries[name]["mcpServers"]
-        assert claude.keys() == portable.keys()
-        for key, server in portable.items():
-            assert claude[key]["command"] == server["command"]
-            assert [a.replace("${CLAUDE_PLUGIN_DATA}", "${PLUGIN_DATA}") for a in claude[key]["args"]] == server["args"]
+@pytest.mark.parametrize("name", sorted(ROLE))
+def test_claude_code_manifest_launches_the_same_server(name):
+    """Claude Code reads `.claude-plugin/plugin.json`, not the portable files: its metadata and MCP server must be
+    the portable ones, with Claude Code's name for the data folder."""
+    claude = load(PLUGINS / name / ".claude-plugin" / "plugin.json")
+    portable = load(PLUGINS / name / "plugin.json")
+    for key in ("name", "version", "description", "license", "repository"):
+        assert claude[key] == portable[key], key
+    servers = load(PLUGINS / name / "mcp.json")["mcpServers"]
+    assert claude["mcpServers"].keys() == servers.keys()
+    for key, server in servers.items():
+        other = claude["mcpServers"][key]
+        assert other["command"] == server["command"]
+        assert [a.replace("${CLAUDE_PLUGIN_DATA}", "${PLUGIN_DATA}") for a in other["args"]] == server["args"]
 
 
 def test_claude_code_marketplace_lists_both_plugins():
@@ -107,6 +111,7 @@ def test_claude_code_marketplace_lists_both_plugins():
         assert entry["source"] == f"./plugins/{name}"
         manifest = load(PLUGINS / name / "plugin.json")
         assert entry["version"] == manifest["version"] and entry["description"] == manifest["description"]
+        assert "mcpServers" not in entry  # one place for Claude Code's server config: the plugin's own manifest
 
 
 def _frontmatter(text: str) -> dict:

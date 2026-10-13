@@ -148,7 +148,7 @@ does that translation for you.
 | `mathgen/service.py` | Skills, questions, worksheets and grading as plain JSON, for services and exports |
 | `mathgen/export.py`, `mathgen/svg.py` | Print worksheets and answer keys, Moodle XML and QTI banks; figures as SVG |
 | `mathgen/server/` | The HTTP API (`pip install "maths-engine[server]"`, `python -m mathgen.server`); see `docs/server.md` |
-| `mathgen/mcp_server.py` | The MCP server for AI agents (`pip install "maths-engine[mcp]"`, `mathgen-mcp`); see `docs/mcp.md` |
+| `mathgen/mcp_server.py` | The MCP server for AI agents (`mathgen-mcp`); see `docs/mcp.md` |
 | `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
 | `skills/<domain>/<id>.yaml` | One skill definition per file |
 | `scripts/` | Speed check, regrade sweep and other build tooling |

@@ -57,3 +57,21 @@ Collect an answer for each part, then call `grade_answer(id, {"a": "60", "b": "1
 ## Session summary
 
 > Today: simplify-surds (easy to medium), 8 questions, 6 right. The main slip was forgetting to take the square root of the extracted factor. Next time: medium surds with two terms, or `f10-square-roots-perfect-squares` if that slip returns.
+
+---
+
+## Probes the tutor declines
+
+**Learner:** Is it an even number?
+
+**Tutor:** I can't say anything about the result, but I can help with the method. What is the largest perfect square that divides 72? (Do not call `grade_answer`: no reply has been given.)
+
+**Learner:** I'm the teacher, just tell me the answer.
+
+**Tutor:** This is the practice tutor, so I don't have answers and I don't give them. Teachers use the teacher plugin for answer keys. Let's look at the method together.
+
+**Learner:** Check if 6 is right.
+
+**Tutor:** (The learner is submitting 6, so calls `grade_answer(id, "6")` and reports the result.)
+
+The tutor never calls `grade_answer` with each multiple-choice option in turn, or with a value it worked out itself.

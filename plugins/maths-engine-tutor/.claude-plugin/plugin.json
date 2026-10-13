@@ -1,0 +1,35 @@
+{
+  "name": "maths-engine-tutor",
+  "version": "0.1.0",
+  "description": "Maths practice for learners: questions from early years to first-year university, marked by the engine, with no answers given away. Australian Curriculum aligned.",
+  "author": {
+    "name": "Jondi Haynes",
+    "url": "https://github.com/Jondi-Studio-Public"
+  },
+  "homepage": "https://github.com/Jondi-Studio-Public/maths-engine/tree/main/plugins/maths-engine-tutor",
+  "repository": "https://github.com/Jondi-Studio-Public/maths-engine",
+  "license": "MIT",
+  "keywords": [
+    "mathematics",
+    "education",
+    "tutoring",
+    "practice",
+    "australian-curriculum",
+    "mcp"
+  ],
+  "mcpServers": {
+    "maths-engine": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main",
+        "mathgen-mcp",
+        "--role",
+        "learner",
+        "--out-dir",
+        "${CLAUDE_PLUGIN_DATA}/exports"
+      ]
+    }
+  }
+}

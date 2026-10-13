@@ -1,14 +1,19 @@
 """`mathgen.mcp_server`: the MCP tools, driven through the MCP SDK's in-process client, in both roles."""
 
 import asyncio
+import json
+import os
+import sys
+from pathlib import Path
 
 import pytest
 
 pytest.importorskip("mcp")
 
-from mcp import Client  # noqa: E402
+from mcp import Client, StdioServerParameters  # noqa: E402
 
 from mathgen import mcp_server  # noqa: E402
+from mathgen.server import pool as pool_module  # noqa: E402
 from mathgen.server.pool import WorkerPool  # noqa: E402
 
 PAPER = {"title": "Surds quiz", "seed": 1, "sections": [{"items": [{"skill": "simplify-surds", "count": 3}]}]}
@@ -95,9 +100,39 @@ def test_author_tools_offer_answers(author):
 
 
 def test_learner_cannot_smuggle_an_answer_flag(learner):
+    # The SDK ignores an argument a tool does not declare, so the flag is dropped, never honoured.
     data, is_error, text = call(learner, "make_questions", {"skill_id": "simplify-surds", "answers": True})
-    # Either refused as an unknown argument or ignored; never an answer.
-    assert is_error or "answer" not in set(_keys(data))
+    assert not is_error, text
+    assert "answer" not in set(_keys(data))
+    result, is_error, text = call(learner, "grade_answer", {"question_id": data["questions"][0]["id"], "reply": "1"})
+    assert not is_error, text
+    reveal, _, _ = call(
+        learner, "grade_answer", {"question_id": data["questions"][0]["id"], "reply": "1", "reveal": True}
+    )
+    assert "canonical" not in set(_keys(reveal))
+
+
+def _answer_texts(view):
+    """The answer texts in an author view worth searching for: long enough not to turn up by chance."""
+    blocks = [view.get("answer")] + [p.get("answer") for p in view.get("parts") or []]
+    return {b["text"] for b in blocks if b and len(b.get("text") or "") >= 4}
+
+
+@pytest.mark.parametrize("skill_id, source", [s for s in SHAPES if s[0] != "integer-polynomial-quotient-remainder"])
+def test_no_answer_text_reaches_the_learner(learner, author, skill_id, source):
+    """Value-level, not key-level: the author's answer text appears nowhere in what the learner role returns for
+    the same questions (multiple choice is left out: its options hold the answer by design)."""
+    args = {"skill_id": skill_id, "count": 3, "seed": 21, **({"source": source} if source else {})}
+    full, _, _ = call(author, "make_questions", {**args, "answers": True})
+    shown, _, _ = call(learner, "make_questions", args)
+    seen = [json.dumps(shown, ensure_ascii=False)]
+    for view in shown["questions"]:
+        seen.append(json.dumps(call(learner, "get_question", {"question_id": view["id"]})[0], ensure_ascii=False))
+        reply = {p["label"]: "1" for p in view["parts"]} if view.get("parts") else "1"
+        seen.append(json.dumps(call(learner, "grade_answer", {"question_id": view["id"], "reply": reply})[0]))
+    for view in full["questions"]:
+        for text in _answer_texts(view):
+            assert not any(text in blob for blob in seen), (view["id"], text)
 
 
 @pytest.mark.parametrize("skill_id, source", SHAPES)
@@ -146,6 +181,27 @@ def test_multi_part_replies_are_marked_by_part(learner, author):
     assert result["correct"] is True and result["marks"] == result["max_marks"]
 
 
+def test_multi_part_grades_hide_every_parts_answer(learner, author):
+    data, _, _ = call(
+        author, "make_questions", {"skill_id": "permutation-composition", "source": "exam", "seed": 3, "answers": True}
+    )
+    q = data["questions"][0]
+    right = {p["label"]: p["answer"]["text"] for p in q["parts"]}
+    for reply in (right, {label: "1" for label in right}):
+        result, is_error, text = call(learner, "grade_answer", {"question_id": q["id"], "reply": reply})
+        assert not is_error, text
+        assert set(result["parts"]) == set(right)
+        assert "canonical" not in set(_keys(result))
+    shown, _, _ = call(author, "grade_answer", {"question_id": q["id"], "reply": right, "reveal": True})
+    assert all(part["canonical"] for part in shown["parts"].values())
+
+
+def test_an_object_reply_to_a_one_answer_question_is_refused(learner):
+    data, _, _ = call(learner, "make_questions", {"skill_id": "simplify-surds", "seed": 5})
+    _, is_error, text = call(learner, "grade_answer", {"question_id": data["questions"][0]["id"], "reply": {"a": "1"}})
+    assert is_error and "one answer" in text
+
+
 def test_figures_are_alt_text_unless_asked(learner):
     plain, _, _ = call(learner, "make_questions", {"skill_id": "count-to-5", "seed": 2})
     drawn, _, _ = call(learner, "make_questions", {"skill_id": "count-to-5", "seed": 2, "include_figures": True})
@@ -186,6 +242,32 @@ def test_learner_papers_have_no_answers(learner):
     assert is_error
 
 
+def test_json_papers_are_capped_and_drop_drawings(learner):
+    big = {"sections": [{"items": [{"skill": "simplify-surds", "count": mcp_server.MAX_COUNT}]}], "versions": 2}
+    _, is_error, text = call(learner, "build_paper", {"spec": big})
+    assert is_error and "html" in text
+    figures = {"seed": 4, "sections": [{"items": [{"skill": "count-to-5", "count": 2}]}]}
+    plain, _, _ = call(learner, "build_paper", {"spec": figures})
+    drawn, _, _ = call(learner, "build_paper", {"spec": figures, "include_figures": True})
+    first = plain["paper"]["versions"][0]["sections"][0]["questions"][0]["figure"]
+    assert first.keys() == {"alt"}
+    assert drawn["paper"]["versions"][0]["sections"][0]["questions"][0]["figure"]["svg"]
+
+
+def test_a_paper_spec_is_checked_before_the_engine_runs(learner):
+    for spec in ({"sections": []}, {"sections": [{"items": [{"skill": "simplify-surds", "colour": "red"}]}]}):
+        _, is_error, _ = call(learner, "build_paper", {"spec": spec})
+        assert is_error, spec
+
+
+def test_an_unwritable_output_folder_is_a_tool_error(pool, tmp_path):
+    blocker = tmp_path / "not-a-folder"
+    blocker.write_text("x")
+    server = mcp_server.build_server("learner", pool=pool, out_dir=blocker / "exports")
+    _, is_error, text = call(server, "build_paper", {"spec": PAPER, "format": "html"})
+    assert is_error and "could not write" in text
+
+
 def test_author_files_land_in_the_output_folder_under_server_names(author, tmp_path):
     server = mcp_server.build_server("author", pool=author._maths_engine.pool, out_dir=tmp_path)
     spec = {**PAPER, "title": "../../etc/passwd", "versions": 2}
@@ -200,10 +282,62 @@ def test_author_files_land_in_the_output_folder_under_server_names(author, tmp_p
         assert data["bytes"] > 0
     assert len(set(paths)) == 4
     for path in paths:
-        written = tmp_path / path.rsplit("/", 1)[-1].rsplit("\\", 1)[-1]
+        written = tmp_path / Path(path).name
         assert written.is_file() and str(written.resolve()) == path
         assert written.name.startswith("etc-passwd")
-    assert (tmp_path / paths[3].rsplit("/", 1)[-1]).read_bytes()[:2] == b"PK"
+    assert (tmp_path / Path(paths[3]).name).read_bytes()[:2] == b"PK"
+
+
+class FakePool:
+    """A pool whose every call raises `error`."""
+
+    def __init__(self, error):
+        self.error = error
+
+    def run(self, name, timeout, **kwargs):
+        raise self.error
+
+    def close(self):
+        pass
+
+
+@pytest.mark.parametrize(
+    "error, learner_says, author_says",
+    [
+        (pool_module.Timeout("x"), "took longer than", "took longer than"),
+        (pool_module.Unavailable("x"), "busy", "busy"),
+        (pool_module.Changed("old/1", "new/1"), "no longer generated", "no longer generated"),
+        (pool_module.WorkerError("not the part's answer '42'"), mcp_server.LEARNER_FAILURE, "'42'"),
+    ],
+)
+def test_engine_failures_become_tool_errors(error, learner_says, author_says):
+    for role, says in (("learner", learner_says), ("author", author_says)):
+        server = mcp_server.build_server(role, pool=FakePool(error))
+        _, is_error, text = call(server, "make_questions", {"skill_id": "simplify-surds"})
+        assert is_error and says in text, (role, text)
+        if role == "learner":
+            assert "42" not in text
+
+
+def test_the_server_speaks_mcp_over_stdio(tmp_path):
+    """The real transport: a subprocess on stdin and stdout, workers and all. A worker writing to stdout would
+    break this, which is why `pool._worker_main` sends its stdout to stderr."""
+    params = StdioServerParameters(
+        command=sys.executable,
+        args=["-m", "mathgen.mcp_server", "--role", "learner", "--out-dir", str(tmp_path)],
+        env={**os.environ, "PYTHONPATH": str(Path(__file__).resolve().parents[2])},
+    )
+
+    async def go():
+        async with Client(params, read_timeout_seconds=120) as client:
+            names = {t.name for t in (await client.list_tools()).tools}
+            made = await client.call_tool("make_questions", {"skill_id": "simplify-surds", "seed": 9})
+            qid = made.structured_content["questions"][0]["id"]
+            graded = await client.call_tool("grade_answer", {"question_id": qid, "reply": "1"})
+            return names, graded.structured_content
+
+    names, graded = asyncio.run(go())
+    assert "grade_answer" in names and graded["correct"] is False and "canonical" not in graded
 
 
 def test_roles_are_checked():
@@ -215,7 +349,7 @@ def test_command_line_parses_the_plugin_arguments(monkeypatch):
     seen = {}
 
     class Fake:
-        _maths_engine = type("E", (), {"close": lambda self: None})()
+        _maths_engine = type("E", (), {"close": lambda self: None, "warm_up": lambda self: None})()
 
         def run(self, transport):
             seen["transport"] = transport
@@ -225,5 +359,13 @@ def test_command_line_parses_the_plugin_arguments(monkeypatch):
         return Fake()
 
     monkeypatch.setattr(mcp_server, "build_server", fake_build)
-    assert mcp_server.main(["--role", "author", "--out-dir", "/tmp/x"]) == 0
+    monkeypatch.setattr(mcp_server.signal, "signal", lambda *a: None)
+    assert mcp_server.main(["--role", "author", "--out-dir", "/tmp/x", "--workers", "2"]) == 0
     assert seen["role"] == "author" and seen["out_dir"] == "/tmp/x" and seen["transport"] == "stdio"
+    assert seen["workers"] == 2
+
+
+@pytest.mark.parametrize("flags", [["--timeout", "0"], ["--timeout", "nan"], ["--timeout", "-3"], ["--workers", "0"]])
+def test_command_line_refuses_bad_limits(flags):
+    with pytest.raises(SystemExit):
+        mcp_server.main(flags)

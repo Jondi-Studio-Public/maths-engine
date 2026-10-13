@@ -27,5 +27,5 @@ clients.
 
 ## Licences
 
-Code MIT, skills CC BY 4.0, senior content adapted from ACARA under CC BY 4.0. Keep the attribution printed on
+Plugin MIT, engine code MIT, skill library CC BY 4.0, senior content adapted from ACARA under CC BY 4.0. Keep the attribution printed on
 papers when you share them.

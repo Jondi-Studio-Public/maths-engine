@@ -58,7 +58,7 @@ A skill can carry several codes, even from different years, when one skill serve
 
 - `years` is empty for many skills, including senior and university-level ones and some secondary skills like `simplify-surds`. A year filter therefore finds fewer skills than exist. If a year search comes back thin, also search by text or code, or by the neighbouring years.
 - The library includes university-level skills (framework `university-core-v1`, ids often starting `ucv1-`): groups, rings, fields, linear algebra and so on. They have no year. Filter with `framework="university-core-v1"`.
-- Senior skills (framework `acara-senior-v8-4`) carry an ACARA attribution string. Keep it whenever you share or print material from them.
+- A skill summary has an `attribution` field when ACARA attribution is required (senior skills have it). Keep that text whenever you share or print material from such a skill. Decide by the field, not by the shape of the id.
 
 ## Prerequisites
 

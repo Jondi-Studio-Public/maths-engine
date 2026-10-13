@@ -275,9 +275,12 @@ jobs:
             case "$name" in
               *.py|*.yaml|*.yml|*.md|*.txt|*.toml|*.in|*.cfg) ;;
               LICENSE|LICENSE-CONTENT|NOTICE|CODEOWNERS|Dockerfile|.dockerignore|.gitignore|.gitattributes|.gitleaksignore) ;;
-              # Agent Plugins manifests (plugins/, .claude-plugin/): these exact names only, never *.json
-              plugin.json|mcp.json|marketplace.json) ;;
-              *) echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue ;;
+              *)
+                case "$path" in
+                  # The plugin manifests, at these paths only: never *.json in general.
+                  plugins/*/plugin.json|plugins/*/mcp.json|plugins/*/.claude-plugin/plugin.json|.claude-plugin/marketplace.json) ;;
+                  *) echo "::error::${shown}: the secret scan skips or cannot open this type of file"; bad=1; continue ;;
+                esac ;;
             esac
             if [[ "$lower" =~ /(node_modules|bower_components|vendor|env|venv|virtualenv|lib|lib64)/ || "$lower" == *.dist-info/* ]]; then
               echo "::error::${shown}: the secret scan skips files under a directory of this name"; bad=1; continue

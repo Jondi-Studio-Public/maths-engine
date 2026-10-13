@@ -13,7 +13,7 @@
       "source": "./plugins/maths-engine-tutor",
       "description": "Maths practice for learners: questions from early years to first-year university, marked by the engine, with no answers given away. Australian Curriculum aligned.",
       "version": "0.1.0",
-      "license": "MIT AND CC-BY-4.0",
+      "license": "MIT",
       "keywords": [
         "mathematics",
         "education",
@@ -21,29 +21,14 @@
         "practice",
         "australian-curriculum",
         "mcp"
-      ],
-      "mcpServers": {
-        "maths-engine": {
-          "type": "stdio",
-          "command": "uvx",
-          "args": [
-            "--from",
-            "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main",
-            "mathgen-mcp",
-            "--role",
-            "learner",
-            "--out-dir",
-            "${CLAUDE_PLUGIN_DATA}/exports"
-          ]
-        }
-      }
+      ]
     },
     {
       "name": "maths-engine-teacher",
       "source": "./plugins/maths-engine-teacher",
       "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
       "version": "0.1.0",
-      "license": "MIT AND CC-BY-4.0",
+      "license": "MIT",
       "keywords": [
         "mathematics",
         "education",
@@ -53,22 +38,7 @@
         "qti",
         "australian-curriculum",
         "mcp"
-      ],
-      "mcpServers": {
-        "maths-engine": {
-          "type": "stdio",
-          "command": "uvx",
-          "args": [
-            "--from",
-            "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@main",
-            "mathgen-mcp",
-            "--role",
-            "author",
-            "--out-dir",
-            "${CLAUDE_PLUGIN_DATA}/exports"
-          ]
-        }
-      }
+      ]
     }
   ]
 }

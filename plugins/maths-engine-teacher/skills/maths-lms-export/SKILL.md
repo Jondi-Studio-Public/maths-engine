@@ -59,7 +59,7 @@ Always preview an imported quiz as a student before releasing it, and check one 
 
 ## Attribution
 
-The LMS files do not carry the paper's attribution lines. If the quiz uses any senior secondary skill (ids beginning `senior-`, framework `acara-senior-v8-4`), tell the teacher to add this to the course page or quiz description, and print the exact text from the paper's `attribution` list (build a `json` copy to read it, or take it from `engine_info`). Do not paraphrase it.
+The LMS files do not carry the paper's attribution lines. If any skill in the quiz has an `attribution` field in its summary (ACARA senior content), tell the teacher to add this to the course page or quiz description, and print the exact text from the paper's `attribution` list (build a `json` copy to read it, or take it from `engine_info`). Do not paraphrase it.
 
 ## Cautions
 
