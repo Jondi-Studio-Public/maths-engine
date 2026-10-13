@@ -5414,6 +5414,78 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+uc2-gaussian-elimination-partial-pivoting:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_gaussian_partial_pivoting
+    module: mathgen/generators/r4h_gaussian_partial_pivoting_build.py
+  - topic: exd_x_r4h_gaussian_partial_pivoting
+    module: mathgen/generators/r4h_gaussian_partial_pivoting_build.py
+uc2-improved-euler-step:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_improved_euler_step
+    module: mathgen/generators/r4h_improved_euler_step_build.py
+  - topic: exd_x_r4h_improved_euler_step
+    module: mathgen/generators/r4h_improved_euler_step_build.py
+uc2-interpolation-error-bound:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_interpolation_error_bound
+    module: mathgen/generators/r4h_interpolation_error_bound_build.py
+  - topic: exd_x_r4h_interpolation_error_bound
+    module: mathgen/generators/r4h_interpolation_error_bound_build.py
+uc2-kkt-conditions-check:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: r4h_kkt_conditions
+    module: mathgen/generators/r4h_kkt_conditions_build.py
+  - topic: exd_x_r4h_kkt_conditions
+    module: mathgen/generators/r4h_kkt_conditions_build.py
+uc2-lagrange-multiplier-nonlinear-constraint:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: r4h_lagrange_nonlinear_constraint
+    module: mathgen/generators/r4h_lagrange_nonlinear_constraint_build.py
+  - topic: exd_x_r4h_lagrange_nonlinear_constraint
+    module: mathgen/generators/r4h_lagrange_nonlinear_constraint_build.py
+uc2-matrix-norm-1-and-infinity:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_matrix_norm_condition
+    module: mathgen/generators/r4h_matrix_norm_condition_build.py
+  - topic: exd_x_r4h_matrix_norm_condition
+    module: mathgen/generators/r4h_matrix_norm_condition_build.py
+uc2-newton-method-optimisation-step:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: r4h_newton_optimisation
+    module: mathgen/generators/r4h_newton_optimisation_build.py
+  - topic: exd_x_r4h_newton_optimisation
+    module: mathgen/generators/r4h_newton_optimisation_build.py
+uc2-ode-method-order-and-stability:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_ode_method_order_stability
+    module: mathgen/generators/r4h_ode_method_order_stability_build.py
+  - topic: exd_x_r4h_ode_method_order_stability
+    module: mathgen/generators/r4h_ode_method_order_stability_build.py
+uc2-richardson-extrapolation:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_richardson_extrapolation
+    module: mathgen/generators/r4h_richardson_extrapolation_build.py
+  - topic: exd_x_r4h_richardson_extrapolation
+    module: mathgen/generators/r4h_richardson_extrapolation_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active

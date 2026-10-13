@@ -1,0 +1,103 @@
+id: uc2-gaussian-elimination-partial-pivoting
+name: Eliminate with partial pivoting
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Carry out Gaussian elimination on a 3x3 system using the stated partial pivoting rule, and use the result to
+  solve the system or find a determinant.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-iterative-linear-solver-step
+answer: matrix
+sources:
+- topic: r4h_gaussian_partial_pivoting
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_gaussian_partial_pivoting
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_gaussian_partial_pivoting
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_gaussian_partial_pivoting
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-gauss-no-row-swap
+  description: Eliminating with the entry in the pivot position, ignoring the rule to swap in the row with the largest entry.
+- id: num2t-gauss-smallest-pivot
+  description: Swapping in the row with the smallest non-zero entry instead of the largest.
+- id: num2t-gauss-multiplier-sign
+  description: Adding the multiple of the pivot row instead of subtracting it (the sign of the multiplier reversed).
+- id: num2t-gauss-pivot-first-stage-only
+  description: Pivoting at the first stage but not at the second.
+- id: num2t-gauss-pivot-second-stage-only
+  description: Pivoting at the second stage but not at the first.
+- id: num2t-gauss-rows-restored
+  description: Putting the rows back in their original order after the swap.
+- id: num2t-gauss-multiplier-inverted
+  description: Forming the multiplier as pivot divided by the entry, instead of entry divided by pivot.
+- id: num2t-gauss-swap-b-forgotten
+  description: Swapping rows of the matrix but not the matching entries of the right-hand side.
+- id: num2t-gauss-rhs-not-updated
+  description: Applying the row operations to the matrix but not to the right-hand side.
+- id: num2t-gauss-back-substitution-undivided
+  description: Back-substituting without dividing by the diagonal entry.
+- id: num2t-gauss-solution-order-reversed
+  description: Listing the solution components in reverse order.
+- id: num2t-gauss-pivot-first-entry
+  description: Taking the first entry of the first column as the pivot.
+- id: num2t-gauss-pivot-absolute-value
+  description: Giving the size of the pivot and dropping its sign.
+- id: num2t-gauss-pivot-smallest
+  description: Taking the entry of smallest size in the column as the pivot.
+- id: num2t-gauss-pivot-largest-signed
+  description: Choosing the largest signed entry rather than the largest in absolute value.
+- id: num2t-gauss-multiplier-wrong-row
+  description: Using the first-column entry of a different row to form the multiplier.
+- id: num2t-gauss-multiplier-unswapped
+  description: Forming the multiplier with the pivot from before the row swap.
+- id: num2t-gauss-multiplier-sign-flipped
+  description: Giving the negative of the multiplier.
+- id: num2t-gauss-update-added
+  description: Adding instead of subtracting the multiple of the pivot row when updating the entry.
+- id: num2t-gauss-update-unswapped
+  description: Updating the entry from the row order before the swap.
+- id: num2t-gauss-update-not-reduced
+  description: Reporting the entry before subtracting the multiple of the pivot row.
+- id: num2t-gauss-det-swap-sign-ignored
+  description: Ignoring the sign change from each row interchange when finding the determinant.
+- id: num2t-gauss-det-swap-sign-extra
+  description: Changing the sign of the determinant for each stage instead of for each row interchange.
+- id: num2t-gauss-det-pivots-added
+  description: Adding the pivots instead of multiplying them.
+- id: num2t-gauss-det-original-diagonal
+  description: Multiplying the diagonal entries of the original matrix.
+difficulty_progression: Easy carries out only the first stage, which means choosing the pivot row by absolute value, swapping
+  and clearing one column. Medium completes the reduction with a row interchange at both stages, so the second pivot is chosen
+  from updated entries. Hard solves a system, so the right-hand side must be swapped and updated with the matrix before back
+  substitution. The exam chain asks for the first pivot, the multiplier, an updated entry, then the determinant including
+  the sign from the interchanges.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- gaussian-elimination
+- pivoting
+- linear-systems
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

@@ -14972,6 +14972,978 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    # -- second-year numerical methods and optimisation, tranche 2 --
+    CatalogueEntry(
+        "num2t-gauss-no-row-swap",
+        "Eliminating with the entry in the pivot position, ignoring the rule to swap in the row with the largest entry.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-smallest-pivot",
+        "Swapping in the row with the smallest non-zero entry instead of the largest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-sign",
+        "Adding the multiple of the pivot row instead of subtracting it (the sign of the multiplier reversed).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-first-stage-only",
+        "Pivoting at the first stage but not at the second.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-second-stage-only",
+        "Pivoting at the second stage but not at the first.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-rows-restored",
+        "Putting the rows back in their original order after the swap.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-inverted",
+        "Forming the multiplier as pivot divided by the entry, instead of entry divided by pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-swap-b-forgotten",
+        "Swapping rows of the matrix but not the matching entries of the right-hand side.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-rhs-not-updated",
+        "Applying the row operations to the matrix but not to the right-hand side.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-back-substitution-undivided",
+        "Back-substituting without dividing by the diagonal entry.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-solution-order-reversed",
+        "Listing the solution components in reverse order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-first-entry",
+        "Taking the first entry of the first column as the pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-absolute-value",
+        "Giving the size of the pivot and dropping its sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-smallest",
+        "Taking the entry of smallest size in the column as the pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-largest-signed",
+        "Choosing the largest signed entry rather than the largest in absolute value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-wrong-row",
+        "Using the first-column entry of a different row to form the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-unswapped",
+        "Forming the multiplier with the pivot from before the row swap.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-sign-flipped",
+        "Giving the negative of the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-update-added",
+        "Adding instead of subtracting the multiple of the pivot row when updating the entry.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-update-unswapped",
+        "Updating the entry from the row order before the swap.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-update-not-reduced",
+        "Reporting the entry before subtracting the multiple of the pivot row.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-swap-sign-ignored",
+        "Ignoring the sign change from each row interchange when finding the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-swap-sign-extra",
+        "Changing the sign of the determinant for each stage instead of for each row interchange.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-pivots-added",
+        "Adding the pivots instead of multiplying them.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-original-diagonal",
+        "Multiplying the diagonal entries of the original matrix.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-euler-step-only",
+        "Stopping at the predictor y + h f(x, y) and reporting it as the next value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-corrector-slope-at-start",
+        "Evaluating the second slope at the starting y-value instead of at the predicted value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-average-not-halved",
+        "Adding the two slopes without halving them, y + h(k₁ + k₂).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-end-slope-only",
+        "Stepping with the slope at the predicted end point alone, y + h k₂.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-midpoint-method",
+        "Using the slope at the midpoint (the midpoint method) in place of the average of the end slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-x-not-advanced",
+        "Evaluating the second slope at the starting x instead of x + h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-stopped-after-one-step",
+        "Reporting the value after the first step when two steps were asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-slope-step-size-dropped",
+        "Adding the average slope to y without multiplying by the step size.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-predictor-half-step",
+        "Predicting with a half step, y + (h/2)k₁, instead of a full step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-first-slope-at-end",
+        "Evaluating the first slope at x + h instead of at the starting point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-first-slope-initial-value",
+        "Giving the initial y-value where the first slope is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-predictor-slope-not-multiplied",
+        "Giving the slope k₁ where the predicted value is asked for, without stepping.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-predictor-uses-y-only",
+        "Predicting the next value as y + h, forgetting to multiply the step by the slope.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-at-original-y",
+        "Evaluating the second slope at the original y-value instead of the predicted value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-copies-first",
+        "Repeating the first slope as the second slope.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-corrected-value",
+        "Evaluating the second slope at the new corrected value of y rather than the predicted one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-order-off-by-one",
+        "Bounding the n-th derivative instead of the (n+1)-th when n + 1 nodes are used.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-factorial-omitted",
+        "Leaving out the factor 1/(n+1)! in the interpolation error bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-wrong-factorial",
+        "Dividing by n! instead of (n+1)! in the interpolation error bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-max-wrong-end",
+        "Taking the largest value of the derivative at the wrong end of the interval, where it is smallest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-factorial-dropped",
+        "Dropping the factorial that comes from repeated differentiation, writing (-1)^n / x^(n+1) for the derivative of ln x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-node-factor-missed",
+        "Leaving one node out of the product (x − x₀)(x − x₁)⋯(x − xₙ).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-node-spacing-cubed",
+        "Replacing the node product by the cube of the node spacing.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-max-product-wrong",
+        "Taking the largest node product on a spacing h as h² instead of h²/4 for linear interpolation.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-half-factor-missed",
+        "Bounding the linear interpolation error by M h²/4, forgetting the 1/8 in M h²/8.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-nodes-for-subintervals",
+        "Giving the number of nodes (one more than the number of subintervals).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-tolerance-not-squared",
+        "Solving for h instead of h², so the number of subintervals comes from the square root of the right quantity.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-order-too-high",
+        "Bounding a derivative one order higher than the (n+1)-th.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-node-product-with-evaluation-point",
+        "Multiplying the node product by the evaluation point as an extra factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-factorial-too-high",
+        "Dividing by (n+2)! instead of (n+1)! in the interpolation error bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-at-wrong-order",
+        "Using the first derivative of the function in place of the second when bounding linear interpolation.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-gradient-sign",
+        "Setting ∇f = λ∇g instead of ∇f + λ∇g = 0, so the multiplier has the wrong sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-gradient-not-doubled",
+        "Differentiating (x − a)² as (x − a), dropping the factor 2, when forming ∇f.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-one-component",
+        "Using the ratio from one component of the gradient equation without checking the other.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-constraint-value",
+        "Giving the value of the constraint function or its right-hand side as the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-gradient-of-g-forgotten",
+        "Dividing the gradient of f by the constraint's coefficients without matching components.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-multipliers-swapped",
+        "Swapping the multipliers of the two constraints.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-single-constraint",
+        "Solving with only one of the two active constraints.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-system-sign",
+        "Solving ∇f = λ₁∇g₁ + λ₂∇g₂ with the sign of ∇f reversed.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-system-transposed",
+        "Setting up the two equations with the gradients' components in the wrong columns.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-circle-not-doubled",
+        "Taking ∇g = (x, y) for g = x² + y² − r², dropping the factor 2, so λ comes out twice too large.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-radius-squared",
+        "Using r² where r belongs in the formula for the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-norm-squared",
+        "Using the squared length of the objective gradient instead of its length.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-circle-point-unscaled",
+        "Taking the boundary point as the objective gradient itself rather than scaled to the circle.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-sum-form",
+        "Using (a + b)/(2r) in place of √(a² + b²)/(2r) for the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-uses-unconstrained",
+        "Giving the amount by which the unconstrained minimum violates the constraint, not divided by the gradient's squared length.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-weights-ignored",
+        "Ignoring the weights on the squares when solving for the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-plain-length",
+        "Dividing the violation by the length of the constraint gradient rather than its square.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-sign",
+        "Moving from the unconstrained minimum in the direction of the constraint gradient instead of against it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-unscaled",
+        "Moving from the unconstrained minimum by λ times the constraint coefficient without dividing by twice the weight.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-unconstrained",
+        "Giving the unconstrained minimiser's coordinate instead of the constrained one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-other",
+        "Giving the other coordinate of the constrained minimiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-unconstrained",
+        "Giving the value at the unconstrained minimiser, which is zero or the objective's constant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-unweighted",
+        "Leaving out the weights on the squares when evaluating the objective.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-lambda-squared",
+        "Giving λ² in place of the objective's value at the minimiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-not-squared",
+        "Forgetting to square the distances when evaluating the objective.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-minimum-reported",
+        "Reporting the minimum value (the negative of the maximum) when the maximum was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-radius-for-radius-squared",
+        "Treating the constant on the right of the circle as the radius instead of the radius squared.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-radius-squared-factor",
+        "Multiplying the length of the objective's gradient by the right-hand side instead of its square root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-sum-of-coefficients",
+        "Using the sum of the coefficients in place of the length of the objective's gradient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-objective-at-gradient-point",
+        "Evaluating the objective at the point (a, b) itself instead of at the point on the constraint.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-circle-value-unscaled",
+        "Dividing by the right-hand side instead of multiplying by its square root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-ellipse-weights-ignored",
+        "Ignoring the weights of the squares when solving for the point on an ellipse.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-multiplier-reported",
+        "Reporting the multiplier λ in place of the extreme value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-factor-two-lost",
+        "Losing the factor 2 in the value 2λc by writing the extreme value as λc.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-gradient-cross-term-missed",
+        "Differentiating x² + xy + y² as 2x + 2y, missing the cross term.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-over-weights",
+        "Writing the maximum of xy on px² + qy² = c as c/(2pq) instead of c/(2√(pq)).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-no-root",
+        "Writing the maximum of xy as c/√(pq), a factor 2 too large.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-factor-four",
+        "Writing the maximum of xy as c/(4√(pq)), a factor 2 too small.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-at-axis",
+        "Evaluating xy at a point of the ellipse on an axis, where xy = 0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-squared",
+        "Giving λ² where λ was asked for, forgetting the square root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-doubled",
+        "Giving 2λ where λ was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-negative-root",
+        "Giving the negative root λ, which belongs to the minimum.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-unweighted",
+        "Solving for λ with the ellipse's weights p and q left out.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-gradient-not-scaled",
+        "Giving the coordinate as a/(2λ), leaving out the weight on the square.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-sign",
+        "Giving the coordinate of the minimiser instead of the maximiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-swapped",
+        "Giving the other variable's coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-uses-doubled-lambda",
+        "Dividing by λ rather than 2pλ when solving for the coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-value-sum-of-coordinates",
+        "Adding the coordinates of the maximiser instead of evaluating the objective.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-value-first-term",
+        "Evaluating only the first term of the objective at the maximiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-value-constraint",
+        "Giving the constraint's right-hand side as the maximum.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-rows-for-columns",
+        "Adding along rows when the 1-norm (largest column sum) was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-columns-for-rows",
+        "Adding down columns when the ∞-norm (largest row sum) was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-signed-sums",
+        "Adding the entries with their signs instead of their absolute values.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-largest-entry",
+        "Giving the entry of largest size instead of the largest absolute row or column sum.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-all-entries",
+        "Adding the absolute values of every entry in the matrix.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-smallest-sum",
+        "Choosing the smallest absolute sum instead of the largest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-sum-not-max",
+        "Adding the row (or column) sums instead of taking the largest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-no-inverse",
+        "Multiplying ‖A‖ by itself instead of by ‖A⁻¹‖.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-adjugate-undivided",
+        "Using the adjugate in place of A⁻¹, forgetting to divide by the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-wrong-norm-on-inverse",
+        "Using the 1-norm for one factor and the ∞-norm for the other.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-quotient",
+        "Dividing ‖A‖ by ‖A⁻¹‖ instead of multiplying.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-determinant",
+        "Giving the determinant or its reciprocal as the condition number.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-other-norm",
+        "Giving the condition number in the other norm (∞ for 1, or 1 for ∞).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-inverse-sign",
+        "Forming the inverse of a 2×2 matrix with the off-diagonal signs unchanged.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-inverse-entries-unswapped",
+        "Forming the inverse of a 2×2 matrix without swapping the diagonal entries.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-bound-divided",
+        "Dividing the relative perturbation by the condition number instead of multiplying.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-bound-forgotten",
+        "Giving the relative perturbation of b as the bound on the relative error of x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-bound-norm-only",
+        "Multiplying the relative perturbation by ‖A⁻¹‖ alone.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-root-finding-step",
+        "Using Newton's root-finding step x − f(x)/f′(x) instead of x − f′(x)/f″(x).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-step-sign",
+        "Adding the Newton correction instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-no-second-derivative",
+        "Taking a gradient step x − f′(x), leaving out the division by the second derivative.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-ratio-inverted",
+        "Dividing the second derivative by the first instead of the first by the second.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-correction-only",
+        "Reporting the correction f′(x)/f″(x) rather than the new point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-derivative-at-wrong-point",
+        "Evaluating the derivatives at the origin instead of at the starting point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-gradient-step",
+        "Using the gradient step x − ∇f(x) with no Hessian.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-sign-reversed",
+        "Adding H⁻¹∇f to the starting point instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-hessian-not-inverted",
+        "Multiplying the gradient by the Hessian instead of its inverse.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-diagonal-hessian",
+        "Ignoring the mixed second derivative, so the step treats the variables separately.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-inverse-unscaled",
+        "Using the adjugate of the Hessian without dividing by its determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-inverse-no-swap",
+        "Inverting a 2×2 Hessian without swapping its diagonal entries.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-hessian-rows-swapped",
+        "Applying the inverse Hessian with the components of the gradient in the wrong order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-start",
+        "Giving f at the starting point instead of at the new point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-gradient-step",
+        "Evaluating f at the gradient-step point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-sign-reversed",
+        "Evaluating f at the point reached by adding the Newton correction.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-diagonal",
+        "Evaluating f at the point from a diagonal-Hessian step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-main-diagonal-only",
+        "Giving the product of the diagonal entries as the Hessian determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-sum-of-products",
+        "Adding the product of the off-diagonal entries instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-trace",
+        "Giving the trace of the Hessian in place of its determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-first-derivatives",
+        "Building the determinant from the first partial derivatives.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-unchanged",
+        "Giving the starting coordinate: the step is not applied.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-other-sign",
+        "Adding the correction to the coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-no-determinant",
+        "Leaving out the division by the determinant in the new coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-swapped-cross",
+        "Using the mixed second derivative with the wrong gradient component.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-change-new-value",
+        "Giving f at the new point instead of the change in f.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-change-sign",
+        "Giving the change in f as the old value minus the new value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-change-start-value",
+        "Giving f at the start as the change.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-halved-bound",
+        "Using the bound 1/λ for the explicit Euler step instead of 2/λ, requiring the factor to stay positive rather than within [−1, 1].",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-smallest-eigenvalue",
+        "Using the eigenvalue of smallest size instead of the largest when finding the step limit for a system.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-trace",
+        "Using the trace of the matrix in place of its eigenvalue of largest size.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-product",
+        "Using the product of the eigenvalues in place of the largest one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-explicit-formula",
+        "Using the explicit Euler limit 2/λ for a method that is partly implicit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-one-over",
+        "Dropping the 2 in the numerator, giving 1/(λ(1 − 2θ)).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-theta-not-doubled",
+        "Using 1 − θ instead of 1 − 2θ in the stability limit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-theta-sign",
+        "Using 1 + 2θ instead of 1 − 2θ in the stability limit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-one-too-high",
+        "Reporting the exponent of the first error term (order plus one) as the order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-one-too-low",
+        "Reporting the number of the highest matching power of e^(−z) less one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-polynomial-degree",
+        "Taking the degree of the amplification polynomial as the order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-always-one",
+        "Calling every method that is not exact first order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-term-count",
+        "Counting the matching terms of the series, constant term included, as the order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-misjudged",
+        "Judging the order of a method from its number of stages or its look rather than from its amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-misjudged",
+        "Judging stability from the order of the method rather than from the size of its amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-explicit-formula",
+        "Using the explicit amplification factor 1 − z for a method that is partly implicit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-backward-formula",
+        "Using the backward Euler factor 1/(1 + z) for a method that is not fully implicit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-theta-swapped",
+        "Swapping θ and 1 − θ in the amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-heun-no-half",
+        "Dropping the factor 1/2 on the quadratic term of the Heun amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-heun-sign",
+        "Taking the Heun amplification factor as 1 + z + z²/2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-steps-one-too-few",
+        "Applying the amplification factor one time too few.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-steps-one-too-many",
+        "Applying the amplification factor one time too many.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-steps-multiplied",
+        "Multiplying the amplification factor by the number of steps instead of raising it to that power.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-const-sign",
+        "Giving the error constant with the wrong sign (R − e^(−z) instead of e^(−z) − R).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-const-wrong-power",
+        "Reading the mismatch in the coefficient of a later power of z as the error constant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-const-factorial-only",
+        "Giving the exponential's coefficient 1/(p+1)! as the error constant, without subtracting R's own coefficient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-finer-only",
+        "Reporting the estimate at the smaller step size and not combining it with the larger-step estimate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-weights-swapped",
+        "Swapping the roles of the two estimates, so the coarse estimate gets the larger weight.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-average",
+        "Averaging the two estimates instead of extrapolating, so the leading error is only halved.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-wrong-order-weights",
+        "Using the weights for the wrong error order, such as (4D(h/2) − D(h))/3 for a first-order formula.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-first-order-weights",
+        "Using the first-order weights 2D(h/2) − D(h) for a second-order formula.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-coarse-only",
+        "Reporting the estimate at the larger step size.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-one-level-only",
+        "Stopping after the first level of extrapolation when two error terms were to be removed.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-second-level-weights",
+        "Using the weights 4 and 3 again at the second level instead of 16 and 15.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-levels-in-wrong-order",
+        "Combining the first and last estimates directly instead of extrapolating the two improved estimates.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-no-division-by-step",
+        "Leaving out the division by the step size in a difference quotient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-no-division-by-double-step",
+        "Dividing a central difference by h instead of 2h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-forward-for-central",
+        "Using a forward difference where a central difference was specified.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-error-sign",
+        "Reporting the exact value minus the estimate instead of the estimate minus the exact value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-error-of-coarse",
+        "Computing the error of the coarse central difference instead of the extrapolated value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-derivative-evaluated-elsewhere",
+        "Evaluating the exact derivative at the wrong point when measuring the error.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-fine-step-quartered",
+        "Taking the finer step as h/4 instead of h/2.",
+        area="num2",
+    ),
+    # -- end second-year tranche 2 --
 )
 
 #: Every entry, by id.

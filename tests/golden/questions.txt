@@ -7816,6 +7816,114 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "M = [[-9, 3, 9], [0, 16/3, 1], [0, -14/3, -9]]", "id": "uc2-gaussian-elimination-partial-pivoting/easy/0/8bd9d8ddf60a", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "M = [[6, 1, 9], [0, 20/3, -8], [0, -25/6, 23/2]]", "id": "uc2-gaussian-elimination-partial-pivoting/easy/1/fedacf3e9a4c", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "M = [[-6, 9, 3], [0, -7, -3], [0, -7/2, -5/2]]", "id": "uc2-gaussian-elimination-partial-pivoting/easy/2/f59a27499387", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "(a) -7; (b) 2/7; (c) 33/7; (d) 174", "id": "uc2-gaussian-elimination-partial-pivoting/exam/0/7c8c64d49500", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "(a) 7; (b) 4/7; (c) 20/7; (d) -15", "id": "uc2-gaussian-elimination-partial-pivoting/exam/1/236ca768584c", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "(a) -9; (b) -1/3; (c) 16/3; (d) -597", "id": "uc2-gaussian-elimination-partial-pivoting/exam/2/067d3cc61a33", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "x = [[1], [-1], [0]]", "id": "uc2-gaussian-elimination-partial-pivoting/hard/0/ee1c7fa3e6af", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "x = [[3], [4], [-1]]", "id": "uc2-gaussian-elimination-partial-pivoting/hard/1/6e2d181b02b9", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "x = [[3], [-2], [4]]", "id": "uc2-gaussian-elimination-partial-pivoting/hard/2/8bc4545d14f1", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "U = [[8, -6, 2], [0, -21/4, 19/4], [0, 0, -50/7]]", "id": "uc2-gaussian-elimination-partial-pivoting/medium/0/1b680a00f9f7", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "U = [[8, 8, 8], [0, -9, -5], [0, 0, -2]]", "id": "uc2-gaussian-elimination-partial-pivoting/medium/1/f7338bf3f2f4", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "U = [[9, -6, 9], [0, -11/3, 3], [0, 0, 64/11]]", "id": "uc2-gaussian-elimination-partial-pivoting/medium/2/be70602abdc7", "text": "Use partial pivoting: at each stage, first swap into the pivot position the row…"}
+{"answer": "-3.04000", "id": "uc2-improved-euler-step/easy/0/e2a1902833e7", "text": "Given y′ = 3x + y, y(−1) = −2, approximate y(−0.8) using one step of Heun's met…"}
+{"answer": "-1.71875", "id": "uc2-improved-euler-step/easy/1/5fe2691f721c", "text": "Given y′ = −2x − y, y(2) = −1, approximate y(2.25) using one step of Heun's met…"}
+{"answer": "0.62500", "id": "uc2-improved-euler-step/easy/2/7d8eeb8bc068", "text": "Given y′ = −2x − y, y(2) = 2, approximate y(2.25) using one step of Heun's meth…"}
+{"answer": "(a) -2.00000; (b) -2.40000; (c) -1.80000; (d) -2.38000", "id": "uc2-improved-euler-step/exam/0/136520e321b2", "text": "For y′ = 3x + y, y(0) = −2, the improved Euler (Heun) method with h = 0.2 advan…"}
+{"answer": "(a) -1.00000; (b) 0.50000; (c) 0.50000; (d) 0.87500", "id": "uc2-improved-euler-step/exam/1/06c736836874", "text": "A function y satisfies y′ = 2x − y, y(0) = 1. One step of the improved Euler me…"}
+{"answer": "(a) 9.00000; (b) 4.80000; (c) 22.84000; (d) 6.18400", "id": "uc2-improved-euler-step/exam/2/1d31bf8590d9", "text": "The problem y′ = y² − x, y(0) = 3 is stepped once, by Heun's method, with h = 0…"}
+{"answer": "1.51408", "id": "uc2-improved-euler-step/hard/0/a728140038bd", "text": "A function y satisfies y′ = x² + y, y(0) = 1. Use two steps of the improved Eul…"}
+{"answer": "1.60924", "id": "uc2-improved-euler-step/hard/1/36935c7197de", "text": "Given y′ = xy − y, y(2) = 1, approximate y(2.4) using two steps of Heun's metho…"}
+{"answer": "0.85486", "id": "uc2-improved-euler-step/hard/2/8380f0bfb270", "text": "The initial value problem y′ = −y² + 2x, y(0) = 1 is solved numerically with tw…"}
+{"answer": "-0.56250", "id": "uc2-improved-euler-step/medium/0/cea36f1f86a8", "text": "The initial value problem y′ = y² + x, y(1) = −1 is solved numerically with one…"}
+{"answer": "2.98800", "id": "uc2-improved-euler-step/medium/1/7585a40a7b97", "text": "The initial value problem y′ = 2xy, y(2) = 2 is solved numerically with one ste…"}
+{"answer": "2.35950", "id": "uc2-improved-euler-step/medium/2/b3f81d6b144c", "text": "The initial value problem y′ = y² − x, y(1) = 2 is solved numerically with one …"}
+{"answer": "1/16", "id": "uc2-interpolation-error-bound/easy/0/96f137c84cf9", "text": "Interpolate f(x) = sin 2x at the nodes x = 2, 2.5, 3 with a polynomial p of deg…"}
+{"answer": "1/2", "id": "uc2-interpolation-error-bound/easy/1/d1f768497e67", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 4x at x = 1, 1.5, 2. …"}
+{"answer": "27/128", "id": "uc2-interpolation-error-bound/easy/2/3795a7616fd5", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 3x at x = 1, 1.5, 2. …"}
+{"answer": "(a) 540; (b) 3/8; (c) 135/4", "id": "uc2-interpolation-error-bound/exam/0/a72ee2f01ccd", "text": "The function f(x) = x⁵ is approximated by the quadratic p that passes through f…"}
+{"answer": "(a) 2; (b) 3/8; (c) 1/8", "id": "uc2-interpolation-error-bound/exam/1/454181352783", "text": "A quadratic p interpolates f(x) = ln x at the nodes x = 1, 2, 3. (a) Find the l…"}
+{"answer": "(a) 6; (b) 3/64; (c) 3/64", "id": "uc2-interpolation-error-bound/exam/2/376374656757", "text": "The function f(x) = 1/x is approximated by the quadratic p that passes through …"}
+{"answer": "5", "id": "uc2-interpolation-error-bound/hard/0/8b0e53ff1842", "text": "Values of f(x) = 1/x for x in [3, 4] are to be read from a table with equal ste…"}
+{"answer": "4", "id": "uc2-interpolation-error-bound/hard/1/8d50bf8af8ec", "text": "Linear interpolation between equally spaced table entries is used for f(x) = ln…"}
+{"answer": "45", "id": "uc2-interpolation-error-bound/hard/2/f720ab6685e1", "text": "A table of f(x) = ln x is to be built on the interval [1, 5] with equally space…"}
+{"answer": "21/64", "id": "uc2-interpolation-error-bound/medium/0/803768a23324", "text": "The function f(x) = 1/x is approximated by the polynomial p of degree at most 2…"}
+{"answer": "2679075/32768", "id": "uc2-interpolation-error-bound/medium/1/ac63139878d5", "text": "Interpolate f(x) = x⁷ at the nodes x = 3, 3.5, 4, 4.5 with a polynomial p of de…"}
+{"answer": "1010625/32768", "id": "uc2-interpolation-error-bound/medium/2/c322790a811e", "text": "A polynomial p of degree at most 3 agrees with f(x) = x⁷ at x = 1, 1.5, 2, 2.5.…"}
+{"answer": "3/2", "id": "uc2-kkt-conditions-check/easy/0/6a34cf2c7ca7", "text": "Let f(x, y) = (x + 2.75)² + (y − 1.25)² and g(x, y) = −x − y. At the boundary p…"}
+{"answer": "-3", "id": "uc2-kkt-conditions-check/easy/1/613752d78373", "text": "For the problem of minimising (x + 5.5)² + (y + 3.5)² subject to g(x, y) = 3x +…"}
+{"answer": "5", "id": "uc2-kkt-conditions-check/easy/2/b5448a27d331", "text": "Minimise f(x, y) = (x + 3.5)² + (y + 4.5)² subject to −x − 3y ≤ −8. The constra…"}
+{"answer": "(a) 5; (b) 3; (c) -2; (d) 125/2", "id": "uc2-kkt-conditions-check/exam/0/d5df1cba8f21", "text": "A designer wants the point nearest, in the weighted sense f(x, y) = (x + 4.5)² …"}
+{"answer": "(a) 2; (b) 2; (c) 2; (d) 10", "id": "uc2-kkt-conditions-check/exam/1/eb6bf3a49931", "text": "Minimise f(x, y) = (x − 1)² + (y − 5)² subject to −x + 3y ≤ 4. (a) The unconstr…"}
+{"answer": "(a) 5/2; (b) 2; (c) -1; (d) 125/16", "id": "uc2-kkt-conditions-check/exam/2/061bfd7bb17b", "text": "A designer wants the point nearest, in the weighted sense f(x, y) = 2(x − 0.125…"}
+{"answer": "13/3", "id": "uc2-kkt-conditions-check/hard/0/390bf926bf7c", "text": "A KKT point of the problem minimise −24x + 10y over g(x, y) = x² + y² − 9 ≤ 0 h…"}
+{"answer": "13/5", "id": "uc2-kkt-conditions-check/hard/1/9175f416b15a", "text": "The linear function −24x + 10y is minimised over the disc x² + y² ≤ 25. At the …"}
+{"answer": "5/2", "id": "uc2-kkt-conditions-check/hard/2/594cee4174e4", "text": "Minimise f(x, y) = 12x − 9y subject to x² + y² ≤ 9. The minimum lies on the bou…"}
+{"answer": "3/2", "id": "uc2-kkt-conditions-check/medium/0/d052cd5265d8", "text": "Minimise f(x, y) = (x − 0.5)² + (y − 1)² subject to −3x + y ≤ −9 and −x + y ≤ −…"}
+{"answer": "5", "id": "uc2-kkt-conditions-check/medium/1/0267114562d5", "text": "Minimise f(x, y) = (x − 8.75)² + (y − 4.25)² subject to 3x + 2y ≤ 6 and −x − y …"}
+{"answer": "3", "id": "uc2-kkt-conditions-check/medium/2/4744a45f0b5f", "text": "The point P = (3, 2) lies on both boundaries −x + 3y = 3 and 3x + 3y = 15 of a …"}
+{"answer": "78", "id": "uc2-lagrange-multiplier-nonlinear-constraint/easy/0/c42401075767", "text": "Find the maximum value of f(x, y) = 15x + 36y on the circle x² + y² = 4, as a f…"}
+{"answer": "255/2", "id": "uc2-lagrange-multiplier-nonlinear-constraint/easy/1/3ab437d19d14", "text": "A point (x, y) moves on the circle x² + y² = 6.25. What is the greatest value o…"}
+{"answer": "102", "id": "uc2-lagrange-multiplier-nonlinear-constraint/easy/2/3ccca9bba9a9", "text": "Find the maximum value of f(x, y) = 16x + 30y on the circle x² + y² = 9, as a f…"}
+{"answer": "(a) 1/2; (b) 1; (c) 1; (d) 5", "id": "uc2-lagrange-multiplier-nonlinear-constraint/exam/0/c796a413f57a", "text": "On the ellipse 2x² + 3y² = 5, find the point where 2x + 3y is largest, taking g…"}
+{"answer": "(a) 3/2; (b) 4; (c) 3; (d) 129", "id": "uc2-lagrange-multiplier-nonlinear-constraint/exam/1/28e44af47793", "text": "Maximise f(x, y) = 12x + 27y subject to x² + 3y² = 43, using a Lagrange multipl…"}
+{"answer": "(a) 2; (b) 4; (c) 1; (d) 72", "id": "uc2-lagrange-multiplier-nonlinear-constraint/exam/2/500129667299", "text": "The function f(x, y) = 16x + 8y is to be maximised on the ellipse x² + 2y² = 18…"}
+{"answer": "78", "id": "uc2-lagrange-multiplier-nonlinear-constraint/hard/0/b720db809787", "text": "Points (x, y) satisfy x² + xy + y² = 13. Use Lagrange multipliers to find the l…"}
+{"answer": "38", "id": "uc2-lagrange-multiplier-nonlinear-constraint/hard/1/35f36b4cfa65", "text": "Find the maximum value of f(x, y) = −7x − 8y on the curve x² + xy + y² = 19."}
+{"answer": "14", "id": "uc2-lagrange-multiplier-nonlinear-constraint/hard/2/6ec37ffe7013", "text": "Points (x, y) satisfy x² + xy + y² = 7. Use Lagrange multipliers to find the la…"}
+{"answer": "144", "id": "uc2-lagrange-multiplier-nonlinear-constraint/medium/0/5aca4f86a725", "text": "Maximise 18x + 36y subject to the constraint 3x² + 4y² = 48."}
+{"answer": "34", "id": "uc2-lagrange-multiplier-nonlinear-constraint/medium/1/cea66df16f94", "text": "Find the maximum value of f(x, y) = 2x + 16y on the ellipse x² + 4y² = 17."}
+{"answer": "3", "id": "uc2-lagrange-multiplier-nonlinear-constraint/medium/2/6bd7e6e5a013", "text": "Find the maximum value of f(x, y) = xy on the ellipse 9x² + y² = 18, as a fract…"}
+{"answer": "19", "id": "uc2-matrix-norm-1-and-infinity/easy/0/1030a1714593", "text": "Evaluate the matrix norm ‖A‖₁ for A = [[-3, 2, -5], [8, 3, -6], [8, 8, -7]]."}
+{"answer": "18", "id": "uc2-matrix-norm-1-and-infinity/easy/1/9db3ca00df17", "text": "Compute the induced ∞-norm of A = [[-1, -9, -6], [7, -4, -7], [-9, 6, 2]]."}
+{"answer": "20", "id": "uc2-matrix-norm-1-and-infinity/easy/2/dd87db682497", "text": "Find ‖A‖₁ for A = [[4, 7, -1], [-7, -4, -2], [1, -9, 4]]."}
+{"answer": "(a) 11; (b) 9/5; (c) 99/5; (d) 99/1000", "id": "uc2-matrix-norm-1-and-infinity/exam/0/dffb987590bd", "text": "Consider A = [[3, 1], [8, 1]] and the system Ax = b. (a) Find ‖A‖₁, the largest…"}
+{"answer": "(a) 13; (b) 1; (c) 13; (d) 13/50", "id": "uc2-matrix-norm-1-and-infinity/exam/1/66eaf2a48bbc", "text": "The matrix A = [[-4, 8], [-1, 5]] is the coefficient matrix of a linear system …"}
+{"answer": "(a) 13; (b) 3; (c) 39; (d) 39/100", "id": "uc2-matrix-norm-1-and-infinity/exam/2/b7a0fec61bfe", "text": "The matrix A = [[1, -5], [-1, 8]] is the coefficient matrix of a linear system …"}
+{"answer": "473/3", "id": "uc2-matrix-norm-1-and-infinity/hard/0/0c8407d48c4b", "text": "The matrix A = [[5, -4, 2], [3, 5, 5], [-1, -2, -2]] has inverse A⁻¹. Find ‖A‖₁…"}
+{"answer": "48", "id": "uc2-matrix-norm-1-and-infinity/hard/1/eeb5ccbc736e", "text": "Compute the condition number of A = [[3, 1, 1], [1, 3, 5], [4, 1, 0]] in the 1-…"}
+{"answer": "583/7", "id": "uc2-matrix-norm-1-and-infinity/hard/2/633c9ee9985a", "text": "The matrix A = [[6, 3, 2], [5, 5, -2], [0, 1, -1]] has inverse A⁻¹. Find ‖A‖₁ ‖…"}
+{"answer": "28", "id": "uc2-matrix-norm-1-and-infinity/medium/0/952211f1888f", "text": "For A = [[7, 3], [9, 5]], find the condition number κ∞(A) = ‖A‖∞ ‖A⁻¹‖∞ as a fr…"}
+{"answer": "21", "id": "uc2-matrix-norm-1-and-infinity/medium/1/afc68f92bb03", "text": "The matrix A = [[6, 3], [1, 1]] is to be inverted. How ill-conditioned is it in…"}
+{"answer": "11", "id": "uc2-matrix-norm-1-and-infinity/medium/2/b97c423844e3", "text": "The matrix A = [[-5, 6], [4, -3]] is to be inverted. How ill-conditioned is it …"}
+{"answer": "33/16", "id": "uc2-newton-method-optimisation-step/easy/0/7e392559fea1", "text": "Take one step of Newton's method for optimisation from x₀ = 3 on f(x) = x⁴ − 2x…"}
+{"answer": "-43/18", "id": "uc2-newton-method-optimisation-step/easy/1/e426a2b33d0d", "text": "To find a local minimum of f(x) = x⁴ + 2x³ − 3x² + 3x − 1, one iteration of the…"}
+{"answer": "4/13", "id": "uc2-newton-method-optimisation-step/easy/2/c92d82a57f8c", "text": "Newton's method is used to minimise f(x) = x⁴ + x³ + 4x² + 3x + 4. Starting fro…"}
+{"answer": "(a) 39; (b) -12/13; (c) 16/13; (d) -4406/28561", "id": "uc2-newton-method-optimisation-step/exam/0/7a10d24a56c2", "text": "A minimum of f(x, y) = x⁴ + x²y − 2x² + 3xy + 2y² − 2x − 3y is sought by Newton…"}
+{"answer": "(a) 24; (b) 1/3; (c) -1/6; (d) -5059/1296", "id": "uc2-newton-method-optimisation-step/exam/1/ce00403a4cc8", "text": "Consider f(x, y) = x⁴ + y⁴ + x² − 2xy + y² + 3x + y and one Newton optimisation…"}
+{"answer": "(a) 35; (b) -47/35; (c) 123/35; (d) -14523813/1500625", "id": "uc2-newton-method-optimisation-step/exam/2/f09f10029e92", "text": "Consider f(x, y) = 2x⁴ − x² + 3xy + y² + 3x − 3y and one Newton optimisation st…"}
+{"answer": "-5/128", "id": "uc2-newton-method-optimisation-step/hard/0/46cd4ba75cf8", "text": "Starting at (0, 0), Newton's method for minimising 2x⁴ − x²y + 3x² + 2xy + y² −…"}
+{"answer": "-23/81", "id": "uc2-newton-method-optimisation-step/hard/1/36ffba5f3db9", "text": "Starting at (0, 0), Newton's method for minimising x⁴ + x²y + x² + xy + y² − x …"}
+{"answer": "1793/256", "id": "uc2-newton-method-optimisation-step/hard/2/a387f9b1416b", "text": "For f(x, y) = x⁴ + x² − 2xy + 3y² + 3x − 2y, apply Newton's method for optimisa…"}
+{"answer": "-47/55", "id": "uc2-newton-method-optimisation-step/medium/0/d1667687254d", "text": "One iteration of the Newton optimisation method is applied to x⁴ + x² − xy + 2y…"}
+{"answer": "-110/119", "id": "uc2-newton-method-optimisation-step/medium/1/ac5c1aec6923", "text": "Newton's method is used to minimise f(x, y) = x⁴ + y⁴ − 2x² + 3xy + 2y² − 3x − …"}
+{"answer": "34/25", "id": "uc2-newton-method-optimisation-step/medium/2/369a0a27b5f7", "text": "Newton's method is used to minimise f(x, y) = x⁴ + y⁴ + x² − 2xy + 2y² − 2x − 2…"}
+{"answer": "1/5", "id": "uc2-ode-method-order-and-stability/easy/0/6c1ee0ea34f0", "text": "Explicit Euler, yₙ₊₁ = yₙ + h·A·yₙ, is applied to y′ = Ay where A = [[-10, 2], …"}
+{"answer": "1/4", "id": "uc2-ode-method-order-and-stability/easy/1/a2dab775c28c", "text": "Explicit Euler, yₙ₊₁ = yₙ + h·A·yₙ, is applied to y′ = Ay where A = [[-8, 3], […"}
+{"answer": "1/3", "id": "uc2-ode-method-order-and-stability/easy/2/f16037395225", "text": "Explicit Euler, yₙ₊₁ = yₙ + h·A·yₙ, is applied to y′ = Ay where A = [[-6, -3], …"}
+{"answer": "(a) First order, stable for every step size; (b) 5/17; (c) …", "id": "uc2-ode-method-order-and-stability/exam/0/40025d38fc99", "text": "Consider the scheme yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)], θ = 3/4 for y′ = f…"}
+{"answer": "(a) Second order, stable only for small enough steps; (b) 5…", "id": "uc2-ode-method-order-and-stability/exam/1/e08f4f7d7e58", "text": "The method yₙ₊₁ = yₙ + (h/2)[f(yₙ) + f(yₙ + h f(yₙ))] is applied to y′ = −λy (s…"}
+{"answer": "(a) First order, stable only for small enough steps; (b) 2/…", "id": "uc2-ode-method-order-and-stability/exam/2/72caec34048b", "text": "The method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)], θ = 1/3 is applied to y′ = …"}
+{"answer": "3", "id": "uc2-ode-method-order-and-stability/hard/0/dfbb0e297c1d", "text": "The amplification factor of a one-step method for y′ = −λy is R(z) = −(1/24)z⁵ …"}
+{"answer": "2", "id": "uc2-ode-method-order-and-stability/hard/1/72d0b719a26f", "text": "The amplification factor of a one-step method for y′ = −λy is R(z) = −(1/30)z⁴ …"}
+{"answer": "3", "id": "uc2-ode-method-order-and-stability/hard/2/e7bd566699ef", "text": "The amplification factor of a one-step method for y′ = −λy is R(z) = −(1/30)z⁵ …"}
+{"answer": "8/3", "id": "uc2-ode-method-order-and-stability/medium/0/3166b2e81a16", "text": "The θ-method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)] with θ = 3/8 is applied to…"}
+{"answer": "3/2", "id": "uc2-ode-method-order-and-stability/medium/1/a1c076717a17", "text": "The equation y′ = −4y is solved by the method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(…"}
+{"answer": "2", "id": "uc2-ode-method-order-and-stability/medium/2/8ff47a6168db", "text": "The θ-method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)] with θ = 1/3 is applied to…"}
+{"answer": "3.00000", "id": "uc2-richardson-extrapolation/easy/0/bb0423ab918c", "text": "The function f(x) = 2x³ + x² − 4x − 3 has forward difference quotients at x = 1…"}
+{"answer": "10.00000", "id": "uc2-richardson-extrapolation/easy/1/83dbc1452059", "text": "The function f(x) = 2x³ − 3x² − x − 2 has forward difference quotients at x = −…"}
+{"answer": "3.50000", "id": "uc2-richardson-extrapolation/easy/2/08a067148d3b", "text": "For f(x) = −x³ + 5x² − 5x − 1, the forward difference is (f(x + h) − f(x))/h. T…"}
+{"answer": "(a) -33.09440; (b) -32.27840; (c) -32.00640; (d) -0.00640", "id": "uc2-richardson-extrapolation/exam/0/05a01d1a6594", "text": "Let D(h) = (f(x + h) − f(x − h))/(2h) for f(x) = x⁵ − 3x⁴ − 5x³ − 3x² − 4x + 4.…"}
+{"answer": "(a) 3.05120; (b) 3.00320; (c) 2.98720; (d) -0.01280", "id": "uc2-richardson-extrapolation/exam/1/1dd13e4e0dcf", "text": "The derivative of f(x) = 2x⁵ − 2x⁴ − 3x² + 3x − 5 at x = 0 is estimated by the …"}
+{"answer": "(a) 236.61120; (b) 225.64320; (c) 221.98720; (d) -0.01280", "id": "uc2-richardson-extrapolation/exam/2/d157b9c548ea", "text": "The derivative of f(x) = 2x⁵ + x⁴ + 3x³ − x² − 2x + 5 at x = 2 is estimated by …"}
+{"answer": "2.34029", "id": "uc2-richardson-extrapolation/hard/0/bb417d6ba09d", "text": "The trapezoid rule applied to an integral gives T(h) = 2.7572 with step h = 0.5…"}
+{"answer": "3.74973", "id": "uc2-richardson-extrapolation/hard/1/4249c50a63a5", "text": "A trapezoid-rule table for an integral reads 3.7297, 3.7400, 3.7470 at steps 0.…"}
+{"answer": "8.21474", "id": "uc2-richardson-extrapolation/hard/2/4eecd45649a3", "text": "Three trapezoid estimates of one integral, with steps 1, 0.5 and 0.25, are 5.81…"}
+{"answer": "204.98720", "id": "uc2-richardson-extrapolation/medium/0/22ed61746b06", "text": "Estimate f′(2) for f(x) = 2x⁵ + 3x⁴ − 5x³ + x² + 5x + 2 using central differenc…"}
+{"answer": "17.75000", "id": "uc2-richardson-extrapolation/medium/1/aafd6533530e", "text": "For f(x) = x⁵ + 3x⁴ − x³ + x² + 2x + 5, the central difference is (f(x + h) − f…"}
+{"answer": "-13.75000", "id": "uc2-richardson-extrapolation/medium/2/757b0d559409", "text": "Estimate f′(1) for f(x) = −x⁵ − 3x⁴ + x³ − x² + 2x + 3 using central difference…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}
