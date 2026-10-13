@@ -7724,11 +7724,11 @@
 {"answer": "(a) 285; (b) 38; (c) 8550", "id": "triangle-area-base-height/exam/1/b98c1ceb2d55", "text": "A shade sail over a playground in Mackay is a triangle with a base of 19 m and …"}
 {"answer": "(a) 72; (b) 8; (c) 2880", "id": "triangle-area-base-height/exam/2/eb85edbe33bd", "text": "A shade sail over a playground in Mackay is a triangle with a base of 16 m and …"}
 {"answer": "132", "id": "triangle-area-base-height/hard/0/5e07a6c404c4", "text": "Triangle LMN has three lengths marked. Calculate its area, in cm²."}
-{"answer": "132", "id": "triangle-area-base-height/hard/1/144d4abd91eb", "text": "Use the lengths marked on triangle PQR to find its area, in m²."}
-{"answer": "150", "id": "triangle-area-base-height/hard/2/fca3dfded287", "text": "Use the lengths marked on triangle DEF to find its area, in m²."}
-{"answer": "5", "id": "triangle-area-base-height/medium/0/8fbcb2a4e454", "text": "What is the area of triangle LMN, in mm²? The perpendicular height is shown das…"}
-{"answer": "90", "id": "triangle-area-base-height/medium/1/755796de0842", "text": "Calculate the area of triangle ABC, in mm². The square marks a right angle."}
-{"answer": "75", "id": "triangle-area-base-height/medium/2/ff3401ea91c4", "text": "What is the area of triangle XYZ, in mm²? The perpendicular height is shown das…"}
+{"answer": "132", "id": "triangle-area-base-height/hard/1/186d9a098fb2", "text": "Use the lengths marked on triangle PQR to find its area, in m²."}
+{"answer": "150", "id": "triangle-area-base-height/hard/2/72d5b118e825", "text": "Use the lengths marked on triangle DEF to find its area, in m²."}
+{"answer": "5", "id": "triangle-area-base-height/medium/0/08f8c9d30fd7", "text": "What is the area of triangle LMN, in mm²? The perpendicular height is shown das…"}
+{"answer": "90", "id": "triangle-area-base-height/medium/1/60541daaf07d", "text": "Calculate the area of triangle ABC, in mm². The square marks a right angle."}
+{"answer": "75", "id": "triangle-area-base-height/medium/2/e9abd0a8dfb4", "text": "What is the area of triangle XYZ, in mm²? The perpendicular height is shown das…"}
 {"answer": "Area = 31.0", "id": "triangle-area-sine/easy/0/5822f05c6bd6", "text": "Triangle ABC has side a = 7, side b = 9, and included angle C = 80°. Find its a…"}
 {"answer": "Area = 67.5", "id": "triangle-area-sine/easy/1/79e84994a528", "text": "Triangle ABC has side a = 15, side b = 14, and included angle C = 40°. Find its…"}
 {"answer": "Area = 17.3", "id": "triangle-area-sine/easy/2/f98f67dcd4d1", "text": "Triangle ABC has side a = 4, side b = 10, and included angle C = 60°. Find its …"}
