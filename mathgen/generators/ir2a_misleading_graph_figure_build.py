@@ -1,4 +1,4 @@
-"""Generates `ir2a-misleading-graph-figure` questions: read a line graph, then judge what its vertical axis does.
+"""Generates `misleading-graph-figure` questions: read a line graph, then judge what its vertical axis does.
 
 A newsletter prints a line graph of a quantity over some years, drawn as a ``cartesian`` figure, with a headline. On
 most graphs the vertical axis starts well above zero, which makes a small rise look large; on the others it starts at

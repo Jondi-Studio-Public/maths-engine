@@ -1,4 +1,4 @@
-"""Generates `ir2a-spot-bias` questions: find what is wrong with how a survey was run, then estimate from the right data.
+"""Generates `spot-bias` questions: find what is wrong with how a survey was run, then estimate from the right data.
 
 A survey is described in short numbered statements, each one about a different part of the survey: which list the
 people were chosen from, how they were picked, the wording of the question, how many replied, and how they were

@@ -8,7 +8,7 @@ Three tiers, all answered with a whole number and all without fractions:
 * hard (Year 5): two tallies of one experiment (after the first trials, and after more), then the extra trials on
   their own, a gap between two outcomes in the extra trials, or the most common outcome against equal likelihood.
 
-Tallies are written with the five-bar gate sign for each group of five and single bars for the rest. Every key is
+Tallies are written as four strokes with a diagonal line through them for each group of five and single strokes for the rest. Every key is
 re-derived a second way (summing the tally text back, or counting from the table), and every option is a different
 whole number from the key by construction.
 """
@@ -28,7 +28,7 @@ from mathgen.core import (
 
 from ._fr2d_kit import Short, int_d, need, redraw
 
-_GATE = "卌"  # the CJK numeral that looks like a tally gate: five in one mark
+_GATE = "||||/"  # four strokes with a diagonal through them: plain ASCII, so it needs no special font
 
 # lead sentence, outcomes, the thing that is done once per trial, and a noun for a trial
 _CONTEXTS = (

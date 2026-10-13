@@ -65,13 +65,17 @@ class Model:
 
     def __init__(self, kind: str, rule, xs: list[int], context: dict, grow: bool = True):
         self.kind, self.rule, self.xs, self.context, self.grow = kind, rule, xs, context, grow
+        self._values: dict[int, Fraction] = {}
         self.ys = [self.at(v) for v in xs]
         check(all(y.denominator == 1 for y in self.ys), "table values must be whole numbers")
         self.ys = [int(y) for y in self.ys]
 
     def at(self, value) -> Fraction:
-        r = sympy.Rational(self.rule.subs(x, Integer(value)))
-        return Fraction(int(r.p), int(r.q))
+        """The rule's exact value at a whole x, remembered because the limit search asks for the same values again."""
+        if value not in self._values:
+            r = sympy.Rational(self.rule.xreplace({x: Integer(value)}))
+            self._values[value] = Fraction(int(r.p), int(r.q))
+        return self._values[value]
 
     def table_text(self) -> str:
         return "x: " + ", ".join(str(v) for v in self.xs) + "; y: " + ", ".join(str(v) for v in self.ys)

@@ -11,15 +11,15 @@ from mathgen.engine import grade, make_for_skill
 from tests import exd_x_r2j_kit as kit
 
 SKILLS = {
-    "ir2a-choose-sampling-method": "choose_sampling_method",
-    "ir2a-spot-bias": "spot_bias",
-    "ir2a-question-to-data-needed": "question_to_data_needed",
-    "ir2a-pick-display-for-question": "pick_display_for_question",
-    "ir2a-investigation-step-order": "investigation_step_order",
-    "ir2a-judge-stated-conclusion": "judge_stated_conclusion",
-    "ir2a-compare-groups-evidence": "compare_groups_evidence",
-    "ir2a-limits-of-a-bivariate-claim": "limits_of_a_bivariate_claim",
-    "ir2a-misleading-graph-figure": "misleading_graph_figure",
+    "choose-sampling-method": "choose_sampling_method",
+    "spot-bias": "spot_bias",
+    "question-to-data-needed": "question_to_data_needed",
+    "pick-display-for-question": "pick_display_for_question",
+    "investigation-step-order": "investigation_step_order",
+    "judge-stated-conclusion": "judge_stated_conclusion",
+    "compare-groups-evidence": "compare_groups_evidence",
+    "limits-of-a-bivariate-claim": "limits_of_a_bivariate_claim",
+    "misleading-graph-figure": "misleading_graph_figure",
 }
 TIERS = ("easy", "medium", "hard")
 
@@ -67,7 +67,7 @@ def _iqr(vals: list[int]) -> float:
 
 
 def test_compare_groups_exam_matches_an_independent_calculation():
-    skill_id = "ir2a-compare-groups-evidence"
+    skill_id = "compare-groups-evidence"
     for seed in range(120):
         q = kit.exam_q(skill_id, seed)
         groups = re.findall(r"\((\d+) values\): ([\d, ]+)\.", q.stem)
@@ -83,7 +83,7 @@ def test_compare_groups_exam_matches_an_independent_calculation():
 
 
 def test_judge_conclusion_exam_percentages_match_the_stem():
-    skill_id = "ir2a-judge-stated-conclusion"
+    skill_id = "judge-stated-conclusion"
     seen = 0
     for seed in range(120):
         q = kit.exam_q(skill_id, seed)
@@ -99,7 +99,7 @@ def test_judge_conclusion_exam_percentages_match_the_stem():
 
 
 def test_misleading_graph_percentage_follows_the_two_readings():
-    skill_id = "ir2a-misleading-graph-figure"
+    skill_id = "misleading-graph-figure"
     for seed in range(120):
         q = kit.exam_q(skill_id, seed)
         canon = kit.canon(q)

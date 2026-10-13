@@ -21,11 +21,11 @@ SEEDS = range(120)
 
 # skill id -> topic
 SKILLS = {
-    "ey2a-count-principles-to-20": "ey2a_count_principles",
-    "ey2a-ten-frame-numbers": "ey2a_ten_frame_numbers",
-    "ey2a-part-part-whole-pictures": "ey2a_part_part_whole_pictures",
-    "ey2a-compare-match-quantities-pictures": "ey2a_compare_match_quantities",
-    "ey2a-equal-groups-sharing-halves-pictures": "ey2a_equal_groups_sharing_halves",
+    "count-principles-to-20": "ey2a_count_principles",
+    "ten-frame-numbers": "ey2a_ten_frame_numbers",
+    "part-part-whole-pictures": "ey2a_part_part_whole_pictures",
+    "compare-match-quantities-pictures": "ey2a_compare_match_quantities",
+    "equal-groups-sharing-halves-pictures": "ey2a_equal_groups_sharing_halves",
 }
 CASES = [(sid, topic, tier) for sid, topic in SKILLS.items() for tier in TIERS]
 

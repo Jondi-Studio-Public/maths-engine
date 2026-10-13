@@ -1,4 +1,4 @@
-"""Generates `ir2a-limits-of-a-bivariate-claim` questions: what a fitted line can and cannot be trusted to say.
+"""Generates `limits-of-a-bivariate-claim` questions: what a fitted line can and cannot be trusted to say.
 
 Two families of scenario:
 

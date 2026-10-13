@@ -1,4 +1,4 @@
-"""Generates `ir2a-choose-sampling-method` questions: name the sampling method a survey used, then use it.
+"""Generates `choose-sampling-method` questions: name the sampling method a survey used, then use it.
 
 Every question describes how a survey group was chosen from a stated population and asks the learner to name the
 method (a multiple-choice part with five options: census, simple random, systematic, stratified random,

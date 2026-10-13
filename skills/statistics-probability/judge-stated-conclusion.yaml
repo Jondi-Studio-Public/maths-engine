@@ -1,4 +1,4 @@
-id: ir2a-judge-stated-conclusion
+id: judge-stated-conclusion
 name: Judge whether data supports a conclusion
 domain: statistics-probability
 year_level: ['8', '9', '10']

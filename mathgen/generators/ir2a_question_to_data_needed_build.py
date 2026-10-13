@@ -1,4 +1,4 @@
-"""Generates `ir2a-question-to-data-needed` questions: from a statistical question to the data that answers it.
+"""Generates `question-to-data-needed` questions: from a statistical question to the data that answers it.
 
 Every scenario poses a question that compares a measurement across groups ("do students who play a sport sleep
 more than students who do not?"). The learner works out which variables the question needs, what type the

@@ -1,4 +1,4 @@
-"""Generates `ir2a-investigation-step-order` questions: put the actions of a statistical investigation in order.
+"""Generates `investigation-step-order` questions: put the actions of a statistical investigation in order.
 
 An investigation is described as a set of lettered actions in shuffled order. The learner types the letters in the
 order the investigation would carry them out. The stages are fixed (pose the question, collect the data, organise it,

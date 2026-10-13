@@ -1,4 +1,4 @@
-"""Generates `ir2a-judge-stated-conclusion` questions: recompute a claimed figure, then judge whether the data support it.
+"""Generates `judge-stated-conclusion` questions: recompute a claimed figure, then judge whether the data support it.
 
 Every question states data and a claim made from it. The learner first works out the figure the claim rests on (a
 percentage, a difference in percentages, a mean, or a value predicted from a line), then picks from five options the

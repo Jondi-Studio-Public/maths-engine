@@ -9,7 +9,7 @@ import pytest
 from tests.fr2d_kit import SEEDS, check_determinism, check_options, check_text, check_tiers, question
 
 SKILL = "f10-trial-tallies-compare-outcomes"
-GATE = "卌"
+GATE = "||||/"
 
 
 def _count(tally: str) -> int:

@@ -1,4 +1,4 @@
-"""Generates `ir2a-pick-display-for-question` questions: choose the display that answers a question, then use the data.
+"""Generates `pick-display-for-question` questions: choose the display that answers a question, then use the data.
 
 Each question states a question to be answered and the data collected for it (as lists, nothing is drawn), asks which
 of five displays would answer it best, and then asks for one number that the chosen display would show:

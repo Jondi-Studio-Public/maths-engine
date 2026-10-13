@@ -1,4 +1,4 @@
-"""Generates `ir2a-compare-groups-evidence` questions: is the difference between two groups likely to be real?
+"""Generates `compare-groups-evidence` questions: is the difference between two groups likely to be real?
 
 Two groups of measurements are compared. Each question states the rule the verdict follows:
 
