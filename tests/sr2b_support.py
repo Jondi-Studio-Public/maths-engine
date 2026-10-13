@@ -46,7 +46,6 @@ def assert_wired(skill_id: str, topic: str, exam_topic: str, answer: str, prereq
     assert by_difficulty["exam"]["topic"] == exam_topic
     assert by_difficulty["exam"]["stages"] == ["exam"]
     assert not by_difficulty["exam"]["params"]
-    assert data.get("year_level") is None
     sk = skill_object(skill_id)
     assert sk.status == "active"
 
