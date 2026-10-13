@@ -1,0 +1,93 @@
+id: ucv1-series-comparison-tests
+name: Decide convergence by p-series, comparison, integral and alternating series tests
+domain: functions-sequences
+description: Apply the p-series test, limit comparison, absolute versus conditional convergence and the integral test to
+  decide convergence and bound sums.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-understand-the-limiting-behaviour-as-n-rightarrow-infty
+- integrate-polynomial
+answer: fraction
+sources:
+- topic: fy1so_series_tests
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1so_series_tests
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1so_series_tests
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1so_exd_series_tests
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: series-absolute-confused-with-conditional
+  description: Giving the count of absolutely convergent cases when asked for the conditionally convergent ones.
+- id: series-bound-first-term-omitted
+  description: Giving only the integral as the bound for the sum, leaving out the first term.
+- id: series-bound-integral-omitted
+  description: Giving only the first term as the integral-test bound, leaving out the integral.
+- id: series-bound-wrong-first-term
+  description: Adding the wrong term of the series to the integral in the integral-test bound.
+- id: series-conditional-confused-with-divergent
+  description: Counting the conditionally convergent cases as divergent (or the reverse) because the series does not converge
+    absolutely.
+- id: series-converges-counted-as-absolute
+  description: Counting every convergent case, absolute and conditional together, as the absolutely convergent ones.
+- id: series-denominator-coefficient-dropped
+  description: Dropping the denominator's leading coefficient when finding the limit in a limit comparison.
+- id: series-integral-constant-dropped
+  description: Dropping the constant multiplier when integrating c/(x + b)^q.
+- id: series-integral-power-rule-slip
+  description: Integrating (x + b)^(-q) without dividing by the new exponent, or with the wrong exponent.
+- id: series-integral-replaced-by-first-term
+  description: Giving the first term of the series where the value of the integral was asked for.
+- id: series-integral-sign-slip
+  description: Getting the sign of an improper integral wrong when the antiderivative is evaluated at the limits.
+- id: series-integral-wrong-lower-limit
+  description: Evaluating an improper integral at the wrong lower limit.
+- id: series-k-overshoot
+  description: Giving a larger exponent than the least one that works.
+- id: series-limit-inverted
+  description: 'Inverting the limit: finding lim b_n / a_n instead of lim a_n / b_n.'
+- id: series-lower-terms-kept
+  description: Letting the lower-order terms change the limit, adding them to the leading coefficients or multiplying by
+    them.
+- id: series-numerator-coefficient-dropped
+  description: Dropping the numerator's leading coefficient when finding the limit in a limit comparison.
+- id: series-numerator-power-ignored
+  description: Ignoring the power of n in the numerator when finding the exponent p of the p-series.
+- id: series-p-boundary-excluded
+  description: Excluding a boundary case that belongs in the count (off by one at p = 1 or p = 0).
+- id: series-p-boundary-included
+  description: 'Treating p = 1 as convergent (or counting the boundary case on the wrong side): the harmonic series diverges.'
+- id: series-partial-sum-omitted
+  description: Giving the tail integral alone where the partial sum plus the tail integral was asked for.
+- id: series-partial-sum-terms-miscounted
+  description: Adding the wrong number of terms, or starting from the wrong index, in a partial sum.
+- id: series-root-index-ignored
+  description: Ignoring the root index when finding the exponent p, so the exponent of n under the root is not divided by
+    it.
+- id: series-tail-integral-omitted
+  description: Leaving the tail integral out of the sharper bound, or adding a single term in its place.
+- id: series-tail-integral-start-off-by-one
+  description: Starting the tail integral at the wrong point, one step before or after the partial sum ends.
+tags:
+- first-year-university
+- functions-sequences
+- series-convergence
