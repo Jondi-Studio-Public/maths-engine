@@ -69,7 +69,7 @@ def test_deliberately_wrong_answer_rejected(difficulty):
 def test_every_option_uniform_shape_and_answer_matches_smallest_ssr_and_sad(difficulty):
     for seed in SEEDS:
         q = make(TOPIC, seed=seed, difficulty=difficulty)
-        pts = [(int(a), int(b)) for a, b in re.findall(r"\((-?\d+), (-?\d+)\)", q.text)]
+        pts = [tuple(p["at"]) for p in q.figure["points"]]
         assert len(pts) == 5
         eqs_in_text = re.findall(r"y = -?\d+x [+-] \d+", q.text)
         assert len(eqs_in_text) == 4
