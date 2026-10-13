@@ -10233,8 +10233,7 @@ _ENTRIES = (
     # -- reciprocal trigonometric functions ------------------------------------------------------------------------
     CatalogueEntry(
         "recip-not-taken",
-        "Giving the value of cos, sin or tan where sec, cosec or cot was asked for: forgetting to take the "
-        "reciprocal.",
+        "Giving the value of cos, sin or tan where sec, cosec or cot was asked for: forgetting to take the reciprocal.",
         area="trigonometry",
     ),
     CatalogueEntry(
@@ -10277,6 +10276,180 @@ _ENTRIES = (
         "recip-reciprocal-given",
         "Giving the reciprocal function's value, sec for cos or cosec for sin, where cos or sin was asked for.",
         area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-root-not-taken",
+        "Stopping at sec^2 (or tan^2, cosec^2, cot^2) from 1 + tan^2 = sec^2 and giving it as the answer, without "
+        "taking the square root.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-tan-not-squared",
+        "Adding 1 to tan (or cot) instead of to tan squared when using 1 + tan^2 = sec^2, so sec is found as 1 + tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-one-omitted",
+        "Reading sec^2 as tan^2: leaving the 1 out of 1 + tan^2 = sec^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-sign-slip",
+        "Misapplying the identity with the wrong sign, so sec^2 is taken as tan^2 - 1 or 1 - tan^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-given-repeated",
+        "Giving the value that was stated in the question (sec or cosec) as the answer for tan or cot.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-factor-left",
+        "Stopping part way through a simplification and leaving a squared function or a factor that should have "
+        "cancelled.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-not-applied",
+        "Solving an equation in sec^2 and tan^2 as if sec^2 were another tan^2, without using 1 + tan^2 = sec^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-difference-as-zero",
+        "Taking sec^2 x - tan^2 x as 0 instead of 1, so the constant terms are left on their own.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-tan-not-applied",
+        "Giving cos instead of sin by forgetting to multiply by tan when finding sin from cos and tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-tan-divided",
+        "Dividing cos by tan instead of multiplying, when finding sin from cos and tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-standard-angle-misread",
+        "Reading the wrong standard angle from the value of tan or cot, such as 45 degrees where tan is sqrt(3), or "
+        "30 degrees where tan is 1.",
+        area="trigonometry",
+    ),
+    # -- polar form of complex numbers ------------------------------------------------------------------------------
+    CatalogueEntry(
+        "polar-moduli-added",
+        "Adding the moduli instead of multiplying them when multiplying complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-moduli-subtracted",
+        "Subtracting the moduli instead of dividing them when dividing complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-arguments-subtracted-on-multiplying",
+        "Subtracting the arguments instead of adding them when multiplying complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-division-arguments-added",
+        "Adding the arguments instead of subtracting them when dividing complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-argument-of-first-only",
+        "Keeping the argument of the first number and ignoring the second, or the modulus of one number only.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-arguments-subtracted-in-wrong-order",
+        "Subtracting the arguments the wrong way round when dividing, so the argument has the wrong size.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-division-as-multiplication",
+        "Multiplying the moduli (or dividing nothing) where a quotient was needed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-angle-not-reduced",
+        "Leaving the argument as 360 degrees or more (or negative) instead of bringing it back into the range 0 to 360.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-angle-reduced-by-half-turn",
+        "Reducing an argument of more than 360 degrees by 180 degrees instead of by a full turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-argument-signs-mixed",
+        "Subtracting the arguments of w and u from that of z, instead of adding the argument of the factor in the "
+        "numerator.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-modulus-of-first-only",
+        "Giving the modulus of one of the numbers as the modulus of the product.",
+        area="complex-numbers",
+    ),
+    # -- De Moivre's theorem ---------------------------------------------------------------------------------------
+    CatalogueEntry(
+        "demoivre-modulus-not-raised",
+        "Applying De Moivre's theorem and leaving the modulus as it was, instead of raising it to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-multiplied",
+        "Multiplying the modulus by n instead of raising it to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-argument-not-multiplied",
+        "Raising the modulus to the power n but leaving the argument unchanged, instead of multiplying it by n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-negative-power-sign-lost",
+        "Giving the argument of z^n for a negative n as if n were positive, so the argument has the wrong sign.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-quadrant-ignored",
+        "Finding the argument of a number from its reference angle alone, without placing it in the quadrant of the "
+        "point.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-root-not-taken",
+        "Giving the sum of the squares of the real and imaginary parts as the modulus, without the square root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-is-one-component",
+        "Taking the modulus to be one of the two parts of the number, or their sum, instead of the square root of "
+        "the sum of their squares.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-argument-from-wrong-ratio",
+        "Finding the argument from the real part over the imaginary part, so the reference angle is the complement "
+        "of the right one.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-raised-the-wrong-way",
+        "Raising n to the power of the modulus instead of the modulus to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-conjugate-given",
+        "Writing the power in Cartesian form with the sign of the imaginary part reversed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-sine-cosine-swapped",
+        "Writing the power in Cartesian form with sine as the real part and cosine as the imaginary part.",
+        area="complex-numbers",
     ),
 )
 

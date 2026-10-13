@@ -51,7 +51,7 @@ def check_exam(sk, topic, seeds=60):
                 assert p.option_notes[text] in CATALOGUE, (seed, p.label, text)
 
 
-def check_follow_through(sk, topic, label, wrong_reply, later, seeds=30):
+def check_follow_through(sk, topic, label, wrong_reply, later, seeds=30, min_checked=None):
     """A wrong reply to part `label` still earns part `later` when `later` is right for that reply: `wrong_reply(q)`
     gives (reply to `label`, {later label: reply}) or None to skip the seed."""
     checked = 0
@@ -68,7 +68,7 @@ def check_follow_through(sk, topic, label, wrong_reply, later, seeds=30):
             part = result.parts[lab]
             assert part.marks == part.max_marks and part.follow_through is True, (seed, lab, reply, result)
         checked += 1
-    assert checked >= seeds // 2, checked
+    assert checked >= (seeds // 2 if min_checked is None else min_checked), checked
 
 
 _PARSE = (*standard_transformations, split_symbols, implicit_multiplication_application)

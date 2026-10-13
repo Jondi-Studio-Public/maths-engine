@@ -36,3 +36,16 @@ def frac_dist(value, tag: str) -> Distractor:
 
 def int_dist(value: int, tag: str) -> Distractor:
     return Distractor(str(int(value)), tag, int(value))
+
+
+def polar_pair(r: int, theta: int):
+    """A modulus and an argument in degrees as the labelled pair the polar-form skills answer with."""
+    from .p5b_complex_plane_build import ComplexPair
+
+    return ComplexPair("r", float(r), "theta", float(theta))
+
+
+def polar_dist(r: int, theta: int, tag: str) -> Distractor:
+    """A wrong (r, theta) as a tagged distractor."""
+    pair = polar_pair(r, theta)
+    return Distractor(pair.answer_text(), tag, pair.answer_dict())

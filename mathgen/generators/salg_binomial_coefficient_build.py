@@ -108,7 +108,10 @@ def _medium(rng):
         (comb(n, r), "binom-numbers-omitted"),
         (comb(n, r) * b, "binom-power-of-base-missed"),
         (comb(n, r) * b**other, "binom-powers-swapped"),
-        (comb(n, r + 1) * b ** (k - 1) if shape == "const" else comb(n, r - 1) * b ** (r - 1), "binom-wrong-term-picked"),
+        (
+            comb(n, r + 1) * b ** (k - 1) if shape == "const" else comb(n, r - 1) * b ** (r - 1),
+            "binom-wrong-term-picked",
+        ),
     ]
     if b < 0:
         cands.append((comb(n, r) * abs(b) ** k, "binom-negative-sign-dropped"))
@@ -157,7 +160,10 @@ def _hard_linear(rng):
     base = f"({a}x {'+' if b > 0 else '-'} {abs(b)})"
     stem = phrase(
         rng,
-        ("Find the coefficient of x{r} in the expansion of {base}{n}.", "What is the coefficient of x{r} in {base}{n}?"),
+        (
+            "Find the coefficient of x{r} in the expansion of {base}{n}.",
+            "What is the coefficient of x{r} in {base}{n}?",
+        ),
         r=sup(r),
         base=base,
         n=sup(n),
@@ -191,7 +197,10 @@ def _hard_constant(rng):
     base = f"({a}x {'+' if b > 0 else '-'} {abs(b)}/x)"
     stem = phrase(
         rng,
-        ("Find the term independent of x in the expansion of {base}{n}.", "Find the constant term in the expansion of {base}{n}."),
+        (
+            "Find the term independent of x in the expansion of {base}{n}.",
+            "Find the constant term in the expansion of {base}{n}.",
+        ),
         base=base,
         n=sup(n),
     )
@@ -304,7 +313,9 @@ def salg_exam_binomial_coefficient(rng, tier="exam"):
                 answer_latex=str(b),
                 marks=2,
                 follow_through=f"part_a*{p}**{r}*({q})**{n - r}",
-                working=[f"The x{sup(r)} term is C({n}, {r}) × {p}^{r} × ({q})^{n - r}, so the coefficient is {a} × {p**r} × {q ** (n - r)} = {b}."],
+                working=[
+                    f"The x{sup(r)} term is C({n}, {r}) × {p}^{r} × ({q})^{n - r}, so the coefficient is {a} × {p**r} × {q ** (n - r)} = {b}."
+                ],
                 distractors=b_dist,
             ),
             dict(

@@ -139,6 +139,9 @@ def test_exam_follow_through_from_a_wrong_sine():
         s = parse(q.parts[0].answer_text)
         c = parse(q.parts[1].answer_text)
         bad = -s  # sign slip in (a)
-        return str(bad).replace("**", "^"), {"c": str(1 / bad).replace("**", "^"), "d": str(sp.radsimp(c / bad)).replace("**", "^")}
+        return str(bad).replace("**", "^"), {
+            "c": str(1 / bad).replace("**", "^"),
+            "d": str(sp.radsimp(c / bad)).replace("**", "^"),
+        }
 
     check_follow_through(SKILL, EXAM, "a", wrong, ["c", "d"])

@@ -95,7 +95,7 @@ def wrong_values(fn: str, theta: sp.Expr, true: sp.Expr) -> list[tuple[sp.Expr, 
     if ref is not None:
         sign = 1 if true > 0 else -1
         comp = sp.Rational(1, 2) * _PI - ref
-        for name in ([fn] if fn in _FUNCS else []):
+        for name in [fn] if fn in _FUNCS else []:
             if defined(name, comp):
                 out.append((sign * abs(value(name, comp)), "trig-wrong-reference-angle"))
     return out
@@ -195,7 +195,10 @@ def _hard(rng):
         return r.choice(_FNS), sp.Rational(num, den)
 
     fn, frac = draw_until(
-        rng, draw, lambda fd: defined(fd[0], fd[1] * _PI) and not (-1 <= fd[1] <= 1) and (fd[1] * 2).q != 1, what="a reduced radian angle"
+        rng,
+        draw,
+        lambda fd: defined(fd[0], fd[1] * _PI) and not (-1 <= fd[1] <= 1) and (fd[1] * 2).q != 1,
+        what="a reduced radian angle",
     )
     return _question(rng, fn, frac * _PI, rad_text(frac))
 
@@ -216,6 +219,7 @@ def salg_reciprocal_trig_values(rng, tier="easy"):
 
 
 # -- exam -------------------------------------------------------------------------------------------------------
+
 
 def _exam_angles() -> list[sp.Rational]:
     """Multiples of π/3, π/4 and π/6 between -2π and 2π that are not on an axis and whose reduced angle is not in

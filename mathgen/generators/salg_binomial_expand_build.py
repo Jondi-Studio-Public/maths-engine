@@ -79,7 +79,9 @@ def _wrong_expansions(n: int, a: int, b: int, *, with_pascal: bool = True) -> li
             )
         )
     if b < 0:
-        out.append(("binom-sign-not-alternating", [comb(n, k) * a ** (n - k) * (-(abs(b) ** k) if k else 1) for k in ks]))
+        out.append(
+            ("binom-sign-not-alternating", [comb(n, k) * a ** (n - k) * (-(abs(b) ** k) if k else 1) for k in ks])
+        )
         out.append(("binom-negative-sign-dropped", [comb(n, k) * a ** (n - k) * abs(b) ** k for k in ks]))
     return out
 
@@ -115,7 +117,9 @@ def _working(n, a, b, first, second, coeffs, text):
             + f"{n} to 0 and the powers of the second rising from 0 to {n}."
         )
     else:
-        steps.append(f"The powers of {first} fall from {n} to 0 while the powers of the other letter rise from 0 to {n}.")
+        steps.append(
+            f"The powers of {first} fall from {n} to 0 while the powers of the other letter rise from 0 to {n}."
+        )
     steps.append(f"{_base_text(a, b, first, second)}{sup(n)} = {text}.")
     return steps
 
@@ -255,7 +259,10 @@ def salg_exam_binomial_expand(rng, tier="exam"):
                 answer_form=_FORM,
                 marks=2,
                 follow_through=ft_b,
-                working=[f"{base}{sup(4)} = {base}{base}{sup(3)}, so multiply your answer to (a) by {base}.", f"{base}{sup(4)} = {text4}."],
+                working=[
+                    f"{base}{sup(4)} = {base}{base}{sup(3)}, so multiply your answer to (a) by {base}.",
+                    f"{base}{sup(4)} = {text4}.",
+                ],
                 distractors=b_dist,
             ),
             dict(
