@@ -1,0 +1,78 @@
+id: f10-transform-image-coordinates
+name: Find the image of a shape after a translation, reflection or rotation
+domain: geometry
+year_level: ['5', '7']
+naplan_domain: [space]
+description: Given a triangle drawn on a coordinate grid and a stated translation, reflection (in an axis or a line x = k or y = k), half turn or quarter turn, or two such moves in order, write the coordinates of the image of a named corner.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-transformations-invariants, f10-coordinate-movement]
+answer: pair
+sources:
+- topic: fr2a_transform_image
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2a_transform_image
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2a_transform_image
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fr2a_transform_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: adds-instead-of-using-pythagoras
+  description: "Adding the two shorter sides of a right-angled triangle (or the components of a displacement) instead of using Pythagoras' theorem."
+- id: area-for-perimeter
+  description: Multiplying the sides of a rectangle where its perimeter was asked for.
+- id: forgets-the-square-root
+  description: Stopping at the sum of the squares of the components without taking the square root for the distance.
+- id: fr2a-first-step-left-out
+  description: Applying the second move to the original point and skipping the first.
+- id: fr2a-half-turn-one-coordinate
+  description: Reflecting one coordinate in the centre of a half turn and leaving the other unchanged, which is a reflection.
+- id: fr2a-hypotenuse-left-out-of-perimeter
+  description: Adding only the two shorter sides for the perimeter and leaving the longest side out.
+- id: fr2a-image-on-mirror-line
+  description: Placing the image on the mirror line instead of the same distance beyond it.
+- id: fr2a-leg-for-longest-side
+  description: Giving the longer leg of a right-angled triangle as its longest side.
+- id: fr2a-line-reflected-as-axis
+  description: Reflecting in the y-axis or the x-axis when the mirror line is x = k or y = k, so the distance to the line is ignored.
+- id: fr2a-mirror-offset-sign
+  description: "Subtracting twice the mirror line's value from the coordinate instead of taking the coordinate away from it."
+- id: fr2a-quarter-turn-as-half-turn
+  description: Turning through 180 degrees where a quarter turn of 90 degrees was named.
+- id: fr2a-reflection-as-half-turn
+  description: Changing the sign of both coordinates for a reflection in an axis, which is a half turn about the origin.
+- id: fr2a-rotation-about-origin-not-centre
+  description: Turning the point about the origin when the turn is about another point.
+- id: fr2a-second-step-left-out
+  description: Stopping after the first of two moves.
+- id: fr2a-side-counted-twice
+  description: Counting one side of the triangle twice in the perimeter.
+- id: fr2a-side-left-out-of-perimeter
+  description: Leaving one side of the triangle out of the perimeter.
+- id: fr2a-steps-in-wrong-order
+  description: Doing the two moves in the wrong order, though the order changes where the image lands.
+- id: fr2a-translation-component-dropped
+  description: Applying only one of the two parts of a translation, the horizontal or the vertical move.
+- id: fr2a-translation-components-swapped
+  description: Applying the horizontal move to y and the vertical move to x.
+- id: fr2a-turn-direction-reversed
+  description: Turning the point the wrong way round, clockwise for anticlockwise or the reverse.
+- id: swapped-x-and-y
+  description: Writing the coordinates the wrong way round, (y, x) for (x, y).
+- id: wrong-axis-reflected
+  description: Reflecting in the other axis from the one the question names.
+- id: wrong-direction
+  description: Reporting the negated change, end point minus start point taken the wrong way round.
+tags: [acara-f10-v9, geometry, transformations, coordinates, translation, reflection, rotation, ac9m5sp03, ac9m7sp03, figure]

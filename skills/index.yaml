@@ -960,6 +960,14 @@ f10-describe-calendar-duration:
     module: mathgen/generators/p4b_calendar_time_build.py
   - topic: exd_x_pr2_calendar_span
     module: mathgen/generators/exd_x_pr2_time_chains.py
+f10-describe-transformation-from-points:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2a_describe_transform
+    module: mathgen/generators/fr2a_describe_transform_build.py
+  - topic: exd_x_fr2a_describe_chain
+    module: mathgen/generators/fr2a_describe_transform_build.py
 f10-direct-proportion-scale-model:
   domain: measurement
   status: active
@@ -1114,6 +1122,12 @@ f10-geometric-construction-algorithm:
     module: mathgen/generators/f10_geometric_construction_build.py
   - topic: exd_x_sc2_construction_chain
     module: mathgen/generators/exd_x_sc2_construction_chain.py
+f10-grid-map-familiar-place:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2a_grid_map
+    module: mathgen/generators/fr2a_grid_map_build.py
 f10-grid-reference-pathway:
   domain: geometry
   status: active
@@ -1358,6 +1372,14 @@ f10-percentage-equivalence-comparison:
     module: mathgen/generators/primary_number_estimate_percentage_build.py
   - topic: exd_x_pr5_season_rates
     module: mathgen/generators/exd_x_pr5_season_rates.py
+f10-pick-the-matching-view:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2a_matching_view
+    module: mathgen/generators/fr2a_matching_view_build.py
+  - topic: exd_x_fr2a_matching_view_chain
+    module: mathgen/generators/fr2a_matching_view_build.py
 f10-polygon-angle-sums:
   domain: geometry
   status: active
@@ -1600,6 +1622,20 @@ f10-terminating-recurring-decimals:
     module: mathgen/generators/p9e_fraction_percent_recurring_build.py
   - topic: exd_x_n4_decimal_sum
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
+f10-tessellation-vertex-angles:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2a_tessellation_vertex
+    module: mathgen/generators/fr2a_tessellation_vertex_build.py
+f10-three-d-coordinates-position-distance:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2a_box_coordinates
+    module: mathgen/generators/fr2a_box_coordinates_build.py
+  - topic: exd_x_fr2a_box_chain
+    module: mathgen/generators/fr2a_box_coordinates_build.py
 f10-three-dimensional-coordinates:
   domain: geometry
   status: active
@@ -1632,6 +1668,14 @@ f10-timetable-itinerary-duration:
     module: mathgen/generators/p4b_timetable_build.py
   - topic: exd_x_pr2_timetable_connection
     module: mathgen/generators/exd_x_pr2_time_chains.py
+f10-transform-image-coordinates:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fr2a_transform_image
+    module: mathgen/generators/fr2a_transform_image_build.py
+  - topic: exd_x_fr2a_transform_chain
+    module: mathgen/generators/fr2a_transform_image_build.py
 f10-transformations-invariants:
   domain: primary-geometry-time
   status: active

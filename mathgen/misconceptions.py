@@ -10131,6 +10131,486 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    CatalogueEntry(
+        "fr2a-translation-components-swapped",
+        "Applying the horizontal move to y and the vertical move to x.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-translation-component-dropped",
+        "Applying only one of the two parts of a translation, the horizontal or the vertical move.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-reflection-as-half-turn",
+        "Changing the sign of both coordinates for a reflection in an axis, which is a half turn about the origin.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-line-reflected-as-axis",
+        "Reflecting in the y-axis or the x-axis when the mirror line is x = k or y = k, so the distance to the line is ignored.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-image-on-mirror-line",
+        "Placing the image on the mirror line instead of the same distance beyond it.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-offset-sign",
+        "Subtracting twice the mirror line's value from the coordinate instead of taking the coordinate away from it.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-rotation-about-origin-not-centre",
+        "Turning the point about the origin when the turn is about another point.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-half-turn-one-coordinate",
+        "Reflecting one coordinate in the centre of a half turn and leaving the other unchanged, which is a reflection.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-direction-reversed",
+        "Turning the point the wrong way round, clockwise for anticlockwise or the reverse.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-quarter-turn-as-half-turn",
+        "Turning through 180 degrees where a quarter turn of 90 degrees was named.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-steps-in-wrong-order",
+        "Doing the two moves in the wrong order, though the order changes where the image lands.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-second-step-left-out",
+        "Stopping after the first of two moves.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-first-step-left-out",
+        "Applying the second move to the original point and skipping the first.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-leg-for-longest-side",
+        "Giving the longer leg of a right-angled triangle as its longest side.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-image-compared-with-wrong-point",
+        "Measuring the distance between the wrong two image points, adding the changes in the coordinates.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-side-left-out-of-perimeter",
+        "Leaving one side of the triangle out of the perimeter.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-hypotenuse-left-out-of-perimeter",
+        "Adding only the two shorter sides for the perimeter and leaving the longest side out.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-side-counted-twice",
+        "Counting one side of the triangle twice in the perimeter.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-sign-dropped",
+        "Giving the size of each part of a translation without its sign, so left and down read as right and up.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-from-different-corners",
+        "Finding the translation from a corner of the triangle and the image of a different corner.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-sum-not-difference",
+        "Adding the coordinates of the point and its image instead of subtracting to find the translation.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-component-sign",
+        "Getting the sign of one part of a translation wrong, the up or down part.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-not-halved",
+        "Giving the sum of a point and its image as the mirror line instead of the halfway value.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-from-gap",
+        "Using half the gap between a point and its image as the position of the mirror line.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-sign",
+        "Giving the mirror line the wrong sign when it is on the negative side of the axis.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-not-halved",
+        "Adding the coordinates of a point and its image for the centre of a half turn, without halving.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-from-difference",
+        "Halving the change from a point to its image instead of the sum, so the centre comes out as half the movement.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-assumed-origin",
+        "Assuming a half turn is about the origin.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-one-coordinate",
+        "Taking one coordinate of the centre from the point itself instead of from the midpoint.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-other-move-ignored",
+        "Finding the translation from the original to the final image and ignoring the reflection or turn in between.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-slide-named-as-reflection",
+        "Calling a translation a reflection because the shape looks like a copy of itself.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-slide-named-as-turn",
+        "Calling a translation a turn.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-orientation",
+        "Naming a reflection in a vertical line as one in a horizontal line, or the reverse.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-reflection-named-as-turn",
+        "Calling a reflection a half turn because the image is on the opposite side of the original.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-reflection-named-as-slide",
+        "Calling a reflection a translation because the image has moved across without checking which way it faces.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-named-as-reflection",
+        "Calling a half turn a reflection because the image is upside down or reversed.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-size-or-direction",
+        "Naming the wrong size or direction of turn for a rotation.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-exterior-for-interior",
+        "Giving the exterior angle of a regular polygon where its interior angle was asked.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-sum-for-one-angle",
+        "Giving the angle sum of the whole polygon as the size of one interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-straight-angle-over-sides",
+        "Dividing 180 degrees by the number of sides to get an interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-reflex-for-interior",
+        "Giving 360 degrees minus the interior angle, the angle outside the corner, as the interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-sum-of-n-minus-one-triangles",
+        "Using n minus 1 triangles in the angle-sum formula, so the interior angle comes out too large.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-sides-for-count",
+        "Giving the number of sides of the polygon as the number that fit round a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-straight-line-for-point",
+        "Using 180 degrees, the angles on a straight line, instead of 360 degrees round a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-for-count",
+        "Giving the size of the interior angle as the number of polygons that fit round a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-count-off-by-one",
+        "Finishing one more or one fewer than the count.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-for-sides",
+        "Giving the missing angle as the number of sides of the polygon that has it.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-360-over-interior",
+        "Dividing 360 by the interior angle to find the number of sides, where 360 is divided by the exterior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-sides-added",
+        "Adding the numbers of sides of the two known polygons instead of using their angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-shared-angle-not-split",
+        "Using the whole remaining angle as the interior angle of one of several identical polygons without sharing it between them.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angles-total-for-gap",
+        "Giving the total of the angles that are filled as the size of the gap.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-one-angle-taken-for-all",
+        "Taking away one interior angle from 360 degrees instead of all of them to find the gap.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-gap-with-one-tile-too-few",
+        "Counting one polygon too few round the point, so the gap includes a whole interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-minus-gap",
+        "Giving the amount by which one more polygon would overlap as the gap.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-box-corner-all-lengths",
+        "Giving all three lengths of the box as the coordinates of a corner that is not the far top corner.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-box-length-left-out",
+        "Putting 0 for one of the coordinates of a corner when it should be the length of that edge.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-box-lengths-added",
+        "Adding two edge lengths together to make one coordinate of a corner.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-not-halved",
+        "Adding the coordinates of the two ends of a line without halving to find the midpoint.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-difference-halved",
+        "Halving the difference of the coordinates of the two ends instead of their sum to find the midpoint.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-is-an-endpoint",
+        "Giving one end of the line as its midpoint.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-one-coordinate-halved",
+        "Halving one coordinate of a midpoint but adding the other two.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-distance-one-dimension-left-out",
+        "Leaving one of the three differences out of the distance between two points in three dimensions.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-longest-edge-for-distance",
+        "Giving the longest difference in one direction as the straight-line distance.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-wrong-face-diagonal",
+        "Using the wrong two edges for the diagonal of a face of the box.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-height-not-squared",
+        "Squaring the floor diagonal but not the height when finding the diagonal of the box.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-row-counted-from-top",
+        "Counting the rows of a map from the top when they are numbered from the bottom.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-grid-reference-off-by-one",
+        "Giving the square next to the right one by miscounting a column or row by one.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-map-legs-added-not-netted",
+        "Adding the squares walked in each direction without taking off the squares walked back the other way.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-map-first-leg-ignored",
+        "Giving only the second leg of a two-leg walk as the whole movement.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-map-second-leg-ignored",
+        "Giving only the first leg of a two-leg walk as the whole movement.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-map-middle-landmark-taken-as-end",
+        "Using the middle stop of a walk as the end of it.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-map-leg-dropped",
+        "Leaving out the last move of a walk on a map and giving the square before it.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-map-start-square-counted",
+        "Counting the square already stood on as one of the squares moved, so the walk ends a square too far.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-view-wrong-side",
+        "Choosing the elevation from the other side of the structure, the front view for the side view or the reverse.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-from-the-back",
+        "Choosing the mirror image of the front view, as seen from behind the structure.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-from-the-left",
+        "Choosing the mirror image of the right-side view, as seen from the left-hand side.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-stacks-added",
+        "Choosing a view where each column or row shows all its stacks added together instead of the tallest.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-nearest-stacks-only",
+        "Choosing a view that shows only the stacks nearest the viewer and forgets taller stacks behind them.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-back-stacks-only",
+        "Choosing a view that shows only the stacks at the back.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-far-stacks-only",
+        "Choosing a view that shows only the stacks on the far side from the viewer.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-shortest-stack-shown",
+        "Choosing a view that shows the shortest stack in each column or row instead of the tallest.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-rows-and-columns-swapped",
+        "Choosing a plan with its rows and columns swapped, so the front and side views are interchanged.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-mirrored",
+        "Choosing a plan that is the left to right mirror image of the one wanted.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-front-and-back-swapped",
+        "Choosing a plan with its front and back rows the wrong way round.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-every-stack-as-tall-as-column",
+        "Choosing a plan where every stack in a column is as tall as that column's elevation, which gives the right front view but not the side view.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-elevation-copied-to-front-row",
+        "Choosing a plan that copies the front elevation along its front row and leaves the other rows unchanged.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-total-for-elevation",
+        "Giving the total number of cubes where the number of squares in an elevation was asked.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-tallest-times-rows",
+        "Multiplying the tallest stack by the number of rows to find the squares in a view.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-squares-counted",
+        "Counting the squares of the plan that have cubes on them instead of adding the cubes.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-every-stack-tallest",
+        "Treating every square of the plan as if it had the tallest stack.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-elevation-for-total",
+        "Giving the squares in an elevation as the number of cubes in the whole structure.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-hidden-count-is-visible-count",
+        "Giving the squares that show in the elevation as the number of cubes that do not show.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-hidden-added",
+        "Adding the cubes that show to the total instead of taking them away.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-distances-swapped",
+        "Giving the straight-line distance where the horizontal distance was asked, and the reverse.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-floor-distance-from-one-edge",
+        "Giving the longer of the two floor lengths as the horizontal distance between corners instead of the floor diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-named-as-slide",
+        "Calling a half turn a translation because the image has moved to another place.",
+        area="transformations",
+    ),
 )
 
 #: Every entry, by id.
