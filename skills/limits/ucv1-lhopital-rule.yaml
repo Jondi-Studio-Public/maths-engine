@@ -1,0 +1,60 @@
+id: ucv1-lhopital-rule
+name: Evaluate a limit using L'Hôpital's rule
+domain: limits
+description: Evaluate an indeterminate limit (0/0, ∞/∞, then 0 × ∞, ∞ - ∞ and 1^∞ rewritten first) by differentiating numerator and denominator, giving an exact answer; the exam tier finds an unknown constant that makes the limit exist, then uses it.
+status: active
+placement_eligible: false
+prerequisites:
+- limit-removable
+- limit-at-infinity
+- differentiate-chain-rule
+answer: expression
+sources:
+- topic: ucv1_lhopital
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_lhopital
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_lhopital
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_uc_lhopital
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: calc-chain-rule-factor-dropped
+  description: Differentiates e^(ax), sin(ax) or ln(1 + ax) as if the argument were x, forgetting the chain-rule factor a.
+- id: denominator-coefficient-dropped
+  description: Differentiates the denominator but leaves out its constant factor, as if (bx)' were 1.
+- id: stops-after-one-application
+  description: Applies the rule once, meets 0/0 or ∞/∞ again, and stops there with 0 or a partial value instead of applying it again.
+- id: quotient-rule-instead-of-lhopital
+  description: Differentiates the whole quotient with the quotient rule instead of numerator and denominator separately, and concludes the limit is 0.
+- id: zero-times-infinity-is-zero
+  description: Treats 0 × ∞ as 0 instead of rewriting the product as a quotient first.
+- id: infinity-minus-infinity-is-zero
+  description: Treats ∞ - ∞ as 0 instead of combining the two terms into one quotient first.
+- id: one-to-infinity-is-one
+  description: Treats a 1^∞ form as 1 instead of taking logarithms to find its real value.
+- id: forgets-to-exponentiate-log-limit
+  description: Finds the limit of ln L correctly but reports it as L, without raising e to that power.
+tags: [university-core-v1, limits, lhopital]
+framework_areas: [limits]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: limits
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: limits
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: limits
