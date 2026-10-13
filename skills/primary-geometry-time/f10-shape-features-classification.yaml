@@ -1,6 +1,7 @@
 id: f10-shape-features-classification
 name: Classify shape features
 domain: primary-geometry-time
+year_level: [F, '1', '2', '3']
 description: State a named familiar shape's number of sides, or whether it is curved or straight-sided.
 status: active
 placement_eligible: false

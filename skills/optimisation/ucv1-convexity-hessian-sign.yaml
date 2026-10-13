@@ -1,6 +1,7 @@
 id: ucv1-convexity-hessian-sign
 name: Classify a quadratic by its Hessian sign
 domain: optimisation
+year_level: [university]
 description: Classify a supplied two-variable quadratic as convex, concave or indefinite from its Hessian eigenvalue signs.
 status: active
 placement_eligible: false

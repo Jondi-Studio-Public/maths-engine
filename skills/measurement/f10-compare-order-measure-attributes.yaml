@@ -1,6 +1,7 @@
 id: f10-compare-order-measure-attributes
 name: Order objects or events by measurement attributes
 domain: measurement
+year_level: ['1']
 description: Directly or indirectly compare two or more objects or events by a stated attribute (length, mass, capacity or duration) and arrange them in order from least to greatest.
 status: active
 placement_eligible: false

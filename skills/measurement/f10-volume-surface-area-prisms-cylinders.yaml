@@ -1,6 +1,7 @@
 id: f10-volume-surface-area-prisms-cylinders
 name: Calculate volume and surface area of prisms and cylinders
 domain: measurement
+year_level: ['9', '10']
 description: Given a right prism or cylinder's supplied dimensions, calculate its volume or surface area, reporting the result with appropriate units.
 status: active
 placement_eligible: false

@@ -1,6 +1,7 @@
 id: f10-shape-sorting-algorithm
 name: Trace a shape-sorting procedure
 domain: geometry
+year_level: ['7']
 description: Given a stated shape-sorting procedure (a finite sequence of attribute-based tests and decisions, with procedure-defined bin labels) and a shape's stated facts (side lengths, and a right-angle or parallel-sides fact where the procedure needs one), trace the procedure and state the resulting classification.
 status: active
 placement_eligible: false

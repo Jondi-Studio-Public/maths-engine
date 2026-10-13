@@ -1,6 +1,8 @@
 id: f10-stem-and-leaf-plots
 name: Read and interpret a stem-and-leaf plot
 domain: statistics-probability
+year_level: ['7']
+naplan_domain: [statistics]
 description: Given a stem-and-leaf plot of whole-number data written out as text (tens as stems, units as leaves, with a key line that says what a stem and leaf stand for, such as 2 | 3 means 23), read it and answer with a typed number. Easy reads the plot, counting the values (leaves, not stems), naming the largest or smallest value, or counting the values in one stem. Medium finds a summary statistic from the plot, the median (an odd count, or an even count whose two middle values give a .5), the range or the mode, and half the plots leave the leaves of a row out of order. Hard reasons backwards or compares, using a back-to-back plot of two groups (difference of the medians or of the ranges) or a plot with one leaf hidden behind ? that is recovered from a stated median or range. Nothing is drawn, and constructing a plot is not asked.
 status: active
 placement_eligible: false

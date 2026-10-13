@@ -1,6 +1,8 @@
 id: f10-additive-multiplicative-patterns
 name: Complete constant-difference sequences with missing terms
 domain: functions-sequences
+year_level: ['2', '4']
+naplan_domain: [number, algebra]
 description: Given a sequence of numbers that increases or decreases by a constant amount, with one or more terms missing at the end or within the sequence, state the value of the missing term(s).
 status: active
 placement_eligible: false

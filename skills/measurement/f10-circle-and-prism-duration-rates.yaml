@@ -1,6 +1,7 @@
 id: f10-circle-and-prism-duration-rates
 name: Calculate duration across time zones
 domain: measurement
+year_level: ['8']
 description: Given a starting date/time, a stated sequence of elapsed durations, and stated time-zone offsets, determine the resulting date/time or total duration using 12-hour or 24-hour clock notation.
 status: active
 placement_eligible: false

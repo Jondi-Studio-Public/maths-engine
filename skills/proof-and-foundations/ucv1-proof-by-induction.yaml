@@ -1,6 +1,7 @@
 id: ucv1-proof-by-induction
 name: Work the steps of a proof by induction
 domain: proof-and-foundations
+year_level: [university]
 description: For a sum identity or a divisibility statement, supply one typed step of
   its proof by induction -- the base-case value, the next term, the right-hand side the
   inductive step must reach, the factored sum of k + 1 terms, or the rearrangement

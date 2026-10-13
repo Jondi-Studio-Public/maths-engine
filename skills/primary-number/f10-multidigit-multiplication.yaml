@@ -1,6 +1,8 @@
 id: f10-multidigit-multiplication
 name: Multi-digit multiplication
 domain: primary-number
+year_level: ['5']
+naplan_domain: [number]
 description: Solve a multi-digit multiplication problem.
 status: active
 placement_eligible: false

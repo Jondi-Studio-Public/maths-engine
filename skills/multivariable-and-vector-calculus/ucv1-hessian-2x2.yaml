@@ -1,6 +1,7 @@
 id: ucv1-hessian-2x2
 name: Evaluate a two-variable Hessian
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Compute the 2-by-2 Hessian matrix of a supplied polynomial map at a supplied point.
 status: active
 placement_eligible: false

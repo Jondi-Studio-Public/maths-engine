@@ -1,6 +1,8 @@
 id: f10-data-display-selection
 name: Choose a data display for a purpose
 domain: statistics-probability
+year_level: ['9']
+naplan_domain: [statistics]
 description: Given a short text description of what was recorded and what the reader wants to see, name the one display, from four options, that suits both the data and the purpose (column graph, pie chart, histogram, line graph, scatterplot or back-to-back stem-and-leaf plot). Every scenario has exactly one defensible display. Nothing is drawn, and justifying the choice or interpreting a finished display is not asked. easy names the kind of variable; medium leaves the learner to read it from the description; hard disguises it (numeric labels that are really categories, time-ordered data wanted only for its spread, a year column that is a time axis, whole-number hours that are a measured variable).
 status: active
 placement_eligible: false
