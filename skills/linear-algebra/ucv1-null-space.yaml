@@ -1,6 +1,7 @@
 id: ucv1-null-space
 name: Rank, nullity and column space
 domain: linear-algebra
+year_level: [university]
 description: Use row reduction on a supplied integer matrix to find its rank, its nullity by rank-nullity, and the
   value of a parameter k that puts a vector in its column space or gives it a non-trivial null space.
 status: active

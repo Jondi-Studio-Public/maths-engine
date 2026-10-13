@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Find the great-circle distance between two places on Earth with different longitudes, given the latitude and longitude of each.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-find-distances-between-two-places-on-earth-on
 answer: number
 sources:
 - topic: p13d_great_circle_distance

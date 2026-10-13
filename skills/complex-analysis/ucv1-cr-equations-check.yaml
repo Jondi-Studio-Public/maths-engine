@@ -1,6 +1,7 @@
 id: ucv1-cr-equations-check
 name: Check the Cauchy-Riemann equations
 domain: complex-analysis
+year_level: [university]
 description: At a supplied point, decide whether a polynomial complex function satisfies the Cauchy-Riemann equations.
 status: active
 placement_eligible: false

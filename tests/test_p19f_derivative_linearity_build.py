@@ -88,7 +88,7 @@ def test_skill_loads_with_correct_properties():
     assert skill is not None, f"{SKILL} not found"
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["differentiate-polynomial"]
     assert len(skill.sources) == 4
     for source in skill.sources:
         assert source.topic == TOPIC

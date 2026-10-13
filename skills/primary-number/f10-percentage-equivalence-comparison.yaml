@@ -1,6 +1,8 @@
 id: f10-percentage-equivalence-comparison
 name: Convert a percentage to its equivalent fraction
 domain: primary-number
+year_level: ['5']
+naplan_domain: [number]
 description: Convert a familiar percentage to its equivalent fraction or decimal, using 100% as the whole. Every question converts a percentage to its equivalent fraction only, always in that one direction; decimal output is never graded.
 status: active
 placement_eligible: false

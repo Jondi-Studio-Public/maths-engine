@@ -1,6 +1,7 @@
 id: ucv1-energy-conservation-check
 name: Check mechanical energy across two supplied states
 domain: mathematical-physics
+year_level: [university]
 description: Compute the difference in kinetic-plus-potential energy between two supplied states of a one-dimensional oscillator.
 status: active
 placement_eligible: false

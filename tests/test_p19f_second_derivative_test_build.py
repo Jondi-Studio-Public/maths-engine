@@ -174,7 +174,11 @@ def test_skill_loads_with_correct_properties():
     assert skill is not None, f"{SKILL} not found"
     assert skill.answer == "ordered_list"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "stationary-points",
+        "second-derivative",
+        "senior-understand-the-concepts-of-concavity-and-points-of",
+    ]
     assert len(skill.sources) == 4
     for source in skill.sources[:3]:  # the exam source is the multi-part chain
         assert source.topic == TOPIC

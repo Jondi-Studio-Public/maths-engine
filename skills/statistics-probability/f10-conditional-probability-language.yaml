@@ -1,11 +1,13 @@
 id: f10-conditional-probability-language
 name: Read conditional probability language
 domain: statistics-probability
+year_level: ['10']
 description: Given a plain-language sentence built on exactly one of four fixed templates ("given", "knowing that", "if ... then" or "of") that names exactly two events, pick the description that states which event is the condition and which is the target, in the fixed form "the probability of the target, given the condition". Nothing is calculated, no formal notation is used, and interpreting the result in context is not asked. easy uses "given" and "knowing that" with no numbers; medium uses "if ... then" and "of"; hard uses all four after a counts line that includes the "both" count, with "also" in the "of" sentences, which invites a joint reading.
 status: active
 placement_eligible: false
 prerequisites:
-- conditional-probability-counts
+- finite-sample-space-probability
+- f10-chance-language-and-outcomes
 answer: mcq
 sources:
 - topic: f10a_conditional_language

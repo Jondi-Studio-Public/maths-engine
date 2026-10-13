@@ -6,7 +6,9 @@ domain: trigonometry
 description: Calculate the length of an arc or the area of a sector given a bounded radius and angle in radians, or recover the radius from a bounded arc length and angle.
 status: active
 placement_eligible: false
-prerequisites: [right-triangle-angle]
+prerequisites:
+- right-triangle-angle
+- angle-degrees-radians-pi-form
 answer: expression
 sources:
 - topic: arc_length_sector_area

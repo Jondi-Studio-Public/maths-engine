@@ -1,6 +1,8 @@
 id: f10-money-dollars-cents-representation
 name: Represent dollars and cents equivalently
 domain: financial-discrete
+year_level: ['3']
+naplan_domain: [measurement]
 description: Convert a stated dollars/cents money amount into its single equivalent numeral value in the other unit.
 status: active
 placement_eligible: false

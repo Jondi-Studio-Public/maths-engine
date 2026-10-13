@@ -6,7 +6,8 @@ domain: arithmetic
 description: Given a named real-world activity or quantity, such as one describing speed or pulse, identify which listed rate unit is the one commonly used to describe it.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ratio-rate-proportion
 answer: mcq
 sources:
 - topic: p19h_rate_usage_classification

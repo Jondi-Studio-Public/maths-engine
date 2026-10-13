@@ -251,7 +251,7 @@ class TestSkillsLoad:
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-calculate-seasonal-indices-by-using-the-average-percentage"]
         stages_covered = set()
         for source in skill.sources:
             assert source.topic == DS_TOPIC

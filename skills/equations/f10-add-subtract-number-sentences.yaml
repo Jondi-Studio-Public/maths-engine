@@ -1,6 +1,8 @@
 id: f10-add-subtract-number-sentences
 name: Represent addition and subtraction with number sentences
 domain: equations
+year_level: ['2']
+naplan_domain: [number]
 description: Given a one- or two-digit addition or subtraction word problem, select from among 3-5 candidate number sentences, in a stated part-part-whole form with the unknown part or whole shown as a blank, the one that correctly represents the situation. The learner chooses the sentence; they are not asked to find the value of the blank.
 status: active
 placement_eligible: false

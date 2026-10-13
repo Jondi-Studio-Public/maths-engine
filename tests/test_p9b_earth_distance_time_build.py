@@ -405,7 +405,7 @@ def test_skill_1_loads_with_correct_prerequisites_and_placement():
         None,
     )
     assert skill is not None
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-calculate-lengths-of-arcs-and-areas-of-sectors"]
     assert skill.placement_eligible is False
     assert skill.answer == "number"
     difficulties = {src.difficulty for src in skill.sources}
@@ -419,7 +419,7 @@ def test_skill_2_loads_with_correct_prerequisites_and_placement():
         None,
     )
     assert skill is not None
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-use-units-of-time-conversions-between-units-fractional", "elapsed-time"]
     assert skill.placement_eligible is False
     assert skill.answer == "number"
     difficulties = {src.difficulty for src in skill.sources}

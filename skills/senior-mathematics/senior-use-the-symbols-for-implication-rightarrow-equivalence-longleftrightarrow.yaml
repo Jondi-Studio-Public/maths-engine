@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use the symbols for implication (\(\Rightarrow\)), equivalence (\(\Longleftrightarrow\)), and equality (\(=\)). Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- two-step-equations
 answer: mcq
 sources:
 - topic: implication_equivalence_symbol_classify

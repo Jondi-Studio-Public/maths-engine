@@ -1,6 +1,8 @@
 id: f10-read-measurement-scale
 name: Read a value from a measuring scale
 domain: measurement
+year_level: ['4']
+naplan_domain: [measurement]
 description: Read a length, temperature, volume or mass from a drawn ruler, thermometer, measuring jug or dial where only some marks are numbered, including temperatures below zero, marks that are worth a quarter or a tenth of a labelled step, and a ruler read in millimetres.
 status: active
 capability_gates: [figure_stimulus]

@@ -20,6 +20,7 @@ attribution and lists the edits.
 skills/
   domains.yaml           ordered list of domains, grouped into bands
   capability-gates.yaml  the capability gate registry
+  index.yaml             generated: each skill's source topics and the module that builds them
   <domain>/
     <id>.yaml            one skill
 ```
@@ -32,7 +33,7 @@ name: Simplify surds
 domain: secondary-number        # equal to the folder name, listed in domains.yaml
 description: One sentence naming the observable operation.
 status: active                  # active or deferred
-prerequisites: [prime-factorisation]   # skill ids; may be empty; no cycles
+prerequisites: [prime-factorisation]   # skill ids; no cycles (rules below)
 answer: expression              # which grader checks replies (below)
 sources:
 - topic: t1_simplify_surds      # a generator topic name
@@ -56,6 +57,12 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
 
 - **Required in practice:** `id`, `name`, `domain`, `status`, `answer`, and at least one
   entry in `sources` for an active skill. `description` is one sentence.
+- **`prerequisites`:** the skills a learner normally has first: the direct ones, not every ancestor.
+  They are advice for ordering and review, never a gate. An active skill may only name active skills,
+  since a host that waited for a deferred one would never offer it. An active skill in a senior or
+  university domain must name at least one; `validate()` checks both. In this library every other
+  active skill also names one or is named by one (`tests/test_prerequisite_graph.py`): only the
+  genuine starting points, such as counting to 5, have none, and later skills name them.
 - **`sources`:** `topic` must be a registered generator topic (see `python -m mathgen --list`).
   `params` are passed to the generator, whose signature is the authority on which keyword
   arguments exist. `difficulty` is the tier the source stands for, one of `easy`, `medium`, `hard` or `exam`, and an
@@ -64,6 +71,11 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   source's `difficulty` changes which question each seed gives. A generator that has presets must
   register one of each tier name it is labelled with; explicit `params` win over a preset's values.
   `stages` entries come from `0` to `6`, `maintenance` and `exam`.
+  `key` (optional) names the source within its skill and is part of every question id
+  (`<skill>/<key>/<seed>/<hash>`). It defaults to the `difficulty` label, so it is needed only when two
+  sources of a skill share a difficulty; keys are lower-case words joined by hyphens (`powers-roots`) and
+  must be unique within a skill (`validate()` reports a repeat). Pick a key once and keep it: changing it
+  changes the ids of that source's questions.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
   `polyline`, `line`, `inequality`, `matrix`. `list` ignores order and `ordered_list` is positional, so a vector answer
@@ -85,6 +97,21 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   reasoning aimed at a different question than the one asked. Ids must not collide across the
   two lists on one skill. A generator links an option to a note by putting the option text and
   the id in `Question.option_notes`.
+- **Coverage (optional):** three lists that let a library be queried by what it covers.
+  `year_level` holds the year levels the content belongs to, from `F`, `1` to `12` and `university`,
+  written in that order without repeats; it is a list because one skill often spans years
+  (`[F, '1']`). Quote the digits so YAML keeps them strings. `naplan_domain` holds the Australian
+  Curriculum v9 strands the skill assesses, from `number`, `algebra`, `measurement`, `space`,
+  `statistics` and `probability`, and is only for content NAPLAN numeracy can test (Foundation to
+  Year 9); leave it off otherwise. `exam_board` holds the senior exam boards whose syllabus covers the
+  skill, from `nesa`, `vcaa`, `qcaa`, `scsa`, `sace`, `tasc` and `ib`; fill it only where the library
+  itself names the board. A skill with nothing in the file to say which year it is for omits all three.
+  `validate()` checks the labels, their order and that none repeats.
+  `scripts/backfill_year_level.py` derives `year_level` and `naplan_domain` from the ACARA v9 codes
+  (`ac9m<level><strand><nn>`, such as `ac9m6n03`) and `acara-v9-year-N` tags in a file's `tags`, and
+  from the university framework tag; `--check` lists files that disagree and `--write` fixes them, and
+  `tests/public/test_skill_coverage.py` fails when a file drifts from its codes. Senior files carry no
+  unit or year, so they have none of these fields unless a person sets them.
 - **Optional:** `placement_eligible` (default `true`), `placement_order`, `placement_questions`,
   `placement_pass`, `learner_band` (`early`, `primary` or `general`), `framework_areas`, `alignments`,
   `needs_figure`, `capability_gates` and `mental` (below).
@@ -117,6 +144,20 @@ Give a skill several sources, one per tier, and make the tiers differ in reasoni
 range. A hard tier that only uses bigger numbers is not a harder skill. Good escalations add a
 step, a new question shape, a sign or form the easier tier never shows, or a situation that needs
 a different method. Tune a tier by editing `params`, then check the questions across many seeds.
+
+Write the escalation down as `difficulty_progression`, one entry per tier the sources use:
+
+```yaml
+difficulty_progression:
+  easy: {steps: 1, demand: Substitute the term number into an explicit linear rule.}
+  medium: {steps: 2, demand: Square the term number, then combine the terms in order.}
+  hard: {steps: 4, demand: Apply a recursive rule term after term from the first.}
+```
+
+`steps` is the number of reasoning steps a learner must chain, and `demand` names them.
+`validate()` rejects a tier the sources do not use, a used tier left out, and a harder tier
+that asks fewer steps than an easier one. Older skills carry the same thing as one paragraph of
+prose, which is accepted and checked by nothing.
 
 ## The `mental` block
 
@@ -157,6 +198,11 @@ python scripts/render_skill_questions.py --ids <id> --out sample.md
    `regrade_sweep.py` generates many questions and confirms the grader accepts the canonical
    answer and rejects every distractor. `render_skill_questions.py` writes the questions out so
    you can read what a learner would see.
+
+`index.yaml` is generated from the skills and the generator registry. Regenerate it with
+`python scripts/build_skill_index.py --write` after adding a skill or changing a source's topic
+(a test fails while it is stale). `python scripts/build_skill_index.py --where <skill-or-topic>`
+prints the module and line of a generator.
 
 To run the validator itself:
 

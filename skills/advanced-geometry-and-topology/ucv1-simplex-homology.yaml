@@ -1,10 +1,13 @@
 id: ucv1-simplex-homology
 name: Compute homology of a tiny simplicial complex
 domain: advanced-geometry-and-topology
+year_level: [university]
 description: Compute the Betti-number list of a supplied triangle, boundary triangle or single edge using its boundary matrices.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- matrix-rank-small
+- matrix-multiplication
 answer: ordered_list
 sources:
 - topic: p15b_simplex_homology

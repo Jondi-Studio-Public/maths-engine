@@ -4,7 +4,9 @@ domain: trigonometry
 description: "Convert an angle given in degrees to its exact radian value in terms of pi (easy: denominator in {1,2,3,4,6} after reduction; medium: denominator 12, including angles beyond one revolution; exam: a half-integer degree measurement, e.g. 37.5, reducing to a denominator of 24, 40 or 72), and convert an exact pi-form radian angle back to a plain integer number of degrees (hard). The easy/medium/exam tiers grade a pi-form expression such as \"7pi/6\" and REJECT a bare number of degrees typed by mistake (e.g. \"210\"); the hard tier grades a bare integer number of degrees and REJECTS a pi-form answer or a value carrying a degree symbol (e.g. \"7pi/6\" or \"210 degrees\") even though that is the correct angle -- each prompt states which form is wanted, but a learner who answers in the other tier's form is marked wrong by design, not by a grading defect."
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- angle-types
+- f10-circle-measures
 answer: expression
 sources:
 - topic: t4_degrees_radians_pi_form

@@ -6,7 +6,9 @@ domain: measurement
 description: Given a stated activity (for example walking, running, swimming or flying) and a described measurement of it, choose the most appropriate unit (such as m, km, km/h or m/s) from the offered options.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-metric-measure-instrument-estimate
+- convert-metric-length
 answer: mcq
 sources:
 - topic: p19h_appropriate_activity_unit

@@ -69,7 +69,7 @@ def test_deliberately_wrong_answer_rejected(difficulty):
 def test_every_option_uniform_shape_and_answer_matches_smallest_ssr_and_sad(difficulty):
     for seed in SEEDS:
         q = make(TOPIC, seed=seed, difficulty=difficulty)
-        pts = [(int(a), int(b)) for a, b in re.findall(r"\((-?\d+), (-?\d+)\)", q.text)]
+        pts = [tuple(p["at"]) for p in q.figure["points"]]
         assert len(pts) == 5
         eqs_in_text = re.findall(r"y = -?\d+x [+-] \d+", q.text)
         assert len(eqs_in_text) == 4
@@ -131,7 +131,7 @@ def test_skill_loads_with_expected_shape():
     _, skills = load_skills()
     by_id = {s.id: s for s in skills}
     skill = by_id["senior-find-the-line-of-best-fit-by-eye"]
-    assert skill.prerequisites == ["simple-event-probability"]
+    assert skill.prerequisites == ["simple-event-probability", "senior-identify-the-dependent-and-independent-variable"]
     assert skill.answer == "mcq"
     assert skill.placement_eligible is False
     assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}

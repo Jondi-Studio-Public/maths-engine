@@ -156,9 +156,23 @@ are identifiers, not categories.
 ## How determinism and grading work
 
 **Determinism.** A generator takes a seeded random source and nothing else.
-The same skill, source and seed always give the same question text, answer and
-options, on any machine. That makes failures reproducible and lets tests sweep
-many seeds.
+Within one version of the library, the same skill, source and seed always give
+the same question text, answer and options, on any machine. That makes failures
+reproducible and lets tests sweep many seeds.
+
+**Question identity.** Across versions, what is stable is a *question id*,
+`<skill id>/<source key>/<seed>/<hash>`, from `engine.make_with_id(skill, seed)`
+or `engine.question_id(...)`. The source key is the source's optional `key`
+(default: its `difficulty` label); the hash is the first 12 hex characters of
+SHA-256 over the question's full content. The engine does not promise that a
+seed gives the same question forever, since a generator may be fixed or
+improved. It promises that a change is detected:
+`engine.regenerate(question_id, skills)` rebuilds the question and raises
+`QuestionChanged` (carrying the old id, the new id and the new question) when
+the hash no longer matches, so a host re-grading an old attempt never marks it
+against a different question. `tests/golden/questions.txt` records the ids of
+three seeds of every active source, and CI fails when any of them changes
+unannounced (see "Seed stability" in `CONTRIBUTING.md`).
 
 **Grading.** The grader that accepts an answer lives next to the generator
 that produced it. Typed numeric answers are graded to their own stated
@@ -193,7 +207,15 @@ data and reads no clock; the application stores state and passes times in.
 - `fsrs` is the FSRS-5 model (the open scheduler Anki uses), matching the reference
   implementation py-fsrs 5.1.3 (like it, gaps count in whole days, rounded down). `review.score(outcome, memory, last_review_at, now)` turns a
   finished review (`advance`, `hold`, `reset`, `maintenance_pass`) into new memory and a
-  due date, and `review.memory_from_history` rebuilds memory from past outcomes.
+  due date, and `review.memory_from_history` rebuilds memory from past outcomes. A reset is
+  due a day later (`reset_gap_days`), and a hold is never due later than the gap it followed.
+- `review.outcome_from_marks(results)` turns a review's graded answers into that outcome:
+  full marks is no miss, at least half the marks is half a miss, less is a whole miss; no
+  misses advances, two or more reset, anything between holds. It reads `GradeResult`s,
+  including part-marked multi-part ones, or `(earned, available)` pairs.
+- `prerequisites.ready_to_start(skills, mastered)`, `prerequisite_closure(skill_id, skills)` and
+  `gaps_before(skill_id, skills, mastered)` read the prerequisite graph. Prerequisites are advice:
+  nothing here stops an application serving any skill.
 - `calibration.item_difficulty(rows, skills)` fits a Rasch difficulty per skill and per
   tier from `{user_id, skill_id, difficulty, correct}` rows and flags tiers answered right
   more often than an earlier tier; `calibration.fsrs_calibration` compares predicted with

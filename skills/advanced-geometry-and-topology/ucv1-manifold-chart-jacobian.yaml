@@ -1,6 +1,7 @@
 id: ucv1-manifold-chart-jacobian
 name: Compute a local chart Jacobian
 domain: advanced-geometry-and-topology
+year_level: [university]
 description: Compute the Jacobian matrix of a supplied two-dimensional chart at a stated point, in row-major order, followed by its exact determinant -- a zero determinant reports that the chart fails to be locally nonsingular there.
 status: active
 placement_eligible: false

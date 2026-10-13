@@ -1,6 +1,7 @@
 id: ucv1-bootstrap-summary
 name: Compute a fixed bootstrap summary
 domain: statistics
+year_level: [university]
 description: From a supplied finite resample list, compute the bootstrap mean and
   percentile interval endpoints.
 status: active

@@ -1,6 +1,7 @@
 id: ucv1-validation-calibration-check
 name: Check a validation and calibration summary
 domain: statistical-learning
+year_level: [university]
 description: Given supplied validation predictions and observed outcomes, compute the binned expected calibration error to a stated precision and select whether the model is over- or under-confident overall.
 status: active
 placement_eligible: false

@@ -1,6 +1,8 @@
 id: f10-real-number-applied-problems
 name: Solve applied problems with real numbers
 domain: secondary-number
+year_level: ['9']
+naplan_domain: [number]
 description: Given a bounded applied problem stated in terms of rational and/or irrational real numbers (e.g.
   involving square roots or pi), compute the requested numeric or exact-form answer. Confined to composite
   perimeter/length problems that genuinely combine a rational and an irrational quantity, or ask the learner

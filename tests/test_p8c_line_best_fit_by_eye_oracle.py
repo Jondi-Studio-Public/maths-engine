@@ -15,7 +15,6 @@ TOPIC = "p8c_line_best_fit_by_eye"
 TIERS = ["easy", "medium", "hard"]
 SEEDS_PER_TIER = 60
 
-_POINT_RE = re.compile(r"\((-?\d+), (-?\d+)\)")
 _EQ_RE = re.compile(r"y = (-?\d+)x ([+-]) (\d+)")
 
 
@@ -27,8 +26,9 @@ def _sad(points, m, b):
     return sum(abs(y - (m * x + b)) for x, y in points)
 
 
-def _parse(question_text):
-    points = [(int(x), int(y)) for x, y in _POINT_RE.findall(question_text)]
+def _parse(question):
+    question_text = question.text
+    points = [tuple(p["at"]) for p in question.figure["points"]]
     eqs = []
     for m_str, sign, b_str in _EQ_RE.findall(question_text):
         m = int(m_str)
@@ -43,7 +43,7 @@ def test_oracle_rederives_the_winner_every_seed_every_tier():
     for tier in TIERS:
         for seed in range(SEEDS_PER_TIER):
             q = make(TOPIC, seed=seed, difficulty=tier)
-            points, eqs = _parse(q.text)
+            points, eqs = _parse(q)
             assert len(points) == 5
             assert len(eqs) == 4
             ssrs = [_ssr(points, m, b) for m, b in eqs]

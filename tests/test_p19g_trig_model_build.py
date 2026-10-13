@@ -453,7 +453,10 @@ def test_both_skills_load_with_correct_answer_kind_and_prerequisites():
     assert amp.answer == "pair"
     assert amp.prerequisites == ["right-triangle-angle"]
     assert ev.answer == "number"
-    assert ev.prerequisites == []
+    assert ev.prerequisites == [
+        "senior-understand-the-unit-circle-definition-of-cos-theta",
+        "angle-degrees-radians-pi-form",
+    ]
 
 
 def test_both_skills_are_active_placement_ineligible_and_general_band():

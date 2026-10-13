@@ -66,7 +66,7 @@ def test_skill_loads_with_expected_shape():
     assert SKILL.answer == "mcq"
     assert SKILL.placement_eligible is False
     assert SKILL.domain == "functions-sequences"
-    assert SKILL.prerequisites == []
+    assert SKILL.prerequisites == ["function-notation", "coordinate-plane-readiness"]
     assert {src.difficulty for src in SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = next(s for s in SKILL.sources if s.difficulty == "exam")
     assert exam_src.stages == ["exam"]

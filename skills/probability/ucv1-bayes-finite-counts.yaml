@@ -1,6 +1,7 @@
 id: ucv1-bayes-finite-counts
 name: Compute a Bayes update from a finite table
 domain: probability
+year_level: [university]
 description: Given a prior population split across two groups as raw counts and a
   per-group rate for an evidence property, construct the joint counts and invert
   them into a posterior probability. Excludes a pre-tabulated joint count table

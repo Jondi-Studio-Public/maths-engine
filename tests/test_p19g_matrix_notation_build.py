@@ -788,9 +788,9 @@ def test_both_skills_load_with_correct_answer_kind_and_prerequisites():
     type_skill = by_id[TYPE_ID]
     entry_skill = by_id[ENTRY_ID]
     assert type_skill.answer == "ordered_list"
-    assert type_skill.prerequisites == []
+    assert type_skill.prerequisites == ["senior-understand-the-matrix-definition-and-notation"]
     assert entry_skill.answer == "number"
-    assert entry_skill.prerequisites == []
+    assert entry_skill.prerequisites == ["input-output-tables"]
 
 
 def test_both_skills_are_active_placement_ineligible_and_general_band():

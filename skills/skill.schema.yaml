@@ -121,6 +121,51 @@ properties:
     - early
     - primary
     - general
+  year_level:
+    description: 'Year levels the skill''s content belongs to, written in this order: F, 1 to 12, university. A list because one skill often spans years. Quote the digits so YAML keeps them strings. Omit when nothing in the file says which year.'
+    type: array
+    uniqueItems: true
+    items:
+      enum:
+      - 'F'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '10'
+      - '11'
+      - '12'
+      - 'university'
+  naplan_domain:
+    description: 'Australian Curriculum v9 mathematics strands the skill assesses, for content NAPLAN numeracy can test (Foundation to Year 9). Omit for skills with no such content.'
+    type: array
+    uniqueItems: true
+    items:
+      enum:
+      - number
+      - algebra
+      - measurement
+      - space
+      - statistics
+      - probability
+  exam_board:
+    description: 'Senior exam boards whose syllabus covers the skill. Optional; fill it only where the library itself names the board.'
+    type: array
+    uniqueItems: true
+    items:
+      enum:
+      - nesa
+      - vcaa
+      - qcaa
+      - scsa
+      - sace
+      - tasc
+      - ib
   needs_figure:
     description: True when the questions carry a figure the learner must see. Such a skill may not have
       a mental block.
@@ -132,8 +177,24 @@ properties:
     description: 'For answer: rubric. Names the versioned rubric that marks the answer.'
     $ref: '#/$defs/rubric'
   difficulty_progression:
-    description: Prose saying how the tiers escalate in reasoning. Not read by the loader.
-    type: string
+    description: 'How the tiers escalate in reasoning. Structured: one entry per tier the sources use, each
+      with the number of reasoning steps a learner must chain and a sentence saying which; validate() rejects
+      a harder tier that asks fewer steps than an easier one. Older skills carry the same thing as prose,
+      which nothing checks.'
+    oneOf:
+    - type: string
+    - type: object
+      additionalProperties: false
+      minProperties: 1
+      properties:
+        easy:
+          $ref: '#/$defs/tier_demand'
+        medium:
+          $ref: '#/$defs/tier_demand'
+        hard:
+          $ref: '#/$defs/tier_demand'
+        exam:
+          $ref: '#/$defs/tier_demand'
 allOf:
 - if:
     properties:
@@ -179,6 +240,22 @@ allOf:
         const: true
   then: false
 $defs:
+  tier_demand:
+    description: What one tier asks of a learner.
+    type: object
+    additionalProperties: false
+    required:
+    - steps
+    - demand
+    properties:
+      steps:
+        description: Reasoning steps the learner must chain, at least 1.
+        type: integer
+        minimum: 1
+      demand:
+        description: One sentence naming those steps.
+        type: string
+        minLength: 1
   source:
     description: 'One entry of sources: mathgen.make(topic, seed=..., difficulty=..., **params).'
     type: object
@@ -201,6 +278,13 @@ $defs:
         - medium
         - hard
         - exam
+      key:
+        description: A stable name for this source within its skill, part of every question id
+          (<skill>/<key>/<seed>/<hash>). Optional; it defaults to the difficulty label. Needed only when two
+          sources of one skill share a difficulty. Keys must be unique within a skill. Changing a key
+          changes the ids of that source's questions, so it is not a rename.
+        type: string
+        pattern: '^[a-z0-9]+(-[a-z0-9]+)*$'
       stages:
         description: Learning stages that draw this source. Omitted means all stages.
         type: array

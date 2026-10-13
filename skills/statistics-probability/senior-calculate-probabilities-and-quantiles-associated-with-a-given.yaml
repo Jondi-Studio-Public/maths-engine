@@ -14,7 +14,9 @@ description: 'Given bounded, fully specified inputs, calculate probabilities and
   parameter and a stated event proportion and threshold.'
 status: active
 placement_eligible: false
-prerequisites: [simple-event-probability]
+prerequisites:
+- simple-event-probability
+- senior-identify-contexts-such-as-naturally-occurring-variation-that
 capability_gates: [modelling, technology_use]
 answer: number
 sources:

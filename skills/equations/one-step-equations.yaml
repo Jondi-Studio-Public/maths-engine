@@ -5,7 +5,7 @@ description: Solve equations that need a single inverse operation, with integer,
   decimal coefficients.
 status: active
 prerequisites:
-- inverse-operations
+- arithmetic-properties
 - integer-arithmetic
 - fraction-arithmetic
 - decimal-arithmetic
@@ -23,6 +23,7 @@ sources:
   params:
     b_zero: true
   difficulty: easy
+  key: no-constant
   stages:
   - 0
   - 1
