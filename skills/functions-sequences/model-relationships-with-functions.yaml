@@ -8,7 +8,7 @@ description: Choose and write the function rule that describes a practical relat
 status: active
 placement_eligible: false
 prerequisites:
-- function-notation
+- compare-functions-representations
 - linear-models
 answer: expression
 sources:

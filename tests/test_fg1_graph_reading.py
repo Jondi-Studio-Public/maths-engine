@@ -82,9 +82,12 @@ def test_reworded_skills_say_they_are_reading_skills(skill_id):
     assert not skill.name.lower().startswith(("graph", "plot"))
 
 
-def test_nets_skill_stays_deferred():
+def test_nets_skill_is_built_with_an_exam_tier():
+    # The nets skill was deferred until its own generators and figures were built; it is now
+    # active, so pin that it carries an exam tier rather than that it stays switched off.
     skill = _skills()["f10-nets-build-solids"]
-    assert skill.status == "deferred"
+    assert skill.status == "active"
+    assert any(s.difficulty == "exam" for s in skill.sources)
 
 
 # ------------------------------------------------------------------ figure, leak, reader, grader

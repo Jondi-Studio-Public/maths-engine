@@ -1,5 +1,6 @@
 """The `mathgen` command line: what the README promises, and clear errors instead of tracebacks."""
 
+import dataclasses
 import errno
 import json
 import os
@@ -178,8 +179,14 @@ def test_options_that_are_themselves_letters_are_numbered_so_labels_cannot_clash
 # -- deferred skills ----------------------------------------------------------------------------
 
 
-def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys, library):
-    skill = next(s for s in library if s.status == "deferred" and not s.sources)
+def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys, library, monkeypatch):
+    # The library may have no deferred skill without sources left, so strip the sources from a copy
+    # of one deferred skill and serve the CLI that copy.
+    original = next(s for s in library if s.status == "deferred")
+    skill = dataclasses.replace(original, sources=[])
+    domains, skills = engine.load_skills()
+    patched = [skill if s.id == skill.id else s for s in skills]
+    monkeypatch.setattr(engine, "load_skills", lambda *a, **k: (domains, patched))
     code, out, err = run(capsys, "--skill", skill.id, "--seed", "1", "--answer", "1")
     assert code == 1
     assert out == ""
