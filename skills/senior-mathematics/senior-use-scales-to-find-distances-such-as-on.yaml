@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use scales to find distances, such as on maps; for example, road maps, street maps, bushwalking maps, online maps and cadastral maps. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ratio-rate-proportion
+- convert-metric-length
 answer: number
 sources:
 - topic: map_scale_distance

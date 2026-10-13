@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, find distances between two places on Earth on the same longitude. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-calculate-lengths-of-arcs-and-areas-of-sectors
 answer: number
 sources:
 - topic: earth_meridian_distance

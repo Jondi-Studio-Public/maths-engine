@@ -1,6 +1,8 @@
 id: f10-partition-one-two-digit-numbers
 name: Flexibly partition one- and two-digit numbers
 domain: early-foundations
+year_level: ['1']
+naplan_domain: [number]
 learner_band: early
 description: List every way to partition a one- or two-digit number, writing two-digit partitions as a number of tens and a number of ones.
 status: active

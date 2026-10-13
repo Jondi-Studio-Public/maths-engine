@@ -1,6 +1,7 @@
 id: ucv1-improper-integral
 name: Evaluate a convergent improper integral
 domain: integration
+year_level: [university]
 description: Evaluate an improper integral whose limit is infinite or whose integrand is unbounded at an endpoint, as an exact value (a power tail, an exponential, partial fractions, a substitution, an arctan or arcsin form, then integration by parts or a parameter to find); the exam tier uses improper integrals to normalise a density function and find its probability, mean and variance, or the volumes of a solid of revolution.
 status: active
 placement_eligible: false

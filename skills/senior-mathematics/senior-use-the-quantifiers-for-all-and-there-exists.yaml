@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use the quantifiers 'for all' and 'there exists'. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-examples-and-counter-examples
+- senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow
 answer: mcq
 sources:
 - topic: quantifier_forall_exists_evaluate

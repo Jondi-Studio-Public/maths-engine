@@ -1,6 +1,7 @@
 id: ucv1-lhopital-rule
 name: Evaluate a limit using L'Hôpital's rule
 domain: limits
+year_level: [university]
 description: Evaluate an indeterminate limit (0/0, ∞/∞, then 0 × ∞, ∞ - ∞ and 1^∞ rewritten first) by differentiating numerator and denominator, giving an exact answer; the exam tier finds an unknown constant that makes the limit exist, then uses it.
 status: active
 placement_eligible: false

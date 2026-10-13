@@ -14,7 +14,8 @@ description: >-
   entry.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- input-output-tables
 answer: number
 sources:
 - topic: p19g_matrix_entry_lookup

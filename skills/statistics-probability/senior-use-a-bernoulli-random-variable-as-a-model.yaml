@@ -6,7 +6,9 @@ domain: statistics-probability
 description: 'Given bounded, fully specified inputs, use a Bernoulli random variable as a model for two-outcome situations. Return the resulting value, expression, relation, or classification. The learner derives p from a described count of equally-likely outcomes (never handed p directly), then computes E(X) = p or Var(X) = p(1-p) -- the MODELLING-CHOICE step, distinct from the neighbouring skill senior-use-bernoulli-random-variables-and-associated-probabilities-to, which takes p as GIVEN and computes the probability of a stated sequence of trials once a model is already assumed. The hard and exam tiers invert the relationship: Var(X) is stated and a contextual clue disambiguates which root of p^2 - p + Var(X) = 0 is P(success). At hard the clue names success directly ("success is the less/more common outcome"). At exam the clue instead describes FAILURE indirectly via frequency ("a failure occurs on more/fewer than half of all trials"), so the clue-selected root is P(failure) and the learner must report its complement, P(success) -- a genuine conversion step hard never requires.'
 status: active
 placement_eligible: false
-prerequisites: [simple-event-probability]
+prerequisites:
+- simple-event-probability
+- senior-identify-contexts-suitable-for-modelling-by-bernoulli-random
 answer: fraction
 sources:
 - topic: p12d_bernoulli_model

@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, solve problems involving permutations and restrictions with or without repeated objects. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- permutations
+- senior-use-factorial-notation
 answer: number
 sources:
 - topic: p11c_restricted_permutations

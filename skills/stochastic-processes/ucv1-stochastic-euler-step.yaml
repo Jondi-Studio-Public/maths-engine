@@ -1,6 +1,7 @@
 id: ucv1-stochastic-euler-step
 name: Compute one stochastic Euler update
 domain: stochastic-processes
+year_level: [university]
 description: |
   Compute one Euler-Maruyama update for a supplied scalar drift, diffusion, step and noise
   value. The diffusion coefficient is a stated constant (additive noise) at the easy and

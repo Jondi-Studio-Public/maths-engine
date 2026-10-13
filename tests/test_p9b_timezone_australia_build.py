@@ -318,5 +318,5 @@ def test_both_skills_load(skills_by_id):
     assert call.answer == "number"
     assert tz.placement_eligible is False
     assert call.placement_eligible is False
-    assert tz.prerequisites == []
-    assert call.prerequisites == []
+    assert tz.prerequisites == ["senior-find-time-differences-between-two-places-on-earth"]
+    assert call.prerequisites == ["senior-find-time-differences-between-two-places-on-earth"]

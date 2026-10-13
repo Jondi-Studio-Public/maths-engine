@@ -1,6 +1,7 @@
 id: ucv1-ftc-polynomial
 name: Apply the fundamental theorem of calculus
 domain: single-variable-calculus
+year_level: [university]
 description: |
   Given a stated definite polynomial integral with one unknown (a coefficient or a limit)
   and its stated value, recover the unknown by finding an antiderivative, applying

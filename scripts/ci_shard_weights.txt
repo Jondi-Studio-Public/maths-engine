@@ -1,0 +1,49 @@
+# Measured test durations that scripts/ci_shard.py balances the CI shards by.
+#
+# One entry per line: "<seconds> <target>". Blank lines and "#" comments are ignored.
+# A target is a test file ("tests/test_x.py") or one test function of a file
+# ("tests/test_x.py::test_fn"). Seconds are wall-clock seconds on a CI runner (4 vCPU,
+# pytest -n auto), summed over every parametrized case of the function.
+#
+# A file with any "::" entry is SPLIT: ci_shard.py parses it and hands each of its
+# test functions to a shard separately, as a pytest node id. A function the file has
+# but this list does not name still runs, once, at DEFAULT_FUNCTION_SECONDS, so a new
+# test can never be dropped. A file with no entry is weighted by its size.
+#
+# Why: the five tests/test_mathgen_*.py sweeps are 10-110 KB but each runs every topic
+# through a seed loop of make() with a SymPy check, 4-18 minutes per file on a runner.
+# Balanced by size they stacked into two or three shards (measured on 48e3c6e: shards
+# 0 and 11 took 23 and 24 minutes against a 30 minute limit). Measured 2026-10-13 as
+# per-test CPU seconds on a 4-core machine, scaled by 0.575 to CI wall time (CI ran
+# about 2.3 times slower, spread over 4 cores). Refresh with
+#   pytest <file> -n 4 --durations=0
+# and re-sum by function; only the ratios matter, so an approximate refresh is enough.
+266.1 tests/test_mathgen_answers.py::test_all_topics_usually_have_enough_distractors
+286.7 tests/test_mathgen_answers.py::test_answer_honours_its_own_stated_precision
+0.1 tests/test_mathgen_answers.py::test_exempt_topics_really_do_ask_for_an_unsimplified_form
+283.0 tests/test_mathgen_answers.py::test_fractions_are_in_lowest_terms
+10.4 tests/test_mathgen_contract.py::test_answer_form_only_present_for_declared_topics
+0.3 tests/test_mathgen_contract.py::test_backward_compatible_outputs_pinned
+16.0 tests/test_mathgen_contract.py::test_determinism
+225.8 tests/test_mathgen_contract.py::test_distractors_are_valid
+0.6 tests/test_mathgen_contract.py::test_expanded_generators_reject_the_question_copied_verbatim
+0.1 tests/test_mathgen_contract.py::test_factoring_generators_reject_expanded_form
+543.7 tests/test_mathgen_contract.py::test_fuzz_generate_and_verify
+3.7 tests/test_mathgen_contract.py::test_new_kind_variants_fuzz
+2.4 tests/test_mathgen_contract.py::test_no_hand_rolled_symbolic_equality
+13.6 tests/test_mathgen_contract.py::test_option_notes_absent_from_every_topics_output
+164.5 tests/test_mathgen_contract.py::test_presets_generate
+260.2 tests/test_mathgen_options.py::test_answer_is_not_the_only_labelled_option
+279.4 tests/test_mathgen_options.py::test_answer_is_not_the_only_option_of_its_shape
+281.8 tests/test_mathgen_options.py::test_each_tier_offers_enough_distinct_questions
+0.0 tests/test_mathgen_options.py::test_option_shape_backlog_still_dirty
+0.0 tests/test_mathgen_text.py::test_grandfathered_text_defect_still_present
+521.1 tests/test_mathgen_text.py::test_no_bad_sign_patterns
+4.0 tests/test_mathgen_text.py::test_no_bad_sign_patterns_new_kind_variants
+261.5 tests/test_mathgen_text.py::test_no_bad_text_patterns
+282.4 tests/test_mathgen_text.py::test_no_bad_working_text
+6.2 tests/test_mathgen_text.py::test_quotient_rule_derivative_never_zero
+0.1 tests/test_mathgen_variety.py::test_one_shape_source_still_bounded
+249.8 tests/test_mathgen_variety.py::test_prompt_variety
+338.5 tests/test_mathgen_variety.py::test_tier_escalation
+47.7 tests/test_mathgen_variety.py::test_variety_backlog_still_thin

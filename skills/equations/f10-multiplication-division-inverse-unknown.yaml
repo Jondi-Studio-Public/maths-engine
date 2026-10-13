@@ -1,6 +1,8 @@
 id: f10-multiplication-division-inverse-unknown
 name: Use the inverse multiplication-division relationship to find missing values
 domain: equations
+year_level: ['5']
+naplan_domain: [algebra]
 description: Given a numerical multiplication or division equation with one missing value, use the inverse multiplication-division relationship to find the missing value.
 status: active
 placement_eligible: false

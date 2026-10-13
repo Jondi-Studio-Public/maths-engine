@@ -1,6 +1,7 @@
 id: ucv1-bifurcation-sign-check
 name: Detect a one-parameter equilibrium bifurcation
 domain: modelling-and-dynamical-systems
+year_level: [university]
 description: >-
   For a supplied scalar equilibrium equation, identify the parameter value where the number of real
   equilibria changes. The exam tier gives the number of equilibria in terms of a parameter, finds

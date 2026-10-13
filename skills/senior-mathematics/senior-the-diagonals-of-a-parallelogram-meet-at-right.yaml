@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, The diagonals of a parallelogram meet at right angles if and only if it is a rhombus. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-quadrilateral-properties
+- f10-congruence-similarity-criteria
 answer: number
 sources:
 - topic: the_diagonals_of_a_parallelogram_meet_at_right

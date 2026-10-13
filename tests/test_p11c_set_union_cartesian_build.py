@@ -486,7 +486,7 @@ def test_both_skills_load_through_api(skills_dict):
     union = skills_dict[_UNION_ID]
     assert union is not None
     assert union.domain == "senior-mathematics"
-    assert union.prerequisites == []
+    assert union.prerequisites == ["senior-use-everyday-occurrences-to-illustrate-set-descriptions-and"]
     assert union.answer == "number"
     assert union.placement_eligible is False
     assert union.status == "active"
@@ -495,7 +495,7 @@ def test_both_skills_load_through_api(skills_dict):
     cartesian = skills_dict[_CARTESIAN_ID]
     assert cartesian is not None
     assert cartesian.domain == "senior-mathematics"
-    assert cartesian.prerequisites == []
+    assert cartesian.prerequisites == ["senior-define-the-imaginary-number-i-as-a-root"]
     assert cartesian.answer == "pair"
     assert cartesian.placement_eligible is False
     assert cartesian.status == "active"

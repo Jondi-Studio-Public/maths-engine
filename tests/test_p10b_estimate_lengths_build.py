@@ -195,7 +195,10 @@ class TestEstimateLengthReference:
         assert skill is not None
         assert skill.domain == "measurement"
         assert skill.answer == "mcq"
-        assert skill.prerequisites == ["convert-metric-length"]
+        assert skill.prerequisites == [
+            "convert-metric-length",
+            "senior-review-metric-units-of-length-their-abbreviations-conversions",
+        ]
         assert skill.placement_eligible is False
         assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 

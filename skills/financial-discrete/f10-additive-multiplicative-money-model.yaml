@@ -1,6 +1,8 @@
 id: f10-additive-multiplicative-money-model
 name: Model additive and multiplicative money situations
 domain: financial-discrete
+year_level: ['2']
+naplan_domain: [number]
 description: Given a stated additive-or-multiplicative money situation, determine which of addition, subtraction, multiplication or division correctly models it and compute the resulting value.
 status: active
 placement_eligible: false

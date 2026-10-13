@@ -1,6 +1,7 @@
 id: decimal-place-value
 name: Identify decimal place value
 domain: primary-number
+year_level: ['4']
 placement_order: 30
 placement_questions: 3
 placement_pass: 2

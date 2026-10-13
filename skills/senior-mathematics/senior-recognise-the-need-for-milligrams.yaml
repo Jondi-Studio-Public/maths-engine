@@ -10,7 +10,9 @@ description: >-
   remains of a tub of powder.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- convert-metric-mass
+- senior-eview-metric-units-of-mass-and-weight-their
 answer: mcq
 sources:
 - topic: p19h_need_for_milligrams

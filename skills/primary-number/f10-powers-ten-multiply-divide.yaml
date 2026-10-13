@@ -1,6 +1,8 @@
 id: f10-powers-ten-multiply-divide
 name: Multiply and divide by powers of ten
 domain: primary-number
+year_level: ['4', '6']
+naplan_domain: [number]
 description: Multiply or divide a natural number or decimal by a multiple or power of ten using place-value relationships.
 status: active
 placement_eligible: false

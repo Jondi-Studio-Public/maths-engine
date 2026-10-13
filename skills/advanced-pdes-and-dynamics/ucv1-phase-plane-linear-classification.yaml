@@ -1,6 +1,7 @@
 id: ucv1-phase-plane-linear-classification
 name: Classify a two-dimensional linear equilibrium
 domain: advanced-pdes-and-dynamics
+year_level: [university]
 description: Classify the equilibrium type of a supplied 2-by-2 linear system from its eigenvalue signs and real/complex form. The exam tier computes the trace, determinant and discriminant and ends on the largest real part of the eigenvalues.
 status: active
 placement_eligible: false

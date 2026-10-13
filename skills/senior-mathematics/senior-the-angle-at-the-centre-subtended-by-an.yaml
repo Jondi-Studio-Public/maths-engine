@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, The angle at the centre subtended by an arc of a circle is twice the angle at the circumference subtended by the same arc. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-angle-relationships
 answer: number
 sources:
 - topic: the_angle_at_the_centre_subtended_by_an_arc

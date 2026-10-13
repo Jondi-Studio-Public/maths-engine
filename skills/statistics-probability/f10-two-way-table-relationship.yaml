@@ -1,12 +1,13 @@
 id: f10-two-way-table-relationship
 name: Complete a two-way table
 domain: statistics-probability
+year_level: ['10']
 description: Given a list of paired categorical observations across two named variables, each with a small fixed set of categories, tabulate the joint counts by completing the blank cells of the two-way frequency table, including every row total, column total and the grand total. Easy is a 2 by 2 table; medium a 2 by 3 or 3 by 2 table from a longer list; hard a 3 by 3 table from a list written in a mixed form (some pairs reversed, some entries repeated). Comparing proportions and discussing a relationship are not asked.
 status: active
 placement_eligible: false
 prerequisites:
 - f10-probability-complements-compounds
-- conditional-probability-counts
+- f10-collect-sort-compare-categorical-data
 answer: table
 sources:
 - topic: f10_two_way_table

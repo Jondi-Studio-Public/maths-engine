@@ -137,7 +137,7 @@ def test_norm_skill_loads_through_api_with_correct_properties():
     assert NORM_SKILL.status == "active"
     assert NORM_SKILL.placement_eligible is False
     assert NORM_SKILL.answer == "number"
-    assert NORM_SKILL.prerequisites == []
+    assert NORM_SKILL.prerequisites == ["vector-magnitude", "matrix-multiplication"]
     assert {src.difficulty for src in NORM_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     assert NORM_SOURCES["exam"].stages == ["exam"]
 

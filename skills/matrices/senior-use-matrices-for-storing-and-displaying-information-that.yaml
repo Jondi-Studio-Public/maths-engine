@@ -12,6 +12,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - matrix-multiplication
+- senior-understand-the-matrix-definition-and-notation
 answer: number
 sources:
 - topic: p14a_matrix_table

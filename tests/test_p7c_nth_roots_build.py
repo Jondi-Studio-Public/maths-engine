@@ -218,7 +218,10 @@ def test_skills_load_through_api():
     complex_skill = next((s for s in skills if s.id == "senior-determine-and-examine-the-n-th-roots-of-acmsm088"), None)
     assert complex_skill is not None
     assert complex_skill.answer == "pair"
-    assert complex_skill.prerequisites == []
+    assert complex_skill.prerequisites == [
+        "senior-convert-between-cartesian-and-polar-form",
+        "multiply-complex-numbers",
+    ]
     assert complex_skill.placement_eligible is False
     assert complex_skill.domain == "senior-mathematics"
 

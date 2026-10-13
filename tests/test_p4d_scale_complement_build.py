@@ -190,7 +190,10 @@ def test_skill_c_loads_correctly():
     assert skill is not None, "Skill C not found in loaded skills"
     assert skill.domain == "statistics-probability"
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-review-probability-as-a-measure-of-the-likelihood",
+        "f10-probability-scale-and-expectation",
+    ]
     assert skill.placement_eligible is False
 
 
@@ -202,5 +205,9 @@ def test_skill_d_loads_correctly():
     assert skill is not None, "Skill D not found in loaded skills"
     assert skill.domain == "statistics-probability"
     assert skill.answer == "fraction"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == [
+        "senior-review-the-concepts-and-language-of-outcomes-sample",
+        "senior-review-the-probability-scale-0-leq-p-a",
+        "f10-probability-complements-compounds",
+    ]
     assert skill.placement_eligible is False

@@ -306,7 +306,7 @@ class TestSkillLoads:
         skill = next((s for s in skills if s.id == skill_id), None)
         assert skill is not None, f"Skill {skill_id} not found in load_skills()"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-review-sine-cosine-and-tangent-as-ratios-of"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4  # easy, medium, hard, exam
 

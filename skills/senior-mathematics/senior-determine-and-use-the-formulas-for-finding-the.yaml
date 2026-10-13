@@ -19,7 +19,8 @@ description: |
   two-set inverse-overlap case have no analogue in the probability skill at all.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-everyday-occurrences-to-illustrate-set-descriptions-and
 answer: number
 sources:
   - topic: p11c_set_union_cardinality

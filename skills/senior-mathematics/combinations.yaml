@@ -3,7 +3,9 @@ name: Calculate combinations
 domain: senior-mathematics
 description: Count unordered selections of distinct objects without replacement.
 status: active
-prerequisites: [permutations]
+prerequisites:
+- permutations
+- senior-use-factorial-notation
 answer: number
 sources: [{topic: combinatorics, params: {kind: combination}, difficulty: easy}, {topic: exd_x_r3d_combinations_selection, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: uses-permutation, description: Counts different orders of the same group separately.}]

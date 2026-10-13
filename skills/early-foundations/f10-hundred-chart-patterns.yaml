@@ -1,6 +1,8 @@
 id: f10-hundred-chart-patterns
 name: Use a hundred chart to find missing numbers and patterns
 domain: early-foundations
+year_level: [F, '1', '2']
+naplan_domain: [number]
 learner_band: early
 description: Read a hundred chart with blank squares to find a missing number, one more, one less, ten more or ten less than a number, and the missing number in a skip-counting pattern.
 status: active

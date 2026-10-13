@@ -163,7 +163,7 @@ def test_skill_loads_with_correct_properties():
     assert skill is not None
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["classify-real-numbers", "f10-square-roots-perfect-squares"]
 
 
 def test_skill_sources_cover_correct_stages():

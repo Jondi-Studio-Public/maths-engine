@@ -1,6 +1,7 @@
 id: ucv1-function-space-approximation
 name: Compute a finite basis approximation
 domain: functional-and-linear-analysis
+year_level: [university]
 description: >-
   Compute the least-squares coefficients of a supplied function sampled on a fixed two-function
   basis. The exam tier also asks for the determinant of the Gram matrix of the basis on the sample

@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-recognise-the-distinction-between-functions-and-relations-and
+- coordinate-plane-readiness
 answer: pair
 sources:
 - topic: pv1d_parabola_axis_y

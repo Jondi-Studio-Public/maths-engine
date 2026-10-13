@@ -1,6 +1,7 @@
 id: ucv1-multivariate-regression
 name: Fit a two-feature linear regression
 domain: statistical-learning
+year_level: [university]
 description: |
   Compute coefficients [b0, b1, b2] for a supplied two-feature design y = b0 + b1*x1 +
   b2*x2 with an invertible Gram matrix, solving (X^T X) b = X^T y. Presentation ranges

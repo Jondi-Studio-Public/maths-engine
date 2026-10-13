@@ -1,6 +1,7 @@
 id: ucv1-total-variance-finite
 name: Apply the law of total variance
 domain: probability
+year_level: [university]
 description: >-
   Compute total variance from supplied conditional means and conditional variances for two cases.
   The exam tier has three cases with stated probabilities and finds the mean, the mean of the

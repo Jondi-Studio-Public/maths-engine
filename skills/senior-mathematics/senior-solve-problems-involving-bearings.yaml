@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, solve problems involving bearings. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-apply-the-cosine-and-sine-ratios-to-find
+- f10-angle-relationships
 answer: number
 sources:
 - topic: bearings_problem

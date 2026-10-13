@@ -1,6 +1,7 @@
 id: ucv1-wave-parameter-relation
 name: Relate wave parameters
 domain: mathematical-physics
+year_level: [university]
 description: >-
   Compute one wavelength, frequency or wave speed from the other two supplied parameters. The exam
   tier finds the frequency from a count of cycles, the speed and wavelength in deep water, then the

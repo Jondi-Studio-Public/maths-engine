@@ -1,6 +1,8 @@
 id: f10-direct-proportion-scale-model
 name: Model direct proportion and scale
 domain: measurement
+year_level: ['9', '10']
+naplan_domain: [measurement]
 description: Given a stated ratio, rate or scale context, determine whether it is directly proportional and compute the resulting value.
 status: active
 placement_eligible: false

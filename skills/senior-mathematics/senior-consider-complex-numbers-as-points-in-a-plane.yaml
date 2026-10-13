@@ -14,7 +14,9 @@ description: |
   complex-number points one coordinate at a time, then its area.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-review-cartesian-form
+- coordinate-plane-readiness
 answer: pair
 sources:
   - topic: complex_number_as_point

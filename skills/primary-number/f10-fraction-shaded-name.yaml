@@ -1,6 +1,8 @@
 id: f10-fraction-shaded-name
 name: Name the fraction of a shape that is shaded
 domain: primary-number
+year_level: ['2', '3']
+naplan_domain: [number]
 description: Read a bar, rectangle or circle cut into equal parts and name the fraction that is shaded, or in the hardest tier the fraction that is not shaded.
 status: active
 capability_gates: [figure_stimulus]

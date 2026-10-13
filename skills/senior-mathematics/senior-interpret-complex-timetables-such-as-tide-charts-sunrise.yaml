@@ -12,7 +12,8 @@ description: >-
   to reach a stated height.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-interpret-timetables-such-as-bus-train-and-ferry
 answer: mcq
 sources:
 - topic: p19i_timetable_condition_lookup

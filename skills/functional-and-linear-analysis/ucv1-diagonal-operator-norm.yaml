@@ -1,12 +1,15 @@
 id: ucv1-diagonal-operator-norm
 name: Compute a diagonal operator norm
 domain: functional-and-linear-analysis
+year_level: [university]
 description: >-
   Compute the Euclidean operator norm of a supplied 2-by-2 diagonal linear map. The exam tier also
   asks for the norm of a power of the map, the norm of its inverse and the condition number.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- vector-magnitude
+- matrix-multiplication
 answer: number
 sources:
 - topic: p15c_diagonal_operator_norm

@@ -1,6 +1,7 @@
 id: ucv1-tree-spanning-edge-count
 name: Count edges in a finite tree
 domain: discrete-mathematics
+year_level: [university]
 description: >-
   Determine the number of edges in a supplied connected acyclic graph from its vertex count. The
   exam tier counts the leaves of a tree from its degree list or from a full m-ary tree, then its
@@ -8,7 +9,9 @@ description: >-
   spanning tree.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-minimal-spanning-trees-to-solve-minimal-connector
+- integer-arithmetic
 answer: number
 sources:
 - topic: p14b_tree_edge_count

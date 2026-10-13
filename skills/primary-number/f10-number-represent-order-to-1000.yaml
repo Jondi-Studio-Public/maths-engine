@@ -1,6 +1,8 @@
 id: f10-number-represent-order-to-1000
 name: Order numbers to 1000
 domain: primary-number
+year_level: ['2']
+naplan_domain: [number]
 description: Given a stated set of distinct whole numbers up to 1000, arrange them in order from smallest to largest.
 status: active
 placement_eligible: false

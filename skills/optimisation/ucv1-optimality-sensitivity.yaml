@@ -1,6 +1,7 @@
 id: ucv1-optimality-sensitivity
 name: Interpret a bounded optimum perturbation
 domain: optimisation
+year_level: [university]
 description: >-
   Given a convex quadratic's stated minimiser and minimum value, and a stated parameter
   perturbation, select the one of four conclusions about the resulting change that is justified. The

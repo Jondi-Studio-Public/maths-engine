@@ -1,6 +1,7 @@
 id: ucv1-diagonalisation
 name: Diagonalise a matrix
 domain: linear-algebra
+year_level: [university]
 description: 'Work with the factorisation A = PDP⁻¹ of an integer matrix with integer eigenvalues: multiply out
   PDP⁻¹, write the diagonal matrix D with the eigenvalues in increasing order, write P with its columns in the order
   D fixes, and use the factorisation to find a power of A.'

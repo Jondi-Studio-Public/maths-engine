@@ -1,6 +1,7 @@
 id: f10-transformations-invariants
 name: Identify what transformations preserve
 domain: primary-geometry-time
+year_level: ['5', '6', '7']
 description: Given a named translation, reflection or rotation (or a short sequence of them) of a shape, choose the correct statement about whether the image's side lengths, angles, mirror-image reversal and symmetry stay the same or change.
 status: active
 placement_eligible: false

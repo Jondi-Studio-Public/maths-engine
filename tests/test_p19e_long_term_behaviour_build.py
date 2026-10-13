@@ -87,7 +87,10 @@ def test_geo_skill_loads_with_expected_shape():
     assert GEO_SKILL.answer == "mcq"
     assert GEO_SKILL.placement_eligible is False
     assert GEO_SKILL.domain == "functions-sequences"
-    assert GEO_SKILL.prerequisites == []
+    assert GEO_SKILL.prerequisites == [
+        "senior-use-recursion-to-generate-a-geometric-sequence",
+        "senior-use-the-formula-t-n-r-n-1",
+    ]
     assert {src.difficulty for src in GEO_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = next(s for s in GEO_SKILL.sources if s.difficulty == "exam")
     assert exam_src.stages == ["exam"]
@@ -186,7 +189,7 @@ def test_rec_skill_loads_with_expected_shape():
     assert REC_SKILL.answer == "mcq"
     assert REC_SKILL.placement_eligible is False
     assert REC_SKILL.domain == "financial-discrete"
-    assert REC_SKILL.prerequisites == []
+    assert REC_SKILL.prerequisites == ["senior-use-first-order-linear-recurrence-relations-to-model"]
     assert {src.difficulty for src in REC_SKILL.sources} == {"easy", "medium", "hard", "exam"}
     exam_src = next(s for s in REC_SKILL.sources if s.difficulty == "exam")
     assert exam_src.stages == ["exam"]

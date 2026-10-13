@@ -4,9 +4,10 @@ domain: equations
 description: Form, solve, check and interpret a one-variable linear equation in context.
 status: active
 prerequisites:
-- translate-word-problems-to-equations
+- define-variables
+- write-expressions-from-words
 - two-step-equations
-- check-solution-by-substitution
+- apply-a-rule-to-inputs
 answer: number
 sources:
 - topic: word_problem

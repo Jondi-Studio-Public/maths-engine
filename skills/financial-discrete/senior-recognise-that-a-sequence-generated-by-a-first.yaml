@@ -20,7 +20,8 @@ description: >-
   "decreasing" merely because early terms fall towards that limit.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-use-first-order-linear-recurrence-relations-to-model
 answer: mcq
 sources:
 - topic: p19e_recurrence_long_term_class
