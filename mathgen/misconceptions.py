@@ -45,6 +45,121 @@ _ENTRIES = (
     ),
     # -- first-year multivariable, 3D geometry and statistics --
     CatalogueEntry(
+        "ztest-se-uses-sample-proportion",
+        "Building the standard error from the sample proportion, √(p̂(1 − p̂)/n), when a test must use the hypothesised proportion p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-no-root",
+        "Forgetting the square root: giving p0(1 − p0)/n as the standard error of a sample proportion.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-complement-forgotten",
+        "Using √(p0/n) as the standard error, leaving out the factor 1 − p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-divides-by-n",
+        "Dividing √(p0(1 − p0)) by n instead of by √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-se-root-n-forgotten",
+        "Giving √(p0(1 − p0)) as the standard error without dividing by √n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-sign-reversed",
+        "Subtracting in the wrong order, p0 − p̂, so the test statistic has the wrong sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-count-used-as-proportion",
+        "Using the number of successes where the sample proportion belongs, so the difference from p0 is hundreds of times too large.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-percent-not-converted",
+        "Using a sample percentage such as 41.5 where the proportion 0.415 belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-hypothesised-proportion-ignored",
+        "Giving the sample proportion itself when asked for its difference from the hypothesised proportion.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-sample-proportion-wrong-denominator",
+        "Dividing the number of successes by the successes plus the sample size instead of by the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-doubling-forgotten",
+        "Giving a single tail area as the p-value of a two-sided test.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-cdf-as-pvalue",
+        "Giving the area to the left of |z| as the p-value instead of the area in the tail.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-complement",
+        "Subtracting the two-sided p-value from 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-wrong-tail",
+        "Taking the tail on the wrong side of z for the alternative hypothesis: the area to the left for H1: p > p0, or to the right for H1: p < p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-doubled-for-one-sided",
+        "Doubling the tail area for a one-sided alternative hypothesis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-pvalue-sign-ignored",
+        "Using the tail beyond |z| whatever the sign of z, so a statistic on the wrong side of p0 for a one-sided alternative gives a small p-value instead of a large one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-cutoff-wrong-side",
+        "Subtracting z* × SE from p0 for the upper rejection boundary of a test of H1: p > p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-cutoff-margin-as-bound",
+        "Giving the margin z* × SE as the boundary instead of adding it to p0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-wrong-critical-value",
+        "Using a critical value that does not match the stated one, such as 1.645 where the question gives 1.96.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-count-rounded-down",
+        "Rounding the boundary count down, so the count named does not actually reject H0.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-count-rounded-up-twice",
+        "Adding one to the smallest whole number above the boundary count.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-conclusion-decision-reversed",
+        "Reading the comparison with 0.05 the wrong way round: rejecting H0 for a large p-value or not rejecting it for a small one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ztest-conclusion-sample-differs",
+        "Rejecting H0 just because the sample proportion is not exactly p0, without looking at the p-value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
         "ttest-pooled-sd-as-standard-error",
         "Dividing the difference in means by the pooled standard deviation alone, without scaling it by √(1/n1 + 1/n2).",
         area="statistics",
