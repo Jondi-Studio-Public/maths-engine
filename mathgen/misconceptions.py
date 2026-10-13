@@ -14589,6 +14589,751 @@ _ENTRIES = (
         "between the tides.",
         area="time",
     ),
+    CatalogueEntry(
+        "sr2a-planar-forgot-outer",
+        "Counts only the regions inside the network and leaves out the unbounded region around the outside.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-faces-edges-minus-vertices",
+        "Takes the number of edges minus the number of vertices as the number of faces, leaving out the 2 in Euler's formula.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-faces-as-edges",
+        "Gives the number of edges where the number of faces was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-euler-signs",
+        "Puts the signs of Euler's formula in the wrong places, so the face count is wrong by a sum rather than a difference.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-as-removals",
+        "Gives the largest number of edges a planar network can have where the number that must be removed was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-edges-not-excess",
+        "Gives the whole number of edges where only the excess over the planar bound was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-wrong-bound",
+        "Uses the 3v - 6 rule on a network with no triangles (or the 2v - 4 rule on one with triangles), so the excess is wrong.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-arithmetic",
+        "Slips in evaluating the bound on the edges of a planar network (3v - 6 or 2v - 4), so the answer is off by a small amount.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-missing-constant",
+        "Leaves the constant out of the planar edge bound, using 3v where 3v - 6 belongs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-excess-direction",
+        "Subtracts the bound from the edges the wrong way round, so the number of edges that can still be added comes out as a surplus.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-uses-original-edges",
+        "Applies Euler's formula to the original number of edges when the question is about the finished network with the most edges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-faces-as-vertices",
+        "Gives the number of vertices where the number of faces (or the reverse) was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-boundary-count-once",
+        "Forgets that every edge borders two regions, so the boundary count of the regions is not doubled back into a count of edges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-complete-always-planar",
+        "Thinks that a complete network can always be drawn without edges crossing.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-sufficient",
+        "Thinks that passing the edge-count test proves a network is planar, or that failing it proves nothing.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-ordered-pairs",
+        "Counts each link between two places twice, once from each end, so the number of links is doubled.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-ring-only",
+        "Counts only a ring of links round the places instead of a link between every pair.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-places-as-links",
+        "Gives the number of places where the number of links was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-pairs-miscount",
+        "Miscounts the pairs of places by adding or leaving out one place's links.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-lists-not-halved",
+        "Adds up everyone's list as the number of friendships, so every friendship is counted twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-count-slip",
+        "Miscounts the links or places by one when reading them from the situation.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-max-degree-as-links",
+        "Gives the greatest number of friends one person has where the total number of friendships was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-links-as-max-degree",
+        "Gives the total number of friendships where the greatest number of friends one person has was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-wrong-person",
+        "Reads the list of a different person from the one with the most friends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-routes-not-merged",
+        "Adds the links on each route without noticing that two routes share a link, so shared links are counted more than once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-routes-as-links",
+        "Gives the number of routes where the number of links or places was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-stops-for-flights",
+        "Counts the stops on a trip, both ends included, instead of the flights between them, so the answer is one too many.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-single-route-distance",
+        "Follows the stops of one route instead of searching the whole network for the fewest flights, or counts all the places.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-components-not-minus-one",
+        "Gives the number of separate groups of places as the number of new links needed, instead of one fewer.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-isolated-only",
+        "Counts only the places on no route as the groups that need joining and ignores the groups made of several places.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-cancelled-ignored",
+        "Gives the fewest flights as they were before the route was cancelled.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-pairs-for-extra",
+        "Gives the number of links in the complete network where only the extra links needed were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-existing-for-extra",
+        "Gives the number of links already there where the number still needed was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-rows-columns-swapped",
+        "Writes the matrix with the jobs as rows and the workers as columns, which is the transpose of the one asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-ones-zeros-swapped",
+        "Puts a 1 where the worker cannot do the job and a 0 where the worker can.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-entry-slip",
+        "Writes one entry of the matrix wrongly, putting a 1 where the worker cannot do the job or a 0 where they can.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-row-order-slip",
+        "Writes the rows of the matrix in a different order from the order the workers were listed in.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-cannot-as-can",
+        "Reads a list of jobs a worker cannot do as the jobs they can do, so the 1s and 0s are the wrong way round.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-forced-worker-kept",
+        "Removes the job that only one worker can do but leaves that worker's row in the matrix of those still unassigned.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-forced-job-kept",
+        "Removes the worker who has been given a job but leaves that job's column in the matrix of those still unassigned.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-no-reduction",
+        "Writes the whole matrix again instead of the one left after the forced jobs have been given out.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-assumes-full",
+        "Assumes every worker can be given a job, ignoring workers who can only do the same few jobs between them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-count-slip",
+        "Miscounts the allocations or jobs by one.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-counts-ones",
+        "Counts every 1 in the matrix, that is every job a worker could do, instead of counting complete allocations or jobs filled.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-jobs-for-left-over",
+        "Gives the number of jobs that can be filled where the number of workers left without a job was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-multiplies-choices",
+        "Multiplies the numbers of jobs each worker can do, forgetting that two workers cannot be given the same job.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-one-allocation",
+        "Thinks there is only one best allocation when there are several.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-adds-readings",
+        "Adds the two values read from the graph instead of finding how much higher one is than the other.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-neighbour-read",
+        "Reads the value at the time point next to the one named, so the difference is for the wrong pair of times.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-gridline-slip",
+        "Reads a value one gridline too high or too low on the vertical axis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-one-reading",
+        "Gives one of the two values read from the graph where the difference between them was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-no-trend-added",
+        "Predicts the value in the same season of the last cycle and does not add the change of level from one cycle to the next.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-ignores-season",
+        "Adds the change of level to the latest value instead of the value in the same season one cycle ago, ignoring the seasonal pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-twice",
+        "Adds the change of level for two cycles when the prediction is only one cycle on from the value used.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-once-for-two-cycles",
+        "Uses the value two cycles back but adds the change of level for only one cycle.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-uses-irregular-value",
+        "Predicts from the value that a one-off event had disturbed, so the one-off effect is carried forward.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-irregular-wrong-cycle",
+        "Names the same season in a different cycle from the one in which the one-off event happened.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-irregular-neighbour",
+        "Names the time point next to the one that a one-off event disturbed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-irregular-as-extreme",
+        "Takes the highest or lowest value on the graph to be the one affected by a one-off event.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-period-off-by-one",
+        "Counts one too many or one too few time points in a cycle of the seasonal pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-period-count-points",
+        "Gives the number of cycles or of points on the graph where the length of one cycle was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-as-total",
+        "Gives the whole change from the first value to the last where the change from one cycle to the next was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-one-step",
+        "Gives the change from one time point to the next instead of the change from one cycle to the next.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-sign",
+        "Gives the change of level with the wrong sign, a rise as a fall or a fall as a rise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-direction-reversed",
+        "Reads the direction of an association the wrong way round, calling a rising pattern negative or a falling one positive.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-strength-one-band-off",
+        "Judges the strength of an association one step too strong or too weak for how closely the points follow the pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-fields-swapped",
+        "Gives the description words in the wrong order for the fields asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-form-misjudged",
+        "Calls a curved pattern linear, or a straight-line pattern non-linear.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-outlier-effect-reversed",
+        "Says removing an outlier would weaken the association when it would strengthen it, or the other way round.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-strength-without-outlier",
+        "Describes the strength the data would have without the outlier instead of with it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-negative-as-weak",
+        "Treats a negative correlation as a weak one, mixing up direction with strength.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-r-not-squared",
+        "Gives the correlation coefficient as a percentage instead of squaring it for the coefficient of determination.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-explained-for-unexplained",
+        "Gives the percentage explained where the percentage not explained was asked for, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-rounding-slip",
+        "Rounds the percentage the wrong way, leaving it a unit away from the correct whole number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-percentage-slip",
+        "Leaves the squared coefficient as a decimal or moves the decimal point the wrong way when converting to a percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-correlation-is-causation",
+        "Takes a strong association between two variables as proof that one causes the other.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-r-squared-as-points-on-line",
+        "Reads the coefficient of determination as the percentage of points that lie on the line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-sign",
+        "Gives the gradient of a falling line as a positive number, or of a rising line as a negative number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-as-intercept",
+        "Gives the value where the line meets the vertical axis in place of the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-run-over-rise",
+        "Divides the run by the rise instead of the rise by the run when finding the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-whole-rise",
+        "Gives the rise over the whole drawn line, or a doubled rise, instead of the rise for each unit across.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-nearest-point",
+        "Reads the value of the plotted data point instead of the value the line predicts.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-forgets-intercept",
+        "Multiplies the gradient by the value across but leaves out where the line meets the vertical axis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-slope-one",
+        "Adds the value across to the intercept as if the gradient were 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-gridline-slip",
+        "Reads the line a unit away from the correct gridline.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-intercept-times-x",
+        "Multiplies the intercept by the value across instead of using the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-residual-sign",
+        "Subtracts the other way round, predicted minus actual, or drops the sign of the residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-residual-actual-value",
+        "Gives the actual value of the data point as its residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-residual-predicted-value",
+        "Gives the value the line predicts as the residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-inverse-multiplies",
+        "Multiplies by the gradient instead of dividing when finding the value across for a given prediction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-inverse-no-intercept",
+        "Divides the predicted value by the gradient without first taking away the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-inverse-forgets-divide",
+        "Takes away the intercept but does not divide by the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-reliable-because-close",
+        "Treats a prediction far outside the data as reliable because the points near the line fit closely.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-extrapolation-reliable",
+        "Believes a line of best fit can be extended to any value with the same reliability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-line-passes-all-points",
+        "Believes the line of best fit passes through every data point, so any prediction is exact.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-wrong-reason-unreliable",
+        "Says a prediction is unreliable for a reason that has nothing to do with going outside the range of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-upper-edge",
+        "Gives the upper boundary of a class where its lower boundary was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-frequency-for-boundary",
+        "Gives the height of the tallest bar where the boundary of its class was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-boundary-for-frequency",
+        "Gives a class boundary where the height of the tallest bar was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-neighbour-class",
+        "Reads the class or bar beside the one asked about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-midpoint",
+        "Gives the midpoint of the class where its lower boundary was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-gridline-slip",
+        "Reads a height or count one gridline or one value away from the correct one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-class-number-for-frequency",
+        "Counts the classes or their position along the axis instead of reading the frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-whole-axis",
+        "Uses the whole length of the horizontal axis as the range, including empty classes at the ends.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-lower-edge-of-last",
+        "Takes the lower boundary of the last class instead of its upper boundary when finding the greatest range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-lowest-upper-edge",
+        "Starts from the upper boundary of the first class instead of its lower boundary when finding the greatest range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-number-of-classes",
+        "Gives the number of classes where a range of values was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-includes-next-class",
+        "Includes the class that starts at the stated value when counting the values below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-omits-class",
+        "Leaves out the last class below the stated value when counting.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-one-class-only",
+        "Gives the frequency of only the class just below the stated value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-for-above",
+        "Counts the values above the stated value where the values below it were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-median-class-modal",
+        "Takes the modal class as the class that holds the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-median-class-middle-of-axis",
+        "Takes the class in the middle of the axis as the class that holds the median, ignoring the frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-interp-whole-class",
+        "Counts the whole class that contains the stated value instead of the share of it below that value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-interp-omits-class",
+        "Leaves out the class containing the stated value instead of counting half of it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-interp-half-only",
+        "Gives half the frequency of the class only, forgetting the classes below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-total-counts-bars",
+        "Counts the bars instead of adding the frequencies to find the total number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-total-tallest",
+        "Gives the height of the tallest bar as the total number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-total-omits-class",
+        "Leaves a class out when adding the frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-position-half-n",
+        "Halves the total without adding one, or adds one in the wrong place, when finding the position of the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-position-n",
+        "Gives the total number of values as the position of the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-mean-median-reversed",
+        "Puts the mean on the wrong side of the median for the direction of the tail.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-skewed-mean-equals-median",
+        "Says the mean and the median are about equal for a clearly skewed histogram.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-symmetric-as-skewed",
+        "Says the mean and the median differ for a symmetric histogram.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-cannot-compare",
+        "Says the mean and median cannot be compared without the raw data, ignoring what the shape shows.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-as-range",
+        "Gives the range from one end of the whiskers to the other where the interquartile range was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-as-quartile",
+        "Gives the value of the third quartile in place of the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-half-box",
+        "Gives only half of the box, from the median to one quartile, as the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-to-whisker",
+        "Measures the interquartile range from the first quartile to the end of the upper whisker.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-gridline-slip",
+        "Reads a value from the axis one tick-mark away from the correct one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-diff-quartile",
+        "Compares the quartiles of the two plots instead of the medians.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-diff-whisker",
+        "Compares the ends of the whiskers instead of the medians.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-diff-range",
+        "Compares the ranges of the two plots where the difference between the medians was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-one-iqr",
+        "Adds or subtracts one interquartile range instead of one and a half when finding a fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-forgot-iqr",
+        "Adds or subtracts the number 1.5 to the quartile instead of 1.5 times the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-no-quartile",
+        "Gives 1.5 times the interquartile range without adding it to, or taking it from, the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-from-whisker",
+        "Measures the fence from the end of the whisker instead of from the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-from-median",
+        "Measures the fence from the median instead of from the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-wrong-side",
+        "Gives the fence on the opposite side of the box from the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-from-quartile",
+        "Measures how far an outlier is from the quartile instead of from the fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-from-whisker",
+        "Measures how far an outlier is from the end of the whisker instead of from the fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-outlier-value",
+        "Gives the value of the outlier instead of how far it lies beyond the fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-one-iqr-fence",
+        "Measures from a fence set one interquartile range from the quartile instead of one and a half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-outlier-at-the-fence",
+        "Treats the value on the fence as an outlier, though an outlier must be more than 1.5 interquartile ranges beyond the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-outlier-just-past-whisker",
+        "Takes the first whole number past the end of the whisker as the smallest outlier.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-range-for-iqr",
+        "Judges variability by the range, which an outlier stretches, instead of the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-outlier-as-spread",
+        "Takes the presence of an outlier as a sign of more variability in the middle of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-ignores-iqr",
+        "Says the two groups are equally variable although their interquartile ranges differ.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-for-spread",
+        "Uses the size of the median as a measure of how spread out the data are.",
+        area="statistics",
+    ),
 )
 
 #: Every entry, by id.

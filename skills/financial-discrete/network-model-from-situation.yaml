@@ -1,0 +1,45 @@
+id: network-model-from-situation
+name: Model a described situation as a network and count its vertices, edges and links
+domain: financial-discrete
+description: 'A situation is described in words (friends, flights, roads) and the learner works with the network it describes without being shown it. Easy: count the pairs of friends, or find the greatest number of contacts, from lists that name each person''s contacts. Medium: from routes that share links, count the distinct links or the fewest flights between two places. Hard: how many new links join separate groups into one connected network, or the fewest flights after a route is cancelled. The exam chain asks the number of places, the number of distinct links, the links a complete network on those places would have (carried forward) and the extra links needed (carried forward). Every count is checked a second way inside the generator. Distinct from graph-planar-faces, which starts from a drawn or listed network and asks about regions.'
+status: active
+placement_eligible: false
+prerequisites: [add-within-100]
+answer: number
+sources:
+- topic: sr2a_network_model
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_network_model
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_network_model
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_network_model_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: net-ordered-pairs
+  description: Counts each link between two places twice, once from each end, so the number of links is doubled.
+- id: net-ring-only
+  description: Counts only a ring of links round the places instead of a link between every pair.
+- id: net-places-as-links
+  description: Gives the number of places where the number of links was asked for.
+- id: net-pairs-miscount
+  description: Miscounts the pairs of places by adding or leaving out one place's links.
+- id: net-lists-not-halved
+  description: Adds up everyone's list as the number of friendships, so every friendship is counted twice.
+- id: net-count-slip
+  description: Miscounts the links or places by one when reading them from the situation.
+- id: net-max-degree-as-links
+  description: Gives the greatest number of friends one person has where the total number of friendships was asked for.
+tags: [acara-senior-v8-4, financial-discrete, graph, network, model, sr2a_network_model, acmgm079]

@@ -1,0 +1,45 @@
+id: bipartite-matching-matrix
+name: Write the matrix of a bipartite network and find a matching
+domain: financial-discrete
+description: 'Workers and tasks (or students and stations, drivers and routes) are described by lists of who can do what. Easy: write the 0/1 matrix from each worker''s list, rows for one side and columns for the other. Medium: write it from the lists on the other side (a transpose) or from lists of what each person cannot do (a complement). Hard: reduce the matrix after some jobs are forced, keeping the original order of rows and columns. The exam chain asks the matrix, the size of a maximum matching, how many workers are left without a job (carried forward) and how many different maximum matchings there are. Distinct from senior-determine-the-optimum-assignment-s-by-inspection-for, which assigns by cost rather than by possible pairings.'
+status: active
+placement_eligible: false
+prerequisites: [network-model-from-situation]
+answer: matrix
+sources:
+- topic: sr2a_bipartite
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_bipartite
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_bipartite
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_bipartite_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: bip-rows-columns-swapped
+  description: Writes the matrix with the jobs as rows and the workers as columns, which is the transpose of the one asked for.
+- id: bip-ones-zeros-swapped
+  description: Puts a 1 where the worker cannot do the job and a 0 where the worker can.
+- id: bip-entry-slip
+  description: Writes one entry of the matrix wrongly, putting a 1 where the worker cannot do the job or a 0 where they can.
+- id: bip-row-order-slip
+  description: Writes the rows of the matrix in a different order from the order the workers were listed in.
+- id: bip-cannot-as-can
+  description: Reads a list of jobs a worker cannot do as the jobs they can do, so the 1s and 0s are the wrong way round.
+- id: bip-forced-worker-kept
+  description: Removes the job that only one worker can do but leaves that worker's row in the matrix of those still unassigned.
+- id: bip-forced-job-kept
+  description: Removes the worker who has been given a job but leaves that job's column in the matrix of those still unassigned.
+tags: [acara-senior-v8-4, financial-discrete, graph, bipartite, matching, matrix, sr2a_bipartite, acmgm110]

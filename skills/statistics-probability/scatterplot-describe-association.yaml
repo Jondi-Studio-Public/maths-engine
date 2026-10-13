@@ -1,0 +1,49 @@
+id: scatterplot-describe-association
+name: Describe the association shown by a drawn scatterplot
+domain: statistics-probability
+description: 'Describe a drawn scatterplot of twelve points in words. Easy: direction then strength, as an ordered list (''positive, strong''). Medium: direction, form (linear or non-linear, with curves accelerating or levelling off) and strength. Hard: one point P is labelled; give the direction and the strength with every point included, then whether the association would be stronger or weaker without P. Every drawn set keeps its strength measure well clear of the 0.5 and 0.75 band edges. The exam chain states r and asks the description, the percentage of variation explained (carried forward to the percentage not explained) and the conclusion the data justify. Distinct from senior-describe-the-association-between-two-numerical-variables-in, which describes a stated set of summary statistics rather than a drawn plot.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-describe-the-association-between-two-numerical-variables-in]
+answer: ordered_list
+sources:
+- topic: sr2a_scatter_assoc
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_scatter_assoc
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_scatter_assoc
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_scatter_assoc_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sc-direction-reversed
+  description: Reads the direction of an association the wrong way round, calling a rising pattern negative or a falling one positive.
+- id: sc-strength-one-band-off
+  description: Judges the strength of an association one step too strong or too weak for how closely the points follow the pattern.
+- id: sc-fields-swapped
+  description: Gives the description words in the wrong order for the fields asked for.
+- id: sc-form-misjudged
+  description: Calls a curved pattern linear, or a straight-line pattern non-linear.
+- id: sc-outlier-effect-reversed
+  description: Says removing an outlier would weaken the association when it would strengthen it, or the other way round.
+- id: sc-strength-without-outlier
+  description: Describes the strength the data would have without the outlier instead of with it.
+- id: sc-negative-as-weak
+  description: Treats a negative correlation as a weak one, mixing up direction with strength.
+- id: sc-r-not-squared
+  description: Gives the correlation coefficient as a percentage instead of squaring it for the coefficient of determination.
+tags: [acara-senior-v8-4, statistics-probability, scatterplot, association, correlation, figure, sr2a_scatter_assoc, acmgm052, acmgm056]
