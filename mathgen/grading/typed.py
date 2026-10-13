@@ -74,15 +74,18 @@ _VARIABLE_LABEL_RE = re.compile(r"[^\W\d_]\d?")  # "x", "λ", "x1": a variable, 
 
 def _label_fits(question, canonical: str | None, label: str | None) -> bool:
     """Whether a reply's label may be dropped: it is the canonical's own label, or the canonical has none and the
-    label is a single variable the question's text names ("x" in "Solve 3^x = 27")."""
+    label is a single variable the question's text names ("x" in "Solve 3^x = 27") or is written exactly as the
+    question writes it ("P(red)" in "What is P(red)?")."""
     if label is None:
         return False
     canonical_label = _label_name(canonical)
     if canonical_label is not None:
         return label == canonical_label
+    text = getattr(question, "text", None) or ""
+    if "(" in label:
+        return re.sub(r"\s+", "", label) in re.sub(r"\s+", "", text)
     if not _VARIABLE_LABEL_RE.fullmatch(label):
         return False
-    text = getattr(question, "text", None) or ""
     return re.search(rf"(?<![^\W\d_]){re.escape(label)}(?![^\W\d_])", text) is not None
 
 
@@ -753,8 +756,11 @@ def grade_fraction(question, given: str) -> GradeResult:
 
 # "in lowest terms", "in simplest form", "simplify", "fully simplified": the question asks for the fraction
 # itself to be reduced, so "6/8" is not an answer to "Write 6/8 in lowest terms" even though it equals 3/4.
+# A negated use describes the data instead: "f(x) = ... (not yet simplified)", "do not simplify".
 _LOWEST_TERMS_RE = re.compile(
-    r"\b(?:lowest\s+terms|simplest\s+form|simplif(?:y|ied)|fully\s+simplified|reduced?\s+form)\b", re.IGNORECASE
+    r"(?<!\bnot\s)(?<!\bnot\syet\s)(?<!n't\s)"
+    r"\b(?:lowest\s+terms|simplest\s+form|simplif(?:y|ied)|fully\s+simplified|reduced?\s+form)\b",
+    re.IGNORECASE,
 )
 _WRITTEN_FRACTION_PART_RE = re.compile(r"(\d+)\s*/\s*(\d+)\s*$")
 
@@ -2397,10 +2403,11 @@ _INFINITY_REPLY_RE = re.compile(r"^\s*([+-]?)\s*(?:∞|infinity|inf|oo)\s*$", re
 
 
 # A label naming a derivative or just saying "answer": "f'(x) =", "y'' =", "f′(x) =", "dy/dx =", "d²y/dx² =",
-# "d^2y/dx^2 =", "d/dx =", "Answer:". `_LABEL_RE` takes "y =" and "f(x) =" but not these.
+# "d^2y/dx^2 =", "d/dx =", "Answer:". `_LABEL_RE` takes "y =" and "f(x) =" but not these. The prime may be the
+# curly apostrophe that phone and Mac keyboards type for "'" ("f’(x) =").
 _DERIVATIVE_LABEL_RE = re.compile(
     r"^\s*(?:"
-    r"[^\W\d_]\w*\s*(?:'+|′+|″|‴)\s*(?:\([^()=]*\))?"  # f'(x), y'', g′(t)
+    r"[^\W\d_]\w*\s*(?:['’]+|′+|″|‴)\s*(?:\([^()=]*\))?"  # f'(x), y'', g′(t), f’(x)
     r"|d\s*(?:\^\s*\d|[²³])?\s*(?:[^\W\d_]\w*)?\s*/\s*d\s*[^\W\d_]\w*?\s*(?:\^\s*\d|[²³])?"  # dy/dx, d²y/dx², d/dx
     r")\s*=\s*"
     r"|^\s*answer\s*[:=]\s*",
@@ -3308,5 +3315,10 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
         logger.exception("grade(kind=%r, given=%.200r) raised; grading incorrect", kind, given)
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if not result.correct:
-        _resolve_note(kind, question, given, result, skill)
+        try:
+            _resolve_note(kind, question, given, result, skill)
+        except Exception:
+            # The same backstop for the note: a reply the grader refused (a JSON number where text was
+            # expected, say) is still marked wrong, without a note, rather than raising.
+            logger.exception("note for grade(kind=%r, given=%.200r) raised; no note", kind, given)
     return result
