@@ -1,12 +1,15 @@
 """Prompt-shape variety and tier escalation.
 
-Part of the generator sweep, split across `tests/test_mathgen_*.py` so the CI
-shards can balance it (`scripts/ci_shard.py` balances files by size). Verification
+Part of the generator sweep (`tests/test_mathgen_*.py`). Verification
 is built into the generators themselves (each independently re-checks its
 answer with SymPy and raises VerificationError on mismatch), so constructing
 thousands of questions IS the correctness test; the assertions here cover the
 output contract on top of that. Set `MATHS_DEEP_SEEDS` for a deeper run of the
 text checks.
+
+`check_prompt_variety` takes the questions already built, and
+`tests/mathgen_sweep_cases.py` builds each topic's grid once and runs every check
+on it, so a topic is generated once instead of once per check.
 """
 
 import pytest
@@ -14,6 +17,7 @@ import pytest
 from mathgen import make, topics
 from mathgen.core import PRESETS, REGISTRY
 from mathgen.text_quality import prompt_shape
+from tests.mathgen_sweep_support import take
 
 TOPICS = [t for _lvl, t in topics()]
 # Topics registered by a build module (`mathgen/generators/*_build.py`): these
@@ -25,7 +29,7 @@ BUILD_TOPICS = sorted(t for t, (_lvl, fn) in REGISTRY.items() if fn.__module__.r
 # ---------------------------------------------------------------------------
 # Prompt-shape variety: `mathgen.text_quality.prompt_shape` masks digits AND every
 # `mathgen.slots` bank value -- a strictly finer mask than
-# `_distinct_prompts` in test_mathgen_options.py, which only dedupes raw TEXT. Every
+# `check_each_tier_offers_enough_distinct_questions` in test_mathgen_options.py, which only dedupes raw TEXT. Every
 # build source needs >= 3 distinct shapes over 60 seeds.
 #
 # `ONE_SHAPE_SOURCES` is the PERMANENT allowlist, same shape as
@@ -2507,16 +2511,20 @@ _SHAPE_SEEDS = 60
 
 
 def _distinct_shapes(topic, difficulty):
-    return {prompt_shape(make(topic, seed=seed, difficulty=difficulty)) for seed in range(_SHAPE_SEEDS)}
+    return _shapes_of([make(topic, seed=seed, difficulty=difficulty) for seed in range(_SHAPE_SEEDS)])
 
 
-@pytest.mark.parametrize("topic", BUILD_TOPICS)
-def test_prompt_variety(topic):
-    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
+def _shapes_of(questions):
+    return {prompt_shape(q) for q in take(questions, _SHAPE_SEEDS)}
+
+
+def check_prompt_variety(topic, grid):
+    """`grid`: `{difficulty: [make(topic, seed=s, difficulty=difficulty) ...]}`, a tier per preset and None."""
+    for difficulty, questions in grid.items():
         key = (topic, difficulty)
         if key in ONE_SHAPE_SOURCES or key in VARIETY_BACKLOG:
             continue
-        shapes = _distinct_shapes(topic, difficulty)
+        shapes = _shapes_of(questions)
         assert len(shapes) >= 3, (
             f"{topic} [{difficulty}] yields only {len(shapes)} distinct prompt "
             f"shapes in {_SHAPE_SEEDS} seeds (at least 3 are required, masked by "
