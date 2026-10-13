@@ -12,6 +12,7 @@ The independent ORACLE lives in `tests/test_p19b_histogram_shape_oracle.py`.
 from __future__ import annotations
 
 import collections
+import re
 
 import pytest
 
@@ -152,32 +153,36 @@ def test_easy_never_uses_answer_words_in_description():
             assert word not in body.lower() or "shape" in body.lower()
 
 
-def test_medium_table_printed_in_class_order():
+def test_medium_histogram_is_drawn_in_class_order_and_prints_no_table():
     for q in _all("medium", range(30)):
-        rows = [r for r in q.text.split(":") if "-" in r]
-        # crude re-derivation: the class lower bounds appearing in the text,
-        # in first-seen order, must already be sorted.
-        import re
-
-        bounds = [int(m) for m in re.findall(r"(\d+)-\d+:", q.text)]
-        assert bounds == sorted(bounds), q.text
+        assert q.figure is not None and q.figure["kind"] == "histogram" and len(q.figure["panels"]) == 1
+        edges = q.figure["panels"][0]["edges"]
+        assert edges == sorted(edges) and len(set(edges)) == len(edges), q.figure
+        assert not re.search(r"\d+-\d+:", q.text), q.text
 
 
-def test_hard_table_printed_out_of_order():
-    out_of_order = 0
+def test_hard_reflects_the_drawn_shape():
+    """Every value is subtracted from a stated number: skew swaps direction, symmetric and bimodal stay."""
+    seen = collections.Counter()
     for q in _all("hard", range(60)):
-        import re
-
-        bounds = [int(m) for m in re.findall(r"(\d+)-\d+:", q.text)]
-        if bounds != sorted(bounds):
-            out_of_order += 1
-    assert out_of_order >= 50, f"only {out_of_order}/60 hard draws are actually shuffled"
+        drawn = gen._classify(q.figure["panels"][0]["frequencies"])
+        assert drawn is not None
+        assert q.answer_text == gen._REFLECTED[drawn], q.text
+        assert re.search(r"subtracted|replaced by|taking each value away", q.text), q.text
+        seen[drawn] += 1
+    assert set(seen) == set(LABELS), seen
 
 
 def test_exam_two_histograms_differ_on_stated_criterion():
     for q in _all("exam", range(40)):
-        assert "Group A" in q.text and "Group B" in q.text
+        panels = q.figure["panels"]
+        assert [p["label"] for p in panels] == ["Group A", "Group B"]
         assert ("WIDER range" in q.text) or ("LARGER total" in q.text)
+        a, b = panels
+        if "WIDER range" in q.text:
+            assert len(a["frequencies"]) != len(b["frequencies"])
+        else:
+            assert sum(a["frequencies"]) != sum(b["frequencies"])
 
 
 # ============================================================================
