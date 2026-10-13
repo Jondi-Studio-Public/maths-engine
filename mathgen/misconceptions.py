@@ -10428,6 +10428,619 @@ _ENTRIES = (
         "map-bearing-reversed-wrong",
         "Trying to reverse a bearing by adding the wrong angle, for example 90 degrees instead of 180.",
         area="spatial",
+        "adds-a-group-of-trials-to-the-successes",
+        "Adding the number of trials in one group to the number of successes when combining results.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "adds-instead-of-dividing",
+        "Adding the target count to a number of trials where the target count should be divided by the probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "adds-the-distances",
+        "Adding two distances from the theoretical probability where their difference was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "adds-the-given-shares-instead-of-the-remainder",
+        "Giving the total of the relative frequencies that were shown where the share that was left out (the remainder to 100%) was needed.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "and-instead-of-but-not",
+        "Counting the trials where both events happen for an event described as one happening but not the other.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "and-instead-of-or",
+        'Counting only the trials where both events happen for an event described with "or".',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "answered-neither-not-or",
+        "Giving the probability that neither event happens where at least one was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "answered-the-event-not-its-complement",
+        'Giving the probability of the event itself where "not" the event was asked for.',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "assumes-equal-likelihood-ignores-data",
+        "Ignoring the results and giving one over the number of categories, as if every outcome were equally likely.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "averages-percentages-ignoring-trial-numbers",
+        "Averaging the percentages from several experiments as if each had the same number of trials, instead of combining the successes and the trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "compares-the-two-estimates-not-the-distance-to-p",
+        "Finding how far apart the two estimates are instead of how far each is from the theoretical probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "compares-with-the-rest-not-the-whole",
+        "Dividing the favourable outcomes by the other outcomes instead of by all the outcomes.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "divides-by-one-other-count",
+        "Dividing the count of an event by the count of one other category instead of by the total number of results.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "divides-by-one-row-total",
+        "Dividing the count where both events happen by the total for just one of the events instead of by all the trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "divides-by-the-complement",
+        "Dividing the target count by the probability of the opposite event instead of the probability of the event.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "expected-count-multiplies-by-favourable-only",
+        "Multiplying the number of trials by the number of favourable outcomes without dividing by the number of possible outcomes.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "expected-count-uses-one-outcome",
+        "Dividing the number of trials by the number of possible outcomes, as though only one outcome were favourable.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ignores-the-overlap-for-but-not",
+        "Giving everything in the first event when the part that is also in the second event had to be taken out.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ignores-the-removed-marbles",
+        "Using the original numbers in the bag when some marbles had been taken out before the draw.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ignores-the-second-event",
+        "Answering for the first event alone when a question about both events was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "leaves-a-group-out-of-the-total",
+        "Leaving one group's results out when adding up the successes, so the combined estimate is wrong.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-overlap-for-or",
+        'Counting only the trials where exactly one event happens for an "or" event, leaving out the trials where both happen.',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "miscounts-by-one",
+        "Being one out when adding or subtracting counts.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "off-by-a-favourable-outcome",
+        "Adding or leaving out one favourable outcome's share of the expected count.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "or-instead-of-and",
+        "Giving the probability that at least one event happens where both happening was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "or-instead-of-exactly-one",
+        "Counting the trials where both events happen as well, for an event where exactly one must happen.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "overlap-counted-twice-in-or",
+        "Adding the totals for the two events without taking off the overlap, so the trials where both happen are counted twice.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "pools-when-asked-for-one-result",
+        "Combining all the results into one estimate when the question asked which single result to rely on.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-expected-not-difference",
+        "Giving the expected count where the difference between observed and expected was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-frequency-not-relative-frequency",
+        "Giving the count of the event where a fraction of all the results was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-observed-not-difference",
+        "Giving the observed count where the difference between observed and expected was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-observed-not-expected",
+        "Giving the number that happened in the experiment where the number theory predicts was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-one-distance-only",
+        "Giving the distance from the theoretical probability for only one of the two estimates.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-the-estimate-not-the-gap",
+        "Giving the estimate itself where its distance from the theoretical probability was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-the-target-not-the-trials",
+        "Giving the number of times wanted where the number of trials needed to expect it was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-the-theoretical-value-not-the-gap",
+        "Giving the theoretical percentage where the gap between it and the estimate was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "reports-the-trials-not-the-successes",
+        "Giving the number of trials where the number of successes was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "removes-from-the-red-but-not-the-total",
+        "Taking removed marbles off the count of one colour but forgetting that the total number of marbles drops as well.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "slips-a-decimal-place",
+        "Moving the decimal point one place when working with percentages.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "subtracts-both-totals-without-adding-back-the-overlap",
+        "Subtracting the totals for both events from all the trials without adding back the trials where both happened.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "swaps-the-two-events",
+        "Answering for the second event where the first was asked for, or the reverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "trusts-a-small-experiment",
+        "Using the result of a small experiment as the best estimate, when a larger experiment gives a more reliable one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "uses-a-half-turn-as-the-whole-circle",
+        "Dividing a sector angle by 180 degrees instead of 360 degrees to find its share of the circle.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "uses-observed-as-theoretical-probability",
+        "Using what happened in the experiment as the theoretical probability of the event.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "uses-one-experiment-only",
+        "Giving the result of one experiment where the results of the experiments had to be combined.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "uses-theoretical-not-the-estimate",
+        "Using the theoretical probability to make a prediction where the experimental estimate was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "adds-a-fixed-amount-to-a-proportional-rule",
+        "Adding a fixed amount to a rule where every output is a plain multiple of its input.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-extra-count-instead-of-pricing-it",
+        "Adding the number of extra items where the cost of those items had to be added.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-first-output-to-the-input",
+        "Writing a rule that adds a number to the input, matching one row of the table, where the outputs are multiples of the inputs.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-fixed-amount-and-the-rate-first",
+        "Adding the fixed amount to the rate and multiplying the sum by the input, instead of keeping the fixed amount separate.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-fixed-charge-and-the-rate-first",
+        "Adding the fixed charge to the rate and multiplying the sum by the quantity, instead of keeping the fixed charge separate.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-fixed-charge-instead-of-taking-it-off",
+        "Adding the fixed charge to the total where it had to be taken off before dividing by the rate.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-rates-instead-of-subtracting",
+        "Adding the two rates where the difference between them decides when two plans agree.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-starting-value-and-the-rate-first",
+        "Adding the starting value to the rate and multiplying by the input, instead of multiplying the rate by the input and then adding the starting value.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-steps-to-one-number",
+        "Adding the steps 1 and 2 to a single number, instead of adding the steps to each number in turn.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-the-whole-change-not-the-rate",
+        "Adding the whole change between two readings to the last reading, whatever the number of steps ahead.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-where-dividing-is-needed",
+        "Adding two quantities where one had to be divided by the other.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "adds-where-multiplying-is-needed",
+        "Adding two quantities where a rate had to be multiplied by a count.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "applies-the-division-to-only-one-part",
+        "Dividing only the first part of an expression when the division applies to the number as a whole.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "applies-the-multiplication-to-only-one-part",
+        "Multiplying only one term inside a bracket and leaving the other term unchanged.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "applies-the-rate-for-only-one-step",
+        "Adding the rate for a single step where several steps lie between the reading and the prediction.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "assumes-the-quantity-is-proportional-to-the-input",
+        "Treating the output as a fixed multiple of the input, so a starting value or a changing ratio is ignored.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "assumes-the-sum-stays-fixed",
+        "Treating the input and output as adding to a constant, in a relationship where their product is constant.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "compares-the-wrong-quantities",
+        "Subtracting two quantities that are not the two the question compares.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "counts-one-step-too-many",
+        "Using the input one more than the story states, or counting the start as a step.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "divides-instead-of-multiplying",
+        "Dividing by a number where the story multiplies by it.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "divides-where-multiplying-is-needed",
+        "Dividing by a rate where a quantity had to be multiplied by it.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "doubles-instead-of-squaring",
+        "Doubling the input where the rule squares it.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "fits-only-the-first-row-of-the-table",
+        "Choosing a rule that works for the first pair in the table but fails for the others.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-the-rate",
+        "Finishing the solution with the rate still multiplying the variable.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "gets-the-direction-of-change-wrong",
+        "Treating a quantity that falls as one that rises, or the reverse, so the sign of the rate is wrong.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "gives-both-kinds-the-same-count",
+        "Using one count for two kinds of item, when one kind has more than the other.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "ignores-the-fixed-charge-when-solving",
+        "Dividing the whole total by the rate when a fixed charge had to be taken off first.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "ignores-the-rate-in-the-first-plan",
+        "Dividing the joining fee by the second plan's rate alone instead of by the difference between the rates.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "ignores-the-starting-value",
+        "Dividing the target by the rate without taking the starting value off it first.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "inverts-the-rate",
+        "Dividing the change in the input by the change in the output, so the rate is upside down.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "inverts-the-rule",
+        "Writing the rule with the input and the constant the wrong way up.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-a-number-out",
+        "Leaving one of the numbers in the sum out of the expression.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-bracket",
+        "Writing the multiplication without a bracket, so it applies to only one of the two terms.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-fixed-amount",
+        "Writing a rule with only the rate, and leaving out the amount that is there at the start.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-fixed-charge",
+        "Writing an expression with only the per-unit charge and leaving out the fixed charge.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-starting-value",
+        "Multiplying the rate by the input without adding the starting value.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-voucher",
+        "Writing the full price with nothing taken off for the voucher.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "leaves-out-the-width-sides",
+        "Writing the two long sides but not the two short sides of the perimeter.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "miscounts-the-multiplier",
+        "Writing a multiplier that is one more than the pattern in the table.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "multiplies-where-adding-is-needed",
+        "Multiplying two quantities where one had to be added to the other.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "multiplies-where-dividing-is-needed",
+        "Multiplying by the rate where the quantity had to be divided by it.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "multiplies-where-subtracting-is-needed",
+        "Multiplying by the amount taken away where it had to be subtracted.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "operation-from-keyword-alone",
+        'Choosing the operation from a keyword such as "then" or "total" without checking what the story does to the number.',
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "puts-the-total-in-the-expression",
+        "Using the stated total inside the expression for the left-hand side, where it belongs on the right.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-a-difference-as-the-constant",
+        "Giving the difference between two outputs where the constant value of the products was asked for.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-change-as-the-starting-value",
+        "Giving the change between two readings as the starting value.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-extra-time-since-the-first-reading",
+        "Giving the time since the first reading where the total time was asked for.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-extra-time-since-the-last-reading",
+        "Giving the extra time after the last reading where the total time was asked for.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-first-output-as-the-constant",
+        "Giving the first output in the table as the constant of the relationship.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-first-reading-as-the-starting-value",
+        "Giving the first reading as the starting value, as though it had been taken at the start.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-fixed-charge-as-the-saving",
+        "Giving the fixed charge as the amount saved, without comparing the two totals.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reports-the-other-total-not-the-difference",
+        "Giving the other supplier's total where the difference between the totals was asked for.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reverses-the-division",
+        "Dividing the other way round, so the number divides the unknown quantity instead of the unknown dividing the number.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reverses-the-order-of-the-steps",
+        "Subtracting before dividing, where the story divides first and then subtracts.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "reverses-the-subtraction",
+        "Subtracting in the wrong order, so the expression is the negative of the one the story describes.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "rounds-up-where-the-model-stops-making-sense",
+        "Rounding the point where a model reaches zero up to the next whole number, so the model gives a negative value there.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "shifts-the-input-before-dividing",
+        "Adding one to the input before dividing, as though the count started from zero.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "squares-the-multiplier-too",
+        "Squaring the multiplier together with the input, where only the input is squared.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "stops-one-early",
+        "Giving a whole number that is one lower than the last value for which the model still makes sense.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "subtracts-the-rate-from-the-starting-value",
+        "Taking the rate off the starting value once, where the rate is taken off for every step.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "subtracts-the-rate-instead-of-dividing",
+        "Subtracting the rate from the total where the total had to be divided by the rate.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "swaps-the-fixed-amount-and-the-rate",
+        "Swapping the fixed amount and the rate, so the rule multiplies the input by the fixed amount.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "swaps-the-fixed-charge-and-the-rate",
+        "Swapping the fixed charge and the rate, so the fixed charge is multiplied by the quantity.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "swaps-the-starting-value-and-the-rate",
+        "Swapping the starting value and the rate, so the starting value is multiplied by the input.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "swaps-which-quantity-is-subtracted",
+        "Subtracting the fixed amount from the rate term where the rate term is taken from the fixed amount.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "takes-the-voucher-off-the-price-not-the-bill",
+        "Taking the voucher off the price of one item before multiplying, instead of off the whole bill.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "treats-consecutive-numbers-as-equal",
+        "Treating three consecutive numbers as three copies of the smallest.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "treats-the-extra-as-the-whole-length",
+        "Treating the extra length as the whole of the longer side.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "treats-the-extra-as-the-whole-number",
+        "Treating the extra items as the whole number of that kind of item.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "treats-the-input-as-the-power",
+        "Writing the input as an exponent where the rule squares the input.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "uses-addition-for-a-per-unit-rate",
+        "Adding the price of one item to the number of items where the cost of all the items is the price times the number.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "uses-half-the-perimeter",
+        "Adding the length and width once, which gives half the perimeter.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "uses-the-area-formula-for-perimeter",
+        "Multiplying the length and width, which gives the area, where the perimeter was described.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "uses-the-change-between-readings-as-the-rate",
+        "Taking the change between two readings as the rate per step, when the readings are several steps apart.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "uses-the-total-in-place-of-the-quantity",
+        "Using the stated total where the unknown quantity belongs.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "uses-the-wrong-operation-for-the-change",
+        "Adding where the story takes away, or taking away where it adds.",
+        area="mathematics",
+    ),
+    CatalogueEntry(
+        "divides-by-one-plans-rate-only",
+        "Dividing the joining fee by the rate of one plan alone, when the plans agree where the fee equals the difference in cost per unit.",
+        area="mathematics",
     ),
 )
 

@@ -1,0 +1,94 @@
+id: f10-relative-frequency-estimate
+name: Estimate a probability from relative frequency
+domain: statistics-probability
+description: Estimate a probability from a table of trial results by dividing the number of times an event happened
+  by the total number of trials. Easy estimates the probability of one category. Medium estimates an event made
+  of two categories, or the event that a category does not occur. Hard gives the relative frequencies as percentages
+  with one category unrecorded, so the missing share has to come from the percentages summing to 100%.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+- probability-representations
+answer: fraction
+sources:
+- topic: fpm_relative_frequency
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fpm_relative_frequency
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fpm_relative_frequency
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r2l_relfreq_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: added-probabilities-for-at-least-one
+  description: Adding the probabilities of the separate trials or events to get the probability of at least one,
+    without subtracting the overlap.
+- id: adds-the-given-shares-instead-of-the-remainder
+  description: Giving the total of the relative frequencies that were shown where the share that was left out (the
+    remainder to 100%) was needed.
+- id: all-instead-of-at-least-one
+  description: Finding the probability that every trial succeeds (or both events occur) where at least one was asked
+    for.
+- id: answered-the-event-not-its-complement
+  description: Giving the probability of the event itself where "not" the event was asked for.
+- id: assumes-equal-likelihood-ignores-data
+  description: Ignoring the results and giving one over the number of categories, as if every outcome were equally
+    likely.
+- id: counts-only-one-named-category
+  description: Using the count of only one of the two categories named in an event.
+- id: divides-by-one-other-count
+  description: Dividing the count of an event by the count of one other category instead of by the total number
+    of results.
+- id: gave-complement-for-event
+  description: Giving the probability of the opposite event (or the complementary proportion) for the one asked.
+- id: left-a-class-out-of-the-sum
+  description: Leaving one of the known counts out when subtracting from the total, so the missing count comes out
+    too large.
+- id: none-instead-of-at-least-one
+  description: Finding the probability that no trial succeeds (or neither event occurs) where at least one was asked
+    for.
+- id: omits-the-missing-category
+  description: Leaving the category whose count had to be found out of an event made of two categories.
+- id: projects-the-complement
+  description: Projecting the relative frequency of the opposite event onto future trials instead of the event asked
+    about.
+- id: reports-frequency-not-relative-frequency
+  description: Giving the count of the event where a fraction of all the results was asked for.
+- id: reports-known-sum-not-remainder
+  description: Giving the sum of the counts that are shown, when the question asked for the missing count that completes
+    the total.
+- id: reports-raw-count-not-projection
+  description: Giving the number observed in the original trials when asked to predict the number in a different
+    number of future trials.
+- id: reports-total-as-missing-value
+  description: Giving the total itself as the missing count.
+- id: wrong-denominator-for-proportion
+  description: 'Dividing by the wrong total: the grand total or a column total when the proportion is of a row,
+    a total one out, or anything other than the number of trials.'
+tags:
+- acara-f10-v9
+- statistics-probability
+- fpm_relative_frequency
+- ac9m5p02
