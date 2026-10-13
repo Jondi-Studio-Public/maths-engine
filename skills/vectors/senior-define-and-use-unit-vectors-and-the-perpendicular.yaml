@@ -3,6 +3,7 @@
 id: senior-define-and-use-unit-vectors-and-the-perpendicular
 name: Define and use unit vectors and the perpendicular unit vectors
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, define and use unit vectors and the perpendicular unit vectors. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

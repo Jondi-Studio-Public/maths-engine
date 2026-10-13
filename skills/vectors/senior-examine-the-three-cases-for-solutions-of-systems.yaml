@@ -3,6 +3,7 @@
 id: senior-examine-the-three-cases-for-solutions-of-systems
 name: Examine the three cases for solutions of systems of equations
 domain: vectors
+year_level: ['12']
 description: 'Given a system of three linear equations in three variables, or its row-reduced
   form, classify it as having exactly one solution, no solution, or infinitely many solutions.
   Easy reads the decisive bottom row of a given echelon augmented matrix directly. Medium spots

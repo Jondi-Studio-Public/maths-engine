@@ -3,6 +3,7 @@
 id: senior-use-geometric-sequences-to-model-and-analyse-numerically
 name: Use geometric sequences to model and analyse numerically the height of a bouncing ball
 domain: financial-discrete
+year_level: ['12']
 description: |
   Given a ball dropped from a stated height that rebounds to a stated fraction of its
   previous height, find the total vertical distance it travels up to a stated bounce. The

@@ -3,6 +3,7 @@
 id: senior-calculate-seasonal-indices-by-using-the-average-percentage
 name: Calculate seasonal indices by using the average percentage method
 domain: arithmetic
+year_level: ['12']
 description: 'Given quarterly data across two years for one named quarter, apply the average percentage method (each year''s own percentage-of-year-mean for that quarter, then the average of those percentages across years) to find the quarter''s (unadjusted) seasonal index, to 1 decimal place. Also inverts the method (find a missing raw value given the stated index) and applies the four-quarters-sum-to-400 adjustment step.'
 status: active
 placement_eligible: false

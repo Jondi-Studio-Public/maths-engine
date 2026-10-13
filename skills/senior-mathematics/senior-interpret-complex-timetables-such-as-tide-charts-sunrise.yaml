@@ -4,6 +4,7 @@ id: senior-interpret-complex-timetables-such-as-tide-charts-sunrise
 name: Interpret complex timetables, such as tide charts, sunrise charts and moon
   phases
 domain: senior-mathematics
+year_level: ['11']
 description: >-
   Given a stated tide, sunrise/sunset or moon-phase table for several days, choose from offered
   entries the day or time that meets a stated condition (for example the highest high tide, the

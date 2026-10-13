@@ -3,6 +3,7 @@
 id: senior-use-the-scale-factor-for-two-similar-figures
 name: Use the scale factor for two similar figures to solve linear scaling problems
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, use the scale factor for two similar figures to solve linear scaling problems. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

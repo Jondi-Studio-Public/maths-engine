@@ -3,6 +3,7 @@
 id: senior-find-and-use-the-derivative-of-the-inverse
 name: 'Find and use the derivative of the inverse trigonometric functions'
 domain: differentiation
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, find and use the derivative of the inverse trigonometric functions: arcsine, arccosine and arctangent. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, assessment modes outside capability_gate, evaluating an inverse trigonometric function to an exact numeric or angle value, or composing one inside a further trigonometric evaluation (both belong to the sibling skill, senior-find-and-use-the-inverse-trigonometric-functions-arcsine).'
 status: active
 placement_eligible: false

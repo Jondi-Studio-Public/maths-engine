@@ -3,6 +3,7 @@
 id: senior-recognise-and-use-the-recursive-definition-of-an
 name: 'Recognise and use the recursive definition of an arithmetic sequence: \(t_{n+1}=t_n+d\)'
 domain: functions-sequences
+year_level: ['11']
 description: Given the first several terms of an arithmetic sequence, state its recursive definition -- the first term and the rule t(n+1) = t(n) + d. Never given t1 or d up front (that direction is the existing active catalog skill "senior-use-recursion-to-generate-an-arithmetic-sequence", which generates the next terms from a stated first term and rule); here only the terms are shown and the learner infers the first term and the common difference d from them, a genuinely different cognitive operation.
 status: active
 placement_eligible: false

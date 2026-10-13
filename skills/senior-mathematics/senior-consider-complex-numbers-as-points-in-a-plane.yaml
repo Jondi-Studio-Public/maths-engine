@@ -3,6 +3,7 @@
 id: senior-consider-complex-numbers-as-points-in-a-plane
 name: Consider complex numbers as points in a plane
 domain: senior-mathematics
+year_level: ['11']
 description: |
   Given bounded, fully specified inputs, consider complex numbers as points in a plane
   with real and imaginary parts as Cartesian coordinates. Return the resulting value,

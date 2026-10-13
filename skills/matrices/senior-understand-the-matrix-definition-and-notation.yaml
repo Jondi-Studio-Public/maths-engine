@@ -3,6 +3,7 @@
 id: senior-understand-the-matrix-definition-and-notation
 name: Understand the matrix definition and notation
 domain: matrices
+year_level: ['11']
 description: >-
   Given a stated matrix (or, at exam level, a rule a_{i,j} with one unknown constant fixed by a
   stated entry, then used for another entry, the column in which a stated value lies in a stated

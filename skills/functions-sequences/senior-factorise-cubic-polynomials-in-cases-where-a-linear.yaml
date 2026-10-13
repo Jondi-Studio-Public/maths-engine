@@ -3,6 +3,7 @@
 id: senior-factorise-cubic-polynomials-in-cases-where-a-linear
 name: Factorise cubic polynomials in cases where a linear factor is easily obtained
 domain: functions-sequences
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, factorise cubic polynomials in cases where a linear factor is easily obtained. Return the resulting value, expression, relation, or classification. The canonical answer is always the factored (x - p)(x^2 + qx + r) form (monic tiers) or a(x - p)(x^2 + qx + r) (hard, non-monic) -- never a list of roots and never the solved equation, which is the scope of the sibling skill senior-solve-cubic-equations-using-technology-and-algebraically-in. Only the (linear)(quadratic) split is graded; no further factorisation of the quadratic factor is required or assessed.'
 status: active
 placement_eligible: false

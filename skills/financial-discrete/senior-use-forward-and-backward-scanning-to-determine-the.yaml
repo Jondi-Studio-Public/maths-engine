@@ -3,6 +3,7 @@
 id: senior-use-forward-and-backward-scanning-to-determine-the
 name: Use forward and backward scanning to determine the EST and LST
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use forward and backward scanning to determine the earliest starting time (EST) and latest starting times (LST) for each activity in the project. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-investigate-the-effect-of-the-interest-rate-and
 name: Investigate the effect of the interest rate and repayment amount on the time taken to repay a loan
 domain: financial-discrete
+year_level: ['12']
 description: >-
   Compute the number of periods needed to repay a flat-interest loan for a stated interest rate and
   repayment amount. The exam tier also asks for the total interest over the whole term and how much

@@ -3,6 +3,7 @@
 id: senior-define-the-natural-logarithm-ln-x-log-ex
 name: Define the natural logarithm (ln x = log e x)
 domain: functions-sequences
+year_level: ['12']
 description: Given bounded, fully specified inputs, define the natural logarithm \(\ln x=\log_ex\). Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

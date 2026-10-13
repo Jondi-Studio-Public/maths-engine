@@ -143,7 +143,8 @@ False
 `text` and `answer_text` are plain text in Python-style syntax (`x**2`,
 `6*sqrt(21)`); `latex` and `answer_latex` are there for rendering. For a
 multiple-choice skill (`skill.answer == "mcq"`), `engine.grade` takes the 0-based
-index of the chosen option in `mathgen.core.mcq_options(q)`; the command line
+index of the chosen option in `mathgen.core.mcq_options(q)`, as an `int` or a
+string of digits (an index out of range, or a bool, is wrong); the command line
 does that translation for you.
 
 ## Layout

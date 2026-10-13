@@ -3,6 +3,7 @@
 id: senior-obtain-a-scale-factor-and-use-it-to
 name: Obtain a scale factor and use it to solve area scaling problems
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, obtain a scale factor and use it to solve scaling problems involving the calculation of the areas of similar figures. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

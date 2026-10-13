@@ -3,6 +3,7 @@
 id: senior-convert-sums-mathrm-a-cos-mathrm-x-mathrm
 name: Convert sums \(\mathrm a\cos\mathrm x+\mathrm b\;\sin\mathrm x\) to \(\mathrm R\;\cos{(\mathrm x\pm\mathrm\alpha)}\) or \(\mathrm R\sin{(\mathrm x\pm\mathrm\alpha)}\)
 domain: trigonometry
+year_level: ['11']
 description: "Given real numbers a and b, not both zero, convert the sum a cos(x) + b sin(x) to the equivalent single-term form R cos(x - alpha) (or R sin(x + alpha)), stating R and alpha (to 1 decimal place, on -180 < alpha <= 180)."
 status: active
 placement_eligible: false

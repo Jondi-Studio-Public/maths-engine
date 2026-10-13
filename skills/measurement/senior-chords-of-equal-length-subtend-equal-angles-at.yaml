@@ -3,6 +3,7 @@
 id: senior-chords-of-equal-length-subtend-equal-angles-at
 name: Chords of equal length subtend equal angles at the centre
 domain: measurement
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, Chords of equal length subtend equal angles at the centre and conversely chords subtending equal angles at the centre of a circle have the same length. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

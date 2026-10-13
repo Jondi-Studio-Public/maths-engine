@@ -4,6 +4,7 @@ id: senior-integrate-using-the-trigonometric-identities-mathrm-s-mathrm
 name: 'Integrate using the trigonometric identities \(\mathrm sin^2x=\frac12(1-\cos 2x)\), \(\cos^2x=\frac12(1+\cos
   2x)\) and \(1+\tan^2x=\sec^2x\)'
 domain: integration
+year_level: ['12']
 description: Given bounded, fully specified inputs, integrate using the trigonometric identities
   \(\mathrm sin^2x=\frac12(1-\cos 2x)\), \(\cos^2x=\frac12(1+\cos 2x)\) and \(1+\tan^2x=\sec^2x\).
   Return the resulting value, expression, relation, or classification.

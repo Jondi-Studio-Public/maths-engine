@@ -3,6 +3,7 @@
 id: senior-determine-positions-given-acceleration-and-initial-values-of
 name: Determine positions given acceleration and initial values of position and velocity
 domain: senior-mathematics
+year_level: ['12']
 description: Given bounded, fully specified inputs, determine positions given acceleration and initial values of position and velocity. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

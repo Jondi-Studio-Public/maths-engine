@@ -3,6 +3,7 @@
 id: senior-determine-the-overall-change-in-a-quantity-following
 name: Determine the overall change in a quantity following repeated percentage changes; for example
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, determine the overall change in a quantity following repeated percentage changes; for example. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

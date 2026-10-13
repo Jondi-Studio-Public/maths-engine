@@ -3,6 +3,7 @@
 id: senior-prepare-a-personal-budget-for-a-given-income
 name: Prepare a personal budget for a given income taking into account fixed and discretionary spending
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, prepare a personal budget for a given income taking into account fixed and discretionary spending. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

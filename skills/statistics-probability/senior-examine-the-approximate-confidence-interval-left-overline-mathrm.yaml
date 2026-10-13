@@ -3,6 +3,7 @@
 id: senior-examine-the-approximate-confidence-interval-left-overline-mathrm
 name: Examine the approximate confidence interval for a population mean
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, examine the approximate confidence interval (x-bar - z*s/sqrt(n), x-bar + z*s/sqrt(n)), as an interval estimate for mu, the population mean, where z is the appropriate quantile for the standard normal distribution. Returns both interval bounds, in the sampled quantity''s own unit, rounded to 1 decimal place. Three tiers: direct substitution given the sample mean, sample standard deviation and sample size, with z stated via a named confidence level; the same substitution given the sample VARIANCE instead of the standard deviation, requiring a square root first; and that same derivation combined with a z value that must be selected from a three-row lookup table given inline, rather than stated directly.'
 status: active
 placement_eligible: false

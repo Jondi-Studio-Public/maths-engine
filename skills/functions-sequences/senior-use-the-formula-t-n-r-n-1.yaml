@@ -3,6 +3,7 @@
 id: senior-use-the-formula-t-n-r-n-1
 name: Use the formula t_n = r^(n-1) * t_1 for geometric sequences
 domain: functions-sequences
+year_level: ['11']
 description: Given bounded, fully specified inputs, use the formula \(t_n=r^{n-1}t_1\). Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

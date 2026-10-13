@@ -3,6 +3,7 @@
 id: senior-simulate-repeated-random-sampling-from-a-variety-of
 name: Standardise a sample mean using the known population sigma
 domain: statistics-probability
+year_level: ['12']
 description: >-
   Read the output of a seeded, reproducible simulation of repeated random
   sampling of size n from a stated distribution with mean mu and KNOWN

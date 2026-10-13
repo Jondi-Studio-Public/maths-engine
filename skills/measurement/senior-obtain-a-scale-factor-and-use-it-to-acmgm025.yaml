@@ -3,6 +3,7 @@
 id: senior-obtain-a-scale-factor-and-use-it-to-acmgm025
 name: Obtain a scale factor and use it to solve surface area and volume scaling problems
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, obtain a scale factor and use it to solve scaling problems involving the calculation of surface areas and volumes of similar solids. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

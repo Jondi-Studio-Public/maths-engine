@@ -3,6 +3,7 @@
 id: senior-solve-problems-involving-permutations-and-restrictions-with-or
 name: Solve problems involving permutations and restrictions with or without repeated objects
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, solve problems involving permutations and restrictions with or without repeated objects. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

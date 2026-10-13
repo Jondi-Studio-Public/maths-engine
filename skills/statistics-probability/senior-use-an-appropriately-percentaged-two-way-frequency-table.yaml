@@ -3,6 +3,7 @@
 id: senior-use-an-appropriately-percentaged-two-way-frequency-table
 name: Percentage a two-way frequency table to compare groups
 domain: statistics-probability
+year_level: ['12']
 description: 'Complete the blank percentage cells of a two-way frequency table of counts, dividing each count by the total of the group that the question compares (a row total or a column total, depending on which variable defines the groups), each percentage to one decimal place.'
 difficulty_progression: 'Easy is a 2 by 2 table and the question names the groups, so the learner divides each count by the total of the named group. Medium is a 2 by 3 or 3 by 2 table and asks for a comparison across the groups of a named variable, so the learner has to decide which total each count is divided by, with no percentage left in view to copy the method from. Hard is a 3 by 3 table and asks whether one variable depends on another, so the learner must work out which variable defines the groups (it is as likely to sit on the columns as the rows) and percentage along that one. Exam leaves some counts out of the table with only the row and column totals to recover them from, so the learner finds each missing count and then percentages the whole table.'
 status: active
