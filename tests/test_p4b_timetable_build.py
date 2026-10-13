@@ -227,4 +227,4 @@ def test_skill_loads_via_api_skills():
     # Prerequisites should be alphabetically sorted
     assert skill.prerequisites == ["convert-time-systems", "elapsed-time"]
     # Should have 3 sources for 3 difficulty tiers
-    assert len(skill.sources) == 3
+    assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3

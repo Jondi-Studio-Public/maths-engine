@@ -19,8 +19,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12e_characteristic_roots
-  params: {}
+- topic: exd_x_r2f_damped_oscillation
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

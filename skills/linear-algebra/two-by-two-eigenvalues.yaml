@@ -26,6 +26,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u2_eigen_shifted
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: uses-off-diagonal
   description: Treats the off-diagonal entry as an eigenvalue.

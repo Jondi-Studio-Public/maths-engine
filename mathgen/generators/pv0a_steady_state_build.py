@@ -409,8 +409,8 @@ _EXAM_TEMPLATES = (
     "are u(0) = {u0}, u(1) = {u1} and u(2) = {u2}. Find the long-term value {short} settles to, "
     "{prec}.",
     "A recurrence relation of the form u(n+1) = a u(n) + b models {subject}, with u(0) = {u0}, "
-    "u(1) = {u1} and u(2) = {u2} recorded on three consecutive {time}s. Determine the constants a "
-    "and b, then find the long-term steady value, {prec}.",
+    "u(1) = {u1} and u(2) = {u2} recorded on three consecutive {time}s. Find the "
+    "long-term steady value, {prec}.",
     "{subject_cap} is known to satisfy u(n+1) = a u(n) + b for some constants a and b. Given the "
     "recorded values u(0) = {u0}, u(1) = {u1}, u(2) = {u2}, find the value {short} settles to in "
     "the long term, {prec}.",

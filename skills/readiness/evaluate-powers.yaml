@@ -28,6 +28,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_n2_powers_growth
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 mental:
   levels:
   - topic: powers

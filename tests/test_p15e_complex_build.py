@@ -1,7 +1,7 @@
 """Focused contract tests for: ucv1-contour-integral-residue (answer: expression) and ucv1-cr-equations-check
 (answer: mcq)."""
 
-from dataclasses import replace
+import dataclasses
 import pytest
 
 from mathgen.grading.typed import GRADERS, grade_expression, mcq_options
@@ -15,15 +15,27 @@ SWEEP_SEEDS = range(60)
 TIERS = ["easy", "medium", "hard", "exam"]
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-contour-integral-residue": "p15e_contour_integral_residue"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, _by_difficulty(skill)
 
 
 CONTOUR_SKILL, CONTOUR_SOURCES = _skill_sources(CONTOUR_ID)
 CR_SKILL, CR_SOURCES = _skill_sources(CR_ID)
-CR_SOURCES["exam"] = replace(CR_SOURCES["exam"], topic="p15e_cr_equations_check", params={})
+CR_SOURCES["exam"] = dataclasses.replace(CR_SOURCES["exam"], topic="p15e_cr_equations_check", params={})
 
 
 def _make(sources, difficulty, seed):
@@ -66,7 +78,8 @@ def test_contour_exam_tier_requires_solving_the_quadratic():
         q = _make(CONTOUR_SOURCES, "exam", seed)
         assert "Candidate 1" not in q.text and "Candidate 2" not in q.text
         assert "upper half-plane" in q.text
-        assert "quadratic" in q.text.lower() or "= 0" in q.text  # the poles are to be solved, not read off
+        # The quadratic is given and no pole is stated: the poles are to be found, not read off.
+        assert "z^2" in q.text and "z = " not in q.text
 
 
 def test_contour_skill_loads_through_api_with_correct_properties():

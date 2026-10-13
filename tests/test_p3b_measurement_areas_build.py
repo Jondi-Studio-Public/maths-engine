@@ -247,9 +247,11 @@ def test_p3b_areas_skill_contracts_load_with_expected_shape():
     assert area_formula_skill.placement_eligible is False
     assert area_formula_skill.status == "active"
     assert area_formula_skill.learner_band == "general"
-    assert [source.difficulty for source in area_formula_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in area_formula_skill.sources} == {AREA_FORMULA_TOPIC}
-    assert [source.stages for source in area_formula_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in area_formula_skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in area_formula_skill.sources if source.difficulty != "exam"} == {
+        AREA_FORMULA_TOPIC
+    }
+    assert [source.stages for source in area_formula_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]
 
     # Irregular skill checks
     assert irregular_skill.prerequisites == ["convert-metric-length"]
@@ -257,6 +259,6 @@ def test_p3b_areas_skill_contracts_load_with_expected_shape():
     assert irregular_skill.placement_eligible is False
     assert irregular_skill.status == "active"
     assert irregular_skill.learner_band == "general"
-    assert [source.difficulty for source in irregular_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in irregular_skill.sources} == {IRREGULAR_TOPIC}
-    assert [source.stages for source in irregular_skill.sources] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in irregular_skill.sources] == ["easy", "medium", "hard", "exam"]
+    assert {source.topic for source in irregular_skill.sources if source.difficulty != "exam"} == {IRREGULAR_TOPIC}
+    assert [source.stages for source in irregular_skill.sources] == [[6], [6], [6, "maintenance"], ["exam"]]

@@ -16,6 +16,11 @@ sources:
   params: {steps: 2}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u4_euler_steady_state
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: omits-step-size
   description: Adds the initial slope without multiplying by h.

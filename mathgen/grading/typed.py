@@ -24,6 +24,7 @@ import math
 import re
 from tokenize import TokenError
 from dataclasses import dataclass
+from decimal import Decimal
 from fractions import Fraction
 from typing import Callable
 
@@ -42,6 +43,7 @@ from mathgen.grading.safe_parse import (
     too_costly,
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
+from mathgen.grading.units import unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
 from mathgen.text_quality import requested_rounding
@@ -65,6 +67,23 @@ def _label_name(text: str | None) -> str | None:
     """The variable a reply or canonical is labelled with ("x" in "x = 3"), or None when it has no label."""
     match = _LABEL_RE.match(text or "")
     return match.group(0).split("=")[0].strip() if match else None
+
+
+_VARIABLE_LABEL_RE = re.compile(r"[^\W\d_]\d?")  # "x", "λ", "x1": a variable, not a word or a function
+
+
+def _label_fits(question, canonical: str | None, label: str | None) -> bool:
+    """Whether a reply's label may be dropped: it is the canonical's own label, or the canonical has none and the
+    label is a single variable the question's text names ("x" in "Solve 3^x = 27")."""
+    if label is None:
+        return False
+    canonical_label = _label_name(canonical)
+    if canonical_label is not None:
+        return label == canonical_label
+    if not _VARIABLE_LABEL_RE.fullmatch(label):
+        return False
+    text = getattr(question, "text", None) or ""
+    return re.search(rf"(?<![^\W\d_]){re.escape(label)}(?![^\W\d_])", text) is not None
 
 
 _RATIO_RE = re.compile(r"^(-?)\s*(\d+)\s*:\s*(\d+)$")
@@ -94,10 +113,42 @@ def _exact_fraction(text: str) -> Fraction | None:
         return None
 
 
+# "½", "2¾": the vulgar fraction characters, read as the fraction they show.
+_VULGAR_FRACTIONS = {
+    "½": "1/2", "⅓": "1/3", "⅔": "2/3", "¼": "1/4", "¾": "3/4", "⅕": "1/5", "⅖": "2/5", "⅗": "3/5", "⅘": "4/5",
+    "⅙": "1/6", "⅚": "5/6", "⅛": "1/8", "⅜": "3/8", "⅝": "5/8", "⅞": "7/8",
+}  # fmt: skip
+_VULGAR_FRACTION_RE = re.compile("(\\d?)[ \t]*([" + "".join(_VULGAR_FRACTIONS) + "])")
+# "\frac{11}{19}", "\dfrac{11}{19}", "\frac11{19}": LaTeX's fraction, as a learner copies it from a rendered page.
+_LATEX_FRACTION_RE = re.compile(r"\\[dt]?frac[ \t]*\{?[ \t]*(\d+)[ \t]*\}?[ \t]*\{[ \t]*(\d+)[ \t]*\}")
+# "(11/19)": brackets around a whole fraction. Brackets around the numerator alone ("(-3)/5") stay unread.
+_BRACKETED_FRACTION_RE = re.compile(r"^\(\s*([^()]*)\s*\)$")
+# The fraction slash, the division slash and the division sign are all a fraction bar here.
+_FRACTION_BARS = str.maketrans({"⁄": "/", "∕": "/", "÷": "/"})
+
+
+def _vulgar_fraction(match: re.Match) -> str:
+    whole, fraction = match.groups()
+    return f"{whole} {_VULGAR_FRACTIONS[fraction]}" if whole else _VULGAR_FRACTIONS[fraction]
+
+
+def _tidy_fraction_text(given: str) -> str:
+    """A typed fraction in the plain "a/b" or "w a/b" form `_parse_typed_fraction` reads: LaTeX's \\frac, the
+    vulgar fraction characters, other fraction bars, a unicode minus and one pair of brackets are rewritten."""
+    text = (given or "").strip().translate(_MINUS_SIGNS).translate(_FRACTION_BARS)
+    text = _LATEX_FRACTION_RE.sub(r"\1/\2", text)
+    text = _VULGAR_FRACTION_RE.sub(_vulgar_fraction, text)
+    bracketed = _BRACKETED_FRACTION_RE.match(text)
+    if bracketed:
+        text = bracketed.group(1)
+    return text.strip()
+
+
 def _parse_typed_fraction(given: str) -> Fraction | None:
     text = (given or "").strip()
     if not text or len(text) > _MAX_EXACT_NUMBER_LENGTH:
         return None
+    text = _tidy_fraction_text(text)
     m = _MIXED_FRACTION_RE.match(text)
     if m:
         sign, whole, num, den = m.groups()
@@ -133,7 +184,7 @@ class GradeResult:
     canonical: str
     given_normalised: str | None = None
     note: str | None = None  # Resolved misconception/near-miss text
-    note_kind: str | None = None  # "misconception" or "near_miss"; None when `note` is None
+    note_kind: str | None = None  # "misconception", "near_miss" or "unreadable_parts"; None when `note` is None
     cells: dict[str, bool] | None = None  # table: per-blank verdict, keyed "r,c"
     misconception: str | None = None  # id of the tagged distractor a wrong reply matched (mathgen/misconceptions.py)
     matched_distractor: str | None = None  # that distractor's option text, the key for its `distractor_credit`
@@ -393,8 +444,9 @@ def _is_rounded_as_asked(question, given: str) -> bool:
 #     and "no, it's 9" all say 9. A "+-" inside a sum ("y=2x+-3") is a plus and a minus, not "plus or minus".
 #
 # What was said about the label side of "=" is unchanged: only the side after the LAST "=" is the
-# value, so "area = 3 x 3 = 9" still reads as 9. Scientific notation ("1e3"), a mixed number ("9 1/2") and
-# a number split by a space ("12 345") are still more than one value.
+# value, so "area = 3 x 3 = 9" still reads as 9. Thousands grouped by a space ("12 345") and the school form
+# of scientific notation ("1.2 × 10^3") are one value, and so is a mixed number ("9 1/2", "9½"). Calculator
+# notation ("1e3") is still more than one value.
 
 _NEGATION_RE = re.compile(
     r"\b(?:not|never|neither|nor|cannot)\b"  # a negating word
@@ -465,11 +517,49 @@ def _drop_unit_exponent(match: re.Match, first_number_end: int) -> str:
     return ""
 
 
+# "12 345" and "1 234 567.5": thousands grouped by a space, the way the SI and the Australian style manual
+# write them. Groups after the first are exactly three digits, and nothing numeric touches either end, so
+# "9 1/2", "3 45" and "12 3456" are still two values.
+_SPACE_GROUP_RE = re.compile(r"(?<![\d.,/])\d{1,3}(?:[ \u00a0\u2009\u202f]\d{3})+(?:\.\d+)?(?![\d/]|\.\d)")
+_SUPERSCRIPT_DIGITS = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻", "0123456789+-")
+# "1.2 × 10^3", "1.2 x 10^-4", "1.2*10**3", "1.2 × 10⁻⁴": the school form of scientific notation. The power
+# is at most two digits, so a reply cannot ask for an enormous number. Calculator "1.2e3" is not this form
+# and stays two values (see `_drop_unit_exponent`).
+_TIMES_TEN_RE = re.compile(
+    r"(?<![\w.])(-?\d+(?:\.\d+)?)[ \t]*[×xX*·⋅][ \t]*10[ \t]*"
+    r"(?:(?:\^|\*\*)[ \t]*(?:\([ \t]*([+-]?\d{1,2})[ \t]*\)|\{[ \t]*([+-]?\d{1,2})[ \t]*\}|([+-]?\d{1,2}))"
+    r"|([⁺⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹]{1,2}))(?![\d⁰¹²³⁴⁵⁶⁷⁸⁹.])"
+)
+
+
+def _times_ten_as_decimal(match: re.Match) -> str:
+    """The plain decimal a "a × 10^n" match stands for, written out in full: "1.2 × 10^-3" is "0.0012"."""
+    power = next(group for group in match.groups()[1:] if group is not None)
+    value = Decimal(match.group(1)).scaleb(int(power.translate(_SUPERSCRIPT_DIGITS)))
+    return format(value, "f")
+
+
+# "2 1/2" and "-2 1/2": a mixed number, whose fraction is proper. "2 5/3" and "9 1/2 7" are not one.
+_MIXED_NUMBER_RE = re.compile(r"(?<![\w./)])(-[ \t]*)?(\d+)[ \t]+(\d+)[ \t]*/[ \t]*(\d+)(?![\w/.])")
+
+
+def _mixed_number_as_fraction(match: re.Match) -> str:
+    sign, whole, numerator, denominator = match.groups()
+    if not 0 < int(numerator) < int(denominator):
+        return match.group(0)
+    value = int(whole) + Fraction(int(numerator), int(denominator))
+    return f"{'-' if sign else ''}{value.numerator}/{value.denominator}"
+
+
 def _number_text(given: str) -> str:
     """The part of a typed number reply that states the value, tidied for `extract_values`: the side after
-    the last "=", no thousands commas, one minus sign, no precision note, a sign attached to its number and a
-    leading zero on a decimal that has none."""
+    the last "=", no thousands commas or spaces, "a × 10^n" written out, one minus sign, no precision note, a
+    sign attached to its number and a leading zero on a decimal that has none."""
     text = _strip_comma_groups(_value_side(given)).translate(_MINUS_SIGNS)
+    text = _VULGAR_FRACTION_RE.sub(_vulgar_fraction, text)
+    text = _MIXED_NUMBER_RE.sub(_mixed_number_as_fraction, text)
+    text = _SPACE_GROUP_RE.sub(lambda match: re.sub(r"\s", "", match.group(0)), text)
+    text = _TIMES_TEN_RE.sub(_times_ten_as_decimal, text)
     text = _PRECISION_NOTE_RE.sub(" ", text)
     text = _SIGN_MINUS_RE.sub("-", text)
     return _LEADING_POINT_RE.sub("0.", text)
@@ -551,6 +641,8 @@ def grade_number(question, given: str) -> GradeResult:
     correct = value is not None and (value == resolved.target or abs(value - resolved.target) <= resolved.tolerance)
     if correct and not _is_rounded_as_asked(question, given):
         correct = False
+    if correct and not unit_is_acceptable(question, given):
+        correct = False  # "30 kg" for "Convert 3 cm to mm": see mathgen.grading.units
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
@@ -608,17 +700,41 @@ def grade_fraction(question, given: str) -> GradeResult:
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         given_normalised = _normalised_values(given)
         parsed = _parse_typed_fraction(given)
-        if parsed is None and _label_name(canonical) is not None and _label_name(given) == _label_name(canonical):
-            # "x = 50/7" for a canonical shown as "x = 50/7". Only with the canonical's own label: for a bare "7"
-            # a labelled reply stays wrong, as before, and "y = 50/7" is wrong for x.
+        if parsed is None and _label_fits(question, canonical, _label_name(given)):
+            # "x = 50/7" for a canonical shown as "x = 50/7", or "x = 3" for a bare "3" when the question is about
+            # x ("Solve 3^x = 27"). "y = 50/7" is wrong for x, and so is a label the question never names.
             given = _strip_label(given)
             parsed = _parse_typed_fraction(given)
         if parsed is None:
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
         expected = Fraction(answer["p"], answer["q"])
-        correct = parsed == expected and _ratio_form_is_acceptable(canonical, given)
+        correct = (
+            parsed == expected
+            and _ratio_form_is_acceptable(canonical, given)
+            and _in_lowest_terms_if_asked(question, given)
+        )
         return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
     return _check_answer_kind(question, given)
+
+
+# "in lowest terms", "in simplest form", "simplify", "fully simplified": the question asks for the fraction
+# itself to be reduced, so "6/8" is not an answer to "Write 6/8 in lowest terms" even though it equals 3/4.
+_LOWEST_TERMS_RE = re.compile(
+    r"\b(?:lowest\s+terms|simplest\s+form|simplif(?:y|ied)|fully\s+simplified|reduced?\s+form)\b", re.IGNORECASE
+)
+_WRITTEN_FRACTION_PART_RE = re.compile(r"(\d+)\s*/\s*(\d+)\s*$")
+
+
+def _in_lowest_terms_if_asked(question, given: str) -> bool:
+    """Whether a fraction reply is reduced, when the question asks for lowest terms. A reply that writes no a/b
+    (a whole number, a decimal) is judged by value alone, as before."""
+    if not _LOWEST_TERMS_RE.search(getattr(question, "text", "") or ""):
+        return True
+    written = _WRITTEN_FRACTION_PART_RE.search(_tidy_fraction_text(_strip_label(given)))
+    if written is None:
+        return True
+    numerator, denominator = int(written.group(1)), int(written.group(2))
+    return denominator != 0 and math.gcd(numerator, denominator) == 1
 
 
 _PAIR_TOLERANCE = 0.051  # mathgen.grading.spoken's transcript tolerance: now only the fallback
@@ -839,6 +955,19 @@ def _split_labelled_segments(text: str) -> list[tuple[str, str]] | None:
     return parsed
 
 
+def _label_matches(label: str, wanted: str) -> bool:
+    """Whether a reply's label can stand for the canonical's: the same name in another case, without its
+    subscript ("R" or "RA" for "R_A"), or the name spelled out or shortened ("height" for "h")."""
+    given, target = label.casefold(), wanted.casefold()
+    return (
+        given == target
+        or given == target.replace("_", "")
+        or given == target.split("_")[0]
+        or given.startswith(target)
+        or target.startswith(given)
+    )
+
+
 def _labelled_pair_verdict(canonical: str, given: str, expected_values: list) -> bool | None:
     """Order-independent verdict for a LABELLED pair answer, or None if this
     shape doesn't apply (the caller then uses the unchanged positional path).
@@ -903,6 +1032,8 @@ def _labelled_pair_verdict(canonical: str, given: str, expected_values: list) ->
         return None  # learner dropped the labels -- fall back to positional
 
     given_labels = [label for label, _ in given_segments]
+    if any(not any(_label_matches(label, wanted) for wanted in label_order) for label in given_labels):
+        return False  # "a = 3, b = -6" for "x = 3, y = -6": a label the answer does not have
     if len(set(given_labels)) != len(given_labels) or set(given_labels) != set(label_order):
         return None  # a repeated label on the learner's side, or a label set
         # that merely differs from the canonical's -- either way, fall back to the unmodified
@@ -1083,7 +1214,7 @@ _ORDINAL_PREFIX_RE = re.compile(r"^\s*\d+\s*(?:[.)]|-)\s+")
 _PLACEHOLDER_RE = re.compile("\0(\\d+)\0")
 
 
-_BRACKET_PAIRS = (("(", ")"), ("[", "]"), ("{", "}"))
+_BRACKET_PAIRS = (("(", ")"), ("[", "]"), ("{", "}"), ("⟨", "⟩"))  # ⟨1, 2, 3⟩ is a vector too
 
 
 def _strip_outer_brackets(given: str) -> str:
@@ -1101,7 +1232,7 @@ def _strip_outer_brackets(given: str) -> str:
     return text
 
 
-def _split_ordered_items(given: str) -> list[str]:
+def _split_ordered_items(given: str, protect_groups: bool = True) -> list[str]:
     """Split a typed ordered-list answer into its component items.
 
     One matching bracket pair around the whole answer is removed first, so a
@@ -1144,17 +1275,11 @@ def _split_ordered_items(given: str) -> list[str]:
     item separator -- this is exactly the bug `mathgen.grading.spoken`'s tokenizer
     would introduce if it were reused here (see module docstring).
 
-    KNOWN LIMITATION: the thousands-grouping protection is purely
-    syntactic (any run of ", ddd" groups looks like one grouped numeral),
-    so a *sequence of separate 3-digit items typed with no space after the
-    comma* is swallowed as a single value -- "100,200,300" (intended as
-    three items, 100/200/300, e.g. a skip-counting-by-100s answer) parses
-    as the one number 100200300, not three items. "100, 200, 300" (a space
-    after each comma) is unaffected and splits correctly, because the
-    grouping regex requires the digits to immediately follow the comma. A
-    skill whose expected items are exactly-3-digit numerals should word its
-    question/placeholder to encourage a space after each comma, or avoid
-    this grader, until/unless this is worth solving generally."""
+    The protection is purely syntactic (any run of ",ddd" groups looks like
+    one grouped numeral), so "100,200,300" and the vector "(-2,105,287)"
+    read as one value. `protect_groups=False` splits on every comma, and
+    `grade_ordered_list` uses it when the protected reading has the wrong
+    number of items: the answer's own length decides, as in `grade_pair`."""
     given = _strip_outer_brackets(given)
     text = _ARROW_RE.sub("\n", given or "")
     protected: list[str] = []
@@ -1163,7 +1288,8 @@ def _split_ordered_items(given: str) -> list[str]:
         protected.append(match.group(0))
         return f"\0{len(protected) - 1}\0"
 
-    text = _COMMA_GROUP_RE.sub(_protect, text)
+    if protect_groups:
+        text = _COMMA_GROUP_RE.sub(_protect, text)
 
     # "<"/"＜" is a delimiter only when it is the SOLE top-level delimiter -- see the docstring
     # above. Checked here, after outer-bracket stripping, arrow-to-newline conversion and
@@ -1240,8 +1366,20 @@ def grade_ordered_list(question, given: str) -> GradeResult:
     expected = question.answer
     if not isinstance(expected, list):
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    stripped = (given or "").strip()
+    if stripped.startswith("<") and stripped.endswith(">"):
+        given = "(" + stripped[1:-1] + ")"  # "<5, 6, -5>" is a vector, not an ordering sign
+    # "<" separates an ordering ("1 < 2 < 3"); only "not", "≠", "±" and the like negate one.
+    if _reply_negates_the_answer(question, _LT_RE.sub(", ", given or "")):
+        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    if all(isinstance(item, (int, float, Fraction)) for item in expected):
+        # A vector answer may be typed in component form, "5i + 6j - 5k".
+        given = _component_form(given, len(expected)) or given
 
     items = _strip_ordinal_prefixes(_split_ordered_items(given))
+    if len(items) != len(expected):
+        # "(-2,105,287)" is three components typed without spaces, not one grouped numeral.
+        items = _strip_ordinal_prefixes(_split_ordered_items(given, protect_groups=False)) or items
     given_normalised = ", ".join(items) if items else None
 
     if len(items) != len(expected):
@@ -2199,9 +2337,30 @@ _DEGREE_SUFFIX_RE = re.compile(r"(?<=[\d)])\s*(?:[°º˚]|deg(?:rees?|s)?\.?)\s*
 _INFINITY_REPLY_RE = re.compile(r"^\s*([+-]?)\s*(?:∞|infinity|inf|oo)\s*$", re.I)
 
 
+# A label naming a derivative or just saying "answer": "f'(x) =", "y'' =", "f′(x) =", "dy/dx =", "d²y/dx² =",
+# "d^2y/dx^2 =", "d/dx =", "Answer:". `_LABEL_RE` takes "y =" and "f(x) =" but not these.
+_DERIVATIVE_LABEL_RE = re.compile(
+    r"^\s*(?:"
+    r"[^\W\d_]\w*\s*(?:'+|′+|″|‴)\s*(?:\([^()=]*\))?"  # f'(x), y'', g′(t)
+    r"|d\s*(?:\^\s*\d|[²³])?\s*(?:[^\W\d_]\w*)?\s*/\s*d\s*[^\W\d_]\w*?\s*(?:\^\s*\d|[²³])?"  # dy/dx, d²y/dx², d/dx
+    r")\s*=\s*"
+    r"|^\s*answer\s*[:=]\s*",
+    re.IGNORECASE,
+)
+
+
+def _strip_derivative_label(question, given: str) -> str:
+    """`given` without a leading derivative or "answer" label, unless the canonical is itself written with one."""
+    if not isinstance(given, str) or _DERIVATIVE_LABEL_RE.match(getattr(question, "answer_text", "") or ""):
+        return given
+    return _DERIVATIVE_LABEL_RE.sub("", given, count=1)
+
+
 @_multi_part_aware
 def grade_expression(question, given: str) -> GradeResult:
     canonical = question.answer_text
+    if isinstance(given, str):
+        given = _strip_derivative_label(question, given).replace("÷", "/")
     stripped = _round_brackets(_strip_label(given))
 
     # answer_form "line_standard_form" -- graded on its own path,
@@ -2327,13 +2486,45 @@ def grade_expression(question, given: str) -> GradeResult:
 
 
 _INDEX_RE = re.compile(r"-?\d{1,9}")
+# "B", "b)", "(B)", "B.": an option's letter, A for the first option.
+_OPTION_LETTER_RE = re.compile(r"^\(?\s*([A-Za-z])\s*[).:]?$")
+
+
+def _mcq_choice_by_text(options: list, given: str) -> int | None:
+    """The option a reply names by its text or its letter, or None to read it as an index.
+
+    A reply of digits only is always an index, as documented, even when an option's text is the same digits.
+    Option text is matched whole, ignoring case and spacing. A letter is read only when no option is itself a
+    single letter, so "x" is never mistaken for option X's position.
+    """
+    reply = " ".join(given.split()).casefold()
+    if not reply or reply.lstrip("-").isdigit():
+        return None
+    texts = [" ".join(str(option).split()).casefold() for option in options]
+    if reply in texts:
+        return texts.index(reply)
+    letter = _OPTION_LETTER_RE.match(reply)
+    if letter and not any(len(text) == 1 and text.isalpha() for text in texts):
+        index = ord(letter.group(1).lower()) - ord("a")
+        if index < len(options):
+            return index
+    return None
 
 
 @_multi_part_aware
 def grade_mcq(question, given: str) -> GradeResult:
     options = mcq_options(question)
     canonical = question.answer_text
-    match = _INDEX_RE.search(given or "")
+    if isinstance(given, int) and not isinstance(given, bool):
+        # The documented reply is the option's 0-based index, and a library caller passes it as an int; the regex
+        # below takes text, so an int raised and every such reply was marked wrong.
+        given = str(given)
+    if not isinstance(given, str):
+        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    chosen = _mcq_choice_by_text(options, given)
+    if chosen is not None:
+        return GradeResult(correct=options[chosen] == canonical, canonical=canonical, given_normalised=options[chosen])
+    match = _INDEX_RE.search(given)
     if not match:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     idx = int(match.group())
@@ -2959,7 +3150,7 @@ def _spell_minus_as_ascii(kind: str, given: str) -> str:
 # space, so "5 - 6" and "x - 6" are still a subtraction; "or" and "and" are separators, not values. Done here and
 # not in `_spell_minus_as_ascii`, which spells the characters and nothing else.
 _SIGNED_VALUE_KINDS = frozenset(
-    {"pair", "list", "set", "ordered_list", "points", "polyline", "line", "table", "fraction"}
+    {"pair", "list", "set", "ordered_list", "points", "polyline", "line", "table", "fraction", "inequality", "matrix"}
 )
 _SPACED_SIGN_RE = re.compile(
     r"(?:(?<![\w.)\]}])(?<![\w.)\]}][ \t])|(?<=\bor[ \t])|(?<=\band[ \t]))-[ \t]+(?=\.?\d)", re.IGNORECASE

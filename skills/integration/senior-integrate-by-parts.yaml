@@ -22,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c4_by_parts_cyclic
+- topic: exd_x_r2c_by_parts_cyclic
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -21,6 +21,11 @@ sources:
   params: {variant: find_counterexample}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_sc7_counterexample_search
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: swaps-example-and-counterexample
   description: Selects "Counterexample" for a value that actually satisfies the claim's stated property (or "Example" for one that fails it), inverting the definitions of the two terms instead of checking the property directly.

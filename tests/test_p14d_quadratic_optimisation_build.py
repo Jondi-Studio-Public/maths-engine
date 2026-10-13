@@ -1,6 +1,7 @@
 """Focused contract tests for: ucv1-unconstrained-critical-point (answer: pair) and ucv1-convexity-hessian-sign
 (answer: mcq)."""
 
+import dataclasses
 import re
 from collections import Counter
 from dataclasses import replace
@@ -39,10 +40,22 @@ def _parse_poly(expr_text, x_sym, y_sym):
     return parse_expr(expr_text, local_dict={"x": x_sym, "y": y_sym}, transformations=_SYMPY_TRANSFORMATIONS)
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-unconstrained-critical-point": "p14d_critical_point"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, _by_difficulty(skill)
 
 
 CRIT_SKILL, CRIT_SOURCES = _skill_sources(CRIT_ID)

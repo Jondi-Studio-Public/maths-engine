@@ -11,8 +11,10 @@ Two framings, chosen per seed:
               the model reach ``Y0``?". The learner solves ``a + b*x = Y0`` for ``x`` and only then classifies it.
 
 Both are built backwards from the chosen prediction point, so the key is exact. The prediction lands strictly
-inside, exactly on a boundary (interpolation, boundary inclusive) or outside the range. The answer options are the
-skill's four fixed texts; the exam source offers the opposite category and both padding options as distractors.
+inside, exactly on a boundary (interpolation, boundary inclusive) or outside the range. Every option names the data
+range it is judged against, so the answers vary with the question. The distractors are the opposite category, "both",
+and a misconception: the wrong comparison the framing invites (the unconverted value against calendar years, or the
+target value against the x range), or failing that the boundary and any-x slips of the feeder skill.
 """
 
 from __future__ import annotations
@@ -21,10 +23,9 @@ import random
 
 from ..core import check, generator, latex_answer
 from .p5d_causality_interpolation_build import (
+    OPTION_ANY_X_B,
     OPTION_BOTH_B,
-    OPTION_EXTRAPOLATION,
-    OPTION_INTERPOLATION,
-    OPTION_NEITHER_B,
+    OPTION_EDGE_OUTSIDE_B,
 )
 
 _CONTEXTS = (
@@ -51,7 +52,7 @@ def _position(rng: random.Random, lo: int, hi: int) -> int:
     return rng.randint(max(1, lo - 6), lo - 1)
 
 
-def _calendar(rng: random.Random) -> tuple[str, bool]:
+def _calendar(rng: random.Random) -> tuple[str, bool, str, tuple[bool, str]]:
     base = rng.choice([1990, 2000, 2005, 2010])
     t_lo = rng.randint(3, 6)
     t_hi = t_lo + rng.randint(6, 12)
@@ -65,10 +66,15 @@ def _calendar(rng: random.Random) -> tuple[str, bool]:
         f"years after {base}. The data were collected from {base + t_lo} to {base + t_hi} inclusive. "
         f"The line is used to estimate the value when t = {t0}. Is this interpolation or extrapolation?"
     )
-    return text, t_lo <= t0 <= t_hi
+    y_lo, y_hi = base + t_lo, base + t_hi
+    slip = (
+        y_lo <= t0 <= y_hi,
+        f"the value t = {t0} lies {'between' if y_lo <= t0 <= y_hi else 'outside'} the years {y_lo} to {y_hi}",
+    )
+    return text, t_lo <= t0 <= t_hi, f"{y_lo} to {y_hi}", slip
 
 
-def _solve(rng: random.Random) -> tuple[str, bool]:
+def _solve(rng: random.Random) -> tuple[str, bool, str, tuple[bool, str]]:
     lo = rng.randint(3, 10)
     hi = lo + rng.randint(8, 16)
     x0 = _position(rng, lo, hi)
@@ -86,7 +92,11 @@ def _solve(rng: random.Random) -> tuple[str, bool]:
         f"The line is used to find when the value is predicted to reach {y0}. "
         f"Is this prediction interpolation or extrapolation?"
     )
-    return text, lo <= x0 <= hi
+    slip = (
+        lo <= y0 <= hi,
+        f"the target value {y0} lies {'between' if lo <= y0 <= hi else 'outside'} x = {lo} and x = {hi}",
+    )
+    return text, lo <= x0 <= hi, f"x = {lo} to {hi}", slip
 
 
 @generator(
@@ -103,10 +113,20 @@ def exd_x_s3_interp(rng, tier="exam"):
     """Classify a prediction as interpolation or extrapolation after converting units or solving for x."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    text, inside = _calendar(rng) if rng.random() < 0.5 else _solve(rng)
-    answer = OPTION_INTERPOLATION if inside else OPTION_EXTRAPOLATION
-    opposite = OPTION_EXTRAPOLATION if inside else OPTION_INTERPOLATION
+    text, inside, span, (slip_inside, slip_reason) = _calendar(rng) if rng.random() < 0.5 else _solve(rng)
+
+    def option(is_inside: bool) -> str:
+        if is_inside:
+            return f"Interpolation (the prediction lies inside the data range {span})"
+        return f"Extrapolation (the prediction lies outside the data range {span})"
+
+    answer, opposite = option(inside), option(not inside)
     check(answer != opposite, "key and opposite category must differ")
+    # The slip is a misconception only when it lands on the wrong category; otherwise use the feeder's generic one.
+    if slip_inside != inside:
+        slip = f"{'Interpolation' if slip_inside else 'Extrapolation'} ({slip_reason})"
+    else:
+        slip = OPTION_EDGE_OUTSIDE_B if inside else OPTION_ANY_X_B
     working = [
         "Convert the request to a value of the model's own variable, then compare it with the range of the data "
         "(the boundary counts as inside)."
@@ -118,5 +138,5 @@ def exd_x_s3_interp(rng, tier="exam"):
         answer_text=answer,
         answer_latex=latex_answer(answer, plain=True),
         working=working,
-        distractors=[opposite, OPTION_BOTH_B, OPTION_NEITHER_B],
+        distractors=[opposite, OPTION_BOTH_B, slip],
     )

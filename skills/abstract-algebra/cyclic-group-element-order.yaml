@@ -18,6 +18,11 @@ sources:
   params: {kind: sum}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_u1_cyclic_subgroup
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: confuses-element-with-order
   description: Reports the residue a rather than the first positive number of additions returning to zero.

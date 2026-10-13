@@ -245,8 +245,9 @@ def test_skill_contract_has_four_sources_including_exam():
     assert skill.answer == "expression"
     assert skill.status == "active"
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
-    assert {source.topic for source in skill.sources} == {TOPIC}
+    # The exam source is now the pyramid chain; the sphere generator's own exam preset is still tested here.
+    assert {source.topic for source in skill.sources[:3]} == {TOPIC}
 
     exam_source = skill.sources[3]
     assert exam_source.stages == ["exam"]
-    assert exam_source.params == {"mode": "sphere_decimal"}
+    assert exam_source.topic == "exd_x_fu_pyramid_volume"

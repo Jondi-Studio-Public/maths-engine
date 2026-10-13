@@ -21,6 +21,11 @@ sources:
   params: {shape: "complete_two_parts"}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr5_serves_shared
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: denominator-inflation
   description: For the multiple shape, incorrectly scales the denominator by k as well (e.g. k/d*k instead of k/d), which reduces to 1/d, a different value from k/d when k ≠ 1.

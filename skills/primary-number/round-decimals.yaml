@@ -22,6 +22,11 @@ sources:
   params: {target_places: 2, whole_hi: 100}
   stages: [5, 6, maintenance]
   difficulty: hard
+- topic: exd_x_pr4_round_decimal_bounds
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: truncates
   description: Drops later digits without checking whether to round up.

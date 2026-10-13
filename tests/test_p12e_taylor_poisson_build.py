@@ -272,7 +272,8 @@ def test_skill_2_loads_with_correct_properties():
     assert skill.prerequisites == ["simple-event-probability"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == TOPIC_2
+        # The exam tier is now a multi-part chain (tests/test_exd_x_r2h_poisson_chain.py).
+        assert source.topic == ("exd_x_r2h_poisson_chain" if source.difficulty == "exam" else TOPIC_2)
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

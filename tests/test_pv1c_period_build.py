@@ -8,11 +8,12 @@ import re
 import pytest
 
 import mathgen
-from mathgen.grading.typed import grade
-from mathgen.skills import load_skills
 from mathgen import figures
+from mathgen.capabilities import load_capability_gates
 from mathgen.core import VerificationError
 from mathgen.generators import pv1c_period_build as gen
+from mathgen.grading.typed import grade
+from mathgen.skills import load_skills
 from mathgen.text_quality import prompt_shape
 
 SKILL_ID = "senior-examine-period-changes-and-the-graphs-of-y"
@@ -42,8 +43,9 @@ def _star(display):
 
 def test_skill_shape():
     s = _skill()
-    assert s.status == "deferred" and s.needs_figure
+    assert s.status == "active" and s.deferred_reason is None and s.needs_figure
     assert s.capability_gates == ["figure_stimulus"]
+    assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert s.placement_eligible is False
     assert s.answer == "expression"
     assert [x.difficulty for x in s.sources] == TIERS
@@ -230,4 +232,7 @@ def test_prompts_have_no_python_notation_and_latex_twin_has_pi_in_maths():
         for seed in range(40):
             q = _make(tier, seed)
             assert "**" not in q.text and "*" not in q.text
-            assert "pi" not in re.sub(r"\\\(.*?\\\)", "", q.latex)
+            prose = re.findall(r"\\text\{((?:[^{}\\]|\\.)*)\}", q.latex)
+            maths = re.sub(r"\\text\{(?:[^{}\\]|\\.)*\}", "", q.latex)
+            assert not any("pi" in run or "π" in run for run in prose)  # pi is never prose
+            assert r"\pi" in maths  # it sits inside a maths group

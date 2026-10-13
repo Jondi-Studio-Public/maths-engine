@@ -3,12 +3,16 @@ name: Find the hypotenuse
 domain: trigonometry
 description: Use the Pythagorean theorem to find the hypotenuse of a right triangle given both legs.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - evaluate-powers
 answer: number
 sources:
 - topic: trigonometry
   params:
+    figure: true
     kinds:
     - side_hyp
   difficulty: easy
@@ -18,6 +22,8 @@ sources:
   - 2
 - topic: trigonometry
   params:
+    figure: true
+    units: true
     kinds:
     - side_hyp
   difficulty: medium
@@ -26,6 +32,8 @@ sources:
   - 4
 - topic: trigonometry
   params:
+    figure: true
+    units: true
     kinds:
     - side_hyp
     exact_triple: false

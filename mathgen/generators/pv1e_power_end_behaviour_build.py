@@ -54,7 +54,7 @@ import math
 from fractions import Fraction
 
 from .. import figures
-from ..core import check, generator, latex_answer
+from ..core import check, generator, latex_answer, latex_from_inline
 from . import pv1e_curve_figure_build as cf
 
 TOPIC = "pv1e_power_end_behaviour"
@@ -426,7 +426,7 @@ def pv1e_power_end_behaviour(rng, tier: str = "easy", notes: bool = False) -> di
     text, latex = _prompt(rng, tier, ask)
     out = {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": cls,
         "answer_text": cls,
         "answer_latex": latex_answer(cls, plain=True),

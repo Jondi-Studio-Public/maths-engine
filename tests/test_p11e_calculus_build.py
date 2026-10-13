@@ -198,8 +198,8 @@ def test_skill_1_loads_with_correct_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["differentiate-polynomial"]
-    assert len(skill.sources) == 3
-    for source in skill.sources:
+    assert len(skill.sources) == 4
+    for source in skill.sources[:3]:
         assert source.topic == TOPIC_1
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
@@ -213,8 +213,8 @@ def test_skill_2_loads_with_correct_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["integrate-polynomial"]
-    assert len(skill.sources) == 3
-    for source in skill.sources:
+    assert len(skill.sources) == 4
+    for source in skill.sources[:3]:
         assert source.topic == TOPIC_2
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}

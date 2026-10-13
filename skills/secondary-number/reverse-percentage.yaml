@@ -5,6 +5,6 @@ description: Recover an original value from a final value after a stated percent
 status: active
 prerequisites: [percentage-change]
 answer: number
-sources: [{topic: percentage_change, params: {reverse: true}, difficulty: easy}]
+sources: [{topic: percentage_change, params: {reverse: true}, difficulty: easy}, {topic: exd_x_n4_reverse_percentage, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: subtracts-percent, description: Subtracts the stated percentage of the final value.}]
 tags: [expansion-batch-4, percentages]

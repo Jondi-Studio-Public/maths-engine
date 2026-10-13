@@ -178,5 +178,5 @@ class TestLoadSkills:
     def test_skill_shape(self):
         skill = _skill()
         assert skill.answer == "mcq" and skill.status == "active"
-        assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard"}
+        assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}
         assert "ac9m8sp01" in skill.tags and "ac9m8sp04" in skill.tags

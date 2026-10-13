@@ -166,6 +166,13 @@ _FNS_METHOD = (
     "value)."
 )
 
+# The exam tier states the quartile convention as a fact about the summary, not as steps to follow.
+_FNS_EXAM_CONVENTION = (
+    "Quartiles follow the median-of-the-lower/upper-half (Tukey, inclusive) convention: Q1 is the median of "
+    "the lower half of the sorted values (including the overall middle value) and Q3 is the median of the "
+    "upper half (also including it)."
+)
+
 _FNS_EASY_TEMPLATES = {
     "quiz": "A class's nine quiz scores (out of 100), already sorted from smallest to largest, "
     "are: {values}. {method} State the five-number summary: min, Q1, median, Q3, max.",
@@ -196,14 +203,13 @@ _FNS_HARD_TEMPLATES = {
 }
 _FNS_EXAM_TEMPLATES = (
     "A weather station recorded nine daily temperature changes (degrees C), some positive and "
-    "some negative, in this order: {values}. {method} Sort them carefully across zero, then "
-    "give the five-number summary: min, Q1, median, Q3, max.",
-    "Exam-style question. Nine daily temperature change readings (degrees C) -- some rises, "
-    "some falls -- were recorded in this order: {values}. {method} Sort the values from most "
-    "negative to most positive, then find the five-number summary (min, Q1, median, Q3, max).",
-    "This exam question gives nine daily temperature changes (degrees C), including negative "
-    "readings, in the order recorded: {values}. {method} Order them correctly across the "
-    "positive/negative boundary, then state the five-number summary: min, Q1, median, Q3 and "
+    "some negative, in this order: {values}. {method} Give the five-number summary: min, Q1, "
+    "median, Q3, max.",
+    "Nine daily temperature change readings (degrees C) -- some rises, "
+    "some falls -- were recorded in this order: {values}. {method} Find the five-number summary "
+    "(min, Q1, median, Q3, max).",
+    "Nine daily temperature changes (degrees C), including negative readings, were recorded "
+    "in this order: {values}. {method} State the five-number summary: min, Q1, median, Q3 and "
     "max.",
 )
 
@@ -304,7 +310,7 @@ def _build_five_number_summary(rng, tier: str = "easy"):
 
     values_text = ", ".join(str(v) for v in presented)
     if tier == "exam":
-        text = phrase(rng, _FNS_EXAM_TEMPLATES, values=values_text, method=_FNS_METHOD)
+        text = phrase(rng, _FNS_EXAM_TEMPLATES, values=values_text, method=_FNS_EXAM_CONVENTION)
     else:
         template = {
             "easy": _FNS_EASY_TEMPLATES,
@@ -480,7 +486,7 @@ _OEM_HARD_TEMPLATES = tuple(
 _OEM_EXAM_TEMPLATES = tuple(
     t + _OEM_MARKER
     for t in (
-        "Exam-style question. A small business recorded its daily profit or loss ($) for {n} days: "
+        "A small business recorded its daily profit or loss ($) for {n} days: "
         "{values}. Two values here look unusual, but only {outlier} -- a negative, loss-making day "
         "-- is called the outlier. Find the mean with the outlier included, minus the mean with the "
         "outlier removed, to 1 decimal place.",

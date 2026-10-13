@@ -33,6 +33,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u1_ode_initial_value
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: raised-power-ode
   description: Raising powers without dividing when integrating.

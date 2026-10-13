@@ -29,7 +29,7 @@ from functools import lru_cache
 from types import SimpleNamespace
 
 from .. import figures
-from ..core import check, generator
+from ..core import check, generator, latex_from_inline
 
 TOPIC = "pv1c_translated_point"
 
@@ -354,7 +354,7 @@ def pv1c_translated_point(rng, variant: str = "shift_up") -> dict:
     text, latex = _prompt(rng, variant)
     return {
         "text": text,
-        "latex": latex,
+        "latex": latex_from_inline(latex),
         "answer": {"x": p, "y": y_img},
         "answer_text": key_text,
         "answer_latex": key_text,

@@ -18,7 +18,12 @@ sources:
   params: {primes: [2, 3, 5, 7], term_hi: 3, exponent_hi: 3, composite_form: true}
   difficulty: hard
   stages: [5, 6, maintenance]
-difficulty_progression: Easy and medium supply an integer to factorise. Hard supplies a product with composite bases such as 6² × 10, so the learner must split each base into primes and distribute the outer exponent over them before collecting powers.
+- topic: exd_x_sc6_prime_powers
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+difficulty_progression: Easy and medium supply an integer to factorise. Hard supplies a product with composite bases such as 6² × 10, so the learner must split each base into primes and distribute the outer exponent over them before collecting powers. Exam gives a product of composite bases and asks for the exponent of particular primes, then uses the factorisation to count the number's positive factors.
 misconceptions:
 - id: expands-repeated-factors
   description: Writes repeated prime factors instead of collecting them as powers.

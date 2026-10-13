@@ -21,6 +21,11 @@ sources:
   params: {mode: km_per_min_to_ms}
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_m4_rate_units_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: inverts-factor
   description: Multiplies by the reciprocal of the correct conversion factor.

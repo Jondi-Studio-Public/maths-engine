@@ -21,8 +21,8 @@ sources:
   params: {variant: find_n}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p16c_loan_recurrence_balance
-  params: {variant: rate_change}
+- topic: exd_x_r2d_loan_recurrence_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

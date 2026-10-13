@@ -7,6 +7,7 @@ import pytest
 
 from mathgen.grading.typed import grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from types import SimpleNamespace
 from mathgen import make
 
 METRIC_ID = "ucv1-metric-axiom-check"
@@ -33,6 +34,11 @@ METRIC_SKILL, METRIC_SOURCES = _skill_sources(METRIC_ID)
 # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
 METRIC_SOURCES["exam"] = replace(METRIC_SOURCES["exam"], topic="p15b_metric_axiom_check", params={})
 COMPACT_SKILL, COMPACT_SOURCES = _skill_sources(COMPACT_ID)
+# The skill's exam tier is now a multi-part chain (tests/test_exd_x_r2g_subcover_count.py). These tests keep covering the
+# generator's own earlier exam preset, which is unchanged.
+COMPACT_SOURCES["exam"] = SimpleNamespace(
+    topic="p15b_compactness_subcover_check", difficulty="exam", params={}, stages=["exam"]
+)
 
 
 def _make(sources, difficulty, seed):

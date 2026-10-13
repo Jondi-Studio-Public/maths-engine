@@ -8,7 +8,7 @@ projection arithmetic, and the Hessian route via `sympy.diff` applied to a
 polynomial parsed straight out of the rendered text.
 """
 
-from dataclasses import replace
+import dataclasses
 import math
 import re
 from fractions import Fraction
@@ -95,15 +95,27 @@ def _parse_answer4(answer_text):
     return tuple(Fraction(g) for g in m.groups())
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-hessian-2x2": "p12f_hessian_2x2"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return {src.difficulty: src for src in skill.sources}
+    return _by_difficulty(skill)
 
 
 GRAM_SOURCES = _skill_sources(GRAM_ID)
 # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
-GRAM_SOURCES["exam"] = replace(GRAM_SOURCES["exam"], topic="p12f_gram_schmidt_2d", params={})
+GRAM_SOURCES["exam"] = dataclasses.replace(GRAM_SOURCES["exam"], topic="p12f_gram_schmidt_2d", params={})
 HESS_SOURCES = _skill_sources(HESS_ID)
 
 

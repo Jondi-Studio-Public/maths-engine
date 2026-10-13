@@ -257,11 +257,11 @@ def test_both_skills_load_through_api():
     assert "convert-metric-length" in chords_skill.prerequisites
     assert chords_skill.answer == "number"
     assert chords_skill.placement_eligible is False
-    assert len(chords_skill.sources) == 3  # easy, medium, hard
+    assert len(chords_skill.sources) == 4  # easy, medium, hard, exam
 
     rates_skill = skills_dict.get("senior-convert-between-units-for-rates-for-example-km")
     assert rates_skill is not None
     assert "convert-metric-length" in rates_skill.prerequisites
     assert rates_skill.answer == "number"
     assert rates_skill.placement_eligible is False
-    assert len(rates_skill.sources) == 3  # easy, medium, hard
+    assert len(rates_skill.sources) == 4  # easy, medium, hard, exam

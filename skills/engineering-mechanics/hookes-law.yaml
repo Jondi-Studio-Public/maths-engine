@@ -12,6 +12,11 @@ sources:
     kinds:
     - hookes_law
   difficulty: easy
+- topic: exd_x_u1_spring_two_loads
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: inverted-hookes-law
   description: Inverting the relationship between force and extension.

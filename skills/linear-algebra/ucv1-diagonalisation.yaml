@@ -1,0 +1,107 @@
+id: ucv1-diagonalisation
+name: Diagonalise a matrix
+domain: linear-algebra
+description: 'Work with the factorisation A = PDP⁻¹ of an integer matrix with integer eigenvalues: multiply out
+  PDP⁻¹, write the diagonal matrix D with the eigenvalues in increasing order, write P with its columns in the order
+  D fixes, and use the factorisation to find a power of A.'
+status: active
+placement_eligible: false
+prerequisites:
+- two-by-two-eigenvalues
+- matrix-determinant-2x2
+answer: matrix
+sources:
+- topic: ucv1_diagonalisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ucv1_diagonalisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ucv1_diagonalisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_uc_diagonalisation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: diag-conjugation-reversed
+  description: Multiplying in the order P⁻¹DP instead of PDP⁻¹ (or the same reversal for P⁻¹AP).
+- id: diag-forgot-inverse
+  description: Stopping at PD, leaving out the final multiplication by P⁻¹.
+- id: diag-eigenvalues-swapped
+  description: Writing the eigenvalues down the diagonal of D in the opposite order from the columns of P.
+- id: diag-transpose-for-inverse
+  description: Using the transpose of P in place of its inverse.
+- id: diag-columns-wrong-order
+  description: Putting the eigenvectors into the columns of P in the opposite order from the eigenvalues down D.
+- id: diag-vectors-as-rows
+  description: Writing the eigenvectors as the rows of P instead of its columns.
+- id: eigvec-component-sign-slip
+  description: 'Dropping a minus sign while solving for the eigenvector, so one component has the wrong sign: (q,
+    p) for (-q, p).'
+- id: eigvec-row-as-vector
+  description: Writing a row of A - λI as the eigenvector instead of solving (A - λI)v = 0, whose solutions are
+    perpendicular to the rows.
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+- id: sign-flip-both-roots
+  description: Giving an eigenvalue with the wrong sign, reading the roots of (λ - 2)(λ + 3) = 0 as λ = -2 and λ
+    = 3.
+- id: matrix-power-entrywise
+  description: Raising each entry of a matrix to the power n instead of multiplying the matrix by itself n times.
+- id: matrix-power-off-by-one
+  description: Using Dⁿ⁻¹ (or Dⁿ⁺¹) in P Dⁿ P⁻¹, so the result is A to the wrong power.
+- id: matrix-power-as-multiple
+  description: Treating Aⁿ as n times A.
+- id: diag-forgot-change-of-basis
+  description: Giving Dⁿ as the answer for Aⁿ, leaving out the P and P⁻¹ on either side.
+- id: eigval-repeated-given
+  description: Repeating the eigenvalue given in the question as the other eigenvalue.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: inverse-adjugate-undivided
+  description: Swapping the diagonal and negating the off-diagonal of a 2×2 matrix but not dividing by the determinant.
+- id: inverse-sign-pattern
+  description: Swapping the diagonal of a 2×2 matrix but leaving the off-diagonal entries unchanged, or negating
+    the wrong pair.
+- id: eigval-trace-difference-sign
+  description: Adding the known eigenvalue to the trace instead of subtracting it to find the other eigenvalue.
+- id: eigval-determinant-as-eigenvalue
+  description: Reporting the determinant of the matrix as an eigenvalue.
+difficulty_progression: Easy is the multiplication PDP⁻¹ from a given P and D. Medium starts from A alone and asks
+  for D with the eigenvalues in increasing order (a 2×2 matrix or a 3×3 block matrix), or for P whose columns are
+  eigenvectors in the order of a stated D. Hard asks for a power of A, so the eigenvalues, eigenvectors, P⁻¹ and
+  Dⁿ all have to be assembled. The exam chain finds the second eigenvalue, P, the inverse of a stated P with fractions,
+  and one entry of Aⁿ as a combination of the eigenvalues raised to n.
+tags:
+- university-core-v1
+- linear-algebra
+- diagonalisation
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

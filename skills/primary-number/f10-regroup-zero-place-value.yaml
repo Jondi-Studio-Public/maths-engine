@@ -19,6 +19,11 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pr4_regroup_zero_reservoir
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: counts-not-regrouped
   description: Reports the stated (non-standard) counts directly as the hundreds, tens and ones digits, without carrying any overflow into the next place.

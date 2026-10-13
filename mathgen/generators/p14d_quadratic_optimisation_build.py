@@ -17,6 +17,7 @@ from ..core import (
     check,
     check_equivalent,
     check_pairwise_distinct,
+    draw_until,
     generator,
     join_terms,
     pick_distractors,
@@ -132,23 +133,32 @@ def p14d_critical_point(rng, coeff_hi=4, point_hi=5, coupled=False, frac=False, 
     the squared form (or apply the chain rule) before differentiating: no
     lower tier contains a squared linear expression.
     """
-    while True:
+    if point_hi < 1:
+        raise ValueError(
+            "p14d_critical_point needs point_hi >= 1: the target point needs two different nonzero coordinates"
+        )
+
+    def draw_instance(rng):
+        """One attempt at the whole construction: a tuple, or None when it fails a rule and must be redrawn."""
         if frac:
             denom = rng.choice([2, 3])
             num_hi = point_hi * denom
 
             def _draw_fraction():
-                while True:
-                    n = rng.randint(-num_hi, num_hi)
-                    if n % denom != 0:
-                        return Fraction(n, denom)
+                n = draw_until(
+                    rng,
+                    lambda r: r.randint(-num_hi, num_hi),
+                    lambda num: num % denom != 0,
+                    what="a numerator that is not a multiple of the denominator",
+                )
+                return Fraction(n, denom)
 
             x0, y0 = _draw_fraction(), _draw_fraction()
         else:
             x0 = rng.randint(-point_hi, point_hi)
             y0 = rng.randint(-point_hi, point_hi)
         if x0 == y0 or x0 == 0 or y0 == 0:
-            continue
+            return None
 
         if disguise:
             p1, q1, p2, q2 = _draw_independent_linear_pair(rng)
@@ -188,21 +198,28 @@ def p14d_critical_point(rng, coeff_hi=4, point_hi=5, coupled=False, frac=False, 
                 # Linear independence alone does not rule out orthogonal
                 # linear forms (a zero cross term): retry so the exam tier
                 # stays genuinely coupled, like every other coupled tier.
-                continue
+                return None
             det = 4 * a * b - c * c
             if det == 0:
-                continue
-            break
+                return None
+            return x0, y0, a, b, c, d, e, f_squared
 
         a = rng.randint(1, coeff_hi) * rng.choice([1, -1])
         b = rng.randint(1, coeff_hi) * rng.choice([1, -1])
         c = (rng.randint(1, coeff_hi) * rng.choice([1, -1])) if coupled else 0
         det = 4 * a * b - c * c
         if det == 0:
-            continue
+            return None
         d = -(2 * a * x0 + c * y0)
         e = -(2 * b * y0 + c * x0)
-        break
+        return x0, y0, a, b, c, d, e, None
+
+    x0, y0, a, b, c, d, e, f_squared = draw_until(
+        rng,
+        draw_instance,
+        lambda drawn: drawn is not None,
+        what="a target point and a nonsingular Hessian",
+    )
 
     a_f, b_f, c_f, d_f, e_f = (Fraction(v) for v in (a, b, c, d, e))
     det_f = 4 * a_f * b_f - c_f * c_f

@@ -34,7 +34,7 @@ _PATTERNS = {
     ],
     "exactly": [
         "Of {n} people, {a} {ta}, {b} {tb}, and {z} do neither. A person who does exactly one of the two is "
-        "chosen at random. Find the probability that this person is one who {ta}.",
+        "chosen at random. Find the probability that they {ta}.",
         "In a group of {n}, {a} {ta} and {b} {tb}; {z} do neither. Given that a person does exactly one of "
         "the two, find the probability that they {ta}.",
     ],

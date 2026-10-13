@@ -82,6 +82,12 @@ def test_exam_source_is_last_and_in_exam_stage_only(skill_id):
     assert skill.answer == kind
     assert len(skill.sources) == 4
     last = skill.sources[-1]
+    # Three exam sources moved to multi-part chains (tests/test_exd_x_r2d_velocity_chain.py, tests/test_exd_x_r2c_*.py).
+    topic = {
+        "exd_x_g2_velocity_composition": "exd_x_r2d_velocity_chain",
+        "exd_x_g2_projectile_landing": "exd_x_r2c_projectile",
+        "exd_x_g2_position_collision": "exd_x_r2c_collision",
+    }.get(topic, topic)
     assert (last.topic, last.difficulty, list(last.stages)) == (topic, "exam", ["exam"])
 
 

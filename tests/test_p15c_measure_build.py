@@ -8,6 +8,7 @@ import pytest
 
 from mathgen.grading.typed import grade_fraction, grade_mcq, mcq_options
 from mathgen.skills import load_skills
+from tests.exd_x_r2h_support import legacy_exam_sources
 from mathgen import make
 
 SIGMA_ID = "ucv1-sigma-algebra-closure"
@@ -21,7 +22,7 @@ _CLASSES = {"closed under both", "fails complement", "fails union", "fails both"
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, legacy_exam_sources(skill.id, {src.difficulty: src for src in skill.sources})
 
 
 SIGMA_SKILL, SIGMA_SOURCES = _skill_sources(SIGMA_ID)

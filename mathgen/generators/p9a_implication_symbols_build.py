@@ -32,12 +32,6 @@ import math
 
 from ..core import check, generator, latex_answer, pick_distractors
 
-# ---------------------------------------------------------------------------
-# Shared filler pair -- a plausible but always-wrong option, never analysed
-# for truth, just a structurally distinct string. Reused by both skills'
-# boolean/tri-state tiers.
-_GENERIC_FILLERS = ["Cannot be determined from the given information", "The question is not well-defined"]
-
 
 def _latex_text(s: str) -> str:
     """Wrap a plain English clause in a LaTeX ``\\text{}`` block."""
@@ -175,9 +169,16 @@ def implication_transform_identify(rng, variant="converse"):
             rf"{original_latex}.\ \text{{Consider its {s_kind}: }} {s_latex}.\ "
             rf"\text{{Is this ALWAYS logically equivalent to the original implication, for every value of }} n\text{{?}}"
         )
-        answer_text = "True" if target else "False"
-        opposite = "False" if answer_text == "True" else "True"
-        distractors = pick_distractors(answer_text, [opposite] + _GENERIC_FILLERS)
+        # Identify the transform, then say whether that kind is always equivalent. The classic slip is the
+        # converse taken as equivalent, so it appears with both verdicts.
+        kind_options = {
+            "contrapositive": "True: it is the contrapositive, which always has the same truth value as the original",
+            "converse": "False: it is the converse, which can have a different truth value from the original",
+            "negation": "False: it is the negation, which always has the opposite truth value to the original",
+        }
+        answer_text = kind_options[s_kind]
+        distractors = [t for k, t in kind_options.items() if k != s_kind]
+        distractors.append("True: it is the converse, which always has the same truth value as the original")
         working = [
             "A transformed statement is ALWAYS equivalent to the original implication only "
             "when it matches the original on all four rows of the truth table for P and Q.",
@@ -200,9 +201,15 @@ def implication_transform_identify(rng, variant="converse"):
             rf"{original_latex}.\ \text{{Its negation is: }} {negation_latex}.\ "
             rf"\text{{Given }} n = {n}\text{{, is this negation True or False?}}"
         )
-        answer_text = "True" if negation_truth else "False"
-        opposite = "False" if negation_truth else "True"
-        distractors = pick_distractors(answer_text, [opposite] + _GENERIC_FILLERS)
+        # The negation is "P and not Q", so its truth value is fixed by the truth values of P and Q at n.
+        states = {
+            (True, False): "True, because the hypothesis is true and the conclusion is false",
+            (True, True): "False, because the hypothesis and the conclusion are both true",
+            (False, True): "False, because the hypothesis is false and the conclusion is true",
+            (False, False): "False, because the hypothesis and the conclusion are both false",
+        }
+        answer_text = states[(p_val, q_val)]
+        distractors = [t for state, t in states.items() if state != (p_val, q_val)]
         working = [
             'The negation of "If P, then Q" is "P and not Q" (from ¬(P ⇒ Q) ≡ P ∧ ¬Q).',
             f"Evaluate P and not Q directly at n = {n} using the two given statements.",
@@ -216,7 +223,7 @@ def implication_transform_identify(rng, variant="converse"):
         latex=latex,
         answer=answer_text,
         answer_text=answer_text,
-        answer_latex=latex_answer(answer_text),
+        answer_latex=latex_answer(answer_text, plain=True),
         working=working,
         distractors=distractors,
     )

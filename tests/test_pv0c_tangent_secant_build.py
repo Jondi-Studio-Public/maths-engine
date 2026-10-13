@@ -197,9 +197,9 @@ class TestTangentSecant:
     def test_skill_loads(self):
         skill = next((s for s in SKILLS if s.id == "senior-when-a-secant-meeting-the-circle-at-a"), None)
         assert skill is not None
-        assert skill.domain == "differentiation"
+        assert skill.domain == "measurement"
         assert skill.answer == "number"
-        assert skill.prerequisites == ["differentiate-polynomial"]
+        assert skill.prerequisites == ["convert-metric-length"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4
         assert {s.difficulty for s in skill.sources} == {"easy", "medium", "hard", "exam"}

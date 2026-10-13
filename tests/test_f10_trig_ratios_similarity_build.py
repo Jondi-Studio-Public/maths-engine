@@ -157,6 +157,6 @@ class TestSkillLoads:
         skill = next((s for s in skills if s.id == "f10-trig-ratios-similarity"), None)
         assert skill is not None
         assert skill.domain == "trigonometry" and skill.answer == "number" and skill.status == "active"
-        assert [s.difficulty for s in skill.sources] == TIERS
+        assert [s.difficulty for s in skill.sources] == [*TIERS, "exam"]
         assert skill.placement_eligible is False
         assert "ac9m9sp01" in skill.tags

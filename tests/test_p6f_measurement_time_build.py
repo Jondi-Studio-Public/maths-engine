@@ -304,4 +304,4 @@ def test_skill_has_sources_covering_all_difficulties():
     skill = next((s for s in skills if s.id == skill_id), None)
     assert skill is not None, f"Skill {skill_id} not found"
     difficulties = {src.difficulty for src in skill.sources}
-    assert difficulties == {"easy", "medium", "hard"}
+    assert difficulties == {"easy", "medium", "hard", "exam"}

@@ -119,9 +119,9 @@ _HARD_TEXT = (
 )
 
 _EXAM_TEXT = (
-    "n = {p} × {q} = {n}. First check whether m and n share a common factor, then compute m^e mod n for m = {m}, e = {e}.",
-    "Given n = {n}, with factorisation n = {p} × {q}: check whether gcd(m, n) = 1 before computing m^e mod n, for m = {m} and e = {e}.",
-    "The modulus n = {n} factors as {p} × {q}. Before computing m^e mod n for m = {m}, e = {e}, first check whether m and n are coprime.",
+    "n = {p} × {q} = {n}. Compute m^e mod n for m = {m}, e = {e}.",
+    "Given n = {n}, with factorisation n = {p} × {q}: find m^e mod n for m = {m} and e = {e}.",
+    "The modulus n = {n} factors as {p} × {q}. Find m^e mod n for m = {m}, e = {e}.",
 )
 
 

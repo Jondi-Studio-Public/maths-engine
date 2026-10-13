@@ -109,6 +109,12 @@ _METHOD = (
     "lower half and Q3 is the median of the upper half."
 )
 
+# The exam tier states the quartile convention as a fact, not as steps to follow.
+_EXAM_METHOD = (
+    "Quartiles follow the exclusive method: if there is an odd number of values, the overall median is "
+    "excluded from both halves; Q1 is the median of the lower half and Q3 is the median of the upper half."
+)
+
 _CONTEXTS = ("heights", "times", "scores")
 _RANGE = {"heights": (120, 190), "times": (5, 90), "scores": (30, 100)}
 _CONTEXT_LABEL = {
@@ -274,11 +280,10 @@ _HARD_TEMPLATES = (
 _EXAM_TEMPLATES = (
     "Two groups' {label} were recorded. Group A: {values_a}. Group B: {values_b}. {method} "
     "Find Q1, Q3 and the IQR for whichever group has the LARGER interquartile range.",
-    "Exam-style question. {label_cap}, group A: {values_a}; group B: {values_b}. {method} "
+    "{label_cap}, group A: {values_a}; group B: {values_b}. {method} "
     "State Q1, Q3 and the IQR for the group with the larger IQR only.",
-    "This exam question compares two groups' {label}. Group A: {values_a}. Group B: "
-    "{values_b}. {method} Compute both groups' interquartile ranges, then give Q1, Q3 and "
-    "the IQR for the group whose IQR is larger.",
+    "Two groups' {label} are compared. Group A: {values_a}. Group B: "
+    "{values_b}. {method} Give Q1, Q3 and the IQR for the group whose IQR is larger.",
 )
 
 
@@ -454,7 +459,7 @@ def _build(rng, tier: str = "easy"):
         label_cap=label.capitalize(),
         values_a=_values_text(presented_a),
         values_b=_values_text(presented_b),
-        method=_METHOD,
+        method=_EXAM_METHOD,
     )
     candidates = [(loser_q1, loser_q3, loser_iqr)] + _fq_candidates(
         winner_vals,

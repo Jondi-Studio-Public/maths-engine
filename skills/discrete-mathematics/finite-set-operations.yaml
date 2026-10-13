@@ -26,6 +26,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_u1_set_expression_counts
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: reversed-difference
   description: Computing B minus A when the question asks for A minus B.

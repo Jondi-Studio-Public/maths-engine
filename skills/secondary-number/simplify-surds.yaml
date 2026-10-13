@@ -31,6 +31,11 @@ sources:
   - 5
   - 6
   - maintenance
+- topic: exd_x_n4_surd_rectangle
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: extracts-without-rooting
   description: On a single-surd question, pulls the perfect-square factor out of the radicand but forgets to

@@ -15,6 +15,7 @@ import pytest
 
 from mathgen.grading.typed import mcq_options
 from mathgen.skills import load_skills
+from tests.exd_x_r2h_support import legacy_exam_sources
 from mathgen import make
 
 SKILL_ID = "ucv1-syntactic-semantic-separation"
@@ -32,7 +33,7 @@ OPTIONS = [
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return {src.difficulty: src for src in skill.sources}
+    return legacy_exam_sources(skill.id, {src.difficulty: src for src in skill.sources})
 
 
 SOURCES = _skill_sources(SKILL_ID)

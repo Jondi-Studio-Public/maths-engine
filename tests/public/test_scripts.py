@@ -59,8 +59,9 @@ def test_regrade_sweep_rejects_seeds_below_one(seeds, capsys):
     assert "--seeds" in capsys.readouterr().err
 
 
-def test_a_skill_with_no_grader_is_named_and_a_sweep_of_only_those_fails(capsys):
+def test_a_skill_with_no_grader_is_named_and_a_sweep_of_only_those_fails(capsys, monkeypatch):
     """Sweeping nothing must not look like a pass."""
+    monkeypatch.delitem(regrade_sweep.GRADERS, "inequality")  # every library kind has a grader now
     assert regrade_sweep.main(["--ids", "one-step-inequalities", "--seeds", "1"]) == 1
     captured = capsys.readouterr()
     assert "skipped one-step-inequalities: no grader for answer kind 'inequality'" in captured.err

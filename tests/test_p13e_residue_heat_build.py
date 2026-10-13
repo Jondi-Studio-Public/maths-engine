@@ -1,6 +1,6 @@
 """Focused contract tests for: ucv1-residue-simple-pole and ucv1-heat-equation-mode (both answer: expression)."""
 
-from dataclasses import replace
+import dataclasses
 import re
 
 import pytest
@@ -16,15 +16,27 @@ SWEEP_SEEDS = range(60)
 TIERS = ["easy", "medium", "hard", "exam"]
 
 
+_SINGLE_ANSWER_EXAM = {"ucv1-heat-equation-mode": "p13e_heat_equation_mode"}
+
+
+def _by_difficulty(skill):
+    """Sources by difficulty. The exam tier of a skill listed above now serves a multi-part chain; these tests
+    cover the single-answer generator it replaced, so that tier is pointed back at it."""
+    sources = {src.difficulty: src for src in skill.sources}
+    if skill.id in _SINGLE_ANSWER_EXAM:
+        sources["exam"] = dataclasses.replace(sources["exam"], topic=_SINGLE_ANSWER_EXAM[skill.id], params={})
+    return sources
+
+
 def _skill_sources(skill_id):
     _domains, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
-    return skill, {src.difficulty: src for src in skill.sources}
+    return skill, _by_difficulty(skill)
 
 
 RESIDUE_SKILL, RESIDUE_SOURCES = _skill_sources(RESIDUE_ID)
 # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
-RESIDUE_SOURCES["exam"] = replace(RESIDUE_SOURCES["exam"], topic="p13e_residue_simple_pole", params={})
+RESIDUE_SOURCES["exam"] = dataclasses.replace(RESIDUE_SOURCES["exam"], topic="p13e_residue_simple_pole", params={})
 HEAT_SKILL, HEAT_SOURCES = _skill_sources(HEAT_ID)
 
 

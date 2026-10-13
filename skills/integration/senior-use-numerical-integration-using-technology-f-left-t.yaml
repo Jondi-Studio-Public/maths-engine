@@ -30,8 +30,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13c_exponential_pdf_numint
-  params: {}
+- topic: exd_x_r2j_exponential_pdf_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -5,6 +5,6 @@ description: Convert a decimal with one recurring digit into a fraction in lowes
 status: active
 prerequisites: [fraction-decimal-percent]
 answer: fraction
-sources: [{topic: recurring_decimal_fraction, params: {}, difficulty: easy}]
+sources: [{topic: recurring_decimal_fraction, params: {}, difficulty: easy}, {topic: exd_x_n4_recurring_mixed, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: uses-tenths, description: Treats the recurring decimal as a terminating number of tenths.}]
 tags: [expansion-batch-4, real-numbers]
