@@ -272,7 +272,7 @@ def test_cube_stack_tiers_differ_in_what_must_be_done():
     assert all(q.figure["grid"]["layers"] >= 3 for q in hard)
     assert all("how many more" in q.text.lower() or "surface area" in q.text.lower() for q in hard)
     assert {"more" if "more" in q.text else "surface" for q in hard} == {"more", "surface"}
-    assert all("how many" in q.text.lower() and "more" not in q.text for q in easy + medium)
+    assert all("more" not in q.text and "surface area" not in q.text for q in easy + medium)
 
 
 def test_cube_stacks_have_no_hidden_cubes_and_the_surface_area_counts_every_face():

@@ -86,7 +86,7 @@ def _finish_mcq(tier_fn, rng):
         text=text,
         answer=answer_text,
         answer_text=answer_text,
-        answer_latex=answer_text,
+        answer_latex=r"\text{" + answer_text + "}",
         distractors=distractors,
         working=working,
         figure=fig,
@@ -175,6 +175,8 @@ def _stack_easy(rng):
             "another cube, with no gaps. How many cubes make up the stack?",
             "A stack of unit cubes is drawn on isometric dot paper. There are no gaps: each cube sits on the "
             "ground or on another cube. How many cubes are in the stack?",
+            "Count the unit cubes in the stack drawn on isometric dot paper. Every cube rests on the ground or "
+            "on another cube.",
         ),
     )
     cands = [len(columns), width * depth * top, _visible_squares(cubes), n + 1, n - 1, n + 2]
@@ -198,6 +200,8 @@ def _stack_medium(rng):
             "Every cube rests on the ground or on another cube, with no gaps. How many cubes make up the stack?",
             "A stack of unit cubes is drawn on isometric dot paper. It is three layers high at its tallest and "
             "has no gaps: each cube sits on the ground or on another cube. How many cubes are in the stack?",
+            "Count the unit cubes in this staircase drawn on isometric dot paper. It rises to three layers, and "
+            "every cube rests on the ground or on another cube.",
         ),
     )
     cands = [len(columns), width * depth * 3, _visible_squares(cubes), len(columns) * 3, n + 1, n - 1]
@@ -323,11 +327,14 @@ def _properties_easy(rng):
         text = phrase(
             rng,
             (
-                "The cuboid is built from unit cubes. How many of its edges are exactly {k} cubes long?",
+                "The cuboid is built from unit cubes. How many of its edges are exactly {k} {unit} long?",
                 "A cuboid is built from unit cubes on isometric dot paper. Count its edges: how many are exactly "
-                "{k} cubes long?",
+                "{k} {unit} long?",
+                "Look at the cuboid of unit cubes. Some of its edges are exactly {k} {unit} long. How many edges "
+                "is that?",
             ),
             k=k,
+            unit="cube" if k == 1 else "cubes",
         )
         answer = 4 * same
         cands = [same, 12, 8, 4, 6, 3 * same]
@@ -459,7 +466,7 @@ def grid_solid_properties(rng, tier="easy"):
     return _finish_number(_tier_of(_PROPERTIES_TIERS, tier), rng)
 
 
-_EDGES = re.compile(r"exactly (\d+) cubes long")
+_EDGES = re.compile(r"exactly (\d+) cubes? long")
 _AREA = re.compile(r"exactly (\d+) unit squares")
 _NAMED = re.compile(r"(?:does a|about a) (\w+) (prism|pyramid)\b")
 _ASKED = re.compile(r"How many (faces|edges|vertices) does")
@@ -693,6 +700,7 @@ def _nets_easy(rng):
         (
             "The net is drawn on a square grid. Which solid does it fold up into?",
             "A net is drawn on a square grid. It is cut out and folded along its edges. Which solid does it make?",
+            "Which of these solids can be made by cutting out the net on the grid and folding it up?",
         ),
     )
     others = [s for s in _SOLIDS if s != solid]
@@ -715,6 +723,8 @@ def _nets_medium(rng):
             "Each of the four drawings is made of six squares. Which one is a net of a cube?",
             "Four drawings, each made of six squares, are shown on the grid. Only one of them can be folded along "
             "its edges to make a cube. Which one is it?",
+            "Only one of drawings A to D can be cut out and folded into a cube, and the rest are made of six "
+            "squares too. Which drawing is the net of the cube?",
         ),
     )
     cands = [f"Net {k}" for k in placed]
@@ -860,16 +870,22 @@ def _views_easy(rng):
         if len({tuple(front), *map(tuple, views.values())}) == 4:
             break
     fig = _stack_figure(width, depth, top, cubes)
-    text = (
-        "The stack of unit cubes has no gaps. Its front is the face on the left of the picture and its right side "
-        "is the face on the right of the picture. Which option gives the column heights of the view from the "
-        "front, from left to right?"
+    text = phrase(
+        rng,
+        (
+            "The stack of unit cubes has no gaps. Its front is the face on the left of the picture and its right "
+            "side is the face on the right of the picture. Which option gives the column heights of the view from "
+            "the front, from left to right?",
+            "Look at the stack of unit cubes, which has no gaps. The face on the left of the picture is the front "
+            "and the face on the right of the picture is the right side. Seen from the front, what are the column "
+            "heights from left to right?",
+            "Imagine standing in front of the stack of unit cubes, which has no gaps. The front is the left face "
+            "in the picture and the right side is the right face. Which option describes what you see?",
+        ),
     )
     answer = _heights_text(front)
     cands = [_heights_text(views["back"]), _heights_text(views["right"]), _heights_text(views["left"])]
-    working = [
-        f"Seen from the front, the columns from left to right are {', '.join(str(v) for v in front)} cubes tall."
-    ]
+    working = [f"Seen from the front, the column heights from left to right are {', '.join(str(v) for v in front)}."]
     return fig, text, answer, cands, working
 
 
@@ -882,6 +898,8 @@ def _views_medium(rng):
             "Each of the four drawings is made of six squares, and three of them can be folded into a cube. "
             "Which drawing is NOT a net of a cube?",
             "Three of these four drawings are nets of a cube. Which drawing is NOT a net of a cube?",
+            "Fold each drawing in your head. Three fold up into a cube and one does not. Which drawing is NOT a "
+            "net of a cube?",
         ),
     )
     cands = [f"Net {k}" for k in placed]
@@ -899,9 +917,14 @@ def _views_hard(rng):
     surface = 2 * (w * d + w * h + d * h)
     volume = w * d * h
     if rng.random() < 0.5:
-        text = (
-            "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds up into a closed box "
-            "with no gaps or overlaps. What is the surface area of the box?"
+        text = phrase(
+            rng,
+            (
+                "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds up into a closed box "
+                "with no gaps or overlaps. What is the surface area of the box?",
+                "A closed box is made by folding the net on the grid, where each square is 1 unit by 1 unit. Nothing "
+                "overlaps and there are no gaps. Find the surface area of the box.",
+            ),
         )
         answer = f"{surface} square units"
         cands = [
@@ -914,9 +937,14 @@ def _views_hard(rng):
             f"The area of the net is the surface area of the box: 2 x ({w} x {d} + {w} x {h} + {d} x {h}) = {surface}."
         ]
     else:
-        text = (
-            "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds up into a closed box "
-            "with no gaps or overlaps. What is the volume of the box in cubic units?"
+        text = phrase(
+            rng,
+            (
+                "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds up into a closed box "
+                "with no gaps or overlaps. What is the volume of the box in cubic units?",
+                "A closed box is made by folding the net on the grid, where each square is 1 unit by 1 unit. Nothing "
+                "overlaps and there are no gaps. Find the volume of the box in cubic units.",
+            ),
         )
         answer = f"{volume} cubic units"
         cands = [
@@ -1019,6 +1047,8 @@ def _composite_easy(rng):
             "inside the shape to find its area in square units.",
             "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. What is the area of the "
             "shape, in square units?",
+            "How many square units does the shape on the grid cover? Each square of the grid is 1 unit long and 1 "
+            "unit wide.",
         ),
     )
     cands = [box, round(_perimeter(verts)), box - area, area + 1, area - 1, area + size[0]]
@@ -1061,6 +1091,8 @@ def _composite_medium(rng):
             "in square units.",
             "The shape on the grid is a rectangle with a triangle joined to it or cut from it. Each square of the "
             "grid is 1 unit by 1 unit. Find the area of the shape in square units.",
+            "What is the area, in square units, of the shape on the grid? It is a rectangle with a triangle added "
+            "on or cut off, and each square is 1 unit long and 1 unit wide.",
         ),
     )
     working = [f"Split the shape into {parts}.", f"Add or subtract the areas: {_fmt(area)} square units."]
@@ -1113,11 +1145,18 @@ def _composite_hard(rng):
             {"cells": sorted(map(list, more)), "style": "hatched"},
             {"cells": sorted(map(list, less)), "style": "dotted"},
         ]
-        text = (
-            "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. The shaded squares are "
-            "whole squares inside the shape, the hatched squares are more than half inside it and the dotted squares "
-            "are less than half inside it. Estimate the area of the shape in square units by counting every shaded "
-            "square and every hatched square, and ignoring every dotted square."
+        text = phrase(
+            rng,
+            (
+                "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. The shaded squares "
+                "are whole squares inside the shape, the hatched squares are more than half inside it and the dotted "
+                "squares are less than half inside it. Estimate the area of the shape in square units by counting "
+                "every shaded square and every hatched square, and ignoring every dotted square.",
+                "Estimate the area of the irregular shape on the grid, in square units, where each square is 1 unit "
+                "by 1 unit. Shaded squares are whole squares inside the shape, hatched squares are more than half "
+                "inside it and dotted squares are less than half inside it. Count the shaded and hatched squares, "
+                "ignoring every dotted square.",
+            ),
         )
         answer = len(whole) + len(more)
         cands = [
@@ -1132,10 +1171,17 @@ def _composite_hard(rng):
             {"cells": sorted(map(list, whole)), "style": "shaded"},
             {"cells": sorted(map(list, part)), "style": "hatched"},
         ]
-        text = (
-            "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. The shaded squares are "
-            "whole squares inside the shape and the hatched squares are only partly inside it. Estimate the area of "
-            "the shape in square units by counting each shaded square as 1 and each hatched square as half a square."
+        text = phrase(
+            rng,
+            (
+                "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. The shaded squares "
+                "are whole squares inside the shape and the hatched squares are only partly inside it. Estimate the "
+                "area of the shape in square units by counting each shaded square as 1 and each hatched square as "
+                "half a square.",
+                "Estimate the area, in square units, of the irregular shape on the grid, where each square is 1 unit "
+                "by 1 unit. Shaded squares are whole squares inside the shape and hatched squares are only partly "
+                "inside it. Count each shaded square as 1 and each hatched square as half a square.",
+            ),
         )
         answer = len(whole) + len(part) / 2
         cands = [len(whole), len(whole) + len(part), (len(whole) + len(part)) / 2, len(part) / 2]
