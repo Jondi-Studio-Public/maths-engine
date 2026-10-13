@@ -193,6 +193,18 @@
 {"answer": "Stable (attracting)", "id": "autonomous-equilibrium-stability/medium/0/93a56934b222", "text": "For the autonomous equation x' = -4(x − (4)), classify the equilibrium x* = 4 u…"}
 {"answer": "Unstable (repelling)", "id": "autonomous-equilibrium-stability/medium/1/a050dd378c59", "text": "For the autonomous equation x' = 4(x − (-5)), classify the equilibrium x* = -5 …"}
 {"answer": "Stable (attracting)", "id": "autonomous-equilibrium-stability/medium/2/8c5a7adb2e22", "text": "For the autonomous equation x' = -4(x − (-3)), classify the equilibrium x* = -3…"}
+{"answer": "39", "id": "back-to-back-stem-plot-compare/easy/0/5a4a535d1f81", "text": "The back-to-back stem-and-leaf plot compares the waiting times in minutes at tw…"}
+{"answer": "77", "id": "back-to-back-stem-plot-compare/easy/1/9b0f08436b1e", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
+{"answer": "64", "id": "back-to-back-stem-plot-compare/easy/2/f8aea6e318b4", "text": "The back-to-back stem-and-leaf plot compares the ages in years of the members o…"}
+{"answer": "(a) 67; (b) 22; (c) 26; (d) 4", "id": "back-to-back-stem-plot-compare/exam/0/c44c4c4718a1", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "(a) 66.5; (b) 29; (c) 19; (d) 10", "id": "back-to-back-stem-plot-compare/exam/1/bfb0581f22c9", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "(a) 39; (b) 24; (c) 19; (d) 5", "id": "back-to-back-stem-plot-compare/exam/2/a88dac2fa61a", "text": "The back-to-back stem-and-leaf plot compares the waiting times in minutes at tw…"}
+{"answer": "6", "id": "back-to-back-stem-plot-compare/hard/0/531cac9f4112", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "6.5", "id": "back-to-back-stem-plot-compare/hard/1/a74bac0715ab", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "1", "id": "back-to-back-stem-plot-compare/hard/2/68170a49e7e9", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
+{"answer": "18", "id": "back-to-back-stem-plot-compare/medium/0/7d28fb68b2b3", "text": "The back-to-back stem-and-leaf plot compares the ages in years of the members o…"}
+{"answer": "24", "id": "back-to-back-stem-plot-compare/medium/1/0da5980859c8", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
+{"answer": "26", "id": "back-to-back-stem-plot-compare/medium/2/fd9cfbd516eb", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
 {"answer": "F = 80 N", "id": "beam-equilibrium-seesaw/easy/0/75ee1fa47d7e", "text": "A beam balances on a pivot. A 20 N weight sits 12 m to the left. What force pla…"}
 {"answer": "F = 60.00 N", "id": "beam-equilibrium-seesaw/easy/1/ca2d031920e4", "text": "A beam balances on a pivot. A 20 N weight sits 3 m to the left. What force plac…"}
 {"answer": "F = 30.00 N", "id": "beam-equilibrium-seesaw/easy/2/2d337b46222e", "text": "A beam balances on a pivot. A 20 N weight sits 3 m to the left. What force plac…"}
@@ -646,6 +658,18 @@
 {"answer": "5", "id": "cyclic-group-element-order/medium/0/6ae55a2c6a39", "text": "In the additive cyclic group Z/5Z, find the order of the element [2]."}
 {"answer": "4", "id": "cyclic-group-element-order/medium/1/3329c8e5cad9", "text": "In the additive cyclic group Z/8Z, find the order of the element [6]."}
 {"answer": "5", "id": "cyclic-group-element-order/medium/2/a0e02cfdc827", "text": "In the additive cyclic group Z/5Z, find the order of the element [2]."}
+{"answer": "734", "id": "data-transformation-to-linearity/easy/0/ae8adf561f4d", "text": "Let x be the diameter of a round pizza in tens of centimetres and y its price i…"}
+{"answer": "8.8", "id": "data-transformation-to-linearity/easy/1/e0a8f92e0570", "text": "Let x be the number of painters on a job and y the time taken in hours. The sca…"}
+{"answer": "158", "id": "data-transformation-to-linearity/easy/2/e6f233102526", "text": "Let x be a car's speed in tens of kilometres per hour and y its stopping distan…"}
+{"answer": "(a) 6; (b) 15; (c) 45; (d) 1000000", "id": "data-transformation-to-linearity/exam/0/837c1ef3a5ba", "text": "Let x be the money spent on advertising in dollars and y the number of new cust…"}
+{"answer": "(a) 60; (b) 7; (c) 17; (d) 15", "id": "data-transformation-to-linearity/exam/1/e99e08a14786", "text": "Let x be the number of pickers in a crew and y the time to harvest a field in h…"}
+{"answer": "(a) 2; (b) 15; (c) 25; (d) 1000000", "id": "data-transformation-to-linearity/exam/2/62c75f74447c", "text": "Let x be the money spent on advertising in dollars and y the number of new cust…"}
+{"answer": "7", "id": "data-transformation-to-linearity/hard/0/5c4124051850", "text": "Let x be a car's speed in tens of kilometres per hour and y its stopping distan…"}
+{"answer": "10000", "id": "data-transformation-to-linearity/hard/1/a97d03f75ada", "text": "Let x be the money spent on advertising in dollars and y the number of new cust…"}
+{"answer": "10000", "id": "data-transformation-to-linearity/hard/2/517455d784ce", "text": "Let x be the dose of a nutrient in milligrams and y the growth of a culture in …"}
+{"answer": "44", "id": "data-transformation-to-linearity/medium/0/e77a2b8319f7", "text": "Let x be the dose of a nutrient in milligrams and y the growth of a culture in …"}
+{"answer": "20", "id": "data-transformation-to-linearity/medium/1/5a10ece74369", "text": "Let x be the dose of a nutrient in milligrams and y the growth of a culture in …"}
+{"answer": "141", "id": "data-transformation-to-linearity/medium/2/7bc293d6e336", "text": "Let x be a car's speed in tens of kilometres per hour and y its stopping distan…"}
 {"answer": "2.6", "id": "decimal-arithmetic/easy/0/a9cc4a20bc45", "text": "7.7 - 5.1"}
 {"answer": "12", "id": "decimal-arithmetic/easy/1/99416bd9abfe", "text": "5.2 + 6.8"}
 {"answer": "6.48", "id": "decimal-arithmetic/easy/2/b897548e4b35", "text": "7.2 × 0.9"}
@@ -2626,6 +2650,18 @@
 {"answer": "y = -x/3", "id": "graph-y-mx/medium/0/1b7e68d5334d", "text": "The graph shows a straight line through the origin of a coordinate grid. Which …"}
 {"answer": "y = x/2", "id": "graph-y-mx/medium/1/a4f157f86397", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
 {"answer": "y = x/3", "id": "graph-y-mx/medium/2/25254ae5fd07", "text": "Look at the straight line through the origin on this grid. Choose the equation …"}
+{"answer": "22.5", "id": "grouped-frequency-table-class-intervals/easy/0/cd16329e348e", "text": "The grouped frequency table shows the waiting time of patients at a clinic, in …"}
+{"answer": "12.5", "id": "grouped-frequency-table-class-intervals/easy/1/c52d9311fe5b", "text": "The grouped frequency table shows the mass of parcels at a depot, in kilograms.…"}
+{"answer": "65", "id": "grouped-frequency-table-class-intervals/easy/2/2c0b75d9c72e", "text": "The grouped frequency table shows the waiting time of patients at a clinic, in …"}
+{"answer": "(a) 1185; (b) 35.9; (c) 30; (d) 36.1", "id": "grouped-frequency-table-class-intervals/exam/0/b655aa8ee268", "text": "The grouped frequency table shows the time competitors took to solve a puzzle, …"}
+{"answer": "(a) 2710; (b) 57.7; (c) 60; (d) 54.2", "id": "grouped-frequency-table-class-intervals/exam/1/b491ab04ddc5", "text": "The grouped frequency table shows the distance cycled in a week by club members…"}
+{"answer": "(a) 1140; (b) 28.5; (c) 25; (d) 26.6", "id": "grouped-frequency-table-class-intervals/exam/2/4913b9332023", "text": "The grouped frequency table shows the waiting time of patients at a clinic, in …"}
+{"answer": "30", "id": "grouped-frequency-table-class-intervals/hard/0/c0f08859317d", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "3", "id": "grouped-frequency-table-class-intervals/hard/1/52533d9b34f0", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "30", "id": "grouped-frequency-table-class-intervals/hard/2/652153a2fafa", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "117.2", "id": "grouped-frequency-table-class-intervals/medium/0/f7affb92ec73", "text": "The grouped frequency table shows the distance cycled in a week by club members…"}
+{"answer": "53.6", "id": "grouped-frequency-table-class-intervals/medium/1/ea9341aeb110", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "26.9", "id": "grouped-frequency-table-class-intervals/medium/2/c685a25e4dee", "text": "The grouped frequency table shows the mass of parcels at a depot, in kilograms.…"}
 {"answer": "F = 25.00 N", "id": "hookes-law/easy/0/37fbef22e47d", "text": "A spring with stiffness k = 500 N/m is stretched by 0.05 m. Use Hooke's law to …"}
 {"answer": "F = 10.0 N", "id": "hookes-law/easy/1/d35725470be6", "text": "A spring with stiffness k = 100 N/m is stretched by 0.1 m. Use Hooke's law to f…"}
 {"answer": "F = 5.00 N", "id": "hookes-law/easy/2/c3e22c14bbc3", "text": "A spring with stiffness k = 100 N/m is stretched by 0.05 m. Use Hooke's law to …"}
@@ -2899,6 +2935,18 @@
 {"answer": "(a) 216; (b) 23; (c) 2", "id": "logarithm-laws/exam/0/eae1cfeea21c", "text": "Consider the equation log_{6}(x + 13) + log_{6}(x - 17) = 3. (a) Use the log la…"}
 {"answer": "(a) 243; (b) 18; (c) 3", "id": "logarithm-laws/exam/1/4ef6f5bbaf8c", "text": "A student is asked to solve log_{3}(x + 9) + log_{3}(x - 9) = 5 for x. (a) Use …"}
 {"answer": "(a) 32; (b) 14; (c) 4", "id": "logarithm-laws/exam/2/7b69f07dccdf", "text": "The number x satisfies log_{2}(x + 2) + log_{2}(x - 12) = 5. (a) Use the log la…"}
+{"answer": "1505", "id": "longitude-local-clock-time/easy/0/57249196ea51", "text": "Port Ardent is at longitude 105°E and Port Halloran is at longitude 45°E. Local…"}
+{"answer": "1440", "id": "longitude-local-clock-time/easy/1/881658159bf2", "text": "Port Eskwith is at longitude 105°E and Port Garrick is at longitude 30°E. Local…"}
+{"answer": "2155", "id": "longitude-local-clock-time/easy/2/668ce4632948", "text": "Port Ardent is at longitude 135°W and Port Corvale is at longitude 45°W. Local …"}
+{"answer": "(a) 60; (b) 4; (c) 2150; (d) 3669.6", "id": "longitude-local-clock-time/exam/0/4f06734eae70", "text": "Port Corvale is at longitude 30°W. Port Halloran is at longitude 30°E and latit…"}
+{"answer": "(a) 75; (b) 5; (c) 1740; (d) 6783.2", "id": "longitude-local-clock-time/exam/1/e25cfe3a7841", "text": "Port Farrow is at longitude 60°E. Port Ilsby is at longitude 135°E and latitude…"}
+{"answer": "(a) 90; (b) 6; (c) 1945; (d) 7895.2", "id": "longitude-local-clock-time/exam/2/139ebdeb790f", "text": "Port Ilsby is at longitude 75°W. Port Halloran is at longitude 15°E and latitud…"}
+{"answer": "1540", "id": "longitude-local-clock-time/hard/0/c5e17582f4ed", "text": "Port Garrick is at longitude 15°E and Port Ardent is at longitude 75°W. Local t…"}
+{"answer": "1245", "id": "longitude-local-clock-time/hard/1/9cb429c0006a", "text": "Port Jorvik is at longitude 60°E and Port Halloran is at longitude 60°W. Local …"}
+{"answer": "1730", "id": "longitude-local-clock-time/hard/2/b246a9c91f46", "text": "Port Garrick is at longitude 15°E and Port Jorvik is at longitude 45°W. Local t…"}
+{"answer": "2310", "id": "longitude-local-clock-time/medium/0/df2d28999fe1", "text": "Port Ilsby is at longitude 90°W and Port Halloran is at longitude 15°E. Local t…"}
+{"answer": "1720", "id": "longitude-local-clock-time/medium/1/cf431f03eb28", "text": "Port Halloran is at longitude 15°W and Port Eskwith is at longitude 90°E. Local…"}
+{"answer": "1255", "id": "longitude-local-clock-time/medium/2/893f4ebb8467", "text": "Port Garrick is at longitude 15°E and Port Ilsby is at longitude 30°W. Local ti…"}
 {"answer": "2/5", "id": "markov-two-state-stationary/easy/0/bdedae0abbf4", "text": "For P(0→1)=1/2 and P(1→0)=3/4, find the stationary probability of state 1."}
 {"answer": "2/5", "id": "markov-two-state-stationary/easy/1/081cad4f6f54", "text": "For P(0→1)=1/2 and P(1→0)=3/4, find the stationary probability of state 1."}
 {"answer": "1/2", "id": "markov-two-state-stationary/easy/2/bf240d43cf6c", "text": "For P(0→1)=1/3 and P(1→0)=1/3, find the stationary probability of state 1."}
@@ -3073,6 +3121,18 @@
 {"answer": "(a) 28.80; (b) 71.20; (c) 59.80", "id": "money-change/exam/0/ddbb05a9fc80", "text": "At a canteen in Alice Springs, Priya buys 4 toasted sandwiches at $3.45 each an…"}
 {"answer": "(a) 31.20; (b) 68.80; (c) 58.00", "id": "money-change/exam/1/5ebdcd6ccebf", "text": "At a bakery in Hobart, Liam buys 4 meat pies at $4.95 each and 3 bottles of mil…"}
 {"answer": "(a) 27.60; (b) 22.40; (c) 13.30", "id": "money-change/exam/2/3741436ccae8", "text": "At a deli in Fremantle, Tom buys 4 lamingtons at $3.05 each and 4 bottles of or…"}
+{"answer": "55", "id": "moving-average-median-smoothing/easy/0/a1f5f0d36af7", "text": "A series records the number of kilolitres of water a town used on each of 10 mo…"}
+{"answer": "29", "id": "moving-average-median-smoothing/easy/1/727b13bee758", "text": "A series records the number of new members a gym signed up on each of 11 weeks:…"}
+{"answer": "47", "id": "moving-average-median-smoothing/easy/2/ea84f39570fa", "text": "A series records the number of visitors to a school library on each of 11 days:…"}
+{"answer": "(a) 150; (b) 147.4; (c) 143; (d) 7", "id": "moving-average-median-smoothing/exam/0/9381ba59773b", "text": "A series records the number of parcels a depot dispatched on each of 10 days: d…"}
+{"answer": "(a) 65; (b) 63.6; (c) 61; (d) 4", "id": "moving-average-median-smoothing/exam/1/b9c04f7343e0", "text": "A series records the number of takeaway coffees a cafe sold on each of 9 days: …"}
+{"answer": "(a) 139; (b) 140; (c) 137; (d) 2", "id": "moving-average-median-smoothing/exam/2/d256a27a3da4", "text": "A series records the number of parcels a depot dispatched on each of 10 days: d…"}
+{"answer": "3", "id": "moving-average-median-smoothing/hard/0/fef22ee00d3d", "text": "A series records the number of kilolitres of water a town used on each of 10 mo…"}
+{"answer": "3", "id": "moving-average-median-smoothing/hard/1/6a83234cc8b9", "text": "A series records the number of takeaway coffees a cafe sold on each of 11 days:…"}
+{"answer": "3", "id": "moving-average-median-smoothing/hard/2/18af2d07912d", "text": "A series records the number of takeaway coffees a cafe sold on each of 11 days:…"}
+{"answer": "32.6", "id": "moving-average-median-smoothing/medium/0/b716d6947d4b", "text": "A series records the number of new members a gym signed up on each of 9 weeks: …"}
+{"answer": "80", "id": "moving-average-median-smoothing/medium/1/19805bb6b53b", "text": "A series records the number of visitors to a school library on each of 11 days:…"}
+{"answer": "67", "id": "moving-average-median-smoothing/medium/2/110a708e633e", "text": "A series records the number of kilolitres of water a town used on each of 10 mo…"}
 {"answer": "33", "id": "moving-average/easy/0/0cb5ae05cea5", "text": "Find the 3-point moving average for 19, 38, 42."}
 {"answer": "25", "id": "moving-average/easy/1/8906f4523976", "text": "Find the 3-point moving average for 26, 38, 11."}
 {"answer": "29", "id": "moving-average/easy/2/420b2736b967", "text": "Find the 3-point moving average for 32, 17, 38."}
@@ -3253,6 +3313,18 @@
 {"answer": "(a) 154440; (b) 2520; (c) 151920; (d) 422/429", "id": "permutations/exam/0/6a719578e903", "text": "A school council has 13 members, 6 of whom are Year 12 students. The roles of p…"}
 {"answer": "(a) 11880; (b) 840; (c) 11040; (d) 92/99", "id": "permutations/exam/1/067c695567f7", "text": "A school council has 12 members, 5 of whom are Year 12 students. The roles of p…"}
 {"answer": "(a) 1395360; (b) 742560; (c) 652800; (d) 80/171", "id": "permutations/exam/2/266cf2913840", "text": "A surf life saving club has 19 members, 2 of whom are senior patrol members. Th…"}
+{"answer": "54.60", "id": "piecewise-linear-tariff-model/easy/0/ae67fbd7ff70", "text": "Zippy Cabs charges a flagfall of $3.00 plus $2.20 per kilometre for the first 1…"}
+{"answer": "53.45", "id": "piecewise-linear-tariff-model/easy/1/31169f9425f6", "text": "Zippy Cabs charges a flagfall of $5.00 plus $1.75 per kilometre for the first 1…"}
+{"answer": "47.55", "id": "piecewise-linear-tariff-model/easy/2/145ab7778e7d", "text": "Zippy Cabs charges a flagfall of $3.00 plus $2.25 per kilometre for the first 1…"}
+{"answer": "(a) 320.00; (b) 294.80; (c) 25.20; (d) 13", "id": "piecewise-linear-tariff-model/exam/0/775359762f42", "text": "Plan A: Kestrel Hire charges a delivery fee of $51.00 plus $46.00 per day for t…"}
+{"answer": "(a) 89.80; (b) 87.40; (c) 2.40; (d) 24", "id": "piecewise-linear-tariff-model/exam/1/ad18fa7e9c80", "text": "Plan A: NetRoo Mobile charges a monthly fee of $34.00, which includes the first…"}
+{"answer": "(a) 59.90; (b) 55.90; (c) 4.00; (d) 20", "id": "piecewise-linear-tariff-model/exam/2/4652f4edb48f", "text": "Plan A: Swiftpost charges a handling fee of $11.50 plus $4.10 per kilogram for …"}
+{"answer": "10", "id": "piecewise-linear-tariff-model/hard/0/d13c0e87f413", "text": "Plan A: NetRoo Mobile charges a monthly fee of $25.50, which includes the first…"}
+{"answer": "8", "id": "piecewise-linear-tariff-model/hard/1/58f5a10a30f1", "text": "Plan A: Kestrel Hire charges a delivery fee of $41.00 plus $45.50 per day for t…"}
+{"answer": "9", "id": "piecewise-linear-tariff-model/hard/2/c9b7899249d8", "text": "Plan A: Kestrel Hire charges a delivery fee of $36.50 plus $45.00 per day for t…"}
+{"answer": "2", "id": "piecewise-linear-tariff-model/medium/0/fd2c13d393ad", "text": "Kestrel Hire charges a delivery fee of $49.50 plus $45.00 per day for the first…"}
+{"answer": "10", "id": "piecewise-linear-tariff-model/medium/1/ebf602559b60", "text": "Kestrel Hire charges a delivery fee of $52.50 plus $64.50 per day for the first…"}
+{"answer": "19", "id": "piecewise-linear-tariff-model/medium/2/0223122a8389", "text": "NetRoo Mobile charges a monthly fee of $22.50, which includes the first 11 giga…"}
 {"answer": "9", "id": "place-value-to-100/easy/0/a11decfcfcb1", "text": "How many ones are in 79?"}
 {"answer": "1", "id": "place-value-to-100/easy/1/a68d68e5a7b1", "text": "How many tens are in 17?"}
 {"answer": "9", "id": "place-value-to-100/easy/2/96798b6e68c4", "text": "How many tens are in 96?"}
@@ -3658,6 +3730,18 @@
 {"answer": "2*(-24*x**2 + 3*x - 5)", "id": "second-derivative/medium/0/f5b76e4c4c56", "text": "Find the second derivative of -4*x**4 + x**3 - 5*x**2 - 4 with respect to x"}
 {"answer": "2*(10*x**3 + 9*x + 1)", "id": "second-derivative/medium/1/089608df9527", "text": "Find the second derivative of x**5 + 3*x**3 + x**2 + 3 with respect to x"}
 {"answer": "2*(70*x**3 - 36*x**2 - 5)", "id": "second-derivative/medium/2/8523278a2c17", "text": "Find the second derivative of 7*x**5 - 6*x**4 - 5*x**2 - 7 with respect to x"}
+{"answer": "698.1", "id": "sector-area-and-arc-from-degrees/easy/0/37f643e9460a", "text": "A lawn sprinkler waters a sector with radius 20 m and a centre angle of 200°. F…"}
+{"answer": "26.2", "id": "sector-area-and-arc-from-degrees/easy/1/3489c1abe046", "text": "A lawn sprinkler waters a sector with radius 5 m and a centre angle of 120°. Fi…"}
+{"answer": "43.6", "id": "sector-area-and-arc-from-degrees/easy/2/529d550255c3", "text": "A wedge of cake is a sector with radius 10 cm and a centre angle of 50°. Find i…"}
+{"answer": "(a) 134.0; (b) 16.8; (c) 48.8; (d) 670.2", "id": "sector-area-and-arc-from-degrees/exam/0/c504fdd3e444", "text": "A round pizza has a radius of 16 cm. A slice cut from the centre is a sector wi…"}
+{"answer": "(a) 661.6; (b) 69.6; (c) 107.6; (d) 472.5", "id": "sector-area-and-arc-from-degrees/exam/1/9698e9dcde2c", "text": "A circular lawn has a radius of 19 m. A sprinkler at the centre waters a sector…"}
+{"answer": "(a) 113.1; (b) 12.6; (c) 48.6; (d) 904.8", "id": "sector-area-and-arc-from-degrees/exam/2/b9e8f6458611", "text": "A round pizza has a radius of 18 cm. A slice cut from the centre is a sector wi…"}
+{"answer": "11.4", "id": "sector-area-and-arc-from-degrees/hard/0/72c6a89fab53", "text": "A lawn sprinkler waters a sector with a centre angle of 190°. Its area is 215.4…"}
+{"answer": "78.5", "id": "sector-area-and-arc-from-degrees/hard/1/4661f9ae76fe", "text": "A curved path is the region between two arcs with the same centre. The inner ar…"}
+{"answer": "280", "id": "sector-area-and-arc-from-degrees/hard/2/858eee455758", "text": "A lawn sprinkler waters a sector with radius 17 m. The curved edge (the arc) is…"}
+{"answer": "137.3", "id": "sector-area-and-arc-from-degrees/medium/0/56deb837b93a", "text": "A lawn sprinkler waters a sector with radius 21 m and a centre angle of 260°. F…"}
+{"answer": "62.8", "id": "sector-area-and-arc-from-degrees/medium/1/a41bbb2dc739", "text": "A fan-shaped dance floor is a sector with radius 24 m and a centre angle of 150…"}
+{"answer": "12.6", "id": "sector-area-and-arc-from-degrees/medium/2/00737b601b00", "text": "A wedge of cake is a sector with radius 5 cm and a centre angle of 30°. Find th…"}
 {"answer": "62", "id": "senior-an-angle-in-a-semicircle-is-a-right/easy/0/210e18b0a676", "text": "Triangle ABC is inscribed in a circle so that AB is a diameter. Angle BAC is 28…"}
 {"answer": "51", "id": "senior-an-angle-in-a-semicircle-is-a-right/easy/1/396b11982f89", "text": "Triangle ABC is inscribed in a circle so that AB is a diameter. Angle BAC is 39…"}
 {"answer": "71", "id": "senior-an-angle-in-a-semicircle-is-a-right/easy/2/762b733b0651", "text": "Triangle ABC is inscribed in a circle so that AB is a diameter. Angle BAC is 19…"}
@@ -7924,6 +8008,18 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "1215", "id": "two-timetable-route-planning/easy/0/3936f3eff872", "text": "Tram timetable, Ashton to Carlow: leaves 1019 arrives 1045; leaves 1040 arrives…"}
+{"answer": "1238", "id": "two-timetable-route-planning/easy/1/71082fc31f85", "text": "Bus timetable, Hartley to Pemberton: leaves 1015 arrives 1059; leaves 1038 arri…"}
+{"answer": "1138", "id": "two-timetable-route-planning/easy/2/3621a0475e3d", "text": "Train timetable, Marlow to Bexley: leaves 1002 arrives 1036; leaves 1025 arrive…"}
+{"answer": "(a) 1055; (b) 16; (c) 1143; (d) 77", "id": "two-timetable-route-planning/exam/0/38f4dd9f86af", "text": "Bus timetable, Ashton to Carlow: leaves 1006 arrives 1050; leaves 1029 arrives …"}
+{"answer": "(a) 1144; (b) 23; (c) 1225; (d) 77", "id": "two-timetable-route-planning/exam/1/dbc321cf8707", "text": "Tram timetable, Ashton to Carlow: leaves 1009 arrives 1053; leaves 1036 arrives…"}
+{"answer": "(a) 1139; (b) 20; (c) 1231; (d) 100", "id": "two-timetable-route-planning/exam/2/3f434c853412", "text": "Bus timetable, Corrimal to Wattle Flat: leaves 1008 arrives 1052; leaves 1038 a…"}
+{"answer": "1048", "id": "two-timetable-route-planning/hard/0/8c03266cd479", "text": "Train timetable, Corrimal to Wattle Flat: leaves 1019 arrives 1103; leaves 1048…"}
+{"answer": "1010", "id": "two-timetable-route-planning/hard/1/1dfe8c5cf02d", "text": "Tram timetable, Ridgeway to Thornbury: leaves 1010 arrives 1044; leaves 1037 ar…"}
+{"answer": "1019", "id": "two-timetable-route-planning/hard/2/b277e530b122", "text": "Tram timetable, Hartley to Pemberton: leaves 1019 arrives 1053; leaves 1042 arr…"}
+{"answer": "83", "id": "two-timetable-route-planning/medium/0/56b8391634a4", "text": "Train timetable, Marlow to Bexley: leaves 1012 arrives 1056; leaves 1046 arrive…"}
+{"answer": "75", "id": "two-timetable-route-planning/medium/1/fd229fa34d03", "text": "Train timetable, Marlow to Bexley: leaves 1003 arrives 1029; leaves 1017 arrive…"}
+{"answer": "86", "id": "two-timetable-route-planning/medium/2/3b211c9710ee", "text": "Train timetable, Corrimal to Wattle Flat: leaves 1006 arrives 1032; leaves 1040…"}
 {"answer": "188", "id": "uc2-burnside-counting/easy/0/c0c0beab556c", "text": "A necklace has 11 beads, each of 2 possible colours. Necklaces that differ only…"}
 {"answer": "51", "id": "uc2-burnside-counting/easy/1/ca0f9b3331b3", "text": "How many different necklaces can be made by threading 5 beads onto a circular s…"}
 {"answer": "315", "id": "uc2-burnside-counting/easy/2/d8b21468f62f", "text": "A necklace has 7 beads, each of 3 possible colours. Necklaces that differ only …"}
@@ -7936,6 +8032,18 @@
 {"answer": "21", "id": "uc2-burnside-counting/medium/0/547839db4715", "text": "A bracelet has 4 beads, each of 3 possible colours. Bracelets that differ only …"}
 {"answer": "18", "id": "uc2-burnside-counting/medium/1/a3455f003a18", "text": "How many different bracelets can be made from 7 beads on a circular wire, each …"}
 {"answer": "231", "id": "uc2-burnside-counting/medium/2/96988bdb0b26", "text": "A bracelet has 4 beads, each of 6 possible colours. Bracelets that differ only …"}
+{"answer": "0.3209", "id": "uc2-clt-approximation-sums/easy/0/ef0559fc19e8", "text": "A courier van is loaded for a round in Perth. The number of parcels left at a s…"}
+{"answer": "0.3292", "id": "uc2-clt-approximation-sums/easy/1/37adf4b3e75a", "text": "A courier van is loaded for a round in Perth. The number of parcels left at a s…"}
+{"answer": "0.3352", "id": "uc2-clt-approximation-sums/easy/2/dc9b6a248873", "text": "A library self-checkout in Hobart records each visit. The number of books borro…"}
+{"answer": "(a) 99.00; (b) 8.58; (c) 0.7000; (d) 113", "id": "uc2-clt-approximation-sums/exam/0/422b16c9612f", "text": "A courier van's round in Perth has 60 stops. The number of parcels left at a st…"}
+{"answer": "(a) 70.00; (b) 6.48; (c) 0.3498; (d) 81", "id": "uc2-clt-approximation-sums/exam/1/14d4d5317cd8", "text": "A courier van's round in Perth has 50 stops. The number of parcels left at a st…"}
+{"answer": "(a) 120.00; (b) 7.21; (c) 0.3137; (d) 132", "id": "uc2-clt-approximation-sums/exam/2/6ab26713540f", "text": "On each of 50 independent stops, a Perth courier leaves X parcels, where P(X = …"}
+{"answer": "9", "id": "uc2-clt-approximation-sums/hard/0/6bed172af2fc", "text": "A cable car near Cairns is rated for a total load of 800 kg. The mass of each o…"}
+{"answer": "13", "id": "uc2-clt-approximation-sums/hard/1/ac8bab384564", "text": "A cable car near Cairns is rated for a total load of 1100 kg. The mass of each …"}
+{"answer": "78", "id": "uc2-clt-approximation-sums/hard/2/976cfe571ac2", "text": "The number of emails arriving at a Canberra office each day has a Poisson distr…"}
+{"answer": "0.0202", "id": "uc2-clt-approximation-sums/medium/0/08994428c0d5", "text": "The number of customers entering a Geelong cafe each hour has a Poisson distrib…"}
+{"answer": "0.0251", "id": "uc2-clt-approximation-sums/medium/1/6a24b6020c40", "text": "The number of calls to a Darwin helpline each day has a Poisson distribution wi…"}
+{"answer": "0.0256", "id": "uc2-clt-approximation-sums/medium/2/17d801c5530b", "text": "The number of customers entering a Geelong cafe each hour has a Poisson distrib…"}
 {"answer": "{4, 9, 14, 19}", "id": "uc2-cosets-and-index/easy/0/cbe8e1868946", "text": "In the group Z_20 under addition modulo 20, let H = ⟨15⟩ be the subgroup genera…"}
 {"answer": "{1, 6, 11, 16}", "id": "uc2-cosets-and-index/easy/1/14e874b245f9", "text": "In the group Z_20 under addition modulo 20, let H = ⟨15⟩ be the subgroup genera…"}
 {"answer": "{4, 14, 24}", "id": "uc2-cosets-and-index/easy/2/26b95ae73a66", "text": "In the group Z_30 under addition modulo 30, let H = ⟨20⟩ be the subgroup genera…"}
@@ -7948,6 +8056,18 @@
 {"answer": "{8, 13, 23, 28, 38, 43}", "id": "uc2-cosets-and-index/medium/0/34dd677d1d09", "text": "The units of Z_45 form a group G under multiplication modulo 45. Let H = ⟨41⟩ b…"}
 {"answer": "{7, 16, 34, 43}", "id": "uc2-cosets-and-index/medium/1/20156d537a65", "text": "The units of Z_45 form a group G under multiplication modulo 45. Let H = ⟨37⟩ b…"}
 {"answer": "{7, 22, 37}", "id": "uc2-cosets-and-index/medium/2/28beebf575a7", "text": "The units of Z_45 form a group G under multiplication modulo 45. Let H = ⟨16⟩ b…"}
+{"answer": "3/20", "id": "uc2-cramer-rao-lower-bound/easy/0/78af082aabac", "text": "The number of faults per 100 m of cable is modelled as Poisson with mean λ, and…"}
+{"answer": "9/20", "id": "uc2-cramer-rao-lower-bound/easy/1/0e130a79c2e7", "text": "A sample of 5 independent waiting times has density f(x; r) = r e^(-rx), x > 0.…"}
+{"answer": "3/1250", "id": "uc2-cramer-rao-lower-bound/easy/2/3a303be52fc6", "text": "Each of 100 independent trials succeeds with the same unknown probability p, an…"}
+{"answer": "(a) 1/2; (b) 1/2; (c) 0.00916; (d) 1/2", "id": "uc2-cramer-rao-lower-bound/exam/0/10dcc3622d25", "text": "A sample of n = 4 independent counts is drawn from a Poisson distribution with …"}
+{"answer": "(a) 2; (b) 1/16; (c) 0.02299; (d) 1/4", "id": "uc2-cramer-rao-lower-bound/exam/1/6c7448626ee2", "text": "A sample of n = 8 independent counts is drawn from a Poisson distribution with …"}
+{"answer": "(a) 2/3; (b) 3/8; (c) 0.01867; (d) 1/2", "id": "uc2-cramer-rao-lower-bound/exam/2/13118b34b1ab", "text": "The number of faults X in a length of cable follows P(X = k) = e^(-λ) λ^k/k! fo…"}
+{"answer": "1/240", "id": "uc2-cramer-rao-lower-bound/hard/0/38d37d285778", "text": "A sample of 20 independent observations has density f(x; θ) = (θ³/2) x² e^(-θx)…"}
+{"answer": "2/5", "id": "uc2-cramer-rao-lower-bound/hard/1/e943894ba3a7", "text": "Each of 10 independent trials succeeds with the same unknown probability p, and…"}
+{"answer": "32/45", "id": "uc2-cramer-rao-lower-bound/hard/2/1d33fb3e4761", "text": "Three independent measurements X1, X2, X3 are normal with unknown mean μ and kn…"}
+{"answer": "1/40", "id": "uc2-cramer-rao-lower-bound/medium/0/1643709d5cf1", "text": "The lifetimes of 10 independent components have density f(x) = r e^(-rx), x > 0…"}
+{"answer": "9/40", "id": "uc2-cramer-rao-lower-bound/medium/1/55059eed6cf7", "text": "A sample of 20 independent measurements is normal with known mean 0 and unknown…"}
+{"answer": "2/5", "id": "uc2-cramer-rao-lower-bound/medium/2/450a7ac6e551", "text": "A sample of 20 independent measurements is normal with known mean 0 and unknown…"}
 {"answer": "(1, 1)", "id": "uc2-dihedral-group-compositions/easy/0/81eee99b3fdf", "text": "In the dihedral group D_8 of order 16, r is a rotation with r^8 = e, s is a ref…"}
 {"answer": "(0, 1)", "id": "uc2-dihedral-group-compositions/easy/1/593cfaa0adee", "text": "In the dihedral group D_11 of order 22, r is a rotation with r^11 = e, s is a r…"}
 {"answer": "(10, 0)", "id": "uc2-dihedral-group-compositions/easy/2/e40cee7159d5", "text": "In the dihedral group D_12 of order 24, r is a rotation with r^12 = e, s is a r…"}
@@ -7960,6 +8080,126 @@
 {"answer": "(2, 0)", "id": "uc2-dihedral-group-compositions/medium/0/c3ebe60b8966", "text": "In the dihedral group D_6 of order 12, r is a rotation with r^6 = e, s is a ref…"}
 {"answer": "(5, 0)", "id": "uc2-dihedral-group-compositions/medium/1/d96467edc94b", "text": "In the dihedral group D_11 of order 22, r is a rotation with r^11 = e, s is a r…"}
 {"answer": "(1, 1)", "id": "uc2-dihedral-group-compositions/medium/2/0904dfa636bd", "text": "In the dihedral group D_5 of order 10, r is a rotation with r^5 = e, s is a ref…"}
+{"answer": "A, C, F, D, B, E", "id": "uc2-dijkstra-trace/easy/0/57bcbe47e774", "text": "A courier network joins towns A to F by roads, with lengths in kilometres: A–C …"}
+{"answer": "A, E, B, D, F, C", "id": "uc2-dijkstra-trace/easy/1/f73055e794e0", "text": "A weighted graph has vertices A to F and edges A–B 5, A–E 4, B–E 1, B–F 8, C–D …"}
+{"answer": "A, C, B, E, F, D", "id": "uc2-dijkstra-trace/easy/2/e1acd225561d", "text": "Trains run between stations A to F, with travel times in minutes: A–B 2, A–C 1,…"}
+{"answer": "(a) A, G, D, F, B, C, E; (b) 10; (c) A, G, B, E; (d) 30", "id": "uc2-dijkstra-trace/exam/0/ba8b85def174", "text": "A courier company serves towns A to G. The road lengths in kilometres are A–D 5…"}
+{"answer": "(a) A, G, C, D, E, F, B; (b) 9; (c) A, G, C, B; (d) 45", "id": "uc2-dijkstra-trace/exam/1/2a801a34651a", "text": "A courier company serves towns A to G. The road lengths in kilometres are A–C 4…"}
+{"answer": "(a) A, F, C, B, D, E, G; (b) 12; (c) A, F, B, G; (d) 24", "id": "uc2-dijkstra-trace/exam/2/65f36d964607", "text": "Towns A to G are joined by roads with lengths in kilometres: A–B 8, A–C 8, A–D …"}
+{"answer": "D, C, B, E, A, F, H", "id": "uc2-dijkstra-trace/hard/0/227ca4bb1fcb", "text": "A directed graph has vertices A to H and arcs A→E 2, A→H 6, B→A 8, B→C 7, C→B 1…"}
+{"answer": "B, H, C, F, G, A, E", "id": "uc2-dijkstra-trace/hard/1/892481f15577", "text": "A directed graph has vertices A to H and arcs A→E 1, B→C 6, B→H 1, C→A 6, D→B 6…"}
+{"answer": "C, A, D, F, E, G, H", "id": "uc2-dijkstra-trace/hard/2/3ef228fc34b1", "text": "Eight depots A to H are linked by one-way roads, written from → to with the len…"}
+{"answer": "A, C, E, F, G, B, D", "id": "uc2-dijkstra-trace/medium/0/c03a9c31e76f", "text": "The road network between towns A to G has these lengths in kilometres: A–C 5, A…"}
+{"answer": "A, C, F, B, D, E, G", "id": "uc2-dijkstra-trace/medium/1/e4b42c353213", "text": "A delivery drone can fly between sites A to G along the legs A–C 4, A–F 4, B–C …"}
+{"answer": "A, C, D, F, G, B, E", "id": "uc2-dijkstra-trace/medium/2/c372dc32a13b", "text": "The road network between towns A to G has these lengths in kilometres: A–B 6, A…"}
+{"answer": "19/6", "id": "uc2-estimator-bias-and-mse/easy/0/e584aac19e1b", "text": "Three independent measurements X1, X2, X3 each have mean 10. The estimator T = …"}
+{"answer": "-5/2", "id": "uc2-estimator-bias-and-mse/easy/1/42dcea61068a", "text": "A random sample X1, ..., X10 is drawn from a population with mean 15. To estima…"}
+{"answer": "-3", "id": "uc2-estimator-bias-and-mse/easy/2/9c231373f492", "text": "Readings X1, ..., X10 from a calibrated sensor are independent with variance 30…"}
+{"answer": "(a) 180/11; (b) -18/11; (c) 54/11; (d) 11/5", "id": "uc2-estimator-bias-and-mse/exam/0/7a51eac306ad", "text": "A reading is uniformly distributed on (0, θ), where in truth θ = 18. A random s…"}
+{"answer": "(a) 80/11; (b) -8/11; (c) 32/33; (d) 11/5", "id": "uc2-estimator-bias-and-mse/exam/1/fd5621fc61e1", "text": "A reading is uniformly distributed on (0, θ), where in truth θ = 8. A random sa…"}
+{"answer": "(a) 18; (b) -2; (c) 80/11; (d) 55/27", "id": "uc2-estimator-bias-and-mse/exam/2/bab0d1c1e9ff", "text": "To estimate θ, the endpoint of a uniform distribution on (0, θ), a surveyor tak…"}
+{"answer": "16/7", "id": "uc2-estimator-bias-and-mse/hard/0/953e38a94d59", "text": "The waiting times at a depot are uniform on (0, θ), where in fact θ = 8 minutes…"}
+{"answer": "20/3", "id": "uc2-estimator-bias-and-mse/hard/1/f170feec91c7", "text": "The waiting times at a depot are uniform on (0, θ), where in fact θ = 10 minute…"}
+{"answer": "9/20", "id": "uc2-estimator-bias-and-mse/hard/2/a1d1453910fa", "text": "A random sample of 8 readings is uniform on (0, θ), where θ = 6 in truth. The m…"}
+{"answer": "375/64", "id": "uc2-estimator-bias-and-mse/medium/0/dceaad50894e", "text": "A sample of size 8 comes from a normal population with variance 5. Let Q = Σ(Xi…"}
+{"answer": "29/25", "id": "uc2-estimator-bias-and-mse/medium/1/f3b1603ccbf5", "text": "A sample of size 15 comes from a normal population with variance 3. Let Q = Σ(X…"}
+{"answer": "1309/50", "id": "uc2-estimator-bias-and-mse/medium/2/8c2217ad2311", "text": "Three independent measurements X1, X2, X3 each have mean 12 and variance 4. The…"}
+{"answer": "59", "id": "uc2-finite-field-arithmetic-gfp/easy/0/81c3f6a39162", "text": "Find the residue x from 0 to 60 with 4x + 1 ≡ 54 (mod 61)."}
+{"answer": "84", "id": "uc2-finite-field-arithmetic-gfp/easy/1/e667143a1f4a", "text": "Find the residue x from 0 to 96 with 10x + 71 ≡ 38 (mod 97)."}
+{"answer": "11", "id": "uc2-finite-field-arithmetic-gfp/easy/2/f4a442405e3f", "text": "Over the finite field of 37 elements, the equation 20x + 15 = 13 has exactly on…"}
+{"answer": "(a) 77; (b) 72; (c) -38; (d) {24, 53}", "id": "uc2-finite-field-arithmetic-gfp/exam/0/540a6d42c8e7", "text": "Work in the field GF(79) = Z_79, and let f(x) = 39x² + 78x + 75. Unless a part …"}
+{"answer": "(a) 67; (b) 63; (c) -46; (d) {17, 38}", "id": "uc2-finite-field-arithmetic-gfp/exam/1/4710163789c6", "text": "All arithmetic is in GF(83), the integers modulo the prime 83, and f(x) = 57x² …"}
+{"answer": "(a) 43; (b) 17; (c) -32; (d) {4, 19}", "id": "uc2-finite-field-arithmetic-gfp/exam/2/5563d8aa7cc9", "text": "Let f(x) = 35x² + 41x + 28 be a polynomial over the field GF(47) = Z_47. Unless…"}
+{"answer": "33", "id": "uc2-finite-field-arithmetic-gfp/hard/0/40b86bd30481", "text": "The quadratic 25x² + 24x + 19 has two roots in GF(43). Give the smaller root, a…"}
+{"answer": "26", "id": "uc2-finite-field-arithmetic-gfp/hard/1/7bb7cb33cd60", "text": "Solve 60x² + 66x + 1 = 0 over Z_67. It has two solutions among the residues 0 t…"}
+{"answer": "13", "id": "uc2-finite-field-arithmetic-gfp/hard/2/b0175af91ed7", "text": "The quadratic 18x² + 44x + 4 has two roots in GF(67). Give the smaller root, as…"}
+{"answer": "20", "id": "uc2-finite-field-arithmetic-gfp/medium/0/d827db981263", "text": "Working modulo 31, where every non-zero residue has an inverse, what is 3/21 + …"}
+{"answer": "15", "id": "uc2-finite-field-arithmetic-gfp/medium/1/46b879250c6f", "text": "Working modulo 83, where every non-zero residue has an inverse, what is 60/78 +…"}
+{"answer": "17", "id": "uc2-finite-field-arithmetic-gfp/medium/2/e4c977270ba8", "text": "Working modulo 73, where every non-zero residue has an inverse, what is 30/15 +…"}
+{"answer": "9", "id": "uc2-first-isomorphism-theorem-orders/easy/0/6d07a2bc4247", "text": "The map φ: Z_27 → Z_30 given by φ(x) = 20x (mod 30) is a homomorphism. Find the…"}
+{"answer": "3", "id": "uc2-first-isomorphism-theorem-orders/easy/1/2f8de497f024", "text": "Let φ: Z_15 → Z_20 be the homomorphism φ(x) = 12x mod 20. How many elements x o…"}
+{"answer": "9", "id": "uc2-first-isomorphism-theorem-orders/easy/2/a1853365dc1f", "text": "Let φ: Z_81 → Z_18 be the homomorphism φ(x) = 10x mod 18. How many elements x o…"}
+{"answer": "(a) 15; (b) 45; (c) 15; (d) 45", "id": "uc2-first-isomorphism-theorem-orders/exam/0/596fd8d2e993", "text": "Let φ(x, y) = 2x + 18y (mod 30), a homomorphism from G = Z_45 × Z_15 to Z_30. (…"}
+{"answer": "(a) 6; (b) 18; (c) 6; (d) 18", "id": "uc2-first-isomorphism-theorem-orders/exam/1/628698c4b025", "text": "Let φ(x, y) = 30x + 12y (mod 36), a homomorphism from G = Z_18 × Z_6 to Z_36. (…"}
+{"answer": "(a) 10; (b) 30; (c) 5; (d) 30", "id": "uc2-first-isomorphism-theorem-orders/exam/2/ecd451cfa024", "text": "Let φ(x, y) = 32x + 28y (mod 40), a homomorphism from G = Z_10 × Z_30 to Z_40. …"}
+{"answer": "3", "id": "uc2-first-isomorphism-theorem-orders/hard/0/e3bcbddd9494", "text": "Let U be the group of units of Z_35 and consider φ: U → U, φ(x) = x^4. Find the…"}
+{"answer": "2", "id": "uc2-first-isomorphism-theorem-orders/hard/1/81e9fa7fe02a", "text": "Raising to the power 2 is a homomorphism φ(x) = x^2 of the unit group U of Z_16…"}
+{"answer": "5", "id": "uc2-first-isomorphism-theorem-orders/hard/2/e8c30225b216", "text": "Raising to the power 6 is a homomorphism φ(x) = x^6 of the unit group U of Z_99…"}
+{"answer": "54", "id": "uc2-first-isomorphism-theorem-orders/medium/0/4feee16180cb", "text": "The map φ: Z_27 × Z_18 → Z_18 given by φ(x, y) = 16x + 10y (mod 18) is a homomo…"}
+{"answer": "18", "id": "uc2-first-isomorphism-theorem-orders/medium/1/09d6a264af64", "text": "φ(x, y) = 12x + 10y (mod 18) defines a homomorphism from Z_9 × Z_18 to Z_18. Ho…"}
+{"answer": "20", "id": "uc2-first-isomorphism-theorem-orders/medium/2/8777cfa10f1c", "text": "Let φ: Z_10 × Z_40 → Z_60 be the homomorphism φ(x, y) = 12x + 9y mod 60. Find |…"}
+{"answer": "4/5", "id": "uc2-fixed-point-iteration-convergence/easy/0/aedfc0a3a7e9", "text": "The iteration xₙ₊₁ = g(xₙ), with g(x) = (x² + 24)/10 and starting value x₀ = 5,…"}
+{"answer": "8/11", "id": "uc2-fixed-point-iteration-convergence/easy/1/fba94be0bed0", "text": "The iteration xₙ₊₁ = g(xₙ), with g(x) = (x² + 112)/22 and starting value x₀ = 2…"}
+{"answer": "3/4", "id": "uc2-fixed-point-iteration-convergence/easy/2/2d631c0ac441", "text": "The iteration xₙ₊₁ = g(xₙ), with g(x) = (x² + 15)/8 and starting value x₀ = 1, …"}
+{"answer": "(a) 4; (b) 8/13; (c) 18/13; (d) 28", "id": "uc2-fixed-point-iteration-convergence/exam/0/4da1a2ef0411", "text": "The iteration xₙ₊₁ = g(xₙ) uses g(x) = (x² + 36)/13 and starts at x₀ = 0. (a) F…"}
+{"answer": "(a) 6; (b) 3/4; (c) 5/4; (d) 34", "id": "uc2-fixed-point-iteration-convergence/exam/1/15d08036b9fe", "text": "The iteration xₙ₊₁ = g(xₙ) uses g(x) = (x² + 60)/16 and starts at x₀ = 0. (a) F…"}
+{"answer": "(a) 2; (b) 1/2; (c) 3/2; (d) 15", "id": "uc2-fixed-point-iteration-convergence/exam/2/c69988398593", "text": "The iteration xₙ₊₁ = g(xₙ) uses g(x) = (x² + 12)/8 and starts at x₀ = 0. (a) Fi…"}
+{"answer": "-1/8", "id": "uc2-fixed-point-iteration-convergence/hard/0/1e3494500461", "text": "The roots of 4x² + 16x + 12 = 0 are found by the iteration xₙ₊₁ = xₙ − k(4x² + …"}
+{"answer": "-1/15", "id": "uc2-fixed-point-iteration-convergence/hard/1/1cc876780c5e", "text": "The roots of 3x² − 21x + 18 = 0 are found by the iteration xₙ₊₁ = xₙ − k(3x² − …"}
+{"answer": "-1/28", "id": "uc2-fixed-point-iteration-convergence/hard/2/31ecada48ab3", "text": "The roots of 4x² − 52x + 120 = 0 are found by the iteration xₙ₊₁ = xₙ − k(4x² −…"}
+{"answer": "19", "id": "uc2-fixed-point-iteration-convergence/medium/0/6a30872206e0", "text": "On the interval [0, 3] the function g(x) = (x² + 20)/12 maps the interval into …"}
+{"answer": "33", "id": "uc2-fixed-point-iteration-convergence/medium/1/8c4b0828080e", "text": "On the interval [0, 3] the function g(x) = (x² + 14)/9 maps the interval into i…"}
+{"answer": "28", "id": "uc2-fixed-point-iteration-convergence/medium/2/eec98aba33cf", "text": "On the interval [0, 4] the function g(x) = (x² + 36)/13 maps the interval into …"}
+{"answer": "1/8", "id": "uc2-gamma-beta-moments/easy/0/d7247b186536", "text": "The time, in hours, a technician spends on a repair has density f(x) = 16 x e^(…"}
+{"answer": "4/7", "id": "uc2-gamma-beta-moments/easy/1/0cb66ad7508b", "text": "The fraction of its capacity that a Hobart reservoir is filled to on a random d…"}
+{"answer": "5/3", "id": "uc2-gamma-beta-moments/easy/2/6bb24a195f6f", "text": "The time, in minutes, to complete a customer's order at a Geelong cafe has dens…"}
+{"answer": "(a) 12; (b) 2/5; (c) 1/25; (d) 0.200", "id": "uc2-gamma-beta-moments/exam/0/240a7c323712", "text": "A random proportion X in (0, 1) has probability density function f(x) = c x (1 …"}
+{"answer": "(a) 60; (b) 4/7; (c) 3/98; (d) 0.175", "id": "uc2-gamma-beta-moments/exam/1/1be0e824d39a", "text": "At a Cairns nursery the proportion X of seedlings that survive is modelled by a…"}
+{"answer": "(a) 280; (b) 5/9; (c) 2/81; (d) 0.157", "id": "uc2-gamma-beta-moments/exam/2/ce0b838587ac", "text": "A random proportion X in (0, 1) has probability density function f(x) = c x^4 (…"}
+{"answer": "8/3", "id": "uc2-gamma-beta-moments/hard/0/525b311bf217", "text": "The total rainfall, in cm, in a week at a Darwin station has a density of the f…"}
+{"answer": "128/3", "id": "uc2-gamma-beta-moments/hard/1/29481f085d33", "text": "The time, in minutes, to complete a customer's order at a Geelong cafe has a de…"}
+{"answer": "3", "id": "uc2-gamma-beta-moments/hard/2/1c76aa1c0a3e", "text": "A waiting time X, in hours, has a gamma distribution with mean 1 and variance 1…"}
+{"answer": "12", "id": "uc2-gamma-beta-moments/medium/0/14b863a5fd46", "text": "The time, in hours, a technician spends on a repair has density f(x) = (1/2) x^…"}
+{"answer": "5/196", "id": "uc2-gamma-beta-moments/medium/1/a7bab22e184a", "text": "The proportion of a day's solar output that a Mildura farm uses on site has den…"}
+{"answer": "1/4", "id": "uc2-gamma-beta-moments/medium/2/a52f4ff5d700", "text": "The time, in minutes, to complete a customer's order at a Geelong cafe has dens…"}
+{"answer": "16/3", "id": "uc2-gauss-legendre-2pt/easy/0/ef4c33939938", "text": "Approximate ∫ f(x) dx from x = −1 to x = 1, where f(x) = 3x⁴ + 3x³ + x² + 3x + …"}
+{"answer": "-10/3", "id": "uc2-gauss-legendre-2pt/easy/1/fd6638aa053f", "text": "Approximate ∫ f(x) dx from x = −1 to x = 1, where f(x) = 3x⁴ − x³ + 3x² − 2x − …"}
+{"answer": "44/9", "id": "uc2-gauss-legendre-2pt/easy/2/7b7f0daea6f0", "text": "Approximate ∫ f(x) dx from x = −1 to x = 1, where f(x) = −2x⁴ − x² − 2x + 3, us…"}
+{"answer": "(a) -1528/9; (b) -2552/15; (c) 16/45; (d) 0.21", "id": "uc2-gauss-legendre-2pt/exam/0/877912e2eb54", "text": "The integral ∫ f(x) dx from x = 1 to x = 3, where f(x) = −2x⁴ − 3x³ − 2x² + 2, …"}
+{"answer": "(a) -136/9; (b) -104/5; (c) 256/45; (d) 27.35", "id": "uc2-gauss-legendre-2pt/exam/1/a0eb96bb448e", "text": "The integral ∫ f(x) dx from x = −2 to x = 2, where f(x) = −x⁴ − 3x³ − 3x² + x +…"}
+{"answer": "(a) -80/9; (b) -136/15; (c) 8/45; (d) 1.96", "id": "uc2-gauss-legendre-2pt/exam/2/95316324ff8d", "text": "The integral ∫ f(x) dx from x = 0 to x = 2, where f(x) = −x⁴ − x³ − x² + 3x − 1…"}
+{"answer": "39/314", "id": "uc2-gauss-legendre-2pt/hard/0/8d4097a383e0", "text": "Approximate ∫ 1/(x² + 1) dx from x = 3 to x = 5 using the two-point Gauss-Legen…"}
+{"answer": "9/13", "id": "uc2-gauss-legendre-2pt/hard/1/f3f51a19c8e1", "text": "Approximate ∫ 1/(x + 2) dx from x = 2 to x = 6 using the two-point Gauss-Legend…"}
+{"answer": "78/157", "id": "uc2-gauss-legendre-2pt/hard/2/a195888478cd", "text": "Approximate ∫ 1/(x² + 3) dx from x = 0 to x = 2 using the two-point Gauss-Legen…"}
+{"answer": "88/9", "id": "uc2-gauss-legendre-2pt/medium/0/f361eacef921", "text": "Approximate ∫ f(x) dx from x = −2 to x = 0, where f(x) = −x⁴ − 3x³ + 3x² − x − …"}
+{"answer": "1330/9", "id": "uc2-gauss-legendre-2pt/medium/1/33620a3a18a1", "text": "Approximate ∫ f(x) dx from x = 1 to x = 3, where f(x) = 2x⁴ + x³ + 2x² + 3x + 1…"}
+{"answer": "64/3", "id": "uc2-gauss-legendre-2pt/medium/2/e451cb416090", "text": "Approximate ∫ f(x) dx from x = −2 to x = 0, where f(x) = 3x⁴ + x² − 2x − 2, usi…"}
+{"answer": "M = [[-9, 3, 9], [0, 16/3, 1], [0, -14/3, -9]]", "id": "uc2-gaussian-elimination-partial-pivoting/easy/0/8bd9d8ddf60a", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "M = [[6, 1, 9], [0, 20/3, -8], [0, -25/6, 23/2]]", "id": "uc2-gaussian-elimination-partial-pivoting/easy/1/fedacf3e9a4c", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "M = [[-6, 9, 3], [0, -7, -3], [0, -7/2, -5/2]]", "id": "uc2-gaussian-elimination-partial-pivoting/easy/2/f59a27499387", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "(a) -7; (b) 2/7; (c) 33/7; (d) 174", "id": "uc2-gaussian-elimination-partial-pivoting/exam/0/7c8c64d49500", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "(a) 7; (b) 4/7; (c) 20/7; (d) -15", "id": "uc2-gaussian-elimination-partial-pivoting/exam/1/236ca768584c", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "(a) -9; (b) -1/3; (c) 16/3; (d) -597", "id": "uc2-gaussian-elimination-partial-pivoting/exam/2/067d3cc61a33", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "x = [[1], [-1], [0]]", "id": "uc2-gaussian-elimination-partial-pivoting/hard/0/ee1c7fa3e6af", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "x = [[3], [4], [-1]]", "id": "uc2-gaussian-elimination-partial-pivoting/hard/1/6e2d181b02b9", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "x = [[3], [-2], [4]]", "id": "uc2-gaussian-elimination-partial-pivoting/hard/2/8bc4545d14f1", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "U = [[8, -6, 2], [0, -21/4, 19/4], [0, 0, -50/7]]", "id": "uc2-gaussian-elimination-partial-pivoting/medium/0/1b680a00f9f7", "text": "Follow the partial pivoting rule: before clearing a column, interchange rows so…"}
+{"answer": "U = [[8, 8, 8], [0, -9, -5], [0, 0, -2]]", "id": "uc2-gaussian-elimination-partial-pivoting/medium/1/f7338bf3f2f4", "text": "Eliminate with partial pivoting. At each stage the pivot is the entry of greate…"}
+{"answer": "U = [[9, -6, 9], [0, -11/3, 3], [0, 0, 64/11]]", "id": "uc2-gaussian-elimination-partial-pivoting/medium/2/be70602abdc7", "text": "Use partial pivoting: at each stage, first swap into the pivot position the row…"}
+{"answer": "2059", "id": "uc2-generating-function-coefficient/easy/0/8ee331370c2a", "text": "Find the coefficient of x^6 in the expansion of 1/((1 − 3x)(1 − 2x)) as a power…"}
+{"answer": "1365", "id": "uc2-generating-function-coefficient/easy/1/0568c13b805f", "text": "Write 1/((1 − 4x)(1 − x)) as a power series in x and give the term in x^5, with…"}
+{"answer": "1093", "id": "uc2-generating-function-coefficient/easy/2/0c0ff20f5e20", "text": "Expand 1/((1 − 3x)(1 − x)) as a power series in x. What is the coefficient of x…"}
+{"answer": "(a) 78; (b) 36; (c) 21; (d) 24", "id": "uc2-generating-function-coefficient/exam/0/db57cf5a3ae5", "text": "Priya shares 11 identical tickets among three friends: Ana, Ben and Cai. Ana ca…"}
+{"answer": "(a) 78; (b) 36; (c) 28; (d) 20", "id": "uc2-generating-function-coefficient/exam/1/68e890e3db29", "text": "A coach hands out 11 identical medals to three players, Dev, Eli and Fay. Dev m…"}
+{"answer": "(a) 55; (b) 28; (c) 15; (d) 15", "id": "uc2-generating-function-coefficient/exam/2/3ab542fd0560", "text": "Priya shares 9 identical tickets among three friends: Ana, Ben and Cai. Ana can…"}
+{"answer": "3", "id": "uc2-generating-function-coefficient/hard/0/71fb66f85851", "text": "How many ordered triples (p, q, r) of whole numbers, each at most 5, have p + q…"}
+{"answer": "10", "id": "uc2-generating-function-coefficient/hard/1/28c1fc3b5566", "text": "How many ordered triples (p, q, r) of whole numbers, each at most 5, have p + q…"}
+{"answer": "225", "id": "uc2-generating-function-coefficient/hard/2/6d97303f313c", "text": "Expand (1 − x^5)^2/(1 − x)^4 as a power series in x. What is the coefficient of…"}
+{"answer": "560", "id": "uc2-generating-function-coefficient/medium/0/c2cd871604c6", "text": "The generating function G(x) = x^3/(1 − 2x)^4 has the series G(x) = Σ gₙxⁿ. Fin…"}
+{"answer": "2835", "id": "uc2-generating-function-coefficient/medium/1/1f755d9debe0", "text": "Expand x^3/(1 − 3x)^4 as a power series in x. What is the coefficient of x^7?"}
+{"answer": "672", "id": "uc2-generating-function-coefficient/medium/2/9a7924424957", "text": "Expand x^2/(1 − 2x)^3 as a power series in x. What is the coefficient of x^7?"}
+{"answer": "6", "id": "uc2-generating-function-partition-counting/easy/0/d749c21b1351", "text": "A bag holds plenty of 2-point, 8-point and 9-point tokens. In how many differen…"}
+{"answer": "9", "id": "uc2-generating-function-partition-counting/easy/1/27d1c6bf1c1b", "text": "How many partitions of 19 have every part equal to 2, 3 or 5?"}
+{"answer": "7", "id": "uc2-generating-function-partition-counting/easy/2/29a29aad28c1", "text": "In how many ways can 21 be written as a sum in which every term is 2, 4 or 5? S…"}
+{"answer": "(a) 30; (b) 28; (c) 27; (d) 85", "id": "uc2-generating-function-partition-counting/exam/0/da15c31ddf88", "text": "Leah needs exactly 63 credits on an arcade card. She tops up with tokens worth …"}
+{"answer": "(a) 8; (b) 7; (c) 6; (d) 21", "id": "uc2-generating-function-partition-counting/exam/1/3d6aea9a5e4a", "text": "Tickets for a school fair are made up from stamps worth 1, 3, 4 and 7 points. A…"}
+{"answer": "(a) 13; (b) 12; (c) 11; (d) 36", "id": "uc2-generating-function-partition-counting/exam/2/c4a2540a691f", "text": "A game awards 39 points to the winner. Scores come only from 1-point, 3-point, …"}
+{"answer": "42", "id": "uc2-generating-function-partition-counting/hard/0/75b9b7b18141", "text": "The school canteen till holds only 4 of the one-dollar coins and only 4 of the …"}
+{"answer": "12", "id": "uc2-generating-function-partition-counting/hard/1/252d5eb8351b", "text": "The school canteen till holds only 3 of the one-dollar coins and only 4 of the …"}
+{"answer": "9", "id": "uc2-generating-function-partition-counting/hard/2/f4087922ee35", "text": "Count the ways to make $27 from one-dollar coins, two-dollar coins, five-dollar…"}
+{"answer": "5", "id": "uc2-generating-function-partition-counting/medium/0/380e95b6794d", "text": "6 cards are numbered 1 to 6. In how many ways can some of the cards be chosen s…"}
+{"answer": "5", "id": "uc2-generating-function-partition-counting/medium/1/90d26017975f", "text": "6 cards are numbered 1 to 6. In how many ways can some of the cards be chosen s…"}
+{"answer": "7", "id": "uc2-generating-function-partition-counting/medium/2/d7b3f02a909f", "text": "How many partitions of 27 have distinct parts, none larger than 8?"}
 {"answer": "n h = u, n w = z, x x = e", "id": "uc2-group-table-check/easy/0/cc57f70de51a", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
 {"answer": "q p = s, q z = g, s p = q, s z = y, z g = s", "id": "uc2-group-table-check/easy/1/698b83b1acbf", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
 {"answer": "f z = u, s u = f, u w = s, w z = s, z w = u", "id": "uc2-group-table-check/easy/2/189e82aa4dd4", "text": "The table below is the Cayley table of a group under the operation ∘; the entry…"}
@@ -7984,6 +8224,78 @@
 {"answer": "3", "id": "uc2-homomorphism-kernel-image/medium/0/6eb92e87b62d", "text": "The units of Z_84 form a group G under multiplication modulo 84. The map φ(x) =…"}
 {"answer": "3", "id": "uc2-homomorphism-kernel-image/medium/1/0dbe4ac19310", "text": "The units of Z_65 form a group G under multiplication modulo 65. The map φ(x) =…"}
 {"answer": "4", "id": "uc2-homomorphism-kernel-image/medium/2/1103652ee29f", "text": "The units of Z_16 form a group G under multiplication modulo 16. The map φ(x) =…"}
+{"answer": "-3.04000", "id": "uc2-improved-euler-step/easy/0/e2a1902833e7", "text": "Given y′ = 3x + y, y(−1) = −2, approximate y(−0.8) using one step of Heun's met…"}
+{"answer": "-1.71875", "id": "uc2-improved-euler-step/easy/1/5fe2691f721c", "text": "Given y′ = −2x − y, y(2) = −1, approximate y(2.25) using one step of Heun's met…"}
+{"answer": "0.62500", "id": "uc2-improved-euler-step/easy/2/7d8eeb8bc068", "text": "Given y′ = −2x − y, y(2) = 2, approximate y(2.25) using one step of Heun's meth…"}
+{"answer": "(a) -2.00000; (b) -2.40000; (c) -1.80000; (d) -2.38000", "id": "uc2-improved-euler-step/exam/0/136520e321b2", "text": "For y′ = 3x + y, y(0) = −2, the improved Euler (Heun) method with h = 0.2 advan…"}
+{"answer": "(a) -1.00000; (b) 0.50000; (c) 0.50000; (d) 0.87500", "id": "uc2-improved-euler-step/exam/1/06c736836874", "text": "A function y satisfies y′ = 2x − y, y(0) = 1. One step of the improved Euler me…"}
+{"answer": "(a) 9.00000; (b) 4.80000; (c) 22.84000; (d) 6.18400", "id": "uc2-improved-euler-step/exam/2/1d31bf8590d9", "text": "The problem y′ = y² − x, y(0) = 3 is stepped once, by Heun's method, with h = 0…"}
+{"answer": "1.51408", "id": "uc2-improved-euler-step/hard/0/a728140038bd", "text": "A function y satisfies y′ = x² + y, y(0) = 1. Use two steps of the improved Eul…"}
+{"answer": "1.60924", "id": "uc2-improved-euler-step/hard/1/36935c7197de", "text": "Given y′ = xy − y, y(2) = 1, approximate y(2.4) using two steps of Heun's metho…"}
+{"answer": "0.85486", "id": "uc2-improved-euler-step/hard/2/8380f0bfb270", "text": "The initial value problem y′ = −y² + 2x, y(0) = 1 is solved numerically with tw…"}
+{"answer": "-0.56250", "id": "uc2-improved-euler-step/medium/0/cea36f1f86a8", "text": "The initial value problem y′ = y² + x, y(1) = −1 is solved numerically with one…"}
+{"answer": "2.98800", "id": "uc2-improved-euler-step/medium/1/7585a40a7b97", "text": "The initial value problem y′ = 2xy, y(2) = 2 is solved numerically with one ste…"}
+{"answer": "2.35950", "id": "uc2-improved-euler-step/medium/2/b3f81d6b144c", "text": "The initial value problem y′ = y² − x, y(1) = 2 is solved numerically with one …"}
+{"answer": "1/16", "id": "uc2-interpolation-error-bound/easy/0/96f137c84cf9", "text": "Interpolate f(x) = sin 2x at the nodes x = 2, 2.5, 3 with a polynomial p of deg…"}
+{"answer": "1/2", "id": "uc2-interpolation-error-bound/easy/1/d1f768497e67", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 4x at x = 1, 1.5, 2. …"}
+{"answer": "27/128", "id": "uc2-interpolation-error-bound/easy/2/3795a7616fd5", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 3x at x = 1, 1.5, 2. …"}
+{"answer": "(a) 540; (b) 3/8; (c) 135/4", "id": "uc2-interpolation-error-bound/exam/0/a72ee2f01ccd", "text": "The function f(x) = x⁵ is approximated by the quadratic p that passes through f…"}
+{"answer": "(a) 2; (b) 3/8; (c) 1/8", "id": "uc2-interpolation-error-bound/exam/1/454181352783", "text": "A quadratic p interpolates f(x) = ln x at the nodes x = 1, 2, 3. (a) Find the l…"}
+{"answer": "(a) 6; (b) 3/64; (c) 3/64", "id": "uc2-interpolation-error-bound/exam/2/376374656757", "text": "The function f(x) = 1/x is approximated by the quadratic p that passes through …"}
+{"answer": "5", "id": "uc2-interpolation-error-bound/hard/0/8b0e53ff1842", "text": "Values of f(x) = 1/x for x in [3, 4] are to be read from a table with equal ste…"}
+{"answer": "4", "id": "uc2-interpolation-error-bound/hard/1/8d50bf8af8ec", "text": "Linear interpolation between equally spaced table entries is used for f(x) = ln…"}
+{"answer": "45", "id": "uc2-interpolation-error-bound/hard/2/f720ab6685e1", "text": "A table of f(x) = ln x is to be built on the interval [1, 5] with equally space…"}
+{"answer": "21/64", "id": "uc2-interpolation-error-bound/medium/0/803768a23324", "text": "The function f(x) = 1/x is approximated by the polynomial p of degree at most 2…"}
+{"answer": "2679075/32768", "id": "uc2-interpolation-error-bound/medium/1/ac63139878d5", "text": "Interpolate f(x) = x⁷ at the nodes x = 3, 3.5, 4, 4.5 with a polynomial p of de…"}
+{"answer": "1010625/32768", "id": "uc2-interpolation-error-bound/medium/2/c322790a811e", "text": "A polynomial p of degree at most 3 agrees with f(x) = x⁷ at x = 1, 1.5, 2, 2.5.…"}
+{"answer": "(1, 1, 1)", "id": "uc2-irreducibility-test-over-zp/easy/0/7fe82d90e39b", "text": "Factor f = x^3 + x^2 + 3x completely into irreducibles in Z_5[x] (coefficients …"}
+{"answer": "(1, 1, 1)", "id": "uc2-irreducibility-test-over-zp/easy/1/e6bddc5fe531", "text": "Let f = x^3 + x^2 in Z_5[x], with coefficients taken modulo 5. Factor f into ir…"}
+{"answer": "(1, 2)", "id": "uc2-irreducibility-test-over-zp/easy/2/cfa1b0948dcb", "text": "Over Z_7, the polynomial f = x^3 + x^2 + 2x + 5 is a product of irreducible pol…"}
+{"answer": "(a) 2; (b) 3; (c) (1, 1, 3); (d) 2", "id": "uc2-irreducibility-test-over-zp/exam/0/49624dd91e47", "text": "Let f = x^5 + 2x^3 + x + 2 in Z_3[x], with coefficients taken modulo 3. (a) How…"}
+{"answer": "(a) 5; (b) 0; (c) (1, 1, 1, 1, 1); (d) 3", "id": "uc2-irreducibility-test-over-zp/exam/1/6ff15925bd41", "text": "Over Z_3 (coefficients modulo 3), let f = x^5 + x^3 + x. (a) How many linear fa…"}
+{"answer": "(a) 2; (b) 3; (c) (1, 1, 3); (d) 2", "id": "uc2-irreducibility-test-over-zp/exam/2/de77aec50645", "text": "Let f = x^5 + 2x^4 + x^3 + x^2 in Z_3[x], with coefficients taken modulo 3. (a)…"}
+{"answer": "(1, 2, 3)", "id": "uc2-irreducibility-test-over-zp/hard/0/ba38f3f32aa1", "text": "Factor f = x^6 + x^4 + x + 1 completely into irreducibles in Z_2[x] (coefficien…"}
+{"answer": "(1, 5)", "id": "uc2-irreducibility-test-over-zp/hard/1/483072254689", "text": "Over Z_2, the polynomial f = x^6 + x^4 + x^3 + x^2 + x is a product of irreduci…"}
+{"answer": "(1, 1, 1, 3)", "id": "uc2-irreducibility-test-over-zp/hard/2/19a5e7634180", "text": "Let f = x^6 + x^3 + x + 1 in Z_2[x], with coefficients taken modulo 2. Factor f…"}
+{"answer": "(1, 2, 2)", "id": "uc2-irreducibility-test-over-zp/medium/0/a6be9bc7b440", "text": "Over Z_3, the polynomial f = x^5 + 2x^4 + 2x^2 + 2x is a product of irreducible…"}
+{"answer": "(1, 3)", "id": "uc2-irreducibility-test-over-zp/medium/1/dd463df27457", "text": "Factor f = x^4 + 3x^3 + x^2 + 4x + 2 completely into irreducibles in Z_5[x] (co…"}
+{"answer": "(2, 3)", "id": "uc2-irreducibility-test-over-zp/medium/2/4c638b66febb", "text": "Factor f = x^5 + 2x^4 + x^3 + 2x^2 + x + 1 completely into irreducibles in Z_3[…"}
+{"answer": "3/2", "id": "uc2-kkt-conditions-check/easy/0/6a34cf2c7ca7", "text": "Let f(x, y) = (x + 2.75)² + (y − 1.25)² and g(x, y) = −x − y. At the boundary p…"}
+{"answer": "-3", "id": "uc2-kkt-conditions-check/easy/1/613752d78373", "text": "For the problem of minimising (x + 5.5)² + (y + 3.5)² subject to g(x, y) = 3x +…"}
+{"answer": "5", "id": "uc2-kkt-conditions-check/easy/2/b5448a27d331", "text": "Minimise f(x, y) = (x + 3.5)² + (y + 4.5)² subject to −x − 3y ≤ −8. The constra…"}
+{"answer": "(a) 5; (b) 3; (c) -2; (d) 125/2", "id": "uc2-kkt-conditions-check/exam/0/d5df1cba8f21", "text": "A designer wants the point nearest, in the weighted sense f(x, y) = (x + 4.5)² …"}
+{"answer": "(a) 2; (b) 2; (c) 2; (d) 10", "id": "uc2-kkt-conditions-check/exam/1/eb6bf3a49931", "text": "Minimise f(x, y) = (x − 1)² + (y − 5)² subject to −x + 3y ≤ 4. (a) The unconstr…"}
+{"answer": "(a) 5/2; (b) 2; (c) -1; (d) 125/16", "id": "uc2-kkt-conditions-check/exam/2/061bfd7bb17b", "text": "A designer wants the point nearest, in the weighted sense f(x, y) = 2(x − 0.125…"}
+{"answer": "13/3", "id": "uc2-kkt-conditions-check/hard/0/390bf926bf7c", "text": "A KKT point of the problem minimise −24x + 10y over g(x, y) = x² + y² − 9 ≤ 0 h…"}
+{"answer": "13/5", "id": "uc2-kkt-conditions-check/hard/1/9175f416b15a", "text": "The linear function −24x + 10y is minimised over the disc x² + y² ≤ 25. At the …"}
+{"answer": "5/2", "id": "uc2-kkt-conditions-check/hard/2/594cee4174e4", "text": "Minimise f(x, y) = 12x − 9y subject to x² + y² ≤ 9. The minimum lies on the bou…"}
+{"answer": "3/2", "id": "uc2-kkt-conditions-check/medium/0/d052cd5265d8", "text": "Minimise f(x, y) = (x − 0.5)² + (y − 1)² subject to −3x + y ≤ −9 and −x + y ≤ −…"}
+{"answer": "5", "id": "uc2-kkt-conditions-check/medium/1/0267114562d5", "text": "Minimise f(x, y) = (x − 8.75)² + (y − 4.25)² subject to 3x + 2y ≤ 6 and −x − y …"}
+{"answer": "3", "id": "uc2-kkt-conditions-check/medium/2/4744a45f0b5f", "text": "The point P = (3, 2) lies on both boundaries −x + 3y = 3 and 3x + 3y = 15 of a …"}
+{"answer": "-x^2 - x - 1", "id": "uc2-lagrange-interpolating-polynomial/easy/0/b33494d3e2f2", "text": "A quadratic polynomial p passes through the points (-3, -7), (-1, -1), (4, -21)…"}
+{"answer": "-x^2 - 2x - 4", "id": "uc2-lagrange-interpolating-polynomial/easy/1/0de65196683c", "text": "A quadratic polynomial p passes through the points (-2, -4), (1, -7), (2, -12).…"}
+{"answer": "-x^2 + 4x - 3", "id": "uc2-lagrange-interpolating-polynomial/easy/2/6009f2557568", "text": "A quadratic polynomial p passes through the points (-2, -15), (0, -3), (5, -8).…"}
+{"answer": "(a) 8/5; (b) (1/42)x^2 - (1/3)x + 55/42; (c) 11/21; (d) -4/…", "id": "uc2-lagrange-interpolating-polynomial/exam/0/64a1c21b07fa", "text": "The function f(x) = 1/x is interpolated by the quadratic polynomial p at the no…"}
+{"answer": "(a) 4/3; (b) (1/126)x^2 - (8/63)x + 9/14; (c) 13/63; (d) -2…", "id": "uc2-lagrange-interpolating-polynomial/exam/1/0764851a8648", "text": "The function f(x) = 1/x is interpolated by the quadratic polynomial p at the no…"}
+{"answer": "(a) 4/3; (b) (1/36)x^2 - (11/36)x + 1; (c) 2/9; (d) 1/36", "id": "uc2-lagrange-interpolating-polynomial/exam/2/8763a1479fea", "text": "The function f(x) = 1/x is interpolated by the quadratic polynomial p at the no…"}
+{"answer": "-(1/48)x^3 + (13/48)x^2 - (7/6)x + 23/12", "id": "uc2-lagrange-interpolating-polynomial/hard/0/8f8bb4aba179", "text": "The function f(x) = 1/x is interpolated by the cubic polynomial p through the n…"}
+{"answer": "-(1/180)x^3 + (4/45)x^2 - (91/180)x + 6/5", "id": "uc2-lagrange-interpolating-polynomial/hard/1/2971c1a6be2d", "text": "The function f(x) = 1/x is interpolated by the cubic polynomial p through the n…"}
+{"answer": "-(1/2520)x^3 + (29/2520)x^2 - (311/2520)x + 1459/2520", "id": "uc2-lagrange-interpolating-polynomial/hard/2/fc15c7f2011c", "text": "The function f(x) = 1/x is interpolated by the cubic polynomial p through the n…"}
+{"answer": "2x^3 - 2x^2 - 4x + 2", "id": "uc2-lagrange-interpolating-polynomial/medium/0/535874c7a692", "text": "A cubic polynomial p passes through the points (-2, -14), (1, -2), (2, 2), (3, …"}
+{"answer": "-x^3 + 3x^2 + 2x + 1", "id": "uc2-lagrange-interpolating-polynomial/medium/1/2c7b5493dc44", "text": "A cubic polynomial p passes through the points (-3, 49), (-1, 3), (1, 5), (5, -…"}
+{"answer": "x^3 - 4x^2 - 2x", "id": "uc2-lagrange-interpolating-polynomial/medium/2/d8703b88deed", "text": "A cubic polynomial p passes through the points (-1, -3), (3, -15), (4, -8), (5,…"}
+{"answer": "78", "id": "uc2-lagrange-multiplier-nonlinear-constraint/easy/0/c42401075767", "text": "Find the maximum value of f(x, y) = 15x + 36y on the circle x² + y² = 4, as a f…"}
+{"answer": "255/2", "id": "uc2-lagrange-multiplier-nonlinear-constraint/easy/1/3ab437d19d14", "text": "A point (x, y) moves on the circle x² + y² = 6.25. What is the greatest value o…"}
+{"answer": "102", "id": "uc2-lagrange-multiplier-nonlinear-constraint/easy/2/3ccca9bba9a9", "text": "Find the maximum value of f(x, y) = 16x + 30y on the circle x² + y² = 9, as a f…"}
+{"answer": "(a) 1/2; (b) 1; (c) 1; (d) 5", "id": "uc2-lagrange-multiplier-nonlinear-constraint/exam/0/c796a413f57a", "text": "On the ellipse 2x² + 3y² = 5, find the point where 2x + 3y is largest, taking g…"}
+{"answer": "(a) 3/2; (b) 4; (c) 3; (d) 129", "id": "uc2-lagrange-multiplier-nonlinear-constraint/exam/1/28e44af47793", "text": "Maximise f(x, y) = 12x + 27y subject to x² + 3y² = 43, using a Lagrange multipl…"}
+{"answer": "(a) 2; (b) 4; (c) 1; (d) 72", "id": "uc2-lagrange-multiplier-nonlinear-constraint/exam/2/500129667299", "text": "The function f(x, y) = 16x + 8y is to be maximised on the ellipse x² + 2y² = 18…"}
+{"answer": "78", "id": "uc2-lagrange-multiplier-nonlinear-constraint/hard/0/b720db809787", "text": "Points (x, y) satisfy x² + xy + y² = 13. Use Lagrange multipliers to find the l…"}
+{"answer": "38", "id": "uc2-lagrange-multiplier-nonlinear-constraint/hard/1/35f36b4cfa65", "text": "Find the maximum value of f(x, y) = −7x − 8y on the curve x² + xy + y² = 19."}
+{"answer": "14", "id": "uc2-lagrange-multiplier-nonlinear-constraint/hard/2/6ec37ffe7013", "text": "Points (x, y) satisfy x² + xy + y² = 7. Use Lagrange multipliers to find the la…"}
+{"answer": "144", "id": "uc2-lagrange-multiplier-nonlinear-constraint/medium/0/5aca4f86a725", "text": "Maximise 18x + 36y subject to the constraint 3x² + 4y² = 48."}
+{"answer": "34", "id": "uc2-lagrange-multiplier-nonlinear-constraint/medium/1/cea66df16f94", "text": "Find the maximum value of f(x, y) = 2x + 16y on the ellipse x² + 4y² = 17."}
+{"answer": "3", "id": "uc2-lagrange-multiplier-nonlinear-constraint/medium/2/6bd7e6e5a013", "text": "Find the maximum value of f(x, y) = xy on the ellipse 9x² + y² = 18, as a fract…"}
 {"answer": "125", "id": "uc2-lagranges-theorem-applications/easy/0/fae8b649db6f", "text": "Let K ≤ H ≤ G be finite groups with [G:H] = 5, [H:K] = 5 and |K| = 5. What is |…"}
 {"answer": "9", "id": "uc2-lagranges-theorem-applications/easy/1/4bb1917bf823", "text": "An element a of a group G of order 36 has order 4. Find the number of distinct …"}
 {"answer": "294", "id": "uc2-lagranges-theorem-applications/easy/2/be54dab0dc92", "text": "G is a finite group with subgroups K ≤ H ≤ G. The index of H in G is 7, the ind…"}
@@ -7996,6 +8308,114 @@
 {"answer": "44", "id": "uc2-lagranges-theorem-applications/medium/0/bdd48b20ca07", "text": "G is a finite group of order 50. Of the integers 1, 2, ..., 50, how many can La…"}
 {"answer": "33", "id": "uc2-lagranges-theorem-applications/medium/1/770f6d2ec0ab", "text": "Let G be a group of order 66 with subgroups H and K, where |H| = 11 and |K| = 3…"}
 {"answer": "27", "id": "uc2-lagranges-theorem-applications/medium/2/1b70a038c278", "text": "G is a finite group of order 36. Of the integers 1, 2, ..., 36, how many can La…"}
+{"answer": "U = [[2, 3, 2], [0, 3, 2], [0, 0, 4]]", "id": "uc2-lu-factorisation-3x3/easy/0/f012f2b95804", "text": "Factorise A = [[2, 3, 2], [4, 9, 6], [-6, -15, -6]]. Use Doolittle's method wit…"}
+{"answer": "U = [[2, 2, -4], [0, -1, 2], [0, 0, 3]]", "id": "uc2-lu-factorisation-3x3/easy/1/05477753f89e", "text": "Factorise A = [[2, 2, -4], [2, 1, -2], [4, 5, -7]]. Use Doolittle's method with…"}
+{"answer": "U = [[1, -2, -2], [0, -3, 3], [0, 0, -3]]", "id": "uc2-lu-factorisation-3x3/easy/2/8841c5666b41", "text": "Factorise A = [[1, -2, -2], [1, -5, 1], [-2, 7, -2]]. Use Doolittle's method wi…"}
+{"answer": "(a) -5/6; (b) -28/3; (c) 5/28; (d) 438", "id": "uc2-lu-factorisation-3x3/exam/0/177759cc3471", "text": "Let A = [[6, -4, 6], [-5, -6, -6], [5, -5, -3]]. Use Doolittle's method with no…"}
+{"answer": "(a) 2/3; (b) 13/3; (c) -14/13; (d) -20", "id": "uc2-lu-factorisation-3x3/exam/1/510e6c078956", "text": "Let A = [[3, -2, -4], [2, 3, -1], [-4, -2, 2]]. Use Doolittle's method with no …"}
+{"answer": "(a) -2/5; (b) 14/5; (c) -18/7; (d) -64", "id": "uc2-lu-factorisation-3x3/exam/2/2a57873f9a39", "text": "Let A = [[-5, -3, -3], [2, 4, 5], [2, -6, -4]]. Use Doolittle's method with no …"}
+{"answer": "y = [[-3], [9/2], [57/5]]", "id": "uc2-lu-factorisation-3x3/hard/0/79024380a47b", "text": "A system Ax = b has A = [[6, -2, 2], [5, 5, -3], [-6, -6, -3]] and b = [[-3], […"}
+{"answer": "y = [[4], [5], [147/11]]", "id": "uc2-lu-factorisation-3x3/hard/1/6fb2f1148996", "text": "A system Ax = b has A = [[-4, 3, -2], [5, -1, 1], [2, -5, 5]] and b = [[4], [0]…"}
+{"answer": "y = [[2], [-3], [-1/2]]", "id": "uc2-lu-factorisation-3x3/hard/2/b9977cf030e7", "text": "A system Ax = b has A = [[-3, -4, -6], [-3, 2, 2], [-4, 5, -1]] and b = [[2], […"}
+{"answer": "L = [[1, 0, 0], [2/5, 1, 0], [-3/5, -13/17, 1]]", "id": "uc2-lu-factorisation-3x3/medium/0/709b1212c361", "text": "Factorise A = [[-5, 1, 6], [-2, -3, 3], [3, 2, -2]]. Use Doolittle's method wit…"}
+{"answer": "L = [[1, 0, 0], [-5/2, 1, 0], [-3/2, 7/3, 1]]", "id": "uc2-lu-factorisation-3x3/medium/1/25c4faeb2b99", "text": "Factorise A = [[2, 1, -6], [-5, -4, -1], [-3, -5, -2]]. Use Doolittle's method …"}
+{"answer": "L = [[1, 0, 0], [3/2, 1, 0], [1, 11/6, 1]]", "id": "uc2-lu-factorisation-3x3/medium/2/1e8b71bd244f", "text": "Factorise A = [[-2, 6, -5], [-3, 3, 3], [-2, -5, 4]]. Use Doolittle's method wi…"}
+{"answer": "6/19", "id": "uc2-markov-chebyshev-bound/easy/0/079b2fd4c671", "text": "The size of a file uploaded to a school server cannot be negative and has mean …"}
+{"answer": "4/81", "id": "uc2-markov-chebyshev-bound/easy/1/11da384654a8", "text": "The daily rainfall recorded at a Townsville weather station has mean 20 mm and …"}
+{"answer": "20/77", "id": "uc2-markov-chebyshev-bound/easy/2/56f5b19de282", "text": "The daily electricity use of a Hobart household cannot be negative and has mean…"}
+{"answer": "(a) 6/25; (b) 4/25; (c) 21/25; (d) 2/125", "id": "uc2-markov-chebyshev-bound/exam/0/e95a8bfc3a57", "text": "Nothing is known about the shape of the distribution of X, the waiting time in …"}
+{"answer": "(a) 8/29; (b) 16/169; (c) 153/169; (d) 2/169", "id": "uc2-markov-chebyshev-bound/exam/1/67aee2a37989", "text": "The time a customer waits at a Services Australia counter cannot be negative. I…"}
+{"answer": "(a) 20/61; (b) 4/49; (c) 45/49; (d) 4/245", "id": "uc2-markov-chebyshev-bound/exam/2/b0d4ee68ee35", "text": "The time a customer waits at a Services Australia counter cannot be negative. I…"}
+{"answer": "12", "id": "uc2-markov-chebyshev-bound/hard/0/6094ecd49796", "text": "The daily rainfall recorded at a Townsville weather station has mean 20 mm and …"}
+{"answer": "64/225", "id": "uc2-markov-chebyshev-bound/hard/1/0eaa10ced947", "text": "The delivery time of a parcel sent from Adelaide cannot be negative. It has mea…"}
+{"answer": "3/5", "id": "uc2-markov-chebyshev-bound/hard/2/7a8ca438e4e3", "text": "The daily electricity use of a Hobart household cannot be negative. It has mean…"}
+{"answer": "91/100", "id": "uc2-markov-chebyshev-bound/medium/0/a13ed35820b0", "text": "The change in a share price over a day has mean 30 dollars and standard deviati…"}
+{"answer": "16/225", "id": "uc2-markov-chebyshev-bound/medium/1/c4c80d765ced", "text": "The size of a file uploaded to a school server has mean 40 MB and standard devi…"}
+{"answer": "8/81", "id": "uc2-markov-chebyshev-bound/medium/2/9822f22bb495", "text": "The change in a share price over a day has mean 2 dollars and standard deviatio…"}
+{"answer": "19", "id": "uc2-matrix-norm-1-and-infinity/easy/0/1030a1714593", "text": "Evaluate the matrix norm ‖A‖₁ for A = [[-3, 2, -5], [8, 3, -6], [8, 8, -7]]."}
+{"answer": "18", "id": "uc2-matrix-norm-1-and-infinity/easy/1/9db3ca00df17", "text": "Compute the induced ∞-norm of A = [[-1, -9, -6], [7, -4, -7], [-9, 6, 2]]."}
+{"answer": "20", "id": "uc2-matrix-norm-1-and-infinity/easy/2/dd87db682497", "text": "Find ‖A‖₁ for A = [[4, 7, -1], [-7, -4, -2], [1, -9, 4]]."}
+{"answer": "(a) 11; (b) 9/5; (c) 99/5; (d) 99/1000", "id": "uc2-matrix-norm-1-and-infinity/exam/0/dffb987590bd", "text": "Consider A = [[3, 1], [8, 1]] and the system Ax = b. (a) Find ‖A‖₁, the largest…"}
+{"answer": "(a) 13; (b) 1; (c) 13; (d) 13/50", "id": "uc2-matrix-norm-1-and-infinity/exam/1/66eaf2a48bbc", "text": "The matrix A = [[-4, 8], [-1, 5]] is the coefficient matrix of a linear system …"}
+{"answer": "(a) 13; (b) 3; (c) 39; (d) 39/100", "id": "uc2-matrix-norm-1-and-infinity/exam/2/b7a0fec61bfe", "text": "The matrix A = [[1, -5], [-1, 8]] is the coefficient matrix of a linear system …"}
+{"answer": "473/3", "id": "uc2-matrix-norm-1-and-infinity/hard/0/0c8407d48c4b", "text": "The matrix A = [[5, -4, 2], [3, 5, 5], [-1, -2, -2]] has inverse A⁻¹. Find ‖A‖₁…"}
+{"answer": "48", "id": "uc2-matrix-norm-1-and-infinity/hard/1/eeb5ccbc736e", "text": "Compute the condition number of A = [[3, 1, 1], [1, 3, 5], [4, 1, 0]] in the 1-…"}
+{"answer": "583/7", "id": "uc2-matrix-norm-1-and-infinity/hard/2/633c9ee9985a", "text": "The matrix A = [[6, 3, 2], [5, 5, -2], [0, 1, -1]] has inverse A⁻¹. Find ‖A‖₁ ‖…"}
+{"answer": "28", "id": "uc2-matrix-norm-1-and-infinity/medium/0/952211f1888f", "text": "For A = [[7, 3], [9, 5]], find the condition number κ∞(A) = ‖A‖∞ ‖A⁻¹‖∞ as a fr…"}
+{"answer": "21", "id": "uc2-matrix-norm-1-and-infinity/medium/1/afc68f92bb03", "text": "The matrix A = [[6, 3], [1, 1]] is to be inverted. How ill-conditioned is it in…"}
+{"answer": "11", "id": "uc2-matrix-norm-1-and-infinity/medium/2/b97c423844e3", "text": "The matrix A = [[-5, 6], [4, -3]] is to be inverted. How ill-conditioned is it …"}
+{"answer": "19/12", "id": "uc2-newton-divided-differences/easy/0/a39d99aeca16", "text": "A function f has f(0) = 4, f(1) = −1 and f(4) = 3. Find the second divided diff…"}
+{"answer": "1/8", "id": "uc2-newton-divided-differences/easy/1/509065972032", "text": "A function f has f(−1) = 9, f(1) = 7 and f(7) = 7. Find the second divided diff…"}
+{"answer": "61/30", "id": "uc2-newton-divided-differences/easy/2/e0db3079d9d8", "text": "A function f has f(0) = 6, f(1) = −5 and f(6) = 1. Find the second divided diff…"}
+{"answer": "(a) -1/2; (b) 5/6; (c) 4/15; (d) -32/5", "id": "uc2-newton-divided-differences/exam/0/5895e79c203c", "text": "A function f has f(1) = 1, f(2) = −1, f(3) = −4 and f(6) = −3. Write x₀ = 1, x₁…"}
+{"answer": "(a) 19/6; (b) -47/12; (c) -17/12; (d) 11/2", "id": "uc2-newton-divided-differences/exam/1/3908abd157ac", "text": "A function f has f(1) = 5, f(2) = −4, f(5) = 7 and f(6) = −5. Write x₀ = 1, x₁ …"}
+{"answer": "(a) 13/30; (b) -19/6; (c) -3/5; (d) -19/3", "id": "uc2-newton-divided-differences/exam/2/2b3e8d58d3f9", "text": "A function f has f(0) = −4, f(2) = −3, f(5) = 5 and f(6) = −5. Write x₀ = 0, x₁…"}
+{"answer": "4", "id": "uc2-newton-divided-differences/hard/0/819f4bf30015", "text": "A function f has f(0) = −3, f(1) = 1, f(2) = c and f(6) = −4, where c is not kn…"}
+{"answer": "-1", "id": "uc2-newton-divided-differences/hard/1/e7b48e289035", "text": "A function f has f(−3) = 0, f(−2) = c, f(0) = 8 and f(7) = 8, where c is not kn…"}
+{"answer": "-5", "id": "uc2-newton-divided-differences/hard/2/1c3c01ece731", "text": "A function f has f(1) = 4, f(2) = c, f(6) = −5 and f(7) = 1, where c is not kno…"}
+{"answer": "-17/210", "id": "uc2-newton-divided-differences/medium/0/69a15ebf09ca", "text": "A function f has f(−1) = −1, f(0) = −4, f(5) = 2 and f(6) = 4. Find the third d…"}
+{"answer": "-4/135", "id": "uc2-newton-divided-differences/medium/1/97f2f4228fcd", "text": "A function f has f(−3) = 9, f(2) = −4, f(3) = −3 and f(6) = 4. Find the third d…"}
+{"answer": "-53/80", "id": "uc2-newton-divided-differences/medium/2/9209c3c26e74", "text": "A function f has f(−3) = 4, f(−1) = −1, f(0) = 8 and f(5) = 9. Find the third d…"}
+{"answer": "33/16", "id": "uc2-newton-method-optimisation-step/easy/0/7e392559fea1", "text": "Take one step of Newton's method for optimisation from x₀ = 3 on f(x) = x⁴ − 2x…"}
+{"answer": "-43/18", "id": "uc2-newton-method-optimisation-step/easy/1/e426a2b33d0d", "text": "To find a local minimum of f(x) = x⁴ + 2x³ − 3x² + 3x − 1, one iteration of the…"}
+{"answer": "4/13", "id": "uc2-newton-method-optimisation-step/easy/2/c92d82a57f8c", "text": "Newton's method is used to minimise f(x) = x⁴ + x³ + 4x² + 3x + 4. Starting fro…"}
+{"answer": "(a) 39; (b) -12/13; (c) 16/13; (d) -4406/28561", "id": "uc2-newton-method-optimisation-step/exam/0/7a10d24a56c2", "text": "A minimum of f(x, y) = x⁴ + x²y − 2x² + 3xy + 2y² − 2x − 3y is sought by Newton…"}
+{"answer": "(a) 24; (b) 1/3; (c) -1/6; (d) -5059/1296", "id": "uc2-newton-method-optimisation-step/exam/1/ce00403a4cc8", "text": "Consider f(x, y) = x⁴ + y⁴ + x² − 2xy + y² + 3x + y and one Newton optimisation…"}
+{"answer": "(a) 35; (b) -47/35; (c) 123/35; (d) -14523813/1500625", "id": "uc2-newton-method-optimisation-step/exam/2/f09f10029e92", "text": "Consider f(x, y) = 2x⁴ − x² + 3xy + y² + 3x − 3y and one Newton optimisation st…"}
+{"answer": "-5/128", "id": "uc2-newton-method-optimisation-step/hard/0/46cd4ba75cf8", "text": "Starting at (0, 0), Newton's method for minimising 2x⁴ − x²y + 3x² + 2xy + y² −…"}
+{"answer": "-23/81", "id": "uc2-newton-method-optimisation-step/hard/1/36ffba5f3db9", "text": "Starting at (0, 0), Newton's method for minimising x⁴ + x²y + x² + xy + y² − x …"}
+{"answer": "1793/256", "id": "uc2-newton-method-optimisation-step/hard/2/a387f9b1416b", "text": "For f(x, y) = x⁴ + x² − 2xy + 3y² + 3x − 2y, apply Newton's method for optimisa…"}
+{"answer": "-47/55", "id": "uc2-newton-method-optimisation-step/medium/0/d1667687254d", "text": "One iteration of the Newton optimisation method is applied to x⁴ + x² − xy + 2y…"}
+{"answer": "-110/119", "id": "uc2-newton-method-optimisation-step/medium/1/ac5c1aec6923", "text": "Newton's method is used to minimise f(x, y) = x⁴ + y⁴ − 2x² + 3xy + 2y² − 3x − …"}
+{"answer": "34/25", "id": "uc2-newton-method-optimisation-step/medium/2/369a0a27b5f7", "text": "Newton's method is used to minimise f(x, y) = x⁴ + y⁴ + x² − 2xy + 2y² − 2x − 2…"}
+{"answer": "-2*5^n - 3*3^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/easy/0/61a8da2366d4", "text": "A sequence has a₀ = -5 and satisfies aₙ = 5aₙ₋₁ + 2·3^n for n ≥ 1. Find a close…"}
+{"answer": "12*4^n - 3^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/easy/1/13d33bb3107a", "text": "Solve aₙ = 3aₙ₋₁ + 3·4^n for n ≥ 1, given a₀ = 11. Express aₙ in closed form."}
+{"answer": "-(-2)^n + 9*(-3)^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/easy/2/45cd2b5c26fb", "text": "Solve aₙ = −2aₙ₋₁ + 3·(-3)^n for n ≥ 1, given a₀ = 8. Express aₙ in closed form."}
+{"answer": "(a) -3, -2; (b) -6; (c) -6*n*(-2)^n - 2*(-2)^n - 2*(-3)^n; …", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/exam/0/3bff177f13ee", "text": "The sequence (aₙ) is defined by a₀ = -4 and a₁ = 22 and aₙ = −5aₙ₋₁ − 6aₙ₋₂ + 3…"}
+{"answer": "(a) -2, 2; (b) n + 3; (c) -3*2^n - 2*(-2)^n + n + 3; (d) -3…", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/exam/1/e6abfd71027f", "text": "A sequence has a₀ = -2 and a₁ = 2 and satisfies aₙ = 4aₙ₋₂ − 3n − 1 for n ≥ 2. …"}
+{"answer": "(a) 3, 4; (b) 16; (c) 16*n*4^n - 2*4^n - 3*3^n; (d) 382837", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/exam/2/937f9c7d76b7", "text": "A sequence has a₀ = -5 and a₁ = 47 and satisfies aₙ = 7aₙ₋₁ − 12aₙ₋₂ + 4·4^n fo…"}
+{"answer": "3*2^n - 3*(-2)^n - n - 2", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/hard/0/3164be1f9fe3", "text": "A sequence has a₀ = -2 and a₁ = 9 and satisfies aₙ = 4aₙ₋₂ + 3n − 2 for n ≥ 2. …"}
+{"answer": "3^n + 2^n - n - 1", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/hard/1/b61b957b6d34", "text": "Solve aₙ = 5aₙ₋₁ − 6aₙ₋₂ − 2n + 5 for n ≥ 2, given a₀ = 1 and a₁ = 3. Express a…"}
+{"answer": "2^n - n^2 - 4*n + 4", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/hard/2/7c69b6d46c82", "text": "A sequence has a₀ = 5 and a₁ = 1 and satisfies aₙ = 3aₙ₋₁ − 2aₙ₋₂ + 2n − 1 for …"}
+{"answer": "4*2^n - 4*n - 6", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/medium/0/140d03e94812", "text": "Solve aₙ = 2aₙ₋₁ + 4n − 2 for n ≥ 1, given a₀ = -2. Express aₙ in closed form."}
+{"answer": "4*n*2^n + 2^n", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/medium/1/99b0aab5e086", "text": "The sequence (aₙ) is defined by a₀ = 1 and aₙ = 2aₙ₋₁ + 4·2^n for n ≥ 1. Solve …"}
+{"answer": "2*2^n + n - 1", "id": "uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing/medium/2/d91919175a2c", "text": "Solve aₙ = 2aₙ₋₁ − n + 3 for n ≥ 1, given a₀ = 1. Express aₙ in closed form."}
+{"answer": "5", "id": "uc2-normal-subgroup-test/easy/0/23b7de91f5ca", "text": "In D_40 (order 80, with rotation r of order 40 and reflection s) the subgroup H…"}
+{"answer": "3", "id": "uc2-normal-subgroup-test/easy/1/eb7d83a62488", "text": "In D_12 (order 24, with rotation r of order 12 and reflection s) the subgroup H…"}
+{"answer": "11", "id": "uc2-normal-subgroup-test/easy/2/1f2f1107f3e3", "text": "D_22 is the dihedral group of order 44 with rotation r and reflection s. Find t…"}
+{"answer": "(a) 6; (b) 12; (c) 10", "id": "uc2-normal-subgroup-test/exam/0/407ad988a669", "text": "In S_5, permutations are composed right to left. Let H be the subgroup of S_5 g…"}
+{"answer": "(a) 3; (b) 12; (c) 10", "id": "uc2-normal-subgroup-test/exam/1/0e75df8be559", "text": "Work in S_5, composing permutations right to left. The subgroup H = ⟨(1 5 3)⟩ h…"}
+{"answer": "(a) 6; (b) 12; (c) 10", "id": "uc2-normal-subgroup-test/exam/2/21e5f1d049f3", "text": "In S_5, permutations are composed right to left. Let H be the subgroup of S_5 g…"}
+{"answer": "20", "id": "uc2-normal-subgroup-test/hard/0/55a9e69deb85", "text": "In S_5, permutations are composed right to left. Let H be the subgroup generate…"}
+{"answer": "12", "id": "uc2-normal-subgroup-test/hard/1/9b60d5479f68", "text": "For the subgroup H = ⟨(2 4)⟩ of S_5 (right-to-left composition), find |N(H)|, w…"}
+{"answer": "8", "id": "uc2-normal-subgroup-test/hard/2/93c8ab95091c", "text": "In S_5, permutations are composed right to left. Let H be the subgroup generate…"}
+{"answer": "4", "id": "uc2-normal-subgroup-test/medium/0/6fe8ed044b70", "text": "In S_4, permutations are composed right to left. Let H be the subgroup generate…"}
+{"answer": "4", "id": "uc2-normal-subgroup-test/medium/1/7d6670053b61", "text": "The subgroup H of S_4 is generated by (1 2 4) (composition is right to left). H…"}
+{"answer": "1", "id": "uc2-normal-subgroup-test/medium/2/d2b2f2721b1d", "text": "The subgroup H of S_4 is generated by (1 4)(2 3), (1 2)(3 4) (composition is ri…"}
+{"answer": "1/5", "id": "uc2-ode-method-order-and-stability/easy/0/6c1ee0ea34f0", "text": "Explicit Euler, yₙ₊₁ = yₙ + h·A·yₙ, is applied to y′ = Ay where A = [[-10, 2], …"}
+{"answer": "1/4", "id": "uc2-ode-method-order-and-stability/easy/1/a2dab775c28c", "text": "Explicit Euler, yₙ₊₁ = yₙ + h·A·yₙ, is applied to y′ = Ay where A = [[-8, 3], […"}
+{"answer": "1/3", "id": "uc2-ode-method-order-and-stability/easy/2/f16037395225", "text": "Explicit Euler, yₙ₊₁ = yₙ + h·A·yₙ, is applied to y′ = Ay where A = [[-6, -3], …"}
+{"answer": "(a) First order, stable for every step size; (b) 5/17; (c) …", "id": "uc2-ode-method-order-and-stability/exam/0/40025d38fc99", "text": "Consider the scheme yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)], θ = 3/4 for y′ = f…"}
+{"answer": "(a) Second order, stable only for small enough steps; (b) 5…", "id": "uc2-ode-method-order-and-stability/exam/1/e08f4f7d7e58", "text": "The method yₙ₊₁ = yₙ + (h/2)[f(yₙ) + f(yₙ + h f(yₙ))] is applied to y′ = −λy (s…"}
+{"answer": "(a) First order, stable only for small enough steps; (b) 2/…", "id": "uc2-ode-method-order-and-stability/exam/2/72caec34048b", "text": "The method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)], θ = 1/3 is applied to y′ = …"}
+{"answer": "3", "id": "uc2-ode-method-order-and-stability/hard/0/dfbb0e297c1d", "text": "The amplification factor of a one-step method for y′ = −λy is R(z) = −(1/24)z⁵ …"}
+{"answer": "2", "id": "uc2-ode-method-order-and-stability/hard/1/72d0b719a26f", "text": "The amplification factor of a one-step method for y′ = −λy is R(z) = −(1/30)z⁴ …"}
+{"answer": "3", "id": "uc2-ode-method-order-and-stability/hard/2/e7bd566699ef", "text": "The amplification factor of a one-step method for y′ = −λy is R(z) = −(1/30)z⁵ …"}
+{"answer": "8/3", "id": "uc2-ode-method-order-and-stability/medium/0/3166b2e81a16", "text": "The θ-method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)] with θ = 3/8 is applied to…"}
+{"answer": "3/2", "id": "uc2-ode-method-order-and-stability/medium/1/a1c076717a17", "text": "The equation y′ = −4y is solved by the method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(…"}
+{"answer": "2", "id": "uc2-ode-method-order-and-stability/medium/2/8ff47a6168db", "text": "The θ-method yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)] with θ = 1/3 is applied to…"}
+{"answer": "519.00", "id": "uc2-one-way-anova-table/easy/0/086ab8156bc3", "text": "The yield (t/ha) was measured for three wheat varieties grown on farms near Esp…"}
+{"answer": "190", "id": "uc2-one-way-anova-table/easy/1/7615605a0b43", "text": "For each of three wheat varieties grown on farms near Esperance, 5 units were m…"}
+{"answer": "12.80", "id": "uc2-one-way-anova-table/easy/2/9abfacf3893e", "text": "The running time (hours) was measured for three brands of battery tested in tor…"}
+{"answer": "(a) 293.83; (b) 279.00; (c) 11.06; (d) 3.596", "id": "uc2-one-way-anova-table/exam/0/5820e5c2da1c", "text": "A study compares the test score (marks) of three teaching methods trialled in T…"}
+{"answer": "(a) 70.00; (b) 164.00; (c) 2.56; (d) 5.095", "id": "uc2-one-way-anova-table/exam/1/28312d7976ec", "text": "Researchers recorded the test score (marks) under three teaching methods triall…"}
+{"answer": "(a) 432.00; (b) 500.00; (c) 9.07; (d) 5.075", "id": "uc2-one-way-anova-table/exam/2/18e0839723e3", "text": "Researchers recorded the yield (t/ha) under three wheat varieties grown on farm…"}
+{"answer": "4.872", "id": "uc2-one-way-anova-table/hard/0/b52bb4217f58", "text": "The running time (hours) was measured for three brands of battery tested in tor…"}
+{"answer": "38.20", "id": "uc2-one-way-anova-table/hard/1/67b83c262aa9", "text": "The calls handled per hour (calls) was measured for three training programs use…"}
+{"answer": "217", "id": "uc2-one-way-anova-table/hard/2/8faf90233466", "text": "In a one-way ANOVA of reaction times across the groups, there are k = 3 groups …"}
+{"answer": "1084.00", "id": "uc2-one-way-anova-table/medium/0/05bcdfdabe1b", "text": "For each of three wheat varieties grown on farms near Esperance, 4 units were r…"}
+{"answer": "12.56", "id": "uc2-one-way-anova-table/medium/1/cc9e9a974fba", "text": "The test score (marks) was measured for three teaching methods trialled in Tasm…"}
+{"answer": "0.3490", "id": "uc2-one-way-anova-table/medium/2/bd4a686b7a2c", "text": "The running time (hours) was measured for three brands of battery tested in tor…"}
 {"answer": "10", "id": "uc2-orbit-stabiliser-count/easy/0/4fa9934cdcbd", "text": "Let σ = (11 9)(4 1 12 7)(10 6 8 2 5) in S_12 and let G = ⟨σ⟩ act on {1, ..., 12…"}
 {"answer": "5", "id": "uc2-orbit-stabiliser-count/easy/1/2ce91d8ff26e", "text": "Let σ = (6 1 3)(7 2 5 8 4) in S_10 and let G = ⟨σ⟩ act on {1, ..., 10}. Find th…"}
 {"answer": "7", "id": "uc2-orbit-stabiliser-count/easy/2/3301766f17c3", "text": "Let σ = (4 7 6 11 5 9 8)(10 1 2) in S_11 and let G = ⟨σ⟩ act on {1, ..., 11}. F…"}
@@ -8008,6 +8428,18 @@
 {"answer": "5", "id": "uc2-orbit-stabiliser-count/medium/0/077233b0fa3d", "text": "The vertices of a regular 15-gon are labelled 0, 1, ..., 14 in order. The dihed…"}
 {"answer": "3", "id": "uc2-orbit-stabiliser-count/medium/1/bc18952a9947", "text": "A regular 12-gon has vertices 0, 1, ..., 11 in order. Its symmetry group D_12, …"}
 {"answer": "5", "id": "uc2-orbit-stabiliser-count/medium/2/1a0631a43515", "text": "The vertices of a regular 15-gon are labelled 0, 1, ..., 14 in order. The dihed…"}
+{"answer": "{21, 30, 70}", "id": "uc2-partial-order-hasse/easy/0/943b006e7968", "text": "The set S = {1, 3, 10, 14, 15, 21, 30, 35, 70} is ordered by divisibility (a ≤ …"}
+{"answer": "{24, 30, 40}", "id": "uc2-partial-order-hasse/easy/1/e336e5ebbfce", "text": "The set S = {1, 2, 4, 12, 20, 24, 30, 40} is ordered by divisibility (a ≤ b mea…"}
+{"answer": "{20, 90}", "id": "uc2-partial-order-hasse/easy/2/15ad56eedd68", "text": "The set S = {2, 3, 4, 5, 9, 18, 20, 90} is ordered by divisibility (a ≤ b means…"}
+{"answer": "(a) {36, 45, 60}; (b) 5; (c) 4; (d) 4", "id": "uc2-partial-order-hasse/exam/0/fe057e1fcdd8", "text": "A poset has elements {1, 2, 4, 10, 12, 15, 20, 30, 36, 45, 60}, with a ≤ b when…"}
+{"answer": "(a) {30, 42, 105}; (b) 3; (c) 4; (d) 4", "id": "uc2-partial-order-hasse/exam/1/b0a8c4db895f", "text": "Let (S, ≤) be the poset on S = {3, 5, 6, 7, 14, 15, 21, 30, 42, 105} in which a…"}
+{"answer": "(a) {30, 36, 45}; (b) 5; (c) 4; (d) 4", "id": "uc2-partial-order-hasse/exam/2/4cc09a0f0b90", "text": "A poset has elements {1, 2, 4, 5, 6, 10, 12, 18, 30, 36, 45}, with a ≤ b when a…"}
+{"answer": "{1, 2, 3, 6, 12, 24, 72}", "id": "uc2-partial-order-hasse/hard/0/89a3289d3322", "text": "The set S = {1, 2, 3, 6, 8, 9, 12, 18, 24, 72} is ordered by divisibility (a ≤ …"}
+{"answer": "{3, 5, 7, 15, 21, 35, 105}", "id": "uc2-partial-order-hasse/hard/1/e6bcf6615dcd", "text": "Under divisibility, S = {2, 3, 5, 6, 7, 10, 14, 15, 21, 35, 105} is a poset. Ca…"}
+{"answer": "{1, 5, 10, 20, 40, 60}", "id": "uc2-partial-order-hasse/hard/2/20ea06abc557", "text": "In the divisibility poset on S = {1, 3, 4, 5, 8, 10, 12, 15, 20, 24, 40, 60}, f…"}
+{"answer": "{5, 8}", "id": "uc2-partial-order-hasse/medium/0/dbb4f51b538d", "text": "The Hasse diagram of S = {1, 3, 4, 5, 6, 8, 12, 24, 40, 120} under divisibility…"}
+{"answer": "{3, 7, 10}", "id": "uc2-partial-order-hasse/medium/1/bc54557172ff", "text": "The set S = {1, 3, 7, 10, 15, 30, 35, 42, 210} is ordered by divisibility (a ≤ …"}
+{"answer": "{15, 20}", "id": "uc2-partial-order-hasse/medium/2/8a005474f6f7", "text": "The set S = {1, 2, 3, 5, 9, 15, 20, 45, 60} is ordered by divisibility (a ≤ b m…"}
 {"answer": "{(1, 5, 2, 4), (3, 6)}", "id": "uc2-permutation-cycle-notation/easy/0/1bda5aab53ac", "text": "The permutation σ of {1, ..., 6} sends 1, 2, ..., 6 to 5, 4, 6, 1, 2, 3 respect…"}
 {"answer": "{(1, 7, 6, 3), (2, 5, 4)}", "id": "uc2-permutation-cycle-notation/easy/1/6c931395d3b8", "text": "The permutation σ of {1, ..., 7} sends 1, 2, ..., 7 to 7, 5, 1, 2, 4, 3, 6 resp…"}
 {"answer": "{(1, 3, 4, 5), (2, 6)}", "id": "uc2-permutation-cycle-notation/easy/2/8ff584ce8574", "text": "The permutation σ of {1, ..., 6} sends 1, 2, ..., 6 to 3, 6, 4, 5, 1, 2 respect…"}
@@ -8032,6 +8464,150 @@
 {"answer": "4", "id": "uc2-permutation-sign-and-order/medium/0/d7d7e47a4474", "text": "Five permutations in S_9 are written as products of disjoint cycles: (a) (4 7 1…"}
 {"answer": "1", "id": "uc2-permutation-sign-and-order/medium/1/e45e685b6bdb", "text": "Five permutations in S_10 are written as products of disjoint cycles: (a) (10 5…"}
 {"answer": "2", "id": "uc2-permutation-sign-and-order/medium/2/b84f680b0d6d", "text": "Five permutations in S_10 are written as products of disjoint cycles: (a) (2 10…"}
+{"answer": "0.2636", "id": "uc2-poisson-process-interarrival/easy/0/3fe1f0478856", "text": "Faults on a long fibre cable occur at random, independently, at an average rate…"}
+{"answer": "0.2231", "id": "uc2-poisson-process-interarrival/easy/1/e9a981a5701d", "text": "Customers at a self-serve kiosk occur at random, independently, at an average r…"}
+{"answer": "0.0498", "id": "uc2-poisson-process-interarrival/easy/2/131b65ca4e5e", "text": "Customers at a self-serve kiosk occur at random, independently, at an average r…"}
+{"answer": "(a) 3.75; (b) 5.30; (c) 0.2019; (d) 0.4751", "id": "uc2-poisson-process-interarrival/exam/0/6644930da79e", "text": "A help desk receives phone calls at random and independently, at a constant ave…"}
+{"answer": "(a) 5.00; (b) 10.00; (c) 0.0907; (d) 0.2213", "id": "uc2-poisson-process-interarrival/exam/1/b97cfad1e5d6", "text": "Incoming calls at a help desk form a random stream with no pattern, averaging 1…"}
+{"answer": "(a) 10.00; (b) 17.32; (c) 0.3012; (d) 0.1205", "id": "uc2-poisson-process-interarrival/exam/2/2b37480e115b", "text": "A help desk receives phone calls at random and independently, at a constant ave…"}
+{"answer": "0.3903", "id": "uc2-poisson-process-interarrival/hard/0/2c8522ea7a0f", "text": "Faults on a long fibre cable occur at random, independently, at an average rate…"}
+{"answer": "0.4019", "id": "uc2-poisson-process-interarrival/hard/1/31860ebcb1a7", "text": "Orders on a small web shop occur at random, independently, at an average rate o…"}
+{"answer": "0.4865", "id": "uc2-poisson-process-interarrival/hard/2/17d00ee93182", "text": "Patients at a country clinic's walk-in desk occur at random, independently, at …"}
+{"answer": "0.8454", "id": "uc2-poisson-process-interarrival/medium/0/a0017bb2f6e5", "text": "Customers at a self-serve kiosk occur at random, independently, at an average r…"}
+{"answer": "0.5249", "id": "uc2-poisson-process-interarrival/medium/1/9a927acfcbd1", "text": "Patients at a country clinic's walk-in desk occur at random, independently, at …"}
+{"answer": "0.9763", "id": "uc2-poisson-process-interarrival/medium/2/6a449647f341", "text": "Emails to a shared support inbox occur at random, independently, at an average …"}
+{"answer": "5.8889", "id": "uc2-power-method-step/easy/0/d7d19b361274", "text": "Let A = [[8, 3], [-6, -1]] and x₀ = [[3], [1]]. The power method multiplies by …"}
+{"answer": "6.5000", "id": "uc2-power-method-step/easy/1/ad3c2cd8aa15", "text": "Let A = [[7, 1], [-6, 2]] and x₀ = [[1], [-1]]. The power method multiplies by …"}
+{"answer": "7.6000", "id": "uc2-power-method-step/easy/2/457b682180a6", "text": "Let A = [[2, 4], [-2, 8]] and x₀ = [[1], [-1]]. The power method multiplies by …"}
+{"answer": "(a) -21; (b) -20/21; (c) 9; (d) 1", "id": "uc2-power-method-step/exam/0/4b15a0c697e9", "text": "Let A = [[8, 4, -4], [-7, -3, 4], [-7, -7, 8]] and x₀ = [[2], [1], [0]]. The do…"}
+{"answer": "(a) 15; (b) -1/5; (c) 21/5; (d) 9/5", "id": "uc2-power-method-step/exam/1/36289d521f5f", "text": "Let A = [[3, -3, -9], [0, 6, 9], [0, 0, -3]] and x₀ = [[2], [1], [1]]. The domi…"}
+{"answer": "(a) -31; (b) 9/31; (c) 191/31; (d) 36/31", "id": "uc2-power-method-step/exam/2/9589734f2075", "text": "Let A = [[-2, -6, 1], [3, 7, -1], [-12, -12, 5]] and x₀ = [[2], [1], [1]]. The …"}
+{"answer": "7.4915", "id": "uc2-power-method-step/hard/0/2aace2ff93ff", "text": "Let A = [[10, 4, -2], [0, 3, 0], [12, 6, 0]] and x₀ = [[1], [2], [1]]. The powe…"}
+{"answer": "5.3213", "id": "uc2-power-method-step/hard/1/e8949fe7409a", "text": "Let A = [[5, -1, -5], [0, 4, -12], [0, 0, -2]] and x₀ = [[1], [-1], [1]]. The p…"}
+{"answer": "4.3704", "id": "uc2-power-method-step/hard/2/d60bbe10185c", "text": "Let A = [[-6, -10, -10], [0, 3, 0], [5, 6, 9]] and x₀ = [[1], [1], [1]]. The po…"}
+{"answer": "8.1765", "id": "uc2-power-method-step/medium/0/d4ad96aeb3e8", "text": "Let A = [[7, 10, -10], [0, -10, 8], [0, -12, 10]] and x₀ = [[1], [2], [1]]. The…"}
+{"answer": "2.2000", "id": "uc2-power-method-step/medium/1/aaa58188fa41", "text": "Let A = [[3, 0, 4], [4, 1, 10], [0, 0, -1]] and x₀ = [[1], [1], [1]]. The power…"}
+{"answer": "8.1111", "id": "uc2-power-method-step/medium/2/f371533ecf86", "text": "Let A = [[7, 0, 0], [2, 7, -2], [-2, 4, 1]] and x₀ = [[1], [1], [0]]. The power…"}
+{"answer": "9", "id": "uc2-quotient-group-order-and-structure/easy/0/c534fa93d715", "text": "Let Q = Z_108 / ⟨45⟩. What is the order of the coset 38 + ⟨45⟩ in Q?"}
+{"answer": "3", "id": "uc2-quotient-group-order-and-structure/easy/1/6c3fbbd6e025", "text": "In the quotient group Z_84 / ⟨60⟩, find the order of the element 28 + ⟨60⟩."}
+{"answer": "5", "id": "uc2-quotient-group-order-and-structure/easy/2/60063804e989", "text": "Let Q = Z_90 / ⟨10⟩. What is the order of the coset 2 + ⟨10⟩ in Q?"}
+{"answer": "(a) 5; (b) 12; (c) 3; (d) (2, 6)", "id": "uc2-quotient-group-order-and-structure/exam/0/766535f84c01", "text": "Let G = Z_6 × Z_10 and let H be the subgroup of G generated by (0, 8). (a) Find…"}
+{"answer": "(a) 12; (b) 12; (c) 3; (d) (2, 6)", "id": "uc2-quotient-group-order-and-structure/exam/1/2cbad57aef36", "text": "Consider G = Z_6 × Z_24 under componentwise addition, and the cyclic subgroup H…"}
+{"answer": "(a) 5; (b) 20; (c) 5; (d) (2, 10)", "id": "uc2-quotient-group-order-and-structure/exam/2/d1ab1be6442e", "text": "Consider G = Z_10 × Z_10 under componentwise addition, and the cyclic subgroup …"}
+{"answer": "12", "id": "uc2-quotient-group-order-and-structure/hard/0/1d623d8bc03c", "text": "How many cosets g + H of H = ⟨(6, 4)⟩ in Z_12 × Z_12 satisfy 6(g + H) = H?"}
+{"answer": "9", "id": "uc2-quotient-group-order-and-structure/hard/1/8af40b8112b8", "text": "Let H be the subgroup of Z_15 × Z_12 generated by (9, 6), and let Q = (Z_15 × Z…"}
+{"answer": "4", "id": "uc2-quotient-group-order-and-structure/hard/2/6ab2d213e605", "text": "With G = Z_24 × Z_4, H = ⟨(20, 0)⟩ and Q = G / H, count the elements g of Q for…"}
+{"answer": "15", "id": "uc2-quotient-group-order-and-structure/medium/0/a3c93fa391f9", "text": "Find |G / H|, where G = Z_20 × Z_15 and H = ⟨(3, 12)⟩."}
+{"answer": "4", "id": "uc2-quotient-group-order-and-structure/medium/1/66721e579b86", "text": "Let H be the subgroup of Z_8 × Z_20 generated by (3, 11). Find the order of the…"}
+{"answer": "9", "id": "uc2-quotient-group-order-and-structure/medium/2/e808785ee2d8", "text": "The element (9, 2) of Z_18 × Z_9 generates a subgroup H. How many cosets of H a…"}
+{"answer": "10.061", "id": "uc2-regression-slope-inference/easy/0/1cd283737315", "text": "A regression of weekly rent (dollars) on distance from the city centre (km) is …"}
+{"answer": "-2.705", "id": "uc2-regression-slope-inference/easy/1/c0c14cc122f7", "text": "In a simple linear regression based on 12 pairs of observations the sample corr…"}
+{"answer": "17.036", "id": "uc2-regression-slope-inference/easy/2/8c672d7f0ca1", "text": "A regression of wheat yield (tonnes) on seasonal rainfall (hundred mm) is fitte…"}
+{"answer": "(a) 1.958; (b) 0.1764; (c) 11.10; (d) 1.468", "id": "uc2-regression-slope-inference/exam/0/b85f1a6281d3", "text": "Data on weekly advertising spend (thousand dollars) and weekly sales (thousand …"}
+{"answer": "(a) 4.090; (b) 0.3317; (c) 12.33; (d) 3.237", "id": "uc2-regression-slope-inference/exam/1/6c119cf5dff6", "text": "An analyst studies how test score (marks) depends on weekly study time (hours) …"}
+{"answer": "(a) 2.066; (b) 0.1990; (c) 10.38; (d) 1.579", "id": "uc2-regression-slope-inference/exam/2/a94712c23261", "text": "Data on weekly study time (hours) and test score (marks) from 8 sites give n = …"}
+{"answer": "1.817", "id": "uc2-regression-slope-inference/hard/0/06a3fd5370ee", "text": "For 15 pairs of observations the sample correlation is r = 0.45, the standard d…"}
+{"answer": "1.646", "id": "uc2-regression-slope-inference/hard/1/53b9b41d8f2a", "text": "A researcher records weekly study time (hours) and test score (marks) for 6 uni…"}
+{"answer": "8.590", "id": "uc2-regression-slope-inference/hard/2/f710fae191a9", "text": "A regression of weekly rent (dollars) on distance from the city centre (km) is …"}
+{"answer": "12.84", "id": "uc2-regression-slope-inference/medium/0/df81f0c92496", "text": "A regression of wheat yield (tonnes) on seasonal rainfall (hundred mm) is fitte…"}
+{"answer": "-11.77", "id": "uc2-regression-slope-inference/medium/1/d8643cb9a990", "text": "A regression of cold drinks sold (dozens) on daily maximum temperature (degrees…"}
+{"answer": "-8.14", "id": "uc2-regression-slope-inference/medium/2/2f0801990b94", "text": "A regression of test score (marks) on weekly study time (hours) is fitted by le…"}
+{"answer": "3.00000", "id": "uc2-richardson-extrapolation/easy/0/bb0423ab918c", "text": "The function f(x) = 2x³ + x² − 4x − 3 has forward difference quotients at x = 1…"}
+{"answer": "10.00000", "id": "uc2-richardson-extrapolation/easy/1/83dbc1452059", "text": "The function f(x) = 2x³ − 3x² − x − 2 has forward difference quotients at x = −…"}
+{"answer": "3.50000", "id": "uc2-richardson-extrapolation/easy/2/08a067148d3b", "text": "For f(x) = −x³ + 5x² − 5x − 1, the forward difference is (f(x + h) − f(x))/h. T…"}
+{"answer": "(a) -33.09440; (b) -32.27840; (c) -32.00640; (d) -0.00640", "id": "uc2-richardson-extrapolation/exam/0/05a01d1a6594", "text": "Let D(h) = (f(x + h) − f(x − h))/(2h) for f(x) = x⁵ − 3x⁴ − 5x³ − 3x² − 4x + 4.…"}
+{"answer": "(a) 3.05120; (b) 3.00320; (c) 2.98720; (d) -0.01280", "id": "uc2-richardson-extrapolation/exam/1/1dd13e4e0dcf", "text": "The derivative of f(x) = 2x⁵ − 2x⁴ − 3x² + 3x − 5 at x = 0 is estimated by the …"}
+{"answer": "(a) 236.61120; (b) 225.64320; (c) 221.98720; (d) -0.01280", "id": "uc2-richardson-extrapolation/exam/2/d157b9c548ea", "text": "The derivative of f(x) = 2x⁵ + x⁴ + 3x³ − x² − 2x + 5 at x = 2 is estimated by …"}
+{"answer": "2.34029", "id": "uc2-richardson-extrapolation/hard/0/bb417d6ba09d", "text": "The trapezoid rule applied to an integral gives T(h) = 2.7572 with step h = 0.5…"}
+{"answer": "3.74973", "id": "uc2-richardson-extrapolation/hard/1/4249c50a63a5", "text": "A trapezoid-rule table for an integral reads 3.7297, 3.7400, 3.7470 at steps 0.…"}
+{"answer": "8.21474", "id": "uc2-richardson-extrapolation/hard/2/4eecd45649a3", "text": "Three trapezoid estimates of one integral, with steps 1, 0.5 and 0.25, are 5.81…"}
+{"answer": "204.98720", "id": "uc2-richardson-extrapolation/medium/0/22ed61746b06", "text": "Estimate f′(2) for f(x) = 2x⁵ + 3x⁴ − 5x³ + x² + 5x + 2 using central differenc…"}
+{"answer": "17.75000", "id": "uc2-richardson-extrapolation/medium/1/aafd6533530e", "text": "For f(x) = x⁵ + 3x⁴ − x³ + x² + 2x + 5, the central difference is (f(x + h) − f…"}
+{"answer": "-13.75000", "id": "uc2-richardson-extrapolation/medium/2/757b0d559409", "text": "Estimate f′(1) for f(x) = −x⁵ − 3x⁴ + x³ − x² + 2x + 3 using central difference…"}
+{"answer": "x - 1", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/easy/0/e4ba47ab455e", "text": "In Q[x], the ideal I is generated by f = 2x^3 - 16x^2 + 38x - 24 and g = 2x^2 +…"}
+{"answer": "x^2 + x + 1", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/easy/1/6497f1b18fd6", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Q[x], where f = x^3 - 2x^2 - 2x…"}
+{"answer": "x - 2", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/easy/2/22c0c2bcac0a", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Q[x], where f = 2x^2 - 4x and g…"}
+{"answer": "(a) 2x^3 + x^2 + x + 1; (b) x + 4; (c) 1; (d) 5", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/exam/0/a0ded70c9f73", "text": "Work in Z_5[x] with f = 4x^4 + 2x^3 + 2x^2 + x + 1 and g = 2x^4 + 3x^2, and wri…"}
+{"answer": "(a) 3x^2 + 4x + 3; (b) x + 4; (c) 1; (d) 5", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/exam/1/093fa82cfc82", "text": "Let I be the ideal of Z_5[x] generated by f = x^4 + 3x^3 + x^2 + 2x + 3 and g =…"}
+{"answer": "(a) 3x^3 + 6x^2 + 3x + 6; (b) x^2 + 1; (c) 2; (d) 49", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/exam/2/b42f8552bcec", "text": "Let I be the ideal of Z_7[x] generated by f = 5x^4 + 5x^3 + 5x + 2 and g = 5x^4…"}
+{"answer": "x^4 + 3x^3 + 6x^2 + x + 4", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/hard/0/d6a28b6ae56a", "text": "In Z_7[x], with f = x^3 + 5x^2 + 2x + 5 and g = x^3 + 2x^2 + 4x + 4, a polynomi…"}
+{"answer": "x^4 + 2x^3 + x^2 + 2x", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/hard/1/aa77ee3334d4", "text": "In Z_5[x] let I = ⟨f⟩ and J = ⟨g⟩, where f = 4x^3 + x^2 + x and g = 4x^3 + 3x^2…"}
+{"answer": "x^5 + 2x^4 + 6x^2 + 5x", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/hard/2/b1b8d0d4316a", "text": "In Z_7[x], with f = 2x^3 + 5x^2 + 6x + 1 and g = 3x^3 + 3x^2 + 3x, a polynomial…"}
+{"answer": "x", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/medium/0/c79b5f84adee", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Z_7[x], where f = 6x^3 + 6x^2 +…"}
+{"answer": "x^2 + 4x + 4", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/medium/1/dd10eeedd05c", "text": "Find the monic generator of the ideal ⟨f, g⟩ of Z_5[x], where f = 2x^4 + 4x^3 +…"}
+{"answer": "x + 6", "id": "uc2-ring-ideal-gcd-in-polynomial-ring/medium/2/f8a2fbdc4afd", "text": "Let I = ⟨f, g⟩ be the ideal of Z_7[x] generated by f = 4x^2 + 5x + 5 and g = 2x…"}
+{"answer": "1.15625", "id": "uc2-rk4-step/easy/0/bd351c5b7e1a", "text": "A function y satisfies y′ = x − 2y, y(1) = 2. Use one step of the classical fou…"}
+{"answer": "4.27002", "id": "uc2-rk4-step/easy/1/c60b2cc57c52", "text": "A function y satisfies y′ = x + 3y, y(0) = 2. Use one step of the classical fou…"}
+{"answer": "-0.65625", "id": "uc2-rk4-step/easy/2/84bff5f9aff5", "text": "A function y satisfies y′ = x − 2y, y(0) = −2. Use one step of the classical fo…"}
+{"answer": "(a) 5.00000; (b) 9.00000; (c) 6.87500; (d) 33.28223", "id": "uc2-rk4-step/exam/0/244a1dc7f5ae", "text": "A function y satisfies y′ = x + 3y, y(2) = 1. It is approximated by the classic…"}
+{"answer": "(a) -2.00000; (b) -0.75000; (c) 1.46875; (d) 1.42578", "id": "uc2-rk4-step/exam/1/8bf2f79dcd6a", "text": "A function y satisfies y′ = x − 2y, y(2) = 2. It is approximated by the classic…"}
+{"answer": "(a) -2.00000; (b) -2.62500; (c) -1.68555; (d) -2.89668", "id": "uc2-rk4-step/exam/2/2937dd807f13", "text": "A function y satisfies y′ = −x + 2y, y(0) = −1. It is approximated by the class…"}
+{"answer": "0.68729", "id": "uc2-rk4-step/hard/0/dd2fc9a4a018", "text": "A function y satisfies y′ = xy − y, y(0) = 1. Use two steps of the classical fo…"}
+{"answer": "-1.64853", "id": "uc2-rk4-step/hard/1/63eeda03ca26", "text": "A function y satisfies y′ = xy, y(0) = −1. Use two steps of the classical fourt…"}
+{"answer": "0.84469", "id": "uc2-rk4-step/hard/2/ab2b8dae727a", "text": "A function y satisfies y′ = −y² + 2x, y(0) = 1. Use two steps of the classical …"}
+{"answer": "-0.68392", "id": "uc2-rk4-step/medium/0/b1d52dedd61b", "text": "A function y satisfies y′ = xy − y, y(−1) = −1. Use one step of the classical f…"}
+{"answer": "1.29148", "id": "uc2-rk4-step/medium/1/fb04413b34f6", "text": "A function y satisfies y′ = 2xy, y(−1) = 2. Use one step of the classical fourt…"}
+{"answer": "-0.46408", "id": "uc2-rk4-step/medium/2/8a1b725c8624", "text": "A function y satisfies y′ = x² + y², y(−1) = −1. Use one step of the classical …"}
+{"answer": "2.5000", "id": "uc2-secant-iteration/easy/0/33fc00c53e7e", "text": "The secant method is applied to f(x) = x² − 8 with starting values x₀ = 2 and x…"}
+{"answer": "4.2500", "id": "uc2-secant-iteration/easy/1/b526da1ce73a", "text": "The secant method is applied to f(x) = x² − 19 with starting values x₀ = 5 and …"}
+{"answer": "6.7143", "id": "uc2-secant-iteration/easy/2/2367b066f804", "text": "The secant method is applied to f(x) = x² − 35 with starting values x₀ = 3 and …"}
+{"answer": "(a) 77/13; (b) -324/169; (c) 1097/181; (d) 0.021989", "id": "uc2-secant-iteration/exam/0/10fdff9eec1e", "text": "The secant method is applied to f(x) = x² − 37 with starting values x₀ = 5 and …"}
+{"answer": "(a) 61/12; (b) -23/144; (c) 739/145; (d) 0.002468", "id": "uc2-secant-iteration/exam/1/7f57086e02c9", "text": "The secant method is applied to f(x) = x² − 26 with starting values x₀ = 5 and …"}
+{"answer": "(a) 41/10; (b) -19/100; (c) 416/101; (d) 0.004294", "id": "uc2-secant-iteration/exam/2/0e9f8b612880", "text": "The secant method is applied to f(x) = x² − 17 with starting values x₀ = 4 and …"}
+{"answer": "3.2386", "id": "uc2-secant-iteration/hard/0/0676240045cd", "text": "The equation x³ = 5x + 4 is solved by the secant method with starting values x₀…"}
+{"answer": "2.6489", "id": "uc2-secant-iteration/hard/1/2b927aaa0502", "text": "The equation x³ = 2x + 8 is solved by the secant method with starting values x₀…"}
+{"answer": "3.2483", "id": "uc2-secant-iteration/hard/2/ea890749baf2", "text": "The equation x³ = 5x + 16 is solved by the secant method with starting values x…"}
+{"answer": "2.4400", "id": "uc2-secant-iteration/medium/0/a105acc22bd8", "text": "The equation x³ = 3x + 13 is to be solved by the secant method with starting va…"}
+{"answer": "9.5000", "id": "uc2-secant-iteration/medium/1/3d5f17d681e6", "text": "The equation x³ = 5x + 13 is to be solved by the secant method with starting va…"}
+{"answer": "2.6875", "id": "uc2-secant-iteration/medium/2/e883bc3166d0", "text": "The equation x³ = 5x + 2 is to be solved by the secant method with starting val…"}
+{"answer": "8", "id": "uc2-subgroup-lattice-count/easy/0/bf959dcf2233", "text": "In the cyclic group Z_168 under addition, how many subgroups contain the subgro…"}
+{"answer": "5", "id": "uc2-subgroup-lattice-count/easy/1/3244f656bd93", "text": "Z_96 is the group of integers modulo 96 under addition. How many subgroups K of…"}
+{"answer": "5", "id": "uc2-subgroup-lattice-count/easy/2/1f9621d3140d", "text": "Let H = ⟨112⟩ be the subgroup of (Z_144, +) generated by 112. Count the subgrou…"}
+{"answer": "(a) 5; (b) 31; (c) 36; (d) 8", "id": "uc2-subgroup-lattice-count/exam/0/4c8528f21107", "text": "Consider the symmetries of a regular 16-gon, the group D_16 of order 32 with ro…"}
+{"answer": "(a) 6; (b) 42; (c) 48; (d) 9", "id": "uc2-subgroup-lattice-count/exam/1/e358ae789097", "text": "Let D_20 be the dihedral group of order 40, generated by a rotation r of order …"}
+{"answer": "(a) 8; (b) 60; (c) 68; (d) 11", "id": "uc2-subgroup-lattice-count/exam/2/64d79c1434a0", "text": "Let D_24 be the dihedral group of order 48, generated by a rotation r of order …"}
+{"answer": "16", "id": "uc2-subgroup-lattice-count/hard/0/e13ab0546808", "text": "Count every subgroup of the direct product Z_20 × Z_2 (with componentwise addit…"}
+{"answer": "10", "id": "uc2-subgroup-lattice-count/hard/1/7b85f8706d64", "text": "The group G = Z_9 × Z_3 is formed with componentwise addition. How many subgrou…"}
+{"answer": "22", "id": "uc2-subgroup-lattice-count/hard/2/6d4f8cf39fea", "text": "How many subgroups does Z_2 × Z_24 have, counting the trivial subgroup and the …"}
+{"answer": "7", "id": "uc2-subgroup-lattice-count/medium/0/bc9f2889161f", "text": "The symmetries of a regular 54-gon form the dihedral group D_54, of order 108. …"}
+{"answer": "5", "id": "uc2-subgroup-lattice-count/medium/1/ececee94a51c", "text": "The symmetries of a regular 28-gon form the dihedral group D_28, of order 56. C…"}
+{"answer": "3", "id": "uc2-subgroup-lattice-count/medium/2/f3bcc20f65c0", "text": "How many different subgroups of order 8 does the dihedral group D_8 (of order 1…"}
+{"answer": "1680", "id": "uc2-symmetric-group-conjugacy/easy/0/e51ea9459ead", "text": "In the symmetric group S_8, let σ = (8 6 7)(4 1)(5 3) (points not listed are fi…"}
+{"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/1/b3e2359e445d", "text": "Let σ = (1 6)(2 5)(3 4) be a permutation in S_6; points not written are fixed. …"}
+{"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/2/36705a38c195", "text": "In the symmetric group S_6, let σ = (6 3)(2 1)(4 5) (points not listed are fixe…"}
+{"answer": "(a) 6; (b) 420; (c) 12; (d) (2, 1, 1, 1, 1, 1)", "id": "uc2-symmetric-group-conjugacy/exam/0/f8c4afbfc4fa", "text": "Let σ = (1 2 7)(6 4) be a permutation in S_7; points that are not written are f…"}
+{"answer": "(a) 6; (b) 1680; (c) 24; (d) (3, 1, 1, 1, 1, 1)", "id": "uc2-symmetric-group-conjugacy/exam/1/f0cff639c08a", "text": "Let σ = (1 5 8)(4 7)(6 2) be a permutation in S_8; points that are not written …"}
+{"answer": "(a) 12; (b) 3360; (c) 12; (d) (4, 1, 1, 1, 1)", "id": "uc2-symmetric-group-conjugacy/exam/2/b6a2c578f7f2", "text": "The permutation σ = (6 7 5 2)(4 1 3) belongs to S_8, with the points not listed…"}
+{"answer": "80", "id": "uc2-symmetric-group-conjugacy/hard/0/fbcc83b0ebce", "text": "How many elements of the symmetric group S_6 have order exactly 3?"}
+{"answer": "80", "id": "uc2-symmetric-group-conjugacy/hard/1/af4e8cde08b6", "text": "Count the permutations in S_6 whose order is exactly 3."}
+{"answer": "240", "id": "uc2-symmetric-group-conjugacy/hard/2/c3d24d6bded0", "text": "Count the permutations in S_6 whose order is exactly 6."}
+{"answer": "288", "id": "uc2-symmetric-group-conjugacy/medium/0/a45bc5d2ea16", "text": "Find |C(σ)|, the number of elements of S_9 that commute with σ = (7 1)(6 3)(9 2…"}
+{"answer": "32", "id": "uc2-symmetric-group-conjugacy/medium/1/42fa34543053", "text": "In the symmetric group S_9, let σ = (3 9 2 8)(4 1 5 6) (points not listed are f…"}
+{"answer": "18", "id": "uc2-symmetric-group-conjugacy/medium/2/26907bf2bdb1", "text": "Let σ = (1 7 3)(5 6 4) be a permutation in S_7 (unlisted points are fixed). How…"}
+{"answer": "5, 1, 4, 1, 7", "id": "uc2-tree-counting-prufer/easy/0/5929e89b76af", "text": "The Prüfer code of a labelled tree is found by repeatedly deleting the leaf wit…"}
+{"answer": "4, 6, 3, 2, 6", "id": "uc2-tree-counting-prufer/easy/1/a5fa60ee6f6b", "text": "A tree has vertices 1 to 7 and edges 1–4, 2–3, 2–6, 3–5, 4–6, 6–7. The Prüfer c…"}
+{"answer": "4, 2, 1, 2", "id": "uc2-tree-counting-prufer/easy/2/89329ef55803", "text": "The vertices 1 to 6 are joined by the edges 1–2, 1–5, 2–4, 2–6, 3–4 to make a t…"}
+{"answer": "(a) 6, 7; (b) 2; (c) 7776; (d) 9031", "id": "uc2-tree-counting-prufer/exam/0/f8511796ad1f", "text": "Vertices 1 to 7 form a labelled tree. Its Prüfer code, found by deleting the sm…"}
+{"answer": "(a) 1, 2, 5; (b) 2; (c) 7776; (d) 9031", "id": "uc2-tree-counting-prufer/exam/1/b3ffa20910dc", "text": "The Prüfer code of a tree whose vertices are labelled 1 to 7 is (7, 3, 6, 4, 4)…"}
+{"answer": "(a) 3, 5, 6, 7; (b) 2; (c) 7776; (d) 9031", "id": "uc2-tree-counting-prufer/exam/2/81c38ad6253e", "text": "The Prüfer code of a tree whose vertices are labelled 1 to 7 is (1, 2, 4, 4, 1)…"}
+{"answer": "4, 9, 2, 6, 8, 7", "id": "uc2-tree-counting-prufer/hard/0/12e5354d022e", "text": "The Prüfer code of a tree on vertices 1 to 9 is (3, 8, 9, 8, 8, 6, 2). The Prüf…"}
+{"answer": "2, 9, 8, 5, 7", "id": "uc2-tree-counting-prufer/hard/1/3087e2940a5d", "text": "The Prüfer code of a tree on vertices 1 to 9 is (2, 8, 9, 2, 9, 5, 8). The Prüf…"}
+{"answer": "6, 5, 8, 3, 4, 1", "id": "uc2-tree-counting-prufer/hard/2/79b72425f652", "text": "The Prüfer code of a labelled tree is found by repeatedly deleting the leaf wit…"}
+{"answer": "2, 7, 8", "id": "uc2-tree-counting-prufer/medium/0/b29e8994c2b8", "text": "The Prüfer code of a labelled tree is found by repeatedly deleting the leaf wit…"}
+{"answer": "1, 3, 5", "id": "uc2-tree-counting-prufer/medium/1/7847710bceda", "text": "The code (6, 6, 5, 5, 2, 2) is the Prüfer code of a tree on vertices 1 to 8. Th…"}
+{"answer": "1, 2, 3", "id": "uc2-tree-counting-prufer/medium/2/cbc7dd382444", "text": "The code (6, 7, 3, 6, 1) is the Prüfer code of a tree on vertices 1 to 7. The P…"}
+{"answer": "{0, 10, 20, 30, 40}", "id": "uc2-units-and-zero-divisors-zn/easy/0/96963139f48b", "text": "List every a from 0 to 49 for which some power of a is 0 in the ring Z_50. Give…"}
+{"answer": "{0, 6}", "id": "uc2-units-and-zero-divisors-zn/easy/1/3d2354d1174b", "text": "An element a of the ring Z_12 is nilpotent if a^k = 0 for some positive integer…"}
+{"answer": "{0, 14}", "id": "uc2-units-and-zero-divisors-zn/easy/2/66dcb1452de5", "text": "List every a from 0 to 27 for which some power of a is 0 in the ring Z_28. Give…"}
+{"answer": "(a) 60; (b) 38; (c) 3; (d) {0, 1, 45, 55}", "id": "uc2-units-and-zero-divisors-zn/exam/0/8968d77030a6", "text": "Consider the ring Z_99. A non-zero element a is a zero divisor if ab = 0 for so…"}
+{"answer": "(a) 6; (b) 11; (c) 3; (d) {0, 1, 9, 10}", "id": "uc2-units-and-zero-divisors-zn/exam/1/9b7182504597", "text": "Consider the ring Z_18. A non-zero element a is a zero divisor if ab = 0 for so…"}
+{"answer": "(a) 12; (b) 23; (c) 6; (d) {0, 1, 9, 28}", "id": "uc2-units-and-zero-divisors-zn/exam/2/a8b0301832e7", "text": "In the ring Z_36, an element is nilpotent if some power of it is 0 and idempote…"}
+{"answer": "{0, 1, 25, 51, 75, 76, 100, 126}", "id": "uc2-units-and-zero-divisors-zn/hard/0/b6ecda2f3d18", "text": "List every e from 0 to 149 with e² ≡ e (mod 150). Give the answer as a set, for…"}
+{"answer": "{0, 1, 16, 21, 25, 36, 40, 45}", "id": "uc2-units-and-zero-divisors-zn/hard/1/8c2253042715", "text": "Which elements of the ring Z_60 equal their own square? Give them as a set of r…"}
+{"answer": "{0, 1, 28, 81}", "id": "uc2-units-and-zero-divisors-zn/hard/2/4a5ed3ca3f83", "text": "Which elements of the ring Z_108 equal their own square? Give them as a set of …"}
+{"answer": "{1, 5, 9, 13, 17, 21, 25, 29, 33, 37}", "id": "uc2-units-and-zero-divisors-zn/medium/0/369be7366a5f", "text": "Which residues x modulo 40 satisfy 10x ≡ 10 (mod 40)? Give all of them as a set…"}
+{"answer": "{4, 12, 20, 28}", "id": "uc2-units-and-zero-divisors-zn/medium/1/1f24bbe611a2", "text": "Solve 28x = 16 in the ring Z_32. List every solution x as a residue from 0 to 3…"}
+{"answer": "{5, 29}", "id": "uc2-units-and-zero-divisors-zn/medium/2/8c87916b102e", "text": "Find every solution x from 0 to 47 of the congruence 22x ≡ 14 (mod 48). Give th…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}

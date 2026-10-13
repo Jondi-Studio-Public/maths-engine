@@ -162,6 +162,14 @@ autonomous-equilibrium-stability:
     module: mathgen/generators/university_fourier_dynamics.py
   - topic: exd_x_sc1_harvested_equilibria
     module: mathgen/generators/exd_x_sc1_harvested_equilibria.py
+back-to-back-stem-plot-compare:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_back_to_back_stem
+    module: mathgen/generators/r4g_back_to_back_stem_build.py
+  - topic: exd_x_r4g_back_to_back_stem
+    module: mathgen/generators/exd_x_r4g_back_to_back_stem.py
 beam-equilibrium-seesaw:
   domain: engineering-mechanics
   status: active
@@ -578,6 +586,14 @@ cyclic-group-element-order:
     module: mathgen/generators/university_algebra.py
   - topic: exd_x_u1_cyclic_subgroup
     module: mathgen/generators/exd_x_u1_cyclic_subgroup.py
+data-transformation-to-linearity:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_transform_linearity
+    module: mathgen/generators/r4g_transform_linearity_build.py
+  - topic: exd_x_r4g_transform_linearity
+    module: mathgen/generators/exd_x_r4g_transform_linearity.py
 decimal-arithmetic:
   domain: readiness
   status: active
@@ -1930,6 +1946,14 @@ graph-y-mx-plus-b:
     module: mathgen/generators/fg1_line_reading_build.py
   - topic: exd_x_w12b_graph_y_mx_plus_b
     module: mathgen/generators/exd_x_w12b_graph_y_mx_plus_b.py
+grouped-frequency-table-class-intervals:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_grouped_frequency
+    module: mathgen/generators/r4g_grouped_frequency_build.py
+  - topic: exd_x_r4g_grouped_frequency
+    module: mathgen/generators/exd_x_r4g_grouped_frequency.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -2154,6 +2178,14 @@ logarithm-laws:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_sc5_log_equation
     module: mathgen/generators/exd_x_sc5_log_equation.py
+longitude-local-clock-time:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: r4g_longitude_local_time
+    module: mathgen/generators/r4g_longitude_local_time_build.py
+  - topic: exd_x_r4g_longitude_local_time
+    module: mathgen/generators/exd_x_r4g_longitude_local_time.py
 markov-two-state-stationary:
   domain: statistics-probability
   status: active
@@ -2306,6 +2338,14 @@ moving-average:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_g5_moving_average
     module: mathgen/generators/exd_x_g5_moving_average.py
+moving-average-median-smoothing:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_moving_average_smoothing
+    module: mathgen/generators/r4g_moving_average_smoothing_build.py
+  - topic: exd_x_r4g_moving_average_smoothing
+    module: mathgen/generators/exd_x_r4g_moving_average_smoothing.py
 multiplication-facts:
   domain: early-foundations
   status: active
@@ -2456,6 +2496,14 @@ permutations:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r3f_permutation_roles
     module: mathgen/generators/exd_x_r3f_permutation_roles.py
+piecewise-linear-tariff-model:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: r4g_two_rate_tariff
+    module: mathgen/generators/r4g_two_rate_tariff_build.py
+  - topic: exd_x_r4g_two_rate_tariff
+    module: mathgen/generators/exd_x_r4g_two_rate_tariff.py
 place-value-to-100:
   domain: early-foundations
   status: active
@@ -2766,6 +2814,14 @@ second-derivative:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r3b_second_derivative
     module: mathgen/generators/exd_x_r3b_second_derivative.py
+sector-area-and-arc-from-degrees:
+  domain: measurement
+  status: active
+  sources:
+  - topic: r4g_sector_degrees
+    module: mathgen/generators/r4g_sector_degrees_build.py
+  - topic: exd_x_r4g_sector_degrees
+    module: mathgen/generators/exd_x_r4g_sector_degrees.py
 senior-an-angle-in-a-semicircle-is-a-right:
   domain: senior-mathematics
   status: active
@@ -5486,6 +5542,14 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+two-timetable-route-planning:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: r4g_two_timetable_route
+    module: mathgen/generators/r4g_two_timetable_route_build.py
+  - topic: exd_x_r4g_two_timetable_route
+    module: mathgen/generators/exd_x_r4g_two_timetable_route.py
 uc2-burnside-counting:
   domain: abstract-algebra
   status: active
@@ -5494,6 +5558,14 @@ uc2-burnside-counting:
     module: mathgen/generators/r4a_burnside_counting_build.py
   - topic: exd_x_r4a_burnside_counting
     module: mathgen/generators/r4a_burnside_counting_build.py
+uc2-clt-approximation-sums:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_clt_sums
+    module: mathgen/generators/r4i_clt_sums_build.py
+  - topic: exd_x_r4i_clt_sums
+    module: mathgen/generators/r4i_clt_sums_build.py
 uc2-cosets-and-index:
   domain: abstract-algebra
   status: active
@@ -5502,6 +5574,14 @@ uc2-cosets-and-index:
     module: mathgen/generators/r4a_cosets_and_index_build.py
   - topic: exd_x_r4a_cosets_and_index
     module: mathgen/generators/r4a_cosets_and_index_build.py
+uc2-cramer-rao-lower-bound:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_cramer_rao
+    module: mathgen/generators/r4i_cramer_rao_build.py
+  - topic: exd_x_r4i_cramer_rao
+    module: mathgen/generators/r4i_cramer_rao_build.py
 uc2-dihedral-group-compositions:
   domain: abstract-algebra
   status: active
@@ -5510,6 +5590,86 @@ uc2-dihedral-group-compositions:
     module: mathgen/generators/r4a_dihedral_group_compositions_build.py
   - topic: exd_x_r4a_dihedral_group_compositions
     module: mathgen/generators/r4a_dihedral_group_compositions_build.py
+uc2-dijkstra-trace:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_dijkstra_trace
+    module: mathgen/generators/r4j_dijkstra_trace_build.py
+  - topic: exd_x_r4j_dijkstra_trace
+    module: mathgen/generators/r4j_dijkstra_trace_build.py
+uc2-estimator-bias-and-mse:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_estimator_bias_mse
+    module: mathgen/generators/r4i_estimator_bias_mse_build.py
+  - topic: exd_x_r4i_estimator_bias_mse
+    module: mathgen/generators/r4i_estimator_bias_mse_build.py
+uc2-finite-field-arithmetic-gfp:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_finite_field_arithmetic_gfp
+    module: mathgen/generators/r4c_finite_field_arithmetic_gfp_build.py
+  - topic: exd_x_r4c_finite_field_arithmetic_gfp
+    module: mathgen/generators/r4c_finite_field_arithmetic_gfp_build.py
+uc2-first-isomorphism-theorem-orders:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_first_isomorphism_theorem_orders
+    module: mathgen/generators/r4c_first_isomorphism_theorem_orders_build.py
+  - topic: exd_x_r4c_first_isomorphism_theorem_orders
+    module: mathgen/generators/r4c_first_isomorphism_theorem_orders_build.py
+uc2-fixed-point-iteration-convergence:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_fixed_point_convergence
+    module: mathgen/generators/r4b_fixed_point_convergence_build.py
+  - topic: exd_x_r4b_fixed_point_convergence
+    module: mathgen/generators/r4b_fixed_point_convergence_build.py
+uc2-gamma-beta-moments:
+  domain: probability
+  status: active
+  sources:
+  - topic: r4i_gamma_beta
+    module: mathgen/generators/r4i_gamma_beta_build.py
+  - topic: exd_x_r4i_gamma_beta
+    module: mathgen/generators/r4i_gamma_beta_build.py
+uc2-gauss-legendre-2pt:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_gauss_legendre
+    module: mathgen/generators/r4b_gauss_legendre_build.py
+  - topic: exd_x_r4b_gauss_legendre
+    module: mathgen/generators/r4b_gauss_legendre_build.py
+uc2-gaussian-elimination-partial-pivoting:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_gaussian_partial_pivoting
+    module: mathgen/generators/r4h_gaussian_partial_pivoting_build.py
+  - topic: exd_x_r4h_gaussian_partial_pivoting
+    module: mathgen/generators/r4h_gaussian_partial_pivoting_build.py
+uc2-generating-function-coefficient:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_generating_function_coefficient
+    module: mathgen/generators/r4j_generating_function_coefficient_build.py
+  - topic: exd_x_r4j_generating_function_coefficient
+    module: mathgen/generators/r4j_generating_function_coefficient_build.py
+uc2-generating-function-partition-counting:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_generating_function_partition_counting
+    module: mathgen/generators/r4j_generating_function_partition_counting_build.py
+  - topic: exd_x_r4j_generating_function_partition_counting
+    module: mathgen/generators/r4j_generating_function_partition_counting_build.py
 uc2-group-table-check:
   domain: abstract-algebra
   status: active
@@ -5526,6 +5686,54 @@ uc2-homomorphism-kernel-image:
     module: mathgen/generators/r4a_homomorphism_kernel_image_build.py
   - topic: exd_x_r4a_homomorphism_kernel_image
     module: mathgen/generators/r4a_homomorphism_kernel_image_build.py
+uc2-improved-euler-step:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_improved_euler_step
+    module: mathgen/generators/r4h_improved_euler_step_build.py
+  - topic: exd_x_r4h_improved_euler_step
+    module: mathgen/generators/r4h_improved_euler_step_build.py
+uc2-interpolation-error-bound:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_interpolation_error_bound
+    module: mathgen/generators/r4h_interpolation_error_bound_build.py
+  - topic: exd_x_r4h_interpolation_error_bound
+    module: mathgen/generators/r4h_interpolation_error_bound_build.py
+uc2-irreducibility-test-over-zp:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_irreducibility_test_over_zp
+    module: mathgen/generators/r4c_irreducibility_test_over_zp_build.py
+  - topic: exd_x_r4c_irreducibility_test_over_zp
+    module: mathgen/generators/r4c_irreducibility_test_over_zp_build.py
+uc2-kkt-conditions-check:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: r4h_kkt_conditions
+    module: mathgen/generators/r4h_kkt_conditions_build.py
+  - topic: exd_x_r4h_kkt_conditions
+    module: mathgen/generators/r4h_kkt_conditions_build.py
+uc2-lagrange-interpolating-polynomial:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_lagrange_interpolation
+    module: mathgen/generators/r4b_lagrange_interpolation_build.py
+  - topic: exd_x_r4b_lagrange_interpolation
+    module: mathgen/generators/r4b_lagrange_interpolation_build.py
+uc2-lagrange-multiplier-nonlinear-constraint:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: r4h_lagrange_nonlinear_constraint
+    module: mathgen/generators/r4h_lagrange_nonlinear_constraint_build.py
+  - topic: exd_x_r4h_lagrange_nonlinear_constraint
+    module: mathgen/generators/r4h_lagrange_nonlinear_constraint_build.py
 uc2-lagranges-theorem-applications:
   domain: abstract-algebra
   status: active
@@ -5534,6 +5742,78 @@ uc2-lagranges-theorem-applications:
     module: mathgen/generators/r4a_lagranges_theorem_applications_build.py
   - topic: exd_x_r4a_lagranges_theorem_applications
     module: mathgen/generators/r4a_lagranges_theorem_applications_build.py
+uc2-lu-factorisation-3x3:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_lu_factorisation
+    module: mathgen/generators/r4b_lu_factorisation_build.py
+  - topic: exd_x_r4b_lu_factorisation
+    module: mathgen/generators/r4b_lu_factorisation_build.py
+uc2-markov-chebyshev-bound:
+  domain: probability
+  status: active
+  sources:
+  - topic: r4i_markov_chebyshev
+    module: mathgen/generators/r4i_markov_chebyshev_build.py
+  - topic: exd_x_r4i_markov_chebyshev
+    module: mathgen/generators/r4i_markov_chebyshev_build.py
+uc2-matrix-norm-1-and-infinity:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_matrix_norm_condition
+    module: mathgen/generators/r4h_matrix_norm_condition_build.py
+  - topic: exd_x_r4h_matrix_norm_condition
+    module: mathgen/generators/r4h_matrix_norm_condition_build.py
+uc2-newton-divided-differences:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_newton_divided_differences
+    module: mathgen/generators/r4b_newton_divided_differences_build.py
+  - topic: exd_x_r4b_newton_divided_differences
+    module: mathgen/generators/r4b_newton_divided_differences_build.py
+uc2-newton-method-optimisation-step:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: r4h_newton_optimisation
+    module: mathgen/generators/r4h_newton_optimisation_build.py
+  - topic: exd_x_r4h_newton_optimisation
+    module: mathgen/generators/r4h_newton_optimisation_build.py
+uc2-nonhomogeneous-recurrence-polynomial-or-exponential-forcing:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_forced_recurrence
+    module: mathgen/generators/r4j_forced_recurrence_build.py
+  - topic: exd_x_r4j_forced_recurrence
+    module: mathgen/generators/r4j_forced_recurrence_build.py
+uc2-normal-subgroup-test:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_normal_subgroup_test
+    module: mathgen/generators/r4c_normal_subgroup_test_build.py
+  - topic: exd_x_r4c_normal_subgroup_test
+    module: mathgen/generators/r4c_normal_subgroup_test_build.py
+uc2-ode-method-order-and-stability:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_ode_method_order_stability
+    module: mathgen/generators/r4h_ode_method_order_stability_build.py
+  - topic: exd_x_r4h_ode_method_order_stability
+    module: mathgen/generators/r4h_ode_method_order_stability_build.py
+uc2-one-way-anova-table:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_anova
+    module: mathgen/generators/r4i_anova_build.py
+  - topic: exd_x_r4i_anova
+    module: mathgen/generators/r4i_anova_build.py
 uc2-orbit-stabiliser-count:
   domain: abstract-algebra
   status: active
@@ -5542,6 +5822,14 @@ uc2-orbit-stabiliser-count:
     module: mathgen/generators/r4a_orbit_stabiliser_count_build.py
   - topic: exd_x_r4a_orbit_stabiliser_count
     module: mathgen/generators/r4a_orbit_stabiliser_count_build.py
+uc2-partial-order-hasse:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_partial_order_hasse
+    module: mathgen/generators/r4j_partial_order_hasse_build.py
+  - topic: exd_x_r4j_partial_order_hasse
+    module: mathgen/generators/r4j_partial_order_hasse_build.py
 uc2-permutation-cycle-notation:
   domain: abstract-algebra
   status: active
@@ -5558,6 +5846,102 @@ uc2-permutation-sign-and-order:
     module: mathgen/generators/r4a_permutation_sign_and_order_build.py
   - topic: exd_x_r4a_permutation_sign_and_order
     module: mathgen/generators/r4a_permutation_sign_and_order_build.py
+uc2-poisson-process-interarrival:
+  domain: stochastic-processes
+  status: active
+  sources:
+  - topic: r4i_poisson_process
+    module: mathgen/generators/r4i_poisson_process_build.py
+  - topic: exd_x_r4i_poisson_process
+    module: mathgen/generators/r4i_poisson_process_build.py
+uc2-power-method-step:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_power_method
+    module: mathgen/generators/r4b_power_method_build.py
+  - topic: exd_x_r4b_power_method
+    module: mathgen/generators/r4b_power_method_build.py
+uc2-quotient-group-order-and-structure:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_quotient_group_order_and_structure
+    module: mathgen/generators/r4c_quotient_group_order_and_structure_build.py
+  - topic: exd_x_r4c_quotient_group_order_and_structure
+    module: mathgen/generators/r4c_quotient_group_order_and_structure_build.py
+uc2-regression-slope-inference:
+  domain: statistics
+  status: active
+  sources:
+  - topic: r4i_regression_slope
+    module: mathgen/generators/r4i_regression_slope_build.py
+  - topic: exd_x_r4i_regression_slope
+    module: mathgen/generators/r4i_regression_slope_build.py
+uc2-richardson-extrapolation:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4h_richardson_extrapolation
+    module: mathgen/generators/r4h_richardson_extrapolation_build.py
+  - topic: exd_x_r4h_richardson_extrapolation
+    module: mathgen/generators/r4h_richardson_extrapolation_build.py
+uc2-ring-ideal-gcd-in-polynomial-ring:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_ring_ideal_gcd_in_polynomial_ring
+    module: mathgen/generators/r4c_ring_ideal_gcd_in_polynomial_ring_build.py
+  - topic: exd_x_r4c_ring_ideal_gcd_in_polynomial_ring
+    module: mathgen/generators/r4c_ring_ideal_gcd_in_polynomial_ring_build.py
+uc2-rk4-step:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_rk4_step
+    module: mathgen/generators/r4b_rk4_step_build.py
+  - topic: exd_x_r4b_rk4_step
+    module: mathgen/generators/r4b_rk4_step_build.py
+uc2-secant-iteration:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_secant_iteration
+    module: mathgen/generators/r4b_secant_iteration_build.py
+  - topic: exd_x_r4b_secant_iteration
+    module: mathgen/generators/r4b_secant_iteration_build.py
+uc2-subgroup-lattice-count:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_subgroup_lattice_count
+    module: mathgen/generators/r4c_subgroup_lattice_count_build.py
+  - topic: exd_x_r4c_subgroup_lattice_count
+    module: mathgen/generators/r4c_subgroup_lattice_count_build.py
+uc2-symmetric-group-conjugacy:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_symmetric_group_conjugacy
+    module: mathgen/generators/r4c_symmetric_group_conjugacy_build.py
+  - topic: exd_x_r4c_symmetric_group_conjugacy
+    module: mathgen/generators/r4c_symmetric_group_conjugacy_build.py
+uc2-tree-counting-prufer:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: r4j_tree_counting_prufer
+    module: mathgen/generators/r4j_tree_counting_prufer_build.py
+  - topic: exd_x_r4j_tree_counting_prufer
+    module: mathgen/generators/r4j_tree_counting_prufer_build.py
+uc2-units-and-zero-divisors-zn:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4c_units_and_zero_divisors_zn
+    module: mathgen/generators/r4c_units_and_zero_divisors_zn_build.py
+  - topic: exd_x_r4c_units_and_zero_divisors_zn
+    module: mathgen/generators/r4c_units_and_zero_divisors_zn_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active
