@@ -1,0 +1,107 @@
+id: uc2-newton-method-optimisation-step
+name: Take a Newton step towards a minimum
+domain: optimisation
+year_level:
+- university
+description: Take one step of Newton's method for optimisation, x - f'(x)/f''(x) in one variable and x - H^-1 grad f in two.
+status: active
+placement_eligible: false
+prerequisites:
+- newton-method-iteration
+- ucv1-unconstrained-critical-point
+answer: fraction
+sources:
+- topic: r4h_newton_optimisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_newton_optimisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_newton_optimisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_newton_optimisation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-newton-opt-root-finding-step
+  description: Using Newton's root-finding step x − f(x)/f′(x) instead of x − f′(x)/f″(x).
+- id: num2t-newton-opt-step-sign
+  description: Adding the Newton correction instead of subtracting it.
+- id: num2t-newton-opt-no-second-derivative
+  description: Taking a gradient step x − f′(x), leaving out the division by the second derivative.
+- id: num2t-newton-opt-ratio-inverted
+  description: Dividing the second derivative by the first instead of the first by the second.
+- id: num2t-newton-opt-correction-only
+  description: Reporting the correction f′(x)/f″(x) rather than the new point.
+- id: num2t-newton-opt-derivative-at-wrong-point
+  description: Evaluating the derivatives at the origin instead of at the starting point.
+- id: num2t-newton-opt-gradient-step
+  description: Using the gradient step x − ∇f(x) with no Hessian.
+- id: num2t-newton-opt-sign-reversed
+  description: Adding H⁻¹∇f to the starting point instead of subtracting it.
+- id: num2t-newton-opt-hessian-not-inverted
+  description: Multiplying the gradient by the Hessian instead of its inverse.
+- id: num2t-newton-opt-diagonal-hessian
+  description: Ignoring the mixed second derivative, so the step treats the variables separately.
+- id: num2t-newton-opt-inverse-unscaled
+  description: Using the adjugate of the Hessian without dividing by its determinant.
+- id: num2t-newton-opt-inverse-no-swap
+  description: Inverting a 2×2 Hessian without swapping its diagonal entries.
+- id: num2t-newton-opt-hessian-rows-swapped
+  description: Applying the inverse Hessian with the components of the gradient in the wrong order.
+- id: num2t-newton-opt-value-at-start
+  description: Giving f at the starting point instead of at the new point.
+- id: num2t-newton-opt-value-at-gradient-step
+  description: Evaluating f at the gradient-step point.
+- id: num2t-newton-opt-value-at-sign-reversed
+  description: Evaluating f at the point reached by adding the Newton correction.
+- id: num2t-newton-opt-value-at-diagonal
+  description: Evaluating f at the point from a diagonal-Hessian step.
+- id: num2t-newton-opt-det-main-diagonal-only
+  description: Giving the product of the diagonal entries as the Hessian determinant.
+- id: num2t-newton-opt-det-sum-of-products
+  description: Adding the product of the off-diagonal entries instead of subtracting it.
+- id: num2t-newton-opt-det-trace
+  description: Giving the trace of the Hessian in place of its determinant.
+- id: num2t-newton-opt-det-first-derivatives
+  description: Building the determinant from the first partial derivatives.
+- id: num2t-newton-opt-coordinate-unchanged
+  description: 'Giving the starting coordinate: the step is not applied.'
+- id: num2t-newton-opt-coordinate-other-sign
+  description: Adding the correction to the coordinate.
+- id: num2t-newton-opt-coordinate-no-determinant
+  description: Leaving out the division by the determinant in the new coordinate.
+- id: num2t-newton-opt-coordinate-swapped-cross
+  description: Using the mixed second derivative with the wrong gradient component.
+- id: num2t-newton-opt-change-new-value
+  description: Giving f at the new point instead of the change in f.
+- id: num2t-newton-opt-change-sign
+  description: Giving the change in f as the old value minus the new value.
+- id: num2t-newton-opt-change-start-value
+  description: Giving f at the start as the change.
+difficulty_progression: Easy takes a single step for a quartic in one variable, where the second derivative replaces the root-finding
+  denominator. Medium takes a step in two variables, which needs the Hessian, its inverse and the gradient together. Hard
+  asks for the value of f at the new point, so the step must be exact before it is evaluated. The exam chain asks for the
+  Hessian determinant, then the new coordinates from the learner's determinant, then the change in f.
+tags:
+- university-year-2
+- optimisation
+- newton-method
+- unconstrained-optimisation
+- optimisation
+framework_areas:
+- optimisation
