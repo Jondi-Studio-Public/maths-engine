@@ -163,6 +163,9 @@ by year or ACARA code, generate questions, build worksheets and tests in version
 for print, Moodle or QTI, and grade replies by question id. It stores nothing, so a school can run its own copy.
 Keep author keys on the server side only, and read the keys, privacy and upgrade notes in `docs/server.md` before exposing it.
 
+Teachers who only want questions in Moodle or Canvas can download the ready-made banks attached to each release;
+`docs/banks.md` says how to import them and how the maintainer builds them.
+
 ## How determinism and grading work
 
 **Determinism.** A generator takes a seeded random source and nothing else.

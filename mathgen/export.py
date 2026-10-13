@@ -663,19 +663,33 @@ def _moodle_question(item: dict, figure_no: int | None, svg: str | None) -> str:
 
 
 def paper_moodle_xml(paper: dict, *, version: str = "A") -> str:
-    """A Moodle XML question bank for one version: a category named after the paper, then one question per
+    """A Moodle XML question bank for one version: a category named after the paper (or the paper's own
+    `category` path, with a subcategory per section when `section_categories` is set), then one question per
     question. Multiple choice becomes multichoice, a number numerical, a multi-part question or a table a cloze
     (multianswer); any other answer kind becomes shortanswer with the answer as the one accepted answer. Every
     question's general feedback carries the full answer and working."""
     chosen = _one_version(paper, version)
     items = _items(chosen, need_answer=True)
     title = _clean(paper.get("title") or "Worksheet")
-    out = ['<?xml version="1.0" encoding="UTF-8"?>\n<quiz>']
-    out.append(
-        f'<question type="category"><category><text>{_xml("$course$/top/" + title + " (version " + str(version) + ")")}</text></category></question>'
+    # A paper may name its own category path (`category`, e.g. "$course$/top/Maths Engine/Algebra/Surds"), and with
+    # `section_categories` each titled section becomes a subcategory of it, so a bank imports as a tree.
+    base = (
+        _clean(paper["category"])
+        if paper.get("category")
+        else "$course$/top/" + title + " (version " + str(version) + ")"
     )
+    sub_categories = bool(paper.get("section_categories"))
+    out = ['<?xml version="1.0" encoding="UTF-8"?>\n<quiz>']
+    out.append(f'<question type="category"><category><text>{_xml(base)}</text></category></question>')
     n = 0
+    current_section = None
     for item in items:
+        if sub_categories and item["section"] and item["section"] != current_section:
+            current_section = item["section"]
+            sub = _clean(str(current_section)).replace("/", "-")
+            out.append(
+                f'<question type="category"><category><text>{_xml(base + "/" + sub)}</text></category></question>'
+            )
         svg = _figure_svg(item["figure"])
         if svg:
             n += 1
