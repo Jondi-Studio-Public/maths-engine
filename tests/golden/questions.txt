@@ -169,6 +169,18 @@
 {"answer": "Stable (attracting)", "id": "autonomous-equilibrium-stability/medium/0/93a56934b222", "text": "For the autonomous equation x' = -4(x − (4)), classify the equilibrium x* = 4 u…"}
 {"answer": "Unstable (repelling)", "id": "autonomous-equilibrium-stability/medium/1/a050dd378c59", "text": "For the autonomous equation x' = 4(x − (-5)), classify the equilibrium x* = -5 …"}
 {"answer": "Stable (attracting)", "id": "autonomous-equilibrium-stability/medium/2/8c5a7adb2e22", "text": "For the autonomous equation x' = -4(x − (-3)), classify the equilibrium x* = -3…"}
+{"answer": "39", "id": "back-to-back-stem-plot-compare/easy/0/5a4a535d1f81", "text": "The back-to-back stem-and-leaf plot compares the waiting times in minutes at tw…"}
+{"answer": "77", "id": "back-to-back-stem-plot-compare/easy/1/9b0f08436b1e", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
+{"answer": "64", "id": "back-to-back-stem-plot-compare/easy/2/f8aea6e318b4", "text": "The back-to-back stem-and-leaf plot compares the ages in years of the members o…"}
+{"answer": "(a) 67; (b) 22; (c) 26; (d) 4", "id": "back-to-back-stem-plot-compare/exam/0/c44c4c4718a1", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "(a) 66.5; (b) 29; (c) 19; (d) 10", "id": "back-to-back-stem-plot-compare/exam/1/bfb0581f22c9", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "(a) 39; (b) 24; (c) 19; (d) 5", "id": "back-to-back-stem-plot-compare/exam/2/a88dac2fa61a", "text": "The back-to-back stem-and-leaf plot compares the waiting times in minutes at tw…"}
+{"answer": "6", "id": "back-to-back-stem-plot-compare/hard/0/531cac9f4112", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "6.5", "id": "back-to-back-stem-plot-compare/hard/1/a74bac0715ab", "text": "The back-to-back stem-and-leaf plot compares the scores out of 100 in a quiz fo…"}
+{"answer": "1", "id": "back-to-back-stem-plot-compare/hard/2/68170a49e7e9", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
+{"answer": "18", "id": "back-to-back-stem-plot-compare/medium/0/7d28fb68b2b3", "text": "The back-to-back stem-and-leaf plot compares the ages in years of the members o…"}
+{"answer": "24", "id": "back-to-back-stem-plot-compare/medium/1/0da5980859c8", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
+{"answer": "26", "id": "back-to-back-stem-plot-compare/medium/2/fd9cfbd516eb", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
 {"answer": "F = 80 N", "id": "beam-equilibrium-seesaw/easy/0/75ee1fa47d7e", "text": "A beam balances on a pivot. A 20 N weight sits 12 m to the left. What force pla…"}
 {"answer": "F = 60.00 N", "id": "beam-equilibrium-seesaw/easy/1/ca2d031920e4", "text": "A beam balances on a pivot. A 20 N weight sits 3 m to the left. What force plac…"}
 {"answer": "F = 30.00 N", "id": "beam-equilibrium-seesaw/easy/2/2d337b46222e", "text": "A beam balances on a pivot. A 20 N weight sits 3 m to the left. What force plac…"}
@@ -610,6 +622,18 @@
 {"answer": "5", "id": "cyclic-group-element-order/medium/0/6ae55a2c6a39", "text": "In the additive cyclic group Z/5Z, find the order of the element [2]."}
 {"answer": "4", "id": "cyclic-group-element-order/medium/1/3329c8e5cad9", "text": "In the additive cyclic group Z/8Z, find the order of the element [6]."}
 {"answer": "5", "id": "cyclic-group-element-order/medium/2/a0e02cfdc827", "text": "In the additive cyclic group Z/5Z, find the order of the element [2]."}
+{"answer": "734", "id": "data-transformation-to-linearity/easy/0/ae8adf561f4d", "text": "Let x be the diameter of a round pizza in tens of centimetres and y its price i…"}
+{"answer": "8.8", "id": "data-transformation-to-linearity/easy/1/e0a8f92e0570", "text": "Let x be the number of painters on a job and y the time taken in hours. The sca…"}
+{"answer": "158", "id": "data-transformation-to-linearity/easy/2/e6f233102526", "text": "Let x be a car's speed in tens of kilometres per hour and y its stopping distan…"}
+{"answer": "(a) 6; (b) 15; (c) 45; (d) 1000000", "id": "data-transformation-to-linearity/exam/0/837c1ef3a5ba", "text": "Let x be the money spent on advertising in dollars and y the number of new cust…"}
+{"answer": "(a) 60; (b) 7; (c) 17; (d) 15", "id": "data-transformation-to-linearity/exam/1/e99e08a14786", "text": "Let x be the number of pickers in a crew and y the time to harvest a field in h…"}
+{"answer": "(a) 2; (b) 15; (c) 25; (d) 1000000", "id": "data-transformation-to-linearity/exam/2/62c75f74447c", "text": "Let x be the money spent on advertising in dollars and y the number of new cust…"}
+{"answer": "7", "id": "data-transformation-to-linearity/hard/0/5c4124051850", "text": "Let x be a car's speed in tens of kilometres per hour and y its stopping distan…"}
+{"answer": "10000", "id": "data-transformation-to-linearity/hard/1/a97d03f75ada", "text": "Let x be the money spent on advertising in dollars and y the number of new cust…"}
+{"answer": "10000", "id": "data-transformation-to-linearity/hard/2/517455d784ce", "text": "Let x be the dose of a nutrient in milligrams and y the growth of a culture in …"}
+{"answer": "44", "id": "data-transformation-to-linearity/medium/0/e77a2b8319f7", "text": "Let x be the dose of a nutrient in milligrams and y the growth of a culture in …"}
+{"answer": "20", "id": "data-transformation-to-linearity/medium/1/5a10ece74369", "text": "Let x be the dose of a nutrient in milligrams and y the growth of a culture in …"}
+{"answer": "141", "id": "data-transformation-to-linearity/medium/2/7bc293d6e336", "text": "Let x be a car's speed in tens of kilometres per hour and y its stopping distan…"}
 {"answer": "2.6", "id": "decimal-arithmetic/easy/0/a9cc4a20bc45", "text": "7.7 - 5.1"}
 {"answer": "12", "id": "decimal-arithmetic/easy/1/99416bd9abfe", "text": "5.2 + 6.8"}
 {"answer": "6.48", "id": "decimal-arithmetic/easy/2/b897548e4b35", "text": "7.2 × 0.9"}
@@ -2590,6 +2614,18 @@
 {"answer": "y = -x/3", "id": "graph-y-mx/medium/0/1b7e68d5334d", "text": "The graph shows a straight line through the origin of a coordinate grid. Which …"}
 {"answer": "y = x/2", "id": "graph-y-mx/medium/1/a4f157f86397", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
 {"answer": "y = x/3", "id": "graph-y-mx/medium/2/25254ae5fd07", "text": "Look at the straight line through the origin on this grid. Choose the equation …"}
+{"answer": "22.5", "id": "grouped-frequency-table-class-intervals/easy/0/cd16329e348e", "text": "The grouped frequency table shows the waiting time of patients at a clinic, in …"}
+{"answer": "12.5", "id": "grouped-frequency-table-class-intervals/easy/1/c52d9311fe5b", "text": "The grouped frequency table shows the mass of parcels at a depot, in kilograms.…"}
+{"answer": "65", "id": "grouped-frequency-table-class-intervals/easy/2/2c0b75d9c72e", "text": "The grouped frequency table shows the waiting time of patients at a clinic, in …"}
+{"answer": "(a) 1185; (b) 35.9; (c) 30; (d) 36.1", "id": "grouped-frequency-table-class-intervals/exam/0/b655aa8ee268", "text": "The grouped frequency table shows the time competitors took to solve a puzzle, …"}
+{"answer": "(a) 2710; (b) 57.7; (c) 60; (d) 54.2", "id": "grouped-frequency-table-class-intervals/exam/1/b491ab04ddc5", "text": "The grouped frequency table shows the distance cycled in a week by club members…"}
+{"answer": "(a) 1140; (b) 28.5; (c) 25; (d) 26.6", "id": "grouped-frequency-table-class-intervals/exam/2/4913b9332023", "text": "The grouped frequency table shows the waiting time of patients at a clinic, in …"}
+{"answer": "30", "id": "grouped-frequency-table-class-intervals/hard/0/c0f08859317d", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "3", "id": "grouped-frequency-table-class-intervals/hard/1/52533d9b34f0", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "30", "id": "grouped-frequency-table-class-intervals/hard/2/652153a2fafa", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "117.2", "id": "grouped-frequency-table-class-intervals/medium/0/f7affb92ec73", "text": "The grouped frequency table shows the distance cycled in a week by club members…"}
+{"answer": "53.6", "id": "grouped-frequency-table-class-intervals/medium/1/ea9341aeb110", "text": "The grouped frequency table shows the time students took to travel to school, i…"}
+{"answer": "26.9", "id": "grouped-frequency-table-class-intervals/medium/2/c685a25e4dee", "text": "The grouped frequency table shows the mass of parcels at a depot, in kilograms.…"}
 {"answer": "F = 25.00 N", "id": "hookes-law/easy/0/37fbef22e47d", "text": "A spring with stiffness k = 500 N/m is stretched by 0.05 m. Use Hooke's law to …"}
 {"answer": "F = 10.0 N", "id": "hookes-law/easy/1/d35725470be6", "text": "A spring with stiffness k = 100 N/m is stretched by 0.1 m. Use Hooke's law to f…"}
 {"answer": "F = 5.00 N", "id": "hookes-law/easy/2/c3e22c14bbc3", "text": "A spring with stiffness k = 100 N/m is stretched by 0.05 m. Use Hooke's law to …"}
@@ -2851,6 +2887,18 @@
 {"answer": "(a) 216; (b) 23; (c) 2", "id": "logarithm-laws/exam/0/eae1cfeea21c", "text": "Consider the equation log_{6}(x + 13) + log_{6}(x - 17) = 3. (a) Use the log la…"}
 {"answer": "(a) 243; (b) 18; (c) 3", "id": "logarithm-laws/exam/1/4ef6f5bbaf8c", "text": "A student is asked to solve log_{3}(x + 9) + log_{3}(x - 9) = 5 for x. (a) Use …"}
 {"answer": "(a) 32; (b) 14; (c) 4", "id": "logarithm-laws/exam/2/7b69f07dccdf", "text": "The number x satisfies log_{2}(x + 2) + log_{2}(x - 12) = 5. (a) Use the log la…"}
+{"answer": "1505", "id": "longitude-local-clock-time/easy/0/57249196ea51", "text": "Port Ardent is at longitude 105°E and Port Halloran is at longitude 45°E. Local…"}
+{"answer": "1440", "id": "longitude-local-clock-time/easy/1/881658159bf2", "text": "Port Eskwith is at longitude 105°E and Port Garrick is at longitude 30°E. Local…"}
+{"answer": "2155", "id": "longitude-local-clock-time/easy/2/668ce4632948", "text": "Port Ardent is at longitude 135°W and Port Corvale is at longitude 45°W. Local …"}
+{"answer": "(a) 60; (b) 4; (c) 2150; (d) 3669.6", "id": "longitude-local-clock-time/exam/0/4f06734eae70", "text": "Port Corvale is at longitude 30°W. Port Halloran is at longitude 30°E and latit…"}
+{"answer": "(a) 75; (b) 5; (c) 1740; (d) 6783.2", "id": "longitude-local-clock-time/exam/1/e25cfe3a7841", "text": "Port Farrow is at longitude 60°E. Port Ilsby is at longitude 135°E and latitude…"}
+{"answer": "(a) 90; (b) 6; (c) 1945; (d) 7895.2", "id": "longitude-local-clock-time/exam/2/139ebdeb790f", "text": "Port Ilsby is at longitude 75°W. Port Halloran is at longitude 15°E and latitud…"}
+{"answer": "1540", "id": "longitude-local-clock-time/hard/0/c5e17582f4ed", "text": "Port Garrick is at longitude 15°E and Port Ardent is at longitude 75°W. Local t…"}
+{"answer": "1245", "id": "longitude-local-clock-time/hard/1/9cb429c0006a", "text": "Port Jorvik is at longitude 60°E and Port Halloran is at longitude 60°W. Local …"}
+{"answer": "1730", "id": "longitude-local-clock-time/hard/2/b246a9c91f46", "text": "Port Garrick is at longitude 15°E and Port Jorvik is at longitude 45°W. Local t…"}
+{"answer": "2310", "id": "longitude-local-clock-time/medium/0/df2d28999fe1", "text": "Port Ilsby is at longitude 90°W and Port Halloran is at longitude 15°E. Local t…"}
+{"answer": "1720", "id": "longitude-local-clock-time/medium/1/cf431f03eb28", "text": "Port Halloran is at longitude 15°W and Port Eskwith is at longitude 90°E. Local…"}
+{"answer": "1255", "id": "longitude-local-clock-time/medium/2/893f4ebb8467", "text": "Port Garrick is at longitude 15°E and Port Ilsby is at longitude 30°W. Local ti…"}
 {"answer": "2/5", "id": "markov-two-state-stationary/easy/0/bdedae0abbf4", "text": "For P(0→1)=1/2 and P(1→0)=3/4, find the stationary probability of state 1."}
 {"answer": "2/5", "id": "markov-two-state-stationary/easy/1/081cad4f6f54", "text": "For P(0→1)=1/2 and P(1→0)=3/4, find the stationary probability of state 1."}
 {"answer": "1/2", "id": "markov-two-state-stationary/easy/2/bf240d43cf6c", "text": "For P(0→1)=1/3 and P(1→0)=1/3, find the stationary probability of state 1."}
@@ -3025,6 +3073,18 @@
 {"answer": "(a) 28.80; (b) 71.20; (c) 59.80", "id": "money-change/exam/0/ddbb05a9fc80", "text": "At a canteen in Alice Springs, Priya buys 4 toasted sandwiches at $3.45 each an…"}
 {"answer": "(a) 31.20; (b) 68.80; (c) 58.00", "id": "money-change/exam/1/5ebdcd6ccebf", "text": "At a bakery in Hobart, Liam buys 4 meat pies at $4.95 each and 3 bottles of mil…"}
 {"answer": "(a) 27.60; (b) 22.40; (c) 13.30", "id": "money-change/exam/2/3741436ccae8", "text": "At a deli in Fremantle, Tom buys 4 lamingtons at $3.05 each and 4 bottles of or…"}
+{"answer": "55", "id": "moving-average-median-smoothing/easy/0/a1f5f0d36af7", "text": "A series records the number of kilolitres of water a town used on each of 10 mo…"}
+{"answer": "29", "id": "moving-average-median-smoothing/easy/1/727b13bee758", "text": "A series records the number of new members a gym signed up on each of 11 weeks:…"}
+{"answer": "47", "id": "moving-average-median-smoothing/easy/2/ea84f39570fa", "text": "A series records the number of visitors to a school library on each of 11 days:…"}
+{"answer": "(a) 150; (b) 147.4; (c) 143; (d) 7", "id": "moving-average-median-smoothing/exam/0/9381ba59773b", "text": "A series records the number of parcels a depot dispatched on each of 10 days: d…"}
+{"answer": "(a) 65; (b) 63.6; (c) 61; (d) 4", "id": "moving-average-median-smoothing/exam/1/b9c04f7343e0", "text": "A series records the number of takeaway coffees a cafe sold on each of 9 days: …"}
+{"answer": "(a) 139; (b) 140; (c) 137; (d) 2", "id": "moving-average-median-smoothing/exam/2/d256a27a3da4", "text": "A series records the number of parcels a depot dispatched on each of 10 days: d…"}
+{"answer": "3", "id": "moving-average-median-smoothing/hard/0/fef22ee00d3d", "text": "A series records the number of kilolitres of water a town used on each of 10 mo…"}
+{"answer": "3", "id": "moving-average-median-smoothing/hard/1/6a83234cc8b9", "text": "A series records the number of takeaway coffees a cafe sold on each of 11 days:…"}
+{"answer": "3", "id": "moving-average-median-smoothing/hard/2/18af2d07912d", "text": "A series records the number of takeaway coffees a cafe sold on each of 11 days:…"}
+{"answer": "32.6", "id": "moving-average-median-smoothing/medium/0/b716d6947d4b", "text": "A series records the number of new members a gym signed up on each of 9 weeks: …"}
+{"answer": "80", "id": "moving-average-median-smoothing/medium/1/19805bb6b53b", "text": "A series records the number of visitors to a school library on each of 11 days:…"}
+{"answer": "67", "id": "moving-average-median-smoothing/medium/2/110a708e633e", "text": "A series records the number of kilolitres of water a town used on each of 10 mo…"}
 {"answer": "33", "id": "moving-average/easy/0/0cb5ae05cea5", "text": "Find the 3-point moving average for 19, 38, 42."}
 {"answer": "25", "id": "moving-average/easy/1/8906f4523976", "text": "Find the 3-point moving average for 26, 38, 11."}
 {"answer": "29", "id": "moving-average/easy/2/420b2736b967", "text": "Find the 3-point moving average for 32, 17, 38."}
@@ -3205,6 +3265,18 @@
 {"answer": "(a) 154440; (b) 2520; (c) 151920; (d) 422/429", "id": "permutations/exam/0/6a719578e903", "text": "A school council has 13 members, 6 of whom are Year 12 students. The roles of p…"}
 {"answer": "(a) 11880; (b) 840; (c) 11040; (d) 92/99", "id": "permutations/exam/1/067c695567f7", "text": "A school council has 12 members, 5 of whom are Year 12 students. The roles of p…"}
 {"answer": "(a) 1395360; (b) 742560; (c) 652800; (d) 80/171", "id": "permutations/exam/2/266cf2913840", "text": "A surf life saving club has 19 members, 2 of whom are senior patrol members. Th…"}
+{"answer": "54.60", "id": "piecewise-linear-tariff-model/easy/0/ae67fbd7ff70", "text": "Zippy Cabs charges a flagfall of $3.00 plus $2.20 per kilometre for the first 1…"}
+{"answer": "53.45", "id": "piecewise-linear-tariff-model/easy/1/31169f9425f6", "text": "Zippy Cabs charges a flagfall of $5.00 plus $1.75 per kilometre for the first 1…"}
+{"answer": "47.55", "id": "piecewise-linear-tariff-model/easy/2/145ab7778e7d", "text": "Zippy Cabs charges a flagfall of $3.00 plus $2.25 per kilometre for the first 1…"}
+{"answer": "(a) 320.00; (b) 294.80; (c) 25.20; (d) 13", "id": "piecewise-linear-tariff-model/exam/0/775359762f42", "text": "Plan A: Kestrel Hire charges a delivery fee of $51.00 plus $46.00 per day for t…"}
+{"answer": "(a) 89.80; (b) 87.40; (c) 2.40; (d) 24", "id": "piecewise-linear-tariff-model/exam/1/ad18fa7e9c80", "text": "Plan A: NetRoo Mobile charges a monthly fee of $34.00, which includes the first…"}
+{"answer": "(a) 59.90; (b) 55.90; (c) 4.00; (d) 20", "id": "piecewise-linear-tariff-model/exam/2/4652f4edb48f", "text": "Plan A: Swiftpost charges a handling fee of $11.50 plus $4.10 per kilogram for …"}
+{"answer": "10", "id": "piecewise-linear-tariff-model/hard/0/d13c0e87f413", "text": "Plan A: NetRoo Mobile charges a monthly fee of $25.50, which includes the first…"}
+{"answer": "8", "id": "piecewise-linear-tariff-model/hard/1/58f5a10a30f1", "text": "Plan A: Kestrel Hire charges a delivery fee of $41.00 plus $45.50 per day for t…"}
+{"answer": "9", "id": "piecewise-linear-tariff-model/hard/2/c9b7899249d8", "text": "Plan A: Kestrel Hire charges a delivery fee of $36.50 plus $45.00 per day for t…"}
+{"answer": "2", "id": "piecewise-linear-tariff-model/medium/0/fd2c13d393ad", "text": "Kestrel Hire charges a delivery fee of $49.50 plus $45.00 per day for the first…"}
+{"answer": "10", "id": "piecewise-linear-tariff-model/medium/1/ebf602559b60", "text": "Kestrel Hire charges a delivery fee of $52.50 plus $64.50 per day for the first…"}
+{"answer": "19", "id": "piecewise-linear-tariff-model/medium/2/0223122a8389", "text": "NetRoo Mobile charges a monthly fee of $22.50, which includes the first 11 giga…"}
 {"answer": "9", "id": "place-value-to-100/easy/0/a11decfcfcb1", "text": "How many ones are in 79?"}
 {"answer": "1", "id": "place-value-to-100/easy/1/a68d68e5a7b1", "text": "How many tens are in 17?"}
 {"answer": "9", "id": "place-value-to-100/easy/2/96798b6e68c4", "text": "How many tens are in 96?"}
@@ -3562,6 +3634,18 @@
 {"answer": "2*(-24*x**2 + 3*x - 5)", "id": "second-derivative/medium/0/f5b76e4c4c56", "text": "Find the second derivative of -4*x**4 + x**3 - 5*x**2 - 4 with respect to x"}
 {"answer": "2*(10*x**3 + 9*x + 1)", "id": "second-derivative/medium/1/089608df9527", "text": "Find the second derivative of x**5 + 3*x**3 + x**2 + 3 with respect to x"}
 {"answer": "2*(70*x**3 - 36*x**2 - 5)", "id": "second-derivative/medium/2/8523278a2c17", "text": "Find the second derivative of 7*x**5 - 6*x**4 - 5*x**2 - 7 with respect to x"}
+{"answer": "698.1", "id": "sector-area-and-arc-from-degrees/easy/0/37f643e9460a", "text": "A lawn sprinkler waters a sector with radius 20 m and a centre angle of 200°. F…"}
+{"answer": "26.2", "id": "sector-area-and-arc-from-degrees/easy/1/3489c1abe046", "text": "A lawn sprinkler waters a sector with radius 5 m and a centre angle of 120°. Fi…"}
+{"answer": "43.6", "id": "sector-area-and-arc-from-degrees/easy/2/529d550255c3", "text": "A wedge of cake is a sector with radius 10 cm and a centre angle of 50°. Find i…"}
+{"answer": "(a) 134.0; (b) 16.8; (c) 48.8; (d) 670.2", "id": "sector-area-and-arc-from-degrees/exam/0/c504fdd3e444", "text": "A round pizza has a radius of 16 cm. A slice cut from the centre is a sector wi…"}
+{"answer": "(a) 661.6; (b) 69.6; (c) 107.6; (d) 472.5", "id": "sector-area-and-arc-from-degrees/exam/1/9698e9dcde2c", "text": "A circular lawn has a radius of 19 m. A sprinkler at the centre waters a sector…"}
+{"answer": "(a) 113.1; (b) 12.6; (c) 48.6; (d) 904.8", "id": "sector-area-and-arc-from-degrees/exam/2/b9e8f6458611", "text": "A round pizza has a radius of 18 cm. A slice cut from the centre is a sector wi…"}
+{"answer": "11.4", "id": "sector-area-and-arc-from-degrees/hard/0/72c6a89fab53", "text": "A lawn sprinkler waters a sector with a centre angle of 190°. Its area is 215.4…"}
+{"answer": "78.5", "id": "sector-area-and-arc-from-degrees/hard/1/4661f9ae76fe", "text": "A curved path is the region between two arcs with the same centre. The inner ar…"}
+{"answer": "280", "id": "sector-area-and-arc-from-degrees/hard/2/858eee455758", "text": "A lawn sprinkler waters a sector with radius 17 m. The curved edge (the arc) is…"}
+{"answer": "137.3", "id": "sector-area-and-arc-from-degrees/medium/0/56deb837b93a", "text": "A lawn sprinkler waters a sector with radius 21 m and a centre angle of 260°. F…"}
+{"answer": "62.8", "id": "sector-area-and-arc-from-degrees/medium/1/a41bbb2dc739", "text": "A fan-shaped dance floor is a sector with radius 24 m and a centre angle of 150…"}
+{"answer": "12.6", "id": "sector-area-and-arc-from-degrees/medium/2/00737b601b00", "text": "A wedge of cake is a sector with radius 5 cm and a centre angle of 30°. Find th…"}
 {"answer": "62", "id": "senior-an-angle-in-a-semicircle-is-a-right/easy/0/210e18b0a676", "text": "Triangle ABC is inscribed in a circle so that AB is a diameter. Angle BAC is 28…"}
 {"answer": "51", "id": "senior-an-angle-in-a-semicircle-is-a-right/easy/1/396b11982f89", "text": "Triangle ABC is inscribed in a circle so that AB is a diameter. Angle BAC is 39…"}
 {"answer": "71", "id": "senior-an-angle-in-a-semicircle-is-a-right/easy/2/762b733b0651", "text": "Triangle ABC is inscribed in a circle so that AB is a diameter. Angle BAC is 19…"}
@@ -7816,6 +7900,18 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "1215", "id": "two-timetable-route-planning/easy/0/3936f3eff872", "text": "Tram timetable, Ashton to Carlow: leaves 1019 arrives 1045; leaves 1040 arrives…"}
+{"answer": "1238", "id": "two-timetable-route-planning/easy/1/71082fc31f85", "text": "Bus timetable, Hartley to Pemberton: leaves 1015 arrives 1059; leaves 1038 arri…"}
+{"answer": "1138", "id": "two-timetable-route-planning/easy/2/3621a0475e3d", "text": "Train timetable, Marlow to Bexley: leaves 1002 arrives 1036; leaves 1025 arrive…"}
+{"answer": "(a) 1055; (b) 16; (c) 1143; (d) 77", "id": "two-timetable-route-planning/exam/0/38f4dd9f86af", "text": "Bus timetable, Ashton to Carlow: leaves 1006 arrives 1050; leaves 1029 arrives …"}
+{"answer": "(a) 1144; (b) 23; (c) 1225; (d) 77", "id": "two-timetable-route-planning/exam/1/dbc321cf8707", "text": "Tram timetable, Ashton to Carlow: leaves 1009 arrives 1053; leaves 1036 arrives…"}
+{"answer": "(a) 1139; (b) 20; (c) 1231; (d) 100", "id": "two-timetable-route-planning/exam/2/3f434c853412", "text": "Bus timetable, Corrimal to Wattle Flat: leaves 1008 arrives 1052; leaves 1038 a…"}
+{"answer": "1048", "id": "two-timetable-route-planning/hard/0/8c03266cd479", "text": "Train timetable, Corrimal to Wattle Flat: leaves 1019 arrives 1103; leaves 1048…"}
+{"answer": "1010", "id": "two-timetable-route-planning/hard/1/1dfe8c5cf02d", "text": "Tram timetable, Ridgeway to Thornbury: leaves 1010 arrives 1044; leaves 1037 ar…"}
+{"answer": "1019", "id": "two-timetable-route-planning/hard/2/b277e530b122", "text": "Tram timetable, Hartley to Pemberton: leaves 1019 arrives 1053; leaves 1042 arr…"}
+{"answer": "83", "id": "two-timetable-route-planning/medium/0/56b8391634a4", "text": "Train timetable, Marlow to Bexley: leaves 1012 arrives 1056; leaves 1046 arrive…"}
+{"answer": "75", "id": "two-timetable-route-planning/medium/1/fd229fa34d03", "text": "Train timetable, Marlow to Bexley: leaves 1003 arrives 1029; leaves 1017 arrive…"}
+{"answer": "86", "id": "two-timetable-route-planning/medium/2/3b211c9710ee", "text": "Train timetable, Corrimal to Wattle Flat: leaves 1006 arrives 1032; leaves 1040…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}

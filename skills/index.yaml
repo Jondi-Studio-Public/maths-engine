@@ -146,6 +146,14 @@ autonomous-equilibrium-stability:
     module: mathgen/generators/university_fourier_dynamics.py
   - topic: exd_x_sc1_harvested_equilibria
     module: mathgen/generators/exd_x_sc1_harvested_equilibria.py
+back-to-back-stem-plot-compare:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_back_to_back_stem
+    module: mathgen/generators/r4g_back_to_back_stem_build.py
+  - topic: exd_x_r4g_back_to_back_stem
+    module: mathgen/generators/exd_x_r4g_back_to_back_stem.py
 beam-equilibrium-seesaw:
   domain: engineering-mechanics
   status: active
@@ -554,6 +562,14 @@ cyclic-group-element-order:
     module: mathgen/generators/university_algebra.py
   - topic: exd_x_u1_cyclic_subgroup
     module: mathgen/generators/exd_x_u1_cyclic_subgroup.py
+data-transformation-to-linearity:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_transform_linearity
+    module: mathgen/generators/r4g_transform_linearity_build.py
+  - topic: exd_x_r4g_transform_linearity
+    module: mathgen/generators/exd_x_r4g_transform_linearity.py
 decimal-arithmetic:
   domain: readiness
   status: active
@@ -1906,6 +1922,14 @@ graph-y-mx-plus-b:
     module: mathgen/generators/fg1_line_reading_build.py
   - topic: exd_x_w12b_graph_y_mx_plus_b
     module: mathgen/generators/exd_x_w12b_graph_y_mx_plus_b.py
+grouped-frequency-table-class-intervals:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_grouped_frequency
+    module: mathgen/generators/r4g_grouped_frequency_build.py
+  - topic: exd_x_r4g_grouped_frequency
+    module: mathgen/generators/exd_x_r4g_grouped_frequency.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -2122,6 +2146,14 @@ logarithm-laws:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_sc5_log_equation
     module: mathgen/generators/exd_x_sc5_log_equation.py
+longitude-local-clock-time:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: r4g_longitude_local_time
+    module: mathgen/generators/r4g_longitude_local_time_build.py
+  - topic: exd_x_r4g_longitude_local_time
+    module: mathgen/generators/exd_x_r4g_longitude_local_time.py
 markov-two-state-stationary:
   domain: statistics-probability
   status: active
@@ -2274,6 +2306,14 @@ moving-average:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_g5_moving_average
     module: mathgen/generators/exd_x_g5_moving_average.py
+moving-average-median-smoothing:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: r4g_moving_average_smoothing
+    module: mathgen/generators/r4g_moving_average_smoothing_build.py
+  - topic: exd_x_r4g_moving_average_smoothing
+    module: mathgen/generators/exd_x_r4g_moving_average_smoothing.py
 multiplication-facts:
   domain: early-foundations
   status: active
@@ -2424,6 +2464,14 @@ permutations:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r3f_permutation_roles
     module: mathgen/generators/exd_x_r3f_permutation_roles.py
+piecewise-linear-tariff-model:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: r4g_two_rate_tariff
+    module: mathgen/generators/r4g_two_rate_tariff_build.py
+  - topic: exd_x_r4g_two_rate_tariff
+    module: mathgen/generators/exd_x_r4g_two_rate_tariff.py
 place-value-to-100:
   domain: early-foundations
   status: active
@@ -2702,6 +2750,14 @@ second-derivative:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r3b_second_derivative
     module: mathgen/generators/exd_x_r3b_second_derivative.py
+sector-area-and-arc-from-degrees:
+  domain: measurement
+  status: active
+  sources:
+  - topic: r4g_sector_degrees
+    module: mathgen/generators/r4g_sector_degrees_build.py
+  - topic: exd_x_r4g_sector_degrees
+    module: mathgen/generators/exd_x_r4g_sector_degrees.py
 senior-an-angle-in-a-semicircle-is-a-right:
   domain: senior-mathematics
   status: active
@@ -5414,6 +5470,14 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+two-timetable-route-planning:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: r4g_two_timetable_route
+    module: mathgen/generators/r4g_two_timetable_route_build.py
+  - topic: exd_x_r4g_two_timetable_route
+    module: mathgen/generators/exd_x_r4g_two_timetable_route.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active

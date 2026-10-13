@@ -1,0 +1,87 @@
+id: piecewise-linear-tariff-model
+name: Model a two-rate tariff as a piecewise linear function
+domain: financial-discrete
+year_level: ['11']
+description: Work with a tariff that charges a fixed amount plus one rate up to a threshold and a different rate beyond it.
+  Easy finds the cost of a usage beyond the threshold. Medium finds the usage that gives a stated cost. Hard finds the break-even
+  usage against a flat plan, or recovers the second rate from two costs. The exam chain compares a two-rate plan with a flat
+  plan at one usage and at the break-even.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-interpret-piece-wise-linear-and-step-graphs-used
+- decimal-arithmetic
+answer: number
+sources:
+- topic: r4g_two_rate_tariff
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_two_rate_tariff
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_two_rate_tariff
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_two_rate_tariff
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-first-rate-used-for-all-units
+  description: Charging every unit at the first rate and ignoring the change of rate at the threshold.
+- id: r4g-second-rate-used-for-all-units
+  description: Charging every unit at the second rate, including the units before the threshold.
+- id: r4g-fixed-charge-left-out
+  description: Leaving the fixed charge out of the total cost.
+- id: r4g-usage-off-by-one
+  description: Solving correctly but giving a usage one unit more than the one that produces the stated cost.
+- id: r4g-break-even-in-first-section
+  description: Solving for the break-even using the first section's rate, although the plans meet beyond the threshold.
+- id: r4g-threshold-not-subtracted
+  description: Charging the second rate on all the usage instead of only the units beyond the threshold.
+- id: r4g-fixed-charges-left-out
+  description: Comparing the per-unit parts of the two plans and leaving out their fixed charges.
+- id: r4g-break-even-from-threshold-cost
+  description: Starting the second section from the cost at the threshold but then measuring from zero units, so the usage
+    is the number of units beyond the threshold.
+- id: r4g-cost-difference-not-divided
+  description: Giving the difference between the two costs as the rate, without dividing by the difference in usage.
+- id: r4g-average-cost-per-unit
+  description: Dividing a total cost by its usage to get the rate, which includes the fixed charge and the first section.
+- id: r4g-difference-over-larger-usage
+  description: Dividing the difference in cost by the larger usage instead of the difference in usage.
+- id: r4g-threshold-added-to-break-even
+  description: Adding the threshold to a break-even usage that already includes it.
+- id: r4g-flat-rate-applied-to-threshold-only
+  description: Charging the flat plan's rate only for the units up to the other plan's threshold.
+- id: r4g-threshold-subtracted-from-flat-plan
+  description: Subtracting the other plan's threshold from the usage on a flat plan that has no threshold.
+- id: r4g-costs-added-not-subtracted
+  description: Adding the two costs where the difference between them was asked for.
+- id: r4g-one-cost-not-the-difference
+  description: Giving one of the two costs instead of the difference between them.
+- id: r4g-fixed-charges-compared-only
+  description: Comparing only the fixed charges of the two plans and ignoring the usage charges.
+- id: r4g-wrong-plans-rate-used
+  description: Using the other plan's rate in the flat plan's cost.
+tags:
+- tariff
+- piecewise-linear
+- break-even
+- acmgm046
+- acmgm047

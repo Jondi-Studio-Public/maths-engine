@@ -14972,6 +14972,716 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    CatalogueEntry(
+        "r4g-class-limit-for-midpoint",
+        "Giving a class limit (the lower or upper end of the class) where the midpoint of the class was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-frequency-for-modal-class",
+        "Giving the frequency of the modal class instead of working with the class itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-middle-row-for-modal-class",
+        "Taking the class in the middle of the table as the modal class instead of the class with the greatest frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midpoints-averaged-without-frequencies",
+        "Averaging the class midpoints without weighting each by its frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-lower-limits-used-as-midpoints",
+        "Using the lower limit of each class in place of its midpoint.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-upper-limits-used-as-midpoints",
+        "Using the upper limit of each class in place of its midpoint.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-divided-by-number-of-classes",
+        "Dividing the sum of frequency times midpoint by the number of classes instead of the total frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-of-the-frequencies",
+        "Giving the mean of the frequencies (total frequency divided by the number of classes) as the mean of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-class-off-by-one",
+        "Picking the class next to the one where the cumulative frequency reaches the middle position.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-hidden-class-left-out-of-the-total",
+        "Leaving the unknown frequency out of the total frequency when setting up the equation for the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-frequency-off-by-one",
+        "Solving correctly but giving a frequency that is one or two away from the right whole number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midpoint-for-lower-limit",
+        "Giving the midpoint of the class where its lower limit was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midpoints-summed-without-frequencies",
+        "Adding the class midpoints without multiplying each by its frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-modal-midpoint-times-total-frequency",
+        "Multiplying the midpoint of the modal class by the total frequency to get the sum of the values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-divided-by-wrong-count",
+        "Dividing a total by a count that is one more than, or different from, the number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-two-means-averaged",
+        "Averaging the two means without weighting each by the number of values it describes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-new-values-left-out-of-the-total",
+        "Dividing by the new count but leaving the new values out of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-total-given-as-mean",
+        "Giving the combined total as the mean without dividing by the number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-other-group-read",
+        "Reading the value for the other group in a back-to-back plot instead of the group named.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-for-median",
+        "Giving the mean of the values where the median was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midrange-for-median",
+        "Giving the number halfway between the smallest and largest values as the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-one-middle-value-only",
+        "With an even number of values, giving one of the two middle values instead of the number halfway between them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-leaf-of-median-only",
+        "Giving only the leaf of the median value, ignoring its stem.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-position-for-median",
+        "Giving the position of the middle value as the median instead of the value found there.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-kept-in-both-halves",
+        "Leaving the median in both halves when finding the quartiles of an odd number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-semi-interquartile-range",
+        "Giving half the interquartile range where the whole interquartile range was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-one-iqr-not-the-difference",
+        "Giving the larger interquartile range instead of the difference between the two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-for-upper-quartile",
+        "Comparing with the median of the other group where its upper quartile was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-value-equal-to-quartile-counted",
+        "Counting values equal to the quartile as greater than it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-own-quartile-used",
+        "Comparing with the group's own upper quartile instead of the other group's.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-count-below-not-above",
+        "Counting the values that are not greater than the quartile instead of the values that are.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-count-off-by-one",
+        "Counting one value too many or too few.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-shifted-one-step",
+        "Using a window that is one step to the left or right of the one centred on the stated point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-sum-divided-by-wrong-count",
+        "Dividing the sum of a smoothing window by a number other than the number of points in it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-sum-not-divided",
+        "Giving the sum of the window as the moving mean without dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-raw-value-for-smoothed",
+        "Giving the original observation for the stated point instead of the smoothed value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-wrong-window-length",
+        "Using a 3-point window where 5 points were asked for, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-instead-of-median-smoothing",
+        "Finding the mean of the window where the median of the window was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-middle-in-time-not-in-size",
+        "Taking the middle observation in time order as the median of the window without putting the values in order.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-minus-raw-value",
+        "Subtracting the original observation from the moving mean instead of the moving median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-raw-minus-median",
+        "Giving the original observation minus the moving median where the moving mean minus the moving median was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-one-smoothed-value-not-the-difference",
+        "Giving one of the two smoothed values instead of the difference between them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-peak-of-raw-series",
+        "Giving the day of the greatest original observation instead of the day of the greatest moving mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-start-day-for-centre",
+        "Naming the first day of the window instead of the day at its centre.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-instead-of-mean-smoothing",
+        "Finding the median of the window where the mean of the window was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-smoothed-values-added",
+        "Adding the two smoothed values where their difference was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-first-rate-used-for-all-units",
+        "Charging every unit at the first rate and ignoring the change of rate at the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-second-rate-used-for-all-units",
+        "Charging every unit at the second rate, including the units before the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-fixed-charge-left-out",
+        "Leaving the fixed charge out of the total cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-not-subtracted",
+        "Charging the second rate on all the usage instead of only the units beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-first-section-left-out",
+        "Charging only the units beyond the threshold and leaving out the cost of the first section.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-not-added-back",
+        "Finding the units beyond the threshold but forgetting to add the threshold back to get the total usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-usage-off-by-one",
+        "Solving correctly but giving a usage one unit more than the one that produces the stated cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-break-even-in-first-section",
+        "Solving for the break-even using the first section's rate, although the plans meet beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-fixed-charges-left-out",
+        "Comparing the per-unit parts of the two plans and leaving out their fixed charges.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-break-even-from-threshold-cost",
+        "Starting the second section from the cost at the threshold but then measuring from zero units, so the usage is the number of units beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-added-to-break-even",
+        "Adding the threshold to a break-even usage that already includes it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-cost-difference-not-divided",
+        "Giving the difference between the two costs as the rate, without dividing by the difference in usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-average-cost-per-unit",
+        "Dividing a total cost by its usage to get the rate, which includes the fixed charge and the first section.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-difference-over-larger-usage",
+        "Dividing the difference in cost by the larger usage instead of the difference in usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-difference-over-wrong-units",
+        "Dividing the difference in cost by the larger usage's units beyond the threshold instead of the difference in usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-flat-rate-applied-to-threshold-only",
+        "Charging the flat plan's rate only for the units up to the other plan's threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-subtracted-from-flat-plan",
+        "Subtracting the other plan's threshold from the usage on a flat plan that has no threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-wrong-plans-rate-used",
+        "Using the other plan's rate in the flat plan's cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-costs-added-not-subtracted",
+        "Adding the two costs where the difference between them was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-one-cost-not-the-difference",
+        "Giving one of the two costs instead of the difference between them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-fixed-charges-compared-only",
+        "Comparing only the fixed charges of the two plans and ignoring the usage charges.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-rates-compared-only",
+        "Comparing only the difference in rates times the usage, ignoring the fixed charges and the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-change-time-ignored",
+        "Ignoring the minimum time needed to change, so a connection that is missed by a few minutes is counted as caught.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-first-departing-not-earliest-arriving",
+        "Taking the connection that leaves first although a later one arrives earlier.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-departure-for-arrival",
+        "Giving the departure time of the connecting service instead of its arrival time.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-interchange-time-for-final",
+        "Giving the time of arrival at the interchange as the time of arrival at the destination.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-wait-at-start-left-out",
+        "Timing the journey from the first departure and leaving out the wait at the starting station.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-riding-time-only",
+        "Adding the two travelling times and leaving out all the waiting.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-change-time-for-wait",
+        "Adding the minimum change time to the journey instead of the actual wait at the interchange.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-first-service-ignores-connection",
+        "Choosing the latest service that arrives at the interchange before the deadline without checking it can connect.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-arrival-for-departure",
+        "Giving the arrival time at the interchange where the latest departure was asked for.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-latest-connection-only",
+        "Choosing the latest first service that fits one connection but is not the latest that reaches the destination in time.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-later-service-chosen",
+        "Choosing a first service that leaves later than the latest one that still arrives by the deadline.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-service-just-missed",
+        "Choosing the service that left just before she arrived at the station.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-departure-to-departure",
+        "Measuring the wait from the departure of the first service instead of from its arrival at the interchange.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-wait-and-ride-together",
+        "Giving the waiting time plus the riding time of the second service instead of the wait alone.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-clock-numbers-subtracted",
+        "Subtracting two four-digit clock times as ordinary numbers, so 1105 - 1042 gives 63 minutes instead of 23.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-radius-not-squared",
+        "Leaving the radius unsquared in the area formula, so the area is far too small.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-diameter-squared-for-radius-squared",
+        "Squaring the diameter where the radius should be squared.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-arc-formula-for-area",
+        "Using the arc length formula where the area of the sector was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-whole-circle-area",
+        "Giving the area of the whole circle instead of the fraction of it that the sector covers.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-fraction-over-180",
+        "Taking the fraction of the circle as the angle over 180 instead of over 360.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radian-formula-with-degrees",
+        "Using the radian formula half r squared theta with the angle in degrees.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-area-formula-for-arc",
+        "Using the sector area formula where the arc length was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-whole-circumference",
+        "Giving the whole circumference instead of the fraction of it that the sector's arc covers.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radius-for-diameter-in-circumference",
+        "Using pi r instead of 2 pi r for the circumference of the full circle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-used-as-radians",
+        "Using the angle in degrees as if it were in radians in the arc formula.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radii-left-out-of-perimeter",
+        "Giving only the arc as the perimeter of the sector and leaving out the two straight edges.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-one-radius-in-perimeter",
+        "Adding only one radius to the arc to get the perimeter of the sector.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-diameter-added-twice",
+        "Adding two diameters instead of two radii to the arc.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-square-root-not-taken",
+        "Giving r squared as the radius, without taking the square root.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-pi-left-out",
+        "Leaving pi out when working back from the area to the radius.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-fraction-left-out",
+        "Leaving the angle fraction out when working back from the sector's area to the radius.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-diameter-for-radius",
+        "Giving the diameter where the radius was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-circumference-without-the-2",
+        "Leaving the 2 out of the circumference when working back to the angle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radians-given-as-degrees",
+        "Giving the angle in radians (arc divided by radius) where degrees were asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radius-squared-for-arc",
+        "Using the radius squared in the arc formula when working back to the angle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-halved",
+        "Giving half the angle by using 180 where 360 belongs.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radius-left-out",
+        "Leaving the radius out when working back from the arc to the angle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radii-subtracted-before-squaring",
+        "Subtracting the two radii and then squaring, instead of subtracting the two squared radii.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-outer-sector-only",
+        "Giving the area of the outer sector instead of the path between the arcs.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-width-for-area",
+        "Using the width of the path in place of the difference of the squared radii.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-sectors-added-not-subtracted",
+        "Adding the two sector areas where the area between them was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-sector-given-for-the-rest",
+        "Giving the area of the sector itself where the area of the rest of the circle was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-area-subtracted-before-multiplying-by-pi",
+        "Subtracting the sector's area from the squared radius and then multiplying by pi.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-east-west-direction-reversed",
+        "Making the clock later for a place to the west, or earlier for a place to the east.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-longitudes-added-same-side",
+        "Adding the two longitudes although both ports are on the same side of the prime meridian, so they should be subtracted.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-longitudes-subtracted-opposite-sides",
+        "Subtracting the two longitudes although the ports are on opposite sides of the prime meridian, so they should be added.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-no-time-shift",
+        "Giving the same clock time for both places, or ignoring the change of time zone.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-half-the-hours",
+        "Dividing the longitude difference by 30 instead of 15 to get the hours.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-flight-time-left-out",
+        "Applying the time difference but leaving out the flight time.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-flight-time-subtracted",
+        "Subtracting the flight time from the departure time instead of adding it.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-time-zone-off-by-one-hour",
+        "Getting the time difference right except for being one hour out, by miscounting the 15 degree steps.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-longitude-rule-wrong-side",
+        "Adding the longitudes when both are on the same side of the prime meridian, or subtracting them when they are on opposite sides.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-degrees-left-as-hours",
+        "Giving the difference in degrees as the number of hours without dividing by 15.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-latitude-for-longitude",
+        "Using the difference in latitude where the difference in longitude was asked for.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-one-longitude-not-the-difference",
+        "Giving one of the two longitudes instead of the difference between them.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-multiplied-by-15",
+        "Multiplying the degrees by 15 instead of dividing by 15 to get hours.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-ten-degrees-per-hour",
+        "Using 10 degrees of longitude for each hour instead of 15.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-degrees-given-as-km",
+        "Giving the difference in degrees as the distance in kilometres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-nautical-miles-given-as-km",
+        "Using 60 nautical miles per degree and reporting it as kilometres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-longitude-for-latitude",
+        "Using the longitude difference where the latitude difference was needed for a distance along a meridian.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-wrong-transformation-chosen",
+        "Choosing a transformation that does not match the shape of the curve (for example 1 over x for a curve that rises ever more steeply).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-transformed-variable-not-computed",
+        "Putting x into the equation where the transformed value (x squared, log x or 1 over x) belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-intercept-times-slope",
+        "Multiplying the intercept by the slope instead of adding the slope term to the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-straight-line-through-raw-points",
+        "Joining the original points with a straight line instead of transforming x first.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-intercept-left-out",
+        "Predicting from the slope term alone and leaving out the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-transformed-value-given-as-x",
+        "Giving the value of the transformed variable as the value of x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-gradient-on-raw-x",
+        "Finding the gradient from the change in x instead of the change in the transformed variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-rise-without-the-run",
+        "Giving the rise in y as the gradient without dividing by the change in the transformed variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-gradient-inverted",
+        "Dividing the change in the transformed variable by the change in y, so the gradient is upside down.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-run-for-gradient",
+        "Giving the change in the transformed variable as the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-first-y-as-intercept",
+        "Giving the first y value as the intercept, without taking away the gradient times the transformed x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-intercept-sign-slip",
+        "Adding the gradient times the transformed value to y instead of subtracting it when finding the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-gradient-given-as-intercept",
+        "Giving the gradient as the intercept of the line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-undoing-the-transformation-slip",
+        "Undoing the transformation incorrectly, for example reading off a power of ten that is one out.",
+        area="statistics",
+    ),
 )
 
 #: Every entry, by id.

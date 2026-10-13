@@ -1,0 +1,76 @@
+id: two-timetable-route-planning
+name: Plan a journey using two timetables
+domain: senior-mathematics
+year_level: ['11']
+description: Plan a journey that uses two timetables with a change between them, written as text with a stated minimum change
+  time. Easy finds the earliest arrival for a traveller who catches the first service she can. Medium finds the whole journey
+  time in minutes, waiting included. Hard finds the latest departure that still arrives by a deadline. The exam chain finds
+  the interchange arrival, the wait, the final arrival and the journey time.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-timetable-itinerary-duration
+- convert-time-systems
+answer: number
+sources:
+- topic: r4g_two_timetable_route
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_two_timetable_route
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_two_timetable_route
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_two_timetable_route
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-change-time-ignored
+  description: Ignoring the minimum time needed to change, so a connection that is missed by a few minutes is counted as caught.
+- id: r4g-departure-for-arrival
+  description: Giving the departure time of the connecting service instead of its arrival time.
+- id: r4g-interchange-time-for-final
+  description: Giving the time of arrival at the interchange as the time of arrival at the destination.
+- id: r4g-first-departing-not-earliest-arriving
+  description: Taking the connection that leaves first although a later one arrives earlier.
+- id: r4g-wait-at-start-left-out
+  description: Timing the journey from the first departure and leaving out the wait at the starting station.
+- id: r4g-riding-time-only
+  description: Adding the two travelling times and leaving out all the waiting.
+- id: r4g-change-time-for-wait
+  description: Adding the minimum change time to the journey instead of the actual wait at the interchange.
+- id: r4g-arrival-for-departure
+  description: Giving the arrival time at the interchange where the latest departure was asked for.
+- id: r4g-first-service-ignores-connection
+  description: Choosing the latest service that arrives at the interchange before the deadline without checking it can connect.
+- id: r4g-later-service-chosen
+  description: Choosing a first service that leaves later than the latest one that still arrives by the deadline.
+- id: r4g-service-just-missed
+  description: Choosing the service that left just before she arrived at the station.
+- id: r4g-departure-to-departure
+  description: Measuring the wait from the departure of the first service instead of from its arrival at the interchange.
+- id: r4g-clock-numbers-subtracted
+  description: Subtracting two four-digit clock times as ordinary numbers, so 1105 - 1042 gives 63 minutes instead of 23.
+- id: r4g-wait-and-ride-together
+  description: Giving the waiting time plus the riding time of the second service instead of the wait alone.
+tags:
+- timetable
+- route-planning
+- acmem080

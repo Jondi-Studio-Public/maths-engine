@@ -1,0 +1,76 @@
+id: moving-average-median-smoothing
+name: Smooth a time series with moving means and medians
+domain: statistics-probability
+year_level: ['12']
+description: Smooth a time series written as a list of values. Easy finds a 3-point moving mean. Medium finds a 3-point moving
+  median or a 5-point moving mean at a stated point. Hard finds how far a spike pulls the moving mean above the moving median,
+  or the point where the 5-point moving mean is greatest. The exam chain finds both moving means, the moving median and their
+  difference at a spike.
+status: active
+placement_eligible: false
+prerequisites:
+- moving-average
+- calculate-median
+answer: number
+sources:
+- topic: r4g_moving_average_smoothing
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_moving_average_smoothing
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_moving_average_smoothing
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_moving_average_smoothing
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-window-shifted-one-step
+  description: Using a window that is one step to the left or right of the one centred on the stated point.
+- id: r4g-window-sum-divided-by-wrong-count
+  description: Dividing the sum of a smoothing window by a number other than the number of points in it.
+- id: r4g-raw-value-for-smoothed
+  description: Giving the original observation for the stated point instead of the smoothed value.
+- id: r4g-window-sum-not-divided
+  description: Giving the sum of the window as the moving mean without dividing.
+- id: r4g-wrong-window-length
+  description: Using a 3-point window where 5 points were asked for, or the reverse.
+- id: r4g-mean-instead-of-median-smoothing
+  description: Finding the mean of the window where the median of the window was asked for.
+- id: r4g-midrange-for-median
+  description: Giving the number halfway between the smallest and largest values as the median.
+- id: r4g-peak-of-raw-series
+  description: Giving the day of the greatest original observation instead of the day of the greatest moving mean.
+- id: r4g-mean-minus-raw-value
+  description: Subtracting the original observation from the moving mean instead of the moving median.
+- id: r4g-raw-minus-median
+  description: Giving the original observation minus the moving median where the moving mean minus the moving median was asked
+    for.
+- id: r4g-one-smoothed-value-not-the-difference
+  description: Giving one of the two smoothed values instead of the difference between them.
+- id: r4g-window-start-day-for-centre
+  description: Naming the first day of the window instead of the day at its centre.
+- id: r4g-smoothed-values-added
+  description: Adding the two smoothed values where their difference was asked for.
+tags:
+- time-series
+- moving-average
+- median-smoothing
+- acmgm089
