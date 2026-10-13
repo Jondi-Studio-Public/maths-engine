@@ -23,8 +23,9 @@ def _word_count(word: str, merged: str | None = None) -> int:
     counts = Counter(word)
     n = len(word)
     if merged:
-        counts[merged] -= 2
-        n -= 1
+        copies = counts[merged]
+        counts[merged] -= copies
+        n -= copies - 1
         counts[merged + "*"] = 1
     value = factorial(n)
     for c in counts.values():
@@ -127,14 +128,17 @@ def test_exam_shape_and_grading():
     sup.assert_chain_shape(EXAM, ["number", "number", "fraction", "number"], [1, 2, 2, 1], [False, False, True, True])
     sup.assert_exam_clean_and_deterministic(EXAM)
     sup.assert_exam_graded(SKILL, EXAM)
-    sup.assert_exam_answer_space(EXAM, distinct=7, top=0.3)
+    sup.assert_exam_answer_space(EXAM, distinct=30, top=0.3)
 
 
 def test_exam_keys_match_an_independent_count():
     for seed in range(100):
         q = sup.exam_question(EXAM, seed)
-        word = re.search(r"\b([A-Z]{5,})\b", q.text).group(1)
-        letter = re.search(r"the two (\w)s next to each other", q.text).group(1).upper()
+        listed = re.search(r"\b\d(?:, \d)+\b", q.text)
+        word = listed.group(0).replace(", ", "") if listed else re.search(r"\b([A-Z]{5,})\b", q.text).group(1)
+        letter, many = re.search(r"the (two|three) (\w)s next to each other", q.text).group(2, 1)
+        letter = letter.upper()
+        assert word.count(letter) == {"two": 2, "three": 3}[many], (seed, q.text)
         total, together = _word_count(word), _word_count(word, letter)
         keys = [str(total), str(together), str(Fraction(together, total)), str(total - together)]
         assert [p.answer_text for p in q.parts] == keys, (seed, q.text)

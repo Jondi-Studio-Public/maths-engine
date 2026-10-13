@@ -25,11 +25,6 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_s1_replacement
-  params: {tier: exam}
-  difficulty: exam
-  stages:
-  - exam
 - topic: exd_x_r2x_compound_outcomes_replacement
   params: {tier: exam}
   difficulty: exam

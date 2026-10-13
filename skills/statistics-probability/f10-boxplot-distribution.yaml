@@ -24,10 +24,6 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p18a_boxplot_quartiles
-  params: {tier: exam}
-  difficulty: exam
-  stages: [exam]
 - topic: exd_x_r2x_boxplot_two_groups
   params: {tier: exam}
   difficulty: exam

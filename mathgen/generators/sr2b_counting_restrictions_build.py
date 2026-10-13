@@ -11,7 +11,8 @@ when there is a restriction. The plain n-factorial, nPr and nCr skills are prere
 * hard: either n different people around a circular table (no fixed seat), with no restriction, two next to each other, or
   two not next to each other; or a committee chosen from men and women with "at least" or "at most" some number of
   women, or with one person who must or must not be on it.
-* exam (``sr2b_exam_counting_restrictions``): the letters of a place name with a repeated letter: (a) all
+* exam (``sr2b_exam_counting_restrictions``): the letters of a place name with a repeated letter, or the digits of a
+  locker code with a repeated digit: (a) all
   arrangements, (b) those with the two copies of one letter together, (c) the probability a random arrangement has them
   together (follows through from (a) and (b)), (d) the number with them apart (follows through from (a) and (b)).
 
@@ -98,8 +99,8 @@ def _together(word: str, letter: str) -> int:
 
 
 def _together_by_places(word: str, letter: str) -> int:
-    """Count by sliding the pair into one of the n - 1 adjacent places among the other letters' arrangements."""
-    return (len(word) - 1) * arrangements(word.replace(letter, ""))
+    """Count by sliding the block of copies into one of the n - c + 1 places among the other letters' arrangements."""
+    return (len(word) - word.count(letter) + 1) * arrangements(word.replace(letter, ""))
 
 
 # -- easy -----------------------------------------------------------------------------------------------------
@@ -486,21 +487,83 @@ def sr2b_counting_restrictions(rng, tier="easy"):
 
 # -- exam -------------------------------------------------------------------------------------------------------
 
-_EXAM_CHOICES = (
-    # each word has two different letters that occur twice, so every part has several distinct wrong values; the
-    # words are spread over lengths 5 to 10 so the answers differ from word to word
-    ("WAGGA", "G"),
-    ("ALLORA", "L"),
-    ("BUNBURY", "B"),
-    ("GEELONG", "E"),
-    ("GLENELG", "E"),
-    ("BELLBIRD", "B"),
-    ("KATOOMBA", "A"),
-    ("ADELAIDE", "D"),
-    ("ABERDARE", "R"),
-    ("BALLARAT", "L"),
-    ("KALGOORLIE", "L"),
+#: Extra town names with at least one letter that occurs exactly twice, so the exam chain is not limited to the
+#: names the practice tiers use. Names are kept to ten letters or fewer so every count stays small enough to check.
+_EXAM_EXTRA_NAMES = (
+    "ALLORA",
+    "GLENELG",
+    "BELLBIRD",
+    "ABERDARE",
+    "BALLINA",
+    "TERRIGAL",
+    "MURRAY",
+    "KILLARA",
+    "BALMAIN",
+    "ROSEBERRY",
+    "WILLUNGA",
+    "GOONDIWINDI",
+    "TUMUT",
+    "NARRANDERA",
+    "MARRICKVILLE",
+    "BOOROOMA",
+    "COBRAM",
+    "FOOTSCRAY",
+    "MACCLESFIELD",
+    "KINGAROY",
+    "BERRIMA",
+    "CARRATHOOL",
 )
+
+
+def _exam_choices():
+    """Every (word, letter) pair where `letter` occurs two or three times in a town name of at most ten letters."""
+    words = dict.fromkeys(_WORDS + tuple(w for w in _EXAM_EXTRA_NAMES if len(w) <= 10))
+    out = []
+    for w in words:
+        if len(w) > 10 or arrangements(w) > 10**7:
+            continue
+        for letter, c in Counter(w).items():
+            if c in (2, 3):
+                out.append((w, letter))
+    return tuple(sorted(out))
+
+
+#: Each pair is one (word, letter) scenario; the words run from five to ten letters so the answers differ widely.
+_EXAM_CHOICES = _exam_choices()
+
+
+def _digit_patterns():
+    """Repeat patterns for a digit code: how often each distinct digit occurs, with at least one digit used two or three times."""
+    out = []
+
+    def split(left, biggest, parts):
+        if left == 0:
+            if (2 in parts or 3 in parts) and len(parts) >= 3:
+                out.append(tuple(parts))
+            return
+        for k in range(min(left, biggest), 0, -1):
+            split(left - k, k, [*parts, k])
+
+    for n in range(5, 11):
+        split(n, 4, [])
+    return tuple(out)
+
+
+#: The second scenario family: all the digits of a locker code, each used as often as it is listed. The answers depend
+#: only on how many digits there are and how often each repeats, so these patterns widen the set of answer tuples.
+_DIGIT_PATTERNS = _digit_patterns()
+
+
+def _draw_exam_scenario(rng):
+    """A (text, letter, unit) triple: the string to arrange, the repeated symbol kept together, and its unit name."""
+    if rng.random() < 0.5:
+        word, letter = rng.choice(_EXAM_CHOICES)
+        return word, letter, "letter"
+    pattern = rng.choice(_DIGIT_PATTERNS)
+    digits = rng.sample("0123456789", len(pattern))
+    pairs = [d for d, k in zip(digits, pattern, strict=True) if k in (2, 3)]
+    code = "".join(sorted(d * k for d, k in zip(digits, pattern, strict=True)))
+    return "".join(sorted(code)), rng.choice(pairs), "digit"
 
 
 @generator("sr2b_exam_counting_restrictions", level=13, presets={"exam": dict(tier="exam")})
@@ -508,9 +571,10 @@ _EXAM_CHOICES = (
 def sr2b_exam_counting_restrictions(rng, tier="exam"):
     """Exam chain: all arrangements, a repeated letter together, the probability, and the number apart."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    word, letter = rng.choice(_EXAM_CHOICES)
+    word, letter, unit = _draw_exam_scenario(rng)
     copies = word.count(letter)
-    check(copies == 2, "the exam chain keeps two copies of a letter together")
+    check(copies in (2, 3), "the exam chain keeps two or three copies of a symbol together")
+    many = {2: "two", 3: "three"}[copies]
     n = len(word)
     total = arrangements(word)
     near = _together(word, letter)
@@ -522,7 +586,7 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
     if n <= 7:
         check(total == _brute_arrangements(word), "total differs from enumeration")
         check(
-            near == sum(1 for p in set(permutations(word)) if letter * 2 in "".join(p)),
+            near == sum(1 for p in set(permutations(word)) if letter * copies in "".join(p)),
             "together differs from enumeration",
         )
     counts = sorted((c for c in Counter(word).values() if c > 1), reverse=True)
@@ -533,7 +597,7 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
     ]
     rest = arrangements(word.replace(letter, ""))
     b_d = [
-        int_dist(2 * near, "sr2b-internal-order-counted-for-identical"),
+        int_dist(factorial(copies) * near, "sr2b-internal-order-counted-for-identical"),
         int_dist(total // 2, "sr2b-together-treated-as-half"),
         int_dist(factorial(n - 1), "sr2b-repeats-ignored"),
         int_dist(rest, "sr2b-pair-position-fixed"),
@@ -550,21 +614,33 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
         int_dist(total - 2 * near, "sr2b-together-subtracted-twice"),
         int_dist(total - factorial(n - 1), "sr2b-repeats-ignored"),
     ]
-    stem = phrase(
-        rng,
-        (
-            "The letters of the town name {w} are arranged in a row in every possible order.",
-            "All the letters of {w}, the name of an Australian town, are rearranged in a row in every possible order.",
-            "Consider every way of arranging the letters of the town name {w} in a row.",
-        ),
-        w=word,
-    )
+    if unit == "letter":
+        stem = phrase(
+            rng,
+            (
+                "The letters of the town name {w} are arranged in a row in every possible order.",
+                "All the letters of {w}, the name of an Australian town, are rearranged in a row in every possible order.",
+                "Consider every way of arranging the letters of the town name {w} in a row.",
+            ),
+            w=word,
+        )
+    else:
+        stem = phrase(
+            rng,
+            (
+                "A locker code is made by using all of the digits {w}, each as many times as it is listed, in a row.",
+                "Every digit in the list {w} is used, each as often as it is listed, to make a {k}-digit code.",
+                "A {k}-digit padlock code uses exactly the digits {w}, in any order.",
+            ),
+            w=", ".join(word),
+            k=n,
+        )
     f_c = rational_text(prob)
     return dict(
         text=stem,
         parts=[
             dict(
-                prompt="How many different arrangements are there of all the letters?",
+                prompt=f"How many different arrangements are there of all the {unit}s?",
                 answer_kind="number",
                 answer=total,
                 answer_text=str(total),
@@ -575,7 +651,7 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
                 distractors=pick(str(total), [c for c in a_d if int(c.text) != total]),
             ),
             dict(
-                prompt=f"How many of these arrangements have the two {letter}s next to each other?",
+                prompt=f"How many of these arrangements have the {many} {letter}s next to each other?",
                 answer_kind="number",
                 answer=near,
                 answer_text=str(near),
@@ -583,12 +659,12 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"Treat the two {letter}s as one block, which makes {n - 1} objects to arrange (with any other repeated letters still repeated): {near}."
+                    f"Treat the {many} {letter}s as one block, which makes {n - copies + 1} objects to arrange (with any other repeated letters still repeated): {near}."
                 ],
                 distractors=pick(str(near), [c for c in b_d if int(c.text) != near and int(c.text) > 0]),
             ),
             dict(
-                prompt=f"One of the arrangements is chosen at random. Find the probability that the two {letter}s are next to each other.",
+                prompt=f"One of the arrangements is chosen at random. Find the probability that the {many} {letter}s are next to each other.",
                 answer_kind="fraction",
                 answer=exact_value(prob),
                 answer_text=f_c,
@@ -600,7 +676,7 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
                 distractors=pick(f_c, [c for c in c_d if c.text != f_c]),
             ),
             dict(
-                prompt=f"How many of the arrangements have the two {letter}s not next to each other?",
+                prompt=f"How many of the arrangements have the {many} {letter}s not next to each other?",
                 answer_kind="number",
                 answer=apart,
                 answer_text=str(apart),
