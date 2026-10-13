@@ -241,6 +241,81 @@ _ENTRIES = (
         "Calling a break an infinite discontinuity when the function is bounded near the point.",
         area="calculus",
     ),
+    CatalogueEntry(
+        "fy1ca-ivt-wrong-end",
+        "Giving the upper integer of the interval that holds the root when the lower one was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-one-step-away",
+        "Giving an integer that is not one of the two either side of the root, from stopping the sign search too early or too late.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-value-at-wrong-point",
+        "Evaluating the function at an end of the interval when the midpoint was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-linear-term-slip",
+        "Evaluating bx at the midpoint as b, forgetting to multiply by the midpoint.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-cube-as-triple",
+        "Reading the cube of the midpoint as three times it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-ivt-sign-slip",
+        "Adding the constant term where it should be subtracted when evaluating the function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-wrong-half",
+        "Keeping the half of the interval that does not contain the sign change, from reading the sign of f at the midpoint the wrong way.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-wrong-end",
+        "Giving the other endpoint of the new interval than the one asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-midpoint-reported",
+        "Reporting the midpoint just computed instead of the endpoint of the interval kept.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-no-update",
+        "Reporting the original endpoint, as if the bisection step had not changed the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-stops-early",
+        "Stopping one bisection step early and reporting that interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-off-by-one",
+        "Finding the number of halvings correctly but rounding it down or up by one, so the interval is not yet narrow enough or one step too many is counted.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-count-divided",
+        "Dividing the interval width by the tolerance instead of halving repeatedly until the width is small enough.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-log-base-ten",
+        "Counting digits of the ratio of width to tolerance (a base-ten logarithm) instead of halvings (a base-two logarithm).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-bisection-two-steps",
+        "Carrying on to a second bisection step and reporting its midpoint, when only one step was asked for.",
+        area="calculus",
+    ),
     # -- percentages ----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "gave-change-not-percent",

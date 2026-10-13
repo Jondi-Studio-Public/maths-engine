@@ -1,0 +1,59 @@
+id: ucv1-ivt-bisection
+name: Locate a root with the intermediate value theorem and bisection
+domain: single-variable-calculus
+description: Show that a continuous function has a root between two integers by a sign change, then narrow the interval
+  by bisection steps and decide how many steps a tolerance needs.
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+answer: number
+sources:
+- topic: fy1ca_ivt_bisection
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_ivt_bisection
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_ivt_bisection
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_ivt_bisection_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-ivt-wrong-end
+  description: Gives the upper integer of the interval that holds the root when the lower one was asked for.
+- id: fy1ca-bisection-wrong-half
+  description: Keeps the half of the interval with no sign change, by reading the sign of f at the midpoint the
+    wrong way.
+- id: fy1ca-bisection-midpoint-reported
+  description: Reports the midpoint just computed instead of the endpoint of the interval kept.
+- id: fy1ca-bisection-stops-early
+  description: Stops one bisection step early and reports that interval.
+- id: fy1ca-bisection-off-by-one
+  description: Counts the halvings but rounds the number of steps down or up by one.
+- id: fy1ca-bisection-count-divided
+  description: Divides the interval width by the tolerance instead of halving repeatedly.
+- id: fy1ca-bisection-log-base-ten
+  description: Counts decimal digits of width over tolerance instead of halvings (log base 10 where base 2 is needed).
+- id: fy1ca-ivt-value-at-wrong-point
+  description: Evaluates the function at an end of the interval when the midpoint was asked for.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- intermediate-value-theorem
+- bisection

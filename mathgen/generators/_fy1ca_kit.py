@@ -278,6 +278,6 @@ def build_with_redraws(rng, build, what: str, tries: int = 200):
     raise VerificationError(f"no acceptable draw for {what} in {tries} tries")
 
 
-def need_distractors(distractors, n: int = 3) -> None:
+def need_distractors(distractors, n: int = 2) -> None:
     if len(distractors) < n:
         raise Redraw

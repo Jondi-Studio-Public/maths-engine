@@ -310,6 +310,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "f10c_congruence_criteria",
         "f10c_quadrilateral_properties",
         "function_evaluation",
+        "fy1ca_ivt_bisection",
         "fy1ca_piecewise_continuity",
         "limits",
         "lin_ineq_negative",
