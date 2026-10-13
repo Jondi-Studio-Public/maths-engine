@@ -10,12 +10,13 @@ Each worker loads the skill library once when it starts (a second or so), so a d
 
 from __future__ import annotations
 
+import logging
+import math
 import multiprocessing
 import os
 import queue
 import threading
 import time
-import logging
 
 from .. import service
 
@@ -41,9 +42,29 @@ class Unavailable(Exception):
     """No worker became free before the deadline: the server is busy."""
 
 
-def _worker_main(conn, roots):
-    root, extra = roots
-    lib = service.Library.load(root, extra)
+def _limit_memory(megabytes: int) -> None:
+    """Cap this process's address space, so one runaway call raises `MemoryError` instead of taking the host's
+    memory. POSIX only: `resource` does not exist on Windows, where the cap is skipped."""
+    if megabytes <= 0:
+        return
+    try:
+        import resource
+    except ImportError:
+        return
+    limit = megabytes * 1024 * 1024
+    try:
+        _soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+        if hard != resource.RLIM_INFINITY:
+            limit = min(limit, hard)
+        resource.setrlimit(resource.RLIMIT_AS, (limit, hard))
+    except (ValueError, OSError):  # a platform that refuses (macOS, say): run uncapped rather than not at all
+        log.warning("could not cap a worker's memory at %d MB", megabytes)
+
+
+def _worker_main(conn, settings):
+    root, extra, id_secret, memory_mb = settings
+    _limit_memory(memory_mb)
+    lib = service.Library.load(root, extra, id_secret=id_secret)
     from . import jobs  # noqa: F401  (registers the jobs)
 
     conn.send(("ready", lib.version()))
@@ -60,14 +81,16 @@ def _worker_main(conn, roots):
             conn.send(("not_found", str(exc)))
         except service.BadRequest as exc:
             conn.send(("bad_request", str(exc)))
+        except MemoryError:  # the cap was hit; the worker's heap may be fragmented, so the pool replaces it
+            conn.send(("memory", "the request needed more memory than a worker may use"))
         except Exception as exc:  # anything else is a bug; report it without the traceback's local values
             conn.send(("error", f"{type(exc).__name__}: {exc}"))
 
 
 class _Worker:
-    def __init__(self, ctx, roots, start_timeout):
+    def __init__(self, ctx, settings, start_timeout):
         self.conn, child = ctx.Pipe()
-        self.process = ctx.Process(target=_worker_main, args=(child, roots), daemon=True)
+        self.process = ctx.Process(target=_worker_main, args=(child, settings), daemon=True)
         self.process.start()
         child.close()
         try:
@@ -95,12 +118,22 @@ class WorkerPool:
     A worker that misses a deadline or dies is replaced in the background, retrying until a replacement starts, so
     the pool comes back to full size on its own. `live` says how many workers are running now."""
 
-    def __init__(self, workers: int = 2, *, root=None, extra_roots=None, start_timeout: float = 120.0):
+    def __init__(
+        self,
+        workers: int = 2,
+        *,
+        root=None,
+        extra_roots=None,
+        id_secret: str | None = None,
+        memory_mb: int = 0,
+        start_timeout: float = 120.0,
+    ):
         if workers < 1:
             raise ValueError("a pool needs at least one worker")
         # `spawn` everywhere, so a worker never inherits the server's threads or locks.
         self._ctx = multiprocessing.get_context("spawn")
-        self._roots = (root, extra_roots)
+        # Handed to each worker as a process argument (a pipe, not the command line or the environment).
+        self._settings = (root, extra_roots, id_secret, memory_mb)
         self._start_timeout = start_timeout
         self._idle: queue.Queue[_Worker] = queue.Queue()
         self._all: list[_Worker] = []
@@ -125,7 +158,7 @@ class WorkerPool:
 
     def _try_add(self) -> bool:
         try:
-            worker = _Worker(self._ctx, self._roots, self._start_timeout)
+            worker = _Worker(self._ctx, self._settings, self._start_timeout)
         except WorkerError as exc:
             log.error("could not start a worker: %s", exc)
             return False
@@ -173,6 +206,7 @@ class WorkerPool:
         if name not in _JOB_NAMES:
             raise ValueError(f"unknown job {name!r}")
         worker = self._borrow(wait)
+        dropped = None
         try:
             worker.conn.send((name, kwargs))
             if not worker.conn.poll(timeout):
@@ -180,6 +214,8 @@ class WorkerPool:
                 worker = None
                 raise Timeout(f"{name} took longer than {timeout:g} s")
             status, value = worker.conn.recv()
+            if status == "memory":  # keep the worker out of the idle queue; it is replaced below
+                dropped, worker = worker, None
         except (EOFError, OSError, BrokenPipeError):
             if worker is not None:
                 self._replace(worker)
@@ -190,6 +226,9 @@ class WorkerPool:
                 self._idle.put(worker)
         if status == "ok":
             return value
+        if status == "memory":
+            self._replace(dropped)
+            raise WorkerError(value)
         if status == "changed":
             raise Changed(**value)
         if status == "not_found":
@@ -216,8 +255,33 @@ class Changed(Exception):
         self.new_id = new_id
 
 
+def _cgroup_cpus() -> int | None:
+    """The CPU quota of this container (cgroup v2 `cpu.max`), rounded up, or None when there is none."""
+    try:
+        with open("/sys/fs/cgroup/cpu.max") as f:
+            quota, period = f.read().split()[:2]
+        if quota == "max":
+            return None
+        return max(1, math.ceil(int(quota) / int(period)))
+    except (OSError, ValueError):
+        return None
+
+
 def default_workers() -> int:
-    return max(1, min(8, (os.cpu_count() or 2)))
+    """Workers to start: the CPUs this process may use (Python 3.13's `process_cpu_count`, else the affinity
+    mask), within a container's CPU quota, at most 8. `os.cpu_count()` alone counts the host's CPUs, not the
+    container's. Each worker holds the loaded library in memory (see `docs/server.md`)."""
+    counter = getattr(os, "process_cpu_count", None)
+    if counter is not None:
+        cpus = counter()
+    elif hasattr(os, "sched_getaffinity"):
+        cpus = len(os.sched_getaffinity(0))
+    else:
+        cpus = os.cpu_count()
+    quota = _cgroup_cpus()
+    if quota is not None:
+        cpus = min(cpus or quota, quota)
+    return max(1, min(8, cpus or 2))
 
 
 # The job names a caller may ask for, fixed here so the parent process need not import the jobs module first.

@@ -81,3 +81,26 @@ def test_rubric_skills_are_not_graded_by_the_engine(lib):
     assert view["gradeable"] is False
     with pytest.raises(service.BadRequest):
         service.grade_reply(lib, view["id"], "a proof")
+
+
+def test_an_id_secret_hides_the_generator_seed(lib):
+    secret = "x" * 16
+    keyed = service.Library.load(id_secret=secret)
+    other = service.Library.load(id_secret="y" * 16)
+    (a,) = service.make_questions(keyed, "simplify-surds", seed=11, answers=True)
+    assert service.make_questions(keyed, "simplify-surds", seed=11, answers=True) == [a]
+    assert a["id"].split("/")[2] == "11"
+    assert service.grade_reply(keyed, a["id"], a["answer"]["text"])["correct"] is True
+    (plain,) = service.make_questions(lib, "simplify-surds", seed=11, answers=True)
+    assert plain["id"] != a["id"]
+    with pytest.raises(service.QuestionChanged):
+        service.grade_reply(other, a["id"], a["answer"]["text"])  # another secret: not this server's id
+    with pytest.raises(service.QuestionChanged):
+        service.grade_reply(lib, a["id"], a["answer"]["text"])  # no secret: the plain seed 11 is another question
+    with pytest.raises(ValueError):
+        service.Library.load(id_secret="short")
+
+
+def test_an_oversized_source_index_is_a_clean_not_found(lib):
+    with pytest.raises(service.NotFound, match="no source number"):
+        service.make_questions(lib, "simplify-surds", source=10**30)

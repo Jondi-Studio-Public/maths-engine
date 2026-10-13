@@ -195,3 +195,282 @@ def test_a_worker_that_died_while_idle_is_replaced_without_failing_a_call(client
         worker.process.join(5)
     assert client.post("/v1/grade", json={"id": q["id"], "reply": "1"}, headers=L).status_code == 200
     assert client.get("/v1/health").json()["workers"] == pool.size
+
+
+# --- figure route, headers, auth defaults, docs -------------------------------------------------------------
+
+
+def test_figure_svg_serves_the_picture_and_nothing_else(client):
+    (q,) = ask(client, "f10-measure-angle-protractor")
+    r = client.get("/v1/figure.svg", params={"id": q["id"]}, headers=L)
+    assert r.status_code == 200
+    assert r.headers["content-type"].startswith("image/svg+xml")
+    assert r.text.startswith("<svg")
+    assert r.text == q["figure"]["svg"]
+    assert "spec" not in q["figure"]
+    (plain,) = ask(client, "simplify-surds")
+    assert client.get("/v1/figure.svg", params={"id": plain["id"]}, headers=L).status_code == 404
+
+
+def test_every_response_carries_the_security_headers(client):
+    (q,) = ask(client, "f10-measure-angle-protractor")
+    responses = [
+        client.get("/v1/health"),
+        client.get("/v1/skills"),  # a 401
+        client.post("/v1/questions", json={"skill": "simplify-surds", "answers": True}, headers=A),
+        client.get("/v1/figure.svg", params={"id": q["id"]}, headers=L),
+        client.post(
+            "/v1/papers",
+            json={"sections": [{"items": [{"skill": "simplify-surds"}]}], "format": "html"},
+            headers=L,
+        ),
+    ]
+    for r in responses:
+        assert r.headers["x-content-type-options"] == "nosniff"
+        assert r.headers["referrer-policy"] == "no-referrer"
+        assert r.headers["cache-control"] == "no-store"
+    csp = "default-src 'none'; style-src 'unsafe-inline'; img-src data:; sandbox"
+    assert responses[3].headers["content-security-policy"] == csp
+    assert responses[4].headers["content-security-policy"] == csp
+    assert "content-security-policy" not in responses[0].headers
+
+
+def test_docs_are_off_unless_asked_for(client, pool):
+    for path in ("/docs", "/redoc", "/openapi.json"):
+        assert client.get(path).status_code == 404
+    with TestClient(create_app(Config(keys=[(AUTHOR, "author")], docs=True), pool=pool)) as c:
+        assert c.get("/openapi.json").status_code == 200
+
+
+def test_no_keys_means_no_start_unless_open_is_chosen(pool):
+    with pytest.raises(ValueError, match="MATHS_API_OPEN"):
+        create_app(Config(), pool=pool)
+    assert Config().open_role == "learner"
+    with TestClient(create_app(Config(open=True), pool=pool)) as c:
+        (q,) = c.post("/v1/questions", json={"skill": "simplify-surds"}).json()["questions"]
+        assert "answer" not in q
+        assert c.post("/v1/questions", json={"skill": "simplify-surds", "answers": True}).status_code == 403
+
+
+def test_the_environment_sets_open_and_refuses_empty_key_lists(monkeypatch):
+    for name in ("MATHS_API_KEYS", "MATHS_API_OPEN", "MATHS_API_OPEN_ROLE"):
+        monkeypatch.delenv(name, raising=False)
+    config = Config.from_env()
+    assert config.open is False and config.open_role == "learner"
+    with pytest.raises(ValueError, match="MATHS_API_OPEN"):
+        config.check_auth()
+    monkeypatch.setenv("MATHS_API_OPEN", "1")
+    monkeypatch.setenv("MATHS_API_OPEN_ROLE", "author")
+    config = Config.from_env()
+    config.check_auth()
+    assert config.open and config.open_role == "author"
+    for bad in (",", " , ,", "   x"):
+        with pytest.raises(ValueError):
+            parse_keys(bad)
+    assert parse_keys("   ") == []
+
+
+def test_config_rejects_values_that_would_never_finish_or_never_start():
+    for bad in (
+        {"timeout": float("nan")},
+        {"timeout": float("inf")},
+        {"timeout": -1},
+        {"timeout": 0},
+        {"paper_timeout": float("inf")},
+        {"queue_timeout": -3},
+        {"batch_timeout": float("nan")},
+        {"workers": 0},
+        {"workers": -2},
+        {"open_role": "root"},
+        {"id_secret": "short"},
+        {"worker_memory_mb": -1},
+    ):
+        with pytest.raises(ValueError):
+            Config(**bad)
+    assert Config(timeout=2).batch_timeout == 20 and Config(workers=3).max_in_flight == 6
+
+
+def test_requests_are_bounded_in_size_and_shape(client):
+    q = ask(client, "simplify-surds")[0]
+    assert client.post("/v1/questions", json={"skill": "x" * 201}, headers=L).status_code == 422
+    assert (
+        client.post("/v1/questions", json={"skill": "simplify-surds", "source": "x" * 101}, headers=L).status_code
+        == 422
+    )
+    assert (
+        client.post("/v1/questions", json={"skill": "simplify-surds", "source": 10**30}, headers=L).status_code == 422
+    )
+    assert client.post("/v1/questions", json={"skill": "simplify-surds", "source": 999}, headers=L).status_code == 404
+    reply = {f"p{i}": "1" for i in range(21)}
+    assert client.post("/v1/grade", json={"id": q["id"], "reply": reply}, headers=L).status_code == 422
+    # Keys count towards the length as well as values.
+    long_keys = {"k" * 1500: "1", "j" * 1500: "1"}
+    assert client.post("/v1/grade", json={"id": q["id"], "reply": long_keys}, headers=L).status_code == 413
+
+
+# --- load shedding, with a pool that behaves ---------------------------------------------------------------
+
+
+class FakePool:
+    """Stands in for the worker pool: each call sleeps `delay`, then returns or raises `outcome`."""
+
+    size = 1
+    live = 1
+    version = {}
+
+    def __init__(self, delay=0.0, outcome=None):
+        self.delay, self.outcome, self.calls = delay, outcome, 0
+
+    def run(self, name, timeout, *, wait=30.0, **kwargs):
+        import time
+
+        self.calls += 1
+        time.sleep(self.delay)
+        if isinstance(self.outcome, Exception):
+            raise self.outcome
+        return {"id": kwargs.get("qid"), "correct": True}
+
+
+def fake_client(fake, **config):
+    return TestClient(create_app(Config(keys=[(LEARNER, "learner")], **config), pool=fake))
+
+
+ID = "simplify-surds/easy/1/abcdefabcdef"
+
+
+def test_a_full_server_answers_503_with_retry_after():
+    import threading
+
+    fake = FakePool(delay=1.0)
+    with fake_client(fake, max_in_flight=1) as c:
+        slow = threading.Thread(
+            target=lambda: c.post("/v1/grade", json={"id": ID, "reply": "1"}, headers=L), daemon=True
+        )
+        slow.start()
+        import time
+
+        time.sleep(0.4)
+        r = c.post("/v1/grade", json={"id": ID, "reply": "1"}, headers=L)
+        slow.join(5)
+        assert r.status_code == 503 and r.headers["retry-after"]
+        assert c.post("/v1/grade", json={"id": ID, "reply": "1"}, headers=L).status_code == 200  # a place is free again
+        assert c.get("/v1/health").status_code == 200  # health never queues
+
+
+def test_a_batch_has_one_total_deadline():
+    fake = FakePool(delay=0.3)
+    items = [{"id": ID, "reply": str(i)} for i in range(10)]
+    with fake_client(fake, batch_timeout=1.0) as c:
+        results = c.post("/v1/grade/batch", json={"items": items}, headers=L).json()["results"]
+    graded = [r for r in results if "error" not in r]
+    late = [r for r in results if r.get("error") == "timeout"]
+    assert 1 <= len(graded) <= 4 and len(graded) + len(late) == 10
+    assert fake.calls == len(graded)  # the late items were never run
+
+
+def test_repeated_timeouts_on_one_skill_start_a_cool_down():
+    from mathgen.server.pool import Timeout
+
+    fake = FakePool(outcome=Timeout("grade took longer than 1 s"))
+    other = "simplify-surds/hard/1/abcdefabcdef"
+    with fake_client(fake, cooldown=30, cooldown_strikes=2) as c:
+        post = lambda qid: c.post("/v1/grade", json={"id": qid, "reply": "1"}, headers=L)  # noqa: E731
+        assert post(ID).status_code == 504
+        assert post(ID).status_code == 504
+        calls = fake.calls
+        r = post(ID)
+        assert r.status_code == 503 and int(r.headers["retry-after"]) > 0
+        assert fake.calls == calls  # failed fast: no worker was used
+        assert post(other).status_code == 504  # another source is unaffected
+        batch = c.post("/v1/grade/batch", json={"items": [{"id": ID, "reply": "1"}]}, headers=L).json()
+        assert batch["results"][0]["error"] == "unavailable" and fake.calls == calls + 1
+
+
+# --- the id secret, through the API ------------------------------------------------------------------------
+
+
+def test_with_an_id_secret_grading_works_but_the_public_engine_cannot_rebuild_the_question():
+    from mathgen import engine
+
+    secret = "s" * 24
+    plain = service.Library.load()
+    pool = WorkerPool(1, id_secret=secret)
+    try:
+        config = Config(keys=[(AUTHOR, "author"), (LEARNER, "learner")], id_secret=secret, timeout=3)
+        with TestClient(create_app(config, pool=pool)) as c:
+            (q,) = ask(c, "simplify-surds", seed=7, headers=A, answers=True)
+            assert ask(c, "simplify-surds", seed=7, headers=A, answers=True) == [q]  # same seed, same question
+            right = c.post("/v1/grade", json={"id": q["id"], "reply": q["answer"]["text"]}, headers=L).json()
+            assert right["correct"] is True
+            assert c.get("/v1/question", params={"id": q["id"]}, headers=L).json()["id"] == q["id"]
+            # The seed field is a public nonce: the keyless engine rebuilds some other question from it, so
+            # the hash does not match and it will not hand over this question's answer.
+            assert q["id"].split("/")[2] == "7"
+            with pytest.raises(engine.QuestionChanged) as caught:
+                engine.regenerate(q["id"], plain.by_id)
+            assert caught.value.question.text != q["text"] or caught.value.new_id != q["id"]
+            # An id without the secret's stamp is refused, not marked.
+            unkeyed = engine.make_with_id(plain.by_id["simplify-surds"], 7)[1]
+            assert unkeyed != q["id"]
+            assert c.post("/v1/grade", json={"id": unkeyed, "reply": "1"}, headers=L).status_code == 409
+    finally:
+        pool.close()
+
+
+def test_papers_with_an_id_secret_use_the_derived_seed_as_the_nonce():
+    secret = "p" * 20
+    keyed = service.Library.load(id_secret=secret)
+    plain = service.Library.load()
+    spec = {"seed": 3, "sections": [{"items": [{"skill": "simplify-surds", "count": 2}]}]}
+    a = service.build_paper(keyed, spec)
+    assert a == service.build_paper(keyed, spec)
+    b = service.build_paper(plain, spec)
+    ids = lambda p: [q["id"] for q in p["versions"][0]["sections"][0]["questions"]]  # noqa: E731
+    assert [i.split("/")[2] for i in ids(a)] == [i.split("/")[2] for i in ids(b)]  # same public nonces
+    assert ids(a) != ids(b)  # but different questions behind them
+
+
+# --- worker memory and default size ------------------------------------------------------------------------
+
+
+def test_a_worker_memory_cap_turns_a_runaway_allocation_into_memory_error():
+    import subprocess
+    import sys
+
+    pytest.importorskip("resource")  # POSIX only
+    code = (
+        "from mathgen.server.pool import _limit_memory\n"
+        "_limit_memory(300)\n"
+        "try:\n    bytearray(800 * 2**20)\nexcept MemoryError:\n    print('capped')\n"
+    )
+    out = subprocess.run(
+        [sys.executable, "-c", code], capture_output=True, text=True, timeout=60, stdin=subprocess.DEVNULL
+    )
+    assert out.stdout.strip() == "capped", out.stderr
+
+
+def test_workers_with_a_memory_cap_still_load_and_grade():
+    pool = WorkerPool(1, memory_mb=Config().worker_memory_mb)
+    try:
+        with TestClient(create_app(Config(keys=[(LEARNER, "learner")]), pool=pool)) as c:
+            (q,) = ask(c, "simplify-surds")
+            assert c.post("/v1/grade", json={"id": q["id"], "reply": "1"}, headers=L).status_code == 200
+    finally:
+        pool.close()
+
+
+def test_default_workers_follow_the_cpus_this_process_may_use(monkeypatch):
+    import os
+
+    from mathgen.server import pool as pool_module
+
+    monkeypatch.setattr(pool_module, "_cgroup_cpus", lambda: None)
+    monkeypatch.setattr(os, "process_cpu_count", lambda: 3, raising=False)
+    assert pool_module.default_workers() == 3
+    monkeypatch.setattr(os, "process_cpu_count", lambda: 64, raising=False)
+    assert pool_module.default_workers() == 8
+    monkeypatch.setattr(pool_module, "_cgroup_cpus", lambda: 2)  # a container quota below the visible CPUs
+    assert pool_module.default_workers() == 2
+    monkeypatch.setattr(pool_module, "_cgroup_cpus", lambda: None)
+    monkeypatch.setattr(os, "process_cpu_count", lambda: None, raising=False)
+    assert 1 <= pool_module.default_workers() <= 8

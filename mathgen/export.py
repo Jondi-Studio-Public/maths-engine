@@ -31,6 +31,7 @@ import base64
 import html
 import io
 import re
+import xml.etree.ElementTree as ET
 import zipfile
 from decimal import Context, Decimal
 from fractions import Fraction
@@ -61,7 +62,17 @@ def _letter(i: int) -> str:
     return chr(ord("A") + i) if i < 26 else str(i + 1)
 
 
+def _marks(value) -> int:
+    """Marks as a whole number, whatever the paper JSON held, so nothing but digits is ever printed for them."""
+    try:
+        n = int(value)
+    except (TypeError, ValueError, OverflowError):
+        return 1
+    return min(max(n, 0), 1000)
+
+
 def _marks_label(n) -> str:
+    n = _marks(n)
     return f"[{n} mark{'' if n == 1 else 's'}]"
 
 
@@ -81,13 +92,48 @@ def _one_version(paper: dict, version: str | None) -> dict:
     return _select_version(paper, version)[0]
 
 
+_UNSAFE_SVG = re.compile(
+    r"<script|<foreignObject|<!ENTITY|<!DOCTYPE|<!\[CDATA\[|javascript:|vbscript:|\bon[a-z]+\s*=|href\s*=|<\s*(?:iframe|object|embed|use|image|a|style|animate|set)\b",
+    re.IGNORECASE,
+)
+_URL_REF = re.compile(r"url\(\s*([^)]*)\)", re.IGNORECASE)
+
+
+def _safe_svg(svg) -> str | None:
+    """`svg` if it is a plain drawing, else None. Used for a figure that arrives already rendered: the export cannot
+    redraw it, so it must not trust it. Anything that could run script, load a resource or declare an entity is out."""
+    if not isinstance(svg, str) or len(svg) > 2_000_000:
+        return None
+    svg = re.sub(r"^\s*<\?xml[^>]*\?>\s*", "", _clean(svg)).strip()
+    if not svg.startswith("<svg") or _UNSAFE_SVG.search(svg):
+        return None
+    for ref in _URL_REF.findall(svg):  # a paint reference may point only at an element of the same drawing
+        if not re.fullmatch(r"""['"]?#[\w.:-]+['"]?""", ref.strip()):
+            return None
+    try:
+        root = ET.fromstring(svg)
+    except ET.ParseError:
+        return None
+    if root.tag != "{http://www.w3.org/2000/svg}svg":
+        return None
+    for el in root.iter():
+        for name in el.attrib:
+            local = name.rsplit("}", 1)[-1].lower()
+            if local.startswith("on") or local == "href":
+                return None
+    return svg
+
+
 def _figure_svg(spec: dict | None, width: int = 400) -> str | None:
-    """The figure as a standalone SVG string, or None when there is none or `mathgen.svg` cannot draw it."""
+    """The figure as a standalone SVG string, or None when there is none or it cannot be drawn safely.
+
+    A figure with a spec is always redrawn by `mathgen.svg`; a caller's own `svg` string next to it is ignored. A
+    figure with only `{alt, svg}` (a paper built without answers carries the picture, not the spec) keeps its svg only
+    if `_safe_svg` accepts it; otherwise the alt text stands in.
+    """
     if not spec:
         return None
-    if spec.get("svg"):  # already rendered (a paper built without answers carries the picture, not the spec)
-        svg = spec["svg"]
-    else:
+    if spec.get("kind"):
         try:
             from .svg import figure_svg
         except ImportError:
@@ -96,10 +142,8 @@ def _figure_svg(spec: dict | None, width: int = 400) -> str | None:
             svg = figure_svg(spec, width=width)
         except Exception:  # a figure that cannot be drawn must not stop the export; the alt text stands in
             return None
-    if not svg:
-        return None
-    svg = re.sub(r"^\s*<\?xml[^>]*\?>\s*", "", _clean(svg))
-    return re.sub(r"^\s*<!DOCTYPE[^>]*>\s*", "", svg).strip()
+        return _safe_svg(svg)
+    return _safe_svg(spec.get("svg"))
 
 
 def _numeric(text: str, context: str = "") -> tuple[str, str] | None:
@@ -180,7 +224,7 @@ def _entry(block: dict, kind: str, label, marks: int, *, need_answer: bool) -> d
         text = _TABLE_SUFFIX.sub("", text)
     entry = {
         "label": label,
-        "marks": marks,
+        "marks": _marks(marks),
         "kind": kind,
         "text": text,
         "table": table,
@@ -236,7 +280,7 @@ def _items(version: dict, *, need_answer: bool) -> list[dict]:
                     "id": q.get("id", ""),
                     "skill": q.get("skill", ""),
                     "number": q.get("number", len(items) + 1),
-                    "marks": q.get("marks", 1),
+                    "marks": _marks(q.get("marks", 1)),
                     "stem": stem,
                     "figure": q.get("figure"),
                     "entries": entries,
@@ -473,20 +517,26 @@ def _cloze(text: str) -> str:
     return re.sub(r'([\\}#~/"])', r"\\\1", text)
 
 
-def _html_p(text: str) -> str:
-    return f"<p>{_h(text)}</p>"
+def _h_cloze(value) -> str:
+    """`_h` for text that sits inside a Moodle cloze question, where `{` opens an answer box: the braces become
+    character references, which Moodle shows as braces and does not parse."""
+    return _h(value).replace("{", "&#123;").replace("}", "&#125;")
 
 
-def _grid_html(entry: dict, cell_markup) -> str:
+def _html_p(text: str, esc=_h) -> str:
+    return f"<p>{esc(text)}</p>"
+
+
+def _grid_html(entry: dict, cell_markup, esc=_h) -> str:
     """The table as an HTML grid; `cell_markup(r, c)` gives the markup for a blank cell."""
     table = entry["table"]
     out = ['<table border="1" cellpadding="4"><tr>']
-    out += [f"<th>{_h(c)}</th>" for c in table.get("columns") or []]
+    out += [f"<th>{esc(c)}</th>" for c in table.get("columns") or []]
     out.append("</tr>")
     for r, row in enumerate(table.get("rows") or []):
         out.append("<tr>")
         for c, cell in enumerate(row):
-            out.append(f"<td>{cell_markup(r, c) if cell is None else _h(cell)}</td>")
+            out.append(f"<td>{cell_markup(r, c) if cell is None else esc(cell)}</td>")
         out.append("</tr>")
     out.append("</table>")
     return "".join(out)
@@ -505,7 +555,7 @@ def _feedback_html(item: dict) -> str:
 def _slot_cloze(slot: dict, weight) -> str:
     w = f"{weight:g}"
     if slot["kind"] == "mcq":
-        opts = [_cloze(_clean(o)) for o in slot["options"]]
+        opts = [_cloze(_h_cloze(o)) for o in slot["options"]]
         body = "~".join(("=" if i == slot["correct"] else "") + o for i, o in enumerate(opts))
         return "{" + f"{w}:MULTICHOICE:{body}" + "}"
     if slot["kind"] == "number":
@@ -518,15 +568,15 @@ def _cloze_entry_html(entry: dict) -> str:
     slots = entry["slots"]
     if entry["table"] and entry["cells"]:
         by_pos = entry["cells"]
-        grid = _grid_html(entry, lambda r, c: _slot_cloze(by_pos[(r, c)], 1) if (r, c) in by_pos else "")
-        text = _h(entry["text"])
+        grid = _grid_html(entry, lambda r, c: _slot_cloze(by_pos[(r, c)], 1) if (r, c) in by_pos else "", _h_cloze)
+        text = _h_cloze(entry["text"])
         return f"<p>{text}</p>{grid}"
     box = _slot_cloze(slots[0], marks)
     if entry["kind"] == "mcq":
-        options = "".join(f"<br>{_letter(i)}. {_h(o)}" for i, o in enumerate(entry["options"] or []))
-        return f"<p>{_h(entry['text'])}{options}</p><p>Answer: {box}</p>"
-    table = _grid_html(entry, lambda r, c: "") if entry["table"] else ""
-    return f"<p>{_h(entry['text'])}</p>{table}<p>Answer: {box}</p>"
+        options = "".join(f"<br>{_letter(i)}. {_h_cloze(o)}" for i, o in enumerate(entry["options"] or []))
+        return f"<p>{_h_cloze(entry['text'])}{options}</p><p>Answer: {box}</p>"
+    table = _grid_html(entry, lambda r, c: "", _h_cloze) if entry["table"] else ""
+    return f"<p>{_h_cloze(entry['text'])}</p>{table}<p>Answer: {box}</p>"
 
 
 def _moodle_question(item: dict, figure_no: int | None, svg: str | None) -> str:
@@ -543,7 +593,7 @@ def _moodle_question(item: dict, figure_no: int | None, svg: str | None) -> str:
         qtype = "cloze"
     figure_md = ""
     if item["figure"]:
-        alt = _h(item["figure"].get("alt") or "figure")
+        alt = (_h_cloze if qtype == "cloze" else _h)(item["figure"].get("alt") or "figure")
         figure_md = (
             f'<p><img src="@@PLUGINFILE@@/figure-{figure_no}.svg" alt="{alt}" width="400"></p>'
             if svg
@@ -551,12 +601,12 @@ def _moodle_question(item: dict, figure_no: int | None, svg: str | None) -> str:
         )
     # question text
     if qtype == "cloze":
-        stem = _html_p(item["stem"]) if item["stem"] else ""
+        stem = _html_p(item["stem"], _h_cloze) if item["stem"] else ""
         parts = []
         for e in entries:
             body = _cloze_entry_html(e)
             if e["label"] is not None:
-                body = f"<p><b>({_h(e['label'])})</b> <small>{_marks_label(e['marks'])}</small></p>{body}"
+                body = f"<p><b>({_h_cloze(e['label'])})</b> <small>{_marks_label(e['marks'])}</small></p>{body}"
             parts.append(body)
         qtext = stem + figure_md + "".join(parts)
         grade = sum(len(e["cells"]) if e["table"] and e["cells"] else e["marks"] for e in entries)

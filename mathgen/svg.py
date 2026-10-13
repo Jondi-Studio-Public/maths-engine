@@ -157,11 +157,22 @@ def _star(cx: float, cy: float, r: float) -> list[tuple[float, float]]:
 
 
 class _Ids:
-    """Element ids that are unique per figure (so several can share one page) yet deterministic."""
+    """Element ids that are unique per figure (so several can share one page) yet deterministic.
 
-    def __init__(self, spec: dict) -> None:
-        blob = json.dumps(spec, sort_keys=True, default=str)
-        self.prefix = "f" + hashlib.sha1(blob.encode("utf-8")).hexdigest()[:8]
+    Renderers write ids with a placeholder prefix; `figure_svg` swaps in a hash of the finished drawing, so an id
+    depends only on what the figure shows and never on spec fields it keeps out of sight (a clock's hour and
+    minute when it has no numerals, an angle that is not drawn).
+    """
+
+    PLACEHOLDER = "fZZidprefixZZ"
+
+    def __init__(self) -> None:
+        self.prefix = self.PLACEHOLDER
+
+    @classmethod
+    def finish(cls, svg: str) -> str:
+        digest = "f" + hashlib.sha1(svg.encode("utf-8")).hexdigest()[:8]
+        return svg.replace(cls.PLACEHOLDER, digest)
 
     def __call__(self, name: str) -> str:
         return f"{self.prefix}-{name}"
@@ -1235,7 +1246,7 @@ def figure_svg(spec: dict, *, width: int = 400) -> str:
     figures.check(spec)
     if not isinstance(width, int) or isinstance(width, bool) or width < 1:
         raise ValueError("width must be a positive integer")
-    ids = _Ids(spec)
+    ids = _Ids()
     body, height = _RENDERERS[spec["kind"]](spec, ids)
     heading = ""
     if spec.get("title"):
@@ -1244,21 +1255,23 @@ def figure_svg(spec: dict, *, width: int = 400) -> str:
         height += 22
     height = math.ceil(height)
     title_id = ids("title")
-    return _el(
-        "svg",
-        _el("title", escape(_clean_text(spec["alt"])), id=title_id)
-        + _rect(0, 0, CANVAS, height, fill=PAPER, stroke="none")
-        + heading
-        + body,
-        xmlns="http://www.w3.org/2000/svg",
-        viewBox=f"0 0 {CANVAS} {height}",
-        width=width,
-        height=round(width * height / CANVAS),
-        role="img",
-        aria_labelledby=title_id,
-        font_family="Helvetica, Arial, sans-serif",
-        color="#000000",
-        fill="none",
-        stroke=INK,
-        stroke_width=1.5,
+    return _Ids.finish(
+        _el(
+            "svg",
+            _el("title", escape(_clean_text(spec["alt"])), id=title_id)
+            + _rect(0, 0, CANVAS, height, fill=PAPER, stroke="none")
+            + heading
+            + body,
+            xmlns="http://www.w3.org/2000/svg",
+            viewBox=f"0 0 {CANVAS} {height}",
+            width=width,
+            height=round(width * height / CANVAS),
+            role="img",
+            aria_labelledby=title_id,
+            font_family="Helvetica, Arial, sans-serif",
+            color="#000000",
+            fill="none",
+            stroke=INK,
+            stroke_width=1.5,
+        )
     )

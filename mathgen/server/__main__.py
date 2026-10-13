@@ -2,6 +2,10 @@
 
 import argparse
 import logging
+import os
+import sys
+
+LOOPBACK = ("127.0.0.1", "::1", "localhost")
 
 
 def main(argv=None):
@@ -13,10 +17,20 @@ def main(argv=None):
 
     import uvicorn
 
-    from . import create_app
+    from . import Config, create_app
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
-    uvicorn.run(create_app(), host=args.host, port=args.port, proxy_headers=True, log_level="info")
+    try:
+        config = Config.from_env()
+        if not config.keys and not config.open and args.host in LOOPBACK:
+            logging.getLogger("mathgen.server").warning("no API keys: serving this machine only (%s)", args.host)
+            config.open = True  # nobody else can reach a loopback address
+        app = create_app(config)
+    except ValueError as exc:
+        sys.exit(f"mathgen.server: {exc}")
+    # Past this many open connections uvicorn answers 503 itself, before a request reaches the app.
+    limit = int(os.environ.get("MATHS_API_LIMIT_CONCURRENCY") or 64)
+    uvicorn.run(app, host=args.host, port=args.port, proxy_headers=True, log_level="info", limit_concurrency=limit)
 
 
 if __name__ == "__main__":

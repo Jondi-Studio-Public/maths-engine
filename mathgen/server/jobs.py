@@ -52,9 +52,8 @@ def _export(export, built, format, version):
 
 @job
 def figure_svg(lib, *, qid):
-    from ..svg import figure_svg as render
-
+    # The learner view's figure is already the picture: `{"alt": ..., "svg": ...}`, never the spec.
     view = service.question_by_id(lib, qid)
     if not view.get("figure"):
         raise service.NotFound(f"question {qid} has no figure")
-    return render(view["figure"])
+    return view["figure"]["svg"]

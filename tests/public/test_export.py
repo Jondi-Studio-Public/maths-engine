@@ -459,3 +459,132 @@ def test_answer_with_name_and_unit_is_numerical(lib):
     root = ET.fromstring(export.paper_moodle_xml(paper).encode())
     num = root.findall("question")[1]
     assert num.get("type") == "numerical" and num.findtext("answer/text") == "60.00"
+
+
+def test_a_learner_view_figure_survives_the_svg_check(lib):
+    learner = service.build_paper(
+        lib, {"seed": 3, "sections": [{"items": [{"skill": FIGURE_MCQ, "count": 2}]}]}, answers=False
+    )
+    figure = next(q["figure"] for q in _questions(learner) if q["figure"])
+    assert set(figure) == {"alt", "svg"}
+    assert export._figure_svg(figure) == figure["svg"]
+    assert "<svg" in export.paper_html(learner, version="A")
+
+
+HOSTILE_SVGS = [
+    '<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" onload="alert(1)"></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg"><rect onclick = "x()"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#a"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg"><a href="javascript:alert(1)"><text>x</text></a></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg"><foreignObject><p>hi</p></foreignObject></svg>',
+    '<!DOCTYPE svg [<!ENTITY x "y">]><svg xmlns="http://www.w3.org/2000/svg">&x;</svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg"><rect fill="url(https://evil.example/x)"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg"><image href="https://evil.example/x.png"/></svg>',
+    "<div>not an svg</div>",
+    "<svg",
+]
+
+
+@pytest.mark.parametrize("hostile", HOSTILE_SVGS)
+def test_a_pre_rendered_hostile_svg_is_dropped_and_the_alt_text_stays(hostile):
+    spec = {"alt": "A tidy triangle", "svg": hostile}
+    assert export._figure_svg(spec) is None
+    paper = _one_question_paper(spec)
+    for out in (
+        export.paper_html(paper),
+        export.paper_moodle_xml(paper),
+        export.paper_qti21_zip(paper).decode("latin-1"),
+    ):
+        assert "<script" not in out and "evil.example" not in out and "onload" not in out
+    assert "A tidy triangle" in export.paper_html(paper)
+    assert not any(
+        n.startswith("figures/") for n in zipfile.ZipFile(io.BytesIO(export.paper_qti21_zip(paper))).namelist()
+    )
+
+
+def test_a_spec_is_redrawn_and_a_callers_svg_next_to_it_is_ignored():
+    from mathgen import figures
+
+    spec = figures.number_line(range_=(0, 5), alt="A number line")
+    spec = {**spec, "svg": '<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>'}
+    out = export._figure_svg(spec)
+    assert out and "<script" not in out and "<line" in out
+
+
+def _one_question_paper(figure, *, text="Find x.", marks=1, options=None, kind="number", answer="4"):
+    q = {
+        "id": "x/y/1/abc",
+        "skill": "x",
+        "number": 1,
+        "answer_kind": kind,
+        "marks": marks,
+        "figure": figure,
+        "text": text,
+        "options": options,
+        "answer": {"text": answer, "latex": None, "working": [], "option": 0},
+    }
+    return {
+        "title": "t",
+        "seed": 1,
+        "answers": True,
+        "attribution": [],
+        "engine": {},
+        "versions": [{"label": "A", "sections": [{"title": None, "questions": [q]}]}],
+    }
+
+
+def test_cloze_syntax_in_question_text_is_inert():
+    evil = "Find {1:SHORTANSWER:=x} now"
+    q = {
+        "id": "x/y/1/abc",
+        "skill": "x",
+        "number": 1,
+        "answer_kind": "number",
+        "marks": 2,
+        "figure": {"alt": "alt {2:NUMERICAL:=1}", "svg": None},
+        "stem": {"text": "Stem {1:SHORTANSWER:=y}"},
+        "parts": [
+            {
+                "label": "a{",
+                "text": evil,
+                "answer_kind": "mcq",
+                "options": ["{1:SHORTANSWER:=z}", "b}"],
+                "marks": 1,
+                "answer": {"text": "b}", "option": 1, "working": []},
+            },
+            {"label": "b", "text": evil, "answer_kind": "number", "marks": 1, "answer": {"text": "4", "working": []}},
+        ],
+    }
+    paper = {
+        "title": "t",
+        "seed": 1,
+        "answers": True,
+        "attribution": [],
+        "engine": {},
+        "versions": [{"label": "A", "sections": [{"title": None, "questions": [q]}]}],
+    }
+    root = ET.fromstring(export.paper_moodle_xml(paper).encode())
+    cloze = next(el for el in root.findall("question") if el.get("type") == "cloze")
+    qtext = cloze.find("questiontext/text").text
+    # the only live boxes are the two the exporter writes itself
+    assert len(re.findall(r"\{\d+:", qtext)) == 2
+    assert "&#123;1:SHORTANSWER" in qtext and "&#125;" in qtext
+    assert "{1:SHORTANSWER:=x}" not in qtext and "{1:SHORTANSWER:=y}" not in qtext and "{2:NUMERICAL" not in qtext
+    box = re.search(r"\{1:MULTICHOICE:(.*?)(?<!\\)\}", qtext).group(1)
+    assert "{1:SHORTANSWER:=z}" not in box and "{" not in box
+
+
+def test_cloze_multichoice_labels_are_html_escaped():
+    cloze = export._slot_cloze({"kind": "mcq", "options": ["<b>x</b>", "y"], "correct": 0, "answer": "x"}, 1)
+    assert "<b>" not in cloze and "&lt;b&gt;" in cloze
+
+
+def test_marks_print_only_as_whole_numbers():
+    for bad in ("1</span><script>alert(1)</script>", None, float("inf"), "x"):
+        paper = _one_question_paper(None, marks=bad)
+        out = (
+            export.paper_html(paper) + export.paper_moodle_xml(paper) + export.paper_qti21_zip(paper).decode("latin-1")
+        )
+        assert "<script" not in out
+    assert "[2 marks]" in export.paper_html(_one_question_paper(None, marks=2.9))

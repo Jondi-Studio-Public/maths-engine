@@ -25,6 +25,7 @@ learners a key that cannot ask for answers (see `mathgen.server`).
 from __future__ import annotations
 
 import hashlib
+import hmac
 import json
 import random
 import re
@@ -42,6 +43,8 @@ from .skills import Skill
 MAX_COUNT = 100
 MAX_PAPER_QUESTIONS = 400
 MAX_VERSIONS = 10
+#: The shortest `id_secret` a library accepts.
+MIN_ID_SECRET_CHARS = 16
 #: How many extra seeds `make_questions` tries to find questions that differ, before it accepts repeats.
 _DISTINCT_TRIES = 4
 
@@ -82,16 +85,23 @@ class Library:
     skills: list[Skill]
     by_id: dict[str, Skill] = field(default_factory=dict)
     fingerprint: str = ""
+    #: Optional server secret. When set, an id's seed field is a public nonce and the generator's real seed is
+    #: `HMAC(secret, skill/source/nonce)`, so the public engine cannot rebuild a question from its id alone.
+    id_secret: str | None = field(default=None, repr=False)
 
     @classmethod
-    def load(cls, root=None, extra_roots=None) -> Library:
+    def load(cls, root=None, extra_roots=None, *, id_secret: str | None = None) -> Library:
+        if id_secret is not None and len(id_secret) < MIN_ID_SECRET_CHARS:
+            raise ValueError(f"the id secret must be at least {MIN_ID_SECRET_CHARS} characters")
         _domains, skills = engine.load_skills(root, extra_roots)
         digest = hashlib.sha256()
         for skill in sorted(skills, key=lambda s: s.id):
             digest.update(skill.id.encode())
             if skill.path is not None and skill.path.is_file():
                 digest.update(skill.path.read_bytes())
-        return cls(skills=skills, by_id={s.id: s for s in skills}, fingerprint=digest.hexdigest()[:12])
+        return cls(
+            skills=skills, by_id={s.id: s for s in skills}, fingerprint=digest.hexdigest()[:12], id_secret=id_secret
+        )
 
     def skill(self, skill_id: str) -> Skill:
         try:
@@ -320,6 +330,24 @@ def derive_seed(*parts) -> int:
     return int.from_bytes(hashlib.sha256(text.encode()).digest()[:4], "big") >> 1
 
 
+def _real_seed(lib: Library, skill: Skill, src, nonce: int) -> int:
+    """The seed the generator runs with for an id's seed field. Without an `id_secret` it is the field itself;
+    with one it is a keyed hash of (skill, source, nonce), 63 bits, which only the server can compute."""
+    if lib.id_secret is None:
+        return nonce
+    message = f"{skill.id}/{engine._key_of(skill, src)}/{nonce}".encode()
+    digest = hmac.new(lib.id_secret.encode(), message, hashlib.sha256).digest()
+    return int.from_bytes(digest[:8], "big") >> 1
+
+
+def _make_with_id(lib: Library, skill: Skill, nonce: int, src):
+    """`(question, id)` for a nonce. The id carries the nonce, not the generator's real seed."""
+    if lib.id_secret is None:
+        return engine.make_with_id(skill, nonce, source=src)
+    question = engine.make_for_skill(skill, _real_seed(lib, skill, src, nonce), source=src)
+    return question, engine.question_id(skill, src, nonce, question)
+
+
 def _check_count(count: int, limit: int = MAX_COUNT) -> None:
     if not isinstance(count, int) or isinstance(count, bool) or not 1 <= count <= limit:
         raise BadRequest(f"count must be a whole number from 1 to {limit}, got {count!r}")
@@ -328,7 +356,9 @@ def _check_count(count: int, limit: int = MAX_COUNT) -> None:
 def _pick(skill: Skill, source):
     try:
         return engine.pick_source(skill, source)
-    except (KeyError, IndexError) as exc:
+    except IndexError:
+        raise NotFound(f"skill {skill.id!r} has no source number {source!r}") from None
+    except KeyError as exc:
         raise NotFound(exc.args[0] if exc.args else str(exc)) from None
     except ValueError as exc:
         raise BadRequest(str(exc)) from None
@@ -356,7 +386,7 @@ def make_questions(
     budget = count * (1 + _DISTINCT_TRIES)
     spare: list[dict] = []
     while len(out) < count and n < start + budget:
-        question, qid = engine.make_with_id(skill, n, source=src)
+        question, qid = _make_with_id(lib, skill, n, src)
         view = question_view(skill, question, qid, answers=answers)
         key = question.text
         (spare if key in seen else out).append(view)
@@ -373,14 +403,24 @@ def question_by_id(lib: Library, qid: str, *, answers: bool = False) -> dict:
 
 def _regenerate(lib: Library, qid: str):
     try:
-        skill_id, *_ = engine.parse_question_id(qid)
+        skill_id, key, nonce, _digest = engine.parse_question_id(qid)
     except ValueError as exc:
         raise BadRequest(str(exc)) from None
     skill = lib.skill(skill_id)
-    try:
-        question = engine.regenerate(qid, lib.by_id)
-    except KeyError as exc:
-        raise NotFound(exc.args[0] if exc.args else str(exc)) from None
+    if lib.id_secret is None:
+        try:
+            question = engine.regenerate(qid, lib.by_id)
+        except KeyError as exc:
+            raise NotFound(exc.args[0] if exc.args else str(exc)) from None
+        return question, skill
+    if not 0 <= nonce < 2**63:
+        raise BadRequest(f"not a question id: seed out of range in {qid!r}")
+    matches = [src for src in skill.sources if src.effective_key == key]
+    if not matches:
+        raise NotFound(f"skill {skill_id!r} has no source with key {key!r}")
+    question, new_id = _make_with_id(lib, skill, nonce, matches[0])
+    if new_id != qid:
+        raise QuestionChanged(qid, new_id, question)
     return question, skill
 
 
@@ -459,7 +499,7 @@ def build_paper(lib: Library, spec: dict, *, answers: bool = True) -> dict:
                 for k in range(item.get("count", 1)):
                     for attempt in range(_DISTINCT_TRIES + 1):
                         seed = derive_seed(paper_seed, label, s_index, i_index, k, attempt)
-                        question, qid = engine.make_with_id(skill, seed, source=src)
+                        question, qid = _make_with_id(lib, skill, seed, src)
                         if question.text not in seen or attempt == _DISTINCT_TRIES:
                             break
                     seen.add(question.text)

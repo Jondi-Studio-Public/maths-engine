@@ -10,7 +10,11 @@ services:
       MATHS_API_WORKERS: "2"
     read_only: true
     tmpfs:
-      - /tmp
+      - /tmp:size=64m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 128
+    init: true
     mem_limit: 1g
     cpus: 2
     restart: unless-stopped

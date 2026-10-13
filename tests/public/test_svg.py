@@ -1,5 +1,6 @@
 """The SVG renderer draws every figure kind, deterministically, and escapes all text."""
 
+import hashlib
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -191,3 +192,31 @@ def test_control_characters_cannot_break_the_xml():
     fig = figures.number_line(range_=(0, 4), alt="a\x00b\x08c", marks=[{"at": 1, "label": "x\x0by"}])
     root = ET.fromstring(svg.figure_svg(fig))
     assert next(root.iter(SVG_NS + "title")).text == "abc"
+
+
+def _ids_of(text: str) -> set[str]:
+    return {el.get("id") for el in ET.fromstring(text).iter() if el.get("id")}
+
+
+def test_element_ids_do_not_encode_spec_fields_that_are_not_drawn():
+    # with no numerals the face shows hands only; two different times differ in the drawing, but a spec field that
+    # is not drawn at all must change nothing, ids included
+    a = measure.clock(hour=3, minute=15, alt="A clock face", numerals="none")
+    b = {**a, "hidden_note": "anything"}
+    assert svg.figure_svg(a) == svg.figure_svg(b)
+    ids = _ids_of(svg.figure_svg(a))
+    assert ids and all(i.startswith("f") for i in ids)
+    # the prefix is a hash of the finished drawing, not of the spec
+    prefix = next(iter(ids)).split("-")[0]
+    text = svg.figure_svg(a)
+    expected = "f" + hashlib.sha1(text.replace(prefix, "fZZidprefixZZ").encode()).hexdigest()[:8]
+    assert prefix == expected
+
+
+def test_ids_are_unique_between_different_drawings_and_the_placeholder_never_leaks(all_figures):
+    prefixes = set()
+    for fig in all_figures:
+        text = svg.figure_svg(fig)
+        assert "ZZidprefixZZ" not in text
+        prefixes.add(next(iter(_ids_of(text))).split("-")[0])
+    assert len(prefixes) > 1

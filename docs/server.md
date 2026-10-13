@@ -13,6 +13,14 @@ docker build -t maths-engine .
 docker run --rm -p 127.0.0.1:8080:8080 -e MATHS_API_KEYS="author:$(openssl rand -hex 24)" maths-engine
 ```
 
+A key is 16 or more characters of random. In bash, `openssl rand -hex 24` makes one. In Windows PowerShell:
+
+```
+[Convert]::ToHexString([Security.Cryptography.RandomNumberGenerator]::GetBytes(24))
+```
+
+Without any keys the server refuses to start; see `MATHS_API_OPEN` below for the one-teacher-on-one-machine case.
+
 `compose.example.yaml` is a starting point for a long-running install. Without Docker:
 
 ```
@@ -20,7 +28,8 @@ pip install "maths-engine[server]"
 python -m mathgen.server            # http://127.0.0.1:8080, loopback only unless you pass --host
 ```
 
-The interactive reference is at `/docs` and the OpenAPI 3.1 description at `/openapi.json`.
+The interactive reference (`/docs`) and the OpenAPI 3.1 description (`/openapi.json`) are off by default; set
+`MATHS_API_DOCS=1` to serve them. They need no key, so leave them off on a server other people can reach.
 
 ## How it works
 
@@ -33,7 +42,15 @@ The interactive reference is at `/docs` and the OpenAPI 3.1 description at `/ope
   question the learner never saw.
 - **Every call that generates or grades runs in a worker process with a deadline** (`MATHS_API_TIMEOUT`, 5 s).
   A few replies make SymPy run for ever; the worker is killed and replaced, the call gets `504`, and the server
-  carries on. Run at least two workers so a replacement starting does not hold up other calls.
+  carries on. Run at least two workers so a replacement starting does not hold up other calls. A grade on a
+  (skill, source) that has just timed out repeatedly fails fast for a short cool-down instead of killing another worker, and
+  a batch that runs past `MATHS_API_BATCH_TIMEOUT` marks its remaining items with the error `timeout`.
+- **Load is shed, not queued for ever.** When more calls are in flight than `MATHS_API_MAX_IN_FLIGHT`, the excess
+  get `503` with a `Retry-After` header. Retry after that many seconds.
+- **Upgrades change ids.** The library hash is part of every id's check, so after an upgrade that changes a skill,
+  an old id answers `409 question_changed` with the new id rather than being marked against a different question.
+  Finish any test in progress before upgrading, and pin an image tag (or the digest in the `Dockerfile`) so an
+  upgrade happens when you choose, not when the container is rebuilt.
 
 ## Keys and roles
 
@@ -45,12 +62,41 @@ The interactive reference is at `/docs` and the OpenAPI 3.1 description at `/ope
 | `author` | everything: answers and working, answer keys, Moodle and QTI banks, `reveal` on grading |
 | `learner` | questions without answers, grading without the right answer |
 
-Give learners' devices a `learner` key. With no keys set, every caller has `MATHS_API_OPEN_ROLE` (default
-`author`), which suits one teacher on their own machine; the server logs a warning. The source is public, so an
-`author` key protects convenience, not secrecy: anyone can run the engine and read any answer. Do not use it to
-keep a high-stakes test secret.
+Give learners' devices a `learner` key. **An author key never goes in a browser, a student's device or any
+client-side page**: whoever can read the page can read every answer. Keep it on your own server, and have that
+server call the API. If a browser page calls the API directly, give it only a `learner` key and list the exact
+origin in `MATHS_API_CORS_ORIGINS`, never `*`.
 
-Rate limiting and TLS belong in the reverse proxy in front of the API (Caddy, nginx, a cloud load balancer).
+With no keys set the server refuses to start. To run with no keys on purpose (one teacher on their own machine,
+loopback only), set `MATHS_API_OPEN=1`; every caller then has `MATHS_API_OPEN_ROLE`, which defaults to `learner`
+(set it to `author` to see answers), and the server logs a warning.
+
+**Learner keys suit practice, not summative tests.** The source is public, so an `author` key protects
+convenience, not secrecy: anyone can run the engine and read any answer. A learner id
+(`<skill>/<source>/<seed>/<hash>`) gives the answer the same way, because the public engine rebuilds the question
+from it. Setting `MATHS_API_ID_SECRET` closes that gap: ids then cannot be regenerated without the server. Even so,
+do not rely on it to keep a high-stakes test secret.
+
+### Privacy and logs
+
+The API stores nothing: no replies, no names, no results. It logs the method and path of each request, and the
+path includes a question id (so it names a skill and a seed); it never logs a reply.
+
+### Behind a reverse proxy
+
+Rate limiting and TLS belong in the reverse proxy in front of the API (Caddy, nginx, a cloud load balancer). Tell
+the server which proxy addresses to trust for `X-Forwarded-For` with `FORWARDED_ALLOW_IPS` (uvicorn's setting; for
+a proxy on the same machine, `127.0.0.1`). A minimal Caddyfile:
+
+```
+maths.example.org {
+    reverse_proxy 127.0.0.1:8080
+}
+```
+
+The server sends `X-Content-Type-Options: nosniff` and `Referrer-Policy: no-referrer` on every response,
+`Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src data:; sandbox` on HTML and SVG,
+and `Cache-Control: no-store` on author responses, so an answer key is not kept by a browser or shared cache.
 
 ## Endpoints
 
@@ -63,7 +109,7 @@ Rate limiting and TLS belong in the reverse proxy in front of the API (Caddy, ng
 | `GET /v1/question?id=` | Rebuild one question by id (`answers=true` for an author). |
 | `GET /v1/figure.svg?id=` | A question's figure as SVG. |
 | `POST /v1/grade` | `{"id", "reply", "reveal"?}`. `reply` is text; an option index for multiple choice; `{"a": ..., "b": ...}` for a multi-part question. |
-| `POST /v1/grade/batch` | `{"items": [{"id", "reply"}, ...]}`, up to 200, as when marking a whole test. |
+| `POST /v1/grade/batch` | `{"items": [{"id", "reply"}, ...]}`, up to 100, as when marking a whole test. |
 | `POST /v1/papers` | A worksheet or test: `{"title"?, "seed"?, "versions"? (1-10), "shuffle"?, "sections": [{"title"?, "items": [{"skill", "source"?, "count"?}]}], "format"?}`. `format`: `json` (default), `html` (print), `html-key` (answer key), `moodle` (Moodle XML), `qti` (QTI 2.1 zip, for Canvas and others). |
 
 Moodle and QTI can mark multiple choice and plain numbers themselves. Other answer kinds (expressions,
@@ -74,14 +120,23 @@ equivalent form is marked wrong there. For those, grade through `/v1/grade`, or 
 
 | Variable | Default | |
 |---|---|---|
-| `MATHS_API_KEYS` | none | `role:key,role:key` |
-| `MATHS_API_OPEN_ROLE` | `author` | the role of every caller when no keys are set |
-| `MATHS_API_WORKERS` | CPU count, at most 8 | worker processes |
+| `MATHS_API_KEYS` | none | `role:key,role:key`. Required unless `MATHS_API_OPEN=1`; a value that parses to no keys is an error |
+| `MATHS_API_OPEN` | off | `1` lets the server run with no keys; otherwise it refuses to start |
+| `MATHS_API_OPEN_ROLE` | `learner` | the role of every caller when running open |
+| `MATHS_API_ID_SECRET` | none | 16 or more characters. Ids become unregeneratable without the server. Changing it invalidates every outstanding id |
+| `MATHS_API_WORKERS` | CPUs available to the container, at most 8 | worker processes |
+| `MATHS_API_MAX_IN_FLIGHT` | workers x 2 | calls in flight at once; the excess get `503` with `Retry-After` |
+| `MATHS_API_WORKER_MEMORY_MB` | `1024` | address-space cap per worker process (Linux); `0` turns it off. A worker uses about 145 MB resident, 340 MB of address space |
+| `MATHS_API_COOLDOWN` | `30` | seconds a (skill, source) fails fast after repeated timeouts |
+| `MATHS_API_COOLDOWN_STRIKES` | `3` | timeouts within the cool-down window that start one |
+| `MATHS_API_LIMIT_CONCURRENCY` | `64` | uvicorn's cap on concurrent connections |
+| `MATHS_API_DOCS` | off | `1` serves `/docs` and `/openapi.json` |
 | `MATHS_API_TIMEOUT` | `5` | seconds for one question or one grade |
+| `MATHS_API_BATCH_TIMEOUT` | 10 x `MATHS_API_TIMEOUT` | seconds for a whole batch; items still waiting past it get the error `timeout` |
 | `MATHS_API_PAPER_TIMEOUT` | `60` | seconds for a paper |
 | `MATHS_API_QUEUE_TIMEOUT` | `30` | seconds a call may wait for a free worker before `503` |
 | `MATHS_API_MAX_BODY` | `262144` | bytes in a request body |
-| `MATHS_API_CORS_ORIGINS` | none | comma-separated origins a browser page may call from |
+| `MATHS_API_CORS_ORIGINS` | none | comma-separated exact origins a browser page may call from; never `*` |
 | `MATHS_SKILLS_DIR`, `MATHS_EXTRA_SKILLS_DIRS` | | your own skills alongside the library (see `mathgen/skills.py`) |
 
 ## Licensing in what it returns

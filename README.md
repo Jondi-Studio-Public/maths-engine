@@ -161,6 +161,7 @@ are identifiers, not categories.
 `docs/server.md` describes an HTTP API and a Docker image (`Dockerfile`, `compose.example.yaml`): search skills
 by year or ACARA code, generate questions, build worksheets and tests in versions with answer keys, export them
 for print, Moodle or QTI, and grade replies by question id. It stores nothing, so a school can run its own copy.
+Keep author keys on the server side only, and read the keys, privacy and upgrade notes in `docs/server.md` before exposing it.
 
 ## How determinism and grading work
 
