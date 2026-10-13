@@ -1,0 +1,56 @@
+id: f10-order-events-independent-dependent
+name: Order chance events and sort independent from dependent
+domain: statistics-probability
+year_level: ['4']
+naplan_domain: [probability]
+description: >-
+  Order events by how likely they are, then tell independent events from dependent ones. Easy puts three events
+  about one bag of counters in order from least to most likely. Medium orders four events drawn from different
+  equipment (a bag, a die, a spinner, a coin, cards, a class), where a count alone cannot be compared. Hard gives
+  four pairs of events described by the way the chances are produced (with or without putting back, separate
+  devices, two linked events on one device) and asks for the letters of the pairs whose events are independent.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-chance-language-and-outcomes
+- f10-probability-scale-and-expectation
+answer: ordered_list
+sources:
+- topic: fr2d_order_events
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2d_order_events
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2d_order_events
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: fr2d-ignores-no-replacement
+  description: >-
+    Thinking that two draws are independent when the first item is not put back, so the second draw has changed.
+- id: fr2d-order-slip
+  description: >-
+    Putting two events next to each other in the wrong order when comparing their chances.
+- id: fr2d-orders-by-favourable-count-only
+  description: >-
+    Ordering the events by how many outcomes favour each one, without comparing that count with the number of
+    possible outcomes.
+- id: fr2d-orders-greatest-first
+  description: >-
+    Listing the events from most likely to least likely, where the order asked for was least likely first.
+- id: fr2d-swaps-independent-dependent
+  description: >-
+    Naming the dependent pairs where the independent pairs were asked for.
+- id: fr2d-treats-linked-events-as-independent
+  description: >-
+    Calling two events independent when they come from the same single trial and knowing one changes the chance
+    of the other.
+- id: fr2d-treats-repeat-as-dependent
+  description: >-
+    Thinking that a second try of the same kind of event is affected by the first, so that independent events
+    are called dependent.
+tags: [acara-f10-v9, statistics-probability, fr2d_order_events, AC9M4P01]

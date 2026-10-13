@@ -16312,6 +16312,276 @@ _ENTRIES = (
         "Giving the x-coordinate of a point where its y-coordinate was asked for.",
         area="algebra",
     ),
+    CatalogueEntry(
+        "fr2d-tally-group-as-one",
+        "Counting each group of five tally marks as one mark, so a tally of 13 is read as 5.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-tally-off-by-one",
+        "Being one out when reading or working with a tally count.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-the-wrong-outcome",
+        "Reading the tally of a different outcome from the one the question asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reports-the-total",
+        "Giving the total number of trials where a count for one outcome was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-adds-instead-of-compares",
+        "Adding two counts where the question asked how many more one is than the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-the-least-common",
+        "Reading the least common outcome where the most common was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gap-for-count",
+        "Giving the gap between the most and least common outcomes where the count itself was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-count-for-difference-from-expected",
+        "Giving the number of times an outcome came up, where the question asked how far that is from the equal-likelihood count.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-equal-share-for-difference",
+        "Giving the equal-likelihood count itself, where the question asked how far the result was from it.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-compares-with-another-outcome",
+        "Comparing an outcome with another outcome, where the comparison asked for was with the equal-likelihood count.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-total-not-extra",
+        "Giving the tally at the end of all the trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-first-tally-not-extra",
+        "Giving the tally from the first trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-adds-instead-of-subtracts",
+        "Adding the tally from the first trials to the final tally, where the extra trials needed a subtraction.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gap-over-all-trials",
+        "Finding the gap between two outcomes over all the trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gap-over-first-trials",
+        "Finding the gap between two outcomes in the first trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-orders-greatest-first",
+        "Listing the events from most likely to least likely, where the order asked for was least likely first.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-order-slip",
+        "Putting two events next to each other in the wrong order when comparing their chances.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-orders-by-favourable-count-only",
+        "Ordering the events by how many outcomes favour each one, without comparing that count with the number of possible outcomes.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-treats-repeat-as-dependent",
+        "Thinking that a second try of the same kind of event is affected by the first, so that independent events are called dependent.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-ignores-no-replacement",
+        "Thinking that two draws are independent when the first item is not put back, so the second draw has changed.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-treats-linked-events-as-independent",
+        "Calling two events independent when they come from the same single trial and knowing one changes the chance of the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-swaps-independent-dependent",
+        "Naming the dependent pairs where the independent pairs were asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-joint-for-conditional",
+        "Dividing the count for both events by all the records, which gives the chance of both events and not the chance of one given the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-swaps-condition-and-target",
+        "Dividing the count for both events by the total for the event asked about, so the condition and the target are swapped.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-answers-for-the-opposite-event",
+        "Giving the chance of the opposite of the event asked about, from the same group.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-ignores-the-condition",
+        "Giving the chance of the event over all the records, as if the condition had not been stated.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-divides-by-the-wrong-group",
+        "Dividing by the total of the wrong group, not the group the condition describes.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-conditional-not-compared",
+        "Giving the chance given the condition, without taking off the chance over all the records.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-overall-not-compared",
+        "Giving the chance over all the records, where the difference from the chance given the condition was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-difference-the-wrong-way",
+        "Subtracting the chance given the condition from the overall chance, so the difference has the wrong sign.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reports-the-known-sum",
+        "Giving the sum of the counts that are known, where the lost count was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-left-a-count-out-of-the-sum",
+        "Leaving one known count out when taking the known counts from the total, so the lost count comes out too large.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-count-off-by-one",
+        "Being one out when adding or subtracting counts.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-condition-and-opposite-confused",
+        "Using the chance given the condition where the chance given its opposite was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-the-comparison-backwards",
+        "Choosing the statement that reverses which chance is greater.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-calls-different-chances-independent",
+        "Calling two events independent although the chance of one changes with the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-confuses-independent-with-exclusive",
+        "Thinking events that can happen together cannot be independent, which mixes up independent with mutually exclusive.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-sees-a-link-in-equal-chances",
+        "Seeing a link between two events even though the chance of one is the same whatever the other does.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gives-the-opposite-event",
+        "Giving the chance that the event does not happen, where the chance that it does happen was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-odds-for-probability",
+        "Dividing the number of successes by the number of failures, which compares the two outcomes instead of finding the share of all trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gives-theory-not-simulation",
+        "Giving the theoretical chance from the rule, where the estimate from the simulation's results was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-divides-by-the-digits-not-trials",
+        "Dividing by 10, the number of different digits, instead of by the number of trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-wrong-trial-total",
+        "Dividing by the number of successes added to the number of trials, instead of by the number of trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-or-instead-of-and",
+        "Counting the trials where at least one digit succeeds, where both digits had to succeed.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-and-instead-of-or",
+        "Counting only the trials where both digits succeed, where at least one was enough.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-counts-both-as-exactly-one",
+        "Counting the trials where both digits succeed as well, where exactly one digit had to succeed.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-counts-digits-not-trials",
+        "Counting successful digits instead of successful trials, so a trial with two successes is counted twice.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-ignores-the-target",
+        "Giving the share of all trials that meet the condition, without checking the target event within them.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-or-and-confused",
+        "Mixing up 'both' with 'at least one' when counting the successful trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-counts-the-opposite-event",
+        "Counting the trials where the event did not happen, where the trials where it did happen were asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-one-digit-chance-for-the-pair",
+        "Giving the chance for a single digit, where the chance for a pair of digits was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-adds-chances-for-the-pair",
+        "Adding the chances for the two digits to find the chance for the pair, which counts the overlap twice or ignores it.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gives-simulation-not-theory",
+        "Giving the estimate from the simulation, where the theoretical chance from the rule was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-expected-for-difference",
+        "Giving the expected count itself, where the difference from it was asked for.",
+        area="chance-sampling",
+    ),
 )
 
 #: Every entry, by id.
