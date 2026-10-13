@@ -19,6 +19,8 @@ Some kinds also take an optional `title`, drawn above the figure.
 
 **The no-answer-leak rule.** When a question asks the learner to read a value off the figure, `alt` and every label name the object only. They never state the value. For example, `alt` says "a straight line on a grid", not "a line with slope 2". Show `alt` and the labels exactly as given. Do not add text of your own that computes or repeats a value.
 
+**The spec itself can hold the answer.** For a read-the-picture question the spec carries the value the learner must find: a clock's `hour` and `minute`, a protractor's `angle`, a scale's reading. Never send the spec to a learner's browser for such a question. Draw the figure on your server (with the SVG renderer, or your own code) and send only the picture and `alt`. `engine.present(skill, q, reveal=False)` gives that view: it leaves out the spec, the answer and the working.
+
 All coordinates and sizes in a spec are plain JSON numbers.
 
 ## Kinds

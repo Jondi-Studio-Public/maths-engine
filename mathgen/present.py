@@ -27,7 +27,8 @@ Keys:
 - ``parts``: a multi-part question's parts, each ``{"label", "prompt", "answer", "options"?, "working"}``,
   with the shared information in ``prompt`` (the stem). Absent for a single-answer question.
 
-The question itself is not changed.
+``reveal=False`` drops ``answer``, ``working`` and ``figure.spec`` for the learner's view: the spec of a
+read-the-picture figure (a clock, a protractor, a scale) holds the answer. The question itself is not changed.
 """
 
 from __future__ import annotations
@@ -157,12 +158,17 @@ def _answer_side(item, *, mcq: bool) -> dict:
     return out
 
 
-def present(question, *, mcq: bool = False, theme: str = "light", draw_figure: bool = True) -> dict:
+def present(
+    question, *, mcq: bool = False, theme: str = "light", draw_figure: bool = True, reveal: bool = True
+) -> dict:
     """The presentation dict for ``question`` (see the module docstring).
 
     ``mcq``: include ``options`` (`engine.present` sets it from the skill's answer kind).
     ``theme``: passed to the SVG renderer. ``draw_figure=False`` leaves ``figure.svg`` as ``None`` for a
     platform that draws from the spec itself.
+    ``reveal=False`` gives the learner's view: no ``answer`` or ``working`` (in the question or its parts) and
+    no ``figure.spec``. Send that to a learner's browser. The spec of a read-the-picture figure holds the answer
+    (a clock's hour and minute, a protractor's angle), even though its SVG and alt text do not show it.
     """
     page: dict[str, Any] = {
         "prompt": _pair(question.text, prompt_tex(question.text, question.latex)),
@@ -187,8 +193,18 @@ def present(question, *, mcq: bool = False, theme: str = "light", draw_figure: b
                 | _answer_side(p, mcq=part_mcq)
             )
         page |= _answer_side(question, mcq=False)
-        return page
+        return page if reveal else _hide(page)
     page |= _answer_side(question, mcq=mcq)
+    return page if reveal else _hide(page)
+
+
+def _hide(page: dict) -> dict:
+    """``page`` without what gives the answer away."""
+    for item in [page, *page.get("parts", [])]:
+        item.pop("answer", None)
+        item.pop("working", None)
+    if page["figure"] is not None:
+        page["figure"] = {k: v for k, v in page["figure"].items() if k != "spec"}
     return page
 
 

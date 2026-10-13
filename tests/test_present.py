@@ -102,6 +102,16 @@ def test_multiple_choice_with_a_figure(skills):
     assert "#161c2b" in engine.present(skill, q, theme="dark")["figure"]["svg"]
 
 
+def test_learner_view_hides_the_answer(skills):
+    skill = skills["tell-time-to-hour"]
+    q = engine.make_for_skill(skill, seed=1)
+    page = engine.present(skill, q, reveal=False)
+    assert "answer" not in page and "working" not in page
+    assert set(page["figure"]) == {"svg", "alt"}
+    assert [o["text"] for o in page["options"]] == mcq_options(q)
+    assert "spec" in engine.present(skill, q)["figure"]
+
+
 def test_multi_part_question(skills):
     for skill in skills.values():
         if any((s.difficulty or "").startswith("exam") for s in skill.sources):
@@ -122,6 +132,8 @@ def test_multi_part_question(skills):
     for part, src in zip(page["parts"], q.parts):
         assert part["prompt"]["text"] == src.text or "**" in src.text
         assert part["answer"]["text"]
+    hidden = engine.present(skill, q, reveal=False)
+    assert all("answer" not in p and "working" not in p for p in hidden["parts"])
 
 
 def test_no_python_notation_or_broken_delimiters_anywhere(skills):
