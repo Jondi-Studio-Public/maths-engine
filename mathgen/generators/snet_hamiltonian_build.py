@@ -307,16 +307,17 @@ def snet_hamiltonian_chain(rng, tier="exam"):
     """Exam chain on a network of roads with distances: tours counted, then the cheapest tour and its fuel cost."""
     check(tier == "exam", f"unknown tier {tier!r}")
     ctx = _TOUR_TOWNS
-    for _ in range(500):
-        n = rng.randint(5, 6)
-        edges = random_connected(rng, n, rng.randint(n + 2, n + 3))
+    target = rng.choice((1, 2, 3, 4, 5, 6))
+    for _ in range(3000):
+        n = rng.randint(5, 7)
+        edges = random_connected(rng, n, rng.randint(n + 1, min(n + 6, n * (n - 1) // 2)))
         cycles = hamiltonian_cycles(n, edges)
-        if not 2 <= len(cycles) <= 4:
+        if len(cycles) != target:
             continue
         km = rng.sample(range(20, 96), len(edges))
         weight = {e: w for e, w in zip(edges, km)}
         lengths = sorted(_cycle_length(c, weight) for c in cycles)
-        if lengths[0] != lengths[1]:
+        if len(lengths) == 1 or lengths[0] != lengths[1]:
             break
     else:
         raise AssertionError  # pragma: no cover
@@ -379,7 +380,7 @@ def snet_hamiltonian_chain(rng, tier="exam"):
         [
             (tree, "net-spanning-tree-instead-of-tour"),
             (lengths[-1], "net-longest-tour-chosen"),
-            (lengths[1], "net-second-cheapest-tour-chosen"),
+            (lengths[1] if h > 1 else best + 10, "net-second-cheapest-tour-chosen"),
             (cheapest_n, "net-cheapest-roads-chosen"),
         ],
         lo=1,

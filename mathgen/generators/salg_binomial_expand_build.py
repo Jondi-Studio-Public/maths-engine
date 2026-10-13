@@ -196,10 +196,10 @@ def salg_binomial_expand(rng, tier="easy"):
 def salg_exam_binomial_expand(rng, tier="exam"):
     """Exam chain: expand (v + a)^m, hence (v + a)^(m+1), a coefficient, and the sum of the coefficients."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    letter = rng.choice("xtzp")
-    m = rng.choice([3, 4])
+    letter = rng.choice("xtzpmu")
+    m = rng.choice([3, 4, 5])
     n = m + 1
-    a = rng.choice([-4, -3, -2, 2, 3, 4] if m == 3 else [-3, -2, 2, 3])
+    a = rng.choice({3: [-5, -4, -3, -2, 2, 3, 4, 5], 4: [-4, -3, -2, 2, 3, 4], 5: [-3, -2, 2, 3]}[m])
     v = sp.Symbol(letter)
     sign = "+" if a > 0 else "-"
     base = f"({letter} {sign} {abs(a)})"

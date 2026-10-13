@@ -180,4 +180,4 @@ def test_exam_follow_through_from_wrong_earlier_parts():
 
 def test_exam_answer_space():
     assert len({_exam(s).text for s in range(300)}) >= 295
-    assert Counter(_exam(s).parts[0].answer for s in range(300)).keys() == {2, 3, 4}
+    assert Counter(_exam(s).parts[0].answer for s in range(300)).keys() == {1, 2, 3, 4, 5, 6}

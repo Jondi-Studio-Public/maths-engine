@@ -149,7 +149,7 @@ def test_exam_shape():
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
         assert [p.marks for p in q.parts] == [1, 2, 1, 2]
         m = int(q.parts[2].answer) - int(q.parts[1].answer)
-        assert [p.follow_through for p in q.parts] == [None, "part_a/2", f"{m} + part_b", "part_a/2 - 1"]
+        assert [p.follow_through for p in q.parts] == [None, "part_a/2", f"{m} + part_b", "Abs(part_a/2 - 1)"]
         assert all(p.answer_kind == "number" and p.sensible_range for p in q.parts)
         check_text(q)
 
@@ -162,7 +162,7 @@ def test_exam_keys_match_an_independent_derivation():
         odd = sum(d % 2 for d in degrees(n, edges))
         circuit_k, trail_k = min_added(n, edges, 0), min_added(n, edges, 2)
         assert [p.answer for p in q.parts] == [odd, circuit_k, len(edges) + circuit_k, trail_k]
-        assert odd == 4
+        assert odd in (0, 2, 4, 6)
 
 
 def test_exam_key_accepted_and_every_distractor_rejected():
@@ -175,15 +175,25 @@ def test_exam_follow_through_from_wrong_earlier_parts():
     for seed in range(60):
         q = _exam(seed)
         canon = {p.label: p.answer_text for p in q.parts}
-        m = int(canon["c"]) - 2
-        # (a) wrongly 6 odd vertices: (b) follows through as 3, then (c) as m + 3 and (d) as 2.
-        result = grade(SK, q, {**canon, "a": "6", "b": "3", "c": str(m + 3), "d": "2"})
+        m = int(canon["c"]) - int(canon["b"])
+        # (a) wrongly a different even count of odd vertices: (b), (c) and (d) follow through from that.
+        wrong_a = 2 if int(canon["a"]) != 2 else 4
+        wrong_b = wrong_a // 2
+        result = grade(
+            SK,
+            q,
+            {**canon, "a": str(wrong_a), "b": str(wrong_b), "c": str(m + wrong_b), "d": str(abs(wrong_b - 1))},
+        )
         assert result.parts["a"].marks == 0
         assert result.parts["b"].marks == 2 and result.parts["b"].follow_through is True, (seed, result)
         assert result.parts["c"].marks == 1 and result.parts["c"].follow_through is True, (seed, result)
         assert result.parts["d"].marks == 2 and result.parts["d"].follow_through is True, (seed, result)
         checked += 1
     assert checked == 60
+
+
+def test_exam_odd_counts_vary():
+    assert {_exam(s).parts[0].answer for s in range(80)} == {0, 2, 4, 6}
 
 
 def test_exam_answer_space():

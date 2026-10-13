@@ -13,7 +13,7 @@ not a circuit exactly when it has exactly two odd vertices, which are the trail'
   end at is chosen from four pairs;
 * hard: four networks are listed by their edges and the one that has an Eulerian circuit is chosen. The wrong ones
   have two odd vertices, four odd vertices, or every degree even but two separate pieces;
-* exam (``snet_eulerian_chain``): a connected network with four odd vertices. (a) how many odd vertices; (b) the fewest
+* exam (``snet_eulerian_chain``): a connected network with 0, 2, 4 or 6 odd vertices. (a) how many odd vertices; (b) the fewest
   new edges (each between two vertices not already joined) that give an Eulerian circuit, following through from (a);
   (c) the number of edges in that circuit, following through from (b); (d) the fewest new edges that give an Eulerian
   trail, following through from (a).
@@ -247,61 +247,68 @@ def snet_eulerian(rng, tier="easy"):
 
 @generator("snet_eulerian_chain", level=12, presets={"exam": dict(tier="exam")})
 def snet_eulerian_chain(rng, tier="exam"):
-    """Exam chain on a network with four odd vertices: odd vertices, edges to add for a circuit, its length, a trail."""
+    """Exam chain on a network with 0, 2, 4 or 6 odd vertices: odd vertices, edges to add for a circuit, its length,
+    and edges to add for a trail that ends somewhere else."""
     check(tier == "exam", f"unknown tier {tier!r}")
     ctx = pick_context(rng, travel=True)
-    for _ in range(100):
+    odd = rng.choice((0, 2, 4, 6))
+    for _ in range(200):
         n = rng.randint(6, 7)
-        edges = graph_with_odd_vertices(rng, n, 4, 7, 12)
+        edges = graph_with_odd_vertices(rng, n, odd, 7, 12)
         # Independent route: try every set of new edges for each goal.
         circuit_k = min_edges_to_add(n, edges, 0)
         trail_k = min_edges_to_add(n, edges, 2)
-        if circuit_k == 2 and trail_k == 1:
+        # The pairing rule (each new edge fixes two odd vertices) must hold, so the follow-through formulas are exact.
+        if circuit_k == odd // 2 and trail_k == abs(odd // 2 - 1):
             break
     else:
         raise AssertionError  # pragma: no cover
     m = len(edges)
-    odd = len(odd_vertices(n, edges))
-    check(odd == 4, "four odd vertices expected")
+    check(len(odd_vertices(n, edges)) == odd, "odd-vertex count differs from the construction")
+    k, t = circuit_k, trail_k
     stem = (
         f"{describe_network(ctx, n, edges)} A {rng.choice(_WHO)} would like to use every {ctx['e']} "
         f"exactly once. New {ctx['es']} can be built, each joining two {ctx['vs']} that are not joined already."
     )
     a_dist = int_distractors(
-        4,
+        odd,
         [
-            (2, "net-euler-circuit-trail-confused"),
-            (n - 4, "net-odd-even-swapped"),
-            (3, "net-degree-miscount"),
-            (5, "net-degree-miscount"),
-            (6, "net-degree-miscount"),
+            (odd // 2, "net-euler-circuit-trail-confused"),
+            (n - odd, "net-odd-even-swapped"),
+            (odd + 1, "net-degree-miscount"),
+            (odd + 2, "net-degree-miscount"),
+            (odd - 1, "net-degree-miscount"),
+            (odd - 2, "net-degree-miscount"),
         ],
     )
     b_dist = int_distractors(
-        2,
+        k,
         [
-            (4, "net-euler-edge-per-odd-vertex"),
-            (1, "net-euler-circuit-trail-confused"),
-            (3, "net-degree-miscount"),
+            (odd, "net-euler-edge-per-odd-vertex"),
+            (k + 1, "net-euler-circuit-trail-confused"),
+            (k + 2, "net-degree-miscount"),
+            (k - 1, "net-degree-miscount"),
             (0, "net-euler-parity-reversed"),
         ],
     )
     c_dist = int_distractors(
-        m + 2,
+        m + k,
         [
             (m, "net-euler-added-edges-not-counted"),
-            (m + 4, "net-euler-edge-per-odd-vertex"),
-            (m + 1, "net-degree-miscount"),
-            (m + 3, "net-degree-miscount"),
+            (m + odd, "net-euler-edge-per-odd-vertex"),
+            (m + k + 1, "net-degree-miscount"),
+            (m + k - 1, "net-degree-miscount"),
+            (m + k + 2, "net-degree-miscount"),
         ],
     )
     d_dist = int_distractors(
-        1,
+        t,
         [
-            (2, "net-euler-circuit-trail-confused"),
+            (k, "net-euler-circuit-trail-confused"),
+            (t + 1, "net-euler-circuit-trail-confused"),
+            (odd, "net-euler-edge-per-odd-vertex"),
+            (t + 2, "net-degree-miscount"),
             (0, "net-euler-parity-reversed"),
-            (3, "net-degree-miscount"),
-            (4, "net-euler-edge-per-odd-vertex"),
         ],
     )
     check(all(len(x) >= 2 for x in (a_dist, b_dist, c_dist, d_dist)), "too few distractors")
@@ -323,50 +330,66 @@ def snet_eulerian_chain(rng, tier="exam"):
             out["follow_through"] = ft
         return out
 
+    if odd:
+        a_work = [f"The odd vertices are {odd_names}, which is {odd} {ctx['vs']}."]
+        b_work = [
+            "Every vertex must end up with even degree, and each new edge changes the degree of two vertices.",
+            f"{odd} odd vertices can be paired up into {k} {'pair' if k == 1 else 'pairs'}, so {odd} / 2 = {k} new "
+            f"{'edge is' if k == 1 else 'edges are'} needed "
+            f"(and the pairs can be chosen so they are not joined already).",
+        ]
+    else:
+        a_work = ["Every vertex has even degree, so no vertex has an odd degree."]
+        b_work = ["Every vertex already has even degree and the network is connected, so no new edges are needed."]
+    if odd == 2:
+        d_work = [
+            f"A trail that ends elsewhere needs exactly two odd vertices, and the network already has them ({odd_names}).",
+            "No new edges are needed: 2 / 2 - 1 = 0.",
+        ]
+    elif odd == 0:
+        d_work = [
+            "With no odd vertices a trail would have to be a circuit, so two vertices must be made odd.",
+            "One new edge between two vertices that are not joined already does it.",
+        ]
+    else:
+        d_work = [
+            f"A trail needs exactly two odd vertices, so only {odd} - 2 = {odd - 2} odd vertices need fixing.",
+            f"Each new edge between two odd vertices that are not joined already fixes two: {odd} / 2 - 1 = {t}.",
+        ]
+
     return dict(
         text=stem,
         parts=[
-            part(
-                f"How many {ctx['vs']} have an odd degree?",
-                4,
-                1,
-                [f"The odd vertices are {odd_names}, which is 4 {ctx['vs']}."],
-                a_dist,
-                (0, n + 1),
-            ),
+            part(f"How many {ctx['vs']} have an odd degree?", odd, 1, a_work, a_dist, (-1, n + 1)),
             part(
                 f"Hence find the fewest new {ctx['es']} that must be built so that the network has an Eulerian circuit.",
+                k,
                 2,
-                2,
-                [
-                    "Every vertex must end up with even degree, and each new edge changes the degree of two vertices.",
-                    "Four odd vertices can be paired up, two pairs, so 4 / 2 = 2 new edges are needed (and two such pairs are not joined already).",
-                ],
+                b_work,
                 b_dist,
-                (0, None),
+                (-1, None),
                 "part_a/2",
             ),
             part(
                 f"How many {ctx['es']} will the Eulerian circuit then use?",
-                m + 2,
+                m + k,
                 1,
-                [f"The circuit uses every edge once: the {m} existing {ctx['es']} plus the 2 new ones, {m + 2}."],
+                [
+                    f"The circuit uses every edge once: the {m} existing {ctx['es']} plus the {k} new {'one' if k == 1 else 'ones'}, {m + k}."
+                ],
                 c_dist,
-                (0, None),
+                (-1, None),
                 f"{m} + part_b",
             ),
             part(
                 f"Instead, the traveller would be happy to finish at a different {ctx['v']} from where they started. "
                 f"Find the fewest new {ctx['es']} needed for an Eulerian trail.",
-                1,
+                t,
                 2,
-                [
-                    "A trail needs exactly two odd vertices, so only 4 - 2 = 2 odd vertices need fixing.",
-                    "One new edge between two odd vertices that are not joined already does it: 4 / 2 - 1 = 1.",
-                ],
+                d_work,
                 d_dist,
-                (0, None),
-                "part_a/2 - 1",
+                (-1, None),
+                "Abs(part_a/2 - 1)",
             ),
         ],
     )

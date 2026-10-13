@@ -90,7 +90,7 @@ _ONES_STEMS = (
 def _easy(rng):
     ctx = pick_context(rng)
     n = rng.randint(4, 6)
-    edges = random_connected(rng, n, rng.randint(n, min(n + 3, n * (n - 1) // 2)))
+    edges = random_connected(rng, n, rng.randint(n, min(n + 3, n * (n - 1) // 2 - 1)))
     rows = adjacency(n, edges)
     sym = _check_matrix(n, edges, rows)
     deg = degrees(n, edges)
@@ -155,7 +155,7 @@ _WALK2_STEMS = (
 
 def _medium(rng):
     for _ in range(200):
-        n = rng.randint(4, 6)
+        n = rng.randint(5, 6)
         edges = random_connected(rng, n, rng.randint(n + 1, min(n + 4, n * (n - 1) // 2)))
         rows = adjacency(n, edges)
         sym = _check_matrix(n, edges, rows)
@@ -206,7 +206,7 @@ _START2_STEMS = (
 
 
 def _hard(rng):
-    n = rng.randint(4, 5)
+    n = rng.randint(5, 6)
     edges = random_connected(rng, n, rng.randint(n + 1, min(n + 3, n * (n - 1) // 2)))
     rows = adjacency(n, edges)
     sym = _check_matrix(n, edges, rows)

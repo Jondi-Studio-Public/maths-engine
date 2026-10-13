@@ -124,7 +124,7 @@ def test_exam_varies_letter_and_power():
         v, a, m, n = _exam_setup(make(EXAM, seed=seed, difficulty="exam"))
         assert n == m + 1
         seen.add((str(v), m))
-    assert len({v for v, _m in seen}) >= 3 and {m for _v, m in seen} == {3, 4}
+    assert len({v for v, _m in seen}) >= 3 and {m for _v, m in seen} == {3, 4, 5}
 
 
 def test_exam_keys_match_independent_derivation():

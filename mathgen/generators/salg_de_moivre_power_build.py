@@ -272,7 +272,7 @@ def salg_exam_de_moivre_power(rng, tier="exam"):
     """Exam chain: |z|, Arg z, then |z^n| and z^n in Cartesian form by following through."""
     check(tier == "exam", f"unknown tier {tier!r}")
     a, b, _kind = rng.choice([c for c in _CARTESIAN if c[2] == "two"])
-    n = rng.randint(3, 6)
+    n = rng.randint(3, 8)
     z = a + sp.I * b
     theta0 = int(round(math.degrees(cmath.phase(complex(float(a), float(b)))))) % 360
     power = sp.expand(z**n)
