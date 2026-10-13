@@ -108,7 +108,7 @@ def _easy(rng):
     ]
     ds = pick_decimal(value, cands, 3)
     _need(ds)
-    integral = F(f"∫ {name}^k x dx from x = 0 to x = {up}", rf"\int_{{0}}^{{{up_tex}}}{tex_name}^{{k}}x\,dx")
+    integral = F(f"∫ {name}^k x dx from x = 0 to x = {up}", rf"\int_{{0}}^{{{up_tex}}}{tex_name}^{{k}}x\,\mathrm{{d}}x")
     stem = _stem(
         "The integrals I_k = ",
         integral,
@@ -182,7 +182,7 @@ def _k_formula(a: int, b: int, v: str = "k") -> F:
 def _k_integral(a: int, b: int, exponent: str = "k") -> F:
     return F(
         f"∫ x^{exponent} e^({a}x) dx from x = 0 to x = {b}",
-        rf"\int_{{0}}^{{{b}}}x^{{{exponent}}}e^{{{a}x}}\,dx",
+        rf"\int_{{0}}^{{{b}}}x^{{{exponent}}}e^{{{a}x}}\,\mathrm{{d}}x",
     )
 
 
@@ -244,7 +244,7 @@ def _hard_tan(rng):
     ]
     ds = pick_decimal(value, cands, 3)
     _need(ds)
-    integral = F(f"∫ tan^{n} x dx from x = 0 to x = π/4", rf"\int_{{0}}^{{\pi/4}}\tan^{{{n}}}x\,dx")
+    integral = F(f"∫ tan^{n} x dx from x = 0 to x = π/4", rf"\int_{{0}}^{{\pi/4}}\tan^{{{n}}}x\,\mathrm{{d}}x")
     stem = _stem(
         "Writing tan^n x = tan^(n-2) x (sec² x - 1) gives a reduction formula for T_n = ∫ tan^n x dx. Use it to evaluate ",
         integral,
@@ -276,7 +276,7 @@ def _hard_log(rng):
     ]
     ds = pick_decimal(value, cands, 3)
     _need(ds)
-    integral = F(f"∫ (ln x)^{n} dx from x = 1 to x = e", rf"\int_{{1}}^{{e}}(\ln x)^{{{n}}}\,dx")
+    integral = F(f"∫ (ln x)^{n} dx from x = 1 to x = e", rf"\int_{{1}}^{{e}}(\ln x)^{{{n}}}\,\mathrm{{d}}x")
     stem = _stem(
         "Integration by parts gives a reduction formula for L_n = ∫ (ln x)^n dx. Use it to evaluate ",
         integral,
@@ -307,7 +307,7 @@ def _hard_one_minus_square(rng):
     ]
     ds = pick_decimal(value, cands, 3)
     _need(ds)
-    integral = F(f"∫ (1 - x²)^{n} dx from x = 0 to x = 1", rf"\int_{{0}}^{{1}}(1-x^{{2}})^{{{n}}}\,dx")
+    integral = F(f"∫ (1 - x²)^{n} dx from x = 0 to x = 1", rf"\int_{{0}}^{{1}}(1-x^{{2}})^{{{n}}}\,\mathrm{{d}}x")
     stem = _stem(
         "Integration by parts gives a reduction formula for W_n = ∫ (1 - x²)^n dx. Use it to evaluate ",
         integral,
