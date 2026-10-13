@@ -5388,6 +5388,78 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+uc2-burnside-counting:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_burnside_counting
+    module: mathgen/generators/r4a_burnside_counting_build.py
+  - topic: exd_x_r4a_burnside_counting
+    module: mathgen/generators/r4a_burnside_counting_build.py
+uc2-cosets-and-index:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_cosets_and_index
+    module: mathgen/generators/r4a_cosets_and_index_build.py
+  - topic: exd_x_r4a_cosets_and_index
+    module: mathgen/generators/r4a_cosets_and_index_build.py
+uc2-dihedral-group-compositions:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_dihedral_group_compositions
+    module: mathgen/generators/r4a_dihedral_group_compositions_build.py
+  - topic: exd_x_r4a_dihedral_group_compositions
+    module: mathgen/generators/r4a_dihedral_group_compositions_build.py
+uc2-group-table-check:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_group_table_check
+    module: mathgen/generators/r4a_group_table_check_build.py
+  - topic: exd_x_r4a_group_table_check
+    module: mathgen/generators/r4a_group_table_check_build.py
+uc2-homomorphism-kernel-image:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_homomorphism_kernel_image
+    module: mathgen/generators/r4a_homomorphism_kernel_image_build.py
+  - topic: exd_x_r4a_homomorphism_kernel_image
+    module: mathgen/generators/r4a_homomorphism_kernel_image_build.py
+uc2-lagranges-theorem-applications:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_lagranges_theorem_applications
+    module: mathgen/generators/r4a_lagranges_theorem_applications_build.py
+  - topic: exd_x_r4a_lagranges_theorem_applications
+    module: mathgen/generators/r4a_lagranges_theorem_applications_build.py
+uc2-orbit-stabiliser-count:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_orbit_stabiliser_count
+    module: mathgen/generators/r4a_orbit_stabiliser_count_build.py
+  - topic: exd_x_r4a_orbit_stabiliser_count
+    module: mathgen/generators/r4a_orbit_stabiliser_count_build.py
+uc2-permutation-cycle-notation:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_permutation_cycle_notation
+    module: mathgen/generators/r4a_permutation_cycle_notation_build.py
+  - topic: exd_x_r4a_permutation_cycle_notation
+    module: mathgen/generators/r4a_permutation_cycle_notation_build.py
+uc2-permutation-sign-and-order:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: r4a_permutation_sign_and_order
+    module: mathgen/generators/r4a_permutation_sign_and_order_build.py
+  - topic: exd_x_r4a_permutation_sign_and_order
+    module: mathgen/generators/r4a_permutation_sign_and_order_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active

@@ -14589,6 +14589,521 @@ _ENTRIES = (
         "between the tides.",
         area="time",
     ),
+    CatalogueEntry(
+        "cycle-notation-direction-reversed",
+        "Writing each cycle in the opposite direction, which is the cycle notation of the inverse permutation.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-fixed-point-listed",
+        "Listing a fixed point as a one-entry cycle although the convention leaves fixed points out.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-merged-into-one",
+        "Joining two disjoint cycles into one longer cycle instead of keeping them as separate cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-one-line-read-as-one-cycle",
+        "Reading the list of images as a single cycle instead of following each point until it returns.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-factor-left-out",
+        "Leaving one of the cycles out of a product of cycles when tracing the points.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "order-as-product-of-cycle-lengths",
+        "Taking the order of a permutation to be the product of its cycle lengths instead of their least common multiple.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "even-and-odd-counts-swapped",
+        "Counting the odd permutations where the even ones were asked for, or the reverse.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "sign-from-cycle-length-parity",
+        "Treating a cycle of even length as an even permutation, when a cycle of length m is a product of m - 1 transpositions and so has the opposite parity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "sign-from-cycle-count",
+        "Reading the sign of a permutation from the parity of its number of cycles instead of the parity of the number of points minus the number of cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-order-ignores-power",
+        "Giving the order of the permutation itself where the order of one of its powers was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-order-divided-by-exponent",
+        "Dividing the order of a permutation by the exponent where the order of the power is the order divided by the greatest common divisor of the order and the exponent.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "transposition-count-moved-points",
+        "Counting one transposition for every point a permutation moves, instead of one fewer than the length for each cycle.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "transposition-count-one-per-cycle",
+        "Counting one transposition for each non-trivial cycle, whatever its length.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "even-powers-parity-misjudged",
+        "Misjudging the parity of the powers of a permutation, for example treating every power of an odd permutation as even, or the reverse.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "even-count-off-by-one",
+        "Counting one too many or one too few of the powers of a permutation that are even, for instance by including or leaving out the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-table-row-column-swapped",
+        "Filling an entry with the product taken the other way round (column element first), which assumes the group is abelian.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-latin-fill-without-associativity",
+        "Completing a block of entries with a Latin square filling that satisfies the row and column rule but not associativity, without testing it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-row-repeats-element",
+        "Putting an element in a row of the table that already contains it, which a group table never does.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "square-root-count-omits-identity",
+        "Leaving the identity out when counting the elements whose square is the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "every-element-squares-to-identity",
+        "Taking every element to satisfy x squared equal to the identity, which holds only in an elementary abelian 2-group.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-order-taken-as-group-order",
+        "Giving the order of the group where the order of one element was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "involution-count-includes-identity",
+        "Counting the identity among the elements of order 2, when it has order 1.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-column-repeats-element",
+        "Putting an element in a column of the table that already contains it, which a group table never does.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-entry-copies-column-label",
+        "Writing the column heading as the product of a row and column element, as if the row element were the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-entry-copies-row-label",
+        "Writing the row label as the product of a row and column element, as if the column element were the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-multiplied-not-added",
+        "Multiplying the representative by each element of the subgroup where the group operation is addition.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-modulus-index-confusion",
+        "Taking the coset to be the residues congruent to the representative modulo the index, when the modulus is the gcd that generates the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-representative-sign-slip",
+        "Adding the negative of the representative to the subgroup, which is the coset of the inverse and not the coset asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-element-missing",
+        "Leaving one element out of a coset, so the set has fewer elements than the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-computed-with-addition",
+        "Adding the representative to each element of the subgroup where the group operation is multiplication.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-inverse-representative",
+        "Using the inverse of the representative, which gives the coset of the inverse and not the coset asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-is-the-subgroup-itself",
+        "Giving the subgroup itself where a coset away from it was asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-left-right-swapped",
+        "Giving the right coset Hg where the left coset gH was asked for, which differ when H is not normal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-order-read-as-gcd",
+        "Giving the gcd of the generator and the group order as the order of the subgroup, when it is the index.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-of-group-for-subgroup",
+        "Giving the order of the whole group as the order of the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-representative-not-reduced",
+        "Reporting the representative as given instead of the least non-negative member of its coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-least-element-negated",
+        "Reporting the gap from the least member up to the modulus instead of the least member of the coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-added",
+        "Adding the indices (and the order) in a chain of subgroups where they multiply.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-subgroup-order-forgotten",
+        "Multiplying only the two indices in a chain of subgroups and leaving out the order of the smallest subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-middle-index-forgotten",
+        "Leaving out the index of the middle subgroup when multiplying along a chain of subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-top-index-forgotten",
+        "Leaving out the index of the top subgroup when multiplying along a chain of subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ruled-out-count-uses-allowed",
+        "Counting the integers Lagrange allows as orders of subgroups, which are the divisors, instead of those it rules out.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ruled-out-count-drops-ends",
+        "Treating 1 and the group order as ruled out, when they are the orders of the trivial and whole subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "product-set-size-by-inclusion-exclusion",
+        "Counting the product set HK as a union of two sets of sizes |H| and |K|, adding them or adding and subtracting one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "product-set-size-largest-factor",
+        "Taking the product set HK to be as large as the bigger of the two subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "product-set-size-whole-group",
+        "Taking the product set HK to be the whole group, when it is a set of |H||K| elements only because the intersection is trivial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-halved-regardless",
+        "Halving the order to find the largest proper subgroup order, even when the smallest prime factor is not 2.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-uses-largest-prime",
+        "Dividing by the largest prime factor instead of the smallest to find the largest proper divisor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-one-less",
+        "Taking one less than the order as the largest proper subgroup order, which does not divide it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-whole-subgroup",
+        "Allowing the intersection of two different subgroups of the same order to be a whole subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-count-ignores-product-bound",
+        "Counting every divisor of the gcd as a possible order of the intersection, ignoring that |HK| cannot exceed |G|.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-count-ignores-divisibility",
+        "Counting every integer at least |H||K|/|G| up to the gcd, ignoring that the order of the intersection divides the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-count-drops-the-extreme",
+        "Leaving out the largest or smallest possible order of the intersection.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-subtracted",
+        "Subtracting the indices in a chain of subgroups where they multiply.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-multiplied-wrong-way",
+        "Multiplying the index by the other index where the index of the middle subgroup is a quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "largest-subgroup-uses-largest-prime",
+        "Dividing by the largest prime factor of the index instead of the smallest to find the largest subgroup order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "largest-subgroup-halves-regardless",
+        "Halving the group order for the largest proper subgroup above K, even when 2 does not divide the index of K.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-reflection-not-moved-past-rotation",
+        "Adding the rotation exponents without flipping the sign of the second one when a reflection s is moved past a rotation (using s r = r s instead of s r = r^(-1) s).",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-product-order-reversed",
+        "Multiplying the factors in the opposite order, which gives a different element because the dihedral group is not abelian.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-sign-flip-on-wrong-factor",
+        "Applying the sign change to the first rotation exponent instead of the one that the reflection is moved past.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-reflection-count-wrong",
+        "Getting the parity of the number of reflections wrong, so a rotation is reported as a reflection or the reverse.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-assumes-conjugation-fixes-element",
+        "Taking the conjugate of an element to be the element itself, as if g and x commuted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-conjugation-by-inverse",
+        "Conjugating by the inverse of g, g^(-1) x g, where g x g^(-1) was asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-assumes-elements-commute",
+        "Taking the commutator to be the identity, as if the two elements commuted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-commutator-stops-at-product",
+        "Stopping at the product xy and not multiplying by the inverses to complete the commutator.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-inverse-taken-as-self",
+        "Replacing each inverse in a commutator by the element itself, which is only right for a reflection.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-order-read-as-exponent",
+        "Giving the exponent i of the rotation r^i as its order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-order-of-rotation-taken-as-n",
+        "Giving n as the order of every rotation, as if it generated all the rotations.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-index-uses-n-not-2n",
+        "Using n instead of 2n as the order of the dihedral group when finding an index.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-commutator-order-as-product-order",
+        "Taking the order of the commutator to be the order of the product, when it is the order of its square.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-confused-with-image-order",
+        "Giving the order of the image where the order of the kernel was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-whole-domain",
+        "Taking the kernel to be the whole domain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-gcd-with-codomain-only",
+        "Giving gcd(k, n) as the order of the kernel, using the multiplier and the codomain but not the domain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-assumes-one-to-one",
+        "Taking the kernel to be trivial, as if the homomorphism were one-to-one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-assumes-surjective",
+        "Dividing the order of the domain by the order of the codomain to find the kernel, as if the map were onto.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-confused-with-kernel-order",
+        "Giving the order of the kernel where the order of the image was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-whole-domain",
+        "Taking the image to have as many elements as the domain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-whole-codomain",
+        "Taking the image to be the whole codomain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-divides-by-exponent",
+        "Dividing the order of the group by the exponent of a power map to find the order of its image.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-read-as-gcd",
+        "Giving the gcd of the multiplier and the modulus as the order of the image, when it is the modulus divided by the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-count-assumes-one-to-one",
+        "Counting one preimage for each element, as if the homomorphism were one-to-one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-count-one-fibre-only",
+        "Counting the preimage of only one of two elements of the image.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-taken-as-the-image",
+        "Reading the target value as the element that maps to it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-greatest-not-least",
+        "Giving the greatest solution where the least non-negative one was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-as-orbit-size",
+        "Giving the size of the orbit where the order of the stabiliser was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-as-group-order",
+        "Giving the order of the whole group as the order of the stabiliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-trivial-assumed",
+        "Taking the stabiliser to be trivial, as if no non-identity element fixed the point or colouring.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-subtracts-orbit",
+        "Subtracting the orbit size from the group order instead of dividing, to find the stabiliser order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-uses-n-not-2n",
+        "Dividing n instead of the order 2n of the dihedral group by the orbit size to find the stabiliser order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-as-stabiliser-order",
+        "Giving the order of the stabiliser where the size of the orbit was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-whole-group",
+        "Taking the orbit to have as many elements as the group, which is true only when the stabiliser is trivial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-rotations-only",
+        "Finding the orbit under the rotations alone, leaving out the reflections.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-uses-n-not-2n",
+        "Dividing n instead of the order 2n of the dihedral group by the stabiliser order to find the orbit size.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-ignores-reflections-in-stabiliser",
+        "Counting only the rotations that fix the colouring in the stabiliser, and so overstating the orbit size.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-identity-only",
+        "Dividing the number of colourings fixed by the identity alone by the group order, ignoring the colourings that other symmetries fix.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-divided-by-wrong-group-order",
+        "Dividing the sum of fixed counts by the wrong number, such as n when the group has 2n elements or 2n when it has n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-fixed-count-uses-cycle-length",
+        "Counting the colourings a rotation fixes as k raised to the length of its cycles instead of the number of cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-reflections-omitted",
+        "Averaging over the rotations alone where reflections were allowed, which counts necklaces and not bracelets.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-reflections-included-for-necklaces",
+        "Averaging over rotations and reflections where only rotations were allowed, which counts bracelets and not necklaces.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-reflection-fixed-count-uses-one-type",
+        "Giving every reflection the same number of fixed colourings, when reflections through two beads and through two gaps have different numbers of cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-representative-off-by-one",
+        "Adding the representative plus or minus one to the subgroup, which lists a neighbouring coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-of-wrong-representative",
+        "Listing the coset of a different element of the group, such as one not in the coset asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-ignores-exact-count",
+        "Counting all two-colour arrangements up to symmetry, ignoring the condition that exactly m beads are of the first colour.",
+        area="abstract-algebra",
+    ),
 )
 
 #: Every entry, by id.

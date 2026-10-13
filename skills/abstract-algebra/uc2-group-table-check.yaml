@@ -1,0 +1,80 @@
+id: uc2-group-table-check
+name: Complete the Cayley table of a finite group
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Fill missing entries of the Cayley table of a group of order 6 or 8: first entries forced by the
+  Latin square rule, then a block of entries that only associativity decides, then non-abelian
+  tables with the identity unnamed. The exam chain completes a table of order 8 and reads off the
+  square roots of the identity, an element order and the number of elements of order 2.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-finite-subgroup-test
+answer: table
+sources:
+- topic: r4a_group_table_check
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_group_table_check
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_group_table_check
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_group_table_check
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cayley-column-repeats-element
+  description: >-
+    Putting an element in a column of the table that already contains it, which a group table never
+    does.
+- id: cayley-entry-copies-column-label
+  description: >-
+    Writing the column heading as the product of a row and column element, as if the row element
+    were the identity.
+- id: cayley-entry-copies-row-label
+  description: >-
+    Writing the row label as the product of a row and column element, as if the column element were
+    the identity.
+- id: cayley-latin-fill-without-associativity
+  description: >-
+    Completing a block of entries with a Latin square filling that satisfies the row and column rule
+    but not associativity, without testing it.
+- id: cayley-row-repeats-element
+  description: >-
+    Putting an element in a row of the table that already contains it, which a group table never
+    does.
+- id: cayley-table-row-column-swapped
+  description: >-
+    Filling an entry with the product taken the other way round (column element first), which
+    assumes the group is abelian.
+- id: element-order-taken-as-group-order
+  description: >-
+    Giving the order of the group where the order of one element was asked.
+- id: every-element-squares-to-identity
+  description: >-
+    Taking every element to satisfy x squared equal to the identity, which holds only in an
+    elementary abelian 2-group.
+- id: involution-count-includes-identity
+  description: >-
+    Counting the identity among the elements of order 2, when it has order 1.
+- id: square-root-count-omits-identity
+  description: >-
+    Leaving the identity out when counting the elements whose square is the identity.
+tags: [university-core-v1, university-year-2, abstract-algebra, cayley-table, finite-groups]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
