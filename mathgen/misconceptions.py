@@ -145,6 +145,102 @@ _ENTRIES = (
         "Getting a sign wrong when substituting a negative value into a term.",
         area="general",
     ),
+    # -- first-year calculus ----------------------------------------------------------------------------------------
+    CatalogueEntry(
+        "fy1ca-continuity-sign-slip",
+        "Moving a term across the equals sign without changing its sign when matching the values of two pieces, so the constant comes out with the wrong sign or size.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-constant-not-divided",
+        "Matching the two pieces correctly but forgetting to divide by the junction's x-value to isolate the slope parameter.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-gradients-matched",
+        "Equating the gradients (derivatives) of the two pieces instead of their values: smoothness is not the same as continuity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-one-piece-only",
+        "Evaluating only one piece at the junction and reporting that value as the parameter, so the other piece is never matched.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-squared-as-doubled",
+        "Reading c squared as 2c when evaluating a piece at the junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-first-constant-ignored",
+        "Solving the second junction while assuming the unknown constant of the middle piece is 1, instead of first finding it from the first junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-first-constant-slip",
+        "Finding the first unknown constant with a sign slip and carrying the wrong value into the second junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-wrong-piece",
+        "Evaluating a function at a point using the piece that applies on the other side of the junction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-constant-dropped",
+        "Dropping the constant term of a linear piece when evaluating it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-continuity-value-at-junction",
+        "Evaluating a piece at the junction when the question asked for its value somewhere else.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-by-substitution",
+        "Substituting the junction into a 0/0 quotient and reporting 0, instead of cancelling or using a standard limit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-cancel-slip",
+        "Cancelling a common factor correctly but then reporting the wrong part of what is left (the constant of the other factor, or its square).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-power-dropped",
+        "Taking the limit of x squared plus a constant as the constant alone, dropping the squared term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-limit-equals-value",
+        "Treating the stated value of the function at the point as its limit there, when the limit is a separate quantity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-standard-limit-factor-dropped",
+        "Quoting the standard limit sin(u)/u or (e^u - 1)/u as 1 without the factor needed when the argument is mx.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-standard-limit-inverted",
+        "Dividing by m instead of multiplying when taking the limit of sin(mx)/x or (e^(mx) - 1)/x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-removable-called-jump",
+        "Calling a break a jump discontinuity because the value at the point differs from the limit, although both one-sided limits agree.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-removable-called-continuous",
+        "Concluding there is no break because the one-sided limits agree, without checking the value at the point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "fy1ca-removable-called-infinite",
+        "Calling a break an infinite discontinuity when the function is bounded near the point.",
+        area="calculus",
+    ),
     # -- percentages ----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "gave-change-not-percent",

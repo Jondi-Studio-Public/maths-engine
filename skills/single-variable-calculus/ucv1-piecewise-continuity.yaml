@@ -1,0 +1,63 @@
+id: ucv1-piecewise-continuity
+name: Make a piecewise function continuous
+domain: single-variable-calculus
+description: Find the constant that makes a piecewise-defined function continuous at a junction by matching values
+  or limits, and classify the discontinuity that remains when it is not.
+status: active
+placement_eligible: false
+prerequisites:
+- limit-removable
+- one-sided-limits
+answer: fraction
+sources:
+- topic: fy1ca_piecewise_continuity
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_piecewise_continuity
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_piecewise_continuity
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_piecewise_continuity_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-continuity-sign-slip
+  description: Moves a term across the equals sign without changing its sign, so the constant comes out with the
+    wrong sign or size.
+- id: fy1ca-continuity-constant-not-divided
+  description: Matches the two pieces correctly but does not divide by the junction's x-value to isolate the parameter.
+- id: fy1ca-continuity-gradients-matched
+  description: 'Equates the gradients of the two pieces instead of their values: smooth is not the same as continuous.'
+- id: fy1ca-continuity-one-piece-only
+  description: Evaluates one piece at the junction and reports that as the parameter, never matching the other piece.
+- id: fy1ca-limit-by-substitution
+  description: Substitutes into a 0/0 quotient and reports 0 instead of cancelling or using a standard limit.
+- id: fy1ca-standard-limit-factor-dropped
+  description: Quotes sin(u)/u or (e^u - 1)/u as 1 without the factor m when the argument is mx.
+- id: fy1ca-continuity-first-constant-ignored
+  description: Solves the second junction while ignoring the first, so the middle piece's constant is never found.
+- id: fy1ca-limit-equals-value
+  description: Treats the stated value of f at the point as the limit there.
+- id: fy1ca-removable-called-jump
+  description: Calls a removable discontinuity a jump because the value differs from the limit, although both one-sided
+    limits agree.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- continuity
+- piecewise-functions
