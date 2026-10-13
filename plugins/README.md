@@ -14,8 +14,8 @@ use the tools.
 
 ## Install
 
-You need [uv](https://docs.astral.sh/uv/) on your `PATH`: the plugins launch the server with `uvx`. The server is
-fetched from this repository at the release tag each plugin pins (`v0.2.0`). The package is not on PyPI.
+You need [uv](https://docs.astral.sh/uv/) on your `PATH`: the plugins launch the server with `uvx`, which fetches
+the release each plugin pins (`maths-engine[mcp]==0.2.0`) from PyPI.
 
 **Any Agent Plugins client.** Point the client at the plugin directory (`plugins/maths-engine-tutor` or
 `plugins/maths-engine-teacher`). Each holds `plugin.json`, `mcp.json` and `skills/`.

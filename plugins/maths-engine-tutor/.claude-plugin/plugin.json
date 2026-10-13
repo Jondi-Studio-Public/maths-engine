@@ -23,7 +23,7 @@
       "command": "uvx",
       "args": [
         "--from",
-        "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v0.2.0",
+        "maths-engine[mcp]==0.2.0",
         "mathgen-mcp",
         "--role",
         "learner",

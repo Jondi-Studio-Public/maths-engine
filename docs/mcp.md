@@ -6,19 +6,20 @@ themselves. It stores nothing. For a web service instead, see `docs/server.md`.
 
 ## Install
 
-The package is not on PyPI. Install it from GitHub:
+Install it from PyPI with the `mcp` extra:
 
 ```
-pip install "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v0.2.0"
+pip install "maths-engine[mcp]"
 ```
 
 or run it without installing, with [uv](https://docs.astral.sh/uv/):
 
 ```
-uvx --from "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine@v0.2.0" mathgen-mcp
+uvx --from "maths-engine[mcp]" mathgen-mcp
 ```
 
-`v0.2.0` is the release the plugins pin (the first with the MCP server); use a later tag when there is one.
+The server first ships in 0.2.0, the release the plugins pin. To run the latest code instead, install from GitHub:
+`pip install "maths-engine[mcp] @ git+https://github.com/Jondi-Studio-Public/maths-engine"`.
 
 ## Run
 

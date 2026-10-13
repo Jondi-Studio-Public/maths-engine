@@ -14,7 +14,13 @@ contain a website, curriculum framework data, rubrics or learner data.
 
 ## Install
 
-Python 3.12 or newer.
+Python 3.12 or newer. To use the engine, install it from PyPI:
+
+```
+pip install maths-engine
+```
+
+To work on it, clone the repository and install it in place:
 
 ```
 git clone https://github.com/Jondi-Studio-Public/maths-engine.git
