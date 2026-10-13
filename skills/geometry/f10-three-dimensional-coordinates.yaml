@@ -1,6 +1,8 @@
 id: f10-three-dimensional-coordinates
 name: Determine displacement in three-dimensional coordinates
 domain: geometry
+year_level: ['8']
+naplan_domain: [space]
 description: Given two stated points in a three-dimensional coordinate system, determine the displacement (the change in each coordinate) from one point to the other.
 status: active
 placement_eligible: false

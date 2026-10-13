@@ -85,6 +85,21 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   reasoning aimed at a different question than the one asked. Ids must not collide across the
   two lists on one skill. A generator links an option to a note by putting the option text and
   the id in `Question.option_notes`.
+- **Coverage (optional):** three lists that let a library be queried by what it covers.
+  `year_level` holds the year levels the content belongs to, from `F`, `1` to `12` and `university`,
+  written in that order without repeats; it is a list because one skill often spans years
+  (`[F, '1']`). Quote the digits so YAML keeps them strings. `naplan_domain` holds the Australian
+  Curriculum v9 strands the skill assesses, from `number`, `algebra`, `measurement`, `space`,
+  `statistics` and `probability`, and is only for content NAPLAN numeracy can test (Foundation to
+  Year 9); leave it off otherwise. `exam_board` holds the senior exam boards whose syllabus covers the
+  skill, from `nesa`, `vcaa`, `qcaa`, `scsa`, `sace`, `tasc` and `ib`; fill it only where the library
+  itself names the board. A skill with nothing in the file to say which year it is for omits all three.
+  `validate()` checks the labels, their order and that none repeats.
+  `scripts/backfill_year_level.py` derives `year_level` and `naplan_domain` from the ACARA v9 codes
+  (`ac9m<level><strand><nn>`, such as `ac9m6n03`) and `acara-v9-year-N` tags in a file's `tags`, and
+  from the university framework tag; `--check` lists files that disagree and `--write` fixes them, and
+  `tests/public/test_skill_coverage.py` fails when a file drifts from its codes. Senior files carry no
+  unit or year, so they have none of these fields unless a person sets them.
 - **Optional:** `placement_eligible` (default `true`), `placement_order`, `placement_questions`,
   `placement_pass`, `learner_band` (`early`, `primary` or `general`), `framework_areas`, `alignments`,
   `needs_figure`, `capability_gates` and `mental` (below).

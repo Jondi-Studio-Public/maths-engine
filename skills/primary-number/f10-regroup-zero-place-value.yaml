@@ -1,6 +1,8 @@
 id: f10-regroup-zero-place-value
 name: Regroup and rename multi-digit place value
 domain: primary-number
+year_level: ['2']
+naplan_domain: [number]
 description: Given a two- or three-digit number expressed in a non-standard grouping (e.g. as a stated count of hundreds, tens and ones that is not already in standard form, including a grouping that implies a zero digit in one place), regroup or rename it into its standard hundreds, tens and ones counts.
 status: active
 placement_eligible: false

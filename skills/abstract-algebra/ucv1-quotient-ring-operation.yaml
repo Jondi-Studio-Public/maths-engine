@@ -1,6 +1,7 @@
 id: ucv1-quotient-ring-operation
 name: Compute a quotient-ring polynomial operation
 domain: abstract-algebra
+year_level: [university]
 description: Reduce the sum or product of two supplied polynomials modulo a supplied monic polynomial.
 status: active
 placement_eligible: false

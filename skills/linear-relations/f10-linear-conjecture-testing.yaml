@@ -1,6 +1,8 @@
 id: f10-linear-conjecture-testing
 name: Test conjectures about linear representations
 domain: linear-relations
+year_level: ['8', '10']
+naplan_domain: [algebra]
 description: Given a stated conjecture about a linear relation and a table of values, select whether the table supports it or contains a counterexample, naming it.
 status: active
 placement_eligible: false

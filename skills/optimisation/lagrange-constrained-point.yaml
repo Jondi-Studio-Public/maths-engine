@@ -1,6 +1,7 @@
 id: lagrange-constrained-point
 name: Find a closest point with one linear constraint
 domain: optimisation
+year_level: [university]
 description: Find the point on a non-axis-aligned line closest to a specified target point.
 status: active
 prerequisites:

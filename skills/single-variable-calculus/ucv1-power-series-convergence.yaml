@@ -1,6 +1,7 @@
 id: ucv1-power-series-convergence
 name: Interval of convergence of a power series
 domain: single-variable-calculus
+year_level: [university]
 description: 'Find where a power series converges: the interval for a geometric-type series centred at 0, the open
   interval of absolute convergence of a shifted series by the ratio test, and the full interval of convergence with
   the endpoints tested.'

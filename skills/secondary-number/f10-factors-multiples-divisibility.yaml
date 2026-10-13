@@ -1,6 +1,8 @@
 id: f10-factors-multiples-divisibility
 name: Divisibility classification
 domain: secondary-number
+year_level: ['5']
+naplan_domain: [number]
 description: Given two natural numbers, determine whether one divides the other exactly (i.e. whether the second is a multiple of the first, leaving no remainder).
 status: active
 placement_eligible: false

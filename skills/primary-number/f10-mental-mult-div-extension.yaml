@@ -1,6 +1,8 @@
 id: f10-mental-mult-div-extension
 name: Extend multiplication and division facts mentally
 domain: primary-number
+year_level: ['4']
+naplan_domain: [algebra]
 description: Use a known multiplication or division fact to compute the related larger calculation.
 status: active
 placement_eligible: false

@@ -1,6 +1,8 @@
 id: f10-compare-scale-readings
 name: Compare two readings on a measuring scale
 domain: measurement
+year_level: ['4']
+naplan_domain: [measurement]
 description: Find the change between two marked readings on a thermometer or measuring jug, and the length of an object that does not start at zero on a ruler, including a ruler that itself starts part way along and temperatures that cross zero.
 status: active
 capability_gates: [figure_stimulus]

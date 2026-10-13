@@ -1,6 +1,7 @@
 id: classify-constant-coefficient-pde
 name: Classify a constant-coefficient second-order PDE
 domain: fourier-analysis-and-pdes
+year_level: [university]
 description: Classify a two-variable constant-coefficient PDE using its discriminant.
 status: active
 prerequisites:

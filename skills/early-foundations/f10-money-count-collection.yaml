@@ -1,6 +1,8 @@
 id: f10-money-count-collection
 name: Count the value of a collection of coins
 domain: early-foundations
+year_level: ['2', '3']
+naplan_domain: [number, measurement]
 learner_band: primary
 description: Read a picture of Australian coins and give its total in cents, then say how many more cents are needed to reach one or two dollars.
 status: active
