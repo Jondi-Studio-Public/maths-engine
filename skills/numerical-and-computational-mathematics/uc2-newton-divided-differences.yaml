@@ -1,0 +1,83 @@
+id: uc2-newton-divided-differences
+name: Compute Newton divided differences
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Compute second and third divided differences of data at unequally spaced nodes, solve for a missing data value
+  from a divided difference, and evaluate a Newton-form polynomial.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-lagrange-interpolating-polynomial
+answer: fraction
+sources:
+- topic: r4b_newton_divided_differences
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_newton_divided_differences
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_newton_divided_differences
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_newton_divided_differences
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-divided-difference-not-divided-by-node-gap
+  description: Stopping at the difference of the two lower-order divided differences, without dividing by the gap between
+    the outermost nodes.
+- id: num2-divided-difference-divided-by-adjacent-gap
+  description: Dividing the difference of the two lower-order divided differences by the gap between the last two nodes
+    instead of between the outermost nodes.
+- id: num2-divided-difference-order-reversed
+  description: Subtracting the lower-order divided differences in the wrong order, so the result has the wrong sign.
+- id: num2-divided-difference-previous-order-reported
+  description: Giving a divided difference one order lower than the one asked for.
+- id: num2-divided-difference-equal-spacing-assumed
+  description: Using the finite difference of the y-values divided by k factorial, which assumes equally spaced nodes, when
+    the nodes are unequally spaced.
+- id: num2-divided-difference-missing-value-not-scaled
+  description: Leaving the product of node differences out when solving for the missing value, so the value is not rescaled.
+- id: num2-divided-difference-weight-sign-error
+  description: Getting the sign wrong in the product of node differences that multiplies the missing value.
+- id: num2-divided-difference-known-term-dropped
+  description: Ignoring the contributions of the known y-values when solving for the missing one.
+- id: num2-divided-difference-weight-divided-not-multiplied
+  description: Dividing by the product of node differences instead of multiplying by it when solving for the missing value.
+- id: num2-divided-difference-sign-of-known-terms
+  description: Adding the known contributions to the given divided difference instead of subtracting them when solving for
+    the missing value.
+- id: num2-newton-form-last-term-dropped
+  description: Leaving the highest-order term out of the Newton form when evaluating the interpolating polynomial.
+- id: num2-newton-form-wrong-coefficient
+  description: Using a different divided difference from the one the Newton form calls for as the second-order coefficient.
+- id: num2-newton-form-shifted-nodes
+  description: Multiplying by factors built from the wrong nodes, shifted along by one, in the Newton form.
+- id: num2-newton-form-factor-sign
+  description: Writing each Newton-form factor as (x_i - x) instead of (x - x_i).
+difficulty_progression: Easy is the second divided difference of three points at unequal nodes. Medium is the third divided
+  difference of four points, where each division is by a gap between the outer nodes. Hard gives the third divided difference
+  and one missing data value, which must be found by working back through the divided-difference formula. The exam chain
+  finds two second differences, the third difference from them, and the value of the Newton-form cubic at a point.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- interpolation
+- divided-differences
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

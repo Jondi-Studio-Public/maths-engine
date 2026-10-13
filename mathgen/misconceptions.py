@@ -14589,6 +14589,668 @@ _ENTRIES = (
         "between the tides.",
         area="time",
     ),
+    # -- second-year numerical methods --
+    CatalogueEntry(
+        "num2-divided-difference-not-divided-by-node-gap",
+        "Stopping at the difference of the two lower-order divided differences, without dividing by the gap between the outermost nodes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-divided-by-adjacent-gap",
+        "Dividing the difference of the two lower-order divided differences by the gap between the last two nodes instead of between the outermost nodes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-order-reversed",
+        "Subtracting the lower-order divided differences in the wrong order, so the result has the wrong sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-previous-order-reported",
+        "Giving a divided difference one order lower than the one asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-equal-spacing-assumed",
+        "Using the finite difference of the y-values divided by k factorial, which assumes equally spaced nodes, when the nodes are unequally spaced.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-weight-sign-error",
+        "Getting the sign wrong in the product of node differences that multiplies the missing value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-missing-value-not-scaled",
+        "Leaving the product of node differences out when solving for the missing value, so the value is not rescaled.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-known-term-dropped",
+        "Ignoring the contributions of the known y-values when solving for the missing one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-sign-of-known-terms",
+        "Adding the known contributions to the given divided difference instead of subtracting them when solving for the missing value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-last-term-dropped",
+        "Leaving the highest-order term out of the Newton form when evaluating the interpolating polynomial.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-wrong-coefficient",
+        "Using a different divided difference from the one the Newton form calls for as the second-order coefficient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-shifted-nodes",
+        "Multiplying by factors built from the wrong nodes, shifted along by one, in the Newton form.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-factor-sign",
+        "Writing each Newton-form factor as (x_i - x) instead of (x - x_i).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-first-order-reported",
+        "Giving a first divided difference where a higher-order one is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-weight-divided-not-multiplied",
+        "Dividing by the product of node differences instead of multiplying by it when solving for the missing value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-rate-at-the-other-fixed-point",
+        "Evaluating the derivative of the iteration function at the other fixed point, which repels the iteration, instead of the one it converges to.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-derivative-factor-two-dropped",
+        "Differentiating x squared as x instead of 2x when finding g'(x), so the rate is half its true value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-derivative-at-the-start",
+        "Evaluating g' at the starting value x_0 instead of at the fixed point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-rate-inverted",
+        "Giving the reciprocal of the rate, 1/|g'(p)|, so a rate below 1 is reported above 1.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-value-for-rate",
+        "Giving the fixed point itself where the rate |g'(p)| is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-bound-first-step-ignored",
+        "Dropping the factor |x_1 - x_0| from the a priori bound, so the count is for a unit first step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-bound-denominator-dropped",
+        "Dropping the factor 1/(1 - lambda) from the a priori bound lambda^n/(1 - lambda)|x_1 - x_0|.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-lambda-at-the-fixed-point",
+        "Using |g'| at the fixed point as the contraction constant when the question asks for its largest value on the whole interval.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-iteration-count-off-by-one",
+        "Giving one iteration more or fewer than the least n that satisfies the bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-from-other-root",
+        "Setting g'(x) = 0 at the larger root, so the constant makes the iteration converge quadratically to the wrong root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-from-x-term-only",
+        "Differentiating only the x squared term of the quadratic, so k = 1/(2p) instead of 1/f'(p).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-at-zero",
+        "Evaluating f' at x = 0 instead of at the root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-inverted",
+        "Giving f'(p) where its reciprocal 1/f'(p) is the constant asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-sign",
+        "Getting the sign of the constant wrong when solving 1 - k f'(p) = 0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-other-root-reported",
+        "Giving the larger fixed point where the smaller one is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-sum-of-roots-reported",
+        "Giving the sum of the roots (the coefficient of x) instead of a root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-constant-term-reported",
+        "Giving the product of the roots (the constant term) instead of a root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-rate-complement",
+        "Giving 1 - |g'(p)| instead of |g'(p)|.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-sign-slip-in-root",
+        "Giving the distance between the two roots instead of the smaller root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-nodes-not-mapped-to-the-interval",
+        "Using the nodes plus and minus 1/sqrt(3) directly on [a, b] instead of mapping them to m plus and minus h/sqrt(3) for the interval.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-interval-scale-factor-dropped",
+        "Leaving out the factor (b - a)/2 that scales the weights from [-1, 1] to the interval [a, b].",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-nodes-at-plus-minus-one-third",
+        "Placing the nodes at plus and minus one third of the half-width instead of at plus and minus the half-width over root three.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-one-point-rule-used",
+        "Using the one-point Gauss rule, the midpoint rule, in place of the two-point rule.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-exact-integral-given",
+        "Integrating the function exactly when the two-point rule is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-weights-halved",
+        "Using weights of 1/2 at each node on [-1, 1] instead of weights of 1.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-endpoints-used",
+        "Evaluating the function at the endpoints of the interval, giving the trapezoidal rule, instead of at the Gauss nodes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-three-point-nodes-used",
+        "Using the nodes plus and minus the square root of 3/5, which belong to the three-point rule, in the two-point rule.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-error-sign",
+        "Giving the signed error when the absolute error is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-relative-error-against-the-rule",
+        "Dividing the error by the rule value instead of by the exact value when finding the relative error.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-relative-error-not-as-percentage",
+        "Giving the relative error as a fraction of one without multiplying by 100 for a percentage.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-rule-value-for-error",
+        "Giving the value of the rule where the error or the exact value is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-error-as-sum",
+        "Adding the rule value and the exact value instead of taking their difference to find the error.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-relative-error-against-one",
+        "Multiplying the error by 100 without dividing by the exact value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-denominator-dropped",
+        "Leaving out the denominators of the Lagrange basis polynomials, so each basis polynomial is not 1 at its own node.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-y-values-paired-with-wrong-bases",
+        "Multiplying each basis polynomial by the y-value of a different node.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-node-sign-error",
+        "Writing the basis numerators with (x + x_j) in place of (x - x_j).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-factor-dropped",
+        "Building each basis polynomial from only one of the other nodes, so it has too few factors for the number of data points.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-denominator-sign-error",
+        "Reversing the order of subtraction in each basis denominator, (x_j - x_i) in place of (x_i - x_j), so an odd number of factors changes the sign of the term.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-fewer-nodes-used",
+        "Interpolating between the two nearest nodes by a straight line instead of using every data point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-nearest-node-value",
+        "Giving the y-value of the nearest data point instead of the value of the interpolating polynomial.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-error-sign",
+        "Subtracting in the wrong order, p(t) - f(t), when the error f(t) - p(t) is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-function-value-for-polynomial",
+        "Giving the value of the function f at the point where the value of the interpolating polynomial p is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-wrong-basis-polynomial",
+        "Evaluating the basis polynomial for a different node from the one asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-numerator-only",
+        "Giving the numerator of the basis polynomial without dividing by its value at its own node.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-at-its-own-node",
+        "Giving the value 1 that a basis polynomial takes at its own node instead of its value at the stated point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-error-as-ratio",
+        "Giving the ratio f(t)/p(t) in place of the difference f(t) - p(t).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-error-vs-nearest-node",
+        "Measuring the error against the y-value of the nearest data point instead of against the polynomial.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-sign-wrong",
+        "Adding a multiple of the pivot row where Doolittle elimination subtracts it, so the upper factor has the wrong signs.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-second-column-not-eliminated",
+        "Eliminating below the first pivot only and not the second, so the second column of the upper factor is not cleared.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-upper-triangle-of-a-taken",
+        "Reading the upper triangle of A as U without eliminating anything.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-l-and-u-swapped",
+        "Giving the other factor of the factorisation, the lower triangle where the upper is asked for or the reverse.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-factor-transposed",
+        "Giving the transpose of the factor, with its entries on the wrong side of the diagonal.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-not-divided-by-pivot",
+        "Using the entry below the pivot as the multiplier without dividing by the pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-inverted",
+        "Dividing the pivot by the entry below it, so each multiplier is the reciprocal of the right one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-l-entries-negated",
+        "Recording the multipliers in L with the opposite sign, as the numbers subtracted from the rows rather than the multipliers themselves.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-forward-substitution-term-missed",
+        "Leaving a term out of forward substitution, so a later entry of y ignores an earlier one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-solved-with-u-instead-of-l",
+        "Back-substituting with U in place of forward substitution with L when solving the first stage.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-right-hand-side-copied",
+        "Giving the right-hand side b as y, without forward substitution through L.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-update-sign",
+        "Adding the product of the multiplier and the upper entry to the entry above it, instead of subtracting.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-left-unchanged",
+        "Taking the pivot to be the original entry of A, with no elimination update.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-determinant-as-diagonal-sum",
+        "Adding the diagonal entries of U instead of multiplying them to find the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-determinant-first-pivot-missed",
+        "Multiplying only the last two pivots of U, leaving the first out of the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-determinant-from-diagonal-of-a",
+        "Multiplying the diagonal entries of A instead of the diagonal entries of U.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-second-multiplier-without-first-column-term",
+        "Dividing a32 by the pivot without first subtracting l31 u12.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-second-multiplier-wrong-pivot",
+        "Dividing by the original entry a22 instead of the updated pivot u22.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-last-pivot-without-second-multiplier",
+        "Updating the last pivot with the first column only, leaving out the l32 u23 term.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-from-wrong-row",
+        "Giving the multiplier for the third row where the multiplier for the second row is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-uses-wrong-entry",
+        "Using the wrong entry of the first row in the pivot update, a13 in place of a12.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-multiplier-dropped",
+        "Subtracting the entry of the first row without multiplying it by the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-vector-not-scaled",
+        "Giving the product A x_0 without dividing by its entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-scaled-by-smallest-entry",
+        "Dividing the product by its entry of smallest magnitude instead of its entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-scaled-by-sum-of-entries",
+        "Dividing the product by the sum of its entries instead of by its entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-transpose-used",
+        "Multiplying by the transpose of A instead of by A.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-extra-step-taken",
+        "Applying the iteration one time more than the question asks for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-sign-of-scale-lost",
+        "Dividing by the size of the largest entry instead of by the entry itself, so a negative scale factor loses its sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-estimate-from-earlier-step",
+        "Giving the eigenvalue estimate from an earlier step than the one asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-estimate-without-scaling",
+        "Multiplying the scale factors together, or using the unscaled product, so the estimate is not the entry that scales the latest vector.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-ratio-of-another-component",
+        "Taking the ratio of a different component of the product and the previous vector, instead of the entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-scale-factor-for-rayleigh-quotient",
+        "Giving the next scale factor in place of the Rayleigh quotient of the scaled vector.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-rayleigh-denominator-missed",
+        "Giving x^T A x without dividing by x^T x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-rayleigh-from-earlier-vector",
+        "Finding the Rayleigh quotient of the first scaled vector when the second is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-rayleigh-norm-of-product",
+        "Dividing the squared length of A x by x^T x, which estimates the square of the eigenvalue, instead of x^T A x over x^T x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-error-sign",
+        "Giving the signed difference between the estimate and the eigenvalue when the distance is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-eigenvalue-for-error",
+        "Giving the eigenvalue itself where the distance of the estimate from it is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-error-as-ratio",
+        "Giving the ratio of the estimate to the eigenvalue instead of the distance between them.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-euler-step-used",
+        "Taking the Euler step y_0 + h k_1 instead of combining all four Runge-Kutta slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-midpoint-slope-used",
+        "Stepping with the midpoint slope alone, y_0 + h k_2, instead of the weighted average of four slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-weights-equal",
+        "Averaging the four slopes with equal weights, (k_1 + k_2 + k_3 + k_4)/4, instead of weights 1, 2, 2, 1 over 6.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-step-size-dropped",
+        "Adding the weighted average of the slopes to y_0 without multiplying by the step size h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-stage-slope-not-updated",
+        "Evaluating every stage slope at the starting y-value instead of at the predicted y-value from the previous stage.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-half-step-forgotten",
+        "Using the full step h instead of h/2 when predicting the y-value for the second and third slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-stage-x-not-advanced",
+        "Evaluating every slope at the starting x-value instead of at x_0, x_0 + h/2 and x_0 + h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-stopped-after-one-step",
+        "Reporting the value after the first step when the question asks for the value after two steps.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-at-the-midpoint",
+        "Evaluating the first slope at the midpoint x_0 + h/2 instead of at the starting point x_0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-initial-value-for-slope",
+        "Giving the initial y-value where the first slope is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-y-shifted",
+        "Evaluating the first slope at y_0 + h instead of at y_0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-reused",
+        "Repeating the first slope as the second slope instead of re-evaluating the equation at the midpoint.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-second-slope-half-step-forgotten",
+        "Using a full step h in the predicted y-value for the second slope instead of h/2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-second-slope-x-not-advanced",
+        "Evaluating the second slope at the start of the step instead of at its midpoint.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-second-slope-y-not-advanced",
+        "Evaluating the second slope at the original y-value instead of the value predicted using the first slope.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-at-wrong-point",
+        "Evaluating the first slope at the end of the step instead of at the starting point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-newton-step-confused",
+        "Taking a Newton step from the latest point, x - f(x)/f'(x), when the secant method replaces the derivative by the slope of the chord through the last two points.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-correction-sign",
+        "Adding the correction f(x_n)(x_n - x_(n-1))/(f(x_n) - f(x_(n-1))) to x_n instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-f-factor-dropped",
+        "Leaving the factor f(x_n) out of the secant correction, so the step is (x_n - x_(n-1))/(f(x_n) - f(x_(n-1))).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-anchored-at-older-point",
+        "Starting the secant step from the older iterate x_(n-1) instead of the latest one x_n, using f(x_(n-1)) as the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-window-not-advanced",
+        "Taking the second secant step from the starting pair again, instead of the two newest iterates.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-stopped-early",
+        "Reporting the first iterate when the question asks for the iterate after a second step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-residual-for-error",
+        "Giving the residual |f(x)| of an iterate in place of its error as an estimate of the root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-error-sign",
+        "Giving the signed difference between the iterate and the root when the absolute error is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-error-of-wrong-iterate",
+        "Finding the error of the earlier iterate x_2 instead of the latest iterate x_3.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-averaged-starting-values",
+        "Taking the average of the two starting values as the next iterate instead of the zero of the chord.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-wrong-rearrangement",
+        "Dropping the constant when writing x^3 = ax + b as f(x) = 0, so the step uses a different function.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-evaluates-x-not-f",
+        "Giving the iterate itself where the value of f at the iterate is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-residual-previous-iterate",
+        "Evaluating f at the previous iterate x_1 instead of the new iterate x_2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-residual-sign",
+        "Getting the sign of f(x) wrong when squaring and subtracting the constant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-square-dropped",
+        "Subtracting the constant from the iterate without squaring it when evaluating x^2 - N.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-error-against-x2",
+        "Measuring the error of x_3 against the previous iterate x_2 instead of against the true root.",
+        area="num2",
+    ),
+    # -- end second-year numerical methods --
 )
 
 #: Every entry, by id.

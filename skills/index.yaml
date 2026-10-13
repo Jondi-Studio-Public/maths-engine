@@ -5388,6 +5388,70 @@ two-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_two_step
     module: mathgen/generators/linear_inequalities_build.py
+uc2-fixed-point-iteration-convergence:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_fixed_point_convergence
+    module: mathgen/generators/r4b_fixed_point_convergence_build.py
+  - topic: exd_x_r4b_fixed_point_convergence
+    module: mathgen/generators/r4b_fixed_point_convergence_build.py
+uc2-gauss-legendre-2pt:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_gauss_legendre
+    module: mathgen/generators/r4b_gauss_legendre_build.py
+  - topic: exd_x_r4b_gauss_legendre
+    module: mathgen/generators/r4b_gauss_legendre_build.py
+uc2-lagrange-interpolating-polynomial:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_lagrange_interpolation
+    module: mathgen/generators/r4b_lagrange_interpolation_build.py
+  - topic: exd_x_r4b_lagrange_interpolation
+    module: mathgen/generators/r4b_lagrange_interpolation_build.py
+uc2-lu-factorisation-3x3:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_lu_factorisation
+    module: mathgen/generators/r4b_lu_factorisation_build.py
+  - topic: exd_x_r4b_lu_factorisation
+    module: mathgen/generators/r4b_lu_factorisation_build.py
+uc2-newton-divided-differences:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_newton_divided_differences
+    module: mathgen/generators/r4b_newton_divided_differences_build.py
+  - topic: exd_x_r4b_newton_divided_differences
+    module: mathgen/generators/r4b_newton_divided_differences_build.py
+uc2-power-method-step:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_power_method
+    module: mathgen/generators/r4b_power_method_build.py
+  - topic: exd_x_r4b_power_method
+    module: mathgen/generators/r4b_power_method_build.py
+uc2-rk4-step:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_rk4_step
+    module: mathgen/generators/r4b_rk4_step_build.py
+  - topic: exd_x_r4b_rk4_step
+    module: mathgen/generators/r4b_rk4_step_build.py
+uc2-secant-iteration:
+  domain: numerical-and-computational-mathematics
+  status: active
+  sources:
+  - topic: r4b_secant_iteration
+    module: mathgen/generators/r4b_secant_iteration_build.py
+  - topic: exd_x_r4b_secant_iteration
+    module: mathgen/generators/r4b_secant_iteration_build.py
 ucv1-bayes-finite-counts:
   domain: probability
   status: active

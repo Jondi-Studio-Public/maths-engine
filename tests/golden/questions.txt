@@ -7777,6 +7777,102 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "4/5", "id": "uc2-fixed-point-iteration-convergence/easy/0/aedfc0a3a7e9", "text": "The iteration xₙ₊₁ = g(xₙ), with g(x) = (x² + 24)/10 and starting value x₀ = 5,…"}
+{"answer": "8/11", "id": "uc2-fixed-point-iteration-convergence/easy/1/fba94be0bed0", "text": "The iteration xₙ₊₁ = g(xₙ), with g(x) = (x² + 112)/22 and starting value x₀ = 2…"}
+{"answer": "3/4", "id": "uc2-fixed-point-iteration-convergence/easy/2/2d631c0ac441", "text": "The iteration xₙ₊₁ = g(xₙ), with g(x) = (x² + 15)/8 and starting value x₀ = 1, …"}
+{"answer": "(a) 4; (b) 8/13; (c) 18/13; (d) 28", "id": "uc2-fixed-point-iteration-convergence/exam/0/4da1a2ef0411", "text": "The iteration xₙ₊₁ = g(xₙ) uses g(x) = (x² + 36)/13 and starts at x₀ = 0. (a) F…"}
+{"answer": "(a) 6; (b) 3/4; (c) 5/4; (d) 34", "id": "uc2-fixed-point-iteration-convergence/exam/1/15d08036b9fe", "text": "The iteration xₙ₊₁ = g(xₙ) uses g(x) = (x² + 60)/16 and starts at x₀ = 0. (a) F…"}
+{"answer": "(a) 2; (b) 1/2; (c) 3/2; (d) 15", "id": "uc2-fixed-point-iteration-convergence/exam/2/c69988398593", "text": "The iteration xₙ₊₁ = g(xₙ) uses g(x) = (x² + 12)/8 and starts at x₀ = 0. (a) Fi…"}
+{"answer": "-1/8", "id": "uc2-fixed-point-iteration-convergence/hard/0/1e3494500461", "text": "The roots of 4x² + 16x + 12 = 0 are found by the iteration xₙ₊₁ = xₙ − k(4x² + …"}
+{"answer": "-1/15", "id": "uc2-fixed-point-iteration-convergence/hard/1/1cc876780c5e", "text": "The roots of 3x² − 21x + 18 = 0 are found by the iteration xₙ₊₁ = xₙ − k(3x² − …"}
+{"answer": "-1/28", "id": "uc2-fixed-point-iteration-convergence/hard/2/31ecada48ab3", "text": "The roots of 4x² − 52x + 120 = 0 are found by the iteration xₙ₊₁ = xₙ − k(4x² −…"}
+{"answer": "19", "id": "uc2-fixed-point-iteration-convergence/medium/0/6a30872206e0", "text": "On the interval [0, 3] the function g(x) = (x² + 20)/12 maps the interval into …"}
+{"answer": "33", "id": "uc2-fixed-point-iteration-convergence/medium/1/8c4b0828080e", "text": "On the interval [0, 3] the function g(x) = (x² + 14)/9 maps the interval into i…"}
+{"answer": "28", "id": "uc2-fixed-point-iteration-convergence/medium/2/eec98aba33cf", "text": "On the interval [0, 4] the function g(x) = (x² + 36)/13 maps the interval into …"}
+{"answer": "16/3", "id": "uc2-gauss-legendre-2pt/easy/0/ef4c33939938", "text": "Approximate ∫ f(x) dx from x = −1 to x = 1, where f(x) = 3x⁴ + 3x³ + x² + 3x + …"}
+{"answer": "-10/3", "id": "uc2-gauss-legendre-2pt/easy/1/fd6638aa053f", "text": "Approximate ∫ f(x) dx from x = −1 to x = 1, where f(x) = 3x⁴ − x³ + 3x² − 2x − …"}
+{"answer": "44/9", "id": "uc2-gauss-legendre-2pt/easy/2/7b7f0daea6f0", "text": "Approximate ∫ f(x) dx from x = −1 to x = 1, where f(x) = −2x⁴ − x² − 2x + 3, us…"}
+{"answer": "(a) -1528/9; (b) -2552/15; (c) 16/45; (d) 0.21", "id": "uc2-gauss-legendre-2pt/exam/0/877912e2eb54", "text": "The integral ∫ f(x) dx from x = 1 to x = 3, where f(x) = −2x⁴ − 3x³ − 2x² + 2, …"}
+{"answer": "(a) -136/9; (b) -104/5; (c) 256/45; (d) 27.35", "id": "uc2-gauss-legendre-2pt/exam/1/a0eb96bb448e", "text": "The integral ∫ f(x) dx from x = −2 to x = 2, where f(x) = −x⁴ − 3x³ − 3x² + x +…"}
+{"answer": "(a) -80/9; (b) -136/15; (c) 8/45; (d) 1.96", "id": "uc2-gauss-legendre-2pt/exam/2/95316324ff8d", "text": "The integral ∫ f(x) dx from x = 0 to x = 2, where f(x) = −x⁴ − x³ − x² + 3x − 1…"}
+{"answer": "39/314", "id": "uc2-gauss-legendre-2pt/hard/0/8d4097a383e0", "text": "Approximate ∫ 1/(x² + 1) dx from x = 3 to x = 5 using the two-point Gauss-Legen…"}
+{"answer": "9/13", "id": "uc2-gauss-legendre-2pt/hard/1/f3f51a19c8e1", "text": "Approximate ∫ 1/(x + 2) dx from x = 2 to x = 6 using the two-point Gauss-Legend…"}
+{"answer": "78/157", "id": "uc2-gauss-legendre-2pt/hard/2/a195888478cd", "text": "Approximate ∫ 1/(x² + 3) dx from x = 0 to x = 2 using the two-point Gauss-Legen…"}
+{"answer": "88/9", "id": "uc2-gauss-legendre-2pt/medium/0/f361eacef921", "text": "Approximate ∫ f(x) dx from x = −2 to x = 0, where f(x) = −x⁴ − 3x³ + 3x² − x − …"}
+{"answer": "1330/9", "id": "uc2-gauss-legendre-2pt/medium/1/33620a3a18a1", "text": "Approximate ∫ f(x) dx from x = 1 to x = 3, where f(x) = 2x⁴ + x³ + 2x² + 3x + 1…"}
+{"answer": "64/3", "id": "uc2-gauss-legendre-2pt/medium/2/e451cb416090", "text": "Approximate ∫ f(x) dx from x = −2 to x = 0, where f(x) = 3x⁴ + x² − 2x − 2, usi…"}
+{"answer": "-x^2 - x - 1", "id": "uc2-lagrange-interpolating-polynomial/easy/0/b33494d3e2f2", "text": "A quadratic polynomial p passes through the points (-3, -7), (-1, -1), (4, -21)…"}
+{"answer": "-x^2 - 2x - 4", "id": "uc2-lagrange-interpolating-polynomial/easy/1/0de65196683c", "text": "A quadratic polynomial p passes through the points (-2, -4), (1, -7), (2, -12).…"}
+{"answer": "-x^2 + 4x - 3", "id": "uc2-lagrange-interpolating-polynomial/easy/2/6009f2557568", "text": "A quadratic polynomial p passes through the points (-2, -15), (0, -3), (5, -8).…"}
+{"answer": "(a) 8/5; (b) (1/42)x^2 - (1/3)x + 55/42; (c) 11/21; (d) -4/…", "id": "uc2-lagrange-interpolating-polynomial/exam/0/64a1c21b07fa", "text": "The function f(x) = 1/x is interpolated by the quadratic polynomial p at the no…"}
+{"answer": "(a) 4/3; (b) (1/126)x^2 - (8/63)x + 9/14; (c) 13/63; (d) -2…", "id": "uc2-lagrange-interpolating-polynomial/exam/1/0764851a8648", "text": "The function f(x) = 1/x is interpolated by the quadratic polynomial p at the no…"}
+{"answer": "(a) 4/3; (b) (1/36)x^2 - (11/36)x + 1; (c) 2/9; (d) 1/36", "id": "uc2-lagrange-interpolating-polynomial/exam/2/8763a1479fea", "text": "The function f(x) = 1/x is interpolated by the quadratic polynomial p at the no…"}
+{"answer": "-(1/48)x^3 + (13/48)x^2 - (7/6)x + 23/12", "id": "uc2-lagrange-interpolating-polynomial/hard/0/8f8bb4aba179", "text": "The function f(x) = 1/x is interpolated by the cubic polynomial p through the n…"}
+{"answer": "-(1/180)x^3 + (4/45)x^2 - (91/180)x + 6/5", "id": "uc2-lagrange-interpolating-polynomial/hard/1/2971c1a6be2d", "text": "The function f(x) = 1/x is interpolated by the cubic polynomial p through the n…"}
+{"answer": "-(1/2520)x^3 + (29/2520)x^2 - (311/2520)x + 1459/2520", "id": "uc2-lagrange-interpolating-polynomial/hard/2/fc15c7f2011c", "text": "The function f(x) = 1/x is interpolated by the cubic polynomial p through the n…"}
+{"answer": "2x^3 - 2x^2 - 4x + 2", "id": "uc2-lagrange-interpolating-polynomial/medium/0/535874c7a692", "text": "A cubic polynomial p passes through the points (-2, -14), (1, -2), (2, 2), (3, …"}
+{"answer": "-x^3 + 3x^2 + 2x + 1", "id": "uc2-lagrange-interpolating-polynomial/medium/1/2c7b5493dc44", "text": "A cubic polynomial p passes through the points (-3, 49), (-1, 3), (1, 5), (5, -…"}
+{"answer": "x^3 - 4x^2 - 2x", "id": "uc2-lagrange-interpolating-polynomial/medium/2/d8703b88deed", "text": "A cubic polynomial p passes through the points (-1, -3), (3, -15), (4, -8), (5,…"}
+{"answer": "U = [[2, 3, 2], [0, 3, 2], [0, 0, 4]]", "id": "uc2-lu-factorisation-3x3/easy/0/f012f2b95804", "text": "Factorise A = [[2, 3, 2], [4, 9, 6], [-6, -15, -6]]. Use Doolittle's method wit…"}
+{"answer": "U = [[2, 2, -4], [0, -1, 2], [0, 0, 3]]", "id": "uc2-lu-factorisation-3x3/easy/1/05477753f89e", "text": "Factorise A = [[2, 2, -4], [2, 1, -2], [4, 5, -7]]. Use Doolittle's method with…"}
+{"answer": "U = [[1, -2, -2], [0, -3, 3], [0, 0, -3]]", "id": "uc2-lu-factorisation-3x3/easy/2/8841c5666b41", "text": "Factorise A = [[1, -2, -2], [1, -5, 1], [-2, 7, -2]]. Use Doolittle's method wi…"}
+{"answer": "(a) -5/6; (b) -28/3; (c) 5/28; (d) 438", "id": "uc2-lu-factorisation-3x3/exam/0/177759cc3471", "text": "Let A = [[6, -4, 6], [-5, -6, -6], [5, -5, -3]]. Use Doolittle's method with no…"}
+{"answer": "(a) 2/3; (b) 13/3; (c) -14/13; (d) -20", "id": "uc2-lu-factorisation-3x3/exam/1/510e6c078956", "text": "Let A = [[3, -2, -4], [2, 3, -1], [-4, -2, 2]]. Use Doolittle's method with no …"}
+{"answer": "(a) -2/5; (b) 14/5; (c) -18/7; (d) -64", "id": "uc2-lu-factorisation-3x3/exam/2/2a57873f9a39", "text": "Let A = [[-5, -3, -3], [2, 4, 5], [2, -6, -4]]. Use Doolittle's method with no …"}
+{"answer": "y = [[-3], [9/2], [57/5]]", "id": "uc2-lu-factorisation-3x3/hard/0/79024380a47b", "text": "A system Ax = b has A = [[6, -2, 2], [5, 5, -3], [-6, -6, -3]] and b = [[-3], […"}
+{"answer": "y = [[4], [5], [147/11]]", "id": "uc2-lu-factorisation-3x3/hard/1/6fb2f1148996", "text": "A system Ax = b has A = [[-4, 3, -2], [5, -1, 1], [2, -5, 5]] and b = [[4], [0]…"}
+{"answer": "y = [[2], [-3], [-1/2]]", "id": "uc2-lu-factorisation-3x3/hard/2/b9977cf030e7", "text": "A system Ax = b has A = [[-3, -4, -6], [-3, 2, 2], [-4, 5, -1]] and b = [[2], […"}
+{"answer": "L = [[1, 0, 0], [2/5, 1, 0], [-3/5, -13/17, 1]]", "id": "uc2-lu-factorisation-3x3/medium/0/709b1212c361", "text": "Factorise A = [[-5, 1, 6], [-2, -3, 3], [3, 2, -2]]. Use Doolittle's method wit…"}
+{"answer": "L = [[1, 0, 0], [-5/2, 1, 0], [-3/2, 7/3, 1]]", "id": "uc2-lu-factorisation-3x3/medium/1/25c4faeb2b99", "text": "Factorise A = [[2, 1, -6], [-5, -4, -1], [-3, -5, -2]]. Use Doolittle's method …"}
+{"answer": "L = [[1, 0, 0], [3/2, 1, 0], [1, 11/6, 1]]", "id": "uc2-lu-factorisation-3x3/medium/2/1e8b71bd244f", "text": "Factorise A = [[-2, 6, -5], [-3, 3, 3], [-2, -5, 4]]. Use Doolittle's method wi…"}
+{"answer": "19/12", "id": "uc2-newton-divided-differences/easy/0/a39d99aeca16", "text": "A function f has f(0) = 4, f(1) = −1 and f(4) = 3. Find the second divided diff…"}
+{"answer": "1/8", "id": "uc2-newton-divided-differences/easy/1/509065972032", "text": "A function f has f(−1) = 9, f(1) = 7 and f(7) = 7. Find the second divided diff…"}
+{"answer": "61/30", "id": "uc2-newton-divided-differences/easy/2/e0db3079d9d8", "text": "A function f has f(0) = 6, f(1) = −5 and f(6) = 1. Find the second divided diff…"}
+{"answer": "(a) -1/2; (b) 5/6; (c) 4/15; (d) -32/5", "id": "uc2-newton-divided-differences/exam/0/5895e79c203c", "text": "A function f has f(1) = 1, f(2) = −1, f(3) = −4 and f(6) = −3. Write x₀ = 1, x₁…"}
+{"answer": "(a) 19/6; (b) -47/12; (c) -17/12; (d) 11/2", "id": "uc2-newton-divided-differences/exam/1/3908abd157ac", "text": "A function f has f(1) = 5, f(2) = −4, f(5) = 7 and f(6) = −5. Write x₀ = 1, x₁ …"}
+{"answer": "(a) 13/30; (b) -19/6; (c) -3/5; (d) -19/3", "id": "uc2-newton-divided-differences/exam/2/2b3e8d58d3f9", "text": "A function f has f(0) = −4, f(2) = −3, f(5) = 5 and f(6) = −5. Write x₀ = 0, x₁…"}
+{"answer": "4", "id": "uc2-newton-divided-differences/hard/0/819f4bf30015", "text": "A function f has f(0) = −3, f(1) = 1, f(2) = c and f(6) = −4, where c is not kn…"}
+{"answer": "-1", "id": "uc2-newton-divided-differences/hard/1/e7b48e289035", "text": "A function f has f(−3) = 0, f(−2) = c, f(0) = 8 and f(7) = 8, where c is not kn…"}
+{"answer": "-5", "id": "uc2-newton-divided-differences/hard/2/1c3c01ece731", "text": "A function f has f(1) = 4, f(2) = c, f(6) = −5 and f(7) = 1, where c is not kno…"}
+{"answer": "-17/210", "id": "uc2-newton-divided-differences/medium/0/69a15ebf09ca", "text": "A function f has f(−1) = −1, f(0) = −4, f(5) = 2 and f(6) = 4. Find the third d…"}
+{"answer": "-4/135", "id": "uc2-newton-divided-differences/medium/1/97f2f4228fcd", "text": "A function f has f(−3) = 9, f(2) = −4, f(3) = −3 and f(6) = 4. Find the third d…"}
+{"answer": "-53/80", "id": "uc2-newton-divided-differences/medium/2/9209c3c26e74", "text": "A function f has f(−3) = 4, f(−1) = −1, f(0) = 8 and f(5) = 9. Find the third d…"}
+{"answer": "5.8889", "id": "uc2-power-method-step/easy/0/d7d19b361274", "text": "Let A = [[8, 3], [-6, -1]] and x₀ = [[3], [1]]. The power method multiplies by …"}
+{"answer": "6.5000", "id": "uc2-power-method-step/easy/1/ad3c2cd8aa15", "text": "Let A = [[7, 1], [-6, 2]] and x₀ = [[1], [-1]]. The power method multiplies by …"}
+{"answer": "7.6000", "id": "uc2-power-method-step/easy/2/457b682180a6", "text": "Let A = [[2, 4], [-2, 8]] and x₀ = [[1], [-1]]. The power method multiplies by …"}
+{"answer": "(a) -21; (b) -20/21; (c) 9; (d) 1", "id": "uc2-power-method-step/exam/0/4b15a0c697e9", "text": "Let A = [[8, 4, -4], [-7, -3, 4], [-7, -7, 8]] and x₀ = [[2], [1], [0]]. The do…"}
+{"answer": "(a) 15; (b) -1/5; (c) 21/5; (d) 9/5", "id": "uc2-power-method-step/exam/1/36289d521f5f", "text": "Let A = [[3, -3, -9], [0, 6, 9], [0, 0, -3]] and x₀ = [[2], [1], [1]]. The domi…"}
+{"answer": "(a) -31; (b) 9/31; (c) 191/31; (d) 36/31", "id": "uc2-power-method-step/exam/2/9589734f2075", "text": "Let A = [[-2, -6, 1], [3, 7, -1], [-12, -12, 5]] and x₀ = [[2], [1], [1]]. The …"}
+{"answer": "7.4915", "id": "uc2-power-method-step/hard/0/2aace2ff93ff", "text": "Let A = [[10, 4, -2], [0, 3, 0], [12, 6, 0]] and x₀ = [[1], [2], [1]]. The powe…"}
+{"answer": "5.3213", "id": "uc2-power-method-step/hard/1/e8949fe7409a", "text": "Let A = [[5, -1, -5], [0, 4, -12], [0, 0, -2]] and x₀ = [[1], [-1], [1]]. The p…"}
+{"answer": "4.3704", "id": "uc2-power-method-step/hard/2/d60bbe10185c", "text": "Let A = [[-6, -10, -10], [0, 3, 0], [5, 6, 9]] and x₀ = [[1], [1], [1]]. The po…"}
+{"answer": "8.1765", "id": "uc2-power-method-step/medium/0/d4ad96aeb3e8", "text": "Let A = [[7, 10, -10], [0, -10, 8], [0, -12, 10]] and x₀ = [[1], [2], [1]]. The…"}
+{"answer": "2.2000", "id": "uc2-power-method-step/medium/1/aaa58188fa41", "text": "Let A = [[3, 0, 4], [4, 1, 10], [0, 0, -1]] and x₀ = [[1], [1], [1]]. The power…"}
+{"answer": "8.1111", "id": "uc2-power-method-step/medium/2/f371533ecf86", "text": "Let A = [[7, 0, 0], [2, 7, -2], [-2, 4, 1]] and x₀ = [[1], [1], [0]]. The power…"}
+{"answer": "1.15625", "id": "uc2-rk4-step/easy/0/bd351c5b7e1a", "text": "A function y satisfies y′ = x − 2y, y(1) = 2. Use one step of the classical fou…"}
+{"answer": "4.27002", "id": "uc2-rk4-step/easy/1/c60b2cc57c52", "text": "A function y satisfies y′ = x + 3y, y(0) = 2. Use one step of the classical fou…"}
+{"answer": "-0.65625", "id": "uc2-rk4-step/easy/2/84bff5f9aff5", "text": "A function y satisfies y′ = x − 2y, y(0) = −2. Use one step of the classical fo…"}
+{"answer": "(a) 5.00000; (b) 9.00000; (c) 6.87500; (d) 33.28223", "id": "uc2-rk4-step/exam/0/244a1dc7f5ae", "text": "A function y satisfies y′ = x + 3y, y(2) = 1. It is approximated by the classic…"}
+{"answer": "(a) -2.00000; (b) -0.75000; (c) 1.46875; (d) 1.42578", "id": "uc2-rk4-step/exam/1/8bf2f79dcd6a", "text": "A function y satisfies y′ = x − 2y, y(2) = 2. It is approximated by the classic…"}
+{"answer": "(a) -2.00000; (b) -2.62500; (c) -1.68555; (d) -2.89668", "id": "uc2-rk4-step/exam/2/2937dd807f13", "text": "A function y satisfies y′ = −x + 2y, y(0) = −1. It is approximated by the class…"}
+{"answer": "0.68729", "id": "uc2-rk4-step/hard/0/dd2fc9a4a018", "text": "A function y satisfies y′ = xy − y, y(0) = 1. Use two steps of the classical fo…"}
+{"answer": "-1.64853", "id": "uc2-rk4-step/hard/1/63eeda03ca26", "text": "A function y satisfies y′ = xy, y(0) = −1. Use two steps of the classical fourt…"}
+{"answer": "0.84469", "id": "uc2-rk4-step/hard/2/ab2b8dae727a", "text": "A function y satisfies y′ = −y² + 2x, y(0) = 1. Use two steps of the classical …"}
+{"answer": "-0.68392", "id": "uc2-rk4-step/medium/0/b1d52dedd61b", "text": "A function y satisfies y′ = xy − y, y(−1) = −1. Use one step of the classical f…"}
+{"answer": "1.29148", "id": "uc2-rk4-step/medium/1/fb04413b34f6", "text": "A function y satisfies y′ = 2xy, y(−1) = 2. Use one step of the classical fourt…"}
+{"answer": "-0.46408", "id": "uc2-rk4-step/medium/2/8a1b725c8624", "text": "A function y satisfies y′ = x² + y², y(−1) = −1. Use one step of the classical …"}
+{"answer": "2.5000", "id": "uc2-secant-iteration/easy/0/33fc00c53e7e", "text": "The secant method is applied to f(x) = x² − 8 with starting values x₀ = 2 and x…"}
+{"answer": "4.2500", "id": "uc2-secant-iteration/easy/1/b526da1ce73a", "text": "The secant method is applied to f(x) = x² − 19 with starting values x₀ = 5 and …"}
+{"answer": "6.7143", "id": "uc2-secant-iteration/easy/2/2367b066f804", "text": "The secant method is applied to f(x) = x² − 35 with starting values x₀ = 3 and …"}
+{"answer": "(a) 77/13; (b) -324/169; (c) 1097/181; (d) 0.021989", "id": "uc2-secant-iteration/exam/0/10fdff9eec1e", "text": "The secant method is applied to f(x) = x² − 37 with starting values x₀ = 5 and …"}
+{"answer": "(a) 61/12; (b) -23/144; (c) 739/145; (d) 0.002468", "id": "uc2-secant-iteration/exam/1/7f57086e02c9", "text": "The secant method is applied to f(x) = x² − 26 with starting values x₀ = 5 and …"}
+{"answer": "(a) 41/10; (b) -19/100; (c) 416/101; (d) 0.004294", "id": "uc2-secant-iteration/exam/2/0e9f8b612880", "text": "The secant method is applied to f(x) = x² − 17 with starting values x₀ = 4 and …"}
+{"answer": "3.2386", "id": "uc2-secant-iteration/hard/0/0676240045cd", "text": "The equation x³ = 5x + 4 is solved by the secant method with starting values x₀…"}
+{"answer": "2.6489", "id": "uc2-secant-iteration/hard/1/2b927aaa0502", "text": "The equation x³ = 2x + 8 is solved by the secant method with starting values x₀…"}
+{"answer": "3.2483", "id": "uc2-secant-iteration/hard/2/ea890749baf2", "text": "The equation x³ = 5x + 16 is solved by the secant method with starting values x…"}
+{"answer": "2.4400", "id": "uc2-secant-iteration/medium/0/a105acc22bd8", "text": "The equation x³ = 3x + 13 is to be solved by the secant method with starting va…"}
+{"answer": "9.5000", "id": "uc2-secant-iteration/medium/1/3d5f17d681e6", "text": "The equation x³ = 5x + 13 is to be solved by the secant method with starting va…"}
+{"answer": "2.6875", "id": "uc2-secant-iteration/medium/2/e883bc3166d0", "text": "The equation x³ = 5x + 2 is to be solved by the secant method with starting val…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}

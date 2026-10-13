@@ -1,0 +1,79 @@
+id: uc2-lagrange-interpolating-polynomial
+name: Build a Lagrange interpolating polynomial
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Write the interpolating polynomial through given data points in expanded form, from the Lagrange basis, and
+  use it to evaluate and to find the interpolation error.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-binomial-trinomial
+answer: expression
+sources:
+- topic: r4b_lagrange_interpolation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_lagrange_interpolation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_lagrange_interpolation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_lagrange_interpolation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-lagrange-basis-denominator-dropped
+  description: Leaving out the denominators of the Lagrange basis polynomials, so each basis polynomial is not 1 at its
+    own node.
+- id: num2-lagrange-y-values-paired-with-wrong-bases
+  description: Multiplying each basis polynomial by the y-value of a different node.
+- id: num2-lagrange-node-sign-error
+  description: Writing the basis numerators with (x + x_j) in place of (x - x_j).
+- id: num2-lagrange-basis-factor-dropped
+  description: Building each basis polynomial from only one of the other nodes, so it has too few factors for the number
+    of data points.
+- id: num2-lagrange-denominator-sign-error
+  description: Reversing the order of subtraction in each basis denominator, (x_j - x_i) in place of (x_i - x_j), so an
+    odd number of factors changes the sign of the term.
+- id: num2-lagrange-wrong-basis-polynomial
+  description: Evaluating the basis polynomial for a different node from the one asked for.
+- id: num2-lagrange-basis-numerator-only
+  description: Giving the numerator of the basis polynomial without dividing by its value at its own node.
+- id: num2-lagrange-basis-at-its-own-node
+  description: Giving the value 1 that a basis polynomial takes at its own node instead of its value at the stated point.
+- id: num2-lagrange-error-sign
+  description: Subtracting in the wrong order, p(t) - f(t), when the error f(t) - p(t) is asked for.
+- id: num2-lagrange-function-value-for-polynomial
+  description: Giving the value of the function f at the point where the value of the interpolating polynomial p is asked
+    for.
+- id: num2-lagrange-error-as-ratio
+  description: Giving the ratio f(t)/p(t) in place of the difference f(t) - p(t).
+- id: num2-lagrange-error-vs-nearest-node
+  description: Measuring the error against the y-value of the nearest data point instead of against the polynomial.
+difficulty_progression: 'Easy is a quadratic through three points at unequal nodes. Medium is a cubic through four points,
+  so each basis polynomial has three factors. Hard interpolates f(x) = 1/x at four nodes, so every data value is a fraction
+  and the answer has fractional coefficients. The exam chain interpolates 1/x at three nodes: one basis polynomial at a
+  point, the polynomial, its value, and the interpolation error.'
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- interpolation
+- lagrange
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics
