@@ -26,6 +26,8 @@ Keys (beyond ``kind``, ``alt`` and an optional ``title``)
     - ``labels``: a list of ``{"at": [x, y], "text": str}`` written at a point of the grid.
     - ``symbols`` (square): a list of ``{"at": [x, y], "symbol": name}`` from :data:`SYMBOLS`, drawn as
       plain pictograms. ``"legend": true`` also draws a key naming every symbol used.
+    - ``path`` (square): ``{"cells": [[x, y], ...]}``, a route drawn as arrows from the centre of each cell to the
+      next, with a start marker on the first. Each step moves to a cell that shares an edge with the last.
     - ``column_labels`` / ``row_labels`` (square): one short label per column (left to right) and per row
       (bottom to top), for grid references.
     - ``scale``: ``{"text": "1 cm : 2 m", "bar_cells"?: int}``: the scale as written, and a scale bar that
@@ -90,7 +92,8 @@ SYMBOLS: dict[str, str] = {
     "window": "window",
 }
 
-_SQUARE_ONLY = ("cells", "polygons", "lines", "symbols", "column_labels", "row_labels")
+_SQUARE_ONLY = ("cells", "polygons", "lines", "symbols", "path", "column_labels", "row_labels")
+MAX_PATH_CELLS = 60
 
 
 def _is_int(v) -> bool:
@@ -115,6 +118,7 @@ def grid_drawing(
     labels: Iterable[dict] = (),
     symbols: Iterable[dict] = (),
     legend: bool = False,
+    path: Iterable[Iterable[int]] = (),
     column_labels: Iterable[str] = (),
     row_labels: Iterable[str] = (),
     scale: dict | None = None,
@@ -138,6 +142,8 @@ def grid_drawing(
     spec.update({key: value for key, value in groups.items() if value})
     if legend:
         spec["legend"] = True
+    if path:
+        spec["path"] = {"cells": [list(c) for c in path]}
     if scale is not None:
         spec["scale"] = dict(scale)
     if north:
@@ -311,6 +317,15 @@ def _validate_square(spec: dict, w: int, h: int) -> list[str]:
             problems.append(f"a symbol is one of {sorted(SYMBOLS)}")
             continue
         problems.extend(_check_points([sym.get("at")], w, h, step=0.5, name="symbol"))
+    if "path" in spec:
+        path = spec["path"]
+        cells = path.get("cells") if isinstance(path, dict) and set(path) == {"cells"} else None
+        if not isinstance(cells, list) or not 2 <= len(cells) <= MAX_PATH_CELLS or not all(_int_pair(c) for c in cells):
+            problems.append(f'path is {{"cells": [[x, y], ...]}} with 2 to {MAX_PATH_CELLS} cells')
+        elif any(not (0 <= x < w and 0 <= y < h) for x, y in cells):
+            problems.append("a path cell is off the grid")
+        elif any(abs(a[0] - b[0]) + abs(a[1] - b[1]) != 1 for a, b in zip(cells, cells[1:])):
+            problems.append("each step of a path moves to a cell that shares an edge with the last")
     if "legend" in spec and (spec["legend"] is not True or not spec.get("symbols")):
         problems.append("legend is true, and only with symbols")
     for key, count in (("column_labels", w), ("row_labels", h)):
