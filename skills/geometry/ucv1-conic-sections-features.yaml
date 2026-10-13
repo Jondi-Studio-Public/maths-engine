@@ -1,0 +1,103 @@
+id: ucv1-conic-sections-features
+name: Features of ellipses, hyperbolas and parabolas
+domain: geometry
+year_level:
+- university
+description: Find the centre, foci, eccentricity, latus rectum and directrix of an ellipse, hyperbola or parabola from its
+  equation, completing the square when the equation is in general form.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: number
+sources:
+- topic: u2_conic_features
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_conic_features
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_conic_features
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_conic_features
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: conic-axis-length-not-focal
+  description: Giving the length of the major or minor axis instead of the distance between the foci.
+- id: conic-centre-forgot-coefficient
+  description: Taking the centre as minus half the linear coefficients without dividing by the coefficient of the squared
+    term.
+- id: conic-centre-swapped
+  description: Swapping the coordinates of the centre.
+- id: conic-completing-square-sign
+  description: Reading the centre from a completed square with the wrong sign, so (x - 3) gives -3.
+- id: conic-directrix-forgot-centre
+  description: Giving the distance a squared over c from the centre as the coordinate, forgetting to add the coordinate
+    of the centre.
+- id: conic-directrix-uses-a-over-c
+  description: Using a over c for the directrix distance instead of a squared over c.
+- id: conic-directrix-uses-b-squared
+  description: Using b squared over c for the directrix distance instead of a squared over c.
+- id: conic-directrix-uses-c-squared
+  description: Using c squared over a for the directrix distance instead of a squared over c.
+- id: conic-directrix-wrong-side
+  description: Giving the directrix on the other side of the centre from the one asked for.
+- id: conic-eccentricity-denominator-b
+  description: Dividing the focal distance by the wrong semi-axis, so the eccentricity uses b instead of a.
+- id: conic-eccentricity-inverted
+  description: Dividing the semi-axis by the focal distance instead of the focal distance by the semi-axis.
+- id: conic-eccentricity-squared
+  description: Stopping at c squared over a squared, the square of the eccentricity.
+- id: conic-eccentricity-uses-b
+  description: Using the semi-minor (or conjugate) axis b in place of the focal distance c, so e = b/a.
+- id: conic-ellipse-hyperbola-formula
+  description: Using c squared equals a squared plus b squared for an ellipse, or a squared minus b squared for a hyperbola.
+- id: conic-focal-distance-half
+  description: Giving the distance from the centre to one focus (or a semi-axis) where the distance between the foci was
+    asked for.
+- id: conic-focal-distance-squared
+  description: Giving c squared, or twice c squared, without taking the square root.
+- id: conic-latus-rectum-b-not-squared
+  description: Using 2b over a instead of 2b squared over a for the latus rectum.
+- id: conic-latus-rectum-half
+  description: Giving half the latus rectum (the semi-latus rectum) where the full chord length was asked for.
+- id: conic-latus-rectum-swapped
+  description: Swapping a and b in the latus rectum formula 2b squared over a.
+- id: conic-latus-rectum-uses-c
+  description: Using the focal distance c in place of the semi-axis b in the latus rectum formula.
+- id: conic-parabola-4p-as-p
+  description: Reading the coefficient 4p of a parabola as p, or doubling or squaring it instead of dividing by four.
+- id: conic-parabola-focus-directrix
+  description: Putting the directrix on the same side of the vertex as the focus, so the sign of the offset is wrong.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read a, b and p from a conic centred at the origin, find c from a squared minus or plus b squared, and form
+      the eccentricity or the focus or directrix.
+  medium:
+    steps: 3
+    demand: Complete the square in both variables to reach standard form, decide which denominator is a squared, then find
+      the focal distance or the latus rectum.
+  hard:
+    steps: 4
+    demand: Complete the square, locate the vertex or centre, and place a directrix using p for a parabola or a squared
+      over c measured from the centre for an ellipse or hyperbola.
+tags:
+- university-core-v1
+- geometry
+- conic-sections
