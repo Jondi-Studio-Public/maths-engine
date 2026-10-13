@@ -1228,9 +1228,9 @@
 {"answer": "(a) 0.5; (b) 18.0; (c) 7.5", "id": "f10-enlargement-invariants/exam/0/a867ab175217", "text": "A rectangular sign measuring 13 cm by 5 cm is transformed by an enlargement wit…"}
 {"answer": "(a) 0.5; (b) 25.0; (c) 5.5", "id": "f10-enlargement-invariants/exam/1/cd16c0c6bd88", "text": "A rectangular garden bed plan measuring 14 cm by 11 cm is transformed by an enl…"}
 {"answer": "(a) 4.4; (b) 88.0; (c) 68.0", "id": "f10-enlargement-invariants/exam/2/9f967c81cdaf", "text": "A rectangular sign measuring 8 cm by 2 cm is transformed by an enlargement with…"}
-{"answer": "(a) 30; (b) (7, 5) (16, 5) (16, 11) (7, 11)", "id": "f10-enlargement-invariants/grid-image/0/0f12e86d6965", "text": "Rectangle ABCD is drawn on the grid. It is enlarged from the centre of enlargem…"}
-{"answer": "(a) 10; (b) (9, 7) (9, 5) (6, 5) (6, 7)", "id": "f10-enlargement-invariants/grid-image/1/25acb1549500", "text": "Rectangle ABCD is drawn on the grid. It is enlarged from the centre of enlargem…"}
-{"answer": "(a) 4; (b) (9, 2) (9, 5) (5, 2)", "id": "f10-enlargement-invariants/grid-image/2/35053dfa169c", "text": "Triangle ABC is drawn on the grid. It is enlarged from the centre of enlargemen…"}
+{"answer": "(a) 30; (b) (7, 5) (16, 5) (16, 11) (7, 11)", "id": "f10-enlargement-invariants/grid-image/0/343567f7cfb7", "text": "Rectangle ABCD is drawn on the grid. It is enlarged from the centre of enlargem…"}
+{"answer": "(a) 10; (b) (9, 7) (9, 5) (6, 5) (6, 7)", "id": "f10-enlargement-invariants/grid-image/1/72d29039fc8e", "text": "Rectangle ABCD is drawn on the grid. It is enlarged from the centre of enlargem…"}
+{"answer": "(a) 4; (b) (9, 2) (9, 5) (5, 2)", "id": "f10-enlargement-invariants/grid-image/2/cc9568eeb370", "text": "Triangle ABC is drawn on the grid. It is enlarged from the centre of enlargemen…"}
 {"answer": "20", "id": "f10-enlargement-invariants/hard/0/6c6e8394cffb", "text": "A point P is 10 cm from the centre of enlargement O. P is enlarged with a scale…"}
 {"answer": "36", "id": "f10-enlargement-invariants/hard/1/87c9adba60eb", "text": "A trapezium is enlarged from a centre of enlargement O. The original has an are…"}
 {"answer": "16.5", "id": "f10-enlargement-invariants/hard/2/7d59544ae665", "text": "A parallelogram is enlarged from a centre of enlargement O with a scale factor …"}
@@ -5339,8 +5339,8 @@
 {"answer": "Ensuite", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/1/4c8104b80183", "text": "The toilets symbol is drawn in one room of this plan. What is that room called?"}
 {"answer": "Ensuite", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/2/cc977907d772", "text": "The toilets symbol is drawn in one room of this plan. What is that room called?"}
 {"answer": "2 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/0/cbcb4bc26c54", "text": "How many rooms on this plan need a plumber, that is, rooms with a toilets symbo…"}
-{"answer": "2 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/1/c1854d08eba2", "text": "How many wet areas (bathroom, ensuite, toilet or laundry) on this plan have a w…"}
-{"answer": "2 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/2/9fefd7121820", "text": "A plumber must visit every room that has a toilets symbol or a hot water system…"}
+{"answer": "3 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/1/9cd9236b2109", "text": "How many wet areas (bathroom, ensuite, toilet or laundry) on this plan have a w…"}
+{"answer": "3 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/2/f415e79843b2", "text": "A plumber must visit every room that has a toilets symbol or a hot water system…"}
 {"answer": "Kitchen", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/medium/0/6a65d634838b", "text": "In which room is the dishwasher?"}
 {"answer": "Laundry", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/medium/1/9f41acf847fd", "text": "In which room is the hot water system?"}
 {"answer": "Bedroom 2", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/medium/2/7eca1f548cae", "text": "In which room is the built-in robe?"}
@@ -5362,8 +5362,8 @@
 {"answer": "44", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/0/bbaa40afdb3c", "text": "Find the surface area, in unit squares, of the stack of unit cubes. Count every…"}
 {"answer": "14", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/1/1a4364f5b24d", "text": "The stack of unit cubes is built inside a box that is 3 cubes wide, 2 cubes dee…"}
 {"answer": "56", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/2/1ac3f02daa13", "text": "The surface area of the stack is the number of unit squares on its outside, inc…"}
-{"answer": "12", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/0/be82be0aca50", "text": "Count the unit cubes in this staircase drawn on isometric dot paper. It rises t…"}
-{"answer": "10", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/1/abe6cdf9e40d", "text": "Count the unit cubes in this staircase drawn on isometric dot paper. It rises t…"}
+{"answer": "12", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/0/dd63a5b096c4", "text": "Count the unit cubes in this stack drawn on isometric dot paper. It rises to th…"}
+{"answer": "10", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/1/1f57dbfe4a41", "text": "Count the unit cubes in this stack drawn on isometric dot paper. It rises to th…"}
 {"answer": "16", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/2/8173887920ae", "text": "A stack of unit cubes is drawn on isometric dot paper. It is three layers high …"}
 {"answer": "Column heights, left to right: 3, 2, 2", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/0/ad43ed131133", "text": "The stack of unit cubes has no gaps. Its front is the face on the left of the p…"}
 {"answer": "Column heights, left to right: 3, 1, 1, 1", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/1/78c2a9a28ce5", "text": "Look at the stack of unit cubes, which has no gaps. The face on the left of the…"}

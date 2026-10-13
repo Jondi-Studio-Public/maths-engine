@@ -1335,9 +1335,11 @@ def _enlargement(rng):
     a_wrong = pick_distractors(a_text, a_candidates, 3, tolerance=GRADER_TOLERANCE)
     prompt_b = rng.choice(
         (
-            "Write down the coordinates of the vertices {primes} of the image, in that order.",
-            "Give the coordinates of {primes}, in order, as points such as (3, 5).",
-            "State the coordinates of the image vertices {primes} in order.",
+            "Write down the coordinates of the vertices {primes} of the image, in that order, as points only, "
+            "without their letters: (x, y) (x, y) ...",
+            "Give the coordinates of {primes}, in order, as points such as (3, 5), without the vertex letters.",
+            "State the coordinates of the image vertices {primes} in order. Type just the points, (x, y) (x, y) "
+            "..., not the letters.",
         )
     ).format(primes=", ".join(n + "'" for n in names))
     b_text = points_answer_text(image)

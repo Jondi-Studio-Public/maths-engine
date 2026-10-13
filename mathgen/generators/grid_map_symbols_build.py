@@ -298,7 +298,8 @@ def _plan_hard(rng):
         rooms = _plan_rooms(rng, wet)
         by = {r["abbr"]: r for r in rooms}
         wet_rooms = [a for a in WET if a in by]
-        windowless = rng.sample(wet_rooms, rng.randint(1, len(wet_rooms) - 1))
+        # any number of the wet areas may lack a window, none or all of them included, so no count dominates
+        windowless = rng.sample(wet_rooms, rng.randint(0, len(wet_rooms)))
         extra = [a for a in ("WIR", "PAN") if a in by and rng.random() < 0.5]
         dark = {*windowless, *extra}
         toilets = _toilet_rooms(rng, rooms, wet)
@@ -317,10 +318,12 @@ def _plan_hard(rng):
                 windows,
                 len(wet_with_window) + 1,
             ]
-            working = [
-                f"The wet areas are {', '.join(wet_rooms)}. Of these, {', '.join(wet_with_window)} "
-                f"{'has' if len(wet_with_window) == 1 else 'have'} a window symbol: {answer}."
-            ]
+            if not wet_with_window:
+                found = "none has a window symbol"
+            else:
+                verb = "has" if len(wet_with_window) == 1 else "have"
+                found = f"{', '.join(wet_with_window)} {verb} a window symbol"
+            working = [f"The wet areas are {', '.join(wet_rooms)}. Of these, {found}: {answer}."]
         else:
             hws_room = next(a for a, code in fixtures.items() if code == "HWS")
             union = toilets | {hws_room}

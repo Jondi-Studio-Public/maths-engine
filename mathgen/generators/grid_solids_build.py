@@ -5,7 +5,7 @@ registered for each topic re-derives the answer from the figure and the sentence
 
 ``grid_cube_stack`` (``senior-interpret-diagrams-of-three-dimensional-objects``, number)
     A stack of unit cubes on isometric dot paper, drawn so that no cube hides behind another
-    (``tops_all_visible``): easy counts a one or two layer stack; medium counts a three layer staircase; hard
+    (``tops_all_visible``): easy counts a one or two layer stack; medium counts a three layer stack; hard
     either finds how many more cubes fill a stated box, or finds the surface area in unit squares, hidden
     faces and the bottom included.
 
@@ -190,7 +190,7 @@ def _stack_easy(rng):
 
 def _stack_medium(rng):
     width, depth = rng.randint(2, 4), rng.randint(2, 3)
-    for _ in attempts(200, "a staircase of three layers"):
+    for _ in attempts(200, "a stack three layers high"):
         h, cubes = _stack_heights(rng, width, depth, 3, 7, 18)
         if {1, 2, 3} <= set(h.values()):
             break
@@ -200,11 +200,11 @@ def _stack_medium(rng):
     text = phrase(
         rng,
         (
-            "The picture shows a staircase of unit cubes on isometric dot paper, three layers high at its tallest. "
+            "The picture shows a stack of unit cubes on isometric dot paper, three layers high at its tallest. "
             "Every cube rests on the ground or on another cube, with no gaps. How many cubes make up the stack?",
             "A stack of unit cubes is drawn on isometric dot paper. It is three layers high at its tallest and "
             "has no gaps: each cube sits on the ground or on another cube. How many cubes are in the stack?",
-            "Count the unit cubes in this staircase drawn on isometric dot paper. It rises to three layers, and "
+            "Count the unit cubes in this stack drawn on isometric dot paper. It rises to three layers, and "
             "every cube rests on the ground or on another cube.",
         ),
     )
