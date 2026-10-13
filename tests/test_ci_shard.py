@@ -65,6 +65,26 @@ def test_temp_tree_balance(tmp_path):
     assert max(loads) - min(loads) <= 40
 
 
+def test_generator_sweeps_get_a_shard_each():
+    # The sweeps run far longer than their size suggests; two in one shard timed out at 30 min.
+    shards = ci_shard.partition(ROOT, SHARDS)
+    per_shard = [sum(1 for f in s if ci_shard._SWEEP.fullmatch(f)) for s in shards]
+    assert sum(per_shard) >= 2, "expected the tests/test_mathgen_*.py sweeps on the real tree"
+    assert max(per_shard) == 1
+
+
+def test_temp_tree_sweeps_spread_before_size(tmp_path):
+    (tmp_path / "tests").mkdir()
+    sizes = {"test_mathgen_a.py": 10, "test_mathgen_b.py": 10, "test_big.py": 100, "test_mid.py": 50}
+    for name, size in sizes.items():
+        (tmp_path / "tests" / name).write_text("#" * size)
+    shards = ci_shard.partition(tmp_path, 2)
+    assert sorted(shards) == [
+        ["tests/test_big.py", "tests/test_mathgen_a.py"],
+        ["tests/test_mathgen_b.py", "tests/test_mid.py"],
+    ]
+
+
 def test_bad_arguments_rejected():
     r = subprocess.run([sys.executable, str(SCRIPT), "16", "16"], capture_output=True, text=True)
     assert r.returncode == 2

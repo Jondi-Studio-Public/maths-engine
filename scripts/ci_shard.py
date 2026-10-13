@@ -7,7 +7,12 @@ test file path relative to the repository root, with "/" separators, so run pyte
 the repository root.
 
 Files are balanced by size: sorted by size descending (ties by path) and each
-assigned greedily to the currently lightest shard (ties to the lowest index).
+assigned greedily to the currently lightest shard (ties to the lowest index). The
+generator sweeps (``tests/test_mathgen_*.py``) are the exception: each one builds
+questions for every topic, so its run time has nothing to do with its size. Each is
+placed first, so it takes an empty shard, and weighted as a whole shard's share of
+the bytes on top of its own size, so the other shards fill before its shard does.
+Without this, two sweeps can land in one shard and push it past the job's time limit.
 Deterministic and stdlib only, so every CI shard computes the same partition.
 
 This script fails closed, because CI runs its output as the list of tests to run and an
@@ -35,6 +40,10 @@ ROOT = Path(__file__).resolve().parent.parent
 # digits, and refuses very long digit strings, none of which is a shard number.
 _NUMBER = re.compile(r"[0-9]{1,9}")
 
+# The per-topic generator sweeps: small files whose run time is far out of line with
+# their size (see the module docstring).
+_SWEEP = re.compile(r"tests/test_mathgen_[a-z0-9_]+\.py")
+
 
 class ShardError(Exception):
     """A request the script refuses to answer; ``status`` is the process exit status."""
@@ -57,13 +66,16 @@ def test_files(root: Path = ROOT) -> list[Path]:
 
 
 def partition(root: Path, count: int) -> list[list[str]]:
-    """Split the test files into ``count`` shards balanced by byte size.
+    """Split the test files into ``count`` shards balanced by byte size, sweeps apart.
 
     Returns one sorted list per shard of paths relative to ``root`` with "/" separators.
     A shard can come back empty when there are fewer files than shards.
     """
     sized = [(p.stat().st_size, p.relative_to(root).as_posix()) for p in test_files(root)]
-    sized.sort(key=lambda item: (-item[0], item[1]))
+    share = -(-sum(size for size, _name in sized) // count)
+    sized = [(size + share if _SWEEP.fullmatch(name) else size, name) for size, name in sized]
+    # Sweeps first, so each takes an empty shard whatever the sizes of the other files.
+    sized.sort(key=lambda item: (not _SWEEP.fullmatch(item[1]), -item[0], item[1]))
     shards: list[list[str]] = [[] for _ in range(count)]
     loads = [0] * count
     for size, name in sized:
