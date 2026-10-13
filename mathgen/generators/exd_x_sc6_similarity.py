@@ -33,6 +33,9 @@ from mathgen.core import (
 )
 
 _NAMES = [("PQR", "XYZ"), ("ABC", "DEF"), ("KLM", "RST"), ("GHJ", "UVW")]
+# (∠A, ∠B, ∠C) of the angle shape. AB and BC are the given sides, opposite ∠C and ∠A, so ∠A and ∠C must be 30° and 90°
+# (in either order) or equal, or the sine rule cannot give whole-number lengths.
+_AA_ANGLES = [(30, 60, 90), (90, 60, 30)] + [(a, 180 - 2 * a, a) for a in range(35, 81) if a != 60]
 # Scale factors p/q (larger over smaller) that terminate as decimals, so every answer is exact.
 _SCALES = [(p, q) for q in (2, 4, 5) for p in range(q + 1, 3 * q + 1) if gcd(p, q) == 1]
 
@@ -217,21 +220,25 @@ def _sss(rng: random.Random):
 def _aa(rng: random.Random):
     n1, n2 = rng.choice(_NAMES)
     p, q = rng.choice(_SCALES)
-    a_ang, b_ang = draw_until(
-        rng,
-        lambda r: (r.randint(30, 80), r.randint(35, 85)),
-        lambda ab: ab[0] + ab[1] < 160 and 180 - ab[0] - ab[1] not in ab,
-    )
-    c_ang = 180 - a_ang - b_ang
-    u, w = rng.randint(2, 5), rng.randint(2, 6)
-    ab, bc = q * u, q * w
-    de = p * u
+    # The figure must exist: by the sine rule two sides are in the ratio of the sines of their opposite angles, and
+    # among whole-degree angles that ratio is a whole-number ratio only for 30° against 90° (1 : 2) or for equal
+    # angles (1 : 1). So the angles are a 30-60-90 triangle in some order, or an isosceles triangle, and the two
+    # given sides are the pair opposite those angles.
+    angles = rng.choice(_AA_ANGLES)
+    a_ang, b_ang, c_ang = angles
+    u = rng.randint(2, 5)
+    # AB is opposite ∠C and BC opposite ∠A: lengths 1 : 2 (C = 30°), 2 : 1 (C = 90°) or 1 : 1, each a multiple of q
+    ab = q * u * (2 if c_ang == 90 else 1)
+    bc = ab // 2 if c_ang == 90 else (ab * 2 if c_ang == 30 else ab)
+    de = p * ab // q
     k = Fraction(p, q)
-    ef = p * w
+    ef = p * bc // q
+    s1, s2 = f"{n1[0]}{n1[1]}", f"{n1[1]}{n1[2]}"
+    t1, t2 = f"{n2[0]}{n2[1]}", f"{n2[1]}{n2[2]}"
     stem = (
         f"In triangle {n1}, ∠{n1[0]} = {a_ang}° and ∠{n1[1]} = {b_ang}°. In triangle {n2}, ∠{n2[0]} = {a_ang}° and "
         f"∠{n2[2]} = θ. The triangles are similar, with {n1[0]} corresponding to {n2[0]}, {n1[1]} to {n2[1]} and "
-        f"{n1[2]} to {n2[2]}. Also {n1[0]}{n1[1]} = {ab} cm, {n1[1]}{n1[2]} = {bc} cm and {n2[0]}{n2[1]} = {de} cm."
+        f"{n1[2]} to {n2[2]}. Also {s1} = {ab} cm, {s2} = {bc} cm and {t1} = {de} cm."
     )
     theta = Fraction(c_ang)
     a_cands = [
@@ -263,16 +270,16 @@ def _aa(rng: random.Random):
             k,
             1,
             dp=2,
-            working=[f"Scale factor = {n2[0]}{n2[1]} ÷ {n1[0]}{n1[1]} = {de} ÷ {ab} = {_dec(k)}."],
+            working=[f"Scale factor = {t1} ÷ {s1} = {de} ÷ {ab} = {_dec(k)}."],
             distractors=_tag(k, b_cands, 2),
         ),
         _part(
-            f"Hence find the length of {n2[1]}{n2[2]}, in centimetres, correct to 2 decimal places.",
+            f"Hence find the length of {t2}, in centimetres, correct to 2 decimal places.",
             Fraction(ef),
             2,
             dp=2,
             follow_through=f"part_b * {bc}",
-            working=[f"{n2[1]}{n2[2]} = {_dec(k)} × {bc} = {ef}."],
+            working=[f"{t2} = {_dec(k)} × {bc} = {ef}."],
             distractors=_tag(Fraction(ef), c_cands, 2),
         ),
     ]
