@@ -10104,6 +10104,1116 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    CatalogueEntry(
+        "rref-stopped-at-echelon",
+        "Stopping at a row echelon form: clearing the entries below each pivot but not the entries above it, so the "
+        "matrix is not reduced.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rref-adds-instead-of-subtracts",
+        "Clearing the entries above a pivot by adding the multiple of the pivot row instead of subtracting it, so "
+        "the non-pivot columns come out with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rref-rows-scaled-only",
+        "Dividing each row by its leading entry and stopping, without eliminating the other entries in the pivot "
+        "columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "row-operation-arithmetic-slip",
+        "A slip of one in a single entry while adding a multiple of one row to another.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-counts-all-rows",
+        "Giving the number of rows as the rank, without noticing that a row reduces to zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-counts-all-columns",
+        "Giving the number of columns as the rank.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-misses-a-pivot",
+        "Counting one pivot too few when reading the rank off the reduced matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-from-rows",
+        "Counting free variables as the number of rows minus the rank instead of the number of unknowns minus the rank.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-miscounted",
+        "Miscounting the non-pivot columns when listing the free variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-all-columns",
+        "Treating every unknown as a free variable instead of subtracting the pivots.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rref-free-column-read-unsigned",
+        "Reading a solution straight off a free column of the reduced matrix without changing its sign (the pivot "
+        "variable is minus that entry, not that entry).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-values-swapped",
+        "Giving the value 1 to the wrong free variable, so the solution is the one for the other free variable.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "pivot-variables-left-zero",
+        "Setting the free variables as asked but leaving the pivot variables at zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-column-mixed-up",
+        "Reading the pivot variables from the column of the other free variable.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "linear-solution-inverted",
+        "Solving Ck + D = 0 as k = C/D instead of k = -D/C.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "singular-means-infinitely-many",
+        "Assuming that every value of the parameter that makes the determinant zero gives infinitely many solutions, "
+        "without checking the right-hand side for consistency.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "singular-means-no-solution",
+        "Assuming that a determinant of zero always means there is no solution, when the system may be consistent "
+        "with infinitely many.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "singular-still-unique",
+        "Saying a system still has exactly one solution when its coefficient matrix has determinant zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dropped-constant-term-det",
+        "Leaving the constant term out of a determinant that depends on a parameter.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "solution-sign-slip",
+        "Reaching the right size of answer for a solution of a linear system with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cramer-numerator-not-divided",
+        "Using Cramer's rule but stopping at the determinant with the column replaced, without dividing by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cramer-ratio-inverted",
+        "Using Cramer's rule with the ratio upside down: det A over the replaced-column determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-expansion-sign-slip",
+        "Getting a sign wrong when expanding a determinant by cofactors, so a coefficient has the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-not-substituted",
+        "Writing the constants of the reduced equations as the pivot variables without subtracting the multiples of "
+        "the free variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-value-dropped",
+        "Using the stated value of a free variable in the working but leaving it out of the final solution, so it is "
+        "reported as zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variable-sign-slip",
+        "Giving a free variable the wrong sign, or adding where the free-column multiple should be subtracted, when "
+        "writing out the solution.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "particular-solution-as-direction",
+        "Giving a particular solution of the system as the direction vector of its line of solutions.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "direction-free-component-zero",
+        "Writing the direction vector with 0 for the free variable instead of 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "direction-row-as-vector",
+        "Giving a row of the coefficient matrix as the direction vector of the line of solutions.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rhs-read-as-solution",
+        "Reading the right-hand side b of the system as if it were the solution.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-variables-set-to-one",
+        "Setting the free variables to 1 where the question asks for them to be zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "particular-solution-omitted",
+        "Writing the multiples of the parameters but leaving out the constant (the particular solution) in a general "
+        "solution.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coefficients-order-swapped",
+        "Giving the coefficients of a linear combination in the wrong order: b for u1 and a for u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "span-coefficient-sign-slip",
+        "Getting the sign of a coefficient wrong when solving for the scalars in a linear combination.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "vector-entries-read-as-coefficients",
+        "Reading the entries of the target vector as the coefficients of the combination.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "span-membership-assumed",
+        "Assuming a vector is in a span without checking: saying a combination exists after the condition has failed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "span-dependence-means-infinite",
+        "Saying there are infinitely many combinations because the three vectors are dependent, when the first two "
+        "vectors are independent and so any combination that exists is unique.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dependence-relation-sign-slip",
+        "Giving a coefficient of the wrong sign in a dependence relation: reading w = a·u + b·v as c1·u + c2·v + w = 0 "
+        "with c1 = a, when c1 = -a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dependence-coefficients-swapped",
+        "Reporting the coefficient of the other vector in a dependence relation.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dependence-coefficient-of-w-reported",
+        "Reporting the coefficient of the vector that was normalised to 1 in the relation instead of the one asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "root-chosen-ignoring-condition",
+        "Solving the determinant equation correctly but giving the root that the condition in the question rules out.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-swapped",
+        "Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-uses-rows",
+        "Subtracting the rank from the number of rows where rank-nullity uses the number of columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-sum-reported",
+        "Giving the number of columns (rank plus nullity) as the answer instead of subtracting.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rank-nullity-off-by-one",
+        "Counting the dimension one too high when applying rank-nullity.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-vectors",
+        "Taking the dimension of a span to be the number of vectors listed, without checking for dependence.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-coordinates",
+        "Taking the dimension of a span to be the dimension of the space the vectors live in.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-dependent-vector",
+        "Counting a vector that is a combination of the others as one more dimension.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "left-null-space-confused-with-null-space",
+        "Giving the dimension of the null space of A (columns minus rank) where the null space of the transpose "
+        "(rows minus rank) was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "free-columns-as-basis",
+        "Choosing the non-pivot columns as a basis of the column space instead of the pivot columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "first-columns-assumed-independent",
+        "Taking the first columns as a basis of the column space without checking which columns are pivot columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-mixes-pivot-and-free-columns",
+        "Choosing a basis made of one pivot column and one non-pivot column, so the columns are not the pivot columns.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coefficients-read-from-wrong-column",
+        "Reading the coefficients of a dependent column from the wrong non-pivot column of the reduced matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-diagonal-entries-reported",
+        "Reporting the diagonal entries of a matrix as its eigenvalues, which is right only for a triangular matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-sign-flipped",
+        "Giving every eigenvalue the wrong sign by solving det(A + λI) = 0, or by reading the roots of the "
+        "characteristic polynomial from the factors (λ - a) as λ = -a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-third-from-trace-sign-slip",
+        "Finding two eigenvalues correctly and the third from the trace with a sign error, so it has the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-missed-one-root",
+        "Listing only two of the three eigenvalues of a 3×3 matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-trace-reported-as-root",
+        "Reporting the trace of the matrix as one of its eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigenvalue-trace-and-determinant-reported",
+        "Reporting the trace and the determinant as the two eigenvalues of a 2×2 matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "sum-of-all-entries-as-trace",
+        "Adding every entry of the matrix instead of only the leading-diagonal entries to find the trace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "trace-sign-slip",
+        "Giving the trace of a matrix with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "trace-misses-a-diagonal-entry",
+        "Leaving one of the leading-diagonal entries out of the trace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "trace-reported-as-determinant",
+        "Giving the trace of a matrix where its determinant was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "determinant-as-product-of-diagonal",
+        "Taking the determinant of a matrix to be the product of its leading-diagonal entries, which is right only for "
+        "a triangular matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "product-of-others-sign-slip",
+        "Giving the product of the remaining eigenvalues with the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "product-multiplied-instead-of-divided",
+        "Multiplying the determinant by the known eigenvalue instead of dividing, to find the product of the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "whole-determinant-reported-as-product",
+        "Giving the whole determinant as the product of the other two eigenvalues, without removing the known one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "sum-of-others-reported-as-product",
+        "Giving the sum of the other two eigenvalues where their product was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "discriminant-sign-slip",
+        "Computing the discriminant t² - 4d as t² + 4d.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "discriminant-forgot-to-square",
+        "Computing the discriminant t² - 4d without squaring t.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "discriminant-wrong-factor",
+        "Using the wrong multiple of d in the discriminant t² - 4d.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "taylor-derivative-not-divided",
+        "Giving the k-th derivative at the centre as the coefficient, without dividing by k!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-inner-coefficient-ignored",
+        "Using the series of the outer function and leaving out the inner coefficient: the coefficient of x^k in e^(ax) given as 1/k!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-inner-coefficient-not-powered",
+        "Writing the inner coefficient a where a^k belongs: the coefficient of x^k in e^(ax) given as a/k! instead of a^k/k!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-wrong-factorial",
+        "Dividing by the wrong factorial, or by k where k! belongs, so the coefficient is out by a factor of k or k!/(k-1)!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-series-sign-pattern",
+        "Getting the sign pattern of the standard series wrong, so the coefficient has the opposite sign.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-derivative-order-off-by-one",
+        "Using the (k-1)-th derivative for the coefficient of the k-th power.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-expansion-point-ignored",
+        "Evaluating the derivative at x = 1 (or x = 0) instead of at the stated centre of the expansion.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-product-coefficientwise",
+        "Multiplying the two coefficients of x^k instead of collecting every pair of terms whose powers add to k.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-product-cross-terms-dropped",
+        "Collecting only the terms that pair x^k with a constant, and missing the middle pairs of a product of series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-product-pair-missing",
+        "Leaving one pair of terms out when collecting the coefficient of a product of series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-composite-order-mismatch",
+        "Taking the term of the outer series that matches the power of x instead of the power of the inner expression.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-order-confused",
+        "Giving the coefficient of the wrong power of x (x^3 for x^2, or the reverse).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-polynomial-term-dropped",
+        "Leaving the highest-degree term out when evaluating a Taylor polynomial.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-polynomial-wrong-degree",
+        "Evaluating a polynomial of the wrong degree, with one term too many.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-powers-of-x-ignored",
+        "Multiplying each coefficient by x instead of by the matching power of x when evaluating a polynomial.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-error-of-lower-degree",
+        "Finding the error of a lower-degree polynomial than the one asked about.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-approximation-reported-as-error",
+        "Reporting the approximate value where the size of the error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-value-reported-as-error",
+        "Reporting the true value of the function where the size of the error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-error-sign-ignored",
+        "Reporting the signed difference between the approximation and the true value where the (positive) error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-relative-error",
+        "Reporting the error as a fraction of the true value where the absolute error was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "taylor-error-of-higher-degree",
+        "Finding the error of a higher-degree polynomial than the one asked about.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-power-off-by-one",
+        "Using |x - a|^n where the Lagrange remainder of a degree-n polynomial has |x - a|^(n+1).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-factorial-index",
+        "Dividing by n! where the Lagrange remainder of a degree-n polynomial has (n+1)!.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-factorial-dropped",
+        "Leaving the factorial out of the Lagrange remainder altogether.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-degree-off-by-one",
+        "Applying the remainder formula for the polynomial one degree higher or lower than the one asked about.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-derivative-order-off-by-one",
+        "Bounding the n-th derivative where the (n+1)-th derivative is needed (or the reverse) for the Lagrange remainder.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-derivative-bound-ignored",
+        "Leaving the bound M on the derivative out of the Lagrange error bound, as if it were 1.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-max-at-wrong-endpoint",
+        "Taking the largest size of a decreasing derivative at the far end of the interval instead of at the near end.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-terms-for-degree",
+        "Giving the number of terms of the polynomial (one more than its degree) where the degree was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-wrong-end-of-interval",
+        "Giving the upper end of the interval (the approximation plus the bound) where the lower end was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-bound-not-applied",
+        "Giving the approximation itself where the end of the interval it fixes was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "remainder-bound-subtracted-the-wrong-way",
+        "Subtracting the approximation from the bound where the bound is taken away from the approximation.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-power-rule-slip",
+        "Integrating (x + b)^(-q) without dividing by the new exponent, or with the wrong exponent.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-constant-dropped",
+        "Dropping the constant multiplier when integrating c/(x + b)^q.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-wrong-lower-limit",
+        "Evaluating an improper integral at the wrong lower limit.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-replaced-by-first-term",
+        "Giving the first term of the series where the value of the integral was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-integral-sign-slip",
+        "Getting the sign of an improper integral wrong when the antiderivative is evaluated at the limits.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-bound-integral-omitted",
+        "Giving only the first term as the integral-test bound, leaving out the integral.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-bound-first-term-omitted",
+        "Giving only the integral as the bound for the sum, leaving out the first term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-bound-wrong-first-term",
+        "Adding the wrong term of the series to the integral in the integral-test bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-partial-sum-terms-miscounted",
+        "Adding the wrong number of terms, or starting from the wrong index, in a partial sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-tail-integral-start-off-by-one",
+        "Starting the tail integral at the wrong point, one step before or after the partial sum ends.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-tail-integral-omitted",
+        "Leaving the tail integral out of the sharper bound, or adding a single term in its place.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-partial-sum-omitted",
+        "Giving the tail integral alone where the partial sum plus the tail integral was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-last-term-used",
+        "Bounding the alternating-series error by the last term kept, b_N, instead of the first term dropped, b_(N+1).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-term-after-next",
+        "Bounding the alternating-series error by b_(N+2), skipping the first dropped term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-halved",
+        "Halving the first dropped term to get the alternating-series error bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-two-terms-added",
+        "Adding the next two terms, b_(N+1) + b_(N+2), as the error bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-error-signed",
+        "Giving the alternating-series error with the sign of the first dropped term rather than as a size.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-terms-uses-last-term",
+        "Requiring b_N below the tolerance rather than b_(N+1), so one term too few.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-terms-off-by-one",
+        "Counting the terms needed one too many for the tolerance.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-tolerance-misread",
+        "Misreading the tolerance as a different power of ten when finding the number of terms.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-partial-sum-wrong-count",
+        "Summing the wrong number of terms of the alternating series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-partial-sum-sign-pattern",
+        "Using the wrong sign pattern when forming an alternating partial sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-partial-sum-bound-subtracted",
+        "Subtracting the error bound from the partial sum instead of reporting the partial sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-interval-wrong-end",
+        "Taking the partial sum plus the bound as the lower end of the interval.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-interval-bound-not-applied",
+        "Reporting the partial sum as the end of the interval without applying the bound.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "alt-interval-bound-subtracted-the-wrong-way",
+        "Applying the error bound in the wrong direction when bracketing the sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "ode1-factor-sign-flipped",
+        "Using e^(-integral of P) rather than e^(integral of P) as the integrating factor.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-integral-skipped",
+        "Using e^(P(x)) as the integrating factor without integrating P.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-integral-not-exponentiated",
+        "Giving the integral of P as the integrating factor instead of e raised to it.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-coefficient-inverted",
+        "Using e^(x/a) as the integrating factor for a constant coefficient a.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-coefficient-dropped",
+        "Dropping the coefficient k from the integral of k/x, so the factor becomes x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-factor-power-rule-misapplied",
+        "Integrating P(x) with the wrong power-rule step (forgetting to halve or raise the power) before exponentiating.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-coefficient-not-divided",
+        "Leaving the forcing coefficient undivided by the factor the integral produces, so the particular solution is too large.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-ignores-particular-part",
+        "Setting the constant equal to y(0) without subtracting the particular solution's value at 0.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-sign-error",
+        "Subtracting the wrong way round when fixing the constant from the initial condition.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-evaluated-at-wrong-point",
+        "Evaluating the particular solution at x = 1 rather than at the point where the initial condition is given.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-homogeneous-exponent-sign",
+        "Writing the complementary term with the wrong sign in its exponent (e^(+ax) instead of e^(-ax)).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-denominator-sign",
+        "Dividing the forcing coefficient by a - k instead of a + k.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-integrating-factor-division-skipped",
+        "Forgetting to divide the constant of integration by the integrating factor.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-lead-coefficient-not-divided",
+        "Not dividing the right-hand side by x before using the integrating factor, so the power is one too high.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-resonance-factor-x-missing",
+        "Missing the factor x in the solution when the forcing term matches the complementary solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-ic-homogeneous-term-dropped",
+        "Dropping the arbitrary-constant term from the solution once the initial condition is applied.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-integral-over-integrated",
+        "Integrating a constant right-hand side twice (giving x^2/2 instead of x).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-constant-correction-missed",
+        "Finding the constant of the particular solution as r/a, missing the -m/a correction from integration by parts.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-integration-by-parts-sign",
+        "A sign error in the integration by parts, giving (r + m)/a instead of (r - m)/a for the constant term.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-exponent-sign",
+        "Evaluating the decaying term with the sign of its exponent flipped.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-exponential-term-dropped",
+        "Dropping the decaying term when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-exponential-dropped",
+        "Treating the exponential factor as 1 when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-particular-dropped",
+        "Dropping the particular solution when evaluating, keeping only the decaying term.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-point-wrong",
+        "Evaluating the solution at x = 1 rather than the requested x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-eval-initial-value-reported",
+        "Reporting the initial value y(0) instead of the value at the requested x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-coefficient-divided-twice",
+        "Dividing by the exponent coefficient a twice when finding the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-linear-coefficients-swapped",
+        "Swapping the coefficient of x and the constant on the right-hand side when finding the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode1-particular-coefficient-sign-flipped",
+        "Giving the particular-solution coefficient with the opposite sign.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-arctan-inverse-confused",
+        "Writing arctan of the right-hand side instead of tan of it when undoing arctan y.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-arctan-not-inverted",
+        "Stopping at arctan y = (the integral) and giving that as y, without applying tan.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-constant-added-not-multiplied",
+        "Writing the exponentiated solution as y0 + e^(...) instead of y0 e^(...): the constant from e^C multiplies, not adds.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-exponent-sign",
+        "Taking the exponent of the logistic solution with the wrong sign.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-exponential-inverted",
+        "Giving e^(...) as y, when e^y is what equals that expression.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-factor-two-mishandled",
+        "Mishandling the factor of 2 produced by integrating y or x (halving or doubling once too often).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-half-forgotten",
+        "Forgetting the 1/2 when integrating y with respect to y, so the constant is y0^2 rather than y0^2/2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ic-constant-dropped",
+        "Dropping the constant from the initial condition: giving e^(...) without the factor y(0).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ic-constant-misapplied",
+        "Putting the initial condition in the wrong place when solving for the constant.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ic-squared-forgotten",
+        "Forgetting to square (or square root) the initial value when working with y^2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-integration-constant-dropped",
+        "Dropping the constant of integration, so the solution misses its '+ 1'.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-ln-not-exponentiated",
+        "Leaving ln y = (the integral) as the answer instead of exponentiating to solve for y.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-partial-fraction-factor-missed",
+        "Missing the 1/M factor in the partial fractions of 1/(y(M - y)), so the exponent lacks the factor M.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-partial-fraction-sign",
+        "A sign error in the partial fractions, giving y0 - (M - y0)e^(...) in the denominator.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-power-rule-misapplied",
+        "Using the wrong power for the antiderivative (x^2 for x, or no power at all).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-power-rule-not-divided",
+        "Integrating a power of x without dividing by the new exponent.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-reciprocal-forgotten",
+        "Using y0 where 1/y0 is needed (or the reverse) after integrating 1/y^2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-reciprocal-sign",
+        "Losing the minus sign of the integral of 1/y^2 = -1/y.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-reciprocal-squared",
+        "Squaring the reciprocal: giving -1/y0^2 instead of -1/y0.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-sign-error-root",
+        "A sign error when moving to a square root or a root's argument.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-square-root-forgotten",
+        "Forgetting to take the square root after solving for x^2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-y-dy-integrated-as-y",
+        "Integrating y dy as y rather than y^2/2.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode2-y-power-ignored",
+        "Treating dy/dx = a x y^2 as dy/dx = a x y and giving an exponential.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-characteristic-polynomial-differentiated",
+        "Dividing by the derivative of the characteristic polynomial, 2k + b, instead of its value at k.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-coefficient-not-divided",
+        "Giving the forcing coefficient as the coefficient of the particular solution, without dividing by the characteristic polynomial's value.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-constant-term-dropped",
+        "Dropping the constant term of the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-constant-term-slip",
+        "An arithmetic slip in the constant term of the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-constants-swapped",
+        "Swapping the roles of the two homogeneous constants, so each belongs to the wrong exponential.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-derivative-ic-particular-dropped",
+        "Leaving the particular solution's derivative out of the condition on y'(0).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-derivative-order-ignored",
+        "Treating y' and y'' as y when substituting, so the characteristic polynomial becomes k^2 + b + c.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-derivative-terms-dropped",
+        "Dropping the y' (and y'') terms when matching coefficients, so only c times the trial solution is compared.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-exponent-sign",
+        "Evaluating the particular term with the sign of its exponent flipped.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-exponential-dropped",
+        "Treating every exponential factor as 1 when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-initial-value-reported",
+        "Reporting the initial value y(0) instead of y at the requested point.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-particular-dropped",
+        "Dropping the particular term when evaluating the solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-eval-point-wrong",
+        "Evaluating the solution at x = 1 rather than the requested x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-factor-two-mishandled",
+        "Mishandling the factor of 2 produced by differentiating a repeated or resonant trial solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-first-derivative-dropped",
+        "Leaving the y' contribution out when matching the coefficient of x.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-ic-ignores-particular",
+        "Fixing the constants from the initial conditions without allowing for the particular solution's value and slope.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-derivative-incomplete",
+        "Dividing by 2r instead of 2r + b when the trial solution is x e^(rx).",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-factor-x-missing",
+        "Trying A e^(rx) when e^(rx) already solves the homogeneous equation, so the factor x is missing.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-order-too-high",
+        "Multiplying the trial solution by x more times than the multiplicity of the root.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-resonance-order-too-low",
+        "Multiplying by x only once when the root is repeated.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-second-derivative-dropped",
+        "Leaving the y'' contribution (2a) out of the constant-term equation.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-sign-error",
+        "A sign error when solving for the coefficients.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-sign-in-characteristic-polynomial",
+        "Substituting k^2 + bk - c instead of k^2 + bk + c for the characteristic polynomial.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-trig-coefficients-swapped",
+        "Swapping the cosine and sine coefficients of the particular solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-trig-partner-confused",
+        "Using x cos(wx) instead of x sin(wx) as the resonant trial solution's partner.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-trig-partner-missed",
+        "Taking only a cosine term, missing the sine term that the first derivative forces.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "ode3-wrong-root-used",
+        "Using the other characteristic root in the resonant trial solution.",
+        area="ode",
+    ),
+    CatalogueEntry(
+        "series-absolute-confused-with-conditional",
+        "Giving the count of absolutely convergent cases when asked for the conditionally convergent ones.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-conditional-confused-with-divergent",
+        "Counting the conditionally convergent cases as divergent (or the reverse) because the series does not converge absolutely.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-converges-counted-as-absolute",
+        "Counting every convergent case, absolute and conditional together, as the absolutely convergent ones.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-denominator-coefficient-dropped",
+        "Dropping the denominator's leading coefficient when finding the limit in a limit comparison.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-k-overshoot",
+        "Giving a larger exponent than the least one that works.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-limit-inverted",
+        "Inverting the limit: finding lim b_n / a_n instead of lim a_n / b_n.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-lower-terms-kept",
+        "Letting the lower-order terms change the limit, adding them to the leading coefficients or multiplying by them.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-numerator-coefficient-dropped",
+        "Dropping the numerator's leading coefficient when finding the limit in a limit comparison.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-numerator-power-ignored",
+        "Ignoring the power of n in the numerator when finding the exponent p of the p-series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-boundary-excluded",
+        "Excluding a boundary case that belongs in the count (off by one at p = 1 or p = 0).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-p-boundary-included",
+        "Treating p = 1 as convergent (or counting the boundary case on the wrong side): the harmonic series diverges.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "series-root-index-ignored",
+        "Ignoring the root index when finding the exponent p, so the exponent of n under the root is not divided by it.",
+        area="series",
+    ),
 )
 
 #: Every entry, by id.

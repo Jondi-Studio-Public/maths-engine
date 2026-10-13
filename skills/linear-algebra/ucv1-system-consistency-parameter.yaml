@@ -1,0 +1,58 @@
+id: ucv1-system-consistency-parameter
+name: Number of solutions of a linear system with a parameter
+domain: linear-algebra
+description: Find the value of a constant k for which a linear system has no solution, no unique solution or infinitely
+  many solutions, and say what happens at that value.
+status: active
+placement_eligible: false
+prerequisites: [matrix-determinant-3x3, solve-simultaneous-equations]
+answer: number
+sources:
+- topic: fy1la_consistency
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_consistency
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_consistency
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_consistency
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: sign-error-moving-term, description: 'Moving a term to the other side of the equals sign without changing its sign:
+    adding it where it should be subtracted, or the reverse.'}
+- {id: forgot-to-divide-by-coefficient, description: 'Stopping once the x term is alone, without dividing by its coefficient.'}
+- {id: singular-means-infinitely-many, description: 'Assuming that every value of the parameter that makes the determinant
+    zero gives infinitely many solutions, without checking the right-hand side for consistency.'}
+- {id: sum-of-roots-as-root, description: Giving the sum of the roots of the determinant equation (minus the linear coefficient
+    over the quadratic coefficient) as one of the roots.}
+- {id: product-of-roots-as-root, description: Giving the product of the roots of the determinant equation (constant over
+    leading coefficient) as one of the roots.}
+- {id: det-expansion-sign-slip, description: 'Getting a sign wrong when expanding a determinant by cofactors, so a coefficient
+    has the wrong sign.'}
+- {id: dropped-constant-term-det, description: Leaving the constant term out of a determinant that depends on a parameter.}
+- {id: singular-still-unique, description: Saying a system still has exactly one solution when its coefficient matrix has
+    determinant zero.}
+- {id: solution-sign-slip, description: Reaching the right size of answer for a solution of a linear system with the wrong
+    sign.}
+- {id: cramer-numerator-not-divided, description: 'Using Cramer''s rule but stopping at the determinant with the column
+    replaced, without dividing by det A.'}
+- {id: singular-means-no-solution, description: 'Assuming that a determinant of zero always means there is no solution,
+    when the system may be consistent with infinitely many.'}
+difficulty_progression: 'Easy finds the k that makes two lines parallel and distinct (no solution). Medium finds the k that
+  makes a 3x3 coefficient matrix singular, where the determinant is linear in k. Hard puts k in two coefficients, so the
+  determinant is quadratic and the two singular values behave differently: only one gives infinitely many solutions, and
+  the consistency of the right-hand side has to be checked. The exam chain expands the determinant in k, finds the singular
+  k, classifies the system there, and solves for one unknown at a different k.'
+tags: [university-core-v1, linear-algebra, linear-systems, parameter, determinant]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}

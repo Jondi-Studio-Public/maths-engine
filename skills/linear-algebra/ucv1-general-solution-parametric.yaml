@@ -1,0 +1,66 @@
+id: ucv1-general-solution-parametric
+name: General solution of an underdetermined system
+domain: linear-algebra
+description: 'Solve a consistent linear system with free variables: find a solution for chosen free-variable values, a direction
+  vector of the solution line, and a pivot variable in terms of the parameters.'
+status: active
+placement_eligible: false
+prerequisites: [ucv1-row-reduction-rref]
+answer: matrix
+sources:
+- topic: fy1la_general_solution
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_general_solution
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_general_solution
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_general_solution
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: rref-free-column-read-unsigned, description: 'Reading a solution straight off a free column of the reduced matrix
+    without changing its sign (the pivot variable is minus that entry, not that entry).'}
+- {id: free-variable-not-substituted, description: Writing the constants of the reduced equations as the pivot variables
+    without subtracting the multiples of the free variables.}
+- {id: free-variable-value-dropped, description: 'Using the stated value of a free variable in the working but leaving it
+    out of the final solution, so it is reported as zero.'}
+- {id: particular-solution-as-direction, description: Giving a particular solution of the system as the direction vector
+    of its line of solutions.}
+- {id: direction-free-component-zero, description: Writing the direction vector with 0 for the free variable instead of
+    1.}
+- {id: direction-row-as-vector, description: Giving a row of the coefficient matrix as the direction vector of the line
+    of solutions.}
+- {id: free-variable-values-swapped, description: 'Giving the value 1 to the wrong free variable, so the solution is the
+    one for the other free variable.'}
+- {id: rank-counts-all-rows, description: 'Giving the number of rows as the rank, without noticing that a row reduces to
+    zero.'}
+- {id: rank-counts-all-columns, description: Giving the number of columns as the rank.}
+- {id: rank-misses-a-pivot, description: Counting one pivot too few when reading the rank off the reduced matrix.}
+- {id: free-variables-from-rows, description: Counting free variables as the number of rows minus the rank instead of the
+    number of unknowns minus the rank.}
+- {id: free-variables-miscounted, description: Miscounting the non-pivot columns when listing the free variables.}
+- {id: free-variables-all-columns, description: Treating every unknown as a free variable instead of subtracting the pivots.}
+- {id: solution-sign-slip, description: Reaching the right size of answer for a solution of a linear system with the wrong
+    sign.}
+- {id: rhs-read-as-solution, description: Reading the right-hand side b of the system as if it were the solution.}
+- {id: free-variables-set-to-one, description: Setting the free variables to 1 where the question asks for them to be zero.}
+- {id: particular-solution-omitted, description: Writing the multiples of the parameters but leaving out the constant (the
+    particular solution) in a general solution.}
+difficulty_progression: Easy has two equations in three unknowns and asks for the solution at a stated value of the free
+  variable. Medium has three equations of which one is redundant and asks for the direction vector of the line of solutions.
+  Hard has two free variables and asks for the solution at stated values of both. The exam chain finds the rank, the number
+  of parameters (following through from the rank), the particular solution, and a pivot variable as an expression in the
+  parameters s and t.
+tags: [university-core-v1, linear-algebra, linear-systems, free-variables, parametric-solution]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}
