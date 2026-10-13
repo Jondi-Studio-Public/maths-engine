@@ -147,11 +147,25 @@ def year_levels(skill: Skill) -> list[str]:
 
 def frameworks(skill: Skill) -> list[str]:
     found = [name for tag, name in _FRAMEWORK_TAGS.items() if tag in skill.tags]
+    # `acara-v8-4`, `acara-v8-4-methods` and the like tag a skill drawn from the senior curriculum too.
+    if "acara-senior-v8-4" not in found and any(str(tag).startswith("acara-v8-4") for tag in skill.tags):
+        found.append("acara-senior-v8-4")
     for alignment in skill.alignments:
         name = getattr(alignment, "framework", None)
         if name and name not in found:
             found.append(name)
     return found
+
+
+def needs_acara_attribution(skill: Skill) -> bool:
+    """Whether a skill's name or description is adapted from ACARA's senior curriculum (CC BY 4.0), which
+    must then be attributed wherever it is republished."""
+    return (
+        "acara-senior-v8-4" in frameworks(skill)
+        or skill.id.startswith("senior-")
+        or skill.domain == "senior-mathematics"
+        or any(_SENIOR_CODE.match(code) for code in curriculum_codes(skill))
+    )
 
 
 def source_keys(skill: Skill) -> list[str]:
@@ -185,7 +199,7 @@ def skill_summary(skill: Skill, *, full: bool = False) -> dict:
         "learner_band": skill.learner_band,
         "needs_figure": skill.needs_figure,
     }
-    if skill.id.startswith("senior-"):
+    if needs_acara_attribution(skill):
         out["attribution"] = ACARA_ATTRIBUTION
     if full:
         out["description"] = skill.description
@@ -514,7 +528,7 @@ def build_paper(lib: Library, spec: dict, *, answers: bool = True) -> dict:
 
     used = {q["skill"] for v in out_versions for s in v["sections"] for q in s["questions"]}
     attributions = [SKILLS_ATTRIBUTION]
-    if any(skill_id.startswith("senior-") for skill_id in used):
+    if any(needs_acara_attribution(lib.skill(skill_id)) for skill_id in sorted(used)):
         attributions.append(ACARA_ATTRIBUTION)
     return {
         "title": _title(spec.get("title")) or "Worksheet",

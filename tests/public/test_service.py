@@ -104,3 +104,13 @@ def test_an_id_secret_hides_the_generator_seed(lib):
 def test_an_oversized_source_index_is_a_clean_not_found(lib):
     with pytest.raises(service.NotFound, match="no source number"):
         service.make_questions(lib, "simplify-surds", source=10**30)
+
+
+def test_senior_skills_without_the_senior_prefix_are_attributed_too(lib):
+    # `combinations` is tagged `acara-v8-4` and lives in senior-mathematics, but its id has no `senior-` prefix.
+    combinations = lib.skill("combinations")
+    assert "acara-senior-v8-4" in service.frameworks(combinations)
+    assert service.skill_summary(combinations)["attribution"] == service.ACARA_ATTRIBUTION
+    paper = service.build_paper(lib, {"seed": 1, "sections": [{"items": [{"skill": "combinations"}]}]})
+    assert service.ACARA_ATTRIBUTION in paper["attribution"]
+    assert "attribution" not in service.skill_summary(lib.skill("simplify-surds"))
