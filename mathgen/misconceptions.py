@@ -10104,6 +10104,180 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    # -- binomial expansion and coefficients -------------------------------------------------------------------------
+    CatalogueEntry(
+        "binom-pascal-coefficients-omitted",
+        "Expanding a power of a binomial with the powers of each term but no binomial coefficients: every coefficient "
+        "is left as 1 (or as a bare power of the number).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-middle-terms-dropped",
+        "Writing (a + b)^n as a^n + b^n: leaving out every term between the first and the last.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-coefficients-from-previous-row",
+        "Reading the coefficients from row n - 1 of Pascal's triangle instead of row n, so one coefficient is missing "
+        "and the last term is left with a coefficient of 1.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-base-not-raised",
+        "Multiplying each term by the number once instead of raising it to the power that matches its position: "
+        "reading the term in b^3 as b times the binomial coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-base-times-exponent",
+        "Multiplying the number by its exponent instead of raising it to that power: reading 3^2 as 3 x 2 in a term of "
+        "the expansion.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-sign-not-alternating",
+        "Expanding (a - b)^n with every term after the first negative, instead of letting the sign alternate with the "
+        "power of the negative number.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-negative-sign-dropped",
+        "Expanding (a - b)^n as if it were (a + b)^n: the minus sign is lost and every term is positive.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-power-of-base-missed",
+        "Finding a coefficient in a binomial expansion with the right binomial coefficient but only the first power of "
+        "the number instead of the power that matches the term.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-wrong-term-picked",
+        "Giving the coefficient of a neighbouring term (x^1 or x^3) in the expansion instead of the term asked for.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficient-misread",
+        "Reading the wrong entry from the row of Pascal's triangle: taking 4 instead of 6 as the middle coefficient of "
+        "the fourth row.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-constant-term-only",
+        "Giving the sum of the coefficients of an expansion as its constant term alone.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficients-only",
+        "Giving the sum of the binomial coefficients, 2^n, as the sum of the coefficients of an expansion whose terms "
+        "also carry powers of a number.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-permutation-for-combination",
+        "Counting arrangements, n(n - 1)...(n - r + 1), where the binomial coefficient C(n, r) was needed.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-row-sum-given",
+        "Giving the sum of row n of Pascal's triangle, 2^n, where a single binomial coefficient was asked for.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-numbers-omitted",
+        "Giving the binomial coefficient alone as the coefficient of a term, without the powers of the numbers in the "
+        "binomial.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-powers-swapped",
+        "Attaching the exponents to the wrong numbers: using the power r on one number and n - r on the other the "
+        "wrong way round.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-first-number-not-raised",
+        "Raising the second number to its power but leaving the number in front of x as it is, so the power of that "
+        "number is missing from the coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-second-number-not-raised",
+        "Raising the number in front of x to its power but leaving the constant as it is, so the power of the "
+        "constant is missing from the coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-first-number-only",
+        "Finding the constant term of (ax + b/x)^n as C(n, n/2) a^n, ignoring that half the factors are b/x.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-multipliers-omitted",
+        "Adding the two earlier coefficients without multiplying each by the number it comes with when multiplying a "
+        "power of (px + q) by (px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-multipliers-swapped",
+        "Multiplying the coefficient of x^r by q and the coefficient of x^(r+1) by p, the wrong way round, when "
+        "multiplying a power of (px + q) by (px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-one-product-only",
+        "Counting only one of the two ways a term of the next power arises when multiplying a power of (px + q) by "
+        "(px + q).",
+        area="binomial",
+    ),
+    # -- reciprocal trigonometric functions ------------------------------------------------------------------------
+    CatalogueEntry(
+        "recip-not-taken",
+        "Giving the value of cos, sin or tan where sec, cosec or cot was asked for: forgetting to take the "
+        "reciprocal.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-sec-cosec-swapped",
+        "Mixing up sec and cosec: taking sec as the reciprocal of sine, or cosec as the reciprocal of cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-cot-as-tan",
+        "Reading cot as tan (or tan as cot): giving sin/cos where cos/sin was asked for.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-cot-as-cosec",
+        "Confusing cot with cosec: taking cot as the reciprocal of sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-sign-wrong-quadrant",
+        "Giving a negative value where the function is positive in the angle's quadrant.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-quadrant-sign-ignored",
+        "Giving the value of the reference angle without the negative sign the angle's quadrant requires.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-wrong-reference-angle",
+        "Using the complement of the reference angle: taking the value at 60 degrees where 30 degrees was needed, or "
+        "the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-sin-cos-swapped",
+        "Giving the value of cos at the angle where sin was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-reciprocal-given",
+        "Giving the reciprocal function's value, sec for cos or cosec for sin, where cos or sin was asked for.",
+        area="trigonometry",
+    ),
 )
 
 #: Every entry, by id.
