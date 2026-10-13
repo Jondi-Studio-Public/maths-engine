@@ -242,7 +242,7 @@ def build_server(
     def find_skills(
         text: Annotated[Text, Field(description="Words in the skill's id, name or description.")] = None,
         year: Annotated[Text, Field(description='School year: "F", "1" ... "10", "10A".')] = None,
-        curriculum_code: Annotated[
+        code: Annotated[
             Text,
             Field(description='An ACARA code or its start: "AC9M8N01", "AC9M8" for all of Year 8, "ACMMM092".'),
         ] = None,
@@ -253,22 +253,29 @@ def build_server(
         answer_kind: Annotated[
             Text, Field(description="'number', 'mcq', 'expression', 'fraction', 'pair', 'table' and so on.")
         ] = None,
-        gradeable_only: Annotated[bool, Field(description="Leave out skills a person must mark.")] = False,
+        difficulty: Annotated[
+            Text, Field(description="A difficulty the skill offers, such as 'easy' or 'exam'.")
+        ] = None,
+        tag: Annotated[Text, Field(description="A tag on the skill.")] = None,
+        gradeable: Annotated[bool, Field(description="Leave out skills a person must mark.")] = False,
         limit: Annotated[int, Field(ge=1, le=100)] = 25,
     ) -> dict[str, Any]:
-        """Find skills by topic, school year, curriculum code, domain or answer kind. Every filter given must
-        match. Returns how many matched and the first `limit` of them."""
+        """Find skills by topic, school year, curriculum code, domain, answer kind, difficulty or tag. Every filter
+        given must match. Returns how many matched (`count`) and the first `limit` of them. The filters and `count`
+        are named as in the HTTP API's GET /v1/skills."""
         hits = service.find_skills(
             engine.lib,
             text=text,
             year=year,
-            code=curriculum_code,
+            code=code,
             domain=domain,
             framework=framework,
             answer_kind=answer_kind,
-            gradeable_only=gradeable_only,
+            difficulty=difficulty,
+            tag=tag,
+            gradeable_only=gradeable,
         )
-        return {"total": len(hits), "skills": [service.skill_summary(s) for s in hits[:limit]]}
+        return {"count": len(hits), "skills": [service.skill_summary(s) for s in hits[:limit]]}
 
     @server.tool(annotations=read_only)
     def get_skill(skill_id: SkillId) -> dict[str, Any]:
@@ -288,8 +295,8 @@ def build_server(
     Reply = Annotated[
         Typed | Index | Annotated[dict[Annotated[str, Field(max_length=20)], Typed | Index], Field(max_length=26)],
         Field(
-            description="The learner's reply as typed. Multiple choice: the 0-based option index or the option "
-            "text. Multi-part: an object keyed by part label. Table: one string, either the blanks' values in reading "
+            description="The learner's reply as typed. Multiple choice: the option's text (a string), or its 0-based "
+            "index as an integer. Multi-part: an object keyed by part label. Table: one string, either the blanks' values in reading "
             "order separated by commas, semicolons or new lines, or `label = value` pairs (a blank's row label and "
             'column header), or JSON keyed by 0-based "row,column".'
         ),

@@ -99,7 +99,7 @@ Sections per topic, shuffled order, two versions against copying.
 
 ### A curriculum-coded revision sheet
 
-Skills found by `find_skills(curriculum_code="AC9M8N")`, one question each.
+Skills found by `find_skills(code="AC9M8N")`, one question each.
 
 ```json
 {

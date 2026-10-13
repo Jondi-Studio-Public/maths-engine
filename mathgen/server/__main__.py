@@ -15,9 +15,14 @@ def main(argv=None):
     parser.add_argument("--port", type=int, default=8080)
     args = parser.parse_args(argv)
 
-    import uvicorn
+    try:
+        import uvicorn
 
-    from . import Config, create_app
+        from . import Config, create_app
+    except ModuleNotFoundError as exc:
+        if exc.name not in ("uvicorn", "fastapi", "starlette"):
+            raise
+        sys.exit(f'mathgen.server needs {exc.name!r}: install the `server` extra, pip install "maths-engine[server]"')
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     try:

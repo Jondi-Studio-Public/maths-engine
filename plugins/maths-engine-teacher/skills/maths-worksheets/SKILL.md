@@ -18,7 +18,7 @@ Get, or sensibly assume and say so: topic or curriculum codes, year level, how m
 
 ### 2. Map the request to skills
 
-Use `find_skills` (text, `year`, `curriculum_code` prefixes such as `AC9M8N`) and read the best candidates with `get_skill`. Prefer skills whose description matches what the class has actually been taught. Note:
+Use `find_skills` (text, `year`, `code` prefixes such as `AC9M8N`) and read the best candidates with `get_skill`. Prefer skills whose description matches what the class has actually been taught. Note:
 
 - `gradeable` must be true if you want an auto-markable test or LMS export. Rubric skills (proofs, explanations) can go on a printed paper, but a person marks them.
 - `years` is often empty, so a year filter may miss skills. Also search by text and code.

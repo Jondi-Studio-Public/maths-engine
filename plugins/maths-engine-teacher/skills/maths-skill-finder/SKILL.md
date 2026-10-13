@@ -10,10 +10,10 @@ The library is a set of skills. Each skill generates an unlimited supply of ques
 
 ## Tools
 
-- `find_skills(text, year, curriculum_code, domain, framework, answer_kind, gradeable_only, limit)` returns `{"total": n, "skills": [...]}`. All filters combine with AND. Leave out any you do not need.
+- `find_skills(text, year, code, domain, framework, answer_kind, difficulty, tag, gradeable, limit)` returns `{"count": n, "skills": [...]}`. All filters combine with AND. Leave out any you do not need.
 - `get_skill(skill_id)` returns the same summary plus `description`, `prerequisites`, `tags` and `misconceptions`.
 
-Read `total`. If it is larger than the number of skills returned, narrow the search rather than paging through everything.
+Read `count`. If it is larger than the number of skills returned, narrow the search rather than paging through everything.
 
 ## Summary fields
 
@@ -33,7 +33,7 @@ Read `total`. If it is larger than the number of skills returned, narrow the sea
 
 1. Text: `find_skills(text="surd")` matches the id, name and description, ignoring case. Use Australian spelling ("factorise", "metre") and try a synonym if the first word finds nothing.
 2. Year: `find_skills(year="8")`. Values are `F`, `1` to `10`, `10A`.
-3. Curriculum code: `find_skills(curriculum_code="AC9M8N")` matches by prefix.
+3. Curriculum code: `find_skills(code="AC9M8N")` matches by prefix.
 4. Domain, answer kind, framework: use these to narrow a broad result, for example `domain="trigonometry", year="10"`.
 5. Check the best candidates with `get_skill` and read the description. Names can be close and descriptions say exactly what is covered and what is excluded.
 
