@@ -858,7 +858,9 @@ def _tile(rng):
         tw, th = rng.randint(2, 3), rng.randint(2, 3)
         n = rng.randint(max(3, tw + th - 1), min(5, tw * th - 1))
         cells = {(rng.randrange(tw), rng.randrange(th))}
-        while len(cells) < n:
+        for _ in attempts(1000, "a tile grown to its size"):
+            if len(cells) >= n:
+                break
             x, y = rng.choice(sorted(cells))
             dx, dy = rng.choice(((1, 0), (-1, 0), (0, 1), (0, -1)))
             if 0 <= x + dx < tw and 0 <= y + dy < th:
