@@ -206,7 +206,7 @@ class TestSkillsLoad:
         assert skill.id == "senior-an-angle-in-a-semicircle-is-a-right"
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-the-angle-at-the-centre-subtended-by-an"]
         assert skill.placement_eligible == False
         # Check that all three tiers are represented in sources
         sources_topics = [s.topic for s in skill.sources]
@@ -220,7 +220,7 @@ class TestSkillsLoad:
         assert skill.id == "senior-angles-at-the-circumference-of-a-circle-subtended"
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-the-angle-at-the-centre-subtended-by-an"]
         assert skill.placement_eligible == False
         # Check that all three tiers are represented in sources
         sources_topics = [s.topic for s in skill.sources]

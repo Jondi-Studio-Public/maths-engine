@@ -258,7 +258,7 @@ class TestSkillLoad:
         assert skill.domain == "statistics-probability"
         assert skill.answer == "list"
         assert skill.placement_eligible is False
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["calculate-median", "calculate-range"]
         stages_covered = set()
         for source in skill.sources:
             assert source.topic == TOPIC

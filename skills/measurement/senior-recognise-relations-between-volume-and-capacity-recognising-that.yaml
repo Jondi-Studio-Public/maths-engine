@@ -6,7 +6,10 @@ domain: measurement
 description: Given a volume stated in cubic centimetres or cubic metres, convert it to the equivalent capacity in millilitres or kilolitres (or convert the reverse direction), using the exact relations 1 cm^3 = 1 mL and 1 m^3 = 1 kL.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- convert-metric-capacity
+- rectangular-prism-volume
+- senior-understand-the-relationship-between-volume-and-capacity
 answer: number
 sources:
 - topic: p19h_volcap_named_equivalence

@@ -3,7 +3,10 @@ name: Calculate a binomial point probability
 domain: senior-mathematics
 description: Calculate the probability of exactly x successes in a binomial distribution.
 status: active
-prerequisites: [combinations, simple-event-probability]
+prerequisites:
+- combinations
+- simple-event-probability
+- senior-identify-contexts-suitable-for-modelling-by-binomial-random
 answer: number
 sources: [{topic: binomial_probability, params: {}, difficulty: easy}, {topic: exd_x_h2_binomial_point_probability, params: {tier: exam}, difficulty: exam, stages: [exam]}]
 misconceptions: [{id: omits-combinations, description: Omits the binomial coefficient.}]

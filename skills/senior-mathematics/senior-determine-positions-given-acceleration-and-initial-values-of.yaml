@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, determine positions given acceleration and initial values of position and velocity. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-recognise-acceleration-as-the-second-derivative-of-position
+- senior-determine-displacement-given-velocity-in-linear-motion-problems
 answer: expression
 sources:
 - topic: p10a_acceleration_to_position_line

@@ -6,7 +6,9 @@ domain: arithmetic
 description: 'Given bounded, fully specified inputs, review one amount expressed as a percentage of another. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- percentage-of-quantity
+- fraction-decimal-percent
 answer: number
 sources:
 - topic: amount_as_percentage_review

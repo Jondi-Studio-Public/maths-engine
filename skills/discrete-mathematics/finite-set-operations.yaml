@@ -4,7 +4,8 @@ domain: discrete-mathematics
 year_level: [university]
 description: Compute union, intersection, difference or symmetric difference for explicitly listed finite sets.
 status: active
-prerequisites: []
+prerequisites:
+- senior-use-everyday-occurrences-to-illustrate-set-descriptions-and
 answer: list
 sources:
 - topic: finite_set_operations

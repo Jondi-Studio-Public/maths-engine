@@ -1,17 +1,42 @@
 id: solve-linear-equations-graphically
 name: Solve linear equations graphically
 domain: linear-relations
-description: Interpret intersections or equal output values as graphical solutions to linear equations.
-status: deferred
-deferred_reason: visual
+year_level: ['8']
+naplan_domain: [algebra]
+description: 'The learner solves an equation by reading a shown graph and picks x = k from four text options. Easy shows two labelled lines and asks for f(x) = g(x) at their crossing; medium shows one line and asks for the x at which f(x) equals a stated height; hard shows three labelled lines and names the pair to solve, so the other crossings are traps. The solution is never printed on the grid.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - graph-y-mx-plus-b
-- solution-and-solution-set
 answer: mcq
-sources: []
+sources:
+- topic: fg1_solve_graphically
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fg1_solve_graphically
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fg1_solve_graphically
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
 misconceptions:
-- id: misconception-1
-  description: Reading any plotted point as the solution
-- id: misconception-2
-  description: Confusing an approximate graphical solution with an exact value
-tags: []
+- id: reads-the-y-value-instead-of-x
+  description: Gives the y-coordinate of the crossing, or the stated height, as the solution for x.
+- id: sign-error-on-the-solution
+  description: Reads the right gridline but gives the solution the wrong sign.
+- id: off-by-one-gridline
+  description: Reads the crossing one gridline to the left or right of where it is.
+- id: reads-where-a-line-meets-the-y-axis
+  description: Gives the point where a line meets the y-axis as the solution.
+- id: reads-where-a-line-meets-the-x-axis
+  description: Gives the point where a line meets the x-axis as the solution.
+- id: finds-f-of-k-instead-of-solving
+  description: Evaluates f at the stated number instead of finding the x that gives that value of f.
+- id: solves-for-the-wrong-pair-of-lines
+  description: Reads the crossing of a different pair of lines from the pair the question names.
+tags: [acara-f10-v9, linear-relations, ac9m8a02, figure]

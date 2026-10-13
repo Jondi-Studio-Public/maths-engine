@@ -5,11 +5,11 @@ Line of best fit by eye.
 
 - ``p8c_line_best_fit_by_eye`` (``senior-find-the-line-of-best-fit-by-eye``,
   ACMEM141, domain statistics-probability, answer: mcq) -- four candidate
-  lines are proposed against a small integer scatter dataset, stated in the
-  question text (no image, no drawing). "Best fit" is never a judgement
+  lines are proposed against a small integer scatter dataset, drawn as a
+  scatter plot (a ``cartesian`` figure; the prompt does not list the points). "Best fit" is never a judgement
   call: it is the candidate with the strictly smallest sum of squared
   residuals (ssr) AND the strictly smallest sum of absolute residuals (sad)
-  against the *stated* points, each separated from its own runner-up by a
+  against the *drawn* points, each separated from its own runner-up by a
   real margin -- never a hidden "true" generating line the learner cannot
   see. Every data point and every candidate (m, b) is an integer, so every
   residual sum is an exact integer; no floats, no rounding ambiguity.
@@ -17,6 +17,9 @@ Line of best fit by eye.
 
 from __future__ import annotations
 
+import re
+
+from .. import figures
 from ..core import check, generator, join_terms, pick_distractors
 
 # Every candidate slope is drawn (or, for the outlier-drag candidate,
@@ -197,12 +200,20 @@ def p8c_line_best_fit_by_eye(rng, variant="easy"):
     # free positional shortcut.
     display_order = list(range(4))
     rng.shuffle(display_order)
-    points_text = ", ".join(f"({x}, {y})" for x, y in points)
     lines_text = ", ".join(texts[i] for i in display_order)
     question_text = (
-        f"A scatter plot shows these data points: {points_text}. "
+        "The scatter plot shows five data points. "
         f"Four candidate lines are proposed as models for the data: {lines_text}. "
         "Which line is the best fit for this data?"
+    )
+    ys = [y for _, y in points]
+    figure = figures.cartesian(
+        x_range=(0, max(_X_VALUES) + 1),
+        y_range=(min(ys) - 1, max(ys) + 1),
+        grid=1,
+        equal_scale=False,
+        points=[{"at": [x, y]} for x, y in points],
+        alt="a scatter plot",
     )
 
     answer_text = texts[0]
@@ -223,4 +234,24 @@ def p8c_line_best_fit_by_eye(rng, variant="easy"):
         "answer_latex": answer_text,
         "distractors": distractors,
         "working": working,
+        "figure": figure,
     }
+
+
+_EQ_RE = re.compile(r"y = (-?\d+)x ([+-]) (\d+)")
+
+
+def _read_best_line(question) -> str:
+    """Re-derive the best candidate from the drawn points and the equations in the prompt alone."""
+    points = [tuple(p["at"]) for p in question.figure["points"]]
+    best = None
+    for m_str, sign, b_str in _EQ_RE.findall(question.text):
+        m, b = int(m_str), int(b_str) * (1 if sign == "+" else -1)
+        score = (_ssr(points, m, b), _sad(points, m, b))
+        if best is None or score < best[0]:
+            best = (score, _line_text(m, b))
+    check(best is not None, "no candidate lines in the prompt")
+    return best[1]
+
+
+figures.register_reader("p8c_line_best_fit_by_eye", _read_best_line)

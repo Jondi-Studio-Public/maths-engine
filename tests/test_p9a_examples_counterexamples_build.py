@@ -119,7 +119,7 @@ class TestCounterexampleIdentify:
         assert skill is not None
         assert skill.domain == "senior-mathematics"
         assert skill.answer == "mcq"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["f10-odd-even-properties"]
         assert skill.placement_eligible is False
         assert len([s for s in skill.sources if s.difficulty != "exam"]) == 3
 

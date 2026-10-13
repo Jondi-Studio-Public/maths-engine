@@ -4,7 +4,8 @@ domain: functions-sequences
 description: Calculate and interpret the constant difference between consecutive terms.
 status: active
 prerequisites:
-- arithmetic-sequences
+- integer-arithmetic
+- f10-skip-count-pattern-sequences
 answer: number
 sources:
 - topic: sequence

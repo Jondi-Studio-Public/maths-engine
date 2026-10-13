@@ -336,7 +336,7 @@ def test_factorial_notation_skill_loads_with_correct_properties():
     assert skill is not None, f"{FACT_SKILL} not found"
     assert skill.answer == "expression"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["multiplication-principle"]
     assert len(skill.sources) == 4
     for source in skill.sources[:3]:
         assert source.topic == FACT_TOPIC
@@ -354,7 +354,7 @@ def test_restricted_permutations_skill_loads_with_correct_properties():
     assert skill is not None, f"{RESTR_SKILL} not found"
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["permutations", "senior-use-factorial-notation"]
     assert len(skill.sources) == 4
     for source in skill.sources[:3]:
         assert source.topic == RESTR_TOPIC

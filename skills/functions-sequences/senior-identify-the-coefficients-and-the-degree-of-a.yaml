@@ -10,7 +10,9 @@ description: 'Given a stated polynomial in one variable, state its degree and th
   coefficient list is never asked for.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- variable-concept
+- evaluate-powers
 answer: pair
 sources:
 - topic: p19e_poly_degree_leading

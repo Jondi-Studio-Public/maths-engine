@@ -299,15 +299,15 @@ def test_geometric_adds_instead_of_multiplies_collision_rate_measured():
 # --- Skill contract loading tests -----------------------------------------
 
 
-def test_both_skills_load_with_answer_pair_and_no_prerequisites():
+def test_both_skills_load_with_answer_pair_and_their_prerequisites():
     _, skills = load_skills(ROOT / "skills")
     by_id = {s.id: s for s in skills}
     arith = by_id[ARITH_ID]
     geom = by_id[GEOM_ID]
     assert arith.answer == "pair"
     assert geom.answer == "pair"
-    assert arith.prerequisites == []
-    assert geom.prerequisites == []
+    assert arith.prerequisites == ["generate-sequence-from-rule", "common-difference"]
+    assert geom.prerequisites == ["generate-sequence-from-rule", "ratio-rate-proportion"]
 
 
 def test_both_skills_are_active_and_not_placement_eligible():

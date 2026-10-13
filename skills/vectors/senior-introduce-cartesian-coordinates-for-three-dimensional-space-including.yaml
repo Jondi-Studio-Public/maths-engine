@@ -18,7 +18,9 @@ description: Given the equation of a sphere in centre-radius form, or in expande
   no equation, no centre, no radius).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-three-dimensional-coordinates
+- coordinate-plane-readiness
 answer: ordered_list
 sources:
 - topic: pv0c_sphere_centre_radius

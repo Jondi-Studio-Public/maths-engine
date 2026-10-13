@@ -537,7 +537,7 @@ def test_skill_loads_with_expected_metadata():
     skill = {s.id: s for s in skills}.get(SKILL_ID)
     assert skill is not None
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["classify-data", "variable-concept"]
     assert skill.placement_eligible is False
     assert {src.difficulty for src in skill.sources} == set(TIERS)
     assert {src.topic for src in skill.sources} == {TOPIC}

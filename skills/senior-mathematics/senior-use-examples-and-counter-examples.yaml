@@ -6,7 +6,8 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, use examples and counter-examples. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-odd-even-properties
 answer: mcq
 sources:
 - topic: counterexample_identify

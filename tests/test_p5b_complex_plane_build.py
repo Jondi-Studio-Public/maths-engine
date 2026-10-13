@@ -268,12 +268,16 @@ class TestCartesianPolarConvert:
         skill1 = next((s for s in skills if s.id == "senior-consider-complex-numbers-as-points-in-a-plane"), None)
         assert skill1 is not None, "Skill 1 not found in skills library"
         assert skill1.answer == "pair", f"Skill 1 answer type: {skill1.answer}"
-        assert skill1.prerequisites == [], f"Skill 1 prerequisites: {skill1.prerequisites}"
+        assert skill1.prerequisites == ["senior-review-cartesian-form", "coordinate-plane-readiness"], (
+            f"Skill 1 prerequisites: {skill1.prerequisites}"
+        )
         assert skill1.placement_eligible is False
 
         # Check skill 2
         skill2 = next((s for s in skills if s.id == "senior-convert-between-cartesian-and-polar-form"), None)
         assert skill2 is not None, "Skill 2 not found in skills library"
         assert skill2.answer == "pair", f"Skill 2 answer type: {skill2.answer}"
-        assert skill2.prerequisites == [], f"Skill 2 prerequisites: {skill2.prerequisites}"
+        assert skill2.prerequisites == ["senior-consider-complex-numbers-as-points-in-a-plane", "complex-modulus"], (
+            f"Skill 2 prerequisites: {skill2.prerequisites}"
+        )
         assert skill2.placement_eligible is False

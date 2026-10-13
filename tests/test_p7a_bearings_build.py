@@ -321,7 +321,7 @@ class TestSkillLoads:
         skill = next((s for s in skills if s.id == SKILL_ID), None)
         assert skill is not None, f"skill {SKILL_ID} not found"
         assert skill.answer == "number"
-        assert skill.prerequisites == []
+        assert skill.prerequisites == ["senior-apply-the-cosine-and-sine-ratios-to-find", "f10-angle-relationships"]
         assert skill.placement_eligible is False
         assert len(skill.sources) == 4
 

@@ -5,7 +5,9 @@ year_level: [university]
 description: Given a rational polynomial of degree at most 4 and a specified root alpha, or two rational numbers a and b, return [Q(alpha):Q] or [Q(sqrt a, sqrt b):Q] by deciding reducibility over Q.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- factorise-quadratic
+- simplify-surds
 answer: number
 sources:
 - topic: p17a_field_extension_degree

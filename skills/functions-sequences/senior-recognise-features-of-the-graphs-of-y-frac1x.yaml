@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-examine-examples-of-inverse-proportion
+- function-notation
 answer: pair
 sources:
 - topic: pv1e_hyperbola_asymptotes

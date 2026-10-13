@@ -295,11 +295,14 @@ def test_both_skills_load_via_api_skills():
     classify_skill = skills_dict.get("senior-review-the-conditions-for-similarity-of-two-dimensional")
     assert classify_skill is not None
     assert classify_skill.answer == "mcq"
-    assert classify_skill.prerequisites == []
+    assert classify_skill.prerequisites == ["f10-congruence-similarity-criteria"]
     assert classify_skill.placement_eligible is False
 
     length_skill = skills_dict.get("senior-use-the-scale-factor-for-two-similar-figures")
     assert length_skill is not None
     assert length_skill.answer == "number"
-    assert length_skill.prerequisites == []
+    assert length_skill.prerequisites == [
+        "senior-review-the-conditions-for-similarity-of-two-dimensional",
+        "ratio-rate-proportion",
+    ]
     assert length_skill.placement_eligible is False
