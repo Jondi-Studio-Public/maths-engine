@@ -739,15 +739,32 @@ _WRITTEN_FRACTION_PART_RE = re.compile(r"(\d+)\s*/\s*(\d+)\s*$")
 
 
 def _in_lowest_terms_if_asked(question, given: str) -> bool:
-    """Whether a fraction reply is reduced, when the question asks for lowest terms. A reply that writes no a/b
-    (a whole number, a decimal) is judged by value alone, as before."""
+    """Whether a fraction reply is in the form the question asks for, when it asks for lowest terms.
+
+    An a/b reply must be reduced ("6/8" is not). A reply that writes no a/b must be a whole number: a decimal
+    ("0.568" for 71/125) is a different form, not an answer to "write as a fraction in simplest form". Both
+    only apply when the canonical is itself an a/b or a whole number, so a key that is written as a decimal is
+    never refused its own form. The wording is looked for in the text of the question or, for a multi-part
+    question, of the part being marked."""
     if not _LOWEST_TERMS_RE.search(getattr(question, "text", "") or ""):
         return True
-    written = _WRITTEN_FRACTION_PART_RE.search(_tidy_fraction_text(_strip_label(given)))
-    if written is None:
+    shown = _tidy_fraction_text(_strip_label(getattr(question, "answer_text", "") or ""))
+    exact = bool(_WRITTEN_FRACTION_PART_RE.search(shown) or re.fullmatch(r"-?\d+", shown))
+    return _written_in_lowest_terms(given, exact)
+
+
+def _written_in_lowest_terms(given: str, exact_canonical: bool) -> bool:
+    """Whether one reply is written as a reduced a/b or, when the canonical is exact (an a/b or a whole number),
+    as a whole number. With an inexact canonical a decimal is not refused."""
+    tidy = _tidy_fraction_text(_strip_label(given))
+    written = _WRITTEN_FRACTION_PART_RE.search(tidy)
+    if written is not None:
+        numerator, denominator = int(written.group(1)), int(written.group(2))
+        return denominator != 0 and math.gcd(numerator, denominator) == 1
+    if not exact_canonical:
         return True
-    numerator, denominator = int(written.group(1)), int(written.group(2))
-    return denominator != 0 and math.gcd(numerator, denominator) == 1
+    value = _parse_typed_fraction(given)
+    return value is None or value.denominator == 1
 
 
 _PAIR_TOLERANCE = 0.051  # mathgen.grading.spoken's transcript tolerance: now only the fallback
@@ -1399,11 +1416,19 @@ def grade_ordered_list(question, given: str) -> GradeResult:
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
 
     correct = True
+    asks_lowest_terms = bool(_LOWEST_TERMS_RE.search(getattr(question, "text", "") or ""))
     for given_item, expected_item in zip(items, expected):
         if isinstance(expected_item, (int, float, Fraction)):
             given_value = _parse_numeric_item(given_item)
             if given_value is None or not _numeric_items_equal(given_value, expected_item):
                 correct = False
+                break
+            if (
+                asks_lowest_terms
+                and isinstance(expected_item, (int, Fraction))
+                and not _written_in_lowest_terms(given_item, True)
+            ):
+                correct = False  # "14/60" or "0.2333" where each item is to be a fraction in lowest terms
                 break
         elif given_item.strip().lower() != str(expected_item).strip().lower():
             correct = False

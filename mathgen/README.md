@@ -114,7 +114,9 @@ accepts half a unit in its last place, and an answer shown exactly (`2.6` for 7.
 exactly. If the stored answer is itself rounded, say so in the question ("to the nearest cent").
 `grade_fraction` compares
 by value, so `2/4` is accepted for `1/2` and you cannot build a "does not simplify"
-distractor. Expressions are compared by symbolic equivalence.
+distractor. The exception is a stem that asks for "lowest terms", "simplest form" or "simplify": `2/4` and `0.5` are
+then wrong for `1/2` (a whole number is still fine), and each item of an `ordered_list` of fractions is held to the
+same rule. Expressions are compared by symbolic equivalence.
 
 **Presets.** `presets` maps names such as `easy`, `medium` and `hard` to keyword bundles.
 Explicit params passed to `make()` override a preset. A topic with no presets uses its
