@@ -156,9 +156,23 @@ are identifiers, not categories.
 ## How determinism and grading work
 
 **Determinism.** A generator takes a seeded random source and nothing else.
-The same skill, source and seed always give the same question text, answer and
-options, on any machine. That makes failures reproducible and lets tests sweep
-many seeds.
+Within one version of the library, the same skill, source and seed always give
+the same question text, answer and options, on any machine. That makes failures
+reproducible and lets tests sweep many seeds.
+
+**Question identity.** Across versions, what is stable is a *question id*,
+`<skill id>/<source key>/<seed>/<hash>`, from `engine.make_with_id(skill, seed)`
+or `engine.question_id(...)`. The source key is the source's optional `key`
+(default: its `difficulty` label); the hash is the first 12 hex characters of
+SHA-256 over the question's full content. The engine does not promise that a
+seed gives the same question forever, since a generator may be fixed or
+improved. It promises that a change is detected:
+`engine.regenerate(question_id, skills)` rebuilds the question and raises
+`QuestionChanged` (carrying the old id, the new id and the new question) when
+the hash no longer matches, so a host re-grading an old attempt never marks it
+against a different question. `tests/golden/questions.txt` records the ids of
+three seeds of every active source, and CI fails when any of them changes
+unannounced (see "Seed stability" in `CONTRIBUTING.md`).
 
 **Grading.** The grader that accepts an answer lives next to the generator
 that produced it. Typed numeric answers are graded to their own stated
