@@ -1,6 +1,8 @@
 id: f10-fractions-half-quarter-eighth
 name: Halve a fraction to find halves, quarters and eighths
 domain: primary-number
+year_level: ['2']
+naplan_domain: [number, measurement]
 description: Split a whole or an event into equal parts and relate halves to quarters and eighths by halving again and again. Every question produces a fraction answer by halving -- either forward (halve a given fraction once or twice) or in reverse (find the fraction that, once halved, gives a stated result) -- never an operation on two supplied fractions.
 status: active
 placement_eligible: false

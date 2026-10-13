@@ -1,6 +1,8 @@
 id: f10-expanded-powers-ten
 name: Expand numbers using powers of ten
 domain: secondary-number
+year_level: ['7']
+naplan_domain: [number]
 description: Given a natural number written in expanded place-value notation using powers of ten (for example 4*10^3 + 3*10^2 + 5*10 + 6), reconstruct the single numeral it represents.
 status: active
 placement_eligible: false

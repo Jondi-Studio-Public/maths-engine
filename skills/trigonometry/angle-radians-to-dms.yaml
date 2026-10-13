@@ -4,7 +4,8 @@ domain: trigonometry
 description: 'Given a radian value in one of four input shapes (a 3dp decimal, a word-problem framing of the same decimal, a bare fraction, or a word-problem framing of an exact pi-fraction), convert to degrees and minutes, rounded to the nearest minute. Reverse direction of the DMS-to-radians conversion (a separate skill); split because they use different grader kinds.'
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- angle-radians-to-degrees-decimal
 answer: pair
 sources:
 - topic: t4_radians_to_dms

@@ -9,7 +9,9 @@ description: Given two or more force vectors, stated by magnitude and direction,
   direction).
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-examine-momentum-force-resultant-force-action-and-reaction
+- vector-addition
 answer: pair
 sources:
 - topic: p19g_concurrent_forces_resultant

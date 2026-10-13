@@ -1,6 +1,7 @@
 id: ucv1-wave-parameter-relation
 name: Relate wave parameters
 domain: mathematical-physics
+year_level: [university]
 description: Compute one wavelength, frequency or wave speed from the other two supplied parameters.
 status: active
 placement_eligible: false

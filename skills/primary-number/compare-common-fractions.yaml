@@ -1,6 +1,7 @@
 id: compare-common-fractions
 name: Compare common fractions
 domain: primary-number
+year_level: ['6']
 placement_order: 20
 placement_questions: 3
 placement_pass: 2

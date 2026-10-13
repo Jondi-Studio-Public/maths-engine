@@ -1,6 +1,7 @@
 id: ucv1-wave-equation-separation
 name: Separate a one-dimensional wave equation
 domain: fourier-analysis-and-pdes
+year_level: [university]
 description: Compute one product-form separated mode for a supplied one-dimensional wave equation and boundary family.
 status: active
 placement_eligible: false

@@ -26,9 +26,9 @@ def _round(x, places: int) -> str:
     return str(Decimal(str(mp.nstr(x, 30))).quantize(Decimal(1).scaleb(-places), rounding=ROUND_HALF_UP))
 
 
+@mp.workdps(30)  # scoped, so the precision does not leak into later tests on the same worker
 def oracle(q) -> dict[str, str]:
     """Re-derive the four answers from the rendered prompts, by quadrature of the density."""
-    mp.dps = 30
     lam = mpf(re.search(r"f\(t\) = ([\d.]+)e\^", q.stem).group(1))
     b = mpf(re.search(r"P\(T ≤ ([\d.]+)\)", q.parts[0].prompt).group(1))
     lo, hi = re.search(r"P\(([\d.]+) < T ≤ ([\d.]+)\)", q.parts[1].prompt).groups()

@@ -1,6 +1,7 @@
 id: f10-decimal-metric-representation
 name: Choose decimal representations of metric measures
 domain: measurement
+year_level: ['6']
 description: Convert a metric measurement and choose a decimal representation that is appropriate for the context and precision required.
 status: active
 placement_eligible: false

@@ -8,7 +8,9 @@ status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-factorise-cubic-polynomials-in-cases-where-a-linear
+- function-notation
 answer: number
 sources:
 - topic: pv1f_cubic_y_intercept

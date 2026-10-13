@@ -1,6 +1,7 @@
 id: ucv1-chinese-remainder-two-congruences
 name: Solve two coprime congruences
 domain: number-theory
+year_level: [university]
 description: Find the least non-negative solution to two supplied coprime linear congruences.
 status: active
 placement_eligible: false

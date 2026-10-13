@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given a flight's departure day and time and each place's stated GMT offset, use GMT as the reference to find the local day and time of arrival, crossing the International Date Line.
 status: active
 placement_eligible: false
-prerequisites: [senior-solve-problems-involving-time-zones-in-australia-and]
+prerequisites:
+- senior-solve-problems-involving-time-zones-in-australia-and
+- senior-find-time-differences-between-two-places-on-earth
 answer: mcq
 sources:
 - topic: p16c_gmt_dateline

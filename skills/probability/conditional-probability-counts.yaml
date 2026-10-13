@@ -1,6 +1,7 @@
 id: conditional-probability-counts
 name: Compute conditional probability from counts
 domain: probability
+year_level: [university]
 description: Compute P(A given B) from four finite counts for A and B.
 status: active
 prerequisites: [simple-event-probability]

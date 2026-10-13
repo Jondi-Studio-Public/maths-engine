@@ -6,7 +6,9 @@ domain: trigonometry
 description: "Given theta as a stated standard angle (an integer multiple of pi/6 or pi/4), state the exact coordinates (cos theta, sin theta) of the corresponding point on the unit circle, as one typed ordered pair in simplified surd form."
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- angle-degrees-radians-pi-form
+- f10-trig-ratios-similarity
 answer: expression
 sources:
 - topic: p19g_unit_circle_coordinates

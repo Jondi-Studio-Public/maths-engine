@@ -1,6 +1,7 @@
 id: ucv1-contour-integral-residue
 name: Evaluate a residue-based contour integral
 domain: complex-analysis
+year_level: [university]
 description: Evaluate a supplied positively oriented contour integral enclosing one stated simple pole using the residue value.
 status: active
 placement_eligible: false

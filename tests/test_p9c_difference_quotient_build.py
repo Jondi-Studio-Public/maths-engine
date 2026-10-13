@@ -168,7 +168,7 @@ def test_skill_1_loads_with_correct_properties():
     assert skill is not None, f"{SKILL_1} not found"
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-interpret-the-difference-quotient-frac-f-left-x", "limit-removable"]
     assert len(skill.sources) == 4  # easy, medium, hard and exam
     for source in skill.sources[:3]:  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == TOPIC_1
@@ -184,7 +184,7 @@ def test_skill_2_loads_with_correct_properties():
     assert skill is not None, f"{SKILL_2} not found"
     assert skill.answer == "fraction"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["senior-use-the-leibniz-notation-delta-x-and-delta", "function-notation"]
     assert len(skill.sources) == 4  # easy, medium, hard and exam
     for source in skill.sources[:3]:  # the exam source is covered by this skill's tests/test_exd_x_* file
         assert source.topic == TOPIC_2

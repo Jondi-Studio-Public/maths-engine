@@ -1,6 +1,8 @@
 id: f10-terminating-recurring-decimals
 name: Classify terminating and recurring decimals
 domain: secondary-number
+year_level: ['8']
+naplan_domain: [number]
 description: Identify whether a decimal terminates or recurs and convert it to an equivalent fraction in lowest terms.
 status: active
 placement_eligible: false

@@ -6,7 +6,8 @@ domain: differentiation
 description: Given bounded, fully specified inputs, review sine, cosine and tangent as ratios of side lengths in right-angled triangles. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- f10-trig-ratios-similarity
 answer: fraction
 sources:
 - topic: trig_ratio_review_tan

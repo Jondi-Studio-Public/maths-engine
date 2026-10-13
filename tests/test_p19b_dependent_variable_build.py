@@ -187,7 +187,7 @@ def test_skill_loads_with_expected_metadata():
     skill = skills_dict.get("senior-identify-the-dependent-and-independent-variable")
     assert skill is not None
     assert skill.answer == "mcq"
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["classify-data", "variable-concept"]
     assert skill.placement_eligible is False
     difficulties = {src.difficulty for src in skill.sources}
     assert difficulties == {"easy", "medium", "hard", "exam"}

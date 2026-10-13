@@ -6,7 +6,9 @@ domain: trigonometry
 description: "Given theta as a stated integer multiple of pi/6 or pi/4, and which of cos(theta), sin(theta) or tan(theta) is asked for, state its exact value in simplified surd form as a multiple-choice option. tan(theta) is undefined at odd multiples of pi/2 -- that case is a real, gradable key on the harder tiers, offered as a plain \"undefined\" mcq option (never a typed expression)."
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+- angle-degrees-radians-pi-form
 answer: mcq
 sources:
 - topic: p19g_exact_trig_value

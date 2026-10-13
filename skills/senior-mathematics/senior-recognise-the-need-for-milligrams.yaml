@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given a stated real-world mass description, choose the most appropriate unit among milligrams, grams, kilograms and tonnes for measuring it.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- convert-metric-mass
+- senior-eview-metric-units-of-mass-and-weight-their
 answer: mcq
 sources:
 - topic: p19h_need_for_milligrams

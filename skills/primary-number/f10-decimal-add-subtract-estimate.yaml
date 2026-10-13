@@ -1,6 +1,8 @@
 id: f10-decimal-add-subtract-estimate
 name: Estimate decimal addition and subtraction
 domain: primary-number
+year_level: ['6']
+naplan_domain: [number]
 description: Estimate the result of a decimal addition or subtraction by rounding the decimals to a stated place. Every question states the rounding place explicitly and asks for the rounded-then-combined estimate, never the exact computed value.
 status: active
 placement_eligible: false

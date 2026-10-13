@@ -238,7 +238,7 @@ def test_skill_loads_with_correct_prerequisites_and_placement():
         None,
     )
     assert skill is not None
-    assert skill.prerequisites == []
+    assert skill.prerequisites == ["ratio-rate-proportion", "convert-metric-length"]
     assert skill.placement_eligible is False
     assert skill.answer == "number"
     difficulties = {src.difficulty for src in skill.sources}

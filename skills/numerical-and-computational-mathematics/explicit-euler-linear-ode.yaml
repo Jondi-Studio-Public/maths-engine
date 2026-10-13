@@ -1,6 +1,7 @@
 id: explicit-euler-linear-ode
 name: Take one explicit Euler ODE step
 domain: numerical-and-computational-mathematics
+year_level: [university]
 description: Compute one exact explicit Euler update for a first-order linear differential equation.
 status: active
 prerequisites: [solve-ode-separable-poly]

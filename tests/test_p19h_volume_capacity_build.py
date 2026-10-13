@@ -339,6 +339,19 @@ def test_raises_on_unknown_mode_both_topics():
 # --- skill loading -------------------------------------------------------------
 
 
+PREREQUISITES = {
+    "senior-understand-the-relationship-between-volume-and-capacity": [
+        "convert-metric-capacity",
+        "rectangular-prism-volume",
+    ],
+    "senior-recognise-relations-between-volume-and-capacity-recognising-that": [
+        "convert-metric-capacity",
+        "rectangular-prism-volume",
+        "senior-understand-the-relationship-between-volume-and-capacity",
+    ],
+}
+
+
 @pytest.mark.parametrize(
     "skill_id",
     [
@@ -352,7 +365,7 @@ def test_skill_loads_with_expected_properties(skill_id):
     assert skill is not None
     assert skill.answer == "number"
     assert skill.placement_eligible is False
-    assert skill.prerequisites == []
+    assert skill.prerequisites == PREREQUISITES[skill_id]
     assert len(skill.sources) == 4
     exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
     assert len(exam_sources) == 1

@@ -3,8 +3,10 @@
 id: senior-compare-the-characteristics-of-the-shape-of-histograms
 name: Compare the characteristics of the shape of histograms using symmetry, skewness and bimodality
 domain: statistics-probability
-description: 'Given a histogram''s class-frequency data or a description of its shape, classify that shape as symmetric, skewed left, skewed right, or bimodal, from four options offered on every draw. Every prompt states the skewed-right/positively-skewed convention (longer tail towards larger values) so the classic sign confusion is removed by construction, not assumed. Four tiers: a verbal description of the shape that never uses the answer''s own words; a class-frequency table printed in class order; the same table with its rows shuffled out of class order, so the classes must be reordered first; and an exam chain on one frequency table: estimate the mean from the class midpoints, estimate the median by interpolation, then use their difference to name the shape. Distinct from senior-use-relative-frequencies-and-histograms-obtained-from-data, which uses the same class-frequency data to estimate a probability rather than classify the shape of the distribution itself.'
+description: 'Given a drawn histogram, a description of its shape or a class-frequency table, classify that shape as symmetric, skewed left, skewed right, or bimodal. Every prompt states the skewed-right/positively-skewed convention (longer tail towards larger values) so the classic sign confusion is removed by construction, not assumed. Tiers: easy gives a verbal description of the shape that never uses the answer''s own words; medium gives one drawn histogram; hard gives one drawn histogram whose values are all subtracted from a stated number, so the learner classifies the drawn shape and then reflects it. The exam tier is a chain on one class-frequency table: estimate the mean from the class midpoints, estimate the median by interpolation, then use their difference to name the shape. Distinct from senior-use-relative-frequencies-and-histograms-obtained-from-data, which uses the same class-frequency data to estimate a probability rather than classify the shape of the distribution itself.'
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [simple-event-probability]
 answer: mcq
@@ -34,6 +36,6 @@ misconceptions:
   description: Reads a genuinely symmetric table as skewed, over-reading a small (<=1) mirror difference as a real one-sided tail.
 - id: skewed-as-bimodal
   description: Mistakes a single-peaked skewed distribution's tail for a second cluster, calling it bimodal when there is only one real peak.
-- id: reads-unsorted-order
-  description: On the hard tier, judges the shape from the shuffled row order as printed, instead of reordering the classes by their lower bound first.
+- id: forgets-the-reflection
+  description: On the hard tier, classifies the histogram as drawn and ignores that subtracting every value from a number reverses it, so a skewed shape keeps its old direction.
 tags: [acara-senior-v8-4, statistics-probability, histogram, shape, skewness, bimodality, acmem060]

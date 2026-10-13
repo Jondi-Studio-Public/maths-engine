@@ -6,7 +6,9 @@ domain: measurement
 description: Given a volume stated in cubic centimetres or cubic metres, convert it to its equivalent capacity in millilitres or litres.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- convert-metric-capacity
+- rectangular-prism-volume
 answer: number
 sources:
 - topic: p19h_volcap_general_relationship

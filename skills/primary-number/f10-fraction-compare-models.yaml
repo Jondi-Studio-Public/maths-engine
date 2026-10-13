@@ -1,6 +1,8 @@
 id: f10-fraction-compare-models
 name: Compare shaded fraction models
 domain: primary-number
+year_level: ['3']
+naplan_domain: [number]
 description: Compare equal-sized models cut into equal parts and choose the one with more shaded, then pick the one with the most or least shaded from four models cut differently.
 status: active
 capability_gates: [figure_stimulus]

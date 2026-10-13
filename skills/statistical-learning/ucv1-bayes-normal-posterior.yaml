@@ -1,6 +1,7 @@
 id: ucv1-bayes-normal-posterior
 name: Compute a conjugate normal posterior
 domain: statistical-learning
+year_level: [university]
 description: Compute the posterior mean and variance for a supplied normal-normal
   conjugate update -- prior N(mu0, tau0^2) on an unknown mean, a known data variance
   sigma^2, a sample size n and a sample mean x-bar, all stated directly in the

@@ -1,6 +1,7 @@
 id: f10-irregular-composite-area
 name: Calculate irregular composite area
 domain: measurement
+year_level: ['8']
 description: Decompose an irregular or composite rectilinear shape into familiar parts, calculate its area and report square units.
 status: active
 placement_eligible: false

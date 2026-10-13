@@ -1,6 +1,8 @@
 id: f10-measure-uniform-informal-units
 name: Measure length with uniform informal units
 domain: measurement
+year_level: ['1', '2']
+naplan_domain: [measurement]
 description: Find the length of an object from identical informal units (paper clips, cubes, footprints) laid end to end along it, including a part unit and the difference between two objects, and decide whether a measurement is fair when the units leave gaps, overlap or differ in size.
 status: active
 capability_gates: [figure_stimulus]

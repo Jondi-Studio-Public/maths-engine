@@ -1,0 +1,45 @@
+name: nightly
+
+# The wide skill sweep: every active skill, every source, seeds 0 to 39 (scripts/sweep_skills.py). CI runs the
+# test suite, which samples a few seeds; this builds 40 per source each night and fails on an exception, a question
+# that takes over 10 s, an answer that does not grade correct and a distractor that does. It has no pull_request
+# trigger, so a pull request cannot make it run its own branch, and it reads nothing but this repository.
+# The conventions are ci.yml's: pinned actions, a read-only token, no credentials kept, no secrets, a
+# hosted runner and constraint-pinned installs. The `workflows` job in ci.yml lints this file too.
+
+on:
+  schedule:
+    - cron: "30 15 * * *" # 15:30 UTC, which is 01:30 in Sydney
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Exact versions of everything pip installs; see ci.yml for why there are two variables.
+  PIP_CONSTRAINT: ${{ github.workspace }}/.github/requirements-ci.txt
+  PIP_BUILD_CONSTRAINT: ${{ github.workspace }}/.github/requirements-ci.txt
+
+defaults:
+  run:
+    shell: bash # bash -eo pipefail, so a failure inside a pipeline fails the step
+
+jobs:
+  sweep:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            .github/requirements-ci.txt
+      - run: pip install -e ".[dev]"
+      - name: Sweep every active skill
+        # Writes the failing (skill, source, seed, reason) rows to the job summary, and exits 1 if there are any.
+        run: python scripts/sweep_skills.py --seeds 40

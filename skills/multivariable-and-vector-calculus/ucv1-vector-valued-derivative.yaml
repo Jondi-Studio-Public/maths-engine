@@ -1,6 +1,7 @@
 id: ucv1-vector-valued-derivative
 name: Differentiate a vector-valued curve
 domain: multivariable-and-vector-calculus
+year_level: [university]
 description: Differentiate each component of a supplied two-component polynomial curve at a stated parameter.
 status: active
 placement_eligible: false

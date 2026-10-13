@@ -8,7 +8,8 @@ description: Given bounded, fully specified inputs, determine vector and Cartesi
 status: active
 placement_eligible: false
 prerequisites:
-  - vector-addition
+- vector-addition
+- senior-introduce-cartesian-coordinates-for-three-dimensional-space-including
 answer: number
 sources:
   - topic: determine_vector_and_cartesian_equations_of_a_plane

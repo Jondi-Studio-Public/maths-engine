@@ -1,6 +1,7 @@
 id: modular-arithmetic-congruence
 name: Reduce an integer modulo a modulus
 domain: number-theory
+year_level: [university]
 description: Find the least non-negative representative of an integer's (or a sum of two integers') congruence class modulo a positive modulus.
 status: active
 prerequisites: [whole-number-division-facts]

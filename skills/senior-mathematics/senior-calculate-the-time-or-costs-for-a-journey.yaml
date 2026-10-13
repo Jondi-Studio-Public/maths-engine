@@ -6,7 +6,9 @@ domain: senior-mathematics
 description: Given bounded, fully specified inputs, calculate the time or costs for a journey from distances estimated from maps. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites:
+- ratio-rate-proportion
+- elapsed-time
 answer: number
 sources:
 - topic: journey_time_or_cost

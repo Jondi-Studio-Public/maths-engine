@@ -8,6 +8,7 @@ status: active
 placement_eligible: false
 prerequisites:
 - quadratic-vertex
+- senior-define-the-imaginary-number-i-as-a-root
 answer: expression
 sources:
 - topic: quadratic_complex_conjugate_solutions

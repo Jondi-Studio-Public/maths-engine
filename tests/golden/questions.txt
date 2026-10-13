@@ -370,9 +370,27 @@
 {"answer": ">", "id": "compare-common-fractions/medium/0/a4e8d7896f00", "text": "Choose the correct symbol: 4/6 __ 1/2"}
 {"answer": ">", "id": "compare-common-fractions/medium/1/3c6b87daeaab", "text": "Choose the correct symbol: 1/2 __ 2/7"}
 {"answer": "=", "id": "compare-common-fractions/medium/2/89b1ebb9f265", "text": "Choose the correct symbol: 1/5 __ 2/10"}
+{"answer": "Function g", "id": "compare-functions-representations/easy/0/2c9c1c8f1668", "text": "Function f is shown in the graph. Function g takes an input, multiplies it by -…"}
+{"answer": "Function f", "id": "compare-functions-representations/easy/1/5e70222137f6", "text": "The graph shows function f. Function g takes an input, multiplies it by 3 and t…"}
+{"answer": "They are equal", "id": "compare-functions-representations/easy/2/8e5ee4168a1c", "text": "Function f is the straight line on the grid. Function g takes an input, multipl…"}
+{"answer": "They are equal", "id": "compare-functions-representations/hard/0/bf2502fc7fc2", "text": "The graph shows the function f. Function g is linear and has these (x, y) pairs…"}
+{"answer": "Function f", "id": "compare-functions-representations/hard/1/2530116a4c02", "text": "The graph shows the function f. Function g is linear and has these (x, y) pairs…"}
+{"answer": "They are equal", "id": "compare-functions-representations/hard/2/b6948f2d8d2b", "text": "Function f is shown in the graph. Function g is linear and has these (x, y) pai…"}
+{"answer": "Function f", "id": "compare-functions-representations/medium/0/50d37a6c8da6", "text": "Function f is the curve on the grid. Function g is given by g(x) = -3(x - 5)^2 …"}
+{"answer": "They are equal", "id": "compare-functions-representations/medium/1/73ceadd4dc88", "text": "Function f is the curve on the grid. Function g is given by g(x) = -3(x - 2)^2 …"}
+{"answer": "They are equal", "id": "compare-functions-representations/medium/2/da5aef172454", "text": "The graph shows the function f. Function g is given by g(x) = -3(x - 2)^2 + 2. …"}
 {"answer": "Left", "id": "compare-lengths/easy/0/c44529b2d7ef", "text": "Which line is longer? ━━━━━━ | ━━━"}
 {"answer": "Left", "id": "compare-lengths/easy/1/3a21b6f058ff", "text": "Which line is longer? ━━━━━━ | ━━━"}
 {"answer": "Left", "id": "compare-lengths/easy/2/8194925a3f18", "text": "Which line is longer? ━━━━━━ | ━━━"}
+{"answer": "They have the same gradient", "id": "compare-linear-representations/easy/0/403ee1b71e2d", "text": "Relationship A is shown in the graph. Relationship B is y = x - 5. Which relati…"}
+{"answer": "Relationship A", "id": "compare-linear-representations/easy/1/d4f79544e8ca", "text": "The graph shows relationship A. Relationship B has the equation y = 2x + 6. Whi…"}
+{"answer": "They have the same gradient", "id": "compare-linear-representations/easy/2/0e337d286348", "text": "The graph shows relationship A. Relationship B is given by y = 3x + 3. Which re…"}
+{"answer": "They have the same y-value", "id": "compare-linear-representations/hard/0/34d3cde17fb3", "text": "Relationship A is the straight line on the grid. The (x, y) pairs for relations…"}
+{"answer": "Relationship A", "id": "compare-linear-representations/hard/1/f35c14e84e7b", "text": "The graph shows relationship A. The (x, y) pairs for relationship B are (0, 5),…"}
+{"answer": "They have the same y-value", "id": "compare-linear-representations/hard/2/d1541869ccc1", "text": "Relationship A is shown in the graph. Relationship B is given by this table, wr…"}
+{"answer": "Relationship B", "id": "compare-linear-representations/medium/0/767b7f8e04fe", "text": "The graph shows relationship A. The (x, y) pairs for relationship B are (0, -3)…"}
+{"answer": "Relationship A", "id": "compare-linear-representations/medium/1/de7bcc0c071f", "text": "Relationship A is shown in the graph. The (x, y) pairs for relationship B are (…"}
+{"answer": "They have the same gradient", "id": "compare-linear-representations/medium/2/4c0188ee7445", "text": "Relationship A is shown in the graph. Relationship B is given by this table, wr…"}
 {"answer": "Left", "id": "compare-quantities-to-10/easy/0/68f8555d9106", "text": "Which side has more? ● ● ● ● ● ● ● ● | ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/1/ccb7b16b44b2", "text": "Which side has more? ● ● ● ● ● ● ● ● ● ● | ● ● ● ● ● ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/2/a997756f804c", "text": "Which side has more? ● ● ● ● ● | ● ● ● ● ●"}
@@ -763,6 +781,15 @@
 {"answer": "15", "id": "equal-groups/easy/0/6d5fcd9855e3", "text": "There are 3 groups with 5 in each group. How many altogether?"}
 {"answer": "4", "id": "equal-groups/easy/1/08a0af6910a8", "text": "There are 2 groups with 2 in each group. How many altogether?"}
 {"answer": "3", "id": "equal-groups/easy/2/affd96154598", "text": "There are 3 groups with 1 in each group. How many altogether?"}
+{"answer": "y = x + 3", "id": "equation-from-graph/easy/0/761eef4adcf5", "text": "The diagram shows the graph of a straight line. Which equation describes this l…"}
+{"answer": "y = 2x - 1", "id": "equation-from-graph/easy/1/fd5e9ceccb6c", "text": "Look at the straight line shown on this grid. Which equation is the equation of…"}
+{"answer": "y = x + 3", "id": "equation-from-graph/easy/2/b6391741c3b1", "text": "The diagram shows the graph of a straight line. Which equation describes this l…"}
+{"answer": "y = x/3 + 6", "id": "equation-from-graph/hard/0/a51f5e5f1526", "text": "Look at the straight line shown on this grid. Which equation is the equation of…"}
+{"answer": "y = -x/3 - 3", "id": "equation-from-graph/hard/1/6e76d8108496", "text": "The graph shows a straight line on a coordinate grid. Which equation describes …"}
+{"answer": "y = -x/3 - 4", "id": "equation-from-graph/hard/2/af96566096bf", "text": "The graph shows a straight line on a coordinate grid. Which of these equations …"}
+{"answer": "y = -2x/3 - 2", "id": "equation-from-graph/medium/0/8979d3fcce6b", "text": "Look at the straight line shown on this grid. Choose the equation that matches …"}
+{"answer": "y = 3x/2 + 2", "id": "equation-from-graph/medium/1/7610dc818207", "text": "A straight line is shown on the coordinate grid below. Which equation is the eq…"}
+{"answer": "y = -2x/3 + 4", "id": "equation-from-graph/medium/2/aacc5000379f", "text": "A straight line is shown on the coordinate grid below. Which equation is the eq…"}
 {"answer": "y = -x + 7", "id": "equation-from-table/easy/0/f4171ff7e452", "text": "x: -9, -6, 3 y: 16, 13, 4. Find the equation of the line (y = mx + b)."}
 {"answer": "y = -9x + 4", "id": "equation-from-table/easy/1/b1e4a27db409", "text": "x: -5, -3, 6 y: 49, 31, -50. Find the equation of the line (y = mx + b)."}
 {"answer": "y = -4x + 5", "id": "equation-from-table/easy/2/faba3de277af", "text": "x: -2, 1, 9 y: 13, 1, -31. Find the equation of the line (y = mx + b)."}
@@ -1015,6 +1042,15 @@
 {"answer": "Apple Votes = 8, Orange Votes = 2, Orange Fewer votes than …", "id": "f10-collect-sort-compare-categorical-data/medium/0/c9d9a0684d0b", "text": "Each student in a group chose a favourite fruit: Aisha chose apple; Beatrice ch…"}
 {"answer": "Sandwich Votes = 2, Sandwich Fewer votes than Salad = 7, Wr…", "id": "f10-collect-sort-compare-categorical-data/medium/1/3072e312b31b", "text": "Each student in a group chose a favourite lunch: Ethan chose salad; Mia chose s…"}
 {"answer": "Swimming Votes = 3, Swimming Fewer votes than Soccer = 5, T…", "id": "f10-collect-sort-compare-categorical-data/medium/2/12a86de92d56", "text": "Each student in a group chose a favourite sport: Sione chose swimming; Mia chos…"}
+{"answer": "Year 10 (the lower plot)", "id": "f10-compare-box-plots/easy/0/12f58c1d6757", "text": "Two groups of students are shown as box plots of their times. Which plot shows …"}
+{"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/easy/1/dc0bd9f27de3", "text": "These parallel box plots show the times for two groups of students. Compare the…"}
+{"answer": "Year 10 (the lower plot)", "id": "f10-compare-box-plots/easy/2/74e2372f8b6e", "text": "Two groups of plants are shown as box plots of their heights. Which group has t…"}
+{"answer": "Class B has the higher median.", "id": "f10-compare-box-plots/hard/0/fd7918138fe3", "text": "These parallel box plots show the times for two groups of students. Which state…"}
+{"answer": "Year 10 has the higher median.", "id": "f10-compare-box-plots/hard/1/b6a3b943f0fb", "text": "The box plots compare the times of two groups of students. Which statement is s…"}
+{"answer": "Year 10 has the larger interquartile range.", "id": "f10-compare-box-plots/hard/2/5f732f3cd89e", "text": "The box plots compare the marks of two groups of students. Which statement is s…"}
+{"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/medium/0/7e7d9f463aa5", "text": "Two groups of students are shown as box plots of their times. Which plot has th…"}
+{"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/1/0b6cd048f392", "text": "These parallel box plots show the marks for two groups of students. Which group…"}
+{"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/a828b7dc75d7", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masss…"}
 {"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/easy/0/b0e5473296a1", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
 {"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/1/1c261693d6b0", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
 {"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/2/5f2a0382ee16", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
@@ -1450,18 +1486,18 @@
 {"answer": "150,948, 351,905, 522,478, 633,919", "id": "f10-large-number-naming/medium/0/17a4db0357b1", "text": "Order these numbers from smallest to largest: 633,919; 351,905; 150,948; 522,47…"}
 {"answer": "231,366, 409,042, 809,491, 932,637", "id": "f10-large-number-naming/medium/1/76a8b7c5154d", "text": "Order these numbers from smallest to largest: 231,366; 809,491; 932,637; 409,04…"}
 {"answer": "181,967, 677,572, 844,291, 975,795", "id": "f10-large-number-naming/medium/2/fe670647bf94", "text": "Order these numbers from smallest to largest: 677,572; 181,967; 844,291; 975,79…"}
-{"answer": "Supported", "id": "f10-line-graph-change-over-time/easy/0/2b078e31fdbe", "text": "Here is a company's share price recorded for each year: (2020: $88), (2021: $26…"}
-{"answer": "Not supported: it was actually 662 people", "id": "f10-line-graph-change-over-time/easy/1/6e1704cce16d", "text": "Here is the number of visitors to a museum recorded for each week: (Week 1: 165…"}
-{"answer": "Not supported: it was actually $74", "id": "f10-line-graph-change-over-time/easy/2/c51656294fb5", "text": "A company's share price for each year was recorded as follows: (2011: $74), (20…"}
-{"answer": "Not supported: it rose between Week 2 and Week 3", "id": "f10-line-graph-change-over-time/exam/0/bc1625043fb6", "text": "Here is the population of a small town, one reading per week, listed in the ord…"}
-{"answer": "Not supported: it fell between Week 4 and Week 5", "id": "f10-line-graph-change-over-time/exam/1/97bf60818173", "text": "Here is a company's share price, one reading per week, listed in the order the …"}
-{"answer": "Not supported: it fell between 2022 and 2023", "id": "f10-line-graph-change-over-time/exam/2/52e90a204745", "text": "A household's monthly power bill was recorded on several occasions. The reading…"}
-{"answer": "Not supported: it fell between Week 2 and Week 3", "id": "f10-line-graph-change-over-time/hard/0/ada1797300d5", "text": "The population of a small town for each week was recorded as follows: (Week 1: …"}
-{"answer": "Not supported: it rose between 2016 and 2017", "id": "f10-line-graph-change-over-time/hard/1/2cc4d0bca107", "text": "The average daily temperature was recorded for each year: (2015: 27°C), (2016: …"}
-{"answer": "Not supported: it rose between Week 1 and Week 2", "id": "f10-line-graph-change-over-time/hard/2/7827ad83d995", "text": "The amount of rainfall was recorded for each week: (Week 1: 130 mm), (Week 2: 1…"}
-{"answer": "Supported", "id": "f10-line-graph-change-over-time/medium/0/9d8a48313382", "text": "The number of visitors to a museum for each year was recorded as follows: (2018…"}
-{"answer": "Supported", "id": "f10-line-graph-change-over-time/medium/1/1ba08a9df5f8", "text": "A household's monthly power bill for each year was recorded as follows: (2012: …"}
-{"answer": "Not supported: it fell by 130 members", "id": "f10-line-graph-change-over-time/medium/2/d8b7f87bad2c", "text": "The number of active members of a club for each week was recorded as follows: (…"}
+{"answer": "Not supported: it was actually $30", "id": "f10-line-graph-change-over-time/easy/0/84433f02d41e", "text": "A company's share price was recorded for each year and drawn as a line graph. A…"}
+{"answer": "Not supported: it was actually 500 people", "id": "f10-line-graph-change-over-time/easy/1/540d1b5e8352", "text": "The line graph shows the number of visitors to a museum for each week. A claim …"}
+{"answer": "Not supported: it was actually $20", "id": "f10-line-graph-change-over-time/easy/2/c7caf6f03b22", "text": "A company's share price was recorded for each year. The line graph shows the re…"}
+{"answer": "Not supported: it rose between Week 2 and Week 3", "id": "f10-line-graph-change-over-time/exam/0/59ce32f726c0", "text": "The population of a small town was recorded for each week and drawn as a line g…"}
+{"answer": "Not supported: it fell between Week 6 and Week 7", "id": "f10-line-graph-change-over-time/exam/1/b02013ac7dc5", "text": "A company's share price was recorded for each week. The line graph shows the re…"}
+{"answer": "Not supported: it fell between 2019 and 2020", "id": "f10-line-graph-change-over-time/exam/2/0833d08a6d95", "text": "The line graph shows a household's monthly power bill for each year. A claim is…"}
+{"answer": "Not supported: it rose between Week 1 and Week 2", "id": "f10-line-graph-change-over-time/hard/0/66297c8f73f1", "text": "The population of a small town was recorded for each week. The line graph shows…"}
+{"answer": "Not supported: it rose between 2017 and 2018", "id": "f10-line-graph-change-over-time/hard/1/5f997354f1d0", "text": "The average daily temperature was recorded for each year. The line graph shows …"}
+{"answer": "Not supported: it rose between Week 1 and Week 2", "id": "f10-line-graph-change-over-time/hard/2/061dfd9ff35f", "text": "The amount of rainfall was recorded for each week. The line graph shows the res…"}
+{"answer": "Supported", "id": "f10-line-graph-change-over-time/medium/0/c1ecd1f27b0a", "text": "The number of visitors to a museum was recorded for each year and drawn as a li…"}
+{"answer": "Supported", "id": "f10-line-graph-change-over-time/medium/1/89be565084e0", "text": "A household's monthly power bill was recorded for each year. The line graph sho…"}
+{"answer": "Not supported: it fell by 80 members", "id": "f10-line-graph-change-over-time/medium/2/5f1a3bfe508f", "text": "The number of active members of a club was recorded for each week and drawn as …"}
 {"answer": "No row breaks the rule: every row agrees, so the table supp…", "id": "f10-linear-conjecture-testing/easy/0/165a0c794f09", "text": "Tom conjectures that the rule y = -3x - 5 gives every y-value in this table of …"}
 {"answer": "No row breaks the rule: every row agrees, so the table supp…", "id": "f10-linear-conjecture-testing/easy/1/139810c6aa15", "text": "Aiko conjectures that the rule y = 4x gives every y-value in this table of valu…"}
 {"answer": "The row x = 1 breaks the rule, so the table does not suppor…", "id": "f10-linear-conjecture-testing/easy/2/d6e4cbb2dfe9", "text": "Mia conjectures that the rule y = -2x + 4 gives every y-value in this table of …"}
@@ -1951,6 +1987,15 @@
 {"answer": "42.00", "id": "f10-rational-percentage-financial-model/medium/0/d263505dcb94", "text": "Beatrice has a $140 allowance. Beatrice saves 40% of it. Beatrice then spends 3…"}
 {"answer": "84.00", "id": "f10-rational-percentage-financial-model/medium/1/f2f218810794", "text": "Kai earns $280 from a weekend job. Kai sets aside 50% of it. Kai then gives 3/5…"}
 {"answer": "248.40", "id": "f10-rational-percentage-financial-model/medium/2/7804971f9fc6", "text": "Kenji has a $920 allowance. Kenji saves 30% of it. Kenji then spends 9/10 of th…"}
+{"answer": "55", "id": "f10-read-a-box-plot/easy/0/55e05f52a987", "text": "The box plot shows the time students took to finish a puzzle. Read the maximum …"}
+{"answer": "60", "id": "f10-read-a-box-plot/easy/1/0b7e01d1fbfb", "text": "The box plot shows the time students took to finish a puzzle. Find the maximum …"}
+{"answer": "30", "id": "f10-read-a-box-plot/easy/2/67794f0dff61", "text": "The box plot shows the marks of students in a test. What is the lower quartile …"}
+{"answer": "50", "id": "f10-read-a-box-plot/hard/0/067327bcabff", "text": "The box plot shows the heights of plants in a garden bed. What is the range of …"}
+{"answer": "60", "id": "f10-read-a-box-plot/hard/1/9a35f6f8827f", "text": "Here is a box plot of the times of the students. The outlier is a real value. W…"}
+{"answer": "75", "id": "f10-read-a-box-plot/hard/2/726adeef299c", "text": "Here is a box plot of the heights of the plants. About what percentage of the p…"}
+{"answer": "55", "id": "f10-read-a-box-plot/medium/0/c100b1bec018", "text": "Here is a box plot of the heights of the plants. What is the range of the heigh…"}
+{"answer": "30", "id": "f10-read-a-box-plot/medium/1/801e7d87a5c7", "text": "The box plot shows the heights of plants in a garden bed. What is the interquar…"}
+{"answer": "22", "id": "f10-read-a-box-plot/medium/2/b18742ad43bf", "text": "Here is a box plot of the masses of the pumpkins. What is the range of the mass…"}
 {"answer": "380", "id": "f10-read-measurement-scale/easy/0/a7b84929f603", "text": "Here is a measuring jug with water in it. What is the volume of liquid shown, i…"}
 {"answer": "15", "id": "f10-read-measurement-scale/easy/1/0b7fbdd1c996", "text": "A thermometer is shown. Read the temperature in degrees Celsius."}
 {"answer": "12", "id": "f10-read-measurement-scale/easy/2/46812ffdd248", "text": "A thermometer is shown. What is the temperature shown, in degrees Celsius?"}
@@ -2269,6 +2314,51 @@
 {"answer": "113.0", "id": "f10-volume-surface-area-prisms-cylinders/medium/0/4b8a10c9c4a8", "text": "A cylinder has a radius of 2 cm and a height of 7 cm. Using π = 3.14, what is i…"}
 {"answer": "565.2", "id": "f10-volume-surface-area-prisms-cylinders/medium/1/fb70ea883a42", "text": "A cylinder has a radius of 5 cm and a height of 13 cm. Using π = 3.14, what is …"}
 {"answer": "565.2", "id": "f10-volume-surface-area-prisms-cylinders/medium/2/0597f74957bb", "text": "A cylinder has a radius of 6 cm and a height of 9 cm. Using π = 3.14, what is i…"}
+{"answer": "12", "id": "f2-read-a-picture-graph/easy/0/f73f92885638", "text": "Students voted for the sport they would most like to play. Use the graph to fin…"}
+{"answer": "2", "id": "f2-read-a-picture-graph/easy/1/ecc72a7cbd32", "text": "A class voted for their favourite fruit. Use the graph to find how many student…"}
+{"answer": "3", "id": "f2-read-a-picture-graph/easy/2/70551372381a", "text": "A class voted for their favourite pet. Use the graph to find how many students …"}
+{"answer": "70", "id": "f2-read-a-picture-graph/hard/0/2111fa1a9d02", "text": "A school asked students to pick their favourite sport. Find the total number of…"}
+{"answer": "60", "id": "f2-read-a-picture-graph/hard/1/a7df87fa96bc", "text": "Students were asked which pet they like best. Find the difference between the m…"}
+{"answer": "64", "id": "f2-read-a-picture-graph/hard/2/8c558f0ac599", "text": "Students voted for the sport they would most like to play. What is the total nu…"}
+{"answer": "25", "id": "f2-read-a-picture-graph/medium/0/5c47db869b4a", "text": "A school asked students to pick their favourite sport. Find how many more stude…"}
+{"answer": "1", "id": "f2-read-a-picture-graph/medium/1/6ca782d5e8db", "text": "A school asked students to pick their favourite sport. How many more students c…"}
+{"answer": "8", "id": "f2-read-a-picture-graph/medium/2/eccb1db8f65f", "text": "A class wrote down the weather every school day for a term. How many more days …"}
+{"answer": "10", "id": "f3-read-a-column-graph/easy/0/2d05ff6d67d1", "text": "Use the graph. How many blue cars were in the car park?"}
+{"answer": "5", "id": "f3-read-a-column-graph/easy/1/786ff56da6fe", "text": "How many millimetres of rain fell in January?"}
+{"answer": "5", "id": "f3-read-a-column-graph/easy/2/19d4d567a191", "text": "How many goals did the Lions score?"}
+{"answer": "80", "id": "f3-read-a-column-graph/hard/0/cae4abb771d5", "text": "How many students chose Tennis altogether?"}
+{"answer": "5", "id": "f3-read-a-column-graph/hard/1/ee3359cb5f78", "text": "How many more boys chose Netball than girls?"}
+{"answer": "105", "id": "f3-read-a-column-graph/hard/2/794997d2c207", "text": "How many students in all chose Cat?"}
+{"answer": "30", "id": "f3-read-a-column-graph/medium/0/93957d1ea63b", "text": "How many books did Ella and Dan read altogether?"}
+{"answer": "30", "id": "f3-read-a-column-graph/medium/1/49db60029325", "text": "How many fewer black cars than red cars were in the car park?"}
+{"answer": "20", "id": "f3-read-a-column-graph/medium/2/fdb41421fd99", "text": "How many fewer apples were sold on Tuesday than on Monday?"}
+{"answer": "1", "id": "f6-read-a-dot-plot/easy/0/559a6b28c3e3", "text": "Each student's score on a short spelling test was recorded. How many students s…"}
+{"answer": "3", "id": "f6-read-a-dot-plot/easy/1/9e8f2930d877", "text": "A class measured how much each of their bean plants grew in two weeks. How many…"}
+{"answer": "2", "id": "f6-read-a-dot-plot/easy/2/01735920ab25", "text": "Students were asked how long it takes them to get to school. Use the dot plot t…"}
+{"answer": "4", "id": "f6-read-a-dot-plot/hard/0/070146740c63", "text": "A class recorded the number of brothers and sisters each student has. Work out …"}
+{"answer": "4.5", "id": "f6-read-a-dot-plot/hard/1/154f3fa7d9c8", "text": "A netball club recorded the goals its team scored in each game of a season. Wor…"}
+{"answer": "3", "id": "f6-read-a-dot-plot/hard/2/95b109387b70", "text": "A class recorded the number of brothers and sisters each student has. Find the …"}
+{"answer": "3", "id": "f6-read-a-dot-plot/medium/0/5c91ea67f664", "text": "A netball club recorded the goals its team scored in each game of a season. Whi…"}
+{"answer": "17", "id": "f6-read-a-dot-plot/medium/1/22f4c0b4ebc4", "text": "A class recorded the number of brothers and sisters each student has. Find the …"}
+{"answer": "35", "id": "f6-read-a-dot-plot/medium/2/35b09682b94e", "text": "A class recorded the time each student takes to travel to school. Find the mode…"}
+{"answer": "16", "id": "f6-read-a-pie-chart/easy/0/c1372db9f839", "text": "A survey asked students to choose a favourite pet. 32 students were surveyed. U…"}
+{"answer": "5", "id": "f6-read-a-pie-chart/easy/1/2ad1ec5a3977", "text": "A survey asked students how they travel to school. The pie chart shows the answ…"}
+{"answer": "9", "id": "f6-read-a-pie-chart/easy/2/773d0a0c0fed", "text": "A survey asked students to choose a favourite pet. 36 students answered. The pi…"}
+{"answer": "20", "id": "f6-read-a-pie-chart/hard/0/2977abac9e95", "text": "People at a market were asked to name their favourite fruit. The pie chart show…"}
+{"answer": "20", "id": "f6-read-a-pie-chart/hard/1/2a02b11f657b", "text": "A survey asked students how they travel to school. 8 of the students surveyed c…"}
+{"answer": "20", "id": "f6-read-a-pie-chart/hard/2/d66ec17e97ba", "text": "People at a market were asked to name their favourite fruit. 8 people chose Ban…"}
+{"answer": "45", "id": "f6-read-a-pie-chart/medium/0/2a6d1f01c05f", "text": "A survey asked students to choose a favourite pet. The pie chart shows the answ…"}
+{"answer": "5", "id": "f6-read-a-pie-chart/medium/1/138c2ce77942", "text": "A school asked students to vote for a sport to play at the carnival. 30 student…"}
+{"answer": "30", "id": "f6-read-a-pie-chart/medium/2/cf08848c0fb2", "text": "A survey asked students how they travel to school. 48 students answered. How ma…"}
+{"answer": "2", "id": "f7-read-a-histogram/easy/0/ca3506776703", "text": "The masses of apples picked from an orchard were recorded. How many apples had …"}
+{"answer": "7", "id": "f7-read-a-histogram/easy/1/f7991e1a2ca4", "text": "The time customers waited to be served at a cafe was recorded. How many custome…"}
+{"answer": "10", "id": "f7-read-a-histogram/easy/2/810fd0d684b6", "text": "The time customers waited to be served at a cafe was recorded. Use the histogra…"}
+{"answer": "22", "id": "f7-read-a-histogram/hard/0/3984b97541bd", "text": "The electricity used by households in one week was recorded. How many more hous…"}
+{"answer": "12", "id": "f7-read-a-histogram/hard/1/a5b8f3702df7", "text": "The times taken by students to run one kilometre were recorded. How many more r…"}
+{"answer": "60", "id": "f7-read-a-histogram/hard/2/120437353474", "text": "The heights of students in a year level were measured. Work out the percentage …"}
+{"answer": "22", "id": "f7-read-a-histogram/medium/0/6c06590a93d3", "text": "The electricity used by households in one week was recorded. How many household…"}
+{"answer": "50", "id": "f7-read-a-histogram/medium/1/93495b8220ea", "text": "The masses of apples picked from an orchard were recorded. Find the number of a…"}
+{"answer": "16", "id": "f7-read-a-histogram/medium/2/1cc1f8ef2a74", "text": "The time customers waited to be served at a cafe was recorded. The modal class …"}
 {"answer": "7*(2*x - 3)", "id": "factor-common-numerical-factor/easy/0/8fc66ef44bce", "text": "Factor out the common factor: 14*x - 21"}
 {"answer": "5*(5*x + 8)", "id": "factor-common-numerical-factor/easy/1/4e788ffdc4ca", "text": "Factor out the common factor: 25*x + 40"}
 {"answer": "2*(5*x - 7)", "id": "factor-common-numerical-factor/easy/2/7bcea1853513", "text": "Factor out the common factor: 10*x - 14"}
@@ -2419,18 +2509,18 @@
 {"answer": "f(-4) = 72", "id": "function-notation/medium/0/f064245b6570", "text": "f(x) = 4*x**2 - 3*x - 4, find f(-4)"}
 {"answer": "f(-6) = 86", "id": "function-notation/medium/1/2b6d960ddc8e", "text": "f(x) = 3*x**2 + 4*x + 2, find f(-6)"}
 {"answer": "f(1) = 8", "id": "function-notation/medium/2/9f1d43dacf28", "text": "f(x) = 3*x**2 - 2*x + 7, find f(1)"}
-{"answer": "f(1) = -4", "id": "generate-sequence-from-rule/easy/0/97fe18d4a4b7", "text": "f(x) = 3*x**2 + 2*x - 9, find f(1)"}
-{"answer": "f(-1) = 3", "id": "generate-sequence-from-rule/easy/1/ec2b57992ffe", "text": "f(x) = 3, find f(-1)"}
-{"answer": "f(3) = 30", "id": "generate-sequence-from-rule/easy/2/7b6ffcf46100", "text": "f(x) = 2*x**2 + 3*x + 3, find f(3)"}
+{"answer": "16", "id": "generate-sequence-from-rule/easy/0/f3eb01897303", "text": "A sequence has the rule t(n) = 3n + 1, where n = 1 gives the first term. Find t…"}
+{"answer": "46", "id": "generate-sequence-from-rule/easy/1/84ad533ce8da", "text": "A sequence has the rule t(n) = 6n + 4, where n = 1 gives the first term. Find t…"}
+{"answer": "40", "id": "generate-sequence-from-rule/easy/2/5b699aabc465", "text": "A sequence has the rule t(n) = 7n - 9, where n = 1 gives the first term. Find t…"}
 {"answer": "-22", "id": "generate-sequence-from-rule/exam/0/d9ceb9decdfd", "text": "A sequence has t(1) = -1, t(2) = 0 and t(n + 2) = t(n + 1) + 2t(n) for every n …"}
 {"answer": "34", "id": "generate-sequence-from-rule/exam/1/1276df1881c7", "text": "A sequence is defined by t(1) = 3 and t(n + 1) = 2t(n) - 2 for every n ≥ 1. Fin…"}
 {"answer": "65", "id": "generate-sequence-from-rule/exam/2/ba3d793befa2", "text": "A sequence has t(1) = 2, t(2) = 1 and t(n + 2) = t(n + 1) + 2t(n) for every n ≥…"}
-{"answer": "f(1) = 12", "id": "generate-sequence-from-rule/hard/0/2ea747e899d7", "text": "f(x) = 8*x**2 + 5*x - 1, find f(1)"}
-{"answer": "f(-2) = 24", "id": "generate-sequence-from-rule/hard/1/a271eed20d9a", "text": "f(x) = 4*x**2 - 2*x + 4, find f(-2)"}
-{"answer": "f(-3) = -9", "id": "generate-sequence-from-rule/hard/2/e27b6452be96", "text": "f(x) = 3*x, find f(-3)"}
-{"answer": "f(-4) = 56", "id": "generate-sequence-from-rule/medium/0/1e8245ea6677", "text": "f(x) = 3*x**2 - 3*x - 4, find f(-4)"}
-{"answer": "f(-6) = 50", "id": "generate-sequence-from-rule/medium/1/3d58f3bc27bf", "text": "f(x) = 2*x**2 + 4*x + 2, find f(-6)"}
-{"answer": "f(1) = 7", "id": "generate-sequence-from-rule/medium/2/9db29f2c0621", "text": "f(x) = 2*x**2 - 2*x + 7, find f(1)"}
+{"answer": "106", "id": "generate-sequence-from-rule/hard/0/ac27acc1512c", "text": "A sequence is defined by t(1) = 8 and t(n + 1) = 2t(n) + 6 for every n ≥ 1. Fin…"}
+{"answer": "14", "id": "generate-sequence-from-rule/hard/1/7ff26176f938", "text": "A sequence is defined by t(1) = 0 and t(n + 1) = -3t(n) + 2 for every n ≥ 1. Fi…"}
+{"answer": "125", "id": "generate-sequence-from-rule/hard/2/ed1980cf926b", "text": "A sequence is defined by t(1) = 5 and t(n + 1) = 2t(n) + 3 for every n ≥ 1. Fin…"}
+{"answer": "-19", "id": "generate-sequence-from-rule/medium/0/e298a2d2f421", "text": "A sequence has the rule t(n) = 30 - 7n, where n = 1 gives the first term. Find …"}
+{"answer": "38", "id": "generate-sequence-from-rule/medium/1/076b9a9bf441", "text": "A sequence has the rule t(n) = 3n^2 - n - 6, where n = 1 gives the first term. …"}
+{"answer": "-12", "id": "generate-sequence-from-rule/medium/2/211fe413b6cd", "text": "A sequence has the rule t(n) = 37 - 7n, where n = 1 gives the first term. Find …"}
 {"answer": "1/2", "id": "gradient-descent-quadratic/easy/0/56e37a293325", "text": "For L(theta) = 1/2(theta − 2)², start at theta = -1 and use learning rate eta =…"}
 {"answer": "1", "id": "gradient-descent-quadratic/easy/1/a4fae2a3b167", "text": "For L(theta) = 1/2(theta − 2)², start at theta = 0 and use learning rate eta = …"}
 {"answer": "3/2", "id": "gradient-descent-quadratic/easy/2/4974f86158c9", "text": "For L(theta) = 1/2(theta − 5)², start at theta = -2 and use learning rate eta =…"}
@@ -2443,6 +2533,33 @@
 {"answer": "-4", "id": "gradient-descent-quadratic/medium/0/f2bae92a0f25", "text": "For L(theta) = 1/2(theta − (-10))², start at theta = -2 and use learning rate e…"}
 {"answer": "-9/4", "id": "gradient-descent-quadratic/medium/1/1f17417ce4e0", "text": "For L(theta) = 1/2(theta − 3)², start at theta = -4 and use learning rate eta =…"}
 {"answer": "-7/2", "id": "gradient-descent-quadratic/medium/2/49fe9f87a018", "text": "For L(theta) = 1/2(theta − (-2))², start at theta = -4 and use learning rate et…"}
+{"answer": "2", "id": "gradient-from-graph/easy/0/ed3b92d8b923", "text": "A straight line is shown on the coordinate grid below. What is the gradient of …"}
+{"answer": "2", "id": "gradient-from-graph/easy/1/4063e3464a64", "text": "A straight line is shown on the coordinate grid below. What is the gradient of …"}
+{"answer": "2", "id": "gradient-from-graph/easy/2/64ae116872e5", "text": "The graph shows a straight line on a coordinate grid. Find the gradient of the …"}
+{"answer": "1/4", "id": "gradient-from-graph/hard/0/a87cbd6a4df8", "text": "Study the straight line on this coordinate grid. What is the gradient of the li…"}
+{"answer": "1/5", "id": "gradient-from-graph/hard/1/279c560abb18", "text": "Look at the straight line shown on this grid. Find the gradient of the line. Us…"}
+{"answer": "2/5", "id": "gradient-from-graph/hard/2/d8ac5e3493ae", "text": "The diagram shows the graph of a straight line. What is the slope of the line? …"}
+{"answer": "-3/2", "id": "gradient-from-graph/medium/0/a13ccf80e42a", "text": "The graph shows a straight line on a coordinate grid. What is the slope of the …"}
+{"answer": "-2", "id": "gradient-from-graph/medium/1/1a313516b1fb", "text": "Study the straight line on this coordinate grid. What is the gradient of the li…"}
+{"answer": "-2/3", "id": "gradient-from-graph/medium/2/01f837c3f1fc", "text": "The diagram shows the graph of a straight line. What is the slope of the line? …"}
+{"answer": "(-1, -1), (0, 1), (1, 3)", "id": "graph-y-mx-plus-b/easy/0/392f2f00f9a7", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
+{"answer": "(0, -2), (1, 1), (2, 4)", "id": "graph-y-mx-plus-b/easy/1/d04cf9d42a0a", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
+{"answer": "(-1, -1), (0, 2), (1, 5)", "id": "graph-y-mx-plus-b/easy/2/1df402482d98", "text": "The diagram shows the graph of a straight line. Which list of (x, y) pairs show…"}
+{"answer": "(4, -3), (5, -4), (6, -5)", "id": "graph-y-mx-plus-b/hard/0/7d04d7689c9b", "text": "A straight line is shown on the coordinate grid below. Which list of (x, y) pai…"}
+{"answer": "(-7, 5), (-6, 4), (-5, 3)", "id": "graph-y-mx-plus-b/hard/1/202e35075700", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
+{"answer": "(-8, 1), (-6, 0), (-4, -1)", "id": "graph-y-mx-plus-b/hard/2/6fa1b092280e", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
+{"answer": "(-2, -3), (0, -2), (2, -1)", "id": "graph-y-mx-plus-b/medium/0/ab29f68dbe90", "text": "A straight line is shown on the coordinate grid below. Which table of values, w…"}
+{"answer": "(0, 1), (1, -1), (2, -3)", "id": "graph-y-mx-plus-b/medium/1/ed99913cee0a", "text": "A straight line is shown on the coordinate grid below. Every pair in one list l…"}
+{"answer": "(1, 1), (2, 3), (3, 5)", "id": "graph-y-mx-plus-b/medium/2/536b15b49f4a", "text": "Look at the straight line shown on this grid. Which list of (x, y) pairs shows …"}
+{"answer": "y = 2x", "id": "graph-y-mx/easy/0/546286e200a4", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
+{"answer": "y = 3x", "id": "graph-y-mx/easy/1/de3b40d786da", "text": "Look at the straight line through the origin on this grid. Which equation of th…"}
+{"answer": "y = x", "id": "graph-y-mx/easy/2/cea8d24088ef", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
+{"answer": "y = 4x", "id": "graph-y-mx/hard/0/62d89a9b8e4f", "text": "A straight line through the origin is shown on the coordinate grid below. Which…"}
+{"answer": "y = 30x", "id": "graph-y-mx/hard/1/3cb47636f5c9", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
+{"answer": "y = 2x", "id": "graph-y-mx/hard/2/85b213550658", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
+{"answer": "y = -x/3", "id": "graph-y-mx/medium/0/1b7e68d5334d", "text": "The graph shows a straight line through the origin of a coordinate grid. Which …"}
+{"answer": "y = x/2", "id": "graph-y-mx/medium/1/a4f157f86397", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
+{"answer": "y = x/3", "id": "graph-y-mx/medium/2/25254ae5fd07", "text": "Look at the straight line through the origin on this grid. Choose the equation …"}
 {"answer": "F = 25.00 N", "id": "hookes-law/easy/0/37fbef22e47d", "text": "A spring with stiffness k = 500 N/m is stretched by 0.05 m. Use Hooke's law to …"}
 {"answer": "F = 10.0 N", "id": "hookes-law/easy/1/d35725470be6", "text": "A spring with stiffness k = 100 N/m is stretched by 0.1 m. Use Hooke's law to f…"}
 {"answer": "F = 5.00 N", "id": "hookes-law/easy/2/c3e22c14bbc3", "text": "A spring with stiffness k = 100 N/m is stretched by 0.05 m. Use Hooke's law to …"}
@@ -2482,6 +2599,15 @@
 {"answer": "x > 1/2", "id": "inequalities-negative-mult-div/medium/0/1401308a596a", "text": "Solve the inequality -1 - 2x < -2. Give your answer as an inequality in x; writ…"}
 {"answer": "x > -8", "id": "inequalities-negative-mult-div/medium/1/ab0f41717392", "text": "Solve the inequality -9 - 3x < 15. Give your answer as an inequality in x; writ…"}
 {"answer": "x > 27", "id": "inequalities-negative-mult-div/medium/2/44441f78c6c5", "text": "Find all values of x for which -x/9 < -3. Give your answer as an inequality in …"}
+{"answer": "x < 2", "id": "inequality-solutions-number-line/easy/0/96636e7de101", "text": "The solution of an inequality is shown on the number line. Which inequality is …"}
+{"answer": "x ≤ 3", "id": "inequality-solutions-number-line/easy/1/0ae4c9224d81", "text": "The number line shows the solution of an inequality. Which inequality has this …"}
+{"answer": "x ≤ -6", "id": "inequality-solutions-number-line/easy/2/ee0f495c1dbc", "text": "The solution of an inequality is shown on the number line. Which inequality doe…"}
+{"answer": "-3x - 3 < 9", "id": "inequality-solutions-number-line/hard/0/973aa020afdf", "text": "The number line shows the solution of an inequality. Solve each inequality. Whi…"}
+{"answer": "4x - 4 < 16", "id": "inequality-solutions-number-line/hard/1/4ca73aa32f09", "text": "The number line shows the solution of an inequality. Which of these inequalitie…"}
+{"answer": "2x - 1 ≤ 3", "id": "inequality-solutions-number-line/hard/2/8e7edf739fec", "text": "The shaded part of the number line is the solution of an inequality. Which ineq…"}
+{"answer": "0 < x < 4", "id": "inequality-solutions-number-line/medium/0/dd839f8f403c", "text": "The number line shows the solution of an inequality. Which inequality does the …"}
+{"answer": "-6 < x ≤ -3", "id": "inequality-solutions-number-line/medium/1/743cac323514", "text": "The number line shows the solution of an inequality. Which inequality does the …"}
+{"answer": "-2 < x < 5", "id": "inequality-solutions-number-line/medium/2/7c7d52bc88ad", "text": "The number line shows the solution of an inequality. Which inequality does the …"}
 {"answer": "p ≤ 18", "id": "inequality-word-problems/easy/0/2a07421c6054", "text": "A lift is allowed to carry a total of no greater than 90 kg. Each parcel has a …"}
 {"answer": "b ≥ 14.8", "id": "inequality-word-problems/easy/1/7f102202be9e", "text": "Bottles of juice hold 5 L each. For a party, Omar needs the total volume of jui…"}
 {"answer": "n < 29", "id": "inequality-word-problems/easy/2/f47ede7f8877", "text": "Each notebook costs $4. Alicia wants the total cost of the notebooks to be less…"}
@@ -3052,6 +3178,15 @@
 {"answer": "8", "id": "place-value-to-20/easy/0/4debdcd9dce4", "text": "How many ones are in 18?"}
 {"answer": "1", "id": "place-value-to-20/easy/1/4a8e77b851db", "text": "How many tens are in 10?"}
 {"answer": "2", "id": "place-value-to-20/easy/2/44ea91d28b2a", "text": "How many tens are in 20?"}
+{"answer": "(3, 7)", "id": "plot-linear-points/easy/0/21914182e5f9", "text": "A point P is marked on the coordinate grid. Which pair of coordinates (x, y) is…"}
+{"answer": "(-5, -3)", "id": "plot-linear-points/easy/1/53c3c757e1b5", "text": "The point P is shown on this coordinate grid. What are the coordinates of P?"}
+{"answer": "(-6, 1)", "id": "plot-linear-points/easy/2/45a92deb11bd", "text": "The point P is shown on this coordinate grid. Which ordered pair gives the posi…"}
+{"answer": "(4, -10)", "id": "plot-linear-points/hard/0/b9514fd1fbb4", "text": "The grid shows three marked points on one straight line. Which of these ordered…"}
+{"answer": "(-4, 11)", "id": "plot-linear-points/hard/1/8caa0ee665f8", "text": "The grid shows three marked points on one straight line. Which of these points …"}
+{"answer": "(6, 3)", "id": "plot-linear-points/hard/2/a9d9301eddef", "text": "Three marked points on this grid lie on the same straight line. Which of these …"}
+{"answer": "(-4, -3), (-3, -2), (-2, -1)", "id": "plot-linear-points/medium/0/b4c02c59144e", "text": "Three points are marked on the coordinate grid. Which table of values, written …"}
+{"answer": "(2, 1), (3, 0), (4, -1)", "id": "plot-linear-points/medium/1/9bebc7a6c44b", "text": "Three points are marked on the coordinate grid. Which list of (x, y) pairs give…"}
+{"answer": "(-1, 2), (0, -1), (1, -4)", "id": "plot-linear-points/medium/2/b2fa545a47b3", "text": "Three points are marked on the coordinate grid. Which set of ordered pairs matc…"}
 {"answer": "27x - 17", "id": "polynomial-linear-combination/easy/0/89f2f1fd5c1f", "text": "P = 6x - 8. Q = 7x + 8. R = -8x + 9. Find 2P + Q - R."}
 {"answer": "4x - 7", "id": "polynomial-linear-combination/easy/1/456ad4498c41", "text": "P = 8x + 4. Q = -9x - 8. R = 3x + 7. Find 2P + Q - R."}
 {"answer": "20x - 15", "id": "polynomial-linear-combination/easy/2/4d5ffdbbee31", "text": "P = 8x - 2. Q = -4x - 4. R = -8x + 7. Find 2P + Q - R."}
@@ -3664,18 +3799,18 @@
 {"answer": "7", "id": "senior-chords-of-equal-length-subtend-equal-angles-at/medium/0/79ff5aa5dda0", "text": "In a circle, chords AB and CD both subtend an angle of 92 degrees at the centre…"}
 {"answer": "17", "id": "senior-chords-of-equal-length-subtend-equal-angles-at/medium/1/ed8f184926d0", "text": "In a circle, chords AB and CD both subtend an angle of 113 degrees at the centr…"}
 {"answer": "19", "id": "senior-chords-of-equal-length-subtend-equal-angles-at/medium/2/8d256fa6b1f9", "text": "In a circle, chords AB and CD both subtend an angle of 14 degrees at the centre…"}
-{"answer": "symmetric", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/0/ba26327746ae", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/1/617630b9bef4", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "symmetric", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/0/57cdc2f5d65c", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/1/6c34a2cc9af3", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/2/7f1bfa862e84", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "(a) 43.0; (b) 45.0; (c) -2.0; (d) left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/0/fedbbd06ceb2", "text": "A service desk recorded how long, in minutes, each of 92 customers waited. Grou…"}
 {"answer": "(a) 30.8; (b) 29.0; (c) 1.8; (d) right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/1/c64c46816d0d", "text": "145 commuters were asked how long, in minutes, their trip to work takes. The re…"}
 {"answer": "(a) 59.8; (b) 65.0; (c) -5.2; (d) left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/2/5a27381c3fb5", "text": "131 students sat a test marked out of 100. The data were grouped in equal class…"}
-{"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/0/09e32fd9b1a2", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "skewed right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/1/227c144855a5", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "skewed right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/2/5fcd81056f69", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/medium/0/c60a9c2b184b", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/medium/1/c167fdc10449", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "symmetric", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/medium/2/a84eb8145af5", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "skewed right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/0/78a51630e3e7", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/1/9fbd10a96a28", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/2/3ab216593316", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/medium/0/708c2f5a6e0d", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/medium/1/ebba1373f2e8", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
+{"answer": "symmetric", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/medium/2/70604fa8707c", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "2.2, 0.5", "id": "senior-compare-the-time-taken-to-travel-a-specific/easy/0/836035b70300", "text": "A trip covers a distance of 55 km. By cycling, the average speed is 25 km/h. By…"}
 {"answer": "0.5, 2.5", "id": "senior-compare-the-time-taken-to-travel-a-specific/easy/1/50c6c54ca999", "text": "A trip covers a distance of 35 km. By car, the average speed is 70 km/h. By boa…"}
 {"answer": "1.0, 3.8", "id": "senior-compare-the-time-taken-to-travel-a-specific/easy/2/bef8d9b7095a", "text": "A trip covers a distance of 95 km. By car, the average speed is 95 km/h. By boa…"}
@@ -4792,18 +4927,18 @@
 {"answer": "y = x + 5", "id": "senior-find-the-equation-of-a-straight-line-given/medium/0/ae132e78b4fd", "text": "A line is parallel to y = x + 2 and passes through the point (3, 8). Give the e…"}
 {"answer": "y = 3x + 5", "id": "senior-find-the-equation-of-a-straight-line-given/medium/1/6aa7c759793c", "text": "A line is parallel to y = 3x + 7 and passes through the point (1, 8). Give the …"}
 {"answer": "y = 3 - x", "id": "senior-find-the-equation-of-a-straight-line-given/medium/2/c724c2dd1f82", "text": "A line is parallel to y = -x - 5 and passes through the point (-4, 7). Give the…"}
-{"answer": "y = 4x - 1", "id": "senior-find-the-line-of-best-fit-by-eye/easy/0/515840402383", "text": "A scatter plot shows these data points: (1, 3), (2, 6), (3, 11), (4, 14), (5, 2…"}
-{"answer": "y = -3x - 2", "id": "senior-find-the-line-of-best-fit-by-eye/easy/1/c4318579134d", "text": "A scatter plot shows these data points: (1, -5), (2, -6), (3, -10), (4, -14), (…"}
-{"answer": "y = -3x + 3", "id": "senior-find-the-line-of-best-fit-by-eye/easy/2/22b8df472ec2", "text": "A scatter plot shows these data points: (1, -1), (2, 0), (3, -6), (4, -8), (5, …"}
+{"answer": "y = 4x - 1", "id": "senior-find-the-line-of-best-fit-by-eye/easy/0/74972962c887", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = -3x - 2", "id": "senior-find-the-line-of-best-fit-by-eye/easy/1/a295856a666c", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = -3x + 3", "id": "senior-find-the-line-of-best-fit-by-eye/easy/2/57474e1d8dbb", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
 {"answer": "(a) 1.5; (b) 3.0; (c) 13.5; (d) -2.0", "id": "senior-find-the-line-of-best-fit-by-eye/exam/0/db04caa0acba", "text": "A school in Townsville logged the hours of sunshine each day and the energy its…"}
 {"answer": "(a) 8.0; (b) -161.0; (c) 119.0; (d) 6.0", "id": "senior-find-the-line-of-best-fit-by-eye/exam/1/c88bb88c32e6", "text": "A kiosk at Cottesloe Beach recorded the daily maximum temperature and the numbe…"}
 {"answer": "(a) -3.0; (b) 31.0; (c) 16.0; (d) 2.0", "id": "senior-find-the-line-of-best-fit-by-eye/exam/2/2e2d38a58793", "text": "A dealer in Adelaide listed the age and asking price of six used hatchbacks of …"}
-{"answer": "y = -5x - 3", "id": "senior-find-the-line-of-best-fit-by-eye/hard/0/800efbd88294", "text": "A scatter plot shows these data points: (1, -6), (2, -7), (3, -20), (4, -22), (…"}
-{"answer": "y = -4x - 6", "id": "senior-find-the-line-of-best-fit-by-eye/hard/1/706756d4270b", "text": "A scatter plot shows these data points: (1, -9), (2, -15), (3, -23), (4, -24), …"}
-{"answer": "y = 5x + 5", "id": "senior-find-the-line-of-best-fit-by-eye/hard/2/e675cd59ae25", "text": "A scatter plot shows these data points: (1, 9), (2, 14), (3, 15), (4, 25), (5, …"}
-{"answer": "y = -2x + 1", "id": "senior-find-the-line-of-best-fit-by-eye/medium/0/f98bfa611b7e", "text": "A scatter plot shows these data points: (1, -1), (2, -3), (3, -7), (4, -3), (5,…"}
-{"answer": "y = -2x - 3", "id": "senior-find-the-line-of-best-fit-by-eye/medium/1/77a748b8e30a", "text": "A scatter plot shows these data points: (1, -3), (2, -5), (3, -14), (4, -10), (…"}
-{"answer": "y = 4x + 5", "id": "senior-find-the-line-of-best-fit-by-eye/medium/2/3e25bd67ec2c", "text": "A scatter plot shows these data points: (1, 7), (2, 18), (3, 18), (4, 19), (5, …"}
+{"answer": "y = -5x - 3", "id": "senior-find-the-line-of-best-fit-by-eye/hard/0/d0db674457e5", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = -4x - 6", "id": "senior-find-the-line-of-best-fit-by-eye/hard/1/ab81c19dd76b", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = 5x + 5", "id": "senior-find-the-line-of-best-fit-by-eye/hard/2/4d54b49b8841", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = -2x + 1", "id": "senior-find-the-line-of-best-fit-by-eye/medium/0/789e237e21f3", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = -2x - 3", "id": "senior-find-the-line-of-best-fit-by-eye/medium/1/49e722408d9a", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
+{"answer": "y = 4x + 5", "id": "senior-find-the-line-of-best-fit-by-eye/medium/2/b292725c2853", "text": "The scatter plot shows five data points. Four candidate lines are proposed as m…"}
 {"answer": "30", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/0/5263950a949c", "text": "The curve y = 4·x^2 + 6·x has a tangent at x = 3. Find the slope of the tangent."}
 {"answer": "-6", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/1/8492c7762be2", "text": "The curve y = 2·x^2 + 2·x + 8 has a tangent at x = -2. Find the slope of the ta…"}
 {"answer": "9", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/2/3394e315924a", "text": "The curve y = 2·x^2 + x - 6 has a tangent at x = 2. Find the slope of the tange…"}
@@ -7441,6 +7576,15 @@
 {"answer": "14", "id": "solve-equation-word-problems/medium/0/c3c90d710eae", "text": "I think of a number, multiply it by 8, then subtract 16. The result is 96. What…"}
 {"answer": "9", "id": "solve-equation-word-problems/medium/1/9c74c3611f21", "text": "I think of a number, multiply it by 8, then add 9. The result is 81. What was t…"}
 {"answer": "20", "id": "solve-equation-word-problems/medium/2/3907c8e541bb", "text": "I think of a number, multiply it by 2, then subtract 15. The result is 25. What…"}
+{"answer": "x = -1", "id": "solve-linear-equations-graphically/easy/0/ec3f63fa0e9d", "text": "The graphs of y = f(x) and y = g(x) are the lines A and B on the grid. Solve f(…"}
+{"answer": "x = -2", "id": "solve-linear-equations-graphically/easy/1/1021cda3d667", "text": "The graphs of y = f(x) and y = g(x) are the lines A and B on the grid. Use the …"}
+{"answer": "x = -1", "id": "solve-linear-equations-graphically/easy/2/f200d4deed99", "text": "The graphs of y = f(x) and y = g(x) are the lines A and B on the grid. Solve f(…"}
+{"answer": "x = 2", "id": "solve-linear-equations-graphically/hard/0/076c2412e5e9", "text": "Lines A, B and C are the graphs of y = f(x), y = g(x) and y = h(x). Use the gra…"}
+{"answer": "x = 0", "id": "solve-linear-equations-graphically/hard/1/c1e2e5f22a5b", "text": "Lines A, B and C are the graphs of y = f(x), y = g(x) and y = h(x). Use the gra…"}
+{"answer": "x = -1", "id": "solve-linear-equations-graphically/hard/2/f234dc7755fa", "text": "Lines A, B and C are the graphs of y = f(x), y = g(x) and y = h(x). Solve f(x) …"}
+{"answer": "x = -3", "id": "solve-linear-equations-graphically/medium/0/7b07e99bc394", "text": "A straight line is the graph of y = f(x). Use the graph to find x when f(x) = -…"}
+{"answer": "x = 2", "id": "solve-linear-equations-graphically/medium/1/118d2d93f16f", "text": "The graph of y = f(x) is a straight line. Use the graph to find x when f(x) = 6."}
+{"answer": "x = -3", "id": "solve-linear-equations-graphically/medium/2/386d49c45d6c", "text": "A straight line is the graph of y = f(x). Solve f(x) = -2 using the graph."}
 {"answer": "y = -5*exp(2*x)", "id": "solve-ode-exponential/easy/0/d18962628025", "text": "The quantity y satisfies dy/dx = 2y. Given y(0) = -5, find y(x)."}
 {"answer": "y = 3*exp(5*x)", "id": "solve-ode-exponential/easy/1/11f972717469", "text": "The quantity y satisfies dy/dx = 5y. Given y(0) = 3, find y(x)."}
 {"answer": "y = -6*exp(3*x)", "id": "solve-ode-exponential/easy/2/28f44ea0626b", "text": "The quantity y satisfies dy/dx = 3y. Given y(0) = -6, find y(x)."}
