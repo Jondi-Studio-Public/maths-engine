@@ -4,7 +4,6 @@ id: senior-interpret-commonly-used-symbols-and-abbreviations-in-scale
 name: Interpret commonly used symbols and abbreviations in scale drawings
 domain: measurement
 year_level: ['11']
-naplan_domain: [measurement]
 description: 'Read a floor plan whose rooms are marked with abbreviations (BR 1, ENS, L''DRY, WIR) and whose windows and toilets are drawn as symbols, and answer in full words. Easy names the room that has the toilets symbol or the only room with no window symbol. Medium names the room that holds a fixture asked for by its full name (DW, HWS and BIR on the plan). Hard counts rooms that need decoded abbreviations and symbols together, such as the wet areas that have a window.'
 status: active
 capability_gates: [figure_stimulus]

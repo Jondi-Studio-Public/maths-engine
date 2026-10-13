@@ -4,7 +4,6 @@ id: senior-use-symbols-and-conventions-for-the-representation-of
 name: Use symbols and conventions for the representation of geometric information
 domain: measurement
 year_level: ['11']
-naplan_domain: [measurement, space]
 description: 'Read a site plan by its drawing conventions: dashed outlines for proposed or hidden features, the north arrow, a scale written as a ratio and dimension labels in metres. Easy picks out the one dashed feature (proposed, or hidden below ground) and names it in full from its abbreviation. Medium gives the compass direction from one feature to another with north up the page. Hard finds the area of the existing (solid) or proposed (dashed) building from its dimension labels.'
 status: active
 capability_gates: [figure_stimulus]

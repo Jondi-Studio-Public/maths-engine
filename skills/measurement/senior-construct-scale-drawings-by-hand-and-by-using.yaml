@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-construct-scale-drawings-by-hand-and-by-using
+name: Construct scale drawings by hand and by using software packages
+domain: measurement
+description: 'Given a room or garden described in words with real dimensions, and the scale written on a grid whose cells are 1 cm of the drawing, shade its plan. Easy is a rectangle and medium an L shape, placed anywhere on the grid but not turned. Hard converts a scale such as 1 cm : 50 cm or 1 : 200, and leaves the orientation open, so the plan may be turned or flipped.'
+status: deferred
+deferred_reason: visual
+capability_gates: [visual_construction]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-find-actual-measurements-from-scale-drawings-such-as, senior-understand-and-apply-drawing-conventions-of-scale-drawings]
+answer: grid_cells
+sources:
+- topic: grid_scale_plan
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_scale_plan
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_scale_plan
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ignores-the-scale
+  description: Draws the real lengths in cells, using 1 cell for each metre (or 1 cell for each stated unit), so the plan is too large by the scale factor.
+- id: divides-by-too-much
+  description: Divides the real length by the scale twice, or by the wrong power of ten, so the plan is too small.
+- id: counts-grid-lines
+  description: Draws one cell too many in each direction, counting the lines of the grid instead of the cells between them.
+- id: across-and-up-swapped
+  description: Draws the length up the page and the width across it, turning the plan when the wording fixes which way round it goes.
+- id: forgets-the-missing-corner
+  description: Draws the whole rectangle for an L-shaped room and leaves out the corner that is missing.
+- id: wrong-corner-or-notch
+  description: Cuts the missing part from the wrong corner, or with its width and height swapped.
+tags: [acara-senior-v8-4, measurement, grid_scale_plan, acmem112, scale-drawings, drawn-answer]
