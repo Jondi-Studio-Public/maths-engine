@@ -204,7 +204,7 @@ def exd_x_r3a_cyclic_chain(rng, tier: str = "exam"):
                 sensible_range=(0, 360),
                 follow_through=ft_c,
                 working=[
-                    f"Angle {target} = {coef[target][0]}x + {coef[target][1]}y + ({const[target]}) = {top}°.",
+                    f"Angle {target} = {_expr(*coef[target], const[target])} = {top}°.",
                 ],
                 distractors=c_d,
             ),

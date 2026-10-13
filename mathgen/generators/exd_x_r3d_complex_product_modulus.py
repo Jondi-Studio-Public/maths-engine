@@ -20,7 +20,7 @@ import random
 
 import sympy
 
-from mathgen.core import attempts, check, generator, join_terms, latex_answer, phrase
+from mathgen.core import attempts, check, generator, join_terms, latex_answer, paren_negative as pn, phrase
 
 from .exd_x_r3d_common import tagged
 from ._exd_distinct_parts import distinct_part_answers
@@ -124,9 +124,7 @@ def exd_x_r3d_complex_product_modulus(rng: random.Random, tier: str = "exam") ->
                 answer_text=str(re),
                 answer_latex=latex_answer(re),
                 marks=2,
-                working=[
-                    f"zw = ({a}{'+' if b >= 0 else ''}{b}i)({c}{'+' if d >= 0 else ''}{d}i); Re = {a}·{c} - ({b})({d}) = {re}."
-                ],
+                working=[f"zw = ({_text(z)})({_text(w)}); Re = {pn(a)}·{pn(c)} - ({b})({d}) = {re}."],
                 distractors=a_d,
             ),
             dict(
@@ -136,7 +134,7 @@ def exd_x_r3d_complex_product_modulus(rng: random.Random, tier: str = "exam") ->
                 answer_text=str(im),
                 answer_latex=latex_answer(im),
                 marks=2,
-                working=[f"Im = {a}·{d} + ({b})({c}) = {im}."],
+                working=[f"Im = {pn(a)}·{pn(d)} + ({b})({c}) = {im}."],
                 distractors=b_d,
             ),
             dict(
@@ -148,7 +146,7 @@ def exd_x_r3d_complex_product_modulus(rng: random.Random, tier: str = "exam") ->
                 marks=2,
                 follow_through="sqrt(part_a**2 + part_b**2)",
                 sensible_range=(0, None),
-                working=[f"|zw| = √({re}² + {im}²) = {modulus}. (Also |z||w| = √{norm}·√{norm} = {modulus}.)"],
+                working=[f"|zw| = √({pn(re)}² + {pn(im)}²) = {modulus}. (Also |z||w| = √{norm}·√{norm} = {modulus}.)"],
                 distractors=c_d,
             ),
         ],

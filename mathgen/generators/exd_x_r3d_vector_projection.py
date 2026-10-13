@@ -22,7 +22,7 @@ import math
 import random
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator, latex_answer
+from mathgen.core import attempts, check, generator, latex_answer, paren_negative
 
 from .exd_x_r3d_common import tagged
 from ._exd_distinct_parts import distinct_part_answers
@@ -181,7 +181,7 @@ def exd_x_r3d_vector_projection(rng: random.Random, tier: str = "exam") -> dict:
                 answer_latex=latex_answer(proj),
                 marks=2,
                 follow_through="part_a / part_b",
-                working=[f"Scalar projection = (AB · AC) / |AC| = {dot} / {length} = {proj}."],
+                working=[f"Scalar projection = (AB · AC) / |AC| = {paren_negative(dot)} / {length} = {proj}."],
                 distractors=c_d,
             ),
             dict(
@@ -193,7 +193,7 @@ def exd_x_r3d_vector_projection(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 follow_through=f"{ab2} - part_c**2",
                 sensible_range=(0, None),
-                working=[f"|AB|² = {ab2}; the squared distance is |AB|² - {proj}² = {perp2}."],
+                working=[f"|AB|² = {ab2}; the squared distance is |AB|² - {paren_negative(proj)}² = {perp2}."],
                 distractors=d_d,
             ),
         ],

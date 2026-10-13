@@ -14,7 +14,7 @@ C - A is drawn even so the midpoint has whole-number coordinates.
 from __future__ import annotations
 
 from ..answers import Distractor
-from ..core import check, generator, phrase, pick_distractors
+from ..core import check, generator, paren_negative, phrase, pick_distractors
 from ._exd_distinct_parts import distinct_part_answers
 
 _COORD = [n for n in range(-9, 10)]
@@ -145,7 +145,7 @@ def exd_x_r3e_vector_points(rng, tier: str = "exam") -> dict:
                 answer=d_key,
                 answer_text=str(d_key),
                 marks=2,
-                working=[f"M = A + AC/2, so its {axis}-coordinate is {A[t]} + {c_key}/2 = {d_key}."],
+                working=[f"M = A + AC/2, so its {axis}-coordinate is {A[t]} + {paren_negative(c_key)}/2 = {d_key}."],
                 distractors=d_opts,
                 follow_through=f"({A[t]}) + part_c/2",
             ),

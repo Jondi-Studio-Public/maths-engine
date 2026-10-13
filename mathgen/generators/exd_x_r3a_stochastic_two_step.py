@@ -24,7 +24,16 @@ from fractions import Fraction
 from sympy import Rational
 
 from mathgen.answers import Distractor, exact_value
-from mathgen.core import attempts, check, generator, join_terms, latex_answer, pick_distractors, rational_text
+from mathgen.core import (
+    attempts,
+    check,
+    generator,
+    join_terms,
+    latex_answer,
+    paren_negative as pn,
+    pick_distractors,
+    rational_text,
+)
 from ._exd_distinct_parts import distinct_part_answers
 
 
@@ -159,7 +168,9 @@ def exd_x_r3a_stochastic_two_step(rng, tier: str = "exam"):
                 y1,
                 2,
                 a_d,
-                [f"Y1 = {y0} + {_t(h)}({lam}·{y0} + {forcing}) + {k}·{y0}·({_t(dw1)}) = {_t(y1)}."],
+                [
+                    f"Y1 = {y0} + {_t(h)}({join_terms([(1, f'{pn(lam)}·{pn(y0)}'), (forcing, '')])}) + {pn(k)}·{pn(y0)}·({_t(dw1)}) = {_t(y1)}."
+                ],
             ),
             _part(
                 "Using your value of Y1, find the approximation Y2 of Y(2h).",

@@ -31,6 +31,7 @@ from ..core import (
     join_terms,
     latex_answer,
     numeric_answer,
+    paren_negative,
     pick_distractors,
     rational_text,
     round_half_up,
@@ -282,8 +283,8 @@ def exd_x_r3e_inverse_trig_tangent(rng, tier: str = "exam") -> dict:
                 answer_latex=latex_answer(c_text),
                 marks=2,
                 working=[
-                    f"f({x0}) = {a}·π/4 + {b}·{x0}, since arctan 1 = π/4.",
-                    f"The tangent meets the x-axis where x = {x0} - f({x0})/{slope_text} = {c_text}.",
+                    f"f({x0}) = {join_terms([(a, 'π/4'), (b, f'({x0})')])}, since arctan 1 = π/4.",
+                    f"The tangent meets the x-axis where x = {x0} - f({x0})/{paren_negative(slope)} = {c_text}.",
                 ],
                 distractors=c_dist,
                 follow_through=f"{x0} - ({pi_over_4.numerator}*pi/{pi_over_4.denominator} + {b * x0})/part_b",

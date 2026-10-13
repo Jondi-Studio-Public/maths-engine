@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import random
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, join_terms, phrase
 from ._exd_r3f_parts import number_part
 from ._exd_distinct_parts import distinct_part_answers
 
@@ -106,7 +106,9 @@ def exd_x_r3f_vector_perpendicular(rng: random.Random, tier: str = "exam") -> di
                 k_candidates,
                 marks=2,
                 follow_through="-part_a/part_b",
-                working=[f"p \u00b7 w = u \u00b7 w + k(v \u00b7 w) = {uw} + {vw}k = 0, so k = {k}."],
+                working=[
+                    f"p \u00b7 w = u \u00b7 w + k(v \u00b7 w) = {join_terms([(uw, ''), (vw, 'k')])} = 0, so k = {k}."
+                ],
             ),
             number_part(
                 "Find the value of |p|\u00b2 for this value of k.",

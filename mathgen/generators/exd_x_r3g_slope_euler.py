@@ -19,7 +19,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator, join_terms
+from ..core import attempts, check, generator, join_terms, paren_negative
 from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, number_part
 
@@ -94,7 +94,7 @@ def exd_x_r3g_slope_euler(rng: random.Random, tier: str = "exam") -> dict:
             y1,
             2,
             2,
-            [f"y at x = {_text(x1)}: {y0} + {hs} x {s0} = {float(y1):.2f}."],
+            [f"y at x = {_text(x1)}: {y0} + {hs} x {paren_negative(s0)} = {float(y1):.2f}."],
             [
                 (y0 + s0, "euler-step-size-not-applied"),
                 (h * s0, "euler-increment-reported-as-estimate"),
@@ -108,7 +108,7 @@ def exd_x_r3g_slope_euler(rng: random.Random, tier: str = "exam") -> dict:
             s1,
             2,
             1,
-            [f"dy/dx = {a}({_text(x1)}) + {b}({float(y1):.2f}) + {c} = {float(s1):.2f}."],
+            [f"dy/dx = {join_terms([(a, f'({_text(x1)})'), (b, f'({float(y1):.2f})'), (c, '')])} = {float(s1):.2f}."],
             [
                 (a * x1 + b * y0 + c, "euler-gradient-uses-old-point"),
                 (a * x0 + b * y1 + c, "euler-gradient-uses-old-point"),
@@ -122,7 +122,7 @@ def exd_x_r3g_slope_euler(rng: random.Random, tier: str = "exam") -> dict:
             y2,
             2,
             2,
-            [f"y at x = {_text(x0 + 2 * h)}: {float(y1):.2f} + {hs} x {float(s1):.2f} = {float(y2):.2f}."],
+            [f"y at x = {_text(x0 + 2 * h)}: {float(y1):.2f} + {hs} x {paren_negative(float(s1))} = {float(y2):.2f}."],
             [
                 (y1 + h * s0, "euler-gradient-uses-old-point"),
                 (y1 + s1, "euler-step-size-not-applied"),

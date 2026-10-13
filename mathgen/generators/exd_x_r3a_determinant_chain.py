@@ -22,7 +22,7 @@ from __future__ import annotations
 from sympy import Matrix, Symbol, latex, solve
 
 from mathgen.answers import Distractor
-from mathgen.core import attempts, check, generator, latex_answer, pick_distractors
+from mathgen.core import attempts, check, generator, latex_answer, paren_negative as pn, pick_distractors
 from ._exd_distinct_parts import distinct_part_answers
 
 _X = Symbol("x")
@@ -151,14 +151,14 @@ def _build(rng):
                 det_a,
                 1,
                 a_d,
-                [f"det(A) = {a1} × {a4} - {a2} × {a3} = {det_a}."],
+                [f"det(A) = {pn(a1)} × {pn(a4)} - {pn(a2)} × {pn(a3)} = {det_a}."],
             ),
             _part(
                 "Using your answer to (a), find det(B).",
                 det_b,
                 2,
                 b_d,
-                [f"det(AB) = det(A) × det(B), so det(B) = {det_ab} ÷ {det_a} = {det_b}."],
+                [f"det(AB) = det(A) × det(B), so det(B) = {det_ab} ÷ {pn(det_a)} = {det_b}."],
                 follow_through=f"{det_ab}/part_a",
             ),
             _part(
@@ -176,7 +176,7 @@ def _build(rng):
                 d_d,
                 [
                     f"det({c}M) = {c}² det(M) for a 2 × 2 matrix, and det(A⁻¹) = 1 ÷ det(A).",
-                    f"= {c * c} × {det_b} ÷ {det_a} = {c * c * m}.",
+                    f"= {c * c} × {pn(det_b)} ÷ {pn(det_a)} = {c * c * m}.",
                 ],
                 follow_through=f"{c * c}*part_b/part_a",
             ),

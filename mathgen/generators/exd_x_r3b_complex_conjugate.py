@@ -18,7 +18,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, paren_negative, phrase
 from .exd_x_r3b_common import fraction_part, number_part
 from ._exd_distinct_parts import distinct_part_answers
 
@@ -60,7 +60,7 @@ def _build(rng: random.Random) -> dict:
         Fraction(d),
         0,
         1,
-        [f"|{den}|^2 = {r}^2 + {s}^2 = {d}."],
+        [f"|{den}|^2 = {paren_negative(r)}^2 + {paren_negative(s)}^2 = {d}."],
         [
             ("i-squared-as-plus-one", Fraction(r * r - s * s)),
             ("square-of-sum-for-sum-of-squares", Fraction((r + s) ** 2)),

@@ -22,7 +22,7 @@ from __future__ import annotations
 from sympy import I, expand
 
 from mathgen.answers import Distractor
-from mathgen.core import attempts, check, generator, latex_answer, pick_distractors
+from mathgen.core import attempts, check, generator, join_terms, latex_answer, pick_distractors
 from ._exd_distinct_parts import distinct_part_answers
 
 _RANGE = [v for v in range(-5, 6) if v != 0]
@@ -160,7 +160,9 @@ def exd_x_r3a_complex_powers(rng, tier: str = "exam"):
                 z2,
                 2,
                 a_d,
-                [f"{name}^2 = ({base})² = {a * a} + {2 * a * b}i + {b * b}i² = {_ctext(*z2)}."],
+                [
+                    f"{name}^2 = ({base})² = {join_terms([(a * a, ''), (2 * a * b, 'i'), (b * b, 'i²')])} = {_ctext(*z2)}."
+                ],
             ),
             _part(
                 f"Using your answer to (a), write {name}^{n2} in the form p + qi.",

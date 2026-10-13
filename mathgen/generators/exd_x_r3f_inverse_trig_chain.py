@@ -129,7 +129,7 @@ def exd_x_r3f_inverse_trig_chain(rng: random.Random, tier: str = "exam") -> dict
             (Rational(1, a) * antiderivative_delta, "integral-dropped-numerator-constant"),
         ]
         working_b = [
-            f"The antiderivative is ({k}/{a}) arctan((x + {h})/{a}).",
+            f"The antiderivative is ({k}/{a}) arctan(({join_terms([(1, 'x'), (h, '')])})/{a}).",
             f"Evaluating between x = {lo} and x = {hi} gives {_typed(area)}.",
         ]
     else:
@@ -157,7 +157,7 @@ def exd_x_r3f_inverse_trig_chain(rng: random.Random, tier: str = "exam") -> dict
             (antiderivative_delta, "integral-dropped-numerator-constant"),
         ]
         working_b = [
-            f"The antiderivative is {k} arcsin((x + {h})/{a}).",
+            f"The antiderivative is {k} arcsin(({join_terms([(1, 'x'), (h, '')])})/{a}).",
             f"Evaluating between x = {lo} and x = {hi} gives {_typed(area)}.",
         ]
 

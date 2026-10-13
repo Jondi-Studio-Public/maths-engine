@@ -18,7 +18,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator, join_terms, rational_text
+from ..core import attempts, check, generator, join_terms, paren_negative, rational_text
 from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3g_kit import clashes, fraction_part
 
@@ -107,7 +107,7 @@ def exd_x_r3g_quadratic_sensitivity(rng: random.Random, tier: str = "exam") -> d
             3,
             [
                 f"Estimate = {rational_text(vmin)} + ({d})({rational_text(xstar)}) = {rational_text(vmin + d * xstar)}.",
-                f"Exact - estimate = {rational_text(vnew)} - {rational_text(vmin + d * xstar)} = {rational_text(error)}.",
+                f"Exact - estimate = {rational_text(vnew)} - {paren_negative(vmin + d * xstar)} = {rational_text(error)}.",
             ],
             [
                 (Fraction(0), "sensitivity-estimate-assumed-exact"),

@@ -22,7 +22,7 @@ from fractions import Fraction
 
 from sympy import Matrix
 
-from mathgen.core import attempts, check, generator, latex_answer
+from mathgen.core import attempts, check, generator, join_terms, latex_answer
 
 from .exd_x_r3d_common import tagged
 from ._exd_distinct_parts import distinct_part_answers
@@ -150,7 +150,10 @@ def exd_x_r3d_regression_summary_chain(rng: random.Random, tier: str = "exam") -
                 b1,
                 3,
                 a_d,
-                [f"{s11}·b1 + {s12}·b2 = {s1y} and {s12}·b1 + {s22}·b2 = {s2y}; eliminating b2 gives b1 = {b1}."],
+                [
+                    f"{join_terms([(s11, 'b1'), (s12, 'b2')])} = {s1y} and {join_terms([(s12, 'b1'), (s22, 'b2')])} = {s2y}; "
+                    f"eliminating b2 gives b1 = {b1}."
+                ],
             ),
             part(
                 rng.choice(_PROMPT_B),

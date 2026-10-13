@@ -114,7 +114,7 @@ def exd_x_r3e_complex_quotient(rng, tier: str = "exam") -> dict:
                 marks=2,
                 working=[
                     f"Multiply top and bottom by the conjugate {conj}: the denominator becomes {modulus_sq}.",
-                    f"z = ({a * c + b * d} + {_cx(0, b * c - a * d)})/{modulus_sq} = {_cx(x, y)}, so Re(z) = {x}.",
+                    f"z = ({_cx(a * c + b * d, b * c - a * d)})/{modulus_sq} = {_cx(x, y)}, so Re(z) = {x}.",
                 ],
                 distractors=a_opts,
             ),

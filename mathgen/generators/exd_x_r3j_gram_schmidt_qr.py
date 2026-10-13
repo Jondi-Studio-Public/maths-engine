@@ -20,6 +20,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import attempts, check, generator
+from ..core import paren_negative as pn
 from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3j_kit import fraction_part
 
@@ -87,7 +88,7 @@ def exd_x_r3j_gram_schmidt_qr(rng):
             "Find r11.",
             r11,
             1,
-            [f"r11 = |u| = √({a}² + {b}²) = {c}."],
+            [f"r11 = |u| = √({pn(a)}² + {pn(b)}²) = {c}."],
             [
                 (Fraction(c * c), "forgot-square-root"),
                 (Fraction(abs(a) + abs(b)), "speed-adds-components"),
@@ -99,7 +100,7 @@ def exd_x_r3j_gram_schmidt_qr(rng):
             "Find r12.",
             r12,
             2,
-            [f"e1 = u / {c}, and r12 = e1 · v = ({a}·{p} + {b}·{q}) / {c} = {dot}/{c}."],
+            [f"e1 = u / {c}, and r12 = e1 · v = ({pn(a)}·{pn(p)} + {pn(b)}·{pn(q)}) / {c} = {dot}/{c}."],
             [
                 (Fraction(dot), "dot-product-not-normalised"),
                 (Fraction(dot, c * c), "divided-by-squared-length"),
@@ -111,7 +112,7 @@ def exd_x_r3j_gram_schmidt_qr(rng):
             "Find r22.",
             r22,
             2,
-            [f"r22 = |v − r12 e1| = |det[u v]| / |u| = |{a}·{q} − {b}·{p}| / {c} = {abs(det)}/{c}."],
+            [f"r22 = |v − r12 e1| = |det[u v]| / |u| = |{pn(a)}·{pn(q)} − {pn(b)}·{pn(p)}| / {c} = {abs(det)}/{c}."],
             [
                 (Fraction(abs(det)), "area-for-height"),
                 (Fraction(abs(det), c * c), "divided-by-squared-length"),

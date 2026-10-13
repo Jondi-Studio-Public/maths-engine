@@ -127,7 +127,7 @@ def exd_x_r3d_limit_growth(rng: random.Random, tier: str = "exam") -> dict:
         ]
         c_cands = [
             (-key_c, "ignored-side" if n % 2 else "limit-constant-sign-flipped"),
-            (0, "denominator-grows-so-zero") if n < 0 else None,
+            (0, "denominator-grows-so-zero"),
         ]
         a_d = tagged(str(n), [c for c in a_cands if c])
         b_d = tagged(str(limit), [c for c in b_cands if c])
