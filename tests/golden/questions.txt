@@ -7777,6 +7777,42 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
+{"answer": "200", "id": "ucv1-applied-optimisation/easy/0/de39900886e5", "text": "A rectangular sheep yard is to be built against a long shed wall using 40 m of …"}
+{"answer": "1800", "id": "ucv1-applied-optimisation/easy/1/4ad61d2298dc", "text": "A rectangular sheep yard is to be built against a long shed wall using 120 m of…"}
+{"answer": "288", "id": "ucv1-applied-optimisation/easy/2/9017bcd274cd", "text": "A market gardener fences a rectangle with 96 m of fencing and adds 2 internal f…"}
+{"answer": "(a) 4.00; (b) 17.00; (c) 2; (d) 480", "id": "ucv1-applied-optimisation/exam/0/b89108e35773", "text": "A shed owner wants a tank with no lid, a square base of side x metres, height h…"}
+{"answer": "(a) 4.00; (b) 17.00; (c) 2; (d) 360", "id": "ucv1-applied-optimisation/exam/1/8971e0bfae51", "text": "A shed owner wants a tank with no lid, a square base of side x metres, height h…"}
+{"answer": "(a) 4.00; (b) 17.00; (c) 2; (d) 300", "id": "ucv1-applied-optimisation/exam/2/b0c23c363f50", "text": "A shed owner wants a tank with no lid, a square base of side x metres, height h…"}
+{"answer": "1050", "id": "ucv1-applied-optimisation/hard/0/3490007c0f07", "text": "A paddock beside a creek is fenced on three sides with 100 m of fencing. Becaus…"}
+{"answer": "500", "id": "ucv1-applied-optimisation/hard/1/c3b7b84e95ed", "text": "A pipeline is to join a pump A on the north bank of a 40 m wide river to a tank…"}
+{"answer": "3250", "id": "ucv1-applied-optimisation/hard/2/51ac72602c6d", "text": "A pipeline is to join a pump A on the north bank of a 40 m wide river to a tank…"}
+{"answer": "108", "id": "ucv1-applied-optimisation/medium/0/94286a869ce5", "text": "A square-based tank with no lid must hold 108 m³ of water. Find the smallest po…"}
+{"answer": "48", "id": "ucv1-applied-optimisation/medium/1/6dbd94e16ed0", "text": "A farmer wants an open-top rainwater tank with a square base and a capacity of …"}
+{"answer": "3456", "id": "ucv1-applied-optimisation/medium/2/3fb70d48ffbe", "text": "A tray with no lid is folded from a 36 cm by 36 cm square of cardboard after sq…"}
+{"answer": "78", "id": "ucv1-arc-length/easy/0/e6038b9fd6ab", "text": "A cable hangs along the curve y = (2/3)x^(3/2) between the posts at x = 3 and x…"}
+{"answer": "74/3", "id": "ucv1-arc-length/easy/1/924625059cb1", "text": "Find the exact length of the curve y = (2/3)x^(3/2) from x = 8 to x = 15."}
+{"answer": "78", "id": "ucv1-arc-length/easy/2/31e827e6b861", "text": "Find the exact length of the curve y = (2/3)x^(3/2) from x = 3 to x = 24."}
+{"answer": "(a) 4095/128; (b) 32.008; (c) 1295/16; (d) 0.05", "id": "ucv1-arc-length/exam/0/aa419c470b1d", "text": "The top edge of a ramp has the shape y = x³/6 + 1/(2x) (x and y in metres) betw…"}
+{"answer": "(a) 4095/128; (b) 32.008; (c) 4109/48; (d) 0.59", "id": "ucv1-arc-length/exam/1/036f7262c80d", "text": "A skate-park rail is bent to follow y = x³/6 + 1/(2x), with x and y in metres, …"}
+{"answer": "(a) 4095/128; (b) 32.008; (c) 1295/16; (d) 0.05", "id": "ucv1-arc-length/exam/2/6ffd3573c857", "text": "The top edge of a ramp has the shape y = x³/6 + 1/(2x) (x and y in metres) betw…"}
+{"answer": "ln(2)/2 + 3/4", "id": "ucv1-arc-length/hard/0/140ff81adee7", "text": "Find the exact length of the curve y = x²/4 - (1/2)ln x from x = 1 to x = 2."}
+{"answer": "589/1296", "id": "ucv1-arc-length/hard/1/88e5bca4d8e6", "text": "Find the exact length of the curve given parametrically by x = t² and y = (2/3)…"}
+{"answer": "ln(2)/2 + 3/4", "id": "ucv1-arc-length/hard/2/bac84e350f9d", "text": "A garden path follows the curve y = x²/4 - (1/2)ln x (units in metres) from x =…"}
+{"answer": "1175/144", "id": "ucv1-arc-length/medium/0/214cebe9dcbf", "text": "Find the exact length of the curve y = x⁴/8 + 1/(4x²) from x = 2 to x = 3."}
+{"answer": "2055/64", "id": "ucv1-arc-length/medium/1/64dce319fc09", "text": "Find the exact length of the curve y = x⁴/8 + 1/(4x²) from x = 1 to x = 4."}
+{"answer": "33/16", "id": "ucv1-arc-length/medium/2/7cfdbc089d4c", "text": "A rock-climbing wall is cut along the curve y = x⁴/8 + 1/(4x²) (units in metres…"}
+{"answer": "9/2", "id": "ucv1-average-value-mvt/easy/0/12d44bf96fbb", "text": "Find the mean value of the function f(x) = x² + x over 0 ≤ x ≤ 3."}
+{"answer": "1/4", "id": "ucv1-average-value-mvt/easy/1/057e7518b169", "text": "Find the average value of f(x) = 1/x² on the interval [1, 4]."}
+{"answer": "20", "id": "ucv1-average-value-mvt/easy/2/e049fa2466ae", "text": "Find the mean value of the function f(x) = 5x⁴ + 3x² over 0 ≤ x ≤ 2."}
+{"answer": "(a) 436/3; (b) 109/18; (c) 11881/324; (d) 15.6", "id": "ucv1-average-value-mvt/exam/0/6b8db603f40f", "text": "During a storm, rain flows into a farm's rainwater tank at a rate of f(t) = √t …"}
+{"answer": "(a) 38/3; (b) 38/15; (c) 1444/225; (d) 18.4", "id": "ucv1-average-value-mvt/exam/1/fbf9ba2018c7", "text": "During a storm, rain flows into a farm's rainwater tank at a rate of f(t) = √t …"}
+{"answer": "(a) 186; (b) 62/11; (c) 3844/121; (d) 24.2", "id": "ucv1-average-value-mvt/exam/2/626c5378215f", "text": "The inflow to a rainwater tank after a storm begins is f(t) = √t kilolitres per…"}
+{"answer": "sqrt(3)*pi/9", "id": "ucv1-average-value-mvt/hard/0/62faaca98212", "text": "Find the average value of f(x) = 1/(1 + x²) on the interval [0, √3]."}
+{"answer": "sqrt(3)*pi/9", "id": "ucv1-average-value-mvt/hard/1/3cbb0b4e118b", "text": "Find the mean value of the function f(x) = 1/(1 + x²) over -√3 ≤ x ≤ √3."}
+{"answer": "-1/2 + e/2", "id": "ucv1-average-value-mvt/hard/2/769109daffe9", "text": "Find the mean value of the function f(x) = x e^(x²) over 0 ≤ x ≤ 1."}
+{"answer": "3", "id": "ucv1-average-value-mvt/medium/0/3e81740ea5eb", "text": "The function f(x) = x(x - 9)² satisfies f(0) = f(9) = 0. By Rolle's theorem the…"}
+{"answer": "8", "id": "ucv1-average-value-mvt/medium/1/bd6e8caa8ee9", "text": "Show that f(x) = x²(x - 12) satisfies the conditions of Rolle's theorem on [0, …"}
+{"answer": "3", "id": "ucv1-average-value-mvt/medium/2/64ae5b7c2600", "text": "The function f(x) = x(x - 9)² satisfies f(0) = f(9) = 0. By Rolle's theorem the…"}
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}
@@ -7813,6 +7849,18 @@
 {"answer": "-6.125", "id": "ucv1-bifurcation-sign-check/medium/0/92ede5ba6a4c", "text": "The equation x' = -2x^2 - 7x + r depends on the parameter r. Identify the value…"}
 {"answer": "12.25", "id": "ucv1-bifurcation-sign-check/medium/1/f6625caf3521", "text": "Consider the family x' = x^2 + 7x + r, where r is a parameter. Identify the val…"}
 {"answer": "-0.0625", "id": "ucv1-bifurcation-sign-check/medium/2/767f83d1068d", "text": "The equation x' = -4x^2 + x + r depends on the parameter r. Identify the value …"}
+{"answer": "80", "id": "ucv1-binomial-theorem-terms/easy/0/2d8c76611b1a", "text": "Find the coefficient of x³ in the expansion of (1 + 2x)^5."}
+{"answer": "896", "id": "ucv1-binomial-theorem-terms/easy/1/fe2dfa4251a0", "text": "Find the coefficient of x⁶ in the expansion of (2 + 2x)^7."}
+{"answer": "896", "id": "ucv1-binomial-theorem-terms/easy/2/80ab4173b924", "text": "Find the coefficient of x⁶ in the expansion of (2 + 2x)^7."}
+{"answer": "(a) 3; (b) 35; (c) -2835; (d) 945", "id": "ucv1-binomial-theorem-terms/exam/0/ef3db2098a80", "text": "Consider the expansion of (3x³ - 1/x⁴)^7, written in descending powers of x. (a…"}
+{"answer": "(a) 4; (b) 210; (c) 1088640; (d) 1959552", "id": "ucv1-binomial-theorem-terms/exam/1/183bb013397c", "text": "Consider the expansion of (2x² + 3/x³)^10, written in descending powers of x. (…"}
+{"answer": "(a) 6; (b) 84; (c) 43008; (d) -18432", "id": "ucv1-binomial-theorem-terms/exam/2/fd69bec95491", "text": "Consider the expansion of (2x² - 2/x)^9, written in descending powers of x. (a)…"}
+{"answer": "901120", "id": "ucv1-binomial-theorem-terms/hard/0/47ac6de406c3", "text": "Find the term independent of x in the expansion of (2x + 2/x³)^12."}
+{"answer": "84", "id": "ucv1-binomial-theorem-terms/hard/1/fcc103d25e96", "text": "Find the term independent of x in the expansion of (x + 1/x²)^9."}
+{"answer": "240", "id": "ucv1-binomial-theorem-terms/hard/2/d0b88534d89f", "text": "Find the term independent of x in the expansion of (2x + 1/x²)^6."}
+{"answer": "-18", "id": "ucv1-binomial-theorem-terms/medium/0/110f977cd568", "text": "Find the coefficient of x^14 in the expansion of (x³ - 3/x)^6."}
+{"answer": "28", "id": "ucv1-binomial-theorem-terms/medium/1/9e1e5be271f3", "text": "Find the coefficient of x^8 in the expansion of (x² - 1/x²)^8."}
+{"answer": "945", "id": "ucv1-binomial-theorem-terms/medium/2/a91c12ad7164", "text": "Find the coefficient of x^(-2) in the expansion of (x + 3/x²)^7."}
 {"answer": "mean = 108/5, p10 = 1", "id": "ucv1-bootstrap-summary/easy/0/6843fec47c0c", "text": "A statistician draws a bootstrap resample of n=10 values from the original data…"}
 {"answer": "mean = 123/5, p90 = 49", "id": "ucv1-bootstrap-summary/easy/1/90cf9724b379", "text": "A statistician draws a bootstrap resample of n=10 values from the original data…"}
 {"answer": "mean = 167/5, p10 = 11", "id": "ucv1-bootstrap-summary/easy/2/85696c700448", "text": "A bootstrap resample of n=10 values, already sorted from smallest to largest, i…"}
@@ -7873,6 +7921,30 @@
 {"answer": "All rows are consistent.", "id": "ucv1-completeness-cauchy-check/medium/0/366a76f1ca25", "text": "The finite sequence has terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/27, a_4 = …"}
 {"answer": "Row 1 is inconsistent.", "id": "ucv1-completeness-cauchy-check/medium/1/7e16b3075a15", "text": "The finite sequence has terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/27, a_4 = …"}
 {"answer": "Row 3 is inconsistent.", "id": "ucv1-completeness-cauchy-check/medium/2/587a15d12560", "text": "Consider the finite sequence with terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/…"}
+{"answer": "-1/3", "id": "ucv1-complex-exponential-form/easy/0/89548c76f8f2", "text": "Express z = 1 - √3 i in exponential form re^(iθ) with -π < θ ≤ π. Find θ/π."}
+{"answer": "3/4", "id": "ucv1-complex-exponential-form/easy/1/818bcafd2e1f", "text": "Write z = -3 + 3i in exponential form re^(iθ) with -π < θ ≤ π. Find θ/π."}
+{"answer": "1/4", "id": "ucv1-complex-exponential-form/easy/2/baf06f07f15a", "text": "Write z = 3 + 3i in exponential form re^(iθ) with -π < θ ≤ π. Find θ/π."}
+{"answer": "(a) 5; (b) 1/2; (c) 0; (d) 625", "id": "ucv1-complex-exponential-form/exam/0/e51ef0af9b7d", "text": "Let z = 5i. (a) Find |z|. (b) Write z in the form re^(iθ) with -π < θ ≤ π. Find…"}
+{"answer": "(a) 4; (b) -1/3; (c) 1; (d) -64", "id": "ucv1-complex-exponential-form/exam/1/ef3d06095c9e", "text": "Let z = 2 - 2√3 i. (a) Find |z|. (b) Write z in the form re^(iθ) with -π < θ ≤ …"}
+{"answer": "(a) 4; (b) -2/3; (c) 0; (d) 4096", "id": "ucv1-complex-exponential-form/exam/2/4d8a2f157b9e", "text": "Let z = -2 - 2√3 i. (a) Find |z|. (b) Write z in the form re^(iθ) with -π < θ ≤…"}
+{"answer": "7/30", "id": "ucv1-complex-exponential-form/hard/0/0f7b26b658e2", "text": "Of the solutions of z⁵ = 243e^(-i5π/6), the one with the smallest positive argu…"}
+{"answer": "5/18", "id": "ucv1-complex-exponential-form/hard/1/a6b66e7b4a33", "text": "Of the solutions of z⁶ = e^(-iπ/3), the one with the smallest positive argument…"}
+{"answer": "5/18", "id": "ucv1-complex-exponential-form/hard/2/35d76adc60eb", "text": "Of the solutions of z³ = 8e^(i5π/6), the one with the smallest positive argumen…"}
+{"answer": "3/4", "id": "ucv1-complex-exponential-form/medium/0/d1b7f29d066f", "text": "Let z₁ = 4e^(iπ/4) and z₂ = 3e^(-iπ/4). Write z₁/z₂² in the form re^(iθ) with -…"}
+{"answer": "-5/6", "id": "ucv1-complex-exponential-form/medium/1/499711ab0ff1", "text": "Let z₁ = e^(-iπ/6) and z₂ = 4e^(-iπ/3). Write z₁z₂² in the form re^(iθ) with -π…"}
+{"answer": "-5/6", "id": "ucv1-complex-exponential-form/medium/2/4e2a8f3a99be", "text": "Let z₁ = e^(-iπ/2) and z₂ = 3e^(iπ/3). Write z₁ times the conjugate of z₂ in th…"}
+{"answer": "5", "id": "ucv1-complex-roots-real-polynomials/easy/0/6a043f82cca3", "text": "The cubic x³ + x² - 20x - 50 = 0 has real coefficients and one of its roots is …"}
+{"answer": "-4", "id": "ucv1-complex-roots-real-polynomials/easy/1/68a99bff3603", "text": "The cubic x³ - 2x² - 11x + 52 = 0 has real coefficients and one of its roots is…"}
+{"answer": "2", "id": "ucv1-complex-roots-real-polynomials/easy/2/a45817a07575", "text": "The cubic x³ - 8x² + 25x - 26 = 0 has real coefficients and one of its roots is…"}
+{"answer": "(a) -1 - 3i; (b) 10; (c) -5; (d) 1", "id": "ucv1-complex-roots-real-polynomials/exam/0/f15174112ca2", "text": "The quartic x⁴ + 6x³ + 13x² + 30x - 50 has real coefficients. One of its roots …"}
+{"answer": "(a) -2 - i; (b) 5; (c) -8; (d) 4", "id": "ucv1-complex-roots-real-polynomials/exam/1/8eefb7ee0fff", "text": "The quartic x⁴ + 2x³ - 11x² - 42x - 40 has real coefficients. One of its roots …"}
+{"answer": "(a) -1 - 3i; (b) 10; (c) -4; (d) 2", "id": "ucv1-complex-roots-real-polynomials/exam/2/dc3429021e5d", "text": "The quartic x⁴ + 2x³ + 6x² - 8x - 40 has real coefficients. One of its roots is…"}
+{"answer": "3", "id": "ucv1-complex-roots-real-polynomials/hard/0/580b5eef8bbe", "text": "The quartic x⁴ - x³ + 3x² - 9x - 54 = 0 has real coefficients and a non-real ro…"}
+{"answer": "1", "id": "ucv1-complex-roots-real-polynomials/hard/1/4f0d2825829e", "text": "The quartic x⁴ + 5x³ + 10x² - 16 = 0 has real coefficients and a non-real root …"}
+{"answer": "18", "id": "ucv1-complex-roots-real-polynomials/hard/2/a0ebbc6cb455", "text": "The cubic x³ + 6x² + kx + 40 = 0 has real coefficients and a non-real root -1 +…"}
+{"answer": "10", "id": "ucv1-complex-roots-real-polynomials/medium/0/7433e95e2044", "text": "The quartic x⁴ - 5x² + 10x - 6 = 0 has real coefficients and two real roots. On…"}
+{"answer": "26", "id": "ucv1-complex-roots-real-polynomials/medium/1/a8c41487f2c1", "text": "The quartic x⁴ + 4x³ - x² + 16x - 20 = 0 has real coefficients and two real roo…"}
+{"answer": "-6", "id": "ucv1-complex-roots-real-polynomials/medium/2/d40bde21bc8c", "text": "The quartic x⁴ - 5x³ + 3x² + 19x - 30 = 0 has real coefficients and two real ro…"}
 {"answer": "10/19", "id": "ucv1-condition-number-sensitivity/easy/0/6231d5a0efa8", "text": "A computation has condition number kappa = 5 and relative input error 2/19. Usi…"}
 {"answer": "3/4", "id": "ucv1-condition-number-sensitivity/easy/1/5ec5f4809598", "text": "A computation has condition number kappa = 2 and relative input error 3/8. Usin…"}
 {"answer": "3/7", "id": "ucv1-condition-number-sensitivity/easy/2/5461f65555a9", "text": "A computation has condition number kappa = 6 and relative input error 1/14. Usi…"}
@@ -7993,6 +8065,18 @@
 {"answer": "[[1, 1], [-2, -3]]", "id": "ucv1-diagonalisation/medium/0/6971bca0116e", "text": "The matrix A = [[-6, -3], [18, 9]] satisfies P⁻¹AP = D, where D = [[0, 0], [0, …"}
 {"answer": "[[1, 3], [1, 4]]", "id": "ucv1-diagonalisation/medium/1/658dcc3e21cf", "text": "Find an invertible matrix P such that P⁻¹AP = D, where A = [[8, -9], [12, -13]]…"}
 {"answer": "[[1, 1], [-2, -3]]", "id": "ucv1-diagonalisation/medium/2/a63a167c59bc", "text": "Find an invertible matrix P such that P⁻¹AP = D, where A = [[-11, -5], [30, 14]…"}
+{"answer": "4.78", "id": "ucv1-distances-and-triple-product-3d/easy/0/22e1a2e4da0c", "text": "Find the shortest distance from the point P(5, -4, 3) to the plane -x + 4y - 8z…"}
+{"answer": "3.43", "id": "ucv1-distances-and-triple-product-3d/easy/1/ee8ffb934fdb", "text": "Find the shortest distance from the point P(-3, -3, 1) to the plane 2x + 3y - 6…"}
+{"answer": "4.57", "id": "ucv1-distances-and-triple-product-3d/easy/2/961f4ffb341b", "text": "Find the shortest distance from the point P(-4, 3, 5) to the plane 2x + 3y - 6z…"}
+{"answer": "(a) 16; (b) 16; (c) 18.97; (d) 0.84", "id": "ucv1-distances-and-triple-product-3d/exam/0/c97602643de5", "text": "A solid crystal is a parallelepiped with edges a = (3, 1, 4), b = (4, 4, 2) and…"}
+{"answer": "(a) -12; (b) 12; (c) 11.18; (d) 1.07", "id": "ucv1-distances-and-triple-product-3d/exam/1/bf51ebb314f5", "text": "A parallelepiped-shaped crystal has edges a = (-3, -2, 1), b = (2, 4, 1) and c …"}
+{"answer": "(a) 7; (b) 7; (c) 15.30; (d) 0.46", "id": "ucv1-distances-and-triple-product-3d/exam/2/ae4782366c9b", "text": "A crystal grows in the shape of a parallelepiped with edges a = (1, -3, 2), b =…"}
+{"answer": "0.71", "id": "ucv1-distances-and-triple-product-3d/hard/0/9b50a1d28f8e", "text": "Line L₁ has equation r = (0, 2, -3) + s(2, 1, 1) and line L₂ has equation r = (…"}
+{"answer": "5.32", "id": "ucv1-distances-and-triple-product-3d/hard/1/fc3ddc4199ee", "text": "Line L₁ has equation r = (-3, -4, -4) + s(-2, -2, 3) and line L₂ has equation r…"}
+{"answer": "2.80", "id": "ucv1-distances-and-triple-product-3d/hard/2/af92b51b446a", "text": "Line L₁ has equation r = (-2, 1, -3) + s(3, 1, 0) and line L₂ has equation r = …"}
+{"answer": "36", "id": "ucv1-distances-and-triple-product-3d/medium/0/919d9e2c3a58", "text": "A parallelepiped has the three edges a = (3, 2, -2), b = (-3, 4, 1) and c = (-3…"}
+{"answer": "4.51", "id": "ucv1-distances-and-triple-product-3d/medium/1/9cbb6bc46a54", "text": "Find the shortest distance from the point P(3, 2, 1) to the line r = (-3, 4, 0)…"}
+{"answer": "6", "id": "ucv1-distances-and-triple-product-3d/medium/2/f0905c385eef", "text": "A parallelepiped has the three edges a = (-1, 2, 3), b = (2, -2, 2) and c = (-1…"}
 {"answer": "The stated bound is violated at a supplied point", "id": "ucv1-dominated-convergence-check/easy/0/32cdf84e6416", "text": "A finite sequence of functions f1, ..., f3 on the finite sample points x1, x2 i…"}
 {"answer": "All hypotheses are met", "id": "ucv1-dominated-convergence-check/easy/1/2e8b5e4dd51c", "text": "A finite sequence of functions f1, ..., f3 on the finite sample points x1, x2 i…"}
 {"answer": "All hypotheses are met", "id": "ucv1-dominated-convergence-check/easy/2/d5f8053ac464", "text": "A finite sequence of functions f1, ..., f3 on the finite sample points x1, x2 i…"}
@@ -8053,6 +8137,18 @@
 {"answer": "10*exp(-6*pi^2*t)", "id": "ucv1-energy-estimate/medium/0/81bbf2cb443d", "text": "A rod [0, 5] has insulated ends u_x(0,t) = u_x(5,t) = 0 and obeys u_t = k u_xx,…"}
 {"answer": "49*exp(-27*pi^2*t)", "id": "ucv1-energy-estimate/medium/1/1e8d69a90c03", "text": "The 1-D heat equation u_t = k u_xx holds on [0, 2] with k = 6 (k > 0) and insul…"}
 {"answer": "49*exp(-75*pi^2*t)", "id": "ucv1-energy-estimate/medium/2/14f0f3022236", "text": "On [0, 2], u(x,t) satisfies u_t = k u_xx (k = 6, k > 0) with insulated ends u_x…"}
+{"answer": "3", "id": "ucv1-equivalence-relations-classes/easy/0/09e3875f7dc3", "text": "On the set S = {1, 2, ..., 12}, a relation R is defined by a R b when a - b is …"}
+{"answer": "3", "id": "ucv1-equivalence-relations-classes/easy/1/479946e26541", "text": "On the set S = {1, 2, ..., 7}, a relation R is defined by a R b when a - b is d…"}
+{"answer": "5", "id": "ucv1-equivalence-relations-classes/easy/2/58c5586d1e03", "text": "Given the set S = {1, 2, ..., 30}, a relation R is defined by a R b when a - b …"}
+{"answer": "(a) 6; (b) 5; (c) 123; (d) 48", "id": "ucv1-equivalence-relations-classes/exam/0/aa1e92b57a25", "text": "A relation R on S = {1, 2, ..., 27} is defined by a R b when a ≡ b (mod 6). R i…"}
+{"answer": "(a) 5; (b) 5; (c) 89; (d) 34", "id": "ucv1-equivalence-relations-classes/exam/1/610a0818c781", "text": "A binary relation R on S = {1, 2, ..., 21} is defined by a R b when a ≡ b (mod …"}
+{"answer": "(a) 3; (b) 4; (c) 34; (d) 12", "id": "ucv1-equivalence-relations-classes/exam/2/62116de595bc", "text": "A binary relation R on S = {1, 2, ..., 10} is defined by a R b when a ≡ b (mod …"}
+{"answer": "18", "id": "ucv1-equivalence-relations-classes/hard/0/fb5de47db3f1", "text": "On S = {1, 2, ..., 54}, a ~ b means that a ≡ b (mod 6) and a ≡ b (mod 9). How m…"}
+{"answer": "4", "id": "ucv1-equivalence-relations-classes/hard/1/15764eaba9fe", "text": "A relation ~ on S = {0, 1, ..., 15} is defined by a ~ b when a² ≡ b² (mod 16). …"}
+{"answer": "8", "id": "ucv1-equivalence-relations-classes/hard/2/bacdc8a20a44", "text": "A relation ~ on S = {1, 2, ..., 30} is defined by a ~ b when gcd(a, 30) = gcd(b…"}
+{"answer": "5", "id": "ucv1-equivalence-relations-classes/medium/0/e5c40811baef", "text": "Let S = {1, 2, 3, 4, 5} and R = {(1, 1), (2, 2), (2, 3), (3, 2), (3, 3), (4, 1)…"}
+{"answer": "5", "id": "ucv1-equivalence-relations-classes/medium/1/2f1a49782d81", "text": "Let S = {1, 2, 3, 4, 5} and R = {(1, 1), (2, 2), (3, 3), (4, 3), (5, 4), (5, 5)…"}
+{"answer": "8", "id": "ucv1-equivalence-relations-classes/medium/2/7eb2b5dda54c", "text": "Let S = {1, 2, 3, 4, 5} and R = {(1, 4), (2, 3), (2, 4), (3, 1), (3, 3), (4, 2)…"}
 {"answer": "1", "id": "ucv1-field-extension-degree/easy/0/cd001ade6e77", "text": "Let alpha be the largest real root of p(x) = 0, where p(x) = x^3 - 12x^2 + 30x …"}
 {"answer": "3", "id": "ucv1-field-extension-degree/easy/1/b1696266eff0", "text": "Given p(x) = x^3 + 2x^2 - 4x + 3, let alpha denote the smallest real root of p(…"}
 {"answer": "2", "id": "ucv1-field-extension-degree/easy/2/06b3f079ab3c", "text": "Let alpha be the smallest real root of p(x) = 0, where p(x) = x^3 - 5x^2 + x + …"}
@@ -8197,6 +8293,18 @@
 {"answer": "-16, -3, -3, -2", "id": "ucv1-hessian-2x2/medium/0/41e6c571a0ba", "text": "The function f(x, y) = -3x^3 + x^2 - 3xy - y^2 has a Hessian matrix. Evaluate i…"}
 {"answer": "-2, 4, 4, -6", "id": "ucv1-hessian-2x2/medium/1/6acf08b47897", "text": "Find the Hessian of f(x, y) = -x^3 - 4x^2 + 4xy - 3y^2 at the point (-1, -4). G…"}
 {"answer": "-64, -2, -2, 4", "id": "ucv1-hessian-2x2/medium/2/6317ec18df29", "text": "The function f(x, y) = 3x^3 - 5x^2 - 2xy + 2y^2 has a Hessian matrix. Evaluate …"}
+{"answer": "3/4", "id": "ucv1-hyperbolic-functions/easy/0/25f49877696e", "text": "Use the definition of sinh x in terms of e^x to evaluate sinh(ln 2) exactly."}
+{"answer": "3/5", "id": "ucv1-hyperbolic-functions/easy/1/df09ad816433", "text": "Given that cosh x = 5/4 and x > 0, find the exact value of tanh x."}
+{"answer": "8/17", "id": "ucv1-hyperbolic-functions/easy/2/3d08b7b19057", "text": "If cosh x = 17/15 and x is positive, use the identity cosh²x - sinh²x = 1 to fi…"}
+{"answer": "(a) 8/15; (b) 8/17; (c) 0.511; (d) 353/225", "id": "ucv1-hyperbolic-functions/exam/0/be86e256ab21", "text": "The positive number x satisfies cosh x = 17/15. (a) Find the exact value of sin…"}
+{"answer": "(a) 3/4; (b) 3/5; (c) 0.693; (d) 17/8", "id": "ucv1-hyperbolic-functions/exam/1/c7f6c502218d", "text": "Let x be the positive number for which cosh x = 5/4. (a) Find the exact value o…"}
+{"answer": "(a) 4/3; (b) 4/5; (c) 1.099; (d) 41/9", "id": "ucv1-hyperbolic-functions/exam/2/584a8046e1da", "text": "A hanging cable has a catenary shape, and x is the positive number with cosh x …"}
+{"answer": "ln(4)", "id": "ucv1-hyperbolic-functions/hard/0/af40cc4477c6", "text": "Find the positive value of x for which cosh x = 17/8. Give the exact value."}
+{"answer": "ln(2)", "id": "ucv1-hyperbolic-functions/hard/1/e7fcb52656a8", "text": "The equation 5 cosh x + 4 sinh x = 37/4 has two solutions. Find the larger one …"}
+{"answer": "ln(3/2)", "id": "ucv1-hyperbolic-functions/hard/2/2c0e3748cd02", "text": "Solve cosh x = 13/12 for x > 0, giving your answer as an exact value."}
+{"answer": "sinh(x)^2 + cosh(x)^2", "id": "ucv1-hyperbolic-functions/medium/0/a456c36c1f57", "text": "Find f'(x) when f(x) = sinh x cosh x."}
+{"answer": "2*cosh(2*x)", "id": "ucv1-hyperbolic-functions/medium/1/846cb5eee348", "text": "Differentiate f(x) = sinh(2x) with respect to x."}
+{"answer": "5/cosh(5*x)^2", "id": "ucv1-hyperbolic-functions/medium/2/7da0e6444c0c", "text": "Differentiate f(x) = tanh(5x) with respect to x."}
 {"answer": "B", "id": "ucv1-ideal-membership/easy/0/3d8bec599ffb", "text": "Let g(x) = x^2 + 2x and let (g(x)) be the principal ideal it generates in Z[x].…"}
 {"answer": "B", "id": "ucv1-ideal-membership/easy/1/46295b4ce7c4", "text": "Let g(x) = x^2 - x + 3 and let (g(x)) be the principal ideal it generates in Z[…"}
 {"answer": "C", "id": "ucv1-ideal-membership/easy/2/b5583df2427a", "text": "Let g(x) = x^2 - 2x + 3 and let (g(x)) be the principal ideal it generates in Z…"}
@@ -8281,6 +8389,18 @@
 {"answer": "x = -9/2, y = 2/7", "id": "ucv1-iterative-linear-solver-step/medium/0/ee00254ee3ad", "text": "Starting from (x0, y0) = (1, -1), take one Gauss-Seidel iteration for 6x + (3)y…"}
 {"answer": "x = -26/7, y = 45/14", "id": "ucv1-iterative-linear-solver-step/medium/1/542ace35a42e", "text": "For 7x + (-1)y = -31 and (-6)x + 8y = 48, perform one Gauss-Seidel iteration fr…"}
 {"answer": "x = -4, y = -3/2", "id": "ucv1-iterative-linear-solver-step/medium/2/0517c59a023e", "text": "Starting from (x0, y0) = (-5, 1), take one Gauss-Seidel iteration for 2x + (-1)…"}
+{"answer": "0", "id": "ucv1-ivt-bisection/easy/0/c27fc208a91e", "text": "Let g(x) = x³ + 4x - 2. The equation g(x) = 0 has one real solution. Between wh…"}
+{"answer": "0", "id": "ucv1-ivt-bisection/easy/1/b280577b10dd", "text": "Consider f(x) = x³ + x - 1. By evaluating f at whole numbers, find the integer …"}
+{"answer": "1", "id": "ucv1-ivt-bisection/easy/2/401c1c667d19", "text": "Consider f(x) = x³ + 6x - 10. By evaluating f at whole numbers, find the intege…"}
+{"answer": "(a) 2; (b) 0.625; (c) 2.00; (d) 8", "id": "ucv1-ivt-bisection/exam/0/e115a95cc570", "text": "Let f(x) = x³ + 2x - 20. This function is continuous and increasing, so f(x) = …"}
+{"answer": "(a) 3; (b) -22.125; (c) 3.50; (d) 4", "id": "ucv1-ivt-bisection/exam/1/5bef835fc2c8", "text": "Let h(x) = x³ + 4x - 79. This function is continuous and increasing, so h(x) = …"}
+{"answer": "(a) 1; (b) 2.375; (c) 1.00; (d) 10", "id": "ucv1-ivt-bisection/exam/2/832293ed9529", "text": "The function f(x) = x³ + 4x - 7 is continuous for all x and has a single real r…"}
+{"answer": "6", "id": "ucv1-ivt-bisection/hard/0/c43b362fd093", "text": "The bisection method is applied to f(x) = x³ + 2x - 1 on [0, 2]. Find the small…"}
+{"answer": "14", "id": "ucv1-ivt-bisection/hard/1/2bce90140763", "text": "g(x) = x³ + 2x - 2 has a root in [0, 1], where it changes sign. How many bisect…"}
+{"answer": "10", "id": "ucv1-ivt-bisection/hard/2/137f21d642d5", "text": "The bisection method is applied to f(x) = x³ + 5x - 10 on [0, 5]. Find the smal…"}
+{"answer": "0.50", "id": "ucv1-ivt-bisection/medium/0/088ee687a1d8", "text": "The function h(x) = x³ + 6x - 6 is continuous and changes sign on [0, 1]. Apply…"}
+{"answer": "0.00", "id": "ucv1-ivt-bisection/medium/1/48cf95d0ea3f", "text": "The function g(x) = x³ + 2x - 4 is continuous and changes sign on [0, 3]. Apply…"}
+{"answer": "4.00", "id": "ucv1-ivt-bisection/medium/2/39be7a5303d0", "text": "The function f(x) = x³ + 4x - 63 is continuous and changes sign on [3, 4]. Appl…"}
 {"answer": "9/16", "id": "ucv1-joint-distribution-marginal/easy/0/27ce84dd96c1", "text": "The table gives every joint probability for X in x1, x2 and Y in y1, y2, y3: P(…"}
 {"answer": "13/29", "id": "ucv1-joint-distribution-marginal/easy/1/a0848ecfd916", "text": "Given the joint probability table P(X=x1,Y=y1)=3/29; P(X=x1,Y=y2)=8/29; P(X=x1,…"}
 {"answer": "5/8", "id": "ucv1-joint-distribution-marginal/easy/2/9f02a23f0f46", "text": "A joint distribution over X (values x1, x2) and Y (values y1, y2, y3) is given …"}
@@ -8353,6 +8473,18 @@
 {"answer": "D_y = -80, D = 16", "id": "ucv1-linear-system-determinant/medium/0/aa32bb8ec79f", "text": "Given the system A x = b where A = [4 3; -4 1] and b = (-3, -17), compute D = d…"}
 {"answer": "D_y = -24, D = 24", "id": "ucv1-linear-system-determinant/medium/1/81676fd76f23", "text": "For the linear system A x = b with A = [4 -4; 5 1] and b = (-12, -21), find D =…"}
 {"answer": "D_y = 12, D = -2", "id": "ucv1-linear-system-determinant/medium/2/fbd3c7c0aeb6", "text": "Given the system A x = b where A = [1 -1; 3 -5] and b = (4, 24), compute D = de…"}
+{"answer": "30", "id": "ucv1-lines-and-planes-3d/easy/0/9ee05576cb02", "text": "The plane through A(-2, 0, 2), B(3, -3, 3) and C(3, 0, 2) has equation ax + by …"}
+{"answer": "36", "id": "ucv1-lines-and-planes-3d/easy/1/f6715f3c1797", "text": "The plane passing through A(1, 3, 3), B(4, 3, 1) and C(4, 3, -3) has equation a…"}
+{"answer": "13", "id": "ucv1-lines-and-planes-3d/easy/2/9cdf62b4db73", "text": "A plane through A(2, -1, 3), B(0, 4, -3) and C(-3, 3, -4) has equation ax + by …"}
+{"answer": "(a) (4, 4, 0); (b) 4; (c) 2; (d) -4", "id": "ucv1-lines-and-planes-3d/exam/0/13d0196a79fe", "text": "A flat mirror lies in the plane through P(1, 0, 2), Q(1, 0, 0) and R(-1, 2, 0).…"}
+{"answer": "(a) (1, 7, -19); (b) 23; (c) 3; (d) -1", "id": "ucv1-lines-and-planes-3d/exam/1/cdb80ba15abf", "text": "A flat mirror lies in the plane through P(2, 3, 0), Q(-1, -2, -2) and R(-3, 1, …"}
+{"answer": "(a) (-11, 5, -9); (b) -3; (c) 2; (d) -2", "id": "ucv1-lines-and-planes-3d/exam/2/c5008d402c7c", "text": "A flat mirror lies in the plane through P(-1, -1, 1), Q(0, 3, 2) and R(2, 2, -1…"}
+{"answer": "70.9", "id": "ucv1-lines-and-planes-3d/hard/0/fcd189be6261", "text": "The line r = (-1, -3, -4) + t(-1, -2, 3) meets the plane -3y + 3z = 4. Find the…"}
+{"answer": "54.5", "id": "ucv1-lines-and-planes-3d/hard/1/ace30fd05459", "text": "The planes 3x + y = -4 and 3x - y - 3z = 5 meet along a line. Find the acute an…"}
+{"answer": "69.2", "id": "ucv1-lines-and-planes-3d/hard/2/069893b6e773", "text": "The planes 3x - 3y + 2z = -1 and 2x - y - 2z = 6 meet along a line. Find the ac…"}
+{"answer": "-2", "id": "ucv1-lines-and-planes-3d/medium/0/a5960d21c565", "text": "The line L has equation r = (3, 2, -1) + t(-1, 2, 1), and a plane has equation …"}
+{"answer": "-1", "id": "ucv1-lines-and-planes-3d/medium/1/3d7b4a73563e", "text": "The line L has equation r = (-3, -3, -1) + t(-3, 3, -1), and a plane has equati…"}
+{"answer": "6", "id": "ucv1-lines-and-planes-3d/medium/2/692c8efc75b5", "text": "The line L has equation r = (0, 4, 1) + t(-2, 1, 2), and a plane has equation x…"}
 {"answer": "12, -3, -6, 0, -18", "id": "ucv1-manifold-chart-jacobian/easy/0/a14eef5a6274", "text": "A 2-dimensional chart is given by u(x,y) = 3x^2 - 3y - 2 and v(x,y) = 3xy - 3x …"}
 {"answer": "10, -5, 6, 10, 130", "id": "ucv1-manifold-chart-jacobian/easy/1/6d66a98351d1", "text": "A 2-dimensional chart is given by u(x,y) = -3x^2 + xy - 3y - 3 and v(x,y) = -3x…"}
 {"answer": "5, -2, 3, 1, 11", "id": "ucv1-manifold-chart-jacobian/easy/2/f2133be25bc0", "text": "A 2-dimensional chart is given by u(x,y) = x^2 - 3xy + y and v(x,y) = -3xy - 2y…"}
@@ -8389,6 +8521,18 @@
 {"answer": "The triangle inequality fails for some triple of points.", "id": "ucv1-metric-axiom-check/medium/0/ae7c0a9ba3ad", "text": "A finite set has the symmetric distances d(S, S) = 0; d(D, D) = 0; d(V, V) = 0;…"}
 {"answer": "No axiom fails: the table defines a genuine metric.", "id": "ucv1-metric-axiom-check/medium/1/f5a0cfa68007", "text": "A finite set has the symmetric distances d(Y, Y) = 0; d(N, N) = 0; d(E, E) = 0;…"}
 {"answer": "The identity of indiscernibles fails: two distinct points h…", "id": "ucv1-metric-axiom-check/medium/2/3bec986faf1b", "text": "A finite set has the symmetric distances d(E, E) = 0; d(M, M) = 0; d(T, T) = 0;…"}
+{"answer": "-159", "id": "ucv1-multivariable-chain-rule/easy/0/33d77e0f4edb", "text": "Let z = -3x² - 3xy + 2x - 2y², where x = 3t and y = t + 1. Find dz/dt when t = …"}
+{"answer": "26", "id": "ucv1-multivariable-chain-rule/easy/1/6aebb9f8fa99", "text": "Let z = -xy - 2x + 3y² - 3y, where x = 2t - 2 and y = 2t. Find dz/dt when t = 2."}
+{"answer": "-6", "id": "ucv1-multivariable-chain-rule/easy/2/18e888ada4db", "text": "Let z = -3x² - 3xy - 3x, where x = t + 3 and y = -t - 2. Find dz/dt when t = 3."}
+{"answer": "(a) -192; (b) -111; (c) -798; (d) -399.00", "id": "ucv1-multivariable-chain-rule/exam/0/f6415c387ee5", "text": "A thin metal plate has temperature T(x, y) = -3x²y - x² - 3y degrees Celsius at…"}
+{"answer": "(a) -7; (b) -4; (c) -18; (d) -1.8", "id": "ucv1-multivariable-chain-rule/exam/1/27580aca2113", "text": "A thin metal plate has temperature T(x, y) = -x² + xy - 3y³ + y degrees Celsius…"}
+{"answer": "(a) -51; (b) 19; (c) -134; (d) -13.4", "id": "ucv1-multivariable-chain-rule/exam/2/73748b33a0c1", "text": "A thin metal plate has temperature T(x, y) = -3x² + 2xy + x - 3y degrees Celsiu…"}
+{"answer": "-13", "id": "ucv1-multivariable-chain-rule/hard/0/803377f4a2b8", "text": "Let z = 2x² - xy + 2y² - y, where x = u² + v and y = u - v². Find ∂z/∂u when u …"}
+{"answer": "-168", "id": "ucv1-multivariable-chain-rule/hard/1/2957116b79d2", "text": "Let z = -x²y - x² - 2x - 3y², where x = -2t - 2 and y = 2t + 1. Find d²z/dt² wh…"}
+{"answer": "-6", "id": "ucv1-multivariable-chain-rule/hard/2/4ea37c976abf", "text": "Let z = -3xy + x - 2y³, where x = 3t + 3 and y = 3 - t. Find d²z/dt² when t = 1."}
+{"answer": "-8", "id": "ucv1-multivariable-chain-rule/medium/0/a9c0c93cd8ed", "text": "Let z = xy + 3x + 3y² + y, where x = -3u - 2v and y = -u - v. Find ∂z/∂u when u…"}
+{"answer": "42", "id": "ucv1-multivariable-chain-rule/medium/1/881c443accf3", "text": "Let z = -2xy - x + 3y² + y, where x = -t² + t + 2 and y = -t³ - 1. Find dz/dt w…"}
+{"answer": "-107", "id": "ucv1-multivariable-chain-rule/medium/2/323c552ccceb", "text": "Let z = -3x² - x + y², where x = 2t² + t + 2 and y = 2t³ + 2. Find dz/dt when t…"}
 {"answer": "[2, 5, 2]", "id": "ucv1-multivariate-regression/easy/0/4ee228d14947", "text": "A two-feature linear regression y = b0 + b1·x1 + b2·x2 is fitted to (x1, x2, y)…"}
 {"answer": "[4, -6, -2]", "id": "ucv1-multivariate-regression/easy/1/51afd9e9fc6e", "text": "For the two-feature design with data points (x1, x2, y) = (-3, 1, 21), (-1, -1,…"}
 {"answer": "[5, 2, 3]", "id": "ucv1-multivariate-regression/easy/2/6cd1bf2535b1", "text": "For the two-feature design with data points (x1, x2, y) = (-3, 1, 5), (-1, -1, …"}
@@ -8485,6 +8629,18 @@
 {"answer": "unstable node", "id": "ucv1-phase-plane-linear-classification/medium/0/c24d9506da73", "text": "For the linear system x' = -3x + 8y, y' = -4x + 9y, classify the equilibrium at…"}
 {"answer": "saddle", "id": "ucv1-phase-plane-linear-classification/medium/1/72e448f93ede", "text": "For the linear system x' = -2x + 6y, y' = 4y, classify the equilibrium at the o…"}
 {"answer": "stable node", "id": "ucv1-phase-plane-linear-classification/medium/2/60494f549817", "text": "For the linear system x' = -6x + 4y, y' = -2y, classify the equilibrium at the …"}
+{"answer": "8", "id": "ucv1-piecewise-continuity/easy/0/3d30b189bb0d", "text": "The function f is defined piece by piece: f(x) = x² + k for x < 1, and f(x) = 4…"}
+{"answer": "-2", "id": "ucv1-piecewise-continuity/easy/1/e5c119687b55", "text": "A function is given by f(x) = kx - 11 for x ≤ -3, and f(x) = -x² + 4 for x > -3…"}
+{"answer": "4", "id": "ucv1-piecewise-continuity/easy/2/a4908128bc47", "text": "The function g is defined piece by piece: g(x) = kx - 11 for x ≤ 1, and g(x) = …"}
+{"answer": "(a) 21; (b) 2; (c) removable (the limit exists but differs …", "id": "ucv1-piecewise-continuity/exam/0/9b81d5ff46b8", "text": "Let g(x) = ax + 13 for x < 4, g(4) = -3, and g(x) = x² + 5 for x > 4, where a i…"}
+{"answer": "(a) 16; (b) -1; (c) removable (the limit exists but differs…", "id": "ucv1-piecewise-continuity/exam/1/ae1e6e86c14e", "text": "Let h(x) = ax + 19 for x < 3, h(3) = 7, and h(x) = x² + 7 for x > 3, where a is…"}
+{"answer": "(a) 5; (b) -2; (c) removable (the limit exists but differs …", "id": "ucv1-piecewise-continuity/exam/2/dc98e9b80f61", "text": "Let g(x) = ax + 9 for x < 2, g(2) = 10, and g(x) = x² + 1 for x > 2, where a is…"}
+{"answer": "5", "id": "ucv1-piecewise-continuity/hard/0/cd853fe0810f", "text": "Let h(x) = 4x - 3 for x < 2, h(x) = ax² + 1 for 2 ≤ x ≤ 4, and h(x) = bx - 3 fo…"}
+{"answer": "1", "id": "ucv1-piecewise-continuity/hard/1/40533bbf6812", "text": "Let h(x) = -3x + 11 for x < -2, h(x) = ax² + 5 for -2 ≤ x ≤ -1, and h(x) = bx +…"}
+{"answer": "-3", "id": "ucv1-piecewise-continuity/hard/2/6a89f9da2e56", "text": "A function is defined by h(x) = 4x - 5 for x < -2, h(x) = ax² + 3 for -2 ≤ x ≤ …"}
+{"answer": "7", "id": "ucv1-piecewise-continuity/medium/0/7f05949d759e", "text": "The function g is defined by g(x) = (x² - x - 12)/(x - 4) for x ≠ 4, and g(4) =…"}
+{"answer": "4", "id": "ucv1-piecewise-continuity/medium/1/f0a271a9a275", "text": "Let g(x) = sin(4x)/x for x ≠ 0, and g(0) = k. What must k be for g to be contin…"}
+{"answer": "-3", "id": "ucv1-piecewise-continuity/medium/2/abdb3bd59046", "text": "The function p is defined by p(x) = (x² + 5x + 4)/(x + 4) for x ≠ -4, and p(-4)…"}
 {"answer": "25/144", "id": "ucv1-poisson-count-probability/easy/0/b9b6dd70c128", "text": "For a Poisson process, lambda*t = 5. Using e^(-lambda t) = 1/150 (given, exact …"}
 {"answer": "1/16", "id": "ucv1-poisson-count-probability/easy/1/0bc3441e57ab", "text": "A Poisson process has lambda*t = 1. Take e^(-lambda t) to be 3/8 for this quest…"}
 {"answer": "8/675", "id": "ucv1-poisson-count-probability/easy/2/0f74b861583c", "text": "A Poisson process has lambda*t = 2. Take e^(-lambda t) to be 2/15 for this ques…"}
@@ -8497,6 +8653,18 @@
 {"answer": "3/200", "id": "ucv1-poisson-count-probability/medium/0/2f84070a0c35", "text": "A Poisson process has rate lambda = 3. Over t = 2 units, e^(-lambda t) is taken…"}
 {"answer": "27/200", "id": "ucv1-poisson-count-probability/medium/1/47c337c14829", "text": "A Poisson process has rate lambda = 3 events per unit time. Over t = 2 units of…"}
 {"answer": "128/825", "id": "ucv1-poisson-count-probability/medium/2/0c0f5944979c", "text": "A Poisson process has rate lambda = 2 events per unit time. Over t = 2 units of…"}
+{"answer": "3926.99", "id": "ucv1-polar-double-integral/easy/0/7948daa93dca", "text": "Evaluate ∬_D 4(x² + y²) dA, where D is the disc x² + y² ≤ 25. Give your answer …"}
+{"answer": "6107.26", "id": "ucv1-polar-double-integral/easy/1/1fd8ee6ac732", "text": "Evaluate ∬_D 3(x² + y²) dA, where D is the disc x² + y² ≤ 36. Give your answer …"}
+{"answer": "254.47", "id": "ucv1-polar-double-integral/easy/2/a93536644837", "text": "Evaluate ∬_D 2(x² + y²) dA, where D is the disc x² + y² ≤ 9. Give your answer c…"}
+{"answer": "(a) 37.70; (b) 114.00; (c) 3.02; (d) 4.28", "id": "ucv1-polar-double-integral/exam/0/5b445ee171d3", "text": "A flat plate of uniform thickness is cut from a sheet of acrylic in the shape o…"}
+{"answer": "(a) 25.13; (b) 69.33; (c) 2.76; (d) 3.90", "id": "ucv1-polar-double-integral/exam/1/d849eb5f4caa", "text": "A flat plate of uniform thickness is cut from a sheet of acrylic in the shape o…"}
+{"answer": "(a) 12.57; (b) 32.67; (c) 2.60; (d) 3.68", "id": "ucv1-polar-double-integral/exam/2/3c4c4c85f1c1", "text": "A flat plate of uniform thickness is cut from a metal sheet in the shape of D, …"}
+{"answer": "9.00", "id": "ucv1-polar-double-integral/hard/0/93be4113c37a", "text": "Evaluate the iterated integral ∫ from x = 0 to 3 of ∫ from y = 0 to √(9 - x²) o…"}
+{"answer": "0.993", "id": "ucv1-polar-double-integral/hard/1/3af7857cfe6d", "text": "Evaluate ∬_D e^(-(x² + y²)) dA, where D is the half disc x² + y² ≤ 1, x ≥ 0. Gi…"}
+{"answer": "100.53", "id": "ucv1-polar-double-integral/hard/2/0da0a9a03769", "text": "Evaluate the iterated integral ∫ from x = -4 to 4 of ∫ from y = 0 to √(16 - x²)…"}
+{"answer": "32.99", "id": "ucv1-polar-double-integral/medium/0/7ff242d80b87", "text": "Evaluate ∬_D 2(x² + y²)² dA, where D is the region 1 ≤ x² + y² ≤ 4 with x ≥ 0 a…"}
+{"answer": "25.13", "id": "ucv1-polar-double-integral/medium/1/b4a3a80ba489", "text": "Evaluate ∬_D 2(x² + y²) dA, where D is the region x² + y² ≤ 4 with y ≥ 0. Give …"}
+{"answer": "42.67", "id": "ucv1-polar-double-integral/medium/2/31d78f8a82ea", "text": "Evaluate ∬_D 2x dA, where D is the region x² + y² ≤ 16 with x ≥ 0 and y ≥ 0. Gi…"}
 {"answer": "-1/6 < x < 1/6", "id": "ucv1-power-series-convergence/easy/0/2996b2bb2b14", "text": "For which values of x does the power series Σ n(6x)^n, with n = 1, 2, 3, …, con…"}
 {"answer": "-1/9 < x < 1/9", "id": "ucv1-power-series-convergence/easy/1/e7344c6ff45d", "text": "Find all values of x for which the series Σ n(9x)^n, summed over n = 1, 2, 3, ……"}
 {"answer": "-3 < x < 3", "id": "ucv1-power-series-convergence/easy/2/ad3c83a1882f", "text": "Find the set of values of x for which the series Σ x^n / 3^n, summed over n = 1…"}
@@ -8545,6 +8713,18 @@
 {"answer": "n = 175, k = 97", "id": "ucv1-proportion-confidence-interval/medium/0/167848bb494a", "text": "A confidence interval for a population proportion has lower bound 0.4575 and up…"}
 {"answer": "n = 312, k = 205", "id": "ucv1-proportion-confidence-interval/medium/1/26a7f68a5c14", "text": "Using z = 2.326 (a 98% confidence level), a confidence interval for a populatio…"}
 {"answer": "n = 54, k = 41", "id": "ucv1-proportion-confidence-interval/medium/2/91757d3cc31f", "text": "Using z = 2.326 (a 98% confidence level), a confidence interval for a populatio…"}
+{"answer": "0.0533", "id": "ucv1-proportion-z-test/easy/0/cc1b199be472", "text": "A factory claims that 12% of the components it makes are faulty. In a random sa…"}
+{"answer": "-0.0480", "id": "ucv1-proportion-z-test/easy/1/7c50e7722fab", "text": "A university says that 75% of its graduates find work within four months. In a …"}
+{"answer": "0.0113", "id": "ucv1-proportion-z-test/easy/2/a7e7aed1d9c3", "text": "A factory claims that 4% of the components it makes are faulty. In a random sam…"}
+{"answer": "(a) 0.0206; (b) -1.62; (c) 0.106; (d) 1", "id": "ucv1-proportion-z-test/exam/0/840c3617cef7", "text": "A courier company promises that 85% of its parcels arrive on time. In a random …"}
+{"answer": "(a) 0.0283; (b) 2.83; (c) 0.005; (d) 1", "id": "ucv1-proportion-z-test/exam/1/71443fccedb5", "text": "A council report says that 40% of residents support a new bike lane. In a rando…"}
+{"answer": "(a) 0.0283; (b) 2.95; (c) 0.003; (d) 1", "id": "ucv1-proportion-z-test/exam/2/2258f2beccc2", "text": "A council report says that 60% of residents support a new bike lane. In a rando…"}
+{"answer": "0.9247", "id": "ucv1-proportion-z-test/hard/0/0f99e607c049", "text": "A seed company states that 90% of its tomato seeds germinate. Let p be the popu…"}
+{"answer": "0.9884", "id": "ucv1-proportion-z-test/hard/1/4cfbb684989c", "text": "A university says that 65% of its graduates find work within four months. A tes…"}
+{"answer": "0.0885", "id": "ucv1-proportion-z-test/hard/2/f19d92bd26e1", "text": "A factory claims that 10% of the components it makes are faulty. A test of H0: …"}
+{"answer": "1.69", "id": "ucv1-proportion-z-test/medium/0/f98b0dd46a90", "text": "A seed company states that 90% of its tomato seeds germinate. In a random sampl…"}
+{"answer": "-2.27", "id": "ucv1-proportion-z-test/medium/1/31ede3b68dbe", "text": "A university says that 75% of its graduates find work within four months. In a …"}
+{"answer": "3.64", "id": "ucv1-proportion-z-test/medium/2/6d619193a22d", "text": "A seed company states that 85% of its tomato seeds germinate. In a random sampl…"}
 {"answer": "12*x + 4", "id": "ucv1-quotient-ring-operation/easy/0/08444548b345", "text": "Given m(x) = x^2 - 2, and a(x) = 6x - 3, b(x) = 6x + 7 in Z[x]/(m(x)), find a(x…"}
 {"answer": "7*x - 6", "id": "ucv1-quotient-ring-operation/easy/1/b4ebcb0b32cd", "text": "In the quotient ring Z[x]/(m(x)), m(x) = x^2 - 4x + 1, let a(x) = 5x - 7 and b(…"}
 {"answer": "13*x - 2", "id": "ucv1-quotient-ring-operation/easy/2/415f0f6e6fea", "text": "In the quotient ring Z[x]/(m(x)), m(x) = x^2 - 3x + 1, let a(x) = 7x - 6 and b(…"}
@@ -8569,6 +8749,18 @@
 {"answer": "8", "id": "ucv1-recurrence-two-step/medium/0/f5ee39543241", "text": "A sequence satisfies a_n = 2a_(n-1) + a_(n-2) for n >= 3, with a_1 = -6 and a_2…"}
 {"answer": "-124", "id": "ucv1-recurrence-two-step/medium/1/e0191ed821b0", "text": "A sequence is defined by a_n = 5a_(n-1) - a_(n-2) for n >= 3. Given a_1 = -4 an…"}
 {"answer": "36", "id": "ucv1-recurrence-two-step/medium/2/e885333b861c", "text": "For the recurrence a_n = 2a_(n-1) + 2a_(n-2) (n >= 3) with initial terms a_1 = …"}
+{"answer": "1.067", "id": "ucv1-reduction-formulae/easy/0/44aa7b4df4b0", "text": "The integrals I_k = ∫ sin^k x dx from x = 0 to x = π satisfy I_k = ((k - 1)/k) …"}
+{"answer": "0.773", "id": "ucv1-reduction-formulae/easy/1/12e94d829075", "text": "The integrals I_k = ∫ sin^k x dx from x = 0 to x = π satisfy I_k = ((k - 1)/k) …"}
+{"answer": "0.589", "id": "ucv1-reduction-formulae/easy/2/09f85064fe2f", "text": "The integrals I_k = ∫ sin^k x dx from x = 0 to x = π/2 satisfy I_k = ((k - 1)/k…"}
+{"answer": "(a) 0.2271; (b) 0.1905; (c) 0.2124; (d) 0.278", "id": "ucv1-reduction-formulae/exam/0/6a089c33e24c", "text": "Let K_n = ∫ x^n e^(-2x) dx from x = 0 to x = 2. Integration by parts gives K_n …"}
+{"answer": "(a) 0.1987; (b) 0.0384; (c) 0.0140; (d) 0.007", "id": "ucv1-reduction-formulae/exam/1/a4b39c65a902", "text": "Let K_n = ∫ x^n e^(-5x) dx from x = 0 to x = 1. Integration by parts gives K_n …"}
+{"answer": "(a) 0.1987; (b) 0.0384; (c) 0.0140; (d) 0.007", "id": "ucv1-reduction-formulae/exam/2/ca84cf631190", "text": "Let K_n = ∫ x^n e^(-5x) dx from x = 0 to x = 1. Integration by parts gives K_n …"}
+{"answer": "0.259", "id": "ucv1-reduction-formulae/hard/0/d9a4b9fa990b", "text": "Integration by parts gives a reduction formula for W_n = ∫ (1 - x²)^n dx. Use i…"}
+{"answer": "0.465", "id": "ucv1-reduction-formulae/hard/1/dc9865757da4", "text": "Integration by parts gives a reduction formula for L_n = ∫ (ln x)^n dx. Use it …"}
+{"answer": "0.406", "id": "ucv1-reduction-formulae/hard/2/7923f82ac658", "text": "Integration by parts gives a reduction formula for W_n = ∫ (1 - x²)^n dx. Use i…"}
+{"answer": "17.582", "id": "ucv1-reduction-formulae/medium/0/25babd9cf6b8", "text": "Define K_k = ∫ x^k e^(5x) dx from x = 0 to x = 1. Integration by parts gives K_…"}
+{"answer": "2.314", "id": "ucv1-reduction-formulae/medium/1/66c73b47eac4", "text": "The integrals K_k = ∫ x^k e^(3x) dx from x = 0 to x = 1 satisfy K_k = e^3/3 - (…"}
+{"answer": "1.097", "id": "ucv1-reduction-formulae/medium/2/c9471d8cfe3d", "text": "Define K_k = ∫ x^k e^(2x) dx from x = 0 to x = 1. Integration by parts gives K_…"}
 {"answer": "on the line", "id": "ucv1-regression-residual-diagnostic/easy/0/2d7fbe59e052", "text": "The fitted line is y = x - 5. It predicts values of y for each x. For the obser…"}
 {"answer": "below the line", "id": "ucv1-regression-residual-diagnostic/easy/1/db54f90a7d9c", "text": "The fitted line is y = -4x + 1. It predicts values of y for each x. For the obs…"}
 {"answer": "on the line", "id": "ucv1-regression-residual-diagnostic/easy/2/a542fe7aa953", "text": "A line is given by y = -4x + 5. An observed data point is (5, -15). Is the poin…"}
@@ -8581,6 +8773,18 @@
 {"answer": "on the line", "id": "ucv1-regression-residual-diagnostic/medium/0/91ef2c63d21e", "text": "A regression line is y = (1/2)x - 2. For the observed point (15, 11/2), classif…"}
 {"answer": "below the line", "id": "ucv1-regression-residual-diagnostic/medium/1/8581858b2652", "text": "A regression line is y = (-7/4)x - 2. For the observed point (-14, 37/2), class…"}
 {"answer": "below the line", "id": "ucv1-regression-residual-diagnostic/medium/2/53ba2bef739c", "text": "A line is given by y = (5/2)x + 3. An observed data point is (6, 15). Is the po…"}
+{"answer": "80*pi", "id": "ucv1-related-rates/easy/0/8bda17f83783", "text": "A grass fire on a flat plain spreads outwards in a circle, its radius growing a…"}
+{"answer": "48*pi", "id": "ucv1-related-rates/easy/1/4b50bce01df7", "text": "The radius of a spherical weather balloon increases at 3 cm/s as it is filled w…"}
+{"answer": "64*pi", "id": "ucv1-related-rates/easy/2/2c2a6aef94f2", "text": "The front of a bushfire on open grassland is a circle that is expanding at 4 km…"}
+{"answer": "(a) 4.19; (b) 12.57; (c) 0.318; (d) 7.3", "id": "ucv1-related-rates/exam/0/3952105b1ed9", "text": "A helium balloon at a weather station is filled at a steady 4 m³/min and stays …"}
+{"answer": "(a) 73.63; (b) 44.18; (c) 0.136; (d) 85.9", "id": "ucv1-related-rates/exam/1/c17296f8f1b9", "text": "Gravel is tipped at a quarry at 6 m³/min and forms a conical stockpile whose ba…"}
+{"answer": "(a) 58.18; (b) 34.91; (c) 0.057; (d) 203.6", "id": "ucv1-related-rates/exam/2/cbc5e5488d29", "text": "At a silo in the Wimmera, a conveyor builds a pile of canola at a steady 2 m³/m…"}
+{"answer": "1/(6*pi)", "id": "ucv1-related-rates/hard/0/34d6c8597cb5", "text": "A conveyor pours sand onto a heap at 6 m³/min. The heap keeps the shape of a co…"}
+{"answer": "-8", "id": "ucv1-related-rates/hard/1/91a35c5bb3d7", "text": "A spherical hailstone melts so that its volume decreases at 12 cm³/min. When it…"}
+{"answer": "-12", "id": "ucv1-related-rates/hard/2/d492b797e665", "text": "A spherical hailstone melts so that its volume decreases at 6 cm³/min. When its…"}
+{"answer": "450/29", "id": "ucv1-related-rates/medium/0/fb1bff97cacc", "text": "At a crossroads outside Wagga Wagga, one car is 21 km north of the intersection…"}
+{"answer": "420/13", "id": "ucv1-related-rates/medium/1/e71a9c09abb1", "text": "At a crossroads outside Wagga Wagga, one car is 12 km north of the intersection…"}
+{"answer": "21/10", "id": "ucv1-related-rates/medium/2/292358161bbe", "text": "A 29 m ladder leans against a vertical wall. Its base is pulled away from the w…"}
 {"answer": "7/3", "id": "ucv1-residue-simple-pole/easy/0/6b5ae0d7dab5", "text": "The function f(z) = -7 / ((z - (-2))(z - (1))) has a simple pole at z = -2. Fin…"}
 {"answer": "1", "id": "ucv1-residue-simple-pole/easy/1/e64139fb8b7c", "text": "f(z) = 2 / ((z - (4))(z - (2))) has a simple pole at z = 4. Using Res(f, a) = l…"}
 {"answer": "-1/2", "id": "ucv1-residue-simple-pole/easy/2/ab3d719c37ee", "text": "Given f(z) = -8 / ((z - (8))(z - (-8))), which has a simple pole at z = 8, comp…"}
@@ -8641,6 +8845,18 @@
 {"answer": "4", "id": "ucv1-series-convergence/medium/0/592494d22c53", "text": "Find the exact sum of Σ_(n=1)^∞ 4/(n(n + 1))."}
 {"answer": "9/5", "id": "ucv1-series-convergence/medium/1/0df635c6e046", "text": "For the series Σ_(n=1)^∞ a_n with a_n = 9^n/(n 5^n), find L = lim(n→∞) |a_(n+1)…"}
 {"answer": "5/6", "id": "ucv1-series-convergence/medium/2/9d586c53c3d5", "text": "Find the exact sum of Σ_(n=1)^∞ 2/((n + 1)(n + 3))."}
+{"answer": "4*pi/5", "id": "ucv1-shells-surface-area/easy/0/e109123f2a65", "text": "The region in the first quadrant under the curve y = √x, between x = 0 and x = …"}
+{"answer": "7*pi/2", "id": "ucv1-shells-surface-area/easy/1/f5a12a63782e", "text": "The region in the first quadrant under the curve y = 4 - x², between x = 0 and …"}
+{"answer": "8*pi", "id": "ucv1-shells-surface-area/easy/2/8c5b7c864cfc", "text": "Let R be the region bounded by y = 4 - x², the x-axis, the y-axis and the line …"}
+{"answer": "(a) 4; (b) 4; (c) 134.0; (d) 0.36", "id": "ucv1-shells-surface-area/exam/0/3de34caa2646", "text": "A garden bollard is a solid of revolution made by rotating about the y-axis the…"}
+{"answer": "(a) 4; (b) 4; (c) 134.0; (d) 0.32", "id": "ucv1-shells-surface-area/exam/1/b9dde7f1edbc", "text": "The region R lies in the first quadrant between y = x² and y = 4x (lengths in c…"}
+{"answer": "(a) 6; (b) 5; (c) 678.6; (d) 1.63", "id": "ucv1-shells-surface-area/exam/2/def2d24b43c8", "text": "The region R lies in the first quadrant between y = x² and y = 6x (lengths in c…"}
+{"answer": "208*pi/9", "id": "ucv1-shells-surface-area/hard/0/1eec9a30566e", "text": "Find the exact area of the surface generated when the arc of y = x³/6 + 1/(2x) …"}
+{"answer": "109*pi/3", "id": "ucv1-shells-surface-area/hard/1/a113d9e7d113", "text": "The curve y = √x from x = 6 to x = 12 is rotated about the x-axis (units in met…"}
+{"answer": "18*pi", "id": "ucv1-shells-surface-area/hard/2/c3a9d24fb330", "text": "The arc of the circle x² + y² = 9 with y ≥ 0 between x = 0 and x = 3 is rotated…"}
+{"answer": "324*pi/5", "id": "ucv1-shells-surface-area/medium/0/4ffd1dd6757f", "text": "The region in the first quadrant between the curves y = 9x and y = x³ is rotate…"}
+{"answer": "pi/10", "id": "ucv1-shells-surface-area/medium/1/ba52ceec3ae2", "text": "Find the exact volume of the solid obtained by rotating about the y-axis the re…"}
+{"answer": "pi/6", "id": "ucv1-shells-surface-area/medium/2/c3e3678587e4", "text": "Find the exact volume of the solid obtained by rotating about the y-axis the re…"}
 {"answer": "fails union", "id": "ucv1-sigma-algebra-closure/easy/0/e68cd69e851b", "text": "The universe is U = {1, ..., 3}. A family of subsets is given: A1 = {3}; A2 = {…"}
 {"answer": "fails both", "id": "ucv1-sigma-algebra-closure/easy/1/bf96e7654446", "text": "The universe is U = {1, ..., 3}. A family of subsets is given: A1 = the empty s…"}
 {"answer": "fails union", "id": "ucv1-sigma-algebra-closure/easy/2/63d6ae334b98", "text": "The universe is U = {1, ..., 3}. A family of subsets is given: A1 = {3}; A2 = {…"}
@@ -8713,6 +8929,18 @@
 {"answer": "Ill-formed (not a valid formula).", "id": "ucv1-syntactic-semantic-separation/medium/0/cb263c57eb41", "text": "Expression: ((p ∨ ∨ q) → r). Interpretation: p = True, q = False, r = True. Cla…"}
 {"answer": "Well-formed and true under the interpretation.", "id": "ucv1-syntactic-semantic-separation/medium/1/dcb5ae97e494", "text": "Expression: (¬p ∧ (q ∨ r)). Interpretation: p = False, q = False, r = True. Cla…"}
 {"answer": "Ill-formed (not a valid formula).", "id": "ucv1-syntactic-semantic-separation/medium/2/350118a8ac44", "text": "Expression: ((p → → q) ∧ ¬r). Interpretation: p = True, q = False, r = False. C…"}
+{"answer": "-6.6", "id": "ucv1-tangent-plane-linear-approximation/easy/0/ffae3f4e6182", "text": "Let f(x, y) = -x² + 2xy + 3x - 3y² - 3y. Use the tangent plane to the surface z…"}
+{"answer": "6.75", "id": "ucv1-tangent-plane-linear-approximation/easy/1/a7aa7771e872", "text": "Let f(x, y) = x² - 2xy - 3x - y² + 2y. Use the tangent plane to the surface z =…"}
+{"answer": "42.6", "id": "ucv1-tangent-plane-linear-approximation/easy/2/6a2ba10802cd", "text": "Let f(x, y) = x²y² + 3x. Use the tangent plane to the surface z = f(x, y) at th…"}
+{"answer": "(a) 19; (b) 18; (c) z = 19x + 18y - 71; (d) 57.44", "id": "ucv1-tangent-plane-linear-approximation/exam/0/8d09fc4d1c26", "text": "A model of a hillside gives the height z metres at the point (x, y), where x an…"}
+{"answer": "(a) 45; (b) 24; (c) z = 45x + 24y - 96; (d) 44.37", "id": "ucv1-tangent-plane-linear-approximation/exam/1/927dd9da67cd", "text": "A model of a hillside gives the height z metres at the point (x, y), where x an…"}
+{"answer": "(a) 24; (b) 11; (c) z = 24x + 11y - 47; (d) 47.9", "id": "ucv1-tangent-plane-linear-approximation/exam/2/efe82304374c", "text": "A model of a hillside gives the height z metres at the point (x, y), where x an…"}
+{"answer": "5.042", "id": "ucv1-tangent-plane-linear-approximation/hard/0/9a3e873cace9", "text": "Let f(x, y) = √(x² + y²). Use the linear approximation of f at (3, -4) to estim…"}
+{"answer": "11.500", "id": "ucv1-tangent-plane-linear-approximation/hard/1/583ff2de79ed", "text": "The point P(1, 3, 2) lies on the surface x² + 2y² + z² = 23. The tangent plane …"}
+{"answer": "14.916", "id": "ucv1-tangent-plane-linear-approximation/hard/2/3b9639797c33", "text": "Let f(x, y) = 3√(x² + y²). Use the linear approximation of f at (4, -3) to esti…"}
+{"answer": "-12", "id": "ucv1-tangent-plane-linear-approximation/medium/0/c13219bbeb31", "text": "The surface z = -xy³ + 2x has a tangent plane at the point where x = 4 and y = …"}
+{"answer": "24", "id": "ucv1-tangent-plane-linear-approximation/medium/1/ec9c15d2cd41", "text": "The surface z = -2x² + xy - 2x - 3y² + y has a tangent plane at the point where…"}
+{"answer": "-27", "id": "ucv1-tangent-plane-linear-approximation/medium/2/d90ce953df9e", "text": "The surface z = x²y² - 3x has a tangent plane at the point where x = -3 and y =…"}
 {"answer": "0", "id": "ucv1-taylor-linear-approximation/easy/0/581d611ef623", "text": "f(x) = 3x^2 + 5x - 5. Use the first-order local approximation L(x) = f(a) + f'(…"}
 {"answer": "15", "id": "ucv1-taylor-linear-approximation/easy/1/3e06fc34e80e", "text": "f(x) = 3x^2 - 5x + 6. Near a = 4, use L(x) = f(a) + f'(a)(x - a) to estimate th…"}
 {"answer": "-21", "id": "ucv1-taylor-linear-approximation/easy/2/1879153aa2ff", "text": "f(x) = -3x^2 - 5x - 2. Using the linear approximation L(x) = f(a) + f'(a)(x - a…"}
@@ -8761,6 +8989,18 @@
 {"answer": "9", "id": "ucv1-tree-spanning-edge-count/medium/0/eccee67c8696", "text": "A tree has one vertex for each degree listed: 1, 2, 2, 2, 3, 4, 1, 1, 1, 1. How…"}
 {"answer": "6", "id": "ucv1-tree-spanning-edge-count/medium/1/413d38513246", "text": "A tree's vertices have the following degrees: 1, 1, 1, 2, 1, 3, 3. How many edg…"}
 {"answer": "8", "id": "ucv1-tree-spanning-edge-count/medium/2/0d436c2cca3e", "text": "A tree's vertices have the following degrees: 1, 2, 1, 2, 1, 1, 3, 2, 3. How ma…"}
+{"answer": "1.047", "id": "ucv1-trig-substitution-integrals/easy/0/a7a4aa6cd80e", "text": "Evaluate ∫ 1/√(1 - x²) dx from x = 0 to x = √3/2, correct to 3 decimal places."}
+{"answer": "0.524", "id": "ucv1-trig-substitution-integrals/easy/1/7b0b841a4159", "text": "Evaluate ∫ 1/√(36 - x²) dx from x = 0 to x = 3, correct to 3 decimal places."}
+{"answer": "0.209", "id": "ucv1-trig-substitution-integrals/easy/2/6fe6a154755f", "text": "Evaluate ∫ 1/(25 + x²) dx from x = 0 to x = 5√3, correct to 3 decimal places."}
+{"answer": "(a) 1/4; (b) 49; (c) 0.1427; (d) 6.992", "id": "ucv1-trig-substitution-integrals/exam/0/b0a79fb4dc03", "text": "Let I = ∫ x²/√(49 - x²) dx from x = 0 to x = 7√2/2. (a) Use the substitution x …"}
+{"answer": "(a) 1/3; (b) 144; (c) 0.3071; (d) 44.221", "id": "ucv1-trig-substitution-integrals/exam/1/d684c527ce6d", "text": "Let I = ∫ x²/√(144 - x²) dx from x = 0 to x = 6√3. (a) Use the substitution x =…"}
+{"answer": "(a) 1/4; (b) 49; (c) 0.1427; (d) 6.992", "id": "ucv1-trig-substitution-integrals/exam/2/5b560efb85d8", "text": "Let I = ∫ x²/√(49 - x²) dx from x = 0 to x = 7√2/2. (a) Use the substitution x …"}
+{"answer": "0.209", "id": "ucv1-trig-substitution-integrals/hard/0/900c9b6cf00e", "text": "Evaluate ∫ 1/(x² - 8x + 41) dx from x = 4 to x = 4 + 5√3, correct to 3 decimal …"}
+{"answer": "0.349", "id": "ucv1-trig-substitution-integrals/hard/1/afae0fbee466", "text": "Evaluate ∫ 1/(x² - 6x + 18) dx from x = 3 to x = 3 + 3√3, correct to 3 decimal …"}
+{"answer": "0.181", "id": "ucv1-trig-substitution-integrals/hard/2/3776d9066d8b", "text": "Evaluate ∫ x²/√(4 - x²) dx from x = 0 to x = 1, correct to 3 decimal places."}
+{"answer": "0.035", "id": "ucv1-trig-substitution-integrals/medium/0/ecabf83c8f09", "text": "Evaluate ∫ 1/(25 + x²)^(3/2) dx from x = 0 to x = 5√3, correct to 3 decimal pla…"}
+{"answer": "26.644", "id": "ucv1-trig-substitution-integrals/medium/1/c6c847f79c9e", "text": "Evaluate ∫ √(36 - x²) dx from x = 0 to x = 3√3, correct to 3 decimal places."}
+{"answer": "23.137", "id": "ucv1-trig-substitution-integrals/medium/2/891d2940441a", "text": "Evaluate ∫ √(36 - x²) dx from x = 0 to x = 3√2, correct to 3 decimal places."}
 {"answer": "-832", "id": "ucv1-triple-integral/easy/0/344b710f4efa", "text": "Evaluate the triple integral ∭ x²(y² - 1)(z - 2) dV over the box 2 ≤ x ≤ 5, 2 ≤…"}
 {"answer": "441/2", "id": "ucv1-triple-integral/easy/1/595681292256", "text": "Evaluate the triple integral ∭ x²y²(3z + 3) dV over the box -2 ≤ x ≤ -1, 0 ≤ y …"}
 {"answer": "56", "id": "ucv1-triple-integral/easy/2/2b7c9735f95e", "text": "Evaluate the triple integral ∭ (x - 2)(3y - 2)z² dV over the box 0 ≤ x ≤ 2, -1 …"}
@@ -8773,6 +9013,18 @@
 {"answer": "4", "id": "ucv1-triple-integral/medium/0/553313e446a6", "text": "The plane 3x + y + 3z = 6 and the three coordinate planes bound a tetrahedron. …"}
 {"answer": "49/6", "id": "ucv1-triple-integral/medium/1/40bdca08c1eb", "text": "Find ∭ (x + z) dV, where E is the solid 0 ≤ x ≤ 1, 0 ≤ y ≤ 1, 0 ≤ z ≤ x + 2y + …"}
 {"answer": "160", "id": "ucv1-triple-integral/medium/2/8d30fe1a3b1b", "text": "Evaluate ∭ xy dV over the solid E: 0 ≤ x ≤ 2, 0 ≤ y ≤ 4, 0 ≤ z ≤ 2x + 2y + 2."}
+{"answer": "3.976", "id": "ucv1-two-sample-and-paired-t-test/easy/0/5657b5906d65", "text": "A university lecturer compares the final exam marks of students from two tutori…"}
+{"answer": "9.037", "id": "ucv1-two-sample-and-paired-t-test/easy/1/f8d776533ec5", "text": "A university lecturer compares the final exam marks of students from two tutori…"}
+{"answer": "14.299", "id": "ucv1-two-sample-and-paired-t-test/easy/2/79a8cd6c14a1", "text": "A researcher compares the reaction times of two groups of adults on the same co…"}
+{"answer": "(a) 2257.70; (b) 21.832; (c) -3.03; (d) 3", "id": "ucv1-two-sample-and-paired-t-test/exam/0/260e25efa56b", "text": "A researcher compares the reaction times of two groups of adults on the same co…"}
+{"answer": "(a) 166.77; (b) 6.684; (c) 0.88; (d) 3", "id": "ucv1-two-sample-and-paired-t-test/exam/1/df3711e972ae", "text": "A university lecturer compares the final exam marks of students from two tutori…"}
+{"answer": "(a) 1065.95; (b) 14.470; (c) -4.32; (d) 3", "id": "ucv1-two-sample-and-paired-t-test/exam/2/186171ad7cf5", "text": "A researcher compares the reaction times of two groups of adults on the same co…"}
+{"answer": "-0.20", "id": "ucv1-two-sample-and-paired-t-test/hard/0/338a16f629a8", "text": "A consumer magazine tests the battery life of two phone models under the same v…"}
+{"answer": "3.02", "id": "ucv1-two-sample-and-paired-t-test/hard/1/43400aa76288", "text": "A researcher compares the reaction times of two groups of adults on the same co…"}
+{"answer": "-1.25", "id": "ucv1-two-sample-and-paired-t-test/hard/2/538b4aa7dc92", "text": "A botanist grows seedlings under two fertiliser treatments and measures the hei…"}
+{"answer": "95.88", "id": "ucv1-two-sample-and-paired-t-test/medium/0/e2fbf2fe85e7", "text": "A university lecturer compares the final exam marks of students from two tutori…"}
+{"answer": "1.05", "id": "ucv1-two-sample-and-paired-t-test/medium/1/8f39e4133047", "text": "A Year 11 teacher gives the same 50-mark quiz to each student before and after …"}
+{"answer": "2.99", "id": "ucv1-two-sample-and-paired-t-test/medium/2/5f5cf9d7bf25", "text": "A university lecturer compares the final exam marks of students from two tutori…"}
 {"answer": "x = 4, y = 1", "id": "ucv1-unconstrained-critical-point/easy/0/7130de72f418", "text": "f(x, y) = x^2 - 8x - y^2 + 2y. Find the critical point (x, y) where the gradien…"}
 {"answer": "x = -2, y = -4", "id": "ucv1-unconstrained-critical-point/easy/1/c9ba6cb45109", "text": "f(x, y) = -2x^2 - 8x - 2y^2 - 16y. Find the critical point (x, y) where the gra…"}
 {"answer": "x = 5, y = 1", "id": "ucv1-unconstrained-critical-point/easy/2/2849bddf39e0", "text": "f(x, y) = 4x^2 - 40x - y^2 + 2y. Find the critical point (x, y) where the gradi…"}
@@ -8785,6 +9037,18 @@
 {"answer": "x = 2, y = 3", "id": "ucv1-unconstrained-critical-point/medium/0/ca0063c075f6", "text": "f(x, y) = x^2 - 4xy + 8x - 3y^2 + 26y. Find the critical point (x, y) where the…"}
 {"answer": "x = 1, y = 4", "id": "ucv1-unconstrained-critical-point/medium/1/1868f18fd1d1", "text": "f(x, y) = 3x^2 + 4xy - 22x + y^2 - 12y. Find the critical point (x, y) where th…"}
 {"answer": "x = -2, y = -3", "id": "ucv1-unconstrained-critical-point/medium/2/1a2e8017e2b4", "text": "f(x, y) = x^2 - 2xy - 2x + 4y^2 + 20y. Find the critical point (x, y) where the…"}
+{"answer": "0.500", "id": "ucv1-uniform-exponential-distributions/easy/0/fce88b76e9ad", "text": "A technician cuts a cable at a point X, in centimetres from one end, that is un…"}
+{"answer": "0.050", "id": "ucv1-uniform-exponential-distributions/easy/1/f81fb484b7a0", "text": "A technician cuts a cable at a point X, in centimetres from one end, that is un…"}
+{"answer": "18.5", "id": "ucv1-uniform-exponential-distributions/easy/2/faf272b710f6", "text": "The waiting time X, in minutes, for a tram is uniformly distributed between 6 a…"}
+{"answer": "(a) 0.200; (b) 0.5488; (c) 3.466; (d) 0.4966", "id": "ucv1-uniform-exponential-distributions/exam/0/0bcb6003062a", "text": "The time X, in minutes, that a customer waits at a checkout is exponentially di…"}
+{"answer": "(a) 0.500; (b) 0.1054; (c) 1.386; (d) 0.4724", "id": "ucv1-uniform-exponential-distributions/exam/1/e5b3fcc40375", "text": "The time X, in minutes, that a customer waits at a checkout is exponentially di…"}
+{"answer": "(a) 0.200; (b) 0.3012; (c) 3.466; (d) 0.1653", "id": "ucv1-uniform-exponential-distributions/exam/2/340e514e1346", "text": "The time X, in minutes, that a customer waits at a checkout is exponentially di…"}
+{"answer": "1.386", "id": "ucv1-uniform-exponential-distributions/hard/0/38e3e705ca9c", "text": "The time X, in minutes, between calls to a help line is exponentially distribut…"}
+{"answer": "0.3385", "id": "ucv1-uniform-exponential-distributions/hard/1/cbfca0e5828b", "text": "The time X, in minutes, that a customer waits at a checkout is exponentially di…"}
+{"answer": "0.5513", "id": "ucv1-uniform-exponential-distributions/hard/2/985a62f5b2e4", "text": "The time X, in years, until a pump fails is exponentially distributed with rate…"}
+{"answer": "0.2212", "id": "ucv1-uniform-exponential-distributions/medium/0/feb8c6cf50ad", "text": "The time X, in minutes, that a customer waits at a checkout is exponentially di…"}
+{"answer": "0.5276", "id": "ucv1-uniform-exponential-distributions/medium/1/ef9a2c21b253", "text": "The lifetime X, in hours, of an LED lamp is exponentially distributed with rate…"}
+{"answer": "0.6321", "id": "ucv1-uniform-exponential-distributions/medium/2/d4a3a30e32b0", "text": "The lifetime X, in hours, of an LED lamp is exponentially distributed with rate…"}
 {"answer": "ECE = 0.47, under-confident", "id": "ucv1-validation-calibration-check/easy/0/6ea98ffa5824", "text": "A model reports 4 validation predictions and observed outcomes: p1=1/4, o1=0; p…"}
 {"answer": "ECE = 0.78, over-confident", "id": "ucv1-validation-calibration-check/easy/1/30c818012e26", "text": "A model reports 4 validation predictions and observed outcomes: p1=3/8, o1=1; p…"}
 {"answer": "ECE = 0.78, over-confident", "id": "ucv1-validation-calibration-check/easy/2/eb082458f926", "text": "A model reports 4 validation predictions and observed outcomes: p1=7/8, o1=0; p…"}
