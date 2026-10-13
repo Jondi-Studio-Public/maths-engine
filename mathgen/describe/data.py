@@ -24,9 +24,9 @@ def _axis_phrase(axis: dict) -> str:
 
 
 def _describe_bar_chart(spec: dict) -> str:
-    cats, series, axis = spec["categories"], spec["series"], spec["value_axis"]
+    cats, bar_sets, axis = spec["categories"], spec.get("series"), spec["value_axis"]
     vertical = spec["orientation"] == "vertical"
-    two = len(series) == 2
+    two = len(bar_sets) == 2
     parts = [
         sentence(
             f"A bar chart with {count(len(cats), 'category', 'categories')}, drawn with "
@@ -57,8 +57,8 @@ def _describe_bar_chart(spec: dict) -> str:
         first, second = ("left", "right") if vertical else ("top", "bottom")
         parts.append(
             sentence(
-                f"A legend names the two kinds of bar: {_quote(series[0]['name'])} is the {first} bar of each pair "
-                f"and {_quote(series[1]['name'])} is the {second} bar"
+                f"A legend names the two kinds of bar: {_quote(bar_sets[0]['name'])} is the {first} bar of each pair "
+                f"and {_quote(bar_sets[1]['name'])} is the {second} bar"
             )
         )
     order = "left to right" if vertical else "top to bottom"
@@ -66,9 +66,9 @@ def _describe_bar_chart(spec: dict) -> str:
     items = []
     for i, c in enumerate(cats):
         if two:
-            reach = " and ".join(f"{_quote(s['name'])} reaches {num(s['values'][i])}" for s in series)
+            reach = " and ".join(f"{_quote(s['name'])} reaches {num(s['values'][i])}" for s in bar_sets)
         else:
-            reach = f"reaches {num(series[0]['values'][i])}"
+            reach = f"reaches {num(bar_sets[0]['values'][i])}"
         items.append(f"{_quote(c)}: {reach}")
     parts.append(sentence(f"Categories from {order}: " + "; ".join(items)))
     return " ".join(parts)

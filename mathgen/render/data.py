@@ -166,15 +166,15 @@ def _axis_label(s: str, x: float, y: float, anchor: str = "middle", extra: str =
 
 def _render_bar_chart(spec: dict, ctx: Ctx) -> tuple[float, float, str]:
     vertical = spec["orientation"] == "vertical"
-    series = spec["series"]
-    two = len(series) == 2
+    bar_sets = spec.get("series")
+    two = len(bar_sets) == 2
     cats = spec["categories"]
     n_cat = len(cats)
     axis = spec["value_axis"]
     ticks = _ticks(0, axis["step"], axis["max"])
     tick_texts = [_numeral(v) for v in ticks]
     tick_w = max(_tw(t) for t in tick_texts)
-    names = [s["name"] for s in series]
+    names = [s["name"] for s in bar_sets]
 
     def build(top: float):
         y = top
@@ -208,7 +208,7 @@ def _render_bar_chart(spec: dict, ctx: Ctx) -> tuple[float, float, str]:
             cat_bottom = plot_bottom + label_zone
             x_label_y = cat_bottom + 16
             group_w = slot * (0.8 if two else 0.66)
-            bw = group_w / len(series)
+            bw = group_w / len(bar_sets)
             grid = [
                 _line(plot_l, py(v), plot_r, py(v), class_=None if i % stride == 0 else "mgf-dt-minor")
                 for i, v in enumerate(ticks)
@@ -229,7 +229,7 @@ def _render_bar_chart(spec: dict, ctx: Ctx) -> tuple[float, float, str]:
                         "height": plot_bottom - py(v),
                     },
                 )
-                for si, s in enumerate(series)
+                for si, s in enumerate(bar_sets)
                 for i, v in enumerate(s["values"])
             ]
             tick_labels = [
@@ -278,7 +278,7 @@ def _render_bar_chart(spec: dict, ctx: Ctx) -> tuple[float, float, str]:
 
         stride = _label_stride((plot_r - plot_l) * axis["step"] / axis["max"], _widest([tick_texts]))
         group_h = row_h * (0.8 if two else 0.62)
-        bh = group_h / len(series)
+        bh = group_h / len(bar_sets)
         x_label_y = plot_bottom + 18 + 22
         grid = [
             _line(px(v), plot_top, px(v), plot_bottom, class_=None if i % stride == 0 else "mgf-dt-minor")
@@ -300,7 +300,7 @@ def _render_bar_chart(spec: dict, ctx: Ctx) -> tuple[float, float, str]:
                     "height": bh,
                 },
             )
-            for si, s in enumerate(series)
+            for si, s in enumerate(bar_sets)
             for i, v in enumerate(s["values"])
         ]
         tick_labels = [
