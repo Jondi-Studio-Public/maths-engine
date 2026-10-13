@@ -756,6 +756,36 @@ explicit-euler-linear-ode:
     module: mathgen/generators/university_scientific_computing.py
   - topic: exd_x_u4_euler_steady_state
     module: mathgen/generators/exd_x_u4_euler_steady_state.py
+ey2a-compare-match-quantities-pictures:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey2a_compare_match_quantities
+    module: mathgen/generators/ey2a_compare_match_quantities_build.py
+ey2a-count-principles-to-20:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey2a_count_principles
+    module: mathgen/generators/ey2a_count_principles_build.py
+ey2a-equal-groups-sharing-halves-pictures:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey2a_equal_groups_sharing_halves
+    module: mathgen/generators/ey2a_equal_groups_sharing_halves_build.py
+ey2a-part-part-whole-pictures:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey2a_part_part_whole_pictures
+    module: mathgen/generators/ey2a_part_part_whole_pictures_build.py
+ey2a-ten-frame-numbers:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey2a_ten_frame_numbers
+    module: mathgen/generators/ey2a_ten_frame_numbers_build.py
 f10-add-subtract-number-sentences:
   domain: equations
   status: active

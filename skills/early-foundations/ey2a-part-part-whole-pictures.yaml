@@ -1,0 +1,44 @@
+id: ey2a-part-part-whole-pictures
+name: Part-part-whole with counter pictures
+domain: early-foundations
+year_level: [F, '1']
+naplan_domain: [number]
+learner_band: early
+description: "Put the two kinds of counter in a picture together to find the whole, and find the missing part when the whole is stated."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [number-bonds-to-10, f10-part-part-whole-collections-to-10]
+answer: number
+sources:
+- topic: ey2a_part_part_whole_pictures
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey2a_part_part_whole_pictures
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey2a_part_part_whole_pictures
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ey2a-reports-one-part
+  description: "Giving the size of one part when the whole (both kinds together) was asked for."
+- id: ey2a-count-one-over
+  description: "Counting one too many: counting a counter twice or going one past the end."
+- id: ey2a-count-one-short
+  description: "Counting one too few: missing a counter or stopping early."
+- id: ey2a-subtracts-the-parts
+  description: "Subtracting one part from the other when the parts should be put together."
+- id: ey2a-counts-empty-boxes
+  description: "Counting the empty boxes of the ten frame instead of the counters (or the reverse)."
+- id: ey2a-reports-shown-part
+  description: "Giving the number of counters shown in the picture rather than the number that are missing."
+- id: ey2a-reports-the-whole
+  description: "Giving the whole (the total) instead of the part, share or answer the question asked for."
+- id: ey2a-adds-parts-for-missing
+  description: "Adding the whole and the shown part when the missing part is the whole take away the shown part."
+tags: [acara-f10-v9, early, ac9mfn04, ac9m1n04, part-part-whole, ten-frame, visual]

@@ -10131,6 +10131,177 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    # -- early years: picture counting, ten frames, comparing and sharing (ey2a) ----------------------------------
+    CatalogueEntry(
+        "ey2a-count-one-short",
+        "Counting one too few: missing a counter or stopping early.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-count-one-over",
+        "Counting one too many: counting a counter twice or going one past the end.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-count",
+        "Saying how many there are now, without doing what the question then asks (adding one, or finding how many more).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-moves-the-wrong-way",
+        "Taking one away when one was added (or adding one when one was taken away).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-all-kinds",
+        "Counting every counter, plain and ringed, when only one kind was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-wrong-kind",
+        "Using the count of the other kind of counter instead of the kind asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-empty-boxes",
+        "Counting the empty boxes of the ten frame instead of the counters (or the reverse).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-filled-boxes",
+        "Counting the counters when the question asked how many more are needed to fill the frame.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-says-the-full-frame",
+        "Saying 10, the size of a ten frame, instead of reading how many counters are on it or how many are missing.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-one-frame",
+        "Counting the counters on only one of the two ten frames.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-assumes-a-full-frame",
+        "Treating a part-filled ten frame as if it were full, so one frame counts as 10.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-one-part",
+        "Giving the size of one part when the whole (both kinds together) was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-subtracts-the-parts",
+        "Subtracting one part from the other when the parts should be put together.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-shown-part",
+        "Giving the number of counters shown in the picture rather than the number that are missing.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-whole",
+        "Giving the whole (the total) instead of the part, share or answer the question asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-adds-parts-for-missing",
+        "Adding the whole and the shown part when the missing part is the whole take away the shown part.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-larger-group",
+        "Giving the size of the bigger group instead of how many more it has.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-smaller-group",
+        "Giving the size of the smaller group when the bigger group was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-difference",
+        "Giving how many more the bigger group has instead of how many it has.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-adds-groups",
+        "Adding the sizes of the groups together when the groups should be compared.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-compares-wrong-rings",
+        "Comparing two of the three rings, but not the biggest and the smallest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-fixes-one-ring-only",
+        "Adding counters to only one of the smaller rings to match the biggest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-adds-rings-and-size",
+        "Adding the number of equal groups to the number in each group instead of multiplying.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-group-size",
+        "Giving the number in one group when the number in all the groups was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-rings-not-counters",
+        "Giving the number of rings instead of the number of counters.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-subtracts-for-sharing",
+        "Subtracting the number of groups from the total when sharing equally means dividing it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-divisor",
+        "Giving the number of children (the number of shares) instead of the size of a share or of what is left.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-left-over",
+        "Giving how many are left over when the size of each share was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-each-share",
+        "Giving the size of each share when how many are left over was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-rounds-sharing-up",
+        "Giving a share one bigger than the whole shares that can be dealt out, ignoring the leftover counters.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-wrong-divisor",
+        "Sharing among the wrong number of children.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-left-over-the-wrong-way",
+        "Finding how many more are needed to make another full share instead of how many are left over.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-fraction-as-the-rest",
+        "Giving what is left after taking the fraction, instead of the fraction itself.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-mixes-half-and-quarter",
+        "Mixing up a half and a quarter: dividing by 2 when 4 was needed, or by 4 when 2 was needed.",
+        area="early-years",
+    ),
 )
 
 #: Every entry, by id.

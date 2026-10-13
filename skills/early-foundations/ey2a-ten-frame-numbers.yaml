@@ -1,0 +1,44 @@
+id: ey2a-ten-frame-numbers
+name: Numbers on ten frames to 20
+domain: early-foundations
+year_level: [F, '1']
+naplan_domain: [number]
+learner_band: early
+description: "Read a number shown on one or two ten frames, say how many more fill a frame, and how many counters there are in all."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [count-to-10, number-bonds-to-10]
+answer: number
+sources:
+- topic: ey2a_ten_frame_numbers
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey2a_ten_frame_numbers
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey2a_ten_frame_numbers
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ey2a-count-one-over
+  description: "Counting one too many: counting a counter twice or going one past the end."
+- id: ey2a-count-one-short
+  description: "Counting one too few: missing a counter or stopping early."
+- id: ey2a-says-the-full-frame
+  description: "Saying 10, the size of a ten frame, instead of reading how many counters are on it or how many are missing."
+- id: ey2a-counts-empty-boxes
+  description: "Counting the empty boxes of the ten frame instead of the counters (or the reverse)."
+- id: ey2a-counts-filled-boxes
+  description: "Counting the counters when the question asked how many more are needed to fill the frame."
+- id: ey2a-counts-all-kinds
+  description: "Counting every counter, plain and ringed, when only one kind was asked for."
+- id: ey2a-counts-one-frame
+  description: "Counting the counters on only one of the two ten frames."
+- id: ey2a-assumes-a-full-frame
+  description: "Treating a part-filled ten frame as if it were full, so one frame counts as 10."
+tags: [acara-f10-v9, early, ac9mfn04, ac9m1n02, ac9m1n04, ten-frame, make-ten, visual]
