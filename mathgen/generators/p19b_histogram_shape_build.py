@@ -62,26 +62,29 @@ hoping the learner already knows it.
 
 ## Tiers (each changes the DECISION, not the numbers)
 
+The medium, hard and exam tiers draw a ``histogram`` figure (equal-width classes; every bar ends on a gridline
+or the half line between two) and print no class-frequency table.
+
 - **easy**: a word description of the shape (never using "symmetric",
   "skewed" or "bimodal" itself) -- e.g. "most values are small, with a few
   very large ones stretching out to the right". DECISION: match a verbal
-  description to the vocabulary.
-- **medium**: a class-frequency table, printed IN class order (7-9 classes,
-  equal width, a stated variable and unit). DECISION: read the peak and
-  tail directly off an already-ordered table.
-- **hard**: the SAME kind of table, but the (interval, frequency) rows are
-  printed in a shuffled, non-class order. DECISION: the learner must first
-  reorder the rows by their class lower bound before the medium-tier
-  judgement even becomes possible -- a decoding step neither easy nor
-  medium requires.
-- **exam**: two histograms (two independently drawn classes, same variable
-  and class width, different class counts so their ranges differ), each
-  printed in class order; the prompt asks for the shape of whichever
-  histogram has the WIDER range (more classes) or the LARGER total count
-  (construction guarantees the two histograms differ on the stated
-  criterion). DECISION: the learner must first decide which histogram the
-  question is about, then classify it -- a comparison step no lower tier
-  has, and still exactly one key.
+  description to the vocabulary. (No figure: there is nothing to draw.)
+- **medium**: one histogram of 7-9 classes. DECISION: read the peak and
+  tail off the drawn bars.
+- **hard**: the same kind of histogram, but every value is subtracted from a
+  stated number (``M - x``) and the question asks for the shape of the NEW
+  values. DECISION: classify the drawn shape, then reflect it: skewed left
+  and skewed right swap, symmetric and bimodal do not -- a reasoning step
+  neither easy nor medium requires. (This replaces the earlier "table rows
+  printed out of class order" step, which a drawn histogram cannot have.)
+- **exam**: two histograms drawn as two panels (two independently drawn
+  classes, same variable and class width, different class counts so their
+  ranges differ), each in class order; the prompt asks for the shape of
+  whichever has the WIDER range (more classes) or the LARGER total count
+  (construction guarantees the two differ on the stated criterion).
+  DECISION: the learner must first decide which histogram the question is
+  about, then classify it -- a comparison step no lower tier has, and still
+  exactly one key.
 
 ## Not built
 
@@ -92,7 +95,9 @@ cannot be an unambiguous item. The out-of-order presentation is built instead.
 
 from __future__ import annotations
 
+from .. import figures
 from ..core import check, generator, phrase
+from ..figure_kinds.data import histogram, histogram_panel
 
 TOPIC = "p19b_histogram_shape"
 _TIERS = ("easy", "medium", "hard", "exam")
@@ -106,10 +111,12 @@ _CONVENTION = (
 )
 
 _CONTEXTS = (
-    dict(var="delivery times", unit="minutes", lo_lo=0, lo_hi=10, width=10),
-    dict(var="plant heights", unit="cm", lo_lo=20, lo_hi=50, width=5),
-    dict(var="test scores", unit="marks", lo_lo=0, lo_hi=20, width=10),
-    dict(var="daily screen time", unit="minutes", lo_lo=0, lo_hi=40, width=15),
+    dict(var="delivery times", unit="minutes", axis="Delivery time (minutes)", lo_lo=0, lo_hi=10, width=10),
+    dict(var="plant heights", unit="cm", axis="Height (cm)", lo_lo=20, lo_hi=50, width=5),
+    dict(var="test scores", unit="marks", axis="Test score (marks)", lo_lo=0, lo_hi=20, width=10),
+    dict(var="waiting times at a clinic", unit="minutes", axis="Waiting time (minutes)", lo_lo=0, lo_hi=10, width=10),
+    dict(var="lengths of bike rides", unit="km", axis="Length (km)", lo_lo=0, lo_hi=5, width=5),
+    dict(var="daily screen time", unit="minutes", axis="Screen time (minutes)", lo_lo=0, lo_hi=40, width=15),
 )
 
 
@@ -243,15 +250,6 @@ def _draw_table(rng, label: str, n: int):
     return ctx, bounds, freqs
 
 
-def _interval_label(bound) -> str:
-    return f"{bound[0]}-{bound[1]}"
-
-
-def _table_text(ctx, bounds, freqs, *, order=None) -> str:
-    idx = order if order is not None else list(range(len(freqs)))
-    return ", ".join(f"{_interval_label(bounds[i])}: {freqs[i]}" for i in idx)
-
-
 # ============================================================================
 # Easy: verbal description (never the answer's own words)
 # ============================================================================
@@ -313,16 +311,52 @@ def _build_easy(rng):
 
 
 # ============================================================================
-# Medium: class-frequency table, printed in class order
+# Figure helpers (medium, hard and exam draw the histogram)
+# ============================================================================
+
+
+def _panel(ctx, bounds, freqs, label=""):
+    """A histogram panel: class ``k`` runs from its lower bound to the next class's lower bound."""
+    width = ctx["width"]
+    edges = [bounds[0][0] + i * width for i in range(len(freqs) + 1)]
+    check(max(freqs) <= 30, "p19b_histogram_shape: frequency above the 30 the axis can show")
+    axis_max = -(-max(freqs) // 2) * 2 + 2
+    return histogram_panel(
+        edges=edges, frequencies=freqs, freq_max=axis_max, freq_step=2, minor_lines=True, label=label
+    )
+
+
+def _figure(ctx, panels):
+    return histogram(panels=panels, alt="a histogram" if len(panels) == 1 else "two histograms", x_label=ctx["axis"])
+
+
+def _result(text, label, figure, working):
+    distractors = [lab for lab in _LABELS if lab != label]
+    return dict(
+        text=text,
+        latex=text,
+        answer=label,
+        answer_text=label,
+        answer_latex=f"plain:{label}",
+        distractors=distractors,
+        working=working,
+        figure=figure,
+    )
+
+
+# ============================================================================
+# Medium: one histogram
 # ============================================================================
 
 _MEDIUM_TEMPLATES = (
-    "{convention} A survey recorded {var} ({unit}), grouped into equal-width classes: "
-    "{table}. What is the shape of this distribution?",
-    "{convention} The frequency table below groups {var} ({unit}) into equal-width classes, "
-    "listed in class order: {table}. Classify the shape of this distribution.",
-    "{convention} These are {var} ({unit}), grouped into equal-width classes and listed from "
-    "smallest to largest class: {table}. What shape does this histogram have?",
+    "{convention} A survey recorded {var} ({unit}), grouped into equal-width classes and drawn as the "
+    "histogram. What is the shape of this distribution?",
+    "{convention} The histogram shows {var} ({unit}) in equal-width classes. Classify the shape of this distribution.",
+    "{convention} These are {var} ({unit}), grouped into equal-width classes and drawn from smallest to "
+    "largest class. What shape does this histogram have?",
+    "{convention} Look at the histogram of {var} ({unit}). Which shape does the distribution have?",
+    "{convention} {var_cap} ({unit}) were collected and drawn in a histogram. Describe the shape of the "
+    "distribution by choosing the best name for it.",
 )
 
 
@@ -330,87 +364,76 @@ def _build_medium(rng):
     label = rng.choice(_LABELS)
     n = rng.choice([7, 8, 9])
     ctx, bounds, freqs = _draw_table(rng, label, n)
-    table = _table_text(ctx, bounds, freqs)
-    text = phrase(rng, _MEDIUM_TEMPLATES, convention=_CONVENTION, var=ctx["var"], unit=ctx["unit"], table=table)
+    text = phrase(
+        rng,
+        _MEDIUM_TEMPLATES,
+        convention=_CONVENTION,
+        var=ctx["var"],
+        var_cap=ctx["var"].capitalize(),
+        unit=ctx["unit"],
+    )
     working = [
         f"Class frequencies, in order: {', '.join(str(f) for f in freqs)}.",
         f"This matches the '{label}' pattern.",
     ]
-    distractors = [lab for lab in _LABELS if lab != label]
-    return dict(
-        text=text,
-        latex=text,
-        answer=label,
-        answer_text=label,
-        answer_latex=f"plain:{label}",
-        distractors=distractors,
-        working=working,
-    )
+    return _result(text, label, _figure(ctx, [_panel(ctx, bounds, freqs)]), working)
 
 
 # ============================================================================
-# Hard: same table, rows printed OUT of class order
+# Hard: one histogram, then every value is subtracted from a number
 # ============================================================================
+
+_REFLECTED = {
+    "symmetric": "symmetric",
+    "bimodal": "bimodal",
+    "skewed left": "skewed right",
+    "skewed right": "skewed left",
+}
 
 _HARD_TEMPLATES = (
-    "{convention} A frequency table for {var} ({unit}) was typed up with its rows in the "
-    "wrong order: {table}. Reorder the classes from smallest to largest, then classify the "
-    "shape of this distribution.",
-    "{convention} These class-frequency rows for {var} ({unit}) are listed in no particular "
-    "order: {table}. Sort them by class first, then state the shape of this distribution.",
-    "{convention} The rows of this {var} ({unit}) frequency table have been shuffled: "
-    "{table}. Put the classes back in order, then classify the shape.",
+    "{convention} The histogram shows {var} ({unit}). Every value is subtracted from {top} to make a new data set "
+    "(new value = {top} - old value). What is the shape of the histogram of the new values?",
+    "{convention} A histogram of {var} ({unit}) is drawn. Each value x is replaced by {top} - x. What shape does the "
+    "histogram of the new values have?",
+    "{convention} The histogram shows {var} ({unit}). A new data set is made by taking each value away from {top}. "
+    "Classify the shape of the histogram of the new data set.",
 )
 
 
 def _build_hard(rng):
-    label = rng.choice(_LABELS)
+    drawn = rng.choice(_LABELS)
     n = rng.choice([7, 8, 9])
-    ctx, bounds, freqs = _draw_table(rng, label, n)
-    order = list(range(n))
-    tries = 0
-    while True:
-        rng.shuffle(order)
-        tries += 1
-        if order != list(range(n)) or tries >= 10:
-            break
-    table = _table_text(ctx, bounds, freqs, order=order)
-    text = phrase(rng, _HARD_TEMPLATES, convention=_CONVENTION, var=ctx["var"], unit=ctx["unit"], table=table)
+    ctx, bounds, freqs = _draw_table(rng, drawn, n)
+    label = _REFLECTED[drawn]
+    top = bounds[0][0] + n * ctx["width"]
+    text = phrase(rng, _HARD_TEMPLATES, convention=_CONVENTION, var=ctx["var"], unit=ctx["unit"], top=top)
     working = [
-        f"Sorted by class: {', '.join(f'{_interval_label(bounds[i])}: {freqs[i]}' for i in range(n))}.",
-        f"This matches the '{label}' pattern.",
+        f"The histogram's shape is '{drawn}'.",
+        f"Subtracting each value from {top} reverses the order of the values, so the shape becomes '{label}'.",
     ]
-    distractors = [lab for lab in _LABELS if lab != label]
-    return dict(
-        text=text,
-        latex=text,
-        answer=label,
-        answer_text=label,
-        answer_latex=f"plain:{label}",
-        distractors=distractors,
-        working=working,
-    )
+    return _result(text, label, _figure(ctx, [_panel(ctx, bounds, freqs)]), working)
 
 
 # ============================================================================
-# Exam: two histograms, classify the one picked out by a stated comparison
+# Exam: two histograms (two panels), classify the one picked out by a stated comparison
 # ============================================================================
 
 _EXAM_TEMPLATES_RANGE = (
-    "{convention} Two groups' {var} ({unit}) were recorded, in equal-width classes of the "
-    "same width. Group A: {table_a}. Group B: {table_b}. Classify the shape of whichever "
-    "group's data has the WIDER range (the greater number of classes).",
-    "{convention} {var_cap} ({unit}) were grouped into equal-width classes for two separate "
-    "groups. Group A: {table_a}. Group B: {table_b}. State the shape of the group whose "
-    "data spans the WIDER range (more classes).",
+    "{convention} Two groups' {var} ({unit}) were recorded in equal-width classes of the same width and drawn as "
+    "Group A and Group B. Classify the shape of whichever group's data has the WIDER range (the greater number "
+    "of classes).",
+    "{convention} {var_cap} ({unit}) were grouped into equal-width classes for two separate groups, Group A and "
+    "Group B. State the shape of the group whose data spans the WIDER range (more classes).",
+    "{convention} Group A and Group B each have a histogram of {var} ({unit}), with the same class width. Which "
+    "shape does the group with the WIDER range (the greater number of classes) have?",
 )
 _EXAM_TEMPLATES_TOTAL = (
-    "{convention} Two groups' {var} ({unit}) were recorded, in equal-width classes of the "
-    "same width. Group A: {table_a}. Group B: {table_b}. Classify the shape of whichever "
-    "group has the LARGER total number of observations.",
-    "{convention} {var_cap} ({unit}) were grouped into equal-width classes for two separate "
-    "groups. Group A: {table_a}. Group B: {table_b}. State the shape of the group with the "
-    "LARGER total number of observations.",
+    "{convention} Two groups' {var} ({unit}) were recorded in equal-width classes of the same width and drawn as "
+    "Group A and Group B. Classify the shape of whichever group has the LARGER total number of observations.",
+    "{convention} {var_cap} ({unit}) were grouped into equal-width classes for two separate groups, Group A and "
+    "Group B. State the shape of the group with the LARGER total number of observations.",
+    "{convention} Group A and Group B each have a histogram of {var} ({unit}), with the same class width. Which "
+    "shape does the group with the LARGER total number of observations have?",
 )
 
 
@@ -453,14 +476,13 @@ def _build_exam(rng):
 
     bounds_winner = [(lo + i * width, lo + (i + 1) * width - 1) for i in range(winner_n)]
     bounds_loser = [(lo + i * width, lo + (i + 1) * width - 1) for i in range(loser_n)]
-    table_winner = _table_text(ctx, bounds_winner, winner_freqs)
-    table_loser = _table_text(ctx, bounds_loser, loser_freqs)
 
     # Which letter (A/B) the winner prints as is itself randomised, so the
     # key is not predictable from "always Group A" or "always Group B".
     winner_is_a = rng.choice([True, False])
-    table_a = table_winner if winner_is_a else table_loser
-    table_b = table_loser if winner_is_a else table_winner
+    panel_winner = _panel(ctx, bounds_winner, winner_freqs, "Group A" if winner_is_a else "Group B")
+    panel_loser = _panel(ctx, bounds_loser, loser_freqs, "Group B" if winner_is_a else "Group A")
+    panels = [panel_winner, panel_loser] if winner_is_a else [panel_loser, panel_winner]
     n_a = winner_n if winner_is_a else loser_n
     n_b = loser_n if winner_is_a else winner_n
     total_a = sum(winner_freqs if winner_is_a else loser_freqs)
@@ -474,8 +496,6 @@ def _build_exam(rng):
         var=ctx["var"],
         var_cap=ctx["var"].capitalize(),
         unit=ctx["unit"],
-        table_a=table_a,
-        table_b=table_b,
     )
 
     if criterion == "range":
@@ -488,16 +508,7 @@ def _build_exam(rng):
             f"Group A total = {total_a}; Group B total = {total_b}.",
             f"The larger-total group's shape is '{winner_label}'.",
         ]
-    distractors = [lab for lab in _LABELS if lab != winner_label]
-    return dict(
-        text=text,
-        latex=text,
-        answer=winner_label,
-        answer_text=winner_label,
-        answer_latex=f"plain:{winner_label}",
-        distractors=distractors,
-        working=working,
-    )
+    return _result(text, winner_label, _figure(ctx, panels), working)
 
 
 _TIER_BUILDERS = {
@@ -522,3 +533,34 @@ def p19b_histogram_shape(rng, tier: str = "easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
     return _TIER_BUILDERS[tier](rng)
+
+
+# ============================================================================
+# The figure reader (medium, hard and exam draw a figure; easy does not)
+# ============================================================================
+
+
+def _read_shape(question) -> str:
+    panels = question.figure["panels"]
+    text = question.text
+    if len(panels) == 2:
+        by = {p["label"]: p["frequencies"] for p in panels}
+        if "WIDER range" in text:
+            chosen = max(by.values(), key=len)
+        else:
+            chosen = max(by.values(), key=sum)
+        label = _classify(chosen)
+    else:
+        label = _classify(panels[0]["frequencies"])
+        if (
+            "subtracted" in text
+            or "replaced by" in text
+            or "take each value away" in text
+            or "taking each value away" in text
+        ):
+            label = _REFLECTED[label]
+    check(label is not None, "the drawn histogram has no unambiguous shape")
+    return label
+
+
+figures.register_reader(TOPIC, _read_shape)
