@@ -16929,6 +16929,426 @@ _ENTRIES = (
         "Subtracting the numerator of the fractional root from the whole root instead of subtracting the root.",
         area="algebra",
     ),
+    CatalogueEntry(
+        "added-instead-of-using-pythagoras",
+        "Adding two perpendicular lengths to get the length of the diagonal that joins their ends, instead of using Pythagoras' theorem.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "added-the-base-edges-for-the-shadow",
+        "Adding the two base edges to get the shadow of a space diagonal on the base, instead of finding the base diagonal by Pythagoras.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "added-the-edges-for-the-diagonal",
+        "Adding the edges of a rectangle or cuboid to get the length of its diagonal, instead of using Pythagoras' theorem.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "base-diagonal-as-hypotenuse",
+        "Treating the base diagonal as the hypotenuse of the triangle, and using sine, when it is the side next to the angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "cosine-and-sine-swapped",
+        "Using the sine ratio where the cosine is needed (or the reverse), which gives the other acute angle of the triangle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "forgot-the-square-root-in-the-shadow",
+        "Using a^2 + b^2 as the length of the base diagonal and stopping before taking the square root.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "halved-the-diagonal",
+        "Halving the length of a diagonal that was never meant to be halved.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "left-out-an-edge-in-pythagoras",
+        "Using only two of the three edges in the space-diagonal calculation, so the answer is a face diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "measured-to-the-base-instead-of-the-face",
+        "Finding the angle between the line and the base when the question names a vertical face.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-the-edges-for-the-diagonal",
+        "Subtracting the edges of a rectangle to get the length of its diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "tangent-ratio-upside-down",
+        "Dividing the adjacent side by the opposite side instead of the opposite by the adjacent, so the angle found is not the one asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-a-base-edge-as-the-shadow",
+        "Taking a base edge as the shadow of a diagonal on the base, instead of the diagonal of the base.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-half-a-base-edge-as-the-shadow",
+        "Taking half a base edge as the shadow of a sloping edge on the base, instead of half the base diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-one-edge-as-the-shadow",
+        "Taking one edge of the box as the shadow of a space diagonal on a face, instead of the face's diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-base-diagonal-as-the-shadow",
+        "Taking the base diagonal as the shadow of a face diagonal, when the shadow of a face diagonal is a base edge.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-edge-as-the-opposite-side",
+        "Treating the sloping edge as the side opposite the angle with the base, instead of the hypotenuse.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-other-base-edge-as-the-shadow",
+        "Taking the wrong base edge as the shadow of a face diagonal: the edge of the other face.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-space-diagonal-as-the-shadow",
+        "Using the space diagonal itself as the shadow of the line on the face.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-whole-diagonal-instead-of-half",
+        "Using the whole base diagonal as the shadow of a sloping edge, when the apex is above the centre and the shadow is half the diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "counted-one-too-few-after-simplifying",
+        "Simplifying every expression but miscounting, so the total of irrational numbers is one short.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "counted-the-rational-numbers-instead",
+        "Counting the rational numbers when the question asks for the irrational ones.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "every-root-treated-as-irrational",
+        "Calling every square or cube root irrational, including the root of a perfect square or cube such as the square root of 49.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fraction-counted-as-an-integer",
+        "Counting a fraction that is not a whole number as an integer.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fraction-not-simplified-to-an-integer",
+        "Leaving a fraction such as -18/3 unsimplified and so not noticing that it is a whole number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "integers-not-counted-as-rational",
+        "Believing a whole number cannot be a rational number because it is not written as a fraction.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-also-counted-as-rational",
+        "Counting an irrational number as both irrational and rational, though no number is in both sets.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-treated-as-an-integer",
+        "Rounding an irrational number to a whole number and placing it among the integers.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-treated-as-rational",
+        "Treating a non-terminating decimal such as the square root of 2 or pi as rational because it can be written with digits.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-with-no-root-sign-treated-as-rational",
+        "Calling an irrational number rational because it has no root sign, as pi or a decimal that never repeats.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-written-as-a-sum-treated-as-rational",
+        "Calling a sum of a rational number and a surd, or of two surds, rational because a sum looks like a plain number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "judged-by-the-root-sign-without-simplifying",
+        "Calling an expression irrational because it contains a root sign or pi, without simplifying it first.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "left-out-the-real-numbers",
+        "Listing the smaller sets a number belongs to but leaving out the real numbers, which contain every rational and irrational number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "named-only-the-smallest-set",
+        "Naming only the smallest set that contains the number, forgetting that the sets nest inside the larger ones.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "negative-number-counted-as-natural",
+        "Counting a negative whole number as a natural number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "non-whole-number-treated-as-irrational",
+        "Calling a number irrational because it is not a whole number, though a fraction or terminating decimal is rational.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "pi-approximation-treated-as-irrational",
+        "Calling 22/7 or 3.14 irrational because they are used to stand for pi; each is an exact fraction, so rational.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "recurring-decimal-treated-as-irrational",
+        "Calling a repeating decimal irrational because it goes on forever; a repeating decimal can be written as a fraction, so it is rational.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "boundary-point-handled-the-wrong-way",
+        "Including a point that lies on a strict boundary (> or <), or leaving out a point on an inclusive one (\u2265 or \u2264).",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "coordinates-read-the-wrong-way-round",
+        "Reading a point as (y, x) instead of (x, y) when testing it against the line.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "either-condition-taken-for-both",
+        "Counting a point that meets only one of two conditions as meeting both, treating 'and' as 'or'.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "gradient-sign-misread",
+        "Reading a falling line as rising (or the reverse), so the gradient has the wrong sign.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "y-replaced-by-the-intercept",
+        "Giving the intercept of a line as the y-value of the solution instead of working out y from x.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "misread-the-crossing-by-one-square",
+        "Reading the point where two lines cross one grid square out from its true position.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "mixed-the-two-equations",
+        "Working out y by substituting x into the wrong line's equation.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "only-one-condition-checked",
+        "Testing a point against only one of two conditions and stopping there.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "point-used-as-the-intercept",
+        "Using the y-coordinate of a stated point as the intercept of the line through it.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "read-an-intercept-as-the-solution",
+        "Giving where a line meets an axis as the point where the two lines meet.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "region-on-the-wrong-side-of-the-line",
+        "Choosing the region above the line when it is below (or the reverse).",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "rounded-the-crossing-to-a-grid-point",
+        "Reading the point where two lines cross between grid lines as the nearest grid point instead of solving for it.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "sign-error-when-setting-equal",
+        "Making a sign error when equating the two expressions for y and solving for x.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "sign-error-on-point-substitution",
+        "Writing the equation of a line from its gradient and a point with the wrong sign on the gradient times the point's x-value.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "x-and-y-swapped",
+        "Writing the solution as (y, x) instead of (x, y).",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "intercept-left-out-of-the-substitution",
+        "Substituting x into the gradient term of a line's equation and forgetting to add the intercept, so y is found as m times x alone.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "adjacent-angles-on-a-line-taken-as-equal",
+        "Assuming two angles that sit next to each other on a straight line are equal, instead of adding to 180 degrees.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "alternate-angles-taken-to-add-to-180",
+        "Treating alternate angles as if they add to 180 degrees, which is true of co-interior angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angle-sum-taken-as-360",
+        "Using 360 degrees as the angle sum of a triangle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angle-sum-taken-as-90",
+        "Using 90 degrees as the angle sum of a triangle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angles-on-a-line-taken-to-add-to-360",
+        "Using 360 degrees for angles on a straight line, which is the total for angles at a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angles-on-a-line-taken-to-add-to-90",
+        "Using 90 degrees for angles on a straight line.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angles-taken-to-add-to-90",
+        "Using 90 degrees as the total for two angles that are equal or supplementary.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "arithmetic-slip-in-the-final-step",
+        "Choosing the right method but making a slip in the final subtraction or addition.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "co-interior-angles-taken-as-equal",
+        "Treating co-interior angles as equal, which is true of alternate and corresponding angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "co-interior-angles-taken-to-add-to-90",
+        "Using 90 degrees as the total for co-interior angles on parallel lines.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "congruence-test-confused-with-matching-parts",
+        "Giving a congruence test as the reason for equal matching parts, or the reverse: the test shows the triangles are congruent and matching parts then follow.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "congruence-tests-confused",
+        "Naming the wrong congruence test (SSS, SAS, ASA or RHS) for the equal parts that are known.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "doubled-the-base-angle-only",
+        "Doubling the base angle of an isosceles triangle and stopping, without subtracting from 180 degrees.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "forgot-to-subtract-from-the-total",
+        "Adding the two known angles of a triangle and giving that as the third angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "gave-a-leg-for-the-hypotenuse",
+        "Giving one of the shorter sides of a right-angled triangle where the hypotenuse is asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "interior-angle-found-instead-of-the-exterior-angle",
+        "Finding the third interior angle of the triangle when the exterior angle is asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "parallel-line-angle-reasons-confused",
+        "Giving corresponding, alternate or co-interior angles as the reason when a different one of the three applies.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "parallel-line-reason-confused-with-a-line-fact",
+        "Giving a fact about angles on lines (vertically opposite, straight line) as the reason for a step that needs parallel lines, or the reverse.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "reason-given-for-a-different-step",
+        "Giving a reason that is true in the diagram but does not justify this step.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "stated-fact-reasons-confused",
+        "Giving the wrong stated fact (given, midpoint, common side, opposite sides of a parallelogram or perpendicular) as the reason for a step.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "straight-line-and-crossing-line-reasons-confused",
+        "Mixing up angles on a straight line, angles at a point and vertically opposite angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-instead-of-using-pythagoras",
+        "Subtracting two sides of a right-angled triangle instead of using Pythagoras' theorem to find the third.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-only-one-angle",
+        "Subtracting only one of the two known angles from 180 degrees.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-the-two-angles",
+        "Subtracting one known angle from the other when the exterior angle is their sum.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "triangle-angle-reasons-confused",
+        "Giving the angle sum of a triangle, the exterior angle theorem, the isosceles base angle fact or the angle sum of a quadrilateral for a step that needs a different one.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "took-the-whole-diagonal",
+        "Giving the whole diagonal where half of it is asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-half-the-base-as-the-height",
+        "Using half the base of an isosceles triangle as its height instead of finding the height by Pythagoras.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-whole-base-as-the-height",
+        "Using the whole base of an isosceles triangle as its height instead of finding the height by Pythagoras.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "listed-the-irrational-numbers-instead",
+        "Listing the irrational numbers when the question asks for the rational ones.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "left-out-a-rational-number-that-needs-simplifying",
+        "Leaving a rational number out of the list because it is written with a root sign, a product of roots or pi, though it simplifies to a rational value.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-sum-treated-as-rational",
+        "Including a sum or reciprocal involving a surd in the rational list.",
+        area="number",
+    ),
 )
 
 #: Every entry, by id.
