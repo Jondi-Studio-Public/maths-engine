@@ -10,7 +10,7 @@ description: >-
   sum to a missing degree, the odd vertices and the edges left after a vertex is deleted. Every answer is a whole number.
 status: active
 placement_eligible: false
-prerequisites: []
+prerequisites: [shortest-network-path]
 answer: number
 sources:
 - topic: snet_degrees
