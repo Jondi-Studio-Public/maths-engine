@@ -1,0 +1,48 @@
+id: vector-proof-geometry
+name: "Work the steps of a vector proof of a geometric result"
+domain: vectors
+year_level: ['12']
+description: "For a vector proof of a geometric theorem -- the diagonals of a parallelogram bisect each other, the midpoint theorem, the midline of a trapezium, the angle in a semicircle -- supply one typed step: the vector for a named segment in terms of a and b, the scalar found by equating coefficients, or the dot product that must vanish. The answers are expressions, fractions and numbers, never a choice of which line of a proof is wrong."
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+- vector-dot-product
+answer: expression
+sources:
+- topic: r4f_vector_proof
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4f_vector_proof
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4f_vector_proof
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4f_vector_proof
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: direction-of-vector-reversed
+  description: "Giving the vector from the end to the start, with every sign reversed."
+- id: position-vector-not-displacement
+  description: "Giving the position vector of the end point without subtracting the position of the start."
+- id: adds-position-vectors
+  description: "Adding the position vectors of the two end points where the vector between them needs a subtraction."
+- id: a-and-b-coefficients-swapped
+  description: "Swapping the coefficients of a and b in a vector expression."
+- id: assumes-the-diagonals-bisect
+  description: "Assuming the diagonals meet at their midpoints when the figure is a trapezium with unequal parallel sides."
+- id: ratio-part-to-part-used-as-scale
+  description: "Using the ratio m : n as the scale factor m/n where the part-to-whole fraction m/(m + n) is needed."
+- id: dot-product-sign-reversed
+  description: "Getting the dot product of |b|\u00b2 - |a|\u00b2 with the sign reversed, as |a|\u00b2 - |b|\u00b2."
+- id: dot-product-sums-the-squares
+  description: "Adding |a|\u00b2 and |b|\u00b2 where the cross terms cancel to a difference of squares."
+- id: difference-of-squares-expanded-as-a-square
+  description: "Expanding (b - a).(b + a) as (|b| - |a|) squared."
+tags: [acara-v8-4-specialist, vectors, proof, dot-product]

@@ -14972,6 +14972,566 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "forgets-to-divide-by-d",
+        'Stopping at the value of f(1) (or f(3)) without dividing by the divisor to find the whole-number multiple.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "exponent-shift-dropped",
+        'Dropping the constant shift in an exponent, so 3^(2n + 1) is evaluated as 3^(2n).',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "exponent-multiplier-dropped",
+        'Dropping the multiplier of n in an exponent when substituting n = 1, so 3^(2n + 1) becomes 3^(n + 1).',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "remainder-keeps-the-wrong-term",
+        'Keeping the other power as the leftover term when rearranging f(k + 1) = c f(k) + remainder.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "remainder-drops-the-factor",
+        'Forgetting the numerical factor (the difference of the bases) on the leftover power when rearranging f(k + 1).',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "gives-quotient-not-value",
+        'Giving the quotient f(1) divided by d where the value of f(1) itself is asked for.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "wrong-multiplier-on-f-of-k",
+        'Multiplying f(k) by the other base when using f(k + 1) = c f(k) + remainder.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "divides-by-the-wrong-divisor",
+        'Dividing by the wrong number when writing a value as a multiple of the divisor.',
+        area="induction",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "off-by-one-base-case",
+        'Starting the induction one value too early or too late, where the inequality first holds for good.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "first-true-value-taken-as-base-case",
+        'Taking the first n at which the inequality is true as the base case, although it fails at some later values before holding for good.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "strict-inequality-treated-as-non-strict",
+        'Starting from the first n at which the two sides are equal or the left side is bigger, where the statement needs the left side strictly bigger.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "step-threshold-for-base-case",
+        'Giving the value from which the inductive step works where the first value of the base case is asked for.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "off-by-one-step-threshold",
+        'Giving a value one or two out when finding where the inequality used in the inductive step starts to hold.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "base-case-threshold-for-step",
+        'Giving the base-case value where the value from which the inductive step works is asked for.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "right-hand-side-left-out",
+        'Giving one side of the comparison only, instead of the difference between the two sides.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "difference-taken-the-wrong-way",
+        'Subtracting the larger side from the smaller, so the difference comes out negative.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "sign-slip-in-matching-coefficients",
+        'A sign slip when matching coefficients of k or the constants on the two sides of a recurrence step.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-one-minus-a",
+        'Matching coefficients correctly but leaving out the division by 1 - a that isolates the constant.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "constant-ignores-the-k-term-carry",
+        'Solving the constant terms without the p carried over from the k + 1 in p(k + 1).',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "p-and-r-confused",
+        'Giving the coefficient of n where the constant term is asked for.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "base-case-ignores-p-and-r",
+        'Using u(1) = A a alone, forgetting the p and r terms in the closed form at n = 1.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-a",
+        'Finding u(1) minus the other terms but not dividing by the base a to get A.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "stops-one-term-early",
+        'Stopping at u(2) when u(3) is asked for.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forcing-term-index-off-by-one",
+        'Using the wrong value of n in the forcing term when stepping a recurrence.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forcing-term-left-out",
+        'Multiplying by a but leaving out the added term when stepping a recurrence.',
+        area="induction",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "matches-the-constant-equation-instead",
+        'Solving the equation for the constant terms when the coefficient of k was asked for.',
+        area="induction",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "amgm-bound-miscomputed",
+        'Applying the AM-GM bound but slipping in the arithmetic (the root or the product taken wrongly).',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-bound-not-divided-by-coefficients",
+        'Stopping at the squared half-sum from AM-GM without dividing by the coefficients to reach the product xy.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-forgets-the-four",
+        'Dropping the factor of 4 when bounding the product xy by the square of half the sum.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-forgets-the-root",
+        'Writing 2pq where AM-GM gives 2 times the square root of pq.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-forgets-the-two",
+        'Giving the square root of pq as the minimum, forgetting the 2 in u + v >= 2 sqrt(uv).',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-ignores-the-coefficients",
+        'Bounding xy by the square of half the total, ignoring the coefficients of x and y in the constraint.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "area-not-divided-by-w",
+        'Adding the area itself where the length of the other side (area divided by w) is needed.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "arithmetic-slip",
+        'A slip in the arithmetic of a correct method.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "assumes-equal-parts-ignoring-coefficients",
+        'Splitting the total equally between x and y, ignoring the coefficients in the constraint.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "base-and-sides-counted-twice",
+        'Counting the base or the sides of a box twice in its surface area.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "base-area-taken-as-the-side",
+        'Dividing the volume by the side of the base instead of the area of the base.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "counts-only-one-short-side",
+        'Counting only one of the two short sides of a three-sided fence.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "divides-by-the-wrong-number",
+        'Dividing by the wrong number when working back from a bound to the point where equality holds.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "evaluates-at-a-trial-value",
+        'Giving the value of the expression at the trial point of an earlier part instead of its least value.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "evaluates-at-x-equals-1",
+        'Evaluating the expression at x = 1 and taking that as the least value.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "fences-all-four-sides",
+        'Counting fence along the river side too, so four sides are fenced instead of three.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "fixed-charge-counted-twice",
+        'Adding the fixed charge to the cost twice.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "fixed-charge-subtracted",
+        'Subtracting the fixed charge from the least variable cost instead of adding it.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-am-gm-part",
+        'Giving the constant part of the expression only, leaving out the AM-GM minimum of the other terms.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-constant-term",
+        'Giving the AM-GM minimum of the two terms but leaving out the constant term of the expansion.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-factor-in-the-cube",
+        'Solving x cubed equals the volume instead of x cubed equals twice the volume.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-fixed-charge",
+        'Leaving the fixed charge out of the least cost.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-half",
+        'Using the whole total where half of it is needed for each equal term.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-three",
+        'Giving the value of one of the three equal terms as the sum of all three.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-the-coefficient",
+        'Finding the remaining length without dividing by its coefficient in the constraint.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-to-take-the-root",
+        'Giving x squared (or q over p) where its square root is needed.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-area-not-the-bound",
+        'Giving the area of the paddock where the least length of fence is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-sum-not-the-product",
+        'Adding the two quantities where their product is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-value-not-x",
+        'Giving the least or greatest value where the value of x at which it occurs is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-answer-for-x-not-the-value",
+        'Giving the value of x at which equality holds where the least value is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "height-confused-with-side",
+        'Giving the side of the base where the height of the box is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "multiplies-instead-of-squares",
+        'Multiplying x by 3 where 3 times x squared is needed.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "surface-area-left-out-the-base",
+        'Leaving the base out of the surface area of an open box.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "surface-area-sides-miscounted",
+        'Counting the sides of a box wrongly when finding the surface area.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "takes-one-factor-for-x",
+        'Taking one of the constants a or b in (x + a)(x + b)/x as the value of x.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "term-taken-as-the-variable",
+        'Giving the value of one of the two equal terms where the value of x is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "two-term-bound-used-on-three-terms",
+        'Using the two-term bound 2 sqrt(uv) on a sum of three terms.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "uses-the-wrong-coefficient",
+        'Dividing by the coefficient of the other variable when solving for x at the equality case.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "wrong-coefficient-removed",
+        'Removing the wrong multiple of x from the constraint before dividing.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "x-and-y-swapped",
+        'Giving the value of y where x is asked for, or the reverse.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "x-doubled-from-the-two",
+        'Doubling the value of x because of the 2 in the AM-GM bound.',
+        area="inequalities",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "a-and-b-coefficients-swapped",
+        'Swapping the coefficients of a and b in a vector expression.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "adds-position-vectors",
+        'Adding the position vectors of the two end points where the vector between them needs a subtraction.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "assumes-the-diagonals-bisect",
+        'Assuming the diagonals meet at their midpoints when the figure is a trapezium with unequal parallel sides.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "assumes-the-diagonals-trisect",
+        'Assuming a convenient ratio such as one third for the point where the diagonals meet, without equating coefficients.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "assumes-the-midpoint-theorem",
+        'Using a half where the points divide the sides in a ratio other than 1 : 1.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "coefficient-of-a-taken-as-lambda",
+        'Giving the coefficient of a in the position of the meeting point where the scalar lambda is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "complement-of-x-given",
+        'Giving one minus the coefficient of a where the coefficient itself is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "difference-of-squares-expanded-as-a-square",
+        'Expanding (b - a).(b + a) as (|b| - |a|) squared.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "direction-of-vector-reversed",
+        'Giving the vector from the end to the start, with every sign reversed.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "dot-product-sign-reversed",
+        'Getting the dot product of |b|² - |a|² with the sign reversed, as |a|² - |b|².',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "dot-product-sums-the-squares",
+        'Adding |a|² and |b|² where the cross terms cancel to a difference of squares.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "gives-lambda-for-x",
+        'Giving the scalar lambda where the coefficient of a in the position vector is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "half-of-the-dot-product-dropped",
+        'Leaving out the half from the position of the midpoint when expanding the dot product.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "lengths-subtracted-not-squared",
+        'Subtracting the two lengths where their squares should be subtracted.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "midline-not-halved",
+        'Giving the sum of the parallel sides where the midline is half the sum.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "midpoint-halving-missed",
+        'Doubling the answer by missing the half in the position of a midpoint.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "new-value-given-not-the-change",
+        'Giving the value |OP|² would take, where the change from its present value is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "one-parallel-side-left-out",
+        'Giving half of one parallel side only where the midline is half the sum of both.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "parallel-side-taken-as-equal",
+        'Treating the parallel sides of a trapezium as equal, as in a parallelogram.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "parallel-sides-subtracted",
+        'Taking half the difference of the parallel sides where the midline is half their sum.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "position-vector-not-displacement",
+        'Giving the position vector of the end point without subtracting the position of the start.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "ratio-op-to-pb-given-as-lambda",
+        'Giving the ratio of the two parts of the diagonal where the fraction of the whole diagonal is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "ratio-part-to-part-used-as-scale",
+        'Using the ratio m : n as the scale factor m/n where the part-to-whole fraction m/(m + n) is needed.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "reciprocal-of-lambda",
+        'Giving the reciprocal of the fraction asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "scale-factor-left-out",
+        'Giving the full vector or length where the shorter one, scaled by the ratio, is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "second-length-left-out",
+        'Squaring only one of the two lengths in the dot product.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sides-added-twice",
+        'Counting a parallel side twice when adding vectors round a trapezium.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sign-slip-in-one-minus-mu",
+        'A slip in the equation relating lambda and mu when equating coefficients.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sign-slip-on-one-vector",
+        'Getting the sign of one of the two coefficients wrong.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sum-instead-of-difference",
+        'Adding the two position vectors where the vector between the points needs their difference.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "wrong-part-of-the-ratio",
+        'Using n/(m + n), the other part of the ratio, as the scale factor.',
+        area="vectors",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "one-term-left-out",
+        'Giving only one of the two terms of a vector expression in a and b.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-given-as-height",
+        'Giving the volume where the height is asked for.',
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "base-area-given-as-height",
+        'Giving the area of the base where the height is asked for.',
+        area="inequalities",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "sum-taken-for-the-difference",
+        'Adding the two sides where their difference is asked for.',
+        area="induction",
+    ),
+    CatalogueEntry(
+        "left-hand-side-left-out",
+        'Giving the right-hand side only where the difference of the two sides is asked for.',
+        area="induction",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "total-doubled",
+        'Doubling the least value, for example by counting the two equal AM-GM terms separately.',
+        area="inequalities",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "cost-doubled",
+        'Doubling the cost of the fence.',
+        area="inequalities",
+    ),
+    # -- r4f typed-step proofs (induction, AM-GM, vector proofs) --
+    CatalogueEntry(
+        "present-value-given-not-the-change",
+        'Giving the present value of the quantity where the change needed is asked for.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "change-doubled",
+        'Doubling the change that is needed.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "one-part-of-the-ratio-only",
+        'Dividing the length by m + n and stopping, without multiplying by m.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "length-doubled",
+        'Doubling the length found.',
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "ratio-part-subtracted-from-the-length",
+        'Subtracting a part of the ratio from the length instead of scaling the length.',
+        area="vectors",
+    ),
 )
 
 #: Every entry, by id.

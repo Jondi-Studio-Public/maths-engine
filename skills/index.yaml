@@ -62,6 +62,14 @@ algebraic-notation:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_sc3_notation_chain
     module: mathgen/generators/exd_x_sc3_notation_chain.py
+am-gm-inequality:
+  domain: inequalities
+  status: active
+  sources:
+  - topic: r4f_am_gm
+    module: mathgen/generators/r4f_am_gm_build.py
+  - topic: exd_x_r4f_am_gm
+    module: mathgen/generators/r4f_am_gm_build.py
 angle-degrees-radians-pi-form:
   domain: trigonometry
   status: active
@@ -2496,6 +2504,22 @@ probability-representations:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_sc8_prob_rep_chain
     module: mathgen/generators/exd_x_sc8_prob_rep_chain.py
+proof-by-induction-divisibility:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: r4f_induction_divisibility
+    module: mathgen/generators/r4f_induction_divisibility_build.py
+  - topic: exd_x_r4f_induction_divisibility
+    module: mathgen/generators/r4f_induction_divisibility_build.py
+proof-by-induction-inequality-or-recurrence:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: r4f_induction_inequality
+    module: mathgen/generators/r4f_induction_inequality_build.py
+  - topic: exd_x_r4f_induction_inequality
+    module: mathgen/generators/r4f_induction_inequality_build.py
 proportional-vs-non-proportional:
   domain: linear-relations
   status: deferred
@@ -6188,6 +6212,14 @@ vector-projection:
     module: mathgen/generators/university_foundations.py
   - topic: exd_x_u2_projection_foot
     module: mathgen/generators/exd_x_u2_projection_foot.py
+vector-proof-geometry:
+  domain: vectors
+  status: active
+  sources:
+  - topic: r4f_vector_proof
+    module: mathgen/generators/r4f_vector_proof_build.py
+  - topic: exd_x_r4f_vector_proof
+    module: mathgen/generators/r4f_vector_proof_build.py
 wave-frequency-from-speed-wavelength:
   domain: mathematical-physics
   status: active
