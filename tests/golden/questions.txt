@@ -1720,9 +1720,9 @@
 {"answer": "Pentagonal pyramid", "id": "f10-nets-build-solids/easy/0/42b1667b4045", "text": "Which solid can be made by folding the net shown along its dashed lines? Dev is…"}
 {"answer": "Square pyramid", "id": "f10-nets-build-solids/easy/1/46c01aa5072b", "text": "Which solid can be made by folding the net shown along its dashed lines? Priya …"}
 {"answer": "Square pyramid", "id": "f10-nets-build-solids/easy/2/22d2f86c95f0", "text": "The net shown is folded along the dashed lines to make a solid. Which solid doe…"}
-{"answer": "(a) Rectangular prism; (b) 7; (c) 254; (d) 252", "id": "f10-nets-build-solids/exam/0/f92e92cd2212", "text": "Aiko builds a closed storage box from the net shown, which is not drawn to scal…"}
-{"answer": "(a) Rectangular prism; (b) 8; (c) 136; (d) 96", "id": "f10-nets-build-solids/exam/1/9c12acd4edbc", "text": "The diagram shows the net of Jess's closed pencil case, not drawn to scale. It …"}
-{"answer": "(a) Rectangular prism; (b) 6; (c) 136; (d) 84", "id": "f10-nets-build-solids/exam/2/73f96a2d90c9", "text": "The net shown (not drawn to scale) folds along the dashed lines into a closed p…"}
+{"answer": "(a) 36; (b) 7; (c) 254; (d) 252", "id": "f10-nets-build-solids/exam/0/b3a3a9718aa9", "text": "Aiko builds a closed storage box from the net shown, which is not drawn to scal…"}
+{"answer": "(a) 12; (b) 8; (c) 136; (d) 96", "id": "f10-nets-build-solids/exam/1/10f3e037f011", "text": "The diagram shows the net of Jess's closed pencil case, not drawn to scale. It …"}
+{"answer": "(a) 14; (b) 6; (c) 136; (d) 84", "id": "f10-nets-build-solids/exam/2/879cb877711d", "text": "The net shown (not drawn to scale) folds along the dashed lines into a closed p…"}
 {"answer": "B and E", "id": "f10-nets-build-solids/hard/0/f60fe5b2a54d", "text": "When the lettered net is folded into a cube, corner J joins with two other corn…"}
 {"answer": "F and M", "id": "f10-nets-build-solids/hard/1/e104ec70192e", "text": "Jess folds the lettered net shown into a cube. Which two corners of the net mee…"}
 {"answer": "C and P", "id": "f10-nets-build-solids/hard/2/9c33403bf62b", "text": "Aiko folds the lettered net shown into a cube. Which two corners of the net mee…"}
