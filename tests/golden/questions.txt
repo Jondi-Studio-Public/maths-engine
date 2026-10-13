@@ -112,9 +112,18 @@
 {"answer": "42°10′", "id": "angle-radians-to-dms/medium/0/dc8a5567068f", "text": "A satellite dish is angled 0.736 rad above the horizon. Express this angle in d…"}
 {"answer": "15°08′", "id": "angle-radians-to-dms/medium/1/882a0b30f782", "text": "A robotic arm rotates through 0.264 rad. Express this rotation in degrees and m…"}
 {"answer": "282°04′", "id": "angle-radians-to-dms/medium/2/94d99e01dec9", "text": "A satellite dish is angled 4.923 rad above the horizon. Express this angle in d…"}
-{"answer": "Straight", "id": "angle-types/easy/0/f379d6c35615", "text": "Classify an angle measuring 180°."}
-{"answer": "Straight", "id": "angle-types/easy/1/56fb894d3ff0", "text": "Classify an angle measuring 180°."}
-{"answer": "Straight", "id": "angle-types/easy/2/b870deeafd81", "text": "Classify an angle measuring 180°."}
+{"answer": "Obtuse", "id": "angle-types/boundary/0/588a8e289f36", "text": "Which name describes an angle of 172°?"}
+{"answer": "Acute", "id": "angle-types/boundary/1/17be93f18a15", "text": "What type of angle measures 82°?"}
+{"answer": "Obtuse", "id": "angle-types/boundary/2/ba672f783d10", "text": "What type of angle measures 171°?"}
+{"answer": "Straight", "id": "angle-types/easy/0/8e0367ddbd37", "text": "What type of angle measures 180°?"}
+{"answer": "Straight", "id": "angle-types/easy/1/52d929ef3950", "text": "An angle turns through 180°. Is it acute, right, obtuse, straight or reflex?"}
+{"answer": "Straight", "id": "angle-types/easy/2/23c190b406ab", "text": "Which name describes an angle of 180°?"}
+{"answer": "Obtuse", "id": "angle-types/hard/0/28768aaad330", "text": "A protractor sits on the corner of angle AOB. Classify the marked angle AOB."}
+{"answer": "Acute", "id": "angle-types/hard/1/908c1231de11", "text": "A protractor is placed on the angle AOB. Name the type of the marked angle AOB."}
+{"answer": "Obtuse", "id": "angle-types/hard/2/6edae810698b", "text": "A protractor is placed on the angle AOB. Name the type of the marked angle AOB."}
+{"answer": "Obtuse", "id": "angle-types/medium/0/69992c0191a5", "text": "A protractor is placed on the angle AOB. Classify the marked angle AOB."}
+{"answer": "Obtuse", "id": "angle-types/medium/1/0dedb027f911", "text": "Angle AOB is drawn with a protractor lined up on the arm OA. What type of angle…"}
+{"answer": "Reflex", "id": "angle-types/medium/2/3b730ec9eb9a", "text": "A protractor sits on the corner of angle AOB. Name the type of the marked angle…"}
 {"answer": "301.6", "id": "annulus-cross-section-area/easy/0/12f0684fca38", "text": "A hollow cylindrical shaft has an outer radius of 10 cm and an inner radius of …"}
 {"answer": "2199.1", "id": "annulus-cross-section-area/easy/1/2810df571bc9", "text": "A hollow cylindrical shaft has an outer radius of 32 cm and an inner radius of …"}
 {"answer": "628.3", "id": "annulus-cross-section-area/easy/2/e8fb16d1e501", "text": "A hollow cylindrical shaft has an outer radius of 15 cm and an inner radius of …"}
@@ -1816,9 +1825,9 @@
 {"answer": "rhombus", "id": "f10-polygon-classification/hard/0/833225742af5", "text": "A quadrilateral is such that both pairs of opposite sides are parallel, and all…"}
 {"answer": "trapezium", "id": "f10-polygon-classification/hard/1/f9387e700e53", "text": "Consider a quadrilateral where only one pair of opposite sides is parallel, and…"}
 {"answer": "rhombus", "id": "f10-polygon-classification/hard/2/34efe5b6c2e1", "text": "Consider a quadrilateral where both pairs of opposite sides are parallel, and a…"}
-{"answer": "isosceles, not right-angled", "id": "f10-polygon-classification/medium/0/9ab7224625db", "text": "A triangle's sides measure 30, 24 and 30 units and its angles measure 66, 48 an…"}
-{"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/a3af937f5190", "text": "The sides of a triangle are 21, 9 and 23 units, and the angles are 67, 23 and 9…"}
-{"answer": "isosceles right-angled", "id": "f10-polygon-classification/medium/2/ba8520182154", "text": "The sides of a triangle are 17, 17 and 24 units, and the angles are 45, 45 and …"}
+{"answer": "isosceles, not right-angled", "id": "f10-polygon-classification/medium/0/a589d8aed9f4", "text": "A triangle's angles measure 66, 48 and 66 degrees, and two of its sides are eac…"}
+{"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/7b16c286334a", "text": "The angles of a triangle are 67, 23 and 90 degrees, and its three sides all hav…"}
+{"answer": "isosceles right-angled", "id": "f10-polygon-classification/medium/2/555f9e885d5b", "text": "The angles of a triangle are 45, 45 and 90 degrees, and two of its sides are ea…"}
 {"answer": "to the right of", "id": "f10-position-location-language/easy/0/27d2a238a7a4", "text": "Items are arranged on a shelf, listed from left to right: the book, the lamp, t…"}
 {"answer": "below", "id": "f10-position-location-language/easy/1/1495ee53034d", "text": "Boxes are stacked in this order, from top to bottom: the red box, the blue box,…"}
 {"answer": "above", "id": "f10-position-location-language/easy/2/84a4ccd29b8f", "text": "Boxes are stacked. Listed from top to bottom, they are: the red box, the yellow…"}
@@ -1852,12 +1861,12 @@
 {"answer": "a right prism", "id": "f10-prism-cross-sections/easy/0/0e88591034e6", "text": "A solid's cross-sections, taken perpendicular to its length, are always the sam…"}
 {"answer": "a right prism", "id": "f10-prism-cross-sections/easy/1/167afb27106d", "text": "A solid's cross-sections, taken perpendicular to its length, are always the sam…"}
 {"answer": "not a right prism", "id": "f10-prism-cross-sections/easy/2/678d2ec5e269", "text": "A solid's cross-sections, taken perpendicular to its length, are pentagonal in …"}
-{"answer": "a right prism", "id": "f10-prism-cross-sections/hard/0/e6b8959c0201", "text": "A solid's cross-sections, taken perpendicular to its length, are always pentago…"}
-{"answer": "a right prism", "id": "f10-prism-cross-sections/hard/1/77ae4aeda80f", "text": "A solid's cross-sections, taken perpendicular to its length, are always hexagon…"}
-{"answer": "a right prism", "id": "f10-prism-cross-sections/hard/2/8aa3c13a48a7", "text": "A solid's cross-sections, taken perpendicular to its length, are always square …"}
-{"answer": "a right prism", "id": "f10-prism-cross-sections/medium/0/ed8d194c48fa", "text": "A solid's cross-sections, taken perpendicular to its length, are always rectang…"}
-{"answer": "a right prism", "id": "f10-prism-cross-sections/medium/1/bfef21f602ef", "text": "A solid's cross-sections, taken perpendicular to its length, are always rectang…"}
-{"answer": "a right prism", "id": "f10-prism-cross-sections/medium/2/ac0fcf8369ca", "text": "A solid's cross-sections, taken perpendicular to its length, are always triangu…"}
+{"answer": "It is a right prism", "id": "f10-prism-cross-sections/hard/0/b2b0f0723a32", "text": "A solid is made by stacking 4 flat slices, each 5 cm thick, directly on top of …"}
+{"answer": "It is not a right prism", "id": "f10-prism-cross-sections/hard/1/cc26b9b5a068", "text": "A solid is made by stacking 4 flat slices, each 3 cm thick, directly on top of …"}
+{"answer": "There is not enough information to tell", "id": "f10-prism-cross-sections/hard/2/c4ce1f7e0d32", "text": "A solid is made by stacking 6 flat slices, each 2 cm thick, directly on top of …"}
+{"answer": "It is not a right prism", "id": "f10-prism-cross-sections/medium/0/fec0178f0f62", "text": "A solid is 17 cm long. Its cross-sections, cut at right angles to its length, a…"}
+{"answer": "It is not a right prism", "id": "f10-prism-cross-sections/medium/1/b30bd9b2b068", "text": "A solid is 9 cm long. Its cross-sections, cut at right angles to its length, ar…"}
+{"answer": "There is not enough information to tell", "id": "f10-prism-cross-sections/medium/2/356046377fea", "text": "A solid is 14 cm long. Its cross-sections, cut at right angles to its length, a…"}
 {"answer": "7/8", "id": "f10-probability-complements-compounds/easy/0/ad702d84f77d", "text": "The probability that a plant seed germinates is 1/8. What is the probability th…"}
 {"answer": "7/8", "id": "f10-probability-complements-compounds/easy/1/589c320f49ad", "text": "The probability that a customer chooses the vegetarian option is 1/8. What is t…"}
 {"answer": "1/4", "id": "f10-probability-complements-compounds/easy/2/af14b93e4301", "text": "The probability that a plant seed germinates is 3/4. What is the probability th…"}
@@ -2464,15 +2473,15 @@
 {"answer": "7/12", "id": "fraction-arithmetic/medium/0/36c2773c42a4", "text": "1/12 + 1/2"}
 {"answer": "3/8", "id": "fraction-arithmetic/medium/1/f4319a40212e", "text": "2/4 - 1/8"}
 {"answer": "3/10", "id": "fraction-arithmetic/medium/2/e5c112bc664c", "text": "4/5 - 1/2"}
-{"answer": "50%", "id": "fraction-decimal-percent/easy/0/9e97ae2aaf73", "text": "Which percentage is equal to 1/2?"}
-{"answer": "0.5", "id": "fraction-decimal-percent/easy/1/ecabbcef2d3b", "text": "Which decimal is equal to 1/2?"}
-{"answer": "0.75", "id": "fraction-decimal-percent/easy/2/de673be79856", "text": "Which decimal is equal to 3/4?"}
-{"answer": "80%", "id": "fraction-decimal-percent/hard/0/542631de1762", "text": "Which percentage is equal to 4/5?"}
-{"answer": "0.65", "id": "fraction-decimal-percent/hard/1/c1dddc0599e4", "text": "Which decimal is equal to 65%?"}
-{"answer": "0.8", "id": "fraction-decimal-percent/hard/2/b8dd7d905d8b", "text": "Which decimal is equal to 4/5?"}
-{"answer": "1/5", "id": "fraction-decimal-percent/medium/0/604f8238039b", "text": "Which fraction is equal to 0.2?"}
-{"answer": "20%", "id": "fraction-decimal-percent/medium/1/cb5ac515cdec", "text": "Which percentage is equal to 1/5?"}
-{"answer": "3/5", "id": "fraction-decimal-percent/medium/2/30a4907d24ca", "text": "Which fraction is equal to 0.6?"}
+{"answer": "50%", "id": "fraction-decimal-percent/easy/0/15a1e660544c", "text": "Write 1/2 as a percentage."}
+{"answer": "0.5", "id": "fraction-decimal-percent/easy/1/3cadab65c243", "text": "Which decimal is equal to 1/2?"}
+{"answer": "0.75", "id": "fraction-decimal-percent/easy/2/d7d22d2e30dd", "text": "3/4 of the ribbon was used. Which decimal is that?"}
+{"answer": "160%", "id": "fraction-decimal-percent/hard/0/94d7556e4de0", "text": "8/5 of a tank is full. What percentage of the tank is full?"}
+{"answer": "1.25", "id": "fraction-decimal-percent/hard/1/9a4723df214d", "text": "Which decimal is equal to 125%?"}
+{"answer": "1.6", "id": "fraction-decimal-percent/hard/2/87e90a117b72", "text": "Which decimal is equal to 8/5?"}
+{"answer": "1/5", "id": "fraction-decimal-percent/medium/0/f8d290b194ef", "text": "A jug is filled to 0.2 of its capacity. Which fraction shows that?"}
+{"answer": "20%", "id": "fraction-decimal-percent/medium/1/6b1246ad9db2", "text": "Write 1/5 as a percentage."}
+{"answer": "3/5", "id": "fraction-decimal-percent/medium/2/97db41542fc9", "text": "Write 0.6 as a fraction."}
 {"answer": "20", "id": "fraction-of-quantity/easy/0/1d07cd391a8e", "text": "What is 1/2 of 40?"}
 {"answer": "5", "id": "fraction-of-quantity/easy/1/708ce4a0846d", "text": "What is 1/4 of 20?"}
 {"answer": "5", "id": "fraction-of-quantity/easy/2/c504d2f53226", "text": "What is 1/2 of 10?"}
@@ -2551,9 +2560,9 @@
 {"answer": "(-2, -3), (0, -2), (2, -1)", "id": "graph-y-mx-plus-b/medium/0/ab29f68dbe90", "text": "A straight line is shown on the coordinate grid below. Which table of values, w…"}
 {"answer": "(0, 1), (1, -1), (2, -3)", "id": "graph-y-mx-plus-b/medium/1/ed99913cee0a", "text": "A straight line is shown on the coordinate grid below. Every pair in one list l…"}
 {"answer": "(1, 1), (2, 3), (3, 5)", "id": "graph-y-mx-plus-b/medium/2/536b15b49f4a", "text": "Look at the straight line shown on this grid. Which list of (x, y) pairs shows …"}
-{"answer": "y = 2x", "id": "graph-y-mx/easy/0/546286e200a4", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
-{"answer": "y = 3x", "id": "graph-y-mx/easy/1/de3b40d786da", "text": "Look at the straight line through the origin on this grid. Which equation of th…"}
-{"answer": "y = x", "id": "graph-y-mx/easy/2/cea8d24088ef", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
+{"answer": "y = 4x", "id": "graph-y-mx/easy/0/3ba55fa53583", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
+{"answer": "y = 4x", "id": "graph-y-mx/easy/1/a0385e21d936", "text": "The graph shows a straight line through the origin of a coordinate grid. Which …"}
+{"answer": "y = 2x", "id": "graph-y-mx/easy/2/54b3aad40442", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
 {"answer": "y = 4x", "id": "graph-y-mx/hard/0/62d89a9b8e4f", "text": "A straight line through the origin is shown on the coordinate grid below. Which…"}
 {"answer": "y = 30x", "id": "graph-y-mx/hard/1/3cb47636f5c9", "text": "A straight line through the origin is shown on the coordinate grid below. Choos…"}
 {"answer": "y = 2x", "id": "graph-y-mx/hard/2/85b213550658", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
@@ -2599,9 +2608,9 @@
 {"answer": "x > 1/2", "id": "inequalities-negative-mult-div/medium/0/1401308a596a", "text": "Solve the inequality -1 - 2x < -2. Give your answer as an inequality in x; writ…"}
 {"answer": "x > -8", "id": "inequalities-negative-mult-div/medium/1/ab0f41717392", "text": "Solve the inequality -9 - 3x < 15. Give your answer as an inequality in x; writ…"}
 {"answer": "x > 27", "id": "inequalities-negative-mult-div/medium/2/44441f78c6c5", "text": "Find all values of x for which -x/9 < -3. Give your answer as an inequality in …"}
-{"answer": "x < 2", "id": "inequality-solutions-number-line/easy/0/96636e7de101", "text": "The solution of an inequality is shown on the number line. Which inequality is …"}
-{"answer": "x ≤ 3", "id": "inequality-solutions-number-line/easy/1/0ae4c9224d81", "text": "The number line shows the solution of an inequality. Which inequality has this …"}
-{"answer": "x ≤ -6", "id": "inequality-solutions-number-line/easy/2/ee0f495c1dbc", "text": "The solution of an inequality is shown on the number line. Which inequality doe…"}
+{"answer": "x ≥ -5", "id": "inequality-solutions-number-line/easy/0/3646f70405f6", "text": "The shaded part of the number line is the solution of an inequality. Which ineq…"}
+{"answer": "x > 3", "id": "inequality-solutions-number-line/easy/1/2bf10785b16f", "text": "The number line shows the solution of an inequality. Which inequality is shown …"}
+{"answer": "x < 7", "id": "inequality-solutions-number-line/easy/2/6e5e3c274d9b", "text": "The shaded part of the number line is the solution of an inequality. Which ineq…"}
 {"answer": "-3x - 3 < 9", "id": "inequality-solutions-number-line/hard/0/973aa020afdf", "text": "The number line shows the solution of an inequality. Solve each inequality. Whi…"}
 {"answer": "4x - 4 < 16", "id": "inequality-solutions-number-line/hard/1/4ca73aa32f09", "text": "The number line shows the solution of an inequality. Which of these inequalitie…"}
 {"answer": "2x - 1 ≤ 3", "id": "inequality-solutions-number-line/hard/2/8e7edf739fec", "text": "The shaded part of the number line is the solution of an inequality. Which ineq…"}
@@ -5059,16 +5068,16 @@
 {"answer": "Not suited -- this describes a FIXED NUMBER of repeated tri…", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/medium/0/d0166b581ec2", "text": "At a basketball free-throw session, one free throw is checked. This is repeated…"}
 {"answer": "Suited to a Bernoulli model", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/medium/1/b165e694e778", "text": "At a factory quality-control line, one component is selected at random and chec…"}
 {"answer": "Suited to a Bernoulli model", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/medium/2/7b595c2df57e", "text": "At a school raffle, one ticket is selected at random and checked once. The outc…"}
-{"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/0/75393f40112c", "text": "At a basketball free-throw session, free throws are studied one after another. …"}
-{"answer": "Not suited -- each trial does not have exactly two possible…", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/1/d286cf7ff77b", "text": "At a plant nursery, 35 seeds are studied one after another. There are exactly 3…"}
-{"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/2/f6a0b3dc4aac", "text": "At a basketball free-throw session, free throws are studied one after another. …"}
+{"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/0/c14a0269ce2e", "text": "At a basketball free-throw session, free throws are studied one after another. …"}
+{"answer": "Not suited -- each trial does not have exactly two possible…", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/1/b831425a15f9", "text": "At a plant nursery, 35 seeds are studied one after another. There are exactly 3…"}
+{"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/2/f3f2e448acb1", "text": "At a basketball free-throw session, free throws are studied one after another. …"}
 {"answer": "(a) 1/9; (b) 4/37; (c) 2.8; (d) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/0/2d282b5ececd", "text": "A carton holds 75 eggs, 25 of which are cracked. A sample of 2 eggs is chosen a…"}
 {"answer": "(a) 125/4096; (b) 245/8374; (c) 4.3; (d) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/1/1a24f83e3087", "text": "A depot holds 160 parcels, 50 of which are marked fragile. A sample of 3 parcel…"}
 {"answer": "(a) 1/9; (b) 47/429; (c) 1.4; (d) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/2/07507a52aaa8", "text": "A crate holds 144 apples, 48 of which are bruised. A sample of 2 apples is chos…"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/hard/0/e42634d2f35f", "text": "At a telemarketing campaign, 17 calls are studied one after another. There are …"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/hard/1/5a76af23cc60", "text": "At a telemarketing campaign, 16 calls are studied one after another. There are …"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/hard/2/e6a6615dd067", "text": "At a factory quality-control line, 31 components are studied one after another.…"}
-{"answer": "Not suited -- the success probability is not constant acros…", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/medium/0/0d7dab599b27", "text": "At a factory quality-control line, 25 components are studied one after another.…"}
+{"answer": "Not suited -- the success probability is not constant acros…", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/medium/0/70606784b6ab", "text": "At a factory quality-control line, 25 components are studied one after another.…"}
 {"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/medium/1/c223b5812139", "text": "At a telemarketing campaign, calls are studied one after another. This carries …"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/medium/2/e4b781141115", "text": "At a plant nursery, 27 seeds are studied one after another. There are exactly 2…"}
 {"answer": "48", "id": "senior-identify-contexts-suitable-for-modelling-by-exponential-functions/easy/0/a0d56d40bd7e", "text": "The concentration of a drug in a patient's bloodstream begins at 67 mg/L and de…"}
