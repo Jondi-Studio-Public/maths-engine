@@ -1076,6 +1076,9 @@ REFUSED_PATHS = [
     "plugins/plugin.json",
     "plugins/p/marketplace.json",
     "plugins/p/data.json",
+    "plugins/p/skills/s/plugin.json",  # a case pattern's * would match the extra folders
+    "plugins/p/q/mcp.json",
+    "plugins/p/x/.claude-plugin/plugin.json",
     "page.html",
     "run.sh",
     "Makefile",
