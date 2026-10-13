@@ -370,7 +370,7 @@ figures.register_reader("fg1_equation_from_graph", _read_equation)
 # ----------------------------------------------------------------------------- proportional graph (y = mx)
 
 _P_SLOPES = {
-    "easy": [F(1), F(2), F(3)],
+    "easy": [F(1), F(2), F(3), F(4), F(5), F(6)],
     "medium": [F(-3), F(-2), F(-1), F(1, 2), F(-1, 2), F(1, 3), F(-1, 3), F(2, 3), F(3, 2)],
     "hard": [F(-3), F(-2), F(-1), F(1), F(2), F(3)],
 }

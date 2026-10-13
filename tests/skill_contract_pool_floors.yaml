@@ -7,8 +7,6 @@ add-within-5:
 angle-degrees-radians-pi-form:
   t4_degrees_radians_pi_form/easy: 16
   t4_degrees_radians_pi_form/medium: 15
-angle-types:
-  classify_angle/easy: 10
 australian-coin-values:
   australian_coins/easy: 6
 before-and-after-to-10:

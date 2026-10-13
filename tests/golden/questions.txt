@@ -898,51 +898,6 @@
 {"answer": "-5/2", "id": "explicit-euler-linear-ode/medium/0/7b04194147bd", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-4)y + (1), starting from…"}
 {"answer": "4/3", "id": "explicit-euler-linear-ode/medium/1/6b95d4f0ba01", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-5)y + (5), starting from…"}
 {"answer": "3", "id": "explicit-euler-linear-ode/medium/2/168adcd308d3", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (5)y + (-4), starting from…"}
-{"answer": "7", "id": "ey2a-compare-match-quantities-pictures/easy/0/4c07c5dac6c6", "text": "Look at the two rings. How many counters are in the ring with more?"}
-{"answer": "6", "id": "ey2a-compare-match-quantities-pictures/easy/1/7401c6746211", "text": "Sione looks at the two rings. How many squares does the bigger ring have?"}
-{"answer": "6", "id": "ey2a-compare-match-quantities-pictures/easy/2/33af4d58dd29", "text": "Sione looks at the two rings. How many counters does the bigger ring have?"}
-{"answer": "7", "id": "ey2a-compare-match-quantities-pictures/hard/0/114e61391c9d", "text": "Freya adds counters until all three rings match the biggest. How many counters …"}
-{"answer": "4", "id": "ey2a-compare-match-quantities-pictures/hard/1/d5836082dad5", "text": "How many diamonds are added in all to make every ring as big as the biggest?"}
-{"answer": "6", "id": "ey2a-compare-match-quantities-pictures/hard/2/fad55cbdbd57", "text": "Beatrice compares the biggest and smallest rings. How many more counters are in…"}
-{"answer": "2", "id": "ey2a-compare-match-quantities-pictures/medium/0/88380d031a48", "text": "Freya pairs up the stars in the two rings. How many have no partner?"}
-{"answer": "2", "id": "ey2a-compare-match-quantities-pictures/medium/1/b34a0fb07eaf", "text": "Talia pairs up the squares in the two rings. How many have no partner?"}
-{"answer": "3", "id": "ey2a-compare-match-quantities-pictures/medium/2/4418b2bc765f", "text": "Pair up the stars in the two rings. How many are left without a partner?"}
-{"answer": "16", "id": "ey2a-count-principles-to-20/easy/0/1b5f0cbc5ce0", "text": "Ava counts the counters. How many are there?"}
-{"answer": "18", "id": "ey2a-count-principles-to-20/easy/1/c83b9fa6e2b8", "text": "Kenji counts the diamonds. How many are there?"}
-{"answer": "20", "id": "ey2a-count-principles-to-20/easy/2/79ce948c72bf", "text": "Ava counts the stars. How many are there?"}
-{"answer": "7", "id": "ey2a-count-principles-to-20/hard/0/54b36677d4e3", "text": "Count the ringed ones. How many more make 12 ringed?"}
-{"answer": "4", "id": "ey2a-count-principles-to-20/hard/1/c1a30027ccdf", "text": "Hassan needs 12 ringed squares. How many more ringed ones are needed?"}
-{"answer": "5", "id": "ey2a-count-principles-to-20/hard/2/aec0fe263144", "text": "Count the ringed ones. How many more make 17 ringed?"}
-{"answer": "6", "id": "ey2a-count-principles-to-20/medium/0/f9afd2263550", "text": "One is taken away. How many squares are left?"}
-{"answer": "16", "id": "ey2a-count-principles-to-20/medium/1/27af136a9c44", "text": "Chloe adds one more. How many diamonds are there now?"}
-{"answer": "13", "id": "ey2a-count-principles-to-20/medium/2/ee0ec8eae7cf", "text": "One is taken away. How many counters are left?"}
-{"answer": "3", "id": "ey2a-equal-groups-sharing-halves-pictures/easy/0/dcc1fb36377f", "text": "There are 15 counters in all, in equal rings. How many are in each ring?"}
-{"answer": "12", "id": "ey2a-equal-groups-sharing-halves-pictures/easy/1/0b3b39627492", "text": "Chloe counts all the squares in the rings. How many?"}
-{"answer": "2", "id": "ey2a-equal-groups-sharing-halves-pictures/easy/2/d85122caee3f", "text": "There are 6 stars in all, in equal rings. How many are in each ring?"}
-{"answer": "4", "id": "ey2a-equal-groups-sharing-halves-pictures/hard/0/191ded719a51", "text": "Share the stars equally among 4 children. How many does each child get?"}
-{"answer": "3", "id": "ey2a-equal-groups-sharing-halves-pictures/hard/1/f2d52e154a98", "text": "Share the stars equally among 4 children. How many does each child get?"}
-{"answer": "1", "id": "ey2a-equal-groups-sharing-halves-pictures/hard/2/a841cc1d91eb", "text": "Priya deals the counters equally among 2 children. How many are left over?"}
-{"answer": "3", "id": "ey2a-equal-groups-sharing-halves-pictures/medium/0/54905c12a5c1", "text": "Ingrid shares the diamonds equally among 3 children. How many does each get?"}
-{"answer": "5", "id": "ey2a-equal-groups-sharing-halves-pictures/medium/1/0160df6bf31e", "text": "Share the counters equally among 3 children. How many does each child get?"}
-{"answer": "6", "id": "ey2a-equal-groups-sharing-halves-pictures/medium/2/783ea52f6ef4", "text": "Liam takes half of the counters. How many does Liam take?"}
-{"answer": "8", "id": "ey2a-part-part-whole-pictures/easy/0/cf436ced2b5c", "text": "Santiago has plain and ringed counters. How many counters in all?"}
-{"answer": "5", "id": "ey2a-part-part-whole-pictures/easy/1/b4dc4629fdf0", "text": "Count the plain and the ringed stars. How many in all?"}
-{"answer": "5", "id": "ey2a-part-part-whole-pictures/easy/2/e40658a6b9d5", "text": "Mateo has plain and ringed stars. How many stars in all?"}
-{"answer": "13", "id": "ey2a-part-part-whole-pictures/hard/0/14f115eab888", "text": "Count the plain and the ringed counters on both frames. How many in all?"}
-{"answer": "8", "id": "ey2a-part-part-whole-pictures/hard/1/f320b28c988e", "text": "There are 14 counters. Only the ringed ones are shown. How many are plain?"}
-{"answer": "12", "id": "ey2a-part-part-whole-pictures/hard/2/2d37c0b929f6", "text": "Count the plain and the ringed stars on both frames. How many in all?"}
-{"answer": "3", "id": "ey2a-part-part-whole-pictures/medium/0/f8ec091d529a", "text": "There are 5 counters. Only the ringed ones are shown. How many are plain?"}
-{"answer": "2", "id": "ey2a-part-part-whole-pictures/medium/1/4b69520f5972", "text": "There are 9 diamonds. Only the ringed ones are shown. How many are plain?"}
-{"answer": "2", "id": "ey2a-part-part-whole-pictures/medium/2/6c1e1472e461", "text": "Kai has 9 squares. The ringed ones are shown. How many are plain?"}
-{"answer": "5", "id": "ey2a-ten-frame-numbers/easy/0/1245440ce729", "text": "Freya wants a full ten frame. How many more squares?"}
-{"answer": "4", "id": "ey2a-ten-frame-numbers/easy/1/cd13a2e10f41", "text": "How many counters are on the ten frame?"}
-{"answer": "3", "id": "ey2a-ten-frame-numbers/easy/2/4e8eee706477", "text": "How many stars are on the ten frame?"}
-{"answer": "7", "id": "ey2a-ten-frame-numbers/hard/0/ef8c7a3e8385", "text": "How many more diamonds fill both ten frames?"}
-{"answer": "11", "id": "ey2a-ten-frame-numbers/hard/1/706f30c0b02d", "text": "How many counters are on both ten frames?"}
-{"answer": "8", "id": "ey2a-ten-frame-numbers/hard/2/f93ec6f8d886", "text": "How many more stars fill both ten frames?"}
-{"answer": "3", "id": "ey2a-ten-frame-numbers/medium/0/2c5f0a3ee8e3", "text": "Yuki moves diamonds from the right frame to fill the left frame. How many move?"}
-{"answer": "17", "id": "ey2a-ten-frame-numbers/medium/1/2e17f0717585", "text": "How many diamonds are on the two ten frames?"}
-{"answer": "19", "id": "ey2a-ten-frame-numbers/medium/2/257673adc7cb", "text": "How many diamonds are on the two ten frames?"}
 {"answer": "17 - 14 = □", "id": "f10-add-subtract-number-sentences/easy/0/49bc200338d6", "text": "There are 17 children in a class. 14 of the children walk to school and the res…"}
 {"answer": "19 - □ = 16", "id": "f10-add-subtract-number-sentences/easy/1/77b88bda6770", "text": "Liam had 19 tickets. Liam gave 16 tickets to a friend. How many tickets does Li…"}
 {"answer": "□ - 15 = 3", "id": "f10-add-subtract-number-sentences/easy/2/aaafad064f0a", "text": "Kai has 3 boxes. A friend gives Kai 15 more. How many boxes does Kai have in to…"}
@@ -1003,18 +958,6 @@
 {"answer": "29", "id": "f10-additive-multiplicative-patterns/medium/0/f43cb818d202", "text": "What is the next number? 32, 31, 30, __"}
 {"answer": "128", "id": "f10-additive-multiplicative-patterns/medium/1/56f3d6a011e9", "text": "What is the next number? 134, 132, 130, __"}
 {"answer": "7", "id": "f10-additive-multiplicative-patterns/medium/2/b16d2b8e0f41", "text": "What is the next number? 25, 19, 13, __"}
-{"answer": "1/12", "id": "f10-algebra-conjecture-algorithm/easy/0/00a80a0f8c3a", "text": "The kinetic energy of a moving object is E = ½mv². The speed v is halved and th…"}
-{"answer": "8", "id": "f10-algebra-conjecture-algorithm/easy/1/c7826620f79c", "text": "The volume of a cube is V = s³. The side length s is doubled, and nothing else …"}
-{"answer": "9", "id": "f10-algebra-conjecture-algorithm/easy/2/097159ee89f6", "text": "The light from a lamp reaching a wall is I = P/d². The distance d is divided by…"}
-{"answer": "(a) 243; (b) 1; (c) x = 4 is a counterexample, so the conje…", "id": "f10-algebra-conjecture-algorithm/exam/0/b30ed4cf3895", "text": "Leila conjectures that the rule y = 3 × 3^x gives every y-value in this table: …"}
-{"answer": "(a) 81; (b) 0; (c) The rule fits at x = 4, but that does no…", "id": "f10-algebra-conjecture-algorithm/exam/1/2ddb4b06dead", "text": "Jess conjectures that the rule y = 3^x gives every y-value in this table: x: 0,…"}
-{"answer": "(a) 52; (b) 1; (c) x = 5 is a counterexample, so the conjec…", "id": "f10-algebra-conjecture-algorithm/exam/2/9144e51f03d2", "text": "Leila conjectures that the rule y = 2x^2 + 2 gives every y-value in this table:…"}
-{"answer": "2", "id": "f10-algebra-conjecture-algorithm/hard/0/c70a49aefd9a", "text": "Jess conjectures that this table starts at y = 2 when x = 0 and that each y-val…"}
-{"answer": "0", "id": "f10-algebra-conjecture-algorithm/hard/1/b99c0310b706", "text": "Sam conjectures that the rule y = x^2 + 4x + 7 gives every y-value in this tabl…"}
-{"answer": "4", "id": "f10-algebra-conjecture-algorithm/hard/2/dbebfe8f184e", "text": "Kofi conjectures that this table starts at y = 2 when x = 0 and that each y-val…"}
-{"answer": "18", "id": "f10-algebra-conjecture-algorithm/medium/0/a8f610e2c933", "text": "Tom conjectures that the expression n^2 - 3n + 19 gives a prime number for ever…"}
-{"answer": "18", "id": "f10-algebra-conjecture-algorithm/medium/1/e2fdf7e3b4e8", "text": "Tom conjectures that the expression n^2 - 3n + 19 gives a prime number for ever…"}
-{"answer": "15", "id": "f10-algebra-conjecture-algorithm/medium/2/446cabbdc524", "text": "Priya conjectures that the expression n^2 + 3n + 19 gives a prime number for ev…"}
 {"answer": "137", "id": "f10-angle-relationships/easy/0/3cad2ee1cc23", "text": "The angles in the diagram meet at a point and together complete a full turn. Ca…"}
 {"answer": "135", "id": "f10-angle-relationships/easy/1/96ede31df2fe", "text": "The diagram shows angles meeting at a point and filling a full turn. Calculate …"}
 {"answer": "111", "id": "f10-angle-relationships/easy/2/d33de7b1033b", "text": "The angles in the diagram meet at a point and together complete a full turn. Wo…"}
@@ -1069,18 +1012,6 @@
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/d2edcaab9563", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/a601c8526340", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
-{"answer": "Linear: y goes up by 7 each time x goes up by 1", "id": "f10-choose-model-from-data/easy/0/e68ab5a3fd23", "text": "The table shows the number y of pages of a report written x hours after the wri…"}
-{"answer": "Exponential: each y-value is 2 times the one before", "id": "f10-choose-model-from-data/easy/1/a65e15f30029", "text": "The table shows the number y of bacteria in a dish x hours after it is prepared…"}
-{"answer": "Exponential: each y-value is half the one before", "id": "f10-choose-model-from-data/easy/2/08e2720acc09", "text": "The table shows the mass y grams of a radioactive sample x days after it is del…"}
-{"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/0/a786adb80d34", "text": "The table shows the number y of bacteria in a dish x hours after it is prepared…"}
-{"answer": "(a) Exponential: each y-value is 3 times the one before; (b…", "id": "f10-choose-model-from-data/exam/1/667ec92b1c76", "text": "The table shows the number y of followers of a community page x weeks after it …"}
-{"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/2/e7cfa3d3752d", "text": "The table shows the number y of followers of a community page x weeks after it …"}
-{"answer": "70", "id": "f10-choose-model-from-data/hard/0/1c2a617e4391", "text": "The table shows the data y megabytes used on a phone plan x days after it start…"}
-{"answer": "378", "id": "f10-choose-model-from-data/hard/1/1fceb317049b", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
-{"answer": "269", "id": "f10-choose-model-from-data/hard/2/a0a006133952", "text": "The table shows the number y of tiles in stage x of a square tile pattern. x: 0…"}
-{"answer": "y = 3x^2 + x + 1", "id": "f10-choose-model-from-data/medium/0/de19702ccb78", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
-{"answer": "y = x^2 + 3x + 1", "id": "f10-choose-model-from-data/medium/1/f75eb3ddbec3", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
-{"answer": "y = -x^2 + 10x + 6", "id": "f10-choose-model-from-data/medium/2/6173dbc7e88b", "text": "The table shows the height y metres of a rocket flare x seconds after it is fir…"}
 {"answer": "270", "id": "f10-circle-and-prism-duration-rates/easy/0/a83a9727a191", "text": "A flight departs Zone A at 10:00, arrives Zone B at 11:30, on the same day. Zon…"}
 {"answer": "210", "id": "f10-circle-and-prism-duration-rates/easy/1/5aa03c2bbbee", "text": "A flight departs Zone A at 05:30, arrives Zone B at 08:00, on the same day. Zon…"}
 {"answer": "135", "id": "f10-circle-and-prism-duration-rates/easy/2/18e85442551c", "text": "A flight departs Zone A at 07:15, arrives Zone B at 08:30, on the same day. Zon…"}
@@ -1183,18 +1114,6 @@
 {"answer": "the probability of borrowing a DVD, given borrowing a novel", "id": "f10-conditional-probability-language/medium/0/21094f177627", "text": "Read this sentence: \"Of the 40 library members who borrow a novel, 19 borrow a …"}
 {"answer": "the probability of studying French, given walking to school", "id": "f10-conditional-probability-language/medium/1/f2e7d284c161", "text": "Read this sentence: \"Of the 43 students who walk to school, 20 study French.\" W…"}
 {"answer": "the probability of borrowing a novel, given borrowing a DVD", "id": "f10-conditional-probability-language/medium/2/29eaed3cbcec", "text": "Read this sentence: \"If a randomly chosen library member borrows a DVD, then th…"}
-{"answer": "14/37", "id": "f10-conditional-relative-frequency/easy/0/8e4e31323a40", "text": "A survey of 55 students asked how they get to school and whether they play a sp…"}
-{"answer": "19/29", "id": "f10-conditional-relative-frequency/easy/1/1027305a0dd9", "text": "In a game, a coin was tossed and a spinner was spun together, 64 times. Table (…"}
-{"answer": "22/31", "id": "f10-conditional-relative-frequency/easy/2/3463a3447140", "text": "A survey of 56 students asked how they get to school and whether they play a sp…"}
-{"answer": "(a) 21; (b) 7/12; (c) 20/31; (d) P(A given B) is less than …", "id": "f10-conditional-relative-frequency/exam/0/b506a5830c85", "text": "A survey of 67 students asked how they get to school and whether they play a sp…"}
-{"answer": "(a) 14; (b) 7/18; (c) 9/16; (d) P(A given B) is less than P…", "id": "f10-conditional-relative-frequency/exam/1/ddd3fa0364ec", "text": "A school garden club planted 84 seeds, some with fertiliser and some without, a…"}
-{"answer": "(a) 18; (b) 9/16; (c) 13/42; (d) P(A given B) is greater th…", "id": "f10-conditional-relative-frequency/exam/2/48ba52b54992", "text": "A cafe recorded what 74 customers bought: whether they bought a coffee and whet…"}
-{"answer": "16/69", "id": "f10-conditional-relative-frequency/hard/0/12bb20e883ab", "text": "A basketballer took 46 practice shots, some from the left of the key and some f…"}
-{"answer": "13/360", "id": "f10-conditional-relative-frequency/hard/1/fc97ff6cf7de", "text": "A basketballer took 72 practice shots, some from the left of the key and some f…"}
-{"answer": "23/180", "id": "f10-conditional-relative-frequency/hard/2/d013eb9cd6e9", "text": "A cafe recorded what 60 customers bought: whether they bought a coffee and whet…"}
-{"answer": "3/19", "id": "f10-conditional-relative-frequency/medium/0/05aadd97f9bf", "text": "A basketballer took 44 practice shots, some from the left of the key and some f…"}
-{"answer": "16/35", "id": "f10-conditional-relative-frequency/medium/1/976835649b35", "text": "A school garden club planted 73 seeds, some with fertiliser and some without, a…"}
-{"answer": "1/8", "id": "f10-conditional-relative-frequency/medium/2/0c7907d4f9e2", "text": "A survey of 53 students asked how they get to school and whether they play a sp…"}
 {"answer": "Congruent by RHS", "id": "f10-congruence-similarity-criteria/easy/0/041a64420464", "text": "Two triangles are described. Triangle PQR: angle R = 90 degrees, PQ = 16 cm and…"}
 {"answer": "Congruent by ASA", "id": "f10-congruence-similarity-criteria/easy/1/f3706964670e", "text": "In triangle GHJ, angle G = 59 degrees, GJ = 6 cm and angle J = 48 degrees. In t…"}
 {"answer": "Congruent by ASA", "id": "f10-congruence-similarity-criteria/easy/2/ec5623baec6d", "text": "Two triangles are described. Triangle PQR: angle P = 84 degrees, PQ = 8 cm and …"}
@@ -1447,30 +1366,6 @@
 {"answer": "yes", "id": "f10-factors-multiples-divisibility/medium/0/1f8267f9aa12", "text": "Does 9 divide 189 exactly (with no remainder)?"}
 {"answer": "no", "id": "f10-factors-multiples-divisibility/medium/1/ddbe2303855f", "text": "Does 14 divide 27 exactly (with no remainder)?"}
 {"answer": "yes", "id": "f10-factors-multiples-divisibility/medium/2/124cce6bc833", "text": "Does 11 divide 264 exactly (with no remainder)?"}
-{"answer": "124.80", "id": "f10-financial-multistep-percent/easy/0/a89128c51e5e", "text": "A pair of headphones is marked $156. This week every price in the shop is reduc…"}
-{"answer": "83.20", "id": "f10-financial-multistep-percent/easy/1/4349908ab53c", "text": "A cricket bat is marked $104. This week every price in the shop is reduced by 2…"}
-{"answer": "44.80", "id": "f10-financial-multistep-percent/easy/2/eb3c1df41587", "text": "A jacket is marked $56. This week every price in the shop is reduced by 20%, an…"}
-{"answer": "(a) 185.60; (b) 242.00; (c) Shop A is cheaper, by $56.40 fo…", "id": "f10-financial-multistep-percent/exam/0/322ebf641725", "text": "Jess is buying 4 identical jackets. Shop A marks each jacket at $232 and takes …"}
-{"answer": "(a) 166.40; (b) 110.00; (c) Shop B is cheaper, by $56.40 fo…", "id": "f10-financial-multistep-percent/exam/1/103cdfa33437", "text": "Mia is buying 4 identical jackets. Shop A marks each jacket at $208 and takes 2…"}
-{"answer": "(a) 78.00; (b) 121.00; (c) Shop A is cheaper, by $43.00 for…", "id": "f10-financial-multistep-percent/exam/2/4ea41c02a5b8", "text": "Aiko is buying 2 identical cricket bats. Shop A marks each cricket bat at $104 …"}
-{"answer": "0.25", "id": "f10-financial-multistep-percent/hard/0/5879d18b726c", "text": "Marcus compares two packs of cereal. Pack A is 400 g and costs $2.20. Pack B is…"}
-{"answer": "0.25", "id": "f10-financial-multistep-percent/hard/1/27cd530af322", "text": "Marcus compares two packs of flour. Pack A is 200 g and costs $2.10. Pack B is …"}
-{"answer": "0.20", "id": "f10-financial-multistep-percent/hard/2/dec2348c43e8", "text": "Jess compares two packs of pasta. Pack A is 250 g and costs $1.00. Pack B is 10…"}
-{"answer": "161.92", "id": "f10-financial-multistep-percent/medium/0/9182a20a2964", "text": "A tent is marked $184 and is on sale for 20% off. Aiko buys it, and 10% GST is …"}
-{"answer": "55.44", "id": "f10-financial-multistep-percent/medium/1/3a43e4f74feb", "text": "A pair of headphones is marked $56 and is on sale for 10% off. Dev buys it, and…"}
-{"answer": "112.64", "id": "f10-financial-multistep-percent/medium/2/30c47d9fa989", "text": "A jacket is marked $128 and is on sale for 20% off. Jess buys it, and 10% GST i…"}
-{"answer": "36", "id": "f10-financial-multistep-whole-numbers/easy/0/84bcd330ae02", "text": "At the school fete, Tom pays with a $50 note for 7 raffle tickets at $2 each. H…"}
-{"answer": "2", "id": "f10-financial-multistep-whole-numbers/easy/1/7f4ec051dc97", "text": "Mia buys 3 drink bottles from the sports shop. Each costs $6. Mia pays with a $…"}
-{"answer": "8", "id": "f10-financial-multistep-whole-numbers/easy/2/e88a42023852", "text": "Tom buys 6 drink bottles from the sports shop. Each costs $7. Tom pays with a $…"}
-{"answer": "(a) 30; (b) 20; (c) 8; (d) 4", "id": "f10-financial-multistep-whole-numbers/exam/0/24153ddc15ad", "text": "Leila orders 5 juices at $3 each and 3 pies at $5 each for a school event, and …"}
-{"answer": "(a) 53; (b) 47; (c) 12; (d) 3", "id": "f10-financial-multistep-whole-numbers/exam/1/f892fab19191", "text": "Leila orders 5 notebooks at $7 each and 3 pencil cases at $6 each for a school …"}
-{"answer": "(a) 19; (b) 31; (c) 3; (d) 4", "id": "f10-financial-multistep-whole-numbers/exam/2/588a0463db91", "text": "Ella orders 3 fruit cups at $3 each and 2 notebooks at $5 each for a school eve…"}
-{"answer": "14", "id": "f10-financial-multistep-whole-numbers/hard/0/d006c8c81c3e", "text": "Kofi wants a scooter bell set that costs $115 and has saved $20. Kofi saves $7 …"}
-{"answer": "8", "id": "f10-financial-multistep-whole-numbers/hard/1/3f9e390fd006", "text": "Priya wants a football that costs $95 and has saved $30. Priya saves $9 each we…"}
-{"answer": "20", "id": "f10-financial-multistep-whole-numbers/hard/2/14241a1987f9", "text": "Leila's family buys a football for $100 on lay-by. They pay a $20 deposit and t…"}
-{"answer": "25", "id": "f10-financial-multistep-whole-numbers/medium/0/eaaf6b5342c2", "text": "Mia orders 2 notebooks at $4 each and 4 pies at $5 each. A $3 voucher is taken …"}
-{"answer": "42", "id": "f10-financial-multistep-whole-numbers/medium/1/d84978205736", "text": "Priya orders 3 pencil cases at $7 each and 5 pies at $5 each. A $4 voucher is t…"}
-{"answer": "24", "id": "f10-financial-multistep-whole-numbers/medium/2/b837138ffa07", "text": "Jess and Ella order 3 pencil cases at $8 each and 4 notebooks at $6 each and sh…"}
 {"answer": "11/9", "id": "f10-fraction-add-subtract-equivalent/easy/0/5fa587a7a5df", "text": "Calculate 2/3 + 5/9."}
 {"answer": "7/8", "id": "f10-fraction-add-subtract-equivalent/easy/1/516fabe0e562", "text": "Calculate 3/4 + 1/8."}
 {"answer": "3/5", "id": "f10-fraction-add-subtract-equivalent/easy/2/01ffa837b279", "text": "Calculate 1/2 + 1/10."}
@@ -1786,18 +1681,6 @@
 {"answer": "5", "id": "f10-multiply-divide-one-digit-arrays/medium/0/d856db4ff816", "text": "45 counters are shared equally into these groups. How many counters are in each…"}
 {"answer": "2", "id": "f10-multiply-divide-one-digit-arrays/medium/1/20650d71c577", "text": "Share 8 counters equally between these groups. How many counters does each grou…"}
 {"answer": "8", "id": "f10-multiply-divide-one-digit-arrays/medium/2/fb9dd5ef7e10", "text": "32 counters go into these equal groups. How many counters are in each group?"}
-{"answer": "Write 8. Then repeat: add 8 to the last number written; if …", "id": "f10-number-algorithm-choose-complete/easy/0/ea5876e3a153", "text": "A list of numbers is needed: the positive multiples of 8 up to and including 40…"}
-{"answer": "Write 10. Then repeat: add 6 to the last number written; if…", "id": "f10-number-algorithm-choose-complete/easy/1/cf240e611e2a", "text": "A list of numbers is needed: the numbers that start at 10, go up by 6 each time…"}
-{"answer": "Write 9. Then repeat: add 9 to the last number written; if …", "id": "f10-number-algorithm-choose-complete/easy/2/169c52333d31", "text": "A list of numbers is needed: the positive multiples of 9 up to and including 45…"}
-{"answer": "(a) C, A, B, D; (b) 32; (c) 62; (d) 88", "id": "f10-number-algorithm-choose-complete/exam/0/84adf6326fe6", "text": "A number machine has four steps, each used once: A. Add 3; B. Multiply by 5; C.…"}
-{"answer": "(a) B, C, D, A; (b) 8; (c) 2; (d) 72", "id": "f10-number-algorithm-choose-complete/exam/1/6e0fe127ad6f", "text": "A number machine has four steps, each used once: A. Divide by 2; B. Subtract 8;…"}
-{"answer": "(a) B, C, A, D; (b) 57; (c) 142; (d) 15", "id": "f10-number-algorithm-choose-complete/exam/2/40fa9bc7d9cc", "text": "A number machine has four steps, each used once: A. Multiply by 5; B. Divide by…"}
-{"answer": "replace n by n + 1", "id": "f10-number-algorithm-choose-complete/hard/0/7a25a5b940da", "text": "An algorithm starts with n = 12 and repeats these steps: if n is a multiple of …"}
-{"answer": "replace n by n + 5", "id": "f10-number-algorithm-choose-complete/hard/1/0b4b3f02093d", "text": "An algorithm starts with n = 7 and repeats these steps: if n is even, replace n…"}
-{"answer": "replace n by n + 5", "id": "f10-number-algorithm-choose-complete/hard/2/67df5a674f80", "text": "An algorithm starts with n = 7 and repeats these steps: if n is a multiple of 3…"}
-{"answer": "C, D, A, B", "id": "f10-number-algorithm-choose-complete/medium/0/c5a85c8c0ac2", "text": "A number machine has four steps, each used once, in an order that is not shown:…"}
-{"answer": "D, C, A, B", "id": "f10-number-algorithm-choose-complete/medium/1/ca7de2f66a37", "text": "A number machine has four steps, each used once, in an order that is not shown:…"}
-{"answer": "B, A, C, D", "id": "f10-number-algorithm-choose-complete/medium/2/07ed2a3c8707", "text": "A number machine has four steps, each used once, in an order that is not shown:…"}
 {"answer": "24, 6", "id": "f10-number-algorithms-decisions/easy/0/4a881d7b7d73", "text": "If the number is even, add 4. If the number is odd, subtract 1. For inputs 20, …"}
 {"answer": "24, 16", "id": "f10-number-algorithms-decisions/easy/1/08b05b462ba0", "text": "If the number is even, add 4. If the number is odd, subtract 1. For inputs 20, …"}
 {"answer": "17, 38", "id": "f10-number-algorithms-decisions/easy/2/bbb308aff027", "text": "If the number is even, subtract 3. If the number is odd, multiply by 2. For inp…"}
@@ -1849,15 +1732,6 @@
 {"answer": "even", "id": "f10-odd-even-properties/medium/0/adad8c076654", "text": "An even number multiplied by an odd number -- is the result odd or even?"}
 {"answer": "even", "id": "f10-odd-even-properties/medium/1/9e7a49f8bc75", "text": "An even number minus an even number -- is the result odd or even?"}
 {"answer": "odd", "id": "f10-odd-even-properties/medium/2/5af405e30cf3", "text": "An even number minus an odd number -- is the result odd or even?"}
-{"answer": "B, D, C, A", "id": "f10-order-events-independent-dependent/easy/0/06b0f392ab29", "text": "A bag holds 5 orange, 3 white, 1 red, 2 yellow and 4 black. One counter is take…"}
-{"answer": "D, C, A, B", "id": "f10-order-events-independent-dependent/easy/1/6f5830c0e83a", "text": "A bag holds 1 blue, 2 orange, 6 green, 5 red and 1 black. One counter is taken …"}
-{"answer": "A, C, B, D", "id": "f10-order-events-independent-dependent/easy/2/a754383609a6", "text": "A bag holds 1 red, 6 green, 4 blue, 3 black and 1 white. One counter is taken w…"}
-{"answer": "B, D", "id": "f10-order-events-independent-dependent/hard/0/f466068205be", "text": "Each pair below describes two events. Pair A: A number is chosen at random from…"}
-{"answer": "B", "id": "f10-order-events-independent-dependent/hard/1/665675138915", "text": "Each pair below describes two events. Pair A: Two cards are dealt from a pack a…"}
-{"answer": "A, C", "id": "f10-order-events-independent-dependent/hard/2/b50431a94475", "text": "Each pair below describes two events. Pair A: Ben draws a counter from a bag of…"}
-{"answer": "C, A, D, B", "id": "f10-order-events-independent-dependent/medium/0/66e863825ae0", "text": "Here are four events. A: spinning a spinner with 8 equal sections and stopping …"}
-{"answer": "C, B, A, D", "id": "f10-order-events-independent-dependent/medium/1/cae4a05ed555", "text": "Here are four events. A: rolling a number greater than 4 on a fair six-sided di…"}
-{"answer": "B, C, D, A", "id": "f10-order-events-independent-dependent/medium/2/0a2e037e7002", "text": "Here are four events. A: tossing a fair coin and getting tails; B: spinning a s…"}
 {"answer": "104", "id": "f10-parallel-line-angle-theorems/easy/0/309eed5f7fb8", "text": "The two lines marked with arrows are parallel, and angle a is 104°. Angles a an…"}
 {"answer": "48", "id": "f10-parallel-line-angle-theorems/easy/1/b468c7fc3ac2", "text": "The two lines marked with arrows are parallel, and angle a is 48°. Angles a and…"}
 {"answer": "55", "id": "f10-parallel-line-angle-theorems/easy/2/46e3500e4af5", "text": "The two lines marked with arrows are parallel, and angle a is 55°. Angles a and…"}
@@ -2140,18 +2014,6 @@
 {"answer": "55", "id": "f10-read-a-box-plot/medium/0/c100b1bec018", "text": "Here is a box plot of the heights of the plants. What is the range of the heigh…"}
 {"answer": "30", "id": "f10-read-a-box-plot/medium/1/801e7d87a5c7", "text": "The box plot shows the heights of plants in a garden bed. What is the interquar…"}
 {"answer": "22", "id": "f10-read-a-box-plot/medium/2/b18742ad43bf", "text": "Here is a box plot of the masses of the pumpkins. What is the range of the mass…"}
-{"answer": "8/25", "id": "f10-read-a-simulation/easy/0/60a2081d4560", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 7 and…"}
-{"answer": "1/4", "id": "f10-read-a-simulation/easy/1/8e87a14d63ea", "text": "Here is a basketball simulation. Each digit stands for one free throw. The digi…"}
-{"answer": "1/4", "id": "f10-read-a-simulation/easy/2/c2f1a2397faa", "text": "Here is a weather simulation. Each digit stands for one day. The digits 1 to 4 …"}
-{"answer": "(a) 20; (b) 4/5; (c) 16/25; (d) 4", "id": "f10-read-a-simulation/exam/0/90323aeb9cb1", "text": "Here is a weather simulation. Each digit stands for one day. The digits 3 to 6 …"}
-{"answer": "(a) 10; (b) 2/5; (c) 12/25; (d) -2", "id": "f10-read-a-simulation/exam/1/7760dda59c91", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 3 to …"}
-{"answer": "(a) 7; (b) 7/25; (c) 9/25; (d) -2", "id": "f10-read-a-simulation/exam/2/465027d15a47", "text": "Here is a basketball simulation. Each digit stands for one free throw. The digi…"}
-{"answer": "1/9", "id": "f10-read-a-simulation/hard/0/fa6fb84fc7c4", "text": "A group has 3 girls and 5 boys. A captain and then a vice-captain are chosen at…"}
-{"answer": "1/3", "id": "f10-read-a-simulation/hard/1/0d6aa412eee1", "text": "A bag holds 3 red and 3 blue counters. Two counters are drawn one after the oth…"}
-{"answer": "8/13", "id": "f10-read-a-simulation/hard/2/f12eafa17c51", "text": "A bag holds 6 red and 4 blue counters. Two counters are drawn one after the oth…"}
-{"answer": "2/5", "id": "f10-read-a-simulation/medium/0/5972b649a202", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 1 to …"}
-{"answer": "22/25", "id": "f10-read-a-simulation/medium/1/8ad7d1f0a5d2", "text": "Here is a bus simulation. Each digit stands for one morning. The digits 1 to 6 …"}
-{"answer": "7/10", "id": "f10-read-a-simulation/medium/2/055ed9e4ff60", "text": "Here is a weather simulation. Each digit stands for one day. The digits 0 to 2 …"}
 {"answer": "380", "id": "f10-read-measurement-scale/easy/0/a7b84929f603", "text": "Here is a measuring jug with water in it. What is the volume of liquid shown, i…"}
 {"answer": "15", "id": "f10-read-measurement-scale/easy/1/0b7fbdd1c996", "text": "A thermometer is shown. Read the temperature in degrees Celsius."}
 {"answer": "12", "id": "f10-read-measurement-scale/easy/2/46812ffdd248", "text": "A thermometer is shown. What is the temperature shown, in degrees Celsius?"}
@@ -2269,18 +2131,6 @@
 {"answer": "113, 118", "id": "f10-skip-count-pattern-sequences/medium/0/edcdaabf6f0f", "text": "What are the next 2 numbers? 98, 103, 108, __, __"}
 {"answer": "113, 123", "id": "f10-skip-count-pattern-sequences/medium/1/f67a1ce9fddf", "text": "What are the next 2 numbers? 83, 93, 103, __, __"}
 {"answer": "84, 94", "id": "f10-skip-count-pattern-sequences/medium/2/da1e74300f11", "text": "What are the next 2 numbers? 54, 64, 74, __, __"}
-{"answer": "B, A, D, C", "id": "f10-spatial-algorithm-choose-test/easy/0/5b5870559c8c", "text": "These steps to construct an angle of 60° have been shuffled: A. Put the compass…"}
-{"answer": "A, D, B, C", "id": "f10-spatial-algorithm-choose-test/easy/1/4a44edce67e3", "text": "These steps to construct the perpendicular from a point to a line have been shu…"}
-{"answer": "D, A, B, C", "id": "f10-spatial-algorithm-choose-test/easy/2/988feebe9133", "text": "These steps to construct the perpendicular from a point to a line have been shu…"}
-{"answer": "(a) 20; (b) RP = US; (c) 48; (d) B, A, C, D", "id": "f10-spatial-algorithm-choose-test/exam/0/809cc2568f8b", "text": "Triangle PQR has a right angle at Q, PQ = 12 cm and QR = 16 cm. Triangle STU ha…"}
-{"answer": "(a) 20; (b) CA = RP; (c) 48; (d) C, B, D, A", "id": "f10-spatial-algorithm-choose-test/exam/1/d53fd29cbc12", "text": "Triangle ABC has a right angle at B, AB = 12 cm and BC = 16 cm. Triangle PQR ha…"}
-{"answer": "(a) 15; (b) CA = FD; (c) 36; (d) D, C, B, A", "id": "f10-spatial-algorithm-choose-test/exam/2/a97502a5ce28", "text": "Triangle ABC has a right angle at B, AB = 9 cm and BC = 12 cm. Triangle DEF has…"}
-{"answer": "CA = FD", "id": "f10-spatial-algorithm-choose-test/hard/0/8a69ec85a2c4", "text": "Triangles ABC and DEF are being compared. It is known that each has a right ang…"}
-{"answer": "RP = US", "id": "f10-spatial-algorithm-choose-test/hard/1/aadd2d248d06", "text": "Triangles PQR and STU are being compared. It is known that each has a right ang…"}
-{"answer": "QR = TU", "id": "f10-spatial-algorithm-choose-test/hard/2/e34a1bb1cb81", "text": "Triangles PQR and STU are being compared. It is known that ∠Q = ∠T and PQ = ST.…"}
-{"answer": "C, D, A, B, E", "id": "f10-spatial-algorithm-choose-test/medium/0/7b530b2802d1", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
-{"answer": "A, B, D, C, E", "id": "f10-spatial-algorithm-choose-test/medium/1/6fb29d7341c6", "text": "These steps to bisect an angle have been shuffled: A. Draw rays QP and QR so th…"}
-{"answer": "A, B, E, C, D", "id": "f10-spatial-algorithm-choose-test/medium/2/bb00b88cf0d2", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
 {"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/7579e75fa997", "text": "Is 1 a perfect square? If yes, what is its square root?"}
 {"answer": "2", "id": "f10-square-roots-perfect-squares/easy/1/92f928907044", "text": "Is 4 a perfect square? If yes, what is its square root?"}
 {"answer": "11", "id": "f10-square-roots-perfect-squares/easy/2/8e0c2f749d3f", "text": "Is 121 a perfect square? If yes, what is its square root?"}
@@ -2392,15 +2242,6 @@
 {"answer": "A'B' = 8 cm, angle A'B'C' = 39°, and the image is a mirror …", "id": "f10-transformations-invariants/medium/0/ce3147b4101c", "text": "A quadrilateral ABCD has AB = 8 cm and angle ABC = 39°. It is reflected in a mi…"}
 {"answer": "A'B' = 8 cm, angle A'B'C' = 44°, and the image is not a mir…", "id": "f10-transformations-invariants/medium/1/98be589006ef", "text": "A quadrilateral ABCD has AB = 8 cm and angle ABC = 44°. It is rotated 270° anti…"}
 {"answer": "A'B' = 13 cm, angle A'B'C' = 84°, and the image is not a mi…", "id": "f10-transformations-invariants/medium/2/d7b58ba7a12d", "text": "A pentagon ABCDE has AB = 13 cm and angle ABC = 84°. It is rotated 180° clockwi…"}
-{"answer": "8", "id": "f10-trial-tallies-compare-outcomes/easy/0/73e5e712d2d0", "text": "Hana spun a spinner marked with shapes. She tallied the shape it stopped on eac…"}
-{"answer": "5", "id": "f10-trial-tallies-compare-outcomes/easy/1/6689a2f59839", "text": "Tom pulled a counter from a bag, wrote down its colour and put it back, again a…"}
-{"answer": "9", "id": "f10-trial-tallies-compare-outcomes/easy/2/d1cc0bdef54b", "text": "Priya spun a spinner with 4 equal sections and recorded the colour it landed on…"}
-{"answer": "4", "id": "f10-trial-tallies-compare-outcomes/hard/0/8172b53233e2", "text": "A class drew a counter from a bag and put it back each time. They tallied the c…"}
-{"answer": "15", "id": "f10-trial-tallies-compare-outcomes/hard/1/88bf74440c7a", "text": "A class drew a counter from a bag and put it back each time. They tallied the c…"}
-{"answer": "6", "id": "f10-trial-tallies-compare-outcomes/hard/2/840b6a3f32f4", "text": "Ruby spun a spinner with 4 equal sections. She tallied the results after her fi…"}
-{"answer": "2", "id": "f10-trial-tallies-compare-outcomes/medium/0/4b87cbfda072", "text": "A spinner has 3 sections that are all the same size, each a different colour. M…"}
-{"answer": "6", "id": "f10-trial-tallies-compare-outcomes/medium/1/bb395f16bcb0", "text": "A game board spinner has 4 equal sections, each a different colour. Jack spun i…"}
-{"answer": "6", "id": "f10-trial-tallies-compare-outcomes/medium/2/915d5c702796", "text": "A game board spinner has 3 equal sections, each a different colour. Jack spun i…"}
 {"answer": "40", "id": "f10-triangular-prism-volume/easy/0/3d7d4c2183f8", "text": "A triangular prism has a triangular cross-section with a base of 10 cm and a pe…"}
 {"answer": "320", "id": "f10-triangular-prism-volume/easy/1/b2bc5d9bee81", "text": "A triangular prism has a triangular cross-section with a base of 8 cm and a per…"}
 {"answer": "60", "id": "f10-triangular-prism-volume/easy/2/597178c03088", "text": "A triangular prism has a triangular cross-section with a base of 3 cm and a per…"}
@@ -2899,114 +2740,6 @@
 {"answer": "-4", "id": "intercept/medium/0/c452b6e296e9", "text": "x: -8, -7, -6 y: 68, 59, 50. Find the y-intercept."}
 {"answer": "-3", "id": "intercept/medium/1/64aa37c2ec5f", "text": "x: -2, 8, 9 y: 5, -35, -39. Find the y-intercept."}
 {"answer": "-6", "id": "intercept/medium/2/6e90c880ab5b", "text": "x: -9, 2, 4 y: -51, 4, 14. Find the y-intercept."}
-{"answer": "(a) Convenience sample; (b) 10.0", "id": "ir2a-choose-sampling-method/easy/0/cec6bd02e4eb", "text": "Priya stands at the staff car park of Southern Cross Freight on Monday morning …"}
-{"answer": "(a) Stratified random sample; (b) 3", "id": "ir2a-choose-sampling-method/easy/1/2344a8aa0801", "text": "The 112 students of Banksia Secondary College fall into 3 year levels: 40 in Ye…"}
-{"answer": "(a) Stratified random sample; (b) 15", "id": "ir2a-choose-sampling-method/easy/2/68be5cdafc92", "text": "The 300 residents of the Shire of Marlow fall into 3 areas: 100 in the northern…"}
-{"answer": "(a) Systematic sample; (b) 8; (c) 46; (d) 198", "id": "ir2a-choose-sampling-method/exam/0/38733d92977c", "text": "Noah is surveying the employees of Southern Cross Freight about how they travel…"}
-{"answer": "(a) Systematic sample; (b) 16; (c) 101; (d) 709", "id": "ir2a-choose-sampling-method/exam/1/579f861a1dc1", "text": "Isla is surveying the members of the Wattle Park Sports Club about whether the …"}
-{"answer": "(a) Systematic sample; (b) 10; (c) 53; (d) 243", "id": "ir2a-choose-sampling-method/exam/2/6d807c616baf", "text": "Jess is surveying the residents of the Shire of Marlow about whether a new skat…"}
-{"answer": "(a) Systematic sample; (b) 191", "id": "ir2a-choose-sampling-method/hard/0/ec4e2e56af16", "text": "Isla surveys residents of the Shire of Marlow from a numbered list of 200, choo…"}
-{"answer": "(a) Simple random sample; (b) 4/5", "id": "ir2a-choose-sampling-method/hard/1/4f2561287c18", "text": "Dev has a numbered register of all 200 employees of Southern Cross Freight and …"}
-{"answer": "(a) Simple random sample; (b) 8/9", "id": "ir2a-choose-sampling-method/hard/2/8f749f8f90ee", "text": "Isla has a numbered register of all 225 students of Banksia Secondary College a…"}
-{"answer": "(a) Census; (b) 9", "id": "ir2a-choose-sampling-method/medium/0/0eed8680660d", "text": "The Wattle Park Sports Club has 45 members. Isla arranges to interview each of …"}
-{"answer": "(a) Census; (b) 39", "id": "ir2a-choose-sampling-method/medium/1/d21ecb0342af", "text": "The Shire of Marlow has 234 residents. Liam arranges to interview each of them …"}
-{"answer": "(a) Stratified random sample; (b) 4", "id": "ir2a-choose-sampling-method/medium/2/c7aa7bbf410f", "text": "Banksia Secondary College has 80 students, split by year levels into 20 in Year…"}
-{"answer": "(a) 10; (b) Weak evidence of a real difference: the medians…", "id": "ir2a-compare-groups-evidence/easy/0/215d10445274", "text": "Mia compared the battery life (hours) of two groups. Brand a batteries: smalles…"}
-{"answer": "(a) 46; (b) Strong evidence of a real difference: the media…", "id": "ir2a-compare-groups-evidence/easy/1/b00bcedb8c04", "text": "Tom compared the time to finish a puzzle (seconds) of two groups. Students who …"}
-{"answer": "(a) 16; (b) Strong evidence of a real difference: the media…", "id": "ir2a-compare-groups-evidence/easy/2/293ff568d8fd", "text": "Kofi compared the time to cycle to school (minutes) of two groups. Students usi…"}
-{"answer": "(a) 21; (b) 11; (c) 20; (d) -1; (e) Strong evidence of a re…", "id": "ir2a-compare-groups-evidence/exam/0/eaf3f3db8a06", "text": "Jess measured the words typed in one minute for two groups. The morning class (…"}
-{"answer": "(a) 16; (b) 14; (c) 15; (d) -1; (e) Strong evidence of a re…", "id": "ir2a-compare-groups-evidence/exam/1/f8130d5da41d", "text": "Jess measured the height after eight weeks (cm) for two groups. Plants kept in …"}
-{"answer": "(a) 8; (b) 16; (c) 6; (d) 8; (e) Weak evidence of a real di…", "id": "ir2a-compare-groups-evidence/exam/2/0d1fac3801e6", "text": "Hannah measured the time to cycle to school (minutes) for two groups. Students …"}
-{"answer": "(a) 37; (b) 29; (c) Strong evidence of a real difference: t…", "id": "ir2a-compare-groups-evidence/hard/0/01febe4453be", "text": "Ravi measured the time to finish a puzzle (seconds) for two groups. Students wh…"}
-{"answer": "(a) 21; (b) 38; (c) Weak evidence of a real difference: the…", "id": "ir2a-compare-groups-evidence/hard/1/4be9fe44200e", "text": "Ravi measured the time to finish a puzzle (seconds) for two groups. Students wh…"}
-{"answer": "(a) 19; (b) 20; (c) Weak evidence of a real difference: the…", "id": "ir2a-compare-groups-evidence/hard/2/21779199cd45", "text": "Leila measured the height after eight weeks (cm) for two groups. Plants kept in…"}
-{"answer": "(a) 24; (b) 19; (c) Strong evidence of a real difference: t…", "id": "ir2a-compare-groups-evidence/medium/0/1246723328ae", "text": "Ravi compared the height after eight weeks (cm) of two groups. Plants kept in s…"}
-{"answer": "(a) 14; (b) 13; (c) Strong evidence of a real difference: t…", "id": "ir2a-compare-groups-evidence/medium/1/89d4139eaee6", "text": "Isla compared the time to cycle to school (minutes) of two groups. Students usi…"}
-{"answer": "(a) 40; (b) 34; (c) Strong evidence of a real difference: t…", "id": "ir2a-compare-groups-evidence/medium/2/18da64ea7e26", "text": "Aiko compared the time to finish a puzzle (seconds) of two groups. Students who…"}
-{"answer": "A, C, B, E, D", "id": "ir2a-investigation-step-order/easy/0/992949a23fa9", "text": "Ravi is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "A, C, E, D, B", "id": "ir2a-investigation-step-order/easy/1/158ae0a1e045", "text": "Isla is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "D, B, E, C, A", "id": "ir2a-investigation-step-order/easy/2/ed818024f90c", "text": "Isla is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "(a) F, A, E, D, B, C; (b) Analyse the data; (c) 15; (d) 5", "id": "ir2a-investigation-step-order/exam/0/a7db19f3e9a6", "text": "Marcus is carrying out a statistical investigation. These are the actions, in n…"}
-{"answer": "(a) E, F, D, A, C, B; (b) Organise the data; (c) 14; (d) 3", "id": "ir2a-investigation-step-order/exam/1/0b39320afa7f", "text": "Tom is carrying out a statistical investigation. These are the actions, in no p…"}
-{"answer": "(a) D, F, E, B, C, A; (b) Collect the data; (c) 32; (d) 2", "id": "ir2a-investigation-step-order/exam/2/4b950a96dc51", "text": "Noah is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "(a) F, E, G, C, D, A; (b) Analyse the data", "id": "ir2a-investigation-step-order/hard/0/7439fbd98e69", "text": "Ravi is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "(a) D, B, F, C, E, G; (b) Display the data", "id": "ir2a-investigation-step-order/hard/1/0cf1ecd7fb30", "text": "Priya is carrying out a statistical investigation. These are the actions, in no…"}
-{"answer": "(a) B, D, E, C, G, A; (b) Collect the data", "id": "ir2a-investigation-step-order/hard/2/52ae2d2ef0e7", "text": "Jess is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "(a) F, E, C, A, B, D; (b) Display the data", "id": "ir2a-investigation-step-order/medium/0/369a4663ada7", "text": "Jess is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "(a) A, C, F, E, B, D; (b) Analyse the data", "id": "ir2a-investigation-step-order/medium/1/348acd55bac8", "text": "Liam is carrying out a statistical investigation. These are the actions, in no …"}
-{"answer": "(a) A, C, F, E, B, D; (b) Collect the data", "id": "ir2a-investigation-step-order/medium/2/0f93183d9dcb", "text": "Tom is carrying out a statistical investigation. These are the actions, in no p…"}
-{"answer": "(a) 77; (b) The data support the claim: the figures match a…", "id": "ir2a-judge-stated-conclusion/easy/0/d510896dfc4b", "text": "Aiko asked 200 randomly chosen residents of the Shire of Marlow and found that …"}
-{"answer": "(a) 51; (b) The data do not support the claim: the figure i…", "id": "ir2a-judge-stated-conclusion/easy/1/3503695350f3", "text": "Ravi asked 500 randomly chosen members of the Wattle Park Sports Club and found…"}
-{"answer": "(a) 47; (b) The data do not support the claim: the figure i…", "id": "ir2a-judge-stated-conclusion/easy/2/1d381ca21075", "text": "Marcus asked 500 randomly chosen residents of the Shire of Marlow and found tha…"}
-{"answer": "(a) 90; (b) 30; (c) 60; (d) The data do not support the cla…", "id": "ir2a-judge-stated-conclusion/exam/0/02c8559a1873", "text": "A study followed 350 adults. 150 walked to work, and 135 of them reported feeli…"}
-{"answer": "(a) 60; (b) 40; (c) 20; (d) The data do not support the cla…", "id": "ir2a-judge-stated-conclusion/exam/1/911ce0843186", "text": "A study followed 300 students. 150 were randomly placed in the tutoring program…"}
-{"answer": "(a) 50; (b) 35; (c) 15; (d) The data do not support the cla…", "id": "ir2a-judge-stated-conclusion/exam/2/3366dc2f7168", "text": "A study followed 300 members. 200 were randomly given the new training plan, an…"}
-{"answer": "(a) 179; (b) The data do not support the claim: one unusual…", "id": "ir2a-judge-stated-conclusion/hard/0/90374295ce75", "text": "Leila recorded the weekly wages of the staff in a small business, in dollars: 6…"}
-{"answer": "(a) 35; (b) The data do not support the claim: the figure i…", "id": "ir2a-judge-stated-conclusion/hard/1/b79d62a0041c", "text": "A study followed 250 bean seeds. 100 were randomly planted in fertilised soil, …"}
-{"answer": "(a) 15; (b) The data do not support the claim: the figure i…", "id": "ir2a-judge-stated-conclusion/hard/2/7905cb242c52", "text": "A study followed 280 bean seeds. 80 were randomly planted in fertilised soil, a…"}
-{"answer": "(a) 58; (b) The data support the claim: the figures match a…", "id": "ir2a-judge-stated-conclusion/medium/0/5b92b7ed9098", "text": "Sam asked 400 randomly chosen customers of the Gum Tree Cafe and found that 232…"}
-{"answer": "(a) 80; (b) The data do not support the claim: too few case…", "id": "ir2a-judge-stated-conclusion/medium/1/3933ef5cf87d", "text": "Marcus asked 20 randomly chosen members of the Wattle Park Sports Club and foun…"}
-{"answer": "(a) 687; (b) The data do not support the claim: one unusual…", "id": "ir2a-judge-stated-conclusion/medium/2/c906de06297b", "text": "Noah recorded the house prices in a suburb, in thousands of dollars: 602, 518, …"}
-{"answer": "(a) 160; (b) Reasonably reliable: the value of x is inside …", "id": "ir2a-limits-of-a-bivariate-claim/easy/0/9f15c5095c2d", "text": "Leila collected data on days, where x is the daily maximum temperature in degre…"}
-{"answer": "(a) 48; (b) Reasonably reliable: the value of x is inside t…", "id": "ir2a-limits-of-a-bivariate-claim/easy/1/5d622bebea38", "text": "Priya collected data on students, where x is the hours of study each week and y…"}
-{"answer": "(a) 64; (b) Reasonably reliable: the value of x is inside t…", "id": "ir2a-limits-of-a-bivariate-claim/easy/2/6448091445f3", "text": "Sam collected data on students, where x is the hours of study each week and y i…"}
-{"answer": "(a) 135; (b) 12; (c) 35; (d) The line cannot keep going tha…", "id": "ir2a-limits-of-a-bivariate-claim/exam/0/4b36781d493c", "text": "Zara collected data on students, where x is the hours of study each week and y …"}
-{"answer": "(a) -48; (b) 39; (c) 48; (d) The line cannot keep going tha…", "id": "ir2a-limits-of-a-bivariate-claim/exam/1/acddbb59165b", "text": "Kofi collected data on days, where x is the daily maximum temperature in degree…"}
-{"answer": "(a) 16; (b) 24; (c) the daily maximum temperature; (d) The …", "id": "ir2a-limits-of-a-bivariate-claim/exam/2/989132326dfe", "text": "Leila recorded the ice creams sold at a beach kiosk each day (tens) and the peo…"}
-{"answer": "(a) 212; (b) 21; (c) The line cannot keep going that far: t…", "id": "ir2a-limits-of-a-bivariate-claim/hard/0/fe1ada28fbcd", "text": "Hannah collected data on children, where x is the age of a child in years and y…"}
-{"answer": "(a) 17; (b) 27; (c) the amount of rain that fell", "id": "ir2a-limits-of-a-bivariate-claim/hard/1/b613a3573cf2", "text": "Hannah recorded the umbrellas sold in a city each day (hundreds) and the road a…"}
-{"answer": "(a) 120; (b) 15; (c) The line cannot keep going that far: t…", "id": "ir2a-limits-of-a-bivariate-claim/hard/2/9f902e22c95b", "text": "Noah collected data on students, where x is the hours of study each week and y …"}
-{"answer": "(a) 18; (b) the daily maximum temperature", "id": "ir2a-limits-of-a-bivariate-claim/medium/0/9c2082ceaae7", "text": "Sam recorded the ice creams sold at a beach kiosk each day (tens) and the peopl…"}
-{"answer": "(a) 97; (b) Unreliable: the value of x is outside the range…", "id": "ir2a-limits-of-a-bivariate-claim/medium/1/7c3a4f1be7c4", "text": "Noah collected data on students, where x is the hours of study each week and y …"}
-{"answer": "(a) 142; (b) Unreliable: the value of x is outside the rang…", "id": "ir2a-limits-of-a-bivariate-claim/medium/2/eab05a93c528", "text": "Tom collected data on sunflowers, where x is the age of a sunflower in weeks an…"}
-{"answer": "(a) 240; (b) The vertical axis starts at 180, not at 0, so …", "id": "ir2a-misleading-graph-figure/easy/0/81f9e40e52e9", "text": "A company prints the line graph shown, with the headline “Sales have rocketed!”…"}
-{"answer": "(a) 160; (b) Nothing is misleading: the vertical axis start…", "id": "ir2a-misleading-graph-figure/easy/1/f36140e7d72b", "text": "A school prints the line graph shown, with the headline “Maths marks shoot up!”…"}
-{"answer": "(a) 200; (b) The vertical axis starts at 140, not at 0, so …", "id": "ir2a-misleading-graph-figure/easy/2/2a5ebf14ca8a", "text": "A school prints the line graph shown, with the headline “Maths marks shoot up!”…"}
-{"answer": "(a) 40; (b) 90; (c) 125.0; (d) The headline is fair: the ax…", "id": "ir2a-misleading-graph-figure/exam/0/a443c377f06d", "text": "A sports club prints the line graph shown, with the headline “Membership soars …"}
-{"answer": "(a) 400; (b) 430; (c) 7.5; (d) The headline is misleading: …", "id": "ir2a-misleading-graph-figure/exam/1/d686ea849bac", "text": "A museum prints the line graph shown, with the headline “Visitors flood in!”. T…"}
-{"answer": "(a) 320; (b) 360; (c) 12.5; (d) The headline is misleading:…", "id": "ir2a-misleading-graph-figure/exam/2/89e599ed45ea", "text": "A company prints the line graph shown, with the headline “Sales have rocketed!”…"}
-{"answer": "(a) 16.0; (b) 3.0; (c) The vertical axis starts at 115, not…", "id": "ir2a-misleading-graph-figure/hard/0/e8f5d9472f1b", "text": "A school prints the line graph shown, with the headline “Maths marks shoot up!”…"}
-{"answer": "(a) 30.0; (b) 7.0; (c) The vertical axis starts at 190, not…", "id": "ir2a-misleading-graph-figure/hard/1/6f83fd2a69ba", "text": "A cafe prints the line graph shown, with the headline “Profits are through the …"}
-{"answer": "(a) 25.0; (b) 7.0; (c) The vertical axis starts at 230, not…", "id": "ir2a-misleading-graph-figure/hard/2/45d744c2d1ca", "text": "A museum prints the line graph shown, with the headline “Visitors flood in!”. T…"}
-{"answer": "(a) 110; (b) 37.5; (c) The vertical axis starts at 75, not …", "id": "ir2a-misleading-graph-figure/medium/0/ff979772f8df", "text": "A cafe prints the line graph shown, with the headline “Profits are through the …"}
-{"answer": "(a) 208; (b) 4.0; (c) The vertical axis starts at 196, not …", "id": "ir2a-misleading-graph-figure/medium/1/45e632793ea1", "text": "A school prints the line graph shown, with the headline “Maths marks shoot up!”…"}
-{"answer": "(a) 360; (b) 12.5; (c) The vertical axis starts at 300, not…", "id": "ir2a-misleading-graph-figure/medium/2/272a86c64f02", "text": "A school prints the line graph shown, with the headline “Maths marks shoot up!”…"}
-{"answer": "(a) A scatterplot; (b) 58", "id": "ir2a-pick-display-for-question/easy/0/0da7cca85bd9", "text": "Dev recorded the hours of study and the test mark for 8 cases, as (x, y) pairs:…"}
-{"answer": "(a) A pie chart; (b) 40", "id": "ir2a-pick-display-for-question/easy/1/3d3731d643fa", "text": "Mia has counted students at a school choosing their main way of getting to scho…"}
-{"answer": "(a) A pie chart; (b) 10", "id": "ir2a-pick-display-for-question/easy/2/a292c744729c", "text": "Sam has counted students at a school choosing their main way of getting to scho…"}
-{"answer": "(a) Parallel box plots; (b) 110; (c) 122; (d) 12", "id": "ir2a-pick-display-for-question/exam/0/2758af493b2d", "text": "Kofi has measured the time taken to finish a puzzle (in seconds) for two groups…"}
-{"answer": "(a) Parallel box plots; (b) 110; (c) 117; (d) 7", "id": "ir2a-pick-display-for-question/exam/1/d0601ba89c1b", "text": "Dev has measured the time taken to finish a puzzle (in seconds) for two groups.…"}
-{"answer": "(a) Parallel box plots; (b) 42; (c) 39; (d) 3", "id": "ir2a-pick-display-for-question/exam/2/8934b2ecf2ea", "text": "Zara has measured the height of a plant after eight weeks (in centimetres) for …"}
-{"answer": "(a) Parallel box plots; (b) 2", "id": "ir2a-pick-display-for-question/hard/0/f346c4ca63da", "text": "Aiko has measured the height of a plant after eight weeks (in centimetres) for …"}
-{"answer": "(a) A pie chart; (b) 108", "id": "ir2a-pick-display-for-question/hard/1/043219b189a9", "text": "Tom has counted the languages spoken at home by students in a year level, out o…"}
-{"answer": "(a) A histogram; (b) 16.7", "id": "ir2a-pick-display-for-question/hard/2/89afc9e280f3", "text": "Aiko has recorded the waiting time of each of 24 patients at a clinic, in minut…"}
-{"answer": "(a) A histogram; (b) 2", "id": "ir2a-pick-display-for-question/medium/0/96e84fe94cc9", "text": "Hannah has recorded the waiting time of each of 24 patients at a clinic, in min…"}
-{"answer": "(a) A histogram; (b) 5", "id": "ir2a-pick-display-for-question/medium/1/a1a725d1d492", "text": "Dev has recorded the mass of each of 24 parcels, in kilograms: 38, 18, 25, 16, …"}
-{"answer": "(a) A line graph; (b) 12", "id": "ir2a-pick-display-for-question/medium/2/36e93fc6fa72", "text": "Dev has recorded the number of visitors to a museum each month, in hundreds: Ja…"}
-{"answer": "2, 1", "id": "ir2a-question-to-data-needed/easy/0/dedeabcc5686", "text": "Isla wants to answer this question about the households in the Shire of Marlow:…"}
-{"answer": "4, 1", "id": "ir2a-question-to-data-needed/easy/1/99e278a0f8f0", "text": "Liam wants to answer this question about the households in the Shire of Marlow:…"}
-{"answer": "4, 2", "id": "ir2a-question-to-data-needed/easy/2/84cda9af66a0", "text": "Sam wants to answer this question about the students at the school: “Do student…"}
-{"answer": "(a) 4, 1; (b) Numerical (continuous); (c) 100; (d) 200", "id": "ir2a-question-to-data-needed/exam/0/b1e8e461d1d8", "text": "Leila wants to answer this question about the students at the school: “Do stude…"}
-{"answer": "(a) 5, 1; (b) Numerical (discrete); (c) 100; (d) 200", "id": "ir2a-question-to-data-needed/exam/1/ddd884512d33", "text": "Noah wants to answer this question about the households in the Shire of Marlow:…"}
-{"answer": "(a) 4, 2; (b) Numerical (continuous); (c) 96; (d) 192", "id": "ir2a-question-to-data-needed/exam/2/fce38423c851", "text": "Dev wants to answer this question about the Year 7 and Year 10 students at the …"}
-{"answer": "(a) Take a random sample of the students at the school and …", "id": "ir2a-question-to-data-needed/hard/0/ab3b943f201c", "text": "Liam wants to answer this question about the students at the school: “Do studen…"}
-{"answer": "(a) Take a random sample of the Year 9 students at the scho…", "id": "ir2a-question-to-data-needed/hard/1/41cf61e5d783", "text": "Hannah wants to answer this question about the Year 9 students at the school: “…"}
-{"answer": "(a) Take a random sample of the households in the Shire of …", "id": "ir2a-question-to-data-needed/hard/2/9a438ae5e0c2", "text": "Sam wants to answer this question about the households in the Shire of Marlow: …"}
-{"answer": "(a) 5, 3; (b) Numerical (discrete)", "id": "ir2a-question-to-data-needed/medium/0/0478d834098b", "text": "Hannah wants to answer this question about the households in the Shire of Marlo…"}
-{"answer": "(a) 3, 4; (b) Numerical (continuous)", "id": "ir2a-question-to-data-needed/medium/1/479cf85f3260", "text": "Isla wants to answer this question about the members of the Wattle Park Running…"}
-{"answer": "(a) 4, 3; (b) Numerical (continuous)", "id": "ir2a-question-to-data-needed/medium/2/e7f0066b3ae8", "text": "Zara wants to answer this question about the Year 7 and Year 10 students at the…"}
-{"answer": "3, 4", "id": "ir2a-spot-bias/easy/0/edb25c984d51", "text": "Leila surveyed the students of Banksia Secondary College on a later start to th…"}
-{"answer": "3, 4", "id": "ir2a-spot-bias/easy/1/0d1a608550dc", "text": "Kofi surveyed the customers of the Gum Tree Cafe on longer evening opening hour…"}
-{"answer": "1, 4", "id": "ir2a-spot-bias/easy/2/0d90d4dc3e67", "text": "Leila surveyed the students of Banksia Secondary College on a later start to th…"}
-{"answer": "(a) 1, 4, 5; (b) 6400; (c) 4000; (d) 2400", "id": "ir2a-spot-bias/exam/0/371e316926b7", "text": "Hannah surveyed the residents of the Shire of Marlow on support for a skate par…"}
-{"answer": "(a) 3, 4, 5; (b) 780; (c) 600; (d) 180", "id": "ir2a-spot-bias/exam/1/4b36a586058d", "text": "Mia surveyed the members of the Wattle Park Sports Club on a rise in yearly fee…"}
-{"answer": "(a) 1, 2, 3; (b) 1125; (c) 900; (d) 225", "id": "ir2a-spot-bias/exam/2/e97608b25d51", "text": "Hannah surveyed the residents of the Shire of Marlow on support for a skate par…"}
-{"answer": "(a) The wording of the question pushes the students towards…", "id": "ir2a-spot-bias/hard/0/8793c1cca208", "text": "Mia surveyed the students of Banksia Secondary College on a later start to the …"}
-{"answer": "(a) The list the customers were chosen from leaves out some…", "id": "ir2a-spot-bias/hard/1/0595ce23b34c", "text": "Hannah surveyed the customers of the Gum Tree Cafe on longer evening opening ho…"}
-{"answer": "(a) Only the students who were easy to reach were asked; (b…", "id": "ir2a-spot-bias/hard/2/a5bd779ee1b6", "text": "Mia surveyed the students of Banksia Secondary College on a later start to the …"}
-{"answer": "(a) 1, 2; (b) 3000", "id": "ir2a-spot-bias/medium/0/9eba8549b321", "text": "Liam surveyed the customers of the Gum Tree Cafe on longer evening opening hour…"}
-{"answer": "(a) 1; (b) 1700", "id": "ir2a-spot-bias/medium/1/25436224b088", "text": "Aiko surveyed the customers of the Gum Tree Cafe on longer evening opening hour…"}
-{"answer": "(a) 2, 5; (b) 3600", "id": "ir2a-spot-bias/medium/2/af68f81dbc95", "text": "Marcus surveyed the customers of the Gum Tree Cafe on longer evening opening ho…"}
 {"answer": "x = 1, y = 3", "id": "jacobi-iteration-2x2/easy/0/11f096dadbcf", "text": "For 3x + (-1)y = 3 and (0)x + 3y = 9, perform one Jacobi iteration from (x₀, y₀…"}
 {"answer": "x = -2/3, y = 5/2", "id": "jacobi-iteration-2x2/easy/1/6194252b5ac8", "text": "For 3x + (-2)y = 4 and (1)x + 2y = 4, perform one Jacobi iteration from (x₀, y₀…"}
 {"answer": "x = -4/3, y = -1", "id": "jacobi-iteration-2x2/easy/2/c9a493891607", "text": "For 3x + (-1)y = -5 and (-2)x + 4y = 0, perform one Jacobi iteration from (x₀, …"}

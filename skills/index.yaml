@@ -96,6 +96,8 @@ angle-types:
   sources:
   - topic: classify_angle
     module: mathgen/generators/curriculum_expansion.py
+  - topic: classify_angle_protractor
+    module: mathgen/generators/angle_types_build.py
 annulus-cross-section-area:
   domain: measurement
   status: active
@@ -1478,6 +1480,8 @@ f10-prism-cross-sections:
   sources:
   - topic: prism_cross_sections
     module: mathgen/generators/p4b_coordinate_prism_build.py
+  - topic: prism_cross_sections_forced
+    module: mathgen/generators/prism_forced_build.py
 f10-probability-complements-compounds:
   domain: statistics-probability
   status: active

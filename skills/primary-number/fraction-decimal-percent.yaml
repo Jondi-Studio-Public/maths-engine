@@ -20,7 +20,7 @@ sources:
   stages: [3, 4]
   difficulty: medium
 - topic: fraction_decimal_percent
-  params: {denominators: [2, 4, 5, 10, 20, 25], reverse_directions: true}
+  params: {denominators: [2, 4, 5, 10, 20, 25], reverse_directions: true, allow_improper: true}
   stages: [5, 6, maintenance]
   difficulty: hard
 misconceptions:
