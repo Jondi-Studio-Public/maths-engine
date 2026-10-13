@@ -144,3 +144,16 @@ def test_exam_follow_through_from_a_wrong_earlier_part():
 
 def test_last_tier_adds_a_shape():
     assert classify_skill(SKILL)[0] == "escalates"
+
+
+def test_working_nouns_agree_with_the_stem():
+    """The worked steps never name a creek when the stem has a shed wall, or a cable when the stem has a pipe."""
+    for tier in TIERS:
+        for seed in range(60):
+            q = _q(tier, seed)
+            steps = " ".join(q.working).lower()
+            stem = q.text.lower()
+            if "creek" not in stem:
+                assert "creek" not in steps, (tier, seed)
+            if "cable" not in stem:
+                assert "cable" not in steps, (tier, seed)

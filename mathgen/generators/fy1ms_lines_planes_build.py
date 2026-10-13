@@ -407,7 +407,7 @@ def _exam_chain(rng: random.Random) -> dict:
         parts=[
             a_part,
             number_part(
-                f"Hence find the value of d in the equation of the mirror's plane, {join_terms([(n[0], 'x'), (n[1], 'y'), (n[2], 'z')])} = d.",
+                "Hence find the value of d in the equation n · r = d of the mirror's plane, where r = (x, y, z).",
                 d,
                 0,
                 b_cands,

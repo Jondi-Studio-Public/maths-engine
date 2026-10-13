@@ -9,6 +9,7 @@ import re
 import pytest
 import sympy
 
+from mathgen import make
 from mathgen.engine import grade
 from tests import fy1ms_support as T
 
@@ -153,3 +154,14 @@ def test_follow_through_from_a_wrong_constant_and_a_wrong_parameter():
 
 def test_exam_answer_space():
     T.assert_exam_variety(EXAM, distinct=100, repeat=4)
+
+
+def test_exam_part_b_does_not_print_the_answer_to_part_a():
+    """The normal vector found in (a) is not written out in the prompt of (b)."""
+    for seed in range(60):
+        q = make(EXAM, seed=seed, difficulty="exam")
+        a_answer = q.parts[0].answer_text.strip("()").split(", ")
+        for coefficient in a_answer:
+            if coefficient not in ("0", "1", "-1"):
+                assert f"{coefficient}x" not in q.parts[1].prompt and f"{coefficient}y" not in q.parts[1].prompt
+                assert f"{coefficient}z" not in q.parts[1].prompt, (seed, q.parts[1].prompt)

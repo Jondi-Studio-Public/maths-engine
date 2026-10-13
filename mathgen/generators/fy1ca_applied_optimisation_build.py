@@ -87,7 +87,7 @@ def _creek(rng: random.Random) -> dict:
         p=fence,
     )
     working = [
-        f"Let the width (the two sides at right angles to the creek) be x, so the length is {fence} - 2x.",
+        f"Let the width (the two sides at right angles to the unfenced side) be x, so the length is {fence} - 2x.",
         f"A(x) = x({fence} - 2x), so A'(x) = {fence} - 4x = 0 gives x = {x_star}.",
         f"A({x_star}) = {x_star} × {fence - 2 * x_star} = {best}.",
     ]
@@ -300,13 +300,13 @@ def _cable(rng: random.Random) -> dict:
     )
     if endpoint:
         working = [
-            f"Let x be the distance along the bank at which the cable leaves the water, 0 ≤ x ≤ {d}. C(x) = {c1}√({a}² + x²) + {c2}({d} - x).",
+            f"Let x be the distance along the bank at which the line leaves the water, 0 ≤ x ≤ {d}. C(x) = {c1}√({a}² + x²) + {c2}({d} - x).",
             f"C'(x) = 0 at x = {x_star}, which is beyond {d}, so C is decreasing on the whole interval and the least cost is at x = {d}.",
             f"C({d}) = {c1} × √({a}² + {d}²) = {c1} × {Fraction(math.isqrt(a * a + d * d))} = {best}.",
         ]
     else:
         working = [
-            f"Let x be the distance along the bank at which the cable leaves the water, 0 ≤ x ≤ {d}. C(x) = {c1}√({a}² + x²) + {c2}({d} - x).",
+            f"Let x be the distance along the bank at which the line leaves the water, 0 ≤ x ≤ {d}. C(x) = {c1}√({a}² + x²) + {c2}({d} - x).",
             f"C'(x) = {c1}x/√({a}² + x²) - {c2} = 0 gives x = {x_star}, inside the interval, with √({a}² + x²) = {slant_at_xstar}.",
             f"C({x_star}) = {c1} × {slant_at_xstar} + {c2} × {d - x_star} = {best}; this is below C(0) = {at_zero} and C({d}).",
         ]

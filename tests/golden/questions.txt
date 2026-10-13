@@ -7777,24 +7777,24 @@
 {"answer": "x < -18", "id": "two-step-inequalities/medium/0/9d7da63db007", "text": "Solve x/3 + 4 < -2. Give your answer as an inequality in x; write any bound tha…"}
 {"answer": "x < 7/4", "id": "two-step-inequalities/medium/1/b48b768cf7a6", "text": "Solve the inequality -10 - 4x > -17. Give your answer as an inequality in x; wr…"}
 {"answer": "x < -7", "id": "two-step-inequalities/medium/2/525bc5614e6f", "text": "Solve -4 - 2x > 10. Give your answer as an inequality in x; write any bound tha…"}
-{"answer": "200", "id": "ucv1-applied-optimisation/easy/0/de39900886e5", "text": "A rectangular sheep yard is to be built against a long shed wall using 40 m of …"}
-{"answer": "1800", "id": "ucv1-applied-optimisation/easy/1/4ad61d2298dc", "text": "A rectangular sheep yard is to be built against a long shed wall using 120 m of…"}
+{"answer": "200", "id": "ucv1-applied-optimisation/easy/0/ebb12382e0c4", "text": "A rectangular sheep yard is to be built against a long shed wall using 40 m of …"}
+{"answer": "1800", "id": "ucv1-applied-optimisation/easy/1/c820f23f8a04", "text": "A rectangular sheep yard is to be built against a long shed wall using 120 m of…"}
 {"answer": "288", "id": "ucv1-applied-optimisation/easy/2/9017bcd274cd", "text": "A market gardener fences a rectangle with 96 m of fencing and adds 2 internal f…"}
 {"answer": "(a) 4.00; (b) 17.00; (c) 2; (d) 480", "id": "ucv1-applied-optimisation/exam/0/b89108e35773", "text": "A shed owner wants a tank with no lid, a square base of side x metres, height h…"}
 {"answer": "(a) 4.00; (b) 17.00; (c) 2; (d) 360", "id": "ucv1-applied-optimisation/exam/1/8971e0bfae51", "text": "A shed owner wants a tank with no lid, a square base of side x metres, height h…"}
 {"answer": "(a) 4.00; (b) 17.00; (c) 2; (d) 300", "id": "ucv1-applied-optimisation/exam/2/b0c23c363f50", "text": "A shed owner wants a tank with no lid, a square base of side x metres, height h…"}
 {"answer": "1050", "id": "ucv1-applied-optimisation/hard/0/3490007c0f07", "text": "A paddock beside a creek is fenced on three sides with 100 m of fencing. Becaus…"}
-{"answer": "500", "id": "ucv1-applied-optimisation/hard/1/c3b7b84e95ed", "text": "A pipeline is to join a pump A on the north bank of a 40 m wide river to a tank…"}
-{"answer": "3250", "id": "ucv1-applied-optimisation/hard/2/51ac72602c6d", "text": "A pipeline is to join a pump A on the north bank of a 40 m wide river to a tank…"}
+{"answer": "500", "id": "ucv1-applied-optimisation/hard/1/128edd38bd3d", "text": "A pipeline is to join a pump A on the north bank of a 40 m wide river to a tank…"}
+{"answer": "3250", "id": "ucv1-applied-optimisation/hard/2/f8d155edd885", "text": "A pipeline is to join a pump A on the north bank of a 40 m wide river to a tank…"}
 {"answer": "108", "id": "ucv1-applied-optimisation/medium/0/94286a869ce5", "text": "A square-based tank with no lid must hold 108 m³ of water. Find the smallest po…"}
 {"answer": "48", "id": "ucv1-applied-optimisation/medium/1/6dbd94e16ed0", "text": "A farmer wants an open-top rainwater tank with a square base and a capacity of …"}
 {"answer": "3456", "id": "ucv1-applied-optimisation/medium/2/3fb70d48ffbe", "text": "A tray with no lid is folded from a 36 cm by 36 cm square of cardboard after sq…"}
 {"answer": "78", "id": "ucv1-arc-length/easy/0/e6038b9fd6ab", "text": "A cable hangs along the curve y = (2/3)x^(3/2) between the posts at x = 3 and x…"}
 {"answer": "74/3", "id": "ucv1-arc-length/easy/1/924625059cb1", "text": "Find the exact length of the curve y = (2/3)x^(3/2) from x = 8 to x = 15."}
 {"answer": "78", "id": "ucv1-arc-length/easy/2/31e827e6b861", "text": "Find the exact length of the curve y = (2/3)x^(3/2) from x = 3 to x = 24."}
-{"answer": "(a) 4095/128; (b) 32.008; (c) 1295/16; (d) 0.05", "id": "ucv1-arc-length/exam/0/aa419c470b1d", "text": "The top edge of a ramp has the shape y = x³/6 + 1/(2x) (x and y in metres) betw…"}
-{"answer": "(a) 4095/128; (b) 32.008; (c) 4109/48; (d) 0.59", "id": "ucv1-arc-length/exam/1/036f7262c80d", "text": "A skate-park rail is bent to follow y = x³/6 + 1/(2x), with x and y in metres, …"}
-{"answer": "(a) 4095/128; (b) 32.008; (c) 1295/16; (d) 0.05", "id": "ucv1-arc-length/exam/2/6ffd3573c857", "text": "The top edge of a ramp has the shape y = x³/6 + 1/(2x) (x and y in metres) betw…"}
+{"answer": "(a) 1295/72; (b) 18.014; (c) 145/4; (d) 0.48", "id": "ucv1-arc-length/exam/0/6e6696ccffbb", "text": "A skate-park rail is bent to follow y = x³/6 + 1/(2x), with x and y in metres, …"}
+{"answer": "(a) 1295/72; (b) 18.014; (c) 209/6; (d) 0.10", "id": "ucv1-arc-length/exam/1/fc5c5c773410", "text": "The top edge of a ramp has the shape y = x³/6 + 1/(2x) (x and y in metres) betw…"}
+{"answer": "(a) 1295/72; (b) 18.014; (c) 145/4; (d) 0.48", "id": "ucv1-arc-length/exam/2/285dae06bb66", "text": "A curved retaining wall follows the curve y = x³/6 + 1/(2x), where x and y are …"}
 {"answer": "ln(2)/2 + 3/4", "id": "ucv1-arc-length/hard/0/140ff81adee7", "text": "Find the exact length of the curve y = x²/4 - (1/2)ln x from x = 1 to x = 2."}
 {"answer": "589/1296", "id": "ucv1-arc-length/hard/1/88e5bca4d8e6", "text": "Find the exact length of the curve given parametrically by x = t² and y = (2/3)…"}
 {"answer": "ln(2)/2 + 3/4", "id": "ucv1-arc-length/hard/2/bac84e350f9d", "text": "A garden path follows the curve y = x²/4 - (1/2)ln x (units in metres) from x =…"}
@@ -8476,9 +8476,9 @@
 {"answer": "30", "id": "ucv1-lines-and-planes-3d/easy/0/9ee05576cb02", "text": "The plane through A(-2, 0, 2), B(3, -3, 3) and C(3, 0, 2) has equation ax + by …"}
 {"answer": "36", "id": "ucv1-lines-and-planes-3d/easy/1/f6715f3c1797", "text": "The plane passing through A(1, 3, 3), B(4, 3, 1) and C(4, 3, -3) has equation a…"}
 {"answer": "13", "id": "ucv1-lines-and-planes-3d/easy/2/9cdf62b4db73", "text": "A plane through A(2, -1, 3), B(0, 4, -3) and C(-3, 3, -4) has equation ax + by …"}
-{"answer": "(a) (4, 4, 0); (b) 4; (c) 2; (d) -4", "id": "ucv1-lines-and-planes-3d/exam/0/13d0196a79fe", "text": "A flat mirror lies in the plane through P(1, 0, 2), Q(1, 0, 0) and R(-1, 2, 0).…"}
-{"answer": "(a) (1, 7, -19); (b) 23; (c) 3; (d) -1", "id": "ucv1-lines-and-planes-3d/exam/1/cdb80ba15abf", "text": "A flat mirror lies in the plane through P(2, 3, 0), Q(-1, -2, -2) and R(-3, 1, …"}
-{"answer": "(a) (-11, 5, -9); (b) -3; (c) 2; (d) -2", "id": "ucv1-lines-and-planes-3d/exam/2/c5008d402c7c", "text": "A flat mirror lies in the plane through P(-1, -1, 1), Q(0, 3, 2) and R(2, 2, -1…"}
+{"answer": "(a) (4, 4, 0); (b) 4; (c) 2; (d) -4", "id": "ucv1-lines-and-planes-3d/exam/0/3cfa2ac43ea7", "text": "A flat mirror lies in the plane through P(1, 0, 2), Q(1, 0, 0) and R(-1, 2, 0).…"}
+{"answer": "(a) (1, 7, -19); (b) 23; (c) 3; (d) -1", "id": "ucv1-lines-and-planes-3d/exam/1/5725e6dd6fa8", "text": "A flat mirror lies in the plane through P(2, 3, 0), Q(-1, -2, -2) and R(-3, 1, …"}
+{"answer": "(a) (-11, 5, -9); (b) -3; (c) 2; (d) -2", "id": "ucv1-lines-and-planes-3d/exam/2/a76c378c8df2", "text": "A flat mirror lies in the plane through P(-1, -1, 1), Q(0, 3, 2) and R(2, 2, -1…"}
 {"answer": "70.9", "id": "ucv1-lines-and-planes-3d/hard/0/fcd189be6261", "text": "The line r = (-1, -3, -4) + t(-1, -2, 3) meets the plane -3y + 3z = 4. Find the…"}
 {"answer": "54.5", "id": "ucv1-lines-and-planes-3d/hard/1/ace30fd05459", "text": "The planes 3x + y = -4 and 3x - y - 3z = 5 meet along a line. Find the acute an…"}
 {"answer": "69.2", "id": "ucv1-lines-and-planes-3d/hard/2/069893b6e773", "text": "The planes 3x - 3y + 2z = -1 and 2x - y - 2z = 6 meet along a line. Find the ac…"}

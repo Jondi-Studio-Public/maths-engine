@@ -139,3 +139,11 @@ def test_exam_follow_through_from_a_wrong_earlier_part():
 
 def test_last_tier_adds_a_shape():
     assert classify_skill(SKILL)[0] == "escalates"
+
+
+def test_exam_difference_working_survives_rounding_first():
+    """Rounding the length and the chord to 2 d.p. before subtracting gives the keyed difference."""
+    for seed in range(120):
+        q = _exam(seed)
+        a, b, c = re.search(r"(\d+\.\d\d) - (\d+\.\d\d) = (\d+\.\d\d) m", " ".join(q.parts[3].working)).groups()
+        assert abs(float(a) - float(b) - float(c)) < 1e-9, (seed, a, b, c)

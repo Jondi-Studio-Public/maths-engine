@@ -378,6 +378,9 @@ def _exam_build(rng: random.Random) -> dict:
     excess = float(length - chord)
     if not clear_of_rounding(excess, 2) or excess < 0.05:
         raise Redraw
+    # A learner who rounds the length and the chord to 2 d.p. before subtracting must land on the same key.
+    if abs(round(float(length), 2) - round(float(chord), 2) - round(excess, 2)) > 1e-9:
+        raise Redraw
 
     slope_f = frac(Fraction(int(slope.p), int(slope.q)))
     integrand_f = float(integrand)
