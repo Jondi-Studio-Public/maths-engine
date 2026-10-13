@@ -359,6 +359,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "ucv1_power_series_convergence",
         "ucv1_proof_by_induction",
         "ucv1_series_convergence",
+        "ucv1_binomial_terms",
+        "ucv1_complex_exponential",
+        "ucv1_complex_poly_roots",
+        "ucv1_equivalence_relations",
+        "ucv1_reduction_formulae",
+        "ucv1_trig_substitution",
         "ucv1_weak_solution_regularity",
     }
 )

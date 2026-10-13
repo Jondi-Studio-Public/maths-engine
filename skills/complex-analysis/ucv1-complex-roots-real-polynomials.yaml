@@ -1,0 +1,94 @@
+id: ucv1-complex-roots-real-polynomials
+name: Roots of real polynomials over the complex numbers
+domain: complex-analysis
+description: Use the conjugate root theorem and the sums and products of roots to find the remaining roots of a cubic or
+  quartic with real coefficients when one non-real root is given.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-consider-conjugate-roots-for-polynomials-with-real-coefficients
+- senior-solve-simple-polynomial-equations
+answer: number
+sources:
+- topic: ucv1_complex_poly_roots
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_complex_poly_roots
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_complex_poly_roots
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy_complex_poly_roots
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cpoly-sum-forgets-conjugate
+  description: Counting only one non-real root in the sum of the roots, forgetting that its conjugate is a root too.
+- id: cpoly-vieta-sign-slip
+  description: Taking the sum of the roots to be the coefficient itself, not its negative.
+- id: cpoly-ignores-complex-pair
+  description: Taking the real root to be minus the coefficient, as if the non-real roots contributed nothing to the sum.
+- id: cpoly-product-sign-slip
+  description: "Taking a product of roots to be the constant term, forgetting the sign that Vieta's formulas give."
+- id: cpoly-product-not-divided
+  description: Using the whole constant term as the product of the real roots, without dividing out the product of the non-real pair.
+- id: cpoly-modulus-imag-part-only
+  description: Using q² in place of p² + q² for the product of a conjugate pair of roots p ± qi.
+- id: cpoly-modulus-real-part-only
+  description: Using p² in place of p² + q² for the product of a conjugate pair of roots p ± qi.
+- id: cpoly-sum-instead-of-product
+  description: Giving the sum of the real roots where their product was asked for.
+- id: cpoly-sumsq-forgot-cross-term
+  description: Giving the square of the sum of two roots as the sum of their squares, leaving out the cross term.
+- id: cpoly-sumsq-cross-term-sign
+  description: Adding twice the product of the roots to the square of their sum, where it must be subtracted.
+- id: cpoly-sumsq-cross-term-not-doubled
+  description: Subtracting the product of the roots once, not twice, from the square of their sum.
+- id: cpoly-sum-instead-of-sumsq
+  description: Giving the sum of the real roots where the sum of their squares was asked for.
+- id: cpoly-pairwise-sum-missing-term
+  description: 'Leaving a term out of the sum of the products of pairs of roots: the pair of conjugates, or the real root with each of them.'
+- id: cpoly-pairwise-sign-slip
+  description: "Subtracting where the real root's products with the conjugate pair must be added."
+- id: cpoly-wrong-real-root
+  description: Giving the smaller real root where the largest was asked for.
+- id: cpoly-root-sign-slip
+  description: Giving the negative of a root, by moving the sign the wrong way when solving the quadratic factor.
+- id: cpoly-product-instead-of-root
+  description: Giving the product of the real roots instead of the root asked for.
+- id: cpoly-sum-instead-of-root
+  description: Giving the sum of the real roots instead of the root asked for.
+- id: cpoly-conjugate-negates-both
+  description: Writing the conjugate as the negative of the root, changing the sign of both parts.
+- id: cpoly-conjugate-negates-real
+  description: Writing the conjugate by changing the sign of the real part instead of the imaginary part.
+- id: cpoly-conjugate-repeats-root
+  description: Giving the same root again as the other non-real root.
+- id: cpoly-conjugate-swaps-parts
+  description: Writing the conjugate by swapping the real and imaginary parts.
+- id: cpoly-square-of-sum
+  description: Squaring p + q where p² + q² is needed for the product of the conjugate pair.
+- id: cpoly-i-squared-sign
+  description: Taking i² as +1 when multiplying the conjugate pair, so the product becomes p² - q².
+- id: cpoly-product-multiplied
+  description: Multiplying by the product of the pair where it must divide the constant term.
+- id: cpoly-constant-subtracted
+  description: Subtracting the pair constant from the constant term where it must divide it.
+difficulty_progression: Easy finds the one real root of a cubic from the sum of the roots, once the conjugate has been
+  counted. Medium works with a quartic and asks for a symmetric function of the two real roots (their product, or the
+  sum of their squares), which needs both the sum and the product of the real pair. Hard either finds an unknown
+  coefficient from the pairwise sums of the roots, or finds the largest real root of an expanded quartic, which means
+  building the real quadratic factor and dividing. The exam chain finds the conjugate root, the constant of the real
+  quadratic factor, the constant of the other factor by following through, and the largest real root.
+tags:
+- university-core-v1
+- complex-numbers
+- polynomials
+- conjugate-roots
+framework_areas:
+- complex-analysis
