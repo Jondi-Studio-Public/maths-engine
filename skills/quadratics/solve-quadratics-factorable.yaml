@@ -32,6 +32,11 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_r2x_quadratic_nonmonic_roots
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
 - id: sign-flip-both-roots
   description: Flipping the sign of both roots when factorising.

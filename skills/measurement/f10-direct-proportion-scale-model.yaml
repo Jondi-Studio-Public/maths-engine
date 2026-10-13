@@ -25,6 +25,10 @@ sources:
   params: {}
   difficulty: exam
   stages: [exam]
+- topic: exd_x_r2x_direct_proportion_table
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: omits-fixed-fee
   description: Computes rate x quantity alone, omitting a stated fixed component entirely -- the textbook direct-proportion-vs-not error.

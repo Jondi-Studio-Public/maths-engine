@@ -16564,6 +16564,371 @@ _ENTRIES = (
         "Adding the radius and the distance from the centre to the line where the chord length was asked for.",
         area="complex-loci",
     ),
+    CatalogueEntry(
+        "r2x-cond-joint-not-group-total",
+        "Giving the count where both events happen as the size of the group that satisfies the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-complement-group",
+        "Counting the group that does not satisfy the condition instead of the one that does.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-other-event-total",
+        "Giving the total for the target event in place of the size of the group that satisfies the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-whole-group-denominator",
+        "Dividing the count for both events by the whole group instead of by the group that satisfies the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-swapped-condition-target",
+        "Swapping the condition and the target, so dividing by the target's total instead of the condition's.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-ignores-condition",
+        "Giving the unconditional probability of the target when a condition was stated.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-joint-for-single",
+        "Giving the probability of both events together as the probability of the one event.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-condition-applied-with-none-given",
+        "Restricting to a group when the question gives no condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-sign-reversed",
+        "Reporting an increase in probability as a decrease, or the reverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-assumes-independent",
+        "Taking the conditional probability to equal the unconditional one, so reporting no change.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-relative-not-points",
+        "Reporting a change in probability as a percentage of the original probability rather than in percentage points.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-joint-for-conditional",
+        "Using the probability of both events together where the conditional probability belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-probability-not-change",
+        "Giving the conditional probability as a percentage instead of the change from the plain probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-condition-for-target",
+        "Giving the probability of the condition where the probability of the target was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-fence-side-not-converted",
+        "Using a length in kilometres or centimetres as if it were already in metres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-half-perimeter",
+        "Adding the two side lengths once and stopping there, giving half the perimeter.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-one-side-counted-once",
+        "Doubling only one of the two different sides when finding a perimeter.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-gate-not-deducted",
+        "Pricing the whole perimeter although the gate needs no fencing.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-gate-added",
+        "Adding the width of the gate to the length to be fenced instead of taking it away.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-gate-not-converted",
+        "Subtracting the gate's width in centimetres from a length in metres without converting.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-added-not-subtracted",
+        "Adding the cost to the amount paid when finding the change.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-cents-dropped",
+        "Dropping the cents from the cost before finding the change.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-pay-halved",
+        "Using half of the amount paid when finding the change.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-quad-ignores-leading-coefficient",
+        "Dropping the leading coefficient when solving a non-monic quadratic or using its factor form.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-root-inverted",
+        "Writing a root of nx - m = 0 as n over m instead of m over n.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-wrong-root-chosen",
+        "Giving the other root of the quadratic than the one asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-vertex-for-root",
+        "Giving the midpoint of the two roots where a root was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-sum-of-roots",
+        "Adding the roots where their difference (the distance between them) was needed.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-half-span",
+        "Using half the distance between the roots where the whole distance, or the square of half, is needed.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-product-of-roots",
+        "Multiplying the roots where their difference was needed.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-height-linear-not-squared",
+        "Treating the greatest height as proportional to the span instead of to its square.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-vertex-x-for-height",
+        "Giving the horizontal position of the highest point where its height was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-prop-ratio-inverted",
+        "Dividing the input by the output instead of the output by the input when finding the constant of proportionality.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-output-not-ratio",
+        "Giving one row's output as the constant of proportionality without dividing by its input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-difference-not-ratio",
+        "Subtracting two outputs to find the constant of proportionality instead of dividing an output by its input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-decimal-shift",
+        "Placing the decimal point one place too far, giving a value ten times too large.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-divided-not-multiplied",
+        "Dividing the input by the constant of proportionality where the output is the constant times the input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-additive-reasoning",
+        "Adding the change in input to the output of a nearby row instead of scaling by the constant of proportionality.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-added-not-multiplied",
+        "Adding the constant of proportionality to the input where it should multiply it.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-increase-only",
+        "Giving the extra input alone, or the extra amount itself, in place of the total input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-increase-subtracted",
+        "Subtracting the extra input from the original input instead of adding it.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-output-added-to-input",
+        "Adding the extra output to the original input as if the two were in the same unit.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-comp-no-replacement-values",
+        "Using one fewer item in the second draw when the first was put back.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-same-colour-for-different",
+        "Giving the probability of the same colour twice where two different colours were asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-denominator-not-squared",
+        "Multiplying the two numerators but dividing by the total once, not twice.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-one-order-only",
+        "Counting only one of the two orders in which exactly one of a colour can occur.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-new-value-not-change",
+        "Giving a probability itself where the change between two probabilities was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-first-denominator-not-reduced",
+        "Reducing the counts for the second draw but not the total when the first item is not put back.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-exactly-one-for-at-least-one",
+        "Giving the probability of exactly one where at least one was asked, leaving out the outcome with both.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-none-for-at-least-one",
+        "Giving the probability of none of a colour where at least one was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-both-for-at-least-one",
+        "Giving the probability of both being a colour where at least one was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-complement-of-both",
+        "Taking the complement of both being a colour as the probability of at least one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-box-median-kept-in-half",
+        "Keeping the median in both halves when finding quartiles of an odd number of values, against the stated method.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-position-no-averaging",
+        "Taking the value at a quarter position as the quartile without averaging the two middle values of the half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-quartiles-swapped",
+        "Giving the third quartile where the first was asked, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-median-for-quartile",
+        "Giving the median of the whole data set as a quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-fence-multiplier-one",
+        "Using Q3 + IQR for the upper fence instead of Q3 + 1.5 x IQR.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-fence-without-q3",
+        "Giving 1.5 x IQR as the upper fence, forgetting to add Q3.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-lower-fence-for-upper",
+        "Giving the lower fence Q1 - 1.5 x IQR where the upper fence was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-fence-without-iqr",
+        "Adding 1.5 to Q3 instead of 1.5 times the IQR.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-outlier-kept",
+        "Finding the mean with the outlier still included.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-divided-by-original-count",
+        "Dividing the total without the outlier by the original number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-median-for-mean",
+        "Giving the median where the mean was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-wrong-value-removed",
+        "Removing the smallest value instead of the outlier.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-iqrs-added",
+        "Adding the two interquartile ranges instead of finding their difference.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-range-for-iqr",
+        "Using the range of each group in place of its interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-one-group-only",
+        "Giving the interquartile range of one group where a comparison of the two was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-comp-single-draw-probability",
+        "Giving the probability of the colour on a single draw where a probability for two draws was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-compared-with-exactly-one",
+        "Finding the change from the probability of exactly one of a colour instead of at least one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-complement-target",
+        "Giving the probability of the opposite of the target.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-prop-table-input-reused",
+        "Giving one of the inputs from the table as the answer.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-fence-cost-for-change",
+        "Giving the cost of the fencing where the change was asked.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-quad-numerator-subtracted",
+        "Subtracting the numerator of the fractional root from the whole root instead of subtracting the root.",
+        area="algebra",
+    ),
 )
 
 #: Every entry, by id.
