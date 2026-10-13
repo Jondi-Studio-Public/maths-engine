@@ -22,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_c3_inverse_trig_derivative
+- topic: exd_x_r3e_inverse_trig_tangent
   params: {tier: exam}
   difficulty: exam
   stages:

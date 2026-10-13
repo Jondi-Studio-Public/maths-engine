@@ -23,7 +23,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h2_restricted_permutations
+- topic: exd_x_r3a_vowel_arrangements
   params: {tier: exam}
   difficulty: exam
   stages:

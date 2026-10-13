@@ -21,7 +21,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g6_delay_propagation
+- topic: exd_x_r3c_network_float
   params: {tier: exam}
   difficulty: exam
   stages:

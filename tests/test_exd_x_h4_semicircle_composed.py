@@ -43,7 +43,7 @@ def test_skill_yaml_has_the_exam_source_last():
     path = next(Path(__file__).resolve().parents[1].glob("skills/*/senior-an-angle-in-a-semicircle-is-a-right.yaml"))
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
     last = skill["sources"][-1]
-    assert last["topic"] == TOPIC
+    assert last["topic"] == "exd_x_r3c_semicircle_triangle"
     assert last["difficulty"] == "exam"
     assert last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}

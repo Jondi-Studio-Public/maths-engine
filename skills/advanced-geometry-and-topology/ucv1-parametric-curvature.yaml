@@ -2,7 +2,7 @@ id: ucv1-parametric-curvature
 name: Compute curvature of a planar parametric curve
 domain: advanced-geometry-and-topology
 year_level: [university]
-description: Evaluate curvature of a supplied polynomial parametric curve at a stated parameter where the denominator is nonzero.
+description: Evaluate curvature of a supplied polynomial parametric curve at a stated parameter where the denominator is nonzero. The exam tier builds the curvature from the speed and the cross term of a cubic curve at a non-zero parameter, then asks for the radius of curvature.
 status: active
 placement_eligible: false
 prerequisites:
@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13e_parametric_curvature
-  params: {}
+- topic: exd_x_r3i_curvature_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

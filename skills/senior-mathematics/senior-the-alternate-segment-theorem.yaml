@@ -23,7 +23,7 @@ sources:
   params: {variant: algebraic}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h4_tangent_pair_alternate_segment
+- topic: exd_x_r3d_tangent_pair_chain
   params: {tier: exam}
   difficulty: exam
   stages:

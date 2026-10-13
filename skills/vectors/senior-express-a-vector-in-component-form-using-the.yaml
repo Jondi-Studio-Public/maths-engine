@@ -22,7 +22,7 @@ sources:
   params: {variant: two_leg}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g3_vec_component
+- topic: exd_x_r3c_vector_resultant
   params: {tier: exam}
   difficulty: exam
   stages:

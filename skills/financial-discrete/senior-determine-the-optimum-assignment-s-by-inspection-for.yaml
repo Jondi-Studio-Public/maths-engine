@@ -21,7 +21,7 @@ sources:
   params: {blocked: 3}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g6_assignment_max_forbidden
+- topic: exd_x_r3e_assignment_reduction
   params: {tier: exam}
   difficulty: exam
   stages:

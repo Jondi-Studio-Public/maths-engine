@@ -22,7 +22,7 @@ sources:
   params: {variant: inverse}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g2_scalar_pair
+- topic: exd_x_r3e_vector_combination
   params: {tier: exam}
   difficulty: exam
   stages:

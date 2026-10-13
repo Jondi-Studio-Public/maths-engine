@@ -3,7 +3,11 @@
 id: senior-use-geometric-sequences-to-model-and-analyse-numerically
 name: Use geometric sequences to model and analyse numerically the height of a bouncing ball
 domain: financial-discrete
-description: Given a ball dropped from a stated height that rebounds to a stated fraction of its previous height, find the total vertical distance it travels up to a stated bounce.
+description: |
+  Given a ball dropped from a stated height that rebounds to a stated fraction of its
+  previous height, find the total vertical distance it travels up to a stated bounce. The
+  exam tier gives the first two rebound heights instead, and asks for the ratio, the drop
+  height, the distance to a stated bounce and the distance to rest.
 status: active
 placement_eligible: false
 prerequisites: [simple-interest]
@@ -21,8 +25,8 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: pv0a_bounce_distance
-  params: {variant: exam}
+- topic: exd_x_r3d_bounce_series_chain
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

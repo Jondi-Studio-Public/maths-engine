@@ -21,7 +21,8 @@ def _function(text: str):
 
 
 def test_registered():
-    sup.assert_registered_as_exam_source(SKILL, TOPIC)
+    # The skill's exam source now points at the multi-part tangent chain; this module's generator stays registered.
+    sup.assert_registered_as_exam_source(SKILL, "exd_x_r3e_inverse_trig_tangent")
 
 
 def test_text_and_determinism():

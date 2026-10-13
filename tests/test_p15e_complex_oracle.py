@@ -27,13 +27,14 @@ scratch:
 
 import dataclasses
 import re
+from dataclasses import replace
 
 import pytest
 import sympy as sp
 from sympy import I
 
-from mathgen.skills import load_skills
 import mathgen
+from mathgen.skills import load_skills
 
 CONTOUR_ID = "ucv1-contour-integral-residue"
 CR_ID = "ucv1-cr-equations-check"
@@ -67,6 +68,7 @@ def _skill_sources(skill_id):
 
 CONTOUR_SOURCES = _skill_sources(CONTOUR_ID)
 CR_SOURCES = _skill_sources(CR_ID)
+CR_SOURCES["exam"] = replace(CR_SOURCES["exam"], topic="p15e_cr_equations_check", params={})
 
 
 # ==========================================================================

@@ -1,5 +1,7 @@
 """Focused contract tests for: ucv1-optimality-sensitivity (answer: mcq)."""
 
+from dataclasses import replace
+
 import re
 from collections import Counter
 
@@ -24,6 +26,8 @@ def _skill_sources():
 
 
 SKILL, SOURCES = _skill_sources()
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+SOURCES["exam"] = replace(SOURCES["exam"], topic="p17a_optimality_sensitivity", params={})
 
 
 def _make(difficulty, seed):

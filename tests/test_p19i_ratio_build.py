@@ -302,6 +302,7 @@ def test_skill_b_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert skill.status == "active"
     assert skill.prerequisites == ["order-of-operations"]
-    assert {source.topic for source in skill.sources} == {TOPIC_B}
+    assert {s.topic for s in skill.sources if s.difficulty != "exam"} == {TOPIC_B}
+    assert [s.topic for s in skill.sources if s.difficulty == "exam"] == ["exd_x_r3i_ratio_batch"]
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert [source.stages for source in skill.sources][-1] == ["exam"]

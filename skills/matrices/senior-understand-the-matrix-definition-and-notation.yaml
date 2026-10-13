@@ -3,7 +3,15 @@
 id: senior-understand-the-matrix-definition-and-notation
 name: Understand the matrix definition and notation
 domain: matrices
-description: "Given a stated matrix (or, at exam level, only the rule a_{i,j} and the ranges of i and j, so the learner substitutes) and a subscript reference a_{i,j} using row-column notation, state the value of the entry in row i, column j. Pure abstract notation practice with no dataset framing, never a row/column total. Never classifies the matrix's type or reports its size: contrast the sibling senior-recognise-different-types-of-matrices-row-column-square, which never reports a single entry."
+description: >-
+  Given a stated matrix (or, at exam level, a rule a_{i,j} with one unknown constant fixed by a
+  stated entry, then used for another entry, the column in which a stated value lies in a stated
+  row, and the entry found by using that column number as a row number) and a subscript reference
+  a_{i,j} using row-column notation, state the value of the entry in row i, column j. Pure abstract
+  notation practice with no dataset framing, never a row/column total. Never classifies the matrix's
+  type or reports its size: contrast the sibling
+  senior-recognise-different-types-of-matrices-row-column-square, which never reports a single
+  entry.
 status: active
 placement_eligible: false
 prerequisites:
@@ -22,8 +30,8 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [6, maintenance]
-- topic: p19g_matrix_entry_lookup
-  params: {variant: exam}
+- topic: exd_x_r3i_matrix_rule_unknown
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

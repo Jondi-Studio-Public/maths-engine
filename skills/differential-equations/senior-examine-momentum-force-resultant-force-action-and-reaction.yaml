@@ -24,7 +24,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13b_momentum_force_reaction
+- topic: exd_x_r3j_collision_impulse
   params: {}
   difficulty: exam
   stages: [exam]

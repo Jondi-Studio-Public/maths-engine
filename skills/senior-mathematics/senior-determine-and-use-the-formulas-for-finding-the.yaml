@@ -35,7 +35,7 @@ sources:
     params: {mode: three_set_unknown}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_h5_set_membership_counts
+  - topic: exd_x_r3c_club_overlaps
     params: {tier: exam}
     difficulty: exam
     stages: [exam]

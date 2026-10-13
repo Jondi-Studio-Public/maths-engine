@@ -3,6 +3,8 @@ concentration.
 
 No tests for it here."""
 
+from dataclasses import replace
+
 import re
 
 import pytest
@@ -27,6 +29,12 @@ def _skill_sources(skill_id):
 
 
 RSA_SKILL, RSA_SOURCES = _skill_sources(RSA_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+RSA_SOURCES["exam"] = replace(
+    RSA_SOURCES["exam"],
+    topic="p12f_rsa_modular_step",
+    params={"mode": "chain", "primes": [3, 5, 7, 11, 13], "exponents": [3]},
+)
 
 
 def _make(difficulty, seed):
