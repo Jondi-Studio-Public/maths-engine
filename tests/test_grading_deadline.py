@@ -1,11 +1,12 @@
 """`grade_with_deadline`: the same verdicts as `grade()`, in a worker process that is killed when it runs over.
 
-The pool here uses one or two spawned workers; each takes a second or two to import the engine, so the module
+The pool here uses one or two workers; a spawned one takes a second or two to import the engine, so the module
 shares one pool and the tests that need their own make small ones.
 """
 
 from __future__ import annotations
 
+import multiprocessing
 import time
 from concurrent.futures import ThreadPoolExecutor
 
@@ -183,3 +184,43 @@ def test_a_worker_is_retired_after_its_reply_bound(skills, monkeypatch):
         assert one.grade("number", q, q.answer_text, skill=skill).correct
         assert one._idle.queue[0] is not first and not first.process.is_alive()
         assert one.grade("number", q, q.answer_text, skill=skill).correct
+
+
+@pytest.mark.skipif("forkserver" not in multiprocessing.get_all_start_methods(), reason="no forkserver on this OS")
+def test_a_replacement_worker_is_ready_at_once_where_forkserver_exists():
+    """Workers fork from a server that has imported the grader, so the one that replaces a killed worker does not
+    import the engine again: a reply queued behind a timed-out one waits for the deadline, not for seconds more."""
+    q = engine.make_for_skill({s.id: s for s in engine.load_skills()[1]}[_SKILLS["number"]], seed=0)
+    with GradingPool(1, timeout=0.5, grade_fn=_sleepy_grade) as slow:
+        assert slow._context.get_start_method() == "forkserver"
+        slow._idle.queue[0].wait_ready()
+        assert slow.grade("number", q, q.answer_text).timed_out
+        fresh = slow._idle.queue[0]
+        started = time.monotonic()
+        fresh.wait_ready()
+        assert time.monotonic() - started < 1.0  # a spawned worker takes seconds to import the engine
+
+
+def test_the_forkserver_preload_keeps_the_hosts_modules_and_never_runs_main(monkeypatch):
+    from multiprocessing import forkserver
+
+    from mathgen.grading import deadline as deadline_mod
+
+    monkeypatch.setattr(forkserver._forkserver, "_preload_modules", ["__main__", "host.models"])
+    deadline_mod._preload_grader(multiprocessing.get_context("forkserver"), _sleepy_grade)
+    assert forkserver._forkserver._preload_modules == ["host.models", "mathgen.grading.deadline", __name__]
+
+
+def test_workers_that_never_start_raise_instead_of_grading_wrong(skills, monkeypatch):
+    """A script without the `__main__` guard makes every worker die before it is ready. That is the host's fault,
+    and marking the learner wrong would hide it, so the call raises."""
+    from mathgen.grading.deadline import WorkerStartError, _Worker
+
+    def never_ready(self):
+        raise WorkerStartError("a grading worker did not start")
+
+    q = engine.make_for_skill(skills["number"], seed=0)
+    with GradingPool(1, timeout=30) as one:
+        monkeypatch.setattr(_Worker, "wait_ready", never_ready)
+        with pytest.raises(WorkerStartError, match="__main__"):
+            one.grade("number", q, q.answer_text)

@@ -16,8 +16,17 @@ each one answers on its own pipe, and a worker that misses its deadline is kille
 
 A reply that runs out of time is graded wrong, the same as any reply the grader cannot read, and the
 result has `timed_out` set to True. The worker that ran over is killed and a fresh one starts in its place. A
-worker starts by importing the engine, which takes about a second, so a deadline only counts the grading itself:
-a call waits for a worker to be ready before its clock starts.
+deadline only counts the grading itself: a call waits for a worker to be ready before its clock starts.
+
+Where the OS has it (Linux, macOS), workers start from a "forkserver" that has already imported the grader, so a
+replacement is ready in milliseconds; elsewhere (Windows) each one is spawned and imports the engine itself, which
+takes seconds. Either way a call that finds every worker busy waits for one, so a host that grades replies from
+the public should limit how many replies one person can send at once: with the default 2 workers and 2 s, six
+replies built to hang, sent together, finish at about 2, 2, 4, 4, 6 and 6 s, and honest replies queue behind them.
+
+Workers are separate processes started with "spawn" or "forkserver", so a script that grades with a deadline must
+start from `if __name__ == "__main__":`, as `multiprocessing` requires; without it no worker can start and the call
+raises `WorkerStartError`. A web server or test runner imports the code as a module, so needs nothing.
 """
 
 from __future__ import annotations
@@ -39,6 +48,13 @@ DEFAULT_TIMEOUT = 2.0  # seconds
 # bounds the worker's loop and any memory SymPy's caches gather over a long-running service.
 MAX_REPLIES_PER_WORKER = 10_000
 _STARTUP_TIMEOUT = 120.0  # seconds a new worker may take to import the engine before it is given up on
+
+
+class WorkerStartError(RuntimeError):
+    """Worker processes started but none became ready to grade, twice running, so the reply was not graded.
+
+    Almost always the calling script lacks `if __name__ == "__main__":`: each worker runs the script again and fails.
+    Raised, not graded wrong, because the fault is in the host and nothing is known about the reply."""
 
 
 @dataclass
@@ -79,9 +95,12 @@ class _Worker:
     def wait_ready(self) -> None:
         if self.ready:
             return
-        if not self.conn.poll(_STARTUP_TIMEOUT) or self.conn.recv() != "ready":
-            self.stop()
-            raise RuntimeError("a grading worker did not start")
+        try:
+            started = self.conn.poll(_STARTUP_TIMEOUT) and self.conn.recv() == "ready"
+        except (EOFError, OSError):  # the worker died while starting
+            started = False
+        if not started:
+            raise WorkerStartError("a grading worker did not start")
         self.ready = True
 
     def stop(self) -> None:
@@ -96,15 +115,22 @@ class GradingPool:
     for a free worker, so `workers` is also the most replies graded at once.
 
     `grade_fn` is what a worker calls, `grade` by default; it must be importable by name (a module-level function),
-    because a spawned worker imports it. `start_method` is a `multiprocessing` start method; the default,
-    "spawn", is the only one that is safe in a process that already runs threads and is the same on every OS.
+    because a worker imports it. `start_method` is a `multiprocessing` start method. The default is "forkserver",
+    with the grader preloaded so a replacement worker starts at once, where the OS has it, and "spawn" elsewhere:
+    both are safe in a process that already runs threads, which "fork" is not.
     """
 
-    def __init__(self, workers: int = 2, *, timeout: float = DEFAULT_TIMEOUT, grade_fn=grade, start_method="spawn"):
+    def __init__(
+        self, workers: int = 2, *, timeout: float = DEFAULT_TIMEOUT, grade_fn=grade, start_method: str | None = None
+    ):
         if workers < 1:
             raise ValueError("workers must be at least 1")
         self.timeout = timeout
+        if start_method is None:
+            start_method = "forkserver" if "forkserver" in multiprocessing.get_all_start_methods() else "spawn"
         self._context = multiprocessing.get_context(start_method)
+        if start_method == "forkserver":
+            _preload_grader(self._context, grade_fn)
         self._grade_fn = grade_fn
         self._idle: queue.Queue[_Worker] = queue.Queue()
         self._lock = threading.Lock()
@@ -147,10 +173,15 @@ class GradingPool:
         # more on the new one, so one lost process does not mark a learner wrong. A second loss grades it wrong.
         for attempt in (1, 2):
             worker = self._idle.get()
+            start_failed = False
             try:
                 if worker is None:
                     worker = self._start()
-                worker.wait_ready()
+                try:
+                    worker.wait_ready()
+                except WorkerStartError:
+                    start_failed = True
+                    raise
                 worker.conn.send((kind, question, given, skill))
                 started = time.monotonic()
                 if worker.conn.poll(limit):
@@ -169,6 +200,11 @@ class GradingPool:
                 raise
             break
         else:
+            if start_failed:
+                raise WorkerStartError(
+                    "no grading worker could start, so the reply was not graded; a script that grades with a deadline "
+                    'must run from `if __name__ == "__main__":` (see mathgen.grading.deadline)'
+                )
             return _wrong(question)
         if status == "timeout":
             logger.warning(
@@ -200,6 +236,20 @@ class GradingPool:
 
     def __exit__(self, *exc) -> None:
         self.close()
+
+
+def _preload_grader(context, grade_fn) -> None:
+    """Have the forkserver import the grader once, so each worker forked from it starts with the engine loaded.
+
+    The preload list is the process's own, shared by every forkserver context, and only read when the server starts:
+    this adds the grader's modules to the list a host may already have set, and changes nothing once the server
+    runs. `__main__` is left out: preloading it would run the host's script again in the server."""
+    from multiprocessing import forkserver
+
+    current = getattr(forkserver._forkserver, "_preload_modules", [])  # no public getter in 3.12-3.14
+    wanted = [__name__, grade_fn.__module__]
+    merged = [m for m in current if m != "__main__"] + [m for m in wanted if m not in current and m != "__main__"]
+    context.set_forkserver_preload(merged)
 
 
 def _wrong(question, *, timed_out: bool = False) -> DeadlineResult:
