@@ -10104,6 +10104,446 @@ _ENTRIES = (
         "Counting only the boundary points that lie outside the set.",
         area="topology",
     ),
+    CatalogueEntry(
+        "mech-forgot-divide-by-mass",
+        "Reporting the resultant force in newtons where the acceleration was asked, without dividing by the mass.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resistance-added",
+        "Adding a resisting force to the forces that drive the motion instead of subtracting it.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-one-force",
+        "Leaving one of the stated forces out of the resultant.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-multiplied-by-mass",
+        "Multiplying by the mass where F = ma needs a division by it.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resultant-for-resistance",
+        "Reporting the resultant force as the unknown resistance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-mass-in-resultant",
+        "Using the acceleration as the resultant force, without multiplying it by the mass.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-resistance",
+        "Leaving the resisting force out of the resultant force.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-speed-used-as-acceleration",
+        "Using the speed reached as if it were the acceleration, without dividing by the time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-two-in-kinematics",
+        "Dropping the 2 in v² = u² + 2as when finding the acceleration or speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-half-in-kinematics",
+        "Dropping the one half in s = ½at² when finding the acceleration from a distance and a time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-kinetic-energy-for-force",
+        "Reporting the kinetic energy ½mu² (or part of it) as the braking force, without dividing by the stopping distance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-weight-and-acceleration-opposed",
+        "Subtracting the acceleration from g where the load accelerates upward, or adding it where it accelerates downward.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-weight",
+        "Leaving the weight out of the vertical force balance, so the cable is thought to supply only m×a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-acceleration",
+        "Taking the tension to be just the weight although the load is accelerating.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resultant-sign-reversed",
+        "Subtracting the resultant from the known forces instead of the known forces from the resultant, which reverses the sign of the unknown force.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-added-known-forces-to-resultant",
+        "Adding the known forces to the resultant instead of subtracting them when finding the unknown force.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-used-one-component",
+        "Reporting one component of a vector as its magnitude.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-added-components",
+        "Adding the components of a vector to get its magnitude instead of using Pythagoras.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resultant-for-unknown",
+        "Giving the magnitude or direction of the resultant force where the unknown force was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-angle-from-wrong-axis",
+        "Measuring the angle from the north axis instead of from east, which gives its complement.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-quadrant-ignored",
+        "Taking the angle from the inverse tangent of the positive ratio without placing the vector in its true quadrant.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-angle-reflected",
+        "Giving 180° minus the angle instead of the angle.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-system-mass-omitted",
+        "Using only one body's mass as the mass of the whole system, or the wrong mass in a single body's equation.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-acceleration-of-car",
+        "Taking the tension to be the driving force less the resistance on the car, forgetting that the car is accelerating too.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-masses-swapped",
+        "Putting the block's mass where the hanging mass belongs, so the wrong weight drives the motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-free-fall-assumed",
+        "Giving g as the acceleration, as if the hanging mass fell freely.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tension-equals-weight",
+        "Taking the tension in the string to equal the weight of one of the masses, which is only true when there is no acceleration.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-wrong-body-mass",
+        "Using the mass of the other body in one body's equation of motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ratio-inverted",
+        "Inverting the ratio of the masses, so the acceleration comes out larger than g.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tension-averaged",
+        "Taking the tension to be the average of the two weights.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-g",
+        "Multiplying the coefficient of friction by the mass and leaving out g.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-friction-without-coefficient",
+        "Giving the normal reaction as the friction force, leaving out the coefficient of friction.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-g-applied-twice",
+        "Multiplying by g a second time after the weight has already been found.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-friction",
+        "Leaving the friction force out of the equation of motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-friction-direction-reversed",
+        "Adding the friction force to the driving weight, as if friction helped the motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-friction-omitted-from-block",
+        "Leaving friction out of the block's own equation, so the tension is just m×a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-square-root",
+        "Reporting v² as the speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-sin-cos-swapped",
+        "Using sin where cos belongs (or the reverse) when resolving the weight along and perpendicular to a slope.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-weight-not-resolved",
+        "Using the whole weight mg where a component of it is needed, as if the plane were horizontal or vertical.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-component-resolved-twice",
+        "Resolving the weight into a component and then resolving that component again.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tan-inverted",
+        "Giving the coefficient of friction as cos θ / sin θ instead of sin θ / cos θ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-sin-used-as-mu",
+        "Taking the coefficient of friction on the point of slipping to be sin θ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-cos-used-as-mu",
+        "Taking the coefficient of friction on the point of slipping to be cos θ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-limiting-friction-assumed",
+        "Giving the greatest friction μR for a block that is at rest, when the friction actually acting only balances the weight component along the slope.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-weight-component",
+        "Leaving the weight component along the slope out of the forces on the block.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-square-on-time",
+        "Using t where t² is needed in s = ½at².",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-speed-used-as-distance",
+        "Reporting the speed after t seconds (at) as the distance travelled.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-sign-error-in-balance",
+        "Adding the known components and stopping, instead of making the unknown one cancel them: the sign of the answer is reversed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-wrong-component",
+        "Balancing the forces in the wrong direction, using the north components where the east components are needed or the reverse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-strings-swapped",
+        "Giving the tension in the other string.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tan-inverted-in-balance",
+        "Using cos θ / sin θ where tan θ is needed, or the reverse, when relating the horizontal and vertical forces.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-assumed-symmetric",
+        "Assuming the two strings share the weight equally, so each tension is W / (2 sin angle), although the angles differ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-other-string-ignored",
+        "Balancing the weight against one string alone, as if the other string took no part.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-horizontal-balance-skipped",
+        "Using only the vertical balance with both sines added, and never balancing the horizontal components.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-halved-weight",
+        "Taking half the weight.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-subtracted-instead-of-pythagoras",
+        "Subtracting the weight from the greatest tension where the horizontal force, the weight and the tension form a right-angled triangle.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-added-squares",
+        "Adding the squares of the weight and the greatest tension where the tension is the hypotenuse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-limit-resolved-as-fixed-angle",
+        "Resolving the greatest tension at the original angle, although the angle grows as the horizontal force increases.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-predicted-reported-as-residual",
+        "Reporting the predicted value where the residual was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-observed-reported-as-residual",
+        "Reporting the observed value where the residual was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-intercept-left-out",
+        "Leaving the intercept out when predicting from the line, so the prediction is just slope times x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-slope-term-left-out",
+        "Leaving the slope term out when predicting from the line, so the prediction is just the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sign-of-residual-dropped",
+        "Reporting the size of the residual without its sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-wrong-extreme-chosen",
+        "Choosing the greatest residual by value, not by size, so a large negative residual is passed over.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-first-residual-only",
+        "Computing one residual and reporting it as the answer for all the observations.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sum-sign-not-reversed",
+        "Giving the sum of the residuals that are listed instead of the number that makes the total zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-missing-residual-taken-as-zero",
+        "Assuming a residual that is not listed must be zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-mean-of-the-others",
+        "Giving the mean of the listed residuals as the missing residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-residuals-always-sum-to-zero",
+        "Saying residuals always sum to zero, which is only true about the least-squares line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-absolute-residuals-summed",
+        "Adding the sizes of the residuals instead of the residuals themselves.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-squared-residuals-summed",
+        "Adding the squares of the residuals where their plain sum was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-observed-used-as-predicted",
+        "Using the observed value as the predicted value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-x-value-replaced-by-one",
+        "Putting x = 1 into the line instead of the stated value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-intercept-and-slope-swapped",
+        "Swapping the intercept and the slope when substituting into the line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-absolute-not-squared",
+        "Adding the sizes of the residuals where their squares were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-one-residual-squared",
+        "Squaring only the largest residual instead of all five.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-mean-instead-of-sum",
+        "Dividing the sum of squared residuals by the number of observations.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-pattern-seen-in-random-scatter",
+        "Seeing a pattern in residuals that are scattered at random, and rejecting a linear model that fits well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-pattern-read-as-random-scatter",
+        "Reading residuals that form a curve or fan as random scatter, and accepting a linear model that does not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-fan-and-curve-confused",
+        "Describing residuals that fan out as a curve, or a curved residual pattern as fanning.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-pattern-taken-as-good-fit",
+        "Taking a clear pattern in the residuals as a sign that the linear model fits well, when a pattern is the sign that it does not.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-nonzero-residuals-mean-poor-fit",
+        "Rejecting a linear model because the residuals are not all zero, although a good fit leaves small residuals with no pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-r-squared-trusted",
+        "Accepting a linear model because r² is high, without checking the residuals for a pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sum-zero-taken-as-linear",
+        "Taking residuals that add to zero as evidence of a linear relationship, when the residuals of every least-squares line add to zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-large-residuals-mean-poor-fit",
+        "Judging a linear model by the size of a few residuals instead of by whether they form a pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-low-r-squared-rejects",
+        "Rejecting a linear model because r² is low, although patternless residuals mean only that predictions are less precise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sign-mix-taken-as-pattern",
+        "Treating a mix of positive and negative residuals as a pattern, when both signs are expected of a good fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-one-residual-left-out",
+        "Leaving the residual just calculated out of the sum of squares.",
+        area="statistics",
+    ),
 )
 
 #: Every entry, by id.

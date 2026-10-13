@@ -1,0 +1,76 @@
+id: least-squares-residuals
+name: Calculate residuals from a least-squares line
+domain: statistics-probability
+description: Find the predicted value and the residual (observed minus predicted) for data and a given least-squares
+  line, find the residual of greatest size, and use the fact that the residuals of a least-squares line sum to zero.
+status: active
+placement_eligible: false
+prerequisites:
+- least-squares-line
+answer: number
+sources:
+- topic: smech_residuals
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: smech_residuals
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: smech_residuals
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: smech_residuals_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mech-absolute-not-squared
+  description: Adding the sizes of the residuals where their squares were asked for.
+- id: mech-absolute-residuals-summed
+  description: Adding the sizes of the residuals instead of the residuals themselves.
+- id: mech-first-residual-only
+  description: Computing one residual and reporting it as the answer for all the observations.
+- id: mech-intercept-left-out
+  description: Leaving the intercept out when predicting from the line, so the prediction is just slope times x.
+- id: mech-mean-instead-of-sum
+  description: Dividing the sum of squared residuals by the number of observations.
+- id: mech-mean-of-the-others
+  description: Giving the mean of the listed residuals as the missing residual.
+- id: mech-missing-residual-taken-as-zero
+  description: Assuming a residual that is not listed must be zero.
+- id: mech-observed-reported-as-residual
+  description: Reporting the observed value where the residual was asked for.
+- id: mech-observed-used-as-predicted
+  description: Using the observed value as the predicted value.
+- id: mech-one-residual-squared
+  description: Squaring only the largest residual instead of all five.
+- id: mech-predicted-reported-as-residual
+  description: Reporting the predicted value where the residual was asked for.
+- id: mech-residuals-always-sum-to-zero
+  description: Saying residuals always sum to zero, which is only true about the least-squares line.
+- id: mech-sign-of-residual-dropped
+  description: Reporting the size of the residual without its sign.
+- id: mech-sum-sign-not-reversed
+  description: Giving the sum of the residuals that are listed instead of the number that makes the total zero.
+- id: mech-wrong-extreme-chosen
+  description: Choosing the greatest residual by value, not by size, so a large negative residual is passed over.
+- id: mech-x-value-replaced-by-one
+  description: Putting x = 1 into the line instead of the stated value.
+- id: residual-sign-reversed
+  description: Subtracting the observed value from the predicted value, giving a residual with the wrong sign.
+tags:
+- bivariate-data
+- least-squares
+- residuals
+- general-mathematics
