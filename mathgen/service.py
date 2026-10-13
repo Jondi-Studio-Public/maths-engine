@@ -132,7 +132,7 @@ def year_levels(skill: Skill) -> list[str]:
     has one, else from its ACARA v9 codes and year tags. Empty when nothing says (senior and university skills)."""
     own = getattr(skill, "year_level", None)
     if own:
-        return [str(y) for y in (own if isinstance(own, list) else [own])]
+        return [str(y) for y in (own if isinstance(own, (list, tuple)) else [own])]
     years = []
     for code in curriculum_codes(skill):
         m = _V9_CODE.match(code)
@@ -298,7 +298,11 @@ def _figure_view(spec: dict, answers: bool) -> dict:
     `answers` the spec is given too, for a caller that draws figures itself."""
     from .svg import figure_svg
 
-    view = {"alt": spec.get("alt"), "svg": figure_svg(spec)}
+    try:
+        svg = figure_svg(spec)
+    except ValueError:  # a kind the SVG renderer does not draw yet: the alt text still describes it
+        svg = None
+    view = {"alt": spec.get("alt"), "svg": svg}
     if answers:
         view["spec"] = _plain(spec)
     return view

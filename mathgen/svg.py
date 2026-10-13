@@ -11,6 +11,10 @@ are drawn from the angles), a money item's ``cents``, the protractor's numeric `
 the like. A blank the learner fills in (a tree branch ``"?"``, a Venn region ``"?"``) is drawn
 as a blank.
 
+The data displays (bar chart, picture graph, dot plot, histogram, box plot, pie chart) are read-the-chart figures:
+every value is drawn to scale, and the only numerals are the ticks on a labelled axis. No bar, row, dot stack, box or
+sector is ever labelled with its own value, count, fraction or percentage, because a question asks the learner for it.
+
 The picture has a fixed 400-unit wide drawing area; ``width`` only sets the size the SVG is
 displayed at (its height follows the aspect ratio).
 """
@@ -26,6 +30,7 @@ from typing import Any, Callable
 from xml.sax.saxutils import escape, quoteattr
 
 from mathgen import figures
+from mathgen.figure_kinds.data import _key_text
 
 __all__ = ["figure_svg"]
 
@@ -1207,19 +1212,473 @@ def _venn(s: dict, ids: _Ids) -> Body:
     return "".join(out), rect_h + 22
 
 
+# ---------------------------------------------------------------- data displays
+#
+# bar_chart, picture_graph, dot_plot, histogram, box_plot and pie_chart are all "read the value off the
+# picture" figures. Each is drawn to its scale and nothing else: no bar, row, stack, sector or box ever
+# carries its own value as text. The only numerals are the ticks on a labelled axis (a learner needs those
+# to read with); the only words are the ones the spec carries (category, row, series, panel and sector
+# names, axis titles, the picture-graph key).
+
+_AX_FONT = 11
+_CHAR_W = 6.2  # a generous width for one character at 11-12 units, for fitting labels
+
+
+def _text_w(s: Any, size: float = _AX_FONT) -> float:
+    return len(_clean_text(s)) * _CHAR_W * size / 12 + 2
+
+
+def _rotated_text(x: float, y: float, s: Any, deg: float, *, size: float = 12, anchor: str = "middle") -> str:
+    """``_text`` turned ``deg`` degrees (negative is anticlockwise) about its own anchor point."""
+    t = _text(x, y, s, size=size, anchor=anchor)
+    return t.replace("<text ", f'<text transform="rotate({_n(deg)} {_n(x)} {_n(y)})" ', 1)
+
+
+def _grid_marks(axis: dict) -> list[tuple[float, bool]]:
+    """``(value, is_minor)`` for every gridline of a ``{"max", "step", "minor"}`` value axis, 0 first."""
+    steps = round(axis["max"] / axis["step"])
+    marks: list[tuple[float, bool]] = []
+    for i in range(steps + 1):
+        marks.append((i * axis["step"], False))
+        if axis["minor"] and i < steps:
+            marks.append(((i + 0.5) * axis["step"], True))
+    return marks
+
+
+def _grid_line(minor: bool) -> dict:
+    if minor:
+        return {"stroke": "#dcdcdc", "stroke_width": 0.7, "stroke_dasharray": "2 3"}
+    return {"stroke": MID, "stroke_width": 0.8}
+
+
+def _every(spacing: float, need: float) -> int:
+    """Label every n-th tick so labels ``need`` units wide never overlap ticks ``spacing`` apart."""
+    return max(1, math.ceil(need / max(spacing, 1e-6)))
+
+
+def _axis_title(x: float, y: float, s: Any, *, vertical: bool = False) -> str:
+    return _rotated_text(x, y, s, -90, size=12) if vertical else _text(x, y, s, size=12)
+
+
+def _bar_chart(s: dict, ids: _Ids) -> Body:
+    horizontal = s["orientation"] == "horizontal"
+    cats, series, axis = s["categories"], s["series"], s["value_axis"]
+    vmax, step = axis["max"], axis["step"]
+    two = len(series) == 2
+    fills = (DARK, LIGHT)
+    n = len(cats)
+    out: list[str] = []
+    top = 10.0
+    if two:
+        # legend: a swatch and the series name, side by side along the top
+        lx = 20.0
+        for fill, ser in zip(fills, series):
+            out.append(_rect(lx, top, 12, 12, fill=fill, stroke=INK, stroke_width=1.2))
+            out.append(_text(lx + 17, top + 6, ser["name"], size=12, anchor="start"))
+            lx += 17 + _text_w(ser["name"], 12) + 18
+        top += 26
+    numw = _text_w(_num_text(vmax))
+    cat_title = s.get("y_label") if horizontal else s.get("x_label")
+    val_title = s.get("x_label") if horizontal else s.get("y_label")
+    marks = _grid_marks(axis)
+
+    if not horizontal:
+        left = 14 + (16 if val_title else 0) + numw + 10
+        pw, ph = CANVAS - 14 - left, 220.0
+        base = top + ph
+        slot = pw / n
+
+        def V(v: float) -> float:
+            return base - v / vmax * ph
+
+        for v, minor in marks:
+            out.append(_line(left, V(v), left + pw, V(v), **_grid_line(minor)))
+        group = slot * 0.7
+        bw = group / len(series)
+        for ci in range(n):
+            for si, ser in enumerate(series):
+                v = ser["values"][ci]
+                if v > 0:
+                    x = left + slot * ci + (slot - group) / 2 + bw * si
+                    out.append(_rect(x, V(v), bw, base - V(v), fill=fills[si], stroke=INK, stroke_width=1.3))
+        out.append(_line(left, top, left, base, stroke=INK, stroke_width=1.5))
+        out.append(_line(left, base, left + pw, base, stroke=INK, stroke_width=1.5))
+        ky = _every(ph / round(vmax / step), 13)
+        for i in range(round(vmax / step) + 1):
+            out.append(_line(left - 4, V(i * step), left, V(i * step), stroke=INK, stroke_width=1.2))
+            if i % ky == 0:
+                out.append(_text(left - 7, V(i * step), _num_text(i * step), size=_AX_FONT, anchor="end"))
+        tilt = max(_text_w(c) for c in cats) > slot - 4
+        reserve = 20.0
+        for ci, c in enumerate(cats):
+            cx = left + slot * ci + slot / 2
+            if tilt:
+                out.append(_rotated_text(cx + 3, base + 11, c, -40, size=_AX_FONT, anchor="end"))
+            else:
+                out.append(_text(cx, base + 13, c, size=_AX_FONT))
+        if tilt:
+            reserve = max(_text_w(c) for c in cats) * 0.65 + 16
+        y_end = base + reserve
+        if cat_title:
+            out.append(_axis_title(left + pw / 2, y_end + 8, cat_title))
+            y_end += 20
+        if val_title:
+            out.append(_axis_title(14, top + ph / 2, val_title, vertical=True))
+        return "".join(out), y_end + 6
+
+    # horizontal: categories down the left edge (first at the top), the value axis along the bottom
+    left = 14 + (16 if cat_title else 0) + max(_text_w(c) for c in cats) + 10
+    left = min(left, 190.0)
+    pw = CANVAS - left - 26
+    slot = min(44.0, 260.0 / n)
+    ph = slot * n
+    base = top + ph
+
+    def H(v: float) -> float:
+        return left + v / vmax * pw
+
+    for v, minor in marks:
+        out.append(_line(H(v), top, H(v), base, **_grid_line(minor)))
+    group = slot * 0.7
+    bh = group / len(series)
+    for ci in range(n):
+        for si, ser in enumerate(series):
+            v = ser["values"][ci]
+            if v > 0:
+                y = top + slot * ci + (slot - group) / 2 + bh * si
+                out.append(_rect(left, y, H(v) - left, bh, fill=fills[si], stroke=INK, stroke_width=1.3))
+    out.append(_line(left, top, left, base, stroke=INK, stroke_width=1.5))
+    out.append(_line(left, base, left + pw, base, stroke=INK, stroke_width=1.5))
+    for ci, c in enumerate(cats):
+        out.append(_text(left - 7, top + slot * ci + slot / 2, c, size=_AX_FONT, anchor="end"))
+    nsteps = round(vmax / step)
+    kx = _every(pw / nsteps, numw + 6)
+    for i in range(nsteps + 1):
+        out.append(_line(H(i * step), base, H(i * step), base + 4, stroke=INK, stroke_width=1.2))
+        if i % kx == 0:
+            out.append(_text(H(i * step), base + 15, _num_text(i * step), size=_AX_FONT))
+    y_end = base + 26
+    if val_title:
+        out.append(_axis_title(left + pw / 2, y_end + 6, val_title))
+        y_end += 18
+    if cat_title:
+        out.append(_axis_title(14, top + ph / 2, cat_title, vertical=True))
+    return "".join(out), y_end + 6
+
+
+# ---------------------------------------------------------------- picture graph
+
+
+def _symbol_shape(symbol: str, x: float, y: float, w: float, h: float, **kw: Any) -> str:
+    cx, cy = x + w / 2, y + h / 2
+    if symbol == "square":
+        return _rect(x + w * 0.06, y + h * 0.06, w * 0.88, h * 0.88, **kw)
+    if symbol == "triangle":
+        return _poly([(cx, y + h * 0.06), (x + w * 0.03, y + h * 0.94), (x + w * 0.97, y + h * 0.94)], True, **kw)
+    if symbol == "diamond":
+        return _poly([(cx, y + h * 0.02), (x + w * 0.98, cy), (cx, y + h * 0.98), (x + w * 0.02, cy)], True, **kw)
+    if symbol == "star":
+        return _poly(_star(cx, cy, min(w, h) / 2 * 1.04), True, **kw)
+    if symbol == "heart":
+        d = (
+            f"M{_n(cx)} {_n(y + h * 0.92)}"
+            f"C{_n(x - w * 0.08)} {_n(y + h * 0.55)} {_n(x + w * 0.02)} {_n(y + h * 0.06)} {_n(x + w * 0.27)} {_n(y + h * 0.1)}"
+            f"C{_n(x + w * 0.4)} {_n(y + h * 0.12)} {_n(cx)} {_n(y + h * 0.25)} {_n(cx)} {_n(y + h * 0.32)}"
+            f"C{_n(cx)} {_n(y + h * 0.25)} {_n(x + w * 0.6)} {_n(y + h * 0.12)} {_n(x + w * 0.73)} {_n(y + h * 0.1)}"
+            f"C{_n(x + w * 0.98)} {_n(y + h * 0.06)} {_n(x + w * 1.08)} {_n(y + h * 0.55)} {_n(cx)} {_n(y + h * 0.92)}Z"
+        )
+        return _path(d, **kw)
+    return _circle(cx, cy, min(w, h) * 0.46, **kw)
+
+
+def _picture_graph(s: dict, ids: _Ids) -> Body:
+    rows, symbol = s["rows"], s["symbol"]
+    left = min(14 + max(_text_w(r["label"], 13) for r in rows) + 10, 170.0)
+    cell = min(26.0, (CANVAS - left - 14) / 12)
+    pitch = cell + 4
+    row_h = cell + 12
+    top = 8.0
+    out = [_line(left, top, left, top + row_h * len(rows), stroke=INK, stroke_width=1.5)]
+    halves = []
+    for i, r in enumerate(rows):
+        cy = top + row_h * i + row_h / 2
+        out.append(
+            _line(left, top + row_h * (i + 1), CANVAS - 10, top + row_h * (i + 1), stroke=GRID, stroke_width=0.8)
+        )
+        out.append(_text(left - 8, cy, r["label"], size=13, anchor="end"))
+        whole = int(r["symbols"])
+        x0 = left + 8
+        for k in range(whole):
+            out.append(
+                _symbol_shape(
+                    symbol, x0 + k * pitch, cy - cell / 2, cell, cell, fill=DARK, stroke=INK, stroke_width=1.3
+                )
+            )
+        if r["symbols"] - whole >= 0.5:
+            x = x0 + whole * pitch
+            y = cy - cell / 2
+            keep, shape = ids(f"half{i}"), ids(f"whole{i}")
+            halves.append(
+                _el("clipPath", _rect(x - 2, y - 2, cell / 2 + 2, cell + 4), id=keep)
+                + _el("clipPath", _symbol_shape(symbol, x, y, cell, cell), id=shape)
+            )
+            out.append(
+                _g(
+                    _symbol_shape(symbol, x, y, cell, cell, fill=DARK, stroke=INK, stroke_width=1.3),
+                    clip_path=f"url(#{keep})",
+                )
+            )
+            # close the cut edge so the half reads as a half symbol rather than an open outline
+            out.append(
+                _g(
+                    _line(x + cell / 2, y - 2, x + cell / 2, y + cell + 2, stroke=INK, stroke_width=1.6),
+                    clip_path=f"url(#{shape})",
+                )
+            )
+    y = top + row_h * len(rows) + 20
+    out.append(_symbol_shape(symbol, left + 8, y - cell / 2, cell, cell, fill=DARK, stroke=INK, stroke_width=1.3))
+    out.append(_text(left + 8 + cell + 8, y, _key_text(s), size=13, anchor="start"))
+    return "".join(halves) + "".join(out), y + cell / 2 + 10
+
+
+# ---------------------------------------------------------------- dot plot
+
+
+def _tick_axis(
+    lo: float, hi: float, step: float, left: float, pw: float, base: float, minor: bool
+) -> tuple[list[str], float]:
+    """A horizontal number axis from ``lo`` to ``hi``: its line, ticks and numerals. Returns the markup and X(v)."""
+
+    def X(v: float) -> float:
+        return left + (v - lo) / (hi - lo) * pw
+
+    n = round((hi - lo) / step)
+    out = [_line(left - 8, base, left + pw + 8, base, stroke=INK, stroke_width=1.5)]
+    widest = max(_text_w(_num_text(lo + i * step)) for i in range(n + 1))
+    k = _every(pw / n, widest + 6)
+    for i in range(n + 1):
+        v = lo + i * step
+        out.append(_line(X(v), base - 5, X(v), base + 5, stroke=INK, stroke_width=1.3))
+        if minor and i < n:
+            out.append(_line(X(v + step / 2), base - 3, X(v + step / 2), base + 3, stroke=INK, stroke_width=1))
+        if i % k == 0:
+            out.append(_text(X(v), base + 17, _num_text(v), size=_AX_FONT))
+    return out, X
+
+
+def _dot_plot(s: dict, ids: _Ids) -> Body:
+    lo, hi = s["range"]
+    step = s["step"]
+    left, pw = 34.0, CANVAS - 68.0
+    n = round((hi - lo) / step)
+    spacing = pw / n
+    r = max(2.0, min(9.0, spacing * 0.4))
+    pitch = 2 * r + 1.5
+    tallest = max(d["count"] for d in s["dots"])
+    top = 12.0
+    base = top + tallest * pitch + 12
+    axis, X = _tick_axis(lo, hi, step, left, pw, base, False)
+    out = []
+    for d in s["dots"]:
+        for k in range(d["count"]):
+            out.append(_circle(X(d["at"]), base - 2 - r - k * pitch, r, fill=INK, stroke="none"))
+    out.extend(axis)
+    y = base + 28
+    if s.get("x_label"):
+        out.append(_text(left + pw / 2, y + 4, s["x_label"], size=12))
+        y += 18
+    return "".join(out), y + 8
+
+
+# ---------------------------------------------------------------- histogram
+
+
+def _histogram(s: dict, ids: _Ids) -> Body:
+    panels = s["panels"]
+    two = len(panels) == 2
+    numw = max(_text_w(_num_text(p["frequency_axis"]["max"])) for p in panels)
+    left = 14 + (16 if s.get("y_label") else 0) + numw + 10
+    pw = CANVAS - left - 22
+    ph = 118.0 if two else 190.0
+    out: list[str] = []
+    y = 10.0
+    stack_top = y
+    for p in panels:
+        axis, edges, freqs = p["frequency_axis"], p["edges"], p["frequencies"]
+        vmax, step = axis["max"], axis["step"]
+        if p.get("label"):
+            out.append(_text(left, y + 6, p["label"], size=13, anchor="start", weight="bold"))
+            y += 20
+        base = y + ph
+        classes = len(edges) - 1
+
+        def X(v: float) -> float:
+            return left + (v - edges[0]) / (edges[-1] - edges[0]) * pw
+
+        def V(v: float) -> float:
+            return base - v / vmax * ph
+
+        for v, minor in _grid_marks(axis):
+            out.append(_line(left, V(v), left + pw, V(v), **_grid_line(minor)))
+        for k, f in enumerate(freqs):
+            if f > 0:
+                out.append(
+                    _rect(
+                        X(edges[k]),
+                        V(f),
+                        X(edges[k + 1]) - X(edges[k]),
+                        base - V(f),
+                        fill=MID,
+                        stroke=INK,
+                        stroke_width=1.3,
+                    )
+                )
+        out.append(_line(left, y, left, base, stroke=INK, stroke_width=1.5))
+        out.append(_line(left, base, left + pw, base, stroke=INK, stroke_width=1.5))
+        nsteps = round(vmax / step)
+        ky = _every(ph / nsteps, 13)
+        for i in range(nsteps + 1):
+            out.append(_line(left - 4, V(i * step), left, V(i * step), stroke=INK, stroke_width=1.2))
+            if i % ky == 0:
+                out.append(_text(left - 7, V(i * step), _num_text(i * step), size=_AX_FONT, anchor="end"))
+        # a numeral at every class boundary (a learner reads a boundary off it); a smaller face before any is dropped
+        edge_size = (
+            _AX_FONT if _text_w(_num_text(max(edges, key=lambda e: len(_num_text(e))))) + 4 <= pw / classes else 10
+        )
+        kx = _every(pw / classes, max(_text_w(_num_text(e), edge_size) for e in edges) + 3)
+        for i, e in enumerate(edges):
+            out.append(_line(X(e), base, X(e), base + 4, stroke=INK, stroke_width=1.2))
+            if i % kx == 0:
+                out.append(_text(X(e), base + 15, _num_text(e), size=edge_size))
+        last_base = base
+        y = base + 28
+    if s.get("y_label"):
+        out.append(_axis_title(14, (stack_top + last_base) / 2, s["y_label"], vertical=True))
+    y = last_base + 24
+    if s.get("x_label"):
+        out.append(_text(left + pw / 2, y + 6, s["x_label"], size=12))
+        y += 16
+    return "".join(out), y + 6
+
+
+# ---------------------------------------------------------------- box plot
+
+
+def _cross(cx: float, cy: float, r: float) -> str:
+    return _line(cx - r, cy - r, cx + r, cy + r, stroke=INK, stroke_width=1.8) + _line(
+        cx - r, cy + r, cx + r, cy - r, stroke=INK, stroke_width=1.8
+    )
+
+
+def _box_plot(s: dict, ids: _Ids) -> Body:
+    lo, hi = s["range"]
+    step = s["step"]
+    plots = s["plots"]
+    left = max(40.0, 14 + max(_text_w(p["label"], 13) for p in plots) + 10)
+    left = min(left, 170.0)
+    pw = CANVAS - left - 26
+    row_h, top = 56.0, 10.0
+    base = top + row_h * len(plots) + 4
+    axis, X = _tick_axis(lo, hi, step, left, pw, base, bool(s.get("minor")))
+    n = round((hi - lo) / step)
+    out = [_line(X(lo + i * step), top, X(lo + i * step), base, stroke=GRID, stroke_width=0.7) for i in range(n + 1)]
+    for i, p in enumerate(plots):
+        cy = top + row_h * i + row_h / 2 + 2
+        half = 13.0
+        if p["label"]:
+            out.append(_text(left - 10, cy, p["label"], size=13, anchor="end", weight="bold"))
+        out.append(_line(X(p["min"]), cy, X(p["q1"]), cy, stroke=INK, stroke_width=1.8))
+        out.append(_line(X(p["q3"]), cy, X(p["max"]), cy, stroke=INK, stroke_width=1.8))
+        for end in (p["min"], p["max"]):
+            out.append(_line(X(end), cy - 7, X(end), cy + 7, stroke=INK, stroke_width=1.8))
+        out.append(
+            _rect(X(p["q1"]), cy - half, X(p["q3"]) - X(p["q1"]), 2 * half, fill=LIGHT, stroke=INK, stroke_width=1.8)
+        )
+        out.append(_line(X(p["median"]), cy - half, X(p["median"]), cy + half, stroke=INK, stroke_width=3))
+        for o in p["outliers"]:
+            out.append(_cross(X(o), cy, 4.5))
+    out.extend(axis)
+    y = base + 34
+    if s.get("x_label"):
+        out.append(_text(left + pw / 2, y, s["x_label"], size=12))
+        y += 14
+    return "".join(out), y + 6
+
+
+# ---------------------------------------------------------------- pie chart
+
+_PIE_FILLS = ("#ffffff", "#b4b4b4", "#e2e2e2", "#808080", "#f4f4f4", "#c8c8c8")
+
+
+def _pie_layout(sectors: list[dict], parts: int) -> tuple[float, float, float, list[float]]:
+    """Pick a font size and radius where every label fits beside the circle; return (size, r, cx, mid angles)."""
+    mids, run = [], 0
+    for sec in sectors:
+        mids.append((run + sec["parts"] / 2) / parts * 360)
+        run += sec["parts"]
+    for size, r in ((12, 85), (12, 70), (11, 62), (10, 55)):
+        w = [len(_clean_text(sec["label"])) * _CHAR_W * size / 12 for sec in sectors]
+        need_l = max([wi for wi, m in zip(w, mids) if math.sin(math.radians(m)) < -0.2] + [0])
+        need_r = max([wi for wi, m in zip(w, mids) if math.sin(math.radians(m)) > 0.2] + [0])
+        mid_half = max([wi / 2 for wi, m in zip(w, mids) if abs(math.sin(math.radians(m))) <= 0.2] + [0])
+        lo = max(10 + need_l + 14 + r, 10 + mid_half)
+        hi = min(CANVAS - 10 - need_r - 14 - r, CANVAS - 10 - mid_half)
+        if lo <= hi or size == 10:
+            return size, r, min(max(CANVAS / 2, lo), max(lo, hi)), mids
+    raise AssertionError("unreachable")
+
+
+def _pie_chart(s: dict, ids: _Ids) -> Body:
+    parts, sectors = s["parts"], s["sectors"]
+    size, r, cx, mids = _pie_layout(sectors, parts)
+    cy = r + 30
+    out = []
+    boundaries = set()
+    run = 0
+    for si, sec in enumerate(sectors):
+        a0, a1 = run / parts * 360, (run + sec["parts"]) / parts * 360
+        boundaries.update((run, run + sec["parts"]))
+        x0, y0 = _clock_pt(cx, cy, r, a0)
+        x1, y1 = _clock_pt(cx, cy, r, a1)
+        large = 1 if a1 - a0 > 180 else 0
+        d = f"M{_n(cx)} {_n(cy)}L{_n(x0)} {_n(y0)}A{_n(r)} {_n(r)} 0 {large} 1 {_n(x1)} {_n(y1)}Z"
+        out.append(_path(d, fill=_PIE_FILLS[si % len(_PIE_FILLS)], stroke=INK, stroke_width=2, stroke_linejoin="round"))
+        run += sec["parts"]
+    for k in range(parts):  # a thin radius at every wedge boundary that is not already a sector edge
+        if k not in boundaries:
+            x, y = _clock_pt(cx, cy, r, k / parts * 360)
+            out.append(_line(cx, cy, x, y, stroke=DARK, stroke_width=0.9))
+    for sec, mid in zip(sectors, mids):
+        x, y = _clock_pt(cx, cy, r + 10, mid)
+        sn, cs = math.sin(math.radians(mid)), math.cos(math.radians(mid))
+        if sn > 0.2:
+            out.append(_text(x + 3, y, sec["label"], size=size, anchor="start"))
+        elif sn < -0.2:
+            out.append(_text(x - 3, y, sec["label"], size=size, anchor="end"))
+        else:
+            out.append(_text(x, y - 6 if cs > 0 else y + 6, sec["label"], size=size))
+    return "".join(out), cy + r + 26
+
+
 # ---------------------------------------------------------------- entry point
 
 _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
+    "bar_chart": _bar_chart,
     "base_ten": _base_ten,
+    "box_plot": _box_plot,
     "cartesian": _cartesian,
     "clock": _clock,
     "clock_set": _clock_set,
     "counters": _counters,
     "diagram": _diagram,
+    "dot_plot": _dot_plot,
     "fraction_model": _fraction_model,
+    "histogram": _histogram,
     "hundred_chart": _hundred_chart,
     "money": _money,
     "number_line": _number_line,
+    "picture_graph": _picture_graph,
+    "pie_chart": _pie_chart,
     "protractor": _protractor,
     "scale": _scale,
     "tree_diagram": _tree,
