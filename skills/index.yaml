@@ -798,6 +798,14 @@ f10-additive-multiplicative-patterns:
   sources:
   - topic: additive_multiplicative_patterns
     module: mathgen/generators/p5c_patterns_algorithms_build.py
+f10-angle-line-and-plane:
+  domain: geometry
+  status: active
+  sources:
+  - topic: y910_line_plane_angle
+    module: mathgen/generators/y910_line_plane_angle_build.py
+  - topic: exd_x_y910_line_plane_angle
+    module: mathgen/generators/y910_line_plane_angle_build.py
 f10-angle-relationships:
   domain: primary-geometry-time
   status: active
@@ -1116,6 +1124,30 @@ f10-geometric-construction-algorithm:
     module: mathgen/generators/f10_geometric_construction_build.py
   - topic: exd_x_sc2_construction_chain
     module: mathgen/generators/exd_x_sc2_construction_chain.py
+f10-geometric-proof-reasons:
+  domain: geometry
+  status: active
+  sources:
+  - topic: y910_geometric_proof_reasons
+    module: mathgen/generators/y910_geometric_proof_build.py
+  - topic: exd_x_y910_geometric_proof
+    module: mathgen/generators/y910_geometric_proof_build.py
+f10-graphical-inequality-regions:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: y910_graph_inequality_region
+    module: mathgen/generators/y910_graph_inequality_build.py
+  - topic: exd_x_y910_graph_system
+    module: mathgen/generators/exd_x_y910_graph_system.py
+f10-graphical-systems-of-lines:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: y910_graph_system_solution
+    module: mathgen/generators/y910_graph_inequality_build.py
+  - topic: exd_x_y910_graph_system
+    module: mathgen/generators/exd_x_y910_graph_system.py
 f10-grid-reference-pathway:
   domain: geometry
   status: active
@@ -1174,6 +1206,14 @@ f10-logarithmic-scales:
     module: mathgen/generators/p10e_logarithmic_scales_build.py
   - topic: exd_x_n3_decibel_scale
     module: mathgen/generators/exd_x_n3_decibel_scale.py
+f10-match-inequality-to-line:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: y910_graph_inequality_match
+    module: mathgen/generators/y910_graph_inequality_build.py
+  - topic: exd_x_y910_graph_system
+    module: mathgen/generators/exd_x_y910_graph_system.py
 f10-measure-angle-protractor:
   domain: primary-geometry-time
   status: active
@@ -1302,6 +1342,14 @@ f10-number-represent-order-to-20:
   sources:
   - topic: order_to_twenty
     module: mathgen/generators/foundations_subitise_order_build.py
+f10-number-set-membership:
+  domain: secondary-number
+  status: active
+  sources:
+  - topic: y910_classify_number_sets
+    module: mathgen/generators/y910_classify_number_sets_build.py
+  - topic: exd_x_sc5_rational_count
+    module: mathgen/generators/exd_x_sc5_rational_count.py
 f10-odd-even-properties:
   domain: primary-number
   status: active

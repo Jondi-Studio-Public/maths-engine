@@ -1,0 +1,29 @@
+id: f10-angle-line-and-plane
+name: Find the angle between a line and a plane in a solid
+domain: geometry
+year_level: ['10']
+naplan_domain: []
+description: Given the dimensions of a cuboid or a pyramid and a named line (a face diagonal, a space diagonal or a sloping edge) and a plane (the base or a vertical face), find the angle between them in degrees, to one decimal place, by finding the line's shadow on the plane.
+status: active
+placement_eligible: false
+prerequisites: [right-triangle-angle, pythagorean-hypotenuse]
+answer: number
+sources:
+- topic: y910_line_plane_angle
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: y910_line_plane_angle
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: y910_line_plane_angle
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_y910_line_plane_angle
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions: []
+tags: [f10, geometry, trigonometry, three-dimensional, angle-line-plane, acmmg276, year-10a]
