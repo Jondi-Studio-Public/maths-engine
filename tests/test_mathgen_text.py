@@ -1,15 +1,12 @@
 """Learner-facing text: sign formatting, notation, prompt and working-text defects.
 
-Part of the generator sweep (`tests/test_mathgen_*.py`). Verification
+Part of the generator sweep, split across `tests/test_mathgen_*.py` so the CI
+shards can balance it (`scripts/ci_shard.py` balances files by size). Verification
 is built into the generators themselves (each independently re-checks its
 answer with SymPy and raises VerificationError on mismatch), so constructing
 thousands of questions IS the correctness test; the assertions here cover the
 output contract on top of that. Set `MATHS_DEEP_SEEDS` for a deeper run of the
 text checks.
-
-The per-topic checks here (`check_*`) take the questions already built, and
-`tests/mathgen_sweep_cases.py` builds each topic's grid once and runs every check
-on it, so a topic is generated once instead of once per check.
 """
 
 import re
@@ -18,7 +15,7 @@ import pytest
 
 from mathgen import make, topics
 from mathgen.core import PRESETS, REGISTRY
-from tests.mathgen_sweep_support import NEW_KIND_VARIANTS, make_kind, take, TEXT_SEEDS, WORKING_SEEDS
+from tests.mathgen_sweep_support import NEW_KIND_VARIANTS, make_kind, TEXT_SEEDS, WORKING_SEEDS
 from mathgen.text_quality import find_text_defects
 
 TOPICS = [t for _lvl, t in topics()]
@@ -52,13 +49,11 @@ def _assert_no_bad_signs(q, where):
             assert not pat.search(s), f"{where}: bad sign pattern {pat.pattern!r} in {s!r}"
 
 
-def sign_seeds(topic):
-    return 60 if topic == "differential_equation" else 200
-
-
-def check_no_bad_sign_patterns(topic, questions):
-    """`questions`: `make(topic, seed=s)` for s in range(n), n >= `sign_seeds(topic)`."""
-    for seed, q in enumerate(take(questions, sign_seeds(topic))):
+@pytest.mark.parametrize("topic", TOPICS)
+def test_no_bad_sign_patterns(topic):
+    n = 60 if topic == "differential_equation" else 200
+    for seed in range(n):
+        q = make(topic, seed=seed)
         _assert_no_bad_signs(q, f"{topic} seed={seed}")
 
 
@@ -137,18 +132,11 @@ def _text_defects_over_tiers(topic):
     return found
 
 
-def check_no_bad_text_patterns(topic, grid):
-    """`grid`: `{difficulty: [make(topic, seed=s, difficulty=difficulty) ...]}`, a tier per preset and None.
-
-    Not run for a topic in TEXT_DEFECTS_GRANDFATHERED; the tripwire test below covers those.
-    """
+@pytest.mark.parametrize("topic", BUILD_TOPICS)
+def test_no_bad_text_patterns(topic):
     if topic in TEXT_DEFECTS_GRANDFATHERED:
-        return
-    found = []
-    for difficulty, questions in grid.items():
-        for seed, q in enumerate(take(questions, TEXT_SEEDS)):
-            for defect in find_text_defects(q):
-                found.append((f"{topic} difficulty={difficulty} seed={seed}", defect))
+        pytest.skip(f"grandfathered {TEXT_DEFECTS_GRANDFATHERED[topic]}; see the tripwire test")
+    found = _text_defects_over_tiers(topic)
     assert not found, "\n".join(f"{where}: {defect}" for where, defect in found[:10])
 
 
@@ -172,7 +160,7 @@ def test_grandfathered_text_defect_still_present(topic, pattern):
 #                          `join_terms` for the case where it should simplify.
 #   double_punctuation     "cost $9.."  1 skill, and it turned out to be a false
 #                          positive on "p.a.," -- see below.
-#   the lone-label check   in test_mathgen_options.py, `check_answer_is_not_the_only_labelled_option`.
+#   the lone-label check   in test_mathgen_options.py, `test_answer_is_not_the_only_labelled_option`.
 #
 # Two candidate patterns were MEASURED AND REJECTED, which is the part worth
 # remembering. `double_space` flagged 19 skills and nearly every one was
@@ -207,14 +195,21 @@ def test_grandfathered_text_defect_still_present(topic, pattern):
 # matching that sweep's depth.
 
 
-def check_no_bad_working_text(topic, grid):
-    """Defects found in the worked-solution lines only; `grid` as in `check_no_bad_text_patterns`."""
+def _working_defects_over_tiers(topic):
+    """`[(where, defect), ...]` found in the worked-solution lines only."""
     found = []
-    for difficulty, questions in grid.items():
-        for seed, q in enumerate(take(questions, WORKING_SEEDS)):
+    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
+        for seed in range(WORKING_SEEDS):
+            q = make(topic, seed=seed, difficulty=difficulty)
             for defect in find_text_defects(q, include_working=True):
                 if " in working[" in defect:
                     found.append((f"{topic} difficulty={difficulty} seed={seed}", defect))
+    return found
+
+
+@pytest.mark.parametrize("topic", BUILD_TOPICS)
+def test_no_bad_working_text(topic):
+    found = _working_defects_over_tiers(topic)
     assert not found, "\n".join(f"{where}: {defect}" for where, defect in found[:10])
 
 

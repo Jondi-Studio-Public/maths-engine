@@ -3,41 +3,11 @@
 import os
 
 from mathgen import make
-from mathgen.core import PRESETS
 
 # Seeds for the text and working-text checks. Set MATHS_DEEP_SEEDS to raise them
 # for a deeper run; leaving it unset keeps 60.
 TEXT_SEEDS = int(os.environ.get("MATHS_DEEP_SEEDS", "60"))
 WORKING_SEEDS = int(os.environ.get("MATHS_DEEP_SEEDS", "60"))
-
-
-def tiers(topic):
-    """Every difficulty a topic declares, then None (the default)."""
-    return [*sorted(PRESETS.get(topic, {})), None]
-
-
-def take(questions, n):
-    """The first `n` questions of a built grid; fails loudly if the grid is shorter, so a check can
-    never quietly run on fewer seeds than it asks for."""
-    assert len(questions) >= n, f"grid holds {len(questions)} questions but the check needs {n}"
-    return questions[:n]
-
-
-def build_questions(topic, n, **kwargs):
-    """`[make(topic, seed=s, **kwargs) for s in range(n)]`; a `make()` that raises fails with the
-    topic, seed and difficulty in the message."""
-    out = []
-    for seed in range(n):
-        try:
-            out.append(make(topic, seed=seed, **kwargs))
-        except Exception as exc:
-            raise AssertionError(f"make({topic!r}, seed={seed}, **{kwargs!r}) raised {exc!r}") from exc
-    return out
-
-
-def build_grid(topic, n):
-    """`{difficulty: questions}` over `tiers(topic)`, `n` seeds each."""
-    return {difficulty: build_questions(topic, n, difficulty=difficulty) for difficulty in tiers(topic)}
 
 
 # ---------------------------------------------------------------------------

@@ -1,16 +1,13 @@
 """Output contract: pinned outputs, registry, fuzz, determinism, presets, answer_form,
 and helper reuse.
 
-Part of the generator sweep (`tests/test_mathgen_*.py`). Verification
+Part of the generator sweep, split across `tests/test_mathgen_*.py` so the CI
+shards can balance it (`scripts/ci_shard.py` balances files by size). Verification
 is built into the generators themselves (each independently re-checks its
 answer with SymPy and raises VerificationError on mismatch), so constructing
 thousands of questions IS the correctness test; the assertions here cover the
 output contract on top of that. Set `MATHS_DEEP_SEEDS` for a deeper run of the
 text checks.
-
-The per-topic checks here (`check_*`) take the questions already built, and
-`tests/mathgen_sweep_cases.py` builds each topic's grid once and runs every check
-on it, so a topic is generated once instead of once per check.
 """
 
 import hashlib
@@ -20,7 +17,7 @@ import pytest
 
 from mathgen import make, topics
 from mathgen.core import PRESETS, REGISTRY
-from tests.mathgen_sweep_support import NEW_KIND_VARIANTS, make_kind, take
+from tests.mathgen_sweep_support import NEW_KIND_VARIANTS, make_kind
 
 TOPICS = [t for _lvl, t in topics()]
 # Topics registered by a build module (`mathgen/generators/*_build.py`): these
@@ -351,19 +348,16 @@ OPTION_NOTES_TOPICS = frozenset(
 )
 
 
-OPTION_NOTES_SEEDS = 3
-
-
-def check_option_notes_absent_from_every_topics_output(topic, questions):
+@pytest.mark.parametrize("topic", TOPICS)
+def test_option_notes_absent_from_every_topics_output(topic):
     """A topic outside OPTION_NOTES_TOPICS must never carry a top-level
     `option_notes` key. Breaking mathgen/core.py's `to_dict()` pop for it (or
     defaulting it to something non-empty) turns this red for every registered
     topic not listed. A multi-part question serialises each part's own
-    `option_notes` inside `parts`, so only the top-level keys are compared.
-
-    `questions`: `make(topic, seed=s)` for s in range(n), n >= `OPTION_NOTES_SEEDS`."""
+    `option_notes` inside `parts`, so only the top-level keys are compared."""
     carries = False
-    for q in take(questions, OPTION_NOTES_SEEDS):
+    for seed in (0, 1, 2):
+        q = make(topic, seed=seed)
         assert ("option_notes" in q.to_dict()) == ("option_notes" in json.loads(q.to_json()))
         carries = carries or "option_notes" in q.to_dict()
     if topic not in OPTION_NOTES_TOPICS:
@@ -432,12 +426,10 @@ def test_all_20_levels_registered():
     assert len(topics()) == len(REGISTRY)
 
 
-def fuzz_seeds(topic):
-    return N_FUZZ.get(topic, 200)
-
-
-def check_fuzz_generate_and_verify(topic, questions):
-    for seed, q in enumerate(take(questions, fuzz_seeds(topic))):
+@pytest.mark.parametrize("topic", TOPICS)
+def test_fuzz_generate_and_verify(topic):
+    for seed in range(N_FUZZ.get(topic, 200)):
+        q = make(topic, seed=seed)
         # Contract: required fields present and non-empty.
         assert q.text and q.latex and q.answer_text
         assert q.answer is not None
@@ -453,11 +445,10 @@ def test_determinism(topic):
         assert make(topic, seed=seed).to_json() == make(topic, seed=seed).to_json()
 
 
-DISTRACTOR_SEEDS = 80
-
-
-def check_distractors_are_valid(topic, questions):
-    for q in take(questions, DISTRACTOR_SEEDS):
+@pytest.mark.parametrize("topic", TOPICS)
+def test_distractors_are_valid(topic):
+    for seed in range(80):
+        q = make(topic, seed=seed)
         # Never colliding with the right answer, never duplicated.
         assert q.answer_text not in q.distractors
         assert len(q.distractors) == len(set(q.distractors))
@@ -638,17 +629,14 @@ ANSWER_FORM_SOMETIMES = {
 }
 
 
-ANSWER_FORM_SEEDS = 3
-
-
-def check_answer_form_only_present_for_declared_topics(topic, questions):
+@pytest.mark.parametrize("topic", TOPICS)
+def test_answer_form_only_present_for_declared_topics(topic):
     """Every OTHER registered topic must never carry `answer_form` in its
     output -- proof this can fail: with ANSWER_FORM_TOPICS emptied, the six
-    topics that do set it immediately turn this red.
-
-    `questions`: `make(topic, seed=s)` for s in range(n), n >= `ANSWER_FORM_SEEDS`."""
+    topics that do set it immediately turn this red."""
     expected_present = topic in ANSWER_FORM_TOPICS
-    for q in take(questions, ANSWER_FORM_SEEDS):
+    for seed in (0, 1, 2):
+        q = make(topic, seed=seed)
         # A multi-part question serialises each part's own `answer_form` inside
         # `parts`, so the top-level keys are what is compared.
         present = "answer_form" in q.to_dict()

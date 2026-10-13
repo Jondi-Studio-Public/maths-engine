@@ -1,15 +1,12 @@
 """Option quality: distinct questions per tier and answers that stand out from their options.
 
-Part of the generator sweep (`tests/test_mathgen_*.py`). Verification
+Part of the generator sweep, split across `tests/test_mathgen_*.py` so the CI
+shards can balance it (`scripts/ci_shard.py` balances files by size). Verification
 is built into the generators themselves (each independently re-checks its
 answer with SymPy and raises VerificationError on mismatch), so constructing
 thousands of questions IS the correctness test; the assertions here cover the
 output contract on top of that. Set `MATHS_DEEP_SEEDS` for a deeper run of the
 text checks.
-
-The per-topic checks here (`check_*`) take the questions already built, and
-`tests/mathgen_sweep_cases.py` builds each topic's grid once and runs every check
-on it, so a topic is generated once instead of once per check.
 """
 
 import json
@@ -19,7 +16,7 @@ import pytest
 
 from mathgen import make, topics
 from mathgen.core import PRESETS, REGISTRY
-from tests.mathgen_sweep_support import take, TEXT_SEEDS
+from tests.mathgen_sweep_support import TEXT_SEEDS
 
 TOPICS = [t for _lvl, t in topics()]
 # Topics registered by a build module (`mathgen/generators/*_build.py`): these
@@ -110,17 +107,17 @@ _VARIETY_SEEDS = 60
 _MIN_DISTINCT = 10
 
 
-def check_each_tier_offers_enough_distinct_questions(topic, grid):
-    """`grid`: `{difficulty: [make(topic, seed=s, difficulty=difficulty) ...]}`, a tier per preset and None."""
-    for difficulty, questions in grid.items():
-        # A question is its words plus its picture: the same words over a different figure are a
-        # different question (the skill contract's variety check counts them the same way).
-        distinct = len(
-            {
-                (q.text, None if q.figure is None else json.dumps(q.figure, sort_keys=True))
-                for q in take(questions, _VARIETY_SEEDS)
-            }
-        )
+def _distinct_prompts(topic, difficulty):
+    # A question is its words plus its picture: the same words over a different figure are a
+    # different question (the skill contract's variety check counts them the same way).
+    qs = (make(topic, seed=seed, difficulty=difficulty) for seed in range(_VARIETY_SEEDS))
+    return {(q.text, None if q.figure is None else json.dumps(q.figure, sort_keys=True)) for q in qs}
+
+
+@pytest.mark.parametrize("topic", BUILD_TOPICS)
+def test_each_tier_offers_enough_distinct_questions(topic):
+    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
+        distinct = len(_distinct_prompts(topic, difficulty))
         pinned = SMALL_QUESTION_POOL.get((topic, difficulty))
         if pinned is not None:
             assert distinct >= pinned, (
@@ -151,13 +148,9 @@ def _option_shape(value):
 
 def _lone_shape_seeds(topic, difficulty):
     """Seeds where the answer is the only option of its shape."""
-    return _lone_shape_in([make(topic, seed=seed, difficulty=difficulty) for seed in range(TEXT_SEEDS)])
-
-
-def _lone_shape_in(questions):
-    """Seeds where the answer is the only option of its shape, in questions already built."""
     found = []
-    for seed, question in enumerate(take(questions, TEXT_SEEDS)):
+    for seed in range(TEXT_SEEDS):
+        question = make(topic, seed=seed, difficulty=difficulty)
         options = [question.answer_text, *question.distractors]
         if len(options) < 3:
             continue
@@ -169,11 +162,12 @@ def _lone_shape_in(questions):
     return found
 
 
-def check_answer_is_not_the_only_option_of_its_shape(topic, grid):
-    for difficulty, questions in grid.items():
+@pytest.mark.parametrize("topic", BUILD_TOPICS)
+def test_answer_is_not_the_only_option_of_its_shape(topic):
+    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
         if (topic, difficulty) in OPTION_SHAPE_BACKLOG:
             continue
-        found = _lone_shape_in(questions)
+        found = _lone_shape_seeds(topic, difficulty)
         assert not found, (
             f"{topic} [{difficulty}]: the answer is the only option of its shape at "
             f"{len(found)} seeds, so it can be picked without doing the arithmetic. "
@@ -185,7 +179,7 @@ def check_answer_is_not_the_only_option_of_its_shape(topic, grid):
 _LABEL_RE = re.compile(r"^\s*[A-Za-z]\w*\s*=")
 
 
-def _lone_label_in(questions):
+def _lone_label_seeds(topic, difficulty):
     """Seeds where only the ANSWER carries a leading label such as "y = ".
 
     `_option_shape` above compares the numeric shape of an option and skips a
@@ -194,7 +188,8 @@ def _lone_label_in(questions):
     seeds of every tier, pickable without doing any mathematics.
     """
     found = []
-    for seed, question in enumerate(take(questions, TEXT_SEEDS)):
+    for seed in range(TEXT_SEEDS):
+        question = make(topic, seed=seed, difficulty=difficulty)
         options = [question.answer_text, *question.distractors]
         if len(options) < 3 or not all(isinstance(o, str) for o in options):
             continue
@@ -204,9 +199,10 @@ def _lone_label_in(questions):
     return found
 
 
-def check_answer_is_not_the_only_labelled_option(topic, grid):
-    for difficulty, questions in grid.items():
-        found = _lone_label_in(questions)
+@pytest.mark.parametrize("topic", BUILD_TOPICS)
+def test_answer_is_not_the_only_labelled_option(topic):
+    for difficulty in [*sorted(PRESETS.get(topic, {})), None]:
+        found = _lone_label_seeds(topic, difficulty)
         assert not found, (
             f"{topic} [{difficulty}]: the answer is the only option carrying a "
             f"label at {len(found)} seeds, so it can be picked without doing the "
