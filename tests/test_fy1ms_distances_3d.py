@@ -42,7 +42,7 @@ def oracle(tier, q) -> str:
     if m:
         p, a, u = (_vec(m.group(i)) for i in (1, 2, 3))
         return T.rnd((p - a).cross(u).norm() / u.norm(), 2)
-    m = re.match(r"A parallelepiped has edges a = \((.*?)\), b = \((.*?)\) and c = \((.*?)\) from one corner", text)
+    m = re.search(r"edges a = \((.*?)\), b = \((.*?)\) and c = \((.*?)\) from one corner", text)
     if m:
         a, b, c = (_vec(m.group(i)) for i in (1, 2, 3))
         return str(abs(sympy.Matrix.hstack(a, b, c).det()))
@@ -117,9 +117,7 @@ def test_clean_text_variety_and_determinism(tier):
 
 
 def exam_oracle(q):
-    m = re.match(
-        r"A solid crystal is a parallelepiped with edges a = \((.*?)\), b = \((.*?)\) and c = \((.*?)\) from", q.stem
-    )
+    m = re.search(r"edges a = \((.*?)\), b = \((.*?)\) and c = \((.*?)\) from", q.stem)
     a, b, c = (_vec(m.group(i)) for i in (1, 2, 3))
     triple = sympy.Matrix.hstack(a, b, c).det()
     area = a.cross(b).norm()

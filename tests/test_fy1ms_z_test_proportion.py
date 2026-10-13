@@ -49,7 +49,7 @@ def oracle(q) -> str:
     p0 = _p0(text)
     if "smallest value of the sample proportion" in text or "smallest number" in text:
         n = int(re.search(r"random sample of (\d+)", text).group(1))
-        edge = float(p0) + 1.96 * _se(p0, n)
+        edge = float(p0) + 1.645 * _se(p0, n)
         if "smallest value" in text:
             return T.rnd(edge, 4)
         return str(math.floor(edge * n) + 1)

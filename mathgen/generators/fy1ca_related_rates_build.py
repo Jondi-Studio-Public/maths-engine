@@ -262,8 +262,8 @@ def _vehicles(rng: random.Random) -> dict:
     text = phrase(
         rng,
         (
-            "Two roads in the Riverina cross at right angles. A ute is {x} km north of the crossing and driving north at {u} km/h; a truck is {y} km east of it and driving west, towards the crossing, at {w} km/h. At what rate is the distance between them changing, in km/h? (A negative answer means the distance is shrinking.)",
-            "At a crossroads outside Wagga Wagga, one car is {x} km north of the intersection heading north at {u} km/h, while another is {y} km east of it, travelling west towards it at {w} km/h. Find the rate of change of the distance between the cars, in km/h, at this moment. Use a negative value if they are getting closer.",
+            "Two roads in the Riverina cross at right angles. A ute is {x} km north of the crossing and driving north at {u} km/h; a truck is {y} km east of the crossing and driving west, towards the crossing, at {w} km/h. At what rate is the distance between them changing, in km/h? (A negative answer means the distance is shrinking.)",
+            "At a crossroads outside Wagga Wagga, one car is {x} km north of the intersection heading north at {u} km/h, while another is {y} km east of the intersection, travelling west towards it at {w} km/h. Find the rate of change of the distance between the cars, in km/h, at this moment. Use a negative value if they are getting closer.",
         ),
         x=x,
         y=y,

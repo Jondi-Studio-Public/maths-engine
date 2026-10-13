@@ -30,6 +30,9 @@ from sympy import Rational, pi, sqrt
 
 from ..core import check, generator, latex_answer, phrase
 from ._fy1ca_kit import (
+    definite,
+    lambdified,
+    vanishes,
     Redraw,
     build_with_redraws,
     clear_of_rounding,
@@ -94,27 +97,27 @@ def _radius(axis):
 
 
 def _shell_volume(top, bottom, lo, hi, axis):
-    return 2 * pi * sympy.integrate(_radius(axis) * (top - bottom), (x, lo, hi))
+    return 2 * pi * definite(_radius(axis) * (top - bottom), x, lo, hi)
 
 
 def _shell_numeric(top, bottom, lo, hi, axis) -> float:
-    height = sympy.lambdify(x, top - bottom, "math")
-    radius = sympy.lambdify(x, _radius(axis), "math")
+    height = lambdified(x, top - bottom)
+    radius = lambdified(x, _radius(axis))
     return 2 * math.pi * simpson(lambda v: radius(v) * height(v), float(lo), float(hi), 2400)
 
 
 def _shell_wrong(top, bottom, lo, hi, axis):
     gap = top - bottom
     wrong = [
-        (2 * pi * sympy.integrate(gap, (x, lo, hi)), "fy1ca-shell-radius-forgotten"),
-        (pi * sympy.integrate(_radius(axis) * gap, (x, lo, hi)), "fy1ca-shell-two-forgotten"),
-        (pi * sympy.integrate(top**2 - bottom**2, (x, lo, hi)), "fy1ca-shell-disc-formula"),
-        (2 * sympy.integrate(_radius(axis) * gap, (x, lo, hi)), "fy1ca-shell-pi-forgotten"),
+        (2 * pi * definite(gap, x, lo, hi), "fy1ca-shell-radius-forgotten"),
+        (pi * definite(_radius(axis) * gap, x, lo, hi), "fy1ca-shell-two-forgotten"),
+        (pi * definite(top**2 - bottom**2, x, lo, hi), "fy1ca-shell-disc-formula"),
+        (2 * definite(_radius(axis) * gap, x, lo, hi), "fy1ca-shell-pi-forgotten"),
     ]
     if bottom != 0:
-        wrong.append((2 * pi * sympy.integrate(_radius(axis) * top, (x, lo, hi)), "fy1ca-shell-height-not-difference"))
+        wrong.append((2 * pi * definite(_radius(axis) * top, x, lo, hi), "fy1ca-shell-height-not-difference"))
     if axis is not None:
-        wrong.append((2 * pi * sympy.integrate(x * gap, (x, lo, hi)), "fy1ca-shell-axis-ignored"))
+        wrong.append((2 * pi * definite(x * gap, x, lo, hi), "fy1ca-shell-axis-ignored"))
     return wrong
 
 
@@ -154,8 +157,8 @@ def _easy(rng: random.Random) -> dict:
     )
     working = [
         f"A shell at x has radius x and height {_show(top)}, so V = 2π times the integral of x({_show(top)}) from 0 to {hi}.",
-        f"The integral of {_show(sympy.expand(x * top))} is {_show(sympy.integrate(x * top, x))}, which is {_show(sympy.integrate(x * top, (x, 0, hi)))} between the limits.",
-        f"V = 2π × {_show(sympy.integrate(x * top, (x, 0, hi)))} = {_show(answer)}.",
+        f"The integral of {_show(sympy.expand(x * top))} is {_show(sympy.integrate(x * top, x))}, which is {_show(definite(x * top, x, 0, hi))} between the limits.",
+        f"V = 2π × {_show(definite(x * top, x, 0, hi))} = {_show(answer)}.",
     ]
     return _question(text, answer, wrong, working)
 
@@ -234,7 +237,7 @@ def _medium(rng: random.Random) -> dict:
 
 def _frustum_sum(y, lo: float, hi: float, n: int = 4000) -> float:
     """The area of the surface of revolution about the x-axis, as a sum of frustum areas along the curve."""
-    f = sympy.lambdify(x, y, "math")
+    f = lambdified(x, y)
     total = 0.0
     px, py = lo, f(lo)
     for i in range(1, n + 1):
@@ -248,11 +251,11 @@ def _frustum_sum(y, lo: float, hi: float, n: int = 4000) -> float:
 def _surface_wrong(y, speed, lo, hi):
     """Candidates shared by the families: leave out the root, the radius, the 2, or use the volume formula."""
     return [
-        (2 * pi * sympy.integrate(y, (x, lo, hi)), "fy1ca-surface-root-dropped"),
-        (2 * pi * sympy.integrate(speed, (x, lo, hi)), "fy1ca-surface-radius-dropped"),
-        (pi * sympy.integrate(y * speed, (x, lo, hi)), "fy1ca-surface-two-forgotten"),
-        (pi * sympy.integrate(y**2, (x, lo, hi)), "fy1ca-surface-volume-formula"),
-        (sympy.integrate(speed, (x, lo, hi)), "fy1ca-surface-arc-length-only"),
+        (2 * pi * definite(y, x, lo, hi), "fy1ca-surface-root-dropped"),
+        (2 * pi * definite(speed, x, lo, hi), "fy1ca-surface-radius-dropped"),
+        (pi * definite(y * speed, x, lo, hi), "fy1ca-surface-two-forgotten"),
+        (pi * definite(y**2, x, lo, hi), "fy1ca-surface-volume-formula"),
+        (definite(speed, x, lo, hi), "fy1ca-surface-arc-length-only"),
     ]
 
 
@@ -261,7 +264,7 @@ def _cone(rng: random.Random) -> dict:
     hi = rng.choice([2, 3, 4, 5, 6])
     y = m * x
     speed = sqrt(1 + m**2)
-    answer = sympy.simplify(2 * pi * sympy.integrate(y * speed, (x, 0, hi)))
+    answer = sympy.simplify(2 * pi * definite(y * speed, x, 0, hi))
     check(close(_frustum_sum(y, 0.0, float(hi)), float(answer), 1e-6), "numerical area disagrees")
     wrong = _surface_wrong(y, speed, 0, hi)
     mt = f"{m.p}/{m.q}"
@@ -287,17 +290,17 @@ def _paraboloid(rng: random.Random) -> dict:
     y = sqrt(x)
     speed = sqrt(1 + 1 / (4 * x))
     integrand = sqrt(x + Rational(1, 4))
-    check(sympy.simplify(y * speed - integrand) == 0, "integrand mismatch")
+    check(vanishes(y * speed - integrand), "integrand mismatch")
     G = lambda v: Rational(2, 3) * (Rational(v) + Rational(1, 4)) ** Rational(3, 2)  # noqa: E731
     answer = sympy.simplify(2 * pi * (G(hi) - G(lo)))
     check(close(_frustum_sum(y, float(lo), float(hi)), float(answer), 1e-4), "numerical area disagrees")
     wrong = [
-        (2 * pi * sympy.integrate(y, (x, lo, hi)), "fy1ca-surface-root-dropped"),
+        (2 * pi * definite(y, x, lo, hi), "fy1ca-surface-root-dropped"),
         (pi * (G(hi) - G(lo)), "fy1ca-surface-two-forgotten"),
         (2 * pi * G(hi), "fy1ca-surface-lower-limit-ignored"),
-        (pi * sympy.integrate(y**2, (x, lo, hi)), "fy1ca-surface-volume-formula"),
+        (pi * definite(y**2, x, lo, hi), "fy1ca-surface-volume-formula"),
         (2 * pi * (G(hi) - G(lo)) * Rational(3, 2), "fy1ca-surface-wrong-antiderivative"),
-        (2 * pi * sympy.integrate(sqrt(x + 1), (x, lo, hi)), "fy1ca-surface-quarter-dropped"),
+        (2 * pi * definite(sqrt(x + 1), x, lo, hi), "fy1ca-surface-quarter-dropped"),
     ]
     text = phrase(
         rng,
@@ -321,9 +324,9 @@ def _perfect_square_curve(rng: random.Random) -> dict:
     hi = rng.choice([2, 3, 4])
     y = x**3 / 6 + 1 / (2 * x)
     speed = x**2 / 2 + 1 / (2 * x**2)
-    check(sympy.simplify(1 + sympy.diff(y, x) ** 2 - speed**2) == 0, "speed mismatch")
+    check(vanishes(1 + sympy.diff(y, x) ** 2 - speed**2), "speed mismatch")
     product = sympy.expand(y * speed)
-    answer = 2 * pi * sympy.integrate(product, (x, lo, hi))
+    answer = 2 * pi * definite(product, x, lo, hi)
     check(close(_frustum_sum(y, float(lo), float(hi)), float(answer), 1e-5), "numerical area disagrees")
     wrong = _surface_wrong(y, speed, lo, hi)
     text = phrase(

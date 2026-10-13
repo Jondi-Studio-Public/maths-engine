@@ -11406,7 +11406,7 @@ _ENTRIES = (
     ),
     CatalogueEntry(
         "ztest-wrong-critical-value",
-        "Using a critical value that does not match the stated one, such as 1.645 where the question gives 1.96.",
+        "Using a critical value that does not match the stated one, such as the two-sided 1.96 where the question gives the one-sided 1.645.",
         area="statistics",
     ),
     CatalogueEntry(

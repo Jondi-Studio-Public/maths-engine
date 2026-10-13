@@ -204,7 +204,13 @@ def _medium_triple(rng: random.Random) -> dict:
     if base_area == int(base_area):
         cands.append(num_dist(int(base_area), 0, "volume-as-base-area-only"))
     text, latex = say(
-        "A parallelepiped has edges ",
+        rng.choice(
+            [
+                "A parallelepiped has edges ",
+                "A parallelepiped is built on the edges ",
+                "A parallelepiped has the three edges ",
+            ]
+        ),
         Fm(f"a = {_v(a)}"),
         ", ",
         Fm(f"b = {_v(b)}"),
@@ -432,7 +438,13 @@ def _exam_chain(rng: random.Random) -> dict:
         num_dist(3 * volume / area, dp, "height-pyramid-factor-applied-to-prism"),
     ]
     stem, stem_latex = say(
-        "A solid crystal is a parallelepiped with edges ",
+        rng.choice(
+            [
+                "A solid crystal is a parallelepiped with edges ",
+                "A crystal grows in the shape of a parallelepiped with edges ",
+                "A parallelepiped-shaped crystal has edges ",
+            ]
+        ),
         Fm(f"a = {_v(a)}"),
         ", ",
         Fm(f"b = {_v(b)}"),

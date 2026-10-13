@@ -24,6 +24,7 @@ instead of at the point, the cross term of the second derivative dropped or not 
 
 from __future__ import annotations
 
+import functools
 import random
 
 import sympy
@@ -33,6 +34,13 @@ from ..core import attempts, check, generator
 from ._fy1ms_common import Fm, build_until, num_dist, number_part, number_question, plain_expr, say
 
 x, y, t, u, v = symbols("x y t u v")
+
+
+@functools.cache
+def _diff(expr, *wrt):
+    """sympy.diff, cached: the same few surfaces and paths are differentiated on every seed."""
+    return sympy.diff(expr, *wrt)
+
 
 _MONOMIALS = [x**2, x * y, y**2, x, y, x**3, x**2 * y, x * y**2, y**3]
 _COEFFS = (-3, -2, -1, 1, 2, 3)
@@ -56,7 +64,7 @@ def _lin(rng: random.Random, var) -> sympy.Expr:
 
 
 def _partials(f, at: dict):
-    return sympy.diff(f, x).subs(at), sympy.diff(f, y).subs(at)
+    return _diff(f, x).subs(at), _diff(f, y).subs(at)
 
 
 def _val(expr) -> int:
@@ -69,9 +77,9 @@ def _along_path(f, xt, yt, t0):
     """dz/dt at t0 by the chain rule (primary route) and by substituting the path first (second route)."""
     pt = {x: xt.subs(t, t0), y: yt.subs(t, t0)}
     fx, fy = _partials(f, pt)
-    dxdt, dydt = sympy.diff(xt, t).subs(t, t0), sympy.diff(yt, t).subs(t, t0)
+    dxdt, dydt = _diff(xt, t).subs(t, t0), _diff(yt, t).subs(t, t0)
     chain = fx * dxdt + fy * dydt
-    direct = sympy.diff(f.subs({x: xt, y: yt}), t).subs(t, t0)
+    direct = _diff(f.subs({x: xt, y: yt}), t).subs(t, t0)
     check(chain == direct, "chain rule disagrees with substitute-then-differentiate")
     return pt, fx, fy, dxdt, dydt, int(chain)
 
@@ -171,12 +179,12 @@ def _draw_change(rng: random.Random, *, linear: bool):
         pt = {x: xs.subs({u: u0, v: v0}), y: ys.subs({u: u0, v: v0})}
         fx, fy = _partials(f, pt)
         wrt = rng.choice((u, v))
-        dxs, dys = sympy.diff(xs, wrt).subs({u: u0, v: v0}), sympy.diff(ys, wrt).subs({u: u0, v: v0})
+        dxs, dys = _diff(xs, wrt).subs({u: u0, v: v0}), _diff(ys, wrt).subs({u: u0, v: v0})
         answer = int(fx * dxs + fy * dys)
-        direct = sympy.diff(f.subs({x: xs, y: ys}), wrt).subs({u: u0, v: v0})
+        direct = _diff(f.subs({x: xs, y: ys}), wrt).subs({u: u0, v: v0})
         check(answer == direct, "chain rule disagrees with substitute-then-differentiate")
         other = v if wrt == u else u
-        dxo, dyo = sympy.diff(xs, other).subs({u: u0, v: v0}), sympy.diff(ys, other).subs({u: u0, v: v0})
+        dxo, dyo = _diff(xs, other).subs({u: u0, v: v0}), _diff(ys, other).subs({u: u0, v: v0})
         if answer == 0 or abs(answer) > 2500 or fx == 0 or fy == 0 or dxs == 0 or dys == 0:
             continue
         if len({answer, int(fx + fy), int(fx * dxs), int(fy * dxs + fx * dys), int(fx * dxo + fy * dyo)}) < 5:
@@ -234,14 +242,14 @@ def _second_question(rng: random.Random) -> dict:
     for _ in attempts(3000, "a usable second-derivative question"):
         f = _poly(rng, cubic=rng.random() < 0.6)
         xt, yt = _lin(rng, t), _lin(rng, t)
-        a, c = sympy.diff(xt, t), sympy.diff(yt, t)
+        a, c = _diff(xt, t), _diff(yt, t)
         t0 = rng.choice((-2, -1, 1, 2))
         pt = {x: xt.subs(t, t0), y: yt.subs(t, t0)}
-        fxx, fxy, fyy = (sympy.diff(f, *vars_).subs(pt) for vars_ in ((x, x), (x, y), (y, y)))
+        fxx, fxy, fyy = (_diff(f, *vars_).subs(pt) for vars_ in ((x, x), (x, y), (y, y)))
         answer = int(fxx * a**2 + 2 * fxy * a * c + fyy * c**2)
-        direct = sympy.diff(f.subs({x: xt, y: yt}), t, 2).subs(t, t0)
+        direct = _diff(f.subs({x: xt, y: yt}), t, 2).subs(t, t0)
         check(answer == direct, "second derivative disagrees with substitute-then-differentiate")
-        first = int(sympy.diff(f, x).subs(pt) * a + sympy.diff(f, y).subs(pt) * c)
+        first = int(_diff(f, x).subs(pt) * a + _diff(f, y).subs(pt) * c)
         wrong = {
             "second-derivative-cross-term-dropped": int(fxx * a**2 + fyy * c**2),
             "second-derivative-cross-term-not-doubled": int(fxx * a**2 + fxy * a * c + fyy * c**2),
@@ -337,14 +345,14 @@ def _exam_chain(rng: random.Random) -> dict:
         num_dist(fx_t, 0, "chain-rule-partials-evaluated-at-parameter"),
         num_dist(fx * dxdt, 0, "partial-multiplied-by-path-derivative"),
         num_dist(-fx, 0, "partial-sign-slip"),
-        num_dist(sympy.diff(f, x).subs({x: pt[y], y: pt[x]}), 0, "chain-rule-point-coordinates-swapped"),
+        num_dist(_diff(f, x).subs({x: pt[y], y: pt[x]}), 0, "chain-rule-point-coordinates-swapped"),
     ]
     b_cands = [
         num_dist(fx, 0, "chain-rule-partials-swapped"),
         num_dist(fy_t, 0, "chain-rule-partials-evaluated-at-parameter"),
         num_dist(fy * dydt, 0, "partial-multiplied-by-path-derivative"),
         num_dist(-fy, 0, "partial-sign-slip"),
-        num_dist(sympy.diff(f, y).subs({x: pt[y], y: pt[x]}), 0, "chain-rule-point-coordinates-swapped"),
+        num_dist(_diff(f, y).subs({x: pt[y], y: pt[x]}), 0, "chain-rule-point-coordinates-swapped"),
     ]
     c_cands = [
         num_dist(fx + fy, 0, "chain-rule-inner-derivatives-omitted"),

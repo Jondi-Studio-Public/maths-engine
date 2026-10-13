@@ -94,8 +94,8 @@ misconceptions:
     Giving the margin z* × SE as the boundary instead of adding it to p0.
 - id: ztest-wrong-critical-value
   description: >-
-    Using a critical value that does not match the stated one, such as 1.645 where the question
-    gives 1.96.
+    Using a critical value that does not match the stated one, such as the two-sided 1.96 where the question
+    gives the one-sided 1.645.
 - id: ztest-count-rounded-down
   description: >-
     Rounding the boundary count down, so the count named does not actually reject H0.

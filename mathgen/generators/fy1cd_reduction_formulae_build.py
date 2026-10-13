@@ -187,7 +187,7 @@ def _k_integral(a: int, b: int, exponent: str = "k") -> F:
 
 
 def _medium(rng):
-    a = rng.choice([-3, -2, -1, 2, 3, 4, 5])
+    a = rng.choice([-3, -2, 2, 3, 4, 5])
     n = rng.randint(2, 5)
     value = _kchain(n, a, 1)
     _verify(value, lambda x: x**n * math.exp(a * x), 0, 1, f"K_{n}")
@@ -196,10 +196,17 @@ def _medium(rng):
     cands.append((_kchain(n, a, 1, k0=1.0), "redform-stopped-early"))
     ds = pick_decimal(value, cands, 3)
     _need(ds)
+    lead, link = rng.choice(
+        [
+            ("The integrals K_k = ", " satisfy "),
+            ("Let K_k = ", ". Then "),
+            ("Define K_k = ", ". Integration by parts gives "),
+        ]
+    )
     stem = _stem(
-        "The integrals K_k = ",
+        lead,
         _k_integral(a, 1),
-        " satisfy ",
+        link,
         _k_formula(a, 1),
         " for k ≥ 1. Find ",
         F(f"K_{n}", f"K_{{{n}}}"),

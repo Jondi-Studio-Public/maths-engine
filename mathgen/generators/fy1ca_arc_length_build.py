@@ -30,6 +30,9 @@ from sympy import Rational, log, sqrt
 
 from ..core import check, generator, latex_answer, phrase
 from ._fy1ca_kit import (
+    definite,
+    lambdified,
+    vanishes,
     Redraw,
     build_with_redraws,
     clear_of_rounding,
@@ -50,7 +53,7 @@ x, t = sympy.symbols("x t", positive=True)
 
 def _numeric_length(curve, lo, hi) -> float:
     """Arc length by Simpson's rule with the slope taken by central differences of the curve (no derivative formula)."""
-    f = sympy.lambdify(x, curve, "math")
+    f = lambdified(x, curve)
     h = 1e-5
 
     lo, hi = float(lo), float(hi)
@@ -64,7 +67,7 @@ def _numeric_length(curve, lo, hi) -> float:
 
 
 def _numeric_parametric(xt, yt, lo, hi) -> float:
-    fx, fy = sympy.lambdify(t, xt, "math"), sympy.lambdify(t, yt, "math")
+    fx, fy = lambdified(t, xt), lambdified(t, yt)
     h = 1e-5
 
     def speed(v: float) -> float:
@@ -77,7 +80,7 @@ def _numeric_parametric(xt, yt, lo, hi) -> float:
 
 def _verify_integrand(curve, integrand) -> None:
     """1 + y'^2 equals the square of the integrand the working uses."""
-    check(sympy.simplify(1 + sympy.diff(curve, x) ** 2 - integrand**2) == 0, "integrand is not sqrt(1 + y'^2)")
+    check(vanishes(1 + sympy.diff(curve, x) ** 2 - integrand**2), "integrand is not sqrt(1 + y'^2)")
 
 
 def _question(text, answer, wrong, working) -> dict:
@@ -126,7 +129,7 @@ def _common_wrong(curve, lo, hi, antiderivative, integrand):
     y = sympy.Lambda(x, curve)
     chord = sqrt((hi - lo) ** 2 + (y(hi) - y(lo)) ** 2)
     return [
-        (sympy.integrate(1 + sympy.diff(curve, x) ** 2, (x, lo, hi)), "fy1ca-arc-root-dropped"),
+        (definite(1 + sympy.diff(curve, x) ** 2, x, lo, hi), "fy1ca-arc-root-dropped"),
         (antiderivative(hi), "fy1ca-arc-lower-limit-ignored"),
         (chord, "fy1ca-arc-chord-used"),
         (y(hi) - y(lo), "fy1ca-arc-height-change-used"),
@@ -208,7 +211,7 @@ def _cubic_reciprocal(rng: random.Random) -> dict:
     answer = G(hi) - G(lo)
     check(close(_numeric_length(curve, lo, hi), float(answer), 1e-6), "numerical length disagrees")
     wrong = _common_wrong(curve, lo, hi, G, integrand)
-    wrong.append((sympy.integrate(x**2 / 2 - 1 / (2 * x**2), (x, lo, hi)), "fy1ca-arc-cross-term-sign"))
+    wrong.append((definite(x**2 / 2 - 1 / (2 * x**2), x, lo, hi), "fy1ca-arc-cross-term-sign"))
     text = phrase(
         rng,
         (
@@ -235,7 +238,7 @@ def _quartic_reciprocal(rng: random.Random) -> dict:
     answer = G(hi) - G(lo)
     check(close(_numeric_length(curve, lo, hi), float(answer), 1e-6), "numerical length disagrees")
     wrong = _common_wrong(curve, lo, hi, G, integrand)
-    wrong.append((sympy.integrate(x**3 / 2 - 1 / (2 * x**3), (x, lo, hi)), "fy1ca-arc-cross-term-sign"))
+    wrong.append((definite(x**3 / 2 - 1 / (2 * x**3), x, lo, hi), "fy1ca-arc-cross-term-sign"))
     text = phrase(
         rng,
         (
@@ -275,16 +278,16 @@ def _parametric(rng: random.Random) -> dict:
     lo, hi = rng.choice([(a, b) for a in _T_VALUES for b in _T_VALUES if a < b])
     xt, yt = t**2, Rational(2, 3) * t**3
     speed = 2 * t * sqrt(1 + t**2)
-    check(sympy.simplify(sympy.diff(xt, t) ** 2 + sympy.diff(yt, t) ** 2 - speed**2) == 0, "speed is wrong")
+    check(vanishes(sympy.diff(xt, t) ** 2 + sympy.diff(yt, t) ** 2 - speed**2), "speed is wrong")
     G = lambda v: Rational(2, 3) * (1 + v**2) ** Rational(3, 2)  # noqa: E731
     answer = G(hi) - G(lo)
     check(close(_numeric_parametric(xt, yt, lo, hi), float(answer), 1e-6), "numerical length disagrees")
     chord = sqrt((xt.subs(t, hi) - xt.subs(t, lo)) ** 2 + (yt.subs(t, hi) - yt.subs(t, lo)) ** 2)
     wrong = [
-        (sympy.integrate(sympy.diff(xt, t) + sympy.diff(yt, t), (t, lo, hi)), "fy1ca-arc-components-added"),
+        (definite(sympy.diff(xt, t) + sympy.diff(yt, t), t, lo, hi), "fy1ca-arc-components-added"),
         (G(hi), "fy1ca-arc-lower-limit-ignored"),
         (chord, "fy1ca-arc-chord-used"),
-        (sympy.integrate(sympy.diff(xt, t) ** 2 + sympy.diff(yt, t) ** 2, (t, lo, hi)), "fy1ca-arc-root-dropped"),
+        (definite(sympy.diff(xt, t) ** 2 + sympy.diff(yt, t) ** 2, t, lo, hi), "fy1ca-arc-root-dropped"),
         ((G(hi) - G(lo)) * 2, "fy1ca-arc-wrong-antiderivative"),
         ((G(hi) - G(lo)) / 2, "fy1ca-arc-wrong-antiderivative"),
     ]
@@ -322,7 +325,7 @@ def _with_logarithm(rng: random.Random) -> dict:
     wrong = [
         (Rational(hi**2 - 1, 4), "fy1ca-arc-log-term-dropped"),
         (Rational(hi**2 - 1, 4) - log(hi) / 2, "fy1ca-arc-cross-term-sign"),
-        (sympy.integrate(1 + sympy.diff(curve, x) ** 2, (x, lo, hi)), "fy1ca-arc-root-dropped"),
+        (definite(1 + sympy.diff(curve, x) ** 2, x, lo, hi), "fy1ca-arc-root-dropped"),
         (G(hi), "fy1ca-arc-lower-limit-ignored"),
         (curve.subs(x, hi) - curve.subs(x, lo), "fy1ca-arc-height-change-used"),
         (Rational(hi**2 - 1, 4) + log(hi), "fy1ca-arc-wrong-antiderivative"),
@@ -404,10 +407,10 @@ def _exam_build(rng: random.Random) -> dict:
         length,
         _nice(
             [
-                (sympy.integrate(1 + sympy.diff(curve, x) ** 2, (x, lo, hi)), "fy1ca-arc-root-dropped"),
+                (definite(1 + sympy.diff(curve, x) ** 2, x, lo, hi), "fy1ca-arc-root-dropped"),
                 (G(hi), "fy1ca-arc-lower-limit-ignored"),
                 (y_hi - y_lo, "fy1ca-arc-height-change-used"),
-                (sympy.integrate(x**2 / 2 - 1 / (2 * x**2), (x, lo, hi)), "fy1ca-arc-cross-term-sign"),
+                (definite(x**2 / 2 - 1 / (2 * x**2), x, lo, hi), "fy1ca-arc-cross-term-sign"),
                 (length * 2, "fy1ca-arc-wrong-antiderivative"),
             ]
         ),

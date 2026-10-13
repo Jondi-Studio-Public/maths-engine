@@ -97,13 +97,14 @@ def _easy(rng):
     _check_equivalence(elements[:14], related)
     classes = _classes(elements, related)
     check(len(classes) == n, "the classes are not the residues")
+    lead = rng.choice(["On the set ", "Within the set ", "Given the set "])
     if rng.random() < 0.5:
         m = rng.choice(elements[: n * 2])
         cls = next(c for c in classes if m in c)
         answer = len(cls)
         ask = f"How many elements are in the equivalence class of {m}?"
         stem = say(
-            "On the set ",
+            lead,
             F(f"S = {_range_set(1, big)[0]}", f"S={_range_set(1, big)[1]}"),
             F(
                 f", a relation R is defined by a R b when a - b is divisible by {n}",
@@ -125,7 +126,7 @@ def _easy(rng):
     else:
         answer = max(len(c) for c in classes)
         stem = say(
-            "On the set ",
+            lead,
             F(f"S = {_range_set(1, big)[0]}", f"S={_range_set(1, big)[1]}"),
             F(
                 f", a relation R is defined by a R b when a - b is divisible by {n}",
@@ -449,7 +450,7 @@ def _exam(rng):
         _need(ds)
 
     stem = say(
-        "A relation R on ",
+        rng.choice(["A relation R on ", "The relation R on ", "A binary relation R on "]),
         F(f"S = {_range_set(1, big)[0]}", f"S={_range_set(1, big)[1]}"),
         " is defined by ",
         F(f"a R b when a ≡ b (mod {m})", rf"a\,R\,b\text{{ when }}a\equiv b\pmod{{{m}}}"),

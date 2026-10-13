@@ -128,7 +128,7 @@ def _fractions(answer: Fraction, candidates, n: int = 4) -> list[Distractor]:
 
 
 def _easy(rng):
-    d = rng.choice(_DIRECTIONS)
+    d = rng.choice([row for row in _DIRECTIONS if row[4] != 0])  # a positive real has no same-shape wrong argument
     k = rng.randint(1, 5)
     z = cartesian(k, d)
     p = d[4]

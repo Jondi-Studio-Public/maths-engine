@@ -29,6 +29,9 @@ from sympy import E, Rational, exp, log, pi, sqrt
 
 from ..core import check, generator, latex_answer, phrase
 from ._fy1ca_kit import (
+    definite,
+    lambdified,
+    vanishes,
     Redraw,
     build_with_redraws,
     clear_of_rounding,
@@ -81,23 +84,23 @@ def _question(text, answer, wrong, working) -> dict:
 
 
 def _average(f, a, b):
-    return sympy.simplify(sympy.integrate(f, (x, a, b)) / (b - a))
+    return sympy.simplify(definite(f, x, a, b) / (b - a))
 
 
 def _numeric_average(f, a, b) -> float:
-    g = sympy.lambdify(x, f, "math")
+    g = lambdified(x, f)
     return simpson(g, float(a), float(b), 2400) / float(b - a)
 
 
 def _average_wrong(f, a, b, avg):
-    total = sympy.integrate(f, (x, a, b))
+    total = definite(f, x, a, b)
     return [
         (total, "fy1ca-avg-division-forgotten"),
         (total / b, "fy1ca-avg-divide-by-upper-limit"),
         ((f.subs(x, a) + f.subs(x, b)) / sympy.Integer(2), "fy1ca-avg-endpoint-mean"),
         (f.subs(x, (sympy.sympify(a) + sympy.sympify(b)) / 2), "fy1ca-avg-midpoint-value"),
         (total * (b - a), "fy1ca-avg-multiplied"),
-        (sympy.integrate(f, (x, 0, b)) / (b - a) if a != 0 else None, "fy1ca-avg-lower-limit-ignored"),
+        (definite(f, x, 0, b) / (b - a) if a != 0 else None, "fy1ca-avg-lower-limit-ignored"),
     ]
 
 
@@ -153,8 +156,8 @@ def _easy(rng: random.Random) -> dict:
     width = _show(b - a)
     working = [
         f"The average value is (1/(b - a)) times the integral of f from a to b, with b - a = {width}.",
-        f"The integral of {ftext} from {at} to {bt} is {_show(sympy.integrate(f, (x, a, b)))}.",
-        f"Average = {_show(sympy.integrate(f, (x, a, b)))} ÷ {width} = {_show(avg)}.",
+        f"The integral of {ftext} from {at} to {bt} is {_show(definite(f, x, a, b))}.",
+        f"Average = {_show(definite(f, x, a, b))} ÷ {width} = {_show(avg)}.",
     ]
     return _question(text, avg, wrong, working)
 
@@ -249,10 +252,10 @@ def _rolle(rng: random.Random) -> dict:
         c = Rational(p, 3)
         other = Rational(p)
         wrong_factor = Rational(2 * p, 3)
-    check(sympy.simplify(f.subs(x, 0) - f.subs(x, p)) == 0, "Rolle's hypothesis fails")
+    check(vanishes(f.subs(x, 0) - f.subs(x, p)), "Rolle's hypothesis fails")
     check(sympy.solve(sympy.diff(f, x), x).count(c) == 1 and 0 < c < p, "c is not a stationary point in the interval")
     h = 1e-6
-    fn = sympy.lambdify(x, f, "math")
+    fn = lambdified(x, f)
     check(abs((fn(float(c) + h) - fn(float(c) - h)) / (2 * h)) < 1e-5, "f' does not vanish at c")
     wrong = [
         (other, "fy1ca-rolle-endpoint-root"),
@@ -340,8 +343,8 @@ def _root_square_plus(rng: random.Random) -> dict:
     )
     working = [
         f"Use the substitution u = x² + {k}, du = 2x dx: the integral of x√(x² + {k}) dx is (1/3)(x² + {k})^(3/2).",
-        f"The integral from 0 to {b} is (1/3)({b * b + k}^(3/2) - {k}^(3/2)) = {_show(sympy.integrate(f, (x, 0, b)))}.",
-        f"Average = {_show(sympy.integrate(f, (x, 0, b)))} ÷ {b} = {_show(avg)}.",
+        f"The integral from 0 to {b} is (1/3)({b * b + k}^(3/2) - {k}^(3/2)) = {_show(definite(f, x, 0, b))}.",
+        f"Average = {_show(definite(f, x, 0, b))} ÷ {b} = {_show(avg)}.",
     ]
     return _question(text, avg, wrong, working)
 
@@ -381,7 +384,7 @@ def _integral_mvt(rng: random.Random) -> dict:
     f = sqrt(x)
     avg = _average(f, 0, b)
     c = Rational(4 * b, 9)
-    check(sympy.simplify(f.subs(x, c) - avg) == 0, "f(c) is not the average value")
+    check(vanishes(f.subs(x, c) - avg), "f(c) is not the average value")
     check(0 < c < b, "c is outside the interval")
     wrong = [
         (avg, "fy1ca-mvt-value-for-c"),
@@ -489,7 +492,7 @@ def _exam_build(rng: random.Random) -> dict:
         (
             "During a storm, rain flows into a farm's rainwater tank at a rate of f(t) = √t kilolitres per hour, where t is the number of hours since the storm began. Consider the period from t = {a} to t = {b}.",
             "The inflow to a rainwater tank after a storm begins is f(t) = √t kilolitres per hour, t hours after the start. Consider the period {a} ≤ t ≤ {b}.",
-            "A dam catchment channel carries run-off at f(t) = √t kilolitres per hour, where t is the time in hours since the rain started. Consider the interval from t = {a} to t = {b}.",
+            "A rainwater tank fills from a catchment channel at f(t) = √t kilolitres per hour, where t is the time in hours since the storm began. Consider the interval from t = {a} to t = {b}.",
         ),
         a=a,
         b=b,

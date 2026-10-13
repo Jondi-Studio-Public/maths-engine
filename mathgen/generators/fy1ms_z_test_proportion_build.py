@@ -361,24 +361,24 @@ def _hard_p_value(rng: random.Random) -> dict:
 def _hard_cutoff(rng: random.Random) -> dict:
     t = _draw(rng, z_range=(0.5, 3.0))
     dp = 4
-    zstar = Fraction(196, 100)
+    zstar = Fraction(1645, 1000)
     cut = t.p0 + zstar * t.se
     if cut >= 1 or not clear_of_tie(cut, dp):
         raise Redraw("cut-off above 1 or on a rounding tie")
     with mpmath.workdps(40):
         p = mpmath.mpf(t.p0.numerator) / t.p0.denominator
-        _mp_check(cut, p + mpmath.mpf("1.96") * mpmath.sqrt(p * (1 - p) / t.n), "rejection boundary")
+        _mp_check(cut, p + mpmath.mpf("1.645") * mpmath.sqrt(p * (1 - p) / t.n), "rejection boundary")
     cands = [
         num_dist(t.p0 - zstar * t.se, dp, "ztest-cutoff-wrong-side"),
         num_dist(zstar * t.se, dp, "ztest-cutoff-margin-as-bound"),
-        num_dist(t.p0 + Fraction(1645, 1000) * t.se, dp, "ztest-wrong-critical-value"),
+        num_dist(t.p0 + Fraction(196, 100) * t.se, dp, "ztest-wrong-critical-value"),
         num_dist(t.p0 + zstar * _root(t.phat * (1 - t.phat) / t.n), dp, "ztest-se-uses-sample-proportion"),
         num_dist(t.p0 + zstar * t.p0 * t.q0 / t.n, dp, "ztest-se-no-root"),
     ]
     text = (
         f"{t.lead()} {t.hypotheses('greater')} A random sample of {t.n} {t.ctx['sample']} is taken, which is large "
         f"enough for the normal approximation. H0 is rejected at the 5% level of significance when the z statistic "
-        f"is greater than 1.96. Find the smallest value of the sample proportion p̂ at which H0 would be rejected, "
+        f"is greater than 1.645. Find the smallest value of the sample proportion p̂ at which H0 would be rejected, "
         f"correct to {_places(dp)}."
     )
     return _question(
@@ -388,14 +388,14 @@ def _hard_cutoff(rng: random.Random) -> dict:
         cands,
         [
             f"SE = √({t.p0_text} × {_dec(t.q0, 2)}/{t.n}) = {_dec(t.se, 5)}.",
-            f"p̂ = p0 + 1.96 × SE = {t.p0_text} + 1.96 × {_dec(t.se, 5)} = {_dec(cut, dp)}.",
+            f"p̂ = p0 + 1.645 × SE = {t.p0_text} + 1.645 × {_dec(t.se, 5)} = {_dec(cut, dp)}.",
         ],
     )
 
 
 def _hard_count(rng: random.Random) -> dict:
     t = _draw(rng, z_range=(0.5, 3.0))
-    zstar = Fraction(196, 100)
+    zstar = Fraction(1645, 1000)
     edge = t.n * (t.p0 + zstar * t.se)
     if edge >= t.n - 1 or not Fraction(1, 5) < edge - math.floor(edge) < Fraction(4, 5):
         raise Redraw("boundary count too close to a whole number")
@@ -404,7 +404,7 @@ def _hard_count(rng: random.Random) -> dict:
         num_dist(math.floor(edge), 0, "ztest-count-rounded-down"),
         num_dist(math.floor(edge) + 2, 0, "ztest-count-rounded-up-twice"),
         num_dist(math.ceil(t.n * (t.p0 - zstar * t.se)), 0, "ztest-cutoff-wrong-side"),
-        num_dist(math.floor(t.n * (t.p0 + Fraction(1645, 1000) * t.se)) + 1, 0, "ztest-wrong-critical-value"),
+        num_dist(math.floor(t.n * (t.p0 + Fraction(196, 100) * t.se)) + 1, 0, "ztest-wrong-critical-value"),
         num_dist(
             math.floor(t.n * (t.p0 + zstar * _root(t.phat * (1 - t.phat) / t.n))) + 1,
             0,
@@ -414,7 +414,7 @@ def _hard_count(rng: random.Random) -> dict:
     text = (
         f"{t.lead()} {t.hypotheses('greater')} A random sample of {t.n} {t.ctx['sample']} is taken, which is large "
         f"enough for the normal approximation. H0 is rejected at the 5% level of significance when the z statistic "
-        f"is greater than 1.96. What is the smallest number of the {t.n} {t.ctx['sample']} that must have "
+        f"is greater than 1.645. What is the smallest number of the {t.n} {t.ctx['sample']} that must have "
         f"{t.ctx['perf']} for H0 to be rejected?"
     )
     question = number_part(
@@ -423,7 +423,7 @@ def _hard_count(rng: random.Random) -> dict:
         0,
         cands,
         working=[
-            f"SE = √({t.p0_text} × {_dec(t.q0, 2)}/{t.n}) = {_dec(t.se, 5)}, so the count must exceed {t.n} × ({t.p0_text} + 1.96 × {_dec(t.se, 5)}) = {_dec(edge, 2)}.",
+            f"SE = √({t.p0_text} × {_dec(t.q0, 2)}/{t.n}) = {_dec(t.se, 5)}, so the count must exceed {t.n} × ({t.p0_text} + 1.645 × {_dec(t.se, 5)}) = {_dec(edge, 2)}.",
             f"The smallest whole number above {_dec(edge, 2)} is {answer}.",
         ],
     )

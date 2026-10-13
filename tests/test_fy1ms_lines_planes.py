@@ -38,7 +38,7 @@ def _angle_deg(cosine):
 def oracle(tier, q) -> str:
     text = q.text
     if tier == "easy":
-        m = re.match(r"The plane through A\((.*?)\), B\((.*?)\) and C\((.*?)\) has equation", text)
+        m = re.search(r"plane (?:through|passing through) A\((.*?)\), B\((.*?)\) and C\((.*?)\) has equation", text)
         a, b, c = (_vec(m.group(i)) for i in (1, 2, 3))
         n = (b - a).cross(c - a)
         return str(n.dot(a))

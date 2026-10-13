@@ -7,6 +7,7 @@ of every answer, and a few text formatters. Nothing here registers a generator.
 
 from __future__ import annotations
 
+import functools
 import math
 import re
 from fractions import Fraction
@@ -325,3 +326,31 @@ def symbolic_distractors(answer, candidates, variable, n: int = 3) -> list[Distr
         kept.append(fn)
         pool.append(Distractor(typed(value), tag, str(value)))
     return pool[:n]
+
+
+# -- cached symbolic work ------------------------------------------------------------------------------------------------
+# The same few curves recur across seeds, so the SymPy calls that depend only on the expression (not on the drawn limits)
+# are done once per process.
+
+
+@functools.cache
+def _antiderivative(expr, var):
+    return sympy.integrate(expr, var)
+
+
+def definite(expr, var, lo, hi):
+    """The exact definite integral of `expr` in `var` from `lo` to `hi`, from a cached antiderivative."""
+    anti = _antiderivative(expr, var)
+    return anti.subs(var, hi) - anti.subs(var, lo)
+
+
+@functools.cache
+def vanishes(expr) -> bool:
+    """Whether `expr` simplifies to zero (cached: the checks that call this repeat the same expression every seed)."""
+    return sympy.simplify(expr) == 0
+
+
+@functools.cache
+def lambdified(var, expr):
+    """`sympy.lambdify(var, expr, "math")`, built once per expression."""
+    return sympy.lambdify(var, expr, "math")

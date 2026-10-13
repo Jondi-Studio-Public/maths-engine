@@ -93,7 +93,7 @@ def _easy(rng: random.Random) -> dict:
         num_dist(3 * d, 0, "plane-constant-sum-of-points"),
     ]
     text, latex = say(
-        "The plane through ",
+        rng.choice(["The plane through ", "The plane passing through ", "A plane through "]),
         Fm(_pt("A", a)),
         ", ",
         Fm(_pt("B", b)),
