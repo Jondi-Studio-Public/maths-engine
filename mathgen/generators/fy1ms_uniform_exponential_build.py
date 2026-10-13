@@ -346,7 +346,7 @@ class _E:
         return _frac(mpmath.exp(-_mpf(self.lam) * _mpf(t)))
 
     def check_interval(self, lo: Fraction, hi: Fraction, value: Fraction) -> None:
-        with mpmath.workdps(25):
+        with mpmath.workdps(20):
             lam = _mpf(self.lam)
             area = mpmath.quad(lambda x: lam * mpmath.exp(-lam * x), [_mpf(lo), _mpf(hi)])
             _same(value, area, "exponential probability by quadrature")
@@ -373,7 +373,7 @@ def _e_tail_from_mean(rng: random.Random) -> dict:
     value = e.tail(t)
     if not clear_of_tie(value, dp):
         raise Redraw("probability on a rounding tie")
-    e.check_interval(t, Fraction(10**6), value)
+    e.check_interval(t, Fraction(60 * e.mu), value)
     mu = Fraction(e.mu)
     cands = [
         num_dist(_frac(mpmath.exp(-_mpf(mu) * _mpf(t))), dp, "expo-rate-mean-confused"),
@@ -433,7 +433,7 @@ def _e_pdf(rng: random.Random) -> dict:
         num_dist(e.lam * (1 - e.tail(t)), dp, "expo-density-times-cdf"),
     ]
     text = f"{e.by_rate()} Find the value of the density f({_t_text(t)}), correct to {_places(dp)}."
-    with mpmath.workdps(25):
+    with mpmath.workdps(20):
         lam = _mpf(e.lam)
         h = mpmath.mpf("1e-8")
         slope = (-mpmath.exp(-lam * (_mpf(t) + h)) + mpmath.exp(-lam * (_mpf(t) - h))) / (2 * h)
@@ -453,7 +453,7 @@ def _e_median(rng: random.Random) -> dict:
     value = _frac(mpmath.log(2) * e.mu)
     if not clear_of_tie(value, dp):
         raise Redraw("median on a rounding tie")
-    with mpmath.workdps(30):
+    with mpmath.workdps(20):
         lam = _mpf(e.lam)
         root = mpmath.findroot(lambda m: 1 - mpmath.exp(-lam * m) - mpmath.mpf(1) / 2, e.mu)
         _same(value, root, "exponential median by root-finding")
@@ -480,7 +480,7 @@ def _e_percentile(rng: random.Random) -> dict:
     value = _frac(-mpmath.log(1 - _mpf(p)) * e.mu)
     if not clear_of_tie(value, dp):
         raise Redraw("percentile on a rounding tie")
-    with mpmath.workdps(30):
+    with mpmath.workdps(20):
         lam = _mpf(e.lam)
         root = mpmath.findroot(lambda m: 1 - mpmath.exp(-lam * m) - _mpf(p), e.mu)
         _same(value, root, "exponential percentile by root-finding")
@@ -510,10 +510,10 @@ def _e_memoryless(rng: random.Random) -> dict:
     value = e.tail(t)
     if not clear_of_tie(value, dp) or s == t:
         raise Redraw("probability unsuitable")
-    with mpmath.workdps(25):
+    with mpmath.workdps(20):
         lam = _mpf(e.lam)
         f = lambda x: lam * mpmath.exp(-lam * x)  # noqa: E731
-        ratio = mpmath.quad(f, [_mpf(s + t), mpmath.inf]) / mpmath.quad(f, [_mpf(s), mpmath.inf])
+        ratio = mpmath.quad(f, [_mpf(s + t), mpmath.mpf(60 * e.mu)]) / mpmath.quad(f, [_mpf(s), mpmath.mpf(60 * e.mu)])
         _same(value, ratio, "conditional probability by quadrature")
     cands = [
         num_dist(e.tail(s + t), dp, "expo-memoryless-ignored"),
@@ -638,13 +638,13 @@ def _exam_chain(rng: random.Random) -> dict:
     for value, dp in ((b_value, dp_p), (d_value, dp_p), (median, dp_m)):
         if not clear_of_tie(value, dp):
             raise Redraw("a value sits on a rounding tie")
-    e.check_interval(t, Fraction(10**6), b_value)
-    with mpmath.workdps(30):
+    e.check_interval(t, Fraction(60 * e.mu), b_value)
+    with mpmath.workdps(20):
         lam = _mpf(e.lam)
         root = mpmath.findroot(lambda m: 1 - mpmath.exp(-lam * m) - mpmath.mpf(1) / 2, e.mu)
         _same(median, root, "exam median by root-finding")
         f = lambda x: lam * mpmath.exp(-lam * x)  # noqa: E731
-        ratio = mpmath.quad(f, [_mpf(s + t2), mpmath.inf]) / mpmath.quad(f, [_mpf(s), mpmath.inf])
+        ratio = mpmath.quad(f, [_mpf(s + t2), mpmath.mpf(60 * e.mu)]) / mpmath.quad(f, [_mpf(s), mpmath.mpf(60 * e.mu)])
         _same(d_value, ratio, "exam conditional probability by quadrature")
     ft_close(_frac(mpmath.exp(-_mpf(Fraction(lam_text)) * _mpf(t))), dp_text(b_value, dp_p), dp_p)
     mu = Fraction(e.mu)

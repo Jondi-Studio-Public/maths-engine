@@ -15,7 +15,7 @@ Exam (topic `exd_x_fy1ms_lines_planes`): a laser beam and a flat mirror. (a) the
 follow-through from (b)), (d) one coordinate of that point (1 mark, follow-through from (c)).
 
 Every key is computed from the formulas and checked a second way with SymPy: the plane is built from a determinant
-(`Matrix.cross`), the intersection is found by solving the equation for t, and each angle is recomputed from
+(a 3 x 3 SymPy `Matrix.det`), the intersection is found by solving the equation for t, and each angle is recomputed from
 `acos`/`asin` of a normalised dot product.
 """
 
