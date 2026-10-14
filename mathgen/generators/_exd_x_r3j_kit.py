@@ -14,7 +14,6 @@ from types import SimpleNamespace
 
 from ..answers import Distractor, exact_value
 from ..core import (
-    check,
     latex_answer,
     numeric_answer,
     rational_text,
@@ -22,6 +21,7 @@ from ..core import (
     stated_precision_string,
 )
 from ..grading import GRADERS
+from ._exd_distinct_parts import DrawRejected
 
 
 def number_text(value: Fraction, places: int) -> str:
@@ -51,7 +51,8 @@ def number_part(prompt, value, places, marks, working, slips, *, follow_through=
         options.append(Distractor(shown, tag, exact_value(Fraction(shown))))
         if len(options) == keep:
             break
-    check(len(options) >= 2, f"fewer than two distractors for {prompt!r}")
+    if len(options) < 2:  # a wrapped generator draws again (see `DrawRejected`)
+        raise DrawRejected(f"fewer than two distractors for {prompt!r}")
     part = dict(
         prompt=prompt,
         answer_kind="number",
@@ -84,7 +85,8 @@ def fraction_part(prompt, value, marks, working, slips, *, follow_through=None, 
         options.append(Distractor(shown, tag, exact_value(slip)))
         if len(options) == keep:
             break
-    check(len(options) >= 2, f"fewer than two distractors for {prompt!r}")
+    if len(options) < 2:  # a wrapped generator draws again (see `DrawRejected`)
+        raise DrawRejected(f"fewer than two distractors for {prompt!r}")
     part = dict(
         prompt=prompt,
         answer_kind="fraction",

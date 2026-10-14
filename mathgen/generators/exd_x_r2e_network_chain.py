@@ -187,52 +187,53 @@ def network_crash(rng: random.Random, tier: str = "exam") -> dict:
         r = rng.randint(2, dur[y] - 1)
         if binding != (gap < r):
             continue
-        break
-    est, eft = _forward(preds, dur)
-    check(max(eft.values()) == total, "forward pass disagrees with the longest route")
-    new_total = max(rival, total - r)
-    shortened = dict(dur)
-    shortened[y] -= r
-    check(max(_length(rt, shortened) for rt in routes) == new_total, "re-run over every route disagrees")
+        est, eft = _forward(preds, dur)
+        check(max(eft.values()) == total, "forward pass disagrees with the longest route")
+        new_total = max(rival, total - r)
+        shortened = dict(dur)
+        shortened[y] -= r
+        check(max(_length(rt, shortened) for rt in routes) == new_total, "re-run over every route disagrees")
 
-    ordered = sorted(routes, key=lambda rt: -lengths[rt])
-    second = next(rt for rt in ordered if rt != path)
-    shortest = ordered[-1]
-    greedy = [a for a in preds if not preds[a]]
-    start = max(greedy, key=lambda a: dur[a])
-    walk = [start]
-    succ = _successors(preds)
-    while succ[walk[-1]]:
-        walk.append(max(succ[walk[-1]], key=lambda a: dur[a]))
-    a_cands = [
-        _route_distractor(second, "takes-second-longest-route"),
-        _route_distractor(tuple(walk), "follows-the-longest-activity-at-each-step"),
-        _route_distractor(shortest, "takes-shortest-route"),
-    ]
-    a_cands = [c for c in a_cands if list(c.value) != list(path)]
-    b_cands = [
-        _tag(sum(dur.values()), "adds-every-duration"),
-        _tag(lengths[second], "takes-second-longest-route"),
-        _tag(lengths[shortest], "takes-shortest-route"),
-    ]
-    c_cands = [
-        _tag(total, "ignores-the-activity-being-avoided"),
-        _tag(total - dur[y], "removes-the-activity-from-the-critical-path"),
-        _tag(lengths[second], "takes-second-longest-route"),
-        _tag(min(rivals), "takes-shortest-route"),
-    ]
-    if binding:
-        d_cands = [_tag(total - r, "ignores-the-rival-route"), _tag(total, "ignores-the-change")]
-    else:
-        d_cands = [_tag(rival, "assumes-the-rival-route-binds"), _tag(total, "ignores-the-change")]
-    d_cands.append(_tag(total - dur[y], "removes-the-activity-from-the-critical-path"))
-    picks = [
-        pick_distractors(", ".join(path), a_cands, 3),
-        pick_distractors(str(total), b_cands, 3),
-        pick_distractors(str(rival), c_cands, 3),
-        pick_distractors(str(new_total), d_cands, 3),
-    ]
-    check(all(len(p) >= 2 for p in picks), f"a part has too few distractors: {[len(p) for p in picks]}")
+        ordered = sorted(routes, key=lambda rt: -lengths[rt])
+        second = next(rt for rt in ordered if rt != path)
+        shortest = ordered[-1]
+        greedy = [a for a in preds if not preds[a]]
+        start = max(greedy, key=lambda a: dur[a])
+        walk = [start]
+        succ = _successors(preds)
+        while succ[walk[-1]]:
+            walk.append(max(succ[walk[-1]], key=lambda a: dur[a]))
+        a_cands = [
+            _route_distractor(second, "takes-second-longest-route"),
+            _route_distractor(tuple(walk), "follows-the-longest-activity-at-each-step"),
+            _route_distractor(shortest, "takes-shortest-route"),
+        ]
+        a_cands = [c for c in a_cands if list(c.value) != list(path)]
+        b_cands = [
+            _tag(sum(dur.values()), "adds-every-duration"),
+            _tag(lengths[second], "takes-second-longest-route"),
+            _tag(lengths[shortest], "takes-shortest-route"),
+        ]
+        c_cands = [
+            _tag(total, "ignores-the-activity-being-avoided"),
+            _tag(total - dur[y], "removes-the-activity-from-the-critical-path"),
+            _tag(lengths[second], "takes-second-longest-route"),
+            _tag(min(rivals), "takes-shortest-route"),
+        ]
+        if binding:
+            d_cands = [_tag(total - r, "ignores-the-rival-route"), _tag(total, "ignores-the-change")]
+        else:
+            d_cands = [_tag(rival, "assumes-the-rival-route-binds"), _tag(total, "ignores-the-change")]
+        d_cands.append(_tag(total - dur[y], "removes-the-activity-from-the-critical-path"))
+        picks = [
+            pick_distractors(", ".join(path), a_cands, 3),
+            pick_distractors(str(total), b_cands, 3),
+            pick_distractors(str(rival), c_cands, 3),
+            pick_distractors(str(new_total), d_cands, 3),
+        ]
+        if not all(len(p) >= 2 for p in picks):  # slips coincide with the answers: draw another network
+            continue
+        break
 
     stem = (
         f"{rng.choice(_SETTINGS)} The project starts at time 0. {_network_text(preds, dur)} "
