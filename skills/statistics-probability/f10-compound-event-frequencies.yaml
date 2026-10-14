@@ -1,0 +1,104 @@
+id: f10-compound-event-frequencies
+name: Estimate compound event probabilities from trial data
+domain: statistics-probability
+year_level: ['8']
+naplan_domain: [probability]
+description: Estimate the probability of a compound event, such as both events, at least one of them, neither or
+  exactly one, from the counts recorded in a two-way table of trial results. Easy finds the probability that both
+  events happen. Medium finds the probability that at least one happens, without counting the overlap twice. Hard
+  works from the totals for each event and for both, to find neither, exactly one, or one without the other.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-relative-frequency-estimate
+- f10-probability-complements-compounds
+answer: fraction
+sources:
+- topic: fpm_compound_frequencies
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fpm_compound_frequencies
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fpm_compound_frequencies
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fpm_compound_frequencies_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: and-instead-of-but-not
+  description: Counting the trials where both events happen for an event described as one happening but not the
+    other.
+- id: and-instead-of-or
+  description: Counting only the trials where both events happen for an event described with "or".
+- id: answered-neither-not-or
+  description: Giving the probability that neither event happens where at least one was asked for.
+- id: answered-the-event-not-its-complement
+  description: Giving the probability of the event itself where "not" the event was asked for.
+- id: counts-only-one-named-category
+  description: Using the count of only one of the two categories named in an event.
+- id: divides-by-one-row-total
+  description: Dividing the count where both events happen by the total for just one of the events instead of by
+    all the trials.
+- id: ignores-the-overlap-for-but-not
+  description: Giving everything in the first event when the part that is also in the second event had to be taken
+    out.
+- id: ignores-the-second-event
+  description: Answering for the first event alone when a question about both events was asked.
+- id: leaves-out-the-overlap-for-or
+  description: Counting only the trials where exactly one event happens for an "or" event, leaving out the trials
+    where both happen.
+- id: left-a-class-out-of-the-sum
+  description: Leaving one of the known counts out when subtracting from the total, so the missing count comes out
+    too large.
+- id: miscounts-by-one
+  description: Being one out when adding or subtracting counts.
+- id: or-instead-of-and
+  description: Giving the probability that at least one event happens where both happening was asked for.
+- id: or-instead-of-exactly-one
+  description: Counting the trials where both events happen as well, for an event where exactly one must happen.
+- id: overlap-counted-twice-in-or
+  description: Adding the totals for the two events without taking off the overlap, so the trials where both happen
+    are counted twice.
+- id: projects-the-complement
+  description: Projecting the relative frequency of the opposite event onto future trials instead of the event asked
+    about.
+- id: reports-known-sum-not-remainder
+  description: Giving the sum of the counts that are shown, when the question asked for the missing count that completes
+    the total.
+- id: reports-raw-count-not-projection
+  description: Giving the number observed in the original trials when asked to predict the number in a different
+    number of future trials.
+- id: reports-total-as-missing-value
+  description: Giving the total itself as the missing count.
+- id: subtracts-both-totals-without-adding-back-the-overlap
+  description: Subtracting the totals for both events from all the trials without adding back the trials where both
+    happened.
+- id: swaps-the-two-events
+  description: Answering for the second event where the first was asked for, or the reverse.
+- id: wrong-denominator-for-proportion
+  description: 'Dividing by the wrong total: the grand total or a column total when the proportion is of a row,
+    a total one out, or anything other than the number of trials.'
+tags:
+- acara-f10-v9
+- statistics-probability
+- fpm_compound_frequencies
+- ac9m8p02
+- ac9m8p03

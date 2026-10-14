@@ -1,19 +1,98 @@
 id: linear-models
 name: Create and evaluate linear models
 domain: linear-relations
-description: Formulate a linear model, interpret parameters, make predictions and evaluate whether the
-  model is appropriate.
-status: deferred
-deferred_reason: assessment_contract
+description: Build a linear model from a rule or from two readings, use it to predict, and judge where it stops
+  making sense. Easy substitutes into a stated rule. Medium finds the rate from two readings and predicts a later
+  value. Hard finds when a fitted model reaches a target, where two plans cost the same, or the last whole number
+  of steps for which a falling model stays non-negative.
+status: active
+placement_eligible: false
 prerequisites:
 - compare-linear-representations
 - define-variables
 - solve-equation-word-problems
-answer: mcq
-sources: []
+answer: number
+sources:
+- topic: fpm_linear_model
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fpm_linear_model
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fpm_linear_model
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fpm_linear_model_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Assuming a linear model remains valid for all inputs
-- id: misconception-2
-  description: Reporting predictions without interpreting units or assumptions
-tags: []
+- id: adds-the-rates-instead-of-subtracting
+  description: Adding the two rates where the difference between them decides when two plans agree.
+- id: adds-the-starting-value-and-the-rate-first
+  description: Adding the starting value to the rate and multiplying by the input, instead of multiplying the rate
+    by the input and then adding the starting value.
+- id: adds-the-whole-change-not-the-rate
+  description: Adding the whole change between two readings to the last reading, whatever the number of steps ahead.
+- id: adds-where-dividing-is-needed
+  description: Adding two quantities where one had to be divided by the other.
+- id: applies-the-rate-for-only-one-step
+  description: Adding the rate for a single step where several steps lie between the reading and the prediction.
+- id: assumes-the-quantity-is-proportional-to-the-input
+  description: Treating the output as a fixed multiple of the input, so a starting value or a changing ratio is
+    ignored.
+- id: counts-one-step-too-many
+  description: Using the input one more than the story states, or counting the start as a step.
+- id: divides-by-one-plans-rate-only
+  description: Dividing the joining fee by the rate of one plan alone, when the plans agree where the fee equals
+    the difference in cost per unit.
+- id: gets-the-direction-of-change-wrong
+  description: Treating a quantity that falls as one that rises, or the reverse, so the sign of the rate is wrong.
+- id: ignores-the-rate-in-the-first-plan
+  description: Dividing the joining fee by the second plan's rate alone instead of by the difference between the
+    rates.
+- id: ignores-the-starting-value
+  description: Dividing the target by the rate without taking the starting value off it first.
+- id: inverts-the-rate
+  description: Dividing the change in the input by the change in the output, so the rate is upside down.
+- id: leaves-out-the-starting-value
+  description: Multiplying the rate by the input without adding the starting value.
+- id: reports-the-change-as-the-starting-value
+  description: Giving the change between two readings as the starting value.
+- id: reports-the-extra-time-since-the-first-reading
+  description: Giving the time since the first reading where the total time was asked for.
+- id: reports-the-extra-time-since-the-last-reading
+  description: Giving the extra time after the last reading where the total time was asked for.
+- id: reports-the-first-reading-as-the-starting-value
+  description: Giving the first reading as the starting value, as though it had been taken at the start.
+- id: rounds-up-where-the-model-stops-making-sense
+  description: Rounding the point where a model reaches zero up to the next whole number, so the model gives a negative
+    value there.
+- id: slips-a-decimal-place
+  description: Moving the decimal point one place when working with percentages.
+- id: subtracts-the-rate-from-the-starting-value
+  description: Taking the rate off the starting value once, where the rate is taken off for every step.
+- id: swaps-the-starting-value-and-the-rate
+  description: Swapping the starting value and the rate, so the starting value is multiplied by the input.
+- id: uses-the-change-between-readings-as-the-rate
+  description: Taking the change between two readings as the rate per step, when the readings are several steps
+    apart.
+- id: uses-the-wrong-operation-for-the-change
+  description: Adding where the story takes away, or taking away where it adds.
+tags:
+- fpm_linear_model

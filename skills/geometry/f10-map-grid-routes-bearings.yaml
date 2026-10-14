@@ -1,0 +1,51 @@
+id: f10-map-grid-routes-bearings
+name: Use a grid map to find distances, routes and bearings
+domain: geometry
+description: Given a map drawn on a numbered grid with north at the top and a stated length for each grid square, find the distance between two places in line (one of them possibly given by grid reference), the length of a two-leg route along the grid, and, for a walk through three places, the bearing of the start from the finish. The exam chain finds each leg, the whole walk and the bearing back.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- f10-grid-reference-pathway
+answer: number
+sources:
+- topic: fsp_map_route
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fsp_map_route
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fsp_map_route
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: fsp_map_route_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: map-squares-not-scaled
+  description: Counts the grid squares between places and gives that count as the distance, without multiplying by the length of a square.
+- id: map-off-by-one-square
+  description: Counts the square a place sits in as well as the squares between, or misses one, so the distance is a square out.
+- id: map-scale-added
+  description: Adds the length of a grid square to the number of squares instead of multiplying.
+- id: map-wrong-place-read
+  description: Reads the position of the wrong place on the map, such as a nearby place with a different name.
+- id: map-route-one-leg
+  description: Gives the length of one leg of a walk as the length of the whole walk.
+- id: map-legs-subtracted
+  description: Subtracts the lengths of two legs of a walk instead of adding them.
+- id: map-bearing-not-reversed
+  description: Gives the bearing of the way there when the bearing of the way back was asked for.
+- id: map-bearing-anticlockwise
+  description: Measures a bearing anticlockwise from north instead of clockwise.
+- id: map-bearing-from-east
+  description: Measures a bearing from east, as an angle on a graph, instead of clockwise from north.
+- id: map-bearing-reversed-wrong
+  description: Tries to reverse a bearing by adding the wrong angle, for example 90 degrees instead of 180.
+tags: [acara-f10-v9, geometry, maps, grid-reference, bearings, scale, essential-mathematics, figure]
