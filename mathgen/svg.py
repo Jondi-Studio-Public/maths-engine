@@ -31,6 +31,7 @@ from xml.sax.saxutils import escape, quoteattr
 
 from mathgen import figures
 from mathgen.figure_kinds.data import _key_text
+from mathgen.figure_kinds.grid import SYMBOLS
 
 __all__ = ["figure_svg"]
 
@@ -1660,6 +1661,472 @@ def _pie_chart(s: dict, ids: _Ids) -> Body:
     return "".join(out), cy + r + 26
 
 
+# ---------------------------------------------------------------- grid drawing
+#
+# A map, plan, shape or stack of cubes drawn on a grid of unit cells (specs in `mathgen.figure_kinds.grid`). Every
+# cell style, line style and symbol differs from the others by more than tone, so a black and white print still
+# reads. Only what the spec carries is written: the labels, grid references, scale text and legend names.
+
+_GD_PAD = 10
+_GD_FS = 12
+_COS30 = math.sqrt(3) / 2
+_SYM_FILL = {"s": PAPER, "1": MID, "2": LIGHT, "a": LIGHT, "t": INK}
+
+
+def _gd_walk(pts: list[tuple[float, float]], step: float) -> list[tuple[float, float, float, float]]:
+    """Points every ``step`` along a polyline, each with the unit direction of its segment."""
+    out, carry = [], step / 2
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        length = math.hypot(x1 - x0, y1 - y0)
+        if length == 0:
+            continue
+        ux, uy = (x1 - x0) / length, (y1 - y0) / length
+        d = carry
+        while d <= length:
+            out.append((x0 + ux * d, y0 + uy * d, ux, uy))
+            d += step
+        carry = d - length
+    return out
+
+
+def _gd_wavy(pts: list[tuple[float, float]]) -> list[tuple[float, float]]:
+    out, run = [], 0.0
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        length = math.hypot(x1 - x0, y1 - y0)
+        if length == 0:
+            continue
+        ux, uy = (x1 - x0) / length, (y1 - y0) / length
+        n = max(1, int(length / 2))
+        for i in range(n + 1):
+            d = length * i / n
+            off = 3.2 * math.sin(2 * math.pi * (run + d) / 18)
+            out.append((x0 + ux * d - uy * off, y0 + uy * d + ux * off))
+        run += length
+    return out
+
+
+def _gd_feature(style: str, pts: list[tuple[float, float]]) -> str:
+    d = "M" + "L".join(f"{_n(x)} {_n(y)}" for x, y in pts)
+    if style == "road":  # a thick double line: a black band with a white core
+        return _path(d, stroke=INK, stroke_width=10, stroke_linejoin="round") + _path(
+            d, stroke=PAPER, stroke_width=5.5, stroke_linejoin="round"
+        )
+    if style == "river":
+        return _poly(_gd_wavy(pts), stroke=INK, stroke_width=2.6, stroke_linecap="round", stroke_linejoin="round")
+    if style == "rail":
+        ticks = [
+            _line(x - uy * 5, y + ux * 5, x + uy * 5, y - ux * 5, stroke=INK, stroke_width=2)
+            for x, y, ux, uy in _gd_walk(pts, 9)
+        ]
+        return _path(d, stroke=INK, stroke_width=2.6, stroke_linejoin="round") + "".join(ticks)
+    if style == "wall":
+        return _path(d, stroke=INK, stroke_width=6.5, stroke_linejoin="miter")
+    if style == "fence":
+        posts = [
+            _circle(x, y, 2.6, fill=INK, stroke="none") for x, y, _, _ in _gd_walk(pts, 20) + [(*p, 0, 0) for p in pts]
+        ]
+        return _path(d, stroke=INK, stroke_width=2, stroke_dasharray="6 4") + "".join(posts)
+    return _path(d, stroke=INK, stroke_width=2.6, stroke_dasharray="11 3 2 3")  # mirror: dash-dot
+
+
+def _gd_symbol(name: str, cx: float, cy: float, r: float) -> str:
+    """A pictogram built from basic shapes in a -10..10 frame, scaled to half-size ``r`` and drawn on a white tile."""
+
+    def rc(x, y, w, h, f=None):
+        return _rect(x, y, w, h, fill=_SYM_FILL[f] if f else "none")
+
+    def pg(pts, f=None):
+        return _poly(pts, True, fill=_SYM_FILL[f] if f else "none")
+
+    def ci(x, y, rad, f=None):
+        return _circle(x, y, rad, fill=_SYM_FILL[f] if f else "none")
+
+    def ln(x1, y1, x2, y2, wide=False):
+        return _line(x1, y1, x2, y2, stroke_width=2.6 if wide else None)
+
+    def ar(d, wide=False):
+        return _path(d, stroke_width=2.6 if wide else None)
+
+    plus = [(-2.5, -7), (2.5, -7), (2.5, -2.5), (7, -2.5), (7, 2.5), (2.5, 2.5), (2.5, 7), (-2.5, 7), (-2.5, 2.5)]
+    plus += [(-7, 2.5), (-7, -2.5), (-2.5, -2.5)]
+    plane = [(0, -10), (1.5, -6), (1.5, -1), (9, 4), (9, 6), (1.5, 3), (1.5, 7), (4, 9), (4, 10), (0, 9)]
+    plane += [(-4, 10), (-4, 9), (-1.5, 7), (-1.5, 3), (-9, 6), (-9, 4), (-1.5, -1), (-1.5, -6)]
+    shapes = {
+        "house": lambda: [rc(-6, 0, 12, 8, "s"), pg([(-8, 0), (0, -8), (8, 0)], "1"), rc(-1.5, 3, 3, 5, "t")],
+        "school": lambda: [
+            rc(-9, -1, 18, 9, "s"),
+            rc(-3, -6, 6, 5, "s"),
+            ln(0, -6, 0, -10),
+            pg([(0, -10), (5, -8.5), (0, -7)], "1"),
+            rc(-1.5, 3, 3, 5, "t"),
+            rc(-7, 2, 3, 3, "a"),
+            rc(4, 2, 3, 3, "a"),
+        ],
+        "church": lambda: [
+            rc(-5, -1, 10, 10, "s"),
+            pg([(-6, -1), (0, -5), (6, -1)], "1"),
+            ln(0, -5, 0, -10),
+            ln(-2, -8, 2, -8),
+            rc(-1.5, 4, 3, 5, "t"),
+        ],
+        "hospital": lambda: [rc(-9, -9, 18, 18, "s"), pg(plus, "t")],
+        "tree": lambda: [rc(-1.5, 3, 3, 6, "t"), ci(0, -2, 7, "1")],
+        "bridge": lambda: [rc(-10, -4, 20, 3, "s"), ar("M-7 -1Q0 11 7 -1"), ln(-9, -1, -9, 8), ln(9, -1, 9, 8)],
+        "campground": lambda: [
+            pg([(-9, 8), (0, -8), (9, 8)], "1"),
+            pg([(-3, 8), (0, 0), (3, 8)], "t"),
+            ln(-10, 8, 10, 8),
+        ],
+        "lookout": lambda: [
+            ln(-5, 9, -3, 0),
+            ln(5, 9, 3, 0),
+            ln(-4, 5, 4, 5),
+            rc(-6, -8, 12, 7, "s"),
+            pg([(-7, -8), (0, -10), (7, -8)], "1"),
+        ],
+        "post_office": lambda: [rc(-9, -6, 18, 12, "s"), ar("M-9 -6L0 1L9 -6")],
+        "railway_station": lambda: [
+            rc(-8, -8, 16, 14, "1"),
+            rc(-5, -5, 10, 6, "s"),
+            ci(-4, 8, 2.2, "t"),
+            ci(4, 8, 2.2, "t"),
+        ],
+        "airport": lambda: [pg(plane, "t")],
+        "lighthouse": lambda: [
+            pg([(-4, 9), (-2.5, -3), (2.5, -3), (4, 9)], "s"),
+            pg([(-3.2, 2), (3.2, 2), (3.6, 5.5), (-3.6, 5.5)], "t"),
+            rc(-3, -7, 6, 4, "a"),
+            pg([(-3.5, -7), (0, -10), (3.5, -7)], "t"),
+            ln(-4, -5, -9, -6),
+            ln(4, -5, 9, -6),
+        ],
+        "picnic_area": lambda: [rc(-9, -1, 18, 3, "1"), ln(-6, 2, -8, 9), ln(6, 2, 8, 9), ln(-7, 6, 7, 6)],
+        "toilets": lambda: [
+            ci(-4.5, -6, 2, "t"),
+            rc(-7, -3, 5, 8, "1"),
+            ln(-5.5, 5, -5.5, 10),
+            ci(4.5, -6, 2, "t"),
+            pg([(4.5, -3.5), (8, 5), (1, 5)], "2"),
+            ln(0, -9, 0, 10),
+        ],
+        "parking": lambda: [rc(-9, -9, 18, 18, "s"), ar("M-3 6L-3 -6L1.5 -6A3.5 3.5 0 0 1 1.5 1L-3 1", True)],
+        "information": lambda: [ci(0, 0, 9, "s"), ci(0, -4.5, 1.4, "t"), rc(-1.3, -1, 2.6, 6.5, "t")],
+        "door": lambda: [
+            ln(-10, 8, -6, 8, True),
+            ln(6, 8, 10, 8, True),
+            ln(-6, 8, -6, -4),
+            ar("M-6 -4A12 12 0 0 1 6 8"),
+        ],
+        "window": lambda: [ln(-10, 0, -7, 0, True), ln(7, 0, 10, 0, True), rc(-7, -2.5, 14, 5, "s"), ln(-7, 0, 7, 0)],
+    }
+    tile = _rect(-11, -11, 22, 22, rx=3, fill=PAPER, stroke=MID, stroke_width=0.8)
+    return _g(
+        tile,
+        *shapes[name](),
+        transform=f"translate({_n(cx)} {_n(cy)}) scale({_n(r / 10)})",
+        stroke_width=1.4,
+        stroke_linejoin="round",
+        stroke_linecap="round",
+    )
+
+
+def _gd_centroid(pts: list[tuple[float, float]]) -> tuple[float, float]:
+    area2 = cx = cy = 0.0
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]):
+        cross = x0 * y1 - x1 * y0
+        area2 += cross
+        cx += (x0 + x1) * cross
+        cy += (y0 + y1) * cross
+    if abs(area2) < 1e-9:
+        return sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts)
+    return cx / (3 * area2), cy / (3 * area2)
+
+
+def _gd_note(
+    x: float, y: float, s: Any, *, anchor: str = "middle", size: float = _GD_FS, weight: str | None = "bold"
+) -> str:
+    """Text on a white backing so it reads over grid lines and shapes."""
+    w = _text_w(s, size) + 2
+    left = x - w / 2 if anchor == "middle" else x - w if anchor == "end" else x
+    return _rect(left - 1, y - size / 2 - 1, w + 2, size + 2, fill=PAPER, stroke="none", opacity=0.85) + _text(
+        x, y, s, size=size, anchor=anchor, weight=weight
+    )
+
+
+def _gd_blank(w: int, h: int, c: float, x0: float, y0: float) -> str:
+    out = [_rect(x0, y0, w * c, h * c, fill=PAPER, stroke=INK, stroke_width=1.6)]
+    out += [_line(x0 + i * c, y0, x0 + i * c, y0 + h * c, stroke=GRID, stroke_width=1) for i in range(1, w)]
+    out += [_line(x0, y0 + j * c, x0 + w * c, y0 + j * c, stroke=GRID, stroke_width=1) for j in range(1, h)]
+    return _g(*out)
+
+
+def _gd_scale(scale: dict, c: float, x: float, y: float) -> tuple[str, float]:
+    """The scale text, then a scale bar of ``bar_cells`` cells under it; the markup and its height."""
+    out = [_text(x, y, scale["text"], size=_GD_FS, anchor="start", weight="bold")]
+    height = 18.0
+    if "bar_cells" in scale:
+        n, by = scale["bar_cells"] * c, y + 14
+        out.append(
+            _path(
+                f"M{_n(x)} {_n(by - 5)}V{_n(by + 5)}M{_n(x)} {_n(by)}H{_n(x + n)}M{_n(x + n)} {_n(by - 5)}V{_n(by + 5)}",
+                stroke_width=2.4,
+            )
+        )
+        height = 30.0
+    return "".join(out), height
+
+
+def _gd_north(cx: float, top: float) -> str:
+    """A north arrow, tip upwards, with an N drawn as lines above it (so the only text is the spec's own)."""
+    n = f"M{_n(cx - 4)} {_n(top + 10)}V{_n(top)}L{_n(cx + 4)} {_n(top + 10)}V{_n(top)}"
+    tip = top + 16
+    head = _poly([(cx, tip), (cx - 5, tip + 11), (cx + 5, tip + 11)], True, fill=INK, stroke_linejoin="round")
+    return _g(
+        _path(n, stroke_width=2, stroke_linejoin="round", stroke_linecap="round"),
+        _line(cx, tip + 11, cx, tip + 36, stroke_width=2),
+        head,
+    )
+
+
+def _gd_legend(names: list[str], x: float, y: float) -> tuple[str, float, float]:
+    cols = 1 if len(names) <= 5 else 2
+    rows = math.ceil(len(names) / cols)
+    col_w = max(_text_w(SYMBOLS[n], _GD_FS) for n in names) + 44
+    width, height = col_w * cols + 12, rows * 28 + 10
+    out = [_rect(x, y, width, height, rx=4, fill=PAPER, stroke=INK, stroke_width=1.2)]
+    for i, name in enumerate(names):
+        col, row = divmod(i, rows)
+        cx, cy = x + 8 + col * col_w, y + 5 + row * 28 + 14
+        out.append(_gd_symbol(name, cx + 11, cy, 9))
+        out.append(_text(cx + 28, cy, SYMBOLS[name], size=_GD_FS, anchor="start"))
+    return _g(*out), width, height
+
+
+def _gd_canvas_below(s: dict) -> bool:
+    grid = s["grid"]
+    if grid["type"] == "square":
+        return grid["width"] > grid["height"]
+    return 0.366 * (grid["width"] + grid["height"]) > grid["layers"]
+
+
+def _gd_with_canvas(s: dict, width: float, height: float, gx: float, gy: float, cell: float, body: str) -> Body:
+    """Add the blank answer grid: to the right of the figure, or below it when the figure is wider than tall or
+    the right side is too narrow to hold it."""
+    canvas = s.get("canvas")
+    if not isinstance(canvas, dict):
+        return body, height
+    cw, ch = canvas["width"], canvas["height"]
+    gap = 18
+    beside = None
+    if not _gd_canvas_below(s):
+        c = min(cell, 24.0, 300.0 / ch, math.floor((CANVAS - _GD_PAD - width - gap) / cw))
+        if c >= 10:
+            beside = c
+    if beside:
+        out = body + _gd_blank(cw, ch, beside, width + gap, gy)
+        return out, max(height, gy + ch * beside + _GD_PAD)
+    c = max(5.0, min(cell, 24.0, 300.0 / ch, (CANVAS - gx - _GD_PAD) / cw))
+    y0 = height + gap - _GD_PAD
+    return body + _gd_blank(cw, ch, c, gx, y0), y0 + ch * c + _GD_PAD
+
+
+def _gd_overhang(s: dict, c: float) -> tuple[float, float, float]:
+    """How far symbols and labels poke out past the left, right and top edges of the grid at cell size ``c``."""
+    grid = s["grid"]
+    w, h = grid["width"], grid["height"]
+    r_sym = max(7.0, min(14.0, c * 0.42))
+    left = right = top = 0.0
+    items = [(it["at"], 1.1 * r_sym + 2, 1.1 * r_sym + 2) for it in s.get("symbols", [])]
+    items += [(it["at"], (_text_w(it["text"], _GD_FS) + 4) / 2 + 2, _GD_FS / 2 + 3) for it in s.get("labels", [])]
+    for (x, y), half_w, half_h in items:
+        left = max(left, half_w - x * c)
+        right = max(right, half_w - (w - x) * c)
+        top = max(top, half_h - (h - y) * c)
+    return left, right, top
+
+
+def _gd_square(s: dict, ids: _Ids) -> Body:
+    grid = s["grid"]
+    w, h = grid["width"], grid["height"]
+    rows, cols = s.get("row_labels", []), s.get("column_labels", [])
+    # Long row labels are drawn smaller so the label gutter stays under about 100 units.
+    row_fs = float(_GD_FS)
+    if rows:
+        row_fs = max(7.0, min(row_fs, _GD_FS * 100 / max(_text_w(t, _GD_FS) for t in rows)))
+    left = max(_text_w(t, row_fs) for t in rows) + 10 if rows else 0
+    east = 36 if s.get("north") else 0
+    # Symbols and labels on the grid boundary stick out past it; widen the margins to hold them. The cell size
+    # depends on the margins and the overhang on the cell size, so settle them in a few passes.
+    m_left = m_right = m_top = float(_GD_PAD)
+    for _ in range(4):
+        gx, gy = max(_GD_PAD + left, m_left), m_top
+        c = float(max(6, min(36, math.floor((CANVAS - gx - m_right - east) / w), math.floor(320 / h))))
+        o_left, o_right, o_top = _gd_overhang(s, c)
+        new = (max(_GD_PAD, o_left), max(_GD_PAD, o_right), max(_GD_PAD, o_top))
+        if new == (m_left, m_right, m_top):
+            break
+        m_left, m_right, m_top = new
+    gw, gh = w * c, h * c
+
+    def X(x: float) -> float:
+        return gx + x * c
+
+    def Y(y: float) -> float:
+        return gy + (h - y) * c
+
+    out: list[str] = [_rect(gx, gy, gw, gh, fill=PAPER, stroke="none")]
+    defs: dict[str, str] = {}
+    for group in s.get("cells", []):
+        style = group["style"]
+        if style == "shaded":
+            fill = MID
+        else:
+            pid = ids(f"cells-{style}")
+            if style not in defs:
+                if style == "hatched":
+                    inner = _rect(0, 0, 6, 6, fill=PAPER, stroke="none") + _line(
+                        0, 0, 0, 6, stroke=INK, stroke_width=1.6
+                    )
+                    defs[style] = _el(
+                        "pattern",
+                        inner,
+                        id=pid,
+                        patternUnits="userSpaceOnUse",
+                        width=6,
+                        height=6,
+                        patternTransform="rotate(45)",
+                    )
+                else:
+                    inner = _rect(0, 0, 7, 7, fill=PAPER, stroke="none") + _circle(
+                        3.5, 3.5, 1.6, fill=INK, stroke="none"
+                    )
+                    defs[style] = _el("pattern", inner, id=pid, patternUnits="userSpaceOnUse", width=7, height=7)
+            fill = f"url(#{pid})"
+        out.append(_g(*[_rect(X(x), Y(y + 1), c, c, fill=fill, stroke="none") for x, y in group["cells"]]))
+    out += [_line(X(i), gy, X(i), gy + gh, stroke=GRID, stroke_width=1) for i in range(1, w)]
+    out += [_line(gx, gy + j * c, gx + gw, gy + j * c, stroke=GRID, stroke_width=1) for j in range(1, h)]
+    out.append(_rect(gx, gy, gw, gh, stroke=INK, stroke_width=1.6))
+    for poly in s.get("polygons", []):
+        pts = [(X(x), Y(y)) for x, y in poly["vertices"]]
+        dash = "7 4" if poly.get("style") == "dashed" else None
+        out.append(_poly(pts, True, stroke=INK, stroke_width=2.6, stroke_dasharray=dash, stroke_linejoin="round"))
+        if poly.get("label"):
+            lx, ly = _gd_centroid(pts)
+            out.append(_gd_note(lx, ly, poly["label"]))
+    for line in s.get("lines", []):
+        out.append(_g(_gd_feature(line["style"], [(X(x), Y(y)) for x, y in line["points"]])))
+    if s.get("path"):
+        centres = [(X(x + 0.5), Y(y + 0.5)) for x, y in s["path"]["cells"]]
+        r0 = min(7.0, c * 0.3)
+        bits = []
+        for k, ((x0, y0), (x1, y1)) in enumerate(zip(centres, centres[1:])):
+            ux, uy = (x1 - x0) / math.hypot(x1 - x0, y1 - y0), (y1 - y0) / math.hypot(x1 - x0, y1 - y0)
+            a = r0 if k == 0 else 0.0
+            ex, ey = x1 - ux * c * 0.2, y1 - uy * c * 0.2
+            bits.append(
+                _line(x0 + ux * a, y0 + uy * a, ex - ux * 5, ey - uy * 5, stroke_width=2.6, stroke_linecap="round")
+            )
+            bx, by = ex - ux * 7, ey - uy * 7
+            bits.append(
+                _poly(
+                    [(ex, ey), (bx - uy * 4.2, by + ux * 4.2), (bx + uy * 4.2, by - ux * 4.2)],
+                    True,
+                    fill=INK,
+                    stroke="none",
+                )
+            )
+        bits.append(_circle(centres[0][0], centres[0][1], r0, fill=PAPER, stroke_width=2.6))
+        out.append(_g(*bits))
+    used: list[str] = []
+    r_sym = max(7.0, min(14.0, c * 0.42))
+    for sym in s.get("symbols", []):
+        out.append(_gd_symbol(sym["symbol"], X(sym["at"][0]), Y(sym["at"][1]), r_sym))
+        if sym["symbol"] not in used:
+            used.append(sym["symbol"])
+    for lab in s.get("labels", []):
+        out.append(_gd_note(X(lab["at"][0]), Y(lab["at"][1]), lab["text"]))
+    y = gy + gh
+    if cols:
+        fs = max(7.0, min(float(_GD_FS), _GD_FS * (c - 1) / max(_text_w(t, _GD_FS) for t in cols)))
+        out += [_text(X(i + 0.5), y + 11, t, size=fs) for i, t in enumerate(cols)]
+        y += 20
+    if rows:
+        fs = max(7.0, min(row_fs, c * 0.85))
+        out += [_text(gx - 6, Y(j + 0.5), t, size=fs, anchor="end") for j, t in enumerate(rows)]
+    width = gx + gw + m_right
+    if s.get("north"):
+        out.append(_gd_north(gx + gw + m_right + 10, gy + 2))
+        width += east - _GD_PAD + 6
+    y += 10
+    if s.get("scale"):
+        markup, sh = _gd_scale(s["scale"], c, gx, y + 6)
+        out.append(markup)
+        y += sh + 8
+    if s.get("legend") and used:
+        markup, lw, lh = _gd_legend(used, gx, y)
+        out.append(markup)
+        width = max(width, gx + lw + _GD_PAD)
+        y += lh + 6
+    body = (_el("defs", "".join(defs.values())) if defs else "") + "".join(out)
+    return _gd_with_canvas(s, width, y + _GD_PAD, gx, gy, c, body)
+
+
+def _gd_isometric(s: dict, ids: _Ids) -> Body:
+    grid = s["grid"]
+    w, h, layers = grid["width"], grid["height"], grid["layers"]
+    east = 36 if s.get("north") else 0
+    unit = min(34.0, (CANVAS - 2 * _GD_PAD - east) / ((w + h) * _COS30), 300 / (layers + (w + h) * 0.5))
+    ox = float(_GD_PAD)
+    oy = _GD_PAD + h * 0.5 * unit + layers * unit
+
+    def P(x: float, y: float, z: float) -> tuple[float, float]:
+        return ox + (x + y) * _COS30 * unit, oy + (x - y) * 0.5 * unit - z * unit
+
+    seen: set[tuple[int, int]] = set()
+    dots = []
+    for x in range(w + 1):
+        for y in range(h + 1):
+            for z in range(layers + 1):
+                key = (x + y, 2 * z + y - x)
+                if key not in seen:
+                    seen.add(key)
+                    dots.append(_circle(*P(x, y, z), 1.6, fill=MID, stroke="none"))
+    out = [_g(*dots)]
+    # The viewer is at the front right, above: a cube with a larger x, a smaller y or a larger z is nearer. Sorting
+    # by x - y + z paints every cube after the cubes it can hide, so a hidden face is never seen.
+    for x, y, z in sorted((tuple(c) for c in s["cubes"]), key=lambda c: (c[0] - c[1] + c[2], c[2], c[0])):
+        faces = (
+            (DARK, [P(x + 1, y, z), P(x + 1, y + 1, z), P(x + 1, y + 1, z + 1), P(x + 1, y, z + 1)]),
+            (MID, [P(x, y, z), P(x + 1, y, z), P(x + 1, y, z + 1), P(x, y, z + 1)]),
+            (LIGHT, [P(x, y, z + 1), P(x + 1, y, z + 1), P(x + 1, y + 1, z + 1), P(x, y + 1, z + 1)]),
+        )
+        out.append(
+            _g(
+                *[
+                    _poly(pts, True, fill=fill, stroke=INK, stroke_width=1.2, stroke_linejoin="round")
+                    for fill, pts in faces
+                ]
+            )
+        )
+    for lab in s.get("labels", []):
+        lx, ly = P(lab["at"][0], lab["at"][1], 0)
+        out.append(_gd_note(lx, ly, lab["text"]))
+    width = ox + (w + h) * _COS30 * unit + _GD_PAD
+    height = oy + w * 0.5 * unit + _GD_PAD
+    if s.get("north"):
+        out.append(_gd_north(width + 14, _GD_PAD))
+        width += east
+    if s.get("scale"):
+        markup, sh = _gd_scale(s["scale"], unit, ox, height + 6)
+        out.append(markup)
+        height += sh + 8
+    return _gd_with_canvas(s, width, height, ox, _GD_PAD, 24.0, "".join(out))
+
+
+def _grid_drawing(s: dict, ids: _Ids) -> Body:
+    return (_gd_isometric if s["grid"]["type"] == "isometric" else _gd_square)(s, ids)
+
+
 # ---------------------------------------------------------------- entry point
 
 _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
@@ -1673,6 +2140,7 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "diagram": _diagram,
     "dot_plot": _dot_plot,
     "fraction_model": _fraction_model,
+    "grid_drawing": _grid_drawing,
     "histogram": _histogram,
     "hundred_chart": _hundred_chart,
     "money": _money,

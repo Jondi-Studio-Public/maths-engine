@@ -175,6 +175,9 @@ by year or ACARA code, generate questions, build worksheets and tests in version
 for print, Moodle or QTI, and grade replies by question id. It stores nothing, so a school can run its own copy.
 Keep author keys on the server side only, and read the keys, privacy and upgrade notes in `docs/server.md` before exposing it.
 
+Teachers who only want questions in Moodle or Canvas can download the ready-made banks attached to each release;
+`docs/banks.md` says how to import them and how the maintainer builds them.
+
 ## For AI agents
 
 `docs/mcp.md` describes an MCP server (`mathgen-mcp`), and `plugins/` holds two Agent Plugins built on it: a tutor that
@@ -247,6 +250,20 @@ data and reads no clock; the application stores state and passes times in.
   tier from `{user_id, skill_id, difficulty, correct}` rows and flags tiers answered right
   more often than an earlier tier; `calibration.fsrs_calibration` compares predicted with
   observed recall.
+
+## Versioning and the public API
+
+The public API is what [`docs/api.md`](https://github.com/Jondi-Studio-Public/maths-engine/blob/main/docs/api.md)
+lists: the names `mathgen` exports, `mathgen.engine`, and the entry points of `mathgen.skills`, `mathgen.grading`
+and `mathgen.scheduling`, the helpers in `mathgen.core` for writing generators, the entry points of
+`mathgen.service`, `mathgen.export` and `mathgen.svg`, and the `mathgen` and `mathgen-mcp` commands. Anything else,
+and any name that starts with `_`, is internal and may change in any release.
+
+Releases follow [Semantic Versioning](https://semver.org). Until 1.0, a minor release (0.2 to 0.3) may change the
+public API, and [`CHANGELOG.md`](https://github.com/Jondi-Studio-Public/maths-engine/blob/main/CHANGELOG.md) says
+how to upgrade; a patch release does not change it. Questions are a separate matter: a fixed or improved generator
+gives a different question for the same seed in any release, and the question id tells you when that happened (see
+"Seed stability" in `CONTRIBUTING.md`).
 
 ## Licensing
 

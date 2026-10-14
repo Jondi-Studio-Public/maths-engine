@@ -314,7 +314,7 @@ def _build_numeral_grouped(rng):
 
     text = (
         f"A polygon has {n} sides. {g} of the angles measure {v} degrees each, "
-        f"and the rest measure {_format_list(rest)}. {_CLOSER}"
+        f"and the rest measure {_format_list(rest)}. One more angle is unknown. {_CLOSER}"
     )
     answer_text = str(missing)
     _check_medium(text, answer_text)

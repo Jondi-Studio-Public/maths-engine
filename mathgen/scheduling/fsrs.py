@@ -17,6 +17,22 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "AGAIN",
+    "HARD",
+    "GOOD",
+    "EASY",
+    "DEFAULT_WEIGHTS",
+    "Memory",
+    "retrievability",
+    "interval_days",
+    "initial_stability",
+    "initial_difficulty",
+    "next_difficulty",
+    "step",
+]
+
 AGAIN, HARD, GOOD, EASY = 1, 2, 3, 4
 
 # FSRS-5 default parameters, w[0]..w[18].

@@ -17,6 +17,18 @@ from fractions import Fraction
 
 from . import fsrs
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "OUTCOME_RATING",
+    "DEFAULT_DESIRED_RETENTION",
+    "DEFAULT_MAXIMUM_INTERVAL_DAYS",
+    "DEFAULT_RESET_MISSES",
+    "DEFAULT_RESET_GAP_DAYS",
+    "outcome_from_marks",
+    "memory_from_history",
+    "score",
+]
+
 OUTCOME_RATING = {"reset": fsrs.AGAIN, "hold": fsrs.HARD, "advance": fsrs.GOOD, "maintenance_pass": fsrs.GOOD}
 
 DEFAULT_DESIRED_RETENTION = 0.9
