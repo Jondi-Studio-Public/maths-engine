@@ -3,6 +3,7 @@
 id: senior-implement-the-statistical-investigation-process-to-answer-questions
 name: Implement the statistical investigation process to answer questions that involve comparing the data for a numerical variable across two or more groups; for example, are Year 11 students the fittest in the school?
 domain: statistics-probability
+year_level: ['11']
 description: Given two stated, generated datasets (with context) for a numerical variable measured across two named groups, compute the difference between the two groups' means or, if stated, their medians. Return the resulting value.
 status: active
 placement_eligible: false

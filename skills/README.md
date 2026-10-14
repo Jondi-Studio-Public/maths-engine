@@ -112,8 +112,11 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   `scripts/backfill_year_level.py` derives `year_level` and `naplan_domain` from the ACARA v9 codes
   (`ac9m<level><strand><nn>`, such as `ac9m6n03`) and `acara-v9-year-N` tags in a file's `tags`, and
   from the university framework tag; `--check` lists files that disagree and `--write` fixes them, and
-  `tests/public/test_skill_coverage.py` fails when a file drifts from its codes. Senior files carry no
-  unit or year, so they have none of these fields unless a person sets them.
+  `tests/public/test_skill_coverage.py` fails when a file drifts from its codes. Senior content codes
+  (`ACMMM`, `ACMSM`, `ACMGM`, `ACMEM` plus a number) are mapped to Unit 1 to 4 by the table in
+  `scripts/senior_code_units.yaml` (from ACARA's Version 8.4 unit pages): Units 1 and 2 give `'11'`,
+  Units 3 and 4 give `'12'`, and codes from both give `['11', '12']`. A senior file with no such code
+  has no year unless a person sets it.
 - **Optional:** `placement_eligible` (default `true`), `placement_order`, `placement_questions`,
   `placement_pass`, `learner_band` (`early`, `primary` or `general`), `framework_areas`, `alignments`,
   `needs_figure`, `capability_gates` and `mental` (below).

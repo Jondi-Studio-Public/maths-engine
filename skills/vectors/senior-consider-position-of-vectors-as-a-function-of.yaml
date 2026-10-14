@@ -3,6 +3,7 @@
 id: senior-consider-position-of-vectors-as-a-function-of
 name: Consider position of vectors as a function of time
 domain: vectors
+year_level: ['12']
 description: Given bounded, fully specified inputs, consider position of vectors as a function of time. Return the resulting value, expression, relation, or classification. This skill is restricted to two-dimensional position vectors (never three-component vectors). The skill evaluates a stated position vector at a stated time, or finds the displacement between two stated times by direct substitution and subtraction. This skill does not differentiate or integrate—all rate-of-change content is reserved for the related skill on differentiate-and-integrate-a-vector-function-with-respect (ACMSM113).
 status: active
 placement_eligible: false

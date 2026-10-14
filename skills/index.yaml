@@ -352,6 +352,8 @@ compare-functions-representations:
   sources:
   - topic: fg1_compare_functions
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_compare_functions
+    module: mathgen/generators/exd_x_w12c_compare_functions.py
 compare-lengths:
   domain: early-foundations
   status: active
@@ -364,6 +366,8 @@ compare-linear-representations:
   sources:
   - topic: fg1_compare_linear
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_compare_linear
+    module: mathgen/generators/exd_x_w12c_compare_linear.py
 compare-quantities-to-10:
   domain: early-foundations
   status: active
@@ -502,6 +506,8 @@ convert-time-systems:
   sources:
   - topic: time_system_conversion
     module: mathgen/generators/curriculum_expansion.py
+  - topic: exd_x_w12a_time_crossing_midnight_chain
+    module: mathgen/generators/exd_x_w12a_time_crossing_midnight_chain.py
 convex-quadratic-minimum:
   domain: optimisation
   status: active
@@ -688,6 +694,8 @@ equation-from-graph:
   sources:
   - topic: fg1_equation_from_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_equation_from_graph
+    module: mathgen/generators/exd_x_w12b_equation_from_graph.py
 equation-from-table:
   domain: linear-relations
   status: active
@@ -870,6 +878,8 @@ f10-compare-box-plots:
   sources:
   - topic: stat5_box_plot_compare
     module: mathgen/generators/stat5_box_plot_build.py
+  - topic: exd_x_w12a_compare_box_plots_chain
+    module: mathgen/generators/exd_x_w12a_compare_box_plots_chain.py
 f10-compare-measurement-attributes:
   domain: measurement
   status: active
@@ -894,6 +904,14 @@ f10-composite-shape-representation:
   sources:
   - topic: grid_composite_area
     module: mathgen/generators/grid_solids_build.py
+f10-compound-event-frequencies:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fpm_compound_frequencies
+    module: mathgen/generators/fpm_experimental_probability_build.py
+  - topic: fpm_compound_frequencies_exam
+    module: mathgen/generators/fpm_experimental_probability_build.py
 f10-compound-outcomes-replacement:
   domain: statistics-probability
   status: active
@@ -1034,6 +1052,14 @@ f10-expanded-powers-ten:
   sources:
   - topic: p19a_expanded_powers_ten
     module: mathgen/generators/p19a_expanded_powers_ten_build.py
+f10-expected-versus-observed:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fpm_expected_vs_observed
+    module: mathgen/generators/fpm_experimental_probability_build.py
+  - topic: fpm_expected_observed_exam
+    module: mathgen/generators/fpm_experimental_probability_build.py
 f10-exponent-laws-integer-variable:
   domain: secondary-number
   status: active
@@ -1188,6 +1214,14 @@ f10-map-feature-and-landmark-representation:
   sources:
   - topic: grid_map_landmarks
     module: mathgen/generators/grid_map_symbols_build.py
+f10-map-grid-routes-bearings:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fsp_map_route
+    module: mathgen/generators/fsp_maps_build.py
+  - topic: fsp_map_route_exam
+    module: mathgen/generators/fsp_maps_build.py
 f10-measure-angle-protractor:
   domain: primary-geometry-time
   status: active
@@ -1288,8 +1322,12 @@ f10-nets-build-solids:
   domain: primary-geometry-time
   status: active
   sources:
+  - topic: fsp_nets
+    module: mathgen/generators/fsp_nets_build.py
   - topic: grid_nets_build_solids
     module: mathgen/generators/grid_solids_build.py
+  - topic: fsp_nets_exam
+    module: mathgen/generators/fsp_nets_build.py
 f10-number-algorithms-decisions:
   domain: functions-sequences
   status: active
@@ -1376,6 +1414,14 @@ f10-percentage-equivalence-comparison:
     module: mathgen/generators/primary_number_estimate_percentage_build.py
   - topic: exd_x_pr5_season_rates
     module: mathgen/generators/exd_x_pr5_season_rates.py
+f10-plan-views-cube-stacks:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fsp_plan_views
+    module: mathgen/generators/fsp_plans_build.py
+  - topic: fsp_plan_views_exam
+    module: mathgen/generators/fsp_plans_build.py
 f10-polygon-angle-sums:
   domain: geometry
   status: active
@@ -1436,6 +1482,8 @@ f10-probability-tree-diagrams:
   sources:
   - topic: fig_prob_tree
     module: mathgen/generators/fig_tree_build.py
+  - topic: exd_x_fc_probability_tree
+    module: mathgen/generators/exd_x_fc_probability_tree.py
 f10-quadratic-algebra-expansion:
   domain: quadratics
   status: active
@@ -1508,6 +1556,8 @@ f10-read-a-box-plot:
   sources:
   - topic: stat5_box_plot_read
     module: mathgen/generators/stat5_box_plot_build.py
+  - topic: exd_x_w12a_box_plot_read_chain
+    module: mathgen/generators/exd_x_w12a_box_plot_read_chain.py
 f10-read-measurement-scale:
   domain: measurement
   status: active
@@ -1542,6 +1592,14 @@ f10-regular-irregular-area-perimeter:
     module: mathgen/generators/p4a_area_perimeter_build.py
   - topic: exd_x_m2_block_fencing
     module: mathgen/generators/exd_x_m2_block_fencing.py
+f10-relative-frequency-estimate:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fpm_relative_frequency
+    module: mathgen/generators/fpm_experimental_probability_build.py
+  - topic: exd_x_r2l_relfreq_chain
+    module: mathgen/generators/exd_x_r2l_relfreq_chain.py
 f10-round-decimals-accuracy:
   domain: primary-number
   status: active
@@ -1550,6 +1608,22 @@ f10-round-decimals-accuracy:
     module: mathgen/generators/p9e_decimal_accuracy_order_build.py
   - topic: exd_x_pr4_round_cash_total
     module: mathgen/generators/exd_x_pr4_round_cash_total.py
+f10-sample-size-and-reliability:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: fpm_sample_size
+    module: mathgen/generators/fpm_experimental_probability_build.py
+  - topic: fpm_sample_size_exam
+    module: mathgen/generators/fpm_experimental_probability_build.py
+f10-scale-drawing-floor-plans:
+  domain: measurement
+  status: active
+  sources:
+  - topic: fsp_scale_plan
+    module: mathgen/generators/fsp_scale_plans_build.py
+  - topic: fsp_scale_plan_exam
+    module: mathgen/generators/fsp_scale_plans_build.py
 f10-scientific-notation-measurements:
   domain: secondary-number
   status: active
@@ -1584,6 +1658,14 @@ f10-skip-count-pattern-sequences:
   sources:
   - topic: skip_count_pattern_sequences
     module: mathgen/generators/p5c_skip_count_build.py
+f10-solid-faces-edges-vertices:
+  domain: geometry
+  status: active
+  sources:
+  - topic: fsp_solids
+    module: mathgen/generators/fsp_solids_build.py
+  - topic: fsp_solids_exam
+    module: mathgen/generators/fsp_solids_build.py
 f10-square-roots-perfect-squares:
   domain: secondary-number
   status: active
@@ -1598,6 +1680,8 @@ f10-stem-and-leaf-plots:
   sources:
   - topic: f10_stem_and_leaf
     module: mathgen/generators/f10_stem_and_leaf_build.py
+  - topic: exd_x_fc_stem_and_leaf
+    module: mathgen/generators/exd_x_fc_stem_and_leaf.py
 f10-subitise-name-to-5:
   domain: early-foundations
   status: active
@@ -1722,6 +1806,8 @@ f10-venn-diagram-counts:
   sources:
   - topic: fig_venn_counts
     module: mathgen/generators/fig_venn_build.py
+  - topic: exd_x_fc_venn_counts
+    module: mathgen/generators/exd_x_fc_venn_counts.py
 f10-volume-surface-area-prisms-cylinders:
   domain: measurement
   status: active
@@ -1760,6 +1846,8 @@ f7-read-a-histogram:
   sources:
   - topic: stat4_histogram
     module: mathgen/generators/stat4_histogram_build.py
+  - topic: exd_x_w12a_histogram_chain
+    module: mathgen/generators/exd_x_w12a_histogram_chain.py
 factor-common-numerical-factor:
   domain: expressions-equivalence
   status: active
@@ -1896,6 +1984,8 @@ gradient-from-graph:
   sources:
   - topic: fg1_gradient_from_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_gradient_from_graph
+    module: mathgen/generators/exd_x_w12b_gradient_from_graph.py
 gradient-vector:
   domain: partial-derivatives
   status: deferred
@@ -1908,12 +1998,16 @@ graph-y-mx:
   sources:
   - topic: fg1_proportional_graph
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_graph_y_mx
+    module: mathgen/generators/exd_x_w12b_graph_y_mx.py
 graph-y-mx-plus-b:
   domain: linear-relations
   status: active
   sources:
   - topic: fg1_line_table
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_graph_y_mx_plus_b
+    module: mathgen/generators/exd_x_w12b_graph_y_mx_plus_b.py
 hookes-law:
   domain: engineering-mechanics
   status: active
@@ -1962,6 +2056,8 @@ inequality-solutions-number-line:
   sources:
   - topic: fg1_inequality_number_line
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_inequality_number_line
+    module: mathgen/generators/exd_x_w12c_inequality_number_line.py
 inequality-symbols:
   domain: inequalities
   status: deferred
@@ -2110,8 +2206,12 @@ linear-equations-with-fractions:
     module: mathgen/generators/exd_x_a3_equations_unknown_in_denominator.py
 linear-models:
   domain: linear-relations
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fpm_linear_model
+    module: mathgen/generators/fpm_modelling_build.py
+  - topic: fpm_linear_model_exam
+    module: mathgen/generators/fpm_modelling_build.py
 list-factors:
   domain: secondary-number
   status: active
@@ -2238,8 +2338,12 @@ midpoint-two-points:
     module: mathgen/generators/exd_x_a4_parallelogram_vertex.py
 model-relationships-with-functions:
   domain: functions-sequences
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: fpm_function_model
+    module: mathgen/generators/fpm_modelling_build.py
+  - topic: fpm_function_model_exam
+    module: mathgen/generators/fpm_modelling_build.py
 modular-arithmetic-congruence:
   domain: number-theory
   status: active
@@ -2448,6 +2552,8 @@ plot-linear-points:
   sources:
   - topic: fg1_plotted_points
     module: mathgen/generators/fg1_line_reading_build.py
+  - topic: exd_x_w12b_plot_linear_points
+    module: mathgen/generators/exd_x_w12b_plot_linear_points.py
 polynomial-linear-combination:
   domain: expressions-equivalence
   status: active
@@ -5320,6 +5426,8 @@ solve-linear-equations-graphically:
   sources:
   - topic: fg1_solve_graphically
     module: mathgen/generators/fg1_graph_compare_build.py
+  - topic: exd_x_w12c_solve_graphically
+    module: mathgen/generators/exd_x_w12c_solve_graphically.py
 solve-ode-exponential:
   domain: differential-equations
   status: active
@@ -5438,10 +5546,12 @@ tell-time-to-hour:
     module: mathgen/generators/early_math.py
 translate-word-problems-to-equations:
   domain: equations
-  status: deferred
+  status: active
   sources:
-  - topic: word_problem
-    module: mathgen/generators/foundations_algebra.py
+  - topic: fpm_translate_equation
+    module: mathgen/generators/fpm_modelling_build.py
+  - topic: fpm_translate_equation_exam
+    module: mathgen/generators/fpm_modelling_build.py
 triangle-area-base-height:
   domain: measurement
   status: active

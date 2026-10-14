@@ -1,0 +1,3 @@
+# Check text files out with LF line endings on every platform, so a package built on Windows ships the
+# same bytes as one built on Linux.
+* text=auto eol=lf

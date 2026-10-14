@@ -3,7 +3,8 @@
 id: senior-interpret-diagrams-of-three-dimensional-objects
 name: Interpret diagrams of three-dimensional objects
 domain: measurement
-description: "Given a stack of unit cubes drawn on isometric dot paper with no gaps and no cube hidden behind another, count the cubes, work out how many more cubes would fill a stated box, or find the surface area in unit squares. Easy counts a stack one or two layers high. Medium counts a staircase three layers high, including the cubes hidden below each top. Hard either subtracts the stack from the cubes in a stated box or finds the surface area, counting the bottom and the faces that cannot be seen."
+year_level: ['12']
+description: "Given a stack of unit cubes drawn on isometric dot paper with no gaps and no cube hidden behind another, count the cubes, work out how many more cubes would fill a stated box, or find the surface area in unit squares. Easy counts a stack one or two layers high. Medium counts a stack three layers high, including the cubes hidden below each top. Hard either subtracts the stack from the cubes in a stated box or finds the surface area, counting the bottom and the faces that cannot be seen."
 status: active
 capability_gates: [figure_stimulus]
 needs_figure: true

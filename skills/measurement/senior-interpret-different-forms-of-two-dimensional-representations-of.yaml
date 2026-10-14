@@ -3,6 +3,7 @@
 id: senior-interpret-different-forms-of-two-dimensional-representations-of
 name: Interpret different forms of two-dimensional representations of three-dimensional objects
 domain: measurement
+year_level: ['12']
 description: "Interpret a perspective drawing of a stack of cubes and the nets of cubes and boxes drawn on a grid. Easy chooses the column heights seen from the front of a stack drawn on isometric dot paper. Medium finds the one drawing of four that is not a net of a cube. Hard reads a net of a closed box off the grid and gives the surface area or the volume of the box it folds into."
 status: active
 capability_gates: [figure_stimulus]

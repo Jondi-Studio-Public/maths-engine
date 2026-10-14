@@ -3,6 +3,7 @@
 id: senior-solve-equations-involving-indices-using-logarithms
 name: Solve equations involving indices using logarithms
 domain: functions-sequences
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, solve equations involving indices using logarithms. Return the resulting value, expression, relation, or classification. This skill assesses solving a^x = b (or a variant with a coefficient or linear exponent) for x by applying logarithms, where b is deliberately not a clean integer power of a (distinguishing it from the definitional recognition case in sibling skill senior-define-logarithms-as-indices-a-x-b-is). Answers are decimal-valued to 3 decimal places. This skill does not assess logarithm laws or the clean-integer-power definitional case.'
 status: active
 placement_eligible: false

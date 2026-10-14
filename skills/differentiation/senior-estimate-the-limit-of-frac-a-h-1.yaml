@@ -3,6 +3,7 @@
 id: senior-estimate-the-limit-of-frac-a-h-1
 name: 'Estimate the limit of (a^h-1)/h as h->0 using technology, for various values of a>0'
 domain: differentiation
+year_level: ['12']
 description: >-
   Given bounded, fully specified inputs, estimate the limit of (a^h-1)/h as h->0 using technology,
   for various values of a>0. Return the resulting value, expression, relation, or classification.

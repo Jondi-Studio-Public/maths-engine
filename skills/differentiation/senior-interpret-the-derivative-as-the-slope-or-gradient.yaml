@@ -3,6 +3,7 @@
 id: senior-interpret-the-derivative-as-the-slope-or-gradient
 name: Read f'(x) off a drawn tangent
 domain: differentiation
+year_level: ['11']
 description: Given the graph of y = f(x) on a labelled integer grid with the tangent at a stated x drawn through grid intersections (coordinates not labelled), state f'(x) at that point by reading the tangent's rise over run off the grid. The rule for f is never shown.
 status: active
 capability_gates: [figure_stimulus]

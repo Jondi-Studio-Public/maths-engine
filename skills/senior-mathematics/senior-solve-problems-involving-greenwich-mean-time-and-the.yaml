@@ -3,6 +3,7 @@
 id: senior-solve-problems-involving-greenwich-mean-time-and-the
 name: Solve problems involving Greenwich Mean Time and the International Date Line
 domain: senior-mathematics
+year_level: ['12']
 description: Given a flight's departure day and time and each place's stated GMT offset, use GMT as the reference to find the local day and time of arrival, crossing the International Date Line.
 status: active
 placement_eligible: false

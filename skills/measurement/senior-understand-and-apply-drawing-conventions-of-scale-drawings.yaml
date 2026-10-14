@@ -3,7 +3,7 @@
 id: senior-understand-and-apply-drawing-conventions-of-scale-drawings
 name: Understand and apply drawing conventions of scale drawings, such as scales in ratio, clear indications of dimensions, and clear labelling
 domain: measurement
-year_level: ['11']
+year_level: ['12']
 description: 'Convert between a scale written `1 cm : 2 m` and the ratio `1 : 200`, find the scale from one wall labelled with its actual length, and find the length at which a stated actual length is drawn. Easy converts between the two ways of writing a scale. Medium finds the scale from a labelled wall. Hard finds the scale from the labelled wall and then the drawn length, in centimetres, of a stated actual length.'
 status: active
 capability_gates: [figure_stimulus]

@@ -3,6 +3,7 @@
 id: senior-identify-contexts-suitable-for-modelling-by-trigonometric-functions
 name: Identify contexts suitable for modelling by trigonometric functions and use them to solve practical problems
 domain: trigonometry
+year_level: ['11']
 description: "Given a stated real-world periodic scenario modelled by a sinusoidal function with stated amplitude, period and starting condition, compute the numeric value of the modelled quantity (for example height or depth) at a stated time. Amplitude, period and starting condition are always fully stated in words; the function itself is never shown and the learner is never asked to identify or choose a suitable context."
 status: active
 placement_eligible: false

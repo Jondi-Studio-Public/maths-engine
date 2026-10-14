@@ -3,6 +3,7 @@
 id: senior-use-the-notation-int-f-left-x-right
 name: 'Use the notation \(\int f\left(x\right)dx\) for anti-derivatives or indefinite integrals'
 domain: differentiation
+year_level: ['12']
 description: Given bounded, fully specified inputs, use the notation \(\int f\left(x\right)dx\)
   for anti-derivatives or indefinite integrals. Return the resulting value, expression, relation,
   or classification.

@@ -3,6 +3,7 @@
 id: senior-implement-the-statistical-investigation-process-to-answer-questions-acmgm093
 name: Implement the statistical investigation process to answer questions that involve the analysis of time series data
 domain: statistics-probability
+year_level: ['12']
 description: Given a stated, generated time-series dataset (with context), compute a linear trend value at a stated point in the series. Never asks for a moving average -- that half of the descriptor is covered by the moving-average skill. Return the resulting value.
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-use-relative-frequencies-and-histograms-obtained-from-data
 name: Use relative frequencies and histograms obtained from data to estimate probabilities associated with a continuous random variable
 domain: statistics-probability
+year_level: ['12']
 description: From a histogram's class frequencies for a continuous random variable, estimate the probability that the variable falls in a stated interval. The interval is aligned to class boundaries on the easy/medium/hard tiers; the exam tier requires assuming the variable is uniformly distributed within a class to interpolate a partial-class probability, the genuinely new step a continuous variable needs that a discrete one never does.
 status: active
 placement_eligible: false

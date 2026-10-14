@@ -3,6 +3,7 @@
 id: senior-sketch-elevation-views-of-different-models
 name: Sketch elevation views of different models
 domain: measurement
+year_level: ['12']
 description: Given a stack of unit cubes drawn on isometric dot paper, shade its elevation (the view from one side) on a canvas the size of the view. Easy shades the front view. Medium shades the view from the right or left, where the viewer's own left and right matter. Hard shades the back view, or is given one view on a grid and shades the view of the same stack from the opposite side.
 status: deferred
 deferred_reason: visual

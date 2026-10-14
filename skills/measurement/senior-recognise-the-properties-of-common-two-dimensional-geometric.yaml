@@ -3,6 +3,7 @@
 id: senior-recognise-the-properties-of-common-two-dimensional-geometric
 name: Recognise the properties of common two-dimensional geometric shapes and three-dimensional solids
 domain: measurement
+year_level: ['12']
 description: "Recognise the properties of polygons, prisms and pyramids, and the cuboid of unit cubes on isometric dot paper. Easy reads the three lengths of a drawn cuboid and counts its edges by length or its faces by shape or area. Medium, in words only, counts the faces, edges or vertices of a named prism or pyramid, or the diagonals of a polygon. Hard, in words only, uses Euler's rule that vertices plus faces minus edges is 2, and the shape of a prism or a pyramid, to find one count from another."
 status: active
 capability_gates: [figure_stimulus]

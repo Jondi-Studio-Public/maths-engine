@@ -3,6 +3,7 @@
 id: senior-recognise-the-need-for-milligrams
 name: Recognise the need for milligrams
 domain: senior-mathematics
+year_level: ['12']
 description: >-
   Given a stated real-world mass description, choose the most appropriate unit among milligrams,
   grams, kilograms and tonnes for measuring it. The exam tier is a dosage problem that finds the

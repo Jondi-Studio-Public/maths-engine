@@ -3,6 +3,7 @@
 id: senior-use-units-of-energy-to-describe-the-amount
 name: Use units of energy to describe the amount of energy in activity, such as kilojoules
 domain: measurement
+year_level: ['11']
 description: Given an activity's energy-use rate stated in kilojoules per unit time and a duration for that activity, compute the total energy used in kilojoules.
 status: active
 placement_eligible: false

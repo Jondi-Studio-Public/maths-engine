@@ -78,12 +78,22 @@ def unreadable_note(parts) -> str:
     )
 
 
+def _reply_text(value) -> str:
+    """One part's reply as text. A number is its digits, so an option index or answer of 0 is a reply and not an
+    empty box (0 is falsy, which `value or ""` would turn into ""); a bool is no reply; None is none."""
+    if value is None or isinstance(value, bool):
+        return ""
+    if isinstance(value, (int, float)):
+        return str(value)
+    return str(value or "")
+
+
 def _split(parts, given) -> dict[str, str] | None:
     """`given` as one reply per part label, or None when text was given that cannot be split into parts."""
     labels = [p.label for p in parts]
     if isinstance(given, dict):
-        return {label: str(given.get(label, "") or "") for label in labels}
-    text = str(given or "").strip()
+        return {label: _reply_text(given.get(label)) for label in labels}
+    text = _reply_text(given).strip()
     if not text:
         return {label: "" for label in labels}
     if text.startswith("{"):
@@ -92,7 +102,7 @@ def _split(parts, given) -> dict[str, str] | None:
         except ValueError:
             loaded = None
         if isinstance(loaded, dict):
-            return {label: str(loaded.get(label, "") or "") for label in labels}
+            return {label: _reply_text(loaded.get(label)) for label in labels}
     if len(labels) == 1:
         # One part: a leading marker is dropped, anything else is the reply.
         match = _label_marker(labels[0]).match(text)

@@ -3,6 +3,7 @@
 id: senior-construct-scale-drawings-by-hand-and-by-using
 name: Construct scale drawings by hand and by using software packages
 domain: measurement
+year_level: ['12']
 description: 'Given a room or garden described in words with real dimensions, and the scale written on a grid whose cells are 1 cm of the drawing, shade its plan. Easy is a rectangle and medium an L shape, placed anywhere on the grid but not turned. Hard converts a scale such as 1 cm : 50 cm or 1 : 200, and leaves the orientation open, so the plan may be turned or flipped.'
 status: deferred
 deferred_reason: visual

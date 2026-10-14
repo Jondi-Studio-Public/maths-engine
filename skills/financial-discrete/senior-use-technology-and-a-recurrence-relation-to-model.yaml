@@ -3,6 +3,7 @@
 id: senior-use-technology-and-a-recurrence-relation-to-model
 name: Use technology and a recurrence relation to model a reducing balance loan
 domain: financial-discrete
+year_level: ['12']
 description: Given a stated loan principal, interest rate and regular repayment amount, use the loan's recurrence relation to compute the outstanding balance after a stated number of compounding periods.
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156
 name: 'Read the vertical asymptote of y = log_a(x + c) off its graph'
 domain: functions-sequences
+year_level: ['12']
 description: 'Given the graph of y = log_a(x + c) (a > 1) on a labelled integer grid with c an integer and no asymptote drawn, state the equation of its vertical asymptote, x = -c, by reading the gridline the curve runs down along. The values of a and c are never printed.'
 status: active
 capability_gates: [figure_stimulus]

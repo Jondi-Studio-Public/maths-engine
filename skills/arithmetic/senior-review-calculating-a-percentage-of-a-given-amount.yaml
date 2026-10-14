@@ -3,6 +3,7 @@
 id: senior-review-calculating-a-percentage-of-a-given-amount
 name: Review calculating a percentage of a given amount
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, review calculating a percentage of a given amount. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

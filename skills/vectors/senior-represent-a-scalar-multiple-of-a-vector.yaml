@@ -3,6 +3,7 @@
 id: senior-represent-a-scalar-multiple-of-a-vector
 name: Represent a scalar multiple of a vector
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, represent a scalar multiple of a vector. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

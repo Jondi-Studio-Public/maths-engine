@@ -3,7 +3,7 @@
 id: senior-estimate-and-compare-quantities-materials-and-costs-using
 name: Estimate and compare quantities, materials and costs using actual measurements from scale drawings
 domain: measurement
-year_level: ['11']
+year_level: ['12']
 description: 'Given a plan drawn on a square grid with its scale, find the actual area or perimeter and use it to order materials. Easy finds the whole packs of flooring for a rectangular floor. Medium finds the whole turf rolls for an L-shaped or U-shaped lawn, or the whole fence panels for its boundary. Hard compares two options sold in different packs and finds how much the cheaper one saves.'
 status: active
 capability_gates: [figure_stimulus]

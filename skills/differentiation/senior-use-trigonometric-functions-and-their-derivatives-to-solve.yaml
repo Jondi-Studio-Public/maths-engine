@@ -3,6 +3,7 @@
 id: senior-use-trigonometric-functions-and-their-derivatives-to-solve
 name: Use trigonometric functions and their derivatives to solve practical problems
 domain: differentiation
+year_level: ['12']
 description: Given bounded, fully specified inputs, use trigonometric functions and their derivatives
   to solve practical problems. Return the resulting value, expression, relation, or classification.
 status: active

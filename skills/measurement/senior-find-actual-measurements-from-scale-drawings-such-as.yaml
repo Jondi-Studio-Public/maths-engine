@@ -3,7 +3,7 @@
 id: senior-find-actual-measurements-from-scale-drawings-such-as
 name: Find actual measurements from scale drawings, such as lengths, perimeters and areas
 domain: measurement
-year_level: ['11']
+year_level: ['12']
 description: 'Given a plan drawn on a square grid (one square is 1 cm) with its scale written as `1 cm : 2 m` or as a ratio `1 : 200`, find the actual measurement. Easy finds one actual length of a rectangle. Medium finds the actual perimeter of an L-shaped or U-shaped room. Hard finds the actual area in square metres, where the area scales by the square of the factor.'
 status: active
 capability_gates: [figure_stimulus]

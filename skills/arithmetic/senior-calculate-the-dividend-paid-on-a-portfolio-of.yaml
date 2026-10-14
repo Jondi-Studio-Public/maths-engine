@@ -3,6 +3,7 @@
 id: senior-calculate-the-dividend-paid-on-a-portfolio-of
 name: Complete a share portfolio table (dividend paid, dividend yield, P/E ratio)
 domain: arithmetic
+year_level: ['11']
 description: 'Complete the blank cells of a share-portfolio table for fictional companies from the per-share figures given: the dividend paid on each holding, the portfolio total, the dividend yield and the price-to-earnings ratio, each to the precision the question states.'
 difficulty_progression: 'Easy gives the dividend per share in dollars, so the learner multiplies by the shares held and adds up the holdings. Medium declares some dividends as a percentage of the share price, so the learner first converts the percentage to dollars per share, then multiplies and totals. Hard adds earnings per share and leaves the dividend paid, the dividend yield and the P/E ratio blank in different rows, so the learner has to choose the right quotient for each column (dividend per share over price, price over earnings per share) and round it to the stated place. Exam leaves different cells out of each row, so the learner works backwards as well as forwards: the share price from the P/E ratio and the earnings per share, the dividend per share from the yield and the price, the number of shares from the dividend paid and the dividend per share, and the missing yield or P/E ratio from the rest, before totalling.'
 status: active

@@ -3,6 +3,7 @@
 id: senior-review-rates-and-percentages
 name: Review rates and percentages
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, review rates and percentages. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

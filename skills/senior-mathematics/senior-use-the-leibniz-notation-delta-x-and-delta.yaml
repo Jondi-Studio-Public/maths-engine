@@ -3,6 +3,7 @@
 id: senior-use-the-leibniz-notation-delta-x-and-delta
 name: Use the Leibniz notation δx and δy for changes or increments in the variables x and y
 domain: senior-mathematics
+year_level: ['11']
 description: Given bounded, fully specified inputs, use the Leibniz notation δx and δy for changes or increments in the variables x and y. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

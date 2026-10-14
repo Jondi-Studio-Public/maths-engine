@@ -42,7 +42,8 @@ def _loaded():
 
 
 def _source(skill_id, tier):
-    return next(s for s in _loaded()[2][skill_id].sources if s.difficulty == tier)
+    topic = SKILLS[skill_id][1]
+    return next(s for s in _loaded()[2][skill_id].sources if s.difficulty == tier and s.topic == topic)
 
 
 @functools.lru_cache(maxsize=None)
@@ -70,8 +71,9 @@ def test_skill_is_active_behind_the_figure_gate(skill_id):
     assert skill.needs_figure is True and skill.capability_gates == ["figure_stimulus"]
     assert skill.placement_eligible is False
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
-    assert [s.difficulty for s in skill.sources] == TIERS
-    assert all(s.topic == topic for s in skill.sources)
+    # f10-nets-build-solids also carries #75's fsp_nets tiers and exam chain (tests/test_fsp_nets.py)
+    assert [s.difficulty for s in skill.sources if s.topic == topic] == TIERS
+    assert all(s.topic == topic for s in skill.sources) or skill_id == "f10-nets-build-solids"
     assert skill.misconceptions and skill.prerequisites
 
 

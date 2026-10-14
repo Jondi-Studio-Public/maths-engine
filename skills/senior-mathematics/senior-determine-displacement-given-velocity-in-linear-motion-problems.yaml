@@ -3,6 +3,7 @@
 id: senior-determine-displacement-given-velocity-in-linear-motion-problems
 name: Determine displacement given velocity in linear motion problems
 domain: senior-mathematics
+year_level: ['12']
 description: Given bounded, fully specified inputs, determine displacement given velocity in linear motion problems. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-calculate-lengths-of-arcs-and-areas-of-sectors
 name: Calculate arc lengths and sector areas
 domain: trigonometry
+year_level: ['11']
 description: Calculate the length of an arc or the area of a sector given a bounded radius and angle in radians, or recover the radius from a bounded arc length and angle.
 status: active
 placement_eligible: false

@@ -69,9 +69,12 @@ def test_skill_loads_active_with_the_figure_gate(skill_id):
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.placement_eligible is False and skill.mental is None
     assert skill.answer == kind
-    assert [s.difficulty for s in skill.sources] == TIERS
-    assert {s.topic for s in skill.sources} == {topic}
-    assert [list(s.stages) for s in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    # Skills with an exam-chain source are tested in tests/test_exd_x_w12*_*.py; the reading tiers are the
+    # sources before it.
+    practice = [s for s in skill.sources if s.difficulty != "exam"]
+    assert [s.difficulty for s in practice] == TIERS
+    assert {s.topic for s in practice} == {topic}
+    assert [list(s.stages) for s in practice] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
     assert skill.misconceptions
 
 
@@ -82,11 +85,13 @@ def test_reworded_skills_say_they_are_reading_skills(skill_id):
     assert not skill.name.lower().startswith(("graph", "plot"))
 
 
-def test_nets_skill_is_built_on_the_grid_figure():
-    # Deferred until the grid slice drew nets; it is now a figure-stimulus skill on grid_nets_build_solids.
+def test_nets_skill_is_built_with_an_exam_tier():
+    # The nets skill was deferred until its own generators and figures were built; it is now
+    # active, so pin that it carries an exam tier and the grid nets rather than that it stays switched off.
     skill = _skills()["f10-nets-build-solids"]
-    assert skill.status == "active" and skill.capability_gates == ["figure_stimulus"]
-    assert {s.topic for s in skill.sources} == {"grid_nets_build_solids"}
+    assert skill.status == "active"
+    assert any(s.difficulty == "exam" for s in skill.sources)
+    assert "grid_nets_build_solids" in {s.topic for s in skill.sources}
 
 
 # ------------------------------------------------------------------ figure, leak, reader, grader

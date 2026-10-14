@@ -3,6 +3,7 @@
 id: senior-consider-inverses-of-one-to-one-function
 name: Consider inverses of one-to-one function
 domain: functions-sequences
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, consider inverses of one-to-one function. Return the resulting value, expression, relation, or classification. This skill assesses the algebraic derivation of the inverse expression only, always for a function already guaranteed one-to-one by construction (linear with nonzero slope, or a translated reciprocal), and never asks the learner to establish one-to-one-ness itself.'
 status: active
 placement_eligible: false

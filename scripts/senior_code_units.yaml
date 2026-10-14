@@ -1,0 +1,53 @@
+# ACARA senior secondary mathematics (Version 8.4): content description code -> unit.
+# Read by scripts/backfill_year_level.py. Units 1 and 2 are taught in Year 11, Units 3 and 4 in Year 12.
+#
+# Source: the Version 8.4 unit pages of the archived Version 8 site, one per subject and unit, e.g.
+#   https://v8.australiancurriculum.edu.au/senior-secondary-curriculum/mathematics/mathematical-methods/?unit=Unit+1
+# (subject slugs: mathematical-methods, specialist-mathematics, general-mathematics, essential-mathematics;
+# accessed 13 October 2026). Each range is the first and last content description code the page lists
+# for that unit; the ranges are contiguous across the four units of a subject.
+#
+# (c) Australian Curriculum, Assessment and Reporting Authority (ACARA) 2010 to present, unless otherwise
+# indicated. Licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). The code ranges are
+# extracted from ACARA's content and reorganised into this table; see NOTICE.
+#
+# `absent` lists codes that fall inside a range but that the page does not show (ACARA does not issue
+# them); a skill tagged with one gets no year from this table.
+year_of_unit:
+  1: '11'
+  2: '11'
+  3: '12'
+  4: '12'
+subjects:
+  mathematical-methods:
+    prefix: ACMMM
+    units:
+      1: [1, 60]
+      2: [61, 97]
+      3: [98, 150]
+      4: [151, 180]
+    absent: [40]
+  specialist-mathematics:
+    prefix: ACMSM
+    units:
+      1: [1, 41]
+      2: [42, 76]
+      3: [77, 115]
+      4: [116, 144]
+    absent: [97]
+  general-mathematics:
+    prefix: ACMGM
+    units:
+      1: [1, 25]
+      2: [26, 47]
+      3: [48, 86]
+      4: [87, 111]
+    absent: []
+  essential-mathematics:
+    prefix: ACMEM
+    units:
+      1: [1, 42]
+      2: [43, 89]
+      3: [90, 147]
+      4: [148, 175]
+    absent: []
