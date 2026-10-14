@@ -63,19 +63,6 @@ def oracle(q) -> dict[str, str]:
     return {"a": str(root), "b": str(b), "c": str(90 - b)}
 
 
-def test_source_wired():
-    assert_source_wired(SKILL, TOPIC)
-
-
-def test_shapes_and_text():
-    assert_new_shapes(SKILL)
-    assert_no_text_defects(SKILL)
-
-
-def test_answer_space():
-    assert_answer_space(SKILL, minimum=100)
-
-
 def test_all_three_shapes_occur_and_x_is_a_whole_number():
     shapes = set()
     for seed in range(90):

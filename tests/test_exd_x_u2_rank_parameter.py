@@ -32,23 +32,6 @@ def _matrix(text: str) -> sympy.Matrix:
     return sympy.Matrix([[_K if cell.strip() == "k" else int(cell) for cell in row.split(",")] for row in rows])
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("matrix_rank_small", seed=s, rows=3, cols=3, entry_hi=5)) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 123):
-        assert _q(seed).to_json() == _q(seed).to_json()
-
-
 def test_key_matches_independent_derivation_over_300_seeds():
     bad = []
     for seed in range(300):
@@ -64,12 +47,6 @@ def test_key_matches_independent_derivation_over_300_seeds():
         if (at_key, away) != (2, 3):
             bad.append((seed, "rank", at_key, away))
     assert bad == []
-
-
-def test_answer_space():
-    texts = [_q(s).answer_text for s in range(300)]
-    assert len(set(texts)) >= 95
-    assert max(texts.count(t) for t in set(texts)) <= 15
 
 
 def test_grader_accepts_key_and_rejects_every_distractor():

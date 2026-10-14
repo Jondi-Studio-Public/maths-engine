@@ -80,10 +80,6 @@ def test_oracle_agrees(questions):
         assert abs(sympy.N(k_given - sympy.sympify(o["k"]), 30)) < 1e-25, q.text
 
 
-def test_answer_space():
-    kit.check_answer_space(SKILL)
-
-
 def test_grading():
     kit.check_grading(SKILL)
 

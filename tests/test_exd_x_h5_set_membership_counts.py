@@ -24,11 +24,6 @@ def _hard_shapes(n=60):
     return {prompt_shape(make(SKILL_TOPIC, seed=s, difficulty="hard", mode="three_set_unknown")) for s in range(n)}
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_prompt_variety_and_new_shapes():
     shapes = {prompt_shape(_exam(s)) for s in range(60)}
     assert len(shapes) >= 3

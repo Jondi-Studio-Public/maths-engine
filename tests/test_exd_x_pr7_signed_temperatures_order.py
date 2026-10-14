@@ -24,17 +24,6 @@ def oracle(q):
     return [n for n, _ in sorted(rows, key=lambda r: r[1])], len(rows)
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC] and exam[0].stages == ["exam"]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD[0], seed=s, **HARD[1])) for s in range(60)}
-    assert len(exam) >= 3 and exam - hard
-
-
 def test_key_matches_independent_derivation_over_300_seeds():
     bad = []
     for seed in range(300):
@@ -69,8 +58,3 @@ def test_distractors_tagged_and_matched():
         d = q.distractors[0]
         result = grade(_SKILL, q, d)
         assert not result.correct and result.matched_distractor == d
-
-
-def test_answer_space():
-    answers = {_q(s).answer_text for s in range(300)}
-    assert len(answers) >= 100

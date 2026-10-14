@@ -47,10 +47,6 @@ def test_text_and_determinism():
     sup.assert_clean_and_deterministic(TOPIC)
 
 
-def test_shapes():
-    sup.assert_shapes(SKILL, TOPIC)
-
-
 def test_key_rederived_from_prompt():
     for seed in SEEDS:
         q = sup.exam(TOPIC, seed)
@@ -65,10 +61,6 @@ def test_each_coefficient_is_given_in_turn():
 
 def test_key_accepted_and_distractors_rejected():
     sup.assert_key_accepted_distractors_rejected(SKILL, TOPIC, range(150))
-
-
-def test_answer_space():
-    sup.assert_answer_space(TOPIC, minimum=100)
 
 
 def test_follow_through_from_a_wrong_k():

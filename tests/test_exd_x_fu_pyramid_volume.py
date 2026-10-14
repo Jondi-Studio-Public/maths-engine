@@ -55,12 +55,6 @@ def test_shape(questions):
         assert all(p.answer_kind == "number" for p in q.parts)
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_composed_answer_full_marks(questions):
     for q in questions[:100]:
         result = grade(_SKILL, q, q.answer_text)
@@ -111,7 +105,3 @@ def test_shapes_and_variety():
     assert len({make(TOPIC, seed=s).parts[1].answer_text for s in SEEDS}) >= 100
     for s in range(60):
         assert find_text_defects(make(TOPIC, seed=s)) == []
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()

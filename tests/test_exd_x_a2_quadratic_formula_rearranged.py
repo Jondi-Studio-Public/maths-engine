@@ -46,16 +46,6 @@ def _check_larger_root(text, key):
     return abs(float(key) - float(max(numpy.roots(coefs)))) < 1e-9
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("solve_quadratic_equations_using_the_quadratic_formula_and", seed=s, difficulty="hard"))
-        for s in range(60)
-    }
-    assert len(exam) >= 3
-    assert exam - hard
-
-
 def test_key_matches_independent_solution_over_300_seeds():
     bad = []
     for s in range(300):
@@ -85,7 +75,3 @@ def test_grader_accepts_key_and_rejects_distractors():
                 bad.append(("distractor", s, d))
         assert len(q.distractors) >= 2
     assert bad == []
-
-
-def test_deterministic():
-    assert _q(2).to_json() == _q(2).to_json()

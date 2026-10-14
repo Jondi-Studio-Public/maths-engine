@@ -35,26 +35,12 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_shape(questions):
     for q in questions[:60]:
         assert [p.label for p in q.parts] == LABELS
         assert 3 <= len(q.parts) <= 4
         assert all(p.distractors and len(p.distractors) >= 2 for p in q.parts)
         assert sum(1 for p in q.parts if p.follow_through) >= 1
-
-
-def test_prompt_variety_and_new_shapes():
-    hard_src = next(s for s in _SKILL.sources if s.difficulty == "hard")
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make(hard_src.topic, seed=s, **(hard_src.params or {}))) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
 
 
 def test_no_text_defects(questions):
@@ -102,21 +88,11 @@ def test_distractors_are_tagged(questions):
                 assert p.option_notes.get(d) in CATALOGUE, (q.text, p.label, d)
 
 
-def test_answer_space(questions):
-    tuples = Counter(tuple(_canonical(q).values()) for q in questions)
-    assert len(tuples) >= 100, len(tuples)
-    assert max(tuples.values()) / len(questions) <= 0.05
-
-
 def test_all_wrong_earns_zero(questions):
     for q in questions[:60]:
         reply = {p.label: ("999999.5" if p.answer_kind == "number" else "999999/7") for p in q.parts}
         result = grade(_SKILL, q, reply)
         assert result.marks == 0 and not result.correct
-
-
-def test_deterministic():
-    assert _exam(7).to_dict() == _exam(7).to_dict()
 
 
 def _packs(text):

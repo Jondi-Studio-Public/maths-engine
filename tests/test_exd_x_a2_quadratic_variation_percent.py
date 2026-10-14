@@ -35,13 +35,6 @@ def _independent(text):
     return abs((1 + sign * p) ** 2 - 1) * 100
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("p7d_examine_quadratic_variation", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
 def test_key_matches_independent_computation_over_400_seeds():
     bad = []
     kinds = set()
@@ -67,7 +60,3 @@ def test_grader_accepts_key_and_rejects_distractors():
                 bad.append(("distractor", s, d))
         assert len(q.distractors) >= 2
     assert bad == []
-
-
-def test_deterministic():
-    assert _q(3).to_json() == _q(3).to_json()

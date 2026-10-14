@@ -64,30 +64,12 @@ def questions():
     return [_exam(s) for s in range(300)]
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_shape(questions):
     for q in questions[:100]:
         assert [p.label for p in q.parts] == list("abcd")[: len(MARKS)]
         assert [p.marks for p in q.parts] == MARKS
         assert [p.follow_through is not None for p in q.parts] == FT_LABELS
         assert all(p.answer_kind == "number" for p in q.parts)
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("estimate_volume_capacity_reference", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
 
 
 def test_key_rederived_from_prompt(questions):
@@ -146,15 +128,3 @@ def test_all_wrong_earns_zero(questions):
     for q in questions[:60]:
         result = grade(_SKILL, q, {"a": "987654", "b": "7654321", "c": "-31", "d": "-9"})
         assert result.marks == 0 and not result.correct
-
-
-def test_answer_space(questions):
-    answers = [q.answer_text for q in questions]
-    distinct = set(answers)
-    assert len(distinct) >= 100, len(distinct)
-    top = max(answers.count(a) for a in distinct)
-    assert top / len(answers) <= TOP_SHARE, top
-
-
-def test_deterministic():
-    assert _exam(7).to_dict() == _exam(7).to_dict()

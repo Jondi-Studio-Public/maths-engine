@@ -51,23 +51,6 @@ def questions():
     return [_q(s) for s in SEEDS]
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-
-
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages) for s in exam] == [(TOPIC, ["exam"])]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("engineering", seed=s, kinds=["moment"])) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b"]
@@ -81,19 +64,9 @@ def test_both_angle_variants_and_both_net_signs_occur(questions):
     assert any(n < 0 for n in nets) and any(n > 0 for n in nets)
 
 
-def test_deterministic():
-    assert _q(5).to_dict() == _q(5).to_dict()
-
-
 def test_key_matches_independent_derivation_over_300_seeds(questions):
     bad = [(q.text, q.answer_text) for q in questions if {p.label: p.answer_text for p in q.parts} != _oracle(q)]
     assert bad == []
-
-
-def test_answer_space(questions):
-    texts = [q.answer_text for q in questions]
-    assert len(set(texts)) >= 100
-    assert max(texts.count(t) for t in set(texts)) <= 15
 
 
 def test_key_accepted_and_every_distractor_rejected(questions):

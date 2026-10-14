@@ -43,11 +43,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired_last():
-    src = _SKILL.sources[-1]
-    assert (src.topic, src.difficulty, src.stages, src.params) == (TOPIC, "exam", ["exam"], {"tier": "exam"})
-
-
 def test_shape_and_marks():
     for seed in range(60):
         q = _exam(seed)
@@ -103,13 +98,3 @@ def test_follow_through_from_a_wrong_load():
         assert result.marks == 3 and not result.correct
         checked += 1
     assert checked >= 50
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

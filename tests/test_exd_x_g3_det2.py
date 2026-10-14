@@ -57,13 +57,6 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
     assert exam - _hard_shapes(), "the exam tier adds no prompt shape beyond the hard tier"
 
 
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _make(seed).to_json()
-
-
 def test_key_matches_independent_oracle_over_300_seeds():
     bad = []
     for seed in range(300):

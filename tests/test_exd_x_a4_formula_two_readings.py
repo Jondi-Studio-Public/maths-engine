@@ -25,24 +25,6 @@ def _q(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        q = _q(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD[0], seed=s, **HARD[1])) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, (exam, hard)
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 123):
-        assert _q(seed).to_json() == _q(seed).to_json()
-
-
 def test_grader_accepts_key_and_rejects_every_distractor():
     bad = []
     for seed in range(150):

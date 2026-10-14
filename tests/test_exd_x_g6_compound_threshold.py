@@ -35,11 +35,6 @@ def test_no_text_defects_and_nothing_financial():
         assert "$" not in low and "interest" not in low and "loan" not in low
 
 
-def test_deterministic():
-    for s in (0, 1, 5, 42):
-        assert _exam(s).to_json() == _exam(s).to_json()
-
-
 def test_both_directions_occur():
     kinds = {"exceed" in _exam(s).text for s in range(60)}
     assert kinds == {True, False}

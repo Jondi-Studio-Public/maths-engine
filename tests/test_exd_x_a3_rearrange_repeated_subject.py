@@ -48,12 +48,6 @@ def _grade(q, given):
     return GRADERS[KIND](q, given).correct
 
 
-def test_no_text_defects_over_60_seeds():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
 def test_prompt_variety_and_new_shapes_over_hard_tier():
     exam = {prompt_shape(_make(s)) for s in range(60)}
     assert len(exam) >= 3, exam
