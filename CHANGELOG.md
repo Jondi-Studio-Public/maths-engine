@@ -83,6 +83,8 @@ Each question's id (below) tells you when the question behind it has changed.
 - A multi-part reply of `0` (the first option's index, or an answer of zero) was read as an empty box and earned
   no marks. (#88)
 - Four exam generators failed on a few seeds when a slip coincided with the answer; they now draw again. (#97)
+- `f10-rational-operation-strategy` (medium) gave a wrong answer key on 299 of 300 seeds, offering the true answer
+  as a wrong option. The key now matches the question on every seed. (#98)
 - Marking and stem defects found by an audit of the exam chains and university skills: a correct reply with the
   unit written out (`100 s`) or as an exact fraction could score nothing, a wrong unit could score full marks,
   a reply that was not text raised instead of being marked wrong, and several stems used a rounded earlier
