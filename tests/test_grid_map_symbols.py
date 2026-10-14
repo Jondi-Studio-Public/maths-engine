@@ -168,7 +168,8 @@ def test_plan_legend_is_dropped_only_when_it_would_give_the_answer_away():
             assert legend is False
         else:
             assert legend is True
-    assert (True, False) in seen or (False, True) in seen
+    # both cases occur: the Toilet answer without a legend, and some other answer with one
+    assert seen == {(True, False), (False, True)}
 
 
 def test_plan_hard_distractors_are_real_miscounts():

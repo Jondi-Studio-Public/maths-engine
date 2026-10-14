@@ -707,7 +707,8 @@ def _nets_easy(rng):
             "Which of these solids can be made by cutting out the net on the grid and folding it up?",
         ),
     )
-    others = [s for s in _SOLIDS if s != solid]
+    # A cube is also a cuboid, so a cube's net must not offer "a cuboid" as a wrong answer.
+    others = [s for s in _SOLIDS if s != solid and not (solid == "a cube" and s == "a cuboid")]
     rng.shuffle(others)
     working = {
         "a cube": "Six equal squares fold into a cube.",
@@ -732,7 +733,9 @@ def _nets_medium(rng):
         ),
     )
     cands = [f"Net {k}" for k in placed]
-    working = [f"{answer} folds into a cube. The others have squares that would land on top of each other."]
+    working = [
+        f"{answer} folds into a cube. In each of the others, folding makes two squares overlap or leaves a face missing."
+    ]
     return _choice_figure(placed), text, answer, cands, working
 
 
@@ -907,7 +910,7 @@ def _views_medium(rng):
         ),
     )
     cands = [f"Net {k}" for k in placed]
-    working = [f"{answer} cannot be folded into a cube: some squares would land on top of each other."]
+    working = [f"{answer} cannot be folded into a cube: folding makes two squares overlap and leaves a face missing."]
     return _choice_figure(placed), text, answer, cands, working
 
 

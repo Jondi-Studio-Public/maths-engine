@@ -2188,9 +2188,9 @@
 {"answer": "Face E", "id": "f10-nets-build-solids/grid-hard/0/27089f006783", "text": "The net is folded along its edges to make a cube. Which face is opposite face F?"}
 {"answer": "Face C", "id": "f10-nets-build-solids/grid-hard/1/51a06940b2e6", "text": "The net is folded along its edges to make a cube. Which face is opposite face F?"}
 {"answer": "Face D", "id": "f10-nets-build-solids/grid-hard/2/b98a09df6daa", "text": "The six squares of the net are folded up into a cube. Which face ends up opposi…"}
-{"answer": "Net A", "id": "f10-nets-build-solids/grid-medium/0/20f3827ee5fb", "text": "Only one of drawings A to D can be cut out and folded into a cube, and the rest…"}
-{"answer": "Net A", "id": "f10-nets-build-solids/grid-medium/1/5974be0fc7c0", "text": "Each of the four drawings is made of six squares. Which one is a net of a cube?"}
-{"answer": "Net D", "id": "f10-nets-build-solids/grid-medium/2/d0f540ce42d8", "text": "Only one of drawings A to D can be cut out and folded into a cube, and the rest…"}
+{"answer": "Net A", "id": "f10-nets-build-solids/grid-medium/0/ddf3de7e53c9", "text": "Only one of drawings A to D can be cut out and folded into a cube, and the rest…"}
+{"answer": "Net A", "id": "f10-nets-build-solids/grid-medium/1/1c6f2447b8a7", "text": "Each of the four drawings is made of six squares. Which one is a net of a cube?"}
+{"answer": "Net D", "id": "f10-nets-build-solids/grid-medium/2/ad7744aa4954", "text": "Only one of drawings A to D can be cut out and folded into a cube, and the rest…"}
 {"answer": "B and E", "id": "f10-nets-build-solids/hard/0/f60fe5b2a54d", "text": "When the lettered net is folded into a cube, corner J joins with two other corn…"}
 {"answer": "F and M", "id": "f10-nets-build-solids/hard/1/e104ec70192e", "text": "Jess folds the lettered net shown into a cube. Which two corners of the net mee…"}
 {"answer": "C and P", "id": "f10-nets-build-solids/hard/2/9c33403bf62b", "text": "Aiko folds the lettered net shown into a cube. Which two corners of the net mee…"}
@@ -6700,9 +6700,9 @@
 {"answer": "36 cubic units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/0/40beb9c7e150", "text": "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds u…"}
 {"answer": "32 cubic units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/1/13c28b6254ad", "text": "A closed box is made by folding the net on the grid, where each square is 1 uni…"}
 {"answer": "32 square units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/2/d4db8a7ef74d", "text": "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds u…"}
-{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/0/764602123401", "text": "Three of these four drawings are nets of a cube. Which drawing is NOT a net of …"}
-{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/1/e9ed2789910e", "text": "Fold each drawing in your head. Three fold up into a cube and one does not. Whi…"}
-{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/2/23c8bb6ffe8d", "text": "Three of these four drawings are nets of a cube. Which drawing is NOT a net of …"}
+{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/0/7a38cdbffcf4", "text": "Three of these four drawings are nets of a cube. Which drawing is NOT a net of …"}
+{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/1/1a791a10cd33", "text": "Fold each drawing in your head. Three fold up into a cube and one does not. Whi…"}
+{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/2/bddb64b90b8e", "text": "Three of these four drawings are nets of a cube. Which drawing is NOT a net of …"}
 {"answer": "2", "id": "senior-interpret-distance-versus-time-graphs/easy/0/162f261a4d39", "text": "A distance-time graph is drawn below. Find the speed in km per hour during the …"}
 {"answer": "2", "id": "senior-interpret-distance-versus-time-graphs/easy/1/17a8fff34b95", "text": "The graph shows the distance from home over time. What was the speed, in metres…"}
 {"answer": "5", "id": "senior-interpret-distance-versus-time-graphs/easy/2/5b6081306b95", "text": "Use the graph to work out the speed, in km per hour, between time 3 and time 4 …"}

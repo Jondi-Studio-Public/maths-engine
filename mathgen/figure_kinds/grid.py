@@ -104,6 +104,30 @@ def _int_pair(p) -> bool:
     return isinstance(p, (list, tuple)) and len(p) == 2 and all(_is_int(c) for c in p)
 
 
+#: The only keys a grid_drawing spec may carry. Everything in a spec is sent to clients, so a key outside this
+#: list (an "answer", a "solution_cells") is refused rather than shipped.
+SPEC_KEYS = frozenset(
+    {
+        "kind", "alt", "title", "grid", "cells", "polygons", "lines", "labels", "symbols", "legend", "path",
+        "column_labels", "row_labels", "scale", "north", "cubes", "canvas",
+    }
+)  # fmt: skip
+_GRID_KEYS = frozenset({"type", "width", "height", "layers"})
+_LIST_GROUPS = ("cells", "polygons", "lines", "labels", "symbols")
+
+
+def _unknown_keys(obj, allowed, name: str) -> list[str]:
+    """A problem for each key of the dict ``obj`` that is not in ``allowed``."""
+    if not isinstance(obj, dict):
+        return []
+    return [f"{name} has an unknown key {k!r}" for k in sorted(obj, key=repr) if k not in allowed]
+
+
+def _one_of(value, options) -> bool:
+    """``value in options`` for a value that may be unhashable or of the wrong type."""
+    return isinstance(value, str) and value in options
+
+
 def _short_text(t) -> bool:
     return isinstance(t, str) and bool(t.strip()) and len(t) <= MAX_LABEL_LENGTH
 
@@ -236,14 +260,18 @@ def _check_points(points, w: int, h: int, *, step: float, name: str) -> list[str
 
 
 def _validate_grid(spec: dict) -> list[str]:
+    problems = _unknown_keys(spec, SPEC_KEYS, "the figure")
+    problems.extend(f"{key} must be a list" for key in _LIST_GROUPS if key in spec and not isinstance(spec[key], list))
+    if problems:
+        return problems
     grid = spec.get("grid")
     if not isinstance(grid, dict) or grid.get("type") not in ("square", "isometric"):
         return ['grid must be {"type": "square" | "isometric", "width", "height"}']
+    problems.extend(_unknown_keys(grid, _GRID_KEYS, "grid"))
     w, h = grid.get("width"), grid.get("height")
     side = MAX_SQUARE_SIDE if grid["type"] == "square" else MAX_ISOMETRIC_SIDE
     if not (_is_int(w) and _is_int(h) and 1 <= w <= side and 1 <= h <= side):
         return [f"grid width and height must be whole numbers from 1 to {side}"]
-    problems: list[str] = []
     if grid["type"] == "isometric":
         layers = grid.get("layers")
         if not (_is_int(layers) and 1 <= layers <= MAX_ISOMETRIC_SIDE):
@@ -285,9 +313,10 @@ def _validate_cubes(cubes, w: int, h: int, layers: int) -> list[str]:
 def _validate_square(spec: dict, w: int, h: int) -> list[str]:
     problems: list[str] = []
     for group in spec.get("cells", []):
-        if not isinstance(group, dict) or group.get("style") not in CELL_STYLES:
+        if not isinstance(group, dict) or not _one_of(group.get("style"), CELL_STYLES):
             problems.append(f"a cell group needs a style from {CELL_STYLES}")
             continue
+        problems.extend(_unknown_keys(group, {"cells", "style"}, "a cell group"))
         cells = group.get("cells")
         if not isinstance(cells, list) or not cells or not all(_int_pair(c) for c in cells):
             problems.append("a cell group needs a non-empty list of [x, y] cells")
@@ -296,9 +325,10 @@ def _validate_square(spec: dict, w: int, h: int) -> list[str]:
         elif len({tuple(c) for c in cells}) != len(cells):
             problems.append("a cell is listed twice in one group")
     for poly in spec.get("polygons", []):
-        if not isinstance(poly, dict) or poly.get("style", "solid") not in POLYGON_STYLES:
+        if not isinstance(poly, dict) or not _one_of(poly.get("style", "solid"), POLYGON_STYLES):
             problems.append(f"a polygon style is one of {POLYGON_STYLES}")
             continue
+        problems.extend(_unknown_keys(poly, {"vertices", "style", "label"}, "a polygon"))
         vertices = poly.get("vertices")
         problems.extend(_check_points(vertices, w, h, step=1, name="polygon"))
         if isinstance(vertices, list) and len(vertices) < 3:
@@ -306,16 +336,18 @@ def _validate_square(spec: dict, w: int, h: int) -> list[str]:
         if "label" in poly and not _short_text(poly["label"]):
             problems.append("a polygon label must be short text")
     for line in spec.get("lines", []):
-        if not isinstance(line, dict) or line.get("style") not in LINE_STYLES:
+        if not isinstance(line, dict) or not _one_of(line.get("style"), LINE_STYLES):
             problems.append(f"a line style is one of {LINE_STYLES}")
             continue
+        problems.extend(_unknown_keys(line, {"points", "style"}, "a line"))
         problems.extend(_check_points(line.get("points"), w, h, step=0.5, name="line"))
         if isinstance(line.get("points"), list) and len(line["points"]) < 2:
             problems.append("a line has at least two points")
     for sym in spec.get("symbols", []):
-        if not isinstance(sym, dict) or sym.get("symbol") not in SYMBOLS:
+        if not isinstance(sym, dict) or not _one_of(sym.get("symbol"), SYMBOLS):
             problems.append(f"a symbol is one of {sorted(SYMBOLS)}")
             continue
+        problems.extend(_unknown_keys(sym, {"at", "symbol"}, "a symbol"))
         problems.extend(_check_points([sym.get("at")], w, h, step=0.5, name="symbol"))
     if "path" in spec:
         path = spec["path"]
@@ -350,11 +382,14 @@ def _validate_common(spec: dict, w: int, h: int) -> list[str]:
         if not isinstance(label, dict) or not _short_text(label.get("text")):
             problems.append("a label is {at, text} with short text")
             continue
+        problems.extend(_unknown_keys(label, {"at", "text"}, "a label"))
         problems.extend(_check_points([label.get("at")], w, h, step=0.5, name="label"))
     scale = spec.get("scale")
     if scale is not None:
         if not isinstance(scale, dict) or not _short_text(scale.get("text")):
             problems.append('scale is {"text", "bar_cells"?} with short text')
+        elif extra := _unknown_keys(scale, {"text", "bar_cells"}, "the scale"):
+            problems.extend(extra)
         elif "bar_cells" in scale and not (_is_int(scale["bar_cells"]) and 1 <= scale["bar_cells"] <= w):
             problems.append("a scale bar is a whole number of cells, no longer than the grid is wide")
     if "north" in spec and spec["north"] is not True:

@@ -636,6 +636,133 @@ def test_grid_specimens_fit_the_drawing_area_and_draw_only_the_specs_own_text(na
     assert "<script" not in svg.figure_svg(fig) and "ZZidprefixZZ" not in svg.figure_svg(fig)
 
 
+def _drawn_extent(root) -> tuple[float, float, float, float]:
+    """(min x, min y, max x, max y) of everything drawn, with symbol tiles (local coordinates inside a
+    ``translate scale`` group) taken as 11 local units either side of their centre, and text boxes estimated."""
+    import re
+
+    xs: list[float] = []
+    ys: list[float] = []
+
+    def walk(el, dx, dy):
+        tf = el.get("transform") or ""
+        t = re.fullmatch(r"translate\(([-\d.]+) ([-\d.]+)\)(?: scale\(([-\d.]+)\))?", tf)
+        if t:
+            ox, oy = dx + float(t.group(1)), dy + float(t.group(2))
+            if t.group(3):  # a symbol: a tile of +-11 local units
+                k = float(t.group(3))
+                xs.extend((ox - 11 * k, ox + 11 * k))
+                ys.extend((oy - 11 * k, oy + 11 * k))
+                return
+            dx, dy = ox, oy
+        elif tf:
+            return  # a rotated text or pattern: not part of the check
+        if el.tag == SVG_NS + "pattern":
+            return
+        get = lambda k: float(el.get(k)) if el.get(k) is not None else None  # noqa: E731
+        if el.tag == SVG_NS + "rect" and get("width") is not None and get("x") is not None:
+            xs.extend((dx + get("x"), dx + get("x") + get("width")))
+            ys.extend((dy + get("y"), dy + get("y") + get("height")))
+        elif el.tag == SVG_NS + "line":
+            xs.extend((dx + get("x1"), dx + get("x2")))
+            ys.extend((dy + get("y1"), dy + get("y2")))
+        elif el.tag == SVG_NS + "circle":
+            xs.extend((dx + get("cx") - get("r"), dx + get("cx") + get("r")))
+            ys.extend((dy + get("cy") - get("r"), dy + get("cy") + get("r")))
+        elif el.tag == SVG_NS + "polygon" or el.tag == SVG_NS + "polyline":
+            pts = [tuple(map(float, q.split(","))) for q in el.get("points").split()]
+            xs.extend(dx + a for a, _ in pts)
+            ys.extend(dy + b for _, b in pts)
+        elif el.tag == SVG_NS + "text":
+            size = float(el.get("font-size", 12))
+            half = len(el.text or "") * 6.2 * size / 12 / 2
+            x = float(el.get("x"))
+            anchor = el.get("text-anchor", "middle")
+            lo, hi = {"start": (x, x + 2 * half), "end": (x - 2 * half, x)}.get(anchor, (x - half, x + half))
+            xs.extend((dx + lo, dx + hi))
+            ys.extend((dy + float(el.get("y")) - size / 2, dy + float(el.get("y")) + size / 2))
+        for child in el:
+            walk(child, dx, dy)
+
+    walk(root, 0, 0)
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def _assert_drawn_inside_the_viewbox(fig) -> None:
+    root = _grid_root(fig)
+    _, _, vw, vh = (float(v) for v in root.get("viewBox").split())
+    x0, y0, x1, y1 = _drawn_extent(root)
+    assert x0 >= -0.01 and y0 >= -0.01, (x0, y0)
+    assert x1 <= vw + 0.01 and y1 <= vh + 0.01, (x1, y1, vw, vh)
+
+
+def test_row_labels_with_a_wide_canvas_stay_inside_the_viewbox():
+    for size, canvas in (((10, 8), (20, 4)), ((10, 8), (20, 20)), ((8, 6), (20, 2))):
+        fig = grid.grid_drawing(
+            alt="g",
+            grid={"type": "square", "width": size[0], "height": size[1]},
+            row_labels=[str(i) for i in range(1, size[1] + 1)],
+            canvas={"width": canvas[0], "height": canvas[1]},
+        )
+        _assert_drawn_inside_the_viewbox(fig)
+
+
+def test_long_row_labels_on_a_wide_grid_stay_inside_the_viewbox():
+    fig = grid.grid_drawing(
+        alt="g",
+        grid={"type": "square", "width": 30, "height": 5},
+        row_labels=[("R" * 23) + str(i) for i in range(5)],
+        canvas={"width": 20, "height": 3},
+    )
+    _assert_drawn_inside_the_viewbox(fig)
+
+
+@pytest.mark.parametrize("north", [False, True])
+def test_symbols_and_labels_on_the_grid_boundary_are_not_clipped(north):
+    for w, h in ((10, 10), (30, 30), (4, 3)):
+        fig = grid.grid_drawing(
+            alt="g",
+            grid={"type": "square", "width": w, "height": h},
+            symbols=[
+                {"at": [0, 0], "symbol": "house"},
+                {"at": [w, h], "symbol": "school"},
+                {"at": [0, h], "symbol": "tree"},
+                {"at": [w, 0], "symbol": "hospital"},
+            ],
+            labels=[{"at": [0, h / 2], "text": "Park lands"}, {"at": [w, h / 2], "text": "Estuary"}],
+            north=north,
+        )
+        _assert_drawn_inside_the_viewbox(fig)
+
+
+def test_grid_origin_is_bottom_left_so_row_zero_is_drawn_at_the_bottom():
+    # 6 by 4 grid, no labels: the grid starts at (10, 10) and a cell is 36 units, so the rows are drawn
+    # top to bottom at y = 10, 46, 82, 118 and the columns left to right at x = 10, 46, ..., 190.
+    fig = grid.grid_drawing(
+        alt="g",
+        grid={"type": "square", "width": 6, "height": 4},
+        cells=[{"cells": [[0, 0]], "style": "shaded"}, {"cells": [[5, 3]], "style": "hatched"}],
+        polygons=[{"vertices": [[0, 0], [0, 4], [2, 0]], "style": "solid"}],
+        labels=[{"at": [0, 0], "text": "O"}],
+    )
+    root = _grid_root(fig)
+    squares = {
+        (float(r.get("x")), float(r.get("y"))): r.get("fill")
+        for r in _tag(root, "rect")
+        if r.get("width") == "36" and r.get("height") == "36"
+    }
+    assert squares[(10.0, 118.0)] == svg.MID  # cell [0, 0]: left column, bottom row
+    assert squares[(190.0, 10.0)].startswith("url(#")  # cell [5, 3]: right column, top row
+    triangle = next(p for p in _tag(root, "polygon") if p.get("fill") in (None, "none") and "10,10" in p.get("points"))
+    assert [tuple(map(float, q.split(","))) for q in triangle.get("points").split()] == [
+        (10, 154),
+        (10, 10),
+        (82, 154),
+    ]  # the lattice point [0, 0] is the bottom-left corner, [0, 4] the top-left
+    note = next(t for t in _tag(root, "text") if t.text == "O")
+    assert (float(note.get("x")), float(note.get("y"))) == (10, 154)
+
+
 def test_grid_cell_styles_differ_by_more_than_tone():
     fig = _grid_specimens()["map"]
     text = svg.figure_svg(fig)

@@ -1925,19 +1925,47 @@ def _gd_with_canvas(s: dict, width: float, height: float, gx: float, gy: float, 
     if beside:
         out = body + _gd_blank(cw, ch, beside, width + gap, gy)
         return out, max(height, gy + ch * beside + _GD_PAD)
-    c = max(5.0, min(cell, 24.0, 300.0 / ch, (CANVAS - 2 * _GD_PAD) / cw))
+    c = max(5.0, min(cell, 24.0, 300.0 / ch, (CANVAS - gx - _GD_PAD) / cw))
     y0 = height + gap - _GD_PAD
     return body + _gd_blank(cw, ch, c, gx, y0), y0 + ch * c + _GD_PAD
+
+
+def _gd_overhang(s: dict, c: float) -> tuple[float, float, float]:
+    """How far symbols and labels poke out past the left, right and top edges of the grid at cell size ``c``."""
+    grid = s["grid"]
+    w, h = grid["width"], grid["height"]
+    r_sym = max(7.0, min(14.0, c * 0.42))
+    left = right = top = 0.0
+    items = [(it["at"], 1.1 * r_sym + 2, 1.1 * r_sym + 2) for it in s.get("symbols", [])]
+    items += [(it["at"], (_text_w(it["text"], _GD_FS) + 4) / 2 + 2, _GD_FS / 2 + 3) for it in s.get("labels", [])]
+    for (x, y), half_w, half_h in items:
+        left = max(left, half_w - x * c)
+        right = max(right, half_w - (w - x) * c)
+        top = max(top, half_h - (h - y) * c)
+    return left, right, top
 
 
 def _gd_square(s: dict, ids: _Ids) -> Body:
     grid = s["grid"]
     w, h = grid["width"], grid["height"]
     rows, cols = s.get("row_labels", []), s.get("column_labels", [])
-    left = max(_text_w(t, _GD_FS) for t in rows) + 10 if rows else 0
-    gx, gy = _GD_PAD + left, _GD_PAD
+    # Long row labels are drawn smaller so the label gutter stays under about 100 units.
+    row_fs = float(_GD_FS)
+    if rows:
+        row_fs = max(7.0, min(row_fs, _GD_FS * 100 / max(_text_w(t, _GD_FS) for t in rows)))
+    left = max(_text_w(t, row_fs) for t in rows) + 10 if rows else 0
     east = 36 if s.get("north") else 0
-    c = float(max(8, min(36, math.floor((CANVAS - gx - _GD_PAD - east) / w), math.floor(320 / h))))
+    # Symbols and labels on the grid boundary stick out past it; widen the margins to hold them. The cell size
+    # depends on the margins and the overhang on the cell size, so settle them in a few passes.
+    m_left = m_right = m_top = float(_GD_PAD)
+    for _ in range(4):
+        gx, gy = max(_GD_PAD + left, m_left), m_top
+        c = float(max(6, min(36, math.floor((CANVAS - gx - m_right - east) / w), math.floor(320 / h))))
+        o_left, o_right, o_top = _gd_overhang(s, c)
+        new = (max(_GD_PAD, o_left), max(_GD_PAD, o_right), max(_GD_PAD, o_top))
+        if new == (m_left, m_right, m_top):
+            break
+        m_left, m_right, m_top = new
     gw, gh = w * c, h * c
 
     def X(x: float) -> float:
@@ -2023,11 +2051,11 @@ def _gd_square(s: dict, ids: _Ids) -> Body:
         out += [_text(X(i + 0.5), y + 11, t, size=fs) for i, t in enumerate(cols)]
         y += 20
     if rows:
-        fs = max(7.0, min(float(_GD_FS), c * 0.85))
+        fs = max(7.0, min(row_fs, c * 0.85))
         out += [_text(gx - 6, Y(j + 0.5), t, size=fs, anchor="end") for j, t in enumerate(rows)]
-    width = gx + gw + _GD_PAD
+    width = gx + gw + m_right
     if s.get("north"):
-        out.append(_gd_north(gx + gw + 20, gy + 2))
+        out.append(_gd_north(gx + gw + m_right + 10, gy + 2))
         width += east - _GD_PAD + 6
     y += 10
     if s.get("scale"):

@@ -13,7 +13,8 @@ bottom, both from 0.
 * ``cube_net``: any six cells that fold into a cube; ``cells`` is one such net, shown as the worked answer.
 
 A reply is canonical JSON from a client, ``{"cells": [[0, 0], [1, 0]]}`` or a bare ``[[0, 0], [1, 0]]``, or the
-typed form ``(0, 0) (1, 0)``. The JSON is read with `json.loads` and nothing else: no reply is ever evaluated.
+typed form ``(0, 0) (1, 0)``, which may sit inside one pair of [] or {}, ``[(0, 0), (1, 0)]``.
+The JSON is read with `json.loads` and nothing else: no reply is ever evaluated.
 A cell listed twice counts once. Any cell off the canvas, a coordinate that is not a whole number, more than
 :data:`MAX_CELLS` cells, or anything else in the text makes the reply wrong.
 """
@@ -67,9 +68,12 @@ def _given_cells(given) -> set[Cell] | None:
         try:
             return _cells(json.loads(text))
         except (ValueError, RecursionError):
-            return None
+            pass  # not JSON: it may be the typed form in list or set brackets, "[(0, 0), (1, 0)]"
     found = [(int(m.group(1)), int(m.group(2))) for m in _CELL_RE.finditer(text)]
-    if not found or len(found) > MAX_CELLS or not _FILLER_RE.fullmatch(_CELL_RE.sub(" ", text)):
+    leftover = _CELL_RE.sub(" ", text)
+    if text[0] in "[{" and text[-1] == {"[": "]", "{": "}"}[text[0]]:
+        leftover = leftover[1:-1]  # one outer pair of brackets around the typed pairs
+    if not found or len(found) > MAX_CELLS or not _FILLER_RE.fullmatch(leftover):
         return None
     return set(found)
 

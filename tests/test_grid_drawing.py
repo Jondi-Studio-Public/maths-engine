@@ -161,3 +161,97 @@ def test_tops_all_visible():
     assert g.tops_all_visible(STACK)  # the tall column is at the back
     hidden = [[0, 1, 0], [1, 0, 0], [1, 0, 1]]  # a taller column in front and to the right
     assert not g.tops_all_visible(hidden)
+
+
+# ---------------------------------------------------------------- the validator is a whitelist and never raises
+
+
+@pytest.mark.parametrize(
+    "keys",
+    [
+        {"answer": [[0, 0]]},  # answer data stashed in the spec would be sent to clients
+        {"solution_cells": [[1, 1]]},
+        {"cells": [{"cells": [[0, 0]], "style": "shaded", "answer": True}]},
+        {"polygons": [{"vertices": [[0, 0], [1, 0], [1, 1]], "solution": [1]}]},
+        {"lines": [{"points": [[0, 0], [1, 1]], "style": "road", "answer": 1}]},
+        {"symbols": [{"at": [1, 1], "symbol": "house", "answer": 1}]},
+        {"labels": [{"at": [1, 1], "text": "A", "answer": 1}]},
+        {"scale": {"text": "1 cm : 5 m", "answer": 1}},
+        {"grid": {**SQUARE, "answer": [[0, 0]]}},
+    ],
+)
+def test_unknown_keys_are_refused_at_every_level(keys):
+    problems = figures.validate(_spec(**keys))
+    assert problems and any("unknown key" in p for p in problems)
+
+
+def test_every_documented_key_is_still_accepted():
+    assert g.SPEC_KEYS == {
+        "kind", "alt", "title", "grid", "cells", "polygons", "lines", "labels", "symbols", "legend", "path",
+        "column_labels", "row_labels", "scale", "north", "cubes", "canvas",
+    }  # fmt: skip
+    assert (
+        figures.validate(_spec(title="Map", north=True, legend=True, symbols=[{"at": [1, 1], "symbol": "house"}])) == []
+    )
+
+
+@pytest.mark.parametrize(
+    "keys",
+    [
+        {"symbols": [{"at": [1, 1], "symbol": ["house"]}]},  # unhashable
+        {"symbols": [{"at": [1, 1], "symbol": {"a": 1}}]},
+        {"cells": [{"cells": [[0, 0]], "style": ["shaded"]}]},
+        {"lines": [{"points": [[0, 0], [1, 1]], "style": ["road"]}]},
+        {"polygons": [{"vertices": [[0, 0], [1, 0], [1, 1]], "style": ["solid"]}]},
+        {"cells": 5},  # not iterable
+        {"cells": None},
+        {"polygons": 5},
+        {"lines": "road"},
+        {"symbols": None},
+        {"labels": 7},
+        {"cells": [{"cells": 5, "style": "shaded"}]},
+        {"cells": [{"cells": [5], "style": "shaded"}]},
+        {"cells": [{"cells": [[[0], 0]], "style": "shaded"}]},
+        {"cells": [5]},
+        {"cells": [None]},
+        {"symbols": [{"at": 5, "symbol": "house"}]},
+        {"symbols": [{"at": [["a"], 1], "symbol": "house"}]},
+        {"labels": [{"at": [1, 1], "text": ["A"]}]},
+        {"path": {"cells": 5}},
+        {"path": 5},
+        {"scale": 5},
+        {"canvas": [1, 2]},
+        {"row_labels": [["a"]] * 4},
+        {"grid": {"type": ["square"], "width": 3, "height": 3}},
+        {"grid": 5},
+    ],
+)
+def test_malformed_specs_give_problems_not_exceptions(keys):
+    spec = {**_spec(), **keys}
+    problems = figures.validate(spec)  # must not raise TypeError
+    assert problems and all(isinstance(p, str) for p in problems)
+
+
+def test_elevations_match_a_hand_worked_stack_from_every_side():
+    # Expected cells are worked out by hand, standing at each side of the stack, not by calling the code under test.
+    # x runs left to right as seen from the front, y runs from the front (0) to the back, z is the layer.
+    # A tower of 3 at the front-left, a single cube beside it, and a single cube at the back-right:
+    #
+    #   plan (looking down, front at the bottom)      y=1 .  .  C
+    #                                                 y=0 T  B  .      T has 3 cubes, B and C one each
+    #                                                     x=0 1  2
+    cubes = [[0, 0, 0], [0, 0, 1], [0, 0, 2], [1, 0, 0], [2, 1, 0]]
+    # Front: stand at y<0 facing +y, your right is +x. Columns x=0 (3 high), x=1 (1), x=2 (1; C is behind nothing).
+    assert g.elevation(cubes, "front") == [[0, 0], [0, 1], [0, 2], [1, 0], [2, 0]]
+    # Back: stand at y>1 facing -y, your right is -x, so the left-most column is x=2 (1), then x=1 (1), then x=0 (3).
+    assert g.elevation(cubes, "back", depth=3) == [[0, 0], [1, 0], [2, 0], [2, 1], [2, 2]]
+    # Right: stand at x>2 facing -x, your right is +y, so the left-most column is y=0 (3 high), then y=1 (1).
+    assert g.elevation(cubes, "right") == [[0, 0], [0, 1], [0, 2], [1, 0]]
+    # Left: stand at x<0 facing +x, your right is -y, so the left-most column is y=1 (1 high), then y=0 (3).
+    assert g.elevation(cubes, "left", depth=2) == [[0, 0], [1, 0], [1, 1], [1, 2]]
+    # The grid's extent is the default when it is not given, and a wider grid shifts the back and left views.
+    assert g.elevation(cubes, "back") == g.elevation(cubes, "back", depth=3)
+    assert g.elevation(cubes, "left") == g.elevation(cubes, "left", depth=2)
+    assert g.elevation(cubes, "back", depth=4) == [[1, 0], [2, 0], [3, 0], [3, 1], [3, 2]]
+    with pytest.raises(ValueError):
+        g.elevation(cubes, "top")

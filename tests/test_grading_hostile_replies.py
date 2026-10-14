@@ -318,6 +318,19 @@ def test_hostile_reply_is_graded_wrong_and_quickly(questions, case, name):
 
 
 @pytest.mark.parametrize("name", sorted(HOSTILE))
+def test_bracketed_grid_reply_stays_strict_next_to_hostile_text(questions, name):
+    # "[(0, 0), (1, 0)]" is a good reply; the same pairs with hostile text beside them are not.
+    question = dataclasses.replace(questions["grid_cells"][1], answer_text="(0, 0) (1, 0)")
+    assert grade("grid_cells", question, "[(0, 0), (1, 0)]").correct is True
+    hostile = HOSTILE[name]
+    for reply in (f"[(0, 0), (1, 0), {hostile}]", f"[(0, 0), (1, 0)] {hostile}", f"{hostile} [(0, 0), (1, 0)]"):
+        started = time.perf_counter()
+        result = grade("grid_cells", question, reply)
+        assert time.perf_counter() - started < BUDGET_SECONDS, f"grid_cells took too long on {name!r}"
+        assert result.correct is False
+
+
+@pytest.mark.parametrize("name", sorted(HOSTILE))
 def test_hostile_reply_is_never_correct_by_the_spoken_reader(questions, name):
     # `check_answer` is the spoken-transcript path: the same text, read as speech.
     _, question = questions["expression"]

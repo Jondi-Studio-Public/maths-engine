@@ -191,7 +191,7 @@ def test_map_symbols_are_spaced_and_the_river_keeps_off_the_road():
             road = next(ln for ln in fig["lines"] if ln["style"] == "road")["points"]
             river = next(ln for ln in fig["lines"] if ln["style"] == "river")["points"]
             assert river[0][1] != river[1][1] and river[1][1] != river[2][1]  # slanted: never along a grid line
-            assert road and all(p not in at[2:] for p in road)
+            assert road and all(tuple(p) not in at[2:] for p in road)  # points are lists, symbols tuples
 
 
 def test_distractors_share_the_shape_of_the_answer():

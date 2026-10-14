@@ -42,6 +42,10 @@ def test_the_kind_is_registered_in_both_lists():
         "[[0, 0], [1, 0], [2, 0], [0, 1]]",
         '{"cells": [[0, 1], [0, 0], [2, 0], [1, 0]]}',
         "  \n(0, 0)\n(1, 0)\n(2, 0)\n(0, 1)  ",
+        "[(0, 0), (1, 0), (2, 0), (0, 1)]",  # the typed pairs in list brackets
+        "{(0,0),(1,0),(2,0),(0,1)}",  # ... or in set braces
+        "[(0, 0) (1, 0) (2, 0) (0, 1)]",
+        " [ (0, 0), (1, 0), (2, 0), (0, 1) ] ",
     ],
 )
 def test_exact_accepts_every_spelling(reply):
@@ -68,6 +72,17 @@ def test_exact_accepts_every_spelling(reply):
         "[[0, 0], [1, 0], [2, 0], [0, 1]",  # broken JSON
         "[" * 5000 + "]" * 5000,
         "(0, 0) " * 401,
+        "[(0, 0), (1, 0), (2, 0), (0, 1)",  # unbalanced brackets
+        "(0, 0), (1, 0), (2, 0), (0, 1)]",
+        "[(0, 0), (1, 0), (2, 0), (0, 1)}",  # mismatched brackets
+        "[(0, 0), (1, 0), (2, 0), (0, 1), x]",  # filler other than separators, inside the brackets
+        "[(0, 0), (1, 0), (2, 0), (0, 1)] x",
+        "x [(0, 0), (1, 0), (2, 0), (0, 1)]",
+        "[[(0, 0), (1, 0), (2, 0), (0, 1)]]",  # only one outer pair is allowed
+        "[(0, 0), (1, 0), (2, 0), (0, 1), (6, 0)]",  # off the grid
+        "[(0, 0), (1, 0), (2, 0)]",  # one short
+        "[(0, 0), (1, 0), (2, 0), (0, 1)] " * 2 + "[",
+        "[(0, 0) " * 401 + "]",
     ],
 )
 def test_exact_refuses_everything_else(reply):
