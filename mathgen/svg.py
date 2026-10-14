@@ -31,6 +31,7 @@ from xml.sax.saxutils import escape, quoteattr
 
 from mathgen import figures
 from mathgen.figure_kinds.data import _key_text
+from mathgen.figure_kinds.tally import picture_key_text
 
 __all__ = ["figure_svg"]
 
@@ -1917,6 +1918,180 @@ def _pattern_strip(s: dict, ids: _Ids) -> Body:
                 out.append(_text(left + i * cw + cw / 2, y + 9, i + 1, size=11))
             y += 18
         y += 14
+
+# ---------------------------------------------------------------- tally
+
+
+def _icon(name: str, cx: float, cy: float) -> str:
+    """One small picture, about 28 units across, centred on (cx, cy). Each has its own outline, so no two are told apart by shading alone."""
+    kw: dict[str, Any] = {"fill": PAPER, "stroke": INK, "stroke_width": 1.6}
+    dot: dict[str, Any] = {"fill": INK, "stroke": "none"}
+    out: list[str] = []
+    if name == "apple":
+        out.append(_circle(cx, cy + 2, 10.5, **kw))
+        out.append(_line(cx, cy - 8, cx + 2, cy - 14, stroke=INK, stroke_width=1.8))
+        out.append(
+            _path(
+                f"M{_n(cx + 2)} {_n(cy - 12)}Q{_n(cx + 10)} {_n(cy - 16)} {_n(cx + 9)} {_n(cy - 9)}Z",
+                fill=DARK,
+                stroke=INK,
+                stroke_width=1,
+            )
+        )
+    elif name == "ball":
+        out.append(_circle(cx, cy, 11.5, **kw))
+        out.append(_path(f"M{_n(cx - 11)} {_n(cy)}H{_n(cx + 11)}", stroke=INK, stroke_width=1.4))
+        out.append(
+            _path(
+                f"M{_n(cx)} {_n(cy - 11.5)}Q{_n(cx + 8)} {_n(cy)} {_n(cx)} {_n(cy + 11.5)}",
+                stroke=INK,
+                stroke_width=1.4,
+            )
+        )
+    elif name == "cat":
+        out.append(_poly([(cx - 10, cy - 1), (cx - 9, cy - 13), (cx - 2, cy - 7)], True, **kw))
+        out.append(_poly([(cx + 10, cy - 1), (cx + 9, cy - 13), (cx + 2, cy - 7)], True, **kw))
+        out.append(_circle(cx, cy + 2, 10.5, **kw))
+        out.append(_circle(cx - 4, cy, 1.4, **dot))
+        out.append(_circle(cx + 4, cy, 1.4, **dot))
+        out.append(_poly([(cx - 1.5, cy + 3), (cx + 1.5, cy + 3), (cx, cy + 5)], True, **dot))
+        for sgn in (-1, 1):
+            out.append(_line(cx + sgn * 4, cy + 5, cx + sgn * 13, cy + 3, stroke=INK, stroke_width=1))
+            out.append(_line(cx + sgn * 4, cy + 7, cx + sgn * 13, cy + 8, stroke=INK, stroke_width=1))
+    elif name == "dog":
+        out.append(_el("ellipse", cx=cx - 11, cy=cy + 1, rx=4, ry=8, fill=DARK, stroke=INK, stroke_width=1.4))
+        out.append(_el("ellipse", cx=cx + 11, cy=cy + 1, rx=4, ry=8, fill=DARK, stroke=INK, stroke_width=1.4))
+        out.append(_el("ellipse", cx=cx, cy=cy, rx=9, ry=10.5, **kw))
+        out.append(_circle(cx - 3.5, cy - 2, 1.4, **dot))
+        out.append(_circle(cx + 3.5, cy - 2, 1.4, **dot))
+        out.append(_el("ellipse", cx=cx, cy=cy + 4, rx=3, ry=2.2, **dot))
+    elif name == "fish":
+        out.append(_poly([(cx + 6, cy), (cx + 14, cy - 7), (cx + 14, cy + 7)], True, **kw))
+        out.append(_el("ellipse", cx=cx - 2, cy=cy, rx=11, ry=7.5, **kw))
+        out.append(_circle(cx - 7, cy - 2, 1.5, **dot))
+    elif name == "flower":
+        out.append(_line(cx, cy + 3, cx, cy + 14, stroke=INK, stroke_width=1.8))
+        for k in range(5):
+            px, py = _clock_pt(cx, cy - 3, 7.5, k * 72)
+            out.append(_circle(px, py, 4.6, **kw))
+        out.append(_circle(cx, cy - 3, 3.4, fill=INK, stroke=INK, stroke_width=1))
+    elif name == "star":
+        out.append(_poly(_star(cx, cy + 1, 14), True, stroke_linejoin="round", **kw))
+    else:  # car
+        out.append(
+            _poly(
+                [
+                    (cx - 11, cy + 4),
+                    (cx - 9, cy - 3),
+                    (cx - 4, cy - 8),
+                    (cx + 5, cy - 8),
+                    (cx + 9, cy - 3),
+                    (cx + 13, cy - 2),
+                    (cx + 13, cy + 4),
+                ],
+                True,
+                stroke_linejoin="round",
+                **kw,
+            )
+        )
+        out.append(_circle(cx - 6, cy + 6, 3.6, fill=INK, stroke=INK, stroke_width=1))
+        out.append(_circle(cx + 7, cy + 6, 3.6, fill=INK, stroke=INK, stroke_width=1))
+    return "".join(out)
+
+
+def _tally_marks(x: float, y: float, count: int, gap: float, height: float) -> str:
+    """``count`` tally marks from (x, y), the top left; each full gate of five has a diagonal across four upright strokes."""
+    out = []
+    gate_w = 3 * gap
+    pitch = gate_w + 0.9 * gap + 8
+    for g in range(count // 5 + (1 if count % 5 else 0)):
+        gx = x + g * pitch
+        strokes = min(4, count - g * 5)
+        for k in range(strokes):
+            out.append(
+                _line(gx + k * gap, y, gx + k * gap, y + height, stroke=INK, stroke_width=2.2, stroke_linecap="round")
+            )
+        if count - g * 5 >= 5:
+            out.append(
+                _line(
+                    gx - 4,
+                    y + height * 0.82,
+                    gx + gate_w + 4,
+                    y + height * 0.18,
+                    stroke=INK,
+                    stroke_width=2.2,
+                    stroke_linecap="round",
+                )
+            )
+    return "".join(out)
+
+
+def _tally(s: dict, ids: _Ids) -> Body:
+    rows, items = s["rows"], s["items"]
+    out: list[str] = []
+    y = 4.0
+    if items:
+        w, h, x0, y0 = 330.0, 190.0, 35.0, 28.0
+        for it in items:
+            cx, cy = x0 + it["at"][0] * w, y0 + it["at"][1] * h
+            out.append(_icon(it["label"], cx, cy))
+            out.append(_text(cx, cy + 22, it["label"], size=11))
+        y = y0 + h + 36
+        if rows:
+            out.append(_line(16, y - 12, CANVAS - 16, y - 12, stroke=GRID, stroke_width=1))
+    if rows:
+        pics = s.get("pictures")
+        left = min(14 + max(_text_w(r["label"], 13) for r in rows) + 10, 120.0)
+        gap = 6.5 if pics else 8.0
+        pitch = 3 * gap + 0.9 * gap + 8
+        widest = max(r["count"] for r in rows)
+        tally_w = max(1, -(-widest // 5)) * pitch
+        row_h, mark_h = 34.0, 22.0
+        x_tally = left + 8
+        x_count = x_tally + max(tally_w, 50.0) + 8
+        x_pics = (x_count + 40) if s["show_counts"] else x_count
+        head = y + 6
+        out.append(_text(x_tally, head, "Tally", size=12, anchor="start", weight="bold"))
+        if s["show_counts"]:
+            out.append(_text(x_count + 14, head, "Count", size=12, weight="bold"))
+        if pics:
+            out.append(_text(x_pics, head, "Pictures", size=12, anchor="start", weight="bold"))
+        top = head + 14
+        out.append(_line(14, top, CANVAS - 14, top, stroke=INK, stroke_width=1.3))
+        out.append(_line(left, top, left, top + row_h * len(rows), stroke=INK, stroke_width=1.3))
+        cell = 15.0
+        for i, r in enumerate(rows):
+            cy = top + row_h * i + row_h / 2
+            out.append(
+                _line(14, top + row_h * (i + 1), CANVAS - 14, top + row_h * (i + 1), stroke=GRID, stroke_width=0.8)
+            )
+            out.append(_text(left - 8, cy, r["label"], size=13, anchor="end"))
+            out.append(_tally_marks(x_tally, cy - mark_h / 2, r["count"], gap, mark_h))
+            if s["show_counts"]:
+                out.append(_text(x_count + 14, cy, r["count"], size=14))
+            if pics:
+                for k in range(pics["counts"][i]):
+                    out.append(
+                        _symbol_shape(
+                            pics["symbol"],
+                            x_pics + k * (cell + 2),
+                            cy - cell / 2,
+                            cell,
+                            cell,
+                            fill=DARK,
+                            stroke=INK,
+                            stroke_width=1.2,
+                        )
+                    )
+        y = top + row_h * len(rows) + 6
+        if pics:
+            y += 16
+            out.append(
+                _symbol_shape(pics["symbol"], x_pics, y - cell / 2, cell, cell, fill=DARK, stroke=INK, stroke_width=1.2)
+            )
+            out.append(_text(x_pics + cell + 8, y, picture_key_text(s), size=13, anchor="start"))
+            y += cell / 2
+        y += 8
     return "".join(out), y
 
 
@@ -1943,6 +2118,8 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "protractor": _protractor,
     "scale": _scale,
     "shape_scene": _shape_scene,
+
+    "tally": _tally,
     "tree_diagram": _tree,
     "unit_strip": _unit_strip,
     "venn": _venn,

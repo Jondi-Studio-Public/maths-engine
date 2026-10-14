@@ -430,6 +430,12 @@ compare-quantities-to-10:
   sources:
   - topic: compare_quantities
     module: mathgen/generators/early_math.py
+compare-tally-and-picture-displays:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_compare_displays
+    module: mathgen/generators/ey_compare_displays_build.py
 compare-unit-prices:
   domain: arithmetic
   status: active
@@ -3054,6 +3060,12 @@ one-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_one_step
     module: mathgen/generators/linear_inequalities_build.py
+one-to-one-displays:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_one_to_one_data
+    module: mathgen/generators/ey_one_to_one_data_build.py
 order-numbers-to-10:
   domain: early-foundations
   status: active
@@ -6200,6 +6212,12 @@ solve-simultaneous-equations:
     module: mathgen/generators/algebra.py
   - topic: exd_x_u3_simultaneous_prices
     module: mathgen/generators/exd_x_u3_simultaneous_prices.py
+sort-and-count-objects:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_sort_objects
+    module: mathgen/generators/ey_sort_objects_build.py
 spot-bias:
   domain: statistics-probability
   status: active
@@ -6280,6 +6298,12 @@ subtract-within-5:
   sources:
   - topic: early_subtraction
     module: mathgen/generators/early_math.py
+tally-tables:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_tally_tables
+    module: mathgen/generators/ey_tally_tables_build.py
 tell-time-to-hour:
   domain: early-foundations
   status: active

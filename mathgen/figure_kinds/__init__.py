@@ -10,6 +10,8 @@ exist, so every kind is known wherever ``figures`` is imported.
 - :mod:`.pattern`: repeating-pattern strips of shapes, numerals, letters and actions.
 - :mod:`.scene`: pictures of flat shapes, solids and everyday objects for early years.
 - :mod:`.space`: angles, two-dimensional diagrams, trees and Venn diagrams.
+- :mod:`.tally`: tally tables and scatters of objects to sort.
 """
 
-from mathgen.figure_kinds import data, early, measure, pattern, scene, space  # noqa: F401
+from mathgen.figure_kinds import data, early, measure, pattern, scene, space, tally  # noqa: F401
+
