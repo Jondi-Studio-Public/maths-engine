@@ -1982,6 +1982,12 @@ f10-shape-features-classification:
   sources:
   - topic: shape_features_classification
     module: mathgen/generators/p4b_angle_shape_build.py
+f10-shape-sides-spatial-terms:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey_shape_sides
+    module: mathgen/generators/ey_shapes_build.py
 f10-shape-sorting-algorithm:
   domain: geometry
   status: active
@@ -2004,6 +2010,12 @@ f10-solid-faces-edges-vertices:
     module: mathgen/generators/fsp_solids_build.py
   - topic: fsp_solids_exam
     module: mathgen/generators/fsp_solids_build.py
+f10-sort-classify-familiar-shapes:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey_shape_classify
+    module: mathgen/generators/ey_shapes_build.py
 f10-spatial-algorithm-choose-test:
   domain: geometry
   status: active
@@ -2962,8 +2974,8 @@ name-basic-shapes:
   domain: early-foundations
   status: active
   sources:
-  - topic: shape_names
-    module: mathgen/generators/early_math.py
+  - topic: ey_shape_recognise
+    module: mathgen/generators/ey_shapes_build.py
 network-model-from-situation:
   domain: financial-discrete
   status: active

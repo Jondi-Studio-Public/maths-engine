@@ -1660,6 +1660,139 @@ def _pie_chart(s: dict, ids: _Ids) -> Body:
     return "".join(out), cy + r + 26
 
 
+# ---------------------------------------------------------------- shape scene
+
+_SCENE_SCALE = {"small": 0.55, "medium": 0.75, "large": 1.0}
+
+
+def _scene_paint(style: str, primary: bool = True) -> dict:
+    """Plain is hollow, shaded is filled, dotted has a dotted outline: told apart without colour."""
+    if style == "shaded":
+        return dict(fill=MID if primary else DARK, stroke_width=2, stroke_linejoin="round")
+    if style == "dotted":
+        return dict(fill=PAPER, stroke_width=2.6, stroke_dasharray="0.1 5.5", stroke_linecap="round")
+    return dict(fill=PAPER if primary else LIGHT, stroke_width=2, stroke_linejoin="round")
+
+
+def _regular(n: int, r: float, start_deg: float = 0) -> list[tuple[float, float]]:
+    """A regular polygon's corners about the origin, the first ``start_deg`` clockwise from straight up."""
+    return [_clock_pt(0, 0, r, start_deg + k * 360 / n) for k in range(n)]
+
+
+def _shape_body(shape: str, r: float, style: str) -> str:
+    """One shape or solid centred on the origin, ``r`` about its half-size."""
+    p, q = _scene_paint(style), _scene_paint(style, primary=False)
+    if shape == "circle":
+        return _circle(0, 0, r, **p)
+    if shape == "oval":
+        return _el("ellipse", cx=0, cy=0, rx=r, ry=0.62 * r, **p)
+    if shape == "triangle":
+        return _poly([(0, -r), (0.95 * r, 0.75 * r), (-0.95 * r, 0.75 * r)], True, **p)
+    if shape == "square":
+        return _rect(-0.72 * r, -0.72 * r, 1.44 * r, 1.44 * r, **p)
+    if shape == "rectangle":
+        return _rect(-0.95 * r, -0.55 * r, 1.9 * r, 1.1 * r, **p)
+    if shape == "hexagon":
+        return _poly(_regular(6, r, 90), True, **p)
+    if shape == "pentagon":
+        return _poly(_regular(5, r), True, **p)
+    if shape == "rhombus":
+        return _poly([(0, -r), (0.62 * r, 0), (0, r), (-0.62 * r, 0)], True, **p)
+    if shape == "kite":
+        return _poly([(0, -0.9 * r), (0.62 * r, -0.2 * r), (0, r), (-0.62 * r, -0.2 * r)], True, **p)
+    if shape == "semicircle":
+        return _path(f"M{_n(-r)} {_n(0.45 * r)}A{_n(r)} {_n(r)} 0 0 1 {_n(r)} {_n(0.45 * r)}Z", **p)
+    if shape in ("cube", "rectangular prism"):
+        w, h, d = (1.2, 1.2, 0.4) if shape == "cube" else (1.5, 0.8, 0.4)
+        x0, y0 = -0.7 * r if shape == "cube" else -0.85 * r, (-0.3 if shape == "cube" else -0.15) * r
+        x1, y1, dd = x0 + w * r, y0 + h * r, d * r
+        return (
+            _poly([(x0, y0), (x1, y0), (x1 + dd, y0 - dd), (x0 + dd, y0 - dd)], True, **q)
+            + _poly([(x1, y0), (x1 + dd, y0 - dd), (x1 + dd, y1 - dd), (x1, y1)], True, **q)
+            + _rect(x0, y0, w * r, h * r, **p)
+        )
+    if shape == "sphere":
+        return _circle(0, 0, r, **p) + _path(
+            f"M{_n(-r)} 0A{_n(r)} {_n(0.3 * r)} 0 0 0 {_n(r)} 0", **{**q, "fill": "none", "stroke_dasharray": None}
+        )
+    if shape == "cylinder":
+        rx, ry, top, bottom = 0.7 * r, 0.25 * r, -0.65 * r, 0.65 * r
+        return _path(
+            f"M{_n(-rx)} {_n(top)}V{_n(bottom)}A{_n(rx)} {_n(ry)} 0 0 0 {_n(rx)} {_n(bottom)}V{_n(top)}Z",
+            **p,
+        ) + _el("ellipse", cx=0, cy=top, rx=rx, ry=ry, **q)
+    if shape == "cone":
+        rx, ry, base, apex = 0.8 * r, 0.25 * r, 0.65 * r, -0.95 * r
+        return _path(
+            f"M{_n(-rx)} {_n(base)}L0 {_n(apex)}L{_n(rx)} {_n(base)}A{_n(rx)} {_n(ry)} 0 0 1 {_n(-rx)} {_n(base)}Z", **p
+        )
+    # square pyramid: a front face, a side face and the base edge
+    apex, fl, fr, br = (-0.05 * r, -0.95 * r), (-0.85 * r, 0.6 * r), (0.4 * r, 0.6 * r), (0.9 * r, 0.3 * r)
+    return _poly([apex, fr, br], True, **q) + _poly([apex, fl, fr], True, **p)
+
+
+def _scene_object(name: str, ids: _Ids) -> Body:
+    """An everyday object drawn from shapes, in the 400-wide space. Nothing in it is a word."""
+    cx = CANVAS / 2
+    plain = "plain"
+    if name == "house":
+        walls = _g(_shape_body("square", 76, plain), transform=f"translate({_n(cx)} 160)")
+        roof = _poly([(cx - 100, 108), (cx + 100, 108), (cx, 28)], True, **_scene_paint(plain))
+        return walls + roof, 240
+    if name == "clock":
+        out = [_g(_shape_body("circle", 88, plain), transform=f"translate({_n(cx)} 108)")]
+        for k in range(12):
+            a, b = _clock_pt(cx, 108, 80, k * 30), _clock_pt(cx, 108, 70, k * 30)
+            out.append(_line(a[0], a[1], b[0], b[1], stroke_width=2))
+        for deg, length in ((60, 44), (180, 62)):
+            x, y = _clock_pt(cx, 108, length, deg)
+            out.append(_line(cx, 108, x, y, stroke_width=4, stroke_linecap="round"))
+        return "".join(out), 216
+    if name == "ball":
+        out = [_g(_shape_body("sphere", 88, plain), transform=f"translate({_n(cx)} 108)")]
+        out.append(_path(f"M{_n(cx - 62)} {_n(46)}Q{_n(cx - 20)} 108 {_n(cx - 62)} 170", stroke_width=2))
+        out.append(_path(f"M{_n(cx + 62)} {_n(46)}Q{_n(cx + 20)} 108 {_n(cx + 62)} 170", stroke_width=2))
+        return "".join(out), 216
+    if name == "box":
+        return _g(_shape_body("rectangular prism", 105, plain), transform=f"translate({_n(cx)} 118)"), 236
+    if name == "can":
+        return _g(_shape_body("cylinder", 110, plain), transform=f"translate({_n(cx)} 118)"), 236
+    # ice cream: a cone point-down, with a scoop sitting on top of it
+    cone = _poly([(cx - 52, 120), (cx + 52, 120), (cx, 218)], True, **_scene_paint(plain))
+    waffle = "".join(_line(cx + dx, 120, cx + dx * 0.0, 218, stroke_width=1) for dx in (-26, 26)) + _line(
+        cx - 30, 150, cx + 30, 150, stroke_width=1
+    )
+    scoop = _path(f"M{_n(cx - 58)} 120A58 58 0 0 1 {_n(cx + 58)} 120Z", **_scene_paint("shaded"))
+    return cone + waffle + scoop, 238
+
+
+def _shape_scene(s: dict, ids: _Ids) -> Body:
+    if s["object"] is not None:
+        return _scene_object(s["object"]["name"], ids)
+    items = s["items"]
+    n = len(items)
+    cols = s["cols"] if s["layout"] == "grid" else (n if n <= 6 else math.ceil(n / 2))
+    cell = min(84.0, 380.0 / cols)
+    label_h = 16.0 if any(it["label"] for it in items) else 0.0
+    row_h = cell + label_h
+    x0 = (CANVAS - cols * cell) / 2
+    out = []
+    for i, it in enumerate(items):
+        row, col = divmod(i, cols)
+        in_row = min(cols, n - row * cols)
+        left = (CANVAS - in_row * cell) / 2 if s["layout"] == "row" else x0
+        wobble = ((i * 37) % 5 - 2) * cell * 0.04 if s["layout"] == "row" else 0.0
+        cx, cy = left + col * cell + cell / 2, 12 + row * row_h + cell / 2 + wobble
+        r = cell * 0.40 * _SCENE_SCALE[it["size"]]
+        body = _shape_body(it["shape"], r, it["style"])
+        rot = f" rotate({it['turn']})" if it["turn"] else ""
+        out.append(_g(body, transform=f"translate({_n(cx)} {_n(cy)}){rot}"))
+        if it["label"]:
+            out.append(_text(cx, 12 + row * row_h + cell + label_h / 2, it["label"], size=13, weight="bold"))
+    rows = math.ceil(n / cols)
+    return "".join(out), 12 + rows * row_h + 8
+
+
 # ---------------------------------------------------------------- entry point
 
 _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
@@ -1681,6 +1814,7 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "pie_chart": _pie_chart,
     "protractor": _protractor,
     "scale": _scale,
+    "shape_scene": _shape_scene,
     "tree_diagram": _tree,
     "unit_strip": _unit_strip,
     "venn": _venn,

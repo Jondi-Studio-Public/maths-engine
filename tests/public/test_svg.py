@@ -8,7 +8,7 @@ import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
-from mathgen.figure_kinds import data, early, measure, space
+from mathgen.figure_kinds import data, early, measure, scene, space
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -95,6 +95,17 @@ def _hand_built() -> list[dict]:
         early.counters(layout="array", alt="An array", rows=2, cols=3, shape="square", colours=[[1, 2, 1], [2, 1, 2]]),
         early.counters(layout="groups", alt="Groups", groups=[3, 0, 5, 9], shape="diamond"),
         early.counters(layout="dice", alt="Dice", faces=[{"n": n, "colour": 1 + n % 2} for n in (1, 2, 6)]),
+        scene.shape_scene(
+            alt="Shapes",
+            layout="grid",
+            cols=3,
+            items=[
+                scene.scene_item("square", size="large", style="shaded", turn=45, label="A"),
+                scene.scene_item("semicircle", style="dotted"),
+                scene.scene_item("cone", size="small"),
+            ],
+        ),
+        scene.shape_scene(alt="A house", object="house"),
     ]
 
 
