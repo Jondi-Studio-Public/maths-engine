@@ -1,0 +1,121 @@
+id: uc2-cofactor-expansion-4x4
+name: Cofactor expansion and 4×4 determinants
+domain: linear-algebra
+year_level:
+- university
+description: Evaluate 4×4 determinants by cofactor expansion and by row operations, find cofactors and entries of the inverse
+  through the adjugate, and use det(kM) = kⁿ det M, det(MN) = det M · det N, det(Mᵀ) = det M, det(M⁻¹) = 1/det M and the effect
+  of each row operation.
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-determinant-3x3
+- ucv1-row-reduction-rref
+answer: number
+sources:
+- topic: w6c_cofactor
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6c_cofactor
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6c_cofactor
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6c_cofactor
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: cof-entry-omitted
+  description: Giving the cofactor of the single non-zero entry as the determinant, without multiplying by that entry.
+- id: cof-sign-pattern-ignored
+  description: Leaving out the sign (-1)^(i+j) of a cofactor, or applying it twice, so the term has the wrong sign.
+- id: cof-minor-wrong-position
+  description: Deleting the wrong row or column when forming the minor, so the cofactor belongs to a different entry.
+- id: det-diagonal-product
+  description: Giving the product of the diagonal entries as the determinant of a matrix that is not triangular.
+- id: det-row-swap-sign-ignored
+  description: Forgetting that each row swap changes the sign of the determinant.
+- id: cof-alternating-signs-ignored
+  description: Adding the terms of a cofactor expansion along a row without the alternating + - + - signs.
+- id: cof-first-row-only-first-minor
+  description: Stopping a cofactor expansion after its first term.
+- id: cof-minor-without-sign
+  description: Giving the minor (the 3×3 determinant) as the cofactor, without its sign (-1)^(i+j).
+- id: cof-index-transposed
+  description: Giving the cofactor of the entry in row j, column i instead of row i, column j.
+- id: cof-entry-included
+  description: Multiplying the cofactor by the entry it belongs to, which gives one term of the expansion, not the cofactor.
+- id: det-scalar-not-raised-to-size
+  description: Taking det(kM) = k det M, when each of the four rows contributes a factor k, so det(kM) = k⁴ det M.
+- id: det-scalar-times-size
+  description: Multiplying the determinant by 4k instead of raising k to the fourth power.
+- id: det-transpose-changes-sign
+  description: Thinking that transposing a matrix changes the sign of its determinant.
+- id: det-inverse-ignored
+  description: Treating det(M⁻¹) as det M instead of 1/det M.
+- id: det-inverse-on-wrong-factor
+  description: Inverting the determinant of the wrong matrix in a product with an inverse.
+- id: det-power-as-multiple
+  description: Reading det(M²) as 2 det M instead of (det M)².
+- id: det-adjugate-exponent
+  description: Using the wrong power in det(adj M) = (det M)ⁿ⁻¹ for an n×n matrix.
+- id: det-adjugate-is-inverse
+  description: Treating the adjugate as the inverse, so det(adj M) = 1/det M.
+- id: det-negative-sign-kept
+  description: Keeping the sign of a factor -1 on a 4×4 matrix, when (-1)⁴ = 1.
+- id: det-transposed-factor-dropped
+  description: Forgetting the factor det(Mᵀ) = det M when a transposed matrix is multiplied in.
+- id: det-product-as-sum
+  description: Adding determinants where the determinant of a product multiplies them.
+- id: det-row-addition-scales
+  description: Thinking that adding a multiple of one row to another multiplies the determinant by that multiple.
+- id: det-row-scaled-as-whole-matrix
+  description: Raising the factor c to the fourth power when only one row is multiplied by c.
+- id: det-row-operations-unchanged
+  description: Thinking that row operations leave the determinant unchanged.
+- id: cof-forgot-cofactor-divisor
+  description: Solving det M = 0 for k without dividing by the cofactor, the coefficient of k.
+- id: cof-adjugate-not-transposed
+  description: Reading the entry of the inverse from the cofactor in the same position, instead of the transposed position.
+- id: cof-forgot-divide-by-det
+  description: Giving an entry of the adjugate as an entry of the inverse, without dividing by det A.
+- id: cof-inverse-entry-inverted
+  description: Dividing det A by the cofactor instead of the cofactor by det A.
+- id: det-row-scaling-ignored
+  description: Forgetting that multiplying a row by c multiplies the determinant by c.
+- id: det-scalar-power-off-by-one
+  description: Raising the scalar to the power 3 instead of 4 in det(kM), one less than the size of the matrix.
+- id: det-power-ignored
+  description: Reading det(M²) as det M, ignoring the power.
+- id: det-scalar-ignored
+  description: Ignoring the scalar factor k in det(kM) altogether.
+- id: cof-expansion-term-dropped
+  description: Leaving one term out of the cofactor expansion along a row before solving for k.
+difficulty_progression: 'Easy gives a 4×4 matrix with a row or column that has one non-zero entry, so a single cofactor does
+  the work. Medium gives a dense 4×4 matrix, whose determinant needs row operations (with the sign of a swap) or one signed
+  3×3 minor. Hard drops the matrix: the determinant of an expression in two 4×4 matrices from det A and det B alone, the determinant
+  after a stated sequence of row operations, or the value of k that makes a 4×4 matrix singular. The exam chain finds det
+  A, a cofactor, the corresponding entry of the inverse (following through from both) and det(3A⁻¹) (following through from
+  det A).'
+tags:
+- university-year-2
+- linear-algebra
+- determinants
+- cofactor-expansion
+- adjugate
+framework_areas:
+- linear-algebra

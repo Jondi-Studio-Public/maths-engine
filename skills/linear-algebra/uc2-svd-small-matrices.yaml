@@ -1,0 +1,95 @@
+id: uc2-svd-small-matrices
+name: Singular values of a small matrix
+domain: linear-algebra
+year_level:
+- university
+description: 'Find the singular values of a 2×2 or 2×3 integer matrix from the eigenvalues of AᵀA or AAᵀ, and use them: the
+  spectral norm, the error of the best rank-1 approximation, the condition number, the share of the squared Frobenius norm
+  a rank-1 approximation keeps, and a right singular vector.'
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvalues-characteristic-polynomial
+- ucv1-eigenvectors
+answer: number
+sources:
+- topic: w6c_svd
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6c_svd
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6c_svd
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6c_svd
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: svd-forgot-square-root
+  description: Giving an eigenvalue of AᵀA as the singular value, without taking its square root.
+- id: svd-wrong-ordering
+  description: Giving the smaller singular value where the larger was asked for, or the larger where the smaller was asked
+    for.
+- id: svd-determinant-as-value
+  description: Giving the product of the singular values (the absolute value of the determinant, or the square root of det
+    AAᵀ) as if it were one singular value.
+- id: svd-frobenius-squared
+  description: Giving the sum of the squares of the entries, which is σ₁² + σ₂², as if it were a single singular value.
+- id: svd-sum-of-values
+  description: Adding the singular values instead of reading off the largest one.
+- id: svd-null-eigenvalue-used
+  description: Taking the smallest singular value of a 2×3 matrix to be 0 because AᵀA, which is 3×3, has the eigenvalue 0.
+- id: svd-error-uses-largest
+  description: Giving σ₁, the part the rank-1 approximation keeps, as the size of the error; the error is the part it discards.
+- id: svd-condition-inverted
+  description: Writing the condition number upside down as σ₂/σ₁.
+- id: svd-condition-squared
+  description: Dividing the eigenvalues of AᵀA instead of the singular values, which squares the condition number.
+- id: svd-ratio-of-sum
+  description: Dividing σ₁ by σ₁ + σ₂ instead of by σ₂.
+- id: svd-ratio-of-eigenvalue-gap
+  description: Dividing the gap σ₁ − σ₂ by σ₂ instead of dividing σ₁ by σ₂.
+- id: svd-forgot-squares-in-share
+  description: Using σ₁/(σ₁ + σ₂) as the share of the squared Frobenius norm, without squaring the singular values.
+- id: svd-discarded-share
+  description: Giving the share that the rank-1 approximation discards, σ₂²/(σ₁² + σ₂²), instead of the share it keeps.
+- id: svd-ratio-instead-of-share
+  description: Dividing σ₁² by σ₂² (a ratio of the two parts) instead of by the whole, σ₁² + σ₂².
+- id: svd-share-of-root
+  description: Dividing σ₁ by the Frobenius norm instead of dividing σ₁² by its square.
+- id: svd-vector-for-other-value
+  description: Giving the singular vector that belongs to the other singular value.
+- id: svd-null-direction-chosen
+  description: Giving the null vector of A, which belongs to the zero eigenvalue of AᵀA, instead of the vector for σ₁.
+- id: svd-left-vector-used
+  description: Giving a left singular vector (an eigenvector of AAᵀ) padded with a zero in place of a right singular vector.
+- id: svd-row-as-singular-vector
+  description: Giving a row of A as the right singular vector, as if the rows were eigenvectors of AᵀA.
+difficulty_progression: 'Easy asks for the largest singular value of a 2×2 matrix that is neither symmetric nor diagonal,
+  so it has to be found from AᵀA rather than read off. Medium moves to a 2×3 matrix, where the smaller non-zero singular value
+  comes from the 2×2 matrix AAᵀ and the zero eigenvalue of the 3×3 matrix AᵀA is a trap. Hard uses the singular values: the
+  Frobenius error of the best rank-1 approximation (Eckart-Young), the condition number of a 2×2 matrix, or the share of the
+  squared Frobenius norm that a rank-1 approximation keeps. The exam chain finds both singular values of a 2×3 matrix, the
+  share of the squared Frobenius norm kept by the rank-1 approximation (following through), and a right singular vector.'
+tags:
+- university-year-2
+- linear-algebra
+- singular-value-decomposition
+- svd
+- low-rank-approximation
+framework_areas:
+- linear-algebra
