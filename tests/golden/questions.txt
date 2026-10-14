@@ -2740,11 +2740,11 @@
 {"answer": "4", "id": "f10-shape-sides-spatial-terms/easy/0/c4d174c51de4", "text": "How many corners does this shape have?"}
 {"answer": "4", "id": "f10-shape-sides-spatial-terms/easy/1/a30e30488975", "text": "How many sides does this shape have?"}
 {"answer": "4", "id": "f10-shape-sides-spatial-terms/easy/2/df207ded557c", "text": "How many sides does this shape have?"}
-{"answer": "3", "id": "f10-shape-sides-spatial-terms/hard/0/21479999a1e1", "text": "Count the shapes with a pair of parallel sides."}
+{"answer": "3", "id": "f10-shape-sides-spatial-terms/hard/0/3a42f9b629b5", "text": "Count the shapes with at least one pair of parallel sides."}
 {"answer": "3", "id": "f10-shape-sides-spatial-terms/hard/1/9f3b703dc63d", "text": "Count the shapes with 3 sides."}
-{"answer": "2", "id": "f10-shape-sides-spatial-terms/hard/2/6f78a64cefe5", "text": "Count the shapes with a pair of parallel sides."}
+{"answer": "2", "id": "f10-shape-sides-spatial-terms/hard/2/48dcc2b59a70", "text": "Count the shapes with at least one pair of parallel sides."}
 {"answer": "Shape D", "id": "f10-shape-sides-spatial-terms/medium/0/76f487c86950", "text": "Which shape has only curved sides?"}
-{"answer": "Shape B", "id": "f10-shape-sides-spatial-terms/medium/1/5b0be70e7a03", "text": "Which shape has two sides that are parallel?"}
+{"answer": "Shape B", "id": "f10-shape-sides-spatial-terms/medium/1/42fbb3141a71", "text": "Which shape has one or more pairs of parallel sides?"}
 {"answer": "Shape D", "id": "f10-shape-sides-spatial-terms/medium/2/cdc0b989bc16", "text": "Which shape has no curved sides?"}
 {"answer": "Bin B", "id": "f10-shape-sorting-algorithm/easy/0/531a4c6cb7fa", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
 {"answer": "Bin B", "id": "f10-shape-sorting-algorithm/easy/1/ca485617a703", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
@@ -4075,9 +4075,9 @@
 {"answer": "Square", "id": "name-basic-shapes/easy/0/2b2ac6f3a840", "text": "What shape is this?"}
 {"answer": "Rectangle", "id": "name-basic-shapes/easy/1/957403a34e89", "text": "Which shape can you see?"}
 {"answer": "Triangle", "id": "name-basic-shapes/easy/2/1a7e636c46b7", "text": "Which shape can you see?"}
-{"answer": "Square", "id": "name-basic-shapes/hard/0/6ef5cb2c3a88", "text": "Which shape is the walls of this house?"}
-{"answer": "Rectangular prism", "id": "name-basic-shapes/hard/1/29c01af10467", "text": "Which shape does this box look like?"}
-{"answer": "Cylinder", "id": "name-basic-shapes/hard/2/e5b09803f4ca", "text": "Which shape is this can?"}
+{"answer": "Square", "id": "name-basic-shapes/hard/0/66599108339e", "text": "Which shape is the walls of this house?"}
+{"answer": "Rectangular prism", "id": "name-basic-shapes/hard/1/7a11373363e3", "text": "Which shape does this box look like?"}
+{"answer": "Cylinder", "id": "name-basic-shapes/hard/2/277453cf5c90", "text": "Which shape is this can?"}
 {"answer": "2", "id": "name-basic-shapes/medium/0/1a8684c7c2ee", "text": "Count the triangles."}
 {"answer": "4", "id": "name-basic-shapes/medium/1/4d9442e5a347", "text": "How many squares can you see?"}
 {"answer": "2", "id": "name-basic-shapes/medium/2/f23b9723358c", "text": "Count the squares."}
