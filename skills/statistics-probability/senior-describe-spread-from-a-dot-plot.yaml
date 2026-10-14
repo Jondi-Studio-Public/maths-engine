@@ -1,0 +1,54 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-describe-spread-from-a-dot-plot
+name: 'Describe the spread of a dot plot in words: tightly packed, spread out, clusters, gaps and outliers'
+domain: statistics-probability
+year_level: ['11']
+description: A dot plot of whole-number data is described with the informal words of spread. Easy says whether the
+  dots are tightly packed or spread out, medium names the pattern (two clusters with a gap between them, one cluster
+  with an outlier, spread out or tightly packed), hard picks the statement that places the biggest gap and the most
+  crowded value correctly, and the exam chain reads the outlier, the edge of the main group, the size of the gap
+  and the range of all the data. A gap is three or more empty values between dots, and a cluster is a group of dots
+  with no gap inside it.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f6-read-a-dot-plot]
+answer: mcq
+sources:
+- topic: ey_dot_plot_spread
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_dot_plot_spread
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_dot_plot_spread
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ey_dot_plot_spread_exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: range-for-density, description: 'Calls dots tightly packed because there are many of them, when it is the
+    width they cover that decides it.'}
+- {id: lone-dot-called-cluster, description: Calls a single dot far from a group a second cluster instead of an
+    outlier.}
+- {id: gap-ends-miscounted, description: Gives the empty values on either side of the biggest gap as its ends instead
+    of the occupied values.}
+- {id: small-gap-for-biggest, description: Picks a small gap inside a group as the biggest gap.}
+- {id: tallest-in-other-group, description: Gives the tallest column of the wrong group as the most crowded value.}
+- {id: outlier-edge-off-by-one, description: Gives a value one step from the edge of the main group as its largest
+    or smallest value.}
+- {id: gap-by-sum, description: Adds the outlier and the edge of the group instead of finding the distance between
+    them.}
+- {id: range-without-outlier, description: Finds the range of the main group only and leaves the outlier out.}
+difficulty_progression:
+  easy: {steps: 2, demand: 'Judge how wide a single group of dots is: a few steps (tightly packed) or most of the
+      axis (spread out).'}
+  medium: {steps: 3, demand: 'Pick out the pattern: one group, two groups with a gap, or a group with one far dot.'}
+  hard: {steps: 4, demand: 'Find the largest gap between occupied values and the tallest column, then match both
+      to one statement.'}
+  exam: {steps: 5, demand: 'Read the outlier and the edge of the main group, then the gap and the range of all the
+      data.'}
+tags: [acara-senior-v8-4, statistics-probability, dot-plot, spread, outlier, acmem054, figure]

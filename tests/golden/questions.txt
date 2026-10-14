@@ -5573,6 +5573,18 @@
 {"answer": "6:5", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/medium/0/69625c2345ad", "text": "A garden bed contains 36 rose bushes, 30 lavender bushes and 16 daffodils. Simp…"}
 {"answer": "5:7", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/medium/1/6d0b1b6c8304", "text": "A fruit bowl has 25 apples, 35 oranges and 56 mandarins. Express the ratio of a…"}
 {"answer": "4:1", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/medium/2/2dfce5f9eaf7", "text": "In a car park, there are 36 sedans, 9 hatchbacks and 51 vans. Write the ratio o…"}
+{"answer": "Tightly packed", "id": "senior-describe-spread-from-a-dot-plot/easy/0/d231410e6ebc", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "Tightly packed", "id": "senior-describe-spread-from-a-dot-plot/easy/1/a1bd96dfe7a5", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "Tightly packed", "id": "senior-describe-spread-from-a-dot-plot/easy/2/432b49fe1235", "text": "The dot plot shows the number of goals scored by a hockey team in each game of …"}
+{"answer": "(a) 34; (b) 40; (c) 6; (d) 8", "id": "senior-describe-spread-from-a-dot-plot/exam/0/1a8c8252c9c8", "text": "The dot plot shows the number of goals scored by a hockey team in each game of …"}
+{"answer": "(a) 42; (b) 35; (c) 7; (d) 10", "id": "senior-describe-spread-from-a-dot-plot/exam/1/2b8d47b2471f", "text": "The dot plot shows the number of minutes it took some students to get to school…"}
+{"answer": "(a) 54; (b) 46; (c) 8; (d) 11", "id": "senior-describe-spread-from-a-dot-plot/exam/2/9f1605bb2c5d", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "The biggest gap is between 14 and 20, and the most dots are…", "id": "senior-describe-spread-from-a-dot-plot/hard/0/3f912674e179", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "The biggest gap is between 13 and 22, and the most dots are…", "id": "senior-describe-spread-from-a-dot-plot/hard/1/275eeffcfb8d", "text": "The dot plot shows the number of text messages some students sent in one day. W…"}
+{"answer": "The biggest gap is between 3 and 12, and the most dots are …", "id": "senior-describe-spread-from-a-dot-plot/hard/2/b631240c7273", "text": "The dot plot shows the number of goals scored by a hockey team in each game of …"}
+{"answer": "One cluster with an outlier", "id": "senior-describe-spread-from-a-dot-plot/medium/0/071d0a0bbc58", "text": "The dot plot shows the number of text messages some students sent in one day. W…"}
+{"answer": "Two clusters with a gap between them", "id": "senior-describe-spread-from-a-dot-plot/medium/1/6d72f2b8410d", "text": "The dot plot shows the number of text messages some students sent in one day. W…"}
+{"answer": "One cluster with an outlier", "id": "senior-describe-spread-from-a-dot-plot/medium/2/fbd9daaa3a7f", "text": "The dot plot shows the number of customers who came into a cafe in each hour. W…"}
 {"answer": "negative, linear, moderate", "id": "senior-describe-the-association-between-two-numerical-variables-in/easy/0/c2fec681a9a0", "text": "A researcher describes a scatterplot of hours of sleep per night against hours …"}
 {"answer": "negative, linear, weak", "id": "senior-describe-the-association-between-two-numerical-variables-in/easy/1/535761777d66", "text": "A researcher describes a scatterplot of its resale value against a car's age. A…"}
 {"answer": "positive, non-linear, strong", "id": "senior-describe-the-association-between-two-numerical-variables-in/easy/2/b389790e9528", "text": "A scatterplot of its height after a month against a plant's daily sunlight hour…"}
@@ -6479,6 +6491,54 @@
 {"answer": "dS/ds = c(B - S)", "id": "senior-formulate-differential-equations-including-the-logistic-equation-that/medium/0/9de23e88ad62", "text": "An object's temperature, S, changes over time s. The rate of change of S is pro…"}
 {"answer": "dW/dt = k(B - W)", "id": "senior-formulate-differential-equations-including-the-logistic-equation-that/medium/1/4e7247d0e408", "text": "An object's temperature, W, changes over time t. The rate of change of W is pro…"}
 {"answer": "dQ/ds = c(R - Q)", "id": "senior-formulate-differential-equations-including-the-logistic-equation-that/medium/2/abfeb8a31c13", "text": "An object's temperature, Q, changes over time s. The rate of change of Q is pro…"}
+{"answer": "2", "id": "senior-graph-dilation-read-factor/easy/0/e438f6e12953", "text": "g is a vertical dilation of f, with g(x) = c f(x) and c > 0. Both axes have 1 u…"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/easy/1/b1e71d7c8902", "text": "g is a vertical dilation of f, with g(x) = c f(x) and c > 0. Both axes have 1 u…"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/easy/2/6fee1a6a3bdc", "text": "The graph of g is the graph of f stretched or squashed up and down, so g(x) = c…"}
+{"answer": "(a) 0.50; (b) 2.00; (c) 4.00; (d) 2.00", "id": "senior-graph-dilation-read-factor/exam/0/6b352a1fc7a3", "text": "The graph of g is a dilation of the graph of f, so g(x) = c f(kx) with k > 0. T…"}
+{"answer": "(a) 2.00; (b) -1.00; (c) -2.00; (d) 2.00", "id": "senior-graph-dilation-read-factor/exam/1/9a0ff09796ae", "text": "The graph of g is a dilation of the graph of f, so g(x) = c f(kx) with k > 0. T…"}
+{"answer": "(a) 2.00; (b) -1.00; (c) 1.00; (d) -2.00", "id": "senior-graph-dilation-read-factor/exam/2/b035443d2855", "text": "The graph of g is a dilation of the graph of f, so g(x) = c f(kx) with k > 0. T…"}
+{"answer": "g(x) = f(x/2)", "id": "senior-graph-dilation-read-factor/hard/0/ba75888a742e", "text": "g is a dilation of f. Both axes have 1 unit per grid square. Which equation giv…"}
+{"answer": "g(x) = -f(x)", "id": "senior-graph-dilation-read-factor/hard/1/af5ac8967ead", "text": "g is a dilation of f. Both axes have 1 unit per grid square. Which equation giv…"}
+{"answer": "g(x) = 2f(x)", "id": "senior-graph-dilation-read-factor/hard/2/8d9007277723", "text": "The graph of g is a dilation of the graph of f. Each grid square is 1 unit on b…"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/medium/0/dee7401386a9", "text": "g is a horizontal dilation of f, with g(x) = f(kx) and k > 0. Each grid square …"}
+{"answer": "3", "id": "senior-graph-dilation-read-factor/medium/1/af454ef5a32d", "text": "The graph of g is the graph of f stretched or squashed left and right, so g(x) …"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/medium/2/33d9f3f1ee4a", "text": "g is a horizontal dilation of f, with g(x) = f(kx) and k > 0. Both axes have 1 …"}
+{"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/0/10d1a3cbabbe", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
+{"answer": "g(x) = -f(x)", "id": "senior-graph-reciprocal-abs-compare/easy/1/f42b07977ae6", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
+{"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/2/b845ede63172", "text": "The graph of g is the graph of f reflected in an axis, in part or in whole. Bot…"}
+{"answer": "(a) -5; (b) -1; (c) 4; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/0/11d072416b2c", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) 1; (b) 5; (c) 4; (d) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/190d0c13ead0", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -4; (b) -2; (c) 2; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/2/91e23ef68d49", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "-1", "id": "senior-graph-reciprocal-abs-compare/hard/0/2c8ad3864361", "text": "Here g(x) = f(|x|), and the graph of f is drawn. Each grid square is 1 unit on …"}
+{"answer": "1/2", "id": "senior-graph-reciprocal-abs-compare/hard/1/3066d58eb382", "text": "Here g(x) = 1/f(x), and the graph of f is drawn. Both axes have 1 unit per grid…"}
+{"answer": "3", "id": "senior-graph-reciprocal-abs-compare/hard/2/1fe028ce547b", "text": "The graph of f is drawn. Let g(x) = |f(x)|. Both axes have 1 unit per grid squa…"}
+{"answer": "g(x) = 1/f(x)", "id": "senior-graph-reciprocal-abs-compare/medium/0/6a6cea29e2d7", "text": "g is drawn from f by one of the transformations below. Both axes have 1 unit pe…"}
+{"answer": "g(x) = f(|x|)", "id": "senior-graph-reciprocal-abs-compare/medium/1/405f91d7738a", "text": "g is drawn from f by one of the transformations below. Both axes have 1 unit pe…"}
+{"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/medium/2/860f69b849a2", "text": "The graph of g is a transformation of the graph of f. Both axes have 1 unit per…"}
+{"answer": "rises by $4 per kilometre", "id": "senior-graph-slope-intercept-meaning/easy/0/2bbb60c4c3f6", "text": "A taxi fare is a flat fee plus a charge for each kilometre. The graph shows the…"}
+{"answer": "rises by $2 per kilometre", "id": "senior-graph-slope-intercept-meaning/easy/1/100144227207", "text": "A taxi fare is a flat fee plus a charge for each kilometre. The graph shows the…"}
+{"answer": "rises by $10 per GB", "id": "senior-graph-slope-intercept-meaning/easy/2/e41327705d0d", "text": "A phone plan has a monthly fee plus a charge for each GB of extra data. The gra…"}
+{"answer": "(a) 1; (b) 2; (c) 15; (d) 18", "id": "senior-graph-slope-intercept-meaning/exam/0/04af758d2355", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "(a) 30; (b) 10; (c) 280; (d) 14", "id": "senior-graph-slope-intercept-meaning/exam/1/058b0d84b5a7", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "(a) -20; (b) 100; (c) 60; (d) 4", "id": "senior-graph-slope-intercept-meaning/exam/2/b1a69d019a2a", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "The booking fee is $10, and each extra day adds $15", "id": "senior-graph-slope-intercept-meaning/hard/0/75c76abd270a", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "The charge at the start is 100%, and it falls by 10% each h…", "id": "senior-graph-slope-intercept-meaning/hard/1/ac493513ba2c", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "The booking fee is $50, and each extra day adds $20", "id": "senior-graph-slope-intercept-meaning/hard/2/e57a99931e00", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "The amount of water in the tank at the start is 32 litres", "id": "senior-graph-slope-intercept-meaning/medium/0/2afb9a2d6feb", "text": "Water is pumped out of a tank at a steady rate. The graph shows the water left …"}
+{"answer": "The charge at the start is 100%", "id": "senior-graph-slope-intercept-meaning/medium/1/85ac3eedc78b", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "The charge at the start is 100%", "id": "senior-graph-slope-intercept-meaning/medium/2/e38ea2acb805", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "-3", "id": "senior-graph-translation-read-shift/easy/0/7c14d0e48df4", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "-2", "id": "senior-graph-translation-read-shift/easy/1/d5db7742ac1f", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/easy/2/fdfedfe91655", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "(a) -3; (b) -4; (c) 2; (d) -6", "id": "senior-graph-translation-read-shift/exam/0/91a0d0e97bc5", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
+{"answer": "(a) 2; (b) -3; (c) 2; (d) -1", "id": "senior-graph-translation-read-shift/exam/1/0eb115e25699", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
+{"answer": "(a) 4; (b) 2; (c) -4; (d) -2", "id": "senior-graph-translation-read-shift/exam/2/d546cbb4f7c5", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
+{"answer": "g(x) = f(x - 3) - 2", "id": "senior-graph-translation-read-shift/hard/0/9501b8a7db04", "text": "g is a translation of f along both axes. Both axes have 1 unit per grid square.…"}
+{"answer": "g(x) = f(x - 2) + 3", "id": "senior-graph-translation-read-shift/hard/1/bb3d2a1ad84f", "text": "The graph of g is the graph of f moved horizontally and vertically. Each grid s…"}
+{"answer": "g(x) = f(x + 1) - 4", "id": "senior-graph-translation-read-shift/hard/2/723840843851", "text": "g is a translation of f along both axes. Both axes have 1 unit per grid square.…"}
+{"answer": "2", "id": "senior-graph-translation-read-shift/medium/0/89639f81a8a3", "text": "The graph of g is the graph of f moved left or right, so g(x) = f(x + b). Each …"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/medium/1/397116a87725", "text": "g is a horizontal translation of f, with g(x) = f(x + b). Each grid square is 1…"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/medium/2/e09fda30244f", "text": "g is a horizontal translation of f, with g(x) = f(x + b). Each grid square is 1…"}
 {"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/easy/0/396434399105", "text": "x^2 - 1 = -2. Is this equation linear in x? If it is linear, also give the valu…"}
 {"answer": "Linear; x = -3", "id": "senior-identify-and-solve-linear-equations/easy/1/a66726df559e", "text": "5x + 9 = -6. Is this equation linear in x? If it is linear, also give the value…"}
 {"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/easy/2/dbea3f3773b9", "text": "x^2 - 1 = -8. Is this equation linear in x? If it is linear, also give the valu…"}
@@ -6971,6 +7031,18 @@
 {"answer": "36", "id": "senior-obtain-a-scale-factor-and-use-it-to/medium/0/ab2d8f5490b6", "text": "Figure A and Figure B are similar. A side of Figure A measures 16 cm; the corre…"}
 {"answer": "150", "id": "senior-obtain-a-scale-factor-and-use-it-to/medium/1/923219229299", "text": "Figure A and Figure B are similar. A side of Figure A measures 18 cm; the corre…"}
 {"answer": "324", "id": "senior-obtain-a-scale-factor-and-use-it-to/medium/2/91908afe2905", "text": "Figure A and Figure B are similar. A side of Figure A measures 10 cm; the corre…"}
+{"answer": "9", "id": "senior-position-time-tangent-velocity/easy/0/e8614c0359ed", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "3", "id": "senior-position-time-tangent-velocity/easy/1/cd934e1cf0c1", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "9", "id": "senior-position-time-tangent-velocity/easy/2/db401c863489", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/0/bfff87abe2b5", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/1/059ab70efd07", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) -3; (b) 1; (c) 3; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/2/ae2c940e530c", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "2", "id": "senior-position-time-tangent-velocity/hard/0/97aaae3e74cf", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "5", "id": "senior-position-time-tangent-velocity/hard/1/ca8953e427bc", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "4", "id": "senior-position-time-tangent-velocity/hard/2/bc5b26a6e7c2", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "-3", "id": "senior-position-time-tangent-velocity/medium/0/16d916b0e8de", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "-9", "id": "senior-position-time-tangent-velocity/medium/1/e6ffb987aa3c", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "-3", "id": "senior-position-time-tangent-velocity/medium/2/e6978cc4599e", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "$545.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/0/66363dfb3981", "text": "A person earns $683.00 per week. Their fixed weekly expenses are $22.00 for ren…"}
 {"answer": "$645.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/1/6049021cfd32", "text": "A person earns $861.00 per week. Their fixed weekly expenses are $106.00 for re…"}
 {"answer": "$136.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/2/ffdf214dfb19", "text": "A person earns $395.00 per week. Their fixed weekly expenses are $111.00 for re…"}
@@ -7481,6 +7553,18 @@
 {"answer": "0.62", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/medium/0/e60117b440f8", "text": "A population X has the distribution: P(X = 2) = 1/10; P(X = 5) = 1/5; P(X = 8) …"}
 {"answer": "0.23", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/medium/1/aaa708c7365f", "text": "5 samples of size 32 were randomly and independently drawn from a population X …"}
 {"answer": "-0.60", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/medium/2/9bfc8c89f177", "text": "A population X has the distribution: P(X = 1) = 1/5; P(X = 2) = 2/5; P(X = 3) =…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/easy/0/9ba158498543", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
+{"answer": "B", "id": "senior-simulated-samples-variability/easy/1/2264574afeff", "text": "Two machines each filled 40 bottles. The histograms show the volume in each bot…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/easy/2/1bf4796f92f7", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
+{"answer": "(a) 31; (b) 46; (c) 15; (d) 0.92", "id": "senior-simulated-samples-variability/exam/0/8d01695b60c3", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 34; (b) 48; (c) 14; (d) 0.96", "id": "senior-simulated-samples-variability/exam/1/2814a2581bed", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 27; (b) 45; (c) 18; (d) 0.90", "id": "senior-simulated-samples-variability/exam/2/67b66005af84", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/0/5af776e52aaf", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
+{"answer": "Uniform: every value about equally likely", "id": "senior-simulated-samples-variability/hard/1/b719bbca7a3e", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
+{"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/2/92dfb5d2a82b", "text": "The histogram shows 60 values simulated from one source. Which source is the mo…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/medium/0/b9f288833b40", "text": "A fair coin was tossed in a simulation, and each display graphs 50 sample propo…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/medium/1/8c8a29944dcd", "text": "A fair coin was tossed in a simulation, and each display graphs 50 sample propo…"}
+{"answer": "B", "id": "senior-simulated-samples-variability/medium/2/870af855c75c", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
 {"answer": "-8.000", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/easy/0/0f7ffec67e7a", "text": "x^3 + 29x^2 + 276x + 864 = 0 has three integer roots. Find the largest one, to …"}
 {"answer": "-6.000", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/easy/1/c8d3648db8ad", "text": "x^3 + 28x^2 + 252x + 720 = 0 has three integer roots. Find the largest one, to …"}
 {"answer": "-5.000", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/easy/2/b1489d684380", "text": "x^3 + 24x^2 + 179x + 420 = 0 has three integer roots. Find the largest one, to …"}

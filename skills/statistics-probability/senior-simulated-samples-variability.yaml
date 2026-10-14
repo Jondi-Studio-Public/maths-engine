@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-simulated-samples-variability
+name: Read the variability of simulated random samples from histograms
+domain: statistics-probability
+year_level: ['12']
+description: Histograms of simulated data show how much random samples vary. Easy says which of two samples of the
+  same size is more spread out, medium says which of two displays of 50 sample proportions of heads used the larger
+  samples (the narrower display, because a larger sample varies less), hard names the source of one simulated sample
+  (uniform, normal, Bernoulli or skewed), and the exam chain counts the values in a central band of each display,
+  how many more the larger-sample display has, and the proportion of its values in the band. Every bar height sits
+  on a gridline.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [histogram-shape-and-spread]
+answer: mcq
+sources:
+- topic: ey_sample_variability
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_sample_variability
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_sample_variability
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ey_sample_variability_exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: wider-means-bigger-sample, description: Thinks the display that is more spread out came from the larger samples.}
+- {id: tallest-bar-means-more-spread, description: 'Chooses the sample with the taller bar as the more spread out,
+    instead of looking at how wide the bars reach.'}
+- {id: equal-spread-assumed, description: Says two samples drawn in the same way must be equally spread out.}
+- {id: skew-for-uniform, description: 'Takes a flat histogram for a skewed one, or the other way round, by looking
+    at one bar instead of the whole shape.'}
+- {id: bernoulli-for-uniform, description: 'Takes two bars for a uniform source because the bars are the same height,
+    ignoring that only two outcomes occur.'}
+- {id: one-bar-of-band, description: Counts only one of the two bars in the central band.}
+- {id: band-total-not-compared, description: Adds the two band counts instead of finding how many more one display
+    has.}
+- {id: proportion-over-wrong-total, description: Divides by the wrong total when finding the proportion of the 50
+    values in the band.}
+difficulty_progression:
+  easy: {steps: 2, demand: Compare how many classes each histogram covers and how far from the middle the bars reach.}
+  medium: {steps: 3, demand: Link a narrower spread of sample proportions to a larger sample size.}
+  hard: {steps: 3, demand: 'Match the shape of one histogram (flat, bell, two bars, long tail) to the kind of source
+      that produces it.'}
+  exam: {steps: 5, demand: 'Add the two bars of a central band in each display, compare the counts and turn one
+      into a proportion.'}
+tags: [acara-senior-v8-4, statistics-probability, simulation, sampling-variability, histogram, acmmm173, figure]

@@ -4013,6 +4013,14 @@ senior-demonstrate-an-understanding-of-the-elementary-ideas-and:
     module: mathgen/generators/p19i_ratio_build.py
   - topic: exd_x_r3i_ratio_batch
     module: mathgen/generators/exd_x_r3i_ratio_batch.py
+senior-describe-spread-from-a-dot-plot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_dot_plot_spread
+    module: mathgen/generators/ey_senior_spread_build.py
+  - topic: ey_dot_plot_spread_exam
+    module: mathgen/generators/ey_senior_spread_build.py
 senior-describe-the-association-between-two-numerical-variables-in:
   domain: statistics-probability
   status: active
@@ -4591,6 +4599,38 @@ senior-formulate-differential-equations-including-the-logistic-equation-that:
     module: mathgen/generators/p13b_de_qualitative_build.py
   - topic: exd_x_r3i_mixing_rates
     module: mathgen/generators/exd_x_r3i_mixing_rates.py
+senior-graph-dilation-read-factor:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: ey_graph_dilation
+    module: mathgen/generators/ey_senior_transform_build.py
+  - topic: ey_graph_dilation_exam
+    module: mathgen/generators/ey_senior_transform_build.py
+senior-graph-reciprocal-abs-compare:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: ey_graph_reciprocal_abs
+    module: mathgen/generators/ey_senior_transform_build.py
+  - topic: ey_graph_reciprocal_abs_exam
+    module: mathgen/generators/ey_senior_transform_build.py
+senior-graph-slope-intercept-meaning:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: ey_context_line
+    module: mathgen/generators/ey_senior_context_graphs_build.py
+  - topic: ey_context_line_exam
+    module: mathgen/generators/ey_senior_context_graphs_build.py
+senior-graph-translation-read-shift:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: ey_graph_translation
+    module: mathgen/generators/ey_senior_transform_build.py
+  - topic: ey_graph_translation_exam
+    module: mathgen/generators/ey_senior_transform_build.py
 senior-identify-and-solve-linear-equations:
   domain: linear-relations
   status: active
@@ -4875,6 +4915,14 @@ senior-obtain-a-scale-factor-and-use-it-to-acmgm025:
     module: mathgen/generators/p6f_scale_factor_build.py
   - topic: exd_x_m5_scale_model_chain
     module: mathgen/generators/exd_x_m5_scale_model_chain.py
+senior-position-time-tangent-velocity:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: ey_position_tangent
+    module: mathgen/generators/ey_senior_context_graphs_build.py
+  - topic: ey_position_tangent_exam
+    module: mathgen/generators/ey_senior_context_graphs_build.py
 senior-prepare-a-personal-budget-for-a-given-income:
   domain: arithmetic
   status: active
@@ -5173,6 +5221,14 @@ senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139:
     module: mathgen/generators/p16b_xbar_standardise_build.py
   - topic: exd_x_r2k_xbar_pvalue
     module: mathgen/generators/exd_x_r2k_xbar_pvalue.py
+senior-simulated-samples-variability:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_sample_variability
+    module: mathgen/generators/ey_senior_spread_build.py
+  - topic: ey_sample_variability_exam
+    module: mathgen/generators/ey_senior_spread_build.py
 senior-solve-cubic-equations-using-technology-and-algebraically-in:
   domain: functions-sequences
   status: active
