@@ -99,7 +99,7 @@ def exd_x_r3c_unit_vector_perp(rng, tier="exam"):
         working=[
             f"Turning a vector {turn} through 90° takes (i, j) components (a, b) to "
             f"{'(-b, a)' if anticlockwise else '(b, -a)'}.",
-            f"So the i-coefficient of BC is {length} × {'-' if anticlockwise else ''}({uy}) = {wi}.",
+            f"So the i-coefficient of BC is {length} × {f'(-({uy}))' if anticlockwise else f'({uy})'} = {wi}.",
         ],
         wrongs=[
             (ux * length, "unit-vector-not-rotated"),

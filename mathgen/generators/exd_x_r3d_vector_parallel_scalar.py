@@ -19,7 +19,7 @@ import random
 
 from sympy import Matrix, Symbol, solve
 
-from mathgen.core import attempts, check, generator, latex_answer
+from mathgen.core import attempts, check, generator, latex_answer, paren_negative
 
 from .exd_x_r3d_common import tagged
 from ._exd_distinct_parts import distinct_part_answers
@@ -135,7 +135,7 @@ def exd_x_r3d_vector_parallel_scalar(rng: random.Random, tier: str = "exam") -> 
                 marks=2,
                 follow_through=c_ft,
                 sensible_range=(0, None),
-                working=[f"|{expr}|² = m²|e|² = {m}²·{e[0] ** 2 + e[1] ** 2} = {length2}."],
+                working=[f"|{expr}|² = m²|e|² = {paren_negative(m)}²·{e[0] ** 2 + e[1] ** 2} = {length2}."],
                 distractors=c_d,
             ),
         ],
