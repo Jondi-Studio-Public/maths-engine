@@ -44,6 +44,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_e2_simplify_radicals_of_monomials
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: wrong-root-index
   description: Applies the wrong root's divisor to a variable's own exponent -- halves the cube-root radicand's

@@ -20,6 +20,8 @@ add-complex-numbers:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r2e_complex_add
     module: mathgen/generators/exd_x_r2e_complex_add.py
+  - topic: exd_x_complex_add
+    module: mathgen/generators/exd_x_complex_arith.py
 add-subtract-polynomials:
   domain: expressions-equivalence
   status: active
@@ -502,6 +504,8 @@ compound-interest:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r2d_compound_growth_chain
     module: mathgen/generators/exd_x_r2d_compound_growth_chain.py
+  - topic: exd_x_g5_compound_interest
+    module: mathgen/generators/exd_x_g5_compound_interest.py
 condition-number-diagonal:
   domain: numerical-and-computational-mathematics
   status: active
@@ -686,6 +690,8 @@ definite-integral:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2b_area_between_chain
     module: mathgen/generators/exd_x_r2b_area_between_chain.py
+  - topic: exd_x_c2_definite_integral
+    module: mathgen/generators/exd_x_c2_definite_integral_build.py
 difference-of-squares:
   domain: expressions-equivalence
   status: active
@@ -702,6 +708,8 @@ differentiate-chain-rule:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2a_chain_tangent
     module: mathgen/generators/exd_x_r2a_chain_tangent.py
+  - topic: exd_x_c1_chain
+    module: mathgen/generators/exd_x_c1_chain.py
 differentiate-polynomial:
   domain: differentiation
   status: active
@@ -710,6 +718,8 @@ differentiate-polynomial:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2a_polynomial_turning
     module: mathgen/generators/exd_x_r2a_polynomial_turning.py
+  - topic: exd_x_c1_polynomial
+    module: mathgen/generators/exd_x_c1_polynomial.py
 differentiate-product-rule:
   domain: differentiation
   status: active
@@ -718,6 +728,8 @@ differentiate-product-rule:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2a_product_tangent
     module: mathgen/generators/exd_x_r2a_product_tangent.py
+  - topic: exd_x_c1_product
+    module: mathgen/generators/exd_x_c1_product.py
 differentiate-quotient-rule:
   domain: differentiation
   status: active
@@ -726,6 +738,8 @@ differentiate-quotient-rule:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2a_quotient_normal
     module: mathgen/generators/exd_x_r2a_quotient_normal.py
+  - topic: exd_x_c1_quotient
+    module: mathgen/generators/exd_x_c1_quotient.py
 differentiate-trig:
   domain: differentiation
   status: active
@@ -734,6 +748,8 @@ differentiate-trig:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2a_trig_turning
     module: mathgen/generators/exd_x_r2a_trig_turning.py
+  - topic: exd_x_c1_trig
+    module: mathgen/generators/exd_x_c1_trig.py
 directional-derivative:
   domain: multivariable-and-vector-calculus
   status: active
@@ -750,6 +766,8 @@ discrete-expected-value:
     module: mathgen/generators/university_foundations.py
   - topic: exd_x_r2e_expval_chain
     module: mathgen/generators/exd_x_r2e_expval_chain.py
+  - topic: exd_x_s0_expval
+    module: mathgen/generators/exd_x_s0_expval.py
 distance-two-points:
   domain: linear-relations
   status: active
@@ -2278,6 +2296,8 @@ flat-loan-repayment:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r2d_flat_loan_term_chain
     module: mathgen/generators/exd_x_r2d_flat_loan_term_chain.py
+  - topic: exd_x_g5_flat_loan
+    module: mathgen/generators/exd_x_g5_flat_loan.py
 fourier-coefficient-simple:
   domain: fourier-analysis-and-pdes
   status: active
@@ -2558,6 +2578,8 @@ integrate-polynomial:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2b_antiderivative_chain
     module: mathgen/generators/exd_x_r2b_antiderivative_chain.py
+  - topic: exd_x_c2_integrate_polynomial
+    module: mathgen/generators/exd_x_c2_integrate_polynomial_build.py
 integrate-trig:
   domain: integration
   status: active
@@ -2574,6 +2596,8 @@ integration-by-substitution:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2b_substitution_chain
     module: mathgen/generators/exd_x_r2b_substitution_chain.py
+  - topic: exd_x_c2_integration_by_substitution
+    module: mathgen/generators/exd_x_c2_integration_by_substitution_build.py
 intercept:
   domain: linear-relations
   status: active
@@ -2652,6 +2676,8 @@ limit-at-infinity:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2c_limit_at_infinity
     module: mathgen/generators/exd_x_r2c_limit_at_infinity.py
+  - topic: exd_x_c2_limit_at_infinity
+    module: mathgen/generators/exd_x_c2_limit_at_infinity_build.py
 limit-degree-comparison:
   domain: limits
   status: active
@@ -2668,6 +2694,8 @@ limit-removable:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2c_limit_removable
     module: mathgen/generators/exd_x_r2c_limit_removable.py
+  - topic: exd_x_c2_limit_removable
+    module: mathgen/generators/exd_x_c2_limit_removable_build.py
 limits-of-a-bivariate-claim:
   domain: statistics-probability
   status: active
@@ -3016,6 +3044,8 @@ one-sided-limits:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2c_one_sided_limits
     module: mathgen/generators/exd_x_r2c_one_sided_limits.py
+  - topic: exd_x_c2_one_sided_limits
+    module: mathgen/generators/exd_x_c2_one_sided_limits_build.py
 one-step-equations:
   domain: equations
   status: active
@@ -3546,6 +3576,8 @@ senior-angles-at-the-circumference-of-a-circle-subtended:
     module: mathgen/generators/p5b_circle_theorems_build.py
   - topic: exd_x_r2f_chords_chain
     module: mathgen/generators/exd_x_r2f_chords_chain.py
+  - topic: exd_x_h4_chords_intersecting
+    module: mathgen/generators/exd_x_h4_chords_intersecting.py
 senior-apply-approximation-strategies-for-calculations:
   domain: arithmetic
   status: active
@@ -3570,6 +3602,8 @@ senior-apply-the-cosine-and-sine-ratios-to-find:
     module: mathgen/generators/p5b_trig_ratio_build.py
   - topic: exd_x_r2f_trig_altitude
     module: mathgen/generators/exd_x_r2f_trig_altitude.py
+  - topic: exd_x_h4_trig_altitude
+    module: mathgen/generators/exd_x_h4_trig_altitude.py
 senior-apply-the-product-quotient-and-chain-rule-to:
   domain: differentiation
   status: active
@@ -3578,6 +3612,8 @@ senior-apply-the-product-quotient-and-chain-rule-to:
     module: mathgen/generators/p5e_product_quotient_chain_build.py
   - topic: exd_x_r2a_rules_tangent
     module: mathgen/generators/exd_x_r2a_rules_tangent.py
+  - topic: exd_x_c3_product_quotient_chain
+    module: mathgen/generators/exd_x_c3_product_quotient_chain.py
 senior-apply-vector-calculus-to-motion-in-a-plane:
   domain: vectors
   status: active
@@ -3586,6 +3622,8 @@ senior-apply-vector-calculus-to-motion-in-a-plane:
     module: mathgen/generators/p10a_motion_vector_build.py
   - topic: exd_x_r2c_projectile
     module: mathgen/generators/exd_x_r2c_projectile.py
+  - topic: exd_x_g2_projectile_landing
+    module: mathgen/generators/exd_x_g2_vectors_build.py
 senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations:
   domain: arithmetic
   status: active
@@ -3688,6 +3726,8 @@ senior-calculate-total-change-by-integrating-instantaneous-or-marginal:
     module: mathgen/generators/p6c_total_change_build.py
   - topic: exd_x_r2b_total_change_chain
     module: mathgen/generators/exd_x_r2b_total_change_chain.py
+  - topic: exd_x_c4_total_change
+    module: mathgen/generators/exd_x_c4_total_change.py
 senior-check-results-of-calculations-for-accuracy:
   domain: arithmetic
   status: active
@@ -3774,6 +3814,8 @@ senior-consider-position-of-vectors-as-a-function-of:
     module: mathgen/generators/p6a_curves_position_build.py
   - topic: exd_x_r2c_collision
     module: mathgen/generators/exd_x_r2c_collision.py
+  - topic: exd_x_g2_position_collision
+    module: mathgen/generators/exd_x_g2_vectors_build.py
 senior-consider-similar-problems-involving-compounding-for-example-population:
   domain: financial-discrete
   status: active
@@ -3842,6 +3884,8 @@ senior-define-and-use-basic-linear-transformations-dilations-of:
     module: mathgen/generators/p9d_linear_transform_dilation_rotation_reflection_build.py
   - topic: exd_x_r2d_lt_reflection_gradient
     module: mathgen/generators/exd_x_r2d_lt_reflection_gradient.py
+  - topic: exd_x_g4_lt_basic
+    module: mathgen/generators/exd_x_g4_linear_transforms.py
 senior-define-and-use-composition-of-linear-transformations-and:
   domain: matrices
   status: active
@@ -3850,6 +3894,8 @@ senior-define-and-use-composition-of-linear-transformations-and:
     module: mathgen/generators/p9d_linear_transform_composition_inverse_build.py
   - topic: exd_x_r2d_lt_composition_chain
     module: mathgen/generators/exd_x_r2d_lt_composition_chain.py
+  - topic: exd_x_g4_lt_composition
+    module: mathgen/generators/exd_x_g4_linear_transforms.py
 senior-define-and-use-inverses-of-linear-transformations-and:
   domain: matrices
   status: active
@@ -3858,6 +3904,8 @@ senior-define-and-use-inverses-of-linear-transformations-and:
     module: mathgen/generators/p9d_linear_transform_composition_inverse_build.py
   - topic: exd_x_r2d_lt_inverse_chain
     module: mathgen/generators/exd_x_r2d_lt_inverse_chain.py
+  - topic: exd_x_g4_lt_inverse
+    module: mathgen/generators/exd_x_g4_linear_transforms.py
 senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form:
   domain: senior-mathematics
   status: active
@@ -3898,6 +3946,8 @@ senior-define-the-derivative-f-left-x-right-as:
     module: mathgen/generators/p5e_first_principles_build.py
   - topic: exd_x_r2a_first_principles_tangent
     module: mathgen/generators/exd_x_r2a_first_principles_tangent.py
+  - topic: exd_x_c3_first_principles
+    module: mathgen/generators/exd_x_c3_first_principles.py
 senior-define-the-imaginary-number-i-as-a-root:
   domain: senior-mathematics
   status: active
@@ -3952,6 +4002,8 @@ senior-determine-a-vector-equation-of-a-straight-line:
     module: mathgen/generators/p6a_lines_planes_build.py
   - topic: exd_x_r2c_vector_line
     module: mathgen/generators/exd_x_r2c_vector_line.py
+  - topic: exd_x_g1_vector_line
+    module: mathgen/generators/exd_x_g1_vector_line.py
 senior-determine-and-examine-the-n-th-roots-of:
   domain: measurement
   status: active
@@ -4070,6 +4122,8 @@ senior-determine-vector-and-cartesian-equations-of-a-plane:
     module: mathgen/generators/p6a_lines_planes_build.py
   - topic: exd_x_r2c_vector_plane
     module: mathgen/generators/exd_x_r2c_vector_plane.py
+  - topic: exd_x_g1_vector_plane
+    module: mathgen/generators/exd_x_g1_vector_plane.py
 senior-determine-volumes-of-solids-of-revolution-about-either:
   domain: integration
   status: active
@@ -4078,6 +4132,8 @@ senior-determine-volumes-of-solids-of-revolution-about-either:
     module: mathgen/generators/p6c_integration_techniques_b_build.py
   - topic: exd_x_r2c_solids_of_revolution
     module: mathgen/generators/exd_x_r2c_solids_of_revolution.py
+  - topic: exd_x_c4_solids_of_revolution
+    module: mathgen/generators/exd_x_c4_solids_of_revolution.py
 senior-determine-when-the-composition-of-two-functions-is:
   domain: functions-sequences
   status: active
@@ -4108,6 +4164,8 @@ senior-differentiate-and-integrate-a-vector-function-with-respect:
     module: mathgen/generators/p5e_vector_calculus_build.py
   - topic: exd_x_r2a_vector_motion_chain
     module: mathgen/generators/exd_x_r2a_vector_motion_chain.py
+  - topic: exd_x_c3_vector_motion
+    module: mathgen/generators/exd_x_c3_vector_motion.py
 senior-distinguish-between-causality-and-correlation-through-examples:
   domain: statistics-probability
   status: active
@@ -4238,6 +4296,8 @@ senior-examine-examples-of-vectors-including-displacement-and-velocity:
     module: mathgen/generators/p4c_vectors_examples_build.py
   - topic: exd_x_r2d_velocity_chain
     module: mathgen/generators/exd_x_r2d_velocity_chain.py
+  - topic: exd_x_g2_velocity_composition
+    module: mathgen/generators/exd_x_g2_vectors_build.py
 senior-examine-momentum-force-resultant-force-action-and-reaction:
   domain: differential-equations
   status: active
@@ -4472,6 +4532,8 @@ senior-find-the-slope-of-a-tangent-and-the:
     module: mathgen/generators/p5e_tangent_line_build.py
   - topic: exd_x_r2a_parallel_tangent_normal
     module: mathgen/generators/exd_x_r2a_parallel_tangent_normal.py
+  - topic: exd_x_c3_tangent_normal
+    module: mathgen/generators/exd_x_c3_tangent_normal.py
 senior-find-the-surface-area-of-familiar-solids-including:
   domain: measurement
   status: active
@@ -4630,6 +4692,8 @@ senior-integrate-by-parts:
     module: mathgen/generators/p6c_integration_techniques_a_build.py
   - topic: exd_x_r2c_by_parts_cyclic
     module: mathgen/generators/exd_x_r2c_by_parts_cyclic.py
+  - topic: exd_x_c4_by_parts_cyclic
+    module: mathgen/generators/exd_x_c4_by_parts_cyclic.py
 senior-integrate-expressions-of-the-form-frac-pm1-sqrt:
   domain: integration
   status: active
@@ -4996,6 +5060,8 @@ senior-review-cartesian-form:
     module: mathgen/generators/p11c_set_union_cartesian_build.py
   - topic: exd_x_r2e_complex_equating
     module: mathgen/generators/exd_x_r2e_complex_equating.py
+  - topic: exd_x_complex_equating
+    module: mathgen/generators/exd_x_complex_plane.py
 senior-review-indices-including-fractional-indices-and-the-index:
   domain: functions-sequences
   status: active
@@ -5494,6 +5560,8 @@ senior-use-ests-and-lsts-to-locate-the-critical:
     module: mathgen/generators/p10c_critical_path_build.py
   - topic: exd_x_r2e_network_crash
     module: mathgen/generators/exd_x_r2e_network_chain.py
+  - topic: exd_x_g6_critical_path_after_change
+    module: mathgen/generators/exd_x_g6_project_network.py
 senior-use-everyday-occurrences-to-illustrate-set-descriptions-and:
   domain: statistics-probability
   status: active
@@ -5564,6 +5632,8 @@ senior-use-forward-and-backward-scanning-to-determine-the:
     module: mathgen/generators/p6b_project_network_build.py
   - topic: exd_x_r2e_network_missing
     module: mathgen/generators/exd_x_r2e_network_chain.py
+  - topic: exd_x_g6_missing_duration
+    module: mathgen/generators/exd_x_g6_project_network.py
 senior-use-geometric-sequences-in-contexts-involving-geometric-growth:
   domain: financial-discrete
   status: active
@@ -5674,6 +5744,8 @@ senior-use-partial-fractions-where-necessary-for-integration-in:
     module: mathgen/generators/p6c_integration_techniques_a_build.py
   - topic: exd_x_r2c_partial_fractions
     module: mathgen/generators/exd_x_r2c_partial_fractions.py
+  - topic: exd_x_c4_partial_fractions
+    module: mathgen/generators/exd_x_c4_partial_fractions.py
 senior-use-pascal-s-triangle-and-its-properties:
   domain: statistics-probability
   status: active
@@ -5840,6 +5912,8 @@ senior-use-the-increments-formula-delta-y-cong-frac:
     module: mathgen/generators/p9c_leibniz_derivative_build.py
   - topic: exd_x_r2b_increments_chain
     module: mathgen/generators/exd_x_r2b_increments_chain.py
+  - topic: exd_x_c3_increments
+    module: mathgen/generators/exd_x_c3_increments.py
 senior-use-the-leibniz-notation-delta-x-and-delta:
   domain: senior-mathematics
   status: active
@@ -5856,6 +5930,8 @@ senior-use-the-leibniz-notation-for-the-derivative-frac:
     module: mathgen/generators/p9c_leibniz_derivative_build.py
   - topic: exd_x_r2b_leibniz_chain
     module: mathgen/generators/exd_x_r2b_leibniz_chain.py
+  - topic: exd_x_c3_leibniz
+    module: mathgen/generators/exd_x_c3_leibniz.py
 senior-use-the-line-of-best-fit-to-make:
   domain: statistics-probability
   status: active
@@ -6210,6 +6286,8 @@ stationary-points:
     module: mathgen/generators/calculus.py
   - topic: exd_x_r2a_stationary_double_root
     module: mathgen/generators/exd_x_r2a_stationary_double_root.py
+  - topic: exd_x_c1_stationary
+    module: mathgen/generators/exd_x_c1_stationary.py
 straight-line-angles:
   domain: primary-geometry-time
   status: active
@@ -6766,6 +6844,8 @@ ucv1-bayes-finite-counts:
     module: mathgen/generators/p11e_bayes_build.py
   - topic: exd_x_r2e_bayes_chain
     module: mathgen/generators/exd_x_r2e_bayes_chain.py
+  - topic: exd_x_s0_bayes2
+    module: mathgen/generators/exd_x_s0_bayes2.py
 ucv1-bayes-normal-posterior:
   domain: statistical-learning
   status: active
@@ -7820,6 +7900,8 @@ vector-addition:
     module: mathgen/generators/geometry.py
   - topic: exd_x_r2d_vector_addition_chain
     module: mathgen/generators/exd_x_r2d_vector_addition_chain.py
+  - topic: exd_x_g1_vector_addition
+    module: mathgen/generators/exd_x_g1_vector_addition.py
 vector-cross-product:
   domain: vectors
   status: active
@@ -7844,6 +7926,8 @@ vector-magnitude:
     module: mathgen/generators/geometry.py
   - topic: exd_x_r2d_vector_magnitude_chain
     module: mathgen/generators/exd_x_r2d_vector_magnitude_chain.py
+  - topic: exd_x_g1_vector_magnitude
+    module: mathgen/generators/exd_x_g1_vector_magnitude.py
 vector-projection:
   domain: linear-algebra
   status: active
@@ -7898,6 +7982,8 @@ z-score:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r2e_zscore_chain
     module: mathgen/generators/exd_x_r2e_zscore_chain.py
+  - topic: exd_x_h2_z_score
+    module: mathgen/generators/exd_x_h2_z_score.py
 zero-product-property:
   domain: quadratics
   status: active

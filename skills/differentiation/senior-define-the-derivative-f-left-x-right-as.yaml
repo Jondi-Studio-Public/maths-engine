@@ -29,6 +29,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c3_first_principles
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: forgot-to-divide-by-h
   description: Reports f(x+h)-f(x) without dividing by h.

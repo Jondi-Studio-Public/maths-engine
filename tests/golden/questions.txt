@@ -13,6 +13,9 @@
 {"answer": "-9 + 4i", "id": "add-complex-numbers/easy/0/37b670839e06", "text": "Calculate (-5 − 4i) + (-4 + 8i)."}
 {"answer": "11 − 3i", "id": "add-complex-numbers/easy/1/864e889b0e4b", "text": "Calculate (4 − 5i) + (7 + 2i)."}
 {"answer": "4 + 1i", "id": "add-complex-numbers/easy/2/4c6940550cb2", "text": "Calculate (4 + 6i) + (0 − 5i)."}
+{"answer": "-5 + 3i", "id": "add-complex-numbers/exam-single/0/6549e5210c4c", "text": "Let q = 6 + 6i. The complex number p satisfies p - 3 times the conjugate of q =…"}
+{"answer": "-1 - 5i", "id": "add-complex-numbers/exam-single/1/875585439c98", "text": "Given q = 6 + 3i, p - (3 times the conjugate of q) = -19 + 4i. Determine p."}
+{"answer": "-2 - 4i", "id": "add-complex-numbers/exam-single/2/300db2f80c92", "text": "The complex number p is such that p - 2 times the conjugate of q = -4 + 6i, whe…"}
 {"answer": "(a) -3 + 12i; (b) 3 - 5i; (c) 5.83; (d) -1.03", "id": "add-complex-numbers/exam/0/9d88e9688088", "text": "Let q = -1 - 4i. The complex number p satisfies p - 3 times the conjugate of q …"}
 {"answer": "(a) 3 - 12i; (b) -2 + 4i; (c) 4.47; (d) 2.03", "id": "add-complex-numbers/exam/1/15d33aa04463", "text": "Let q = 1 + 4i. The complex number p satisfies p - 3 times the conjugate of q =…"}
 {"answer": "(a) -12 - 9i; (b) 5 + 4i; (c) 6.40; (d) 0.67", "id": "add-complex-numbers/exam/2/6d85568df481", "text": "Let q = -4 + 3i. The complex number p satisfies p + 3 times the conjugate of q …"}
@@ -346,6 +349,9 @@
 {"answer": "diameter = 10.0, circumference = 31.4", "id": "circle-area-to-diameter-and-circumference/easy/0/ed24edf40b04", "text": "A circular plate has an area of 78.54 cm². Work out its diameter and its circum…"}
 {"answer": "diameter = 24.0, circumference = 75.4", "id": "circle-area-to-diameter-and-circumference/easy/1/6bc37bc1856c", "text": "A circle has an area of 452.39 cm². Find its diameter and its circumference."}
 {"answer": "diameter = 18.0, circumference = 56.5", "id": "circle-area-to-diameter-and-circumference/easy/2/43fd13dc89df", "text": "A circle has an area of 254.47 cm². Find its diameter and its circumference."}
+{"answer": "diameter = 28.0, circumference = 88.0", "id": "circle-area-to-diameter-and-circumference/exam-single/0/7b6859435b16", "text": "Exam question: a circle has an area of 615.75 cm². Show your working to find (a…"}
+{"answer": "diameter = 16.0, circumference = 50.3", "id": "circle-area-to-diameter-and-circumference/exam-single/1/ccd68a9d8158", "text": "This exam question gives a circle of area 201.06 cm². Find, with full working, …"}
+{"answer": "diameter = 16.0, circumference = 50.3", "id": "circle-area-to-diameter-and-circumference/exam-single/2/78f117cd29b9", "text": "Exam question: a circle has an area of 201.06 cm². Show your working to find (a…"}
 {"answer": "(a) 2.8; (b) 17.6; (c) 9.0", "id": "circle-area-to-diameter-and-circumference/exam/0/011e8d88a6e2", "text": "A circular pond cover has an area of 24.63 cm². A sector of the circle has a ce…"}
 {"answer": "(a) 6.4; (b) 40.2; (c) 12.3", "id": "circle-area-to-diameter-and-circumference/exam/1/a091d224631d", "text": "A round pizza base has an area of 128.68 cm². A sector of the circle has a cent…"}
 {"answer": "(a) 11.6; (b) 72.9; (c) 56.7", "id": "circle-area-to-diameter-and-circumference/exam/2/e6c727c6ad03", "text": "A round pizza base has an area of 422.73 cm². A slice with a centre angle of 28…"}
@@ -559,6 +565,9 @@
 {"answer": "4988.28", "id": "compound-interest/easy/0/b73dd7269942", "text": "Find the balance of $4100 invested at 4% p.a., compounded annually for 5 years.…"}
 {"answer": "4437.97", "id": "compound-interest/easy/1/9a4f04b5f078", "text": "Find the balance of $4100 invested at 2% p.a., compounded annually for 4 years.…"}
 {"answer": "5578.00", "id": "compound-interest/easy/2/308d440fbc2e", "text": "Find the balance of $4100 invested at 8% p.a., compounded annually for 4 years.…"}
+{"answer": "3", "id": "compound-interest/exam-single/0/3545da90fdbe", "text": "Ben puts $3500 into an account that pays a fixed annual rate, compounded annual…"}
+{"answer": "12118.97", "id": "compound-interest/exam-single/1/00b10ba13081", "text": "Chloe invests $8500 at a nominal rate of 12% p.a., compounded quarterly. Find t…"}
+{"answer": "3", "id": "compound-interest/exam-single/2/27bcf7121257", "text": "Chloe puts $1000 into an account that pays a fixed annual rate, compounded annu…"}
 {"answer": "(a) 1.045; (b) 4.5; (c) 30022.79; (d) 11522.79", "id": "compound-interest/exam/0/734b60ad6893", "text": "Santiago puts $18,500 into a term deposit at a fixed annual rate, with interest…"}
 {"answer": "(a) 1.035; (b) 3.5; (c) 27954.77; (d) 9454.77", "id": "compound-interest/exam/1/c21b836c795a", "text": "Zara invests $18,500 in a savings account that pays a fixed annual rate of inte…"}
 {"answer": "(a) 1.050; (b) 5.0; (c) 7756.65; (d) 2756.65", "id": "compound-interest/exam/2/860af9ac8f7b", "text": "Tariq invests $5,000 in a savings account that pays a fixed annual rate of inte…"}
@@ -799,6 +808,9 @@
 {"answer": "-423/2", "id": "definite-integral/easy/0/2e6dc754081a", "text": "Evaluate the definite integral of (2*x**3 - 4*x**2) dx from x = -4 to x = -1"}
 {"answer": "-25", "id": "definite-integral/easy/1/9541fc6c4205", "text": "Evaluate the definite integral of (2*x**3 - 3*x) dx from x = -3 to x = 2"}
 {"answer": "276", "id": "definite-integral/easy/2/2714474e39b7", "text": "Evaluate the definite integral of (5*x**3 - 4*x) dx from x = 2 to x = 4"}
+{"answer": "125/3", "id": "definite-integral/exam-single/0/90f0bddbb719", "text": "The curve y = -2x^2 + 9x + 8 and the line y = 3x bound a finite region. Find it…"}
+{"answer": "1/3", "id": "definite-integral/exam-single/1/26b0b6b1051d", "text": "Find the area of the region enclosed by the parabola y = -2x^2 + 6x - 7 and the…"}
+{"answer": "32", "id": "definite-integral/exam-single/2/bfa4805fb03b", "text": "The curve y = 3x^2 - 9x + 4 and the line y = 3x + 4 bound a finite region. Find…"}
 {"answer": "(a) -1; (b) 3; (c) 64/3; (d) 16/3", "id": "definite-integral/exam/0/fb673cf2591d", "text": "A region R is bounded by the curve y = -2x^2 + x + 8 and the line y = -3x + 2. …"}
 {"answer": "(a) -5; (b) -3; (c) 8/3; (d) 4/3", "id": "definite-integral/exam/1/1bf01b77ff2a", "text": "A region R is bounded by the curve y = 2x^2 + 15x + 31 and the line y = -x + 1.…"}
 {"answer": "(a) 3; (b) 5; (c) 4/3; (d) 2/3", "id": "definite-integral/exam/2/d4d36cf4fcb7", "text": "A region R is bounded by the curve y = x^2 - 8x + 14 and the line y = -1. (a) F…"}
@@ -823,6 +835,9 @@
 {"answer": "25*(5*x - 1)**4", "id": "differentiate-chain-rule/easy/0/0ab5a96216e4", "text": "Differentiate (5*x - 1)**5 with respect to x"}
 {"answer": "20*(4*x - 9)**4", "id": "differentiate-chain-rule/easy/1/424b3050eadb", "text": "Differentiate (4*x - 9)**5 with respect to x"}
 {"answer": "25*(5*x - 3)**4", "id": "differentiate-chain-rule/easy/2/a1aee923058c", "text": "Differentiate (5*x - 3)**5 with respect to x"}
+{"answer": "(24*x - 20)/sqrt(3*x^2 - 5*x - 6)", "id": "differentiate-chain-rule/exam-single/0/0b6f4445e234", "text": "Find f'(x) given that f(x) = 8√(3x^2 - 5x - 6)."}
+{"answer": "(-12*x - 8)/(3*x^2 + 4*x - 4)^3", "id": "differentiate-chain-rule/exam-single/1/13945e18882f", "text": "If f(x) = 1/(3x^2 + 4x - 4)^2, find f'(x)."}
+{"answer": "(-36*x - 6)/(3*x^2 + x - 3)^4", "id": "differentiate-chain-rule/exam-single/2/78b7fb884cf7", "text": "If f(x) = 2/(3x^2 + x - 3)^3, find f'(x)."}
 {"answer": "(a) 16*(5 - 2*x)/(x^2 - 5*x + 4)^3; (b) 2; (c) y = 2*x - 4;…", "id": "differentiate-chain-rule/exam/0/810b99746393", "text": "Let f(x) = 8/(x^2 - 5x + 4)^2. The graph of y = f(x) has a tangent at the point…"}
 {"answer": "(a) 8*(1 - 3*x)/(3*x^2 - 2*x + 1)^2; (b) -16/121; (c) y = 7…", "id": "differentiate-chain-rule/exam/1/db3f6ce4a81f", "text": "Let f(x) = 4/(3x^2 - 2x + 1). The graph of y = f(x) has a tangent at the point …"}
 {"answer": "(a) -10*(2*x + 1)/(x^2 + x - 5)^3; (b) 10/9; (c) y = 10*x/9…", "id": "differentiate-chain-rule/exam/2/f58910919618", "text": "Let f(x) = 5/(x^2 + x - 5)^2. The graph of y = f(x) has a tangent at the point …"}
@@ -835,6 +850,9 @@
 {"answer": "15*x**2 - 2*x + 4", "id": "differentiate-polynomial/easy/0/64ae1ef867be", "text": "Differentiate 5*x**3 - x**2 + 4*x - 3 with respect to x"}
 {"answer": "21*x**2 + 6*x + 2", "id": "differentiate-polynomial/easy/1/460a0c217ea5", "text": "Differentiate 7*x**3 + 3*x**2 + 2*x + 3 with respect to x"}
 {"answer": "6*x**2 - 4*x + 7", "id": "differentiate-polynomial/easy/2/1eca8e211f20", "text": "Differentiate 2*x**3 - 2*x**2 + 7*x - 1 with respect to x"}
+{"answer": "-6*x - 3/x^2 + 18/x^4", "id": "differentiate-polynomial/exam-single/0/bc15465c6408", "text": "If f(x) = (-3x^5 + 3x^2 - 6)/x^3, find f'(x)."}
+{"answer": "3*sqrt(x) - 1/sqrt(x) + 2/x^(3/2)", "id": "differentiate-polynomial/exam-single/1/a821b9d3ea9b", "text": "Find dy/dx when y = (2x^2 - 2x - 4)/√x."}
+{"answer": "6*sqrt(x) - 4/sqrt(x) - 4/x^(3/2)", "id": "differentiate-polynomial/exam-single/2/fde7e311cd33", "text": "Find f'(x) given that f(x) = (4x^2 - 8x + 8)/√x."}
 {"answer": "(a) 12*x^2 + 24*x - 36; (b) -3; (c) 0; (d) -1", "id": "differentiate-polynomial/exam/0/94ec7dc97b81", "text": "Let f(x) = (x - 3)(4x^2 + 24x + 36). The graph of y = f(x) has two turning poin…"}
 {"answer": "(a) 6*x^2 - 36*x + 48; (b) 2; (c) 8; (d) 3", "id": "differentiate-polynomial/exam/1/704cb7cc5a5f", "text": "The cubic function f is given by f(x) = (x - 1)(2x^2 - 16x + 32). The graph of …"}
 {"answer": "(a) 6*x^2 + 12*x - 18; (b) -3; (c) 50; (d) -1", "id": "differentiate-polynomial/exam/2/031d38e6382c", "text": "Let f(x) = (x - 2)(2x^2 + 10x + 2). The graph of y = f(x) has two turning point…"}
@@ -847,6 +865,9 @@
 {"answer": "48*x**2 + 56*x - 44", "id": "differentiate-product-rule/easy/0/c84f68e4f826", "text": "Differentiate (4*x + 8)(4*x**2 - x - 9) with respect to x"}
 {"answer": "45*x**2 - 54*x - 54", "id": "differentiate-product-rule/easy/1/bb35a750b4f4", "text": "Differentiate (5*x + 6)(3*x**2 - 9*x) with respect to x"}
 {"answer": "24*x**2 - 40*x - 48", "id": "differentiate-product-rule/easy/2/1f553770fe74", "text": "Differentiate (4*x + 4)(2*x**2 - 7*x - 5) with respect to x"}
+{"answer": "(2*x + 1)^2*(x^2 - 5)^2*(18*x^2 + 6*x - 30)", "id": "differentiate-product-rule/exam-single/0/a6646d1ae5ae", "text": "Find f'(x) given that f(x) = (2x + 1)^3(x^2 - 5)^3."}
+{"answer": "(3*x - 1)^2*(x^2 - 3)^2*(27*x^2 - 6*x - 27)", "id": "differentiate-product-rule/exam-single/1/d73e2a7d6056", "text": "If f(x) = (3x - 1)^3(x^2 - 3)^3, find f'(x)."}
+{"answer": "(2*x - 1)*(x^2 - 3)*(12*x^2 - 4*x - 12)", "id": "differentiate-product-rule/exam-single/2/5921e8c22996", "text": "Find dy/dx when y = (2x - 1)^2(x^2 - 3)^2."}
 {"answer": "(a) x^2*(x - 1)^2*(6*x - 3); (b) 36; (c) y = 36*x - 64; (d)…", "id": "differentiate-product-rule/exam/0/e35f0b9dc9ae", "text": "Let f(x) = x^3(x - 1)^3. A tangent is drawn to the graph of y = f(x) at the poi…"}
 {"answer": "(a) (2*x + 1)*(2*x^2 + 3)*(24*x^2 + 8*x + 12); (b) -140; (c…", "id": "differentiate-product-rule/exam/1/cd555ebbcdae", "text": "The function f is given by f(x) = (2x + 1)^2(2x^2 + 3)^2. A tangent is drawn to…"}
 {"answer": "(a) (x - 4)*(4*x^2 - 8*x - 6); (b) 12; (c) y = 12*x - 20; (…", "id": "differentiate-product-rule/exam/2/32bb7a108dd8", "text": "Let f(x) = (x - 4)^2(x^2 - 3). A tangent is drawn to the graph of y = f(x) at t…"}
@@ -859,6 +880,9 @@
 {"answer": "-36/(4*x - 1)**2", "id": "differentiate-quotient-rule/easy/0/d2c1f4598b5d", "text": "Differentiate (4*x + 8) / (4*x - 1) with respect to x"}
 {"answer": "-7/(x - 3)**2", "id": "differentiate-quotient-rule/easy/1/69a611b905dc", "text": "Differentiate (5*x + 6) / (3*x - 9) with respect to x"}
 {"answer": "-42/(4*x - 3)**2", "id": "differentiate-quotient-rule/easy/2/9139b1c99dd7", "text": "Differentiate (6*x + 6) / (4*x - 3) with respect to x"}
+{"answer": "(3*x + 2)^2*(9*x^2 - 12*x - 18)/(3*x^2 - 2)^2", "id": "differentiate-quotient-rule/exam-single/0/e0618ca3321f", "text": "If f(x) = (3x + 2)^3/(3x^2 - 2), find f'(x)."}
+{"answer": "(2*x - 3)*(6*x - 16)/(x^2 - 4)^2", "id": "differentiate-quotient-rule/exam-single/1/7534e135f72f", "text": "If f(x) = (2x - 3)^2/(x^2 - 4), find f'(x)."}
+{"answer": "(2*x - 1)*(4*x - 12)/(2*x^2 - 3)^2", "id": "differentiate-quotient-rule/exam-single/2/e2a5bac1fd77", "text": "Find f'(x) given that f(x) = (2x - 1)^2/(2x^2 - 3)."}
 {"answer": "(a) (-2*x^2 - 12*x - 5)/(x + 3)^2; (b) -59/36; (c) y = 36*x…", "id": "differentiate-quotient-rule/exam/0/bb47d2344c0c", "text": "Let f(x) = (-2x^2 + 5)/(x + 3). The normal to the graph of y = f(x) is drawn at…"}
 {"answer": "(a) (-2*x^2 - 2*x + 8)/(x^2 + 4)^2; (b) 4/25; (c) y = 137/2…", "id": "differentiate-quotient-rule/exam/1/85bfe21cd682", "text": "The graph of y = f(x), where f(x) = (2x + 1)/(x^2 + 4), has a normal at the poi…"}
 {"answer": "(a) (-3*x^2 - 2*x + 9)/(x^2 + 3)^2; (b) 1/49; (c) y = -49*x…", "id": "differentiate-quotient-rule/exam/2/82704ee065d8", "text": "The graph of y = f(x), where f(x) = (3x + 1)/(x^2 + 3), has a normal at the poi…"}
@@ -871,6 +895,9 @@
 {"answer": "-15*sin(3*x) + 16*cos(4*x)", "id": "differentiate-trig/easy/0/ae27051c638b", "text": "Differentiate 4*sin(4*x) + 5*cos(3*x) with respect to x"}
 {"answer": "-4*sin(x) + 15*cos(3*x)", "id": "differentiate-trig/easy/1/548050432039", "text": "Differentiate 5*sin(3*x) + 4*cos(x) with respect to x"}
 {"answer": "-4*sin(x) + 8*cos(2*x)", "id": "differentiate-trig/easy/2/f583ed782d25", "text": "Differentiate 4*sin(2*x) + 4*cos(x) with respect to x"}
+{"answer": "(12 - 12*x)*cos(2*x^2 - 4*x)", "id": "differentiate-trig/exam-single/0/5b3c6a3293ea", "text": "Find f'(x) given that f(x) = -3sin(2x^2 - 4x)."}
+{"answer": "-8*sin(2*x)*cos(2*x)", "id": "differentiate-trig/exam-single/1/e780aeffe243", "text": "Find f'(x) given that f(x) = -2sin^2(2x)."}
+{"answer": "(5 - 10*x)*sin(x^2 - x)", "id": "differentiate-trig/exam-single/2/8d2c1fecad3e", "text": "Find f'(x) given that f(x) = 5cos(x^2 - x)."}
 {"answer": "(a) 2*cos(2*x) + 1; (b) pi/3; (c) -2 + sqrt(3)/2 + pi/3", "id": "differentiate-trig/exam/0/bc171e4c8588", "text": "The function f is defined by f(x) = x + sin(2x) - 2 for 0 ≤ x ≤ π. (a) Find f'(…"}
 {"answer": "(a) 4*cos(2*x) - 2; (b) pi/6; (c) -pi/3 + sqrt(3)", "id": "differentiate-trig/exam/1/2c1da62d6dd2", "text": "Consider the function f(x) = -2x + 2sin(2x) on the domain 0 ≤ x ≤ π. (a) Find f…"}
 {"answer": "(a) 8*cos(2*x) - 4; (b) pi/6; (c) -2*pi/3 + 2*sqrt(3)", "id": "differentiate-trig/exam/2/719c3f212c15", "text": "Consider the function f(x) = -4x + 4sin(2x) on the domain 0 ≤ x ≤ π. (a) Find f…"}
@@ -895,6 +922,9 @@
 {"answer": "3", "id": "discrete-expected-value/easy/0/1038822ee773", "text": "A discrete random variable X has P(X=2)=1/5, P(X=3)=3/5, P(X=4)=1/5. Find E[X]."}
 {"answer": "-4", "id": "discrete-expected-value/easy/1/c185ab2baeaf", "text": "A discrete random variable X has P(X=-5)=2/5, P(X=-4)=1/5, P(X=-3)=2/5. Find E[…"}
 {"answer": "-2", "id": "discrete-expected-value/easy/2/4e4738130b0b", "text": "A discrete random variable X has P(X=-4)=3/5, P(X=-1)=1/5, P(X=3)=1/5. Find E[X…"}
+{"answer": "16/3", "id": "discrete-expected-value/exam-single/0/edfe11730fd4", "text": "A random variable X takes the values 1, 2, 3 with P(X = k) = c(k + 2), where c …"}
+{"answer": "499/70", "id": "discrete-expected-value/exam-single/1/c91644b8c673", "text": "A game pays -1, 1, 9, 10 dollars. The first two payouts have probabilities 3/20…"}
+{"answer": "644/75", "id": "discrete-expected-value/exam-single/2/f618e6a85fb3", "text": "A game pays 4, 6, 11, 12 dollars. The first two payouts have probabilities 1/5 …"}
 {"answer": "(a) 1/30; (b) 13/3; (c) 62/3; (d) 17/9", "id": "discrete-expected-value/exam/0/9d399d45e83a", "text": "A discrete random variable X takes the values 2, 3, 4, 5, 6, and P(X = x) = c(x…"}
 {"answer": "(a) 1/25; (b) 22/5; (c) 106/5; (d) 46/25", "id": "discrete-expected-value/exam/1/00ce6b3ae404", "text": "A discrete random variable X takes the values 2, 3, 4, 5, 6, and P(X = x) = c(x…"}
 {"answer": "(a) 1/30; (b) 13/3; (c) 62/3; (d) 17/9", "id": "discrete-expected-value/exam/2/39b541f64fc3", "text": "A discrete random variable X takes the values 2, 3, 4, 5, 6, and P(X = x) = c(x…"}
@@ -1039,6 +1069,9 @@
 {"answer": "2x^2 + 25x + 72", "id": "expand-binomial-trinomial/easy/0/b36ad14e3257", "text": "Expand and simplify (x + 8)(2x + 9)."}
 {"answer": "-3x^2 - 5x + 12", "id": "expand-binomial-trinomial/easy/1/bf5c80486e8b", "text": "Expand and simplify (x + 3)(-3x + 4)."}
 {"answer": "4x^2 + 36x + 56", "id": "expand-binomial-trinomial/easy/2/d8767b7622d0", "text": "Expand and simplify (x + 7)(4x + 8)."}
+{"answer": "x^2 + 8xy + ax + bx + 8ay + ab", "id": "expand-binomial-trinomial/exam-single/0/52c832611fd0", "text": "Expand and simplify (x + a)(x + 8y + b)."}
+{"answer": "9x^2 - 5xy + 9ax + bx - 5ay + ab", "id": "expand-binomial-trinomial/exam-single/1/d3f5e6ac28ab", "text": "Expand and simplify (x + a)(9x - 5y + b)."}
+{"answer": "-5x^2 - 4xy - 5ax + bx - 4ay + ab", "id": "expand-binomial-trinomial/exam-single/2/e8605d304314", "text": "Expand and simplify (x + a)(-5x - 4y + b)."}
 {"answer": "(a) 1; (b) -2x^3 + 13x^2 - 15x + 54; (c) 84", "id": "expand-binomial-trinomial/exam/0/1613624d74ff", "text": "k is a constant and P(x) = (x - 6)(-2x^2 + kx - 9). The coefficient of x in the…"}
 {"answer": "(a) -3; (b) 2x^3 - 9x^2 + 13x - 12; (c) -6", "id": "expand-binomial-trinomial/exam/1/fd946b30217d", "text": "k is a constant and P(x) = (x - 3)(2x^2 + kx + 4). The coefficient of x in the …"}
 {"answer": "(a) 8; (b) 3x^3 + 23x^2 + 39x - 5; (c) -24", "id": "expand-binomial-trinomial/exam/2/7944f102b1cc", "text": "k is a constant and P(x) = (x + 5)(3x^2 + kx - 1). The coefficient of x in the …"}
@@ -3166,6 +3199,9 @@
 {"answer": "238.33", "id": "flat-loan-repayment/easy/0/ba3a25244744", "text": "A $11000 flat-interest loan charges 6% of principal per year for 5 years. Find …"}
 {"answer": "342.22", "id": "flat-loan-repayment/easy/1/b48696d034b3", "text": "A $11000 flat-interest loan charges 4% of principal per year for 3 years. Find …"}
 {"answer": "999.17", "id": "flat-loan-repayment/easy/2/ed22c8bb2ac0", "text": "A $33000 flat-interest loan charges 3% of principal per year for 3 years. Find …"}
+{"answer": "5", "id": "flat-loan-repayment/exam-single/0/56c4a04c33a9", "text": "A loan of $40000 carries flat interest of 5% of the amount borrowed per year. I…"}
+{"answer": "9", "id": "flat-loan-repayment/exam-single/1/8f73037681a8", "text": "A loan of $21000 is repaid in equal monthly instalments of $1032.50 over 2 year…"}
+{"answer": "1556.94", "id": "flat-loan-repayment/exam-single/2/b31c6f186f52", "text": "A motorbike costs $50000. A deposit of 10% of the price is paid up front and th…"}
 {"answer": "(a) 1400.00; (b) 4000.00; (c) 5; (d) 7000.00", "id": "flat-loan-repayment/exam/0/4f0bbd94eb1d", "text": "Hassan takes out a flat-interest loan of $20,000 for a ute, charged at 7% per y…"}
 {"answer": "(a) 1040.00; (b) 13000.00; (c) 2; (d) 2080.00", "id": "flat-loan-repayment/exam/1/3296be25c4bf", "text": "Lucas takes out a flat-interest loan of $26,000 for a rooftop solar system, cha…"}
 {"answer": "(a) 1440.00; (b) 7200.00; (c) 5; (d) 7200.00", "id": "flat-loan-repayment/exam/2/334536ff7e68", "text": "Mateo borrows $36,000 to pay for a motorbike. The loan charges flat interest of…"}
@@ -3523,6 +3559,9 @@
 {"answer": "-2*x**3 - 7*x**2 + C", "id": "integrate-polynomial/easy/0/6e931a04016f", "text": "Find ∫ (-6*x**2 - 14*x) dx"}
 {"answer": "-x**3 - 3*x**2 + C", "id": "integrate-polynomial/easy/1/48403470d717", "text": "Find ∫ (-3*x**2 - 6*x) dx"}
 {"answer": "5*x**3 - 4*x**2 + C", "id": "integrate-polynomial/easy/2/4550def535f4", "text": "Find ∫ (15*x**2 - 8*x) dx"}
+{"answer": "-x^4/12 + 2*x^3/3 - 3*x - 3", "id": "integrate-polynomial/exam-single/0/877542d25ef6", "text": "Given that f''(x) = -x^2 + 4x, f'(2) = 7/3 and f(2) = -5, find f(x)."}
+{"answer": "-x^5/20 + x^4/4 - x^3/6 - 4*x - 5 + 1/(2*x)", "id": "integrate-polynomial/exam-single/1/4f9613e6d311", "text": "Given that f''(x) = -x^3 + 3x^2 - x + 1/x^3, f'(1) = -17/4 and f(1) = -127/15, …"}
+{"answer": "x^3/6 + 2*x^2 + x + 4 + 5/(2*x)", "id": "integrate-polynomial/exam-single/2/7d5787ad453e", "text": "Find f(x) if f''(x) = x + 4 + 5/x^3, f(1) = 29/3 and f'(1) = 3."}
 {"answer": "(a) -8; (b) 2x^3 - x^2 - 8x - 4; (c) 1; (d) 113", "id": "integrate-polynomial/exam/0/2f7cfc54315d", "text": "For a curve with equation y = f(x), f'(x) = 6x^2 - 2x + k, where k is a constan…"}
 {"answer": "(a) -2; (b) 2x^3 - 3x^2 - 2x + 4; (c) 4; (d) 11", "id": "integrate-polynomial/exam/1/54845f32f813", "text": "A curve y = f(x) has gradient function f'(x) = 6x^2 - 6x + k, where k is a cons…"}
 {"answer": "(a) 9; (b) x^3 + 2x^2 + 9x - 6; (c) 28; (d) -6", "id": "integrate-polynomial/exam/2/0192eb1d655a", "text": "For a curve with equation y = f(x), f'(x) = 3x^2 + 4x + k, where k is a constan…"}
@@ -3547,6 +3586,9 @@
 {"answer": "2*(5*x - 2)**5/5 + C", "id": "integration-by-substitution/easy/0/f46305d95d58", "text": "Find ∫ (10*(5*x - 2)**4) dx using the substitution u = 5*x - 2"}
 {"answer": "(3*x - 2)**5/5 + C", "id": "integration-by-substitution/easy/1/a43cdbf42eb5", "text": "Find ∫ (3*(3*x - 2)**4) dx using the substitution u = 3*x - 2"}
 {"answer": "2*(2*x + 9)**3/3 + C", "id": "integration-by-substitution/easy/2/230fa9174a3f", "text": "Find ∫ (4*(2*x + 9)**2) dx using the substitution u = 2*x + 9"}
+{"answer": "4*sqrt(x^2 + 4) + C", "id": "integration-by-substitution/exam-single/0/f3ce4e4cc8ad", "text": "Find ∫ 4x/√(x^2 + 4) dx."}
+{"answer": "4*sqrt(x^2 + 1) + C", "id": "integration-by-substitution/exam-single/1/348980725538", "text": "Determine ∫ 4x/√(x^2 + 1) dx."}
+{"answer": "7/(2*cos(x)^2) + C", "id": "integration-by-substitution/exam-single/2/93ef2424050b", "text": "Evaluate the indefinite integral ∫ 7sin(x)/cos^3(x) dx."}
 {"answer": "(a) 9; (b) 5u^3/2; (c) 3710.00; (d) 1855.00", "id": "integration-by-substitution/exam/0/f4fe9c30cda0", "text": "The integral I is the integral of 5x(x^2 + 5)^3 dx from x = 0 to x = 2. It is e…"}
 {"answer": "(a) 10; (b) 2/u^2; (c) 0.80; (d) 0.40", "id": "integration-by-substitution/exam/1/305824828dbe", "text": "Let I be the value of the integral of 6x^2/(x^3 + 2)^2 dx between x = 0 and x =…"}
 {"answer": "(a) 13; (b) 6u^3; (c) 42457.50; (d) 14152.50", "id": "integration-by-substitution/exam/2/98c7a13c5a47", "text": "Let I be the value of the integral of 12x(x^2 + 4)^3 dx between x = 0 and x = 3…"}
@@ -3655,6 +3697,9 @@
 {"answer": "-1/3", "id": "limit-at-infinity/easy/0/be9bc1ba2094", "text": "Find the limit as x → ∞ of (-2*x**2 + 8*x + 1) / (6*x**2 + x - 2)"}
 {"answer": "1", "id": "limit-at-infinity/easy/1/3e8686adcae4", "text": "Find the limit as x → ∞ of (2*x**2 + 4*x + 9) / (2*x**2 + 2*x - 9)"}
 {"answer": "1/2", "id": "limit-at-infinity/easy/2/8801743b4989", "text": "Find the limit as x → ∞ of (4*x**2 + x + 1) / (8*x**2 - 5*x - 8)"}
+{"answer": "-1/4", "id": "limit-at-infinity/exam-single/0/04c00943e03c", "text": "Find the limit as x → ∞ of √(16x^2 + 5x + 4) - √(16x^2 + 7x + 5)."}
+{"answer": "-3", "id": "limit-at-infinity/exam-single/1/e413579e6471", "text": "Find the limit as x → -∞ of (3x + 6)/√(x^2 - x - 2)."}
+{"answer": "1/6", "id": "limit-at-infinity/exam-single/2/3257b214e06e", "text": "Find the limit as x → ∞ of √(9x^2 - 7x - 4) - √(9x^2 - 8x - 4)."}
 {"answer": "(a) x - 5; (b) 1/8; (c) -1/8; (d) 1/4", "id": "limit-at-infinity/exam/0/91c435c9e281", "text": "Consider the function f(x) = √(16x^2 - 7x - 1) - √(16x^2 - 8x + 4). (a) Write f…"}
 {"answer": "(a) 3x + 11; (b) 1/2; (c) -1/2; (d) 1", "id": "limit-at-infinity/exam/1/1b7d28ca812e", "text": "Let f(x) = √(9x^2 - 3x + 6) - √(9x^2 - 6x - 5). The graph of y = f(x) has a hor…"}
 {"answer": "(a) 9x + 5; (b) 9/8; (c) -9/8; (d) 9/4", "id": "limit-at-infinity/exam/2/bad9cec1a01c", "text": "Consider the function f(x) = √(16x^2 + 2x + 3) - √(16x^2 - 7x - 2). (a) Write f…"}
@@ -3679,6 +3724,9 @@
 {"answer": "-5", "id": "limit-removable/easy/0/d72646b022b0", "text": "Find the limit as x → -4 of (x**2 + 3*x - 4) / (x + 4)"}
 {"answer": "-5", "id": "limit-removable/easy/1/fa9eae7f4066", "text": "Find the limit as x → -4 of (x**2 + 3*x - 4) / (x + 4)"}
 {"answer": "1", "id": "limit-removable/easy/2/f84bebceae95", "text": "Find the limit as x → -2 of (x**2 + 5*x + 6) / (x + 2)"}
+{"answer": "25/24", "id": "limit-removable/exam-single/0/8b15755ef08a", "text": "Evaluate lim x→0 of (1 - cos(5x)) / (4x sin(3x)). Give the exact value."}
+{"answer": "3/4", "id": "limit-removable/exam-single/1/90776145ff85", "text": "Determine the limit of (√(3x + 1) - 2) / (x - 1) as x → 1. Give the exact value."}
+{"answer": "5/6", "id": "limit-removable/exam-single/2/29f0d7946e3a", "text": "Evaluate lim x→0 of sin(5x) / sin(6x). Give the exact value."}
 {"answer": "(a) -16; (b) x + 8; (c) 10; (d) -8", "id": "limit-removable/exam/0/47733f1433ec", "text": "Consider f(x) = (x^2 + 6x + k)/(x - 2) with x ≠ 2 and k a constant. It is known…"}
 {"answer": "(a) 10; (b) -2x - 2; (c) -12; (d) -1", "id": "limit-removable/exam/1/a5ced2ef47a7", "text": "Let f(x) = (-2x^2 + 8x + k)/(x - 5) for x ≠ 5, where k is a constant. As x tend…"}
 {"answer": "(a) -30; (b) x - 6; (c) -11; (d) 6", "id": "limit-removable/exam/2/95e8a50de9a2", "text": "Consider f(x) = (x^2 - x + k)/(x + 5) with x ≠ -5 and k a constant. It is known…"}
@@ -4114,6 +4162,9 @@
 {"answer": "-3", "id": "one-sided-limits/easy/0/70c6b02d4738", "text": "f(x) = x + 1 for x < -4, f(x) = x + 5 for x ≥ -4. Find lim x→-4^- f(x)"}
 {"answer": "-8", "id": "one-sided-limits/easy/1/1ec5f301bcb3", "text": "f(x) = x - 4 for x < -4, f(x) = x + 1 for x ≥ -4. Find lim x→-4^- f(x)"}
 {"answer": "-5", "id": "one-sided-limits/easy/2/672879795036", "text": "f(x) = x - 3 for x < -2, f(x) = x + 2 for x ≥ -2. Find lim x→-2^- f(x)"}
+{"answer": "4", "id": "one-sided-limits/exam-single/0/9ad7b37ae14a", "text": "A function is defined by f(x) = kx + 1 when x < 4 and f(x) = 2x^2 - 11 - k when…"}
+{"answer": "∞", "id": "one-sided-limits/exam-single/1/6f43543bb745", "text": "Evaluate the limit as x → -4^+ of (-2x - 7) / (x + 4)^3. Give your answer as a …"}
+{"answer": "-∞", "id": "one-sided-limits/exam-single/2/218e6f4b9c6f", "text": "Evaluate the limit as x → 1^- of (5x + 1) / (x - 1). Give your answer as a numb…"}
 {"answer": "(a) 4k + 48; (b) -2k + 36; (c) -2; (d) 40", "id": "one-sided-limits/exam/0/adb46aa4ed69", "text": "The function f is given by f(x) = 3x^2 + kx for x < 4, and by f(x) = -2x + 44 -…"}
 {"answer": "(a) -3k + 4; (b) -k + 8; (c) -2; (d) 10", "id": "one-sided-limits/exam/1/4035591f5b00", "text": "Let f(x) = x^2 + kx - 5 when x < -3 and f(x) = -x + 5 - k when x ≥ -3, where k …"}
 {"answer": "(a) -4k + 37; (b) -k + 43; (c) -2; (d) 45", "id": "one-sided-limits/exam/2/34acdaf0e5eb", "text": "A function f is defined by f(x) = 2x^2 + kx + 5 for x < -4 and f(x) = -2x + 35 …"}
@@ -4834,6 +4885,9 @@
 {"answer": "52", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/easy/0/f35d0cb1551e", "text": "Points C and D both lie on the circumference of a circle, on the same arc, on t…"}
 {"answer": "77", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/easy/1/0a8ce4cc8f31", "text": "Points C and D both lie on the circumference of a circle, on the same arc, on t…"}
 {"answer": "25", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/easy/2/07a4bbf5cd47", "text": "Points C and D both lie on the circumference of a circle, on the same arc, on t…"}
+{"answer": "68", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/exam-single/0/303acf5a785b", "text": "In a circle, chords AC and BD cross at the point P. Angle BAC is (3x - 23) degr…"}
+{"answer": "81", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/exam-single/1/6d8cc6896558", "text": "In a circle, chords AC and BD cross at P. Angle BAC is (4x + 32) degrees and an…"}
+{"answer": "118", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/exam-single/2/5556eb883d1c", "text": "In a circle, chords AC and BD cross at the point P. Angle BAC is (4x + 13) degr…"}
 {"answer": "(a) 16; (b) 27; (c) 37; (d) 116", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/exam/0/779603f23873", "text": "Chords AC and BD of a circle meet at the point P inside the circle. Angle BAC =…"}
 {"answer": "(a) 10; (b) 62; (c) 67; (d) 51", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/exam/1/109615863f1d", "text": "Chords AC and BD of a circle meet at the point P inside the circle. Angle BAC =…"}
 {"answer": "(a) 15; (b) 29; (c) 42; (d) 109", "id": "senior-angles-at-the-circumference-of-a-circle-subtended/exam/2/0522f0349067", "text": "Chords AC and BD of a circle meet at the point P inside the circle. Angle BAC =…"}
@@ -4870,6 +4924,9 @@
 {"answer": "13.4", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/easy/0/48fd4d923dc2", "text": "A right-angled triangle has a hypotenuse of 14 units and one acute angle of 17 …"}
 {"answer": "6.6", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/easy/1/b6964614d8ce", "text": "A right-angled triangle has a hypotenuse of 8 units and one acute angle of 56 d…"}
 {"answer": "13.8", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/easy/2/1f8013f4d882", "text": "A right-angled triangle has a hypotenuse of 26 units and one acute angle of 32 …"}
+{"answer": "6.1", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/exam-single/0/4cd1e690be73", "text": "Triangle ABC has a right angle at B, with hypotenuse AC = 19 cm and angle BAC =…"}
+{"answer": "12.3", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/exam-single/1/bf96c27cba86", "text": "Triangle ABC has a right angle at B, with hypotenuse AC = 15 cm and angle BAC =…"}
+{"answer": "4.5", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/exam-single/2/a9f8fd45df72", "text": "Triangle ABC has a right angle at B, with hypotenuse AC = 18 cm and angle BAC =…"}
 {"answer": "(a) 17.4; (b) 47.9; (c) 16.4; (d) 6.0", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/exam/0/113200e3f867", "text": "A triangular metal brace ABC has a right angle at B and its longest side AC is …"}
 {"answer": "(a) 19.9; (b) 9.3; (c) 8.4; (d) 18.1", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/exam/1/10d4a0a18dcc", "text": "A triangular metal brace ABC has a right angle at B and its longest side AC is …"}
 {"answer": "(a) 22.5; (b) 13.0; (c) 11.3; (d) 19.5", "id": "senior-apply-the-cosine-and-sine-ratios-to-find/exam/2/d7de93f70199", "text": "A triangular garden bed ABC has a right angle at B. Its longest side AC is 26 m…"}
@@ -4882,6 +4939,9 @@
 {"answer": "12*x*cos(12*x) + sin(12*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/easy/0/679f091fa939", "text": "Differentiate x·sin(12·x) with respect to x."}
 {"answer": "13*(x + 6)*cos(13*x) + sin(13*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/easy/1/fb3cc41b7a36", "text": "Differentiate (x + 6)·sin(13·x) with respect to x."}
 {"answer": "-14*(x - 10)*sin(14*x) + cos(14*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/easy/2/4db82794dc28", "text": "Differentiate (x - 10)·cos(14·x) with respect to x."}
+{"answer": "-4*x*exp(-2*x)*sin(4*x) - 2*x*exp(-2*x)*cos(4*x) + exp(-2*x…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam-single/0/da197ce2aa82", "text": "Differentiate x·exp(-2·x)·cos(4·x) with respect to x."}
+{"answer": "(2*x*(x + 2)*cos(x^2) - sin(x^2))/(x + 2)^2", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam-single/1/df08c008f61c", "text": "Differentiate sin(x^2)/(x + 2) with respect to x."}
+{"answer": "(4*x*(x + 4)*cos(2*x^2) - sin(2*x^2))/(x + 4)^2", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam-single/2/3ec41049c7cd", "text": "Differentiate sin(2·x^2)/(x + 4) with respect to x."}
 {"answer": "(a) (-2*x^2 - 6*x - 6)*exp(-2*x)/(x^2 + 2*x + 2)^2; (b) -3/…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/0/c8acbd704b12", "text": "Let f(x) = e^(-2x)/(x^2 + 2x + 2). The tangent to the graph of y = f(x) at the …"}
 {"answer": "(a) (-3*x^2 - 8*x - 8)*exp(-3*x)/(x^2 + 2*x + 2)^2; (b) -2;…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/1/2312593b6477", "text": "Let f(x) = e^(-3x)/(x^2 + 2x + 2). The tangent to the graph of y = f(x) at the …"}
 {"answer": "(a) ((3*x + 9)*cos(3*x) - sin(3*x) + 2)/(x + 3)^2; (b) 11/9…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/2/0e06b1c65e24", "text": "Let f(x) = (sin(3x) - 2)/(x + 3). The tangent to the graph of y = f(x) at the p…"}
@@ -4894,6 +4954,9 @@
 {"answer": "-4", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/easy/0/bd24234c81d9", "text": "A projectile is launched with velocity vector v(0) = 9i + 6j m/s, from the orig…"}
 {"answer": "3", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/easy/1/ea81fb9e8b37", "text": "A projectile is launched with velocity vector v(0) = 3i + 4j m/s, from the orig…"}
 {"answer": "-2", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/easy/2/5ede89908acc", "text": "A projectile is launched with velocity vector v(0) = -2i + 7j m/s, from the ori…"}
+{"answer": "59", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/exam-single/0/3c87e8d8934b", "text": "A ball is launched from position vector r(0) = 7i + 14j m with velocity v(0) = …"}
+{"answer": "2", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/exam-single/1/a6dec181ba15", "text": "A ball is launched from position vector r(0) = -7i + 3j m with velocity v(0) = …"}
+{"answer": "11", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/exam-single/2/c839e377028f", "text": "A ball is launched from position vector r(0) = -5i + 4j m with velocity v(0) = …"}
 {"answer": "(a) 2.6; (b) 73.8; (c) 6.44; (d) 40.1", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/exam/0/14e04a931733", "text": "A javelin is thrown from a platform with initial position r(0) = -5i + 40j metr…"}
 {"answer": "(a) 2.2; (b) 50.2; (c) 5.37; (d) 2.4", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/exam/1/586ea4220486", "text": "A stone is thrown from the top of a cliff with initial position r(0) = -3i + 26…"}
 {"answer": "(a) 2.6; (b) 58.8; (c) 6.03; (d) 41.2", "id": "senior-apply-vector-calculus-to-motion-in-a-plane/exam/2/520ba5ac2c58", "text": "A ball leaves a bridge at position r(0) = 8i + 25j m with velocity v(0) = 5.5i …"}
@@ -5059,6 +5122,9 @@
 {"answer": "48", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/easy/0/6c9280f1ca3b", "text": "Water flows into a tank. The flow rate is r(t) = 6·t (litres per minute), where…"}
 {"answer": "75", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/easy/1/0f56c237469f", "text": "Water flows into a tank. The flow rate is r(t) = 6·t (litres per minute), where…"}
 {"answer": "32", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/easy/2/e4242f5b345b", "text": "Water flows into a tank. The flow rate is r(t) = 4·t (litres per minute), where…"}
+{"answer": "152", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/exam-single/0/53eba64e8207", "text": "For t >= 0, the total cost of running a plant changes at the rate r(t) = k·t^2 …"}
+{"answer": "196", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/exam-single/1/c37ae24fa2aa", "text": "The rate of change of the total cost of running a plant is r(t) = k·sqrt(t) (do…"}
+{"answer": "124", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/exam-single/2/c47859e55075", "text": "For t >= 0, the total cost of running a plant changes at the rate r(t) = k·t^2 …"}
 {"answer": "(a) 5; (b) 318.00; (c) 159.00; (d) 170.00", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/exam/0/e63797ee1f15", "text": "The rate at which cars accumulate is r(t) = kt^3 + 9 cars per hour, where t is …"}
 {"answer": "(a) 5; (b) 330.00; (c) 110.00; (d) 75.00", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/exam/1/bba6a72b98c3", "text": "A market stall earns money at the rate r(t) = kt^2 + 5 dollars per day, where t…"}
 {"answer": "(a) 4; (b) 1239.00; (c) 413.00; (d) 459.00", "id": "senior-calculate-total-change-by-integrating-instantaneous-or-marginal/exam/2/af047ae8d81e", "text": "A factory uses electricity at the rate r(t) = kt^3 + 8 kilowatt-hours per hour,…"}
@@ -5185,6 +5251,9 @@
 {"answer": "x = 13, y = 15", "id": "senior-consider-position-of-vectors-as-a-function-of/easy/0/76b80802df7d", "text": "A particle's position vector is r(t) = (3t + 7, 6t + 3), in metres, t in second…"}
 {"answer": "x = 48, y = 36", "id": "senior-consider-position-of-vectors-as-a-function-of/easy/1/57f4bd9817c2", "text": "A particle's position vector is r(t) = (9t - 6, 7t - 6), in metres, t in second…"}
 {"answer": "x = 10, y = 2", "id": "senior-consider-position-of-vectors-as-a-function-of/easy/2/13b227b4ff00", "text": "A particle's position vector is r(t) = (3t - 2, t - 2), in metres, t in seconds…"}
+{"answer": "x = -17, y = 11", "id": "senior-consider-position-of-vectors-as-a-function-of/exam-single/0/dd20e9efe8fc", "text": "Two particles move in a plane. Their position vectors, in metres at time t seco…"}
+{"answer": "x = 3, y = -8", "id": "senior-consider-position-of-vectors-as-a-function-of/exam-single/1/fcc736ba1141", "text": "Two particles move in a plane. Their position vectors, in metres at time t seco…"}
+{"answer": "x = -11, y = 6", "id": "senior-consider-position-of-vectors-as-a-function-of/exam-single/2/25dbfb2d3a2b", "text": "Two particles move in a plane. Their position vectors, in metres at time t seco…"}
 {"answer": "(a) 2; (b) 3; (c) 21; (d) 10.0", "id": "senior-consider-position-of-vectors-as-a-function-of/exam/0/ea6c804ac2d0", "text": "Two jet skis A and B move in a flat region. Relative to a fixed origin, their p…"}
 {"answer": "(a) 4; (b) -9; (c) -2; (d) 5.0", "id": "senior-consider-position-of-vectors-as-a-function-of/exam/1/16eea5f274d6", "text": "Relative to a marker, go-karts A and B have position vectors r_A(t) = (-t - 5, …"}
 {"answer": "(a) 4; (b) 11; (c) -9; (d) 10.0", "id": "senior-consider-position-of-vectors-as-a-function-of/exam/2/9df080c09da8", "text": "Relative to a marker, jet skis A and B have position vectors r_A(t) = (t + 7, -…"}
@@ -5293,6 +5362,9 @@
 {"answer": "x = -20, y = 14", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/easy/0/505de3166ee7", "text": "Apply a dilation (x, y) -> (4x, -2y) to the point (-5, -7). Find the image poin…"}
 {"answer": "x = 4, y = 0", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/easy/1/bb24d5e06692", "text": "Apply a dilation (x, y) -> (2x, -3y) to the point (2, 0). Find the image point."}
 {"answer": "x = 21, y = 14", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/easy/2/306ece540839", "text": "Apply a dilation (x, y) -> (3x, 2y) to the point (7, 7). Find the image point."}
+{"answer": "x = 0, y = 13", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam-single/0/7cbc74858ec7", "text": "The line L passes through the origin and the point (3, 2). Find the image of th…"}
+{"answer": "x = -34, y = 34", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam-single/1/3872d8d80bd8", "text": "Find the image of the point (-14, 46) under a rotation about the origin through…"}
+{"answer": "x = -2, y = 14", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam-single/2/362dc25f022a", "text": "The line L passes through the origin and the point (4, -3). Find the image of t…"}
 {"answer": "(a) 2/3; (b) -3; (c) 11", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/0/d852596fa329", "text": "A reflection in a line through the origin maps the point P(7, 9) to P'(11, 3). …"}
 {"answer": "(a) -2; (b) -3; (c) 1", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/1/43b8f6f413ee", "text": "The point P(-7, 4) is reflected in a line that passes through the origin, and i…"}
 {"answer": "(a) 4/3; (b) 7; (c) 1", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/2/9704d015e1ea", "text": "A reflection in a line through the origin maps the point P(5, -10) to P'(-11, 2…"}
@@ -5305,6 +5377,9 @@
 {"answer": "x = 128, y = 24", "id": "senior-define-and-use-composition-of-linear-transformations-and/easy/0/e7616fb4277f", "text": "First apply the dilation (x, y) -> (-4x, -2y) to the point (-8, 6). Then apply …"}
 {"answer": "x = 144, y = 0", "id": "senior-define-and-use-composition-of-linear-transformations-and/easy/1/ebed55cf8ccd", "text": "First apply the dilation (x, y) -> (-4x, 2y) to the point (9, 0). Then apply th…"}
 {"answer": "x = -18, y = -32", "id": "senior-define-and-use-composition-of-linear-transformations-and/easy/2/46a7f9971808", "text": "First apply the dilation (x, y) -> (3x, -2y) to the point (2, 8). Then apply th…"}
+{"answer": "x = -6, y = -8", "id": "senior-define-and-use-composition-of-linear-transformations-and/exam-single/0/0e92c7d24007", "text": "Let F be a rotation of 90 degrees anticlockwise about the origin, G be a reflec…"}
+{"answer": "x = -1, y = 3", "id": "senior-define-and-use-composition-of-linear-transformations-and/exam-single/1/2ff9e0e1b21f", "text": "Let F be a reflection in the line y = -x and G be a rotation about the origin t…"}
+{"answer": "x = 4, y = 3", "id": "senior-define-and-use-composition-of-linear-transformations-and/exam-single/2/e1d7b1953fae", "text": "A transformation T is the dilation (x, y) -> (-3x, 4y), followed by a rotation …"}
 {"answer": "(a) 5; (b) 20; (c) 440; (d) 30", "id": "senior-define-and-use-composition-of-linear-transformations-and/exam/0/87d1b3df293d", "text": "Let F be the reflection in the line y = 3x/2. Let G be the dilation (x, y) → (k…"}
 {"answer": "(a) -4; (b) -8; (c) 112; (d) 36", "id": "senior-define-and-use-composition-of-linear-transformations-and/exam/1/5c3ecabc6059", "text": "Let F be the reflection in the line y = -3x. The transformation G is the dilati…"}
 {"answer": "(a) -4; (b) 12; (c) 360; (d) 32", "id": "senior-define-and-use-composition-of-linear-transformations-and/exam/2/4569303eb775", "text": "Let F be the reflection in the line y = 2x. The transformation G is the dilatio…"}
@@ -5317,6 +5392,9 @@
 {"answer": "x = 5, y = 9", "id": "senior-define-and-use-inverses-of-linear-transformations-and/easy/0/083e8bed29d4", "text": "A dilation (x, y) -> (-2x, -3y) maps a point to the image (-10, -27). Find the …"}
 {"answer": "x = 9, y = -7", "id": "senior-define-and-use-inverses-of-linear-transformations-and/easy/1/2f52d68bef94", "text": "A dilation (x, y) -> (-4x, -2y) maps a point to the image (-36, 14). Find the o…"}
 {"answer": "x = -4, y = 5", "id": "senior-define-and-use-inverses-of-linear-transformations-and/easy/2/285ee47c7342", "text": "A dilation (x, y) -> (-2x, 3y) maps a point to the image (8, 15). Find the orig…"}
+{"answer": "x = -4, y = 1", "id": "senior-define-and-use-inverses-of-linear-transformations-and/exam-single/0/fc9504cb8164", "text": "A linear transformation has matrix [-2 -2; -1 4] and maps a point P to the imag…"}
+{"answer": "x = -14, y = 46", "id": "senior-define-and-use-inverses-of-linear-transformations-and/exam-single/1/73011faa8634", "text": "A rotation about the origin through an angle theta, where cos(theta) = 15/17 an…"}
+{"answer": "x = 1, y = 38", "id": "senior-define-and-use-inverses-of-linear-transformations-and/exam-single/2/9b3693df7c5d", "text": "A rotation about the origin through an angle theta, where cos(theta) = 8/17 and…"}
 {"answer": "(a) -5; (b) -4; (c) 5; (d) 12", "id": "senior-define-and-use-inverses-of-linear-transformations-and/exam/0/de4182b3e74a", "text": "The linear transformation T is given by (x, y) → (3x + y, 2x - y). It maps a po…"}
 {"answer": "(a) -10; (b) -4; (c) 5; (d) 6", "id": "senior-define-and-use-inverses-of-linear-transformations-and/exam/1/c2fcdd44d829", "text": "A linear transformation T maps (x, y) to (2x - 4y, -4x + 3y). T maps the point …"}
 {"answer": "(a) 10; (b) 4; (c) -4; (d) 5", "id": "senior-define-and-use-inverses-of-linear-transformations-and/exam/2/39e31075e9c7", "text": "The linear transformation T is given by (x, y) → (x + 3y, -4x - 2y). It maps a …"}
@@ -5377,6 +5455,9 @@
 {"answer": "4*h + 8*x", "id": "senior-define-the-derivative-f-left-x-right-as/easy/0/77e97bbc049f", "text": "f(x) = 4·x^2 - 8. Form and fully simplify the difference quotient (f(x+h) - f(x…"}
 {"answer": "5*h + 10*x", "id": "senior-define-the-derivative-f-left-x-right-as/easy/1/d627f17cd5f1", "text": "f(x) = 5·x^2 - 1. Form and fully simplify the difference quotient (f(x+h) - f(x…"}
 {"answer": "5*h + 10*x", "id": "senior-define-the-derivative-f-left-x-right-as/easy/2/01ba7d1ad756", "text": "f(x) = 5·x^2 - 7. Form and fully simplify the difference quotient (f(x+h) - f(x…"}
+{"answer": "-4/(x + 1)^2", "id": "senior-define-the-derivative-f-left-x-right-as/exam-single/0/6737d5e68fb4", "text": "Using the definition f'(x) = lim_(h->0) (f(x+h) - f(x)) / h, differentiate f(x)…"}
+{"answer": "-6/x^3", "id": "senior-define-the-derivative-f-left-x-right-as/exam-single/1/5eab65994246", "text": "Find f'(x) for f(x) = 3/x^2 from first principles, starting from the limit defi…"}
+{"answer": "1/sqrt(2*x + 8)", "id": "senior-define-the-derivative-f-left-x-right-as/exam-single/2/5fb608f0be40", "text": "Differentiate f(x) = sqrt(2·x + 8) from first principles: write the difference …"}
 {"answer": "(a) 2 - 6*x^2; (b) -22; (c) y = 32 - 22*x; (d) 16/11", "id": "senior-define-the-derivative-f-left-x-right-as/exam/0/903cce15797e", "text": "The function f is given by f(x) = -2x^3 + 2x. A tangent is drawn to the graph o…"}
 {"answer": "(a) 6/x^3; (b) -3/4; (c) y = -3*x/4 - 9/4; (d) -3", "id": "senior-define-the-derivative-f-left-x-right-as/exam/1/52dbb38f2743", "text": "The function f is given by f(x) = -3/x^2. A tangent is drawn to the graph of y …"}
 {"answer": "(a) 8/x^3; (b) 8/27; (c) y = 8*x/27 - 4/3; (d) 9/2", "id": "senior-define-the-derivative-f-left-x-right-as/exam/2/59cece367a0f", "text": "Consider f(x) = -4/x^2. The graph of y = f(x) has a tangent at x = 3. (a) Find …"}
@@ -5461,6 +5542,9 @@
 {"answer": "x = -2, y = -3", "id": "senior-determine-a-vector-equation-of-a-straight-line/easy/0/79d8cd104f53", "text": "A straight line passes through the points A(3, 5) and B(1, 2). Find the directi…"}
 {"answer": "x = -2, y = -3", "id": "senior-determine-a-vector-equation-of-a-straight-line/easy/1/561d6dc176c3", "text": "A straight line passes through the points A(5, 6) and B(3, 3). Find the directi…"}
 {"answer": "x = -2, y = -6", "id": "senior-determine-a-vector-equation-of-a-straight-line/easy/2/d89e74cdb2b6", "text": "A straight line passes through the points A(3, 7) and B(1, 1). Find the directi…"}
+{"answer": "x = -5, y = 6", "id": "senior-determine-a-vector-equation-of-a-straight-line/exam-single/0/84d44efc6210", "text": "The lines r = (1, 6) + s(2, 0) and r = (7, -3) + t(4, -3) meet at one point. Fi…"}
+{"answer": "x = 0, y = -8", "id": "senior-determine-a-vector-equation-of-a-straight-line/exam-single/1/efd7deb3ffb6", "text": "The first line passes through A(0, -11) and B(0, -12). The second line has vect…"}
+{"answer": "x = -3, y = 3", "id": "senior-determine-a-vector-equation-of-a-straight-line/exam-single/2/607389a3e479", "text": "Two lines have vector equations r = (-7, 6) + s(-4, 3) and r = (-3, 1) + t(0, -…"}
 {"answer": "(a) 4; (b) 3; (c) -16; (d) 17.9", "id": "senior-determine-a-vector-equation-of-a-straight-line/exam/0/73746b43cb54", "text": "Line m passes through the points A(-8, -3) and B(-10, -7). It is written r = A …"}
 {"answer": "(a) -2; (b) -1; (c) 3; (d) 5.7", "id": "senior-determine-a-vector-equation-of-a-straight-line/exam/1/8adfcad586f1", "text": "Line m passes through the point A(7, -2) and has vector equation r = (7, -2) + …"}
 {"answer": "(a) -2; (b) -1; (c) -4; (d) 8.2", "id": "senior-determine-a-vector-equation-of-a-straight-line/exam/2/4412d1d29ebf", "text": "Line m passes through the points A(4, -1) and B(8, -2). It is written r = A + s…"}
@@ -5635,6 +5719,9 @@
 {"answer": "111", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/easy/0/0751bdd1964b", "text": "A plane has normal vector (a, b, c) = (5, 7, 4) and passes through the point (8…"}
 {"answer": "21", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/easy/1/4332a251b32d", "text": "A plane has normal vector (a, b, c) = (1, 3, 1) and passes through the point (3…"}
 {"answer": "22", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/easy/2/34fccdbcdb17", "text": "A plane has normal vector (a, b, c) = (1, 4, 4) and passes through the point (6…"}
+{"answer": "3", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/exam-single/0/c4b52f71745a", "text": "A, B and C are the points (3, 2, 3), (2, -4, 3) and (1, -1, 4). The point P(4, …"}
+{"answer": "-2", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/exam-single/1/b3d850d69318", "text": "A, B and C are the points (4, -1, -3), (3, 3, -4) and (0, -1, -3). The point P(…"}
+{"answer": "3", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/exam-single/2/b1350515c0b6", "text": "The plane through A(3, 0, -1), B(1, 2, -3) and C(-1, -1, 1) contains the point …"}
 {"answer": "(a) 3; (b) -5/3; (c) -31/3; (d) 38/3", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/exam/0/48eeb6095ddf", "text": "A plane contains the points A(-5, -1, 3), B(-6, -1, 6) and C(-2, 2, -1). Its Ca…"}
 {"answer": "(a) -3/4; (b) 2; (c) -9; (d) -81/4", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/exam/1/ee61337f1305", "text": "The plane Π passes through the points A(4, -4, 2), B(0, -5, 1) and C(8, -4, 5).…"}
 {"answer": "(a) 5/4; (b) -1/2; (c) 15/2; (d) 2", "id": "senior-determine-vector-and-cartesian-equations-of-a-plane/exam/2/a7358f6541ab", "text": "The plane Π passes through the points A(2, -2, 4), B(0, -1, 7) and C(2, -4, 3).…"}
@@ -5647,6 +5734,9 @@
 {"answer": "288*pi", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/easy/0/1388c67724e6", "text": "The region bounded by the curve y = 2·x, the x-axis, and the lines x = 0 and x …"}
 {"answer": "256*pi/3", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/easy/1/d40db8970e19", "text": "The region bounded by the curve y = 2·x, the x-axis, and the lines x = 0 and x …"}
 {"answer": "24*pi", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/easy/2/6552af429e32", "text": "The region bounded by the curve y = 3·x, the x-axis, and the lines x = 0 and x …"}
+{"answer": "81*pi/2", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/exam-single/0/8f2e6fba551e", "text": "The finite region enclosed between the parabola y = 3x^2 and the line y = 9x is…"}
+{"answer": "256*pi/3", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/exam-single/1/b5dec64767a2", "text": "The curves y = 2x^2 and y = 8x bound a region. Rotate it through one full turn …"}
+{"answer": "8*pi", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/exam-single/2/356ae76fd881", "text": "The finite region enclosed between the parabola y = 3x^2 and the line y = 6x is…"}
 {"answer": "(a) 2; (b) 4; (c) pi*(-4*x^4 + 136*x^2 - 336*x + 192); (d) …", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/exam/0/c3e91c58d66a", "text": "The region between the curve y = 2x^2 + 2 and the line y = 12x - 14 is rotated …"}
 {"answer": "(a) 0; (b) 3; (c) pi*(-x^4 + 5*x^2 + 12*x); (d) 252*pi/5", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/exam/1/2069555f334c", "text": "Let R be the region enclosed by the curve y = x^2 + 2 and the line y = 3x + 2. …"}
 {"answer": "(a) 2; (b) 5; (c) pi*(-x^4 + 43*x^2 - 98*x + 40); (d) 747*p…", "id": "senior-determine-volumes-of-solids-of-revolution-about-either/exam/2/4d07342f148d", "text": "A solid is formed by rotating about the line y = -3 the finite region enclosed …"}
@@ -5695,6 +5785,9 @@
 {"answer": "x = 9, y = 1", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/easy/0/5ca9c85cf077", "text": "A particle's position vector is r(t) = (2t^2 + t, t^2 - 3t), in metres, t in se…"}
 {"answer": "x = 6, y = -3", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/easy/1/401e3be6ea69", "text": "A particle's position vector is r(t) = (2t^2 + 2t, t^2 - 5t), in metres, t in s…"}
 {"answer": "x = 6, y = 24", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/easy/2/4090b332fb19", "text": "A particle's position vector is r(t) = (2t^2 - 6t, 3t^2 + 6t), in metres, t in …"}
+{"answer": "x = -67, y = 24", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/exam-single/0/ce91eae3991d", "text": "A particle moves in the plane with acceleration a(t) = (-6t + 1, 6t - 5) in met…"}
+{"answer": "x = 63, y = -25", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/exam-single/1/7f6da45411af", "text": "A particle moves in the plane with acceleration a(t) = (3t + 1, -6t + 4) in met…"}
+{"answer": "x = -66, y = 96", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/exam-single/2/671fd2ad0d38", "text": "A particle moves in the plane with acceleration a(t) = (-3t - 2, 3t + 5) in met…"}
 {"answer": "(a) -2*t^2 - t - 2; (b) -2*t^2 + 4*t - 2; (c) 12.2; (d) 17.5", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/exam/0/f2947c3278b7", "text": "A particle moves in the plane. Its acceleration at time t seconds is a(t) = (-4…"}
 {"answer": "(a) t^2 + t + 4; (b) -t^2 + 5*t + 4; (c) 14.1; (d) 26.5", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/exam/1/363a82f03080", "text": "A particle moves in the plane. Its acceleration at time t seconds is a(t) = (2t…"}
 {"answer": "(a) -t^2 - 5*t + 4; (b) 2*t^2 - 5*t - 5; (c) 20.1; (d) 24.4", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/exam/2/3c2687456706", "text": "A radio-controlled car on a flat oval track has acceleration a(t) = (-2t - 5, 4…"}
@@ -5896,6 +5989,9 @@
 {"answer": "20", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/easy/0/f39023a3449c", "text": "A hiker travels 12 km west then 16 km north. Find the magnitude of the hiker's …"}
 {"answer": "10", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/easy/1/31137ccd12ec", "text": "A drone travels 6 km east then 8 km south. Find the magnitude of the drone's di…"}
 {"answer": "15", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/easy/2/30e54622f262", "text": "A cyclist travels 9 km east then 12 km south. Find the magnitude of the cyclist…"}
+{"answer": "50", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/exam-single/0/9792cd9ec8e6", "text": "A plane flies with velocity -11i - 14j km/h relative to the air. The wind blows…"}
+{"answer": "130", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/exam-single/1/5c74368716cf", "text": "A plane flies with velocity 16i - 15j km/h relative to the air. The wind blows …"}
+{"answer": "15", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/exam-single/2/6ee9568d4dda", "text": "A plane flies with velocity -4i + 9j km/h relative to the air. The wind blows w…"}
 {"answer": "(a) 156; (b) 2.25; (c) 135.00; (d) 67", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/exam/0/9f13b644341d", "text": "A survey plane flies with velocity 204i + 100j km/h relative to the air, where …"}
 {"answer": "(a) 136; (b) 2.50; (c) 300.00; (d) 28", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/exam/1/e5d4be07a0c7", "text": "A rescue plane flies with velocity 124i + 140j km/h relative to the air, where …"}
 {"answer": "(a) 232; (b) 4.75; (c) 798.00; (d) 316", "id": "senior-examine-examples-of-vectors-including-displacement-and-velocity/exam/2/cc6ebb3d48a5", "text": "A mail plane has a velocity of -185i + 128j km/h relative to the air, with i an…"}
@@ -6271,6 +6367,9 @@
 {"answer": "30", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/0/5263950a949c", "text": "The curve y = 4·x^2 + 6·x has a tangent at x = 3. Find the slope of the tangent."}
 {"answer": "-6", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/1/8492c7762be2", "text": "The curve y = 2·x^2 + 2·x + 8 has a tangent at x = -2. Find the slope of the ta…"}
 {"answer": "9", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/2/3394e315924a", "text": "The curve y = 2·x^2 + x - 6 has a tangent at x = 2. Find the slope of the tange…"}
+{"answer": "y = 12*x - 4", "id": "senior-find-the-slope-of-a-tangent-and-the/exam-single/0/59cc0eaa4648", "text": "Find the equation of the tangent to the curve y = 3·x^2 + 6·x - 1 that is paral…"}
+{"answer": "y = x/3 + 1/3", "id": "senior-find-the-slope-of-a-tangent-and-the/exam-single/1/fd48599ab677", "text": "Find the equation of the normal to the curve y = -2·x^3 - 2·x^2 - x - 1 at the …"}
+{"answer": "y = 8*x + 4", "id": "senior-find-the-slope-of-a-tangent-and-the/exam-single/2/9b58afdb77df", "text": "Find the equation of the tangent to the curve y = -3·x^2 + 2·x + 1 that is para…"}
 {"answer": "(a) 1; (b) y = -7*x - 8; (c) y = x/7 - 106/7; (d) -106/7", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/0/6ab13a4d4893", "text": "The curve with equation y = f(x) has f(x) = 2x^3 + 6x^2 - 25x + 2. The tangent …"}
 {"answer": "(a) -3; (b) y = 11*x + 57; (c) y = 261/11 - x/11; (d) 261/11", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/1/a3b3221df434", "text": "Consider the curve y = f(x), where f(x) = 2x^3 + 6x^2 - 7x + 3. P is the point …"}
 {"answer": "(a) 2; (b) y = 10*x - 18; (c) y = 11/5 - x/10; (d) 11/5", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/2/10ee7c320754", "text": "The curve with equation y = f(x) has f(x) = x^3 - 2x - 2. The tangent to the cu…"}
@@ -6547,6 +6646,9 @@
 {"answer": "5/16", "id": "senior-integrate-by-parts/easy/0/b87361aa29fc", "text": "Find ∫ from x = 0 to x = π/8 of 5·x·sin(4·x) dx"}
 {"answer": "1/9", "id": "senior-integrate-by-parts/easy/1/7f10f9cc9a42", "text": "Find ∫ from x = 0 to x = π/6 of x·sin(3·x) dx. Give your answer as an exact val…"}
 {"answer": "4/9", "id": "senior-integrate-by-parts/easy/2/dc5f4c8ddc1f", "text": "Find ∫ from x = 0 to x = π/6 of 4·x·sin(3·x) dx. Give your answer as an exact v…"}
+{"answer": "-2/13 + 3*exp(pi/3)/13", "id": "senior-integrate-by-parts/exam-single/0/ffa8308b4c44", "text": "Find ∫ from x = 0 to x = π/6 of e^(2x)·cos(3x) dx. Give your answer as an exact…"}
+{"answer": "-2/5 + exp(pi)/5", "id": "senior-integrate-by-parts/exam-single/1/ecf95f56aada", "text": "Find ∫ from x = 0 to x = π/2 of e^(2x)·cos(x) dx. Give your answer as an exact …"}
+{"answer": "3/10 + 3*exp(pi/3)/10", "id": "senior-integrate-by-parts/exam-single/2/1232bdf2ec03", "text": "Find ∫ from x = 0 to x = π/3 of e^x·sin(3x) dx. Give your answer as an exact va…"}
 {"answer": "(a) -2/5; (b) 29/25; (c) 2/29 - 5*exp(15*pi/4)/29; (d) -2*e…", "id": "senior-integrate-by-parts/exam/0/b57e9cf774c0", "text": "Let I = ∫ from x = 0 to x = 3π/4 of e^(5x)·sin(2x) dx and J = ∫ from x = 0 to x…"}
 {"answer": "(a) -5/2; (b) 29/4; (c) 5/29 - 5*exp(4*pi/5)/29; (d) -2/29 …", "id": "senior-integrate-by-parts/exam/1/51312212239a", "text": "Consider the integrals I = ∫ from x = 0 to x = 2π/5 of e^(2x)·sin(5x) dx and J …"}
 {"answer": "(a) -1/2; (b) 5/4; (c) 1/10 + exp(2*pi)/10; (d) -exp(2*pi)/…", "id": "senior-integrate-by-parts/exam/2/46f8601ca6dc", "text": "Two integrals are defined by I = ∫ from x = 0 to x = π/2 of e^(4x)·sin(2x) dx a…"}
@@ -7183,6 +7285,9 @@
 {"answer": "x = 6, y = -5", "id": "senior-review-cartesian-form/easy/0/d81faa8fb415", "text": "Let z = x + yi. If (-3x + 2) + (3y + 8)i = -16 - 7i, find x and y."}
 {"answer": "x = 3, y = -6", "id": "senior-review-cartesian-form/easy/1/cba71cc83d5c", "text": "Let z = x + yi. If (-4x - 7) + (4y + 7)i = -19 - 17i, find x and y."}
 {"answer": "x = 7, y = 2", "id": "senior-review-cartesian-form/easy/2/6c328fedd27c", "text": "Let z = x + yi. If (3x - 3) + (-3y + 1)i = 18 - 5i, find x and y."}
+{"answer": "x = -3, y = 1", "id": "senior-review-cartesian-form/exam-single/0/34537cc4d3e4", "text": "Let z = x + yi, where x and y are real and y > 0. If z^2 = 8 - 6i, find x and y."}
+{"answer": "x = 6, y = 6", "id": "senior-review-cartesian-form/exam-single/1/c0ef5e22578d", "text": "Let z = x + yi, where x and y are real and y > 0. If z^2 = 72i, find x and y."}
+{"answer": "x = 1, y = -6", "id": "senior-review-cartesian-form/exam-single/2/da500e247bf1", "text": "Let z = x + yi, where x and y are real and x > 0. If z multiplied by its conjug…"}
 {"answer": "(a) 9; (b) 3; (c) -6; (d) -1.11", "id": "senior-review-cartesian-form/exam/0/5971c6a486a6", "text": "Let z = x + yi, where x and y are real numbers, satisfy z^2 = -27 - 36i and Re(…"}
 {"answer": "(a) 100; (b) 10; (c) -1; (d) 10.05", "id": "senior-review-cartesian-form/exam/1/5faa4eaf971f", "text": "Let z = x + yi, where x and y are real numbers, satisfy z^2 = 99 - 20i and Re(z…"}
 {"answer": "(a) 1; (b) 1; (c) 6; (d) 6.08", "id": "senior-review-cartesian-form/exam/2/ced4d4f81f64", "text": "Let z = x + yi, where x and y are real numbers, satisfy z^2 = -35 + 12i and Re(…"}
@@ -8005,6 +8110,9 @@
 {"answer": "No", "id": "senior-use-ests-and-lsts-to-locate-the-critical/easy/0/a7d993ce1a43", "text": "The project starts at time 0. Activity A: duration 2 days, no predecessors. Act…"}
 {"answer": "No", "id": "senior-use-ests-and-lsts-to-locate-the-critical/easy/1/28cdaec7ebe6", "text": "The project starts at time 0. Activity A: duration 4 days, no predecessors. Act…"}
 {"answer": "Yes", "id": "senior-use-ests-and-lsts-to-locate-the-critical/easy/2/0e0c09de9f37", "text": "The project starts at time 0. Activity A: duration 10 days, no predecessors. Ac…"}
+{"answer": "B-D-F-H", "id": "senior-use-ests-and-lsts-to-locate-the-critical/exam-single/0/3a2518343747", "text": "The project starts at time 0. Activity A: duration 6 days, no predecessors. Act…"}
+{"answer": "A-D-G-H", "id": "senior-use-ests-and-lsts-to-locate-the-critical/exam-single/1/c1f946521062", "text": "The project starts at time 0. Activity A: duration 3 days, no predecessors. Act…"}
+{"answer": "A-C-F-H", "id": "senior-use-ests-and-lsts-to-locate-the-critical/exam-single/2/fcc58b660340", "text": "The project starts at time 0. Activity A: duration 7 days, no predecessors. Act…"}
 {"answer": "(a) A, B, E, G, I; (b) 42; (c) 41; (d) 41", "id": "senior-use-ests-and-lsts-to-locate-the-critical/exam/0/9d913d923115", "text": "A theatre company is preparing a new production. The project starts at time 0. …"}
 {"answer": "(a) A, C, E, G, H; (b) 41; (c) 34; (d) 34", "id": "senior-use-ests-and-lsts-to-locate-the-critical/exam/1/3774dd71bada", "text": "A school is building a new library. The project starts at time 0. Activity A: d…"}
 {"answer": "(a) A, D, F, H; (b) 33; (c) 32; (d) 32", "id": "senior-use-ests-and-lsts-to-locate-the-critical/exam/2/ba2aaa8cd729", "text": "A theatre company is preparing a new production. The project starts at time 0. …"}
@@ -8110,6 +8218,9 @@
 {"answer": "13", "id": "senior-use-forward-and-backward-scanning-to-determine-the/easy/0/14c1ddcf709d", "text": "The project starts at time 0. Activity A: duration 2 days, no predecessors. Act…"}
 {"answer": "17", "id": "senior-use-forward-and-backward-scanning-to-determine-the/easy/1/75514a020f03", "text": "The project starts at time 0. Activity A: duration 2 days, no predecessors. Act…"}
 {"answer": "18", "id": "senior-use-forward-and-backward-scanning-to-determine-the/easy/2/2e290f995e5e", "text": "The project starts at time 0. Activity A: duration 4 days, no predecessors. Act…"}
+{"answer": "5", "id": "senior-use-forward-and-backward-scanning-to-determine-the/exam-single/0/0da33aab63ce", "text": "The project starts at time 0. Activity A: duration 10 days, no predecessors. Ac…"}
+{"answer": "10", "id": "senior-use-forward-and-backward-scanning-to-determine-the/exam-single/1/3c166d9e4e62", "text": "The project starts at time 0. Activity A: duration 12 days, no predecessors. Ac…"}
+{"answer": "12", "id": "senior-use-forward-and-backward-scanning-to-determine-the/exam-single/2/3248d19d3818", "text": "The project starts at time 0. Activity A: duration 2 days, no predecessors. Act…"}
 {"answer": "(a) 9; (b) 42; (c) 3; (d) 1", "id": "senior-use-forward-and-backward-scanning-to-determine-the/exam/0/f992f0177b5a", "text": "A community group is setting up a weekend market. The project starts at time 0.…"}
 {"answer": "(a) 12; (b) 43; (c) 21; (d) 4", "id": "senior-use-forward-and-backward-scanning-to-determine-the/exam/1/16fb7de48f0d", "text": "A community group is setting up a weekend market. The project starts at time 0.…"}
 {"answer": "(a) 4; (b) 37; (c) 3; (d) 4", "id": "senior-use-forward-and-backward-scanning-to-determine-the/exam/2/4a66d115890e", "text": "A school is building a new library. The project starts at time 0. Activity A: d…"}
@@ -8275,6 +8386,9 @@
 {"answer": "-log(9)/5 + log(4)/5 + log(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/0/fbd39ed3219b", "text": "Find ∫ from x = 7 to x = 10 of 1/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
 {"answer": "-log(9)/4 - log(4)/4 + log(5)/4 + log(8)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/1/82cecd16a698", "text": "Find ∫ from x = 12 to x = 13 of 1/((x - 4)·(x - 8)) dx. Give your answer as an …"}
 {"answer": "-log(12)/5 - log(4)/5 + log(7)/5 + log(9)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/2/f3383ccdd139", "text": "Find ∫ from x = 11 to x = 14 of 1/((x - 2)·(x - 7)) dx. Give your answer as an …"}
+{"answer": "-14/3 + log(9)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam-single/0/e2f177e52d71", "text": "Find ∫ from x = -1 to x = 1 of (2x - 3)/(x + 2)^2 dx. Give your answer as an ex…"}
+{"answer": "log(5) + 4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam-single/1/ad875d06dadd", "text": "Find ∫ from x = 3 to x = 7 of (x + 3)/(x - 2)^2 dx. Give your answer as an exac…"}
+{"answer": "8/5 - log(125)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam-single/2/5c1087c4cbeb", "text": "Find ∫ from x = -1 to x = 3 of (-3x - 4)/(x + 2)^2 dx. Give your answer as an e…"}
 {"answer": "(a) 3; (b) 3; (c) 4; (d) 4*log(7/4) + 3*log(4) + 9", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/0/a991477d9b00", "text": "Let f(x) = (3x^2 + 4x - 11)/((x - 2)(x + 1)). The function can be written as k …"}
 {"answer": "(a) 1; (b) 3; (c) 1; (d) 3*log(5/2) + 33/10", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/1/479252aca73b", "text": "Let f(x) = (x^2 + 5x + 5)/((x + 1)^2). The function can be written as k + A/(x …"}
 {"answer": "(a) 3; (b) -2; (c) -5; (d) 13/6 - 2*log(3/2)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/2/fa6577df4b5b", "text": "The rational function f(x) = (3x^2 - 14x + 11)/((x - 2)^2) is to be integrated.…"}
@@ -8536,6 +8650,9 @@
 {"answer": "-5", "id": "senior-use-the-increments-formula-delta-y-cong-frac/easy/0/ff8d06eb3d26", "text": "y = f(x) = 5x^2 + 1. Estimate the change in y, δy, using the increments formula…"}
 {"answer": "-8", "id": "senior-use-the-increments-formula-delta-y-cong-frac/easy/1/d4cf6ee7544a", "text": "y = f(x) = 2x^2 + 5. Estimate the change in y, δy, using the increments formula…"}
 {"answer": "-3", "id": "senior-use-the-increments-formula-delta-y-cong-frac/easy/2/2f327c7f5be8", "text": "y = f(x) = x^2 - 7. Estimate the change in y, δy, using the increments formula …"}
+{"answer": "57967/25", "id": "senior-use-the-increments-formula-delta-y-cong-frac/exam-single/0/bba55e7cfd63", "text": "y = f(x) = (x^2 + 4)^3. Estimate the new value of y when x changes from x0 = -3…"}
+{"answer": "405/47", "id": "senior-use-the-increments-formula-delta-y-cong-frac/exam-single/1/b7a41561184f", "text": "A quantity is given by y = f(x) = 4x^2 + 6x + 8. Starting from x0 = 6, the valu…"}
+{"answer": "1820", "id": "senior-use-the-increments-formula-delta-y-cong-frac/exam-single/2/4cc0adb30acd", "text": "y = f(x) = 2(x^2 + 1)^3. Estimate the new value of y when x changes from x0 = 3…"}
 {"answer": "(a) 9x^2 + 2x - 4; (b) 7.20; (c) 23.20; (d) 0.784", "id": "senior-use-the-increments-formula-delta-y-cong-frac/exam/0/ddd3115d14c7", "text": "The variable y depends on x through y = 3x^3 + x^2 - 4x - 4. At x = 2, a small …"}
 {"answer": "(a) 3x^2 - 8x + 5; (b) -0.80; (c) -14.80; (d) 0.049", "id": "senior-use-the-increments-formula-delta-y-cong-frac/exam/1/41edf4d0d911", "text": "The variable y depends on x through y = (x - 4)(x^2 + 5). At x = 3, a small cha…"}
 {"answer": "(a) 8x^3 + 8x; (b) 177.60; (c) 2922.60; (d) 4.408", "id": "senior-use-the-increments-formula-delta-y-cong-frac/exam/2/5545454e80de", "text": "A quantity y is given by y = 2x^4 + 4x^2 + 9. The value of x changes from x = 6…"}
@@ -8560,6 +8677,9 @@
 {"answer": "6", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/easy/0/3f27709f6512", "text": "y = f(x) = x^2 - 8. Using the correspondence dy/dx = f'(x), find the value of d…"}
 {"answer": "-20", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/easy/1/e60d765ea353", "text": "y = f(x) = 5x^2 + 7. Using the correspondence dy/dx = f'(x), find the value of …"}
 {"answer": "-60", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/easy/2/59217ccc99b9", "text": "y = f(x) = 5x^2 - 3. Using the correspondence dy/dx = f'(x), find the value of …"}
+{"answer": "-360", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/exam-single/0/c26f455df373", "text": "y = u^2 + 2u, where u = 3x^2 + 2. Using the Leibniz chain dy/dx = dy/du × du/dx…"}
+{"answer": "-462", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/exam-single/1/c0ed55a6f9a3", "text": "y = u^3 + 2u, where u = x^2 - 4. Using the Leibniz chain dy/dx = dy/du × du/dx,…"}
+{"answer": "75", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/exam-single/2/a7d1bed80ea7", "text": "y = 3x^3 + 6x, and x changes with time t so that dx/dt = 5 when x = 1. Using th…"}
 {"answer": "(a) 2u; (b) 6x; (c) 6x*(6x^2 + 2); (d) 192", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/exam/0/281d62630a09", "text": "A quantity y is given by y = u^2, where u = 3x^2 + 1. (a) Find dy/du. (b) Find …"}
 {"answer": "(a) 2u; (b) 4x; (c) 4x*(4x^2 + 8); (d) -96", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/exam/1/95dcb8ca891e", "text": "The variable y depends on u by y = u^2, and u depends on x by u = 2x^2 + 4. (a)…"}
 {"answer": "(a) 4u^3; (b) 6x; (c) 24x*(3x^2 + 1)^3; (d) -4608", "id": "senior-use-the-leibniz-notation-for-the-derivative-frac/exam/2/8671511e7456", "text": "Let y = u^4, where u = 3x^2 + 1. (a) Find dy/du. (b) Find du/dx. (c) Hence find…"}
@@ -8887,6 +9007,9 @@
 {"answer": "4a", "id": "simplify-radicals-of-monomials/easy/0/2eb095f31aba", "text": "Simplify ∛(8000a^6) ÷ √(25a^2), giving your answer in simplest form."}
 {"answer": "4a^2", "id": "simplify-radicals-of-monomials/easy/1/a73883929366", "text": "Simplify ∛(512a^9) ÷ √(4a^2)."}
 {"answer": "7a^3", "id": "simplify-radicals-of-monomials/easy/2/1e3eb3b8d072", "text": "Simplify ∛(42875a^15) ÷ √(25a^4), giving your answer in simplest form."}
+{"answer": "6ac^3/b", "id": "simplify-radicals-of-monomials/exam-single/0/ce333cca8781", "text": "Simplify ∛(1728a^6c^15) ÷ √(4a^2b^2c^4) as a single term."}
+{"answer": "2ac^3/b^2", "id": "simplify-radicals-of-monomials/exam-single/1/60b28d268944", "text": "Simplify ∛(64a^6c^15) ÷ √(4a^2b^4c^4), giving your answer in simplest form."}
+{"answer": "-4ab^2/c", "id": "simplify-radicals-of-monomials/exam-single/2/742d6c1da2eb", "text": "Simplify ∛(-512a^9b^9) ÷ √(4a^4b^2c^2)."}
 {"answer": "(a) 3/7; (b) 3; (c) 2; (d) 1728/7", "id": "simplify-radicals-of-monomials/exam/0/bab32ce1c117", "text": "The expression ∛(27a^12b^12) ÷ √(49a^2b^4), in which a and b are positive, can …"}
 {"answer": "(a) 2/7; (b) 3; (c) -3; (d) 27/28", "id": "simplify-radicals-of-monomials/exam/1/845f2c30956d", "text": "Simplify ∛(8a^9b^3) ÷ √(49b^8) to the form k a^p b^q, where a and b are positiv…"}
 {"answer": "(a) 1/5; (b) -2; (c) -3; (d) 1/2880", "id": "simplify-radicals-of-monomials/exam/2/934ab4cf9cd6", "text": "Simplify ∛(b^6) ÷ √(25a^4b^10) to the form k a^p b^q, where a and b are positiv…"}
@@ -9043,6 +9166,9 @@
 {"answer": "volume = 6000, surface_area = 2400", "id": "square-pyramid-volume-and-surface-area/easy/0/0aef4e5f1e07", "text": "A pyramid with a square base has a base side length of 30 cm and a perpendicula…"}
 {"answer": "volume = 1280, surface_area = 800", "id": "square-pyramid-volume-and-surface-area/easy/1/8c2fdf63c0f6", "text": "A square-based pyramid has a base side length of 16 cm and a perpendicular heig…"}
 {"answer": "volume = 3200, surface_area = 1440", "id": "square-pyramid-volume-and-surface-area/easy/2/05f253e9aaaf", "text": "A pyramid with a square base has a base side length of 20 cm and a perpendicula…"}
+{"answer": "volume = 11200, surface_area = 3920", "id": "square-pyramid-volume-and-surface-area/exam-single/0/8324b253859e", "text": "Exam question: a square-based pyramid has a base side length of 40 cm and a per…"}
+{"answer": "volume = 11200, surface_area = 3920", "id": "square-pyramid-volume-and-surface-area/exam-single/1/86e828cd0ca6", "text": "A square pyramid has a base side length of 40 cm and a perpendicular height of …"}
+{"answer": "volume = 10368, surface_area = 3456", "id": "square-pyramid-volume-and-surface-area/exam-single/2/3b6b61ee9e7c", "text": "This exam question gives a square pyramid a base side length of 36 cm and a per…"}
 {"answer": "(a) 120; (b) 718.7; (c) 560; (d) 5749.6", "id": "square-pyramid-volume-and-surface-area/exam/0/ad1e5002492f", "text": "A wooden desk ornament is made in the shape of a square-based pyramid. The base…"}
 {"answer": "(a) 48; (b) 147.2; (c) 192; (d) 3974.4", "id": "square-pyramid-volume-and-surface-area/exam/1/f4751b775533", "text": "A cardboard gift box, closed at the base, is shaped like a square-based pyramid…"}
 {"answer": "(a) 12; (b) 18.7; (c) 48; (d) 149.6", "id": "square-pyramid-volume-and-surface-area/exam/2/3e6df0add208", "text": "A pyramid-shaped play shelter, with a canvas floor, is set up in a school yard.…"}
@@ -9070,6 +9196,9 @@
 {"answer": "x = 1 and x = 2", "id": "stationary-points/easy/0/f2d1342025ad", "text": "Find the x-coordinates of the stationary points of f(x) = 2*x**3/3 - 3*x**2 + 4…"}
 {"answer": "x = 3 and x = 6", "id": "stationary-points/easy/1/b02b01d1e9e4", "text": "Find the x-coordinates of the stationary points of f(x) = 2*x**3/3 - 9*x**2 + 3…"}
 {"answer": "x = 5 and x = 6", "id": "stationary-points/easy/2/b435d34ee543", "text": "Find the x-coordinates of the stationary points of f(x) = 2*x**3/3 - 11*x**2 + …"}
+{"answer": "x = -6, x = -4 and x = -1", "id": "stationary-points/exam-single/0/1ca657f85374", "text": "Find the x-coordinates of all the stationary points of f(x) = (x + 1)^3(x + 6)^…"}
+{"answer": "x = -5, x = -1 and x = 3", "id": "stationary-points/exam-single/1/d838815fb8f2", "text": "Determine all stationary points of f(x) = (x - 3)^2(x + 5)^2, giving the x-coor…"}
+{"answer": "x = -14, x = -8 and x = -2", "id": "stationary-points/exam-single/2/78490dec4fec", "text": "Find the x-coordinates of all the stationary points of f(x) = (x + 2)^3(x + 14)…"}
 {"answer": "(a) (x + 2)*(3*x + 2); (b) -2/3; (c) 4; (d) -32/27", "id": "stationary-points/exam/0/a1553e0ab2d0", "text": "Let f(x) = (x + 2)^2x. The graph of y = f(x) has two stationary points. (a) Fin…"}
 {"answer": "(a) 2*(x - 1)*(3*x + 3); (b) -1; (c) -12; (d) 8", "id": "stationary-points/exam/1/55d4b4a932b6", "text": "Let f(x) = 2(x - 1)^2(x + 2). The graph of y = f(x) has two stationary points. …"}
 {"answer": "(a) (x + 1)*(3*x + 13); (b) -13/3; (c) -10; (d) 500/27", "id": "stationary-points/exam/2/c77e30868135", "text": "Let f(x) = (x + 1)^2(x + 6). The graph of y = f(x) has two stationary points. (…"}
@@ -9856,6 +9985,9 @@
 {"answer": "5/9", "id": "ucv1-bayes-finite-counts/easy/0/5bd4433500d5", "text": "Machine 1 produces 45 items and Machine 2 produces 48 items. 3 out of every 9 i…"}
 {"answer": "5/11", "id": "ucv1-bayes-finite-counts/easy/1/142b68626355", "text": "Two machines feed a combined output line. Machine 1 produces 15 items and Machi…"}
 {"answer": "7/24", "id": "ucv1-bayes-finite-counts/easy/2/324a8a56e4fe", "text": "Machine 1 produces 16 items and Machine 2 produces 51 items. 7 out of every 8 i…"}
+{"answer": "64/73", "id": "ucv1-bayes-finite-counts/exam-single/0/fcbead7ced30", "text": "Of every 10 items, 8 come from Machine 1 and the others from Machine 2. Two ind…"}
+{"answer": "25/43", "id": "ucv1-bayes-finite-counts/exam-single/1/36c70634829c", "text": "A factory has two machines. Machine 1 makes 4 of every 12 items and Machine 2 m…"}
+{"answer": "2475/3499", "id": "ucv1-bayes-finite-counts/exam-single/2/216d639f0644", "text": "A factory has two machines. Machine 1 makes 11 of every 15 items and Machine 2 …"}
 {"answer": "(a) 10/27; (b) 2/5; (c) 110/807; (d) 58/5", "id": "ucv1-bayes-finite-counts/exam/0/3dff10e8c77a", "text": "A batch of 270 items is made on two machines, Machine 1 and Machine 2, in the r…"}
 {"answer": "(a) 7/50; (b) 5/7; (c) 14/745; (d) 170/7", "id": "ucv1-bayes-finite-counts/exam/1/7e9597595f01", "text": "A batch of 150 components is made on two lines, Line 1 and Line 2, in the ratio…"}
 {"answer": "(a) 4/27; (b) 5/8; (c) 52/2421; (d) 35/2", "id": "ucv1-bayes-finite-counts/exam/2/b51e26a20ba1", "text": "A batch of 270 parts is made on two presses, Press 1 and Press 2, in the ratio …"}
@@ -11449,6 +11581,9 @@
 {"answer": "(-4, -4, 3)", "id": "vector-addition/easy/0/bfe24a611b01", "text": "u = (-5, 0, 1), v = (1, -4, 2). Find u + v"}
 {"answer": "(2, 2, -5)", "id": "vector-addition/easy/1/c3706425fc30", "text": "u = (1, 0, -1), v = (1, 2, -4). Find u + v"}
 {"answer": "(6, 4, -4)", "id": "vector-addition/easy/2/d38efc7282ae", "text": "u = (4, 4, -2), v = (2, 0, -2). Find u + v"}
+{"answer": "82", "id": "vector-addition/exam-single/0/e2de23905ed7", "text": "A is the point (-6, -3, 2) and B is the point (-18, 9, 14). The point P lies on…"}
+{"answer": "-24", "id": "vector-addition/exam-single/1/848fbd71436a", "text": "The points A(3, -5, 2), B(-2, 5, 6) and C(0, 4, 2) are three consecutive vertic…"}
+{"answer": "0", "id": "vector-addition/exam-single/2/c1b579b63ee9", "text": "ABCD is a parallelogram, with its vertices labelled in order. A is the point (-…"}
 {"answer": "(a) 2; (b) -5; (c) 99", "id": "vector-addition/exam/0/8fde6c9cfb22", "text": "The quadrilateral ABCD is a parallelogram, with vertices in order around it, in…"}
 {"answer": "(a) -4; (b) 1; (c) 87", "id": "vector-addition/exam/1/cec84cf5258a", "text": "In three dimensions, ABCD is a parallelogram with its vertices labelled in orde…"}
 {"answer": "(a) 1; (b) -32; (c) 150", "id": "vector-addition/exam/2/c4e6fcb09d7a", "text": "The quadrilateral ABCD is a parallelogram, with vertices in order around it, in…"}
@@ -11485,6 +11620,9 @@
 {"answer": "sqrt(26)", "id": "vector-magnitude/easy/0/6d928717e41e", "text": "u = (-5, 0, 1). Find |u| (exact)"}
 {"answer": "sqrt(2)", "id": "vector-magnitude/easy/1/5181acaa0044", "text": "u = (1, 0, -1). Find |u| (exact)"}
 {"answer": "6", "id": "vector-magnitude/easy/2/2f6f020def2d", "text": "u = (4, 4, -2). Find |u| (exact)"}
+{"answer": "2*sqrt(193)", "id": "vector-magnitude/exam-single/0/5acf07ac0f48", "text": "Two vectors satisfy |a| = 6, |b| = 7, and the angle between a and b is 60°. Fin…"}
+{"answer": "11*sqrt(34)/34", "id": "vector-magnitude/exam-single/1/d6ff98b6dbbb", "text": "For u = (-5, -4, -1) and v = (-4, 3, -3), find the exact magnitude of the proje…"}
+{"answer": "23*sqrt(34)/34", "id": "vector-magnitude/exam-single/2/cccecdaa8b91", "text": "For u = (1, -5, -2) and v = (3, 4, 3), find the exact magnitude of the projecti…"}
 {"answer": "(a) 12; (b) 217; (c) sqrt(217); (d) 32", "id": "vector-magnitude/exam/0/db72a3c83371", "text": "The vectors a and b satisfy |a| = 8 and |b| = 3, and the angle between a and b …"}
 {"answer": "(a) 7; (b) 57; (c) sqrt(57); (d) 53", "id": "vector-magnitude/exam/1/f1cc0c180824", "text": "Two vectors a and b have lengths |a| = 2 and |b| = 7, and the angle between the…"}
 {"answer": "(a) 6; (b) 252; (c) 6*sqrt(7); (d) 41", "id": "vector-magnitude/exam/2/3a13ba298e34", "text": "The vectors a and b satisfy |a| = 2 and |b| = 6, and the angle between a and b …"}
@@ -11554,6 +11692,9 @@
 {"answer": "0", "id": "z-score/easy/0/7940792acdb8", "text": "A distribution has mean 61 and standard deviation 2. Find the z-score for 61."}
 {"answer": "-1", "id": "z-score/easy/1/871f78e4533b", "text": "A distribution has mean 51 and standard deviation 4. Find the z-score for 47."}
 {"answer": "0", "id": "z-score/easy/2/21830a89cf1a", "text": "A distribution has mean 67 and standard deviation 5. Find the z-score for 67."}
+{"answer": "4", "id": "z-score/exam-single/0/935a0ace74d6", "text": "In a normal distribution, a score of 49 has a z-score of 2 and a score of 33 ha…"}
+{"answer": "34", "id": "z-score/exam-single/1/7744ebc96ab5", "text": "Two exams are marked on different scales: exam 1 has mean 59 and standard devia…"}
+{"answer": "4", "id": "z-score/exam-single/2/5f1cf2008f32", "text": "In a normal distribution, a score of 88 has a z-score of 1.5 and a score of 78 …"}
 {"answer": "(a) 5; (b) 47; (c) 1.20; (d) 0.8849", "id": "z-score/exam/0/c4dcc50ba3b1", "text": "The times taken by commuters to travel from a suburb to the city are approximat…"}
 {"answer": "(a) 15; (b) 71; (c) -1.60; (d) 0.0548", "id": "z-score/exam/1/4baed3d79400", "text": "The marks in a trial examination are approximately normally distributed. A mark…"}
 {"answer": "(a) 25; (b) 320; (c) 1.80; (d) 0.9641", "id": "z-score/exam/2/b4087c4345f0", "text": "The heights of seedlings at a nursery after eight weeks are approximately norma…"}

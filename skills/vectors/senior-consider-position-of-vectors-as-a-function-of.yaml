@@ -28,6 +28,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_g2_position_collision
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: dropped-constant
   description: Forgets to add the constant term when evaluating a linear component (easy tier).
