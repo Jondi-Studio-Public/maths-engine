@@ -29,8 +29,11 @@ pip install "maths-engine[server]"
 python -m mathgen.server            # http://127.0.0.1:8080, loopback only unless you pass --host
 ```
 
-The interactive reference (`/docs`) and the OpenAPI 3.1 description (`/openapi.json`) are off by default; set
-`MATHS_API_DOCS=1` to serve them. They need no key, so leave them off on a server other people can reach.
+The first start takes about 30 seconds while the library loads, so a request in that time is refused; wait for
+`/v1/health` to answer.
+
+The interactive reference (`/docs`, and `/redoc`) and the OpenAPI 3.1 description (`/openapi.json`) are off by
+default; set `MATHS_API_DOCS=1` to serve them. They need no key, so leave them off on a server other people can reach.
 
 ## How it works
 
@@ -98,7 +101,7 @@ maths.example.org {
 
 The server sends `X-Content-Type-Options: nosniff` and `Referrer-Policy: no-referrer` on every response,
 `Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src data:; sandbox` on HTML and SVG,
-and `Cache-Control: no-store` on author responses, so an answer key is not kept by a browser or shared cache.
+and `Cache-Control: no-store` on every response, so an answer key is not kept by a browser or shared cache.
 
 ## Endpoints
 
@@ -112,7 +115,7 @@ and `Cache-Control: no-store` on author responses, so an answer key is not kept 
 | `GET /v1/figure.svg?id=` | A question's figure as SVG. |
 | `POST /v1/grade` | `{"id", "reply", "reveal"?}`. `reply` is text; an option index for multiple choice; `{"a": ..., "b": ...}` for a multi-part question. |
 | `POST /v1/grade/batch` | `{"items": [{"id", "reply"}, ...]}`, up to 100, as when marking a whole test. |
-| `POST /v1/papers` | A worksheet or test: `{"title"?, "seed"?, "versions"? (1-10), "shuffle"?, "sections": [{"title"?, "items": [{"skill", "source"?, "count"?}]}], "format"?}`. `format`: `json` (default), `html` (print), `html-key` (answer key), `moodle` (Moodle XML), `qti` (QTI 2.1 zip, for Canvas and others). |
+| `POST /v1/papers` | A worksheet or test: `{"title"?, "seed"?, "versions"? (1-10), "shuffle"?, "sections": [{"title"?, "items": [{"skill", "source"?, "count"?}]}], "format"?, "version"? (A to J), "answers"? (JSON only; needs an author key)}`. `format`: `json` (default), `html` (print), `html-key` (answer key), `moodle` (Moodle XML), `qti` (QTI 2.1 zip, for Canvas and others). A learner key gets `403` for `html-key`, `moodle` and `qti`. |
 
 Moodle and QTI can mark multiple choice and plain numbers themselves. Other answer kinds (expressions,
 fractions, pairs, sets...) go in as one accepted text answer, which an LMS compares character for character: an
@@ -132,7 +135,7 @@ equivalent form is marked wrong there. For those, grade through `/v1/grade`, or 
 | `MATHS_API_COOLDOWN` | `30` | seconds a (skill, source) fails fast after repeated timeouts |
 | `MATHS_API_COOLDOWN_STRIKES` | `3` | timeouts within the cool-down window that start one |
 | `MATHS_API_LIMIT_CONCURRENCY` | `64` | uvicorn's cap on concurrent connections |
-| `MATHS_API_DOCS` | off | `1` serves `/docs` and `/openapi.json` |
+| `MATHS_API_DOCS` | off | `1` serves `/docs`, `/redoc` and `/openapi.json` |
 | `MATHS_API_TIMEOUT` | `5` | seconds for one question or one grade |
 | `MATHS_API_BATCH_TIMEOUT` | 10 x `MATHS_API_TIMEOUT` | seconds for a whole batch; items still waiting past it get the error `timeout` |
 | `MATHS_API_PAPER_TIMEOUT` | `60` | seconds for a paper |
