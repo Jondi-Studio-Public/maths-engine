@@ -272,9 +272,12 @@ class TestSkillLoad:
         ]
         stages_covered = set()
         for source in skill.sources:
-            assert source.topic == TOPIC
+            if source.difficulty != "exam":
+                assert source.topic == TOPIC
             stages_covered.update(source.stages)
         assert "exam" in stages_covered
+        # The exam tier is the two-group multi-part chain, which replaced this topic's single-step exam source.
         exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
         assert len(exam_sources) == 1
+        assert exam_sources[0].topic == "exd_x_r2x_boxplot_two_groups"
         assert exam_sources[0].stages == ["exam"]

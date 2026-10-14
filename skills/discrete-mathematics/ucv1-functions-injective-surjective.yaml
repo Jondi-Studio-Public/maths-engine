@@ -1,0 +1,108 @@
+id: ucv1-functions-injective-surjective
+name: One-to-one, onto and bijective functions
+domain: discrete-mathematics
+year_level:
+- university
+description: Count the one-to-one, onto and non-injective functions between small finite sets, and decide for a quadratic
+  rule on the real line where it is injective, which codomain makes it onto, and what its inverse gives.
+status: active
+placement_eligible: false
+prerequisites:
+- finite-set-operations
+answer: number
+sources:
+- topic: u2_functions_injective_surjective
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_functions_injective_surjective
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_functions_injective_surjective
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_functions_injective_surjective
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: bij-count-ignores-conditions
+  description: Counting all bijections and ignoring that some values are already fixed.
+- id: bij-count-one-condition
+  description: Using only one of the two fixed values and letting the other be free.
+- id: count-both-sides
+  description: Counting solutions on both sides of the turning point although the domain only holds one side.
+- id: count-fencepost
+  description: Counting the steps between the end values instead of the integers including both ends.
+- id: inj-count-all-functions
+  description: Counting every function from the first set to the second (n^m) when only the one-to-one ones were asked for.
+- id: inj-count-roles-swapped
+  description: Raising the size of the domain to the power of the size of the codomain instead of the other way round.
+- id: inj-count-unordered
+  description: Choosing which m images are used (a combination) without arranging them, so the count is too small by a factor
+    of m!.
+- id: inj-vertex-missing-two
+  description: Taking -b/a as the vertex x-coordinate instead of -b/(2a).
+- id: inj-vertex-sign
+  description: Reading the vertex x-coordinate with the wrong sign when finding where a quadratic stops being one-to-one.
+- id: inj-vertex-value-not-position
+  description: Giving the minimum value of the quadratic where the x-value of the turning point was asked for.
+- id: inverse-forgot-square-root
+  description: Stopping at the squared offset (x - h)^2 = t^2 and using t squared as the offset, without taking the square
+    root.
+- id: inverse-value-not-solved
+  description: Giving the offset from the turning point, or the output value itself, instead of solving for the input.
+- id: inverse-wrong-branch
+  description: Choosing the root on the wrong side of the turning point when inverting a quadratic, outside the stated domain.
+- id: noninj-count-wrong-complement
+  description: Subtracting the surjections or the wrong total instead of the one-to-one functions when counting the functions
+    that are not one-to-one.
+- id: range-min-intercept
+  description: Taking the value at x = 0 (the constant term) as the minimum of a quadratic.
+- id: range-min-sign
+  description: Adding the square term instead of subtracting it when completing the square, so the minimum value has the
+    wrong sign.
+- id: surj-count-choose-preimages
+  description: Counting the ways to pick n elements of the domain and send them to distinct targets, forgetting the rest
+    of the domain.
+- id: surj-count-no-add-back
+  description: Subtracting the functions that miss one target but not adding back the ones that miss two, so some functions
+    are removed twice.
+- id: surj-count-no-correction
+  description: Subtracting only the functions that miss one target without inclusion-exclusion at all, or using n^m - n
+    for more than two targets.
+- id: unit-count-nonzero
+  description: Counting every non-zero multiplier as invertible modulo the number.
+- id: unit-count-single-prime
+  description: Counting the integers coprime to a number as if it had only one prime factor.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Count the one-to-one functions between two small sets by choosing the images in turn, or the bijections of a
+      set with two values already fixed.
+  medium:
+    steps: 3
+    demand: Count the onto functions by inclusion-exclusion over the targets that are missed, or the functions that are
+      not one-to-one by taking a complement.
+  hard:
+    steps: 4
+    demand: Complete the square to find where a quadratic stops being one-to-one or the least value it takes, or count the
+      multipliers a for which x to ax + b is a bijection of the integers modulo n.
+  exam:
+    steps: 5
+    demand: Restrict a quadratic to the domain on which it is injective, find the codomain that makes it onto, evaluate the inverse at a value and count the integers in the domain below a bound.
+tags:
+- university-core-v1
+- discrete-mathematics
+- functions

@@ -208,6 +208,18 @@
 {"answer": "0.3594", "id": "binomial-point-probability/exam/0/4c5feceee60b", "text": "A player takes 7 shots and scores each independently with probability 0.25. Fin…"}
 {"answer": "0.5798", "id": "binomial-point-probability/exam/1/c9f134a72a5e", "text": "Suppose 6 seeds are planted and each independently germinates with probability …"}
 {"answer": "0.6329", "id": "binomial-point-probability/exam/2/497207272863", "text": "Suppose a multiple-choice quiz has 8 questions and each is answered by guessing…"}
+{"answer": "[[1, 0, 1, 0, 1], [0, 1, 1, 0, 1], [0, 1, 1, 0, 0], [0, 1, …", "id": "bipartite-matching-matrix/easy/0/2b75a56b66fb", "text": "A bus company has 5 drivers to roster onto 5 routes, one driver to each route. …"}
+{"answer": "[[1, 0, 0, 1, 1], [0, 0, 1, 1, 1], [1, 0, 0, 0, 1], [0, 1, …", "id": "bipartite-matching-matrix/easy/1/8c31d310d744", "text": "A school has 5 students to place at 5 lab stations, one student to each station…"}
+{"answer": "[[0, 1, 0, 1], [1, 0, 1, 1], [1, 0, 0, 1], [1, 1, 0, 1]]", "id": "bipartite-matching-matrix/easy/2/99b772e5aa8f", "text": "A school has 4 students to place at 4 lab stations, one student to each station…"}
+{"answer": "(a) [[1, 0, 1, 1], [0, 0, 0, 1], [1, 0, 1, 1], [0, 0, 0, 1]…", "id": "bipartite-matching-matrix/exam/0/575715a4de4c", "text": "A school has 4 students to place at 4 lab stations, one student to each station…"}
+{"answer": "(a) [[0, 0, 0, 1], [1, 0, 1, 1], [0, 0, 0, 1], [1, 1, 1, 0]…", "id": "bipartite-matching-matrix/exam/1/51ce26805827", "text": "A school has 4 students to place at 4 lab stations, one student to each station…"}
+{"answer": "(a) [[1, 1, 0, 0, 1], [0, 1, 0, 0, 1], [1, 1, 1, 0, 0], [1,…", "id": "bipartite-matching-matrix/exam/2/9c7affb3a0f8", "text": "A bus company has 5 drivers to roster onto 5 routes, one driver to each route. …"}
+{"answer": "[[0, 1, 1], [1, 0, 1], [0, 1, 1]]", "id": "bipartite-matching-matrix/hard/0/afbed646cb08", "text": "A building firm has 5 tradespeople and 5 jobs to hand out, one job to each pers…"}
+{"answer": "[[0, 1, 1, 0], [0, 0, 1, 1], [1, 0, 1, 1], [1, 1, 0, 0]]", "id": "bipartite-matching-matrix/hard/1/733485c1705c", "text": "A building firm has 5 tradespeople and 5 jobs to hand out, one job to each pers…"}
+{"answer": "[[1, 1, 1, 0], [0, 0, 1, 1], [0, 1, 0, 1], [1, 0, 1, 0]]", "id": "bipartite-matching-matrix/hard/2/1c65d1ffb1c6", "text": "A school has 5 students to place at 5 lab stations, one student to each station…"}
+{"answer": "[[1, 1, 0, 1, 0], [1, 1, 0, 1, 0], [1, 1, 0, 0, 1], [1, 0, …", "id": "bipartite-matching-matrix/medium/0/9fb8f46c28eb", "text": "A school has 5 students to place at 5 lab stations, one student to each station…"}
+{"answer": "[[1, 1, 1, 0, 1], [1, 1, 0, 1, 1], [0, 1, 1, 1, 1], [1, 1, …", "id": "bipartite-matching-matrix/medium/1/8acb9cfbe9ec", "text": "A building firm has 5 tradespeople and 5 jobs to hand out, one job to each pers…"}
+{"answer": "[[0, 1, 0, 1], [1, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1]]", "id": "bipartite-matching-matrix/medium/2/d21edf436385", "text": "A bus company has 4 drivers to roster onto 4 routes, one driver to each route. …"}
 {"answer": "left = 1, right = 2", "id": "bisection-interval-update/easy/0/01726fbae598", "text": "For f(x) = x² − 3, the current positive bracket is [0, 2]. Perform one bisectio…"}
 {"answer": "left = 1, right = 2", "id": "bisection-interval-update/easy/1/6610ebfb5752", "text": "For f(x) = x² − 2, the current positive bracket is [0, 2]. Perform one bisectio…"}
 {"answer": "left = 2, right = 4", "id": "bisection-interval-update/easy/2/8d18e828fb29", "text": "For f(x) = x² − 11, the current positive bracket is [0, 4]. Perform one bisecti…"}
@@ -436,6 +448,18 @@
 {"answer": "(a) -1; (b) 3; (c) -8", "id": "complex-real-part/exam/0/54dcf8bc2c04", "text": "Let z = (-6 + 8i)/(3 + i). (a) Find Re(z), the real part of z. (b) Find Im(z), …"}
 {"answer": "(a) 6; (b) -7; (c) -13", "id": "complex-real-part/exam/1/7e9c03c6be9f", "text": "Let z = (-13 + i)/(-1 - i). (a) Find Re(z), the real part of z. (b) Find Im(z),…"}
 {"answer": "(a) -5; (b) 1; (c) 24", "id": "complex-real-part/exam/2/1f988fd55a50", "text": "The complex number z is given by z = (7 + 9i)/(-1 - 2i). (a) Find Re(z), the re…"}
+{"answer": "x > -1", "id": "composite-function-domain/easy/0/339c45f953ad", "text": "Let f(x) = 2x + 2 and g(x) = ln(x). Find the largest domain of the composite fu…"}
+{"answer": "x ≠ -2", "id": "composite-function-domain/easy/1/0689ae4fd33f", "text": "For f(x) = -3x - 6 and g(x) = 1/x, find the largest set of real x for which g(f…"}
+{"answer": "x ≠ -7/3", "id": "composite-function-domain/easy/2/c1257b5567df", "text": "Let f(x) = -3x - 7 and g(x) = 1/x. Find the largest domain of the composite fun…"}
+{"answer": "(a) 3; (b) 12; (c) 3 ≤ x < 12 or x > 12", "id": "composite-function-domain/exam/0/c9c0f7791ca0", "text": "Two functions are given by f(x) = √(x - 3) and g(x) = 1/(x - 3). (a) Find the l…"}
+{"answer": "(a) -2; (b) 2; (c) -2 ≤ x < 2 or x > 2", "id": "composite-function-domain/exam/1/2e7250118362", "text": "Consider the functions f(x) = √(x + 2) and g(x) = 1/(x - 2). (a) Find the least…"}
+{"answer": "(a) -4; (b) 5; (c) -4 ≤ x < 5 or x > 5", "id": "composite-function-domain/exam/2/cc4b924366af", "text": "Consider the functions f(x) = √(x + 4) and g(x) = 1/(x - 3). (a) Find the least…"}
+{"answer": "x ≥ 3", "id": "composite-function-domain/hard/0/2ba85557cf5c", "text": "Let f(x) = √(x - 3) and g(x) = 1/(x + 3). Find the largest domain of the compos…"}
+{"answer": "-3 ≤ x ≤ 13", "id": "composite-function-domain/hard/1/dab69a322845", "text": "Let f(x) = √(x + 3) and g(x) = √(4 - x). Find the largest domain of the composi…"}
+{"answer": "x ≥ -4", "id": "composite-function-domain/hard/2/63567cdf3633", "text": "Let f(x) = √(x + 4) and g(x) = 1/(x + 3). Find the largest domain of the compos…"}
+{"answer": "x ≤ -2 or x ≥ 2", "id": "composite-function-domain/medium/0/b323822337c3", "text": "Let f(x) = x² - 4 and g(x) = √x. Find the largest domain of the composite funct…"}
+{"answer": "-5 < x < 5", "id": "composite-function-domain/medium/1/3ff48a9485c7", "text": "The functions f and g are given by f(x) = 25 - x² and g(x) = ln(x). What is the…"}
+{"answer": "x > 1", "id": "composite-function-domain/medium/2/a408e3c23c92", "text": "Let f(x) = 1/(x - 1) and g(x) = √x. Find the largest domain of the composite fu…"}
 {"answer": "32", "id": "composite-perimeter/easy/0/5b2e59f44506", "text": "An L-shaped boundary has consecutive side lengths 11, 2, 5, 3, 6, 5 m. Find its…"}
 {"answer": "28", "id": "composite-perimeter/easy/1/0d123e02506f", "text": "An L-shaped boundary has consecutive side lengths 8, 4, 4, 2, 4, 6 m. Find its …"}
 {"answer": "58", "id": "composite-perimeter/easy/2/271a107798e8", "text": "An L-shaped boundary has consecutive side lengths 17, 11, 13, 1, 4, 12 m. Find …"}
@@ -598,6 +622,18 @@
 {"answer": "2", "id": "count-to-5/easy/0/e12555feead5", "text": "Count the diamonds. How many?"}
 {"answer": "4", "id": "count-to-5/easy/1/41a60e653579", "text": "Ingrid counts the squares. How many are there?"}
 {"answer": "1", "id": "count-to-5/easy/2/2688b9e3f8ae", "text": "How many circles are there?"}
+{"answer": "3360", "id": "counting-with-restrictions/easy/0/ea1de881f167", "text": "The letters of the town name BLACKALL are rearranged in every possible order. H…"}
+{"answer": "907200", "id": "counting-with-restrictions/easy/1/a730090a4b09", "text": "The letters of the town name KALGOORLIE are rearranged in every possible order.…"}
+{"answer": "181440", "id": "counting-with-restrictions/easy/2/360e8eb590ad", "text": "How many different ways can all the letters of BUNDABERG be arranged in a row?"}
+{"answer": "(a) 120; (b) 24; (c) 1/5; (d) 96", "id": "counting-with-restrictions/exam/0/3412c2ce6ef6", "text": "A locker code is made by using all of the digits 0, 2, 2, 2, 3, 7, each as many…"}
+{"answer": "(a) 3360; (b) 840; (c) 1/4; (d) 2520", "id": "counting-with-restrictions/exam/1/5d1514286665", "text": "The letters of the town name BLACKALL are arranged in a row in every possible o…"}
+{"answer": "(a) 1680; (b) 140; (c) 1/12; (d) 1540", "id": "counting-with-restrictions/exam/2/b7ca9d2a4ee8", "text": "A locker code is made by using all of the digits 0, 0, 0, 1, 1, 1, 5, 5, 5, eac…"}
+{"answer": "12", "id": "counting-with-restrictions/hard/0/47a577511326", "text": "In how many different ways can 5 people sit around a circular table, with Ravi …"}
+{"answer": "240", "id": "counting-with-restrictions/hard/1/71c0960b55de", "text": "7 different people sit around a circular table, with Ravi and Sam next to each …"}
+{"answer": "155", "id": "counting-with-restrictions/hard/2/8965aabeb982", "text": "From 5 men and 5 women, a committee of 4 is chosen. In how many ways can it be …"}
+{"answer": "36", "id": "counting-with-restrictions/medium/0/de03caf68705", "text": "5 different people stand in a row for a photograph. In how many ways can they b…"}
+{"answer": "72", "id": "counting-with-restrictions/medium/1/570673b9ea0d", "text": "5 different runners line up at the start of a relay. In how many ways can they …"}
+{"answer": "48", "id": "counting-with-restrictions/medium/2/7ee5e06f44c0", "text": "In how many ways can 5 different runners be arranged when they line up at the s…"}
 {"answer": "9", "id": "cyclic-group-element-order/easy/0/202ef5928076", "text": "In the additive cyclic group Z/9Z, find the order of the element [1]."}
 {"answer": "9", "id": "cyclic-group-element-order/easy/1/27fb051bc14b", "text": "In the additive cyclic group Z/9Z, find the order of the element [4]."}
 {"answer": "9", "id": "cyclic-group-element-order/easy/2/e5cef90764af", "text": "In the additive cyclic group Z/9Z, find the order of the element [5]."}
@@ -856,6 +892,18 @@
 {"answer": "81", "id": "evaluate-powers/medium/0/48b8761f72be", "text": "9²"}
 {"answer": "27", "id": "evaluate-powers/medium/1/f8f41db66565", "text": "3³"}
 {"answer": "9", "id": "evaluate-powers/medium/2/6a21bfed7d9b", "text": "3²"}
+{"answer": "2*sqrt(2)", "id": "exact-trig-values-typed/easy/0/977c32bd5809", "text": "Evaluate 4 cos(π/4) exactly. Type surds as sqrt(3), for example."}
+{"answer": "3*sqrt(2)/2", "id": "exact-trig-values-typed/easy/1/b26d63b3faea", "text": "What is the exact value of 3 cos(π/4)?"}
+{"answer": "-2*sqrt(3)/3", "id": "exact-trig-values-typed/easy/2/3f87912df1a2", "text": "What is the exact value of 2 tan(5π/6)?"}
+{"answer": "(a) sqrt(2)/2; (b) -sqrt(2)/2; (c) -1; (d) pi/4", "id": "exact-trig-values-typed/exam/0/4e4dc9afe8a4", "text": "Consider the angle θ = 3π/4. (a) Find the exact value of sin θ. Type surds as s…"}
+{"answer": "(a) 1/2; (b) sqrt(3)/2; (c) sqrt(3)/3; (d) 5pi/6", "id": "exact-trig-values-typed/exam/1/8c9092acac76", "text": "The angle θ is π/6 radians. (a) Find the exact value of sin θ. Type surds as sq…"}
+{"answer": "(a) sqrt(2)/2; (b) sqrt(2)/2; (c) 1; (d) 3pi/4", "id": "exact-trig-values-typed/exam/2/b181539e74ed", "text": "The angle θ is π/4 radians. (a) Find the exact value of sin θ. Type surds as sq…"}
+{"answer": "2pi/3", "id": "exact-trig-values-typed/hard/0/3c4170eb26f1", "text": "Given that tan θ = -sqrt(3) and sin θ > 0, find θ in radians, where 0 ≤ θ < 2π.…"}
+{"answer": "3/4", "id": "exact-trig-values-typed/hard/1/6a5fd0ee028e", "text": "Find the exact value of sin(2π/3) × cos(π/6). Type surds as sqrt(3), for exampl…"}
+{"answer": "5pi/6", "id": "exact-trig-values-typed/hard/2/5bd87c15fbc9", "text": "Given that cos θ = -sqrt(3)/2 and sin θ > 0, find θ in radians, where 0 ≤ θ < 2…"}
+{"answer": "sqrt(3)/3", "id": "exact-trig-values-typed/medium/0/b9d7f434029e", "text": "Evaluate tan(-11π/6) exactly. Type surds as sqrt(3), for example."}
+{"answer": "-2*sqrt(3)", "id": "exact-trig-values-typed/medium/1/0fd55b7eecbb", "text": "What is the exact value of 2 tan(8π/3)?"}
+{"answer": "-8*sqrt(3)", "id": "exact-trig-values-typed/medium/2/4f84674a1548", "text": "Find the exact value of 8 tan(8π/3)."}
 {"answer": "2x^2 + 25x + 72", "id": "expand-binomial-trinomial/easy/0/b36ad14e3257", "text": "Expand and simplify (x + 8)(2x + 9)."}
 {"answer": "-3x^2 - 5x + 12", "id": "expand-binomial-trinomial/easy/1/bf5c80486e8b", "text": "Expand and simplify (x + 3)(-3x + 4)."}
 {"answer": "4x^2 + 36x + 56", "id": "expand-binomial-trinomial/easy/2/d8767b7622d0", "text": "Expand and simplify (x + 7)(4x + 8)."}
@@ -958,6 +1006,18 @@
 {"answer": "29", "id": "f10-additive-multiplicative-patterns/medium/0/f43cb818d202", "text": "What is the next number? 32, 31, 30, __"}
 {"answer": "128", "id": "f10-additive-multiplicative-patterns/medium/1/56f3d6a011e9", "text": "What is the next number? 134, 132, 130, __"}
 {"answer": "7", "id": "f10-additive-multiplicative-patterns/medium/2/b16d2b8e0f41", "text": "What is the next number? 25, 19, 13, __"}
+{"answer": "18.4", "id": "f10-angle-line-and-plane/easy/0/1d4b0eec9b20", "text": "A shipping container model is the cuboid ABCDEFGH. Its base ABCD is horizontal …"}
+{"answer": "32.7", "id": "f10-angle-line-and-plane/easy/1/836bee046ca4", "text": "A storage crate is the cuboid ABCDEFGH. Its base ABCD is horizontal with AB = 1…"}
+{"answer": "36.9", "id": "f10-angle-line-and-plane/easy/2/cc311350e06b", "text": "A rectangular fish tank is the cuboid ABCDEFGH. Its base ABCD is horizontal wit…"}
+{"answer": "(a) 25; (b) 29.7; (c) 32.6; (d) 13.6", "id": "f10-angle-line-and-plane/exam/0/20a74218fb44", "text": "A wooden crate is the cuboid ABCDEFGH, standing on its horizontal base ABCD wit…"}
+{"answer": "(a) 5; (b) 8.6; (c) 54.5; (d) 20.4", "id": "f10-angle-line-and-plane/exam/1/ce89fd60de70", "text": "A wooden crate is the cuboid ABCDEFGH, standing on its horizontal base ABCD wit…"}
+{"answer": "(a) 25; (b) 26.9; (c) 21.8; (d) 63.0", "id": "f10-angle-line-and-plane/exam/2/bd377dde4129", "text": "A rectangular steel frame is the cuboid ABCDEFGH. Its base ABCD is horizontal w…"}
+{"answer": "29.2", "id": "f10-angle-line-and-plane/hard/0/d5067903552d", "text": "A concrete block is the cuboid ABCDEFGH. Its base ABCD is horizontal with AB = …"}
+{"answer": "60.3", "id": "f10-angle-line-and-plane/hard/1/c94211a63e11", "text": "A pyramid VABCD has a horizontal rectangular base ABCD with AB = 18 cm and BC =…"}
+{"answer": "60.5", "id": "f10-angle-line-and-plane/hard/2/3e34170672ba", "text": "A pyramid VABCD has a horizontal rectangular base ABCD with AB = 10 cm and BC =…"}
+{"answer": "43.3", "id": "f10-angle-line-and-plane/medium/0/1a8e56af6df8", "text": "A pyramid-shaped tent VABCD stands on a square base ABCD of side 6 m. The apex …"}
+{"answer": "63.7", "id": "f10-angle-line-and-plane/medium/1/34ceffe4ad4c", "text": "A pyramid-shaped tent VABCD stands on a square base ABCD of side 7 m. The apex …"}
+{"answer": "65.9", "id": "f10-angle-line-and-plane/medium/2/5b8c1029a836", "text": "A pyramid-shaped tent VABCD stands on a rectangular base ABCD with AB = 6 m and…"}
 {"answer": "137", "id": "f10-angle-relationships/easy/0/3cad2ee1cc23", "text": "The angles in the diagram meet at a point and together complete a full turn. Ca…"}
 {"answer": "135", "id": "f10-angle-relationships/easy/1/96ede31df2fe", "text": "The diagram shows angles meeting at a point and filling a full turn. Calculate …"}
 {"answer": "111", "id": "f10-angle-relationships/easy/2/d33de7b1033b", "text": "The angles in the diagram meet at a point and together complete a full turn. Wo…"}
@@ -991,9 +1051,9 @@
 {"answer": "Q1 = 31, Q3 = 78, IQR = 47", "id": "f10-boxplot-distribution/easy/0/6502482a6201", "text": "A sample of delivery times (minutes), already sorted from smallest to largest, …"}
 {"answer": "Q1 = 63, Q3 = 88, IQR = 25", "id": "f10-boxplot-distribution/easy/1/189d61cc8044", "text": "A sample of test scores (out of 100), already sorted from smallest to largest, …"}
 {"answer": "Q1 = 54, Q3 = 81, IQR = 27", "id": "f10-boxplot-distribution/easy/2/125635cebc16", "text": "Here are 7 test scores (out of 100), listed from smallest to largest: 41, 54, 5…"}
-{"answer": "Q1 = 128, Q3 = 171, IQR = 43", "id": "f10-boxplot-distribution/exam/0/23fb5e3eec9a", "text": "Two groups' seedling heights (cm) were recorded. Group A: 142, 157, 149, 171, 1…"}
-{"answer": "Q1 = 133, Q3 = 184.5, IQR = 51.5", "id": "f10-boxplot-distribution/exam/1/c3f1285b2954", "text": "Two groups' seedling heights (cm) were recorded. Group A: 157, 121, 190, 143, 1…"}
-{"answer": "Q1 = 38, Q3 = 82, IQR = 44", "id": "f10-boxplot-distribution/exam/2/b4bba614d8e9", "text": "Two groups' test scores (out of 100) were recorded. Group A: 33, 50, 64, 57, 71…"}
+{"answer": "(a) 21.0; (b) 37.0; (c) 61.0; (d) 27.3; (e) 7.0", "id": "f10-boxplot-distribution/exam/0/7573d6793b55", "text": "Two classes, A and B, timed how long each student took to finish the same puzzl…"}
+{"answer": "(a) 40.0; (b) 59.0; (c) 87.5; (d) 47.9; (e) 20.0", "id": "f10-boxplot-distribution/exam/1/7ae740893899", "text": "Two cycling clubs, A and B, recorded how far each rider travelled last weekend.…"}
+{"answer": "(a) 16.0; (b) 38.0; (c) 71.0; (d) 23.4; (e) 6.0", "id": "f10-boxplot-distribution/exam/2/d6e030090462", "text": "Two classes, A and B, timed how long each student took to finish the same puzzl…"}
 {"answer": "Q1 = 34.5, Q3 = 72.5, IQR = 38", "id": "f10-boxplot-distribution/hard/0/df10ac053b21", "text": "Here is a frequency table (value: count) of 12 delivery times (minutes): 77: 3,…"}
 {"answer": "Q1 = 13, Q3 = 43, IQR = 30", "id": "f10-boxplot-distribution/hard/1/dd44bcee9ce5", "text": "The following frequency table (value: count) records 13 delivery times (minutes…"}
 {"answer": "Q1 = 23.5, Q3 = 61.5, IQR = 38", "id": "f10-boxplot-distribution/hard/2/b144fa892ccd", "text": "A sample of delivery times (minutes) is given as a frequency table (value: coun…"}
@@ -1096,9 +1156,9 @@
 {"answer": "9/25, 6/25, 6/25, 4/25", "id": "f10-compound-outcomes-replacement/easy/0/1e923950085d", "text": "A bag contains 3 black balls and 2 white balls, 5 in total. A ball is drawn at …"}
 {"answer": "1/9, 2/9, 2/9, 4/9", "id": "f10-compound-outcomes-replacement/easy/1/dff6e033e92c", "text": "A bag contains 2 orange balls and 4 purple balls, 6 in total. A ball is drawn a…"}
 {"answer": "4/25, 6/25, 6/25, 9/25", "id": "f10-compound-outcomes-replacement/easy/2/7b9da1be59a0", "text": "A bag contains 2 green balls and 3 yellow balls, 5 in total. A ball is drawn at…"}
-{"answer": "5/18, 5/18, 1/6, 5/18", "id": "f10-compound-outcomes-replacement/exam/0/3b1f02ce2a64", "text": "A bag contains 5 green balls and 4 yellow balls, 9 in total. Two balls are draw…"}
-{"answer": "7/30, 1/15, 7/30, 7/15", "id": "f10-compound-outcomes-replacement/exam/1/0990cbb12bc8", "text": "A bag contains 7 orange balls and 3 purple balls, 10 in total. Two balls are dr…"}
-{"answer": "35/132, 7/22, 35/132, 5/33", "id": "f10-compound-outcomes-replacement/exam/2/26a11eeeea5c", "text": "A bag contains 5 green balls and 7 yellow balls, 12 in total. Two balls are dra…"}
+{"answer": "(a) 77/324; (b) 77/162; (c) 203/324; (d) 77/5508", "id": "f10-compound-outcomes-replacement/exam/0/62454cb94e98", "text": "A tin has 7 red marbles and 11 blue marbles. A marble is picked at random, note…"}
+{"answer": "(a) 39/256; (b) 39/128; (c) 247/256; (d) 13/1280", "id": "f10-compound-outcomes-replacement/exam/1/e64e4cde85fd", "text": "A jar contains 13 blue jelly beans and 3 green jelly beans. Two are taken at ra…"}
+{"answer": "(a) 3/16; (b) 3/8; (c) 7/16; (d) 3/112", "id": "f10-compound-outcomes-replacement/exam/2/8da255c64d32", "text": "A bag holds 2 green counters and 6 yellow counters. Two counters are drawn at r…"}
 {"answer": "16/25, 4/25, 1/25, 4/25", "id": "f10-compound-outcomes-replacement/hard/0/f71461702661", "text": "A bag contains 2 green balls and 8 yellow balls, 10 in total. A ball is drawn a…"}
 {"answer": "14/81, 14/81, 4/81, 49/81", "id": "f10-compound-outcomes-replacement/hard/1/922f05ee59aa", "text": "A bag contains 2 green balls and 7 yellow balls, 9 in total. A ball is drawn at…"}
 {"answer": "1/16, 3/16, 9/16, 3/16", "id": "f10-compound-outcomes-replacement/hard/2/dc764ca1a589", "text": "A bag contains 2 green balls and 6 yellow balls, 8 in total. A ball is drawn at…"}
@@ -1108,6 +1168,9 @@
 {"answer": "the probability of having solar panels, given growing veget…", "id": "f10-conditional-probability-language/easy/0/c60e94161509", "text": "Read this sentence: \"What is the probability that a randomly chosen resident ha…"}
 {"answer": "the probability of shopping online, given using a loyalty c…", "id": "f10-conditional-probability-language/easy/1/2d0a387b6971", "text": "Read this sentence: \"What is the probability that a randomly chosen shopper sho…"}
 {"answer": "the probability of buying fruit, given using a loyalty card", "id": "f10-conditional-probability-language/easy/2/fd7ef9058e56", "text": "Read this sentence: \"Knowing that a randomly chosen shopper uses a loyalty card…"}
+{"answer": "(a) 180; (b) 3/10; (c) 3/10; (d) 0.0", "id": "f10-conditional-probability-language/exam/0/bc6e43f76a0b", "text": "220 students were asked how they get to school and whether they have a part-tim…"}
+{"answer": "(a) 80; (b) 7/20; (c) 53/100; (d) -18.0", "id": "f10-conditional-probability-language/exam/1/7aa46358c35f", "text": "200 students were asked how they get to school and whether they have a part-tim…"}
+{"answer": "(a) 40; (b) 1/4; (c) 37/100; (d) -12.0", "id": "f10-conditional-probability-language/exam/2/f5a460e0e0b9", "text": "100 commuters at a railway station were asked how they travel and whether they …"}
 {"answer": "the probability of borrowing a DVD, given attending story t…", "id": "f10-conditional-probability-language/hard/0/db20144f60f4", "text": "In a survey of 67 library members, 19 attend story time, 32 borrow a DVD and 10…"}
 {"answer": "the probability of shopping online, given bringing their ow…", "id": "f10-conditional-probability-language/hard/1/0807da766600", "text": "In a survey of 76 shoppers, 35 bring their own bag, 32 shop online and 10 do bo…"}
 {"answer": "the probability of swimming, given walking to school", "id": "f10-conditional-probability-language/hard/2/86016edf2d58", "text": "In a survey of 82 students, 27 walk to school, 37 swim and 12 do both. Read thi…"}
@@ -1207,9 +1270,9 @@
 {"answer": "Yes, directly proportional -- the total cost is $7.50.", "id": "f10-direct-proportion-scale-model/easy/0/c338311375e5", "text": "Ribbon is priced at $1.25 per metre. Is this relationship directly proportional…"}
 {"answer": "Yes, directly proportional -- the total cost is $20.00.", "id": "f10-direct-proportion-scale-model/easy/1/a7061e84156a", "text": "Ribbon costs $4.00 per metre. Is this relationship directly proportional, and w…"}
 {"answer": "Yes, directly proportional -- the total cost is $12.00.", "id": "f10-direct-proportion-scale-model/easy/2/5a2b342885fb", "text": "Flour costs $2.00 per kg. Is this relationship directly proportional, and what …"}
-{"answer": "Yes, directly proportional -- the total cost is $300.00.", "id": "f10-direct-proportion-scale-model/exam/0/5d9a6ac3d253", "text": "A subscription service's monthly bill depends on the GB used: for 4 GB the tota…"}
-{"answer": "Yes, directly proportional -- the total cost is $105.00.", "id": "f10-direct-proportion-scale-model/exam/1/30bf4e87b087", "text": "A subscription service's monthly bill depends on the GB used: for 4 GB the tota…"}
-{"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/exam/2/710b9fae246f", "text": "A tradesperson's total charge depends on the number of hours worked: for 7 hour…"}
+{"answer": "(a) 37.50; (b) 412.50; (c) 14", "id": "f10-direct-proportion-scale-model/exam/0/edf39259dbe5", "text": "A cafe pays its casual staff by the hour, with no fixed payment. A 4 hour shift…"}
+{"answer": "(a) 1.60; (b) 96.00; (c) 63", "id": "f10-direct-proportion-scale-model/exam/1/77b93f36f714", "text": "A landscape supplier sells crushed gravel in bags, and the price depends only o…"}
+{"answer": "(a) 0.45; (b) 13.95; (c) 39", "id": "f10-direct-proportion-scale-model/exam/2/a4bd0d50a3fd", "text": "A landscape supplier sells crushed gravel in bags, and the price depends only o…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/hard/0/9996d078f426", "text": "A car rental costs a $30.00 flat booking fee plus $15.00 per day of hire. Is th…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/hard/1/699187bad9bf", "text": "A phone plan costs $10.00 a month plus $40.00 per GB used. Is this relationship…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/hard/2/4b7a00f6776f", "text": "A plumber charges a $20.00 call-out fee plus $15.00 per hour. Is this relations…"}
@@ -1444,6 +1507,42 @@
 {"answer": "75", "id": "f10-geometric-construction-algorithm/medium/0/bd18e24117e3", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
 {"answer": "150", "id": "f10-geometric-construction-algorithm/medium/1/11fd22c582ce", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
 {"answer": "45", "id": "f10-geometric-construction-algorithm/medium/2/c5de0743fa32", "text": "A construction algorithm builds angles at O by turning anticlockwise from ray O…"}
+{"answer": "2, 4, 7", "id": "f10-geometric-proof-reasons/easy/0/ee56a38b1f49", "text": "A proof is being written. WP is parallel to EY. The line ZJ crosses WP at F and…"}
+{"answer": "6, 5, 3", "id": "f10-geometric-proof-reasons/easy/1/11f84b3b4730", "text": "A proof is being written. PD is parallel to ZG. The line YB crosses PD at Y and…"}
+{"answer": "2, 3, 5", "id": "f10-geometric-proof-reasons/easy/2/ee5a156901dd", "text": "A proof is being written. EG is parallel to ZR. The line XK crosses EG at T and…"}
+{"answer": "(a) Definition of a midpoint: it divides a line into two eq…", "id": "f10-geometric-proof-reasons/exam/0/da0d652e6d86", "text": "A proof is being written. L is the midpoint of JM, and ZL is perpendicular to J…"}
+{"answer": "(a) The angles in a triangle add to 180°; (b) Angles on a s…", "id": "f10-geometric-proof-reasons/exam/1/c109ed4c98a7", "text": "A proof is being written. WRY is a triangle, and the side RY is extended to Q. …"}
+{"answer": "(a) The angles in a triangle add to 180°; (b) Angles on a s…", "id": "f10-geometric-proof-reasons/exam/2/790ad3e6a338", "text": "A proof is being written. TLM is a triangle, and the side LM is extended to F. …"}
+{"answer": "4, 2, 3, 1, 5", "id": "f10-geometric-proof-reasons/hard/0/f6e098d2e0b4", "text": "A proof is being written. In triangle HSP, HS = HP, and G is the midpoint of SP…"}
+{"answer": "7, 4, 6, 3, 2", "id": "f10-geometric-proof-reasons/hard/1/afeea4571701", "text": "A proof is being written. D is the midpoint of JS, and TD is perpendicular to J…"}
+{"answer": "4, 3, 6, 5, 8", "id": "f10-geometric-proof-reasons/hard/2/9a95cb0a05af", "text": "A proof is being written. L is the midpoint of TD, and XL is perpendicular to T…"}
+{"answer": "2, 1, 6", "id": "f10-geometric-proof-reasons/medium/0/4f1d42081c47", "text": "A proof is being written. In triangle NMQ, NM = NQ. To prove: ∠MNQ = 180° − 2 ×…"}
+{"answer": "7, 5, 3", "id": "f10-geometric-proof-reasons/medium/1/c79e9c68b774", "text": "A proof is being written. In triangle YWD, YW = YD. To prove: ∠WYD = 180° − 2 ×…"}
+{"answer": "5, 2, 6", "id": "f10-geometric-proof-reasons/medium/2/3193b07d7812", "text": "A proof is being written. In triangle UKY, UK = UY. To prove: ∠KUY = 180° − 2 ×…"}
+{"answer": "{Q, S}", "id": "f10-graphical-inequality-regions/easy/0/5e769056ef97", "text": "The line L is the graph of y = -3x + 2. The five points P, Q, R, S and T are ma…"}
+{"answer": "{Q}", "id": "f10-graphical-inequality-regions/easy/1/911950b5aa5a", "text": "The line L is the graph of y = 2x - 4. The five points P, Q, R, S and T are mar…"}
+{"answer": "{Q, R, S}", "id": "f10-graphical-inequality-regions/easy/2/077ee87f4fb9", "text": "The line L is the graph of y = -2x + 1. The five points P, Q, R, S and T are ma…"}
+{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-inequality-regions/exam/0/4221193a4558", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
+{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-inequality-regions/exam/1/93ed970cbfb1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
+{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-inequality-regions/exam/2/25c5ee1d3edb", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
+{"answer": "{U}", "id": "f10-graphical-inequality-regions/hard/0/379dfa638f1f", "text": "The lines A and B are drawn on the grid and continue in both directions. A regi…"}
+{"answer": "{P}", "id": "f10-graphical-inequality-regions/hard/1/c23ab1f5cbdd", "text": "The lines A and B are drawn on the grid and continue in both directions. A regi…"}
+{"answer": "{R, U}", "id": "f10-graphical-inequality-regions/hard/2/546655137552", "text": "The lines A and B are drawn on the grid and continue in both directions. A regi…"}
+{"answer": "{P, Q, U}", "id": "f10-graphical-inequality-regions/medium/0/bae75fa9d264", "text": "The line L is drawn on the grid and continues in both directions. A region is m…"}
+{"answer": "{R, S, T}", "id": "f10-graphical-inequality-regions/medium/1/a28d6606e290", "text": "The line L is drawn on the grid and continues in both directions. A region is m…"}
+{"answer": "{P, R, S}", "id": "f10-graphical-inequality-regions/medium/2/2d72d925e6d5", "text": "The line L is drawn on the grid and continues in both directions. A region is m…"}
+{"answer": "(-2, 3)", "id": "f10-graphical-systems-of-lines/easy/0/b0b70b4bff80", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
+{"answer": "(-1, -2)", "id": "f10-graphical-systems-of-lines/easy/1/ee8c4f1bce6f", "text": "Find the point where the lines A and B cross, as (x, y)."}
+{"answer": "(3, 4)", "id": "f10-graphical-systems-of-lines/easy/2/a889785290fa", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
+{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-systems-of-lines/exam/0/4221193a4558", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
+{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/1/93ed970cbfb1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
+{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/2/25c5ee1d3edb", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
+{"answer": "(12, -34)", "id": "f10-graphical-systems-of-lines/hard/0/18babb170609", "text": "Line A is drawn on the grid and extends in both directions. Line B has gradient…"}
+{"answer": "(-7, -5)", "id": "f10-graphical-systems-of-lines/hard/1/f8746dc28b68", "text": "The line A is drawn on the grid and continues in both directions. The line B ha…"}
+{"answer": "(11, 32)", "id": "f10-graphical-systems-of-lines/hard/2/bac0889b5199", "text": "On the grid, the line A continues in both directions. A second line, B, has gra…"}
+{"answer": "(0.5, 0)", "id": "f10-graphical-systems-of-lines/medium/0/1de517790b90", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
+{"answer": "(-1.5, -0.5)", "id": "f10-graphical-systems-of-lines/medium/1/847761a2c797", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
+{"answer": "(1.5, 1.5)", "id": "f10-graphical-systems-of-lines/medium/2/71537e613a11", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
 {"answer": "column = 3, row = 1", "id": "f10-grid-reference-pathway/easy/0/b626b5939534", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 2, row = 4", "id": "f10-grid-reference-pathway/easy/1/0aace713887a", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 4, row = 4", "id": "f10-grid-reference-pathway/easy/2/cc7b0c414a76", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
@@ -1537,6 +1636,18 @@
 {"answer": "180", "id": "f10-logarithmic-scales/medium/0/3334483450c4", "text": "On a logarithmic scale, A is marked at 18 and B is marked at 18000, 3 equal sca…"}
 {"answer": "4000", "id": "f10-logarithmic-scales/medium/1/ecbc31830311", "text": "On a logarithmic scale, A is marked at 4 and B is marked at 40000, 4 equal scal…"}
 {"answer": "600", "id": "f10-logarithmic-scales/medium/2/394eb59d388f", "text": "On a logarithmic scale, A is marked at 6 and B is marked at 6000, 3 equal scale…"}
+{"answer": "y ≤ -2x - 4", "id": "f10-match-inequality-to-line/easy/0/c9a005c6f369", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
+{"answer": "y > x + 2", "id": "f10-match-inequality-to-line/easy/1/54a15f756091", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
+{"answer": "y > -3x - 3", "id": "f10-match-inequality-to-line/easy/2/336218f3ad48", "text": "The grid shows the line L. A region is bounded by L and contains the point (-4,…"}
+{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-match-inequality-to-line/exam/0/4221193a4558", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
+{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/1/93ed970cbfb1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
+{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/2/25c5ee1d3edb", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
+{"answer": "y ≥ 2x + 1", "id": "f10-match-inequality-to-line/hard/0/f4ca7666dbcf", "text": "The grid shows the line L. A region is bounded by L and contains the point (12,…"}
+{"answer": "y ≤ x/2 + 2", "id": "f10-match-inequality-to-line/hard/1/423e9207a256", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
+{"answer": "y > 3x + 1", "id": "f10-match-inequality-to-line/hard/2/fd33dde17fb2", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
+{"answer": "y ≤ -3x/2 + 3", "id": "f10-match-inequality-to-line/medium/0/8c1ad24af465", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
+{"answer": "y ≤ -3x - 3", "id": "f10-match-inequality-to-line/medium/1/22220f662034", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
+{"answer": "y < 3x - 3", "id": "f10-match-inequality-to-line/medium/2/66b449712878", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
 {"answer": "40", "id": "f10-measure-angle-protractor/easy/0/cab807e4c3cd", "text": "The arm OA runs along the bottom of a protractor. What is the size of angle AOB…"}
 {"answer": "140", "id": "f10-measure-angle-protractor/easy/1/2cc5bf27ac26", "text": "Here is a protractor lying along the arm OA. How many degrees is angle AOB?"}
 {"answer": "130", "id": "f10-measure-angle-protractor/easy/2/6bcb1f738f90", "text": "A protractor is placed on the angle AOB. How many degrees is angle AOB?"}
@@ -1723,6 +1834,18 @@
 {"answer": "12, 15, 17, 18", "id": "f10-number-represent-order-to-20/medium/0/5b5962959b11", "text": "Arrange these numbers from smallest to largest: 18, 17, 15, 12."}
 {"answer": "0, 11, 13, 19", "id": "f10-number-represent-order-to-20/medium/1/56221cf11643", "text": "Arrange these numbers from smallest to largest: 11, 13, 0, 19."}
 {"answer": "1, 3, 12, 18", "id": "f10-number-represent-order-to-20/medium/2/474dbb6ce045", "text": "Arrange these numbers from smallest to largest: 1, 12, 3, 18."}
+{"answer": "{Q, R}", "id": "f10-number-set-membership/easy/0/e8fb3a3e4ce0", "text": "N is the natural numbers (1, 2, 3, ...), Z the integers, Q the rational numbers…"}
+{"answer": "{Q, R}", "id": "f10-number-set-membership/easy/1/0b08eb3dad90", "text": "N is the natural numbers (1, 2, 3, ...), Z the integers, Q the rational numbers…"}
+{"answer": "{N, Z, Q, R}", "id": "f10-number-set-membership/easy/2/ef806804b884", "text": "N is the natural numbers (1, 2, 3, ...), Z the integers, Q the rational numbers…"}
+{"answer": "(a) 6; (b) 86; (c) 24", "id": "f10-number-set-membership/exam/0/c418164ad9da", "text": "A list is made of √(8k) for every whole number k from 1 to 92. (a) How many of …"}
+{"answer": "(a) 4; (b) 205; (c) 8", "id": "f10-number-set-membership/exam/1/eafd4661e0ea", "text": "A list is made of the cube roots of 4k for every whole number k from 1 to 209. …"}
+{"answer": "(a) 4; (b) 248; (c) 12", "id": "f10-number-set-membership/exam/2/e0a239391cf0", "text": "A list is made of the cube roots of 9k for every whole number k from 1 to 252. …"}
+{"answer": "{B, C, E, F, H}", "id": "f10-number-set-membership/hard/0/2dfa37340af5", "text": "Eight numbers are listed. A: 2 + √7; B: -2.693; C: ∛(64); D: 1 ÷ √7; E: (5 + √5…"}
+{"answer": "{A, B, E, G}", "id": "f10-number-set-membership/hard/1/e369f6b46b98", "text": "Eight numbers are listed. A: (√76)²; B: √(16/9); C: 2 + √7; D: 0.1010010001... …"}
+{"answer": "{B, E, G, H}", "id": "f10-number-set-membership/hard/2/f05fda0b0dad", "text": "Eight numbers are listed. A: 4π; B: 0.545454... (the repeating block is 54); C:…"}
+{"answer": "{D, E}", "id": "f10-number-set-membership/medium/0/76e008e52874", "text": "Six numbers are listed. A: -28/4; B: 0.181818... (the repeating block is 18); C…"}
+{"answer": "{B, C}", "id": "f10-number-set-membership/medium/1/e0dea00262d6", "text": "Six numbers are listed. A: √(1/4); B: √11 + √6; C: √57; D: √64; E: √(9/49); F: …"}
+{"answer": "{A, D}", "id": "f10-number-set-membership/medium/2/575178a0e0e1", "text": "Six numbers are listed. A: √59; B: 3.14; C: 0.151515... (the repeating block is…"}
 {"answer": "odd", "id": "f10-odd-even-properties/easy/0/2c1b8cbc0b52", "text": "An odd number plus an even number -- is the result odd or even?"}
 {"answer": "even", "id": "f10-odd-even-properties/easy/1/0f50aadae2d5", "text": "An even number plus an even number -- is the result odd or even?"}
 {"answer": "odd", "id": "f10-odd-even-properties/easy/2/cd7137759c7a", "text": "An odd number plus an even number -- is the result odd or even?"}
@@ -2566,6 +2689,18 @@
 {"answer": "-3/2", "id": "gradient-from-graph/medium/0/a13ccf80e42a", "text": "The graph shows a straight line on a coordinate grid. What is the slope of the …"}
 {"answer": "-2", "id": "gradient-from-graph/medium/1/1a313516b1fb", "text": "Study the straight line on this coordinate grid. What is the gradient of the li…"}
 {"answer": "-2/3", "id": "gradient-from-graph/medium/2/01f837c3f1fc", "text": "The diagram shows the graph of a straight line. What is the slope of the line? …"}
+{"answer": "6", "id": "graph-planar-faces/easy/0/1b91d804b7bb", "text": "A council has built bike paths between suburbs A to I. The bike paths are: AB, …"}
+{"answer": "4", "id": "graph-planar-faces/easy/1/9c40da2afc60", "text": "A rail network joins stations A to G. The rail links are: AC, AE, AG, BC, BF, C…"}
+{"answer": "5", "id": "graph-planar-faces/easy/2/7f7cd035d03f", "text": "A rail network joins stations A to I. The rail links are: AE, AG, AI, BE, BF, B…"}
+{"answer": "(a) 15; (b) 3; (c) 8; (d) No: it has more than 3v - 6 edges…", "id": "graph-planar-faces/exam/0/51307069c479", "text": "Plans show 6 towns that are each to be joined directly to every other by a sepa…"}
+{"answer": "(a) 28; (b) 10; (c) 12; (d) No: it has more than 3v - 6 edg…", "id": "graph-planar-faces/exam/1/75a5f3e85039", "text": "A council wants to join 8 suburbs so that every suburb has its own direct bike …"}
+{"answer": "(a) 15; (b) 3; (c) 8; (d) No: it has more than 3v - 6 edges…", "id": "graph-planar-faces/exam/2/7453db12c38d", "text": "A council wants to join 6 towns so that every town has its own direct road to e…"}
+{"answer": "10", "id": "graph-planar-faces/hard/0/0645a0f18fc2", "text": "Every region of a connected plane network, the outside region included, is encl…"}
+{"answer": "20", "id": "graph-planar-faces/hard/1/377788bef7af", "text": "A connected network is drawn on a map with no crossing rail links. Every region…"}
+{"answer": "7", "id": "graph-planar-faces/hard/2/fe323d5d7670", "text": "A connected network of 10 towns has 17 roads, drawn with none crossing. A conne…"}
+{"answer": "10", "id": "graph-planar-faces/medium/0/e8ddbe1e86cf", "text": "8 suburbs are to be joined so that every suburb has its own direct bike path to…"}
+{"answer": "6", "id": "graph-planar-faces/medium/1/6f9225bde434", "text": "7 stations are to be joined so that every station has its own direct rail link …"}
+{"answer": "4", "id": "graph-planar-faces/medium/2/455c52495c56", "text": "A council plans a separate cable from each of 4 houses to each of 4 depots, 16 …"}
 {"answer": "(-1, -1), (0, 1), (1, 3)", "id": "graph-y-mx-plus-b/easy/0/392f2f00f9a7", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
 {"answer": "(0, -2), (1, 1), (2, 4)", "id": "graph-y-mx-plus-b/easy/1/d04cf9d42a0a", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
 {"answer": "(-1, -1), (0, 2), (1, 5)", "id": "graph-y-mx-plus-b/easy/2/1df402482d98", "text": "The diagram shows the graph of a straight line. Which list of (x, y) pairs show…"}
@@ -2590,6 +2725,18 @@
 {"answer": "y = -x/3", "id": "graph-y-mx/medium/0/1b7e68d5334d", "text": "The graph shows a straight line through the origin of a coordinate grid. Which …"}
 {"answer": "y = x/2", "id": "graph-y-mx/medium/1/a4f157f86397", "text": "The diagram shows a proportional relationship as a straight line through the or…"}
 {"answer": "y = x/3", "id": "graph-y-mx/medium/2/25254ae5fd07", "text": "Look at the straight line through the origin on this grid. Choose the equation …"}
+{"answer": "170", "id": "histogram-shape-and-spread/easy/0/5d1280017711", "text": "The histogram shows the heights of adult women. Find the lower boundary of the …"}
+{"answer": "1.0", "id": "histogram-shape-and-spread/easy/1/0510e62fcda4", "text": "The histogram shows the water used by households in one day. Find the lower bou…"}
+{"answer": "14", "id": "histogram-shape-and-spread/easy/2/2d8f811f99f9", "text": "The histogram shows the masses of bags of flour from a packing line. What is th…"}
+{"answer": "(a) 63; (b) 32; (c) 1.0; (d) The mean is greater than the m…", "id": "histogram-shape-and-spread/exam/0/73ce4efe773c", "text": "The histogram shows the water used by households in one day. (a) How many value…"}
+{"answer": "(a) 51; (b) 26; (c) 495; (d) The mean and the median are ab…", "id": "histogram-shape-and-spread/exam/1/a8a15950fa0b", "text": "The histogram shows the masses of bags of flour from a packing line. (a) How ma…"}
+{"answer": "(a) 45; (b) 23; (c) 165; (d) The mean and the median are ab…", "id": "histogram-shape-and-spread/exam/2/e66274fa507c", "text": "The histogram shows the heights of adult women. (a) How many values are shown i…"}
+{"answer": "6", "id": "histogram-shape-and-spread/hard/0/8aebecbc667c", "text": "The histogram shows how many days patients stayed in a hospital ward. What is t…"}
+{"answer": "1.0", "id": "histogram-shape-and-spread/hard/1/9b72d6681c91", "text": "The histogram shows the water used by households in one day. What is the lower …"}
+{"answer": "39", "id": "histogram-shape-and-spread/hard/2/124462f13a35", "text": "The histogram shows the ages at which people retired. Assume the values in each…"}
+{"answer": "3", "id": "histogram-shape-and-spread/medium/0/c057973891c4", "text": "The histogram shows the masses of bags of flour from a packing line. How many o…"}
+{"answer": "20", "id": "histogram-shape-and-spread/medium/1/691ed043557a", "text": "The histogram shows the ages at which people retired. How many of the values ar…"}
+{"answer": "35", "id": "histogram-shape-and-spread/medium/2/08abcbfe5a97", "text": "The histogram shows the masses of bags of flour from a packing line. What is th…"}
 {"answer": "F = 25.00 N", "id": "hookes-law/easy/0/37fbef22e47d", "text": "A spring with stiffness k = 500 N/m is stretched by 0.05 m. Use Hooke's law to …"}
 {"answer": "F = 10.0 N", "id": "hookes-law/easy/1/d35725470be6", "text": "A spring with stiffness k = 100 N/m is stretched by 0.1 m. Use Hooke's law to f…"}
 {"answer": "F = 5.00 N", "id": "hookes-law/easy/2/c3e22c14bbc3", "text": "A spring with stiffness k = 100 N/m is stretched by 0.05 m. Use Hooke's law to …"}
@@ -2845,6 +2992,78 @@
 {"answer": "(a) 55125; (b) 36; (c) 28", "id": "list-factors/exam/0/02937f5fe34d", "text": "A farm near Toowoomba packs N eggs, where N = 3^2 × 5^3 × 7^2. (a) Find the val…"}
 {"answer": "(a) 3024; (b) 40; (c) 10", "id": "list-factors/exam/1/b92b58a4d435", "text": "A surf club in Cronulla stocks N water bottles, where N = 2^4 × 3^3 × 7. (a) Fi…"}
 {"answer": "(a) 360; (b) 24; (c) 20", "id": "list-factors/exam/2/6bedec5ab647", "text": "A library in Ballarat shelves N novels, where N = 2^3 × 3^2 × 5. (a) Find the v…"}
+{"answer": "(-5, 0)", "id": "locus-apollonius-and-intersection/easy/0/2751695d524e", "text": "The points z with |z + 9| = 2|z + 6| lie on a circle. State the centre of the c…"}
+{"answer": "(8, 0)", "id": "locus-apollonius-and-intersection/easy/1/62fc0d6a09c5", "text": "The locus of the complex number z is given by |z + 4| = 2|z - 5|, which is a ci…"}
+{"answer": "(0, 0)", "id": "locus-apollonius-and-intersection/easy/2/ac9d604503f9", "text": "A complex number z satisfies |z - 8| = 2|z - 2|. The locus of z is a circle. St…"}
+{"answer": "(a) (-9, -5); (b) 26; (c) 19, -29; (d) 48", "id": "locus-apollonius-and-intersection/exam/0/4c15497b8553", "text": "The locus of the complex number z = x + iy is the circle 2|z - 3| = |z - 39 - 1…"}
+{"answer": "(a) (-12, -1); (b) 26; (c) 23, -25; (d) 48", "id": "locus-apollonius-and-intersection/exam/1/de90861f82c2", "text": "The locus of the complex number z = x + iy is the circle |z - 36 - 19i| = 2|z -…"}
+{"answer": "(a) (10, -11); (b) 20; (c) 1, -23; (d) 24", "id": "locus-apollonius-and-intersection/exam/2/c4c22bfd3bb1", "text": "The locus of the complex number z = x + iy is the circle |z + 22 - 13i| = 2|z -…"}
+{"answer": "(-1, -2)", "id": "locus-apollonius-and-intersection/hard/0/93a851979017", "text": "The locus of the complex number z is the circle |z + 7 + 4i|² = 4|z - 2 + i|². …"}
+{"answer": "(6, 4)", "id": "locus-apollonius-and-intersection/hard/1/3525f45c0649", "text": "The locus of the complex number z is the circle |z - 12 - 6i|² = 4|z - 3 - 3i|²…"}
+{"answer": "(0, -3)", "id": "locus-apollonius-and-intersection/hard/2/edb41e2cb1d4", "text": "The locus of the complex number z is the circle |z - 6 + 12i| = 3|z + 2|. The c…"}
+{"answer": "(1, -2)", "id": "locus-apollonius-and-intersection/medium/0/5be67a10a1d0", "text": "The points z with |z - 13 + 14i| = 2|z - 4 + 5i| lie on a circle. State the cen…"}
+{"answer": "(3, 7)", "id": "locus-apollonius-and-intersection/medium/1/d8ea4de1af9a", "text": "A complex number z satisfies |z - 7 + i| = 2|z - 4 - 5i|. The locus of z is a c…"}
+{"answer": "(-2, 5)", "id": "locus-apollonius-and-intersection/medium/2/68fbd6f8abba", "text": "The points z with |z - 6 - i| = 2|z - 4i| lie on a circle. State the centre of …"}
+{"answer": "x = -3", "id": "locus-argument-ray-wedge/easy/0/943457a576db", "text": "The points z with Arg(z + 3 - 5i) = -π/2 form a ray. Write the Cartesian equati…"}
+{"answer": "x = -6", "id": "locus-argument-ray-wedge/easy/1/9387101b1f59", "text": "The locus of the complex number z is the ray Arg(z + 6 - 3i) = π/2. Find the Ca…"}
+{"answer": "y = -x + 4", "id": "locus-argument-ray-wedge/easy/2/6411c39b58db", "text": "The locus of the complex number z is the ray Arg(z - 6 + 2i) = 3π/4. Find the C…"}
+{"answer": "(a) y = -x + 2; (b) y = x + 4; (c) 10; (d) 25.0", "id": "locus-argument-ray-wedge/exam/0/f4e9b72a90a3", "text": "The set S of complex numbers z = x + iy satisfies -3π/4 ≤ Arg(z + 1 - 3i) ≤ -π/…"}
+{"answer": "(a) y = -x; (b) y = x - 6; (c) 4; (d) 4.0", "id": "locus-argument-ray-wedge/exam/1/9f6f18877db0", "text": "The set S of complex numbers z = x + iy satisfies π/4 ≤ Arg(z - 3 + 3i) ≤ 3π/4.…"}
+{"answer": "(a) y = -x + 3; (b) x = -2; (c) 4; (d) 8.0", "id": "locus-argument-ray-wedge/exam/2/1d99e7ed528d", "text": "The set S of complex numbers z = x + iy satisfies π/2 ≤ Arg(z + 2 - 5i) ≤ 3π/4.…"}
+{"answer": "x = -6", "id": "locus-argument-ray-wedge/hard/0/7e9d42a64d1a", "text": "The set S of complex numbers z satisfies -π/4 ≤ Arg(z + 6 - i) ≤ π/2. The bound…"}
+{"answer": "y = -x - 7", "id": "locus-argument-ray-wedge/hard/1/60e979ce9511", "text": "The set S of complex numbers z satisfies -π/2 ≤ Arg(z + 3 + 4i) ≤ -π/4. The bou…"}
+{"answer": "y = -x + 1", "id": "locus-argument-ray-wedge/hard/2/97fc1f656294", "text": "The set S of complex numbers z satisfies 0 ≤ Arg(z + 4 - 5i) ≤ 3π/4. The bounda…"}
+{"answer": "y = (-1/2)x + 6", "id": "locus-argument-ray-wedge/medium/0/4666a7e89c8b", "text": "The diagram shows the locus of z, where z satisfies Arg(z - a) = θ for a comple…"}
+{"answer": "y = -2x - 3", "id": "locus-argument-ray-wedge/medium/1/0b4cf105c510", "text": "The ray in the diagram has the equation Arg(z - a) = θ, where a is marked by an…"}
+{"answer": "y = 3x + 10", "id": "locus-argument-ray-wedge/medium/2/3a66795e9632", "text": "The diagram shows the locus of z, where z satisfies Arg(z - a) = θ for a comple…"}
+{"answer": "(4, 0)", "id": "locus-circle-centre-radius/easy/0/58610b874274", "text": "A complex number z satisfies |z - 4| = 6. State the centre of the circle as an …"}
+{"answer": "(-4, 7)", "id": "locus-circle-centre-radius/easy/1/08f97be50329", "text": "The locus of the complex number z is given by |z - (-4 + 7i)| = 4. State the ce…"}
+{"answer": "(-7, 8)", "id": "locus-circle-centre-radius/easy/2/419c0f95f3ba", "text": "A complex number z satisfies |z + 7 - 8i| = 7. State the centre of the circle a…"}
+{"answer": "(a) (1, 1); (b) 2; (c) 8.54; (d) 6.54", "id": "locus-circle-centre-radius/exam/0/1d9ed100240b", "text": "The locus of the complex number z is the circle |3z - 3 - 3i| = 6. The point P …"}
+{"answer": "(a) (1, -3); (b) 3; (c) 10.44; (d) 7.44", "id": "locus-circle-centre-radius/exam/1/1a85531d374a", "text": "The complex number z = x + iy has a locus given by the equation x² + y² - 2x + …"}
+{"answer": "(a) (-1, -1); (b) 2; (c) 5.10; (d) 3.10", "id": "locus-circle-centre-radius/exam/2/9d2bfcc8c251", "text": "The locus of the complex number z is the circle |3z + 3 + 3i| = 6. The point P …"}
+{"answer": "(-4, 6)", "id": "locus-circle-centre-radius/hard/0/6ef45026c63f", "text": "The complex number z = x + iy satisfies x² + y² + 8x - 12y + 36 = 0. The locus …"}
+{"answer": "(4, -4)", "id": "locus-circle-centre-radius/hard/1/c4381a1639e4", "text": "The complex number z = x + iy satisfies x² + y² - 8x + 8y + 28 = 0. The locus o…"}
+{"answer": "(-5/2, -3/2)", "id": "locus-circle-centre-radius/hard/2/d34179675dc3", "text": "In the complex plane the points representing 3 + 5i and -8 - 8i are the ends of…"}
+{"answer": "(-2, 5)", "id": "locus-circle-centre-radius/medium/0/cc24d21e6699", "text": "The points z satisfying |3z + 6 - 15i| = 6 form a circle. State the centre of t…"}
+{"answer": "(-5, 5)", "id": "locus-circle-centre-radius/medium/1/1dcda6f9aca8", "text": "The points z satisfying |3z + 15 - 15i| = 3 form a circle. State the centre of …"}
+{"answer": "(5, 3)", "id": "locus-circle-centre-radius/medium/2/6ced17e39b9e", "text": "The locus of the complex number z is given by |4z - 20 - 12i| = 4. State the ce…"}
+{"answer": "|z + 2 - i| = 4", "id": "locus-circle-disc-pick-sketch/easy/0/9cccd4b16a0b", "text": "The diagram shows the locus of z as a circle in the complex plane. Which equati…"}
+{"answer": "|z + 3 - 2i| = 2", "id": "locus-circle-disc-pick-sketch/easy/1/e94b2e659922", "text": "A circle is drawn on the Argand diagram. Which of these equations has exactly t…"}
+{"answer": "|z - 4 + 3i| = 4", "id": "locus-circle-disc-pick-sketch/easy/2/197101e46852", "text": "The diagram shows the locus of z as a circle in the complex plane. Which equati…"}
+{"answer": "(a) 11; (b) 26; (c) 4; (d) 18i", "id": "locus-circle-disc-pick-sketch/exam/0/a58d761ed1e5", "text": "A circle in the complex plane has centre -9 + 12i and passes through the point …"}
+{"answer": "(a) 8; (b) 21; (c) 5; (d) -4 + 19i", "id": "locus-circle-disc-pick-sketch/exam/1/f5140f76b44b", "text": "A circle in the complex plane has centre 13i and passes through the point 8 + 1…"}
+{"answer": "(a) 5; (b) 15; (c) 5; (d) -6 + 9i", "id": "locus-circle-disc-pick-sketch/exam/2/60e294b016a9", "text": "A circle in the complex plane has centre -6 + 8i and passes through the point -…"}
+{"answer": "3 < |z - 2 - i| ≤ 6", "id": "locus-circle-disc-pick-sketch/hard/0/330bb0841b72", "text": "Which condition on z gives the region between the two circles in the diagram, i…"}
+{"answer": "2 < |z + 2 + i| < 3", "id": "locus-circle-disc-pick-sketch/hard/1/28aa64573f9f", "text": "The diagram shows two concentric circles. Which inequality describes the points…"}
+{"answer": "2 < |z - 1 - 2i| ≤ 5", "id": "locus-circle-disc-pick-sketch/hard/2/faa03b200603", "text": "Two concentric circles are drawn in the complex plane. Which statement describe…"}
+{"answer": "A and D only", "id": "locus-circle-disc-pick-sketch/medium/0/2edc02ad48e8", "text": "Four points are plotted in the complex plane. Which of the points A, B, C and D…"}
+{"answer": "B and C only", "id": "locus-circle-disc-pick-sketch/medium/1/307efc105c78", "text": "The points A, B, C and D are plotted on the Argand diagram. Which of them satis…"}
+{"answer": "C only", "id": "locus-circle-disc-pick-sketch/medium/2/7f008e8e3e97", "text": "Four points are plotted in the complex plane. Which of the points A, B, C and D…"}
+{"answer": "x = -2", "id": "locus-perpendicular-bisector/easy/0/f16a69c1848f", "text": "A complex number z satisfies |z + 3 + 2i| = |z + 1 + 2i|. Write the locus of z …"}
+{"answer": "y = x + 1", "id": "locus-perpendicular-bisector/easy/1/3849161a59de", "text": "The locus of the complex number z is given by |z - 2 + 3i| = |z + 4 - 3i|. Find…"}
+{"answer": "y = -x - 7", "id": "locus-perpendicular-bisector/easy/2/261ade5da53d", "text": "The locus of the complex number z is given by |z + 1| = |z + 7 + 6i|. Find its …"}
+{"answer": "(a) y = (-3/2)x + 3; (b) 2.00; (c) 3.00; (d) 1.66", "id": "locus-perpendicular-bisector/exam/0/1c549ba3e350", "text": "The complex number z = x + iy satisfies |z - 3 - 5i| = |z + 3 - i|. (a) Find th…"}
+{"answer": "(a) y = (-1/2)x + 19/4; (b) 9.50; (c) 22.56; (d) 4.25", "id": "locus-perpendicular-bisector/exam/1/9fcb96893f4f", "text": "The complex number z = x + iy satisfies |z - 1 - 3i| = |z - 2 - 5i|. (a) Find t…"}
+{"answer": "(a) y = (-2/3)x + 9/2; (b) 6.75; (c) 15.19; (d) 3.74", "id": "locus-perpendicular-bisector/exam/2/83c327f4abd3", "text": "The complex number z = x + iy satisfies |z - 5 + i| = |z - 7 - 2i|. (a) Find th…"}
+{"answer": "y = (1/3)x + 2/3", "id": "locus-perpendicular-bisector/hard/0/cde73e518681", "text": "The complex number z satisfies |2z + 2 + 6i| = |2z + 6 - 6i|. Find the Cartesia…"}
+{"answer": "y = -3x + 15", "id": "locus-perpendicular-bisector/hard/1/aeeb5dccf55d", "text": "The complex numbers a and b are the roots of z² + (-8 - 6i)z + (-1 + 18i) = 0. …"}
+{"answer": "y = (1/3)x + 17/3", "id": "locus-perpendicular-bisector/hard/2/1f13c864e3f8", "text": "The complex numbers a and b are the roots of z² + (10 - 8i)z + (17 - 34i) = 0. …"}
+{"answer": "y = (2/3)x + 47/6", "id": "locus-perpendicular-bisector/medium/0/bb53b10d2335", "text": "The points A and B on the Argand diagram represent the complex numbers a and b.…"}
+{"answer": "y = (1/2)x + 5/4", "id": "locus-perpendicular-bisector/medium/1/88ac3ba55303", "text": "A and B are plotted on the Argand diagram and represent the complex numbers a a…"}
+{"answer": "y = (2/3)x - 1", "id": "locus-perpendicular-bisector/medium/2/38e811d32da8", "text": "The points A and B on the Argand diagram represent the complex numbers a and b.…"}
+{"answer": "x ≤ 3", "id": "locus-re-im-half-plane/easy/0/4e79f47db7a3", "text": "The locus of the complex number z = x + iy is given by Re(z + 3 + 3i) ≤ 6. Writ…"}
+{"answer": "y > 9", "id": "locus-re-im-half-plane/easy/1/927a98b5e29f", "text": "The locus of the complex number z = x + iy is given by Im(z + 3 - 5i) > 4. Writ…"}
+{"answer": "x ≤ -8", "id": "locus-re-im-half-plane/easy/2/6e18c8810e95", "text": "Let z = x + iy, where Re(z + 2 - 4i) ≤ -6. Write the condition on z as an inequ…"}
+{"answer": "(a) y = x - 7; (b) 7; (c) x ≥ 7; (d) 4.95", "id": "locus-re-im-half-plane/exam/0/3cce486a730f", "text": "S is the set of complex numbers z = x + iy that satisfy Re(z - 3) ≥ Im(z + 4i).…"}
+{"answer": "(a) y = x - 2; (b) 2; (c) x ≥ 2; (d) 1.41", "id": "locus-re-im-half-plane/exam/1/8aabdb741514", "text": "S is the set of complex numbers z = x + iy that satisfy Re(z - 5) ≥ Im(z - 3i).…"}
+{"answer": "(a) y = x - 6; (b) 6; (c) x ≥ 6; (d) 4.24", "id": "locus-re-im-half-plane/exam/2/be9bfe87f8bc", "text": "S is the set of complex numbers z = x + iy that satisfy Re(z - 2) ≥ Im(z + 4i).…"}
+{"answer": "x > 2", "id": "locus-re-im-half-plane/hard/0/6efd565042d1", "text": "Let z = x + iy, where Im(-2iz̄ + 2i) < -2. Write the condition on z as an inequ…"}
+{"answer": "1/3 < x < 2", "id": "locus-re-im-half-plane/hard/1/168c5971a6f0", "text": "The complex number z = x + iy satisfies -5 < Im(3iz̄ - 6i) < 0. Write the condi…"}
+{"answer": "-1/2 ≤ x < 3/2", "id": "locus-re-im-half-plane/hard/2/dcb4620ed655", "text": "The complex number z = x + iy satisfies -4 < Im(-2iz̄ - 3 - i) ≤ 0. Write the c…"}
+{"answer": "y > -5", "id": "locus-re-im-half-plane/medium/0/d28ef805aa7f", "text": "Let z = x + iy, where Im(-z - 2 - 5i) < 0. Write the condition on z as an inequ…"}
+{"answer": "x > -7/3", "id": "locus-re-im-half-plane/medium/1/321291b76983", "text": "Let z = x + iy, where Re(-3z - 3 - 5i) < 4. Write the condition on z as an ineq…"}
+{"answer": "y > 5/2", "id": "locus-re-im-half-plane/medium/2/8e4eb27fe9c4", "text": "Let z = x + iy, where Im(-2z + 3 + 4i) < -1. Write the condition on z as an ine…"}
 {"answer": "log(a^k)", "id": "logarithm-laws/easy/0/37f22fc9340d", "text": "Which expression is equivalent to k log(a)?"}
 {"answer": "log(ab)", "id": "logarithm-laws/easy/1/a6db530da5f8", "text": "Which expression is equivalent to log(a) + log(b)?"}
 {"answer": "log(ab)", "id": "logarithm-laws/easy/2/4c027444125e", "text": "Which expression is equivalent to log(a) + log(b)?"}
@@ -3049,6 +3268,18 @@
 {"answer": "Circle", "id": "name-basic-shapes/easy/0/6f68474ec188", "text": "What shape is this? ●"}
 {"answer": "Triangle", "id": "name-basic-shapes/easy/1/a122238c8ba2", "text": "What shape is this? ▲"}
 {"answer": "Square", "id": "name-basic-shapes/easy/2/85878d60cb04", "text": "What shape is this? ■"}
+{"answer": "9", "id": "network-model-from-situation/easy/0/0344528e1d52", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
+{"answer": "5", "id": "network-model-from-situation/easy/1/4b26a27faf4b", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
+{"answer": "4", "id": "network-model-from-situation/easy/2/2c7a2956cb8b", "text": "7 friends keep a list of the people they message regularly. Messaging goes both…"}
+{"answer": "(a) 6; (b) 9; (c) 15; (d) 6", "id": "network-model-from-situation/exam/0/fbb69612080e", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "(a) 7; (b) 9; (c) 21; (d) 12", "id": "network-model-from-situation/exam/1/dd07e06c2940", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
+{"answer": "(a) 7; (b) 9; (c) 21; (d) 12", "id": "network-model-from-situation/exam/2/58ca5b5b8e9c", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
+{"answer": "2", "id": "network-model-from-situation/hard/0/9773cde4cecc", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "3", "id": "network-model-from-situation/hard/1/90dd38da005a", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
+{"answer": "3", "id": "network-model-from-situation/hard/2/28f76065f359", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "6", "id": "network-model-from-situation/medium/0/1064dc0bfc44", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "7", "id": "network-model-from-situation/medium/1/5b4f86154c6c", "text": "A ferry company runs the routes below. On each route a ferry runs directly betw…"}
+{"answer": "3", "id": "network-model-from-situation/medium/2/65e0038ebe32", "text": "An airline flies the routes below. On each route a plane flies directly between…"}
 {"answer": "-1", "id": "newton-method-iteration/easy/0/e38210a5f353", "text": "For f(x) = x^2 - x + 2, take one Newton step from x₀ = 1. Find x₁."}
 {"answer": "-1/3", "id": "newton-method-iteration/easy/1/6663563f7393", "text": "For f(x) = x^2 + x + 3, take one Newton step from x₀ = -2. Find x₁."}
 {"answer": "0", "id": "newton-method-iteration/easy/2/1761a5dd06a4", "text": "For f(x) = x^2 + 3x + 1, take one Newton step from x₀ = 1. Find x₁."}
@@ -3133,6 +3364,18 @@
 {"answer": "36", "id": "order-of-operations/medium/0/17e5a0423ab4", "text": "Evaluate 6 × 6 + 4 - 4"}
 {"answer": "-17", "id": "order-of-operations/medium/1/32b2e098befb", "text": "Evaluate 1 - 2 - 4 × 4"}
 {"answer": "96", "id": "order-of-operations/medium/2/00ed55c406e7", "text": "Evaluate 9 × 11 + 8 - 11"}
+{"answer": "8", "id": "parallel-box-plots-outlier-fences/easy/0/30730d9aeab2", "text": "The box plots compare the marks of two classes on the same test. By how many ma…"}
+{"answer": "20", "id": "parallel-box-plots-outlier-fences/easy/1/106bba620582", "text": "The box plots compare the battery life of two brands of torch. What is the inte…"}
+{"answer": "16", "id": "parallel-box-plots-outlier-fences/easy/2/5f1b796406b7", "text": "The box plots compare the weekly screen time of two year groups. Find the inter…"}
+{"answer": "(a) 10; (b) 49; (c) 5; (d) Courier B is more variable, beca…", "id": "parallel-box-plots-outlier-fences/exam/0/d39db8d2a1c7", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "(a) 8; (b) 40; (c) 28; (d) Brand X is more variable, becaus…", "id": "parallel-box-plots-outlier-fences/exam/1/1b35e3a1656d", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
+{"answer": "(a) 12; (b) 56; (c) 22; (d) Class B is more variable, becau…", "id": "parallel-box-plots-outlier-fences/exam/2/da575d60e760", "text": "The box plots compare the marks of two classes on the same test. A value is an …"}
+{"answer": "5", "id": "parallel-box-plots-outlier-fences/hard/0/bcea694d26be", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
+{"answer": "51", "id": "parallel-box-plots-outlier-fences/hard/1/7cf5ed749168", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "62", "id": "parallel-box-plots-outlier-fences/hard/2/804b03d1f456", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "1", "id": "parallel-box-plots-outlier-fences/medium/0/2649e8bb5c26", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
+{"answer": "53", "id": "parallel-box-plots-outlier-fences/medium/1/e8077bb72fb4", "text": "The box plots compare the delivery times of two couriers. A value is an outlier…"}
+{"answer": "6", "id": "parallel-box-plots-outlier-fences/medium/2/edcc7b940a4a", "text": "The box plots compare the battery life of two brands of torch. A value is an ou…"}
 {"answer": "-9*x**2 + 4*x*y**2", "id": "partial-derivative-x/easy/0/79bda499059b", "text": "f(x, y) = -3*x**3 + 2*x**2*y**2 + y**3. Find ∂f/∂x"}
 {"answer": "6*x + y", "id": "partial-derivative-x/easy/1/1332edf3560f", "text": "f(x, y) = 3*x**2 + x*y + 2*y**2. Find ∂f/∂x"}
 {"answer": "4*x - 2*y**2", "id": "partial-derivative-x/easy/2/de5dd6478310", "text": "f(x, y) = 2*x**2 - 2*x*y**2 - 2*y**3. Find ∂f/∂x"}
@@ -3247,6 +3490,18 @@
 {"answer": "2x^2 + 2x + 2 + (-7)/(3x - 5)", "id": "polynomial-long-division/medium/0/7c9c6acefac9", "text": "Divide f(x) = 6x^3 - 4x^2 - 4x - 17 by g(x) = 3x - 5. Give your answer as a sin…"}
 {"answer": "6x^2 + x - 1 + (2)/(2x)", "id": "polynomial-long-division/medium/1/af384e547590", "text": "Divide f(x) = 12x^3 + 2x^2 - 2x + 2 by g(x) = 2x. Give your answer as a single …"}
 {"answer": "-x^2 - 4x + 2 + (-3)/(2x + 5)", "id": "polynomial-long-division/medium/2/9cde849b518a", "text": "Divide f(x) = -2x^3 - 13x^2 - 16x + 7 by g(x) = 2x + 5. Give your answer as a s…"}
+{"answer": "0.7", "id": "position-time-graph-velocity/easy/0/59aa55994945", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "0.6", "id": "position-time-graph-velocity/easy/1/f41d82bae7f4", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "0.7", "id": "position-time-graph-velocity/easy/2/4a18f852168b", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
+{"answer": "(a) -0.75; (b) 5; (c) 9; (d) 0.9", "id": "position-time-graph-velocity/exam/0/e3edaf0420f3", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "(a) 1; (b) 6; (c) 8; (d) 0.8", "id": "position-time-graph-velocity/exam/1/eb4320ab53c4", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "(a) -2; (b) 7; (c) 12; (d) 1.2", "id": "position-time-graph-velocity/exam/2/9c5a7035988c", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "10", "id": "position-time-graph-velocity/hard/0/9967495a5a83", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "5", "id": "position-time-graph-velocity/hard/1/ba07034aa888", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "7", "id": "position-time-graph-velocity/hard/2/ba145b91e423", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "1.2", "id": "position-time-graph-velocity/medium/0/d7b9b198cd26", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
+{"answer": "5.4", "id": "position-time-graph-velocity/medium/1/44046c140fb2", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
+{"answer": "1.8", "id": "position-time-graph-velocity/medium/2/2720e67747e6", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/0/2e99032d3ed9", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3²", "id": "prime-factorisation-exponent/easy/1/dd141497b7f2", "text": "Write 9 as a product of prime powers using exponent notation."}
 {"answer": "3² × 5²", "id": "prime-factorisation-exponent/easy/2/9790e970467f", "text": "Write 225 as a product of prime powers using exponent notation."}
@@ -3391,6 +3646,18 @@
 {"answer": "15:37", "id": "ratio-rate-proportion/medium/0/d6f6c9ff1721", "text": "Simplify the ratio 45:111"}
 {"answer": "1:55", "id": "ratio-rate-proportion/medium/1/cfe0b2e86282", "text": "Simplify the ratio 8:440"}
 {"answer": "35:52", "id": "ratio-rate-proportion/medium/2/a62c2b578efc", "text": "Simplify the ratio 140:208"}
+{"answer": "x = -3, y = 3", "id": "rational-function-features/easy/0/f6a531597f5f", "text": "The graph of y = (3x - 3)/(x + 3) has one vertical and one horizontal asymptote…"}
+{"answer": "x = -5, y = -3", "id": "rational-function-features/easy/1/4be891cd24fd", "text": "The graph of y = (-3x + 2)/(x + 5) has one vertical and one horizontal asymptot…"}
+{"answer": "x = 2, y = -1", "id": "rational-function-features/easy/2/5dd7b12d67b0", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "(a) 3; (b) 6; (c) 9; (d) -2", "id": "rational-function-features/exam/0/deeee8190f29", "text": "Consider the function f(x) = (x² + 3x + 6)/(x - 3). (a) Find the value of x at …"}
+{"answer": "(a) 3; (b) 9; (c) 12; (d) -2", "id": "rational-function-features/exam/1/e019a3f8655c", "text": "Consider the function f(x) = (x² + 6x + 6)/(x - 3). (a) Find the value of x at …"}
+{"answer": "(a) -2; (b) -6; (c) -8; (d) 1", "id": "rational-function-features/exam/2/1c8ec9c09f61", "text": "Consider the function f(x) = (x² - 4x + 2)/(x + 2). (a) Find the value of x at …"}
+{"answer": "m = 2, k = -2", "id": "rational-function-features/hard/0/aeee336d8035", "text": "The graph of y = (2x² - 14x + 13)/(x - 6) has an oblique asymptote with equatio…"}
+{"answer": "x = -5, y = -5", "id": "rational-function-features/hard/1/7c17a357bcaf", "text": "The graph of y = (2x² + 15x + 25)/(x + 5) has a hole, a single point where the …"}
+{"answer": "x = 1, y = -6", "id": "rational-function-features/hard/2/98da61fe8029", "text": "The graph of y = (-2x² - 2x + 4)/(x - 1) has a hole, a single point where the f…"}
+{"answer": "x = 1/3, y = 5/3", "id": "rational-function-features/medium/0/8ecb046b6fb6", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "x = 1, y = 5/3", "id": "rational-function-features/medium/1/1b367656dfaa", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
+{"answer": "x = 3/2, y = -1/2", "id": "rational-function-features/medium/2/a27943579b05", "text": "Find the equations of the vertical and horizontal asymptotes of the graph of y …"}
 {"answer": "(5 - sqrt(2))/23", "id": "rationalise-binomial-denominator/easy/0/8e200d6ba510", "text": "Rationalise the denominator of 1/(5 + √2). Give your answer as a single simplif…"}
 {"answer": "(9 - sqrt(11))/70", "id": "rationalise-binomial-denominator/easy/1/79a6f0a7b8a1", "text": "Rationalise the denominator of 1/(9 + √11). Give your answer as a single simpli…"}
 {"answer": "(7 + sqrt(13))/36", "id": "rationalise-binomial-denominator/easy/2/3bdfb4d35a42", "text": "Rationalise the denominator of 1/(7 - √13). Give your answer as a single simpli…"}
@@ -3421,6 +3688,18 @@
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/0/c55b4b9ed2be", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/1/c8ff1a45c975", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "-a*t/2 + s/t", "id": "rearrange-simple-formulas/powers-roots/2/0cc130ad6206", "text": "Make u the subject of the formula s = ut + ½at²"}
+{"answer": "2pi", "id": "reciprocal-and-trig-graph-features/easy/0/48ce20554d91", "text": "State the period of the graph of y = -3 tan(x/2)."}
+{"answer": "6pi", "id": "reciprocal-and-trig-graph-features/easy/1/e67f0e1f3fbb", "text": "What is the period, in radians, of the function y = -2 sec(x/3)? Give an exact …"}
+{"answer": "pi", "id": "reciprocal-and-trig-graph-features/easy/2/51f5a24a0c03", "text": "Find the period of y = 2 sec(2x). Give your answer in radians, in terms of pi."}
+{"answer": "(a) pi/2; (b) pi/4; (c) 9; (d) 4", "id": "reciprocal-and-trig-graph-features/exam/0/1c2a6c081c58", "text": "Let f(x) = -3 cosec(4x) + 1, where 0 ≤ x ≤ 2π. (a) Find the period of f. Give a…"}
+{"answer": "(a) 2pi/3; (b) pi/3; (c) 7; (d) 1", "id": "reciprocal-and-trig-graph-features/exam/1/e7993e810769", "text": "A function is given by f(x) = 4 cosec(3x) - 3, for 0 ≤ x ≤ 2π. (a) Find the per…"}
+{"answer": "(a) pi; (b) pi/2; (c) 5; (d) 6", "id": "reciprocal-and-trig-graph-features/exam/2/e5288c4eb5fe", "text": "A function is given by f(x) = 4 cosec(2x) + 2, for 0 ≤ x ≤ 2π. (a) Find the per…"}
+{"answer": "5pi/24", "id": "reciprocal-and-trig-graph-features/hard/0/0301314205b7", "text": "The graph of y = -2 sec(4(x - π/3)) + 1 has vertical asymptotes. What is the sm…"}
+{"answer": "-2", "id": "reciprocal-and-trig-graph-features/hard/1/f7921dd7b782", "text": "The graph of y = -2 sec(3x) - 4 takes no values between two numbers. Find the l…"}
+{"answer": "7", "id": "reciprocal-and-trig-graph-features/hard/2/04e842e12cb0", "text": "The graph of y = 4 sec(2x) + 3 takes no values between two numbers. Find the la…"}
+{"answer": "6", "id": "reciprocal-and-trig-graph-features/medium/0/eb4c1a518523", "text": "For 0 ≤ x ≤ 2π, how many vertical asymptotes does y = cosec(5x/2) have?"}
+{"answer": "8", "id": "reciprocal-and-trig-graph-features/medium/1/fe54d2434895", "text": "How many vertical asymptotes does the graph of y = -2 tan(4x) have for 0 ≤ x ≤ …"}
+{"answer": "9", "id": "reciprocal-and-trig-graph-features/medium/2/b54847132d76", "text": "How many vertical asymptotes does the graph of y = cosec(4x) have for 0 ≤ x ≤ 2…"}
 {"answer": "8", "id": "recognise-numerals-to-10/easy/0/5ad3d72248b6", "text": "Tap the number 8"}
 {"answer": "10", "id": "recognise-numerals-to-10/easy/1/35ec3258cfe6", "text": "Tap the number 10"}
 {"answer": "6", "id": "recognise-numerals-to-10/easy/2/db77affa9cef", "text": "Tap the number 6"}
@@ -3529,6 +3808,42 @@
 {"answer": "7.4", "id": "round-decimals/medium/0/b9da8826cb14", "text": "Round 7.42 to the nearest tenth."}
 {"answer": "29.4", "id": "round-decimals/medium/1/63e7c1fa240a", "text": "Round 29.41 to the nearest tenth."}
 {"answer": "97.1", "id": "round-decimals/medium/2/340184f088d7", "text": "Round 97.12 to the nearest tenth."}
+{"answer": "1824", "id": "scale-drawing-costs/easy/0/c487d9bb5895", "text": "The floor of a studio is shown on a plan with a scale of 1 : 100. It measures 8…"}
+{"answer": "1620", "id": "scale-drawing-costs/easy/1/21a25cc11d8d", "text": "The floor of a studio is shown on a plan with a scale of 1 : 100. It measures 9…"}
+{"answer": "595", "id": "scale-drawing-costs/easy/2/dc781b0e7b61", "text": "A plan of a studio is drawn to a scale of 1 : 20. On the plan the floor is 17.5…"}
+{"answer": "(a) 7; (b) 45.50; (c) 54.60; (d) 2035", "id": "scale-drawing-costs/exam/0/45e072898d74", "text": "A plan of a lounge room is drawn to a scale of 1 : 100. On the plan the floor i…"}
+{"answer": "(a) 9; (b) 58.50; (c) 70.20; (d) 2961", "id": "scale-drawing-costs/exam/1/aaa17ee6da4d", "text": "A plan of an office is drawn to a scale of 1 : 100. On the plan the floor is 9 …"}
+{"answer": "(a) 7; (b) 35.00; (c) 42.00; (d) 1224", "id": "scale-drawing-costs/exam/2/d0a70f9794c2", "text": "A plan of an office is drawn to a scale of 1 : 25. On the plan the floor is 28 …"}
+{"answer": "1380", "id": "scale-drawing-costs/hard/0/35c56612ed58", "text": "A plan of a rectangular courtyard is drawn to a scale of 1 : 50. On the plan th…"}
+{"answer": "1080", "id": "scale-drawing-costs/hard/1/cf9b4cd69294", "text": "A plan of a lounge room is drawn to a scale of 1 : 50. On the plan the floor is…"}
+{"answer": "760", "id": "scale-drawing-costs/hard/2/8cbbc5d65e92", "text": "A plan of a rectangular courtyard is drawn to a scale of 1 : 20. On the plan th…"}
+{"answer": "2355.2", "id": "scale-drawing-costs/medium/0/9f9548e562eb", "text": "The floor of a studio is shown on a plan with a scale of 1 : 20. It measures 40…"}
+{"answer": "869.4", "id": "scale-drawing-costs/medium/1/3be2dd35e35c", "text": "A plan of a lounge room is drawn to a scale of 1 : 50. On the plan the floor is…"}
+{"answer": "1106.25", "id": "scale-drawing-costs/medium/2/25198757e1c3", "text": "A plan of a hall is drawn to a scale of 1 : 100. On the plan the floor is 5 cm …"}
+{"answer": "positive, strong", "id": "scatterplot-describe-association/easy/0/0d7e03e31b32", "text": "The scatterplot shows the exam mark of each of 12 pianists against the hours th…"}
+{"answer": "positive, moderate", "id": "scatterplot-describe-association/easy/1/093012809602", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "positive, strong", "id": "scatterplot-describe-association/easy/2/e31df62e3d9b", "text": "The scatterplot shows the exam mark of each of 12 pianists against the hours th…"}
+{"answer": "(a) positive, linear, strong; (b) 96; (c) 4; (d) There is a…", "id": "scatterplot-describe-association/exam/0/f5454ef81f77", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "(a) positive, linear, strong; (b) 96; (c) 4; (d) There is a…", "id": "scatterplot-describe-association/exam/1/e93df555f0a5", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "(a) positive, linear, strong; (b) 96; (c) 4; (d) There is a…", "id": "scatterplot-describe-association/exam/2/3e29733a3064", "text": "The scatterplot shows the solar power generated by a household on each of 12 da…"}
+{"answer": "negative, strong, weaker", "id": "scatterplot-describe-association/hard/0/7e3c6b4c6880", "text": "The scatterplot shows the night temperature at each of 12 campsites against the…"}
+{"answer": "positive, strong, weaker", "id": "scatterplot-describe-association/hard/1/5dac4f7c0ef1", "text": "The scatterplot shows the solar power generated by a household on each of 12 da…"}
+{"answer": "positive, strong, weaker", "id": "scatterplot-describe-association/hard/2/96b86978c040", "text": "The scatterplot shows the test score of each of 12 students against the time th…"}
+{"answer": "negative, non-linear, moderate", "id": "scatterplot-describe-association/medium/0/2ddf555fe630", "text": "The scatterplot shows the value of each of 12 used cars of one model against it…"}
+{"answer": "positive, linear, moderate", "id": "scatterplot-describe-association/medium/1/972c10b67ff7", "text": "The scatterplot shows the exam mark of each of 12 pianists against the hours th…"}
+{"answer": "positive, non-linear, strong", "id": "scatterplot-describe-association/medium/2/f35aa0a11b44", "text": "The scatterplot shows the solar power generated by a household on each of 12 da…"}
+{"answer": "-1", "id": "scatterplot-fit-line-read-predict/easy/0/c51a2a27ec7e", "text": "The scatterplot shows the value of each of 10 used cars of one model against it…"}
+{"answer": "2", "id": "scatterplot-fit-line-read-predict/easy/1/c18b176fe1db", "text": "The scatterplot shows the exam mark of each of 10 pianists against the hours th…"}
+{"answer": "2", "id": "scatterplot-fit-line-read-predict/easy/2/49ee3a00aea7", "text": "The scatterplot shows the test score of each of 10 students against the time th…"}
+{"answer": "(a) -1.5; (b) 19; (c) -3; (d) The prediction is unreliable,…", "id": "scatterplot-fit-line-read-predict/exam/0/55039170cf4c", "text": "The scatterplot shows the value of each of 10 used cars of one model against it…"}
+{"answer": "(a) -1.5; (b) 4; (c) -2; (d) The prediction is unreliable, …", "id": "scatterplot-fit-line-read-predict/exam/1/7d92546e9955", "text": "The scatterplot shows the water left in a farm tank on each of 10 days against …"}
+{"answer": "(a) -1.5; (b) 15; (c) 3; (d) The prediction is unreliable, …", "id": "scatterplot-fit-line-read-predict/exam/2/b52eb80aad90", "text": "The scatterplot shows the night temperature at each of 10 campsites against the…"}
+{"answer": "2", "id": "scatterplot-fit-line-read-predict/hard/0/decb200bcf68", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
+{"answer": "-2", "id": "scatterplot-fit-line-read-predict/hard/1/e4367bca83a0", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
+{"answer": "7", "id": "scatterplot-fit-line-read-predict/hard/2/e3fa0c29a4b8", "text": "The scatterplot shows the test score of each of 10 students against the time th…"}
+{"answer": "14", "id": "scatterplot-fit-line-read-predict/medium/0/1859d148013f", "text": "The scatterplot shows the value of each of 10 used cars of one model against it…"}
+{"answer": "22", "id": "scatterplot-fit-line-read-predict/medium/1/88b73fe8a8ac", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
+{"answer": "9", "id": "scatterplot-fit-line-read-predict/medium/2/66f244f39e1f", "text": "The scatterplot shows the exam mark of each of 10 pianists against the hours th…"}
 {"answer": "163.4556 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/0/1bc6d238942d", "text": "Calculate (5.124 × 10^-5) × (3.19 × 10^-6), then write the result in engineerin…"}
 {"answer": "4.945584 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/1/bd12a1ad84af", "text": "(1.148 × 10^-6) × (4.308 × 10^-6) -- write your answer in engineering notation."}
 {"answer": "14.544996 × 10^-3", "id": "scientific-notation-ops-to-engineering/easy/2/6154072cfbf9", "text": "Calculate (1.927 × 10^1) × (7.548 × 10^-4), then write the result in engineerin…"}
@@ -5902,6 +6217,9 @@
 {"answer": "160", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/easy/0/853be3c37a7f", "text": "Convert 16 cm to mm."}
 {"answer": "11", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/easy/1/f562df3a31c1", "text": "Convert 110 mm to cm."}
 {"answer": "19", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/easy/2/5056a3873094", "text": "Convert 1900 cm to m."}
+{"answer": "(a) 1320; (b) 3420; (c) 44382.00; (d) 118.00", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/exam/0/506279ae5f71", "text": "A council is fencing a rectangular reserve 390 m long and 1.32 km wide. A gate …"}
+{"answer": "(a) 1315; (b) 3470; (c) 62370.00; (d) 630.00", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/exam/1/569a9558c6c4", "text": "A council is fencing a rectangular reserve 420 m long and 1.315 km wide. A gate…"}
+{"answer": "(a) 1185; (b) 3810; (c) 68526.00; (d) 474.00", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/exam/2/b7bebf99b7d9", "text": "A council is fencing a rectangular reserve 720 m long and 1.185 km wide. A gate…"}
 {"answer": "1121", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/hard/0/4b1416267644", "text": "Path A is 861 mm and Path B is 26 cm. What is their combined length, in mm?"}
 {"answer": "1636", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/hard/1/b96fabc98a51", "text": "Path A is 864 cm and Path B is 25 m. What is the difference in length between t…"}
 {"answer": "565", "id": "senior-review-metric-units-of-length-their-abbreviations-conversions/hard/2/1cb2a76f936a", "text": "Path A is 55 mm and Path B is 62 cm. What is the difference in length between t…"}
@@ -7480,6 +7798,18 @@
 {"answer": "(a) 15; (b) 17; (c) 2", "id": "shortest-network-path/exam/0/09c38c0c5a7c", "text": "A delivery driver travels between six depots, A to F. The roads between depots …"}
 {"answer": "(a) 18; (b) 21; (c) 3", "id": "shortest-network-path/exam/1/aa6d8ed33f6a", "text": "A delivery driver travels between six depots, A to F. The roads between depots …"}
 {"answer": "(a) 10; (b) 18; (c) 8", "id": "shortest-network-path/exam/2/e433f4691326", "text": "A delivery driver travels between six depots, A to F. The roads between depots …"}
+{"answer": "5", "id": "signed-area-definite-integral/easy/0/31348fb78673", "text": "The graph of y = f(x) for 0 ≤ x ≤ 5 crosses the x-axis at x = 3. Between x = 0 …"}
+{"answer": "1", "id": "signed-area-definite-integral/easy/1/6dadedc7aed8", "text": "The graph of y = f(x) for 0 ≤ x ≤ 4 crosses the x-axis at x = 1. Between x = 0 …"}
+{"answer": "8", "id": "signed-area-definite-integral/easy/2/1cf12a6d8a40", "text": "The graph of y = f(x) for 0 ≤ x ≤ 3 crosses the x-axis at x = 1. Between x = 0 …"}
+{"answer": "(a) -4; (b) 5; (c) 29; (d) -2", "id": "signed-area-definite-integral/exam/0/a26de8007065", "text": "The graph of y = f(x) for 2 ≤ x ≤ 8 crosses the x-axis at x = 5 and x = 7. Betw…"}
+{"answer": "(a) -5; (b) 5; (c) 19; (d) -5", "id": "signed-area-definite-integral/exam/1/b19190a04c14", "text": "The graph of y = f(x) for 0 ≤ x ≤ 5 crosses the x-axis at x = 1 and x = 3. Betw…"}
+{"answer": "(a) 2; (b) 10; (c) 28; (d) 51", "id": "signed-area-definite-integral/exam/2/5246fcbade65", "text": "The graph of y = f(x) for 0 ≤ x ≤ 7 crosses the x-axis at x = 2 and x = 4. Betw…"}
+{"answer": "8", "id": "signed-area-definite-integral/hard/0/6c1a4959359b", "text": "The graph of y = f(x) for 0 ≤ x ≤ 7 crosses the x-axis at x = 3 and x = 4, and …"}
+{"answer": "24", "id": "signed-area-definite-integral/hard/1/3f570e2a0d9a", "text": "The graph of y = f(x) for 0 ≤ x ≤ 6 crosses the x-axis at x = 1 and x = 4. Betw…"}
+{"answer": "4", "id": "signed-area-definite-integral/hard/2/cfe76adb9f74", "text": "The graph of y = f(x) for 0 ≤ x ≤ 7 crosses the x-axis at x = 2 and x = 4, and …"}
+{"answer": "-9", "id": "signed-area-definite-integral/medium/0/a9dee378fc03", "text": "The graph of y = f(x) for 0 ≤ x ≤ 3 crosses the x-axis at x = 1 and x = 2. Betw…"}
+{"answer": "5", "id": "signed-area-definite-integral/medium/1/2c868fd45030", "text": "The graph of y = f(x) for 2 ≤ x ≤ 8 crosses the x-axis at x = 5 and x = 7. Betw…"}
+{"answer": "-2", "id": "signed-area-definite-integral/medium/2/11a17d7ffe85", "text": "The graph of y = f(x) for 1 ≤ x ≤ 7 crosses the x-axis at x = 4 and x = 5. Betw…"}
 {"answer": "1.134", "id": "significant-figures/easy/0/e2fc5ca0d3b0", "text": "Round 1.13352 to 4 significant figures."}
 {"answer": "75.41", "id": "significant-figures/easy/1/45c7c1cdd4b5", "text": "Round 75.40702 to 4 significant figures."}
 {"answer": "9.5", "id": "significant-figures/easy/2/3eb321053a53", "text": "Round 9.54269 to 2 significant figures."}
@@ -7651,9 +7981,9 @@
 {"answer": "x = 3", "id": "solve-quadratics-factorable/easy/0/fba8e3875208", "text": "Solve x**2 - 6*x + 9 = 0"}
 {"answer": "x = -5 or x = 5", "id": "solve-quadratics-factorable/easy/1/e4023388358a", "text": "Solve x**2 - 25 = 0"}
 {"answer": "x = -1 or x = 5", "id": "solve-quadratics-factorable/easy/2/3c624cb21eb2", "text": "Solve x**2 - 4*x - 5 = 0"}
-{"answer": "x = 0 or x = 2", "id": "solve-quadratics-factorable/exam/0/791072a6b0a7", "text": "0 = 2x^2 - 4x"}
-{"answer": "x = -2 or x = 3", "id": "solve-quadratics-factorable/exam/1/cc682b95e0cc", "text": "0 = 3x^2 - 3x - 18"}
-{"answer": "x = -8 or x = 0", "id": "solve-quadratics-factorable/exam/2/742e6259f17a", "text": "Solve 3x^2 + 24x = 0"}
+{"answer": "(a) 1.20; (b) 3.00; (c) 1.80; (d) 8.10", "id": "solve-quadratics-factorable/exam/0/fd5030a48f17", "text": "A gardener's hose throws water along the path y = -10x^2 + 42x - 36, where x is…"}
+{"answer": "(a) 0.80; (b) 3.00; (c) 2.20; (d) 6.05", "id": "solve-quadratics-factorable/exam/1/a3e90d9b62b5", "text": "A jet of water from a fountain follows the path y = -5x^2 + 19x - 12, where x i…"}
+{"answer": "(a) 8.40; (b) 10.00; (c) 1.60; (d) 6.40", "id": "solve-quadratics-factorable/exam/2/36cdb9631083", "text": "A jet of water from a fountain follows the path y = -10x^2 + 184x - 840, where …"}
 {"answer": "x = -14 or x = -8", "id": "solve-quadratics-factorable/hard/0/9465733c49c2", "text": "Solve x**2 + 22*x + 112 = 0"}
 {"answer": "x = -12 or x = -2", "id": "solve-quadratics-factorable/hard/1/5f92883b6b03", "text": "Solve x**2 + 14*x + 24 = 0"}
 {"answer": "x = 7 or x = 8", "id": "solve-quadratics-factorable/hard/2/9336d5b024cc", "text": "Solve x**2 - 15*x + 56 = 0"}
@@ -7756,6 +8086,18 @@
 {"answer": "7 o'clock", "id": "tell-time-to-hour/easy/0/655032ffa859", "text": "A clock hangs in the kitchen. Which time is on the clock?"}
 {"answer": "10 o'clock", "id": "tell-time-to-hour/easy/1/4a6f618fc515", "text": "Ben looks at the clock in his room. Choose the time the clock shows."}
 {"answer": "11 o'clock", "id": "tell-time-to-hour/easy/2/405d6f9de20d", "text": "Look at the clock on the wall. Choose the time the clock shows."}
+{"answer": "10", "id": "time-series-features/easy/0/dbe98e77bf90", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "70", "id": "time-series-features/easy/1/bcf4da9a33ec", "text": "The graph shows the number of customers who visited a cafe on each of 21 consec…"}
+{"answer": "20", "id": "time-series-features/easy/2/996d375c4649", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "(a) 4; (b) 7; (c) -30; (d) 0", "id": "time-series-features/exam/0/20f6083256ad", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "(a) 6; (b) 8; (c) 80; (d) 440", "id": "time-series-features/exam/1/055043329adb", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "(a) 7; (b) 10; (c) 30; (d) 230", "id": "time-series-features/exam/2/55894c5248bc", "text": "The graph shows the number of customers who visited a cafe on each of 21 consec…"}
+{"answer": "200", "id": "time-series-features/hard/0/8d61ddd1a1f4", "text": "The graph shows the number of customers who visited a cafe on each of 21 consec…"}
+{"answer": "180", "id": "time-series-features/hard/1/157bf67afeb5", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "180", "id": "time-series-features/hard/2/a860bf853c01", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "140", "id": "time-series-features/medium/0/c53b4b7a9107", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
+{"answer": "340", "id": "time-series-features/medium/1/5d101ff5d629", "text": "The graph shows the electricity used by a household, in kilowatt-hours, on each…"}
+{"answer": "55", "id": "time-series-features/medium/2/2f9bdd18fd9b", "text": "The graph shows the quarterly sales, in thousands of dollars, of a surf shop ov…"}
 {"answer": "9", "id": "triangle-area-base-height/easy/0/d0797706775d", "text": "Determine the area of triangle ABC in the diagram, in cm²."}
 {"answer": "4", "id": "triangle-area-base-height/easy/1/d4b49c60228f", "text": "The diagram shows triangle ABC. What is its area, in cm²?"}
 {"answer": "4", "id": "triangle-area-base-height/easy/2/4a8a0c7f6c62", "text": "Determine the area of triangle LMN in the diagram, in cm²."}
@@ -7888,6 +8230,18 @@
 {"answer": "50", "id": "ucv1-chinese-remainder-two-congruences/medium/0/b9bd730f5b5f", "text": "What is the smallest non-negative integer x satisfying x ≡ 2 (mod 8) and x ≡ 6 …"}
 {"answer": "33", "id": "ucv1-chinese-remainder-two-congruences/medium/1/5f4e81d5af62", "text": "What is the smallest non-negative integer x satisfying x ≡ 3 (mod 5) and x ≡ 1 …"}
 {"answer": "23", "id": "ucv1-chinese-remainder-two-congruences/medium/2/59d05178dcc4", "text": "Determine the least integer x, with x ≥ 0, for which x ≡ 3 (mod 10) and x ≡ 2 (…"}
+{"answer": "0.0668", "id": "ucv1-clt-sample-mean-probability/easy/0/785ef3494cab", "text": "The weekly rainfall at a station near Cairns has mean 80 mm and standard deviat…"}
+{"answer": "0.9878", "id": "ucv1-clt-sample-mean-probability/easy/1/17f8ad3ff8d3", "text": "The weekly rainfall at a station near Cairns has mean 50 mm and standard deviat…"}
+{"answer": "0.5987", "id": "ucv1-clt-sample-mean-probability/easy/2/f32938edc8e4", "text": "The waiting times at a regional hospital's emergency department have mean 40 mi…"}
+{"answer": "(a) 9.00; (b) 0.0668; (c) 0.3085; (d) 312", "id": "ucv1-clt-sample-mean-probability/exam/0/b6a8cc262666", "text": "The mass of an apple from an orchard in Batlow has mean 210 g and standard devi…"}
+{"answer": "(a) 4.00; (b) 0.0401; (c) 0.2266; (d) 246", "id": "ucv1-clt-sample-mean-probability/exam/1/2f9d0df7d365", "text": "Apples from a Batlow orchard are packed in crates. The mass of one apple follow…"}
+{"answer": "(a) 2.50; (b) 0.3085; (c) 0.2266; (d) 171", "id": "ucv1-clt-sample-mean-probability/exam/2/deb48f19bbcf", "text": "Apples from a Batlow orchard are packed in crates. The mass of one apple follow…"}
+{"answer": "136", "id": "ucv1-clt-sample-mean-probability/hard/0/ade787de7440", "text": "The weekly rainfall at a station near Cairns has mean 40 mm and standard deviat…"}
+{"answer": "8", "id": "ucv1-clt-sample-mean-probability/hard/1/137cf3ec09c6", "text": "The masses of Pink Lady apples from an orchard in Batlow have mean 170 g and st…"}
+{"answer": "8", "id": "ucv1-clt-sample-mean-probability/hard/2/277f639f9819", "text": "The daily electricity use of households in Adelaide has mean 16 kWh and standar…"}
+{"answer": "0.9199", "id": "ucv1-clt-sample-mean-probability/medium/0/4ac04bacad21", "text": "The waiting times at a regional hospital's emergency department have mean 30 mi…"}
+{"answer": "0.6915", "id": "ucv1-clt-sample-mean-probability/medium/1/9a6c5d40b063", "text": "The weekly rainfall at a station near Cairns has mean 80 mm and standard deviat…"}
+{"answer": "0.9199", "id": "ucv1-clt-sample-mean-probability/medium/2/b2a185bd5571", "text": "The daily electricity use of households in Adelaide has mean 20 kWh and standar…"}
 {"answer": "{U1, U3, U4}", "id": "ucv1-compactness-finite-check/easy/0/7accceb25912", "text": "X = {I, J, L, N}. U4 = {I}; U1 = {L}; U3 = {J, N}; U2 = {J}. X and an open cove…"}
 {"answer": "{U2, U3, U4}", "id": "ucv1-compactness-finite-check/easy/1/4d22ab9dde3e", "text": "X = {F, H, M, X}. U2 = {H}; U4 = {X}; U3 = {F, M}; U1 = {F}. X and an open cove…"}
 {"answer": "{U1, U2, U3}", "id": "ucv1-compactness-finite-check/easy/2/2e513144ee17", "text": "X = {C, L, M, O}. U3 = {L}; U1 = {M}; U2 = {C, O}; U4 = {O}. X and an open cove…"}
@@ -7912,6 +8266,18 @@
 {"answer": "All rows are consistent.", "id": "ucv1-completeness-cauchy-check/medium/0/366a76f1ca25", "text": "The finite sequence has terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/27, a_4 = …"}
 {"answer": "Row 1 is inconsistent.", "id": "ucv1-completeness-cauchy-check/medium/1/7e16b3075a15", "text": "The finite sequence has terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/27, a_4 = …"}
 {"answer": "Row 3 is inconsistent.", "id": "ucv1-completeness-cauchy-check/medium/2/587a15d12560", "text": "Consider the finite sequence with terms a_0 = 1, a_1 = 1/3, a_2 = 1/9, a_3 = 1/…"}
+{"answer": "-10/13 - (24/13)i", "id": "ucv1-complex-equations-division/easy/0/059d48c19380", "text": "Write (4 - 6i) ÷ (2 + 3i) in the form x + yi, where x and y are real."}
+{"answer": "-5/13 + (14/13)i", "id": "ucv1-complex-equations-division/easy/1/df70dd66e032", "text": "Write (1 + 4i) ÷ (3 - 2i) in the form x + yi, where x and y are real."}
+{"answer": "9/5 - (8/5)i", "id": "ucv1-complex-equations-division/easy/2/fb2a0e49887f", "text": "Write (7 - 3i) ÷ (3 + i) in the form x + yi, where x and y are real."}
+{"answer": "(a) 1; (b) 1/2 + (1/2)i; (c) 2 + (5/3)i", "id": "ucv1-complex-equations-division/exam/0/f1915b477969", "text": "Let k be a real number and let w = (k - 2i) ÷ (-1 - 3i). (a) Find the value of …"}
+{"answer": "(a) -2; (b) 1 + i; (c) -3/2 + (1/2)i", "id": "ucv1-complex-equations-division/exam/1/d1ecf01f1d42", "text": "Let k be a real number and let w = (k + 6i) ÷ (2 + 4i). (a) Find the value of k…"}
+{"answer": "(a) -2; (b) -1 - i; (c) 2/5 - 2i", "id": "ucv1-complex-equations-division/exam/2/ea906161697d", "text": "Let k be a real number and let w = (k + 4i) ÷ (-1 - 3i). (a) Find the value of …"}
+{"answer": "i", "id": "ucv1-complex-equations-division/hard/0/ed980e4f3fe7", "text": "The equation z² - (-i)z + (2) = 0 has two distinct roots. Find the root with th…"}
+{"answer": "1 + 2i", "id": "ucv1-complex-equations-division/hard/1/a87dc5a156a4", "text": "Find the square root of -3 + 4i that has a positive real part, giving it in the…"}
+{"answer": "3 - 2i", "id": "ucv1-complex-equations-division/hard/2/50d6c3d72ffe", "text": "Find the square root of 5 - 12i that has a positive real part, giving it in the…"}
+{"answer": "-4 - 3i", "id": "ucv1-complex-equations-division/medium/0/f0021af55a0b", "text": "Find the complex number z such that -2z - 3z̄ = 20 - 3i."}
+{"answer": "-18/17 - (4/17)i", "id": "ucv1-complex-equations-division/medium/1/25ff306af4b7", "text": "Solve (4 + i)z + (1 - i) = -3 - 3i for z, giving z in the form x + yi."}
+{"answer": "-7/3 - (1/3)i", "id": "ucv1-complex-equations-division/medium/2/aa213e6fd04a", "text": "Solve (3 - 3i)z + (3 - 4i) = -5 + 2i for z, giving z in the form x + yi."}
 {"answer": "10/19", "id": "ucv1-condition-number-sensitivity/easy/0/6231d5a0efa8", "text": "A computation has condition number kappa = 5 and relative input error 2/19. Usi…"}
 {"answer": "3/4", "id": "ucv1-condition-number-sensitivity/easy/1/5ec5f4809598", "text": "A computation has condition number kappa = 2 and relative input error 3/8. Usin…"}
 {"answer": "3/7", "id": "ucv1-condition-number-sensitivity/easy/2/5461f65555a9", "text": "A computation has condition number kappa = 6 and relative input error 1/14. Usi…"}
@@ -7924,6 +8290,18 @@
 {"answer": "3/2", "id": "ucv1-condition-number-sensitivity/medium/0/c53b6d5d2a9a", "text": "For a problem with condition number kappa = 4, a relative input error of 3/8 pr…"}
 {"answer": "20/51", "id": "ucv1-condition-number-sensitivity/medium/1/f4a91549e8ae", "text": "Given condition number kappa = 5/3 and relative input error 4/17, compute the b…"}
 {"answer": "1/12", "id": "ucv1-condition-number-sensitivity/medium/2/7b8c1cda3fa6", "text": "A computation has condition number kappa = 3/2 and relative input error 1/18. U…"}
+{"answer": "5/13", "id": "ucv1-conic-sections-features/easy/0/bcfe6d361fa5", "text": "Find the eccentricity of the ellipse x²/169 + y²/144 = 1."}
+{"answer": "5", "id": "ucv1-conic-sections-features/easy/1/2e75eb4bd546", "text": "The parabola y² = -20x has a directrix perpendicular to the x-axis. Find the x-…"}
+{"answer": "5/4", "id": "ucv1-conic-sections-features/easy/2/7c30ab1feb9b", "text": "Find the eccentricity of the hyperbola x²/64 - y²/36 = 1."}
+{"answer": "(a) (2, -4); (b) 4; (c) 4/5; (d) 25/4", "id": "ucv1-conic-sections-features/exam/0/806e9407ab3f", "text": "The curve 25x² + 9y² - 100x + 72y + 19 = 0 is an ellipse with vertical major ax…"}
+{"answer": "(a) (-2, -5); (b) 8; (c) 4/5; (d) 25/2", "id": "ucv1-conic-sections-features/exam/1/7961a431c6df", "text": "The curve 25x² + 9y² + 100x + 90y - 575 = 0 is an ellipse with vertical major a…"}
+{"answer": "(a) (-3, 5); (b) 4; (c) 4/5; (d) 25/4", "id": "ucv1-conic-sections-features/exam/2/64d60ef325fd", "text": "The curve 9x² + 25y² + 54x - 250y + 481 = 0 is an ellipse with horizontal major…"}
+{"answer": "1", "id": "ucv1-conic-sections-features/hard/0/fdc16994bdd9", "text": "The parabola y² - 8x + 2y + 25 = 0 has its axis parallel to the x-axis. Its dir…"}
+{"answer": "0", "id": "ucv1-conic-sections-features/hard/1/438142ad2a60", "text": "The parabola x² - 2x - 12y + 37 = 0 has its axis parallel to the y-axis. Its di…"}
+{"answer": "65/3", "id": "ucv1-conic-sections-features/hard/2/23264df2179d", "text": "The curve 25x² + 16y² + 150x - 160y - 975 = 0 is an ellipse with vertical major…"}
+{"answer": "20", "id": "ucv1-conic-sections-features/medium/0/60bc6acf2ef0", "text": "The curve -16x² + 9y² + 96x + 18y - 711 = 0 is a hyperbola. Find the distance b…"}
+{"answer": "20", "id": "ucv1-conic-sections-features/medium/1/b8ed552549b6", "text": "The curve -9x² + 16y² + 36x - 32y - 596 = 0 is a hyperbola. Find the distance b…"}
+{"answer": "10", "id": "ucv1-conic-sections-features/medium/2/366422dc70a2", "text": "The curve 169x² + 144y² - 1690x - 576y - 19535 = 0 is an ellipse. Find the dist…"}
 {"answer": "9*pi", "id": "ucv1-contour-integral-residue/easy/0/f22ef796567e", "text": "Given f(z) = 9 / (z^2 + 1), and a positively oriented simple closed contour C e…"}
 {"answer": "-2*pi/5", "id": "ucv1-contour-integral-residue/easy/1/63cab6cb99cc", "text": "The function f(z) = -2 / (z^2 + 25) has simple poles at z = +/-5i. C is a posit…"}
 {"answer": "2*pi", "id": "ucv1-contour-integral-residue/easy/2/46ff1e6f1703", "text": "Given f(z) = 6 / (z^2 + 9), and a positively oriented simple closed contour C e…"}
@@ -8188,6 +8566,18 @@
 {"answer": "c1 = -1, c2 = -4", "id": "ucv1-function-space-approximation/medium/0/c3550528f818", "text": "A function is sampled on the basis {x, x^2} at x = 2, x = -3, x = 5, giving y1 …"}
 {"answer": "c1 = 3, c2 = -4", "id": "ucv1-function-space-approximation/medium/1/619fe895a380", "text": "A function is sampled on the basis {x, x^2} at x = 3, x = 5, x = 2, giving y1 =…"}
 {"answer": "c1 = 4, c2 = 1", "id": "ucv1-function-space-approximation/medium/2/840d48c52900", "text": "A function is sampled on the basis {x, x^2} at x = -5, x = 5, x = -1, giving y1…"}
+{"answer": "360", "id": "ucv1-functions-injective-surjective/easy/0/1a7770899a01", "text": "Let A = {1, 2, 3, 4} and B = {1, 2, ..., 6}. How many one-to-one (injective) fu…"}
+{"answer": "120", "id": "ucv1-functions-injective-surjective/easy/1/494f2333d275", "text": "Let A = {1, 2, 3} and B = {1, 2, ..., 6}. How many one-to-one (injective) funct…"}
+{"answer": "360", "id": "ucv1-functions-injective-surjective/easy/2/e7a555ce3183", "text": "Let A = {1, 2, 3, 4} and B = {1, 2, ..., 6}. How many one-to-one (injective) fu…"}
+{"answer": "(a) 5; (b) -53; (c) 8; (d) 6", "id": "ucv1-functions-injective-surjective/exam/0/ef1821e276df", "text": "Let f(x) = 2x² - 20x - 3, defined for real x ≥ a, where a is the least value fo…"}
+{"answer": "(a) 3; (b) -20; (c) 5; (d) 4", "id": "ucv1-functions-injective-surjective/exam/1/547af6e00310", "text": "Let f(x) = 2x² - 12x - 2, defined for real x ≥ a, where a is the least value fo…"}
+{"answer": "(a) 5; (b) -55; (c) 8; (d) 3", "id": "ucv1-functions-injective-surjective/exam/2/b6bdcf90ab6c", "text": "Let f(x) = 2x² - 20x - 5, defined for real x ≥ a, where a is the least value fo…"}
+{"answer": "-27", "id": "ucv1-functions-injective-surjective/hard/0/674bce165f3c", "text": "The function f : ℝ → [m, ∞), f(x) = 2x² - 16x + 5, is onto (every value in [m, …"}
+{"answer": "5", "id": "ucv1-functions-injective-surjective/hard/1/0ae4b963b581", "text": "The function f(x) = 3x² - 30x + 9 is defined for all real x ≤ a. Find the large…"}
+{"answer": "5", "id": "ucv1-functions-injective-surjective/hard/2/a9b39c08ec0a", "text": "The function f(x) = 3x² - 30x is defined for all real x ≥ a. Find the smallest …"}
+{"answer": "96", "id": "ucv1-functions-injective-surjective/medium/0/31a2464b1938", "text": "How many functions f : {1, 2, 3} → {1, 2, ..., 6} are not one-to-one? (A functi…"}
+{"answer": "14287", "id": "ucv1-functions-injective-surjective/medium/1/6b8f77c2878f", "text": "How many functions f : {1, 2, 3, 4, 5} → {1, 2, ..., 7} are not one-to-one? (A …"}
+{"answer": "26048", "id": "ucv1-functions-injective-surjective/medium/2/32fb177a59b7", "text": "How many functions f : {1, 2, 3, 4, 5} → {1, 2, ..., 8} are not one-to-one? (A …"}
 {"answer": "multiplication by 4", "id": "ucv1-fundamental-group-map/easy/0/9c9afa0e3ed8", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
 {"answer": "multiplication by -4", "id": "ucv1-fundamental-group-map/easy/1/80077b3370b7", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
 {"answer": "multiplication by 3", "id": "ucv1-fundamental-group-map/easy/2/e285c5b6882e", "text": "The standard generator of pi_1(S^1, 1) = Z is the loop gamma(t) = e^(2 pi i t),…"}
@@ -8392,6 +8782,18 @@
 {"answer": "D_y = -80, D = 16", "id": "ucv1-linear-system-determinant/medium/0/aa32bb8ec79f", "text": "Given the system A x = b where A = [4 3; -4 1] and b = (-3, -17), compute D = d…"}
 {"answer": "D_y = -24, D = 24", "id": "ucv1-linear-system-determinant/medium/1/81676fd76f23", "text": "For the linear system A x = b with A = [4 -4; 5 1] and b = (-12, -21), find D =…"}
 {"answer": "D_y = 12, D = -2", "id": "ucv1-linear-system-determinant/medium/2/fbd3c7c0aeb6", "text": "Given the system A x = b where A = [1 -1; 3 -5] and b = (4, 24), compute D = de…"}
+{"answer": "(7x)^x (ln(7x) + 1)", "id": "ucv1-logarithmic-differentiation/easy/0/6f992c94325f", "text": "Find dy/dx, for x > 0, where y = (7x)^x."}
+{"answer": "(x + 3)^(3x)(3x/(x + 3) + 3ln(x + 3))", "id": "ucv1-logarithmic-differentiation/easy/1/84d00eb054b7", "text": "Find dy/dx, for x > 0, where y = (x + 3)^(3x)."}
+{"answer": "x^(4x)(4ln(x) + 4)", "id": "ucv1-logarithmic-differentiation/easy/2/3caea71c5848", "text": "Find dy/dx, for x > 0, where y = x^(4x)."}
+{"answer": "(a) x/(x + 2) + ln(x + 2); (b) 1 + 3ln(3); (c) 2 - 3ln(3); …", "id": "ucv1-logarithmic-differentiation/exam/0/716f16e05b46", "text": "A function is defined by f(x) = (x + 2)^x for x > 0. (a) Find the derivative of…"}
+{"answer": "(a) 3x/(x + 1) + 3ln(x + 1); (b) 12 + 24ln(2); (c) -24ln(2)…", "id": "ucv1-logarithmic-differentiation/exam/1/8862ccf4dd6d", "text": "Consider the function f given by f(x) = (x + 1)^(3x), where x > 0. (a) Find the…"}
+{"answer": "(a) 2x/(x + 3) + 2ln(x + 3); (b) 8 + 64ln(2); (c) 8 - 64ln(…", "id": "ucv1-logarithmic-differentiation/exam/2/2df5b507eba0", "text": "Let f(x) = (x + 3)^(2x) for x > 0. (a) Find the derivative of ln f(x) with resp…"}
+{"answer": "3 + 24ln(2)", "id": "ucv1-logarithmic-differentiation/hard/0/39ba309870e3", "text": "Let y = (3x + 2)^(x - 1). Find the exact value of dy/dx when x = 2."}
+{"answer": "125ln(5) + 225", "id": "ucv1-logarithmic-differentiation/hard/1/996ee19a2b86", "text": "Let y = (3x - 1)^(x + 1). Find the exact value of dy/dx when x = 2."}
+{"answer": "150 + 250ln(5)", "id": "ucv1-logarithmic-differentiation/hard/2/c723b16286ef", "text": "Let y = (2x + 3)^(2x + 1). Find the exact value of dy/dx when x = 1."}
+{"answer": "-192/125", "id": "ucv1-logarithmic-differentiation/medium/0/25f5dcb0fc21", "text": "Let y = ((x - 1)^4)/((x - 2)^4 (x + 2)^2). Find the value of dy/dx when x = 3."}
+{"answer": "-125/3456", "id": "ucv1-logarithmic-differentiation/medium/1/ac8ee2cd4a46", "text": "Let y = ((x + 2)^4)/((x + 3)^3 (x + 1)^2). Find the value of dy/dx when x = 3."}
+{"answer": "1225/432", "id": "ucv1-logarithmic-differentiation/medium/2/722e97dc865a", "text": "Let y = ((x - 3)^3 (x + 3)^3)/((x + 4)^3 (x - 1)^2). Find the value of dy/dx wh…"}
 {"answer": "12, -3, -6, 0, -18", "id": "ucv1-manifold-chart-jacobian/easy/0/a14eef5a6274", "text": "A 2-dimensional chart is given by u(x,y) = 3x^2 - 3y - 2 and v(x,y) = 3xy - 3x …"}
 {"answer": "10, -5, 6, 10, 130", "id": "ucv1-manifold-chart-jacobian/easy/1/6d66a98351d1", "text": "A 2-dimensional chart is given by u(x,y) = -3x^2 + xy - 3y - 3 and v(x,y) = -3x…"}
 {"answer": "5, -2, 3, 1, 11", "id": "ucv1-manifold-chart-jacobian/easy/2/f2133be25bc0", "text": "A 2-dimensional chart is given by u(x,y) = x^2 - 3xy + y and v(x,y) = -3xy - 2y…"}
@@ -8512,6 +8914,18 @@
 {"answer": "0.192", "id": "ucv1-parametric-curvature/medium/0/b7b498fb038a", "text": "A curve is given by x(t) = 3t, y(t) = 4t^2 + 12t. Find the curvature kappa(-1) …"}
 {"answer": "0.176", "id": "ucv1-parametric-curvature/medium/1/329b985b99e2", "text": "A curve is given by x(t) = -2t^2 - 9t, y(t) = t^2 + 10t. Find the curvature kap…"}
 {"answer": "0.080", "id": "ucv1-parametric-curvature/medium/2/f7e6fb699256", "text": "A curve is given by x(t) = -t^2 + 5t, y(t) = -3t^2 + 10t. Find the curvature ka…"}
+{"answer": "-2", "id": "ucv1-parametric-polar-slope-area/easy/0/473e8fbe5097", "text": "A curve is given by x = 2cos t, y = 4sin t. Find dy/dx at t = π/4."}
+{"answer": "-7/8", "id": "ucv1-parametric-polar-slope-area/easy/1/7c51cc612393", "text": "A curve is given by x = 2t² + 5, y = -t³ + 5t - 2. Find dy/dx at t = 2."}
+{"answer": "-2sqrt(3)/3", "id": "ucv1-parametric-polar-slope-area/easy/2/407cd9071a90", "text": "A curve is given by x = 3cos t, y = 6sin t. Find dy/dx at t = π/3."}
+{"answer": "(a) (3t^2 - 1)/(6t); (b) -13/9; (c) -7/243; (d) 9/13", "id": "ucv1-parametric-polar-slope-area/exam/0/350c7395e691", "text": "A curve is given parametrically by x = 3t², y = t³ - t. (a) Find dy/dx as a fun…"}
+{"answer": "(a) (3t^2 - 1)/(6t); (b) 11/12; (c) 13/288; (d) -12/11", "id": "ucv1-parametric-polar-slope-area/exam/1/65b9505f0a57", "text": "A curve is given parametrically by x = 3t², y = t³ - t. (a) Find dy/dx as a fun…"}
+{"answer": "(a) (3t^2 - 2)/(6t); (b) -5/6; (c) -7/144; (d) 6/5", "id": "ucv1-parametric-polar-slope-area/exam/2/b5ec8c781b34", "text": "A curve is given parametrically by x = 3t², y = t³ - 2t. (a) Find dy/dx as a fu…"}
+{"answer": "16", "id": "ucv1-parametric-polar-slope-area/hard/0/80534a90c9be", "text": "Find the exact area enclosed by the lemniscate r² = 16cos 2θ."}
+{"answer": "4π + 32", "id": "ucv1-parametric-polar-slope-area/hard/1/06c8a992861e", "text": "Find the exact area of the region inside the cardioid r = 4(1 + cos θ) and outs…"}
+{"answer": "3π/2", "id": "ucv1-parametric-polar-slope-area/hard/2/eb5bf0d5b7ef", "text": "Find the exact area enclosed by the cardioid r = 1 + cos θ."}
+{"answer": "31/250", "id": "ucv1-parametric-polar-slope-area/medium/0/e56cb413bfd7", "text": "A curve is given by x = t² + 4t, y = t³ + t. Find d²y/dx² at t = 3."}
+{"answer": "3/2", "id": "ucv1-parametric-polar-slope-area/medium/1/b2d43e1398f1", "text": "Find the gradient dy/dx of the polar curve r = 3cos θ + 2 at θ = π/2."}
+{"answer": "-1", "id": "ucv1-parametric-polar-slope-area/medium/2/633b572c1648", "text": "Find the gradient dy/dx of the polar curve r = 4sin 2θ + 1 at θ = π/4."}
 {"answer": "unstable node", "id": "ucv1-phase-plane-linear-classification/easy/0/d6cb41f69165", "text": "For the linear system x' = 6x, y' = 3y, classify the equilibrium at the origin."}
 {"answer": "saddle", "id": "ucv1-phase-plane-linear-classification/easy/1/d52876a98160", "text": "For the linear system x' = -x, y' = 2y, classify the equilibrium at the origin."}
 {"answer": "stable node", "id": "ucv1-phase-plane-linear-classification/easy/2/a2b8658c6f9f", "text": "For the linear system x' = -4x, y' = -y, classify the equilibrium at the origin."}
@@ -8668,6 +9082,18 @@
 {"answer": "r1 = 9, r2 = 9", "id": "ucv1-second-order-characteristic-roots/medium/0/ad1c8bc54337", "text": "y'' - 18y' + 81y = 0. The characteristic equation r^2 - 18r + 81 = 0 has a repe…"}
 {"answer": "r1 = -9, r2 = -9", "id": "ucv1-second-order-characteristic-roots/medium/1/2d15a9fef7ba", "text": "Solve r^2 + 18r + 81 = 0, the characteristic equation of y'' + 18y' + 81y = 0, …"}
 {"answer": "r1 = 15, r2 = 15", "id": "ucv1-second-order-characteristic-roots/medium/2/9465d187823f", "text": "Solve r^2 - 30r + 225 = 0, the characteristic equation of y'' - 30y' + 225y = 0…"}
+{"answer": "0", "id": "ucv1-sequence-limits-squeeze-monotone/easy/0/8fea9251b578", "text": "Find the limit as n tends to infinity of (n + 3) / (5n² + 2n - 5)."}
+{"answer": "-3/4", "id": "ucv1-sequence-limits-squeeze-monotone/easy/1/32657b8d57d9", "text": "Find the limit as n tends to infinity of (3n³ - n² + 5n - 3) / (-4n³ - 6n + 5)."}
+{"answer": "2/5", "id": "ucv1-sequence-limits-squeeze-monotone/easy/2/83a7614c6153", "text": "Find the limit as n tends to infinity of (-2n² + 3) / (-5n² + 3n + 5)."}
+{"answer": "(a) 1, 7; (b) 4; (c) 1; (d) 2", "id": "ucv1-sequence-limits-squeeze-monotone/exam/0/2370d81e0d63", "text": "A sequence is defined by a₁ = 5 and aₙ₊₁ = (aₙ² + 7)/8. It can be shown that th…"}
+{"answer": "(a) 1, 6; (b) 31/7; (c) 1; (d) 2", "id": "ucv1-sequence-limits-squeeze-monotone/exam/1/accec3125cbc", "text": "A sequence is defined by a₁ = 5 and aₙ₊₁ = (aₙ² + 6)/7. It can be shown that th…"}
+{"answer": "(a) 3, 5; (b) 31/8; (c) 3; (d) 6", "id": "ucv1-sequence-limits-squeeze-monotone/exam/2/9e3090f79b65", "text": "Consider the sequence given by a₁ = 4 and aₙ₊₁ = (aₙ² + 15)/8. This sequence is…"}
+{"answer": "2", "id": "ucv1-sequence-limits-squeeze-monotone/hard/0/b85c6ef3399c", "text": "A sequence is defined by a₁ = 3 and aₙ₊₁ = √(2 + aₙ). It is monotonic and bound…"}
+{"answer": "6", "id": "ucv1-sequence-limits-squeeze-monotone/hard/1/cce0386eee05", "text": "A sequence is defined by a₁ = 8 and aₙ₊₁ = (aₙ + 36/aₙ)/2. It is bounded below …"}
+{"answer": "1", "id": "ucv1-sequence-limits-squeeze-monotone/hard/2/8fd113aeb406", "text": "A sequence is defined by a₁ = 5 and aₙ₊₁ = (aₙ² + 6)/7. The sequence is monoton…"}
+{"answer": "-7", "id": "ucv1-sequence-limits-squeeze-monotone/medium/0/c112c099c841", "text": "Find the limit as n tends to infinity of (7n + 5sin(n)) / (-1n + 9)."}
+{"answer": "1/2", "id": "ucv1-sequence-limits-squeeze-monotone/medium/1/17106fea449b", "text": "Find the limit as n tends to infinity of (2·6ⁿ + 3·2ⁿ) / (4·6ⁿ - 3·3ⁿ)."}
+{"answer": "27", "id": "ucv1-sequence-limits-squeeze-monotone/medium/2/1072e679abb1", "text": "The sequence is defined by a₁ = -3 and aₙ₊₁ = (2/3)aₙ + 9. Find the limit of aₙ."}
 {"answer": "-9/8", "id": "ucv1-series-convergence/easy/0/719ade3699dd", "text": "Find the value of Σ_(n=1)^∞ 3(-3/5)^n."}
 {"answer": "-9/4", "id": "ucv1-series-convergence/easy/1/30616d22da98", "text": "Find the exact sum of Σ_(n=1)^∞ 6(-3/5)^n."}
 {"answer": "-12/5", "id": "ucv1-series-convergence/easy/2/f26e5e753876", "text": "Evaluate Σ_(n=1)^∞ 6(-2/3)^n."}
@@ -8764,6 +9190,18 @@
 {"answer": "-18.00", "id": "ucv1-taylor-linear-approximation/medium/0/e9d1742deff3", "text": "f(x) = 2 - x^2. Near a = 4, use L(x) = f(a) + f'(a)(x - a) to estimate f(4.5) t…"}
 {"answer": "7.00", "id": "ucv1-taylor-linear-approximation/medium/1/9f717d987890", "text": "f(x) = x^2 - 5. Near a = -4, use L(x) = f(a) + f'(a)(x - a) to estimate f(-3.5)…"}
 {"answer": "-14.50", "id": "ucv1-taylor-linear-approximation/medium/2/169f71101e98", "text": "f(x) = -2x^2 - 3x + 5. Using the linear approximation L(x) = f(a) + f'(a)(x - a…"}
+{"answer": "3", "id": "ucv1-three-set-inclusion-exclusion-derangements/easy/0/b2ee98bf7a14", "text": "All 37 staff at an Adelaide hospital work at least one of night shifts, weekend…"}
+{"answer": "2", "id": "ucv1-three-set-inclusion-exclusion-derangements/easy/1/50e9834ff5ef", "text": "All 68 staff at an Adelaide hospital work at least one of night shifts, weekend…"}
+{"answer": "4", "id": "ucv1-three-set-inclusion-exclusion-derangements/easy/2/55f0f0c5a499", "text": "All 60 students at a Hobart college take at least one of Mathematical Methods, …"}
+{"answer": "(a) 6; (b) 33; (c) 5; (d) 44", "id": "ucv1-three-set-inclusion-exclusion-derangements/exam/0/7bbf36ffe25c", "text": "Of 50 first-year students at a Brisbane university who were surveyed, 6 take no…"}
+{"answer": "(a) 5; (b) 40; (c) 5; (d) 44", "id": "ucv1-three-set-inclusion-exclusion-derangements/exam/1/73f7b07ce25f", "text": "62 students at a Hobart college were asked which of Mathematical Methods, Physi…"}
+{"answer": "(a) 5; (b) 35; (c) 6; (d) 265", "id": "ucv1-three-set-inclusion-exclusion-derangements/exam/2/056911f9fdac", "text": "A survey of 54 first-year students at a Brisbane university found that 8 take n…"}
+{"answer": "362", "id": "ucv1-three-set-inclusion-exclusion-derangements/hard/0/32d324dd1fad", "text": "6 people are to be seated in a row of 6 numbered seats. Asha, Ben, Chloe and De…"}
+{"answer": "64", "id": "ucv1-three-set-inclusion-exclusion-derangements/hard/1/7cf7b3a16c66", "text": "5 people are to be seated in a row of 5 numbered seats. Asha, Ben and Chloe eac…"}
+{"answer": "41", "id": "ucv1-three-set-inclusion-exclusion-derangements/hard/2/24a1ffbfdc06", "text": "How many integers from 1 to 120 inclusive are divisible by none of 2, 5 and 7?"}
+{"answer": "3", "id": "ucv1-three-set-inclusion-exclusion-derangements/medium/0/13d5c6f6390b", "text": "A survey of 63 households in a Darwin suburb asked about a bicycle, a kayak and…"}
+{"answer": "10", "id": "ucv1-three-set-inclusion-exclusion-derangements/medium/1/9f786063af92", "text": "A survey of 63 members of a Perth surf club asked about surfing, paddling and r…"}
+{"answer": "9", "id": "ucv1-three-set-inclusion-exclusion-derangements/medium/2/0d6de3134b79", "text": "4 tickets, each addressed to a different person, are put one into each of 4 env…"}
 {"answer": "a basis", "id": "ucv1-topology-basis-membership/easy/0/ab325d26bb3a", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {3}; B2…"}
 {"answer": "a basis", "id": "ucv1-topology-basis-membership/easy/1/1c47b581f139", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {2}; B2…"}
 {"answer": "fails both", "id": "ucv1-topology-basis-membership/easy/2/b418272f3465", "text": "The universe is X = {1, ..., 4}. A collection of subsets is given: B1 = {2, 4};…"}

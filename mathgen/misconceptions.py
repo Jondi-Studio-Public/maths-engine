@@ -14972,6 +14972,3486 @@ _ENTRIES = (
         "Reading the arrival hour one hour early or late.",
         area="statistics and time",
     ),
+    CatalogueEntry(
+        "sr2a-planar-forgot-outer",
+        "Counts only the regions inside the network and leaves out the unbounded region around the outside.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-faces-edges-minus-vertices",
+        "Takes the number of edges minus the number of vertices as the number of faces, leaving out the 2 in Euler's formula.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-faces-as-edges",
+        "Gives the number of edges where the number of faces was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-euler-signs",
+        "Puts the signs of Euler's formula in the wrong places, so the face count is wrong by a sum rather than a difference.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-as-removals",
+        "Gives the largest number of edges a planar network can have where the number that must be removed was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-edges-not-excess",
+        "Gives the whole number of edges where only the excess over the planar bound was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-wrong-bound",
+        "Uses the 3v - 6 rule on a network with no triangles (or the 2v - 4 rule on one with triangles), so the excess is wrong.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-arithmetic",
+        "Slips in evaluating the bound on the edges of a planar network (3v - 6 or 2v - 4), so the answer is off by a small amount.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-missing-constant",
+        "Leaves the constant out of the planar edge bound, using 3v where 3v - 6 belongs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-excess-direction",
+        "Subtracts the bound from the edges the wrong way round, so the number of edges that can still be added comes out as a surplus.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-uses-original-edges",
+        "Applies Euler's formula to the original number of edges when the question is about the finished network with the most edges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-faces-as-vertices",
+        "Gives the number of vertices where the number of faces (or the reverse) was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-boundary-count-once",
+        "Forgets that every edge borders two regions, so the boundary count of the regions is not doubled back into a count of edges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-complete-always-planar",
+        "Thinks that a complete network can always be drawn without edges crossing.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-planar-bound-sufficient",
+        "Thinks that passing the edge-count test proves a network is planar, or that failing it proves nothing.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-ordered-pairs",
+        "Counts each link between two places twice, once from each end, so the number of links is doubled.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-ring-only",
+        "Counts only a ring of links round the places instead of a link between every pair.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-places-as-links",
+        "Gives the number of places where the number of links was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-pairs-miscount",
+        "Miscounts the pairs of places by adding or leaving out one place's links.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-lists-not-halved",
+        "Adds up everyone's list as the number of friendships, so every friendship is counted twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-count-slip",
+        "Miscounts the links or places by one when reading them from the situation.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-max-degree-as-links",
+        "Gives the greatest number of friends one person has where the total number of friendships was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-links-as-max-degree",
+        "Gives the total number of friendships where the greatest number of friends one person has was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-wrong-person",
+        "Reads the list of a different person from the one with the most friends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-routes-not-merged",
+        "Adds the links on each route without noticing that two routes share a link, so shared links are counted more than once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-routes-as-links",
+        "Gives the number of routes where the number of links or places was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-stops-for-flights",
+        "Counts the stops on a trip, both ends included, instead of the flights between them, so the answer is one too many.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-single-route-distance",
+        "Follows the stops of one route instead of searching the whole network for the fewest flights, or counts all the places.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-components-not-minus-one",
+        "Gives the number of separate groups of places as the number of new links needed, instead of one fewer.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-isolated-only",
+        "Counts only the places on no route as the groups that need joining and ignores the groups made of several places.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-cancelled-ignored",
+        "Gives the fewest flights as they were before the route was cancelled.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-pairs-for-extra",
+        "Gives the number of links in the complete network where only the extra links needed were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-net-existing-for-extra",
+        "Gives the number of links already there where the number still needed was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-rows-columns-swapped",
+        "Writes the matrix with the jobs as rows and the workers as columns, which is the transpose of the one asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-ones-zeros-swapped",
+        "Puts a 1 where the worker cannot do the job and a 0 where the worker can.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-entry-slip",
+        "Writes one entry of the matrix wrongly, putting a 1 where the worker cannot do the job or a 0 where they can.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-row-order-slip",
+        "Writes the rows of the matrix in a different order from the order the workers were listed in.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-cannot-as-can",
+        "Reads a list of jobs a worker cannot do as the jobs they can do, so the 1s and 0s are the wrong way round.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-forced-worker-kept",
+        "Removes the job that only one worker can do but leaves that worker's row in the matrix of those still unassigned.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-forced-job-kept",
+        "Removes the worker who has been given a job but leaves that job's column in the matrix of those still unassigned.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-no-reduction",
+        "Writes the whole matrix again instead of the one left after the forced jobs have been given out.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-assumes-full",
+        "Assumes every worker can be given a job, ignoring workers who can only do the same few jobs between them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-count-slip",
+        "Miscounts the allocations or jobs by one.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-counts-ones",
+        "Counts every 1 in the matrix, that is every job a worker could do, instead of counting complete allocations or jobs filled.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-jobs-for-left-over",
+        "Gives the number of jobs that can be filled where the number of workers left without a job was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-multiplies-choices",
+        "Multiplies the numbers of jobs each worker can do, forgetting that two workers cannot be given the same job.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-bip-one-allocation",
+        "Thinks there is only one best allocation when there are several.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-adds-readings",
+        "Adds the two values read from the graph instead of finding how much higher one is than the other.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-neighbour-read",
+        "Reads the value at the time point next to the one named, so the difference is for the wrong pair of times.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-gridline-slip",
+        "Reads a value one gridline too high or too low on the vertical axis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-one-reading",
+        "Gives one of the two values read from the graph where the difference between them was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-no-trend-added",
+        "Predicts the value in the same season of the last cycle and does not add the change of level from one cycle to the next.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-ignores-season",
+        "Adds the change of level to the latest value instead of the value in the same season one cycle ago, ignoring the seasonal pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-twice",
+        "Adds the change of level for two cycles when the prediction is only one cycle on from the value used.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-once-for-two-cycles",
+        "Uses the value two cycles back but adds the change of level for only one cycle.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-uses-irregular-value",
+        "Predicts from the value that a one-off event had disturbed, so the one-off effect is carried forward.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-irregular-wrong-cycle",
+        "Names the same season in a different cycle from the one in which the one-off event happened.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-irregular-neighbour",
+        "Names the time point next to the one that a one-off event disturbed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-irregular-as-extreme",
+        "Takes the highest or lowest value on the graph to be the one affected by a one-off event.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-period-off-by-one",
+        "Counts one too many or one too few time points in a cycle of the seasonal pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-period-count-points",
+        "Gives the number of cycles or of points on the graph where the length of one cycle was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-as-total",
+        "Gives the whole change from the first value to the last where the change from one cycle to the next was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-one-step",
+        "Gives the change from one time point to the next instead of the change from one cycle to the next.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-ts-trend-sign",
+        "Gives the change of level with the wrong sign, a rise as a fall or a fall as a rise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-direction-reversed",
+        "Reads the direction of an association the wrong way round, calling a rising pattern negative or a falling one positive.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-strength-one-band-off",
+        "Judges the strength of an association one step too strong or too weak for how closely the points follow the pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-fields-swapped",
+        "Gives the description words in the wrong order for the fields asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-form-misjudged",
+        "Calls a curved pattern linear, or a straight-line pattern non-linear.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-outlier-effect-reversed",
+        "Says removing an outlier would weaken the association when it would strengthen it, or the other way round.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-strength-without-outlier",
+        "Describes the strength the data would have without the outlier instead of with it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-negative-as-weak",
+        "Treats a negative correlation as a weak one, mixing up direction with strength.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-r-not-squared",
+        "Gives the correlation coefficient as a percentage instead of squaring it for the coefficient of determination.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-explained-for-unexplained",
+        "Gives the percentage explained where the percentage not explained was asked for, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-rounding-slip",
+        "Rounds the percentage the wrong way, leaving it a unit away from the correct whole number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-percentage-slip",
+        "Leaves the squared coefficient as a decimal or moves the decimal point the wrong way when converting to a percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-correlation-is-causation",
+        "Takes a strong association between two variables as proof that one causes the other.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-sc-r-squared-as-points-on-line",
+        "Reads the coefficient of determination as the percentage of points that lie on the line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-sign",
+        "Gives the gradient of a falling line as a positive number, or of a rising line as a negative number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-as-intercept",
+        "Gives the value where the line meets the vertical axis in place of the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-run-over-rise",
+        "Divides the run by the rise instead of the rise by the run when finding the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-slope-whole-rise",
+        "Gives the rise over the whole drawn line, or a doubled rise, instead of the rise for each unit across.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-nearest-point",
+        "Reads the value of the plotted data point instead of the value the line predicts.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-forgets-intercept",
+        "Multiplies the gradient by the value across but leaves out where the line meets the vertical axis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-slope-one",
+        "Adds the value across to the intercept as if the gradient were 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-gridline-slip",
+        "Reads the line a unit away from the correct gridline.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-predict-intercept-times-x",
+        "Multiplies the intercept by the value across instead of using the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-residual-sign",
+        "Subtracts the other way round, predicted minus actual, or drops the sign of the residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-residual-actual-value",
+        "Gives the actual value of the data point as its residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-residual-predicted-value",
+        "Gives the value the line predicts as the residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-inverse-multiplies",
+        "Multiplies by the gradient instead of dividing when finding the value across for a given prediction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-inverse-no-intercept",
+        "Divides the predicted value by the gradient without first taking away the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-inverse-forgets-divide",
+        "Takes away the intercept but does not divide by the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-reliable-because-close",
+        "Treats a prediction far outside the data as reliable because the points near the line fit closely.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-extrapolation-reliable",
+        "Believes a line of best fit can be extended to any value with the same reliability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-line-passes-all-points",
+        "Believes the line of best fit passes through every data point, so any prediction is exact.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-fl-wrong-reason-unreliable",
+        "Says a prediction is unreliable for a reason that has nothing to do with going outside the range of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-upper-edge",
+        "Gives the upper boundary of a class where its lower boundary was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-frequency-for-boundary",
+        "Gives the height of the tallest bar where the boundary of its class was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-boundary-for-frequency",
+        "Gives a class boundary where the height of the tallest bar was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-neighbour-class",
+        "Reads the class or bar beside the one asked about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-modal-midpoint",
+        "Gives the midpoint of the class where its lower boundary was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-gridline-slip",
+        "Reads a height or count one gridline or one value away from the correct one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-class-number-for-frequency",
+        "Counts the classes or their position along the axis instead of reading the frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-whole-axis",
+        "Uses the whole length of the horizontal axis as the range, including empty classes at the ends.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-lower-edge-of-last",
+        "Takes the lower boundary of the last class instead of its upper boundary when finding the greatest range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-lowest-upper-edge",
+        "Starts from the upper boundary of the first class instead of its lower boundary when finding the greatest range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-range-number-of-classes",
+        "Gives the number of classes where a range of values was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-includes-next-class",
+        "Includes the class that starts at the stated value when counting the values below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-omits-class",
+        "Leaves out the last class below the stated value when counting.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-one-class-only",
+        "Gives the frequency of only the class just below the stated value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-below-for-above",
+        "Counts the values above the stated value where the values below it were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-median-class-modal",
+        "Takes the modal class as the class that holds the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-median-class-middle-of-axis",
+        "Takes the class in the middle of the axis as the class that holds the median, ignoring the frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-interp-whole-class",
+        "Counts the whole class that contains the stated value instead of the share of it below that value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-interp-omits-class",
+        "Leaves out the class containing the stated value instead of counting half of it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-interp-half-only",
+        "Gives half the frequency of the class only, forgetting the classes below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-total-counts-bars",
+        "Counts the bars instead of adding the frequencies to find the total number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-total-tallest",
+        "Gives the height of the tallest bar as the total number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-total-omits-class",
+        "Leaves a class out when adding the frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-position-half-n",
+        "Halves the total without adding one, or adds one in the wrong place, when finding the position of the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-position-n",
+        "Gives the total number of values as the position of the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-mean-median-reversed",
+        "Puts the mean on the wrong side of the median for the direction of the tail.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-skewed-mean-equals-median",
+        "Says the mean and the median are about equal for a clearly skewed histogram.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-symmetric-as-skewed",
+        "Says the mean and the median differ for a symmetric histogram.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-hs-cannot-compare",
+        "Says the mean and median cannot be compared without the raw data, ignoring what the shape shows.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-as-range",
+        "Gives the range from one end of the whiskers to the other where the interquartile range was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-as-quartile",
+        "Gives the value of the third quartile in place of the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-half-box",
+        "Gives only half of the box, from the median to one quartile, as the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-iqr-to-whisker",
+        "Measures the interquartile range from the first quartile to the end of the upper whisker.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-gridline-slip",
+        "Reads a value from the axis one tick-mark away from the correct one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-diff-quartile",
+        "Compares the quartiles of the two plots instead of the medians.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-diff-whisker",
+        "Compares the ends of the whiskers instead of the medians.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-diff-range",
+        "Compares the ranges of the two plots where the difference between the medians was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-one-iqr",
+        "Adds or subtracts one interquartile range instead of one and a half when finding a fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-forgot-iqr",
+        "Adds or subtracts the number 1.5 to the quartile instead of 1.5 times the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-no-quartile",
+        "Gives 1.5 times the interquartile range without adding it to, or taking it from, the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-from-whisker",
+        "Measures the fence from the end of the whisker instead of from the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-from-median",
+        "Measures the fence from the median instead of from the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-fence-wrong-side",
+        "Gives the fence on the opposite side of the box from the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-from-quartile",
+        "Measures how far an outlier is from the quartile instead of from the fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-from-whisker",
+        "Measures how far an outlier is from the end of the whisker instead of from the fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-outlier-value",
+        "Gives the value of the outlier instead of how far it lies beyond the fence.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-beyond-one-iqr-fence",
+        "Measures from a fence set one interquartile range from the quartile instead of one and a half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-outlier-at-the-fence",
+        "Treats the value on the fence as an outlier, though an outlier must be more than 1.5 interquartile ranges beyond the quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-outlier-just-past-whisker",
+        "Takes the first whole number past the end of the whisker as the smallest outlier.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-range-for-iqr",
+        "Judges variability by the range, which an outlier stretches, instead of the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-outlier-as-spread",
+        "Takes the presence of an outlier as a sign of more variability in the middle of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-ignores-iqr",
+        "Says the two groups are equally variable although their interquartile ranges differ.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2a-bp-median-for-spread",
+        "Uses the size of the median as a measure of how spread out the data are.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptotes-swapped",
+        "Giving the horizontal asymptote's value as the vertical asymptote and the other way round.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-vertical-asymptote-sign",
+        "Reading the vertical asymptote of a function with x + d in the denominator as x = d instead of x = -d.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-horizontal-asymptote-constant-term",
+        "Taking the constant term of the numerator as the horizontal asymptote instead of the ratio of the leading coefficients.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-horizontal-asymptote-negated",
+        "Giving the horizontal asymptote with the sign of the ratio of leading coefficients reversed.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-coefficient-of-x-ignored",
+        "Ignoring the coefficient of x in the denominator: reading the asymptote as -d or a instead of -d/c or a/c.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-ratio-of-coefficients-inverted",
+        "Writing the horizontal asymptote as the denominator's leading coefficient over the numerator's instead of the other way round.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-intercepts-swapped",
+        "Giving the y-intercept's value as the x-intercept and the other way round.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-x-intercept-sign",
+        "Solving ax + b = 0 for x and losing the sign: x = b/a instead of x = -b/a.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-intercept-from-leading-coefficients",
+        "Using the ratio of the leading coefficients, which gives the horizontal asymptote, as the y-intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-x-intercept-from-denominator",
+        "Setting the denominator, not the numerator, equal to zero to find the x-intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-y-intercept-from-numerator",
+        "Reading the numerator's constant term as the y-intercept without dividing by the denominator's constant term.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-leading-coefficient-not-divided",
+        "Taking the numerator's leading coefficient as the gradient of the oblique asymptote without dividing by the denominator's.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-term-read-as-intercept",
+        "Reading the numerator's x coefficient as the intercept of the oblique asymptote instead of dividing out.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-division-sign-slip",
+        "A sign slip in the long division: adding the term that should be subtracted when forming the quotient's constant.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-remainder-for-intercept",
+        "Giving the remainder of the division as the oblique asymptote's intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-constants-divided",
+        "Dividing the constant terms of the numerator and denominator to get the oblique asymptote's intercept.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-height-from-constant",
+        "Giving the constant of the cancelled linear factor as the height of the hole, forgetting to substitute the x-value.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-x-sign",
+        "Reading the factor x - h as giving x = -h for the hole.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-height-from-coefficient",
+        "Giving the numerator's x coefficient as the height of the hole.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-hole-height-quotient-slope-only",
+        "Substituting into only the x term of the simplified function, leaving out its constant.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-vertical-asymptote-from-numerator",
+        "Taking a number from the numerator, not the zero of the denominator, as the vertical asymptote.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-quotient-constant-negated",
+        "Giving the constant of the oblique asymptote with its sign reversed.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-from-k",
+        "Giving the constant of the oblique asymptote as the height where the asymptotes cross, without adding the x-value.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-product",
+        "Multiplying the x-value of the vertical asymptote by the constant instead of adding it.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-sign",
+        "Subtracting the x-value of the vertical asymptote from the constant instead of adding it.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-meeting-height-from-x",
+        "Giving the x-value of the vertical asymptote as the height where the asymptotes cross.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-y-intercept-sign",
+        "Finding f(0) correctly and then reversing its sign, or dividing the numerator's constant by h instead of -h.",
+        area="rational-functions",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-at-the-shift",
+        "Giving the horizontal shift itself as the position of an asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-b-ignored",
+        "Ignoring the coefficient of x when locating the asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-doubled",
+        "Counting each asymptote twice, once from each side of it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-endpoints-included",
+        "Counting an asymptote at each end of the interval when the graph has none there.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-endpoints-missed",
+        "Leaving out the asymptotes at the two ends of the interval, where sin(bx) is zero.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-off-by-one",
+        "Counting the asymptotes in an interval with the number off by one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-one-period-only",
+        "Giving the number of asymptotes in one period instead of in the whole interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-count-periods-not-asymptotes",
+        "Giving the number of periods in the interval as the number of asymptotes.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-first-member-of-pattern",
+        "Taking the asymptote from the first value of k tried without checking whether an earlier one is still positive.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-next-member",
+        "Stepping on to the next asymptote in the pattern instead of the smallest positive one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-quarter-period",
+        "Taking a quarter of the period as the first asymptote of a cosecant graph.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-shift-direction",
+        "Moving the first asymptote of the unshifted graph the wrong way, subtracting a shift that should be added.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-shift-ignored",
+        "Giving the first asymptote of the unshifted graph and ignoring the horizontal shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-asymptote-whole-period",
+        "Taking a whole period as the first asymptote of a cosecant graph, whose asymptotes come twice per period.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-period-b-ignored",
+        "Giving the period of the basic graph and ignoring the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-period-multiplied-by-b",
+        "Multiplying the basic period by the coefficient of x instead of dividing by it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-period-wrong-base",
+        "Using pi as the basic period of secant or cosecant, or 2 pi for tangent.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-product",
+        "Multiplying the amplitude by the vertical shift to find the edge of the gap between the branches.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-shift-ignored",
+        "Giving the size of the coefficient as the edge of the gap and leaving out the vertical shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-sign-of-a",
+        "Adding or subtracting the signed coefficient instead of its size, so a negative coefficient moves the edge the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-reciprocal-gap-wrong-edge",
+        "Giving the lower edge of the gap between the branches instead of the upper one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-added-pi",
+        "Adding pi to the angle instead of finding the other angle with the same value, which is pi minus it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-negated",
+        "Giving the negative of the angle, taken into [0, 2 pi), as the other angle with the same value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-reference-angle-given",
+        "Giving the reference angle as the answer without placing it in the quadrant the conditions require.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-angle-wrong-quadrant",
+        "Choosing the other angle that has the stated value, whose other function has the wrong sign.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-complement-used",
+        "Using the value for the complementary angle, swapping the values of one half and root three over two.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-reciprocal-given",
+        "Giving the reciprocal of the value, as for the reciprocal function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-sign-error",
+        "Taking the right size of the exact value but the wrong sign for the quadrant.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-sin-cos-swapped",
+        "Giving the value of cosine for the angle where sine was asked, or the other way round.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-sum-for-product",
+        "Adding the two exact values where they should be multiplied.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-tan-inverted",
+        "Finding tangent as cosine over sine instead of sine over cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-wrong-function",
+        "Giving the value of a different trigonometric function at the reference angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-exact-value-multiplier-dropped",
+        "Finding the exact value of the trigonometric function and forgetting to multiply by the number in front of it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sr2b-average-speed-for-average-velocity",
+        "Giving the total distance over the time (average speed) when the net change in position over the time (average velocity) was asked.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-average-velocity-for-average-speed",
+        "Giving the net change in position over the time (average velocity) when the total distance over the time (average speed) was asked.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-average-velocity-for-segment-velocity",
+        "Giving the average velocity over the whole journey when the velocity on one segment was asked.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-displacement-for-distance",
+        "Giving the net change in position as the total distance travelled, so the legs that double back cancel.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-displacement-not-divided",
+        "Finding the net change in position and not dividing by the time taken.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-distance-not-divided",
+        "Finding the total distance travelled and not dividing by the time taken.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-distance-over-segments",
+        "Dividing the total distance by the number of segments instead of by the time.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-end-of-graph-for-return",
+        "Giving the end of the journey as the time of the first return to the starting position.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-farthest-point-only",
+        "Using only the greatest distance from the start as the distance travelled, leaving out the legs that follow it.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-neighbouring-segment",
+        "Reading the velocity of the segment next to the one asked about.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-next-vertex-for-crossing",
+        "Giving the time of the next corner of the graph as the time it crosses the starting level, which happens part-way along a segment.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-origin-for-start-position",
+        "Looking for the time the graph reaches zero when the question asks for the time it is back at its starting position.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-out-and-back-only",
+        "Doubling the greatest distance from the start as the distance travelled, leaving out the final stage.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-return-leg-lost",
+        "Leaving out one leg of the journey when adding the distances.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-return-time-off-by-one",
+        "Reading the time of the return one unit away from where the graph crosses the starting level.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-rise-not-divided",
+        "Giving the change in position over the segment without dividing by the time it took.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-segment-speeds-averaged",
+        "Averaging the speeds of the segments, ignoring that the segments last different lengths of time.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-segment-velocities-averaged",
+        "Averaging the velocities of the segments, ignoring that the segments last different lengths of time.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-start-position-counted",
+        "Adding the starting position to the distance travelled.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-start-position-ignored",
+        "Dividing the final position by the time, forgetting that the journey did not start at zero.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-turning-point-for-return",
+        "Giving the time of the turning point, where the object is farthest from the start, as the time it returns.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-velocity-sign-dropped",
+        "Giving the size of a negative velocity without its sign, so the direction of travel is lost.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-velocity-sign-reversed",
+        "Giving a velocity with its sign reversed, so it points the wrong way.",
+        area="motion",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-not-integrated-over-width",
+        "Integrating a constant term over an interval as if the constant were simply added, without multiplying by the width of the interval.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-sign-reversed",
+        "Subtracting the integral of a positive constant, or adding that of a negative one, so the constant term has the wrong sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-constant-term-dropped",
+        "Integrating only the multiple of f(x) and leaving out the integral of the constant term.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-integral-for-area",
+        "Giving the value of a definite integral when the area of a region was asked for, so a region below the axis is subtracted.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-integral-for-total-area",
+        "Giving the definite integral when the total area was asked for, so the region below the axis is subtracted instead of added.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-one-region-only",
+        "Giving the signed area of a single region instead of combining the regions in the interval.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-region-left-out",
+        "Leaving one of the regions out when combining the areas.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-regions-assumed-equal",
+        "Assuming the two unknown regions have equal areas and halving their total.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-regions-swapped",
+        "Giving the area of the other unknown region.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-scale-factor-dropped",
+        "Integrating the constant term and f(x) but not multiplying the integral of f(x) by its coefficient.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-sign-pattern-wrong",
+        "Using the wrong signs for the regions, as if a region above the axis lay below it or the other way round.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-signed-and-total-mixed",
+        "Mixing the value of the integral and the total area when solving for an unknown region, using one where the other belongs.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-signed-area-sign-reversed",
+        "Giving the right size of the definite integral with the wrong sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-total-area-for-integral",
+        "Adding all the areas when the definite integral was asked for, so a region below the axis is counted as positive.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-two-regions-combined",
+        "Giving the combined area of the two unknown regions as the area of one of them.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-wrong-interval",
+        "Giving the integral over the whole graph when an integral over part of it was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "sr2b-boundary-sign-slip",
+        "Solving the condition on the composite correctly but giving the boundary value with the wrong sign.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-boundary-wrongly-excluded",
+        "Using a strict inequality where the end-point is allowed, so a value that makes the composite defined is left out.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-boundary-wrongly-included",
+        "Using a non-strict inequality where the end-point is not allowed, so a value that makes the composite undefined is included.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-excluded-value-missed",
+        "Finding the domain of the inner function only and missing the value that the outer function cannot accept.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-excluded-value-not-converted",
+        "Excluding the value the outer function cannot accept, but not solving for the x that produces it.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-inequality-direction-wrong",
+        "Not reversing the inequality when dividing by a negative coefficient, or reversing it when the coefficient is positive.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-inner-domain-missed",
+        "Applying only the condition from the outer function and leaving out the domain of the inner function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-inner-not-squared",
+        "Removing a square root from one side of an inequality or equation without squaring the other side.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-negative-branch-dropped",
+        "Solving x squared against a number and keeping only the positive root, so the negative branch of the domain is lost.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-no-restriction-found",
+        "Concluding the composite is defined for every real number when the outer function excludes a value the inner function takes.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-one-root-only",
+        "Excluding only the positive solution of x squared equal to a number and missing the negative one.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-one-side-only",
+        "Giving only one side of an excluded value as the domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-outer-condition-missed",
+        "Applying only the domain of the inner function and missing the condition the outer function puts on the inner function's values.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-outer-domain-used-for-x",
+        "Using the domain of the outer function g as the domain of x, without substituting f(x).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-quadratic-inequality-wrong-way",
+        "Solving a quadratic inequality for the inside of the roots when the outside is needed, or the other way round.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-shift-ignored",
+        "Leaving out the shift in the inner function when turning a condition on f(x) into one on x.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-sign-condition-ignored",
+        "Excluding only the value where the reciprocal is undefined and missing that the square root then needs it to be positive.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-square-root-not-taken",
+        "Treating x squared against a number as x against that number, without taking the square root.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-squared-negative-bound",
+        "Squaring a condition that a square root exceeds a negative number and using the result as a bound, when the condition always holds.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "sr2b-apart-count-given",
+        "Giving the number of arrangements with two items together when the number with them apart was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-apart-probability-given",
+        "Giving the probability that the two items are apart when the probability that they are together was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-at-least-double-counted",
+        "Choosing the required number of women first and then filling the rest from everyone, which counts committees with more women several times.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-block-and-rest-miscounted",
+        "Treating a pair as one object but counting the arrangements of the objects wrongly.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-case-left-out",
+        "Leaving out one of the cases that make up the count.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-complement-given",
+        "Finding the number of committees that fail the condition and giving it as the answer.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-complement-taken-wrongly",
+        "Subtracting the wrong complement, so the count is for a different condition from the one asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-divided-by-counts-not-factorials",
+        "Dividing by the number of times a letter is repeated instead of by the factorial of that number.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-equally-likely-assumed",
+        "Giving a probability of one half because the letters are either next to each other or not.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-exactly-for-at-least",
+        "Counting committees with exactly the stated number of women when at least that number was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-exactly-for-at-most",
+        "Counting committees with exactly the stated number of women when at most that number was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-internal-order-counted-for-identical",
+        "Doubling the count for the order of two identical letters in a block, which cannot be told apart.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-internal-order-missed",
+        "Forgetting that two items arranged as a block can be in either order.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-letter-fixed",
+        "Arranging one fewer letter, as if one letter were fixed in place.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-named-person-arranged",
+        "Multiplying the count by the size of the committee as though the named person had a position on it.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-named-person-left-off",
+        "Choosing the whole committee from the people other than the named person.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-odds-for-probability",
+        "Giving the ratio of favourable to unfavourable arrangements as the probability.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-one-end-only",
+        "Counting the arrangements with the item at one end only, not at either end.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-one-repeat-only",
+        "Dividing by the factorial of one repeated letter and ignoring the other repeats.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-probability-over-wrong-total",
+        "Dividing the favourable arrangements by the total plus the favourable ones.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-reflection-halved",
+        "Halving a round-table count as though a seating and its mirror image were the same.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-repeat-counts-added",
+        "Dividing by the factorial of the total number of repeated letters instead of by each factorial in turn.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-repeats-ignored",
+        "Counting the arrangements as though every letter were different.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-restriction-ignored",
+        "Giving the count without applying the restriction in the question.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-rotations-counted-as-different",
+        "Counting seatings that are rotations of each other as different arrangements.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-together-count-given",
+        "Giving the number of arrangements with the pair together when the number with them apart was asked.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-together-subtracted-twice",
+        "Subtracting the number of arrangements with the pair together twice from the total.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-together-treated-as-half",
+        "Taking half of all the arrangements as those with a pair together.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-two-people-fixed",
+        "Fixing two people in place at a round table instead of one.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-end-order-missed",
+        "Forgetting that the two items at the ends can swap places.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-pair-position-fixed",
+        "Counting arrangements with the pair in one fixed place, not sliding it along the row.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-pair-places-miscounted",
+        "Counting the number of places a pair can occupy as the length of the row instead of one fewer.",
+        area="counting",
+    ),
+    CatalogueEntry(
+        "sr2b-area-given-for-cost",
+        "Giving the floor area in square metres as the cost, without multiplying by the price per square metre.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-area-scaled-linearly",
+        "Multiplying the plan area by the scale as if area scaled like length, instead of by the square of the scale.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-box-coverage-priced-as-box",
+        "Multiplying the area the boxes cover by the price of a box.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-boxes-not-rounded-up",
+        "Using a part-box count in the cost, when only whole boxes can be bought.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-boxes-rounded-down",
+        "Rounding the number of boxes down, which leaves the floor short of material.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-centimetres-not-converted-to-metres",
+        "Multiplying a plan length by the scale and leaving the answer in centimetres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-centimetres-to-metres-with-10",
+        "Changing centimetres to metres by dividing by 10 instead of 100.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-gap-not-removed",
+        "Charging fencing for the whole distance round, including the gate opening.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-ignored",
+        "Costing the whole distance round as fencing and leaving out the gate completely.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-price-counted-twice",
+        "Adding the price of the gate twice.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-gate-price-left-out",
+        "Costing the fencing correctly but leaving out the price of the gate.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-one-side-scaled",
+        "Scaling only one of the two plan lengths before multiplying them to find the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-other-side-used",
+        "Giving the real width of the room when its real length was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-perimeter-for-area",
+        "Adding up the lengths round the edge of the floor when the area was needed.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-scale-applied-the-wrong-way",
+        "Dividing a plan length by the scale where it should be multiplied.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-scale-ignored",
+        "Using the plan measurements as though they were real measurements.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-square-centimetres-to-metres-with-100",
+        "Changing square centimetres to square metres by dividing by 100 instead of 10 000.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-added-to-price",
+        "Adding the waste percentage to the price per square metre instead of increasing the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-allowance-left-out",
+        "Working with the floor area exactly and leaving out the extra ordered for waste.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-only",
+        "Giving only the extra area for waste instead of the floor area plus the waste.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-percentage-added-as-area",
+        "Adding the waste percentage as square metres to the floor area instead of taking a percentage of it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2b-waste-subtracted",
+        "Reducing the area by the waste percentage instead of increasing it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-sign-flipped",
+        "Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred at (2, -3) instead of (-2, 3).",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-real-imaginary-swapped",
+        "Swapping the real and imaginary parts of a centre or point, so the real part is plotted up the imaginary axis.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-diameter-for-radius",
+        "Using the diameter of a circle where its radius belongs.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-inside-outside-reversed",
+        "Choosing the points outside the circle where the points inside were asked for, or the reverse.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-boundary-included-or-excluded",
+        "Counting a point on the boundary for a strict inequality, or leaving it out for a non-strict one.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-radius-squared",
+        "Using the radius squared where the radius belongs, or comparing a squared distance with the radius itself.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-inner-circle-ignored",
+        "Describing the region between two circles by its outer boundary alone, so the inner disc is wrongly included.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-difference-of-radii",
+        "Using the difference of the two radii as the outer radius of the region between concentric circles.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-components-added",
+        "Adding the real and imaginary parts of a difference of complex numbers instead of taking its modulus.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-larger-component-only",
+        "Taking the larger of the real and imaginary parts as the modulus.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-modulus-of-point-not-distance",
+        "Using the modulus of a point on the circle as the radius, instead of its distance from the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-greatest-and-least-confused",
+        "Giving the greatest value of |z| over a disc where the least was asked for, or the reverse.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-radius-for-modulus",
+        "Giving the radius of a disc as the greatest or least value of |z|, forgetting that the centre is not the origin.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-modulus-only",
+        "Giving the distance from the origin to the centre as the greatest or least value of |z|, forgetting the radius.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-subtracted-the-wrong-way",
+        "Subtracting the larger quantity from the smaller, which gives a negative modulus.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-modulus-compared-with-radius",
+        "Testing |z| against the radius instead of |z - c|, measuring the distance from the origin and not from the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-scale-factor-not-divided",
+        "Reading the centre of |kz + w| = m as -w, without dividing by the coefficient k of z.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-radius-modulus-as-centre",
+        "Taking the complex number on the right of |z - w| = |u| as the centre or part of it, when its modulus is the radius.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-not-halved",
+        "Reading the centre of x^2 + y^2 + Dx + Ey + F = 0 as (-D, -E), forgetting to halve the coefficients.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-coefficient-scale-ignored",
+        "Not dividing by the coefficient of x^2 and y^2 before reading the centre from the equation of a circle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-conjugate-coefficient",
+        "Reading the centre from the coefficient of z instead of the coefficient of z-bar, which gives the conjugate of the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-transformation-ignored",
+        "Giving the centre of the original circle where the centre of its image was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-translation-only",
+        "Applying only the translation, or only the scale factor, to the centre of a circle that is dilated and translated.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-midpoint-not-halved",
+        "Adding the two ends of a diameter without halving, so the centre is twice as far from the origin as it should be.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-difference-for-midpoint",
+        "Subtracting the ends of a diameter to find the centre, which gives the diameter vector and not the midpoint.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-square-root-omitted",
+        "Leaving the distance squared, without taking the square root.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-from-origin",
+        "Measuring the distance of a point from the origin where the distance from the centre was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-to-centre-not-circle",
+        "Giving the distance to the centre of the circle where the distance to the circle itself was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-nearest-and-farthest-confused",
+        "Adding the radius to the distance to the centre, which gives the farthest point of the circle instead of the nearest.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-line-for-bisector",
+        "Giving the line through the two points, through their midpoint, where the perpendicular bisector was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-bisector-through-endpoint",
+        "Drawing the perpendicular line through one of the two points instead of through their midpoint.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-gradient-sign-wrong",
+        "Taking the gradient of the perpendicular bisector to be the reciprocal without its change of sign.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-conjugate-ignored",
+        "Treating |z-bar - b| as |z - b|, forgetting that the conjugate reflects b in the real axis.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-root-sum-as-point",
+        "Using half the sum of the roots as a point on the bisector instead of finding the roots first.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-intercept-for-root",
+        "Giving the y-intercept, or its product with the gradient, where the x-intercept was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-sign-lost-solving",
+        "Losing the sign of the gradient when solving mx + c = 0 for x.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-triangle-half-omitted",
+        "Giving base times height for the area of a triangle, without halving.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-base-and-height-added",
+        "Adding the base and the height of a triangle instead of multiplying them.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-wrong-triangle-side",
+        "Using the same intercept for both the base and the height of the triangle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-intercept-for-distance",
+        "Giving an intercept of the line as its distance from the origin, rather than the length of the perpendicular.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-hypotenuse-for-distance",
+        "Giving the hypotenuse of the intercept triangle as the distance from the origin to the line.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-factor-two-omitted",
+        "Dividing the area by the hypotenuse without the factor of two, giving half the perpendicular distance.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-argument-sign-flipped",
+        "Using the opposite angle for an argument, so the ray is reflected in the horizontal line through its start.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-vertex-ignored",
+        "Drawing the ray or line through the origin, ignoring that Arg(z - a) measures the angle about a.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-wrong-boundary-ray",
+        "Giving the line of the other boundary ray of a wedge, the one with the smaller argument where the greater was asked for, or the reverse.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-half-only",
+        "Giving the distance from the vertex to a cutting line, or half the length it cuts off the wedge, where the full length between the boundary rays was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-and-height-added",
+        "Adding two lengths of a triangle where one is to be multiplied by the other.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-doubled",
+        "Doubling the length between the two boundary rays, as if the cut were measured for each ray separately.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-base-for-area",
+        "Giving half the base of a triangle as its area, forgetting to multiply by the height.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-perpendicular-line-for-ray",
+        "Giving the line perpendicular to the ray through its start, as if the argument were measured from the imaginary axis.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-inequality-not-reversed",
+        "Not reversing the inequality when dividing by a negative coefficient.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-constant-sign-error",
+        "Adding a constant where it should be subtracted (or the reverse) when solving for x or y.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-coefficient-not-divided",
+        "Moving the constant but leaving the coefficient of x or y undivided.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-re-im-confused",
+        "Reading the real part as y or the imaginary part as x, so the condition is on the wrong variable.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-conjugate-sign-ignored",
+        "Forgetting that the imaginary part of a conjugate has the opposite sign, so Im of the conjugate of z is -y and not y.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-multiplication-by-i-sign",
+        "Getting the sign wrong when multiplying z by i: iz = -y + ix, so Re(iz) is -y and Im(iz) is x.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-re-im-constant-mixed",
+        "Combining the constants of the real and imaginary sides with the wrong sign when finding the boundary of Re(z - a) >= Im(z + bi).",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-part-of-constant",
+        "Giving one of the two constants in the condition instead of their combination.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-constant-squared",
+        "Squaring the combined constant where it should be used as it is.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-root-two-omitted",
+        "Dividing the intercept by 2 instead of by the square root of 2 when finding the perpendicular distance.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-midpoint-for-centre",
+        "Taking the midpoint of the two given points as the centre of the circle |z - a| = k|z - b|, which is the centre only when k = 1.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-closer-point-for-centre",
+        "Giving one of the two given points as the centre of the circle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-internal-point-for-centre",
+        "Giving the point of the circle between the two given points as its centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-external-point-for-centre",
+        "Giving the point of the circle on the far side of the closer point as its centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-ratio-inverted",
+        "Dividing the segment between the points in the ratio 1 : k from the wrong end, so the locus point is nearer a than b.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-for-point",
+        "Giving the centre of the circle where a point of the circle was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-external-point-for-internal",
+        "Giving the point of the circle outside the segment where the point between the two given points was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-between-points-for-radius",
+        "Giving the distance between the two given points as the radius of the circle.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-distance-ratio-for-radius",
+        "Giving a third of the distance between the given points (or a similar fraction of it) as the radius, without the factor k.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-offset-ignored",
+        "Taking the radius as the half-length of a chord, forgetting that the line is not through the centre.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-wrong-offset-used",
+        "Using the distance from the centre to the line where the half-chord was needed.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-centre-real-for-imaginary",
+        "Using the real part of the centre where the imaginary part belongs.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-one-intersection-only",
+        "Giving only one intersection of a line with a circle, or a second value one away from the first.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "sr2l-chord-by-sum",
+        "Adding the radius and the distance from the centre to the line where the chord length was asked for.",
+        area="complex-loci",
+    ),
+    CatalogueEntry(
+        "r2x-cond-joint-not-group-total",
+        "Giving the count where both events happen as the size of the group that satisfies the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-complement-group",
+        "Counting the group that does not satisfy the condition instead of the one that does.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-other-event-total",
+        "Giving the total for the target event in place of the size of the group that satisfies the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-whole-group-denominator",
+        "Dividing the count for both events by the whole group instead of by the group that satisfies the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-swapped-condition-target",
+        "Swapping the condition and the target, so dividing by the target's total instead of the condition's.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-ignores-condition",
+        "Giving the unconditional probability of the target when a condition was stated.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-joint-for-single",
+        "Giving the probability of both events together as the probability of the one event.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-condition-applied-with-none-given",
+        "Restricting to a group when the question gives no condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-sign-reversed",
+        "Reporting an increase in probability as a decrease, or the reverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-assumes-independent",
+        "Taking the conditional probability to equal the unconditional one, so reporting no change.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-relative-not-points",
+        "Reporting a change in probability as a percentage of the original probability rather than in percentage points.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-joint-for-conditional",
+        "Using the probability of both events together where the conditional probability belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-probability-not-change",
+        "Giving the conditional probability as a percentage instead of the change from the plain probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-condition-for-target",
+        "Giving the probability of the condition where the probability of the target was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-fence-side-not-converted",
+        "Using a length in kilometres or centimetres as if it were already in metres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-half-perimeter",
+        "Adding the two side lengths once and stopping there, giving half the perimeter.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-one-side-counted-once",
+        "Doubling only one of the two different sides when finding a perimeter.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-gate-not-deducted",
+        "Pricing the whole perimeter although the gate needs no fencing.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-gate-added",
+        "Adding the width of the gate to the length to be fenced instead of taking it away.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-gate-not-converted",
+        "Subtracting the gate's width in centimetres from a length in metres without converting.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-added-not-subtracted",
+        "Adding the cost to the amount paid when finding the change.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-cents-dropped",
+        "Dropping the cents from the cost before finding the change.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-fence-pay-halved",
+        "Using half of the amount paid when finding the change.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-quad-ignores-leading-coefficient",
+        "Dropping the leading coefficient when solving a non-monic quadratic or using its factor form.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-root-inverted",
+        "Writing a root of nx - m = 0 as n over m instead of m over n.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-wrong-root-chosen",
+        "Giving the other root of the quadratic than the one asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-vertex-for-root",
+        "Giving the midpoint of the two roots where a root was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-sum-of-roots",
+        "Adding the roots where their difference (the distance between them) was needed.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-half-span",
+        "Using half the distance between the roots where the whole distance, or the square of half, is needed.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-product-of-roots",
+        "Multiplying the roots where their difference was needed.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-height-linear-not-squared",
+        "Treating the greatest height as proportional to the span instead of to its square.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-quad-vertex-x-for-height",
+        "Giving the horizontal position of the highest point where its height was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "r2x-prop-ratio-inverted",
+        "Dividing the input by the output instead of the output by the input when finding the constant of proportionality.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-output-not-ratio",
+        "Giving one row's output as the constant of proportionality without dividing by its input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-difference-not-ratio",
+        "Subtracting two outputs to find the constant of proportionality instead of dividing an output by its input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-decimal-shift",
+        "Placing the decimal point one place too far, giving a value ten times too large.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-divided-not-multiplied",
+        "Dividing the input by the constant of proportionality where the output is the constant times the input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-additive-reasoning",
+        "Adding the change in input to the output of a nearby row instead of scaling by the constant of proportionality.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-added-not-multiplied",
+        "Adding the constant of proportionality to the input where it should multiply it.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-increase-only",
+        "Giving the extra input alone, or the extra amount itself, in place of the total input.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-increase-subtracted",
+        "Subtracting the extra input from the original input instead of adding it.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-prop-output-added-to-input",
+        "Adding the extra output to the original input as if the two were in the same unit.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-comp-no-replacement-values",
+        "Using one fewer item in the second draw when the first was put back.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-same-colour-for-different",
+        "Giving the probability of the same colour twice where two different colours were asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-denominator-not-squared",
+        "Multiplying the two numerators but dividing by the total once, not twice.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-one-order-only",
+        "Counting only one of the two orders in which exactly one of a colour can occur.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-new-value-not-change",
+        "Giving a probability itself where the change between two probabilities was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-first-denominator-not-reduced",
+        "Reducing the counts for the second draw but not the total when the first item is not put back.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-exactly-one-for-at-least-one",
+        "Giving the probability of exactly one where at least one was asked, leaving out the outcome with both.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-none-for-at-least-one",
+        "Giving the probability of none of a colour where at least one was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-both-for-at-least-one",
+        "Giving the probability of both being a colour where at least one was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-complement-of-both",
+        "Taking the complement of both being a colour as the probability of at least one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-box-median-kept-in-half",
+        "Keeping the median in both halves when finding quartiles of an odd number of values, against the stated method.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-position-no-averaging",
+        "Taking the value at a quarter position as the quartile without averaging the two middle values of the half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-quartiles-swapped",
+        "Giving the third quartile where the first was asked, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-median-for-quartile",
+        "Giving the median of the whole data set as a quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-fence-multiplier-one",
+        "Using Q3 + IQR for the upper fence instead of Q3 + 1.5 x IQR.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-fence-without-q3",
+        "Giving 1.5 x IQR as the upper fence, forgetting to add Q3.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-lower-fence-for-upper",
+        "Giving the lower fence Q1 - 1.5 x IQR where the upper fence was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-fence-without-iqr",
+        "Adding 1.5 to Q3 instead of 1.5 times the IQR.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-outlier-kept",
+        "Finding the mean with the outlier still included.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-divided-by-original-count",
+        "Dividing the total without the outlier by the original number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-median-for-mean",
+        "Giving the median where the mean was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-wrong-value-removed",
+        "Removing the smallest value instead of the outlier.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-iqrs-added",
+        "Adding the two interquartile ranges instead of finding their difference.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-range-for-iqr",
+        "Using the range of each group in place of its interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-box-one-group-only",
+        "Giving the interquartile range of one group where a comparison of the two was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r2x-comp-single-draw-probability",
+        "Giving the probability of the colour on a single draw where a probability for two draws was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-comp-compared-with-exactly-one",
+        "Finding the change from the probability of exactly one of a colour instead of at least one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-cond-complement-target",
+        "Giving the probability of the opposite of the target.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r2x-prop-table-input-reused",
+        "Giving one of the inputs from the table as the answer.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r2x-fence-cost-for-change",
+        "Giving the cost of the fencing where the change was asked.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r2x-quad-numerator-subtracted",
+        "Subtracting the numerator of the fractional root from the whole root instead of subtracting the root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "added-instead-of-using-pythagoras",
+        "Adding two perpendicular lengths to get the length of the diagonal that joins their ends, instead of using Pythagoras' theorem.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "added-the-base-edges-for-the-shadow",
+        "Adding the two base edges to get the shadow of a space diagonal on the base, instead of finding the base diagonal by Pythagoras.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "added-the-edges-for-the-diagonal",
+        "Adding the edges of a rectangle or cuboid to get the length of its diagonal, instead of using Pythagoras' theorem.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "base-diagonal-as-hypotenuse",
+        "Treating the base diagonal as the hypotenuse of the triangle, and using sine, when it is the side next to the angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "cosine-and-sine-swapped",
+        "Using the sine ratio where the cosine is needed (or the reverse), which gives the other acute angle of the triangle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "forgot-the-square-root-in-the-shadow",
+        "Using a^2 + b^2 as the length of the base diagonal and stopping before taking the square root.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "halved-the-diagonal",
+        "Halving the length of a diagonal that was never meant to be halved.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "left-out-an-edge-in-pythagoras",
+        "Using only two of the three edges in the space-diagonal calculation, so the answer is a face diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "measured-to-the-base-instead-of-the-face",
+        "Finding the angle between the line and the base when the question names a vertical face.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-the-edges-for-the-diagonal",
+        "Subtracting the edges of a rectangle to get the length of its diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "tangent-ratio-upside-down",
+        "Dividing the adjacent side by the opposite side instead of the opposite by the adjacent, so the angle found is not the one asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-a-base-edge-as-the-shadow",
+        "Taking a base edge as the shadow of a diagonal on the base, instead of the diagonal of the base.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-half-a-base-edge-as-the-shadow",
+        "Taking half a base edge as the shadow of a sloping edge on the base, instead of half the base diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-one-edge-as-the-shadow",
+        "Taking one edge of the box as the shadow of a space diagonal on a face, instead of the face's diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-base-diagonal-as-the-shadow",
+        "Taking the base diagonal as the shadow of a face diagonal, when the shadow of a face diagonal is a base edge.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-edge-as-the-opposite-side",
+        "Treating the sloping edge as the side opposite the angle with the base, instead of the hypotenuse.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-other-base-edge-as-the-shadow",
+        "Taking the wrong base edge as the shadow of a face diagonal: the edge of the other face.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-space-diagonal-as-the-shadow",
+        "Using the space diagonal itself as the shadow of the line on the face.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-whole-diagonal-instead-of-half",
+        "Using the whole base diagonal as the shadow of a sloping edge, when the apex is above the centre and the shadow is half the diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "counted-one-too-few-after-simplifying",
+        "Simplifying every expression but miscounting, so the total of irrational numbers is one short.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "counted-the-rational-numbers-instead",
+        "Counting the rational numbers when the question asks for the irrational ones.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "every-root-treated-as-irrational",
+        "Calling every square or cube root irrational, including the root of a perfect square or cube such as the square root of 49.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fraction-counted-as-an-integer",
+        "Counting a fraction that is not a whole number as an integer.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fraction-not-simplified-to-an-integer",
+        "Leaving a fraction such as -18/3 unsimplified and so not noticing that it is a whole number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "integers-not-counted-as-rational",
+        "Believing a whole number cannot be a rational number because it is not written as a fraction.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-also-counted-as-rational",
+        "Counting an irrational number as both irrational and rational, though no number is in both sets.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-treated-as-an-integer",
+        "Rounding an irrational number to a whole number and placing it among the integers.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-treated-as-rational",
+        "Treating a non-terminating decimal such as the square root of 2 or pi as rational because it can be written with digits.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-with-no-root-sign-treated-as-rational",
+        "Calling an irrational number rational because it has no root sign, as pi or a decimal that never repeats.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-written-as-a-sum-treated-as-rational",
+        "Calling a sum of a rational number and a surd, or of two surds, rational because a sum looks like a plain number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "judged-by-the-root-sign-without-simplifying",
+        "Calling an expression irrational because it contains a root sign or pi, without simplifying it first.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "left-out-the-real-numbers",
+        "Listing the smaller sets a number belongs to but leaving out the real numbers, which contain every rational and irrational number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "named-only-the-smallest-set",
+        "Naming only the smallest set that contains the number, forgetting that the sets nest inside the larger ones.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "negative-number-counted-as-natural",
+        "Counting a negative whole number as a natural number.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "non-whole-number-treated-as-irrational",
+        "Calling a number irrational because it is not a whole number, though a fraction or terminating decimal is rational.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "pi-approximation-treated-as-irrational",
+        "Calling 22/7 or 3.14 irrational because they are used to stand for pi; each is an exact fraction, so rational.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "recurring-decimal-treated-as-irrational",
+        "Calling a repeating decimal irrational because it goes on forever; a repeating decimal can be written as a fraction, so it is rational.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "boundary-point-handled-the-wrong-way",
+        "Including a point that lies on a strict boundary (> or <), or leaving out a point on an inclusive one (\u2265 or \u2264).",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "coordinates-read-the-wrong-way-round",
+        "Reading a point as (y, x) instead of (x, y) when testing it against the line.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "either-condition-taken-for-both",
+        "Counting a point that meets only one of two conditions as meeting both, treating 'and' as 'or'.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "gradient-sign-misread",
+        "Reading a falling line as rising (or the reverse), so the gradient has the wrong sign.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "y-replaced-by-the-intercept",
+        "Giving the intercept of a line as the y-value of the solution instead of working out y from x.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "misread-the-crossing-by-one-square",
+        "Reading the point where two lines cross one grid square out from its true position.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "mixed-the-two-equations",
+        "Working out y by substituting x into the wrong line's equation.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "only-one-condition-checked",
+        "Testing a point against only one of two conditions and stopping there.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "point-used-as-the-intercept",
+        "Using the y-coordinate of a stated point as the intercept of the line through it.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "read-an-intercept-as-the-solution",
+        "Giving where a line meets an axis as the point where the two lines meet.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "region-on-the-wrong-side-of-the-line",
+        "Choosing the region above the line when it is below (or the reverse).",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "rounded-the-crossing-to-a-grid-point",
+        "Reading the point where two lines cross between grid lines as the nearest grid point instead of solving for it.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "sign-error-when-setting-equal",
+        "Making a sign error when equating the two expressions for y and solving for x.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "sign-error-on-point-substitution",
+        "Writing the equation of a line from its gradient and a point with the wrong sign on the gradient times the point's x-value.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "x-and-y-swapped",
+        "Writing the solution as (y, x) instead of (x, y).",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "intercept-left-out-of-the-substitution",
+        "Substituting x into the gradient term of a line's equation and forgetting to add the intercept, so y is found as m times x alone.",
+        area="linear-relations",
+    ),
+    CatalogueEntry(
+        "adjacent-angles-on-a-line-taken-as-equal",
+        "Assuming two angles that sit next to each other on a straight line are equal, instead of adding to 180 degrees.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "alternate-angles-taken-to-add-to-180",
+        "Treating alternate angles as if they add to 180 degrees, which is true of co-interior angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angle-sum-taken-as-360",
+        "Using 360 degrees as the angle sum of a triangle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angle-sum-taken-as-90",
+        "Using 90 degrees as the angle sum of a triangle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angles-on-a-line-taken-to-add-to-360",
+        "Using 360 degrees for angles on a straight line, which is the total for angles at a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angles-on-a-line-taken-to-add-to-90",
+        "Using 90 degrees for angles on a straight line.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "angles-taken-to-add-to-90",
+        "Using 90 degrees as the total for two angles that are equal or supplementary.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "arithmetic-slip-in-the-final-step",
+        "Choosing the right method but making a slip in the final subtraction or addition.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "co-interior-angles-taken-as-equal",
+        "Treating co-interior angles as equal, which is true of alternate and corresponding angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "co-interior-angles-taken-to-add-to-90",
+        "Using 90 degrees as the total for co-interior angles on parallel lines.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "congruence-test-confused-with-matching-parts",
+        "Giving a congruence test as the reason for equal matching parts, or the reverse: the test shows the triangles are congruent and matching parts then follow.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "congruence-tests-confused",
+        "Naming the wrong congruence test (SSS, SAS, ASA or RHS) for the equal parts that are known.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "doubled-the-base-angle-only",
+        "Doubling the base angle of an isosceles triangle and stopping, without subtracting from 180 degrees.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "forgot-to-subtract-from-the-total",
+        "Adding the two known angles of a triangle and giving that as the third angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "gave-a-leg-for-the-hypotenuse",
+        "Giving one of the shorter sides of a right-angled triangle where the hypotenuse is asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "interior-angle-found-instead-of-the-exterior-angle",
+        "Finding the third interior angle of the triangle when the exterior angle is asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "parallel-line-angle-reasons-confused",
+        "Giving corresponding, alternate or co-interior angles as the reason when a different one of the three applies.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "parallel-line-reason-confused-with-a-line-fact",
+        "Giving a fact about angles on lines (vertically opposite, straight line) as the reason for a step that needs parallel lines, or the reverse.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "reason-given-for-a-different-step",
+        "Giving a reason that is true in the diagram but does not justify this step.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "stated-fact-reasons-confused",
+        "Giving the wrong stated fact (given, midpoint, common side, opposite sides of a parallelogram or perpendicular) as the reason for a step.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "straight-line-and-crossing-line-reasons-confused",
+        "Mixing up angles on a straight line, angles at a point and vertically opposite angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-instead-of-using-pythagoras",
+        "Subtracting two sides of a right-angled triangle instead of using Pythagoras' theorem to find the third.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-only-one-angle",
+        "Subtracting only one of the two known angles from 180 degrees.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "subtracted-the-two-angles",
+        "Subtracting one known angle from the other when the exterior angle is their sum.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "triangle-angle-reasons-confused",
+        "Giving the angle sum of a triangle, the exterior angle theorem, the isosceles base angle fact or the angle sum of a quadrilateral for a step that needs a different one.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "took-the-whole-diagonal",
+        "Giving the whole diagonal where half of it is asked for.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-half-the-base-as-the-height",
+        "Using half the base of an isosceles triangle as its height instead of finding the height by Pythagoras.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "used-the-whole-base-as-the-height",
+        "Using the whole base of an isosceles triangle as its height instead of finding the height by Pythagoras.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "listed-the-irrational-numbers-instead",
+        "Listing the irrational numbers when the question asks for the rational ones.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "left-out-a-rational-number-that-needs-simplifying",
+        "Leaving a rational number out of the list because it is written with a root sign, a product of roots or pi, though it simplifies to a rational value.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "irrational-sum-treated-as-rational",
+        "Including a sum or reciprocal involving a surd in the rational list.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "inj-count-all-functions",
+        "Counting every function from the first set to the second (n^m) when only the one-to-one ones were asked for.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inj-count-unordered",
+        "Choosing which m images are used (a combination) without arranging them, so the count is too small by a factor of m!.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inj-count-roles-swapped",
+        "Raising the size of the domain to the power of the size of the codomain instead of the other way round.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "bij-count-ignores-conditions",
+        "Counting all bijections and ignoring that some values are already fixed.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "bij-count-one-condition",
+        "Using only one of the two fixed values and letting the other be free.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "surj-count-no-add-back",
+        "Subtracting the functions that miss one target but not adding back the ones that miss two, so some functions are removed twice.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "surj-count-no-correction",
+        "Subtracting only the functions that miss one target without inclusion-exclusion at all, or using n^m - n for more than two targets.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "surj-count-choose-preimages",
+        "Counting the ways to pick n elements of the domain and send them to distinct targets, forgetting the rest of the domain.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "noninj-count-wrong-complement",
+        "Subtracting the surjections or the wrong total instead of the one-to-one functions when counting the functions that are not one-to-one.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inj-vertex-sign",
+        "Reading the vertex x-coordinate with the wrong sign when finding where a quadratic stops being one-to-one.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inj-vertex-missing-two",
+        "Taking -b/a as the vertex x-coordinate instead of -b/(2a).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inj-vertex-value-not-position",
+        "Giving the minimum value of the quadratic where the x-value of the turning point was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "range-min-intercept",
+        "Taking the value at x = 0 (the constant term) as the minimum of a quadratic.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "range-min-sign",
+        "Adding the square term instead of subtracting it when completing the square, so the minimum value has the wrong sign.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inverse-wrong-branch",
+        "Choosing the root on the wrong side of the turning point when inverting a quadratic, outside the stated domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "count-both-sides",
+        "Counting solutions on both sides of the turning point although the domain only holds one side.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "count-fencepost",
+        "Counting the steps between the end values instead of the integers including both ends.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "unit-count-single-prime",
+        "Counting the integers coprime to a number as if it had only one prime factor.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "unit-count-nonzero",
+        "Counting every non-zero multiplier as invertible modulo the number.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inverse-value-not-solved",
+        "Giving the offset from the turning point, or the output value itself, instead of solving for the input.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "inex3-sign-reversed",
+        "Reversing the signs of the inclusion-exclusion formula, so the missing intersection comes out negative.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-pairs-added",
+        "Adding the pairwise intersections instead of subtracting them in the three-set formula.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-forgot-singles",
+        "Leaving the three set sizes out of the three-set formula.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-forgot-triple",
+        "Subtracting the pairwise intersections but never adding the triple intersection back.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-forgot-overlaps",
+        "Using the sum of the set sizes as the union, ignoring every overlap.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-union-not-complement",
+        "Giving the number in at least one set where the number in none, or the reverse, was asked.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-exactly-two-keeps-triple",
+        "Reading a pairwise intersection as the number in exactly those two sets, although it includes those in all three.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-exactly-one-keeps-overlaps",
+        "Finding the number in exactly one set without removing all the overlaps correctly, so some students are still counted twice.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "inex3-product-not-lcm",
+        "Using the product of two divisors instead of their least common multiple when divisors share a factor.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-truncated-sum",
+        "Stopping the inclusion-exclusion sum for derangements after only a few terms.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-first-not-fixed-only",
+        "Forbidding only one object from its own place, or counting arrangements as (n - 1)!, instead of forbidding all of them.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-at-least-k-fixed",
+        "Counting arrangements with at least k fixed points by leaving the rest unrestricted, instead of exactly k.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-choose-fixed-forgotten",
+        "Counting the derangements of the remaining objects but forgetting to choose which ones keep their own place.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "derange-wrong-remaining",
+        "Applying the derangement count to the wrong number of objects, or multiplying the wrong factors together.",
+        area="discrete",
+    ),
+    CatalogueEntry(
+        "complex-div-conjugate-not-used",
+        "Multiplying top and bottom by the divisor itself instead of by its conjugate, so the denominator is not made real.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-i-squared-sign",
+        "Treating i squared as +1 when multiplying out, so the sign of the real part is wrong.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-div-by-parts",
+        "Dividing real part by real part and imaginary part by imaginary part.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-div-denominator-difference",
+        "Using c squared minus d squared instead of c squared plus d squared as the new denominator.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-div-conjugate-result",
+        "Giving the conjugate of the quotient, flipping the sign of the imaginary part.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-conjugate-answer",
+        "Solving the equations for the real and imaginary parts but returning the conjugate of the solution.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-treat-conjugate-as-z",
+        "Treating the conjugate of z as if it were z, so the two terms combine into one multiple of z.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-sign-conjugate-part",
+        "Forgetting that the conjugate changes the sign of the imaginary part, so the real and imaginary equations share a coefficient.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-parts-swapped",
+        "Pairing the real equation with y and the imaginary equation with x.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-eq-sign-constant",
+        "Adding the constant to both sides instead of subtracting it.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-sqrt-wrong-branch",
+        "Giving the root with negative real part when the root with positive real part was asked for.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-sqrt-sign-imaginary",
+        "Taking the imaginary part of the square root with the wrong sign, when 2xy has the opposite sign.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-sqrt-parts-swapped",
+        "Swapping the real and imaginary parts of the square root.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-other-root",
+        "Giving the root with the smaller imaginary part when the larger was asked for.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-conjugate-root",
+        "Giving the conjugate of a root, as if the roots of a quadratic with complex coefficients came in conjugate pairs.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-sign-root",
+        "Giving the negative of a root, forgetting to add the sum of the roots.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-reciprocal-conjugate-only",
+        "Taking the conjugate as the reciprocal without dividing by the squared modulus.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-midpoint",
+        "Halving the sum of the roots and stopping, without adding or subtracting the square root of the discriminant.",
+        area="complex",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-uses-b",
+        "Using the semi-minor (or conjugate) axis b in place of the focal distance c, so e = b/a.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-inverted",
+        "Dividing the semi-axis by the focal distance instead of the focal distance by the semi-axis.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-denominator-b",
+        "Dividing the focal distance by the wrong semi-axis, so the eccentricity uses b instead of a.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-eccentricity-squared",
+        "Stopping at c squared over a squared, the square of the eccentricity.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-ellipse-hyperbola-formula",
+        "Using c squared equals a squared plus b squared for an ellipse, or a squared minus b squared for a hyperbola.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-parabola-4p-as-p",
+        "Reading the coefficient 4p of a parabola as p, or doubling or squaring it instead of dividing by four.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-parabola-focus-directrix",
+        "Putting the directrix on the same side of the vertex as the focus, so the sign of the offset is wrong.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-focal-distance-half",
+        "Giving the distance from the centre to one focus (or a semi-axis) where the distance between the foci was asked for.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-axis-length-not-focal",
+        "Giving the length of the major or minor axis instead of the distance between the foci.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-focal-distance-squared",
+        "Giving c squared, or twice c squared, without taking the square root.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-completing-square-sign",
+        "Reading the centre from a completed square with the wrong sign, so (x - 3) gives -3.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-centre-swapped",
+        "Swapping the coordinates of the centre.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-centre-forgot-coefficient",
+        "Taking the centre as minus half the linear coefficients without dividing by the coefficient of the squared term.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-wrong-side",
+        "Giving the directrix on the other side of the centre from the one asked for.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-forgot-centre",
+        "Giving the distance a squared over c from the centre as the coordinate, forgetting to add the coordinate of the centre.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-uses-c-squared",
+        "Using c squared over a for the directrix distance instead of a squared over c.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-uses-a-over-c",
+        "Using a over c for the directrix distance instead of a squared over c.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-directrix-uses-b-squared",
+        "Using b squared over c for the directrix distance instead of a squared over c.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-half",
+        "Giving half the latus rectum (the semi-latus rectum) where the full chord length was asked for.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-swapped",
+        "Swapping a and b in the latus rectum formula 2b squared over a.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-b-not-squared",
+        "Using 2b over a instead of 2b squared over a for the latus rectum.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "conic-latus-rectum-uses-c",
+        "Using the focal distance c in place of the semi-axis b in the latus rectum formula.",
+        area="conics",
+    ),
+    CatalogueEntry(
+        "inverse-forgot-square-root",
+        "Stopping at the squared offset (x - h)^2 = t^2 and using t squared as the offset, without taking the square root.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "log-diff-power-rule-on-variable-exponent",
+        "Applying the power rule to a power whose exponent is a variable, bringing the exponent down and reducing it by one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-base-derivative",
+        "Differentiating only the exponent's effect (as for a to the x) and forgetting that the base also varies.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-original-function",
+        "Stopping at the derivative of ln y, without multiplying by y to get dy/dx.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-exponent-derivative",
+        "Differentiating the base's effect but forgetting to differentiate the variable exponent, so the log term loses its factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-denominator-sign",
+        "Giving the factors in the denominator a positive exponent in the logarithmic derivative, so their terms are added instead of subtracted.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-exponent-dropped",
+        "Leaving the exponent out of each term of the logarithmic derivative, so every factor contributes 1 over its base.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-product-rule-one-factor",
+        "Differentiating only one factor of the product and leaving the others unchanged.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-forgot-base-derivative-log",
+        "Differentiating x ln(x + a) as if only the second factor changed, dropping the ln(x + a) from the product rule.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-product-rule-dropped-x",
+        "Differentiating x ln(x + a) with the derivative of ln(x + a) as 1/(x + a) but without the factor x on that term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-sign",
+        "Taking the tangent's y-intercept as y(1) plus the slope, or the slope minus y(1), instead of y(1) minus the slope.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-forgot-slope",
+        "Giving the value of the function at the point of tangency as the y-intercept of the tangent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "normal-gradient-not-negated",
+        "Taking the reciprocal of the tangent's gradient without the minus sign for the normal.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "normal-gradient-not-reciprocal",
+        "Negating the tangent's gradient without taking the reciprocal for the normal.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "normal-gradient-is-tangent",
+        "Giving the gradient of the tangent where the gradient of the normal was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "log-diff-multiplied-not-divided",
+        "Multiplying each exponent by its base instead of dividing, when differentiating the logarithm of a power of x plus a constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "seqlim-leading-ratio-unequal-degree",
+        "Taking the ratio of the leading coefficients as the limit even though the numerator has a lower degree than the denominator.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-ratio-inverted",
+        "Inverting the ratio of leading coefficients (or of the dominant terms) when reading off the limit.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-next-coefficient",
+        "Using the ratio of the second coefficients instead of the leading ones after dividing by the highest power.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-substitute-n-equals-one",
+        "Substituting n = 1 (or adding the coefficients) instead of letting n grow.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-ignores-denominator",
+        "Giving the leading coefficient of the numerator alone, forgetting to divide by the denominator's.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-picks-smaller-base",
+        "Reading the limit from the smaller exponential terms instead of the dominant ones.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-root-conjugate-dropped-half",
+        "Forgetting the 2 that appears after multiplying by the conjugate (the two square roots each tend to n).",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-infinity-minus-infinity-is-zero",
+        "Concluding that a difference of two terms tending to infinity must tend to zero.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-root-constant-term",
+        "Letting the constant term under the root contribute to the limit, although it vanishes against n.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-root-sum-for-difference",
+        "Adding the coefficients under the roots where the conjugate method gives their difference.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-oscillation-treated-as-limit",
+        "Adding the bound of a bounded oscillating term into the limit, instead of seeing that it vanishes against n.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-oscillation-no-limit-claimed",
+        "Claiming the limit is zero or does not exist because the numerator oscillates.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-fixed-point-sign",
+        "A sign error when solving L = f(L) for the fixed point.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-fixed-point-multiplied",
+        "Multiplying where the fixed-point equation requires dividing, or taking the product of the roots as the root.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-limit-is-first-term",
+        "Giving the first (or second) term of the recurrence as the limit.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-ignores-multiplier",
+        "Taking the constant added in the recurrence as the limit, ignoring the multiplier on the previous term.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-wrong-fixed-point-root",
+        "Choosing the wrong root of the limit equation, ignoring where the sequence starts or that the terms are positive.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-fixed-point-squared",
+        "Squaring or doubling where the fixed-point equation requires a square root, or stopping at L squared.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-precedence-in-recurrence",
+        "Squaring only the first term in (a squared plus c) over s, adding c over s instead of dividing the whole sum.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-square-dropped",
+        "Forgetting to square the previous term when applying the recurrence.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-divisor-dropped",
+        "Forgetting to divide by the divisor in the recurrence.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-combined-limit-factor-dropped",
+        "Forgetting that the factor multiplying the sequence also has a limit that must be included.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "seqlim-combined-limit-uses-constants",
+        "Combining the limit with the constant terms of the factor instead of the leading coefficients.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "param-slope-inverted",
+        "Dividing dx/dt by dy/dt instead of dy/dt by dx/dt when finding dy/dx for a parametric curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-slope-numerator-only",
+        "Giving dy/dt as the gradient, forgetting to divide by dx/dt.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-slope-second-derivatives",
+        "Dividing the second derivatives d2y/dt2 by d2x/dt2 to get the gradient or the second derivative along the curve.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-second-derivative-not-divided",
+        "Differentiating dy/dx with respect to t but not dividing by dx/dt again to get d2y/dx2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-second-derivative-wrong-divisor",
+        "Dividing the second derivative of y by dx/dt (or similar) instead of differentiating dy/dx and then dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "param-second-derivative-is-first",
+        "Giving dy/dx where d2y/dx2 was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "polar-slope-inverted",
+        "Inverting the polar gradient formula, so the cosine and sine terms of the numerator and denominator swap.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-is-dr-over-r",
+        "Taking dr/dθ divided by r as the gradient of the curve.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-sign-slip",
+        "Using the wrong signs in the polar gradient formula (a minus where there should be a plus).",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-is-tan-theta",
+        "Taking tan θ as the gradient, which is the gradient of the radius, not of the curve.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-half-range",
+        "Integrating over only part of the range, so the area is a fraction of the true area.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-forgot-half",
+        "Omitting the factor 1/2 from the polar area formula, so the area is doubled.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-r-not-squared",
+        "Integrating r instead of r squared.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-expansion-slip",
+        "A slip expanding (1 + cos θ) squared or integrating cos squared θ, so one term of the area is wrong.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-petal-count-ignored",
+        "Using the area of a whole rose-sized sector, ignoring that a petal spans an angle of π/n.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-whole-rose",
+        "Giving the area of the whole rose, not one petal.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-circle-subtracted-wrong",
+        "Subtracting the circle's area wrongly, or keeping only the linear term of the expanded integral.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-area-limits-whole-turn",
+        "Using the whole turn 0 to 2π for the region between two curves, instead of only where the cardioid is outside the circle.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-forgot-dr",
+        "Ignoring dr/dθ in the polar gradient formula, so only the r terms are used.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "polar-slope-trig-dropped",
+        "Leaving out the sine and cosine factors of the polar gradient formula, keeping only r and dr/dθ.",
+        area="polar",
+    ),
+    CatalogueEntry(
+        "clt-sd-not-reduced",
+        "Standardising a sample mean with the population standard deviation, without dividing by the square root of n.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-sd-divided-by-n",
+        "Dividing the standard deviation by n instead of by the square root of n to get the standard error.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-tail-reversed",
+        "Giving the probability of the opposite tail, the complement of the one asked for.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-variance-as-sd",
+        "Using the variance where the standard deviation belongs when standardising.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-total-sd-sigma",
+        "Using the standard deviation of one observation as the standard deviation of a total of n.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-total-sd-n-sigma",
+        "Taking the standard deviation of a total of n observations to be n times sigma instead of sigma times the square root of n.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-total-mean-not-scaled",
+        "Centring a total at the mean of one observation instead of n times the mean.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-two-sided-one-tail",
+        "Giving the one-sided area Phi(z) where a two-sided probability of lying within a distance is asked.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-n-not-rounded-up",
+        "Rounding the required sample size down, or to the nearest whole number, when it must be rounded up to guarantee the bound.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-n-forgot-square",
+        "Stopping at the square root of n, forgetting to square when solving for the sample size.",
+        area="clt",
+    ),
+    CatalogueEntry(
+        "clt-n-wrong-z",
+        "Using the z-value for a different confidence level or the wrong number of tails when finding the sample size.",
+        area="clt",
+    ),
 )
 
 #: Every entry, by id.

@@ -182,7 +182,7 @@ def test_skill_properties():
     assert SKILL.status == "active"
     assert SKILL.placement_eligible is False
     assert SKILL.answer == "mcq"
-    assert {s.difficulty for s in SKILL.sources} == set(TIERS)
+    assert {s.difficulty for s in SKILL.sources} == set(TIERS) | {"exam"}  # plus the multi-part exam chain
     assert "AC9M10P01" in SKILL.tags
     _d, skills = load_skills()
     for prereq in SKILL.prerequisites:

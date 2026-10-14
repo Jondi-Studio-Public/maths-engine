@@ -1,0 +1,35 @@
+id: f10-graphical-systems-of-lines
+name: Find where two lines cross from their graphs
+domain: linear-relations
+year_level: ['10']
+naplan_domain: []
+description: Find the solution of a pair of simultaneous linear equations from two drawn lines. Read off a grid crossing, read both equations and solve for a crossing between grid lines, or combine a drawn line with a line given by a gradient and a point to find a crossing off the grid. Answers are typed points.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [equation-from-graph, solve-simultaneous-equations]
+answer: pair
+sources:
+- topic: y910_graph_system_solution
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: y910_graph_system_solution
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: y910_graph_system_solution
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_y910_graph_system
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: rounded-the-crossing-to-a-grid-point
+  description: Reads a crossing that falls between grid lines as the nearest grid point instead of solving for it.
+- id: x-and-y-swapped
+  description: Writes the solution as (y, x) instead of (x, y).
+tags: [f10, linear-relations, simultaneous-equations, graphs, ac9m10a02, year-10a]

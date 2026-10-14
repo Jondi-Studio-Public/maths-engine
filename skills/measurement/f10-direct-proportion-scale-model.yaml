@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13a_direct_proportion_scale
-  params: {}
+- topic: exd_x_r2x_direct_proportion_table
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -1,0 +1,35 @@
+id: f10-number-set-membership
+name: Decide which number sets a number belongs to
+domain: secondary-number
+year_level: ['9', '10']
+naplan_domain: [number]
+description: Decide which of the natural, integer, rational, irrational and real numbers contain a number written in a disguised form (a fraction that is a whole number, a recurring decimal, a root of a perfect square, a product of surds), and pick out the rational or irrational numbers from a list after simplifying. Answers are typed sets of letters, never a two-way choice.
+status: active
+placement_eligible: false
+prerequisites: [classify-real-numbers]
+answer: set
+sources:
+- topic: y910_classify_number_sets
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: y910_classify_number_sets
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: y910_classify_number_sets
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_sc5_rational_count
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: named-only-the-smallest-set
+  description: Names only the smallest set that contains the number, forgetting that the sets nest inside the larger ones.
+- id: recurring-decimal-treated-as-irrational
+  description: Calls a repeating decimal irrational because it goes on forever; it can be written as a fraction, so it is rational.
+- id: judged-by-the-root-sign-without-simplifying
+  description: Calls an expression irrational because it contains a root sign or pi, without simplifying it first.
+tags: [f10, number, real-numbers, rational-irrational, ac9m9n01, ac9m10n01]
