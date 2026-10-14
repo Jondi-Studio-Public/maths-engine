@@ -823,9 +823,9 @@
 {"answer": "25*(5*x - 1)**4", "id": "differentiate-chain-rule/easy/0/0ab5a96216e4", "text": "Differentiate (5*x - 1)**5 with respect to x"}
 {"answer": "20*(4*x - 9)**4", "id": "differentiate-chain-rule/easy/1/424b3050eadb", "text": "Differentiate (4*x - 9)**5 with respect to x"}
 {"answer": "25*(5*x - 3)**4", "id": "differentiate-chain-rule/easy/2/a1aee923058c", "text": "Differentiate (5*x - 3)**5 with respect to x"}
-{"answer": "(a) 16*(5 - 2*x)/(x^2 - 5*x + 4)^3; (b) 2; (c) y = 2*x - 4;…", "id": "differentiate-chain-rule/exam/0/d0f8b6df23dc", "text": "Let f(x) = 8/(x^2 - 5x + 4)^2. The graph of y = f(x) has a tangent at the point…"}
-{"answer": "(a) 8*(1 - 3*x)/(3*x^2 - 2*x + 1)^2; (b) -16/121; (c) y = 7…", "id": "differentiate-chain-rule/exam/1/27597209abfb", "text": "Let f(x) = 4/(3x^2 - 2x + 1). The graph of y = f(x) has a tangent at the point …"}
-{"answer": "(a) -10*(2*x + 1)/(x^2 + x - 5)^3; (b) 10/9; (c) y = 10*x/9…", "id": "differentiate-chain-rule/exam/2/28e95f43eeb6", "text": "Let f(x) = 5/(x^2 + x - 5)^2. The graph of y = f(x) has a tangent at the point …"}
+{"answer": "(a) 16*(5 - 2*x)/(x^2 - 5*x + 4)^3; (b) 2; (c) y = 2*x - 4;…", "id": "differentiate-chain-rule/exam/0/810b99746393", "text": "Let f(x) = 8/(x^2 - 5x + 4)^2. The graph of y = f(x) has a tangent at the point…"}
+{"answer": "(a) 8*(1 - 3*x)/(3*x^2 - 2*x + 1)^2; (b) -16/121; (c) y = 7…", "id": "differentiate-chain-rule/exam/1/db3f6ce4a81f", "text": "Let f(x) = 4/(3x^2 - 2x + 1). The graph of y = f(x) has a tangent at the point …"}
+{"answer": "(a) -10*(2*x + 1)/(x^2 + x - 5)^3; (b) 10/9; (c) y = 10*x/9…", "id": "differentiate-chain-rule/exam/2/f58910919618", "text": "Let f(x) = 5/(x^2 + x - 5)^2. The graph of y = f(x) has a tangent at the point …"}
 {"answer": "8*x**7 + 192*x**5 + 1536*x**3 + 4096*x", "id": "differentiate-chain-rule/hard/0/3b566a851b67", "text": "Differentiate (x**2 + 8)**4 with respect to x"}
 {"answer": "6*x**5 + 48*x**3 + 96*x", "id": "differentiate-chain-rule/hard/1/080cb967e0a3", "text": "Differentiate (x**2 + 4)**3 with respect to x"}
 {"answer": "4*x**3 - 36*x", "id": "differentiate-chain-rule/hard/2/864506b11d69", "text": "Differentiate (x**2 - 9)**2 with respect to x"}
@@ -847,9 +847,9 @@
 {"answer": "48*x**2 + 56*x - 44", "id": "differentiate-product-rule/easy/0/c84f68e4f826", "text": "Differentiate (4*x + 8)(4*x**2 - x - 9) with respect to x"}
 {"answer": "45*x**2 - 54*x - 54", "id": "differentiate-product-rule/easy/1/bb35a750b4f4", "text": "Differentiate (5*x + 6)(3*x**2 - 9*x) with respect to x"}
 {"answer": "24*x**2 - 40*x - 48", "id": "differentiate-product-rule/easy/2/1f553770fe74", "text": "Differentiate (4*x + 4)(2*x**2 - 7*x - 5) with respect to x"}
-{"answer": "(a) x^2*(x - 1)^2*(6*x - 3); (b) 36; (c) y = 36*x - 64; (d)…", "id": "differentiate-product-rule/exam/0/34eec4e4a733", "text": "Let f(x) = x^3(x - 1)^3. A tangent is drawn to the graph of y = f(x) at the poi…"}
-{"answer": "(a) (2*x + 1)*(2*x^2 + 3)*(24*x^2 + 8*x + 12); (b) -140; (c…", "id": "differentiate-product-rule/exam/1/0991b753290e", "text": "The function f is given by f(x) = (2x + 1)^2(2x^2 + 3)^2. A tangent is drawn to…"}
-{"answer": "(a) (x - 4)*(4*x^2 - 8*x - 6); (b) 12; (c) y = 12*x - 20; (…", "id": "differentiate-product-rule/exam/2/b3030da03180", "text": "Let f(x) = (x - 4)^2(x^2 - 3). A tangent is drawn to the graph of y = f(x) at t…"}
+{"answer": "(a) x^2*(x - 1)^2*(6*x - 3); (b) 36; (c) y = 36*x - 64; (d)…", "id": "differentiate-product-rule/exam/0/e35f0b9dc9ae", "text": "Let f(x) = x^3(x - 1)^3. A tangent is drawn to the graph of y = f(x) at the poi…"}
+{"answer": "(a) (2*x + 1)*(2*x^2 + 3)*(24*x^2 + 8*x + 12); (b) -140; (c…", "id": "differentiate-product-rule/exam/1/cd555ebbcdae", "text": "The function f is given by f(x) = (2x + 1)^2(2x^2 + 3)^2. A tangent is drawn to…"}
+{"answer": "(a) (x - 4)*(4*x^2 - 8*x - 6); (b) 12; (c) y = 12*x - 20; (…", "id": "differentiate-product-rule/exam/2/32bb7a108dd8", "text": "Let f(x) = (x - 4)^2(x^2 - 3). A tangent is drawn to the graph of y = f(x) at t…"}
 {"answer": "45*x**2 + 88*x + 47", "id": "differentiate-product-rule/hard/0/2045275a9fc7", "text": "Differentiate (5*x + 8)(3*x**2 + 4*x + 3) with respect to x"}
 {"answer": "12*x**2 + 56*x + 28", "id": "differentiate-product-rule/hard/1/a8c2f3a5b047", "text": "Differentiate (4*x + 4)(x**2 + 6*x + 1) with respect to x"}
 {"answer": "9*x**2 - 62*x + 41", "id": "differentiate-product-rule/hard/2/42c0fe3fc26f", "text": "Differentiate (x - 9)(3*x**2 - 4*x + 5) with respect to x"}
@@ -859,9 +859,9 @@
 {"answer": "-36/(4*x - 1)**2", "id": "differentiate-quotient-rule/easy/0/d2c1f4598b5d", "text": "Differentiate (4*x + 8) / (4*x - 1) with respect to x"}
 {"answer": "-7/(x - 3)**2", "id": "differentiate-quotient-rule/easy/1/69a611b905dc", "text": "Differentiate (5*x + 6) / (3*x - 9) with respect to x"}
 {"answer": "-42/(4*x - 3)**2", "id": "differentiate-quotient-rule/easy/2/9139b1c99dd7", "text": "Differentiate (6*x + 6) / (4*x - 3) with respect to x"}
-{"answer": "(a) (-2*x^2 - 12*x - 5)/(x + 3)^2; (b) -59/36; (c) y = 36*x…", "id": "differentiate-quotient-rule/exam/0/b646e8c33a0e", "text": "Let f(x) = (-2x^2 + 5)/(x + 3). The normal to the graph of y = f(x) is drawn at…"}
-{"answer": "(a) (-2*x^2 - 2*x + 8)/(x^2 + 4)^2; (b) 4/25; (c) y = 137/2…", "id": "differentiate-quotient-rule/exam/1/9a10bc81b7be", "text": "The graph of y = f(x), where f(x) = (2x + 1)/(x^2 + 4), has a normal at the poi…"}
-{"answer": "(a) (-3*x^2 - 2*x + 9)/(x^2 + 3)^2; (b) 1/49; (c) y = -49*x…", "id": "differentiate-quotient-rule/exam/2/2b38ee1b7e3e", "text": "The graph of y = f(x), where f(x) = (3x + 1)/(x^2 + 3), has a normal at the poi…"}
+{"answer": "(a) (-2*x^2 - 12*x - 5)/(x + 3)^2; (b) -59/36; (c) y = 36*x…", "id": "differentiate-quotient-rule/exam/0/bb47d2344c0c", "text": "Let f(x) = (-2x^2 + 5)/(x + 3). The normal to the graph of y = f(x) is drawn at…"}
+{"answer": "(a) (-2*x^2 - 2*x + 8)/(x^2 + 4)^2; (b) 4/25; (c) y = 137/2…", "id": "differentiate-quotient-rule/exam/1/85bfe21cd682", "text": "The graph of y = f(x), where f(x) = (2x + 1)/(x^2 + 4), has a normal at the poi…"}
+{"answer": "(a) (-3*x^2 - 2*x + 9)/(x^2 + 3)^2; (b) 1/49; (c) y = -49*x…", "id": "differentiate-quotient-rule/exam/2/82704ee065d8", "text": "The graph of y = f(x), where f(x) = (3x + 1)/(x^2 + 3), has a normal at the poi…"}
 {"answer": "-4/(3*x + 4)**2", "id": "differentiate-quotient-rule/hard/0/cc94c7ca640c", "text": "Differentiate (5*x + 8) / (3*x + 4) with respect to x"}
 {"answer": "-20/(3*(2*x - 3)**2)", "id": "differentiate-quotient-rule/hard/1/663790611dea", "text": "Differentiate (4*x + 4) / (6*x - 9) with respect to x"}
 {"answer": "23/(3*x - 4)**2", "id": "differentiate-quotient-rule/hard/2/11bf9ae8248d", "text": "Differentiate (x - 9) / (3*x - 4) with respect to x"}
@@ -1332,7 +1332,7 @@
 {"answer": "Year 10 has the larger interquartile range.", "id": "f10-compare-box-plots/hard/2/5f732f3cd89e", "text": "The box plots compare the marks of two groups of students. Which statement is s…"}
 {"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/medium/0/7e7d9f463aa5", "text": "Two groups of students are shown as box plots of their times. Which plot has th…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/1/0b6cd048f392", "text": "These parallel box plots show the marks for two groups of students. Which group…"}
-{"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/a828b7dc75d7", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masss…"}
+{"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/75138002c59d", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masse…"}
 {"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/easy/0/b0e5473296a1", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
 {"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/1/1c261693d6b0", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
 {"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/2/5f2a0382ee16", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
@@ -2664,7 +2664,7 @@
 {"answer": "9/20", "id": "f10-relative-frequency-estimate/easy/2/a63bd12ca3cd", "text": "A student flicked a bottle cap many times and recorded how it landed. The resul…"}
 {"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "f10-relative-frequency-estimate/exam/0/b27fda807341", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
 {"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "f10-relative-frequency-estimate/exam/1/34c623458c9a", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
-{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "f10-relative-frequency-estimate/exam/2/2d8733494f10", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
+{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "f10-relative-frequency-estimate/exam/2/edd0fedf4dd0", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
 {"answer": "61/100", "id": "f10-relative-frequency-estimate/hard/0/b56ad675f134", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
 {"answer": "21/25", "id": "f10-relative-frequency-estimate/hard/1/5e3bec9f7e1d", "text": "A student flicked a bottle cap many times and recorded how it landed. The relat…"}
 {"answer": "37/100", "id": "f10-relative-frequency-estimate/hard/2/ce713aeaaca2", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
@@ -3415,9 +3415,9 @@
 {"answer": "1/2", "id": "hypergeometric-probability/easy/0/c395c89806ff", "text": "A population has 10 objects, 9 of them successes. If 5 objects are drawn withou…"}
 {"answer": "1/21", "id": "hypergeometric-probability/easy/1/263dc0f71612", "text": "A population has 7 objects, 2 of them successes. If 5 objects are drawn without…"}
 {"answer": "2/7", "id": "hypergeometric-probability/easy/2/059d4a09764d", "text": "A population has 7 objects, 6 of them successes. If 2 objects are drawn without…"}
-{"answer": "(a) 1/210; (b) 4/35; (c) 37/42", "id": "hypergeometric-probability/exam/0/dcbc45b5136c", "text": "A carton of 10 phone chargers contains 6 that are faulty. An inspector chooses …"}
-{"answer": "(a) 1/462; (b) 5/77; (c) 431/462", "id": "hypergeometric-probability/exam/1/3e34acaea8a2", "text": "A tray of 11 solar-panel connectors contains 6 that are defective. An inspector…"}
-{"answer": "(a) 143/855; (b) 364/855; (c) 116/285", "id": "hypergeometric-probability/exam/2/15097b939217", "text": "A tray of 21 solar-panel connectors contains 7 that are defective. An inspector…"}
+{"answer": "(a) 1/210; (b) 4/35; (c) 37/42", "id": "hypergeometric-probability/exam/0/526129474610", "text": "A carton of 10 phone chargers contains 6 that are faulty. An inspector chooses …"}
+{"answer": "(a) 1/462; (b) 5/77; (c) 431/462", "id": "hypergeometric-probability/exam/1/fe9fb786efce", "text": "A tray of 11 solar-panel connectors contains 6 that are defective. An inspector…"}
+{"answer": "(a) 143/855; (b) 364/855; (c) 116/285", "id": "hypergeometric-probability/exam/2/20c5e298c683", "text": "A tray of 21 solar-panel connectors contains 7 that are defective. An inspector…"}
 {"answer": "12569/16445", "id": "hypergeometric-probability/hard/0/bdad004de2c1", "text": "A population has 26 objects, 6 of them successes. If 5 objects are drawn withou…"}
 {"answer": "3087/3230", "id": "hypergeometric-probability/hard/1/c271ba091f3e", "text": "A population has 20 objects, 6 of them successes. If 7 objects are drawn withou…"}
 {"answer": "19147/23023", "id": "hypergeometric-probability/hard/2/8044a7127299", "text": "A population has 26 objects, 6 of them successes. If 6 objects are drawn withou…"}
@@ -3511,9 +3511,9 @@
 {"answer": "Q(x) = 3x - 2, R(x) = 0", "id": "integer-polynomial-quotient-remainder/easy/0/bea93625fcdd", "text": "Divide f(x) = 3x^2 - 2x by g(x) = x over the integers. Give the quotient Q(x) a…"}
 {"answer": "Q(x) = x - 1, R(x) = 1", "id": "integer-polynomial-quotient-remainder/easy/1/d6349104a4a0", "text": "Divide f(x) = x^2 + 3x - 3 by g(x) = x + 4 over the integers. Give the quotient…"}
 {"answer": "Q(x) = -x - 4, R(x) = -3", "id": "integer-polynomial-quotient-remainder/easy/2/f015157f3ae1", "text": "Divide f(x) = -x^2 - 4x - 3 by g(x) = x over the integers. Give the quotient Q(…"}
-{"answer": "(a) 3; (b) 17; (c) -4", "id": "integer-polynomial-quotient-remainder/exam/0/0d8a04debb6b", "text": "The polynomial P(x) = x^3 + ax^2 - x - 7, where a is an integer, leaves a remai…"}
+{"answer": "(a) 3; (b) 17; (c) -4", "id": "integer-polynomial-quotient-remainder/exam/0/c7f95e0095d8", "text": "The polynomial P(x) = x^3 + ax^2 - x - 7, where a is an integer, leaves a remai…"}
 {"answer": "(a) -11; (b) -9; (c) -23", "id": "integer-polynomial-quotient-remainder/exam/1/8a32550bb3c4", "text": "The polynomial P(x) = x^3 + ax^2 + 9x - 2, where a is an integer, leaves a rema…"}
-{"answer": "(a) 1; (b) 11; (c) 26", "id": "integer-polynomial-quotient-remainder/exam/2/0a2d578da6ac", "text": "The polynomial P(x) = x^3 + ax^2 + 9x - 4, where a is an integer, leaves a rema…"}
+{"answer": "(a) 1; (b) 11; (c) 26", "id": "integer-polynomial-quotient-remainder/exam/2/1b26b4a9f329", "text": "The polynomial P(x) = x^3 + ax^2 + 9x - 4, where a is an integer, leaves a rema…"}
 {"answer": "Q(x) = -5x^2 - 2x - 7, R(x) = -5x - 3", "id": "integer-polynomial-quotient-remainder/hard/0/def5d9fb4d30", "text": "Divide f(x) = -5x^4 + 8x^3 + 12x^2 + 15x + 18 by g(x) = x^2 - 2x - 3 over the i…"}
 {"answer": "Q(x) = -7x^2 + 4x + 2, R(x) = 7x + 7", "id": "integer-polynomial-quotient-remainder/hard/1/48179a30439f", "text": "Divide f(x) = -7x^4 - 24x^3 + 46x^2 - x - 1 by g(x) = x^2 + 4x - 4 over the int…"}
 {"answer": "Q(x) = 5x^2 - 4x - 7, R(x) = 3x + 5", "id": "integer-polynomial-quotient-remainder/hard/2/fb42b79512fe", "text": "Divide f(x) = 5x^4 + 31x^3 - 35x^2 - 46x + 5 by g(x) = x^2 + 7x over the intege…"}
@@ -3619,9 +3619,9 @@
 {"answer": "x = -4/5, y = -18/5", "id": "lagrange-constrained-point/easy/0/6319e39ea644", "text": "Find the point (x, y) on 2x + 4y = -16 closest to the target (-1, -4)."}
 {"answer": "x = 16/5, y = 22/5", "id": "lagrange-constrained-point/easy/1/7317696f9cbe", "text": "Find the point (x, y) on x + 2y = 12 closest to the target (3, 4)."}
 {"answer": "x = -1/2, y = -9/2", "id": "lagrange-constrained-point/easy/2/63058a8c35cc", "text": "Find the point (x, y) on 4x + 4y = -20 closest to the target (0, -4)."}
-{"answer": "(a) 48/49; (b) 96/49; (c) -8/49; (d) 192/49", "id": "lagrange-constrained-point/exam/0/50ad9edb831a", "text": "A function f(x, y) = x² + 3y² is to be minimised on the line 4x - y = 8. Take g…"}
-{"answer": "(a) -16/3; (b) 8/3; (c) -8/3; (d) 64/3", "id": "lagrange-constrained-point/exam/1/c1da6524a599", "text": "A function f(x, y) = x² + 2y² is to be minimised on the line -x + 2y = -8. Take…"}
-{"answer": "(a) -72/7; (b) 36/7; (c) -24/7; (d) 432/7", "id": "lagrange-constrained-point/exam/2/a21b40a906b9", "text": "Minimise f(x, y) = x² + 3y² subject to the constraint -x + 2y = -12. Use the La…"}
+{"answer": "(a) 48/49; (b) 96/49; (c) -8/49; (d) 192/49", "id": "lagrange-constrained-point/exam/0/86f80a727b18", "text": "A function f(x, y) = x² + 3y² is to be minimised on the line 4x - y = 8. Take g…"}
+{"answer": "(a) -16/3; (b) 8/3; (c) -8/3; (d) 64/3", "id": "lagrange-constrained-point/exam/1/64d24bc1a102", "text": "A function f(x, y) = x² + 2y² is to be minimised on the line -x + 2y = -8. Take…"}
+{"answer": "(a) -72/7; (b) 36/7; (c) -24/7; (d) 432/7", "id": "lagrange-constrained-point/exam/2/ef40b5f28117", "text": "Minimise f(x, y) = x² + 3y² subject to the constraint -x + 2y = -12. Use the La…"}
 {"answer": "x = -77/17, y = -87/17", "id": "lagrange-constrained-point/hard/0/429cb224e497", "text": "Find the point (x, y) on the line y = (11/7)x + 2 closest to the target (0, -8)."}
 {"answer": "x = 1211/149, y = -1134/149", "id": "lagrange-constrained-point/hard/1/9c1f528f118c", "text": "Find the point (x, y) on the line y = (-10/7)x + 4 closest to the target (9, -7…"}
 {"answer": "x = 495/61, y = -382/61", "id": "lagrange-constrained-point/hard/2/1a4b9263775a", "text": "Find the point (x, y) on the line y = (1/11)x - 7 closest to the target (8, -5)."}
@@ -3655,9 +3655,9 @@
 {"answer": "-1/3", "id": "limit-at-infinity/easy/0/be9bc1ba2094", "text": "Find the limit as x → ∞ of (-2*x**2 + 8*x + 1) / (6*x**2 + x - 2)"}
 {"answer": "1", "id": "limit-at-infinity/easy/1/3e8686adcae4", "text": "Find the limit as x → ∞ of (2*x**2 + 4*x + 9) / (2*x**2 + 2*x - 9)"}
 {"answer": "1/2", "id": "limit-at-infinity/easy/2/8801743b4989", "text": "Find the limit as x → ∞ of (4*x**2 + x + 1) / (8*x**2 - 5*x - 8)"}
-{"answer": "(a) x - 5; (b) 1/8; (c) -1/8; (d) 1/4", "id": "limit-at-infinity/exam/0/992b5aba26c7", "text": "Consider the function f(x) = √(16x^2 - 7x - 1) - √(16x^2 - 8x + 4). (a) Write f…"}
-{"answer": "(a) 3x + 11; (b) 1/2; (c) -1/2; (d) 1", "id": "limit-at-infinity/exam/1/8ed9fc3fc3c7", "text": "Let f(x) = √(9x^2 - 3x + 6) - √(9x^2 - 6x - 5). The graph of y = f(x) has a hor…"}
-{"answer": "(a) 9x + 5; (b) 9/8; (c) -9/8; (d) 9/4", "id": "limit-at-infinity/exam/2/0fbb5a55bdd8", "text": "Consider the function f(x) = √(16x^2 + 2x + 3) - √(16x^2 - 7x - 2). (a) Write f…"}
+{"answer": "(a) x - 5; (b) 1/8; (c) -1/8; (d) 1/4", "id": "limit-at-infinity/exam/0/91c435c9e281", "text": "Consider the function f(x) = √(16x^2 - 7x - 1) - √(16x^2 - 8x + 4). (a) Write f…"}
+{"answer": "(a) 3x + 11; (b) 1/2; (c) -1/2; (d) 1", "id": "limit-at-infinity/exam/1/1b7d28ca812e", "text": "Let f(x) = √(9x^2 - 3x + 6) - √(9x^2 - 6x - 5). The graph of y = f(x) has a hor…"}
+{"answer": "(a) 9x + 5; (b) 9/8; (c) -9/8; (d) 9/4", "id": "limit-at-infinity/exam/2/bad9cec1a01c", "text": "Consider the function f(x) = √(16x^2 + 2x + 3) - √(16x^2 - 7x - 2). (a) Write f…"}
 {"answer": "4/7", "id": "limit-at-infinity/hard/0/fb952612950d", "text": "Find the limit as x → ∞ of (4*x**2 - 8*x + 1) / (7*x**2 + 8*x - 5)"}
 {"answer": "-4/7", "id": "limit-at-infinity/hard/1/cbd8515fe18b", "text": "Find the limit as x → ∞ of (-4*x**2 - 6*x - 5) / (7*x**2 + x + 7)"}
 {"answer": "-5/7", "id": "limit-at-infinity/hard/2/216fb60771c2", "text": "Find the limit as x → ∞ of (-5*x**2 + 2*x - 4) / (7*x**2 + 7*x - 4)"}
@@ -3679,9 +3679,9 @@
 {"answer": "-5", "id": "limit-removable/easy/0/d72646b022b0", "text": "Find the limit as x → -4 of (x**2 + 3*x - 4) / (x + 4)"}
 {"answer": "-5", "id": "limit-removable/easy/1/fa9eae7f4066", "text": "Find the limit as x → -4 of (x**2 + 3*x - 4) / (x + 4)"}
 {"answer": "1", "id": "limit-removable/easy/2/f84bebceae95", "text": "Find the limit as x → -2 of (x**2 + 5*x + 6) / (x + 2)"}
-{"answer": "(a) -16; (b) x + 8; (c) 10; (d) -8", "id": "limit-removable/exam/0/48df8bee3155", "text": "Consider f(x) = (x^2 + 6x + k)/(x - 2) with x ≠ 2 and k a constant. It is known…"}
-{"answer": "(a) 10; (b) -2x - 2; (c) -12; (d) -1", "id": "limit-removable/exam/1/f8e1c39b6daa", "text": "Let f(x) = (-2x^2 + 8x + k)/(x - 5) for x ≠ 5, where k is a constant. As x tend…"}
-{"answer": "(a) -30; (b) x - 6; (c) -11; (d) 6", "id": "limit-removable/exam/2/5ca86a1e6d62", "text": "Consider f(x) = (x^2 - x + k)/(x + 5) with x ≠ -5 and k a constant. It is known…"}
+{"answer": "(a) -16; (b) x + 8; (c) 10; (d) -8", "id": "limit-removable/exam/0/47733f1433ec", "text": "Consider f(x) = (x^2 + 6x + k)/(x - 2) with x ≠ 2 and k a constant. It is known…"}
+{"answer": "(a) 10; (b) -2x - 2; (c) -12; (d) -1", "id": "limit-removable/exam/1/a5ced2ef47a7", "text": "Let f(x) = (-2x^2 + 8x + k)/(x - 5) for x ≠ 5, where k is a constant. As x tend…"}
+{"answer": "(a) -30; (b) x - 6; (c) -11; (d) 6", "id": "limit-removable/exam/2/95e8a50de9a2", "text": "Consider f(x) = (x^2 - x + k)/(x + 5) with x ≠ -5 and k a constant. It is known…"}
 {"answer": "4", "id": "limit-removable/hard/0/6052c203bffb", "text": "Find the limit as x → 1 of (x**2 + 22*x - 23) / (x**2 + 4*x - 5)"}
 {"answer": "-1", "id": "limit-removable/hard/1/4c05e6466425", "text": "Find the limit as x → -2 of (x**2 + 5*x + 6) / (x**2 + 3*x + 2)"}
 {"answer": "4", "id": "limit-removable/hard/2/4051b762667e", "text": "Find the limit as x → -1 of (x**2 - 6*x - 7) / (x**2 - 1)"}
@@ -3808,9 +3808,9 @@
 {"answer": "log(a^k)", "id": "logarithm-laws/easy/0/37f22fc9340d", "text": "Which expression is equivalent to k log(a)?"}
 {"answer": "log(ab)", "id": "logarithm-laws/easy/1/a6db530da5f8", "text": "Which expression is equivalent to log(a) + log(b)?"}
 {"answer": "log(ab)", "id": "logarithm-laws/easy/2/4c027444125e", "text": "Which expression is equivalent to log(a) + log(b)?"}
-{"answer": "(a) 216; (b) 23; (c) 2", "id": "logarithm-laws/exam/0/eae1cfeea21c", "text": "Consider the equation log_{6}(x + 13) + log_{6}(x - 17) = 3. (a) Use the log la…"}
-{"answer": "(a) 243; (b) 18; (c) 3", "id": "logarithm-laws/exam/1/4ef6f5bbaf8c", "text": "A student is asked to solve log_{3}(x + 9) + log_{3}(x - 9) = 5 for x. (a) Use …"}
-{"answer": "(a) 32; (b) 14; (c) 4", "id": "logarithm-laws/exam/2/7b69f07dccdf", "text": "The number x satisfies log_{2}(x + 2) + log_{2}(x - 12) = 5. (a) Use the log la…"}
+{"answer": "(a) 216; (b) 23; (c) 2", "id": "logarithm-laws/exam/0/ad4c9b65fc78", "text": "Consider the equation log_{6}(x + 13) + log_{6}(x - 17) = 3. (a) Use the log la…"}
+{"answer": "(a) 243; (b) 18; (c) 3", "id": "logarithm-laws/exam/1/f73551301a88", "text": "A student is asked to solve log_{3}(x + 9) + log_{3}(x - 9) = 5 for x. (a) Use …"}
+{"answer": "(a) 32; (b) 14; (c) 4", "id": "logarithm-laws/exam/2/1645d2b531a0", "text": "The number x satisfies log_{2}(x + 2) + log_{2}(x - 12) = 5. (a) Use the log la…"}
 {"answer": "1505", "id": "longitude-local-clock-time/easy/0/57249196ea51", "text": "Port Ardent is at longitude 105°E and Port Halloran is at longitude 45°E. Local…"}
 {"answer": "1440", "id": "longitude-local-clock-time/easy/1/881658159bf2", "text": "Port Eskwith is at longitude 105°E and Port Garrick is at longitude 30°E. Local…"}
 {"answer": "2155", "id": "longitude-local-clock-time/easy/2/668ce4632948", "text": "Port Ardent is at longitude 135°W and Port Corvale is at longitude 45°W. Local …"}
@@ -4255,9 +4255,9 @@
 {"answer": "(1, 2, 3)", "id": "permutation-composition/easy/0/a3a62b2681ed", "text": "Let p = (2, 3, 1) and q = (3, 1, 2), where each tuple lists the images of 1, 2,…"}
 {"answer": "(1, 2, 3)", "id": "permutation-composition/easy/1/aa2e8b5f2de3", "text": "Let p = (3, 1, 2) and q = (2, 3, 1), where each tuple lists the images of 1, 2,…"}
 {"answer": "(3, 2, 1)", "id": "permutation-composition/easy/2/e15746bac428", "text": "Let p = (1, 2, 3) and q = (3, 2, 1), where each tuple lists the images of 1, 2,…"}
-{"answer": "(a) (5, 8, 2, 1, 7, 4, 6, 3); (b) 15; (c) 5", "id": "permutation-composition/exam/0/e0d82bedc008", "text": "Let p = (1, 8, 3, 6, 2, 7, 5, 4) and q = (7, 2, 5, 1, 6, 8, 4, 3) be permutatio…"}
-{"answer": "(a) (1, 4, 5, 7, 3, 2, 8, 6); (b) 10; (c) 2", "id": "permutation-composition/exam/1/eb69337a191f", "text": "Let p = (5, 1, 6, 2, 8, 7, 4, 3) and q = (2, 7, 1, 6, 8, 4, 5, 3) be permutatio…"}
-{"answer": "(a) (6, 1, 2, 5, 8, 7, 3, 4); (b) 15; (c) 6", "id": "permutation-composition/exam/2/197d53775bc0", "text": "The permutations p = (4, 2, 1, 7, 8, 3, 5, 6) and q = (8, 3, 2, 7, 5, 4, 6, 1) …"}
+{"answer": "(a) (5, 8, 2, 1, 7, 4, 6, 3); (b) 15; (c) 5", "id": "permutation-composition/exam/0/2ced42478a3d", "text": "Let p = (1, 8, 3, 6, 2, 7, 5, 4) and q = (7, 2, 5, 1, 6, 8, 4, 3) be permutatio…"}
+{"answer": "(a) (1, 4, 5, 7, 3, 2, 8, 6); (b) 10; (c) 2", "id": "permutation-composition/exam/1/96cc478b085c", "text": "Let p = (5, 1, 6, 2, 8, 7, 4, 3) and q = (2, 7, 1, 6, 8, 4, 5, 3) be permutatio…"}
+{"answer": "(a) (6, 1, 2, 5, 8, 7, 3, 4); (b) 15; (c) 6", "id": "permutation-composition/exam/2/73aff3236f82", "text": "The permutations p = (4, 2, 1, 7, 8, 3, 5, 6) and q = (8, 3, 2, 7, 5, 4, 6, 1) …"}
 {"answer": "(5, 1, 3, 2, 4)", "id": "permutation-composition/hard/0/2e6f4f0303ad", "text": "Let p = (4, 5, 2, 3, 1) and q = (2, 5, 4, 3, 1), where each tuple lists the ima…"}
 {"answer": "(3, 2, 4, 1, 5)", "id": "permutation-composition/hard/1/c9c106577a33", "text": "Let p = (5, 4, 3, 1, 2) and q = (3, 5, 2, 4, 1), where each tuple lists the ima…"}
 {"answer": "(2, 1, 4, 3, 5)", "id": "permutation-composition/hard/2/b2a51a241ce6", "text": "Let p = (3, 5, 2, 1, 4) and q = (3, 4, 5, 1, 2), where each tuple lists the ima…"}
@@ -4882,9 +4882,9 @@
 {"answer": "12*x*cos(12*x) + sin(12*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/easy/0/679f091fa939", "text": "Differentiate x·sin(12·x) with respect to x."}
 {"answer": "13*(x + 6)*cos(13*x) + sin(13*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/easy/1/fb3cc41b7a36", "text": "Differentiate (x + 6)·sin(13·x) with respect to x."}
 {"answer": "-14*(x - 10)*sin(14*x) + cos(14*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/easy/2/4db82794dc28", "text": "Differentiate (x - 10)·cos(14·x) with respect to x."}
-{"answer": "(a) (-2*x^2 - 6*x - 6)*exp(-2*x)/(x^2 + 2*x + 2)^2; (b) -3/…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/0/b67cb855bac4", "text": "Let f(x) = e^(-2x)/(x^2 + 2x + 2). The tangent to the graph of y = f(x) at the …"}
-{"answer": "(a) (-3*x^2 - 8*x - 8)*exp(-3*x)/(x^2 + 2*x + 2)^2; (b) -2;…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/1/6aec729ec6af", "text": "Let f(x) = e^(-3x)/(x^2 + 2x + 2). The tangent to the graph of y = f(x) at the …"}
-{"answer": "(a) ((3*x + 9)*cos(3*x) - sin(3*x) + 2)/(x + 3)^2; (b) 11/9…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/2/754806d3b78d", "text": "Let f(x) = (sin(3x) - 2)/(x + 3). The tangent to the graph of y = f(x) at the p…"}
+{"answer": "(a) (-2*x^2 - 6*x - 6)*exp(-2*x)/(x^2 + 2*x + 2)^2; (b) -3/…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/0/c8acbd704b12", "text": "Let f(x) = e^(-2x)/(x^2 + 2x + 2). The tangent to the graph of y = f(x) at the …"}
+{"answer": "(a) (-3*x^2 - 8*x - 8)*exp(-3*x)/(x^2 + 2*x + 2)^2; (b) -2;…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/1/2312593b6477", "text": "Let f(x) = e^(-3x)/(x^2 + 2x + 2). The tangent to the graph of y = f(x) at the …"}
+{"answer": "(a) ((3*x + 9)*cos(3*x) - sin(3*x) + 2)/(x + 3)^2; (b) 11/9…", "id": "senior-apply-the-product-quotient-and-chain-rule-to/exam/2/0e06b1c65e24", "text": "Let f(x) = (sin(3x) - 2)/(x + 3). The tangent to the graph of y = f(x) at the p…"}
 {"answer": "6*exp(6*x + 1)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/hard/0/002bf19db19c", "text": "Differentiate exp(6·x + 1) with respect to x."}
 {"answer": "3*exp(3*x - 8)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/hard/1/27a57da9eb54", "text": "Differentiate exp(3·x - 8) with respect to x."}
 {"answer": "-3*exp(-3*x)*sin(3*x) + 3*exp(-3*x)*cos(3*x)", "id": "senior-apply-the-product-quotient-and-chain-rule-to/hard/2/57077590d993", "text": "Differentiate exp(-3·x)·sin(3·x) with respect to x."}
@@ -5035,9 +5035,9 @@
 {"answer": "1936pi", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/easy/0/b7e578b083fa", "text": "A sphere has a radius of 22 cm. Find its total surface area, in cm². Give your …"}
 {"answer": "900pi", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/easy/1/067f0786673d", "text": "A sphere has a radius of 15 cm. Find its total surface area, in cm². Give your …"}
 {"answer": "16pi", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/easy/2/1579ffc7e2c9", "text": "A sphere has a radius of 2 cm. Find its total surface area, in cm². Give your a…"}
-{"answer": "(a) 6.7; (b) 787.2; (c) 64.2", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/exam/0/1fc1378ef5de", "text": "A closed cylindrical tin has a volume of 1692 cm³ and a height of 12 cm. (a) Fi…"}
-{"answer": "(a) 9.3; (b) 797.6; (c) 65.9", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/exam/1/26c1e31e33eb", "text": "A cylindrical pencil holder, open at the top and closed at the base, has a capa…"}
-{"answer": "(a) 2.7; (b) 130.6; (c) 64.9", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/exam/2/4cfcaf97b12a", "text": "A cylindrical pet-food can, closed at both ends, holds 115 cm³ and stands 5 cm …"}
+{"answer": "(a) 6.7; (b) 787.2; (c) 64.2", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/exam/0/b0809e481a42", "text": "A closed cylindrical tin has a volume of 1692 cm³ and a height of 12 cm. (a) Fi…"}
+{"answer": "(a) 9.3; (b) 797.6; (c) 65.9", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/exam/1/eac3acde640f", "text": "A cylindrical pencil holder, open at the top and closed at the base, has a capa…"}
+{"answer": "(a) 2.7; (b) 130.6; (c) 64.9", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/exam/2/06f40d47d09f", "text": "A cylindrical pet-food can, closed at both ends, holds 115 cm³ and stands 5 cm …"}
 {"answer": "259pi", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/hard/0/e6c82a98dd69", "text": "A solid is formed by joining a hemisphere to the flat circular base of a cone, …"}
 {"answer": "120pi", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/hard/1/a274bd2838f0", "text": "A solid is formed by joining a hemisphere to the flat circular base of a cone, …"}
 {"answer": "539pi", "id": "senior-calculate-the-surface-areas-of-standard-three-dimensional/hard/2/d8227fe7ffc4", "text": "A solid is formed by joining a hemisphere to the flat circular base of a cone, …"}
@@ -5095,9 +5095,9 @@
 {"answer": "symmetric", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/0/57cdc2f5d65c", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/1/6c34a2cc9af3", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "bimodal", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/easy/2/7f1bfa862e84", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
-{"answer": "(a) 43.0; (b) 45.0; (c) -2.0; (d) left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/0/fedbbd06ceb2", "text": "A service desk recorded how long, in minutes, each of 92 customers waited. Grou…"}
-{"answer": "(a) 30.8; (b) 29.0; (c) 1.8; (d) right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/1/c64c46816d0d", "text": "145 commuters were asked how long, in minutes, their trip to work takes. The re…"}
-{"answer": "(a) 59.8; (b) 65.0; (c) -5.2; (d) left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/2/5a27381c3fb5", "text": "131 students sat a test marked out of 100. The data were grouped in equal class…"}
+{"answer": "(a) 43.0; (b) 45.0; (c) -2.0; (d) left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/0/38258223f088", "text": "A service desk recorded how long, in minutes, each of 92 customers waited. Grou…"}
+{"answer": "(a) 30.8; (b) 29.0; (c) 1.8; (d) right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/1/2973c9b0529b", "text": "145 commuters were asked how long, in minutes, their trip to work takes. The re…"}
+{"answer": "(a) 59.8; (b) 65.0; (c) -5.2; (d) left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/exam/2/144d7735c1c5", "text": "131 students sat a test marked out of 100. The data were grouped in equal class…"}
 {"answer": "skewed right", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/0/78a51630e3e7", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/1/9fbd10a96a28", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
 {"answer": "skewed left", "id": "senior-compare-the-characteristics-of-the-shape-of-histograms/hard/2/3ab216593316", "text": "Skewed right (or positively skewed) means the longer tail is on the right, towa…"}
@@ -5293,9 +5293,9 @@
 {"answer": "x = -20, y = 14", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/easy/0/505de3166ee7", "text": "Apply a dilation (x, y) -> (4x, -2y) to the point (-5, -7). Find the image poin…"}
 {"answer": "x = 4, y = 0", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/easy/1/bb24d5e06692", "text": "Apply a dilation (x, y) -> (2x, -3y) to the point (2, 0). Find the image point."}
 {"answer": "x = 21, y = 14", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/easy/2/306ece540839", "text": "Apply a dilation (x, y) -> (3x, 2y) to the point (7, 7). Find the image point."}
-{"answer": "(a) 2/3; (b) -3; (c) 11", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/0/1c1efbc43128", "text": "A reflection in a line through the origin maps the point P(7, 9) to P'(11, 3). …"}
-{"answer": "(a) -2; (b) -3; (c) 1", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/1/4ecb96f28e21", "text": "The point P(-7, 4) is reflected in a line that passes through the origin, and i…"}
-{"answer": "(a) 4/3; (b) 7; (c) 1", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/2/40e7ea3206e5", "text": "A reflection in a line through the origin maps the point P(5, -10) to P'(-11, 2…"}
+{"answer": "(a) 2/3; (b) -3; (c) 11", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/0/d852596fa329", "text": "A reflection in a line through the origin maps the point P(7, 9) to P'(11, 3). …"}
+{"answer": "(a) -2; (b) -3; (c) 1", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/1/43b8f6f413ee", "text": "The point P(-7, 4) is reflected in a line that passes through the origin, and i…"}
+{"answer": "(a) 4/3; (b) 7; (c) 1", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/exam/2/9704d015e1ea", "text": "A reflection in a line through the origin maps the point P(5, -10) to P'(-11, 2…"}
 {"answer": "x = 8, y = -9", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/hard/0/5df5245daae0", "text": "Reflect the point (8, 9) in the x-axis. Find the image point."}
 {"answer": "x = -2, y = -5", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/hard/1/e1af8506f423", "text": "Reflect the point (2, -5) in the y-axis. Find the image point."}
 {"answer": "x = 2, y = 8", "id": "senior-define-and-use-basic-linear-transformations-dilations-of/hard/2/83756f285986", "text": "Reflect the point (-8, -2) in the line y = -x. Find the image point."}
@@ -5377,9 +5377,9 @@
 {"answer": "4*h + 8*x", "id": "senior-define-the-derivative-f-left-x-right-as/easy/0/77e97bbc049f", "text": "f(x) = 4·x^2 - 8. Form and fully simplify the difference quotient (f(x+h) - f(x…"}
 {"answer": "5*h + 10*x", "id": "senior-define-the-derivative-f-left-x-right-as/easy/1/d627f17cd5f1", "text": "f(x) = 5·x^2 - 1. Form and fully simplify the difference quotient (f(x+h) - f(x…"}
 {"answer": "5*h + 10*x", "id": "senior-define-the-derivative-f-left-x-right-as/easy/2/01ba7d1ad756", "text": "f(x) = 5·x^2 - 7. Form and fully simplify the difference quotient (f(x+h) - f(x…"}
-{"answer": "(a) 2 - 6*x^2; (b) -22; (c) y = 32 - 22*x; (d) 16/11", "id": "senior-define-the-derivative-f-left-x-right-as/exam/0/1847ab88e318", "text": "The function f is given by f(x) = -2x^3 + 2x. A tangent is drawn to the graph o…"}
-{"answer": "(a) 6/x^3; (b) -3/4; (c) y = -3*x/4 - 9/4; (d) -3", "id": "senior-define-the-derivative-f-left-x-right-as/exam/1/e34f2e5a3ca6", "text": "The function f is given by f(x) = -3/x^2. A tangent is drawn to the graph of y …"}
-{"answer": "(a) 8/x^3; (b) 8/27; (c) y = 8*x/27 - 4/3; (d) 9/2", "id": "senior-define-the-derivative-f-left-x-right-as/exam/2/080f6deeffa8", "text": "Consider f(x) = -4/x^2. The graph of y = f(x) has a tangent at x = 3. (a) Find …"}
+{"answer": "(a) 2 - 6*x^2; (b) -22; (c) y = 32 - 22*x; (d) 16/11", "id": "senior-define-the-derivative-f-left-x-right-as/exam/0/903cce15797e", "text": "The function f is given by f(x) = -2x^3 + 2x. A tangent is drawn to the graph o…"}
+{"answer": "(a) 6/x^3; (b) -3/4; (c) y = -3*x/4 - 9/4; (d) -3", "id": "senior-define-the-derivative-f-left-x-right-as/exam/1/52dbb38f2743", "text": "The function f is given by f(x) = -3/x^2. A tangent is drawn to the graph of y …"}
+{"answer": "(a) 8/x^3; (b) 8/27; (c) y = 8*x/27 - 4/3; (d) 9/2", "id": "senior-define-the-derivative-f-left-x-right-as/exam/2/59cece367a0f", "text": "Consider f(x) = -4/x^2. The graph of y = f(x) has a tangent at x = 3. (a) Find …"}
 {"answer": "10*x - 4", "id": "senior-define-the-derivative-f-left-x-right-as/hard/0/e38d3eb2ffde", "text": "f(x) = 5·x^2 - 4·x - 7. Using the definition f'(x) = lim_(h->0) (f(x+h) - f(x))…"}
 {"answer": "6*x + 7", "id": "senior-define-the-derivative-f-left-x-right-as/hard/1/b7ba954e9639", "text": "f(x) = 3·x^2 + 7·x - 8. Using the definition f'(x) = lim_(h->0) (f(x+h) - f(x))…"}
 {"answer": "6*x - 1", "id": "senior-define-the-derivative-f-left-x-right-as/hard/2/70d4a198a2b7", "text": "f(x) = 3·x^2 - x + 2. Using the definition f'(x) = lim_(h->0) (f(x+h) - f(x)) /…"}
@@ -6271,9 +6271,9 @@
 {"answer": "30", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/0/5263950a949c", "text": "The curve y = 4·x^2 + 6·x has a tangent at x = 3. Find the slope of the tangent."}
 {"answer": "-6", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/1/8492c7762be2", "text": "The curve y = 2·x^2 + 2·x + 8 has a tangent at x = -2. Find the slope of the ta…"}
 {"answer": "9", "id": "senior-find-the-slope-of-a-tangent-and-the/easy/2/3394e315924a", "text": "The curve y = 2·x^2 + x - 6 has a tangent at x = 2. Find the slope of the tange…"}
-{"answer": "(a) 1; (b) y = -7*x - 8; (c) y = x/7 - 106/7; (d) -106/7", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/0/5cf1fe4b3bc1", "text": "The curve with equation y = f(x) has f(x) = 2x^3 + 6x^2 - 25x + 2. The tangent …"}
-{"answer": "(a) -3; (b) y = 11*x + 57; (c) y = 261/11 - x/11; (d) 261/11", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/1/a6d66a17290a", "text": "Consider the curve y = f(x), where f(x) = 2x^3 + 6x^2 - 7x + 3. P is the point …"}
-{"answer": "(a) 2; (b) y = 10*x - 18; (c) y = 11/5 - x/10; (d) 11/5", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/2/304cb9efc33b", "text": "The curve with equation y = f(x) has f(x) = x^3 - 2x - 2. The tangent to the cu…"}
+{"answer": "(a) 1; (b) y = -7*x - 8; (c) y = x/7 - 106/7; (d) -106/7", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/0/6ab13a4d4893", "text": "The curve with equation y = f(x) has f(x) = 2x^3 + 6x^2 - 25x + 2. The tangent …"}
+{"answer": "(a) -3; (b) y = 11*x + 57; (c) y = 261/11 - x/11; (d) 261/11", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/1/a3b3221df434", "text": "Consider the curve y = f(x), where f(x) = 2x^3 + 6x^2 - 7x + 3. P is the point …"}
+{"answer": "(a) 2; (b) y = 10*x - 18; (c) y = 11/5 - x/10; (d) 11/5", "id": "senior-find-the-slope-of-a-tangent-and-the/exam/2/10ee7c320754", "text": "The curve with equation y = f(x) has f(x) = x^3 - 2x - 2. The tangent to the cu…"}
 {"answer": "y = 8*x - 2", "id": "senior-find-the-slope-of-a-tangent-and-the/hard/0/1c2ccbba5b5d", "text": "Find the equation of the tangent to y = 2·x^2 + 6 at x = 2."}
 {"answer": "y = 16*x - 10", "id": "senior-find-the-slope-of-a-tangent-and-the/hard/1/92478229289b", "text": "Find the equation of the tangent to y = 3·x^2 + 4·x + 2 at x = 2."}
 {"answer": "y = 42*x - 131", "id": "senior-find-the-slope-of-a-tangent-and-the/hard/2/422f23e93e51", "text": "Find the equation of the tangent to y = 5·x^2 - 8·x - 6 at x = 5."}
@@ -6379,9 +6379,9 @@
 {"answer": "Not suited -- the outcome is a continuous measurement, not …", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/easy/0/aa4fa4734a73", "text": "At a basketball free-throw session, one free throw is selected at random and ch…"}
 {"answer": "Not suited -- this describes a FIXED NUMBER of repeated tri…", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/easy/1/9c3286a463eb", "text": "At a telemarketing campaign, one call is checked. This is repeated 52 times, an…"}
 {"answer": "Not suited -- the probability of success for this single dr…", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/easy/2/4f6f2bd4af41", "text": "At a factory quality-control line, one component is selected at random and chec…"}
-{"answer": "(a) 9/20; (b) 30/71; (c) 6.1; (d) no", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/exam/0/22e7b9b41e11", "text": "A depot holds 80 parcels, 36 of which are marked fragile. The first 9 parcels a…"}
-{"answer": "(a) 1/12; (b) 7/104; (c) 19.2; (d) no", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/exam/1/59eb4c35f1ec", "text": "A bag holds 120 jelly beans, 10 of which are red. The first 16 jelly beans are …"}
-{"answer": "(a) 3/20; (b) 6/47; (c) 14.9; (d) no", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/exam/2/8dd9d80b1855", "text": "A crate holds 120 apples, 18 of which are bruised. The first 26 apples are exam…"}
+{"answer": "(a) 9/20; (b) 30/71; (c) 6.1; (d) -4.1; (e) no", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/exam/0/3390e0b9beae", "text": "A depot holds 80 parcels, 36 of which are marked fragile. The first 9 parcels a…"}
+{"answer": "(a) 1/12; (b) 7/104; (c) 19.2; (d) -14.2; (e) no", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/exam/1/628513ac0bee", "text": "A bag holds 120 jelly beans, 10 of which are red. The first 16 jelly beans are …"}
+{"answer": "(a) 3/20; (b) 6/47; (c) 14.9; (d) -13.9; (e) no", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/exam/2/8ba7cd06ebb8", "text": "A crate holds 120 apples, 18 of which are bruised. The first 26 apples are exam…"}
 {"answer": "Suited to a Bernoulli model", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/hard/0/3a90bad8b076", "text": "At a basketball free-throw session, one free throw is selected at random and ch…"}
 {"answer": "Suited to a Bernoulli model", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/hard/1/d4e542b44888", "text": "At a telemarketing campaign, one call is selected at random and checked once. T…"}
 {"answer": "Not suited -- the outcome is a continuous measurement, not …", "id": "senior-identify-contexts-suitable-for-modelling-by-bernoulli-random/hard/2/45e1f12e4ae5", "text": "At a telemarketing campaign, one call is selected at random and checked once. T…"}
@@ -6391,9 +6391,9 @@
 {"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/0/c14a0269ce2e", "text": "At a basketball free-throw session, free throws are studied one after another. …"}
 {"answer": "Not suited -- each trial does not have exactly two possible…", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/1/b831425a15f9", "text": "At a plant nursery, 35 seeds are studied one after another. There are exactly 3…"}
 {"answer": "Not suited -- the number of trials is not fixed", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/easy/2/f3f2e448acb1", "text": "At a basketball free-throw session, free throws are studied one after another. …"}
-{"answer": "(a) 1/9; (b) 4/37; (c) 2.8; (d) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/0/2d282b5ececd", "text": "A carton holds 75 eggs, 25 of which are cracked. A sample of 2 eggs is chosen a…"}
-{"answer": "(a) 125/4096; (b) 245/8374; (c) 4.3; (d) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/1/1a24f83e3087", "text": "A depot holds 160 parcels, 50 of which are marked fragile. A sample of 3 parcel…"}
-{"answer": "(a) 1/9; (b) 47/429; (c) 1.4; (d) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/2/07507a52aaa8", "text": "A crate holds 144 apples, 48 of which are bruised. A sample of 2 apples is chos…"}
+{"answer": "(a) 1/9; (b) 4/37; (c) 2.8; (d) 2.2; (e) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/0/64c710d5413e", "text": "A carton holds 75 eggs, 25 of which are cracked. A sample of 2 eggs is chosen a…"}
+{"answer": "(a) 125/4096; (b) 245/8374; (c) 4.3; (d) 0.7; (e) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/1/39177351c3ea", "text": "A depot holds 160 parcels, 50 of which are marked fragile. A sample of 3 parcel…"}
+{"answer": "(a) 1/9; (b) 47/429; (c) 1.4; (d) 0.6; (e) yes", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/exam/2/3df1297fb62a", "text": "A crate holds 144 apples, 48 of which are bruised. A sample of 2 apples is chos…"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/hard/0/e42634d2f35f", "text": "At a telemarketing campaign, 17 calls are studied one after another. There are …"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/hard/1/5a76af23cc60", "text": "At a telemarketing campaign, 16 calls are studied one after another. There are …"}
 {"answer": "Suited to a binomial model", "id": "senior-identify-contexts-suitable-for-modelling-by-binomial-random/hard/2/e6a6615dd067", "text": "At a factory quality-control line, 31 components are studied one after another.…"}
@@ -6835,8 +6835,8 @@
 {"answer": "$545.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/0/66363dfb3981", "text": "A person earns $683.00 per week. Their fixed weekly expenses are $22.00 for ren…"}
 {"answer": "$645.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/1/6049021cfd32", "text": "A person earns $861.00 per week. Their fixed weekly expenses are $106.00 for re…"}
 {"answer": "$136.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/2/ffdf214dfb19", "text": "A person earns $395.00 per week. Their fixed weekly expenses are $111.00 for re…"}
-{"answer": "(a) 388.96; (b) 324.44; (c) 30", "id": "senior-prepare-a-personal-budget-for-a-given-income/exam/0/a5b0077ded66", "text": "A worker's income is $820 per week. Weekly rent is $340. Other bills are a $73 …"}
-{"answer": "(a) 316.12; (b) 459.88; (c) 29", "id": "senior-prepare-a-personal-budget-for-a-given-income/exam/1/e80be0da14c9", "text": "A worker's income is $970 per week. Weekly rent is $275. Other bills are a $69 …"}
+{"answer": "(a) 327.77; (b) 936.03; (c) 11", "id": "senior-prepare-a-personal-budget-for-a-given-income/exam/0/ccc72eefd635", "text": "A person earns $1,420 a week. Each week they pay $275 in rent. They also pay $9…"}
+{"answer": "(a) 350.04; (b) 510.96; (c) 10", "id": "senior-prepare-a-personal-budget-for-a-given-income/exam/1/bfc1c9796476", "text": "A worker's income is $1,050 per week. Weekly rent is $285. Other bills are a $8…"}
 {"answer": "(a) 424.54; (b) 412.06; (c) 30", "id": "senior-prepare-a-personal-budget-for-a-given-income/exam/2/c7508c4f5925", "text": "A person earns $940 a week. Each week they pay $380 in rent. They also pay $68 …"}
 {"answer": "$274.50", "id": "senior-prepare-a-personal-budget-for-a-given-income/hard/0/06e529b22597", "text": "A person earns $835.00 per week. Their fixed weekly expenses are $45.00 for ren…"}
 {"answer": "$274.40", "id": "senior-prepare-a-personal-budget-for-a-given-income/hard/1/4ef07b7cabe3", "text": "A person earns $453.00 per week. Their fixed weekly expenses are $37.00 for ren…"}
@@ -7276,9 +7276,9 @@
 {"answer": "Not similar (the given information does not establish simil…", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/easy/0/3e8ee524d4d2", "text": "Triangle ABC has angle A = 36 degrees and angle B = 122 degrees. Triangle DEF h…"}
 {"answer": "Not similar (the given information does not establish simil…", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/easy/1/b4572bd5a8b3", "text": "Triangle ABC has angle A = 81 degrees and angle B = 54 degrees. Triangle DEF ha…"}
 {"answer": "Not similar (the given information does not establish simil…", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/easy/2/65c2d54e889a", "text": "Triangle ABC has angle A = 45 degrees and angle B = 48 degrees. Triangle DEF ha…"}
-{"answer": "(a) 76; (b) 1.80; (c) 18.00", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/exam/0/35c9f5b2ffa2", "text": "In triangle GHJ, ∠G = 35° and ∠H = 69°. In triangle UVW, ∠U = 35° and ∠W = θ. T…"}
-{"answer": "(a) 75; (b) 2.40; (c) 72.00", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/exam/1/41d200e75996", "text": "In triangle GHJ, ∠G = 52° and ∠H = 53°. In triangle UVW, ∠U = 52° and ∠W = θ. T…"}
-{"answer": "(a) 42; (b) 1.20; (c) 96.00", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/exam/2/e7b648f365a2", "text": "Triangle KLM has sides KL = 15 cm, LM = 30 cm and MK = 35 cm. Triangle RST has …"}
+{"answer": "(a) 76; (b) 1.80; (c) 26.64", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/exam/0/d1d9c5c8dd7b", "text": "In triangle GHJ, ∠G = 35° and ∠H = 69°. In triangle UVW, ∠U = 35° and ∠W = θ. T…"}
+{"answer": "(a) 75; (b) 2.40; (c) 48.96", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/exam/1/1b9b9c378046", "text": "In triangle GHJ, ∠G = 52° and ∠H = 53°. In triangle UVW, ∠U = 52° and ∠W = θ. T…"}
+{"answer": "(a) 42; (b) 1.20; (c) 96.00", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/exam/2/ce9006f50b59", "text": "Triangle KLM has sides KL = 15 cm, LM = 30 cm and MK = 35 cm. Triangle RST has …"}
 {"answer": "Similar by SAS (one pair of corresponding angles is equal a…", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/hard/0/2cd1a9ce2fd9", "text": "Triangle ABC has AB = 20 cm, BC = 10 cm and the included angle ABC = 74 degrees…"}
 {"answer": "Not similar (the given information does not establish simil…", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/hard/1/b7de199c689c", "text": "Triangle ABC has AB = 18 cm, BC = 16 cm and the included angle ABC = 113 degree…"}
 {"answer": "Not similar (the given information does not establish simil…", "id": "senior-review-the-conditions-for-similarity-of-two-dimensional/hard/2/6ebec6278ead", "text": "Triangle ABC has AB = 24 cm, BC = 20 cm and the included angle ABC = 77 degrees…"}
@@ -7513,8 +7513,8 @@
 {"answer": "2", "id": "senior-solve-problems-relating-to-travelling-east-and-west/easy/0/28f8b0372364", "text": "A traveller departs Sydney at 18:30, travelling west, on a flight lasting 4 hou…"}
 {"answer": "1", "id": "senior-solve-problems-relating-to-travelling-east-and-west/easy/1/8090b8a3a6f4", "text": "A traveller departs Perth at 04:30, travelling east, on a flight lasting 10 hou…"}
 {"answer": "2", "id": "senior-solve-problems-relating-to-travelling-east-and-west/easy/2/11011d81789b", "text": "A traveller departs Sydney at 17:30, travelling west, on a flight lasting 4 hou…"}
-{"answer": "(a) 0.5; (b) 12; (c) 30; (d) 16; (e) 0", "id": "senior-solve-problems-relating-to-travelling-east-and-west/exam/0/f368da7898e0", "text": "Both Darwin and Brisbane are on standard time. A traveller leaves Darwin at 10:…"}
-{"answer": "(a) 2.0; (b) 16; (c) 0; (d) 11; (e) 0", "id": "senior-solve-problems-relating-to-travelling-east-and-west/exam/1/6ec32291b00e", "text": "Both Auckland and Sydney are on standard time. A traveller leaves Auckland at 1…"}
+{"answer": "(a) 0.5; (b) 12; (c) 30; (d) 16; (e) 0", "id": "senior-solve-problems-relating-to-travelling-east-and-west/exam/0/33826ba55fba", "text": "Both Darwin and Brisbane are on standard time. A traveller leaves Darwin at 10:…"}
+{"answer": "(a) 2.0; (b) 16; (c) 0; (d) 11; (e) 0", "id": "senior-solve-problems-relating-to-travelling-east-and-west/exam/1/3aeaf3fbed06", "text": "Both Auckland and Sydney are on standard time. A traveller leaves Auckland at 1…"}
 {"answer": "(a) 2.0; (b) 19; (c) 0; (d) 12; (e) 0", "id": "senior-solve-problems-relating-to-travelling-east-and-west/exam/2/29300aa34b12", "text": "Both Melbourne and Perth are on standard time. A traveller leaves Melbourne at …"}
 {"answer": "9", "id": "senior-solve-problems-relating-to-travelling-east-and-west/hard/0/fc48a4e7fb10", "text": "A traveller departs Sydney at 23:30, travelling west, on a flight lasting 21 ho…"}
 {"answer": "2", "id": "senior-solve-problems-relating-to-travelling-east-and-west/hard/1/7cd6a44dac68", "text": "A traveller departs Sydney at 22:00, travelling west, on a flight lasting 4 hou…"}
@@ -7969,9 +7969,9 @@
 {"answer": "35/144", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/easy/0/19f6fa7a7e49", "text": "A biased coin lands heads with probability 5/12 on each independent toss. The c…"}
 {"answer": "9/100", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/easy/1/5ba525ac9b12", "text": "A biased coin lands heads with probability 1/10 on each independent toss. The c…"}
 {"answer": "9/100", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/easy/2/6e8eea03c6a9", "text": "Each item leaving the production line is independently faulty with probability …"}
-{"answer": "(a) 4/5; (b) 4/625; (c) 16/3125", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/exam/0/0de44c394463", "text": "A netball player misses a shot at goal with probability 1/5 each time, and her …"}
-{"answer": "(a) 3/5; (b) 12/125; (c) 36/625", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/exam/1/536d0546da28", "text": "Each parcel posted by a small business is delivered late with probability 2/5, …"}
-{"answer": "(a) 7/9; (b) 56/6561; (c) 392/59049", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/exam/2/eb7ac7e3c8a5", "text": "A netball player misses a shot at goal with probability 2/9 each time, and her …"}
+{"answer": "(a) 4/5; (b) 4/625; (c) 16/3125", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/exam/0/9135a8d26e31", "text": "A netball player misses a shot at goal with probability 1/5 each time, and her …"}
+{"answer": "(a) 3/5; (b) 12/125; (c) 36/625", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/exam/1/014d0b32ab4d", "text": "Each parcel posted by a small business is delivered late with probability 2/5, …"}
+{"answer": "(a) 7/9; (b) 56/6561; (c) 392/59049", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/exam/2/bab18dfa2f66", "text": "A netball player misses a shot at goal with probability 2/9 each time, and her …"}
 {"answer": "38416/759375", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/hard/0/93b534a56bee", "text": "A spinner lands on 'loss' with probability 1/15 on each independent spin. The s…"}
 {"answer": "107811/3200000", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/hard/1/2174f4e51455", "text": "A biased coin lands tails with probability 11/20 on each independent toss. The …"}
 {"answer": "12005/248832", "id": "senior-use-bernoulli-random-variables-and-associated-probabilities-to/hard/2/fe23676ab787", "text": "A spinner lands on 'loss' with probability 5/12 on each independent spin. The s…"}
@@ -8179,9 +8179,9 @@
 {"answer": "2100", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/easy/0/874e038b7ff0", "text": "Round each number to its own leading digit, then estimate 69 × 34."}
 {"answer": "1400", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/easy/1/e322b86933d7", "text": "Round each number to its own leading digit, then estimate 18 × 67."}
 {"answer": "900", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/easy/2/f19f9a18eed9", "text": "Round each number to its own leading digit, then estimate 27 × 30."}
-{"answer": "(a) 68000; (b) 63775; (c) 7", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/exam/0/69de3eaddfa0", "text": "Sione is planning a community event in Darwin and needs 712 pies costing $75 ea…"}
-{"answer": "(a) 22000; (b) 23359; (c) 6", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/exam/1/f72df7ae23af", "text": "A school in Hobart orders 231 notebooks at $63 each and 518 pens at $17 each fo…"}
-{"answer": "(a) 10000; (b) 9553; (c) 5", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/exam/2/7c59c299cb81", "text": "Ravi runs a stall at a Perth market. On Saturday Ravi sells 397 plants at $19 e…"}
+{"answer": "(a) 68000; (b) 63775; (c) 7", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/exam/0/594e7b75c652", "text": "Sione is planning a community event in Darwin and needs 712 pies costing $75 ea…"}
+{"answer": "(a) 22000; (b) 23359; (c) 6", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/exam/1/ee69226c8c9f", "text": "A school in Hobart orders 231 notebooks at $63 each and 518 pens at $17 each fo…"}
+{"answer": "(a) 10000; (b) 9553; (c) 5", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/exam/2/fdeb5ba0d243", "text": "Ravi runs a stall at a Perth market. On Saturday Ravi sells 397 plants at $19 e…"}
 {"answer": "3300", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/hard/0/a2decf623bb6", "text": "Round each number to its own leading digit, then estimate 614 + 33 × 86."}
 {"answer": "6800", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/hard/1/586d9cd58ec2", "text": "Round each number to its own leading digit, then estimate 428 + 79 × 83."}
 {"answer": "3800", "id": "senior-use-leading-digit-approximation-to-obtain-estimates-of/hard/2/99a6e690aafa", "text": "Round each number to its own leading digit, then estimate 593 + 41 × 83."}
@@ -8382,7 +8382,7 @@
 {"answer": "3/5", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/2/8199ad910ddb", "text": "60 customer service calls were logged, and the outcome type of each was recorde…"}
 {"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/0/b27fda807341", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
 {"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/1/34c623458c9a", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
-{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/2/2d8733494f10", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
+{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/2/edd0fedf4dd0", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
 {"answer": "60/77", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/0/9ea7245e4ea9", "text": "77 seeds from a packet were planted, and the germination outcome of each was re…"}
 {"answer": "148/165", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/1/7366d54baf0e", "text": "A six-sided die was rolled 165 times, and the outcome of each was recorded: 1: …"}
 {"answer": "49/64", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/2/843cab1531e6", "text": "A spinner was spun 128 times, and the colour of each was recorded: red: 38, blu…"}
@@ -8392,9 +8392,9 @@
 {"answer": "1/5, 1/5, 3/5", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/0/051d1b565599", "text": "Over 20 batches, the number of defective items in a sample batch (X) was record…"}
 {"answer": "5/28, 17/28, 3/14", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/1/b5bdee139b5b", "text": "Over 28 hours, the number of calls a helpdesk receives per hour (X) was recorde…"}
 {"answer": "9/32, 1/4, 15/32", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/easy/2/3f6f84bb5483", "text": "Over 32 hours, the number of calls a helpdesk receives per hour (X) was recorde…"}
-{"answer": "(a) 23; (b) 5; (c) 18; (d) 1/8, 3/40, 1/8, 9/40, 9/20", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/0/06d4df059074", "text": "A random variable X is the number of goals scored by a team in a match. In a st…"}
-{"answer": "(a) 31; (b) 13; (c) 18; (d) 13/60, 7/30, 13/60, 3/10, 1/30", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/1/d5e328d5559a", "text": "A random variable X is the number of children in a household. In a study, 60 ho…"}
-{"answer": "(a) 20; (b) 5; (c) 15; (d) 1/10, 1/10, 13/50, 3/10, 6/25", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/2/bddb2437c7f3", "text": "A random variable X is the number of passengers in a car. In a study, 50 cars w…"}
+{"answer": "(a) 23; (b) 5; (c) 18; (d) 1/8, 3/40, 1/8, 9/40, 9/20", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/0/f59f4e23218c", "text": "A random variable X is the number of goals scored by a team in a match. In a st…"}
+{"answer": "(a) 31; (b) 13; (c) 18; (d) 13/60, 7/30, 13/60, 3/10, 1/30", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/1/9db6bd85bafa", "text": "A random variable X is the number of children in a household. In a study, 60 ho…"}
+{"answer": "(a) 20; (b) 5; (c) 15; (d) 1/10, 1/10, 13/50, 3/10, 6/25", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/exam/2/766a0631219a", "text": "A random variable X is the number of passengers in a car. In a study, 50 cars w…"}
 {"answer": "2/17, 9/17, 2/17, 4/17", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/hard/0/2ca14a694760", "text": "Over 34 hours in total, the number of calls a helpdesk receives per hour (X) wa…"}
 {"answer": "19/64, 17/64, 11/64, 17/64", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/hard/1/c4d7fcfca1fa", "text": "Over 64 matches in total, the number of goals scored per match by a team (X) wa…"}
 {"answer": "20/53, 6/53, 16/53, 11/53", "id": "senior-use-relative-frequencies-obtained-from-data-to-obtain/hard/2/77f199161591", "text": "Over 53 hours in total, the number of calls a helpdesk receives per hour (X) wa…"}
@@ -8749,9 +8749,9 @@
 {"answer": "250000.00", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/easy/0/960c3d728377", "text": "To fund a perpetual monthly withdrawal of $2000, with the investment earning 9.…"}
 {"answer": "306666.67", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/easy/1/972f7bb8dfd9", "text": "To fund a perpetual monthly withdrawal of $1150, with the investment earning 4.…"}
 {"answer": "230000.00", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/easy/2/70e4703591ec", "text": "An investor wants to withdraw $1150 every month, forever, without ever running …"}
-{"answer": "(a) 342330; (b) 1946; (c) 560448; (d) 218118", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/exam/0/443cb34120e2", "text": "Kofi pays $400 at the end of every month into a retirement account for 32 years…"}
-{"answer": "(a) 761197; (b) 5368; (c) 1481568; (d) 720371", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/exam/1/03aa627e967f", "text": "Tom pays $500 at the end of every month into a retirement account for 34 years.…"}
-{"answer": "(a) 532069; (b) 3655; (c) 1008780; (d) 476711", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/exam/2/c6169848b122", "text": "Ben pays $500 at the end of every month into a retirement account for 30 years.…"}
+{"answer": "(a) 342330; (b) 1946; (c) 560448; (d) 218118", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/exam/0/7a118c841d81", "text": "Kofi pays $400 at the end of every month into a retirement account for 32 years…"}
+{"answer": "(a) 761197; (b) 5368; (c) 1481568; (d) 720371", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/exam/1/276b13f89e42", "text": "Tom pays $500 at the end of every month into a retirement account for 34 years.…"}
+{"answer": "(a) 532069; (b) 3655; (c) 1008780; (d) 476711", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/exam/2/d2f459a6ccc0", "text": "Ben pays $500 at the end of every month into a retirement account for 30 years.…"}
 {"answer": "8", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/hard/0/8c97785a2b98", "text": "An investor deposits $309737.00 now, earning 10.0% per annum, compounding month…"}
 {"answer": "32", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/hard/1/c0b726cf13b6", "text": "$226361.69 is invested at 9.6% per annum, compounding monthly, to fund a monthl…"}
 {"answer": "25", "id": "senior-with-the-aid-of-a-financial-calculator-or-acmgm100/hard/2/eec2c264358d", "text": "An investor deposits $795700.43 now, earning 4.0% per annum, compounding monthl…"}
@@ -8815,9 +8815,9 @@
 {"answer": "1.134", "id": "significant-figures/easy/0/e2fc5ca0d3b0", "text": "Round 1.13352 to 4 significant figures."}
 {"answer": "75.41", "id": "significant-figures/easy/1/45c7c1cdd4b5", "text": "Round 75.40702 to 4 significant figures."}
 {"answer": "9.5", "id": "significant-figures/easy/2/3eb321053a53", "text": "Round 9.54269 to 2 significant figures."}
-{"answer": "(a) 2.56824; (b) 3; (c) 2.57", "id": "significant-figures/exam/0/12a15ef53335", "text": "A student measures a rectangular solar panel. Its length is 2.378 m and its wid…"}
-{"answer": "(a) 0.862814; (b) 3; (c) 0.863", "id": "significant-figures/exam/1/760f083cbaa3", "text": "A student measures a rectangular sheet of aluminium. Its length is 1.51 m and i…"}
-{"answer": "(a) 22.7012; (b) 2; (c) 23", "id": "significant-figures/exam/2/47c9654f2aaa", "text": "A student measures a rectangular sheet of aluminium. Its length is 5.974 m and …"}
+{"answer": "(a) 2.56824; (b) 3; (c) 2.57", "id": "significant-figures/exam/0/16f355aedf24", "text": "A student measures a rectangular solar panel. Its length is 2.378 m and its wid…"}
+{"answer": "(a) 0.862814; (b) 3; (c) 0.863", "id": "significant-figures/exam/1/2bc6ee747565", "text": "A student measures a rectangular sheet of aluminium. Its length is 1.51 m and i…"}
+{"answer": "(a) 22.7012; (b) 2; (c) 23", "id": "significant-figures/exam/2/c65d095be336", "text": "A student measures a rectangular sheet of aluminium. Its length is 5.974 m and …"}
 {"answer": "4300", "id": "significant-figures/hard/0/59f0a3e9a295", "text": "Round 4333 to 2 significant figures."}
 {"answer": "130000", "id": "significant-figures/hard/1/1d38552ffd05", "text": "Round 127826 to 2 significant figures."}
 {"answer": "296000", "id": "significant-figures/hard/2/fb172b54bc79", "text": "Round 295563 to 3 significant figures."}
@@ -8825,7 +8825,7 @@
 {"answer": "0.0495", "id": "significant-figures/medium/1/8dd4d24c0dc2", "text": "Round 0.04946 to 3 significant figures."}
 {"answer": "0.00027", "id": "significant-figures/medium/2/3a8213def9e3", "text": "Round 0.0002727 to 2 significant figures."}
 {"answer": "1/2", "id": "simple-event-probability/easy/0/3cde51c3c1ea", "text": "A bag has 5 red counters and 5 blue counters. What is P(red)?"}
-{"answer": "1/8", "id": "simple-event-probability/easy/1/11c414033dc3", "text": "A bag has 1 red counters and 7 blue counters. What is P(red)?"}
+{"answer": "1/8", "id": "simple-event-probability/easy/1/64bf07166224", "text": "A bag has 1 red counter and 7 blue counters. What is P(red)?"}
 {"answer": "1/2", "id": "simple-event-probability/easy/2/49b879302d05", "text": "A bag has 6 red counters and 6 blue counters. What is P(red)?"}
 {"answer": "(a) 5/16; (b) 17; (c) 3/11", "id": "simple-event-probability/exam/0/ada88c0fa7fb", "text": "A jar holds 5 red, 2 green and 9 blue lollies. (a) One lolly is taken at random…"}
 {"answer": "(a) 3/13; (b) 17; (c) 3/10", "id": "simple-event-probability/exam/1/59e7f3f44b17", "text": "A bag holds 3 red, 1 green and 9 blue counters. (a) One counter is taken at ran…"}
@@ -9152,11 +9152,11 @@
 {"answer": "(a) 285; (b) 38; (c) 8550", "id": "triangle-area-base-height/exam/1/b98c1ceb2d55", "text": "A shade sail over a playground in Mackay is a triangle with a base of 19 m and …"}
 {"answer": "(a) 72; (b) 8; (c) 2880", "id": "triangle-area-base-height/exam/2/eb85edbe33bd", "text": "A shade sail over a playground in Mackay is a triangle with a base of 16 m and …"}
 {"answer": "132", "id": "triangle-area-base-height/hard/0/5e07a6c404c4", "text": "Triangle LMN has three lengths marked. Calculate its area, in cm²."}
-{"answer": "132", "id": "triangle-area-base-height/hard/1/144d4abd91eb", "text": "Use the lengths marked on triangle PQR to find its area, in m²."}
-{"answer": "150", "id": "triangle-area-base-height/hard/2/fca3dfded287", "text": "Use the lengths marked on triangle DEF to find its area, in m²."}
-{"answer": "5", "id": "triangle-area-base-height/medium/0/8fbcb2a4e454", "text": "What is the area of triangle LMN, in mm²? The perpendicular height is shown das…"}
-{"answer": "90", "id": "triangle-area-base-height/medium/1/755796de0842", "text": "Calculate the area of triangle ABC, in mm². The square marks a right angle."}
-{"answer": "75", "id": "triangle-area-base-height/medium/2/ff3401ea91c4", "text": "What is the area of triangle XYZ, in mm²? The perpendicular height is shown das…"}
+{"answer": "132", "id": "triangle-area-base-height/hard/1/186d9a098fb2", "text": "Use the lengths marked on triangle PQR to find its area, in m²."}
+{"answer": "150", "id": "triangle-area-base-height/hard/2/72d5b118e825", "text": "Use the lengths marked on triangle DEF to find its area, in m²."}
+{"answer": "5", "id": "triangle-area-base-height/medium/0/08f8c9d30fd7", "text": "What is the area of triangle LMN, in mm²? The perpendicular height is shown das…"}
+{"answer": "90", "id": "triangle-area-base-height/medium/1/60541daaf07d", "text": "Calculate the area of triangle ABC, in mm². The square marks a right angle."}
+{"answer": "75", "id": "triangle-area-base-height/medium/2/e9abd0a8dfb4", "text": "What is the area of triangle XYZ, in mm²? The perpendicular height is shown das…"}
 {"answer": "Area = 31.0", "id": "triangle-area-sine/easy/0/5822f05c6bd6", "text": "Triangle ABC has side a = 7, side b = 9, and included angle C = 80°. Find its a…"}
 {"answer": "Area = 67.5", "id": "triangle-area-sine/easy/1/79e84994a528", "text": "Triangle ABC has side a = 15, side b = 14, and included angle C = 40°. Find its…"}
 {"answer": "Area = 17.3", "id": "triangle-area-sine/easy/2/f98f67dcd4d1", "text": "Triangle ABC has side a = 4, side b = 10, and included angle C = 60°. Find its …"}
@@ -10880,7 +10880,7 @@
 {"answer": "(a) 4; (b) -2; (c) 3q - 1; (d) 14", "id": "ucv1-proof-by-induction/exam/1/ef267832faa2", "text": "Let P(n) be the statement that f(n) = 3^n + 1 is divisible by 2, for all intege…"}
 {"answer": "(a) 4; (b) 4(k + 1)^2; (c) 2(k + 1)(k + 2)(2k + 3)/3; (d) 7", "id": "ucv1-proof-by-induction/exam/2/c6c39ddf8e5c", "text": "Let P(n) be the statement 4×1² + 4×2² + 4×3² + … + 4n² = 2n(n + 1)(2n + 1)/3, f…"}
 {"answer": "(k + 1)^2(k + 2)^2/4", "id": "ucv1-proof-by-induction/hard/0/eedb279a061d", "text": "The sum 1³ + 2³ + 3³ + … + n³ is being evaluated by induction. The inductive st…"}
-{"answer": "3(k^2 + k + 1)", "id": "ucv1-proof-by-induction/hard/1/4e34176cd7b0", "text": "P(n): f(n) = n³ + 2n is divisible by 3, for all integers n ≥ 1. In the inductiv…"}
+{"answer": "3(k^2 + k + 2)", "id": "ucv1-proof-by-induction/hard/1/6850c9609ca6", "text": "P(n): f(n) = n³ + 5n is divisible by 6, for all integers n ≥ 1. In the inductiv…"}
 {"answer": "-24", "id": "ucv1-proof-by-induction/hard/2/635479427300", "text": "P(n): f(n) = 9^n + 3 is divisible by 2, for all integers n ≥ 1. In the inductiv…"}
 {"answer": "(k + 1)(k + 2)(2k + 15)/6", "id": "ucv1-proof-by-induction/medium/0/c451bb5641de", "text": "The statement P(n): 1×5 + 2×6 + 3×7 + … + n(n + 4) = n(n + 1)(2n + 13)/6 is to …"}
 {"answer": "5(k + 1)(k + 2)(2k + 3)/6", "id": "ucv1-proof-by-induction/medium/1/ce1dcbef5af5", "text": "The statement P(n): 5×1² + 5×2² + 5×3² + … + 5n² = 5n(n + 1)(2n + 1)/6 is to be…"}
@@ -11284,9 +11284,9 @@
 {"answer": "-832", "id": "ucv1-triple-integral/easy/0/344b710f4efa", "text": "Evaluate the triple integral ∭ x²(y² - 1)(z - 2) dV over the box 2 ≤ x ≤ 5, 2 ≤…"}
 {"answer": "441/2", "id": "ucv1-triple-integral/easy/1/595681292256", "text": "Evaluate the triple integral ∭ x²y²(3z + 3) dV over the box -2 ≤ x ≤ -1, 0 ≤ y …"}
 {"answer": "56", "id": "ucv1-triple-integral/easy/2/2b7c9735f95e", "text": "Evaluate the triple integral ∭ (x - 2)(3y - 2)z² dV over the box 0 ≤ x ≤ 2, -1 …"}
-{"answer": "(a) 2; (b) 5; (c) 17/25; (d) 5/2", "id": "ucv1-triple-integral/exam/0/54cdba6f6353", "text": "A solid occupies the tetrahedron in the first octant bounded by the coordinate …"}
-{"answer": "(a) 15; (b) 74; (c) 285/148; (d) 74/15", "id": "ucv1-triple-integral/exam/1/8230c78c147e", "text": "A solid occupies the wedge 0 ≤ x ≤ 3, 0 ≤ y ≤ 2, 0 ≤ z ≤ x + y. Lengths are in …"}
-{"answer": "(a) 3; (b) 21/4; (c) 24/35; (d) 7/4", "id": "ucv1-triple-integral/exam/2/b6603e1fed5d", "text": "A solid occupies the tetrahedron in the first octant bounded by the coordinate …"}
+{"answer": "(a) 2; (b) 5; (c) 17/25; (d) 5/2", "id": "ucv1-triple-integral/exam/0/ff8f8ca768d6", "text": "A solid occupies the tetrahedron in the first octant bounded by the coordinate …"}
+{"answer": "(a) 15; (b) 74; (c) 285/148; (d) 74/15", "id": "ucv1-triple-integral/exam/1/a027cdf0ead9", "text": "A solid occupies the wedge 0 ≤ x ≤ 3, 0 ≤ y ≤ 2, 0 ≤ z ≤ x + y. Lengths are in …"}
+{"answer": "(a) 3; (b) 21/4; (c) 24/35; (d) 7/4", "id": "ucv1-triple-integral/exam/2/e788805fb81c", "text": "A solid occupies the tetrahedron in the first octant bounded by the coordinate …"}
 {"answer": "20/3", "id": "ucv1-triple-integral/hard/0/12feefc62d98", "text": "The iterated integral I = ∫ from x = 0 to 2 ∫ from y = 0 to x ∫ from z = 0 to y…"}
 {"answer": "4/5", "id": "ucv1-triple-integral/hard/1/d31e2d124041", "text": "Evaluate ∭ xz dV over the solid E given by 0 ≤ x ≤ z ≤ y ≤ 2."}
 {"answer": "81/10", "id": "ucv1-triple-integral/hard/2/788caccf206c", "text": "Evaluate ∭ xy dV over the solid E given by 0 ≤ y ≤ z ≤ x ≤ 3."}
