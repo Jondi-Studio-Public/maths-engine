@@ -3242,17 +3242,19 @@ _DOUBLE_SIGN_RE = re.compile(r"-[ \t]*-[ \t]*\.?\d")
 _COPY_CHECKED_KINDS = frozenset({"number", "fraction", "pair"})
 
 
-# A reply that denies or doubts what it states: "9 is wrong", "no 9", "not 12", "isn't 12", "9?", "maybe 9".
+# A reply that denies or doubts what it states: "9 is wrong", "no 9", "not 12", "isn't 12", "maybe 9".
 # The value readers find the right value in these and the expression reader parses around the words, so every
-# kind but `inequality` and `matrix` refuses such a reply here, once, before its grader runs. A word or sign that
+# kind but `inequality` and `matrix` refuses such a reply here, once, before its grader runs. "no" counts only
+# right before a value: "no, it's 9", "9 (no units)" and "No. of sides = 9" state 9. A question mark is not a
+# hedge here either: "9?" is how many learners write an answer they then hand in. A word or sign that
 # the answer itself or one of its options uses ("no real roots", "Not enough information", "x ≠ 3") is not a
 # hedge in that question, so each word is checked against the answer and its options and only an unshared one
 # refuses the reply. `inequality` reads "no solution", "none" and "≠" as answers of its own, and `matrix` has
 # its own reader.
 _HEDGE_RE = re.compile(
-    r"\b(?:not|never|neither|nor|cannot|no|none|nothing|wrong|incorrect|false|maybe|perhaps|probably|possibly"
-    r"|unsure|guess)\b"
-    r"|n['’]t\b|\?|≠|!=",
+    r"\b(?:not|never|neither|nor|cannot|wrong|incorrect|false|maybe|perhaps|probably|possibly|unsure|guess)\b"
+    r"|\bno(?=[ \t]+[-+−$£€.(\d])"
+    r"|n['’]t\b|≠|!=",
     re.IGNORECASE,
 )
 _HEDGE_CHECKED_KINDS = frozenset(GRADERS) - {"inequality", "matrix"}
