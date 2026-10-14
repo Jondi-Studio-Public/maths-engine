@@ -331,7 +331,7 @@ def sweep_skill(skill: Skill, seeds: int = DEFAULT_SEEDS, graders: dict | None =
                             (src.topic, difficulty, seed, question.answer_text, "<answer_text not in mcq_options>")
                         )
                         continue
-                    positive = grader(question, str(correct_idx))
+                    positive = grader(question, correct_idx)
                     if positive.correct:
                         result.accepts += 1
                     else:
@@ -341,7 +341,7 @@ def sweep_skill(skill: Skill, seeds: int = DEFAULT_SEEDS, graders: dict | None =
                     for idx in range(len(options)):
                         if idx == correct_idx:
                             continue
-                        negative = grader(question, str(idx))
+                        negative = grader(question, idx)
                         if negative.correct:
                             result.false_accepts.append((src.topic, difficulty, seed, question.answer_text, str(idx)))
                     continue

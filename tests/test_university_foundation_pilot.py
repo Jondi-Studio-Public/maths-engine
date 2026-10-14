@@ -48,7 +48,7 @@ def test_pilot_answers_are_accepted_by_existing_graders():
         proposition = make("propositional_truth_value", seed=seed)
         options = grading.mcq_options(proposition)
         correct_index = options.index(proposition.answer_text)
-        assert grading.grade("mcq", proposition, str(correct_index)).correct
+        assert grading.grade("mcq", proposition, correct_index).correct
 
         sets = make("finite_set_operations", seed=seed)
         assert grading.grade("list", sets, sets.answer_text).correct

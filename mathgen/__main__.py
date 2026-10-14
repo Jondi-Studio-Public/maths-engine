@@ -183,7 +183,7 @@ def _run_skills(ap, args):
     if options is not None:
         # The mcq grader wants the 0-based index of the chosen option; the CLI takes a letter or the text.
         index = _choose_option(options, args.answer)
-        given = "" if index is None else str(index)
+        given = "" if index is None else index
         if index is None:
             labels = _labels(options)
             unmatched = f" (not an option label {labels[0]}-{labels[-1]} or option text)"

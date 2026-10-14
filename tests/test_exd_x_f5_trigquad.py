@@ -79,7 +79,7 @@ def test_grader_accepts_key_and_rejects_every_distractor_over_120_seeds():
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4
         for idx, option in enumerate(options):
-            ok = _GRADER(q, str(idx)).correct
+            ok = _GRADER(q, idx).correct
             if ok != (option == q.answer_text):
                 bad.append((seed, idx, option, q.answer_text))
     assert bad == [], bad[:3]

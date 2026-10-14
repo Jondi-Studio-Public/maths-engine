@@ -112,7 +112,7 @@ def test_cr_real_grader_accepts_correct_option_index(difficulty):
         q = _make(CR_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grader(q, str(correct_index)).correct
+        assert grader(q, correct_index).correct
         for i in range(len(options)):
             if i != correct_index:
                 assert not grader(q, i).correct
