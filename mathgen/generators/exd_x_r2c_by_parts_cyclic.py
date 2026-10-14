@@ -31,7 +31,16 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-import numpy as np
+from functools import cache
+
+
+@cache
+def _np():
+    import numpy
+
+    return numpy
+
+
 from sympy import Integer, Rational, cos, exp, pi, sin
 
 from mathgen.answers import Distractor, exact_value
@@ -45,15 +54,18 @@ _STEMS = (
 )
 
 
-_NODES, _WEIGHTS = np.polynomial.legendre.leggauss(24)
+@cache
+def _gl():
+    return _np().polynomial.legendre.leggauss(24)
 
 
 def _quadrature(fun, upper: float, panels: int) -> float:
     """Integral of `fun` over [0, upper] by 24-point Gauss-Legendre on equal panels."""
-    edges = np.linspace(0.0, upper, panels + 1)
+    _NODES, _WEIGHTS = _gl()
+    edges = _np().linspace(0.0, upper, panels + 1)
     total = 0.0
     for lo, hi in zip(edges[:-1], edges[1:]):
-        total += float(np.sum(_WEIGHTS * fun((hi - lo) / 2 * _NODES + (hi + lo) / 2)) * (hi - lo) / 2)
+        total += float(_np().sum(_WEIGHTS * fun((hi - lo) / 2 * _NODES + (hi + lo) / 2)) * (hi - lo) / 2)
     return total
 
 
@@ -130,8 +142,11 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
     j_value = (exp_end * g_end - g_start) / a + k2 * i_value
 
     # Independent check: Gauss-Legendre quadrature of the integrands themselves, one panel per quarter period.
-    for value, fun in ((i_value, np.sin if f_is_sin else np.cos), (j_value, np.cos if f_is_sin else np.sin)):
-        target = _quadrature(lambda t, fun=fun: np.exp(a * t) * fun(b * t), float(limit), m)
+    for value, fun in (
+        (i_value, _np().sin if f_is_sin else _np().cos),
+        (j_value, _np().cos if f_is_sin else _np().sin),
+    ):
+        target = _quadrature(lambda t, fun=fun: _np().exp(a * t) * fun(b * t), float(limit), m)
         check(abs(float(value.evalf(20)) - target) < 1e-9 * (1 + abs(target)), "a value disagrees with quadrature")
 
     def exp_text(coefficient):
