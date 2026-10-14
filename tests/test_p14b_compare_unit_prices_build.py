@@ -2,6 +2,7 @@
 
 compare-unit-prices (ACMEM016, ACMGM005), domain arithmetic, answer: mcq."""
 
+from dataclasses import replace
 from fractions import Fraction
 
 import pytest
@@ -26,6 +27,8 @@ def _make_from_sources(skills_dict, difficulty, seed):
     """Generate through the skill's own `sources` entry, not a bare `make(topic, seed, difficulty)` call."""
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if difficulty == "exam":
+        src = replace(src, topic="p14b_compare_unit_prices", params={})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

@@ -3,6 +3,7 @@
 id: senior-use-logarithmic-functions-and-their-derivatives-to-solve
 name: Use logarithmic functions and their derivatives to solve practical problems
 domain: differentiation
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use logarithmic functions and their derivatives to solve practical problems. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

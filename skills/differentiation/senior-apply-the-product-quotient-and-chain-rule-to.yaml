@@ -3,6 +3,7 @@
 id: senior-apply-the-product-quotient-and-chain-rule-to
 name: Apply the product, quotient and chain rule to differentiate transcendental functions
 domain: differentiation
+year_level: ['12']
 description: Given bounded, fully specified inputs, apply the product, quotient and chain rule to differentiate functions such as x*e^x, tan(x), 1/x^n, x*sin(x), e^(-x)*sin(x) and f(ax+b). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

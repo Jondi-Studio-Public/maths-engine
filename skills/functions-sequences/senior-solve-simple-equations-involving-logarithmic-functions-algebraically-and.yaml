@@ -3,6 +3,7 @@
 id: senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and
 name: Solve equations with the unknown inside a logarithm
 domain: functions-sequences
+year_level: ['12']
 description: 'Solve an equation in which the unknown is inside a logarithm, of the form log_b(ax + c) = k, giving the exact value of x. easy: log_b(ax+c) = k, k a positive integer, a != 1 and c != 0 -- rewrite in exponential form and solve the linear equation. medium: the log is not isolated (m log_b(ax+c) + n = p) and k may be 0 or negative -- isolate the log first, then handle b^k <= 1. hard: a numeric log term must be combined by the product or quotient law first (log_b(ax+c) +/- log_b(d) = k). exam: the unknown is inside TWO logs (log_b(ax+c) - log_b(dx+e) = k, or an equivalent form) -- combine by the quotient law, solve the resulting linear equation, and both arguments must be positive at the solution. This is the algebraic half of the descriptor only; the graphical method is dropped as a separate, figure-dependent deliverable. Distinct from senior-define-logarithms-as-indices-a-x-b-is and senior-define-the-natural-logarithm-ln-x-log-ex, whose unknown is inside a BARE log_b(x) (never a linear argument), and from senior-solve-equations-involving-indices-using-logarithms, whose unknown is in the EXPONENT of an index equation (never inside a logarithm).'
 status: active
 placement_eligible: false

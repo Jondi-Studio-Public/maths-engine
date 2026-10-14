@@ -24,7 +24,7 @@ from mathgen.core import VerificationError
 _TRIES = 400
 
 
-def _key(part) -> object:
+def answer_key(part) -> object:
     text = str(part["answer_text"] if isinstance(part, dict) else part.answer_text).strip()
     try:
         return Fraction(text.replace(" ", ""))
@@ -33,7 +33,7 @@ def _key(part) -> object:
 
 
 def answers_distinct(parts) -> bool:
-    keys = [_key(p) for p in parts]
+    keys = [answer_key(p) for p in parts]
     return len(set(keys)) == len(keys)
 
 
@@ -65,7 +65,7 @@ def junk_safe(parts) -> bool:
             if kind in VALUE_KINDS:
                 values[h.label] = _value(kind, reply)
         for j, h in enumerate(holders):
-            if not h.follow_through or replies[j] == canon[j] or kinds[j] not in VALUE_KINDS:
+            if not h.follow_through or _right(replies[j], canon[j]) or kinds[j] not in VALUE_KINDS:
                 continue
             carried = follow_through_value(h, {k: v for k, v in values.items() if k < h.label})
             reply = values.get(h.label)
@@ -73,13 +73,40 @@ def junk_safe(parts) -> bool:
                 continue
             # The grader never carries a result that is just an earlier reply typed again, so that case is safe.
             used = [values.get(name) for name in named_parts(h)]
+            if not _would_carry(parts, h, values, replies, canon):
+                continue
             try:
                 if any(u is not None and u.is_real and abs(float(u) - float(carried)) < 1e-9 for u in used):
                     continue
-                if abs(float(carried) - float(reply)) <= _NEAR:
+                # A typed number is marked to a tolerance; a fraction or an expression only when it is exact.
+                if abs(float(carried) - float(reply)) <= (_NEAR if kinds[j] == "number" else 1e-9):
                     return False
             except (TypeError, ValueError):
                 continue
+    return True
+
+
+def _right(reply: str, canonical: str) -> bool:
+    """Whether a reply is the canonical answer, by value where both read as numbers: "1" is right for "1.00"."""
+    return answer_key({"answer_text": reply}) == answer_key({"answer_text": canonical})
+
+
+def _would_carry(parts, holder, values, replies, canon) -> bool:
+    """Whether the grader would carry these replies into `holder` at all: it carries nothing from a wrong reply
+    outside its part's `sensible_range` or more than `_CARRY_FACTOR` from its canonical answer either way."""
+    from mathgen.grading.parts import VALUE_KINDS, _in_range, _plausible_size, named_parts, reply_value
+
+    for name in named_parts(holder):
+        i = ord(name) - 97
+        if _right(replies[i], canon[i]) or values.get(name) is None:
+            continue
+        source = parts[i]
+        if not _in_range(source.get("sensible_range"), values[name]):
+            return False
+        if source["answer_kind"] in VALUE_KINDS and not _plausible_size(
+            values[name], reply_value(source["answer_kind"], canon[i])
+        ):
+            return False
     return True
 
 

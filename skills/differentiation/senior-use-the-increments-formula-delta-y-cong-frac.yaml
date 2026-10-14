@@ -3,6 +3,7 @@
 id: senior-use-the-increments-formula-delta-y-cong-frac
 name: 'Use the increments formula: δy ≅ dy/dx × δx'
 domain: differentiation
+year_level: ['12']
 description: Given bounded, fully specified inputs, use the increments formula δy ≅ dy/dx × δx to estimate the change in the dependent variable y resulting from changes in the independent variable x. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

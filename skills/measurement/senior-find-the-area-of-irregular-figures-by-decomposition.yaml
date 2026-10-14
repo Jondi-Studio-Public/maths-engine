@@ -3,6 +3,7 @@
 id: senior-find-the-area-of-irregular-figures-by-decomposition
 name: Find the area of irregular figures by decomposition
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, find the area of irregular figures by decomposition into regular shapes. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

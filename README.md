@@ -14,13 +14,15 @@ contain a website, curriculum framework data, rubrics or learner data.
 
 ## Install
 
-Python 3.12 or newer. To use the engine, install it from PyPI:
+Python 3.12 or newer. From PyPI:
 
 ```
 pip install maths-engine
 ```
 
-To work on it, clone the repository and install it in place:
+The installed package carries the whole skill library, so everything below works without a
+clone, except the tests and `scripts/`, which live only in the repository. To work on the
+library itself, install from a clone:
 
 ```
 git clone https://github.com/Jondi-Studio-Public/maths-engine.git
@@ -107,7 +109,7 @@ Other useful forms:
 ```
 python -m mathgen --list                   # generator topics by level
 python -m mathgen --topic quadratic -n 5 --seed 42 --pretty
-python -m mathgen --level 9 -n 100 --out questions.jsonl    # prints: wrote 3100 questions to questions.jsonl
+python -m mathgen --level 9 -n 100 --out questions.jsonl    # prints how many questions it wrote
 ```
 
 The `--topic` command prints, for its first question:
@@ -124,7 +126,7 @@ From Python:
 ```python
 from mathgen import engine
 
-skills = engine.load_skills()[1]
+domains, skills = engine.load_skills()
 skill = next(s for s in skills if s.id == "simplify-surds")
 q = engine.make_for_skill(skill, seed=7)
 print(q.text, q.answer_text)
@@ -141,7 +143,8 @@ False
 `text` and `answer_text` are plain text in Python-style syntax (`x**2`,
 `6*sqrt(21)`); `latex` and `answer_latex` are there for rendering. For a
 multiple-choice skill (`skill.answer == "mcq"`), `engine.grade` takes the 0-based
-index of the chosen option in `mathgen.core.mcq_options(q)`; the command line
+index of the chosen option in `mathgen.core.mcq_options(q)`, as an `int` or a
+string of digits (an index out of range, or a bool, is wrong); the command line
 does that translation for you.
 
 ## Layout

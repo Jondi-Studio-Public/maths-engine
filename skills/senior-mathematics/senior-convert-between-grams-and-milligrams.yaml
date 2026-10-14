@@ -23,7 +23,7 @@ sources:
   params: {variant: mixed_unit_total}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_grams_dose
+- topic: exd_x_r3c_dose_tablets
   params: {tier: exam}
   difficulty: exam
   stages:

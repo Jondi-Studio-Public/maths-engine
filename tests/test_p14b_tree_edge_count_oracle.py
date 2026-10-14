@@ -6,6 +6,8 @@ Parses ONLY `question.text` and `question.answer_text` (never anything from
 from scratch, one route per tier shape.
 """
 
+from dataclasses import replace
+
 import re
 
 import pytest
@@ -69,6 +71,8 @@ def _skill_sources(skill_id):
 
 
 TREE_SOURCES = _skill_sources(TREE_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+TREE_SOURCES["exam"] = replace(TREE_SOURCES["exam"], topic="p14b_tree_edge_count", params={})
 
 
 @pytest.mark.parametrize("difficulty,seed", [(tier, s) for tier in TIERS for s in SEEDS])

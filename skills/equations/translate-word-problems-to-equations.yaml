@@ -1,41 +1,121 @@
 id: translate-word-problems-to-equations
 name: Translate word problems into equations
 domain: equations
-description: Represent relationships in contextual problems with one-variable linear equations.
-status: deferred
-deferred_reason: assessment_contract
+description: Represent a relationship in a short story as the left-hand side of a linear equation in one variable,
+  with the total already on the right. Easy is one step (a rate, a gain, a loss or a share). Medium is two steps
+  (a fixed charge plus a rate, a rate less a voucher, or a share less an amount). Hard writes a second quantity
+  in terms of the first, so a bracket or a repeated variable is needed.
+status: active
+placement_eligible: false
 prerequisites:
 - define-variables
 - write-expressions-from-words
-- meaning-of-equality
+- variable-concept
 answer: expression
 sources:
-- topic: word_problem
+- topic: fpm_translate_equation
   params:
-    kind: translate
+    tier: easy
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: word_problem
+- topic: fpm_translate_equation
   params:
-    kind: translate
+    tier: medium
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: word_problem
+- topic: fpm_translate_equation
   params:
-    kind: translate
+    tier: hard
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: fpm_translate_equation_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Choosing operations from keywords alone
-- id: misconception-2
-  description: Writing an expression when an equality relationship is required
-tags: []
+- id: adds-instead-of-subtracting
+  description: Adding two results where their difference is asked.
+- id: adds-the-extra-count-instead-of-pricing-it
+  description: Adding the number of extra items where the cost of those items had to be added.
+- id: adds-the-fixed-charge-and-the-rate-first
+  description: Adding the fixed charge to the rate and multiplying the sum by the quantity, instead of keeping the
+    fixed charge separate.
+- id: adds-the-fixed-charge-instead-of-taking-it-off
+  description: Adding the fixed charge to the total where it had to be taken off before dividing by the rate.
+- id: adds-the-steps-to-one-number
+  description: Adding the steps 1 and 2 to a single number, instead of adding the steps to each number in turn.
+- id: adds-where-multiplying-is-needed
+  description: Adding two quantities where a rate had to be multiplied by a count.
+- id: applies-the-division-to-only-one-part
+  description: Dividing only the first part of an expression when the division applies to the number as a whole.
+- id: applies-the-multiplication-to-only-one-part
+  description: Multiplying only one term inside a bracket and leaving the other term unchanged.
+- id: compares-the-wrong-quantities
+  description: Subtracting two quantities that are not the two the question compares.
+- id: divides-instead-of-multiplying
+  description: Dividing by a number where the story multiplies by it.
+- id: divides-where-multiplying-is-needed
+  description: Dividing by a rate where a quantity had to be multiplied by it.
+- id: forgets-to-divide-by-the-rate
+  description: Finishing the solution with the rate still multiplying the variable.
+- id: gives-both-kinds-the-same-count
+  description: Using one count for two kinds of item, when one kind has more than the other.
+- id: ignores-the-fixed-charge-when-solving
+  description: Dividing the whole total by the rate when a fixed charge had to be taken off first.
+- id: leaves-a-number-out
+  description: Leaving one of the numbers in the sum out of the expression.
+- id: leaves-out-the-bracket
+  description: Writing the multiplication without a bracket, so it applies to only one of the two terms.
+- id: leaves-out-the-fixed-charge
+  description: Writing an expression with only the per-unit charge and leaving out the fixed charge.
+- id: leaves-out-the-voucher
+  description: Writing the full price with nothing taken off for the voucher.
+- id: multiplies-instead-of-dividing
+  description: Multiplying by the number in front of the unknown instead of dividing by it.
+- id: multiplies-where-adding-is-needed
+  description: Multiplying two quantities where one had to be added to the other.
+- id: multiplies-where-subtracting-is-needed
+  description: Multiplying by the amount taken away where it had to be subtracted.
+- id: reports-the-fixed-charge-as-the-saving
+  description: Giving the fixed charge as the amount saved, without comparing the two totals.
+- id: reports-the-other-total-not-the-difference
+  description: Giving the other supplier's total where the difference between the totals was asked for.
+- id: reverses-the-division
+  description: Dividing the other way round, so the number divides the unknown quantity instead of the unknown dividing
+    the number.
+- id: reverses-the-order-of-the-steps
+  description: Subtracting before dividing, where the story divides first and then subtracts.
+- id: reverses-the-subtraction
+  description: Subtracting in the wrong order, so the expression is the negative of the one the story describes.
+- id: subtracts-the-rate-instead-of-dividing
+  description: Subtracting the rate from the total where the total had to be divided by the rate.
+- id: swaps-the-fixed-charge-and-the-rate
+  description: Swapping the fixed charge and the rate, so the fixed charge is multiplied by the quantity.
+- id: treats-consecutive-numbers-as-equal
+  description: Treating three consecutive numbers as three copies of the smallest.
+- id: treats-the-extra-as-the-whole-length
+  description: Treating the extra length as the whole of the longer side.
+- id: treats-the-extra-as-the-whole-number
+  description: Treating the extra items as the whole number of that kind of item.
+- id: uses-addition-for-a-per-unit-rate
+  description: Adding the price of one item to the number of items where the cost of all the items is the price
+    times the number.
+- id: uses-half-the-perimeter
+  description: Adding the length and width once, which gives half the perimeter.
+- id: uses-the-area-formula-for-perimeter
+  description: Multiplying the length and width, which gives the area, where the perimeter was described.
+- id: uses-the-total-in-place-of-the-quantity
+  description: Using the stated total where the unknown quantity belongs.
+- id: uses-the-wrong-operation-for-the-change
+  description: Adding where the story takes away, or taking away where it adds.
+tags:
+- fpm_translate_equation

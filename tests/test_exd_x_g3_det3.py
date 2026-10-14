@@ -43,7 +43,8 @@ def _hard_shapes():
 
 def test_exam_source_is_last_and_staged_to_exam_only():
     last = _skill().sources[-1]
-    assert (last.topic, last.difficulty, list(last.stages)) == (TOPIC, "exam", ["exam"])
+    # the exam source moved to the multi-part chain exd_x_r3b_det3
+    assert (last.topic, last.difficulty, list(last.stages)) == ("exd_x_r3b_det3", "exam", ["exam"])
     assert dict(last.params) == {"tier": "exam"}
 
 

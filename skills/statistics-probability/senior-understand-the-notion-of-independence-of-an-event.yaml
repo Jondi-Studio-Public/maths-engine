@@ -3,6 +3,7 @@
 id: senior-understand-the-notion-of-independence-of-an-event
 name: Understand the notion of independence of an event (A)
 domain: statistics-probability
+year_level: ['11']
 description: 'Given stated probabilities for two events A and B (as P(A), P(B), and either P(A and B) or P(A|B)), determine whether A and B are independent, choosing the classification from the offered options: "Independent" (when P(A and B) = P(A) x P(B)) or one of three "Not independent -- P(A and B) = X but P(A) x P(B) = Y" statements, each stating real computed numbers, never a bare "not independent". Boundary against the active senior-use-the-notation-p-a-vert-b (ACMMM057): that skill COMPUTES the numeric value of P(A|B) from given counts or probabilities and grades a fraction -- it never asks an independence verdict. This skill takes P(A), P(B) and a third value (which may itself be phrased using P(A|B) notation) as GIVEN inputs and asks ONLY for the yes/no independence classification with a stated reason; it never grades a bare P(A|B) numeric value as its answer.'
 status: active
 placement_eligible: false

@@ -202,8 +202,9 @@ def test_skill_a_loads_with_correct_properties():
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["solve-ode-exponential"]
     assert len(skill.sources) == 4
-    for source in skill.sources:
+    for source in skill.sources[:3]:
         assert source.topic == TOPIC_A
+    assert skill.sources[3].topic == "exd_x_r3j_collision_impulse"
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}
@@ -255,8 +256,9 @@ def test_skill_b_loads_with_correct_properties():
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["solve-ode-exponential"]
     assert len(skill.sources) == 4
-    for source in skill.sources:
+    for source in skill.sources[:3]:
         assert source.topic == TOPIC_B
+    assert skill.sources[3].topic == "exd_x_r3h_force_work"
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

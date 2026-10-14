@@ -9,6 +9,7 @@ numbers rather than any closed-form shortcut the generator itself uses.
 
 import math
 import re
+from dataclasses import replace
 from decimal import Decimal
 from fractions import Fraction
 
@@ -32,6 +33,8 @@ def _skill_sources(skill_id):
 
 BIFURCATION_SOURCES = _skill_sources(BIFURCATION_ID)
 CURVATURE_SOURCES = _skill_sources(CURVATURE_ID)
+BIFURCATION_SOURCES["exam"] = replace(BIFURCATION_SOURCES["exam"], topic="p13e_bifurcation_sign_check", params={})
+CURVATURE_SOURCES["exam"] = replace(CURVATURE_SOURCES["exam"], topic="p13e_parametric_curvature", params={})
 
 
 def _to_fraction(text: str) -> Fraction:

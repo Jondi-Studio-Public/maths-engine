@@ -3,6 +3,7 @@
 id: senior-solve-cubic-equations-using-technology-and-algebraically-in
 name: Solve cubic equations using technology, and algebraically in cases where a linear factor is easily obtained
 domain: functions-sequences
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, solve cubic equations using technology, and algebraically in cases where a linear factor is easily obtained. Return the resulting value, expression, relation, or classification. Every prompt names "the largest real root" (except the exam tier, which names the physically valid root in a stated domain), to 3 decimal places -- a real cubic always has at least one real root, so this naming is always well-defined and unique. The canonical answer is always a single numeric root value, never a factorisation and never a list of roots -- distinct from the shipping neighbour senior-factorise-cubic-polynomials-in-cases-where-a-linear, whose own canonical answer is always the factored (x - p)(x^2 + qx + r) expression and never a root.'
 status: active
 placement_eligible: false

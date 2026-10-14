@@ -1055,6 +1055,7 @@ def test_skill_b_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert skill.status == "active"
     assert skill.prerequisites == ["senior-interpret-timetables-such-as-bus-train-and-ferry"]
-    assert {source.topic for source in skill.sources} == {TOPIC_B}
+    assert {source.topic for source in skill.sources[:3]} == {TOPIC_B}
+    assert skill.sources[3].topic == "exd_x_r3j_tide_chart_rate"
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert [source.stages for source in skill.sources][-1] == ["exam"]

@@ -9,8 +9,8 @@ description: >-
   easy states v and e and asks for f; medium states f and one of v/e and asks for the other; hard
   states a degree list, so the learner must count v from the list and get e from the handshake lemma
   before applying the formula; exam states a face-length list (with the "every edge borders two
-  different faces" convention), so the learner counts f and gets e from the face-length sum before
-  solving for v. This is not the numerical `explicit-euler` ODE-stepping skills (a different Euler,
+  different faces" convention), so the learner gets e from the face-length sum, then v, then the bound
+  3v - 6 on the edges of a simple planar graph and the number of edges that could still be added. This is not the numerical `explicit-euler` ODE-stepping skills (a different Euler,
   no counting involved) and not a graph-drawing or graph-colouring skill -- every graph here is fully
   described by its counts, and the answer is one whole number.
 status: active
@@ -30,7 +30,7 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
-- topic: pv0c_euler_planar
+- topic: exd_x_r3i_euler_edge_room
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

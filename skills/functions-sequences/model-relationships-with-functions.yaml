@@ -1,17 +1,85 @@
 id: model-relationships-with-functions
 name: Model relationships with functions
 domain: functions-sequences
-description: Choose and communicate a function representation that describes a practical relationship.
-status: deferred
-deferred_reason: assessment_contract
+description: Choose and write the function rule that describes a practical relationship given as a table of values.
+  Easy writes the rule of a proportional relationship. Medium writes the rule of a linear relationship with a fixed
+  amount, from a table whose inputs skip values. Hard decides between an inverse, a squared and a falling linear
+  relationship before writing the rule.
+status: active
+placement_eligible: false
 prerequisites:
 - compare-functions-representations
 - linear-models
-answer: mcq
-sources: []
+answer: expression
+sources:
+- topic: fpm_function_model
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fpm_function_model
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fpm_function_model
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fpm_function_model_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Choosing a rule without checking it against the context
-- id: misconception-2
-  description: Assuming correlation or a pattern proves a causal relationship
-tags: []
+- id: adds-the-first-output-to-the-input
+  description: Writing a rule that adds a number to the input, matching one row of the table, where the outputs
+    are multiples of the inputs.
+- id: adds-the-fixed-amount-and-the-rate-first
+  description: Adding the fixed amount to the rate and multiplying the sum by the input, instead of keeping the
+    fixed amount separate.
+- id: adds-where-dividing-is-needed
+  description: Adding two quantities where one had to be divided by the other.
+- id: assumes-the-quantity-is-proportional-to-the-input
+  description: Treating the output as a fixed multiple of the input, so a starting value or a changing ratio is
+    ignored.
+- id: assumes-the-sum-stays-fixed
+  description: Treating the input and output as adding to a constant, in a relationship where their product is constant.
+- id: divides-where-multiplying-is-needed
+  description: Dividing by a rate where a quantity had to be multiplied by it.
+- id: fits-only-the-first-row-of-the-table
+  description: Choosing a rule that works for the first pair in the table but fails for the others.
+- id: gets-the-direction-of-change-wrong
+  description: Treating a quantity that falls as one that rises, or the reverse, so the sign of the rate is wrong.
+- id: inverts-the-rule
+  description: Writing the rule with the input and the constant the wrong way up.
+- id: leaves-out-the-fixed-amount
+  description: Writing a rule with only the rate, and leaving out the amount that is there at the start.
+- id: reports-a-difference-as-the-constant
+  description: Giving the difference between two outputs where the constant value of the products was asked for.
+- id: reports-the-first-output-as-the-constant
+  description: Giving the first output in the table as the constant of the relationship.
+- id: squares-the-multiplier-too
+  description: Squaring the multiplier together with the input, where only the input is squared.
+- id: swaps-the-fixed-amount-and-the-rate
+  description: Swapping the fixed amount and the rate, so the rule multiplies the input by the fixed amount.
+- id: swaps-which-quantity-is-subtracted
+  description: Subtracting the fixed amount from the rate term where the rate term is taken from the fixed amount.
+- id: treats-the-input-as-the-power
+  description: Writing the input as an exponent where the rule squares the input.
+- id: uses-the-change-between-readings-as-the-rate
+  description: Taking the change between two readings as the rate per step, when the readings are several steps
+    apart.
+- id: uses-the-wrong-operation-for-the-change
+  description: Adding where the story takes away, or taking away where it adds.
+tags:
+- fpm_function_model

@@ -3,6 +3,7 @@
 id: senior-calculate-the-surface-areas-of-standard-three-dimensional
 name: Calculate the surface areas of standard three-dimensional objects such as spheres, rectangular prisms, cylinders, cones, pyramids and composites in practical situations; for example, the surface area of a cylindrical food container
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, calculate the surface areas of standard three-dimensional objects such as spheres, rectangular prisms, cylinders, cones, pyramids and composites in practical situations; for example, the surface area of a cylindrical food container. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

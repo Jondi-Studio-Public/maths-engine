@@ -2,7 +2,7 @@ id: ucv1-isomorphism-invariant
 name: Compare a finite-group invariant
 domain: abstract-algebra
 year_level: [university]
-description: Use supplied element orders and group sizes to reject or retain a claimed isomorphism between two finite groups.
+description: Use supplied element orders and group sizes to reject or retain a claimed isomorphism between two finite groups. The exam tier works with a product of two cyclic groups, finding its order, an element's order, the largest element order and the index of the cyclic subgroup that decides a claim of cyclicity.
 status: active
 placement_eligible: false
 prerequisites:
@@ -21,8 +21,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p15a_isomorphism_invariant
-  params: {}
+- topic: exd_x_r3i_product_group_orders
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

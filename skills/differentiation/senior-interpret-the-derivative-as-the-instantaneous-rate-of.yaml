@@ -3,6 +3,7 @@
 id: senior-interpret-the-derivative-as-the-instantaneous-rate-of
 name: Interpret the derivative as the instantaneous rate of change
 domain: differentiation
+year_level: ['11']
 description: Given a function and a stated value of x, compute the instantaneous rate of change of the function at that value (its derivative evaluated there). Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-review-the-probability-scale-0-leq-p-a
 name: Review the probability scale 0 <= P(A) <= 1
 domain: statistics-probability
+year_level: ['11']
 description: Given a finite equally-likely sample space and an event described by a rule (simple or compound), classify whether the event's probability is impossible (P = 0), certain (P = 1), or between these extremes (0 < P < 1).
 status: active
 placement_eligible: false

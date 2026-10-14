@@ -3,6 +3,7 @@
 id: senior-review-probability-as-a-measure-of-the-likelihood
 name: Review probability as a measure of ‘the likelihood of occurrence’ of an event
 domain: statistics-probability
+year_level: ['11']
 description: Compare the likelihood of two events given their probabilities as fractions or counts, determining which is more likely or whether they are equally likely.
 status: active
 placement_eligible: false

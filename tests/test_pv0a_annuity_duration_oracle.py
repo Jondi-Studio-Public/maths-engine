@@ -36,6 +36,8 @@ def _skills_dict():
 def _make_from_sources(difficulty, seed):
     skill = _skills_dict()[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if difficulty == "exam":  # the skill's exam source is now a multi-part generator; this oracle covers the old tier
+        return make("pv0a_annuity_duration", seed=seed, difficulty="exam", variant="exam")
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

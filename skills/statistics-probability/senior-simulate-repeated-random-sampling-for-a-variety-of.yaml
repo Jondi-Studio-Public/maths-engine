@@ -3,6 +3,7 @@
 id: senior-simulate-repeated-random-sampling-for-a-variety-of
 name: Simulate repeated random sampling and standardise the sample proportion
 domain: statistics-probability
+year_level: ['12']
 description: 'The generator runs a REAL, seeded simulation of k = 5 to 8 independent samples of n
   Bernoulli(p) trials for a stated true proportion p and sample size n; the learner reads off the
   reported sample proportion p-hat for a stated one of the samples and computes the standardised

@@ -2,7 +2,11 @@ id: ucv1-residue-simple-pole
 name: Compute the residue at a supplied simple pole
 domain: complex-analysis
 year_level: [university]
-description: Compute the residue of a supplied rational function at a stated simple pole by the local limit formula.
+description: >-
+  Compute the residue of a supplied rational function at a stated simple pole by the local limit
+  formula. The exam tier takes a rational function with three simple poles and a linear or quadratic
+  numerator, finds the residue at each pole, and ends with the value of a contour integral round a
+  circle enclosing two of them.
 status: active
 placement_eligible: false
 prerequisites:
@@ -21,7 +25,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13e_residue_simple_pole
+- topic: exd_x_r3j_residue_contour
   params: {}
   difficulty: exam
   stages: [exam]

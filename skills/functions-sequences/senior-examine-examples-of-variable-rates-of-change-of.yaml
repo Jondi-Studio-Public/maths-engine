@@ -3,6 +3,7 @@
 id: senior-examine-examples-of-variable-rates-of-change-of
 name: Examine examples of variable rates of change of non-linear functions
 domain: functions-sequences
+year_level: ['11']
 description: Given a fully-specified polynomial f(x) (every coefficient a concrete stated integer), find the average rate of change of f(x) over a stated interval [x1, x2] of width >= 2. The average rate of change (f(x2) - f(x1)) / (x2 - x1) is always an exact integer for the quadratic and cubic families used here, so the graded answer is a plain integer. Distinguished from the differentiation skills in this domain, which find an INSTANTANEOUS rate; this skill only ever asks for an AVERAGE rate over a stated interval.
 status: active
 placement_eligible: false

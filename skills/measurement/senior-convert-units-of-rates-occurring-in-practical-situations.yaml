@@ -3,6 +3,7 @@
 id: senior-convert-units-of-rates-occurring-in-practical-situations
 name: Convert units of rates occurring in practical situations to solve problems
 domain: measurement
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, convert units of rates occurring in practical situations to solve problems. Return the resulting value, expression, relation, or classification. Specifically: given a practical scenario whose rate is quoted in one unit and whose other stated quantity or requirement is expressed in a different, incompatible unit, convert the rate to a compatible unit as an intermediate step, then use the converted rate to compute a further practical quantity (a time, a distance, a total cost or a total consumption) that is never itself the converted rate.'
 status: active
 placement_eligible: false

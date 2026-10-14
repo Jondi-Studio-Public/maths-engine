@@ -3,6 +3,7 @@
 id: senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations
 name: Ascertain the reasonableness of answers to arithmetic calculations
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, ascertain the reasonableness of answers to arithmetic calculations. Return the resulting value, expression, relation, or classification. Given a calculation and its stated (proposed) result, judge whether the stated result is reasonable, or -- if not -- whether it is too large, too small, or has the wrong sign. The answer is always a verdict on magnitude and sign, never a recomputation: every wrong stated answer is a gross error (a factor of ten or a sign flip), the kind caught by eyeballing size alone.'
 status: active
 placement_eligible: false

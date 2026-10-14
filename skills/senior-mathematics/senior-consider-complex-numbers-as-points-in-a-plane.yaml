@@ -3,13 +3,16 @@
 id: senior-consider-complex-numbers-as-points-in-a-plane
 name: Consider complex numbers as points in a plane
 domain: senior-mathematics
+year_level: ['11']
 description: |
   Given bounded, fully specified inputs, consider complex numbers as points in a plane
   with real and imaginary parts as Cartesian coordinates. Return the resulting value,
   expression, relation, or classification. Boundary against complex-real-part and
-  complex-imaginary-part (which extract a single number in isolation): this skill
-  always produces an ordered coordinate pair (x, y) representing the complex number's
-  location on the plane, never a single component alone.
+  complex-imaginary-part (which extract a single number in isolation): below the exam tier
+  this skill always produces an ordered coordinate pair (x, y) representing the complex
+  number's location on the plane, never a single component alone. The exam tier is a
+  multi-part question that finds the fourth vertex of a parallelogram of three
+  complex-number points one coordinate at a time, then its area.
 status: active
 placement_eligible: false
 prerequisites:
@@ -29,7 +32,7 @@ sources:
     params: {variant: sum}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_complex_point
+  - topic: exd_x_r3f_complex_parallelogram
     params: {tier: exam}
     difficulty: exam
     stages:

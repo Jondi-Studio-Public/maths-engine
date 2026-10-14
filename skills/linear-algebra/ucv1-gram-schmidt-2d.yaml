@@ -2,7 +2,10 @@ id: ucv1-gram-schmidt-2d
 name: Orthonormalise two vectors
 domain: linear-algebra
 year_level: [university]
-description: Apply one Gram-Schmidt step to two supplied independent two-dimensional vectors and return the orthonormal pair.
+description: >-
+  Apply one Gram-Schmidt step to two supplied independent two-dimensional vectors and return the
+  orthonormal pair. The exam tier asks for the entries of the factors Q and R of the QR
+  factorisation that Gram-Schmidt produces.
 status: active
 placement_eligible: false
 prerequisites: [vector-projection]
@@ -20,7 +23,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12f_gram_schmidt_2d
+- topic: exd_x_r3j_gram_schmidt_qr
   params: {}
   difficulty: exam
   stages: [exam]

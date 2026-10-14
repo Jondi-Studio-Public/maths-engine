@@ -1,0 +1,86 @@
+id: f10-sample-size-and-reliability
+name: Judge how sample size affects an estimate
+domain: statistics-probability
+year_level: ['6', '7']
+naplan_domain: [probability]
+description: 'Use the number of trials to judge and improve an experimental estimate: combine results from several
+  experiments into one, choose the estimate that rests on the most trials, and see that a larger experiment sits
+  closer to the theoretical probability. Easy combines two sets of results. Medium picks the most reliable of three
+  results. Hard combines three unequal experiments, or measures how much closer the combined estimate is to the
+  theoretical probability than one small experiment.'
+status: active
+placement_eligible: false
+prerequisites:
+- f10-relative-frequency-estimate
+- percentage-of-quantity
+answer: number
+sources:
+- topic: fpm_sample_size
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fpm_sample_size
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fpm_sample_size
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fpm_sample_size_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: adds-the-distances
+  description: Adding two distances from the theoretical probability where their difference was asked for.
+- id: averages-percentages-ignoring-trial-numbers
+  description: Averaging the percentages from several experiments as if each had the same number of trials, instead
+    of combining the successes and the trials.
+- id: compares-the-two-estimates-not-the-distance-to-p
+  description: Finding how far apart the two estimates are instead of how far each is from the theoretical probability.
+- id: pools-when-asked-for-one-result
+  description: Combining all the results into one estimate when the question asked which single result to rely on.
+- id: projects-the-complement
+  description: Projecting the relative frequency of the opposite event onto future trials instead of the event asked
+    about.
+- id: reports-one-distance-only
+  description: Giving the distance from the theoretical probability for only one of the two estimates.
+- id: reports-raw-count-not-projection
+  description: Giving the number observed in the original trials when asked to predict the number in a different
+    number of future trials.
+- id: reports-the-estimate-not-the-gap
+  description: Giving the estimate itself where its distance from the theoretical probability was asked for.
+- id: reports-the-theoretical-value-not-the-gap
+  description: Giving the theoretical percentage where the gap between it and the estimate was asked for.
+- id: reports-the-trials-not-the-successes
+  description: Giving the number of trials where the number of successes was asked for.
+- id: trusts-a-small-experiment
+  description: Using the result of a small experiment as the best estimate, when a larger experiment gives a more
+    reliable one.
+- id: uses-one-experiment-only
+  description: Giving the result of one experiment where the results of the experiments had to be combined.
+- id: uses-theoretical-not-the-estimate
+  description: Using the theoretical probability to make a prediction where the experimental estimate was asked
+    for.
+- id: wrong-denominator-for-proportion
+  description: 'Dividing by the wrong total: the grand total or a column total when the proportion is of a row,
+    a total one out, or anything other than the number of trials.'
+tags:
+- acara-f10-v9
+- statistics-probability
+- fpm_sample_size
+- ac9m6p02
+- ac9m7p02

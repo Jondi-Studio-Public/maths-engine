@@ -3,6 +3,7 @@
 id: senior-apply-approximation-strategies-for-calculations
 name: Apply approximation strategies for calculations
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, apply approximation strategies for calculations. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
