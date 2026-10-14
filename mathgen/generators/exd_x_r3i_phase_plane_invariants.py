@@ -26,7 +26,7 @@ from __future__ import annotations
 import math
 from fractions import Fraction
 
-from ..core import attempts, check, generator, join_terms
+from ..core import attempts, check, generator, join_terms, paren_negative
 from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r3i_support import number_part
 
@@ -100,7 +100,7 @@ def exd_x_r3i_phase_plane_invariants(rng, tier: str = "exam") -> dict:
         Fraction(disc),
         0,
         2,
-        [f"T² - 4D = {T}² - 4({D}) = {disc}."],
+        [f"T² - 4D = {paren_negative(T)}² - 4({D}) = {disc}."],
         [
             ("sign-slip-in-formula", Fraction(T * T + 4 * D)),
             ("discriminant-forgot-to-square-trace", Fraction(T - 4 * D)),
