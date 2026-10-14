@@ -11,8 +11,6 @@ from mathgen.engine import load_skills, make_for_skill
 from mathgen.figure_kinds import calendar as calendar_kinds, compare, data, early, measure, pattern, scene, space, tally
 
 
-
-
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -159,7 +157,6 @@ def _hand_built() -> list[dict]:
             ],
         ),
         scene.shape_scene(alt="A house", object="house"),
-
         pattern.pattern_strip(
             alt="Pattern rows",
             numbered=True,
@@ -179,7 +176,7 @@ def _hand_built() -> list[dict]:
                     + [pattern.text_cell(7), pattern.text_cell("M"), pattern.stack_cell(10)],
                 },
             ],
-
+        ),
         tally.tally(
             alt="Tally with counts and pictures",
             rows=[("dogs", 14), ("cats", 0), ("fish", 20)],
@@ -192,7 +189,6 @@ def _hand_built() -> list[dict]:
             items=[(name, 0.14 * i, 0.33 * (i % 3)) for i, name in enumerate(tally.ICONS)],
             rows=[("apples", 3), ("cats", 5)],
         ),
-
         calendar_kinds.calendar_month(
             year=2026,
             month=10,
@@ -207,7 +203,6 @@ def _hand_built() -> list[dict]:
         calendar_kinds.day_strip(cards=["wake_up", "breakfast", "school", "play", "dinner", "bed"], alt="A day"),
         calendar_kinds.day_strip(cards=["sunrise", "bath", "moon", "lunch"], alt="Scrambled", numbered=True),
         calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
-
         *_compare_samples(),
     ]
 

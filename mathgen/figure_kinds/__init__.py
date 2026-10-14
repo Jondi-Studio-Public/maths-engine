@@ -17,6 +17,3 @@ exist, so every kind is known wherever ``figures`` is imported.
 """
 
 from mathgen.figure_kinds import calendar, compare, data, early, measure, pattern, scene, space, tally  # noqa: F401
-
-
-

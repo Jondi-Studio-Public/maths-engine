@@ -914,13 +914,6 @@ ey-calendar-weekday-of-date:
   sources:
   - topic: ey_calendar_weekday
     module: mathgen/generators/ey_calendar_build.py
-ey-day-strip-sequence:
-  domain: primary-geometry-time
-  status: active
-  sources:
-  - topic: ey_day_strip
-    module: mathgen/generators/ey_day_strip_build.py
-
 ey-compare-by-paper-clips:
   domain: measurement
   status: active
@@ -933,6 +926,12 @@ ey-compare-capacity-by-cups:
   sources:
   - topic: compare_capacity_by_cups
     module: mathgen/generators/ey_compare_build.py
+ey-day-strip-sequence:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_day_strip
+    module: mathgen/generators/ey_day_strip_build.py
 ey-order-by-two-balances:
   domain: measurement
   status: active

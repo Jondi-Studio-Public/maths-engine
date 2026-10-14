@@ -1135,16 +1135,6 @@
 {"answer": "Thursday", "id": "ey-calendar-weekday-of-date/medium/0/fde1895338f2", "text": "Which day of the week is the 12th?"}
 {"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/1/115dcab76551", "text": "What day of the week is the 23rd?"}
 {"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/2/8a80e4f90fb2", "text": "Talia has a game on the 8th. What day of the week is that?"}
-{"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
-{"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
-{"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}
-{"answer": "5", "id": "ey-day-strip-sequence/hard/0/5ba9e3169408", "text": "What number card is second in the day?"}
-{"answer": "6", "id": "ey-day-strip-sequence/hard/1/f8b4dcef9ff1", "text": "In day order, which number card comes second?"}
-{"answer": "2", "id": "ey-day-strip-sequence/hard/2/3f3d40e44254", "text": "Put the day in order. Which number card comes third?"}
-{"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
-{"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
-{"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
-
 {"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/0/8e1fea3081de", "text": "Which is shorter? Use the paper clips."}
 {"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/1/331ea9948d12", "text": "Count the blocks. Which one is longer?"}
 {"answer": "The rope", "id": "ey-compare-by-paper-clips/easy/2/76ff7c84254c", "text": "Count the blocks. Which one is shorter?"}
@@ -1163,6 +1153,15 @@
 {"answer": "The cup", "id": "ey-compare-capacity-by-cups/medium/0/2960f2475e8a", "text": "Count the cups poured out. Which holds least?"}
 {"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/c24fe7cb53b9", "text": "Count the cups poured out. Which holds most?"}
 {"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/1e27eedd6431", "text": "Each is poured into small cups. Which holds the most?"}
+{"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
+{"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
+{"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}
+{"answer": "5", "id": "ey-day-strip-sequence/hard/0/5ba9e3169408", "text": "What number card is second in the day?"}
+{"answer": "6", "id": "ey-day-strip-sequence/hard/1/f8b4dcef9ff1", "text": "In day order, which number card comes second?"}
+{"answer": "2", "id": "ey-day-strip-sequence/hard/2/3f3d40e44254", "text": "Put the day in order. Which number card comes third?"}
+{"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
+{"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
+{"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
 {"answer": "The torch", "id": "ey-order-by-two-balances/easy/0/3af4cb5f4094", "text": "Look at both balances. Which is heaviest?"}
 {"answer": "The banana", "id": "ey-order-by-two-balances/easy/1/3f8f9a7ff2be", "text": "Which one is the heaviest?"}
 {"answer": "The hat", "id": "ey-order-by-two-balances/easy/2/10c49f75d360", "text": "Which one is the heaviest?"}

@@ -1793,6 +1793,7 @@ def _shape_scene(s: dict, ids: _Ids) -> Body:
     rows = math.ceil(n / cols)
     return "".join(out), 12 + rows * row_h + 8
 
+
 # ---------------------------------------------------------------- pattern strip
 
 _STRIP_LEFT = 12.0
@@ -1918,6 +1919,8 @@ def _pattern_strip(s: dict, ids: _Ids) -> Body:
                 out.append(_text(left + i * cw + cw / 2, y + 9, i + 1, size=11))
             y += 18
         y += 14
+    return "".join(out), y
+
 
 # ---------------------------------------------------------------- tally
 
@@ -2094,6 +2097,7 @@ def _tally(s: dict, ids: _Ids) -> Body:
         y += 8
     return "".join(out), y
 
+
 # ---------------------------------------------------------------- calendar
 
 _CAL_LEFT, _CAL_CELL_W, _CAL_CELL_H = 25.0, 50.0, 40.0
@@ -2158,7 +2162,7 @@ def _calendar(s: dict, ids: _Ids) -> Body:
 # ---------------------------------------------------------------- day strip
 
 
-def _icon(name: str, cx: float, cy: float) -> str:
+def _card_icon(name: str, cx: float, cy: float) -> str:
     """A simple monochrome icon about 48 units square, centred on (cx, cy)."""
 
     def p(x: float, y: float) -> tuple[float, float]:
@@ -2297,9 +2301,10 @@ def _day_strip(s: dict, ids: _Ids) -> Body:
             out.append(_circle(cx, 20, 12, fill=PAPER, stroke=INK, stroke_width=2))
             out.append(_text(cx, 20, i + 1, size=14, weight="bold"))
         out.append(_rect(x, top, _STRIP_CARD_W, _STRIP_CARD_H, rx=7, fill=PAPER, stroke=INK, stroke_width=2))
-        out.append(_icon(c["icon"], cx, top + 34))
+        out.append(_card_icon(c["icon"], cx, top + 34))
         out.append(_text(cx, top + _STRIP_CARD_H - 11, c["label"], size=10.5, weight="bold"))
     return "".join(out), top + _STRIP_CARD_H + 10
+
 
 # ---------------------------------------------------------------- compare_picture
 
@@ -2607,7 +2612,6 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "protractor": _protractor,
     "scale": _scale,
     "shape_scene": _shape_scene,
-
     "tally": _tally,
     "tree_diagram": _tree,
     "unit_strip": _unit_strip,
