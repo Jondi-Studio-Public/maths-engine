@@ -550,3 +550,15 @@ def test_data_displays_validate_through_figures_check():
     ):
         with pytest.raises(ValueError):
             svg.figure_svg(fig)
+
+
+def test_a_step_segment_draws_a_filled_dot_at_its_closed_end():
+    spec = figures.cartesian(
+        x_range=(0, 4),
+        y_range=(0, 4),
+        segments=[{"from": [0, 2], "to": [2, 2], "open_start": True}],
+        alt="a step",
+    )
+    out = svg.figure_svg(spec)
+    assert out.count("<circle") == 2  # one open end, one filled closed end
+    assert 'fill="currentColor"' in out.split("<circle")[-1].split("/>")[0]
