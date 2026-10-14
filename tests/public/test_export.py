@@ -344,7 +344,8 @@ def test_qti_mcq_correct_identifier_matches_option(paper):
         choices = {c.get("identifier"): c.text for c in root.iter(f"{NS_QTI}simpleChoice")}
         assert choices[correct] == q["answer"]["text"]
         assert list(choices.values()) == q["options"], "order is kept"
-        assert root.find(f"{NS_QTI}responseProcessing").get("template").endswith("match_correct")
+        match = root.find(f"{NS_QTI}responseProcessing//{NS_QTI}match")
+        assert match.find(f"{NS_QTI}correct").get("identifier") == "RESPONSE"
         checked += 1
     assert checked >= 2
 
@@ -588,3 +589,83 @@ def test_marks_print_only_as_whole_numbers():
         )
         assert "<script" not in out
     assert "[2 marks]" in export.paper_html(_one_question_paper(None, marks=2.9))
+
+
+def _qti_items(paper):
+    zf = _open_zip(paper)
+    return [ET.fromstring(zf.read(name)) for name in _item_names(zf)], zf
+
+
+def test_qti_working_with_dashes_stays_well_formed():
+    # "--", "---" and a trailing "-" are each illegal inside an XML comment; the answer is modal feedback, not a comment
+    paper = _one_question_paper(None, answer="x---y-")
+    paper["versions"][0]["sections"][0]["questions"][0]["answer"]["working"] = ["a -- b", "c ---", "-"]
+    roots, _zf = _qti_items(paper)
+    fb = roots[0].find(f"{NS_QTI}modalFeedback")
+    assert fb is not None and "x---y-" in fb.text and "c ---" in fb.text
+    assert b"<!-- answer" not in export.paper_qti21_zip(paper)
+
+
+def test_qti_every_item_shows_its_answer_once_submitted(paper):
+    roots, _zf = _qti_items(paper)
+    for root, q in zip(roots, _questions(paper)):
+        fb = root.find(f"{NS_QTI}modalFeedback")
+        assert fb.get("outcomeIdentifier") == "FEEDBACK" and fb.get("showHide") == "show"
+        sets = root.findall(f"{NS_QTI}responseProcessing/{NS_QTI}setOutcomeValue")
+        assert [s.get("identifier") for s in sets] == ["FEEDBACK"]
+        assert sets[0].findtext(f"{NS_QTI}baseValue") == fb.get("identifier")
+        answer = (q.get("answer") or (q.get("parts") or [{}])[0].get("answer") or {}).get("text")
+        assert export._clean(answer) in fb.text
+
+
+def test_qti_weights_add_up_to_the_marks_exactly(paper):
+    roots, _zf = _qti_items(paper)
+    checked = 0
+    for root, q in zip(roots, _questions(paper)):
+        weights = [float(v.text) for v in root.iter(f"{NS_QTI}baseValue") if v.get("baseType") == "float"]
+        maxscore = float(root.find(f"{NS_QTI}outcomeDeclaration[@identifier='MAXSCORE']").findtext(f".//{NS_QTI}value"))
+        total = 0.0
+        for w in weights:
+            total += w
+        assert total == maxscore, (q["id"], weights)
+        checked += len(weights) > 1
+    assert checked, "a multi-blank item is in the paper"
+
+
+def test_qti_weights_split_three_ways():
+    item = {"entries": [{"marks": 1, "slots": [{}, {}, {}]}, {"marks": 2, "slots": []}]}
+    slots = [(item["entries"][0], s) for s in item["entries"][0]["slots"]]
+    weights = [w for _e, _s, w in export._slot_weights(item, slots)]
+    assert sum(weights) == 1 and len(weights) == 3
+
+
+def test_qti_test_sums_the_item_scores(paper):
+    zf = _open_zip(paper)
+    test = ET.fromstring(zf.read("test.xml"))
+    sets = test.findall(f"{NS_QTI}outcomeProcessing/{NS_QTI}setOutcomeValue")
+    assert {s.get("identifier") for s in sets} == {"SCORE", "MAXSCORE"}
+    for s in sets:
+        assert s.find(f"{NS_QTI}sum/{NS_QTI}testVariables").get("variableIdentifier") == s.get("identifier")
+
+
+def test_mcq_option_feedback_is_words_not_ids(lib):
+    hits = 0
+    for skill in service.find_skills(lib, answer_kind="mcq"):
+        for q in service.make_questions(lib, skill.id, count=3, seed=5, answers=True):
+            a = q.get("answer") or {}
+            for i, mid in (a.get("option_notes") or {}).items():
+                text = (a.get("option_feedback") or {}).get(i)
+                if text:
+                    assert text != mid and " " in text
+                    hits += 1
+        if hits >= 20:
+            break
+    assert hits >= 20
+    one = _one_question_paper(None, kind="mcq", options=["10", "8"], answer="10")
+    one["versions"][0]["sections"][0]["questions"][0]["answer"].update(
+        option_notes={"1": "some-raw-id"}, option_feedback={"1": "Added instead of multiplied."}
+    )
+    moodle = export.paper_moodle_xml(one)
+    assert "Added instead of multiplied." in moodle and "some-raw-id" not in moodle
+    key = export.paper_html(one, key=True)
+    assert "Added instead of multiplied." in key and "some-raw-id" not in key
