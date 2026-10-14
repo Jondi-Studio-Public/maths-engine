@@ -303,7 +303,9 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
     for c in s.get("curves", ()):
         if c.get("label") and c["pieces"]:
             ex, ey = c["pieces"][-1][-1]
-            labels.append(_text(min(X(ex) + 4, left + pw - 4), Y(ey) - 9, c["label"], size=12, anchor="end"))
+            # clamped into the plot: a curve that leaves the y range would put its label off the canvas
+            label_y = min(max(Y(ey) - 9, top + 12), top + ph - 4)
+            labels.append(_text(min(X(ex) + 4, left + pw - 4), label_y, c["label"], size=12, anchor="end"))
     for p in s.get("points", ()):
         px, py = X(p["at"][0]), Y(p["at"][1])
         if p.get("open"):
