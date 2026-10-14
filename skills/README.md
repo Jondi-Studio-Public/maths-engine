@@ -78,7 +78,9 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   changes the ids of that source's questions.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
-  `polyline`, `line`, `inequality`, `matrix`. `list` ignores order and `ordered_list` is positional, so a vector answer
+  `polyline`, `line`, `inequality`, `matrix`, `grid_cells`. `grid_cells` is the cells a learner shades on a
+  `grid_drawing` figure's canvas, matched exactly, up to a move, up to a turn or flip, or as any cube net
+  (`mathgen/grading/grid.py`). `list` ignores order and `ordered_list` is positional, so a vector answer
   is an `ordered_list` (it also reads `<5, 6, -5>` and `5i + 6j - 5k`). A `number` reply may group
   thousands with a space (`12 345`), may be a mixed number (`2 1/2`, `2½`) and may use scientific
   notation written `1.2 × 10^3`; calculator notation (`1.2e3`) is refused. A question with a single

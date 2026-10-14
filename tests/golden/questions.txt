@@ -1453,6 +1453,15 @@
 {"answer": "2.5", "id": "f10-compare-scale-readings/medium/0/01cb6019088c", "text": "A stick is lined up against a ruler. How long is the stick, in centimetres?"}
 {"answer": "5.5", "id": "f10-compare-scale-readings/medium/1/205f63ef9026", "text": "A ruler is held beside a leaf. Find the length of the leaf in centimetres."}
 {"answer": "3.5", "id": "f10-compare-scale-readings/medium/2/f209063be149", "text": "The ribbon lies along a ruler, but not from the end of it. How long is the ribb…"}
+{"answer": "6", "id": "f10-composite-shape-representation/easy/0/46ec38dad5eb", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
+{"answer": "24", "id": "f10-composite-shape-representation/easy/1/a1e7a0b63f61", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
+{"answer": "18", "id": "f10-composite-shape-representation/easy/2/d7f08f578676", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
+{"answer": "54", "id": "f10-composite-shape-representation/hard/0/2bd0b75489fa", "text": "Estimate the area, in square units, of the irregular shape on the grid, where e…"}
+{"answer": "40", "id": "f10-composite-shape-representation/hard/1/15879a583820", "text": "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. …"}
+{"answer": "50", "id": "f10-composite-shape-representation/hard/2/6d4123f6ed64", "text": "Estimate the area of the irregular shape on the grid, in square units, where ea…"}
+{"answer": "24", "id": "f10-composite-shape-representation/medium/0/efdf403c3064", "text": "What is the area, in square units, of the shape on the grid? It is a rectangle …"}
+{"answer": "27", "id": "f10-composite-shape-representation/medium/1/3b688fb02970", "text": "The outline on the grid combines a rectangle and a triangle: the triangle is ei…"}
+{"answer": "24", "id": "f10-composite-shape-representation/medium/2/b5aaf3d007d7", "text": "The shape on the grid is a rectangle with a triangle joined to it or cut from i…"}
 {"answer": "9/22", "id": "f10-compound-event-frequencies/easy/0/9d3b5f230e27", "text": "44 seeds were planted, some in sun and some in shade, and each was checked for …"}
 {"answer": "10/29", "id": "f10-compound-event-frequencies/easy/1/6c0ea654dcc8", "text": "On each of 58 mornings, a student recorded whether it rained and whether the sc…"}
 {"answer": "21/47", "id": "f10-compound-event-frequencies/easy/2/fbf5293a6b8a", "text": "A coin was tossed and a spinner was spun together, 47 times in all. Table (coin…"}
@@ -1645,6 +1654,9 @@
 {"answer": "(a) 0.5; (b) 18.0; (c) 7.5", "id": "f10-enlargement-invariants/exam/0/a867ab175217", "text": "A rectangular sign measuring 13 cm by 5 cm is transformed by an enlargement wit…"}
 {"answer": "(a) 0.5; (b) 25.0; (c) 5.5", "id": "f10-enlargement-invariants/exam/1/cd16c0c6bd88", "text": "A rectangular garden bed plan measuring 14 cm by 11 cm is transformed by an enl…"}
 {"answer": "(a) 4.4; (b) 88.0; (c) 68.0", "id": "f10-enlargement-invariants/exam/2/9f967c81cdaf", "text": "A rectangular sign measuring 8 cm by 2 cm is transformed by an enlargement with…"}
+{"answer": "(a) 30; (b) (7, 5) (16, 5) (16, 11) (7, 11)", "id": "f10-enlargement-invariants/grid-image/0/343567f7cfb7", "text": "Rectangle ABCD is drawn on the grid. It is enlarged from the centre of enlargem…"}
+{"answer": "(a) 10; (b) (9, 7) (9, 5) (6, 5) (6, 7)", "id": "f10-enlargement-invariants/grid-image/1/72d29039fc8e", "text": "Rectangle ABCD is drawn on the grid. It is enlarged from the centre of enlargem…"}
+{"answer": "(a) 4; (b) (9, 2) (9, 5) (5, 2)", "id": "f10-enlargement-invariants/grid-image/2/cc9568eeb370", "text": "Triangle ABC is drawn on the grid. It is enlarged from the centre of enlargemen…"}
 {"answer": "20", "id": "f10-enlargement-invariants/hard/0/6c6e8394cffb", "text": "A point P is 10 cm from the centre of enlargement O. P is enlarged with a scale…"}
 {"answer": "36", "id": "f10-enlargement-invariants/hard/1/87c9adba60eb", "text": "A trapezium is enlarged from a centre of enlargement O. The original has an are…"}
 {"answer": "16.5", "id": "f10-enlargement-invariants/hard/2/7d59544ae665", "text": "A parallelogram is enlarged from a centre of enlargement O with a scale factor …"}
@@ -2062,6 +2074,15 @@
 {"answer": "180", "id": "f10-logarithmic-scales/medium/0/3334483450c4", "text": "On a logarithmic scale, A is marked at 18 and B is marked at 18000, 3 equal sca…"}
 {"answer": "4000", "id": "f10-logarithmic-scales/medium/1/ecbc31830311", "text": "On a logarithmic scale, A is marked at 4 and B is marked at 40000, 4 equal scal…"}
 {"answer": "600", "id": "f10-logarithmic-scales/medium/2/394eb59d388f", "text": "On a logarithmic scale, A is marked at 6 and B is marked at 6000, 3 equal scale…"}
+{"answer": "School", "id": "f10-map-feature-and-landmark-representation/easy/0/fec605b69999", "text": "Which landmark is in square F1?"}
+{"answer": "Tree", "id": "f10-map-feature-and-landmark-representation/easy/1/9ccb237ab505", "text": "Which landmark is in square A3?"}
+{"answer": "Hospital", "id": "f10-map-feature-and-landmark-representation/easy/2/71be9fb80701", "text": "Which landmark is in square D4?"}
+{"answer": "D3", "id": "f10-map-feature-and-landmark-representation/hard/0/c0c345ef0636", "text": "Start at the house. Go 1 square north, then 1 square west. Which square do you …"}
+{"answer": "E1", "id": "f10-map-feature-and-landmark-representation/hard/1/491cdf896882", "text": "Start at the school. Go 3 squares south, then 2 squares east. Which square do y…"}
+{"answer": "D1", "id": "f10-map-feature-and-landmark-representation/hard/2/ec2a3b235c21", "text": "Start at the campground. Go 2 squares south, then 1 square west. Which square d…"}
+{"answer": "B4", "id": "f10-map-feature-and-landmark-representation/medium/0/18d8c12984f1", "text": "What is the grid reference of the hospital? Give the column letter first, then …"}
+{"answer": "House", "id": "f10-map-feature-and-landmark-representation/medium/1/6df5f0f94cca", "text": "Look south, along the same column, from the landmark in square D2. Which landma…"}
+{"answer": "C3", "id": "f10-map-feature-and-landmark-representation/medium/2/4ded9dadd143", "text": "What is the grid reference of the airport? Give the column letter first, then t…"}
 {"answer": "15", "id": "f10-map-grid-routes-bearings/easy/0/b91a6569afdd", "text": "On the map shown, each grid square is 5 km across. The Falls is directly north …"}
 {"answer": "10", "id": "f10-map-grid-routes-bearings/easy/1/75dc07e90ee2", "text": "Mia is reading the map shown. The Falls is directly north of the Dam. Each grid…"}
 {"answer": "40", "id": "f10-map-grid-routes-bearings/easy/2/0f2ca4fc58da", "text": "Sam plans a trip using the map shown, where each grid square is 10 km across. H…"}
@@ -2254,6 +2275,15 @@
 {"answer": "(a) 36; (b) 7; (c) 254; (d) 252", "id": "f10-nets-build-solids/exam/0/b3a3a9718aa9", "text": "Aiko builds a closed storage box from the net shown, which is not drawn to scal…"}
 {"answer": "(a) 12; (b) 8; (c) 136; (d) 96", "id": "f10-nets-build-solids/exam/1/10f3e037f011", "text": "The diagram shows the net of Jess's closed pencil case, not drawn to scale. It …"}
 {"answer": "(a) 14; (b) 6; (c) 136; (d) 84", "id": "f10-nets-build-solids/exam/2/879cb877711d", "text": "The net shown (not drawn to scale) folds along the dashed lines into a closed p…"}
+{"answer": "a cuboid", "id": "f10-nets-build-solids/grid-easy/0/ce6c28ca58a0", "text": "Which of these solids can be made by cutting out the net on the grid and foldin…"}
+{"answer": "a triangular prism", "id": "f10-nets-build-solids/grid-easy/1/f650ddf52161", "text": "The net is drawn on a square grid. Which solid does it fold up into?"}
+{"answer": "a cuboid", "id": "f10-nets-build-solids/grid-easy/2/674845b2eab0", "text": "The net is drawn on a square grid. Which solid does it fold up into?"}
+{"answer": "Face E", "id": "f10-nets-build-solids/grid-hard/0/27089f006783", "text": "The net is folded along its edges to make a cube. Which face is opposite face F?"}
+{"answer": "Face C", "id": "f10-nets-build-solids/grid-hard/1/51a06940b2e6", "text": "The net is folded along its edges to make a cube. Which face is opposite face F?"}
+{"answer": "Face D", "id": "f10-nets-build-solids/grid-hard/2/b98a09df6daa", "text": "The six squares of the net are folded up into a cube. Which face ends up opposi…"}
+{"answer": "Net A", "id": "f10-nets-build-solids/grid-medium/0/ddf3de7e53c9", "text": "Only one of drawings A to D can be cut out and folded into a cube, and the rest…"}
+{"answer": "Net A", "id": "f10-nets-build-solids/grid-medium/1/1c6f2447b8a7", "text": "Each of the four drawings is made of six squares. Which one is a net of a cube?"}
+{"answer": "Net D", "id": "f10-nets-build-solids/grid-medium/2/ad7744aa4954", "text": "Only one of drawings A to D can be cut out and folded into a cube, and the rest…"}
 {"answer": "B and E", "id": "f10-nets-build-solids/hard/0/f60fe5b2a54d", "text": "When the lettered net is folded into a cube, corner J joins with two other corn…"}
 {"answer": "F and M", "id": "f10-nets-build-solids/hard/1/e104ec70192e", "text": "Jess folds the lettered net shown into a cube. Which two corners of the net mee…"}
 {"answer": "C and P", "id": "f10-nets-build-solids/hard/2/9c33403bf62b", "text": "Aiko folds the lettered net shown into a cube. Which two corners of the net mee…"}
@@ -5875,6 +5905,15 @@
 {"answer": "Interpolation (the prediction lies within the range of the …", "id": "senior-distinguish-between-interpolation-and-extrapolation-when-using-the/medium/0/f7c2436e9b0b", "text": "A fitted line models data collected for x from 8 to 26. A prediction is made at…"}
 {"answer": "Interpolation (the prediction lies within the range of the …", "id": "senior-distinguish-between-interpolation-and-extrapolation-when-using-the/medium/1/22209421736a", "text": "A fitted line models data collected for x from 1 to 29. A prediction is made at…"}
 {"answer": "Interpolation (the prediction lies within the range of the …", "id": "senior-distinguish-between-interpolation-and-extrapolation-when-using-the/medium/2/0bb73f9f341a", "text": "A fitted line models data collected for x from 4 to 22. A prediction is made at…"}
+{"answer": "15", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/easy/0/186a8b7014da", "text": "The plan shows the floor of a lounge. Each square is 1 cm by 1 cm on the plan. …"}
+{"answer": "14", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/easy/1/185614b37afd", "text": "The plan shows the floor of a lounge. Each square is 1 cm by 1 cm on the plan. …"}
+{"answer": "14", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/easy/2/80052b22f1cd", "text": "The plan shows the floor of a study. Each square is 1 cm by 1 cm on the plan. L…"}
+{"answer": "28", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/hard/0/74f1c1755278", "text": "The plan shows an L-shaped play area to be covered with turf. Each square is 1 …"}
+{"answer": "156", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/hard/1/08a2d767bdac", "text": "The plan shows a play area to be covered with turf. Each square is 1 cm by 1 cm…"}
+{"answer": "250", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/hard/2/9a96857126b4", "text": "The plan shows an L-shaped play area to be covered with turf. Each square is 1 …"}
+{"answer": "9", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/medium/0/92f546d09687", "text": "The plan shows an L-shaped lawn to be fenced all the way round its boundary. Ea…"}
+{"answer": "7", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/medium/1/27dcd859e915", "text": "The plan shows an L-shaped play area to be fenced all the way round its boundar…"}
+{"answer": "15", "id": "senior-estimate-and-compare-quantities-materials-and-costs-using/medium/2/d54e4443ddb0", "text": "The plan shows an L-shaped paved yard to be fenced all the way round its bounda…"}
 {"answer": "8.00 m", "id": "senior-estimate-lengths/easy/0/b4e0ae22d8c5", "text": "What is the best estimate for the length of a small yacht? Give your answer in …"}
 {"answer": "18.0 m", "id": "senior-estimate-lengths/easy/1/b2f889861f4e", "text": "What is the best estimate for the length of a rowing eight? Give your answer in…"}
 {"answer": "12.00 m", "id": "senior-estimate-lengths/easy/2/dce008ff2961", "text": "What is the best estimate for the length of a shipping container? Give your ans…"}
@@ -6286,6 +6325,15 @@
 {"answer": "(x - 2)(x^2 - 3x + 1)", "id": "senior-factorise-cubic-polynomials-in-cases-where-a-linear/medium/0/ba47c885f473", "text": "Factorise x^3 - 5x^2 + 7x - 2 completely as a product of a linear factor and a …"}
 {"answer": "(x - 4)(x^2 + 5x + 1)", "id": "senior-factorise-cubic-polynomials-in-cases-where-a-linear/medium/1/2afd148b7557", "text": "Factorise x^3 + x^2 - 19x - 4 completely as a product of a linear factor and a …"}
 {"answer": "(x - 6)(x^2 - x + 8)", "id": "senior-factorise-cubic-polynomials-in-cases-where-a-linear/medium/2/bef8f8c95f68", "text": "Factorise x^3 - 7x^2 + 14x - 48 completely as a product of a linear factor and …"}
+{"answer": "8", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/easy/0/9dba13b65b51", "text": "The plan of a gym is drawn on a square grid. Each square is 1 cm by 1 cm on the…"}
+{"answer": "4", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/easy/1/8dad2eea3d7d", "text": "The plan of a hall is drawn on a square grid. Each square is 1 cm by 1 cm on th…"}
+{"answer": "5", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/easy/2/fa6fdc30debc", "text": "The plan of a hall is drawn on a square grid. Each square is 1 cm by 1 cm on th…"}
+{"answer": "192", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/hard/0/ed3cea960117", "text": "The plan of an L-shaped garden bed is drawn on a square grid. Each square is 1 …"}
+{"answer": "450", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/hard/1/48f4d570223a", "text": "The plan of a gym is drawn on a square grid. Each square is 1 cm by 1 cm on the…"}
+{"answer": "608", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/hard/2/50df6476048d", "text": "The plan of an L-shaped classroom is drawn on a square grid. Each square is 1 c…"}
+{"answer": "108", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/medium/0/6a66cdd4fea7", "text": "The plan of a U-shaped room is drawn on a square grid. Each square is 1 cm by 1…"}
+{"answer": "120", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/medium/1/013ed4b5442f", "text": "The plan of an L-shaped room is drawn on a square grid. Each square is 1 cm by …"}
+{"answer": "114", "id": "senior-find-actual-measurements-from-scale-drawings-such-as/medium/2/926125209588", "text": "The plan of an L-shaped room is drawn on a square grid. Each square is 1 cm by …"}
 {"answer": "x = 45° and 225°", "id": "senior-find-all-solutions-of-mathrm-f-left-mathrm/easy/0/ba19c31c967f", "text": "Find all solutions of tan(x) = 1 for 0 <= x < 360, where x is in degrees."}
 {"answer": "x = 120° and 300°", "id": "senior-find-all-solutions-of-mathrm-f-left-mathrm/easy/1/441992522c6e", "text": "Find all solutions of tan(x) = -sqrt(3) for 0 <= x < 360, where x is in degrees."}
 {"answer": "x = 120° and 240°", "id": "senior-find-all-solutions-of-mathrm-f-left-mathrm/easy/2/595fdccce071", "text": "Find all solutions of cos(x) = -1/2 for 0 <= x < 360, where x is in degrees."}
@@ -6814,6 +6862,15 @@
 {"answer": "likely", "id": "senior-interpret-commonly-used-probability-statements-including-possible-probable/medium/0/8458f0eb940f", "text": "Using the convention that a probability is described as 'possible' for 0 < P <=…"}
 {"answer": "certain", "id": "senior-interpret-commonly-used-probability-statements-including-possible-probable/medium/1/74f0aebabada", "text": "Using the convention that a probability is described as 'possible' for 0 < P <=…"}
 {"answer": "possible", "id": "senior-interpret-commonly-used-probability-statements-including-possible-probable/medium/2/baadbc8cd522", "text": "Using the convention that a probability is described as 'possible' for 0 < P <=…"}
+{"answer": "Bathroom", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/0/93f0fbe61548", "text": "Which room on this plan has no window symbol?"}
+{"answer": "Ensuite", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/1/4c8104b80183", "text": "The toilets symbol is drawn in one room of this plan. What is that room called?"}
+{"answer": "Ensuite", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/2/cc977907d772", "text": "The toilets symbol is drawn in one room of this plan. What is that room called?"}
+{"answer": "2 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/0/cbcb4bc26c54", "text": "How many rooms on this plan need a plumber, that is, rooms with a toilets symbo…"}
+{"answer": "3 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/1/9cd9236b2109", "text": "How many wet areas (bathroom, ensuite, toilet or laundry) on this plan have a w…"}
+{"answer": "3 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/2/f415e79843b2", "text": "A plumber must visit every room that has a toilets symbol or a hot water system…"}
+{"answer": "Kitchen", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/medium/0/6a65d634838b", "text": "In which room is the dishwasher?"}
+{"answer": "Laundry", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/medium/1/9f41acf847fd", "text": "In which room is the hot water system?"}
+{"answer": "Bedroom 2", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/medium/2/7eca1f548cae", "text": "In which room is the built-in robe?"}
 {"answer": "Wednesday", "id": "senior-interpret-complex-timetables-such-as-tide-charts-sunrise/easy/0/f7c32dc6c537", "text": "A tide chart shows the following high tides: Tuesday: high tide at 23:15, heigh…"}
 {"answer": "Tuesday", "id": "senior-interpret-complex-timetables-such-as-tide-charts-sunrise/easy/1/47f435eeb3bb", "text": "A tide chart shows the following high tides: Saturday: high tide at 22:10, heig…"}
 {"answer": "Friday", "id": "senior-interpret-complex-timetables-such-as-tide-charts-sunrise/easy/2/ef9da140d7af", "text": "A table shows the following sunrise times: Friday: sunrise at 06:32. Saturday: …"}
@@ -6826,6 +6883,24 @@
 {"answer": "Saturday", "id": "senior-interpret-complex-timetables-such-as-tide-charts-sunrise/medium/0/5d2b2d5045ad", "text": "A table shows the following sunrise times: Friday: sunrise at 06:33. Saturday: …"}
 {"answer": "Saturday", "id": "senior-interpret-complex-timetables-such-as-tide-charts-sunrise/medium/1/b933552e2b67", "text": "A tide chart shows the following high tides: Wednesday: high tide at 06:55, hei…"}
 {"answer": "Tuesday", "id": "senior-interpret-complex-timetables-such-as-tide-charts-sunrise/medium/2/31fe6fda1c87", "text": "A tide chart shows the following high tides: Friday: high tide at 21:45, height…"}
+{"answer": "11", "id": "senior-interpret-diagrams-of-three-dimensional-objects/easy/0/a8532ee242ec", "text": "Count the unit cubes in the stack drawn on isometric dot paper. Every cube rest…"}
+{"answer": "6", "id": "senior-interpret-diagrams-of-three-dimensional-objects/easy/1/d54fcbbafeb8", "text": "The picture shows a stack of unit cubes on isometric dot paper. Every cube rest…"}
+{"answer": "12", "id": "senior-interpret-diagrams-of-three-dimensional-objects/easy/2/8da7a66b6d1f", "text": "The picture shows a stack of unit cubes on isometric dot paper. Every cube rest…"}
+{"answer": "44", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/0/bbaa40afdb3c", "text": "Find the surface area, in unit squares, of the stack of unit cubes. Count every…"}
+{"answer": "14", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/1/1a4364f5b24d", "text": "The stack of unit cubes is built inside a box that is 3 cubes wide, 2 cubes dee…"}
+{"answer": "56", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/2/1ac3f02daa13", "text": "The surface area of the stack is the number of unit squares on its outside, inc…"}
+{"answer": "12", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/0/dd63a5b096c4", "text": "Count the unit cubes in this stack drawn on isometric dot paper. It rises to th…"}
+{"answer": "10", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/1/1f57dbfe4a41", "text": "Count the unit cubes in this stack drawn on isometric dot paper. It rises to th…"}
+{"answer": "16", "id": "senior-interpret-diagrams-of-three-dimensional-objects/medium/2/8173887920ae", "text": "A stack of unit cubes is drawn on isometric dot paper. It is three layers high …"}
+{"answer": "Column heights, left to right: 3, 2, 2", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/0/ad43ed131133", "text": "The stack of unit cubes has no gaps. Its front is the face on the left of the p…"}
+{"answer": "Column heights, left to right: 3, 1, 1, 1", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/1/78c2a9a28ce5", "text": "Look at the stack of unit cubes, which has no gaps. The face on the left of the…"}
+{"answer": "Column heights, left to right: 3, 2, 2, 1", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/2/2efa80cbf764", "text": "The stack of unit cubes has no gaps. Its front is the face on the left of the p…"}
+{"answer": "36 cubic units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/0/40beb9c7e150", "text": "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds u…"}
+{"answer": "32 cubic units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/1/13c28b6254ad", "text": "A closed box is made by folding the net on the grid, where each square is 1 uni…"}
+{"answer": "32 square units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/2/d4db8a7ef74d", "text": "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds u…"}
+{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/0/7a38cdbffcf4", "text": "Three of these four drawings are nets of a cube. Which drawing is NOT a net of …"}
+{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/1/1a791a10cd33", "text": "Fold each drawing in your head. Three fold up into a cube and one does not. Whi…"}
+{"answer": "Net C", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/medium/2/bddb64b90b8e", "text": "Three of these four drawings are nets of a cube. Which drawing is NOT a net of …"}
 {"answer": "2", "id": "senior-interpret-distance-versus-time-graphs/easy/0/162f261a4d39", "text": "A distance-time graph is drawn below. Find the speed in km per hour during the …"}
 {"answer": "2", "id": "senior-interpret-distance-versus-time-graphs/easy/1/17a8fff34b95", "text": "The graph shows the distance from home over time. What was the speed, in metres…"}
 {"answer": "5", "id": "senior-interpret-distance-versus-time-graphs/easy/2/5b6081306b95", "text": "Use the graph to work out the speed, in km per hour, between time 3 and time 4 …"}
@@ -7030,6 +7105,15 @@
 {"answer": "36", "id": "senior-obtain-a-scale-factor-and-use-it-to/medium/0/ab2d8f5490b6", "text": "Figure A and Figure B are similar. A side of Figure A measures 16 cm; the corre…"}
 {"answer": "150", "id": "senior-obtain-a-scale-factor-and-use-it-to/medium/1/923219229299", "text": "Figure A and Figure B are similar. A side of Figure A measures 18 cm; the corre…"}
 {"answer": "324", "id": "senior-obtain-a-scale-factor-and-use-it-to/medium/2/91908afe2905", "text": "Figure A and Figure B are similar. A side of Figure A measures 10 cm; the corre…"}
+{"answer": "50", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/easy/0/fa84a7b46708", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. How …"}
+{"answer": "40", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/easy/1/5ef5e9054119", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. How …"}
+{"answer": "20", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/easy/2/28e07c03591e", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. How …"}
+{"answer": "90", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/hard/0/9d0799ce6f8e", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Sam …"}
+{"answer": "60", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/hard/1/a609e5e5d468", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Sam …"}
+{"answer": "66", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/hard/2/a23764c4fe1f", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Sam …"}
+{"answer": "50", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/medium/0/a516bbeba1d0", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Find…"}
+{"answer": "5.5", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/medium/1/377e1436bda7", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Find…"}
+{"answer": "16", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/medium/2/31ca623fbd36", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Find…"}
 {"answer": "9", "id": "senior-position-time-tangent-velocity/easy/0/e8614c0359ed", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "3", "id": "senior-position-time-tangent-velocity/easy/1/cd934e1cf0c1", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "9", "id": "senior-position-time-tangent-velocity/easy/2/db401c863489", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
@@ -7330,6 +7414,15 @@
 {"answer": "405", "id": "senior-recognise-the-numbers-as-binomial-coefficients/medium/0/c10d1da5cfc4", "text": "What is the coefficient of x when (x + 3)⁵ is expanded?"}
 {"answer": "24", "id": "senior-recognise-the-numbers-as-binomial-coefficients/medium/1/4a8b28a8c1ce", "text": "What is the coefficient of x² when (x - 2)⁴ is expanded?"}
 {"answer": "32", "id": "senior-recognise-the-numbers-as-binomial-coefficients/medium/2/3628a23f997b", "text": "What is the coefficient of x when (x + 2)⁴ is expanded?"}
+{"answer": "4", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/easy/0/2dc87baf336d", "text": "Look at the cuboid of unit cubes. Some of its edges are exactly 3 cubes long. H…"}
+{"answer": "4", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/easy/1/6977b69dc5d2", "text": "Look at the cuboid of unit cubes. Some of its edges are exactly 2 cubes long. H…"}
+{"answer": "2", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/easy/2/fa981a2efb19", "text": "The cuboid is built from unit cubes. How many of its 6 faces are squares?"}
+{"answer": "14", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/hard/0/a9a1d8e87332", "text": "Here is a puzzle about solids. A solid with flat faces has 8 faces and 8 vertic…"}
+{"answer": "10", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/hard/1/5c043ce64804", "text": "A prism has 24 edges. How many faces does it have?"}
+{"answer": "13", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/hard/2/12140f453064", "text": "Here is a puzzle about solids. A prism has 33 edges. How many faces does it hav…"}
+{"answer": "6", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/medium/0/3cf215d7ed8a", "text": "How many faces does a pentagonal pyramid have?"}
+{"answer": "6", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/medium/1/f750e7bf5a86", "text": "Think about a pentagonal pyramid. How many faces does it have?"}
+{"answer": "7", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/medium/2/afb081b353b5", "text": "Think about a hexagonal pyramid. How many faces does it have?"}
 {"answer": "x = 2", "id": "senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156/easy/0/faa4c3e18ca6", "text": "A logarithmic curve y = log_a(x + c), with a > 1 and c an integer, is drawn bel…"}
 {"answer": "x = 3", "id": "senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156/easy/1/ac5bc9c80add", "text": "The graph of y = log_a(x + c) is drawn on the grid, where a > 1 and c is an int…"}
 {"answer": "x = -5", "id": "senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156/easy/2/d269c2b263dd", "text": "The graph shows y = log_a(x + c) for a number a greater than 1 and an integer c…"}
@@ -7888,6 +7981,15 @@
 {"answer": "x = 1, y = 0", "id": "senior-translations-and-their-representation-as-column-vectors/medium/0/82d7ddb80af6", "text": "Point P(-4, -2) is translated by the column vector (a, b) = (5, 2). Find the co…"}
 {"answer": "x = -4, y = -12", "id": "senior-translations-and-their-representation-as-column-vectors/medium/1/a54b72a1b19b", "text": "Point P(-5, -5) is translated by the column vector (a, b) = (1, -7). Find the c…"}
 {"answer": "x = 7, y = 3", "id": "senior-translations-and-their-representation-as-column-vectors/medium/2/3807ee8fd978", "text": "Point P(2, 8) is translated by the column vector (a, b) = (5, -5). Find the coo…"}
+{"answer": "5", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/easy/0/426487170616", "text": "The plan is drawn to the ratio scale shown. Find the actual length, in metres, …"}
+{"answer": "100", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/easy/1/f530e0e57bb2", "text": "Beside the plan is its scale. Express it as a ratio 1 : n and give the value of…"}
+{"answer": "2", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/easy/2/c3ae57dc47a0", "text": "The plan is drawn to the ratio scale shown. Find the actual length, in metres, …"}
+{"answer": "15", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/hard/0/c69f7fefdaf2", "text": "One wall of the workshop is labelled with its actual length. Each square of the…"}
+{"answer": "14", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/hard/1/9f0a4bd80c82", "text": "One wall of the studio is labelled with its actual length. Each square of the p…"}
+{"answer": "11", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/hard/2/3e504ec76ec4", "text": "One wall of the workshop is labelled with its actual length. Each square of the…"}
+{"answer": "5", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/medium/0/1c2b5aa81841", "text": "One wall of the workshop is labelled with its actual length. Each square of the…"}
+{"answer": "4", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/medium/1/b97e4c94bc85", "text": "One wall of the hall is labelled with its actual length. Each square of the pla…"}
+{"answer": "1", "id": "senior-understand-and-apply-drawing-conventions-of-scale-drawings/medium/2/b057cfdbc84b", "text": "One wall of the gym is labelled with its actual length. Each square of the plan…"}
 {"answer": "(4, -1)", "id": "senior-understand-and-use-location-of-complex-conjugates-in/easy/0/55061172e18e", "text": "A complex number z corresponds to the point (4, 1) in the complex plane. Give t…"}
 {"answer": "(9, -2)", "id": "senior-understand-and-use-location-of-complex-conjugates-in/easy/1/b10334563527", "text": "A complex number z corresponds to the point (9, 2) in the complex plane. Give t…"}
 {"answer": "(4, 3)", "id": "senior-understand-and-use-location-of-complex-conjugates-in/easy/2/ea62d28d09c3", "text": "A complex number z corresponds to the point (4, -3) in the complex plane. Give …"}
@@ -8647,6 +8749,15 @@
 {"answer": "{2, 3, 4, 5, 6}", "id": "senior-use-set-language-and-notation-for-events-including/medium/0/d7abc5943515", "text": "A fair six-sided die is rolled. The sample space is S = {1, 2, 3, 4, 5, 6}. Eve…"}
 {"answer": "{HT, TH}", "id": "senior-use-set-language-and-notation-for-events-including/medium/1/11ecf8f813e6", "text": "Two fair coins are tossed and the faces are recorded in order. The sample space…"}
 {"answer": "{2}", "id": "senior-use-set-language-and-notation-for-events-including/medium/2/3074478a7cd3", "text": "A tile is drawn from a bag of 10 tiles numbered 1 to 10. The sample space is S …"}
+{"answer": "Cellar", "id": "senior-use-symbols-and-conventions-for-the-representation-of/easy/0/2f9aa5f85d9b", "text": "One feature on this site plan is buried and cannot be seen from above. Which fe…"}
+{"answer": "Water tank", "id": "senior-use-symbols-and-conventions-for-the-representation-of/easy/1/7266c6db3e16", "text": "A surveyor drew this plan to include something hidden under the ground. Name th…"}
+{"answer": "Water tank", "id": "senior-use-symbols-and-conventions-for-the-representation-of/easy/2/bcb1d8f6b0d0", "text": "This plan shows what is hidden below the ground as well as what can be seen. Wh…"}
+{"answer": "150 m²", "id": "senior-use-symbols-and-conventions-for-the-representation-of/hard/0/3f04f7166c22", "text": "An owner wants to know how much ground the existing building on this plan cover…"}
+{"answer": "225 m²", "id": "senior-use-symbols-and-conventions-for-the-representation-of/hard/1/e5dbf7e9cef2", "text": "A builder will construct the proposed addition shown on this plan, with lengths…"}
+{"answer": "500 m²", "id": "senior-use-symbols-and-conventions-for-the-representation-of/hard/2/292feebacb20", "text": "All lengths on this plan are in metres. Find the floor area of the existing bui…"}
+{"answer": "south-east", "id": "senior-use-symbols-and-conventions-for-the-representation-of/medium/0/a0b944b5bc2f", "text": "From the carport, in which direction is the septic tank?"}
+{"answer": "east", "id": "senior-use-symbols-and-conventions-for-the-representation-of/medium/1/0c2867e9c225", "text": "From the house, in which direction is the pergola?"}
+{"answer": "north-west", "id": "senior-use-symbols-and-conventions-for-the-representation-of/medium/2/e00575424bbc", "text": "From the water tank, in which direction is the house?"}
 {"answer": "7392.47", "id": "senior-use-technology-and-a-recurrence-relation-to-model/easy/0/617a5ff512c6", "text": "Under a reducing-balance loan of $8000 at 1.25% interest per period, with a fix…"}
 {"answer": "47155.84", "id": "senior-use-technology-and-a-recurrence-relation-to-model/easy/1/6c67388e6a72", "text": "Under a reducing-balance loan of $51000 at 0.5% interest per period, with a fix…"}
 {"answer": "34185.61", "id": "senior-use-technology-and-a-recurrence-relation-to-model/easy/2/5f47156acd17", "text": "A loan of $37000 is charged 1.25% interest each period. A regular repayment of …"}

@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-sketch-elevation-views-of-different-models
+name: Sketch elevation views of different models
+domain: measurement
+year_level: ['12']
+description: Given a stack of unit cubes drawn on isometric dot paper, shade its elevation (the view from one side) on a canvas the size of the view. Easy shades the front view. Medium shades the view from the right or left, where the viewer's own left and right matter. Hard shades the back view, or is given one view on a grid and shades the view of the same stack from the opposite side.
+status: deferred
+deferred_reason: visual
+capability_gates: [visual_construction]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-shape-features-classification, rectangular-prism-volume]
+answer: grid_cells
+sources:
+- topic: grid_elevation_views
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_elevation_views
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_elevation_views
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: mirrored-view
+  description: Draws the view reversed left to right, for example by reading the columns from the wrong end when standing at the back or at a side.
+- id: wrong-side-view
+  description: Draws the view from a different side, such as the left view for the right view or the front view for the back view.
+- id: column-cell-missing
+  description: Leaves out a cell, for example a cube in the tallest column or a whole column that the view should show.
+- id: extra-cell-drawn
+  description: Draws a cell too many, counting a cube that is hidden behind another or is not in line with the view.
+- id: copies-the-given-view
+  description: When given the view from one side, draws that same view instead of the view from the opposite side.
+- id: upside-down-view
+  description: Draws the columns hanging from the top row instead of standing on the ground row.
+tags: [acara-senior-v8-4, measurement, grid_elevation_views, acmem114, elevation-views, cube-stacks, drawn-answer]

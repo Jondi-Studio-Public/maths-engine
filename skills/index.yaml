@@ -1130,6 +1130,12 @@ f10-compare-scale-readings:
   sources:
   - topic: scale_compare_readings
     module: mathgen/generators/read_scale_build.py
+f10-composite-shape-representation:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: grid_composite_area
+    module: mathgen/generators/grid_solids_build.py
 f10-compound-event-frequencies:
   domain: statistics-probability
   status: active
@@ -1260,6 +1266,8 @@ f10-enlargement-invariants:
   sources:
   - topic: enlargement_invariants
     module: mathgen/generators/f10_enlargement_invariants_build.py
+  - topic: grid_enlargement_image
+    module: mathgen/generators/grid_shading_build.py
   - topic: exd_x_sc2_enlargement_chain
     module: mathgen/generators/exd_x_sc2_enlargement_chain.py
 f10-equal-sharing-grouping-model:
@@ -1528,6 +1536,12 @@ f10-logarithmic-scales:
     module: mathgen/generators/p10e_logarithmic_scales_build.py
   - topic: exd_x_n3_decibel_scale
     module: mathgen/generators/exd_x_n3_decibel_scale.py
+f10-map-feature-and-landmark-representation:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: grid_map_landmarks
+    module: mathgen/generators/grid_map_symbols_build.py
 f10-map-grid-routes-bearings:
   domain: geometry
   status: active
@@ -1658,6 +1672,8 @@ f10-nets-build-solids:
   sources:
   - topic: fsp_nets
     module: mathgen/generators/fsp_nets_build.py
+  - topic: grid_nets_build_solids
+    module: mathgen/generators/grid_solids_build.py
   - topic: fsp_nets_exam
     module: mathgen/generators/fsp_nets_build.py
 f10-number-algorithm-choose-complete:
@@ -2126,6 +2142,12 @@ f10-terminating-recurring-decimals:
     module: mathgen/generators/p9e_fraction_percent_recurring_build.py
   - topic: exd_x_n4_decimal_sum
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
+f10-tessellation-transform-combinations:
+  domain: geometry
+  status: deferred
+  sources:
+  - topic: grid_tessellation_images
+    module: mathgen/generators/grid_shading_build.py
 f10-tessellation-vertex-angles:
   domain: geometry
   status: active
@@ -2208,6 +2230,12 @@ f10-trig-ratios-similarity:
     module: mathgen/generators/f10_trig_ratios_similarity_build.py
   - topic: exd_x_u7_two_ramps_chain
     module: mathgen/generators/exd_x_u7_two_ramps_chain.py
+f10-two-dimensional-object-representations:
+  domain: primary-geometry-time
+  status: deferred
+  sources:
+  - topic: grid_plan_views
+    module: mathgen/generators/grid_shading_build.py
 f10-two-way-table-relationship:
   domain: statistics-probability
   status: active
@@ -3864,6 +3892,12 @@ senior-consider-similar-problems-involving-compounding-for-example-population:
     module: mathgen/generators/p10c_compounding_population_build.py
   - topic: exd_x_r3d_compound_two_readings
     module: mathgen/generators/exd_x_r3d_compound_two_readings.py
+senior-construct-scale-drawings-by-hand-and-by-using:
+  domain: measurement
+  status: deferred
+  sources:
+  - topic: grid_scale_plan
+    module: mathgen/generators/grid_shading_build.py
 senior-convert-between-cartesian-and-polar-form:
   domain: senior-mathematics
   status: active
@@ -4212,6 +4246,12 @@ senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
     module: mathgen/generators/p5d_causality_interpolation_build.py
   - topic: exd_x_s3_interp
     module: mathgen/generators/exd_x_s3_interp.py
+senior-estimate-and-compare-quantities-materials-and-costs-using:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_scale_materials
+    module: mathgen/generators/grid_scale_drawing_build.py
 senior-estimate-lengths:
   domain: measurement
   status: active
@@ -4472,6 +4512,12 @@ senior-factorise-cubic-polynomials-in-cases-where-a-linear:
     module: mathgen/generators/p7c_polynomial_solve_build.py
   - topic: exd_x_f2_cubic_factor
     module: mathgen/generators/exd_x_f2_cubic_factor.py
+senior-find-actual-measurements-from-scale-drawings-such-as:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_scale_actual
+    module: mathgen/generators/grid_scale_drawing_build.py
 senior-find-all-solutions-of-mathrm-f-left-mathrm:
   domain: trigonometry
   status: active
@@ -4788,6 +4834,12 @@ senior-interpret-commonly-used-probability-statements-including-possible-probabl
     module: mathgen/generators/p19c_independence_language_build.py
   - topic: exd_x_r2k_probability_language
     module: mathgen/generators/exd_x_r2k_probability_language.py
+senior-interpret-commonly-used-symbols-and-abbreviations-in-scale:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_plan_symbols
+    module: mathgen/generators/grid_map_symbols_build.py
 senior-interpret-complex-timetables-such-as-tide-charts-sunrise:
   domain: senior-mathematics
   status: active
@@ -4796,6 +4848,18 @@ senior-interpret-complex-timetables-such-as-tide-charts-sunrise:
     module: mathgen/generators/p19i_timetable_build.py
   - topic: exd_x_r3j_tide_chart_rate
     module: mathgen/generators/exd_x_r3j_tide_chart_rate.py
+senior-interpret-diagrams-of-three-dimensional-objects:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_cube_stack
+    module: mathgen/generators/grid_solids_build.py
+senior-interpret-different-forms-of-two-dimensional-representations-of:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_net_views
+    module: mathgen/generators/grid_solids_build.py
 senior-interpret-distance-versus-time-graphs:
   domain: senior-mathematics
   status: active
@@ -4914,6 +4978,12 @@ senior-obtain-a-scale-factor-and-use-it-to-acmgm025:
     module: mathgen/generators/p6f_scale_factor_build.py
   - topic: exd_x_m5_scale_model_chain
     module: mathgen/generators/exd_x_m5_scale_model_chain.py
+senior-obtain-measurements-from-scale-drawings-such-as-maps:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_scale_map
+    module: mathgen/generators/grid_scale_drawing_build.py
 senior-position-time-tangent-velocity:
   domain: senior-mathematics
   status: active
@@ -5084,6 +5154,12 @@ senior-recognise-the-numbers-as-binomial-coefficients:
     module: mathgen/generators/salg_binomial_coefficient_build.py
   - topic: salg_exam_binomial_coefficient
     module: mathgen/generators/salg_binomial_coefficient_build.py
+senior-recognise-the-properties-of-common-two-dimensional-geometric:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_solid_properties
+    module: mathgen/generators/grid_solids_build.py
 senior-recognise-the-qualitative-features-of-the-graph-of:
   domain: functions-sequences
   status: active
@@ -5228,6 +5304,12 @@ senior-simulated-samples-variability:
     module: mathgen/generators/ey_senior_spread_build.py
   - topic: ey_sample_variability_exam
     module: mathgen/generators/ey_senior_spread_build.py
+senior-sketch-elevation-views-of-different-models:
+  domain: measurement
+  status: deferred
+  sources:
+  - topic: grid_elevation_views
+    module: mathgen/generators/grid_shading_build.py
 senior-solve-cubic-equations-using-technology-and-algebraically-in:
   domain: functions-sequences
   status: active
@@ -5428,6 +5510,12 @@ senior-translations-and-their-representation-as-column-vectors:
     module: mathgen/generators/p6a_translations_build.py
   - topic: exd_x_g3_translations
     module: mathgen/generators/exd_x_g3_translations.py
+senior-understand-and-apply-drawing-conventions-of-scale-drawings:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_scale_conventions
+    module: mathgen/generators/grid_scale_drawing_build.py
 senior-understand-and-use-location-of-complex-conjugates-in:
   domain: senior-mathematics
   status: active
@@ -5902,6 +5990,12 @@ senior-use-set-language-and-notation-for-events-including:
   sources:
   - topic: senior_event_set_notation
     module: mathgen/generators/senior_event_set_notation_build.py
+senior-use-symbols-and-conventions-for-the-representation-of:
+  domain: measurement
+  status: active
+  sources:
+  - topic: grid_plan_conventions
+    module: mathgen/generators/grid_map_symbols_build.py
 senior-use-technology-and-a-recurrence-relation-to-model:
   domain: financial-discrete
   status: active

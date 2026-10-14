@@ -9,6 +9,7 @@ exist, so every kind is known wherever ``figures`` is imported.
 - :mod:`.compare`: comparing lengths, masses on a pan balance and capacities of containers.
 - :mod:`.data`: statistical displays (charts and plots).
 - :mod:`.early`: money, the hundred chart, fraction models, counters and base-ten blocks.
+- :mod:`.grid`: square and isometric grids: scale drawings, maps, shapes of squares and cube stacks.
 - :mod:`.measure`: clocks, scales, money and early-years counting pictures.
 - :mod:`.pattern`: repeating-pattern strips of shapes, numerals, letters and actions.
 - :mod:`.scene`: pictures of flat shapes, solids and everyday objects for early years.
@@ -16,4 +17,4 @@ exist, so every kind is known wherever ``figures`` is imported.
 - :mod:`.tally`: tally tables and scatters of objects to sort.
 """
 
-from mathgen.figure_kinds import calendar, compare, data, early, measure, pattern, scene, space, tally  # noqa: F401
+from mathgen.figure_kinds import calendar, compare, data, early, grid, measure, pattern, scene, space, tally  # noqa: F401

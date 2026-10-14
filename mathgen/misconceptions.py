@@ -15149,6 +15149,16 @@ _ENTRIES = (
         area="spatial",
     ),
     CatalogueEntry(
+        "opposite-is-the-neighbour",
+        "Naming a face that touches the marked face in a cube net as its opposite: touching faces fold to meet at an edge.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "opposite-is-across-the-row",
+        "Naming the face at the far end of a row of a cube net as opposite: faces two apart in a row are the opposite pair.",
+        area="spatial",
+    ),
+    CatalogueEntry(
         "solid-hidden-faces-missed",
         "Counting only the faces that can be seen in the drawing and missing the ones hidden at the back or underneath.",
         area="spatial",
