@@ -1,0 +1,51 @@
+id: f10-pattern-strip-repeating-unit
+name: Find the repeating part of a pattern strip and use it
+domain: early-foundations
+year_level: ['1']
+naplan_domain: [algebra]
+learner_band: early
+description: Look at a strip of shapes, letters or actions to count the things in the part that repeats, say what comes at a later place, pick the row that is the same pattern made with different things, and find the one that breaks the pattern.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [continue-patterns]
+answer: mcq
+sources:
+- topic: ey_pattern_unit
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_pattern_unit
+  key: later-place
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_pattern_match
+  key: same-pattern
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_pattern_unit
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-the-whole-strip
+  description: Counts every cell in the strip as the repeating part instead of the smallest part that repeats.
+- id: counts-kinds-not-places
+  description: Counts how many different things there are, so an AAB or ABB unit is called two long instead of three.
+- id: off-by-one-place
+  description: Names the item one place before or after the one asked for when carrying a pattern past the end of the strip.
+- id: matches-the-pictures-not-the-pattern
+  description: Chooses the row made of the same kind of things as the model, instead of the row that repeats in the same way.
+- id: blames-the-neighbour
+  description: Points at the cell next to the one that breaks the pattern, because the break is only seen when the next cell arrives.
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Find where the strip starts to repeat and count the things in one repeat, whatever it is made of.
+  medium:
+    steps: 2
+    demand: Find the repeating part, then carry it past the end of a numbered strip to a later place, or find the row that repeats in the same way when it is drawn with other things.
+  hard:
+    steps: 3
+    demand: Find the repeating part from the cells that agree, see which one cell does not fit it (often another item of the pattern, not a new one), and name its place by its number.
+tags: [acara-f10-v9, early, patterns, ac9m1a02]

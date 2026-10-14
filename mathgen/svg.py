@@ -1792,6 +1792,133 @@ def _shape_scene(s: dict, ids: _Ids) -> Body:
     rows = math.ceil(n / cols)
     return "".join(out), 12 + rows * row_h + 8
 
+# ---------------------------------------------------------------- pattern strip
+
+_STRIP_LEFT = 12.0
+
+
+def _pattern_shape(cell: dict, cx: float, cy: float, r: float, stripe: str) -> str:
+    fill = {"solid": INK, "open": PAPER, "striped": f"url(#{stripe})"}[cell["fill"]]
+    return _symbol_shape(cell["shape"], cx - r, cy - r, 2 * r, 2 * r, fill=fill, stroke=INK, stroke_width=2)
+
+
+def _action_icon(action: str, cx: float, cy: float) -> str:
+    ink = {"stroke": INK, "stroke_width": 1.8}
+    if action == "clap":
+        left = _el(
+            "ellipse",
+            cx=cx - 5,
+            cy=cy,
+            rx=4.5,
+            ry=10,
+            transform=f"rotate(-18 {_n(cx - 5)} {_n(cy)})",
+            fill=LIGHT,
+            **ink,
+        )
+        right = _el(
+            "ellipse", cx=cx + 5, cy=cy, rx=4.5, ry=10, transform=f"rotate(18 {_n(cx + 5)} {_n(cy)})", fill=LIGHT, **ink
+        )
+        burst = "".join(
+            _line(cx + dx * 4, cy - 15 - dy, cx + dx * 9, cy - 20 - dy, **ink) for dx, dy in ((-1, 0), (0, 2), (1, 0))
+        )
+        return left + right + burst
+    if action == "stamp":
+        return (
+            _rect(cx - 5, cy - 14, 9, 17, fill=LIGHT, **ink)
+            + _rect(cx - 5, cy + 1, 18, 8, rx=3, fill=LIGHT, **ink)
+            + _line(cx - 14, cy + 13, cx + 16, cy + 13, **ink)
+        )
+    return (
+        _circle(cx, cy - 13, 3.5, fill=INK, stroke="none")
+        + _line(cx, cy - 9, cx, cy + 3, **ink)
+        + _line(cx, cy - 6, cx - 8, cy - 14, **ink)
+        + _line(cx, cy - 6, cx + 8, cy - 14, **ink)
+        + _line(cx, cy + 3, cx - 7, cy + 12, **ink)
+        + _line(cx, cy + 3, cx + 7, cy + 12, **ink)
+    )
+
+
+def _stack_counters(count: int, cx: float, top: float, height: float, cw: float) -> str:
+    step = min(8.0, height / count)
+    r = min(step * 0.42, cw * 0.3)
+    return "".join(_circle(cx, top + height - step * (i + 0.5), r, fill=INK, stroke="none") for i in range(count))
+
+
+def _pattern_strip(s: dict, ids: _Ids) -> Body:
+    rows = s["rows"]
+    stripe = ids("stripe")
+    labelled = any(r.get("label") for r in rows)
+    left = _STRIP_LEFT + (34.0 if labelled else 0.0)
+    widest = max(len(r["cells"]) for r in rows)
+    cw = min(48.0, (CANVAS - left - 12) / widest)
+    cells = [c for r in rows for c in r["cells"]]
+    has_action = any(c["type"] == "action" for c in cells)
+    has_stack = any(c["type"] == "stack" for c in cells)
+    box_h = 82.0 if has_stack else (64.0 if has_action else 48.0)
+    out = []
+    if any(c["type"] == "shape" and c["fill"] == "striped" for c in cells):
+        out.append(
+            _el(
+                "defs",
+                _el(
+                    "pattern",
+                    _rect(0, 0, 5, 5, fill=PAPER, stroke="none") + _line(0, 0, 0, 5, stroke=INK, stroke_width=2),
+                    id=stripe,
+                    patternUnits="userSpaceOnUse",
+                    width=5,
+                    height=5,
+                    patternTransform="rotate(45)",
+                ),
+            )
+        )
+    y = 12.0
+    for r in rows:
+        if r.get("label"):
+            out.append(_text(left - 8, y + box_h / 2, r["label"], size=18, anchor="end", weight="bold"))
+        for i, c in enumerate(r["cells"]):
+            x = left + i * cw
+            cx, cy = x + cw / 2, y + box_h / 2
+            t = c["type"]
+            if t == "blank":
+                out.append(
+                    _rect(
+                        x + 2,
+                        y + 2,
+                        cw - 4,
+                        box_h - 4,
+                        rx=4,
+                        fill=PAPER,
+                        stroke=INK,
+                        stroke_width=1.5,
+                        stroke_dasharray="5 4",
+                    )
+                )
+                continue
+            out.append(_rect(x + 2, y + 2, cw - 4, box_h - 4, rx=4, fill=PAPER, stroke=GRID, stroke_width=1))
+            if t == "mark":
+                out.append(_text(cx, cy, "?", size=26, weight="bold"))
+            elif t == "text":
+                out.append(_text(cx, cy, c["text"], size=min(28.0, cw * 0.7), weight="bold"))
+            elif t == "shape":
+                out.append(_pattern_shape(c, cx, cy, min(cw * 0.34, 16.0), stripe))
+            elif t == "action":
+                out.append(_action_icon(c["action"], cx, cy - 8))
+                out.append(_text(cx, y + box_h - 11, c["action"], size=min(12.0, cw * 0.3)))
+            else:
+                out.append(_stack_counters(c["count"], cx, y + 8, box_h - 16, cw))
+        if r.get("bracket"):
+            a, b = r["bracket"]
+            x0, x1, by = left + a * cw + 3, left + (b + 1) * cw - 3, y + box_h + 7
+            out.append(_poly([(x0, by - 5), (x0, by), (x1, by), (x1, by - 5)], stroke=INK, stroke_width=2))
+            y += 10
+        y += box_h
+        if s["numbered"]:
+            for i in range(len(r["cells"])):
+                out.append(_text(left + i * cw + cw / 2, y + 9, i + 1, size=11))
+            y += 18
+        y += 14
+    return "".join(out), y
+
 
 # ---------------------------------------------------------------- entry point
 
@@ -1810,6 +1937,7 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "hundred_chart": _hundred_chart,
     "money": _money,
     "number_line": _number_line,
+    "pattern_strip": _pattern_strip,
     "picture_graph": _picture_graph,
     "pie_chart": _pie_chart,
     "protractor": _protractor,

@@ -9,6 +9,8 @@ import pytest
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
 from mathgen.figure_kinds import data, early, measure, scene, space
+
+from mathgen.figure_kinds import data, early, measure, pattern, space
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -106,6 +108,27 @@ def _hand_built() -> list[dict]:
             ],
         ),
         scene.shape_scene(alt="A house", object="house"),
+
+        pattern.pattern_strip(
+            alt="Pattern rows",
+            numbered=True,
+            rows=[
+                {
+                    "label": "A",
+                    "cells": [
+                        pattern.shape_cell(s, f)
+                        for s, f in (("heart", "striped"), ("star", "open"), ("circle", "solid"))
+                    ]
+                    + [pattern.blank_cell(), pattern.mark_cell()],
+                    "bracket": [0, 2],
+                },
+                {
+                    "label": "B",
+                    "cells": [pattern.action_cell("clap"), pattern.action_cell("stamp"), pattern.action_cell("jump")]
+                    + [pattern.text_cell(7), pattern.text_cell("M"), pattern.stack_cell(10)],
+                },
+            ],
+        ),
     ]
 
 
