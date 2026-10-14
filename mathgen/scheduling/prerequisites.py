@@ -12,6 +12,13 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "prerequisite_closure",
+    "ready_to_start",
+    "gaps_before",
+]
+
 
 def _by_id(skills) -> dict:
     return skills if isinstance(skills, dict) else {s.id: s for s in skills}

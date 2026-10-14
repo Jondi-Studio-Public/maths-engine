@@ -9,6 +9,16 @@ A numbered stage past the end of the ladder counts as maintenance.
 
 from __future__ import annotations
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "MAINTENANCE",
+    "EXAM",
+    "is_exam_source",
+    "non_exam_sources",
+    "eligible_sources",
+    "pick_sources",
+]
+
 MAINTENANCE = "maintenance"
 EXAM = "exam"
 
