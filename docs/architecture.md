@@ -71,5 +71,6 @@ python scripts/build_skill_index.py --where t1_simplify_surds   # one topic
 
 ## Loading cost
 
-`import mathgen` imports every generator module so that `REGISTRY` is complete. That takes a
-few seconds; a long-running host pays it once at start-up.
+`import mathgen` imports every generator module so that `REGISTRY` is complete. That takes about
+two seconds; a long-running host pays it once at start-up. A generator that needs a large table builds it on its
+first question, not at import.

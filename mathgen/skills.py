@@ -26,6 +26,21 @@ import yaml
 from ._paths import default_skills_dir
 from .capabilities import canonical_gate_id, gate_passed, skill_gates_satisfied
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "load_skills",
+    "validate",
+    "load_and_validate",
+    "extra_skills_roots",
+    "skills_root",
+    "Skill",
+    "Source",
+    "Domain",
+    "ValidationReport",
+    "SkillsNotFoundError",
+    "DuplicateSkillError",
+]
+
 # `skills/` beside `mathgen/` in a repository checkout, or the copy inside an installed wheel.
 DEFAULT_SKILLS_DIR = default_skills_dir()
 VALID_STAGES = {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
