@@ -64,6 +64,8 @@ def gaps_before(skill_id: str, skills, mastered: Iterable[str]) -> list[str]:
     placed: set[str] = set()
     while todo:
         ready = sorted(sid for sid in todo if all(p in placed or p not in todo for p in by_id[sid].prerequisites))
+        if not ready:
+            raise ValueError(f"prerequisite cycle among {sorted(todo)}")
         ordered.extend(ready)
         placed.update(ready)
         todo.difference_update(ready)
