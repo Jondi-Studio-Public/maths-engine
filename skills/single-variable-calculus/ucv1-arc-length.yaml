@@ -1,0 +1,80 @@
+id: ucv1-arc-length
+name: Find the length of a curve
+domain: single-variable-calculus
+year_level: [university]
+description: 'Use the arc-length formula for a curve y = f(x) or a parametric curve: show that the expression under
+  the square root is a perfect square, then integrate to give an exact length.'
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-chain-rule
+answer: expression
+sources:
+- topic: fy1ca_arc_length
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_arc_length
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_arc_length
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_arc_length_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-arc-root-dropped
+  description: Integrates 1 + (dy/dx)² without the square root.
+- id: fy1ca-arc-lower-limit-ignored
+  description: Evaluates the antiderivative at the upper limit only.
+- id: fy1ca-arc-chord-used
+  description: Gives the straight-line distance between the ends instead of the length along the curve.
+- id: fy1ca-arc-height-change-used
+  description: Gives the change in y instead of the length along the curve.
+- id: fy1ca-arc-wrong-antiderivative
+  description: Sets the length up correctly but makes a slip when integrating.
+- id: fy1ca-arc-cross-term-sign
+  description: Expands the square with the wrong sign on the middle term, so the integrand is not the one that appears
+    under the root.
+- id: fy1ca-arc-components-added
+  description: Adds dx/dt and dy/dt instead of combining them with Pythagoras.
+- id: fy1ca-arc-log-term-dropped
+  description: Drops the logarithmic term when integrating 1/x.
+- id: fy1ca-arc-derivative-sign
+  description: Gets the sign of the second term of the derivative wrong.
+- id: fy1ca-arc-power-rule-slip
+  description: Differentiates a power of x incorrectly.
+- id: fy1ca-arc-function-not-differentiated
+  description: Gives the value of the function where its slope was asked for.
+- id: fy1ca-arc-square-dropped
+  description: Does not square the slope inside the square root.
+- id: fy1ca-arc-integrand-is-derivative
+  description: Gives the slope where the value of the square root was asked for.
+- id: fy1ca-arc-sign-slip
+  description: Subtracts instead of adds inside the square root.
+- id: fy1ca-arc-chord-ignored
+  description: Gives the length of the curve where its excess over the straight line was asked for.
+- id: fy1ca-arc-arc-ignored
+  description: Gives the straight-line distance where the excess of the curve over it was asked for.
+- id: fy1ca-arc-chord-added
+  description: Adds the straight-line distance to the length instead of subtracting it.
+- id: fy1ca-arc-ratio-for-difference
+  description: Divides the two lengths where their difference was asked for.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- arc-length
+- integration

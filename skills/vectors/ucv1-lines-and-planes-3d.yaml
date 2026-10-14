@@ -1,0 +1,90 @@
+id: ucv1-lines-and-planes-3d
+name: Work with lines and planes in three dimensions
+domain: vectors
+year_level: [university]
+description: >-
+  Find the equation of the plane through three points from the cross product of two edges, find
+  where a line meets a plane, and find the acute angle between two planes or between a line and
+  a plane. The four-part exam chain takes a laser beam and a flat mirror from the normal vector
+  through the plane's equation to the point where the beam hits it.
+status: active
+placement_eligible: false
+prerequisites: [vector-cross-product, vector-dot-product]
+answer: number
+sources:
+- topic: fy1ms_lines_planes
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_lines_planes
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_lines_planes
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_lines_planes
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: plane-constant-sign
+  description: >-
+    Giving the constant of the plane with the wrong sign, as if the normal had been found in the
+    opposite direction.
+- id: cross-product-middle-sign-slip
+  description: >-
+    Forgetting the minus sign on the middle component of a cross product.
+- id: cross-product-componentwise
+  description: >-
+    Multiplying two vectors component by component and calling the result the cross product.
+- id: cross-product-components-swapped
+  description: >-
+    Writing the components of a cross product in the wrong order, such as (a, c, b) for (a, b,
+    c).
+- id: cross-product-reversed-order
+  description: >-
+    Taking the cross product in the wrong order, so the normal vector points the opposite way.
+- id: plane-constant-sum-of-points
+  description: >-
+    Dotting the normal with the sum of the three points instead of with one of them.
+- id: line-plane-sign-in-numerator
+  description: >-
+    Adding n·A to the plane's constant instead of subtracting it when solving for the parameter
+    where a line meets a plane.
+- id: line-plane-not-divided-by-direction-dot
+  description: >-
+    Stopping at k - n·A without dividing by n·u, the rate at which the line moves through the
+    plane's values.
+- id: line-plane-ratio-inverted
+  description: >-
+    Dividing in the wrong order: (n·u)/(k - n·A) where (k - n·A)/(n·u) is needed.
+- id: line-plane-point-term-forgotten
+  description: >-
+    Leaving the line's starting point out of the substitution into the plane's equation: solving
+    k = (n·u)t.
+- id: angle-between-planes-supplement
+  description: >-
+    Giving the obtuse angle 180° - θ where the acute angle between the planes or the line and
+    the plane was asked for.
+- id: angle-between-planes-sine-used
+  description: >-
+    Using sine where cosine belongs (or the reverse), which gives 90° - θ for the angle between
+    the normals.
+- id: angle-between-planes-constants-included
+  description: >-
+    Including the constants of the two plane equations in the vectors whose angle is found,
+    instead of only the normals.
+- id: angle-given-in-radians
+  description: >-
+    Leaving an angle in radians when degrees were asked for.
+- id: line-plane-angle-cosine-used
+  description: >-
+    Finding the angle between the line and the plane's normal (using cosine) and giving it as
+    the angle between the line and the plane.
+- id: line-plane-angle-tangent-used
+  description: >-
+    Using the inverse tangent of |n·u|/(|n||u|) in place of the inverse sine for the angle
+    between a line and a plane.
+tags: [university-core-v1, linear-algebra, vectors, analytic-geometry]
