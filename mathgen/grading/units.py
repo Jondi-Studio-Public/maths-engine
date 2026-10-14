@@ -31,7 +31,7 @@ _UNITS: dict[str, tuple[str, ...]] = {
     "inch": ("inch", "inches"),
     "foot": ("ft", "foot", "feet"),
     "yard": ("yd", "yds", "yard", "yards"),
-    "mile": ("mile", "miles"),
+    "mile": ("mi", "mile", "miles"),
     "furlong": ("furlong", "furlongs"),
     # mass
     "mg": ("mg", "milligram", "milligrams"),
@@ -59,6 +59,7 @@ _UNITS: dict[str, tuple[str, ...]] = {
     "cm3": ("cm3", "cm^3", "cm³", "cc", "cubic centimetres", "cubic centimeters"),
     "m3": ("m3", "m^3", "m³", "cubic metres", "cubic meters"),
     # time
+    "ms": ("ms", "millisecond", "milliseconds"),
     "s": ("s", "sec", "secs", "second", "seconds"),
     "min": ("min", "mins", "minute", "minutes"),
     "h": ("h", "hr", "hrs", "hour", "hours"),
@@ -69,10 +70,33 @@ _UNITS: dict[str, tuple[str, ...]] = {
     "km/h": ("km/h", "kmh", "kph", "km/hr", "kilometres per hour", "kilometers per hour"),
     "m/s": ("m/s", "metres per second", "meters per second"),
     "mph": ("mph", "miles per hour"),
+    "m/s2": (
+        "m/s²",
+        "m/s^2",
+        "m/s2",
+        "m s^-2",
+        "m/s/s",
+        "metres per second squared",
+        "meters per second squared",
+        "metres per second per second",
+        "meters per second per second",
+    ),
+    # density, concentration, stiffness: a compound unit is also found part by part (see `_compose`)
+    "g/cm3": ("g/cm³", "g/cm^3", "g/cm3", "g/cc"),
+    "kg/m3": ("kg/m³", "kg/m^3", "kg/m3"),
+    "g/ml": ("g/ml",),
+    "n/m": ("n/m",),
     # energy
     "j": ("joule", "joules"),  # not a bare "j": "-4j" is a vector component
     "kj": ("kj", "kilojoule", "kilojoules"),
     "mj": ("mj", "megajoule", "megajoules"),
+    "w": ("w", "watt", "watts"),
+    "kw": ("kw", "kilowatt", "kilowatts"),
+    "hz": ("hz", "hertz"),
+    "khz": ("khz", "kilohertz"),
+    "mhz": ("mhz", "megahertz"),
+    "volt": ("volt", "volts"),
+    "mol": ("mol", "mole", "moles"),
     "cal": ("cal", "cals", "calorie", "calories", "kcal"),
     "kwh": ("kwh", "kilowatt hour", "kilowatt hours", "kilowatt-hour", "kilowatt-hours"),
     # force, pressure
@@ -85,6 +109,7 @@ _UNITS: dict[str, tuple[str, ...]] = {
     # temperature
     "celsius": ("°c", "degrees celsius", "degree celsius", "celsius"),
     "fahrenheit": ("°f", "degrees fahrenheit", "degree fahrenheit", "fahrenheit"),
+    "kelvin": ("kelvin", "kelvins"),
     # money
     "dollar": ("$", "dollar", "dollars"),
     "cent": ("cent", "cents"),
@@ -130,6 +155,77 @@ _ASKING_RE = re.compile(
 )
 
 
+#: Capital letters that are a unit only when written, in capitals, after a space that follows the number
+#: ("20 J", "300 K", "30 F"): lower case is a variable or a vector component ("-4j"), so these stay out of the
+#: case-blind table above.
+_CAPITAL_UNITS = {"J": "j", "K": "kelvin", "F": "fahrenheit", "C": "celsius", "V": "volt"}
+# Longest text after the number that is read as a unit at all; the longest real one is "metres per second squared".
+_MAX_UNIT_TEXT = 40
+_EXPONENT_WORDS = (("squared", "2"), ("cubed", "3"))
+_SUPERSCRIPTS = {"²": "2", "³": "3"}
+# Two units that are one unit when written as a ratio of parts.
+_COMPOSED_ALIASES = {"mile/h": "mph"}
+
+
+def _segment_unit(segment: str) -> str | None:
+    """The unit id of one part of a compound unit ("km", "cm^3", "s squared"), or None. An exponent is appended
+    to the id ("s2"), which is how the table names "m2" and "cm3" too."""
+    text = segment.strip().lower()
+    if text in _SPELLING_TO_UNIT:
+        return _SPELLING_TO_UNIT[text]
+    exponent = ""
+    for word, digit in _EXPONENT_WORDS:
+        if text.endswith(" " + word):
+            text, exponent = text[: -len(word)].strip(), digit
+    if not exponent and text[-1:] in _SUPERSCRIPTS:
+        text, exponent = text[:-1].strip(), _SUPERSCRIPTS[text[-1]]
+    if not exponent and text[-2:-1] == "^" and text[-1:] in ("2", "3"):
+        text, exponent = text[:-2].strip(), text[-1]
+    unit = _SPELLING_TO_UNIT.get(text)
+    return None if unit is None or not exponent else unit + exponent
+
+
+def _compose(text: str) -> str | None:
+    """A compound unit written out of parts ("km/s", "kilometres per hour", "g/cm^3", "metres squared",
+    "m s"), as one id such as "km/s", "km/h" or "g/cm3"; None when the text is not made wholly of recognised
+    units. The id is the table's own id for a unit the table lists ("km/h", "m/s2"), so the two compare equal."""
+    text = text.strip().rstrip(".!").strip().lower()
+    if not text or len(text) > _MAX_UNIT_TEXT:
+        return None
+    whole = _segment_unit(text)
+    if whole is not None:
+        return whole
+    segments = text.replace(" per ", "/").split("/")
+    if len(segments) == 1:
+        segments = text.split()  # "m s": two units written side by side
+        joiner = "*"
+    else:
+        joiner = "/"
+    if len(segments) < 2 or len(segments) > 3:
+        return None
+    ids = [_segment_unit(segment) for segment in segments]
+    if None in ids:
+        return None
+    composed = joiner.join(ids)  # type: ignore[arg-type]
+    return _COMPOSED_ALIASES.get(composed, composed)
+
+
+def _after_last_number(text: str) -> tuple[int, str] | None:
+    """Where the last number of `text` ends and what is written after it (trailing space and full stop off)."""
+    numbers = list(_NUMBER_RE.finditer(text or ""))
+    if not numbers:
+        return None
+    return numbers[-1].end(), text[numbers[-1].end() :].strip().rstrip(".!").strip()
+
+
+def _capital_unit(text: str) -> str | None:
+    """The unit of a trailing capital letter written after a space ("20 J", "30 F"), or None."""
+    found = _after_last_number(text)
+    if found is None or not text[found[0] : found[0] + 1].isspace():
+        return None
+    return _CAPITAL_UNITS.get(found[1])
+
+
 _LEADING_DOLLAR_RE = re.compile(r"^\s*\$\s*(?=\S)")
 _PERCENT_RE = re.compile(r"\s*(?:%|percent)\s*$", re.IGNORECASE)
 
@@ -148,6 +244,9 @@ def split_unit(text: str) -> tuple[str, str | None]:
         match = _MENTION_RE.match(rest)
         if match is not None and match.end() == len(rest.rstrip()):
             return text[: numbers[-1].end()], _SPELLING_TO_UNIT[match.group(0).lower()]
+        capital = _capital_unit(text)
+        if capital is not None:
+            return text[: numbers[-1].end()], capital
     dollar = _LEADING_DOLLAR_RE.match(text)
     if dollar is not None:
         return text[dollar.end() :], "dollar"
@@ -158,9 +257,13 @@ def split_unit(text: str) -> tuple[str, str | None]:
 
 
 def _unit_of(text: str) -> str | None:
-    """The recognised unit written straight after the last number in `text`, or None. A leading "$" is not
-    judged: "$501" for an amount in cents has always been read as the number 501."""
+    """The recognised unit written straight after the last number in `text`, or None: one the table lists, or a
+    compound of listed units ("km/s", `_compose`). A leading "$" is not judged: "$501" for an amount in cents has
+    always been read as the number 501."""
     unit = split_unit(text)[1]
+    if unit is None:
+        found = _after_last_number(text)
+        return None if found is None else _compose(found[1])
     return None if unit in ("%", "dollar") and not _trailing_unit(text) else unit
 
 
@@ -171,7 +274,7 @@ def _trailing_unit(text: str) -> bool:
         return False
     rest = text[numbers[-1].end() :].strip().rstrip(".!")
     match = _MENTION_RE.match(rest)
-    return match is not None and match.end() == len(rest.rstrip())
+    return (match is not None and match.end() == len(rest.rstrip())) or _capital_unit(text) is not None
 
 
 def _describes_earlier_value(before: str) -> bool:
@@ -193,12 +296,35 @@ def _asking_matches(question, pattern: re.Pattern) -> list[re.Match]:
 
 
 def _asked_unit(question) -> str | None:
-    """The unit the question asks for: the canonical's own unit, else the last unit it asks for by name."""
-    shown = _unit_of(getattr(question, "answer_text", "") or "")
+    """The unit the question asks for: the canonical's own unit, else the last unit it asks for by name.
+
+    The canonical's unit may be one the table does not list ("9.8 L/min"): it is then its text, spelled plainly
+    ("l/min"), which no recognised unit equals, so a reply in any recognised unit is refused and one in the
+    same spelling is not judged."""
+    answer_text = getattr(question, "answer_text", "") or ""
+    shown = _unit_of(answer_text)
     if shown is not None:
         return shown
+    unlisted = _unlisted_unit_text(answer_text)
+    if unlisted is not None:
+        return unlisted
     asked = _asking_matches(question, _ASKED_RE)
     return _SPELLING_TO_UNIT[asked[-1].group(1).lower()] if asked else None
+
+
+# What a unit written with the number looks like: letters, a degree or micro sign, a slash, an exponent, spaces.
+_UNIT_TEXT_RE = re.compile(r"[a-zA-Z°µμΩ/^²³\d ]{1,20}")
+
+
+def _unlisted_unit_text(answer_text: str) -> str | None:
+    """The unit an answer shows after its number when no listed unit makes it up ("L/min" gives "l/min"), or None.
+    Only text that looks like a unit counts: a remark such as "(to 2 d.p.)" is not one."""
+    found = _after_last_number(answer_text)
+    if found is None or not found[1] or not _UNIT_TEXT_RE.fullmatch(found[1]):
+        return None
+    if not re.search(r"[a-zA-Z°µμΩ]", found[1]) or found[1].lower() in ("th", "st", "nd", "rd", "e", "x", "pi", "i"):
+        return None
+    return "unlisted:" + found[1].lower().replace(" ", "")
 
 
 def _asked_compound_parts(question) -> frozenset[str] | None:
@@ -218,4 +344,8 @@ def unit_is_acceptable(question, given: str) -> bool:
     if asked is not None:
         return unit == asked
     parts = _asked_compound_parts(question)
-    return parts is None or unit in parts or unit in _RATE_UNITS
+    if parts is None or unit in parts or unit in _RATE_UNITS:
+        return True
+    # "N/s" is not a way to write "N/m", but "N/m" itself, spelled out as parts, is.
+    pieces = {piece.rstrip("23") or piece for piece in unit.split("/")} if "/" in unit else None
+    return pieces is not None and pieces <= parts
