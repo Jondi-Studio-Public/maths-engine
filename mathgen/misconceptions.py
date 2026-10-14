@@ -17285,6 +17285,7 @@ _ENTRIES = (
         "demoivre-sine-cosine-swapped",
         "Writing the power in Cartesian form with sine as the real part and cosine as the imaginary part.",
         area="complex-numbers",
+    ),
     CatalogueEntry(
         "fy1ca-continuity-sign-slip",
         "Moving a term across the equals sign without changing its sign when matching the values of two pieces, so the constant comes out with the wrong sign or size.",
@@ -19915,6 +19916,7 @@ _ENTRIES = (
         "redform-wrong-base",
         "Starting the recurrence from swapped or wrong base cases, such as using the value for n = 1 where n = 0 is needed.",
         area="integration",
+    ),
     CatalogueEntry(
         "rref-stopped-at-echelon",
         "Stopping at a row echelon form: clearing the entries below each pivot but not the entries above it, so the "
@@ -21024,6 +21026,8 @@ _ENTRIES = (
         "series-root-index-ignored",
         "Ignoring the root index when finding the exponent p, so the exponent of n under the root is not divided by it.",
         area="series",
+    ),
+    CatalogueEntry(
         "fr2a-translation-components-swapped",
         "Applying the horizontal move to y and the vertical move to x.",
         area="coordinates",
@@ -24162,6 +24166,8 @@ _ENTRIES = (
         "ir2a-gives-the-change-not-the-prediction",
         "Giving the change in y for the step when the predicted value of y was asked.",
         area="statistics",
+    ),
+    CatalogueEntry(
         "cycle-notation-direction-reversed",
         "Writing each cycle in the opposite direction, which is the cycle notation of the inverse permutation.",
         area="abstract-algebra",
@@ -30365,6 +30371,8 @@ _ENTRIES = (
         "recurrence-coefficients-swapped",
         "Attaching the two fitted constants of a recurrence solution to the wrong characteristic roots.",
         area="discrete-mathematics",
+    ),
+    CatalogueEntry(
         "sr2a-planar-forgot-outer",
         "Counts only the regions inside the network and leaves out the unbounded region around the outside.",
         area="networks",
@@ -32957,11 +32965,6 @@ _ENTRIES = (
     CatalogueEntry(
         "sign-error-on-point-substitution",
         "Writing the equation of a line from its gradient and a point with the wrong sign on the gradient times the point's x-value.",
-        area="linear-relations",
-    ),
-    CatalogueEntry(
-        "x-and-y-swapped",
-        "Writing the solution as (y, x) instead of (x, y).",
         area="linear-relations",
     ),
     CatalogueEntry(
