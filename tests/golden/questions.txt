@@ -1078,6 +1078,51 @@
 {"answer": "-5/2", "id": "explicit-euler-linear-ode/medium/0/7b04194147bd", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-4)y + (1), starting from…"}
 {"answer": "4/3", "id": "explicit-euler-linear-ode/medium/1/6b95d4f0ba01", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-5)y + (5), starting from…"}
 {"answer": "3", "id": "explicit-euler-linear-ode/medium/2/168adcd308d3", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (5)y + (-4), starting from…"}
+{"answer": "30", "id": "ey-calendar-count-days/easy/0/eb9432a1c5c9", "text": "How many days are in this month?"}
+{"answer": "31", "id": "ey-calendar-count-days/easy/1/82ff0e7d47a2", "text": "How many days does this month have, Sione?"}
+{"answer": "30", "id": "ey-calendar-count-days/easy/2/aa019a76e526", "text": "Ethan counts the days in this month. How many are there?"}
+{"answer": "18", "id": "ey-calendar-count-days/hard/0/9cfd3eebbf85", "text": "From Start to End is 2 weeks and 4 days. How many days is that?"}
+{"answer": "11", "id": "ey-calendar-count-days/hard/1/2da10ee2e209", "text": "Start to End takes 1 week and 4 days. How many days?"}
+{"answer": "20", "id": "ey-calendar-count-days/hard/2/d845c8cbcc57", "text": "Olivia counts from Start to End: 2 weeks and 6 days. How many days?"}
+{"answer": "4", "id": "ey-calendar-count-days/medium/0/6c07ba8df43b", "text": "How many weeks from the Start to the End?"}
+{"answer": "4", "id": "ey-calendar-count-days/medium/1/9dfaabcf1f41", "text": "The Start and the End are how many weeks apart?"}
+{"answer": "4", "id": "ey-calendar-count-days/medium/2/286801ed1cdb", "text": "How many weeks from the Start to the End?"}
+{"answer": "3", "id": "ey-calendar-days-between/easy/0/1ee6ea7e0762", "text": "How many days from the Zoo to the Market?"}
+{"answer": "2", "id": "ey-calendar-days-between/easy/1/36056e7fdf75", "text": "Tariq counts the days from the Market to the Swim. How many?"}
+{"answer": "3", "id": "ey-calendar-days-between/easy/2/fac1af26c30a", "text": "Priya counts the days from the Swim to the Movie. How many?"}
+{"answer": "8", "id": "ey-calendar-days-between/hard/0/42c15498203a", "text": "How many days from the Dentist to the last day of the month?"}
+{"answer": "18", "id": "ey-calendar-days-between/hard/1/36c3073be497", "text": "Ingrid counts from the Concert to the last day of the month. How many days?"}
+{"answer": "15", "id": "ey-calendar-days-between/hard/2/1ea57bbb832c", "text": "How many days from the Footy to the Dentist?"}
+{"answer": "18", "id": "ey-calendar-days-between/medium/0/334d9405a61d", "text": "2 weeks after the Market is which date?"}
+{"answer": "29", "id": "ey-calendar-days-between/medium/1/417ad027a5f5", "text": "What is the date 3 weeks after the Concert?"}
+{"answer": "19", "id": "ey-calendar-days-between/medium/2/bc520806c1ed", "text": "What is the date 2 weeks after the Zoo?"}
+{"answer": "Wednesday", "id": "ey-calendar-days-months-order/easy/0/24b61b272106", "text": "Which day comes next after Tuesday?"}
+{"answer": "Saturday", "id": "ey-calendar-days-months-order/easy/1/c792c3304c1f", "text": "What day comes after Friday?"}
+{"answer": "Friday", "id": "ey-calendar-days-months-order/easy/2/2027a81ca471", "text": "Which day comes next after Thursday?"}
+{"answer": "December", "id": "ey-calendar-days-months-order/hard/0/89f358c48289", "text": "Which month comes next?"}
+{"answer": "February", "id": "ey-calendar-days-months-order/hard/1/7e5c417bbc6e", "text": "Hassan looks at this calendar. Which month came before it?"}
+{"answer": "May", "id": "ey-calendar-days-months-order/hard/2/1120c9a4da09", "text": "Which month comes next?"}
+{"answer": "Sunday", "id": "ey-calendar-days-months-order/medium/0/a8ae0f53885a", "text": "Ravi is thinking about the week. What day comes after Saturday?"}
+{"answer": "Saturday", "id": "ey-calendar-days-months-order/medium/1/a05409c720c3", "text": "Which day comes just before Sunday?"}
+{"answer": "Saturday", "id": "ey-calendar-days-months-order/medium/2/da437908a26f", "text": "Which day comes just before Sunday?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/easy/0/c7dd666c9595", "text": "What day of the week is the ringed date?"}
+{"answer": "Wednesday", "id": "ey-calendar-weekday-of-date/easy/1/70354ca4fe3e", "text": "Which day of the week is the ringed date?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/easy/2/30f88d9389b2", "text": "Which day of the week is the ringed date?"}
+{"answer": "Saturday", "id": "ey-calendar-weekday-of-date/hard/0/e82f2b6e5a33", "text": "What day of the week is the last day of the month?"}
+{"answer": "Sunday", "id": "ey-calendar-weekday-of-date/hard/1/9b7719dd1056", "text": "What day of the week is the 1st of next month?"}
+{"answer": "Tuesday", "id": "ey-calendar-weekday-of-date/hard/2/432887518956", "text": "Which day of the week does next month start on?"}
+{"answer": "Thursday", "id": "ey-calendar-weekday-of-date/medium/0/fde1895338f2", "text": "Which day of the week is the 12th?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/1/115dcab76551", "text": "What day of the week is the 23rd?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/2/8a80e4f90fb2", "text": "Talia has a game on the 8th. What day of the week is that?"}
+{"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
+{"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
+{"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}
+{"answer": "5", "id": "ey-day-strip-sequence/hard/0/5ba9e3169408", "text": "What number card is second in the day?"}
+{"answer": "6", "id": "ey-day-strip-sequence/hard/1/f8b4dcef9ff1", "text": "In day order, which number card comes second?"}
+{"answer": "2", "id": "ey-day-strip-sequence/hard/2/3f3d40e44254", "text": "Put the day in order. Which number card comes third?"}
+{"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
+{"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
+{"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
 {"answer": "17 - 14 = □", "id": "f10-add-subtract-number-sentences/easy/0/49bc200338d6", "text": "There are 17 children in a class. 14 of the children walk to school and the res…"}
 {"answer": "19 - □ = 16", "id": "f10-add-subtract-number-sentences/easy/1/77b88bda6770", "text": "Liam had 19 tickets. Liam gave 16 tickets to a friend. How many tickets does Li…"}
 {"answer": "□ - 15 = 3", "id": "f10-add-subtract-number-sentences/easy/2/aaafad064f0a", "text": "Kai has 3 boxes. A friend gives Kai 15 more. How many boxes does Kai have in to…"}

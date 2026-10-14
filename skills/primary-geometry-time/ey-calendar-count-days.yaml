@@ -1,0 +1,43 @@
+id: ey-calendar-count-days
+name: Count days and weeks on a calendar
+domain: primary-geometry-time
+year_level: ['1']
+naplan_domain: [measurement]
+learner_band: early
+description: Read one month of a calendar to say how many days it has, how many weeks lie between two marked days, and how many days are in a span given as weeks and days.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [tell-time-to-hour, skip-count-2-5-10]
+answer: number
+sources:
+- topic: ey_calendar_span
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_calendar_span
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_calendar_span
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: Find the last date on the calendar, which is the number of days in the month.}
+  medium: {steps: 2, demand: Find the days from the star to the ring, then group them into sevens to make weeks.}
+  hard: {steps: 3, demand: Turn the weeks into days (sevens), then add the extra days, with the picture as a check.}
+misconceptions:
+- id: counts-rows-as-days
+  description: Multiplies the number of rows by seven, so a month that ends part way through a row is given too many days.
+- id: every-month-thirty
+  description: Says every month has thirty days, ignoring the last date on the calendar.
+- id: gives-days-for-weeks
+  description: Gives the number of days when asked for weeks (for example 14 for 2 weeks).
+- id: adds-weeks-and-days
+  description: Adds the number of weeks to the number of extra days instead of making the weeks into days first.
+- id: off-by-one-count
+  description: Counts the starting square as well as the ending one, or leaves one square out.
+tags: [acara-f10-v9, early, time, calendar, ac9m1m03]

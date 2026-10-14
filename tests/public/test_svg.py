@@ -8,6 +8,7 @@ import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
+from mathgen.figure_kinds import calendar as calendar_kinds
 from mathgen.figure_kinds import data, early, measure, space
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
@@ -95,6 +96,20 @@ def _hand_built() -> list[dict]:
         early.counters(layout="array", alt="An array", rows=2, cols=3, shape="square", colours=[[1, 2, 1], [2, 1, 2]]),
         early.counters(layout="groups", alt="Groups", groups=[3, 0, 5, 9], shape="diamond"),
         early.counters(layout="dice", alt="Dice", faces=[{"n": n, "colour": 1 + n % 2} for n in (1, 2, 6)]),
+        calendar_kinds.calendar_month(
+            year=2026,
+            month=10,
+            alt="A calendar",
+            marks=[
+                {"day": 9, "style": "star", "label": "Party"},
+                {"day": 16, "style": "ring", "label": "Swim"},
+                {"day": 21, "style": "shade"},
+            ],
+        ),
+        calendar_kinds.calendar_month(year=2024, month=2, alt="A leap February", week_start="sun", show_year=True),
+        calendar_kinds.day_strip(cards=["wake_up", "breakfast", "school", "play", "dinner", "bed"], alt="A day"),
+        calendar_kinds.day_strip(cards=["sunrise", "bath", "moon", "lunch"], alt="Scrambled", numbered=True),
+        calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
     ]
 
 

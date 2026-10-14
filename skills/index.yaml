@@ -882,6 +882,36 @@ explicit-euler-linear-ode:
     module: mathgen/generators/university_scientific_computing.py
   - topic: exd_x_u4_euler_steady_state
     module: mathgen/generators/exd_x_u4_euler_steady_state.py
+ey-calendar-count-days:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_span
+    module: mathgen/generators/ey_calendar_build.py
+ey-calendar-days-between:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_between
+    module: mathgen/generators/ey_calendar_build.py
+ey-calendar-days-months-order:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_order
+    module: mathgen/generators/ey_calendar_build.py
+ey-calendar-weekday-of-date:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_weekday
+    module: mathgen/generators/ey_calendar_build.py
+ey-day-strip-sequence:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_day_strip
+    module: mathgen/generators/ey_day_strip_build.py
 f10-add-subtract-number-sentences:
   domain: equations
   status: active
