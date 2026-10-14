@@ -3,6 +3,7 @@
 id: senior-find-the-surface-area-of-familiar-solids-including
 name: Find the surface area of familiar solids, including cubes, rectangular and triangular prisms, spheres and cylinders
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, find the surface area of familiar solids, including cubes, rectangular and triangular prisms, spheres and cylinders. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

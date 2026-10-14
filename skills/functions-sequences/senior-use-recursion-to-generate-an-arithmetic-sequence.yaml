@@ -3,6 +3,7 @@
 id: senior-use-recursion-to-generate-an-arithmetic-sequence
 name: Use recursion to generate an arithmetic sequence
 domain: functions-sequences
+year_level: ['12']
 description: Generate the next k terms of an arithmetic sequence by iteratively applying the recursive rule t(n+1) = t(n) + d from a stated first term. The graded answer is exactly the k terms AFTER t1, never including t1 itself. This skill is distinguished from the existing active catalog skill "generate-sequence-from-rule" which generates from a CLOSED-FORM rule by substituting term positions directly; this skill generates by applying a RECURSIVE rule iteratively from a stated first term, a genuinely different mechanism.
 status: active
 placement_eligible: false

@@ -8,6 +8,7 @@ whose displayed option matches that class.
 >= 1000 questions are checked over the four tiers -- per topic.
 """
 
+from dataclasses import replace
 import os
 import re
 from fractions import Fraction
@@ -46,6 +47,7 @@ def _skill_sources(skill_id):
 
 GEO_SOURCES = _skill_sources(GEO_ID)
 REC_SOURCES = _skill_sources(REC_ID)
+REC_SOURCES["exam"] = replace(REC_SOURCES["exam"], topic="p19e_recurrence_long_term_class", params={})
 
 
 def _make(sources, difficulty, seed):

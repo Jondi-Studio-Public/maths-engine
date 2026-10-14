@@ -24,6 +24,10 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w12c_solve_graphically
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: reads-the-y-value-instead-of-x
   description: Gives the y-coordinate of the crossing, or the stated height, as the solution for x.

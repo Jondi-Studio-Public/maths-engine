@@ -3,6 +3,7 @@
 id: senior-use-de-moivre-s-theorem-for-integral-powers
 name: Use De Moivre's theorem for integral powers
 domain: senior-mathematics
+year_level: ['12']
 description: Find a positive or negative integer power of a complex number in polar form with De Moivre's theorem,
   raising the modulus to the power and multiplying the argument by it, from a number given as r cis theta or in
   Cartesian form, with the argument brought back into the range 0 to 360 degrees.

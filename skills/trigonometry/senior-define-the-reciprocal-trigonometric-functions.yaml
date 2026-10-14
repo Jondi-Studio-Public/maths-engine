@@ -3,6 +3,7 @@
 id: senior-define-the-reciprocal-trigonometric-functions
 name: Define the reciprocal trigonometric functions and find their exact values
 domain: trigonometry
+year_level: ['11']
 description: Find the exact value of sec, cosec or cot at a standard angle, using sec = 1/cos, cosec = 1/sin and
   cot = cos/sin, in degrees in the first quadrant, in degrees in the other quadrants, and in radians for angles that
   must first be reduced.

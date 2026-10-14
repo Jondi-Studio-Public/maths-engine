@@ -3,6 +3,7 @@
 id: senior-calculate-float-times-for-non-critical-activities
 name: Calculate float times for non-critical activities
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, calculate float times for non-critical activities. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
@@ -21,7 +22,7 @@ sources:
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g6_delay_propagation
+- topic: exd_x_r3c_network_float
   params: {tier: exam}
   difficulty: exam
   stages:

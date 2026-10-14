@@ -187,7 +187,7 @@ def test_deterministic():
 
 
 def test_working_brackets_a_fraction_divisor():
-    """"T = 58.8 / 3/5" reads as 58.8 / 3 / 5: a fractional divisor is bracketed."""
+    """ "T = 58.8 / 3/5" reads as 58.8 / 3 / 5: a fractional divisor is bracketed."""
     for tier in ("medium", "hard", "exam"):
         for s in range(60):
             q = make("smech_equilibrium_exam" if tier == "exam" else "smech_equilibrium", seed=s, difficulty=tier)

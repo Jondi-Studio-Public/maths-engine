@@ -72,6 +72,11 @@ def _pair(text):
 @pytest.mark.parametrize("skill_id", SKILLS)
 def test_exam_source_is_last_and_in_exam_stage_only(skill_id):
     topic, kind = SKILLS[skill_id]
+    # A skill whose exam source has since been replaced by a multi-part chain registers that topic instead.
+    topic = {
+        "senior-define-and-use-multiplication-by-a-scalar-of": "exd_x_r3e_vector_combination",
+        "senior-examine-properties-of-parallel-and-perpendicular-vectors-and": "exd_x_r3f_vector_perpendicular",
+    }.get(skill_id, topic)
     _, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
     assert skill.answer == kind

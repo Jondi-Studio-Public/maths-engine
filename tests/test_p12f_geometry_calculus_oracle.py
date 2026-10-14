@@ -114,6 +114,8 @@ def _skill_sources(skill_id):
 
 
 GRAM_SOURCES = _skill_sources(GRAM_ID)
+# The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+GRAM_SOURCES["exam"] = dataclasses.replace(GRAM_SOURCES["exam"], topic="p12f_gram_schmidt_2d", params={})
 HESS_SOURCES = _skill_sources(HESS_ID)
 
 

@@ -118,7 +118,8 @@ def test_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["jacobi-iteration-2x2"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == TOPIC
+        # the exam source moved to the multi-part chain exd_x_r3b_gauss_seidel
+        assert source.topic == ("exd_x_r3b_gauss_seidel" if source.difficulty == "exam" else TOPIC)
     assert set(skill.sources[0].stages) == {0, 1, 2}
     assert set(skill.sources[1].stages) == {3, 4}
     assert set(skill.sources[2].stages) == {5, 6, "maintenance"}

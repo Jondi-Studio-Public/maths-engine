@@ -3,6 +3,7 @@
 id: senior-recognise-the-numbers-as-binomial-coefficients
 name: Recognise the numbers C(n, r) as binomial coefficients, as coefficients in the expansion of (x + y)^n
 domain: senior-mathematics
+year_level: ['11']
 description: Find a single coefficient of a binomial expansion without expanding the whole power, by recognising
   C(n, r) as the coefficient of x^r y^(n-r) in (x + y)^n and multiplying by the powers of any numbers in the binomial.
 status: active

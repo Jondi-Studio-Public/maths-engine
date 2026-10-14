@@ -3,6 +3,7 @@
 id: senior-determine-and-examine-the-n-th-roots-of
 name: Determine and examine the n-th roots of unity and their location on the unit circle
 domain: measurement
+year_level: ['12']
 description: |
   Given bounded, fully specified inputs, determine and examine the n-th roots
   of unity and their location on the unit circle. Return the resulting value,

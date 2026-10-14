@@ -3,6 +3,7 @@
 id: senior-use-a-spreadsheet-to-display-examples-of-the
 name: Use a spreadsheet to display examples of the above computations when multiple or repeated computations are required; for example, preparing a wage-sheet displaying the weekly earnings of workers in a fast food store where hours of employment and hourly rates of pay may differ, preparing a budget, or investigating the potential cost of owning and operating a car over a year
 domain: arithmetic
+year_level: ['11']
 description: Given stated hourly pay rates and hours worked for several workers in a small tabular dataset, compute the stated total weekly wage of one specified worker.
 status: active
 placement_eligible: false

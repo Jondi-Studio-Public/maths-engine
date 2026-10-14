@@ -12,6 +12,7 @@ decision depends on (including the unit-conversion factor, e.g. "1 dozen =
 12 items") is read straight out of the text, never assumed or hardcoded.
 """
 
+from dataclasses import replace
 import functools
 import re
 from fractions import Fraction
@@ -44,6 +45,8 @@ def _skills_dict():
 def _make_from_sources(difficulty, seed):
     skill = _skills_dict()[SKILL]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if difficulty == "exam":
+        src = replace(src, topic="p14b_compare_unit_prices", params={})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

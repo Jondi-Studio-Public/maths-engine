@@ -4,6 +4,7 @@ id: senior-use-numerical-integration-using-technology-f-left-t
 name: 'Use numerical integration using technology \(f\left(t\right)=\lambda e^{-\lambda t}\) for
   \(t\geq0\) of the exponential random variable with parameter \(\lambda>0,\)'
 domain: integration
+year_level: ['12']
 description: 'Given a stated rate parameter lambda greater than zero and stated finite integration
   bounds, use numerical integration by technology to compute the value of the definite integral of
   the exponential probability density function f(t) = lambda * e^(-lambda * t) for t >= 0 between

@@ -6,6 +6,8 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
 import re
 from fractions import Fraction
 
@@ -26,6 +28,10 @@ _A_RE = re.compile(r"a = (-?\d+(?:\.\d+)?)")
 def _make_from_sources(skills_dict, difficulty, seed):
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if (
+        difficulty == "exam"
+    ):  # the skill's exam source is now a multi-part chain; these tests pin the earlier exam generator
+        src = replace(src, topic="p12c_estimate_limit_ah", params={})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

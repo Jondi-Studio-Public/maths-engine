@@ -4,6 +4,7 @@ id: senior-solve-equations-involving-trigonometric-functions-using-technology-an
 name: Solve equations involving trigonometric functions using technology, and algebraically in simple
   cases
 domain: trigonometry
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, solve equations involving trigonometric functions
   using technology, and algebraically in simple cases. Return the resulting value, expression, relation,
   or classification. Every question is a general trigonometric EQUATION over a stated interval that can

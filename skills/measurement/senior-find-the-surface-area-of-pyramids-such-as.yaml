@@ -3,6 +3,7 @@
 id: senior-find-the-surface-area-of-pyramids-such-as
 name: Find the surface area of pyramids, such as rectangular- and triangular-based pyramids
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, find the surface area of pyramids, such as rectangular- and triangular-based pyramids. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

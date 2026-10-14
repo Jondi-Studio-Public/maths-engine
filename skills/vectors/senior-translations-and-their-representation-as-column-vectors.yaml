@@ -3,6 +3,7 @@
 id: senior-translations-and-their-representation-as-column-vectors
 name: Translations and their representation as column vectors
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, translations and their representation as column vectors. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

@@ -3,6 +3,7 @@
 id: senior-understand-the-unit-circle-definition-of-cos-theta
 name: Understand the unit circle definition of \(\cos\theta,\;\sin\theta\)
 domain: trigonometry
+year_level: ['11']
 description: "Given theta as a stated standard angle (an integer multiple of pi/6 or pi/4), state the exact coordinates (cos theta, sin theta) of the corresponding point on the unit circle, as one typed ordered pair in simplified surd form."
 status: active
 placement_eligible: false

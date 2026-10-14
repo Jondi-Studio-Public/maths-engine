@@ -3,6 +3,7 @@
 id: senior-check-results-of-calculations-for-accuracy
 name: Check results of calculations for accuracy
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, check results of calculations for accuracy. Return the resulting value, expression, relation, or classification. Given a 3-step worked calculation (each step showing its own two operands, operator and stated result, each step''s inputs including the prior step''s own stated result), identify which step -- if any -- contains an arithmetic error. Every error, when present, is a local slip (a dropped carry or a times-table error) too small to catch by judging the final answer''s plausibility alone; each step must be recomputed from its own stated inputs.'
 status: active
 placement_eligible: false

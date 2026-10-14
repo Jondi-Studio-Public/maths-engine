@@ -3,6 +3,7 @@
 id: senior-review-metric-units-of-length-their-abbreviations-conversions
 name: Review metric units of length, their abbreviations, conversions between them, estimation of lengths, and appropriate choices of units
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, review metric units of length, their abbreviations, conversions between them, estimation of lengths, and appropriate choices of units. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

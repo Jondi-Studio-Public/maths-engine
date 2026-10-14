@@ -1,6 +1,7 @@
 id: reciprocal-trig-identities
 name: Use the identities 1 + tan² = sec² and 1 + cot² = cosec²
 domain: trigonometry
+year_level: ['11']
 description: Use 1 + tan²θ = sec²θ and 1 + cot²θ = cosec²θ to find a reciprocal function from a tangent or cotangent, to
   find tan or cot from sec or cosec with the sign set by the quadrant, to solve an equation for an acute angle, and to
   simplify an expression.

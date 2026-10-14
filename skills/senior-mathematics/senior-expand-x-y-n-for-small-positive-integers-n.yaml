@@ -3,6 +3,7 @@
 id: senior-expand-x-y-n-for-small-positive-integers-n
 name: Expand (x + y)^n for small positive integers n
 domain: senior-mathematics
+year_level: ['11']
 description: Expand a power of a binomial for a small positive integer n, using the row of Pascal's triangle for the
   coefficients, in letters, with a number as the second term, and with a coefficient on the first term as well.
 status: active

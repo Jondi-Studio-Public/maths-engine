@@ -3,6 +3,7 @@
 id: senior-find-the-slope-of-a-tangent-and-the
 name: Find the slope of a tangent and the equation of the tangent
 domain: differentiation
+year_level: ['11']
 description: Given bounded, fully specified inputs, find the slope of a tangent and the equation of the tangent. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

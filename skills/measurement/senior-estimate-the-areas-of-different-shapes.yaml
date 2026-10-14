@@ -3,6 +3,7 @@
 id: senior-estimate-the-areas-of-different-shapes
 name: Estimate the areas of different shapes
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, estimate the areas of different shapes. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

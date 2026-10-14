@@ -3,6 +3,7 @@
 id: senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form
 name: Define and use multiplication and division of complex numbers in polar form
 domain: senior-mathematics
+year_level: ['12']
 description: Multiply and divide complex numbers given as r cis theta with whole-number moduli and arguments in degrees,
   by multiplying or dividing the moduli and adding or subtracting the arguments, bringing the argument back into the
   range 0 to 360 degrees when it leaves it.

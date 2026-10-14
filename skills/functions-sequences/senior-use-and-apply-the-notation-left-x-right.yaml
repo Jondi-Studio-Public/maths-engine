@@ -3,6 +3,7 @@
 id: senior-use-and-apply-the-notation-left-x-right
 name: Read the vertex of a V-shaped absolute value graph
 domain: functions-sequences
+year_level: ['12']
 description: Given the graph of y = |x - h| + k drawn on an integer grid, read off the coordinates of its vertex (h, k), choosing between two graphs by a marked point or by whether each meets the x-axis.
 status: active
 capability_gates: [figure_stimulus]

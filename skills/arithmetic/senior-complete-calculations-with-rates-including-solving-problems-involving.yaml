@@ -3,6 +3,7 @@
 id: senior-complete-calculations-with-rates-including-solving-problems-involving
 name: Complete calculations with rates, including solving problems involving direct proportion in terms of rate
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, complete calculations with rates, including solving problems involving direct proportion in terms of rate. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

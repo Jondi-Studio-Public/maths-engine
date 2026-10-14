@@ -23,6 +23,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_fc_venn_counts
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: adds-shown-without-total
   description: Adds the numbers shown on the diagram and gives that as the missing region, never using the stated total.

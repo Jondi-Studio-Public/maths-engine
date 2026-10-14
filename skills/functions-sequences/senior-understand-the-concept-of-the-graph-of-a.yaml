@@ -3,6 +3,7 @@
 id: senior-understand-the-concept-of-the-graph-of-a
 name: Understand the concept of the graph of a function
 domain: functions-sequences
+year_level: ['11']
 description: Given a relation drawn on an integer grid, pick the one correct statement. Every option pairs a verdict (it is, or is not, the graph of a function) with a witness vertical line x = a that meets the graph once or more than once. Never asks for a rule, a domain or a range.
 status: active
 capability_gates: [figure_stimulus]

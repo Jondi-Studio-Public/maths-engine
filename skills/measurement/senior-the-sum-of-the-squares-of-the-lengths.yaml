@@ -3,6 +3,7 @@
 id: senior-the-sum-of-the-squares-of-the-lengths
 name: The sum of the squares of the lengths of the diagonals of a parallelogram is equal to the sum of the squares of the lengths of the sides
 domain: measurement
+year_level: ['11']
 description: Given bounded, fully specified inputs, the sum of the squares of the lengths of the diagonals of a parallelogram is equal to the sum of the squares of the lengths of the sides. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

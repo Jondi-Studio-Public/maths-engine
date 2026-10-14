@@ -3,6 +3,7 @@
 id: senior-understand-and-use-the-theorem-f-left-x
 name: "Understand and use the theorem \\(F'\\left(x\\right)=\\frac d{dx}\\left(\\int_a^xf\\left(t\\right)dt\\right)=f\\left(x\\right)\\), and illustrate its proof geometrically"
 domain: measurement
+year_level: ['12']
 description: Given the graph of y = f(x) on an integer grid and F(x) defined as the integral of f(t) dt from t = a to t = x, type F'(x0) for a stated x0 by reading f(x0) off the graph (an integer on a grid intersection). Never asks for F(x0), an area, a proof or the equation of f.
 status: active
 capability_gates: [figure_stimulus]

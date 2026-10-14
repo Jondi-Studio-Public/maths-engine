@@ -3,6 +3,7 @@
 id: senior-use-addition-of-the-area-of-the-faces
 name: Use addition of the area of the faces of solids to find the surface area of irregular solids
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, use addition of the area of the faces of solids to find the surface area of irregular solids. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

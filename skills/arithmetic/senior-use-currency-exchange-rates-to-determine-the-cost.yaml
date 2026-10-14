@@ -3,6 +3,7 @@
 id: senior-use-currency-exchange-rates-to-determine-the-cost
 name: Use currency exchange rates to determine the cost in Australian dollars
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use currency exchange rates to determine the cost in Australian dollars of purchasing a given amount of a foreign currency, such as US$1500, or the value of a given amount of foreign currency when converted to Australian dollars, such as the value of €2050 in Australian dollars. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

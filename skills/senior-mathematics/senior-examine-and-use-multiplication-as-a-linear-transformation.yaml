@@ -3,6 +3,7 @@
 id: senior-examine-and-use-multiplication-as-a-linear-transformation
 name: Examine and use multiplication as a linear transformation
 domain: senior-mathematics
+year_level: ['12']
 description: |
   Given bounded, fully specified inputs, examine and use multiplication as a linear
   transformation in the complex plane. Return the resulting value, expression, relation,

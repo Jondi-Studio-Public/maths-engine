@@ -7,7 +7,7 @@ prerequisites: [calculate-wages, decimal-arithmetic]
 answer: number
 sources:
 - {topic: earnings, params: {kind: overtime}, difficulty: easy}
-- topic: exd_x_g5_overtime
+- topic: exd_x_r3a_overtime_week
   params: {tier: exam}
   difficulty: exam
   stages:
