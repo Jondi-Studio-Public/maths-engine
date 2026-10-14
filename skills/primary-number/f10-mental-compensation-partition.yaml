@@ -1,0 +1,74 @@
+id: f10-mental-compensation-partition
+name: Add and subtract in your head by compensating and partitioning
+domain: primary-number
+year_level: ['3']
+naplan_domain: [algebra]
+description: Add and subtract in your head by rounding a number to a nearby multiple of ten or a hundred and putting the difference
+  back, or by working with the tens and then the ones; each question asks for the intermediate value and then the answer.
+status: active
+placement_eligible: false
+prerequisites:
+- add-within-100
+- subtract-within-100
+answer: number
+sources:
+- topic: fr2b_mental_compensation
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_mental_compensation
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_mental_compensation
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-mental-place-slip
+  description: Slipping by a ten or a hundred (or by one) while adding or taking away the round number in your head.
+- id: fr2b-mental-tens-treated-as-ones
+  description: Adding or taking away the number of tens as if it were ones, so 30 is treated as 3.
+- id: fr2b-mental-ones-treated-as-tens
+  description: Adding the ones of the second number as if they were tens.
+- id: fr2b-mental-subtracts-the-ones-when-adding
+  description: Taking away the ones of the second number when they should be added.
+- id: fr2b-mental-carry-slip
+  description: Making a slip of ten when the ones carry over to the next ten or borrow from it.
+- id: fr2b-compensation-adjusts-the-wrong-way
+  description: 'Putting back the difference the wrong way after rounding: adding it where it should be taken off, or the reverse.'
+- id: fr2b-forgets-to-compensate
+  description: Stopping at the answer for the rounded number and not putting back the difference.
+- id: fr2b-compensation-adjusts-twice
+  description: Putting back the difference twice.
+- id: fr2b-mental-subtracts-smaller-ones-from-larger
+  description: Taking the smaller ones digit from the larger one when the ones cannot be taken away, instead of bridging the
+    ten.
+- id: fr2b-mental-adds-the-ones-when-subtracting
+  description: Adding the ones of the second number when they should be taken away.
+- id: fr2b-compensation-adjusts-only-one-number
+  description: Putting back the difference for one of the two rounded numbers and forgetting the other.
+- id: fr2b-mental-uses-the-wrong-operation
+  description: Adding the two rounded numbers when they should be subtracted, or the reverse.
+difficulty_progression: 'Easy adds: a number one or two below a multiple of ten is rounded up and the difference taken off,
+  or the tens are added and then the ones. Medium subtracts: the number taken away is rounded up so the difference is added
+  back, or the tens are taken away first and the ones have to bridge a ten. Hard uses three-digit numbers and rounds both
+  numbers at once, so two adjustments are combined.'
+tags:
+- acara-f10-v9
+- primary
+- mental-strategies
+- addition
+- subtraction
+- ac9m3a02

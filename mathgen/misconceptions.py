@@ -21024,6 +21024,3144 @@ _ENTRIES = (
         "series-root-index-ignored",
         "Ignoring the root index when finding the exponent p, so the exponent of n under the root is not divided by it.",
         area="series",
+        "fr2a-translation-components-swapped",
+        "Applying the horizontal move to y and the vertical move to x.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-translation-component-dropped",
+        "Applying only one of the two parts of a translation, the horizontal or the vertical move.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-reflection-as-half-turn",
+        "Changing the sign of both coordinates for a reflection in an axis, which is a half turn about the origin.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-line-reflected-as-axis",
+        "Reflecting in the y-axis or the x-axis when the mirror line is x = k or y = k, so the distance to the line is ignored.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-image-on-mirror-line",
+        "Placing the image on the mirror line instead of the same distance beyond it.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-offset-sign",
+        "Subtracting twice the mirror line's value from the coordinate instead of taking the coordinate away from it.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-rotation-about-origin-not-centre",
+        "Turning the point about the origin when the turn is about another point.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-half-turn-one-coordinate",
+        "Reflecting one coordinate in the centre of a half turn and leaving the other unchanged, which is a reflection.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-direction-reversed",
+        "Turning the point the wrong way round, clockwise for anticlockwise or the reverse.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-quarter-turn-as-half-turn",
+        "Turning through 180 degrees where a quarter turn of 90 degrees was named.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-steps-in-wrong-order",
+        "Doing the two moves in the wrong order, though the order changes where the image lands.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-second-step-left-out",
+        "Stopping after the first of two moves.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-first-step-left-out",
+        "Applying the second move to the original point and skipping the first.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-leg-for-longest-side",
+        "Giving the longer leg of a right-angled triangle as its longest side.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-image-compared-with-wrong-point",
+        "Measuring the distance between the wrong two image points, adding the changes in the coordinates.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-side-left-out-of-perimeter",
+        "Leaving one side of the triangle out of the perimeter.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-hypotenuse-left-out-of-perimeter",
+        "Adding only the two shorter sides for the perimeter and leaving the longest side out.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-side-counted-twice",
+        "Counting one side of the triangle twice in the perimeter.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-sign-dropped",
+        "Giving the size of each part of a translation without its sign, so left and down read as right and up.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-from-different-corners",
+        "Finding the translation from a corner of the triangle and the image of a different corner.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-sum-not-difference",
+        "Adding the coordinates of the point and its image instead of subtracting to find the translation.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-vector-component-sign",
+        "Getting the sign of one part of a translation wrong, the up or down part.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-not-halved",
+        "Giving the sum of a point and its image as the mirror line instead of the halfway value.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-from-gap",
+        "Using half the gap between a point and its image as the position of the mirror line.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-sign",
+        "Giving the mirror line the wrong sign when it is on the negative side of the axis.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-not-halved",
+        "Adding the coordinates of a point and its image for the centre of a half turn, without halving.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-from-difference",
+        "Halving the change from a point to its image instead of the sum, so the centre comes out as half the movement.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-assumed-origin",
+        "Assuming a half turn is about the origin.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-centre-one-coordinate",
+        "Taking one coordinate of the centre from the point itself instead of from the midpoint.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-other-move-ignored",
+        "Finding the translation from the original to the final image and ignoring the reflection or turn in between.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-slide-named-as-reflection",
+        "Calling a translation a reflection because the shape looks like a copy of itself.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-slide-named-as-turn",
+        "Calling a translation a turn.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-mirror-line-orientation",
+        "Naming a reflection in a vertical line as one in a horizontal line, or the reverse.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-reflection-named-as-turn",
+        "Calling a reflection a half turn because the image is on the opposite side of the original.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-reflection-named-as-slide",
+        "Calling a reflection a translation because the image has moved across without checking which way it faces.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-named-as-reflection",
+        "Calling a half turn a reflection because the image is upside down or reversed.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-size-or-direction",
+        "Naming the wrong size or direction of turn for a rotation.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2a-exterior-for-interior",
+        "Giving the exterior angle of a regular polygon where its interior angle was asked.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-sum-for-one-angle",
+        "Giving the angle sum of the whole polygon as the size of one interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-straight-angle-over-sides",
+        "Dividing 180 degrees by the number of sides to get an interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-reflex-for-interior",
+        "Giving 360 degrees minus the interior angle, the angle outside the corner, as the interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-sum-of-n-minus-one-triangles",
+        "Using n minus 1 triangles in the angle-sum formula, so the interior angle comes out too large.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-sides-for-count",
+        "Giving the number of sides of the polygon as the number that fit round a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-straight-line-for-point",
+        "Using 180 degrees, the angles on a straight line, instead of 360 degrees round a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-for-count",
+        "Giving the size of the interior angle as the number of polygons that fit round a point.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-count-off-by-one",
+        "Finishing one more or one fewer than the count.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-for-sides",
+        "Giving the missing angle as the number of sides of the polygon that has it.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-360-over-interior",
+        "Dividing 360 by the interior angle to find the number of sides, where 360 is divided by the exterior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-sides-added",
+        "Adding the numbers of sides of the two known polygons instead of using their angles.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-shared-angle-not-split",
+        "Using the whole remaining angle as the interior angle of one of several identical polygons without sharing it between them.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angles-total-for-gap",
+        "Giving the total of the angles that are filled as the size of the gap.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-one-angle-taken-for-all",
+        "Taking away one interior angle from 360 degrees instead of all of them to find the gap.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-gap-with-one-tile-too-few",
+        "Counting one polygon too few round the point, so the gap includes a whole interior angle.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-angle-minus-gap",
+        "Giving the amount by which one more polygon would overlap as the gap.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-box-corner-all-lengths",
+        "Giving all three lengths of the box as the coordinates of a corner that is not the far top corner.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-box-length-left-out",
+        "Putting 0 for one of the coordinates of a corner when it should be the length of that edge.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-box-lengths-added",
+        "Adding two edge lengths together to make one coordinate of a corner.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-not-halved",
+        "Adding the coordinates of the two ends of a line without halving to find the midpoint.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-difference-halved",
+        "Halving the difference of the coordinates of the two ends instead of their sum to find the midpoint.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-is-an-endpoint",
+        "Giving one end of the line as its midpoint.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-midpoint-one-coordinate-halved",
+        "Halving one coordinate of a midpoint but adding the other two.",
+        area="coordinates",
+    ),
+    CatalogueEntry(
+        "fr2a-distance-one-dimension-left-out",
+        "Leaving one of the three differences out of the distance between two points in three dimensions.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-longest-edge-for-distance",
+        "Giving the longest difference in one direction as the straight-line distance.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-wrong-face-diagonal",
+        "Using the wrong two edges for the diagonal of a face of the box.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-height-not-squared",
+        "Squaring the floor diagonal but not the height when finding the diagonal of the box.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-view-wrong-side",
+        "Choosing the elevation from the other side of the structure, the front view for the side view or the reverse.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-from-the-back",
+        "Choosing the mirror image of the front view, as seen from behind the structure.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-from-the-left",
+        "Choosing the mirror image of the right-side view, as seen from the left-hand side.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-stacks-added",
+        "Choosing a view where each column or row shows all its stacks added together instead of the tallest.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-nearest-stacks-only",
+        "Choosing a view that shows only the stacks nearest the viewer and forgets taller stacks behind them.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-back-stacks-only",
+        "Choosing a view that shows only the stacks at the back.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-far-stacks-only",
+        "Choosing a view that shows only the stacks on the far side from the viewer.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-shortest-stack-shown",
+        "Choosing a view that shows the shortest stack in each column or row instead of the tallest.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-rows-and-columns-swapped",
+        "Choosing a plan with its rows and columns swapped, so the front and side views are interchanged.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-mirrored",
+        "Choosing a plan that is the left to right mirror image of the one wanted.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-front-and-back-swapped",
+        "Choosing a plan with its front and back rows the wrong way round.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-every-stack-as-tall-as-column",
+        "Choosing a plan where every stack in a column is as tall as that column's elevation, which gives the right front view but not the side view.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-plan-elevation-copied-to-front-row",
+        "Choosing a plan that copies the front elevation along its front row and leaves the other rows unchanged.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-total-for-elevation",
+        "Giving the total number of cubes where the number of squares in an elevation was asked.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-tallest-times-rows",
+        "Multiplying the tallest stack by the number of rows to find the squares in a view.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-squares-counted",
+        "Counting the squares of the plan that have cubes on them instead of adding the cubes.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-every-stack-tallest",
+        "Treating every square of the plan as if it had the tallest stack.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-elevation-for-total",
+        "Giving the squares in an elevation as the number of cubes in the whole structure.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-hidden-count-is-visible-count",
+        "Giving the squares that show in the elevation as the number of cubes that do not show.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-view-hidden-added",
+        "Adding the cubes that show to the total instead of taking them away.",
+        area="space",
+    ),
+    CatalogueEntry(
+        "fr2a-distances-swapped",
+        "Giving the straight-line distance where the horizontal distance was asked, and the reverse.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-floor-distance-from-one-edge",
+        "Giving the longer of the two floor lengths as the horizontal distance between corners instead of the floor diagonal.",
+        area="geometry",
+    ),
+    CatalogueEntry(
+        "fr2a-turn-named-as-slide",
+        "Calling a half turn a translation because the image has moved to another place.",
+        area="transformations",
+    ),
+    CatalogueEntry(
+        "fr2b-numeral-written-without-placeholder-zero",
+        "Writing the parts of a number side by side and leaving out the 0 for an empty place: twenty-three thousand and six written as 236.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-numeral-has-wrong-number-of-zeros",
+        "Writing a numeral with one zero too many or too few, so it is ten times too big or too small.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-numeral-digits-transposed",
+        "Swapping two neighbouring digits when writing a number from its words.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-digit-value-is-the-digit-itself",
+        "Giving the digit itself as its value, as if 7 in 472 036 were worth 7.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-digit-value-from-wrong-place",
+        "Reading the digit's place one or two places out, so its value is ten or a hundred times too big or too small.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-place-name-given-for-digit-value",
+        "Giving the value of the place (such as 10 000) instead of the value of the digit in it (such as 70 000).",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-no-regrouping-across-a-zero-or-nine",
+        "Changing only the digit in the named place, so 9 becomes 0 or 0 becomes 9 and the next place is not regrouped.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-changes-the-wrong-place",
+        "Adding or taking away ten times too much or too little, because the place named was mixed up with a neighbouring place.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-more-and-less-reversed",
+        "Adding when the question says less, or taking away when it says more.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-place-gives-wrong-denominator",
+        "Choosing the denominator from the wrong place: writing 0.07 as 7/10 or 0.7 as 7/100.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-digits-split-into-a-fraction",
+        "Reading the digits after the decimal point as a numerator and a denominator: 0.43 as 4/3.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-point-ignored",
+        "Ignoring the decimal point and writing the digits as a whole number: 0.07 as 7/1.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-tenths-added-as-hundredths",
+        "Adding the numerators of tenths and hundredths as if both were hundredths: 6/10 + 25/100 as 31/100.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-ignores-the-hundredths-part",
+        "Leaving out the hundredths fraction and giving only the tenths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-ignores-the-tenths-part",
+        "Leaving out the tenths fraction and giving only the hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-hundredths-read-as-tenths",
+        "Treating a number of hundredths as a number of tenths, so the amount is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-tenths-counted-as-hundredths",
+        "Counting 3 tenths as 3 hundredths instead of 30 hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-tenths-counted-as-hundreds-of-hundredths",
+        "Counting 3 tenths as 300 hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-counted-in-tenths",
+        "Counting the digits of a two-place decimal as tenths, so 0.45 is taken as 4 hundredths.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-thousandths-not-hundredths",
+        "Counting in thousandths when hundredths were asked for, so the total is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-marks-not-steps",
+        "Counting the marks between two whole numbers, including both whole numbers, instead of the equal steps, so the denominator is one too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-whole-number-after-the-point",
+        "Reading the whole number to the right of the point instead of the one to its left.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-steps-from-the-next-whole-number",
+        "Counting the steps back from the whole number on the right but writing them as if counted forward from the left.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-whole-number-before-the-point",
+        "Reading the label two whole numbers back instead of the whole number just to the left of the point.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-from-the-left-end-as-zero",
+        "Treating the left end of the line as zero, so the whole number part ignores the number printed at the end.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-subtracts-parts-without-regrouping",
+        "Subtracting the whole numbers and the fractions separately and always taking the smaller fraction from the larger, so a mixed numeral is not regrouped.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-gives-the-position-not-the-distance",
+        "Giving the number at the end point instead of the distance between the two points.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-ignores-the-fractions",
+        "Counting only the whole numbers between the points and leaving out the fractions.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-adds-the-two-readings",
+        "Adding the two readings when the distance between them was asked for.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-division-zero-in-quotient-left-out",
+        "Leaving out the 0 in a quotient when a step of the written method gives 0, so 603 is written as 63.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-division-quotient-place-value-wrong",
+        "Writing the quotient digits in the wrong places, so the answer is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-division-regrouping-slip",
+        "Regrouping wrongly during a step of the written method, so one digit of the quotient is out by one.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-written-over-the-quotient",
+        "Writing the remainder over the quotient instead of over the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-written-over-the-dividend",
+        "Writing the remainder over the number that was divided instead of over the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-and-divisor-swapped",
+        "Writing the divisor over the remainder instead of the remainder over the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-dropped-or-rounded-up",
+        "Giving the whole-number quotient, or the next whole number, and not saying what is left over.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-remainder-written-as-decimal-digits",
+        "Writing the remainder after the decimal point as it is, so a remainder of 3 becomes .3 whatever the divisor.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-point-misplaced",
+        "Putting the decimal point in the wrong place, so the answer is ten times too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-rejects-a-reasonable-answer",
+        "Calling an answer wrong because it is not exactly equal to the estimate, although it is close to it.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-thinks-an-estimate-cannot-check",
+        "Believing an estimate cannot be used to check an exact answer, so there is nothing to compare.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-accepts-an-answer-without-comparing",
+        "Accepting a stated answer as reasonable without comparing it with the estimate.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compares-in-the-wrong-direction",
+        "Comparing the stated answer with the estimate and getting the direction wrong, calling a too-high answer too low or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-rounds-down-instead-of-to-nearest",
+        "Rounding every number down instead of to the nearest ten, hundred or dollar.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-rounds-only-one-number",
+        "Rounding one of the two numbers and using the other exactly.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-uses-the-wrong-operation",
+        "Adding where the question needs a subtraction, or subtracting where it needs an addition, when estimating.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-rounds-to-the-wrong-place",
+        "Rounding to the nearest hundred when the nearest ten was asked for, or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-forgets-the-quantity",
+        "Estimating with the price of one item and not multiplying by the number of items.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-gives-the-cost-not-the-change",
+        "Giving the estimated cost of the items when the change from the note was asked for.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-estimate-does-not-round",
+        "Working out the exact answer and giving that as the estimate, without rounding first.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-counts-digits-not-zeros",
+        "Giving the number of digits in the place value as the exponent instead of the number of zeros, so 10 000 is taken as 10 to the power 5.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-skips-zero-digits",
+        "Counting the powers of ten only across the non-zero digits, so a zero digit does not take up a place.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponents-listed-in-reverse-order",
+        "Listing the exponents from the smallest to the largest when the terms were written from the largest place down.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-decimal-exponent-sign-dropped",
+        "Dropping the minus sign on an exponent for a place after the decimal point.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-first-decimal-place-counted-as-power-zero",
+        "Counting the first place after the decimal point as power 0, one place too high.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-shifts-exponents-the-wrong-way",
+        "Lowering every exponent when the number is multiplied by a power of ten, or raising them when it is divided.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-shift-counts-digits",
+        "Shifting the exponents by the number of digits in the power of ten instead of the number of zeros.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-leaves-exponents-unchanged",
+        "Keeping the old exponents after multiplying or dividing by a power of ten.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-shifts-only-the-first-term",
+        "Changing the exponent of the first term only and leaving the others as they were.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-given-as-the-place-value",
+        "Giving the place value (such as 10) where the exponent of ten (such as 1) was asked for.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-exponent-off-by-one",
+        "Giving an exponent one too high or one too low when counting the places from the units digit.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-places-apart-adds-the-exponents",
+        "Adding the two exponents instead of subtracting them to find how far apart two digits are.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-places-apart-counts-digits-between",
+        "Counting only the digits between the two digits, not the step to each one, so the answer is one too small.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-places-apart-counts-both-ends",
+        "Counting both of the digits as well as the steps between them, so the answer is one too big.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-scaling-multiplies-the-exponent",
+        "Multiplying the exponent by the number of tens instead of adding to it.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-place-slip",
+        "Slipping by a ten or a hundred (or by one) while adding or taking away the round number in your head.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-tens-treated-as-ones",
+        "Adding or taking away the number of tens as if it were ones, so 30 is treated as 3.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compensation-adjusts-the-wrong-way",
+        "Putting back the difference the wrong way after rounding: adding it where it should be taken off, or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-forgets-to-compensate",
+        "Stopping at the answer for the rounded number and not putting back the difference.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compensation-adjusts-twice",
+        "Putting back the difference twice.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-compensation-adjusts-only-one-number",
+        "Putting back the difference for one of the two rounded numbers and forgetting the other.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-subtracts-smaller-ones-from-larger",
+        "Taking the smaller ones digit from the larger one when the ones cannot be taken away, instead of bridging the ten.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-adds-the-ones-when-subtracting",
+        "Adding the ones of the second number when they should be taken away.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-subtracts-the-ones-when-adding",
+        "Taking away the ones of the second number when they should be added.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-carry-slip",
+        "Making a slip of ten when the ones carry over to the next ten or borrow from it.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-ones-treated-as-tens",
+        "Adding the ones of the second number as if they were tens.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-ones-left-out",
+        "Leaving out the ones of the second number after adding its tens.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-mental-uses-the-wrong-operation",
+        "Adding the two rounded numbers when they should be subtracted, or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-wrong-side-of-zero",
+        "Reading a point on the wrong side of zero, so a negative value is given as positive or the reverse.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-reads-the-wrong-tick",
+        "Reading the tick next to the marked point, so the value is one step out.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-subtracts-sizes-across-zero",
+        "Subtracting the sizes of two values on opposite sides of zero instead of adding them, as if both were on the same side.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-adds-sizes-on-one-side-of-zero",
+        "Adding the sizes of two values on the same side of zero instead of subtracting them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-adds-the-readings",
+        "Adding the two readings to get the change between them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-change-direction-reversed",
+        "Giving the change from B to A instead of from A to B, so the sign is wrong.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-rise-and-fall-treated-the-same",
+        "Adding both moves, or taking away both, when one was a rise and the other a fall.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-rise-and-fall-swapped",
+        "Taking away the rise and adding the fall.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-sign-of-the-start-ignored",
+        "Using the size of a negative starting value as if it were positive.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-negative-sign-dropped-at-the-end",
+        "Finding the right size for the final value but giving it the wrong sign.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-half-the-distance-given-as-the-position",
+        "Giving half the distance between two points instead of the value halfway between them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-no-halving",
+        "Adding the two values and forgetting to halve the total to find the value halfway between them.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2b-counts-steps-from-the-left-end",
+        "Counting the steps from the left end of the number line and giving that count as the value, instead of reading the value at the point.",
+        area="number",
+    ),
+    CatalogueEntry(
+        "fr2c-subtracted-for-total",
+        "Subtracting the two counts when the total of both was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-reports-the-larger-count",
+        "Giving the larger of the two counts instead of working out the question that was asked.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-reports-the-smaller-count",
+        "Giving the smaller of the two counts instead of the difference.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-count-off-by-one",
+        "Being one out when counting units or steps.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-took-away-one-pour-only",
+        "Taking away only one of the amounts already used, so part of what was used is still counted as left.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-reports-the-amount-poured",
+        "Giving the amount already used or measured instead of the amount still needed or the difference.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-second-count-taken-as-given",
+        'Treating "some more than" as the new count itself, and adding it without first adding the extra to the first count.',
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-first-count-doubled",
+        "Doubling the first count and leaving out the extra that the second item has.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-took-away-one-item-only",
+        "Taking away only one of the two items being compared with the larger one.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-mixed-unit-sizes",
+        "Combining counts of units that are different sizes without first changing them to the same unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-big-unit-counted-as-small",
+        "Counting a big unit as one small unit, or leaving out the part left over once the big units are changed to small ones.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-too-small",
+        "Choosing a unit that is much smaller than the thing being measured, so the number would be huge.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-too-large",
+        "Choosing a unit that is much larger than the thing being measured, so the number would be tiny.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-of-wrong-attribute",
+        "Choosing a unit that measures a different attribute, such as litres for a length.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-compared-numbers-ignoring-units",
+        "Choosing the measure with the largest (or smallest) number without allowing for the units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-chose-the-largest-unit",
+        "Choosing the measure written in the largest unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-unit-conversion-slip",
+        "Choosing a measure after changing the units with a slip, so the order of the measures is wrong.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-forgot-to-change-one-measure",
+        "Changing some of the measures to the smaller unit but leaving one in the larger unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-chose-the-wrong-power-of-ten",
+        "Changing between units with the wrong power of ten.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-added-numbers-ignoring-units",
+        "Adding the numbers as they are written without changing the measures to the same unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-answer-left-in-the-larger-unit",
+        "Working in the smaller unit but then changing the total back to the larger unit when it was asked for in the smaller one.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-added-for-leftover",
+        "Adding the amounts used to the amount held instead of taking them away.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-divided-the-wrong-way",
+        "Multiplying the total by the portion size instead of dividing by it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-took-away-the-count-not-the-amount",
+        "Taking the number of portions used away from the total instead of the amount those portions use.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-small-measure-treated-as-large",
+        "Treating a measure written in the smaller unit as if it were in the larger unit when changing units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-counted-the-bounding-rectangle",
+        "Counting every square in the rectangle that surrounds the shape, including squares that are not shaded.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-part-squares-counted-whole",
+        "Counting each half square as a whole square.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-part-squares-ignored",
+        "Leaving out the half squares and counting only the whole squares.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-scale-ignored",
+        "Counting squares or sides and not using the length that each square stands for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-perimeter-of-bounding-rectangle",
+        "Finding the perimeter of the rectangle around the shape, which misses the length of the notches.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-boundary-squares-counted",
+        "Counting the squares along the edge of the shape instead of the sides of the squares that make up the edge.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-perimeter-missed-inner-edges",
+        "Leaving out some of the sides that face into a notch when counting around the shape.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-perimeter-scaled-as-area",
+        "Multiplying a perimeter by the square of the scale, as if it were an area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-noon-not-crossed",
+        "Finding the gap between two clock readings as if both were in the same half of the day, so the interval across noon comes out wrong.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-hour-lost-at-noon",
+        "Being an hour short when crossing from the morning into the afternoon, for example by skipping the hour that starts at 12:00.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-hour-gained-at-noon",
+        "Being an hour over when crossing from the morning into the afternoon, for example by counting the hour from 12:00 to 1:00 twice.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-twelve-hour-clock-used-for-24",
+        "Reading a 24-hour time such as 17:25 as 7:25 and so taking the wrong gap between two times.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-wait-counted-twice",
+        "Counting the wait between two journeys twice when finding the total time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-wait-only",
+        "Giving the length of the wait instead of the time for the whole trip.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-hours-and-minutes-swapped",
+        "Writing the minutes where the hours belong and the hours where the minutes belong.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-minutes-remainder-lost",
+        "Changing minutes to hours and leaving out the minutes that are left over.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "fr2c-added-one-each-time",
+        "Adding 1 to the count each time instead of the number of sticks that each figure really adds.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-multiplied-the-first-figure",
+        "Multiplying the count in Figure 1 by the figure number, as if the pattern started from nothing.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-rule-without-constant",
+        "Using only the number added each time as the rule, and leaving out what is needed to match Figure 1.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-added-the-first-figure-again",
+        "Adding the count in Figure 1 to the count in Figure 3 instead of the amount added each time.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-figure-number-off-by-one",
+        "Using the figure number one more or one fewer than the one asked for.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-rule-constant-taken-as-first-figure",
+        "Adding the count in Figure 1 to the rule instead of the constant that makes the rule fit Figure 1.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-leftover-rounded-up",
+        "Rounding up when the sticks that are left over are not enough to make the next figure.",
+        area="patterns",
+    ),
+    CatalogueEntry(
+        "fr2c-shift-direction-reversed",
+        "Moving a graph the wrong way sideways: writing (x + h) for a move to the right or (x - h) for a move to the left.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-shift-on-wrong-axis",
+        "Writing a sideways move as a change to y (x squared plus a number) or an up or down move as a change inside the bracket.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertical-shift-direction-reversed",
+        "Moving a graph the wrong way up or down: subtracting k for a move up or adding it for a move down.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-reflection-missed",
+        "Missing that a negative a turns the parabola upside down, or giving a positive a to a parabola that opens downwards.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-reflected-when-not-needed",
+        "Saying a graph is reflected or opens downwards when the equation has a positive a.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-width-reversed",
+        "Saying a parabola is wider when a is larger than 1 in size, or narrower when a is a fraction.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertex-sign-slip",
+        "Reading a coordinate of the vertex with the wrong sign.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-horizontal-shift-sign-reversed",
+        "Writing the opposite sign inside the bracket for the horizontal position of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertical-shift-sign-reversed",
+        "Writing the opposite sign for the vertical position of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-a-taken-as-the-rise",
+        "Using the rise from the vertex to a marked point as a without dividing by the square of the horizontal distance.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-width-factor-ignored",
+        "Writing a as 1 or -1 for a parabola that is narrower or wider than y = x squared.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertex-coordinates-swapped",
+        "Giving the y-coordinate of the vertex where the x-coordinate was asked for, or the reverse.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-a-taken-as-the-vertex",
+        "Reading the number in front of the bracket as a coordinate of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-bracket-not-squared",
+        "Leaving out the square on the bracket when the value is put into the equation.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-is-the-vertex-height",
+        "Giving the height of the vertex as the y-intercept.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-square-applied-after-multiplying",
+        "Multiplying by the number in front of the bracket before squaring, so that number is squared as well.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-constant-dropped",
+        "Leaving out the constant at the end of the equation when finding a value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-point-read-for-vertex",
+        "Reading a coordinate of the marked point instead of the same coordinate of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-distance-not-squared",
+        "Dividing the rise from the vertex by the horizontal distance and not by its square.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-vertex-height-ignored",
+        "Dividing the height of the marked point by the squared distance without taking away the height of the vertex.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-double-root-swapped",
+        "Squaring the factor for the x-intercept where the graph crosses the axis instead of the one where it touches.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-root-sign-reversed",
+        "Writing the opposite sign in each factor, so the roots come out as the negatives of the x-intercepts.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-double-root-missed",
+        "Leaving out the square on the factor for the x-intercept where the graph only touches the axis.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-both-roots-squared",
+        "Squaring both factors, which would make the graph touch the axis at both x-intercepts.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-both-roots-crossed",
+        "Treating both x-intercepts as places where the graph crosses the axis.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-cubic-leading-sign-missed",
+        "Missing that a cubic with a negative leading coefficient falls to the right and rises to the left.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-leading-coefficient-ignored",
+        "Leaving out the number in front of the factors, as if it were 1 (or -1), so the graph is the wrong height.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-sign-slip",
+        "Getting the sign of the y-intercept wrong when multiplying negative numbers.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-brackets-not-squared",
+        "Leaving out the square on the factor for the double root when finding a value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-intercept-at-roots",
+        "Giving an x-intercept where an intercept or turning point value was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-turning-point-at-midpoint",
+        "Taking the turning point to be half way between the x-intercepts, as for a parabola.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-turning-point-weights-swapped",
+        "Weighting the two x-intercepts the wrong way round when finding the turning point.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-turning-point-on-axis-reported",
+        "Giving the turning point that is on the x-axis when the other one was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2c-x-coordinate-given-for-y",
+        "Giving the x-coordinate of a point where its y-coordinate was asked for.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "fr2d-tally-group-as-one",
+        "Counting each group of five tally marks as one mark, so a tally of 13 is read as 5.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-tally-off-by-one",
+        "Being one out when reading or working with a tally count.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-the-wrong-outcome",
+        "Reading the tally of a different outcome from the one the question asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reports-the-total",
+        "Giving the total number of trials where a count for one outcome was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-adds-instead-of-compares",
+        "Adding two counts where the question asked how many more one is than the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-the-least-common",
+        "Reading the least common outcome where the most common was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gap-for-count",
+        "Giving the gap between the most and least common outcomes where the count itself was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-count-for-difference-from-expected",
+        "Giving the number of times an outcome came up, where the question asked how far that is from the equal-likelihood count.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-equal-share-for-difference",
+        "Giving the equal-likelihood count itself, where the question asked how far the result was from it.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-compares-with-another-outcome",
+        "Comparing an outcome with another outcome, where the comparison asked for was with the equal-likelihood count.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-total-not-extra",
+        "Giving the tally at the end of all the trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-first-tally-not-extra",
+        "Giving the tally from the first trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-adds-instead-of-subtracts",
+        "Adding the tally from the first trials to the final tally, where the extra trials needed a subtraction.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gap-over-all-trials",
+        "Finding the gap between two outcomes over all the trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gap-over-first-trials",
+        "Finding the gap between two outcomes in the first trials, where only the extra trials were asked about.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-orders-greatest-first",
+        "Listing the events from most likely to least likely, where the order asked for was least likely first.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-order-slip",
+        "Putting two events next to each other in the wrong order when comparing their chances.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-orders-by-favourable-count-only",
+        "Ordering the events by how many outcomes favour each one, without comparing that count with the number of possible outcomes.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-treats-repeat-as-dependent",
+        "Thinking that a second try of the same kind of event is affected by the first, so that independent events are called dependent.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-ignores-no-replacement",
+        "Thinking that two draws are independent when the first item is not put back, so the second draw has changed.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-treats-linked-events-as-independent",
+        "Calling two events independent when they come from the same single trial and knowing one changes the chance of the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-swaps-independent-dependent",
+        "Naming the dependent pairs where the independent pairs were asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-joint-for-conditional",
+        "Dividing the count for both events by all the records, which gives the chance of both events and not the chance of one given the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-swaps-condition-and-target",
+        "Dividing the count for both events by the total for the event asked about, so the condition and the target are swapped.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-answers-for-the-opposite-event",
+        "Giving the chance of the opposite of the event asked about, from the same group.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-ignores-the-condition",
+        "Giving the chance of the event over all the records, as if the condition had not been stated.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-divides-by-the-wrong-group",
+        "Dividing by the total of the wrong group, not the group the condition describes.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-conditional-not-compared",
+        "Giving the chance given the condition, without taking off the chance over all the records.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-overall-not-compared",
+        "Giving the chance over all the records, where the difference from the chance given the condition was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-difference-the-wrong-way",
+        "Subtracting the chance given the condition from the overall chance, so the difference has the wrong sign.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reports-the-known-sum",
+        "Giving the sum of the counts that are known, where the lost count was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-left-a-count-out-of-the-sum",
+        "Leaving one known count out when taking the known counts from the total, so the lost count comes out too large.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-count-off-by-one",
+        "Being one out when adding or subtracting counts.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-condition-and-opposite-confused",
+        "Using the chance given the condition where the chance given its opposite was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-reads-the-comparison-backwards",
+        "Choosing the statement that reverses which chance is greater.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-calls-different-chances-independent",
+        "Calling two events independent although the chance of one changes with the other.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-confuses-independent-with-exclusive",
+        "Thinking events that can happen together cannot be independent, which mixes up independent with mutually exclusive.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-sees-a-link-in-equal-chances",
+        "Seeing a link between two events even though the chance of one is the same whatever the other does.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gives-the-opposite-event",
+        "Giving the chance that the event does not happen, where the chance that it does happen was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-odds-for-probability",
+        "Dividing the number of successes by the number of failures, which compares the two outcomes instead of finding the share of all trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gives-theory-not-simulation",
+        "Giving the theoretical chance from the rule, where the estimate from the simulation's results was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-divides-by-the-digits-not-trials",
+        "Dividing by 10, the number of different digits, instead of by the number of trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-wrong-trial-total",
+        "Dividing by the number of successes added to the number of trials, instead of by the number of trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-or-instead-of-and",
+        "Counting the trials where at least one digit succeeds, where both digits had to succeed.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-and-instead-of-or",
+        "Counting only the trials where both digits succeed, where at least one was enough.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-counts-both-as-exactly-one",
+        "Counting the trials where both digits succeed as well, where exactly one digit had to succeed.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-counts-digits-not-trials",
+        "Counting successful digits instead of successful trials, so a trial with two successes is counted twice.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-ignores-the-target",
+        "Giving the share of all trials that meet the condition, without checking the target event within them.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-or-and-confused",
+        "Mixing up 'both' with 'at least one' when counting the successful trials.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-counts-the-opposite-event",
+        "Counting the trials where the event did not happen, where the trials where it did happen were asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-one-digit-chance-for-the-pair",
+        "Giving the chance for a single digit, where the chance for a pair of digits was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-adds-chances-for-the-pair",
+        "Adding the chances for the two digits to find the chance for the pair, which counts the overlap twice or ignores it.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-gives-simulation-not-theory",
+        "Giving the estimate from the simulation, where the theoretical chance from the rule was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2d-expected-for-difference",
+        "Giving the expected count itself, where the difference from it was asked for.",
+        area="chance-sampling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-count-not-multiplied",
+        "Using the number of items where the cost of the items was needed, so the price of one item is subtracted or added instead of the price of all of them.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-prices-added-not-multiplied",
+        "Adding the two prices once each, ignoring how many of each item were bought.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-prices-swapped",
+        "Pairing each count with the other item's price when finding a total.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-part-week-dropped",
+        "Dividing and ignoring the remainder, so the last part-week is not counted and the goal is not yet reached.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-saved-amount-ignored",
+        "Dividing the whole price by the weekly saving, forgetting the money already saved.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-voucher-ignored",
+        "Giving the bill before the voucher is taken off.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-bill-not-shared",
+        "Giving the whole bill when each person's equal share was asked for.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-remainder-as-change",
+        "Giving what is left over when the bill is divided by the note, instead of what the notes exceed the bill by.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-weeks-rounded-up-twice",
+        "Rounding the number of weeks up and then adding another week for the part-week.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-dollars-as-weeks",
+        "Giving the dollars still needed where the number of weeks was asked for.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-spending-ignored",
+        "Leaving out the money spent on something else along the way.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-deposit-ignored",
+        "Sharing the whole price into payments without taking off the deposit.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-second-item-left-out",
+        "Finding the cost of only the first kind of item in an order of two kinds.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-price-not-taken-off",
+        "Giving the money in hand after saving, without taking off the price of what was bought.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-weeks-off-by-one",
+        "Working out the money left using one week more or fewer than the weeks counted.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-money-week-minus-left",
+        "Giving the part of a weekly saving that was still needed instead of the part that is left over.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-on-original-price",
+        "Working out the GST on the marked price instead of on the sale price.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-left-out",
+        "Giving the price before the GST was added.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-discount-left-out",
+        "Giving the price without taking the discount off.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-net-of-two-percents",
+        "Combining a discount and GST by taking one percentage off the other, as if they applied to the same price.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-unit-price-before-discount",
+        "Comparing unit prices using the marked price of the discounted pack, not its sale price.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-pack-prices-compared",
+        "Comparing what the packs cost, ignoring that they hold different masses.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-unit-price-per-wrong-mass",
+        "Finding the difference in cost per kilogram where per 100 g was asked, or the reverse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-better-shop-reversed",
+        "Naming the dearer shop as the cheaper one.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-discount-applied-twice",
+        "Taking the discount off the price twice.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-discount-on-the-wrong-pack",
+        "Applying the discount to the pack that is not on sale.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-reported-not-total",
+        "Giving the amount of GST instead of the price with GST added.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-gst-subtracted",
+        "Taking the GST off the price instead of adding it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-adjustments-compared",
+        "Comparing the size of the discount with the size of the GST instead of comparing the two final prices.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-one-item-only",
+        "Giving the price of one item where the cost of several was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-percent-saving-added-to-total",
+        "Adding the saving to the total instead of leaving the total as it is.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-difference-read-as-second",
+        "Reading the first difference as the value of the second differences, or choosing a quadratic model because the values are not all equal.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-pair-only-checked",
+        "Judging the model from the first two rows only, without checking that the pattern holds for the rest of the table.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-total-change-as-step",
+        "Using the total change across the whole table as the change for each step.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-overall-ratio-as-ratio",
+        "Using the last value divided by the first as the ratio between neighbouring values.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-difference-used-for-any-model",
+        "Using the first difference as a constant slope when the first differences are not constant.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-second-difference-not-halved",
+        "Using the second difference as the coefficient of x squared, without halving it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-power-for-exponential",
+        "Writing a power of x for a pattern that multiplies by the same number each step.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-starting-value-left-out",
+        "Leaving out the starting value when writing the rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-linear-extrapolation-of-curve",
+        "Continuing a curved pattern with the last first difference as if it were constant.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-step-in-x-ignored",
+        "Using the change between rows as the change for each 1 in x when x goes up by more than 1 each row.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-ratio-per-row-used-per-unit",
+        "Using the ratio between rows as the ratio for each 1 in x when x goes up by more than 1 each row.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-x-off-by-one",
+        "Reading the value for the x-value next to the one asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-answer-one-too-early",
+        "Giving the last whole value that is still allowed instead of the first that breaks the limit.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-answer-one-too-late",
+        "Giving a whole value after the first one that breaks the limit.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-reported-as-x",
+        "Giving the limit itself where the first x-value that breaks it was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-limit-read-from-table",
+        "Taking the end of the table as the place the model stops working.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-first-difference-used-as-linear-coefficient",
+        "Using the first difference as the coefficient of x in a quadratic rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-ratio-added-not-multiplied",
+        "Adding the ratio each step instead of multiplying by it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-slope-and-start-swapped",
+        "Swapping the slope and the starting value in a linear rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-last-value-used-as-start",
+        "Using the last value in the table as the starting value.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-model-extra-step-added",
+        "Adding one more step of change on top of the predicted value.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-wrong-start",
+        "Starting the list at the wrong number, such as zero for a list of positive multiples, or one step too late.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-stop-test-boundary",
+        'Mixing up "stop at this number or more" with "stop when more than this number", so the last number is wrongly kept or left out.',
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-wrong-step-size",
+        "Adding a different amount each time from the one the list goes up by.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-rule-fitted-to-one-step",
+        "Choosing a rule because it fits the first step it is tried on, without checking it on the later steps.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-steps-in-listed-order",
+        "Using the steps in the order they are printed instead of the order that works.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-steps-in-reverse-order",
+        "Using the steps in the reverse of the order that works.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-two-steps-swapped",
+        "Swapping two neighbouring steps, so the machine gives a different output.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-steps-run-forwards-to-undo",
+        "Running the steps forwards on the output instead of undoing them in reverse order.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-one-run-for-two",
+        "Giving the result of the first run where the result of two runs was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-input-reported-as-output",
+        "Giving the number put in where the number that came out was asked, or the reverse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-last-step-left-out",
+        "Leaving out the last step of the machine.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-first-step-left-out",
+        "Leaving out the first step of the machine.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-algorithm-first-step-left-out-when-undoing",
+        "Stopping before the last undoing step, so the first step of the machine is not undone.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-steps-in-listed-order",
+        "Doing the steps of a construction in the order they are printed, when they are shuffled.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-steps-in-reverse-order",
+        "Doing the steps of a construction in the reverse of the order that works.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-two-steps-swapped",
+        "Swapping two neighbouring steps of a construction, so a step uses something not yet drawn.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-angle-not-between-the-sides",
+        "Treating two equal sides and an angle that is not between them as enough to show triangles congruent.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-fact-completes-a-different-test",
+        "Choosing a fact that would prove the triangles congruent by a different test from the one asked for.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-angle-where-side-needed",
+        "Offering an equal angle where the test needs an equal side.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-side-where-angle-needed",
+        "Offering an equal side where the test needs an equal angle.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-leg-given-for-hypotenuse",
+        "Offering the other leg of a right-angled triangle where the hypotenuse is needed.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-legs-added-for-hypotenuse",
+        "Adding the two shorter sides of a right-angled triangle to get the hypotenuse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-square-not-rooted",
+        "Giving the sum of the squares of the two shorter sides as the hypotenuse, without taking the square root.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-pythagoras-subtracted",
+        "Subtracting the squares of the sides instead of adding them to find the hypotenuse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-hypotenuse-left-out-of-perimeter",
+        "Adding only two sides of the triangle to find its perimeter.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-one-side-for-perimeter",
+        "Giving one side where the perimeter of the whole triangle was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-area-for-perimeter",
+        "Giving the area where the perimeter was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-agreement-counted-as-one",
+        "Giving 1 as the difference when the table and the rule agree, counting the match instead of subtracting.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-difference-between-neighbouring-entries",
+        "Subtracting the table's previous entry instead of the rule's prediction.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-hypotenuse-counted-twice",
+        "Counting the hypotenuse twice when adding the sides.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-side-not-next-to-the-angle",
+        "Offering an equal side that is not next to the equal angle as if it completed the SAS test.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-spatial-longer-leg-for-hypotenuse",
+        "Giving the longer of the two shorter sides as the hypotenuse.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-power-ignored",
+        "Multiplying the factors by which the inputs change without raising each to the power it has in the formula.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-changes-added",
+        "Adding the factors by which two inputs change instead of multiplying their effects.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-inverse-treated-as-direct",
+        "Treating an input that is divided by as if it were multiplied, so the output changes the wrong way.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-only-one-input-changed",
+        "Working out the effect of one of the two changes and leaving the other out.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-power-on-the-wrong-input",
+        "Putting the power of one input onto the other input's change.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-later-counterexample",
+        "Giving a counterexample that is not the smallest, because a smaller one was not found.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-neighbouring-input-reported",
+        "Giving the whole number next to the smallest counterexample.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-last-input-that-works-reported",
+        "Giving the last whole number for which the conjecture still holds instead of the first that defeats it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-value-reported-as-input",
+        "Giving the value of the expression at the counterexample instead of the whole number n that was put in.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-accepted-after-partial-check",
+        "Deciding that no entry breaks the conjecture, or that it is proved, after checking only some of the table.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-entry-that-fits-reported",
+        "Naming an entry that agrees with the conjecture as the one that breaks it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-neighbouring-entry-blamed",
+        "Blaming the entry next to the one that breaks the conjecture, because the step into or out of it looks wrong.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-exponent-treated-as-multiplier",
+        "Multiplying by the exponent instead of raising to it.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-table-value-reported",
+        "Giving the table's value where the value the conjecture predicts was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-difference-taken-the-wrong-way",
+        "Taking the conjecture's value minus the table's value, so the sign of the difference is reversed.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-prediction-reported",
+        "Giving the conjecture's value where the difference from the table was asked.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-values-added",
+        "Adding the table's value and the conjecture's value instead of subtracting.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-more-tests-needed-after-counterexample",
+        "Asking for more tests after a counterexample has been found, as if one were not enough.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-counterexample-treated-as-boundary",
+        "Treating a counterexample as the point where a conjecture starts to fail, rather than showing it false.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-counterexample-needs-majority",
+        "Believing a conjecture is only false if it fails for most values.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-one-fit-treated-as-boundary",
+        "Treating a value that fits as showing the conjecture fails everywhere else.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-agreement-treated-as-counterexample",
+        "Calling a value where the conjecture agrees with the table a counterexample.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "fr2e-conj-table-size-treated-as-proof",
+        "Taking the number of entries in a table as enough to prove a rule.",
+        area="f10-modelling",
+    ),
+    CatalogueEntry(
+        "ey2a-count-one-short",
+        "Counting one too few: missing a counter or stopping early.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-count-one-over",
+        "Counting one too many: counting a counter twice or going one past the end.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-count",
+        "Saying how many there are now, without doing what the question then asks (adding one, or finding how many more).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-moves-the-wrong-way",
+        "Taking one away when one was added (or adding one when one was taken away).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-all-kinds",
+        "Counting every counter, plain and ringed, when only one kind was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-wrong-kind",
+        "Using the count of the other kind of counter instead of the kind asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-empty-boxes",
+        "Counting the empty boxes of the ten frame instead of the counters (or the reverse).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-filled-boxes",
+        "Counting the counters when the question asked how many more are needed to fill the frame.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-says-the-full-frame",
+        "Saying 10, the size of a ten frame, instead of reading how many counters are on it or how many are missing.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-one-frame",
+        "Counting the counters on only one of the two ten frames.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-assumes-a-full-frame",
+        "Treating a part-filled ten frame as if it were full, so one frame counts as 10.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-one-part",
+        "Giving the size of one part when the whole (both kinds together) was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-subtracts-the-parts",
+        "Subtracting one part from the other when the parts should be put together.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-shown-part",
+        "Giving the number of counters shown in the picture rather than the number that are missing.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-whole",
+        "Giving the whole (the total) instead of the part, share or answer the question asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-adds-parts-for-missing",
+        "Adding the whole and the shown part when the missing part is the whole take away the shown part.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-larger-group",
+        "Giving the size of the bigger group instead of how many more it has.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-smaller-group",
+        "Giving the size of the smaller group when the bigger group was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-difference",
+        "Giving how many more the bigger group has instead of how many it has.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-adds-groups",
+        "Adding the sizes of the groups together when the groups should be compared.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-compares-wrong-rings",
+        "Comparing two of the three rings, but not the biggest and the smallest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-fixes-one-ring-only",
+        "Adding counters to only one of the smaller rings to match the biggest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-adds-rings-and-size",
+        "Adding the number of equal groups to the number in each group instead of multiplying.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-group-size",
+        "Giving the number in one group when the number in all the groups was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-counts-rings-not-counters",
+        "Giving the number of rings instead of the number of counters.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-subtracts-for-sharing",
+        "Subtracting the number of groups from the total when sharing equally means dividing it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-divisor",
+        "Giving the number of children (the number of shares) instead of the size of a share or of what is left.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-the-left-over",
+        "Giving how many are left over when the size of each share was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-reports-each-share",
+        "Giving the size of each share when how many are left over was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-rounds-sharing-up",
+        "Giving a share one bigger than the whole shares that can be dealt out, ignoring the leftover counters.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-wrong-divisor",
+        "Sharing among the wrong number of children.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-left-over-the-wrong-way",
+        "Finding how many more are needed to make another full share instead of how many are left over.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-fraction-as-the-rest",
+        "Giving what is left after taking the fraction, instead of the fraction itself.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ey2a-mixes-half-and-quarter",
+        "Mixing up a half and a quarter: dividing by 2 when 4 was needed, or by 4 when 2 was needed.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-a-sample-a-census",
+        "Calling a survey of only some of the group a census, which asks every member.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-chance-selection-simple-random",
+        "Calling any sample that uses chance somewhere a simple random sample, even when the draw is made group by group or at a fixed gap.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-regular-pattern-systematic",
+        "Calling a sample systematic because it looks evenly spread, when it is not chosen by a fixed gap down a list.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-grouping-stratified",
+        "Calling a sample stratified because groups are mentioned, when members are not drawn from every group in proportion to its size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-any-quick-sample-convenience",
+        "Calling a sample convenience when its members were chosen by chance from a full list.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-sample-size-as-the-gap",
+        "Using the sample size as the gap between the members chosen, instead of the population size divided by the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gap-from-the-difference",
+        "Finding the gap by subtracting the sample size from the population size instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gap-counts-the-start",
+        "Adding one to the gap because the starting member is counted as well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-counts-one-gap-too-many",
+        "Adding as many gaps as members chosen so far, instead of one fewer than that, when counting along from the starting member.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-the-random-start",
+        "Counting the gaps from zero and leaving out the random starting number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-the-end-of-the-list",
+        "Giving the end of the list as the last member chosen, though the gap may not land exactly on it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-equal-allocation-ignores-size",
+        "Taking the same number from every group instead of a number in proportion to the size of each group.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-applies-the-percentage-to-the-population",
+        "Taking the group's percentage of the whole population instead of of the sample.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-percentage-as-a-count",
+        "Giving a group's percentage as if it were the number of members chosen.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-leftover-ignores-a-group",
+        "Finding the last group's number by taking only one of the other groups' numbers from the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-chance-of-one-draw-only",
+        "Giving the chance of being picked on the first draw alone, one out of the whole population, instead of the chance of being among all those picked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-chance-of-being-chosen",
+        "Giving the chance of being chosen when the chance of not being chosen was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-group-size-not-its-share",
+        "Giving the number of members in a group instead of how many of that group the sample is expected to hold.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-whole-not-the-extra",
+        "Giving the whole population or its cost when only the extra beyond a sample was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-instead-of-subtracting",
+        "Adding the sample to the population when finding how much more a census needs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-sample-size",
+        "Giving the sample size when a number built from the population was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-leaves-minutes-unconverted",
+        "Giving the total in minutes when hours were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-converts-minutes-by-100",
+        "Dividing minutes by 100 instead of 60 to get hours.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-sample-not-the-reachable-group",
+        "Dividing the sample by the population when the share of the population who could be chosen was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reachable-over-sample",
+        "Dividing the number who could be chosen by the sample size instead of by the population.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-share-who-cannot-be-chosen",
+        "Giving the percentage who could never be chosen instead of the percentage who could.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-another-groups-count",
+        "Giving the number taken from a different group from the one asked about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-undercoverage",
+        "Naming undercoverage (a list that leaves people out) as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-voluntary-response",
+        "Naming voluntary response (people choosing themselves) as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-easy-to-reach-sample",
+        "Naming an easy-to-reach sample as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-leading-question",
+        "Naming a leading question as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-non-response",
+        "Naming non-response as the main flaw when another source of bias is the real one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-flags-a-sound-feature-as-biased",
+        "Counting a sound part of a survey as a source of bias.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-misses-a-biased-feature",
+        "Leaving a source of bias out of the list of biased statements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-percentage-as-the-count",
+        "Giving the percentage who agreed as if it were the number of people.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-those-who-disagree",
+        "Giving the number who did not agree when the number who agreed was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-slips-a-power-of-ten",
+        "Taking one tenth of the correct share, by dividing by 1000 instead of 100.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-biased-survey-percentage",
+        "Estimating from the percentage in the biased survey when a properly drawn sample was available.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-sample-count-not-the-population-estimate",
+        "Giving the number who agreed in the sample instead of scaling up to the whole population.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-percentages-not-counts",
+        "Giving the difference in percentage points when the difference in the numbers of people was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-better-estimate",
+        "Giving the better estimate itself instead of the amount by which the other estimate is too high.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-lists-the-groups-before-the-measurement",
+        "Giving the variable that sorts the members into groups first and the measurement second, the wrong way round.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-an-unrelated-variable",
+        "Choosing a variable that has nothing to do with the question as one of the two that must be recorded.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-nominal-and-ordinal",
+        "Calling an ordered category unordered, or an unordered category ordered.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-discrete-and-continuous",
+        "Calling a count a measurement, or a measurement a count.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-says-the-type-cannot-be-known",
+        "Saying the type of a variable cannot be known until the data are collected, when the way it is measured already settles it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-treats-a-number-as-a-category",
+        "Calling a numerical measurement categorical because it falls into groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-treats-a-category-as-a-number",
+        "Calling a category numerical because it is recorded with a code.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-one-variable-only",
+        "Choosing a plan that records only one of the two variables the question needs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-an-unrelated-variable",
+        "Choosing a plan that records a variable the question does not ask about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-from-one-group-only",
+        "Choosing a plan that asks only one of the groups being compared, so no comparison is possible.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-asks-the-wrong-population",
+        "Choosing a plan that collects data from a population the question is not about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-those-left-out",
+        "Giving the number left out of the sample instead of the number in it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-half-the-population",
+        "Taking half the population as the sample whatever percentage was stated.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-counts-one-variable-only",
+        "Counting the members of the sample but not the second variable recorded for each.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-the-variable-count",
+        "Adding the number of variables to the sample size instead of multiplying.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-whole-population",
+        "Counting values for the whole population instead of for the sample.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-column-graph-for-the-wrong-purpose",
+        "Choosing a column graph for a question about change over time, a spread of measurements, association or two groups' centres.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-pie-chart-for-the-wrong-purpose",
+        "Choosing a pie chart for a question that is not about how a whole is shared, such as change over time or the spread of measurements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-histogram-for-the-wrong-purpose",
+        "Choosing a histogram for a question about categories, change over time, association, or the centres of two groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-line-graph-for-the-wrong-purpose",
+        "Choosing a line graph when the data are not ordered in time, such as categories or two numerical variables.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-a-scatterplot-for-the-wrong-purpose",
+        "Choosing a scatterplot when only one measurement is recorded, or when the question is about change over time.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-picks-box-plots-for-the-wrong-purpose",
+        "Choosing box plots for categories, counts, change over time or association.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-neighbouring-value",
+        "Reading the value for a neighbouring month or case instead of the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-change-not-the-value",
+        "Giving the change from the month before when the value itself was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-first-and-last-only",
+        "Giving the total change from first to last instead of the largest change from one month to the next.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-largest-value",
+        "Giving the largest value in the data instead of the quantity asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-range",
+        "Giving the range of the values instead of the largest rise between neighbouring values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-number-of-years-listed",
+        "Dividing a total change by the number of values listed instead of by the number of intervals between them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-to-divide-by-the-intervals",
+        "Giving the total change when the average change per interval was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-instead-of-subtracting",
+        "Dividing the last value by the first when the change between them was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-x-for-y",
+        "Giving the x-value of a pair when its y-value was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-the-intercept",
+        "Predicting from a line by multiplying the slope by x and leaving out the constant term.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-flips-the-sign-of-the-slope-term",
+        "Subtracting the slope term from the constant when it should be added.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-instead-of-multiplying",
+        "Adding the slope to the x-value instead of multiplying them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-count-as-a-percentage",
+        "Giving a group's count as if it were its percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-rest-of-the-whole",
+        "Giving the percentage or angle left over for the other groups instead of the group's own.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-rest-of-the-whole",
+        "Dividing a group's count by the count of everything else instead of by the whole.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-percentage-as-the-angle",
+        "Giving a sector's percentage as its angle in degrees.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-with-the-wrong-group",
+        "Taking the difference from the second smallest value instead of the smallest.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-means-not-medians",
+        "Working with the means of two groups when the medians were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-the-largest-values",
+        "Comparing the largest value in each group instead of the medians.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-the-middle-of-the-list-unsorted",
+        "Taking the middle value of the list as it was written instead of putting the values in order first.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-ranges-not-interquartile-ranges",
+        "Comparing the ranges of two groups when the interquartile ranges were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-medians-not-spreads",
+        "Comparing the centres of two groups when their spreads were asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-includes-the-upper-boundary",
+        "Counting values equal to the upper end of a class as being in the class.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-neighbouring-class",
+        "Counting the class below the one asked about.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-miscounts-by-one",
+        "Miscounting the values in a class by one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-wrong-total",
+        "Dividing a class count by something other than the number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-subtracts-in-the-wrong-order",
+        "Subtracting the later value from the earlier one, so a rise is given as a fall.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-last-value",
+        "Giving the last value in the series when the change over the series was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-too-few-intervals",
+        "Dividing a total change by one fewer interval than there are between the first and last month.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-the-whole-change-not-one-month",
+        "Adding the whole change over the series to the last value, instead of one month's average change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-organising-with-displaying",
+        "Treating sorting results into a table as drawing a display, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-analysing-with-concluding",
+        "Treating finding the summary statistics as stating the conclusion, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-confuses-posing-with-collecting",
+        "Treating collecting the first measurements as posing the question.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-names-the-wrong-stage",
+        "Naming a stage of the investigation that the described action does not belong to.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-collects-before-posing-the-question",
+        "Putting data collection before deciding what question the investigation answers.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-organises-before-collecting",
+        "Putting the sorting of results before the results have been collected.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-displays-before-collecting",
+        "Putting the drawing of a display before the data have been collected.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-displays-before-organising",
+        "Putting the drawing of a display before the results have been sorted into a table.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-analyses-before-displaying",
+        "Putting the calculation of summary statistics before the data have been displayed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-concludes-before-analysing",
+        "Putting the conclusion before the data have been analysed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-swaps-two-neighbouring-steps",
+        "Swapping two steps that are next to each other in a sound investigation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reverses-the-whole-order",
+        "Giving the steps of the investigation in reverse order.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-keeps-the-unsound-action",
+        "Keeping an action that makes the investigation unsound, such as changing the question after seeing the result, as one of its steps.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-forgets-to-divide-by-the-count",
+        "Giving the total of the values when their mean was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-a-middle-value-for-the-mean",
+        "Giving the middle value of the list when the mean was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-totals-not-means",
+        "Comparing the totals of two groups when the difference in their means was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-rejects-a-sound-claim",
+        "Judging that a claim is flawed when the figures match the data and the study was designed to test it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-accepts-a-flawed-claim",
+        "Accepting a claim because its figures are right, without checking the size of the sample, how the groups were formed, or the range of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-names-the-wrong-flaw",
+        "Naming a flaw that the claim does not have, and missing the one it does.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-counts-not-percentages",
+        "Subtracting the numbers of cases in two groups of different sizes instead of their percentages.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-a-relative-change-not-points",
+        "Giving the gap as a percentage of the smaller group's percentage instead of in percentage points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-one-too-few",
+        "Dividing a total by one fewer than the number of values when finding the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-mean-not-the-excess",
+        "Giving the mean itself when how far it sits above the median was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-median-not-the-excess",
+        "Giving the median itself when how far the mean sits above it was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-mean-for-the-median",
+        "Giving the mean when the median was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-both-groups",
+        "Dividing a group's count by the size of both groups together instead of by its own size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-misjudges-the-difference-against-the-spread",
+        "Reaching the opposite verdict by comparing the difference in medians with the interquartile range the wrong way round.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-a-miscalculated-difference",
+        "Basing the verdict on a wrong difference between the groups, such as the difference in means or in the largest values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-with-the-smaller-spread",
+        "Judging the difference against the smaller interquartile range instead of the larger.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-any-difference-counts-as-evidence",
+        "Treating any difference between two medians as strong evidence, whatever the spread.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-uses-the-range-not-the-iqr",
+        "Using the range of each group in place of the interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-invents-a-size-problem",
+        "Saying no judgement can be made because of group size when both groups are large enough.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-ignores-the-size-rule",
+        "Judging the difference as if a group that is too small were large enough.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-upper-quartiles-not-medians",
+        "Subtracting the upper quartiles of the two groups when the difference in medians was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-the-smaller-spread",
+        "Giving the smaller interquartile range when the larger was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-upper-quartile-not-the-iqr",
+        "Giving the upper quartile itself when the interquartile range was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-halves-the-iqr",
+        "Giving the distance from the lower quartile to the median instead of the whole interquartile range.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-counts-one-gap-too-few",
+        "Adding one gap fewer than needed when counting along from the starting member to the last one chosen.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-swaps-the-slope-and-intercept",
+        "Using the constant term as the slope and the slope as the constant term when predicting from a line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-interpolation-extrapolation",
+        "Calling a prediction inside the range of the data extrapolation, and so distrusting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-extrapolation-interpolation",
+        "Calling a prediction outside the range of the data interpolation, and so trusting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-thinks-the-line-passes-through-every-point",
+        "Thinking a line of fit passes through every data point, so its predictions are exact.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-thinks-only-recorded-values-can-be-predicted",
+        "Thinking a line of fit can only predict at x-values that appear in the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-rejects-all-predictions",
+        "Thinking a line of fit can never be used to make a prediction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-trusts-a-sensible-looking-prediction",
+        "Trusting a prediction far outside the data because the number it gives looks sensible.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-assumes-the-line-holds-everywhere",
+        "Assuming a fitted line keeps describing the data at every value of x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-data-for-an-impossible-value",
+        "Blaming an error in the data when a line predicts an impossible value far outside the range it was fitted to.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-slope-for-an-impossible-value",
+        "Blaming the slope when a line predicts an impossible value far outside the range it was fitted to.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-names-a-variable-with-no-link-to-both",
+        "Naming a variable that has no link to both of the measured variables as the one that drives them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-cause-from-a-line",
+        "Reading a cause from a line of fit, because the line has a slope.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reverses-cause-and-effect",
+        "Reversing cause and effect when two measurements are linked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-a-link-a-coincidence",
+        "Calling a link between two measurements a coincidence, without reason.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-solves-for-one-step-past",
+        "Giving a value of x one step past where the line reaches the limit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-solves-for-one-step-short",
+        "Giving a value of x one step short of where the line reaches the limit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-adds-the-intercept-instead-of-subtracting",
+        "Adding the constant term to the limit instead of subtracting it when solving for x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-a-prediction-not-a-change",
+        "Giving a predicted y-value when the change in y was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reports-the-prediction-not-the-excess",
+        "Giving the predicted value when how far it passes the limit was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-excess-in-x-not-y",
+        "Giving how far x is past the limit's x-value when the excess in y was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-rejects-a-prediction-for-the-wrong-reason",
+        "Calling a prediction unreliable for a reason that does not matter, such as the line missing the origin or the value not appearing in the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-horizontal-axis",
+        "Calling a graph misleading because of its horizontal axis when the flaw is the vertical axis.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-blames-the-vertical-steps",
+        "Calling a graph misleading because the vertical steps are uneven when they are evenly spaced.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-calls-a-small-rise-large",
+        "Calling a rise large because it looks steep on the graph, without working out its percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-divides-by-the-final-value",
+        "Dividing the rise by the final value instead of the starting value to find a percentage rise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-one-height-not-the-ratio",
+        "Giving one bar or point height when the ratio of the two heights was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-final-value-as-a-percentage-of-the-first",
+        "Giving the final value as a percentage of the first value when the percentage rise was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-rise-as-a-percentage",
+        "Giving the raw rise as the percentage rise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-measures-heights-from-zero-not-from-the-axis",
+        "Measuring the heights of two points from zero when the axis starts higher, so the ratio is wrong.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-bottom-of-the-axis",
+        "Reading the lowest value on the vertical axis instead of the value of the point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-gridline-above",
+        "Reading the gridline above a point instead of the value of the point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-reads-the-gridline-below",
+        "Reading the gridline below a point instead of the value of the point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-says-a-line-graph-is-the-wrong-display",
+        "Calling a line graph the wrong display for values that change over time.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-says-the-graph-cannot-be-read",
+        "Saying a graph with a labelled scale cannot be read.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-sees-a-flaw-in-an-honest-axis",
+        "Calling a graph misleading when its vertical axis starts at zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-trusts-a-graph-that-does-not-start-at-zero",
+        "Trusting how large a change looks on a graph whose vertical axis does not start at zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-takes-a-value-next-to-the-median",
+        "Giving a value next to the middle one in the ordered list instead of the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-compares-the-smallest-values",
+        "Subtracting the smallest values of two groups when the difference in medians was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-averages-the-last-value-not-the-change",
+        "Dividing the final value by the number of intervals instead of the change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-doubles-the-average-change",
+        "Doubling the average change per step when finding it from the total change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-miscounts-the-average-change",
+        "Giving an average change one more than the correct value after a slip in dividing the total change.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ir2a-gives-the-change-not-the-prediction",
+        "Giving the change in y for the step when the predicted value of y was asked.",
+        area="statistics",
     ),
 )
 

@@ -1,0 +1,95 @@
+id: f10-cubic-double-root-graph
+name: Write the equation of a cubic that touches the axis once
+domain: functions-sequences
+year_level:
+- '10'
+description: 'Write y = k(x - p)(x - q)^2 for a drawn cubic that crosses the x-axis once and touches it once, with k of 1,
+  then 1 or -1 from the end behaviour, then another value found from a marked point. The exam chain starts from the equation:
+  x-intercepts, the y-intercept and the turning point that is not on the x-axis.'
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- zero-product-property
+- f10-parabola-equation-from-graph
+answer: expression
+sources:
+- topic: fr2c_cubic_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_cubic_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_cubic_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fr2c_cubic_features_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the intercept where the graph crosses and the one where it only touches, and square the factor of the one
+      that touches.
+  medium:
+    steps: 3
+    demand: As the easy tier, and decide the sign of k from the end behaviour.
+  hard:
+    steps: 4
+    demand: As the medium tier, and find k from a marked point.
+  exam:
+    steps: 4
+    demand: Classify the intercepts, find the y-intercept, find the second turning point with the derivative, then its height.
+misconceptions:
+- id: fr2c-double-root-swapped
+  description: Squaring the factor for the x-intercept where the graph crosses the axis instead of the one where it touches.
+- id: fr2c-double-root-missed
+  description: Leaving out the square on the factor for the x-intercept where the graph only touches the axis.
+- id: fr2c-both-roots-squared
+  description: Squaring both factors, which would make the graph touch the axis at both x-intercepts.
+- id: fr2c-root-sign-reversed
+  description: Writing the opposite sign in each factor, so the roots come out as the negatives of the x-intercepts.
+- id: fr2c-both-roots-crossed
+  description: Treating both x-intercepts as places where the graph crosses the axis.
+- id: fr2c-intercept-sign-slip
+  description: Getting the sign of the y-intercept wrong when multiplying negative numbers.
+- id: fr2c-intercept-brackets-not-squared
+  description: Leaving out the square on the factor for the double root when finding a value.
+- id: fr2c-intercept-at-roots
+  description: Giving an x-intercept where an intercept or turning point value was asked for.
+- id: fr2c-turning-point-at-midpoint
+  description: Taking the turning point to be half way between the x-intercepts, as for a parabola.
+- id: fr2c-turning-point-weights-swapped
+  description: Weighting the two x-intercepts the wrong way round when finding the turning point.
+- id: fr2c-turning-point-on-axis-reported
+  description: Giving the turning point that is on the x-axis when the other one was asked for.
+- id: fr2c-bracket-not-squared
+  description: Leaving out the square on the bracket when the value is put into the equation.
+- id: fr2c-leading-coefficient-ignored
+  description: Leaving out the number in front of the factors, as if it were 1 (or -1), so the graph is the wrong height.
+- id: fr2c-x-coordinate-given-for-y
+  description: Giving the x-coordinate of a point where its y-coordinate was asked for.
+tags:
+- acara-f10-v9
+- secondary
+- cubic
+- polynomials
+- turning-points
+- intercepts
+- figure
+- acmna268

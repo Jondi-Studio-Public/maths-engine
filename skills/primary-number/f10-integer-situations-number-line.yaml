@@ -1,0 +1,75 @@
+id: f10-integer-situations-number-line
+name: Use integers in real situations on a number line
+domain: primary-number
+year_level: ['6']
+naplan_domain: [number]
+description: Read a marked value, find the change between two marks, and find the value after a move or halfway between two
+  marks for temperature, height, building level and bank balance on a number line.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- f10-integer-numberline-coordinates
+answer: number
+sources:
+- topic: fr2b_integer_situations
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_integer_situations
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_integer_situations
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-reads-the-wrong-side-of-zero
+  description: Reading a point on the wrong side of zero, so a negative value is given as positive or the reverse.
+- id: fr2b-counts-steps-from-the-left-end
+  description: Counting the steps from the left end of the number line and giving that count as the value, instead of reading
+    the value at the point.
+- id: fr2b-reads-the-wrong-tick
+  description: Reading the tick next to the marked point, so the value is one step out.
+- id: fr2b-adds-sizes-on-one-side-of-zero
+  description: Adding the sizes of two values on the same side of zero instead of subtracting them.
+- id: fr2b-adds-the-readings
+  description: Adding the two readings to get the change between them.
+- id: fr2b-change-direction-reversed
+  description: Giving the change from B to A instead of from A to B, so the sign is wrong.
+- id: fr2b-subtracts-sizes-across-zero
+  description: Subtracting the sizes of two values on opposite sides of zero instead of adding them, as if both were on the
+    same side.
+- id: fr2b-rise-and-fall-treated-the-same
+  description: Adding both moves, or taking away both, when one was a rise and the other a fall.
+- id: fr2b-rise-and-fall-swapped
+  description: Taking away the rise and adding the fall.
+- id: fr2b-sign-of-the-start-ignored
+  description: Using the size of a negative starting value as if it were positive.
+- id: fr2b-no-halving
+  description: Adding the two values and forgetting to halve the total to find the value halfway between them.
+- id: fr2b-negative-sign-dropped-at-the-end
+  description: Finding the right size for the final value but giving it the wrong sign.
+difficulty_progression: Easy reads the value at one marked point, negative about half of the time. Medium finds the change
+  from A to B, either across zero (a sum of sizes) or on one side of it (a difference of sizes). Hard either applies a rise
+  and a fall to A, with zero crossed on the way, or finds the value halfway between two marks.
+tags:
+- acara-f10-v9
+- primary
+- integers
+- number-line
+- ac9m6n01
