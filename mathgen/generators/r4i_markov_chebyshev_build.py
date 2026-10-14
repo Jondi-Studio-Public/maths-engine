@@ -153,8 +153,8 @@ def _medium_interval(rng):
     dist = need(frac_distractors(bound, cands, positive=True, at_most=Fraction(1)))
     text = (
         f"{what} has mean {mean} {unit} and standard deviation {sd} {unit}; its distribution is otherwise unknown. "
-        f"What is the largest lower bound that can be guaranteed for the probability that it lies strictly between "
-        f"{lo} and {hi} {unit}?"
+        f"What is the best lower bound that Chebyshev's inequality gives for the probability that it lies strictly "
+        f"between {lo} and {hi} {unit}?"
     )
     working = [
         f"The nearer end is {d1} {unit} from the mean, so the interval contains the symmetric one |X - {mean}| < {d1}.",
@@ -324,8 +324,8 @@ def _hard_best_of_two(rng):
     dist = need(frac_distractors(best, cands, positive=True, at_most=Fraction(1)))
     text = (
         f"{what} cannot be negative. It has mean {mean} {unit} and standard deviation {sd} {unit}; its distribution is "
-        f"otherwise unknown. Using only this information, what is the smallest upper bound you can guarantee for the "
-        f"probability that it is at least {a} {unit}?"
+        f"otherwise unknown. Markov's inequality and Chebyshev's inequality each give an upper bound for the probability "
+        f"that it is at least {a} {unit}. What is the smaller of the two bounds?"
     )
     working = [
         f"From the mean alone: P(X ≥ {a}) ≤ {mean}/{a} = {markov.numerator}/{markov.denominator}.",
@@ -369,7 +369,8 @@ def exd_x_r4i_markov_chebyshev(rng, tier="exam"):
         ob = Fraction(sd * sd, d * d)
         od = ob / n
         if (
-            ok.numerator != 1
+            d <= mean
+            and ok.numerator != 1
             and ob.numerator != 1
             and od.numerator != 1
             and len({ok, ob, od, 1 - ob}) == 4
@@ -453,7 +454,7 @@ def exd_x_r4i_markov_chebyshev(rng, tier="exam"):
     )
     parts = [
         dict(
-            prompt=f"Find the smallest upper bound that can be guaranteed for P(X ≥ {a}), the probability a customer waits at least {a} minutes.",
+            prompt=f"Use Markov's inequality to find an upper bound for P(X ≥ {a}), the probability a customer waits at least {a} minutes.",
             marks=1,
             sensible_range=(0, 1),
             working=[f"P(X ≥ {a}) ≤ {mean}/{a} = {ok.numerator}/{ok.denominator}."],

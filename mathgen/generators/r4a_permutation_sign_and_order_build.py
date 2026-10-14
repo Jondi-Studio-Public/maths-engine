@@ -252,7 +252,13 @@ def exd_x_r4a_permutation_sign_and_order(rng, tier="exam"):
     by_each = [length // gcd(length, k) for length in lens]
     key = cycles(p)
     return dict(
-        text=f"The permutation σ of {{1, ..., {n}}} sends 1, 2, ..., {n} to {', '.join(map(str, p))} respectively.",
+        text=rng.choice(
+            [
+                f"The permutation σ of {{1, ..., {n}}} sends 1, 2, ..., {n} to {', '.join(map(str, p))} respectively.",
+                f"Let σ be the permutation of {{1, ..., {n}}} that takes 1, 2, ..., {n} to {', '.join(map(str, p))} respectively.",
+                f"A permutation σ of {{1, ..., {n}}} maps 1, 2, ..., {n} to {', '.join(map(str, p))} respectively.",
+            ]
+        ),
         parts=[
             number_part(
                 "Find the order of σ.",
@@ -294,6 +300,8 @@ def exd_x_r4a_permutation_sign_and_order(rng, tier="exam"):
                     (o // k if o % k == 0 else None, "power-order-divided-by-exponent"),
                     (max(by_each), "order-as-longest-cycle"),
                     (sum(by_each), "order-as-sum-of-cycle-lengths"),
+                    (g, None),
+                    (o // g + 1, None),
                 ],
                 sensible_range=(0, None),
             ),

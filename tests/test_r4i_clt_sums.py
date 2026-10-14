@@ -74,7 +74,7 @@ def test_skill_wiring():
 def test_easy_keys_from_text():
     for seed in range(120):
         q = _q("easy", seed)
-        pmf = [(int(v), Fraction(p)) for v, p in re.findall(r"P\(X = (\d+)\) = ([\d.]+)", q.text)]
+        pmf = [(int(v), Fraction(p)) for v, p in re.findall(r"P\(X = (\d+)\) = (\d+\.\d+)", q.text)]
         assert sum(p for _, p in pmf) == 1
         n = int(re.search(r"Over (\d+)", q.text).group(1))
         m = sum(v * p for v, p in pmf)
@@ -136,8 +136,8 @@ def test_hard_keys_from_text():
 def test_exam_keys_from_text():
     for seed in range(60):
         q = _exam(seed)
-        pmf = [(int(v), Fraction(p)) for v, p in re.findall(r"P\(X = (\d+)\) = ([\d.]+)", q.stem)]
-        n = int(re.search(r"has (\d+) stops", q.stem).group(1))
+        pmf = [(int(v), Fraction(p)) for v, p in re.findall(r"P\(X = (\d+)\) = (\d+\.\d+)", q.stem)]
+        n = int(re.search(r"(\d+) (?:independent )?stops", q.stem).group(1))
         m = sum(v * p for v, p in pmf)
         var = sum(v * v * p for v, p in pmf) - m * m
         a, b, c, d = q.parts

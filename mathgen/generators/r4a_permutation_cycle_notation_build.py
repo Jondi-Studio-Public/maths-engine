@@ -115,10 +115,16 @@ def _medium(rng):
         ([key[0] + key[1], *key[2:]] if len(key) >= 2 else None, "cycle-merged-into-one"),
     ]
     options = cycles_options(key, cands, 3)
-    stem = (
-        f"Permutations of {{1, ..., {n}}} are given by their images of 1, ..., {n}: "
-        f"p = ({', '.join(map(str, p))}) and q = ({', '.join(map(str, q))}). "
-        f"The product pq means apply q first, then p. Write pq as a product of disjoint cycles. {_CONVENTION}"
+    pq_images = f"p = ({', '.join(map(str, p))}) and q = ({', '.join(map(str, q))})"
+    stem = rng.choice(
+        [
+            f"Permutations of {{1, ..., {n}}} are given by their images of 1, ..., {n}: {pq_images}. "
+            f"The product pq means apply q first, then p. Write pq as a product of disjoint cycles. {_CONVENTION}",
+            f"Let {pq_images} be permutations of {{1, ..., {n}}}, each listed by its images of 1, ..., {n}. "
+            f"Compose them as pq (q first, then p) and express the result as disjoint cycles. {_CONVENTION}",
+            f"Two permutations of {{1, ..., {n}}} are written as lists of images of 1, ..., {n}: {pq_images}. "
+            f"Applying q first and then p gives the product pq. Find pq in disjoint cycle notation. {_CONVENTION}",
+        ]
     )
     return dict(
         text=stem,

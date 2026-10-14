@@ -91,6 +91,9 @@ difficulty_progression:
     steps: 5
     demand: "Work backwards from a tail probability: solve for the smallest whole cut-off with the continuity correction,\
       \ or solve a quadratic in the square root of n for the largest number of items."
+  exam:
+    steps: 6
+    demand: "A four-part chain on a total of many independent counts: find the mean and the standard deviation of the total, estimate a tail probability with a continuity correction, then invert the approximation to find the smallest cut-off with a stated tail."
 tags:
 - university-year-2
 - statistics

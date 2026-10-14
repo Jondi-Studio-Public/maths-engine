@@ -119,6 +119,9 @@ difficulty_progression:
     steps: 5
     demand: "Work backwards from a guarantee to a sample size or interval half-width, or compare the bounds from the mean\
       \ alone and from the standard deviation and keep the better one."
+  exam:
+    steps: 6
+    demand: "A four-part chain on one waiting time: bound a tail from the mean, bound a deviation from the variance, turn that into a guaranteed lower bound, then find the sample size that guarantees a stated accuracy."
 tags:
 - university-year-2
 - probability

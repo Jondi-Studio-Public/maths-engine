@@ -86,7 +86,7 @@ def quad_text(p, q, with_cross=False) -> str:
 
 @generator(
     "r4h_lagrange_nonlinear_constraint",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_lagrange_nonlinear_constraint(rng, tier="easy"):
@@ -242,7 +242,7 @@ def _hard(rng):
     )
 
 
-@generator("exd_x_r4h_lagrange_nonlinear_constraint", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_lagrange_nonlinear_constraint", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_lagrange_nonlinear_constraint(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam Lagrange question")

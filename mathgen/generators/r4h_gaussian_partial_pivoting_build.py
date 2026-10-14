@@ -181,7 +181,7 @@ def draw_matrix(rng, *, swap1=True, swap2=False, lim=9):
 
 @generator(
     "r4h_gaussian_partial_pivoting",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_gaussian_partial_pivoting(rng, tier="easy"):
@@ -321,7 +321,7 @@ def _restored(a):
 # exam chain
 
 
-@generator("exd_x_r4h_gaussian_partial_pivoting", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_gaussian_partial_pivoting", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_gaussian_partial_pivoting(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam pivoting question")

@@ -141,7 +141,7 @@ def _draw3(rng):
 
 @generator(
     "r4h_matrix_norm_condition",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_matrix_norm_condition(rng, tier="easy"):
@@ -283,7 +283,7 @@ def integer_like(value, cands):
     )
 
 
-@generator("exd_x_r4h_matrix_norm_condition", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_matrix_norm_condition", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_matrix_norm_condition(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam norm question")

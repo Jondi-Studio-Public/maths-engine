@@ -131,7 +131,7 @@ def _equation_cubic(rng, tier):
 
 @generator(
     "r4b_secant_iteration",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_secant_iteration(rng, tier="easy"):
@@ -157,9 +157,18 @@ def _single(rng, tier):
         x2 = step(f, a, b)
         check(x2 == sympy_step(coeffs, a, b), "the chord through the two points disagrees")
         check(x2 == Fraction(x0 * x1 + n, x0 + x1), "closed form disagrees")
+        fx = _fmt_f(coeffs)
         text = say_marked(
-            f"The secant method is applied to «f(x) = {_fmt_f(coeffs)}» with starting values «x{sub(0)} = {x0}» "
-            f"and «x{sub(1)} = {x1}». Find «x{sub(2)}» to 4 decimal places."
+            rng.choice(
+                [
+                    f"The secant method is applied to «f(x) = {fx}» with starting values «x{sub(0)} = {x0}» "
+                    f"and «x{sub(1)} = {x1}». Find «x{sub(2)}» to 4 decimal places.",
+                    f"Take «x{sub(0)} = {x0}» and «x{sub(1)} = {x1}» as the starting values of the secant method for "
+                    f"«f(x) = {fx}». Find «x{sub(2)}» to 4 decimal places.",
+                    f"Apply one step of the secant method to «f(x) = {fx}» from «x{sub(0)} = {x0}» and "
+                    f"«x{sub(1)} = {x1}». What is «x{sub(2)}», to 4 decimal places?",
+                ]
+            )
         )
         part = number_part(
             "",
@@ -185,8 +194,16 @@ def _single(rng, tier):
         check(x2 == sympy_step(coeffs, a, b), "the chord through the two points disagrees")
         eq = _eq(ca, cb)
         text = say_marked(
-            f"The equation «{eq}» is to be solved by the secant method with starting values «x{sub(0)} = {x0}» "
-            f"and «x{sub(1)} = {x1}». Find «x{sub(2)}» to 4 decimal places."
+            rng.choice(
+                [
+                    f"The equation «{eq}» is to be solved by the secant method with starting values «x{sub(0)} = {x0}» "
+                    f"and «x{sub(1)} = {x1}». Find «x{sub(2)}» to 4 decimal places.",
+                    f"Use the secant method on «{eq}» with «x{sub(0)} = {x0}» and «x{sub(1)} = {x1}» as the starting "
+                    f"values. Find «x{sub(2)}» to 4 decimal places.",
+                    f"Starting from «x{sub(0)} = {x0}» and «x{sub(1)} = {x1}», apply one step of the secant method to "
+                    f"the equation «{eq}». What is «x{sub(2)}», to 4 decimal places?",
+                ]
+            )
         )
         slips = step_slips(f, df, a, b)
         # solving g(x) = x³ - (a x + b) with the sides swapped changes nothing, but dropping the constant does
@@ -223,8 +240,16 @@ def _single(rng, tier):
     check(x3 == sympy_step(coeffs, b, x2), "the second chord disagrees")
     eq = _eq(ca, cb)
     text = say_marked(
-        f"The equation «{eq}» is solved by the secant method with starting values «x{sub(0)} = {x0}» and "
-        f"«x{sub(1)} = {x1}». Find «x{sub(3)}» to 4 decimal places."
+        rng.choice(
+            [
+                f"The equation «{eq}» is solved by the secant method with starting values «x{sub(0)} = {x0}» and "
+                f"«x{sub(1)} = {x1}». Find «x{sub(3)}» to 4 decimal places.",
+                f"Use the secant method on «{eq}» with «x{sub(0)} = {x0}» and «x{sub(1)} = {x1}» as the starting "
+                f"values. Find «x{sub(3)}», the second new estimate after the starting values, to 4 decimal places.",
+                f"Starting from «x{sub(0)} = {x0}» and «x{sub(1)} = {x1}», apply the secant method twice to the "
+                f"equation «{eq}». What is «x{sub(3)}», to 4 decimal places?",
+            ]
+        )
     )
     cands = [
         (M_WINDOW, x2 - f(x2) * (x2 - a) / (f(x2) - f(a)) if f(x2) != f(a) else None),
@@ -270,7 +295,7 @@ def _need3(options):
 # exam chain
 
 
-@generator("exd_x_r4b_secant_iteration", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_secant_iteration", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_secant_iteration(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam secant question")
@@ -298,8 +323,16 @@ def _exam(rng):
     check(x2 == sympy_step(coeffs, a, b) and x3 == sympy_step(coeffs, b, x2), "a chord disagrees")
     df = lambda v: 2 * v  # noqa: E731
     stem, latex = say_marked(
-        f"The secant method is applied to «f(x) = x² − {n}» with starting values «x{sub(0)} = {x0}» and "
-        f"«x{sub(1)} = {x1}» to approximate «√{n}»."
+        rng.choice(
+            [
+                f"The secant method is applied to «f(x) = x² − {n}» with starting values «x{sub(0)} = {x0}» and "
+                f"«x{sub(1)} = {x1}» to approximate «√{n}».",
+                f"To approximate «√{n}», the secant method is used on «f(x) = x² − {n}» from «x{sub(0)} = {x0}» and "
+                f"«x{sub(1)} = {x1}».",
+                f"Starting from «x{sub(0)} = {x0}» and «x{sub(1)} = {x1}», the secant method is applied to "
+                f"«f(x) = x² − {n}» to approximate «√{n}».",
+            ]
+        )
     )
     f1 = f(b)
     p_a = fraction_part(

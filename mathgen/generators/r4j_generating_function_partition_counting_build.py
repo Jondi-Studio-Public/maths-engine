@@ -315,6 +315,7 @@ def exd_x_r4j_generating_function_partition_counting(rng, tier="exam"):
     total = a + b + c
     check(total == _count([(1, 2), *base], n), "the case split disagrees with the full generating function")
     scene = rng.randrange(3)
+    noun = ("1-credit token", "1-point play", "1-point stamp")[scene]
     if scene == 0:
         stem, stem_tex = say(
             f"Leah needs exactly {n} credits on an arcade card. She tops up with tokens worth 1, 3, 4 and 7 credits, "
@@ -348,7 +349,7 @@ def exd_x_r4j_generating_function_partition_counting(rng, tier="exam"):
 
     parts = [
         part(
-            "How many ways are there if no 1-point item is used?",
+            f"How many ways are there if no {noun} is used?",
             a,
             2,
             [
@@ -362,7 +363,7 @@ def exd_x_r4j_generating_function_partition_counting(rng, tier="exam"):
             ],
         ),
         part(
-            "How many ways are there if exactly one 1-point item is used?",
+            f"How many ways are there if exactly one {noun} is used?",
             b,
             2,
             [
@@ -374,7 +375,7 @@ def exd_x_r4j_generating_function_partition_counting(rng, tier="exam"):
             [f"The other items make {n - 1} points: the coefficient of x^{n - 1} is {b}."],
         ),
         part(
-            "How many ways are there if exactly two 1-point items are used?",
+            f"How many ways are there if exactly two {noun}s are used?",
             c,
             2,
             [

@@ -92,7 +92,7 @@ def _count_ok(n: int, real: float) -> bool:
 
 @generator(
     "r4b_fixed_point_convergence",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_fixed_point_convergence(rng, tier="easy"):
@@ -107,8 +107,16 @@ def _single(rng, tier):
         x0 = rng.choice([v for v in range(1, q) if v != p])
         rate = Fraction(2 * p, d)
         text = say_marked(
-            f"The iteration «xₙ₊₁ = g(xₙ)», with «{g_text(c, d)}» and starting value «x₀ = {x0}», converges to a fixed "
-            "point of «g». Find «|g′(x)|» at that fixed point, as a fraction."
+            rng.choice(
+                [
+                    f"The iteration «xₙ₊₁ = g(xₙ)», with «{g_text(c, d)}» and starting value «x₀ = {x0}», converges to "
+                    "a fixed point of «g». Find «|g′(x)|» at that fixed point, as a fraction.",
+                    f"Starting at «x₀ = {x0}», the iteration «xₙ₊₁ = g(xₙ)» with «{g_text(c, d)}» converges to a fixed "
+                    "point of «g». What is «|g′(x)|» at that fixed point? Give a fraction.",
+                    f"Let «{g_text(c, d)}». The iteration «xₙ₊₁ = g(xₙ)» started at «x₀ = {x0}», settles at a fixed "
+                    "point of «g». Give «|g′(x)|» at that point, as a fraction.",
+                ]
+            )
         )
         cands = [
             (M_OTHER, Fraction(2 * q, d)),
@@ -255,7 +263,7 @@ def _q(text_pair, part):
 # exam chain
 
 
-@generator("exd_x_r4b_fixed_point_convergence", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_fixed_point_convergence", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_fixed_point_convergence(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam fixed-point question")

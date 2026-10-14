@@ -146,7 +146,7 @@ def _poly_slips(coeffs, a, b):
 
 @generator(
     "r4b_gauss_legendre",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_gauss_legendre(rng, tier="easy"):
@@ -220,8 +220,16 @@ def _single(rng, tier):
         (M_HALF, value / 2),
     ]
     text = say_marked(
-        f"Approximate «∫ {text_f} dx» from «x = {a}» to «x = {b}» using the two-point Gauss-Legendre rule. "
-        "Give the exact value as a fraction."
+        rng.choice(
+            [
+                f"Approximate «∫ {text_f} dx» from «x = {a}» to «x = {b}» using the two-point Gauss-Legendre rule. "
+                "Give the exact value as a fraction.",
+                f"Use the two-point Gauss-Legendre rule to approximate «∫ {text_f} dx» from «x = {a}» to «x = {b}». "
+                "Give the approximation as an exact fraction.",
+                f"The two-point Gauss-Legendre rule is applied to «∫ {text_f} dx» from «x = {a}» to «x = {b}». "
+                "Find the exact value of the approximation, as a fraction.",
+            ]
+        )
     )
     dist = fraction_distractors(value, cands)
     if len(dist) < 3:
@@ -274,7 +282,7 @@ def _p(v) -> str:
 # exam chain
 
 
-@generator("exd_x_r4b_gauss_legendre", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_gauss_legendre", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_gauss_legendre(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam Gauss-Legendre question")

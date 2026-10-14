@@ -74,9 +74,14 @@ def _rate_text(r: Fraction) -> str:
     return _ft(r)
 
 
+def _rx(r: Fraction) -> str:
+    """The exponent after the minus sign: x when the rate is 1, else the rate and x."""
+    return "x" if r == 1 else f"{_rate_text(r)}x"
+
+
 def gamma_density(k: int, r: Fraction, c=None) -> str:
     const = c if c is not None else _coef(gamma_const(k, r))
-    ex = f"e^(-{_rate_text(r)}x)" if r.denominator == 1 else f"e^(-({_rate_text(r)})x)"
+    ex = f"e^(-{_rx(r)})" if r.denominator == 1 else f"e^(-({_rate_text(r)})x)"
     parts = [const, _pow("x", k - 1), ex]
     return "f(x) = " + " ".join(p for p in parts if p) + " for x > 0, and f(x) = 0 otherwise"
 
@@ -147,7 +152,7 @@ def _easy_gamma_mean(rng):
     dist = need(frac_distractors(ans, cands, positive=True))
     text = f"{_intro(rng, 'gamma')} {gamma_density(k, r)}. Find the mean of this distribution."
     working = [
-        f"The density is proportional to x^{k - 1}e^(-{_rate_text(r)}x), a gamma density with shape {k} and rate {_ft(r)}.",
+        f"The density is proportional to x^{k - 1}e^(-{_rx(r)}), a gamma density with shape {k} and rate {_ft(r)}.",
         f"Its mean is shape over rate = {k}/{_ft(r)} = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))
@@ -310,13 +315,13 @@ def _hard_normalise_gamma(rng):
         (r / fact(p), "r4i-gb-power-of-rate-dropped"),
     ]
     dist = need(frac_distractors(ans, cands, positive=True))
-    ex = f"e^(-{_rate_text(r)}x)" if r.denominator == 1 else f"e^(-({_rate_text(r)})x)"
+    ex = f"e^(-{_rx(r)})" if r.denominator == 1 else f"e^(-({_rate_text(r)})x)"
     text = (
         f"{_intro(rng, 'gamma').rsplit(' has density', 1)[0]} has a density of the form f(x) = c {_pow('x', p)} {ex} "
         f"for x > 0, and f(x) = 0 otherwise. Find the constant c."
     )
     working = [
-        f"∫ x^{p} e^(-{_rate_text(r)}x) dx over (0, ∞) = {p}!/({_rate_text(r)})^{p + 1}.",
+        f"∫ x^{p} e^(-{_rx(r)}) dx over (0, ∞) = {p}!/({_rate_text(r)})^{p + 1}.",
         f"c is the reciprocal: c = ({_rate_text(r)})^{p + 1}/{p}! = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))
@@ -334,7 +339,7 @@ def _hard_gamma_third(rng):
     dist = need(frac_distractors(ans, cands, positive=True))
     text = f"{_intro(rng, 'gamma')} {gamma_density(k, r)}. Find E(X³), the mean of the cube of the value."
     working = [
-        f"E(X³) = ∫ c x^{k + 2} e^(-{_rate_text(r)}x) dx, a multiple of the gamma integral with shape {k + 3}.",
+        f"E(X³) = ∫ c x^{k + 2} e^(-{_rx(r)}) dx, a multiple of the gamma integral with shape {k + 3}.",
         f"E(X³) = k(k + 1)(k + 2)/rate³ = {k}×{k + 1}×{k + 2}/({_rate_text(r)})³ = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))

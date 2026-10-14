@@ -188,7 +188,7 @@ CONVENTION = (
 
 @generator(
     "r4b_lu_factorisation",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_lu_factorisation(rng, tier="easy"):
@@ -212,7 +212,14 @@ def _single(rng, tier):
         if len(dist) < 3:
             raise Redraw
         stem = say_marked(
-            f"Factorise «A = {shown(mat(a))}». {CONVENTION} Give the matrix «U», with whole-number entries."
+            rng.choice(
+                [
+                    f"Factorise «A = {shown(mat(a))}». {CONVENTION} Give the matrix «U», with whole-number entries.",
+                    f"Find the LU factorisation of «A = {shown(mat(a))}». {CONVENTION} What is the matrix «U»? "
+                    "Its entries are whole numbers.",
+                    f"Let «A = {shown(mat(a))}». {CONVENTION} Compute «U», whose entries are all whole numbers.",
+                ]
+            )
         )
         return dict(
             text=stem[0],
@@ -241,7 +248,14 @@ def _single(rng, tier):
         if len(dist) < 3:
             raise Redraw
         stem = say_marked(
-            f"Factorise «A = {shown(mat(a))}». {CONVENTION} Give the matrix «L» with whole numbers or fractions."
+            rng.choice(
+                [
+                    f"Factorise «A = {shown(mat(a))}». {CONVENTION} Give the matrix «L» with whole numbers or fractions.",
+                    f"Find the LU factorisation of «A = {shown(mat(a))}». {CONVENTION} What is the matrix «L»? "
+                    "Its entries are whole numbers or fractions.",
+                    f"Let «A = {shown(mat(a))}». {CONVENTION} Compute «L», giving each entry as a whole number or fraction.",
+                ]
+            )
         )
         return dict(
             text=stem[0],
@@ -270,9 +284,18 @@ def _single(rng, tier):
     dist = tagged("y = ", rows, text, cands)
     if len(dist) < 3:
         raise Redraw
+    sys_a, sys_b = shown(mat(a)), shown([[v] for v in b])
     stem = say_marked(
-        f"A system «Ax = b» has «A = {shown(mat(a))}» and «b = {shown([[v] for v in b])}». {CONVENTION} "
-        "Find the column «y» that solves «Ly = b», the first stage of solving the system by this factorisation."
+        rng.choice(
+            [
+                f"A system «Ax = b» has «A = {sys_a}» and «b = {sys_b}». {CONVENTION} "
+                "Find the column «y» that solves «Ly = b», the first stage of solving the system by this factorisation.",
+                f"To solve «Ax = b» with «A = {sys_a}» and «b = {sys_b}», first factorise «A». {CONVENTION} "
+                "Then solve «Ly = b» by forward substitution and give the column «y».",
+                f"Let «A = {sys_a}» and «b = {sys_b}». {CONVENTION} Find the column «y» satisfying «Ly = b», "
+                "the first step in solving «Ax = b».",
+            ]
+        )
     )
     return dict(
         text=stem[0],
@@ -330,7 +353,7 @@ def _with_unscaled_multipliers(a, lo):
 # exam chain
 
 
-@generator("exd_x_r4b_lu_factorisation", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_lu_factorisation", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_lu_factorisation(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam LU question")
@@ -355,7 +378,15 @@ def _exam(rng):
     l31 = lo[2][0]
     u12, u13, u23 = up[0][1], up[0][2], up[1][2]
     a11 = a[0][0]
-    stem, latex = say_marked(f"Let «A = {shown(mat(a))}». {CONVENTION}")
+    stem, latex = say_marked(
+        rng.choice(
+            [
+                f"Let «A = {shown(mat(a))}». {CONVENTION}",
+                f"Consider «A = {shown(mat(a))}». {CONVENTION}",
+                f"The matrix «A = {shown(mat(a))}» is to be factorised. {CONVENTION}",
+            ]
+        )
+    )
     p_a = fraction_part(
         "Find the multiplier «l₂₁».",
         l21,
@@ -396,7 +427,7 @@ def _exam(rng):
     )
     u33 = up[2][2]
     p_d = fraction_part(
-        "Using your «l₃₂», complete the factorisation and find «det A» as the product of the diagonal of «U».",
+        "Using your «l₃₂», complete the factorisation and find the determinant of «A» as the product of the diagonal of «U».",
         det,
         [
             (M_DIAG_SUM, up[0][0] + u22 + u33),

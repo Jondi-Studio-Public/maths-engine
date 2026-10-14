@@ -33,6 +33,8 @@ _EASY_STEMS = (
     "The map φ: Z_{m} → Z_{n}, φ(x) = {k}x mod {n}, is a group homomorphism under addition. Find the order of its kernel.",
     "Let φ: Z_{m} → Z_{n} be the homomorphism of additive groups given by φ(x) = {k}x mod {n}. How many elements does "
     "ker φ have?",
+    "Multiplication by {k} defines a group homomorphism φ: Z_{m} → Z_{n} under addition, with φ(x) = {k}x mod {n}. "
+    "What is the size of its kernel?",
 )
 
 
@@ -141,6 +143,8 @@ _HARD_STEMS = (
     "of its kernel.",
     "Let φ(x, y) = {u}x + {v}y mod {c} define a homomorphism of additive groups Z_{a} × Z_{b} → Z_{c}. How many elements are "
     "in ker φ?",
+    "With componentwise addition on Z_{a} × Z_{b}, the map φ(x, y) = {u}x + {v}y mod {c} is a homomorphism Z_{a} × Z_{b} → "
+    "Z_{c}. What is the order of its kernel?",
 )
 
 
@@ -234,7 +238,13 @@ def exd_x_r4a_homomorphism_kernel_image(rng, tier="exam"):
     check(len(pre) * len(image) == a, "|fibre| × |image| differs from |domain|")
     least = pre[0]
     return dict(
-        text=f"The map φ: Z_{a} → Z_{b}, φ(x) = {k}x mod {b}, is a group homomorphism under addition.",
+        text=rng.choice(
+            [
+                f"The map φ: Z_{a} → Z_{b}, φ(x) = {k}x mod {b}, is a group homomorphism under addition.",
+                f"Let φ: Z_{a} → Z_{b} be the homomorphism of additive groups given by φ(x) = {k}x mod {b}.",
+                f"Multiplication by {k} defines a group homomorphism φ: Z_{a} → Z_{b} under addition, with φ(x) = {k}x mod {b}.",
+            ]
+        ),
         parts=[
             number_part(
                 "Find the order of the image of φ.",
@@ -291,6 +301,8 @@ def exd_x_r4a_homomorphism_kernel_image(rng, tier="exam"):
                     (pre[-1], "preimage-greatest-not-least"),
                     (least + img_order, None),
                     ((y // g) % img_order, None),
+                    (pre[1] if len(pre) > 1 else None, None),
+                    (least + 1, None),
                 ],
                 sensible_range=(0, None),
             ),

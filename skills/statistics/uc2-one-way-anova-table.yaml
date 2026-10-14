@@ -120,6 +120,9 @@ difficulty_progression:
     steps: 5
     demand: "Start from raw observations, solve for a missing entry in a partly filled table, or use the pooled variance and\
       \ a stated t value for a confidence interval on a difference of group means."
+  exam:
+    steps: 6
+    demand: "A four-part chain from group summaries: find the between-group and within-group sums of squares, combine them into the F statistic, then build a confidence interval from the pooled variance."
 tags:
 - university-year-2
 - statistics

@@ -106,9 +106,10 @@ def _values(rng, n, lo=-6, hi=9):
 
 
 def _values_text(xs, ys, missing=None):
-    """``f(−1) = 9, f(1) = 7 and f(7) = 7``."""
+    """``f(−1) = 9, f(1) = 7 and f(7) = 7``, for use between « and »: each value is its own maths fragment and the
+    joining words stay prose."""
     items = [f"f({_n(x)}) = {'c' if i == missing else _n(y)}" for i, (x, y) in enumerate(zip(xs, ys))]
-    return ", ".join(items[:-1]) + " and " + items[-1]
+    return "», «".join(items[:-1]) + "» and «" + items[-1]
 
 
 def _n(v) -> str:
@@ -143,7 +144,7 @@ def _slips(xs, ys):
 
 @generator(
     "r4b_newton_divided_differences",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_newton_divided_differences(rng, tier="easy"):
@@ -166,8 +167,8 @@ def _single(rng, tier):
             f"Find the {order} divided difference «f{_nodes_text(xs)}» as an exact fraction."
         )
         dist = fraction_distractors(value, _slips(xs, ys))
-        if len(dist) < 3:
-            raise Redraw
+        if len(dist) < 3 or not any("/" in str(d) for d in dist):
+            raise Redraw  # the answer is a fraction, so at least one option must be one too
         part = fraction_part(
             "",
             value,
@@ -248,7 +249,7 @@ def _single_dict(text, part, dist):
 # exam chain
 
 
-@generator("exd_x_r4b_newton_divided_differences", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_newton_divided_differences", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_newton_divided_differences(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam divided-difference question")

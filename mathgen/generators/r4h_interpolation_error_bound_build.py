@@ -173,7 +173,7 @@ def _bound_candidates(fam, nodes, x, m, w, value):
 
 @generator(
     "r4h_interpolation_error_bound",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_interpolation_error_bound(rng, tier="easy"):
@@ -296,7 +296,7 @@ def _t_dec(tol: Fraction) -> str:
 # exam chain
 
 
-@generator("exd_x_r4h_interpolation_error_bound", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_interpolation_error_bound", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_interpolation_error_bound(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam error-bound question")

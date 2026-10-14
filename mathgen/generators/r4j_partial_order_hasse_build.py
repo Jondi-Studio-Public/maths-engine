@@ -18,9 +18,12 @@ the tests).
 
 from __future__ import annotations
 
+import re
+
 from ..answers import Distractor
 from ..core import attempts, check, generator
-from ._r4j_kit import keep_distinct, say
+from ._r4j_kit import keep_distinct
+from ._r4j_kit import say as _say
 
 _TAGS = {
     "swapped": "hasse-minimal-maximal-swapped",
@@ -161,6 +164,24 @@ def _single(text, latex, answer, distractors, working):
         working=working,
         distractors=distractors,
     )
+
+
+_SET_LITERAL = re.compile(r"((?:S = )?\{[^{}]*\})")
+
+
+def say(*parts):
+    """`_r4j_kit.say` with every set literal in the prose, such as `S = {2, 3, 6}`, typeset as maths."""
+    out = []
+    for part in parts:
+        if not isinstance(part, str):
+            out.append(part)
+            continue
+        for piece in _SET_LITERAL.split(part):
+            if _SET_LITERAL.fullmatch(piece):
+                out.append((piece, piece.replace("{", "\\{").replace("}", "\\}")))
+            elif piece:
+                out.append(piece)
+    return _say(*out)
 
 
 _ORDER = "ordered by divisibility (a ≤ b means a divides b)"

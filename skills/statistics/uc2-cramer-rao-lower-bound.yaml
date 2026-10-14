@@ -102,6 +102,9 @@ difficulty_progression:
     steps: 5
     demand: "Compare an unbiased estimator's variance with the bound as an efficiency, find the information of a density that\
       \ must be differentiated twice, or carry a nonlinear reparametrisation such as the odds."
+  exam:
+    steps: 6
+    demand: "A four-part chain on a Poisson sample: find the Fisher information, the bound for an unbiased estimator of the parameter, the bound for a function of the parameter, then the efficiency of a competing estimator."
 tags:
 - university-year-2
 - statistics

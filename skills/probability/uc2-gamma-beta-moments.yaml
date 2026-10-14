@@ -138,6 +138,9 @@ difficulty_progression:
     steps: 5
     demand: "Normalise a kernel using factorials, find an exact gamma (Poisson-sum) or beta tail probability, or invert the\
       \ moment formulas to recover a parameter from a stated mean and variance."
+  exam:
+    steps: 6
+    demand: "A four-part chain on one beta density: find the normalising constant, then the mean, then the variance by building on the mean, then the standard deviation by building on the variance."
 tags:
 - university-year-2
 - probability

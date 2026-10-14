@@ -96,14 +96,16 @@ def test_options_text_variety():
 
 
 def test_exam_shape_and_keys():
-    sup.check_exam_shape(EXAM, ["fraction"] * 4, [1, 1, 1, 2], [False, True, True, True])
+    sup.check_exam_shape(EXAM, ["fraction", "fraction", "fraction", "number"], [1, 1, 1, 2], [False, True, True, True])
     for seed in range(50):
         q = sup.exam(EXAM, seed)
         f = read_function(q.stem)
         x0, y0 = start_point(q.stem)
         hess, (x1, y1) = newton(f, x0, y0)
-        values = [R(p.answer_text) for p in q.parts]
-        assert values == [hess.det(), x1, y1, f.subs({X: x1, Y: y1}) - f.subs({X: x0, Y: y0})], (seed, q.stem, values)
+        values = [R(p.answer_text) for p in q.parts[:3]]
+        assert values == [hess.det(), x1, y1], (seed, q.stem, values)
+        change = f.subs({X: x1, Y: y1}) - f.subs({X: x0, Y: y0})
+        assert abs(float(q.parts[3].answer_text) - float(change)) <= 0.00005 + 1e-12, (seed, q.stem)
 
 
 def test_exam_grading_and_follow_through():

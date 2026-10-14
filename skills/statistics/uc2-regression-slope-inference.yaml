@@ -116,6 +116,9 @@ difficulty_progression:
     steps: 6
     demand: "Start from raw pairs and reach a confidence limit, find the mean-response interval with the extra distance term,\
       \ or see that the slope's t statistic depends only on r and n."
+  exam:
+    steps: 6
+    demand: "A four-part chain from summary totals: find the fitted slope, its standard error, the t statistic for the slope, then a one-sided confidence limit using a stated t value."
 tags:
 - university-year-2
 - statistics

@@ -119,7 +119,7 @@ def _draw(rng, degree):
 
 @generator(
     "r4h_richardson_extrapolation",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_richardson_extrapolation(rng, tier="easy"):
@@ -262,7 +262,7 @@ def _hard(rng):
     )
 
 
-@generator("exd_x_r4h_richardson_extrapolation", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_richardson_extrapolation", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_richardson_extrapolation(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam Richardson question")

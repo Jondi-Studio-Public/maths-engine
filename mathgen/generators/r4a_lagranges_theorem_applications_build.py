@@ -263,9 +263,15 @@ def exd_x_r4a_lagranges_theorem_applications(rng, tier="exam"):
     direct = max(d for d in divisors(n) if d < n and d % order_k == 0 and d > order_k)
     check(key_d == direct, "largest subgroup order above K differs from the direct search over divisors")
     return dict(
-        text=(
-            f"G is a finite group of order {n}. H and K are subgroups of G with H ≤ K, where |H| = {h} and the index "
-            f"of H in K is {t}."
+        text=rng.choice(
+            [
+                f"G is a finite group of order {n}. H and K are subgroups of G with H ≤ K, where |H| = {h} and the index "
+                f"of H in K is {t}.",
+                f"Let G be a group with {n} elements, and let H ≤ K ≤ G be subgroups. H has {h} elements and K contains "
+                f"exactly {t} cosets of H.",
+                f"A finite group G has order {n}. It has a subgroup H of order {h} that sits inside a larger subgroup K, "
+                f"and [K:H] = {t}.",
+            ]
         ),
         parts=[
             number_part(

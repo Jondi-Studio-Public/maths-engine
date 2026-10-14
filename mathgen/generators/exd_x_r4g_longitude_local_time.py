@@ -100,7 +100,7 @@ def _build(rng):
                 (wrap(t + sign * (hours - 1) * 60), "r4g-time-zone-off-by-one-hour"),
             ],
             follow_through=follow,
-            sensible_range=(1000, 2359),
+            sensible_range=(0, 2400),
         ),
         number_part(
             f"Find the distance along the meridian from Port {b} to Port {c}, in kilometres.",

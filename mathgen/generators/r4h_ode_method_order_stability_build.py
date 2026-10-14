@@ -176,7 +176,7 @@ def _frac_text(v: Fraction) -> str:
 
 @generator(
     "r4h_ode_method_order_stability",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_ode_method_order_stability(rng, tier="easy"):
@@ -356,7 +356,7 @@ def _method(rng):
     return which, f"yₙ₊₁ = yₙ + h[(1 − θ)f(yₙ) + θ f(yₙ₊₁)], θ = {_frac_text(th)}", theta_method(th), 1
 
 
-@generator("exd_x_r4h_ode_method_order_stability", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_ode_method_order_stability", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_ode_method_order_stability(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam order-and-stability question")

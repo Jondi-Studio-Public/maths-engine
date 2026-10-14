@@ -300,7 +300,7 @@ def _hard_raw_limit(rng):
     dist = need(num_distractors(limit, cands, 3, signed=True))
     end = "upper" if upper else "lower"
     text = (
-        f"A researcher records {xn} ({xu}) and {yn} ({yu}) for {fit.n} units, giving the pairs {_pairs(fit)}. Fit a "
+        f"A researcher records {xn} ({xu}) and {yn} ({yu}) over {fit.n} observations, giving the pairs {_pairs(fit)}. Fit a "
         f"least squares line of {yn} on {xn}. Using the t value {T_CRIT[df]} for {df} degrees of freedom, find the {end} limit "
         f"of a 95% confidence interval for the true slope, correct to 3 decimal places."
     )
@@ -397,7 +397,7 @@ def _hard_raw_t(rng):
     ]
     dist = need(num_distractors(fit.t, cands, 2))
     text = (
-        f"A researcher records {xn} ({xu}) and {yn} ({yu}) for {fit.n} units, giving the pairs {_pairs(fit)}. Fit a least "
+        f"A researcher records {xn} ({xu}) and {yn} ({yu}) over {fit.n} observations, giving the pairs {_pairs(fit)}. Fit a least "
         f"squares line of {yn} on {xn}, and find the t statistic for testing whether the true slope is zero, correct to 2 "
         f"decimal places."
     )
@@ -525,7 +525,7 @@ def exd_x_r4i_regression_slope(rng, tier="exam"):
         )
     )
     context = (
-        f"The {xn} ({xu}) and {yn} ({yu}) were recorded for {fit.n} units, with totals {_totals(fit)}. A least squares line "
+        f"The {xn} ({xu}) and {yn} ({yu}) were recorded over {fit.n} observations, with totals {_totals(fit)}. A least squares line "
         f"of {yn} on {xn} is fitted."
     )
     text = rng.choice(
@@ -533,7 +533,7 @@ def exd_x_r4i_regression_slope(rng, tier="exam"):
             context,
             f"An analyst studies how {yn} ({yu}) depends on {xn} ({xu}) across {fit.n} observations. The summary totals are "
             f"{_totals(fit)}, and a least squares regression line is fitted to predict {yn}.",
-            f"Data on {xn} ({xu}) and {yn} ({yu}) from {fit.n} sites give {_totals(fit)}. The straight line of best fit for "
+            f"Data on {xn} ({xu}) and {yn} ({yu}) from {fit.n} observations give {_totals(fit)}. The straight line of best fit for "
             f"{yn} against {xn} is found by least squares.",
         ]
     )

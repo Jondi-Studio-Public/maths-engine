@@ -101,6 +101,8 @@ _EASY_STEMS = (
     "{k} colours, if two necklaces are the same when one can be rotated into the other (but not turned over)?",
     "A necklace has {n} beads, each of {k} possible colours. Necklaces that differ only by a rotation are counted as one. "
     "How many different necklaces are there? (Turning a necklace over is not allowed.)",
+    "Beads of {k} colours are strung on a loop to make a necklace of {n} beads. A necklace and any rotation of it count as "
+    "the same necklace, and necklaces may not be flipped. How many distinct necklaces can be made?",
 )
 
 

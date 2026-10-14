@@ -37,7 +37,7 @@ SHAPES = {
 CONTEXTS = {
     "sq": [
         "Let x be a car's speed in tens of kilometres per hour and y its stopping distance in metres.",
-        "Let x be the diameter of a round pizza in tens of centimetres and y its price in dollars.",
+        "Let x be the side length of a square lawn in metres and y the cost in dollars of laying turf on it.",
     ],
     "log": [
         "Let x be the dose of a nutrient in milligrams and y the growth of a culture in millimetres.",

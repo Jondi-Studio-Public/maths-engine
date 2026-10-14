@@ -190,7 +190,7 @@ def _points(xs, ys):
 
 @generator(
     "r4b_lagrange_interpolation",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_lagrange_interpolation(rng, tier="easy"):
@@ -203,8 +203,15 @@ def _single(rng, tier):
         p = lagrange(xs, ys)
         check(trim(p) == trim(coeffs), "interpolation did not recover the quadratic")
         check_polynomial(xs, ys, p)
+        pts = _points(xs, ys)
         text = say_marked(
-            f"A quadratic polynomial «p» passes through the points «{_points(xs, ys)}». Find «p(x)» in expanded form."
+            rng.choice(
+                [
+                    f"A quadratic polynomial «p» passes through the points «{pts}». Find «p(x)» in expanded form.",
+                    f"The graph of the quadratic «p» goes through the points «{pts}». Write «p(x)» in expanded form.",
+                    f"Find the quadratic polynomial «p(x)», in expanded form, whose graph passes through the points «{pts}».",
+                ]
+            )
         )
         dist = poly_distractors(p, _slips(xs, ys))
         if len(dist) < 3:
@@ -223,8 +230,15 @@ def _single(rng, tier):
         p = lagrange(xs, ys)
         check(trim(p) == trim(coeffs), "interpolation did not recover the cubic")
         check_polynomial(xs, ys, p)
+        pts = _points(xs, ys)
         text = say_marked(
-            f"A cubic polynomial «p» passes through the points «{_points(xs, ys)}». Find «p(x)» in expanded form."
+            rng.choice(
+                [
+                    f"A cubic polynomial «p» passes through the points «{pts}». Find «p(x)» in expanded form.",
+                    f"The graph of the cubic «p» goes through the points «{pts}». Write «p(x)» in expanded form.",
+                    f"Find the cubic polynomial «p(x)», in expanded form, whose graph passes through the points «{pts}».",
+                ]
+            )
         )
         dist = poly_distractors(p, _slips(xs, ys))
         if len(dist) < 3:
@@ -252,10 +266,17 @@ def _single(rng, tier):
     resid = padd(pmul(p, [Fraction(0), Fraction(1)]), [-1])
     ratio = resid[-1] / prod[-1]
     check(trim(resid) == trim(pscale(prod, ratio)), "x p(x) - 1 is not a multiple of the node polynomial")
+    nodes = f"{xs[0]}, {xs[1]}, {xs[2]}, {xs[3]}"
     text = say_marked(
-        f"The function «f(x) = 1/x» is interpolated by the cubic polynomial «p» through the nodes "
-        f"«x = {xs[0]}, {xs[1]}, {xs[2]}, {xs[3]}», so that «p» agrees with «f» at each node. "
-        "Find «p(x)» in expanded form."
+        rng.choice(
+            [
+                f"The function «f(x) = 1/x» is interpolated by the cubic polynomial «p» through the nodes "
+                f"«x = {nodes}», so that «p» agrees with «f» at each node. Find «p(x)» in expanded form.",
+                f"Let «p» be the cubic polynomial that agrees with «f(x) = 1/x» at the nodes «x = {nodes}». "
+                "Find «p(x)» in expanded form.",
+                f"The cubic «p» interpolates «f(x) = 1/x» at the four nodes «x = {nodes}». Write «p(x)» in expanded form.",
+            ]
+        )
     )
     dist = poly_distractors(p, _slips(xs, ys))
     if len(dist) < 3:
@@ -299,7 +320,7 @@ def _half(rng, xs):
 # exam chain
 
 
-@generator("exd_x_r4b_lagrange_interpolation", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_lagrange_interpolation", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_lagrange_interpolation(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam Lagrange question")
@@ -332,8 +353,15 @@ def _exam(rng):
     check(trim(closed) == trim(p), "closed form for 1/x disagrees")
     tt = int(t)
     stem, latex = say_marked(
-        f"The function «f(x) = 1/x» is interpolated by the quadratic polynomial «p» at the nodes "
-        f"«x₀ = {a}», «x₁ = {b}» and «x₂ = {c}»."
+        rng.choice(
+            [
+                f"The function «f(x) = 1/x» is interpolated by the quadratic polynomial «p» at the nodes "
+                f"«x₀ = {a}», «x₁ = {b}» and «x₂ = {c}».",
+                f"Let «p» be the quadratic polynomial that agrees with «f(x) = 1/x» at the nodes "
+                f"«x₀ = {a}», «x₁ = {b}» and «x₂ = {c}».",
+                f"The quadratic «p» interpolates «f(x) = 1/x» at the three nodes «x₀ = {a}», «x₁ = {b}» and «x₂ = {c}».",
+            ]
+        )
     )
     other = [poly_eval(basis(xs, 0), t), poly_eval(basis(xs, 2), t)]
     num_only = poly_eval(numerator(xs, 1), t)

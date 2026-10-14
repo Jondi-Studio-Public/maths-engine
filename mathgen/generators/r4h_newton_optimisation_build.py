@@ -24,6 +24,7 @@ from ._r4h_kit import (
     finish_parts,
     fraction_part,
     ft_symbol,
+    number_part,
     poly_eval,
     poly_prompt,
     rat,
@@ -239,7 +240,7 @@ def _plausible(v):
 
 @generator(
     "r4h_newton_optimisation",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4h_newton_optimisation(rng, tier="easy"):
@@ -307,7 +308,7 @@ def _single(rng, tier):
     )
 
 
-@generator("exd_x_r4h_newton_optimisation", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4h_newton_optimisation", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4h_newton_optimisation(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam Newton optimisation question")
@@ -367,9 +368,11 @@ def _exam(rng):
     )
     xb, yc = ft_symbol("part_b"), ft_symbol("part_c")
     expr = sum((rat(c) * xb**i * yc**j for (i, j), c in s.f.items()), rat(0)) - rat(f0)
-    p_d = fraction_part(
-        "Find the change in «f» from the start to the new point, «f(x₁, y₁) − f(x₀, y₀)», using your coordinates.",
+    p_d = number_part(
+        "Find the change in «f» from the start to the new point, «f(x₁, y₁) − f(x₀, y₀)», using your coordinates. "
+        "Give the answer correct to 4 decimal places.",
         change,
+        4,
         [
             ("num2t-newton-opt-change-new-value", f1),
             ("num2t-newton-opt-change-sign", -change),

@@ -183,7 +183,7 @@ def _draw(rng, n, steps, cap=12):
 
 @generator(
     "r4b_power_method",
-    level=22,
+    level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
 def r4b_power_method(rng, tier="easy"):
@@ -210,9 +210,16 @@ def _single(rng, tier):
     a, lam1, v0, trail = _draw(rng, n, 2, cap=9 if n == 2 else 12)
     (y1, m1, x1), (y2, m2, x2) = trail
     m3 = _next_scale(a, x2)
-    ask_start = (
-        f"Let «A = {shown(a)}» and «x₀ = {shown(_col(v0))}». The power method multiplies by «A» and scales the result "
-        f"at each step. {_SCALE} The eigenvalue estimate after a step is the entry used to scale. "
+    ask_start = rng.choice(
+        [
+            f"Let «A = {shown(a)}» and «x₀ = {shown(_col(v0))}». The power method multiplies by «A» and scales the "
+            f"result at each step. {_SCALE} The eigenvalue estimate after a step is the entry used to scale. ",
+            f"The power method is applied to «A = {shown(a)}» with starting vector «x₀ = {shown(_col(v0))}»: at each "
+            f"step, multiply by «A» and scale the result. {_SCALE} The eigenvalue estimate after a step is the entry "
+            "used to scale. ",
+            f"Starting from «x₀ = {shown(_col(v0))}», run the power method for «A = {shown(a)}», multiplying by «A» "
+            f"and then scaling at every step. {_SCALE} The entry used to scale is the eigenvalue estimate for that step. ",
+        ]
     )
     if tier in ("easy", "medium"):
         at = [[a[j][i] for j in range(n)] for i in range(n)]
@@ -271,9 +278,19 @@ def _single(rng, tier):
         (M_EARLY, m2),
     ]
     stem = say_marked(
-        f"Let «A = {shown(a)}» and «x₀ = {shown(_col(v0))}». The power method multiplies by «A» and scales the result "
-        f"at each step. {_SCALE} After two steps, find the Rayleigh quotient «x₂ᵀAx₂ / x₂ᵀx₂» of the scaled "
-        "vector «x₂», to 4 decimal places."
+        rng.choice(
+            [
+                f"Let «A = {shown(a)}» and «x₀ = {shown(_col(v0))}». The power method multiplies by «A» and scales the "
+                f"result at each step. {_SCALE} After two steps, find the Rayleigh quotient «x₂ᵀAx₂ / x₂ᵀx₂» of the "
+                "scaled vector «x₂», to 4 decimal places.",
+                f"The power method is applied to «A = {shown(a)}» with starting vector «x₀ = {shown(_col(v0))}»: at "
+                f"each step, multiply by «A» and scale the result. {_SCALE} Find the Rayleigh quotient "
+                "«x₂ᵀAx₂ / x₂ᵀx₂» of the scaled vector «x₂» after two steps, to 4 decimal places.",
+                f"Starting from «x₀ = {shown(_col(v0))}», run two steps of the power method for «A = {shown(a)}», "
+                f"multiplying by «A» and then scaling. {_SCALE} What is the Rayleigh quotient «x₂ᵀAx₂ / x₂ᵀx₂» of "
+                "the scaled vector «x₂», to 4 decimal places?",
+            ]
+        )
     )
     part = number_part(
         "",
@@ -311,7 +328,7 @@ def sympy_rayleigh(a, v):
 # exam chain
 
 
-@generator("exd_x_r4b_power_method", level=22, presets={"exam": dict(tier="exam")})
+@generator("exd_x_r4b_power_method", level=20, presets={"exam": dict(tier="exam")})
 def exd_x_r4b_power_method(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     return with_redraw(lambda: _exam(rng), "an exam power-method question")

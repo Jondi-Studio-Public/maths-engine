@@ -118,6 +118,9 @@ difficulty_progression:
     steps: 5
     demand: "Integrate the density of a sample maximum to get its bias, variance and MSE, rescale to remove bias, or minimise\
       \ the MSE over a constant, or find the MSE of a shrunk Poisson estimator."
+  exam:
+    steps: 6
+    demand: "A four-part chain on the maximum of a uniform sample: find its mean, then its bias, then its mean squared error, then compare that error with the error of a rival estimator."
 tags:
 - university-year-2
 - statistics

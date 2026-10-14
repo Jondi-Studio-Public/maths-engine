@@ -119,6 +119,9 @@ difficulty_progression:
     steps: 5
     demand: "Decide which property applies: the race between two sources, the uniform placement of a known number of arrivals,\
       \ or the split of a stream into types with a case to remove."
+  exam:
+    steps: 6
+    demand: "A four-part chain on a stream of arrivals: find the mean gap from the rate, the spread of the waiting time for the k-th arrival, the chance of no arrival in a period, then the chance the k-th arrival comes within it."
 tags:
 - university-year-2
 - probability
