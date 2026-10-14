@@ -12,6 +12,7 @@ from collections import Counter
 from fractions import Fraction
 
 import mpmath as mp
+import pytest
 
 import mathgen.generators.r4i_cramer_rao_build  # noqa: F401
 from mathgen import make
@@ -29,7 +30,13 @@ from tests.r4i_support import (
 TOPIC = "r4i_cramer_rao"
 EXAM = "exd_x_r4i_cramer_rao"
 SK = skill("uc2-cramer-rao-lower-bound")
-mp.mp.dps = 30
+
+
+@pytest.fixture(autouse=True, scope="module")
+def _mpmath_digits():
+    """Scoped: a bare `mp.mp.dps = 30` at import changed the precision for every later test on the worker."""
+    with mp.workdps(30):
+        yield
 
 
 def _q(tier, seed):
