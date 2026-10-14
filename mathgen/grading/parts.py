@@ -208,10 +208,41 @@ def _perm_image(images, point, power):
     return sympy.Integer(cycle[int(power) % len(cycle)])
 
 
+# Functions that become a complex logarithm when applied outside their real domain.
+_BRANCH_FUNCTIONS = (
+    sympy.log,
+    sympy.asin,
+    sympy.acos,
+    sympy.asec,
+    sympy.acsc,
+    sympy.acosh,
+    sympy.atanh,
+    sympy.acoth,
+    sympy.asech,
+    sympy.acsch,
+)
+
+
+def _subs(expr, names, values):
+    """`expr` with `names` replaced by `values`.
+
+    A learner's earlier answer can be a root of a function of the symbol, such as sqrt(acos(x)^2). Replacing x by
+    a rational outside the function's domain makes SymPy test the sign of a complex logarithm while it builds the
+    root, which takes tens of seconds. Such an expression is evaluated numerically instead (to 30 digits): its
+    follow-through value is then an approximation, which is as exact as an answer of that kind can be asked to be.
+    """
+    mapping = dict(zip(names, values))
+    risky = any(
+        isinstance(power, sympy.Pow) and not power.exp.is_Integer and power.base.has(*_BRANCH_FUNCTIONS)
+        for power in sympy.preorder_traversal(expr)
+    )
+    return expr.evalf(30, subs=mapping) if risky else expr.subs(mapping)
+
+
 _FUNCTIONS = {
     "erf": sympy.erf,
     "erfc": sympy.erfc,
-    "Subs": lambda expr, names, values: expr.subs(dict(zip(names, values))),
+    "Subs": _subs,
     "perm_order": _perm_order,
     "perm_image": _perm_image,
 }
