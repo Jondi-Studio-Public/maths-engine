@@ -373,10 +373,12 @@ EASY_CONTEXTS = [
 
 def _draw_distinct(rng, *pools):
     """One letter from each pool, retrying whenever two pools would draw the
-    same letter (small pools, so a handful of retries always succeeds)."""
+    same letter, ignoring case: the MCQ text matcher casefolds, so options that differ only by case
+    (``dS/ds = bS`` against ``dS/ds = bs``) would reject the key (small pools, so a handful of retries
+    always succeeds)."""
     for _ in range(50):
         chosen = [rng.choice(pool) for pool in pools]
-        if len(set(chosen)) == len(chosen):
+        if len({c.lower() for c in chosen}) == len(chosen):
             return chosen
     raise AssertionError("could not draw distinct symbols")
 
