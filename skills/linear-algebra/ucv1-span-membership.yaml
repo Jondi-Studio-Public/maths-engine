@@ -1,0 +1,53 @@
+id: ucv1-span-membership
+name: Linear combinations and span membership in R^3
+domain: linear-algebra
+year_level: [university]
+description: Decide when a vector lies in the span of two others and find the coefficients that write it as a linear combination
+  of them.
+status: active
+placement_eligible: false
+prerequisites: [ucv1-row-reduction-rref]
+answer: matrix
+sources:
+- topic: fy1la_span
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_span
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_span
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_span
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: coefficients-order-swapped, description: 'Giving the coefficients of a linear combination in the wrong order: b for
+    u and a for w.'}
+- {id: span-coefficient-sign-slip, description: Getting the sign of a coefficient wrong when solving for the scalars in
+    a linear combination.}
+- {id: det-expansion-sign-slip, description: 'Getting a sign wrong when expanding a determinant by cofactors, so a coefficient
+    has the wrong sign.'}
+- {id: dropped-constant-term-det, description: Leaving the constant term out of a determinant that depends on a parameter.}
+- {id: sign-error-moving-term, description: 'Moving a term to the other side of the equals sign without changing its sign:
+    adding it where it should be subtracted, or the reverse.'}
+- {id: forgot-to-divide-by-coefficient, description: 'Stopping once the x term is alone, without dividing by its coefficient.'}
+- {id: span-membership-assumed, description: 'Assuming a vector is in a span without checking: saying a combination exists
+    after the condition has failed.'}
+- {id: span-dependence-means-infinite, description: 'Saying there are infinitely many combinations because the three vectors
+    are dependent, when the first two vectors are independent and so any combination that exists is unique.'}
+difficulty_progression: 'Easy uses two vectors with a 1 and a 0 in shared coordinates, so the coefficients can be read off
+  and checked. Medium uses general vectors, so two of the three equations must be solved by elimination and the third checked.
+  Hard moves to R^4, where four equations in two unknowns are consistent only because v is in the span. The exam chain makes
+  one coordinate of v an unknown k: it expands the determinant in k, finds the k that puts v in the span, finds the coefficients,
+  and decides what happens at another k.'
+tags: [university-core-v1, linear-algebra, span, linear-combination, vectors]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}
