@@ -1,0 +1,91 @@
+id: uc2-permutation-sign-and-order
+name: Find the order, parity and powers of a permutation
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Find the order of a permutation from its cycle lengths, count the even permutations in a list, and
+  find the order of a power of a permutation. The exam chain finds the order, the least number of
+  transpositions, the order of a power and how many powers are even.
+status: active
+placement_eligible: false
+prerequisites:
+- permutation-composition
+- cyclic-group-element-order
+answer: number
+sources:
+- topic: r4a_permutation_sign_and_order
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_permutation_sign_and_order
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_permutation_sign_and_order
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_permutation_sign_and_order
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: even-and-odd-counts-swapped
+  description: >-
+    Counting the odd permutations where the even ones were asked for, or the reverse.
+- id: even-count-off-by-one
+  description: >-
+    Counting one too many or one too few of the powers of a permutation that are even, for instance
+    by including or leaving out the identity.
+- id: even-powers-parity-misjudged
+  description: >-
+    Misjudging the parity of the powers of a permutation, for example treating every power of an odd
+    permutation as even, or the reverse.
+- id: order-as-longest-cycle
+  description: >-
+    Taking the order of a permutation to be its longest cycle length instead of the least common
+    multiple of all of them.
+- id: order-as-number-of-cycles
+  description: >-
+    Taking the order of a permutation to be the number of cycles in it.
+- id: order-as-product-of-cycle-lengths
+  description: >-
+    Taking the order of a permutation to be the product of its cycle lengths instead of their least
+    common multiple.
+- id: order-as-sum-of-cycle-lengths
+  description: >-
+    Taking the order of a permutation to be the sum of its cycle lengths instead of their least
+    common multiple.
+- id: power-order-divided-by-exponent
+  description: >-
+    Dividing the order of a permutation by the exponent where the order of the power is the order
+    divided by the greatest common divisor of the order and the exponent.
+- id: power-order-ignores-power
+  description: >-
+    Giving the order of the permutation itself where the order of one of its powers was asked.
+- id: sign-from-cycle-count
+  description: >-
+    Reading the sign of a permutation from the parity of its number of cycles instead of the parity
+    of the number of points minus the number of cycles.
+- id: sign-from-cycle-length-parity
+  description: >-
+    Treating a cycle of even length as an even permutation, when a cycle of length m is a product of
+    m - 1 transpositions and so has the opposite parity.
+- id: transposition-count-moved-points
+  description: >-
+    Counting one transposition for every point a permutation moves, instead of one fewer than the
+    length for each cycle.
+- id: transposition-count-one-per-cycle
+  description: >-
+    Counting one transposition for each non-trivial cycle, whatever its length.
+tags: [university-core-v1, university-year-2, abstract-algebra, permutations, parity, element-order]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

@@ -24162,6 +24162,6209 @@ _ENTRIES = (
         "ir2a-gives-the-change-not-the-prediction",
         "Giving the change in y for the step when the predicted value of y was asked.",
         area="statistics",
+        "cycle-notation-direction-reversed",
+        "Writing each cycle in the opposite direction, which is the cycle notation of the inverse permutation.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-fixed-point-listed",
+        "Listing a fixed point as a one-entry cycle although the convention leaves fixed points out.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-merged-into-one",
+        "Joining two disjoint cycles into one longer cycle instead of keeping them as separate cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-one-line-read-as-one-cycle",
+        "Reading the list of images as a single cycle instead of following each point until it returns.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cycle-factor-left-out",
+        "Leaving one of the cycles out of a product of cycles when tracing the points.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "order-as-product-of-cycle-lengths",
+        "Taking the order of a permutation to be the product of its cycle lengths instead of their least common multiple.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "even-and-odd-counts-swapped",
+        "Counting the odd permutations where the even ones were asked for, or the reverse.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "sign-from-cycle-length-parity",
+        "Treating a cycle of even length as an even permutation, when a cycle of length m is a product of m - 1 transpositions and so has the opposite parity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "sign-from-cycle-count",
+        "Reading the sign of a permutation from the parity of its number of cycles instead of the parity of the number of points minus the number of cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-order-ignores-power",
+        "Giving the order of the permutation itself where the order of one of its powers was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-order-divided-by-exponent",
+        "Dividing the order of a permutation by the exponent where the order of the power is the order divided by the greatest common divisor of the order and the exponent.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "transposition-count-moved-points",
+        "Counting one transposition for every point a permutation moves, instead of one fewer than the length for each cycle.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "transposition-count-one-per-cycle",
+        "Counting one transposition for each non-trivial cycle, whatever its length.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "even-powers-parity-misjudged",
+        "Misjudging the parity of the powers of a permutation, for example treating every power of an odd permutation as even, or the reverse.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "even-count-off-by-one",
+        "Counting one too many or one too few of the powers of a permutation that are even, for instance by including or leaving out the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-table-row-column-swapped",
+        "Filling an entry with the product taken the other way round (column element first), which assumes the group is abelian.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-latin-fill-without-associativity",
+        "Completing a block of entries with a Latin square filling that satisfies the row and column rule but not associativity, without testing it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-row-repeats-element",
+        "Putting an element in a row of the table that already contains it, which a group table never does.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "square-root-count-omits-identity",
+        "Leaving the identity out when counting the elements whose square is the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "every-element-squares-to-identity",
+        "Taking every element to satisfy x squared equal to the identity, which holds only in an elementary abelian 2-group.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-order-taken-as-group-order",
+        "Giving the order of the group where the order of one element was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "involution-count-includes-identity",
+        "Counting the identity among the elements of order 2, when it has order 1.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-column-repeats-element",
+        "Putting an element in a column of the table that already contains it, which a group table never does.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-entry-copies-column-label",
+        "Writing the column heading as the product of a row and column element, as if the row element were the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "cayley-entry-copies-row-label",
+        "Writing the row label as the product of a row and column element, as if the column element were the identity.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-multiplied-not-added",
+        "Multiplying the representative by each element of the subgroup where the group operation is addition.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-modulus-index-confusion",
+        "Taking the coset to be the residues congruent to the representative modulo the index, when the modulus is the gcd that generates the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-representative-sign-slip",
+        "Adding the negative of the representative to the subgroup, which is the coset of the inverse and not the coset asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-element-missing",
+        "Leaving one element out of a coset, so the set has fewer elements than the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-computed-with-addition",
+        "Adding the representative to each element of the subgroup where the group operation is multiplication.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-inverse-representative",
+        "Using the inverse of the representative, which gives the coset of the inverse and not the coset asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-is-the-subgroup-itself",
+        "Giving the subgroup itself where a coset away from it was asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-left-right-swapped",
+        "Giving the right coset Hg where the left coset gH was asked for, which differ when H is not normal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-order-read-as-gcd",
+        "Giving the gcd of the generator and the group order as the order of the subgroup, when it is the index.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-of-group-for-subgroup",
+        "Giving the order of the whole group as the order of the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-representative-not-reduced",
+        "Reporting the representative as given instead of the least non-negative member of its coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-least-element-negated",
+        "Reporting the gap from the least member up to the modulus instead of the least member of the coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-added",
+        "Adding the indices (and the order) in a chain of subgroups where they multiply.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-subgroup-order-forgotten",
+        "Multiplying only the two indices in a chain of subgroups and leaving out the order of the smallest subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-middle-index-forgotten",
+        "Leaving out the index of the middle subgroup when multiplying along a chain of subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-top-index-forgotten",
+        "Leaving out the index of the top subgroup when multiplying along a chain of subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ruled-out-count-uses-allowed",
+        "Counting the integers Lagrange allows as orders of subgroups, which are the divisors, instead of those it rules out.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ruled-out-count-drops-ends",
+        "Treating 1 and the group order as ruled out, when they are the orders of the trivial and whole subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "product-set-size-by-inclusion-exclusion",
+        "Counting the product set HK as a union of two sets of sizes |H| and |K|, adding them or adding and subtracting one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "product-set-size-largest-factor",
+        "Taking the product set HK to be as large as the bigger of the two subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "product-set-size-whole-group",
+        "Taking the product set HK to be the whole group, when it is a set of |H||K| elements only because the intersection is trivial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-halved-regardless",
+        "Halving the order to find the largest proper subgroup order, even when the smallest prime factor is not 2.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-uses-largest-prime",
+        "Dividing by the largest prime factor instead of the smallest to find the largest proper divisor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-one-less",
+        "Taking one less than the order as the largest proper subgroup order, which does not divide it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-order-whole-subgroup",
+        "Allowing the intersection of two different subgroups of the same order to be a whole subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-count-ignores-product-bound",
+        "Counting every divisor of the gcd as a possible order of the intersection, ignoring that |HK| cannot exceed |G|.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-count-ignores-divisibility",
+        "Counting every integer at least |H||K|/|G| up to the gcd, ignoring that the order of the intersection divides the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-count-drops-the-extreme",
+        "Leaving out the largest or smallest possible order of the intersection.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-subtracted",
+        "Subtracting the indices in a chain of subgroups where they multiply.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "index-tower-multiplied-wrong-way",
+        "Multiplying the index by the other index where the index of the middle subgroup is a quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "largest-subgroup-uses-largest-prime",
+        "Dividing by the largest prime factor of the index instead of the smallest to find the largest subgroup order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "largest-subgroup-halves-regardless",
+        "Halving the group order for the largest proper subgroup above K, even when 2 does not divide the index of K.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-reflection-not-moved-past-rotation",
+        "Adding the rotation exponents without flipping the sign of the second one when a reflection s is moved past a rotation (using s r = r s instead of s r = r^(-1) s).",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-product-order-reversed",
+        "Multiplying the factors in the opposite order, which gives a different element because the dihedral group is not abelian.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-sign-flip-on-wrong-factor",
+        "Applying the sign change to the first rotation exponent instead of the one that the reflection is moved past.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-reflection-count-wrong",
+        "Getting the parity of the number of reflections wrong, so a rotation is reported as a reflection or the reverse.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-assumes-conjugation-fixes-element",
+        "Taking the conjugate of an element to be the element itself, as if g and x commuted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-conjugation-by-inverse",
+        "Conjugating by the inverse of g, g^(-1) x g, where g x g^(-1) was asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-assumes-elements-commute",
+        "Taking the commutator to be the identity, as if the two elements commuted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-commutator-stops-at-product",
+        "Stopping at the product xy and not multiplying by the inverses to complete the commutator.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-inverse-taken-as-self",
+        "Replacing each inverse in a commutator by the element itself, which is only right for a reflection.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-order-read-as-exponent",
+        "Giving the exponent i of the rotation r^i as its order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-order-of-rotation-taken-as-n",
+        "Giving n as the order of every rotation, as if it generated all the rotations.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-index-uses-n-not-2n",
+        "Using n instead of 2n as the order of the dihedral group when finding an index.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-commutator-order-as-product-order",
+        "Taking the order of the commutator to be the order of the product, when it is the order of its square.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-confused-with-image-order",
+        "Giving the order of the image where the order of the kernel was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-whole-domain",
+        "Taking the kernel to be the whole domain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-gcd-with-codomain-only",
+        "Giving gcd(k, n) as the order of the kernel, using the multiplier and the codomain but not the domain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-assumes-one-to-one",
+        "Taking the kernel to be trivial, as if the homomorphism were one-to-one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-assumes-surjective",
+        "Dividing the order of the domain by the order of the codomain to find the kernel, as if the map were onto.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-confused-with-kernel-order",
+        "Giving the order of the kernel where the order of the image was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-whole-domain",
+        "Taking the image to have as many elements as the domain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-whole-codomain",
+        "Taking the image to be the whole codomain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-divides-by-exponent",
+        "Dividing the order of the group by the exponent of a power map to find the order of its image.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-read-as-gcd",
+        "Giving the gcd of the multiplier and the modulus as the order of the image, when it is the modulus divided by the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-count-assumes-one-to-one",
+        "Counting one preimage for each element, as if the homomorphism were one-to-one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-count-one-fibre-only",
+        "Counting the preimage of only one of two elements of the image.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-taken-as-the-image",
+        "Reading the target value as the element that maps to it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "preimage-greatest-not-least",
+        "Giving the greatest solution where the least non-negative one was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-as-orbit-size",
+        "Giving the size of the orbit where the order of the stabiliser was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-as-group-order",
+        "Giving the order of the whole group as the order of the stabiliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-trivial-assumed",
+        "Taking the stabiliser to be trivial, as if no non-identity element fixed the point or colouring.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-subtracts-orbit",
+        "Subtracting the orbit size from the group order instead of dividing, to find the stabiliser order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "stabiliser-order-uses-n-not-2n",
+        "Dividing n instead of the order 2n of the dihedral group by the orbit size to find the stabiliser order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-as-stabiliser-order",
+        "Giving the order of the stabiliser where the size of the orbit was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-whole-group",
+        "Taking the orbit to have as many elements as the group, which is true only when the stabiliser is trivial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-rotations-only",
+        "Finding the orbit under the rotations alone, leaving out the reflections.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-uses-n-not-2n",
+        "Dividing n instead of the order 2n of the dihedral group by the stabiliser order to find the orbit size.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "orbit-size-ignores-reflections-in-stabiliser",
+        "Counting only the rotations that fix the colouring in the stabiliser, and so overstating the orbit size.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-identity-only",
+        "Dividing the number of colourings fixed by the identity alone by the group order, ignoring the colourings that other symmetries fix.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-divided-by-wrong-group-order",
+        "Dividing the sum of fixed counts by the wrong number, such as n when the group has 2n elements or 2n when it has n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-fixed-count-uses-cycle-length",
+        "Counting the colourings a rotation fixes as k raised to the length of its cycles instead of the number of cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-reflections-omitted",
+        "Averaging over the rotations alone where reflections were allowed, which counts necklaces and not bracelets.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-reflections-included-for-necklaces",
+        "Averaging over rotations and reflections where only rotations were allowed, which counts bracelets and not necklaces.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-reflection-fixed-count-uses-one-type",
+        "Giving every reflection the same number of fixed colourings, when reflections through two beads and through two gaps have different numbers of cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-representative-off-by-one",
+        "Adding the representative plus or minus one to the subgroup, which lists a neighbouring coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-of-wrong-representative",
+        "Listing the coset of a different element of the group, such as one not in the coset asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "burnside-ignores-exact-count",
+        "Counting all two-colour arrangements up to symmetry, ignoring the condition that exactly m beads are of the first colour.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-not-divided-by-node-gap",
+        "Stopping at the difference of the two lower-order divided differences, without dividing by the gap between the outermost nodes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-divided-by-adjacent-gap",
+        "Dividing the difference of the two lower-order divided differences by the gap between the last two nodes instead of between the outermost nodes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-order-reversed",
+        "Subtracting the lower-order divided differences in the wrong order, so the result has the wrong sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-previous-order-reported",
+        "Giving a divided difference one order lower than the one asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-equal-spacing-assumed",
+        "Using the finite difference of the y-values divided by k factorial, which assumes equally spaced nodes, when the nodes are unequally spaced.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-weight-sign-error",
+        "Getting the sign wrong in the product of node differences that multiplies the missing value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-missing-value-not-scaled",
+        "Leaving the product of node differences out when solving for the missing value, so the value is not rescaled.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-known-term-dropped",
+        "Ignoring the contributions of the known y-values when solving for the missing one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-sign-of-known-terms",
+        "Adding the known contributions to the given divided difference instead of subtracting them when solving for the missing value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-last-term-dropped",
+        "Leaving the highest-order term out of the Newton form when evaluating the interpolating polynomial.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-wrong-coefficient",
+        "Using a different divided difference from the one the Newton form calls for as the second-order coefficient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-shifted-nodes",
+        "Multiplying by factors built from the wrong nodes, shifted along by one, in the Newton form.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-newton-form-factor-sign",
+        "Writing each Newton-form factor as (x_i - x) instead of (x - x_i).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-first-order-reported",
+        "Giving a first divided difference where a higher-order one is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-divided-difference-weight-divided-not-multiplied",
+        "Dividing by the product of node differences instead of multiplying by it when solving for the missing value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-rate-at-the-other-fixed-point",
+        "Evaluating the derivative of the iteration function at the other fixed point, which repels the iteration, instead of the one it converges to.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-derivative-factor-two-dropped",
+        "Differentiating x squared as x instead of 2x when finding g'(x), so the rate is half its true value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-derivative-at-the-start",
+        "Evaluating g' at the starting value x_0 instead of at the fixed point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-rate-inverted",
+        "Giving the reciprocal of the rate, 1/|g'(p)|, so a rate below 1 is reported above 1.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-value-for-rate",
+        "Giving the fixed point itself where the rate |g'(p)| is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-bound-first-step-ignored",
+        "Dropping the factor |x_1 - x_0| from the a priori bound, so the count is for a unit first step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-bound-denominator-dropped",
+        "Dropping the factor 1/(1 - lambda) from the a priori bound lambda^n/(1 - lambda)|x_1 - x_0|.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-lambda-at-the-fixed-point",
+        "Using |g'| at the fixed point as the contraction constant when the question asks for its largest value on the whole interval.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-iteration-count-off-by-one",
+        "Giving one iteration more or fewer than the least n that satisfies the bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-from-other-root",
+        "Setting g'(x) = 0 at the larger root, so the constant makes the iteration converge quadratically to the wrong root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-from-x-term-only",
+        "Differentiating only the x squared term of the quadratic, so k = 1/(2p) instead of 1/f'(p).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-at-zero",
+        "Evaluating f' at x = 0 instead of at the root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-inverted",
+        "Giving f'(p) where its reciprocal 1/f'(p) is the constant asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-newton-constant-sign",
+        "Getting the sign of the constant wrong when solving 1 - k f'(p) = 0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-other-root-reported",
+        "Giving the larger fixed point where the smaller one is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-sum-of-roots-reported",
+        "Giving the sum of the roots (the coefficient of x) instead of a root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-constant-term-reported",
+        "Giving the product of the roots (the constant term) instead of a root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-rate-complement",
+        "Giving 1 - |g'(p)| instead of |g'(p)|.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-fixed-point-sign-slip-in-root",
+        "Giving the distance between the two roots instead of the smaller root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-nodes-not-mapped-to-the-interval",
+        "Using the nodes plus and minus 1/sqrt(3) directly on [a, b] instead of mapping them to m plus and minus h/sqrt(3) for the interval.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-interval-scale-factor-dropped",
+        "Leaving out the factor (b - a)/2 that scales the weights from [-1, 1] to the interval [a, b].",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-nodes-at-plus-minus-one-third",
+        "Placing the nodes at plus and minus one third of the half-width instead of at plus and minus the half-width over root three.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-one-point-rule-used",
+        "Using the one-point Gauss rule, the midpoint rule, in place of the two-point rule.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-exact-integral-given",
+        "Integrating the function exactly when the two-point rule is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-weights-halved",
+        "Using weights of 1/2 at each node on [-1, 1] instead of weights of 1.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-endpoints-used",
+        "Evaluating the function at the endpoints of the interval, giving the trapezoidal rule, instead of at the Gauss nodes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-three-point-nodes-used",
+        "Using the nodes plus and minus the square root of 3/5, which belong to the three-point rule, in the two-point rule.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-error-sign",
+        "Giving the signed error when the absolute error is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-relative-error-against-the-rule",
+        "Dividing the error by the rule value instead of by the exact value when finding the relative error.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-relative-error-not-as-percentage",
+        "Giving the relative error as a fraction of one without multiplying by 100 for a percentage.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-rule-value-for-error",
+        "Giving the value of the rule where the error or the exact value is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-error-as-sum",
+        "Adding the rule value and the exact value instead of taking their difference to find the error.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-gauss-relative-error-against-one",
+        "Multiplying the error by 100 without dividing by the exact value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-denominator-dropped",
+        "Leaving out the denominators of the Lagrange basis polynomials, so each basis polynomial is not 1 at its own node.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-y-values-paired-with-wrong-bases",
+        "Multiplying each basis polynomial by the y-value of a different node.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-node-sign-error",
+        "Writing the basis numerators with (x + x_j) in place of (x - x_j).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-factor-dropped",
+        "Building each basis polynomial from only one of the other nodes, so it has too few factors for the number of data points.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-denominator-sign-error",
+        "Reversing the order of subtraction in each basis denominator, (x_j - x_i) in place of (x_i - x_j), so an odd number of factors changes the sign of the term.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-fewer-nodes-used",
+        "Interpolating between the two nearest nodes by a straight line instead of using every data point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-nearest-node-value",
+        "Giving the y-value of the nearest data point instead of the value of the interpolating polynomial.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-error-sign",
+        "Subtracting in the wrong order, p(t) - f(t), when the error f(t) - p(t) is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-function-value-for-polynomial",
+        "Giving the value of the function f at the point where the value of the interpolating polynomial p is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-wrong-basis-polynomial",
+        "Evaluating the basis polynomial for a different node from the one asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-numerator-only",
+        "Giving the numerator of the basis polynomial without dividing by its value at its own node.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-basis-at-its-own-node",
+        "Giving the value 1 that a basis polynomial takes at its own node instead of its value at the stated point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-error-as-ratio",
+        "Giving the ratio f(t)/p(t) in place of the difference f(t) - p(t).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lagrange-error-vs-nearest-node",
+        "Measuring the error against the y-value of the nearest data point instead of against the polynomial.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-sign-wrong",
+        "Adding a multiple of the pivot row where Doolittle elimination subtracts it, so the upper factor has the wrong signs.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-second-column-not-eliminated",
+        "Eliminating below the first pivot only and not the second, so the second column of the upper factor is not cleared.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-upper-triangle-of-a-taken",
+        "Reading the upper triangle of A as U without eliminating anything.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-l-and-u-swapped",
+        "Giving the other factor of the factorisation, the lower triangle where the upper is asked for or the reverse.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-factor-transposed",
+        "Giving the transpose of the factor, with its entries on the wrong side of the diagonal.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-not-divided-by-pivot",
+        "Using the entry below the pivot as the multiplier without dividing by the pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-inverted",
+        "Dividing the pivot by the entry below it, so each multiplier is the reciprocal of the right one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-l-entries-negated",
+        "Recording the multipliers in L with the opposite sign, as the numbers subtracted from the rows rather than the multipliers themselves.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-forward-substitution-term-missed",
+        "Leaving a term out of forward substitution, so a later entry of y ignores an earlier one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-solved-with-u-instead-of-l",
+        "Back-substituting with U in place of forward substitution with L when solving the first stage.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-right-hand-side-copied",
+        "Giving the right-hand side b as y, without forward substitution through L.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-update-sign",
+        "Adding the product of the multiplier and the upper entry to the entry above it, instead of subtracting.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-left-unchanged",
+        "Taking the pivot to be the original entry of A, with no elimination update.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-determinant-as-diagonal-sum",
+        "Adding the diagonal entries of U instead of multiplying them to find the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-determinant-first-pivot-missed",
+        "Multiplying only the last two pivots of U, leaving the first out of the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-determinant-from-diagonal-of-a",
+        "Multiplying the diagonal entries of A instead of the diagonal entries of U.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-second-multiplier-without-first-column-term",
+        "Dividing a32 by the pivot without first subtracting l31 u12.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-second-multiplier-wrong-pivot",
+        "Dividing by the original entry a22 instead of the updated pivot u22.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-last-pivot-without-second-multiplier",
+        "Updating the last pivot with the first column only, leaving out the l32 u23 term.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-multiplier-from-wrong-row",
+        "Giving the multiplier for the third row where the multiplier for the second row is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-uses-wrong-entry",
+        "Using the wrong entry of the first row in the pivot update, a13 in place of a12.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-lu-pivot-multiplier-dropped",
+        "Subtracting the entry of the first row without multiplying it by the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-vector-not-scaled",
+        "Giving the product A x_0 without dividing by its entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-scaled-by-smallest-entry",
+        "Dividing the product by its entry of smallest magnitude instead of its entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-scaled-by-sum-of-entries",
+        "Dividing the product by the sum of its entries instead of by its entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-transpose-used",
+        "Multiplying by the transpose of A instead of by A.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-extra-step-taken",
+        "Applying the iteration one time more than the question asks for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-sign-of-scale-lost",
+        "Dividing by the size of the largest entry instead of by the entry itself, so a negative scale factor loses its sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-estimate-from-earlier-step",
+        "Giving the eigenvalue estimate from an earlier step than the one asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-estimate-without-scaling",
+        "Multiplying the scale factors together, or using the unscaled product, so the estimate is not the entry that scales the latest vector.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-ratio-of-another-component",
+        "Taking the ratio of a different component of the product and the previous vector, instead of the entry of largest magnitude.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-scale-factor-for-rayleigh-quotient",
+        "Giving the next scale factor in place of the Rayleigh quotient of the scaled vector.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-rayleigh-denominator-missed",
+        "Giving x^T A x without dividing by x^T x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-rayleigh-from-earlier-vector",
+        "Finding the Rayleigh quotient of the first scaled vector when the second is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-rayleigh-norm-of-product",
+        "Dividing the squared length of A x by x^T x, which estimates the square of the eigenvalue, instead of x^T A x over x^T x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-error-sign",
+        "Giving the signed difference between the estimate and the eigenvalue when the distance is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-eigenvalue-for-error",
+        "Giving the eigenvalue itself where the distance of the estimate from it is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-power-method-error-as-ratio",
+        "Giving the ratio of the estimate to the eigenvalue instead of the distance between them.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-euler-step-used",
+        "Taking the Euler step y_0 + h k_1 instead of combining all four Runge-Kutta slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-midpoint-slope-used",
+        "Stepping with the midpoint slope alone, y_0 + h k_2, instead of the weighted average of four slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-weights-equal",
+        "Averaging the four slopes with equal weights, (k_1 + k_2 + k_3 + k_4)/4, instead of weights 1, 2, 2, 1 over 6.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-step-size-dropped",
+        "Adding the weighted average of the slopes to y_0 without multiplying by the step size h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-stage-slope-not-updated",
+        "Evaluating every stage slope at the starting y-value instead of at the predicted y-value from the previous stage.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-half-step-forgotten",
+        "Using the full step h instead of h/2 when predicting the y-value for the second and third slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-stage-x-not-advanced",
+        "Evaluating every slope at the starting x-value instead of at x_0, x_0 + h/2 and x_0 + h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-stopped-after-one-step",
+        "Reporting the value after the first step when the question asks for the value after two steps.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-at-the-midpoint",
+        "Evaluating the first slope at the midpoint x_0 + h/2 instead of at the starting point x_0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-initial-value-for-slope",
+        "Giving the initial y-value where the first slope is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-y-shifted",
+        "Evaluating the first slope at y_0 + h instead of at y_0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-reused",
+        "Repeating the first slope as the second slope instead of re-evaluating the equation at the midpoint.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-second-slope-half-step-forgotten",
+        "Using a full step h in the predicted y-value for the second slope instead of h/2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-second-slope-x-not-advanced",
+        "Evaluating the second slope at the start of the step instead of at its midpoint.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-second-slope-y-not-advanced",
+        "Evaluating the second slope at the original y-value instead of the value predicted using the first slope.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-rk4-first-slope-at-wrong-point",
+        "Evaluating the first slope at the end of the step instead of at the starting point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-newton-step-confused",
+        "Taking a Newton step from the latest point, x - f(x)/f'(x), when the secant method replaces the derivative by the slope of the chord through the last two points.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-correction-sign",
+        "Adding the correction f(x_n)(x_n - x_(n-1))/(f(x_n) - f(x_(n-1))) to x_n instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-f-factor-dropped",
+        "Leaving the factor f(x_n) out of the secant correction, so the step is (x_n - x_(n-1))/(f(x_n) - f(x_(n-1))).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-anchored-at-older-point",
+        "Starting the secant step from the older iterate x_(n-1) instead of the latest one x_n, using f(x_(n-1)) as the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-window-not-advanced",
+        "Taking the second secant step from the starting pair again, instead of the two newest iterates.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-stopped-early",
+        "Reporting the first iterate when the question asks for the iterate after a second step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-residual-for-error",
+        "Giving the residual |f(x)| of an iterate in place of its error as an estimate of the root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-error-sign",
+        "Giving the signed difference between the iterate and the root when the absolute error is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-error-of-wrong-iterate",
+        "Finding the error of the earlier iterate x_2 instead of the latest iterate x_3.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-averaged-starting-values",
+        "Taking the average of the two starting values as the next iterate instead of the zero of the chord.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-wrong-rearrangement",
+        "Dropping the constant when writing x^3 = ax + b as f(x) = 0, so the step uses a different function.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-evaluates-x-not-f",
+        "Giving the iterate itself where the value of f at the iterate is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-residual-previous-iterate",
+        "Evaluating f at the previous iterate x_1 instead of the new iterate x_2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-residual-sign",
+        "Getting the sign of f(x) wrong when squaring and subtracting the constant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-square-dropped",
+        "Subtracting the constant from the iterate without squaring it when evaluating x^2 - N.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2-secant-error-against-x2",
+        "Measuring the error of x_3 against the previous iterate x_2 instead of against the true root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "lattice-contains-contained-swapped",
+        "Counting the subgroups contained in the given subgroup where the ones that contain it were asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lattice-counts-all-subgroups",
+        "Counting every subgroup of the group instead of only those that contain the given subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lattice-uses-generator-not-gcd",
+        "Counting divisors of the generator itself instead of the gcd of the generator and the group order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lattice-excludes-the-subgroup-itself",
+        "Leaving the given subgroup out of the count of subgroups that contain it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-forgets-rotation-subgroup",
+        "Counting only the dihedral subgroups of the given order and forgetting the rotation subgroup of that order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-forgets-reflection-type",
+        "Counting only the rotation subgroup of the given order and forgetting the subgroups that contain reflections.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-elements-not-subgroups",
+        "Reporting the number of reflections or elements instead of the number of subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-count-assumes-product-subgroups",
+        "Taking every subgroup of a direct product to be a product of subgroups, so multiplying the divisor counts.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-count-cyclic-only",
+        "Counting only the cyclic subgroups of a direct product of cyclic groups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-count-divisors-of-order",
+        "Counting the divisors of the group order as if each divisor gave exactly one subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-sigma-for-tau",
+        "Using the sum of the divisors where the number of divisors counts the rotation subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "dihedral-count-tau-for-sigma",
+        "Using the number of divisors where the sum of the divisors counts the dihedral subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normal-count-only-rotations",
+        "Counting only the subgroups of the rotation subgroup as normal and missing the normal dihedral subgroups.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normal-count-every-subgroup",
+        "Treating every subgroup of a dihedral group as normal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normal-count-parity-swapped",
+        "Counting the index-2 dihedral subgroups for odd n, or missing them for even n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-is-index",
+        "Giving the index of the subgroup as the number of its conjugates, which overcounts when pairs of reflections give the same conjugate.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-assumes-normal",
+        "Taking the subgroup to be normal and so reporting a single conjugate.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-all-reflections",
+        "Giving the number of reflections as the number of conjugates of a dihedral subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-is-order",
+        "Giving the order of the subgroup as the number of its conjugates.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-is-normaliser-order",
+        "Giving the order of the normaliser where the number of conjugates, its index, was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "conjugate-count-elements-not-subgroups",
+        "Counting the permutations that are conjugate to a generator where the conjugate subgroups were asked for.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-conjugate-count",
+        "Giving the number of conjugates of the subgroup as the order of its normaliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-subgroup-order",
+        "Taking the normaliser to be the subgroup itself.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-centraliser",
+        "Giving the order of the centraliser of a generator as the order of the normaliser of the subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "normaliser-order-is-whole-group",
+        "Giving the order of the whole group as the order of the normaliser, which is true only for a normal subgroup.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-order-is-generator-order",
+        "Giving the order of one generator as the order of the subgroup the generators produce.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "subgroup-order-is-index",
+        "Giving the index of the subgroup where its order was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-element-order-is-group-order",
+        "Giving the order of the quotient group as the order of the element in it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-element-order-in-the-big-group",
+        "Giving the order of the representative in the original group as its order in the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-element-order-is-subgroup-order",
+        "Giving the order of the subgroup that was divided out as the order of an element of the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-order-is-subgroup-order",
+        "Giving the order of the subgroup generated as the order of the quotient group.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "pair-order-taken-as-product-of-component-orders",
+        "Taking the order of a pair to be the product of the orders of its components instead of their least common multiple.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-order-forgets-the-subgroup",
+        "Giving the order of the whole group as the order of the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-assumed-cyclic",
+        "Writing the quotient as a single cyclic group Z_1 x Z_N without checking whether it splits.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "invariant-factors-order-swapped",
+        "Listing the invariant factors with the larger one first, so that the smaller does not divide the larger.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-factorwise-instead-of-by-lattice",
+        "Taking the quotient of each coordinate by its own component of the generator, which ignores that the generator ties the coordinates together.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-ignores-the-subgroup",
+        "Giving the order of the representative in the big group as the order of its coset in the quotient.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-is-exponent",
+        "Giving the exponent of the quotient as the order of one particular coset.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "solution-counts-added-not-multiplied",
+        "Adding the numbers of solutions in the two factors of a direct product instead of multiplying them.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-solutions-from-largest-factor-only",
+        "Counting solutions of kg = 0 in the larger cyclic factor only and ignoring the smaller one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "elements-killed-by-k-taken-as-k",
+        "Taking the number of elements with kg = 0 to be k itself, as in a cyclic group where k divides the order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-forgets-repeated-cycle-symmetry",
+        "Leaving out the factor for interchanging cycles of the same length, which counts each permutation more than once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-forgets-cycle-rotations",
+        "Leaving out the factor for the different starting points of each cycle, which counts each permutation more than once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-is-centraliser-order",
+        "Giving the order of the centraliser where the size of the conjugacy class was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "class-size-counts-cycles",
+        "Giving the number of cycles of the permutation as the number of conjugates.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-order-is-class-size",
+        "Giving the size of the conjugacy class where the order of the centraliser was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-order-is-product-of-cycle-lengths",
+        "Taking the order of the centraliser to be the product of the cycle lengths, forgetting that equal cycles can be swapped.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-order-is-element-order",
+        "Giving the order of the permutation as the order of its centraliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "centraliser-forgets-repeated-cycle-symmetry",
+        "Leaving out the m! ways of swapping m cycles of the same length when finding the centraliser.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-order-divides-instead-of-equals",
+        "Counting permutations whose order divides k instead of those whose order is exactly k.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-misses-a-cycle-type",
+        "Leaving one of the cycle types with the right least common multiple out of the sum.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-single-cycle-type",
+        "Counting only the largest cycle type with the right order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "element-count-types-not-elements",
+        "Giving the number of cycle types instead of the number of permutations.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-keeps-cycle-type",
+        "Giving the cycle type of the permutation itself as the cycle type of one of its powers.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-cycle-lengths-without-splitting",
+        "Shortening each cycle by the gcd but forgetting that it splits into that many cycles.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "perm-order-is-product-of-cycle-lengths",
+        "Taking the order of a permutation to be the product of its cycle lengths instead of their least common multiple.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "power-exponent-off-by-one",
+        "Finding the cycle type of the permutation raised to a neighbouring power.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-image-order",
+        "Giving the order of the image where the order of the kernel was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-gcd-with-the-generator",
+        "Taking the kernel order to be the gcd of the multiplier and the order of the domain, instead of dividing by the image order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-assumes-image-is-the-codomain",
+        "Assuming the homomorphism is onto the codomain, so dividing the order of the domain by the order of the codomain.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-gcd-with-the-codomain",
+        "Taking the kernel order to be the gcd of the multiplier and the order of the codomain, which is the order of the generator's complement in the image.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-ignores-one-generator",
+        "Finding the image from only one of the two terms of the map, so dividing by the wrong image order.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-assumes-cyclic-unit-group",
+        "Assuming the unit group is cyclic, so that raising to the e-th power divides the order by gcd(e, order).",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-assumes-kernel-has-e-elements",
+        "Assuming exactly e elements satisfy x^e = 1, so dividing the order of the group by e.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-is-kernel-order",
+        "Giving the number of elements with x^e = 1 where the size of the image was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-assumes-onto",
+        "Assuming every element is an e-th power, so reporting the order of the whole group.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "image-order-is-gcd-not-index",
+        "Giving the gcd that generates the image as its order, when the order is the modulus divided by that gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-order-is-group-order",
+        "Giving the order of the whole domain as the order of the kernel.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "coset-order-taken-from-the-domain",
+        "Giving the order of the generator in the domain as the order of its coset modulo the kernel.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "fibre-size-assumes-injective",
+        "Assuming each element of the image has exactly one preimage, which holds only when the kernel is trivial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-not-monic",
+        "Giving a scalar multiple of the gcd as the generator of the ideal, so that the generator is not the monic one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-is-lcm",
+        "Giving the lcm of the two polynomials as the generator of the ideal they generate, instead of the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-is-one-of-the-polynomials",
+        "Taking one of the two generators, up to a scalar, as the generator of the ideal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-misses-a-common-factor",
+        "Finding only one of the common factors, so that the generator has too low a degree.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-root-sign-slip",
+        "Writing the factor x + r where the common root r gives the factor x - r.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ideal-generator-stopped-at-first-remainder",
+        "Stopping Euclid's algorithm at the first remainder instead of continuing to the last non-zero one.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-generated-by-the-product",
+        "Taking the product fg as the generator of the intersection, which counts the common factor twice.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-confused-with-sum",
+        "Giving the gcd, the generator of the sum of the ideals, as the generator of the intersection.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "lcm-drops-the-common-factor",
+        "Multiplying only the parts that are not shared and leaving the common factor out of the lcm.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "remainder-confused-with-quotient",
+        "Giving the quotient of the division where the remainder was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "division-sign-slip",
+        "Giving the negative of the remainder, which is the remainder of the division of the opposite polynomial.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "remainder-made-monic",
+        "Scaling the remainder to be monic, although a remainder is not normalised.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "division-step-incomplete",
+        "Subtracting g from f once without matching the leading term, and calling that the remainder.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-dimension-is-degree-of-f",
+        "Taking the dimension of the quotient ring to be the degree of f instead of the degree of the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quotient-dimension-counts-the-constant-term-twice",
+        "Giving one more than the degree as the dimension, counting the constant term as an extra basis element.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ring-size-is-dimension-times-p",
+        "Multiplying the dimension by p where the number of elements is p to the power of the dimension.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "ring-size-is-dimension",
+        "Giving the dimension of the quotient ring as its number of elements.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-include-zero",
+        "Counting 0 as a zero divisor, although a zero divisor is defined to be non-zero.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-counted-as-units",
+        "Giving the number of units where the number of zero divisors was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-only-the-even-residues",
+        "Counting only the even residues as zero divisors, which is right only when 2 is the sole prime factor of n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "zero-divisors-every-nonzero-element",
+        "Treating every non-zero element of Z_n as a zero divisor, as if n had no units.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-single-solution-only",
+        "Giving only the solution found after dividing by the gcd, and missing the other solutions modulo n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-spacing-uses-the-gcd",
+        "Spacing the solutions by the gcd instead of by n divided by the gcd.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-misses-a-solution",
+        "Leaving out one of the gcd solutions of the congruence modulo n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "congruence-divides-only-the-right-side",
+        "Dividing the right side by the gcd but not the coefficient or the modulus.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-only-the-trivial-ones",
+        "Listing only 0 and 1 as the idempotents, although a modulus with several primes has more.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-confused-with-square-roots-of-one",
+        "Giving the solutions of x^2 = 1 where the solutions of e^2 = e were asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-confused-with-nilpotents",
+        "Giving the nilpotent elements where the idempotent elements were asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "idempotents-misses-one",
+        "Leaving one of the non-trivial idempotents out of the list.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "units-counted-as-non-units",
+        "Giving the number of non-units where the number of units was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "units-only-the-odd-residues",
+        "Counting the odd residues as the units, which ignores the other prime factors of n.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-only-zero",
+        "Taking 0 to be the only nilpotent element, which is right only when n has no repeated prime factor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-counted-by-radical",
+        "Giving the radical of n, the product of its distinct primes, as the number of nilpotent elements instead of n divided by it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-counted-as-non-units",
+        "Counting every non-unit as nilpotent.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-multiples-of-one-prime",
+        "Taking the multiples of one prime factor of n as the nilpotent elements, when every prime factor must divide a.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-confused-with-multiples-of-n-over-radical",
+        "Taking the multiples of n divided by the radical as the nilpotent elements instead of the multiples of the radical.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-square-zero-only",
+        "Listing only the elements whose square is 0, which misses nilpotents of higher index when a prime appears to a power above 2.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "nilpotents-leave-out-zero",
+        "Leaving 0 out of the nilpotent elements, although 0 to the first power is 0.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-multiplies-by-a-instead-of-its-inverse",
+        "Multiplying by a where the inverse of a modulo p is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-moves-constant-with-wrong-sign",
+        "Adding the constant to the right side where it should be subtracted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-integer-division-for-inverse",
+        "Dividing as integers, or using the whole-number quotient, where the inverse modulo p is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-negative-of-the-solution",
+        "Giving the additive inverse of the solution, p minus the solution.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-inverse-sign-slip",
+        "Using p minus the inverse, the inverse of the negative, where the inverse itself is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-adds-numerators-and-denominators",
+        "Adding fractions by adding numerators and denominators separately.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-subtraction-sign-slip",
+        "Adding a term that should have been subtracted.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-multiplies-by-denominator-instead-of-inverse",
+        "Multiplying by the denominator where the inverse of the denominator modulo p is needed.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-larger-root-given",
+        "Giving the larger root where the smaller was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-without-the-square-root",
+        "Giving only -b divided by 2a, the midpoint of the roots, and leaving out the square root of the discriminant.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-ignores-leading-coefficient",
+        "Dividing by 2 instead of by 2a in the quadratic formula.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-sign-slip-on-b",
+        "Using b where the quadratic formula has -b.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-formula-divides-by-a-not-2a",
+        "Dividing by a instead of by 2a in the quadratic formula.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-discriminant-sign-slip",
+        "Adding 4ac to b squared instead of subtracting it.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "field-discriminant-wrong-multiplier",
+        "Subtracting 2ac instead of 4ac from b squared.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "bezout-cofactor-sign-slip",
+        "Giving the cofactor of p in the Bezout identity with the wrong sign.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "bezout-cofactor-is-the-inverse",
+        "Giving the inverse itself where the cofactor of p in the Bezout identity was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "irreducible-assumed-without-checking",
+        "Calling a polynomial irreducible without searching for any factor of degree 2 or more.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "no-root-taken-as-irreducible",
+        "Concluding that a polynomial of degree 4 or more with no root is irreducible, although it may have a quadratic factor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-search-stops-after-one-linear-factor",
+        "Stopping once one linear factor is found and treating the quotient as a single irreducible factor.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "repeated-factor-counted-once",
+        "Listing the degree of a repeated factor only once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "every-factor-taken-as-linear",
+        "Giving every factor degree 1, as if the polynomial split completely.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "quadratic-factor-split-into-linears",
+        "Splitting an irreducible quadratic factor into two linear factors, which would need roots in Z_p.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-degrees-in-descending-order",
+        "Listing the degrees of the factors in descending order where increasing order was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factors-merged-into-one",
+        "Merging two of the irreducible factors into one factor whose degree is the sum.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "linear-factors-counted-without-multiplicity",
+        "Counting each root once, so that a repeated linear factor is counted only once.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-degree-left-is-the-linear-count",
+        "Giving the number of linear factors where the degree of what is left was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "factor-degree-left-is-the-whole-degree",
+        "Giving the degree of f itself where the degree of the part left after dividing out the linear factors was asked.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "maximal-ideals-counted-with-multiplicity",
+        "Counting each irreducible factor once for each time it repeats, which gives the number of factors, not of distinct ones.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "maximal-ideals-assumed-one",
+        "Assuming the quotient ring has a single maximal ideal.",
+        area="abstract-algebra",
+    ),
+    CatalogueEntry(
+        "simpson-trapezoidal-weights",
+        "Applying the trapezium rule's weights 1, 2, 2, ..., 2, 1 (and h/2) when the question asks for Simpson's rule.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-weights-swapped",
+        "Putting the weight 4 on the even-numbered ordinates and 2 on the odd-numbered ones, instead of 4 on the odd and 2 on the even.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-all-inner-weight-4",
+        "Giving every inner ordinate the weight 4, forgetting that the weights alternate 4, 2, 4, ...",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-wrong-multiplier",
+        "Multiplying the weighted sum by h/2 (or another factor) instead of h/3.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-strips-counted-as-ordinates",
+        "Counting the n + 1 ordinates as the number of strips, so the strip width is the interval length divided by n + 1.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-uses-interval-length-as-h",
+        "Using the whole interval length as the strip width h in Simpson's formula.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "simpson-missing-ordinate-weight",
+        "Dividing by the wrong weight when solving for an unknown ordinate (4 where it is 2, or not dividing by the weight at all).",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "error-sign-not-absolute",
+        "Giving a signed difference (estimate minus exact) when the absolute error was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "reports-estimate-not-error",
+        "Reporting the estimate itself when the question asks for the error of the estimate.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-at-n-equals-one",
+        "Reading the value of the sum at n = 1 (adding the coefficients) instead of the value it approaches as n grows.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-keeps-lower-order-terms",
+        "Keeping the terms in 1/n as well as the constant term when taking the limit of a Riemann sum as n grows.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-ignores-denominator-coefficient",
+        "Taking the leading numerator coefficient as the limit without dividing by the leading coefficient of the denominator.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-takes-wrong-order-coefficient",
+        "Taking the coefficient of the 1/n term as the limit of the sum instead of the constant term.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-drops-lower-limit",
+        "Reading a sum with sample points a + ci/n as an integral from 0 to c, ignoring the starting point a.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-width-as-upper-limit",
+        "Reading the width c in the sample points a + ci/n as the upper limit of the integral, so the interval runs from a to c.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-width-taken-as-one-over-n",
+        "Taking the strip width as 1/n and so integrating over an interval of length 1 instead of c.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-n-from-error-bound",
+        "Using the crude bound (b - a)(f(b) - f(a))/n on the error and so finding a larger n than the least one that works.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-n-drops-smaller-terms",
+        "Keeping only the 1/n term of the error of a Riemann sum and dropping the 1/n^2 term, so the n found is not the least one.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-n-off-by-one-at-threshold",
+        "Giving the n just below or just above the least one that meets the tolerance (misreading strictly less than at the boundary).",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-sum-formula-drops-linear-term",
+        "Leaving the linear term out when summing the rectangle areas with the formulas for the sums of i and i squared.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-sum-formula-uses-difference-of-ends",
+        "Using the crude estimate (b - a)(f(b) - f(a)) in place of the 1/n coefficient of the sum.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-sum-formula-halves-twice",
+        "Halving the coefficient again when expanding n(n + 1)(2n + 1)/6 and n(n + 1)/2, so the 1/n coefficient comes out half the size.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-limit-drops-constant-term",
+        "Leaving the constant term of f out of the limit of the Riemann sum, so the area of the rectangle strip under the line y = r is missed.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "riemann-left-right-sign",
+        "Using the sign pattern of the left-endpoint error (B/n - C/n^2) for a right-endpoint sum.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-value-as-rate",
+        "Giving the value of the integrand f at the upper limit when the value of the accumulated integral F was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-ignores-lower-limit",
+        "Evaluating the antiderivative at the upper limit only, as if the integral started at 0, instead of subtracting its value at the lower limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-limits-reversed",
+        "Subtracting the antiderivative in the wrong order, so the accumulated value has the wrong sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-rectangle-for-integral",
+        "Estimating an accumulated change as the end value of the rate times the width of the interval.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-derivative-one-short",
+        "Stopping one derivative short: giving F'(c) = f(c) when F''(c) was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-derivative-too-many",
+        "Differentiating the integrand one time too many when finding the derivative of the accumulation function.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-derivative-subtracts-lower-limit",
+        "Treating F'(x) as f(x) - f(a), as if the fundamental theorem subtracted the integrand at the lower limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-differentiates-integrand",
+        "Differentiating the integrand f to find F', instead of recognising that F' is f itself.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-min-taken-for-max",
+        "Giving the stationary point where F has a local minimum (f changes from negative to positive) when the local maximum was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-max-of-integrand",
+        "Taking the x-value where f itself is greatest (its vertex) for the x-value where F is greatest.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-lower-limit-as-stationary-point",
+        "Giving the lower limit of the integral as the point where F has its extreme value.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-chain-rule-forgotten",
+        "Differentiating an integral whose upper limit is g(x) as f(g(x)) and leaving out the factor g'(x).",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-upper-limit-not-substituted",
+        "Substituting x into f instead of the upper limit g(x) when differentiating an integral with a function of x as its upper limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-chain-rule-wrong-factor",
+        "Multiplying f(g(x)) by g(x) instead of by g'(x) when differentiating an integral with a variable upper limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-increasing-decreasing-swapped",
+        "Giving the intervals where F is decreasing (f negative) when the intervals where F is increasing were asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "accumulation-ignores-second-root",
+        "Finding the interval of increase from the first root of f only, as if f stayed positive after it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "curve-increasing-decreasing-swapped",
+        "Giving the intervals where f is decreasing (f' negative) when increasing was asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-drops-one-interval",
+        "Giving only one of the two intervals on which the derivative has the required sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-includes-stationary-points",
+        "Writing the intervals with closed endpoints, including the stationary points where f' is zero, when open intervals were asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-root-sign-error",
+        "Reading the roots of a factor (x + a) or of an equation with the wrong sign, so every endpoint is reflected.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-splits-at-inflexion-stationary-point",
+        "Breaking an interval of increase (or decrease) at a stationary point where f' touches zero but does not change sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-ignores-squared-factor-interval",
+        "Dropping the part of the answer beyond a squared factor of f', as if f' changed sign there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-root-order-confused",
+        "Taking the roots of f' in the wrong order when writing the intervals.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-concave-up-down-swapped",
+        "Giving the intervals where the graph is concave down when concave up was asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-concavity-from-first-derivative",
+        "Reading concavity from the sign of f' instead of the sign of f''.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-vertex-without-halving",
+        "Solving f''(x) = 0 for a quadratic f' and leaving out the factor 2, so the point of inflection is twice too far (or the sum of the roots instead of their mean).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-only-first-condition",
+        "Answering with the intervals for the first stated condition only and ignoring the other.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-only-second-condition",
+        "Answering with the intervals for the second stated condition only and ignoring the first.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-second-derivative-for-stationary",
+        "Solving f''(x) = 0 when the stationary points (f'(x) = 0) were asked for, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-inflection-listed-as-stationary",
+        "Listing the point of inflection with the stationary points because f'' is zero there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-stationary-value-for-inflection",
+        "Giving the y-value at a stationary point instead of at the point of inflection.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "curve-constant-term-for-value",
+        "Reading the constant term of f(x) as the value at the point of inflection.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "hybrid-wrong-rule",
+        "Using the rule for a different interval of a hybrid function than the one the input belongs to.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-boundary-point-in-wrong-piece",
+        "Using the rule on the other side of a join when the input equals the join, ignoring whether the inequality is strict.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-forgets-parameter",
+        "Leaving the unknown constant out when evaluating a rule that contains it.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-sign-error",
+        "Making a sign slip when equating the two rules at the join, so the constant has the wrong value.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-forgets-constant",
+        "Leaving a constant term of one rule out when equating the two rules at the join.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-forgets-square",
+        "Leaving the squared term out when evaluating a quadratic rule at the join.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-subtraction-reversed",
+        "Subtracting in the wrong order when solving for the constant that joins two rules, giving its negative.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-matches-derivatives",
+        "Equating the gradients of the two rules at the join, instead of their values, to make the function continuous.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-parameter-sign-slip",
+        "Dropping the sign of a negative parameter term in one rule when equating the two rules at the join.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-collects-k-one-side-only",
+        "Collecting the unknown constant on one side only when it appears in both rules, so the equation is solved for the wrong value.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-reports-one-constant",
+        "Reporting one of two constants found from the joins when their sum was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-combines-constants-wrongly",
+        "Subtracting the two constants found from the joins when their sum was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "continuity-joins-at-wrong-point",
+        "Evaluating a rule at the wrong join, using the other boundary value of x.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-domain-endpoint-open-closed",
+        "Writing an open endpoint (x < b) for the domain when the last rule includes x = b, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-domain-first-rule-only",
+        "Giving the interval of the first rule only as the domain of a hybrid function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-domain-last-rule-only",
+        "Giving the interval of the last rule only as the domain of a hybrid function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-range-vertex-misplaced",
+        "Taking the lowest value of a parabola piece to be at its vertex when the vertex lies outside that piece's interval, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-range-endpoint-open-closed",
+        "Writing a strict inequality for the range when the lowest value is actually reached, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "hybrid-range-last-rule-only",
+        "Giving the range of the last rule only as the range of a hybrid function.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-power",
+        "Taking only the q-th root for x^(p/q) and leaving out the power p.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-root",
+        "Raising to the power p for x^(p/q) and leaving out the q-th root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-divides-instead-of-roots",
+        "Reading the index p/q as a division of x^p by q instead of as a q-th root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-reciprocal-confused",
+        "Giving the reciprocal of the value of a power with a negative rational index (or the reverse).",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-range-confused",
+        "Giving the vertical shift k as the least x in the domain of (x - h)^(p/q) + k, or the horizontal shift h as the least value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-translation-sign",
+        "Reading the shift in (x - h) or + k with the wrong sign when finding the least x or least value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-translation-combined",
+        "Adding the horizontal and vertical shifts of a translated power function to find the least x or least value.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-translation",
+        "Giving 0 as the least x or least value of a translated power function, as if it were not shifted.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-ignores-the-index",
+        "Solving a x^(p/q) = c by dividing out a but not undoing the index, so x = c/a.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-solves-for-the-value",
+        "Stopping at the value of x^(p/q) and giving it as the value of x.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-multiplier-not-divided",
+        "Not dividing by the multiplier a when solving a x^(p/q) = c.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-not-inverted",
+        "Raising both sides to the power p/q when q/p was needed to undo the index.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-root-not-undone",
+        "Dividing out a common power but not raising both sides to the power that undoes the remaining root.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-inverted-the-wrong-way",
+        "Taking the n-th root where raising to the n-th power was needed, when undoing a root of x.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-power-too-high",
+        "Raising to a power one higher than needed when undoing a root of x.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-root-parity",
+        "Giving the wrong domain for x^(p/q): x ≥ 0 when the root is odd, or all real numbers when it is even.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-endpoint-open-closed",
+        "Writing x > 0 for the domain of a power function with an even root, though x = 0 is included.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-domain-reversed",
+        "Giving x ≤ 0 as the domain of a power function with a positive index.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "rational-index-multiplier-added",
+        "Adding the multiplier a to the power instead of multiplying by it.",
+        area="algebra",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-d",
+        "Stopping at the value of f(1) (or f(3)) without dividing by the divisor to find the whole-number multiple.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "exponent-shift-dropped",
+        "Dropping the constant shift in an exponent, so 3^(2n + 1) is evaluated as 3^(2n).",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "exponent-multiplier-dropped",
+        "Dropping the multiplier of n in an exponent when substituting n = 1, so 3^(2n + 1) becomes 3^(n + 1).",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "remainder-keeps-the-wrong-term",
+        "Keeping the other power as the leftover term when rearranging f(k + 1) = c f(k) + remainder.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "remainder-drops-the-factor",
+        "Forgetting the numerical factor (the difference of the bases) on the leftover power when rearranging f(k + 1).",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "gives-quotient-not-value",
+        "Giving the quotient f(1) divided by d where the value of f(1) itself is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "wrong-multiplier-on-f-of-k",
+        "Multiplying f(k) by the other base when using f(k + 1) = c f(k) + remainder.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "divides-by-the-wrong-divisor",
+        "Dividing by the wrong number when writing a value as a multiple of the divisor.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "off-by-one-base-case",
+        "Starting the induction one value too early or too late, where the inequality first holds for good.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "first-true-value-taken-as-base-case",
+        "Taking the first n at which the inequality is true as the base case, although it fails at some later values before holding for good.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "strict-inequality-treated-as-non-strict",
+        "Starting from the first n at which the two sides are equal or the left side is bigger, where the statement needs the left side strictly bigger.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "step-threshold-for-base-case",
+        "Giving the value from which the inductive step works where the first value of the base case is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "off-by-one-step-threshold",
+        "Giving a value one or two out when finding where the inequality used in the inductive step starts to hold.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "base-case-threshold-for-step",
+        "Giving the base-case value where the value from which the inductive step works is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "right-hand-side-left-out",
+        "Giving one side of the comparison only, instead of the difference between the two sides.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "difference-taken-the-wrong-way",
+        "Subtracting the larger side from the smaller, so the difference comes out negative.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "sign-slip-in-matching-coefficients",
+        "A sign slip when matching coefficients of k or the constants on the two sides of a recurrence step.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-one-minus-a",
+        "Matching coefficients correctly but leaving out the division by 1 - a that isolates the constant.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "constant-ignores-the-k-term-carry",
+        "Solving the constant terms without the p carried over from the k + 1 in p(k + 1).",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "p-and-r-confused",
+        "Giving the coefficient of n where the constant term is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "base-case-ignores-p-and-r",
+        "Using u(1) = A a alone, forgetting the p and r terms in the closed form at n = 1.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-a",
+        "Finding u(1) minus the other terms but not dividing by the base a to get A.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "stops-one-term-early",
+        "Stopping at u(2) when u(3) is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forcing-term-index-off-by-one",
+        "Using the wrong value of n in the forcing term when stepping a recurrence.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "forcing-term-left-out",
+        "Multiplying by a but leaving out the added term when stepping a recurrence.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "matches-the-constant-equation-instead",
+        "Solving the equation for the constant terms when the coefficient of k was asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "amgm-bound-miscomputed",
+        "Applying the AM-GM bound but slipping in the arithmetic (the root or the product taken wrongly).",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-bound-not-divided-by-coefficients",
+        "Stopping at the squared half-sum from AM-GM without dividing by the coefficients to reach the product xy.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-forgets-the-four",
+        "Dropping the factor of 4 when bounding the product xy by the square of half the sum.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-forgets-the-root",
+        "Writing 2pq where AM-GM gives 2 times the square root of pq.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-forgets-the-two",
+        "Giving the square root of pq as the minimum, forgetting the 2 in u + v >= 2 sqrt(uv).",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "amgm-ignores-the-coefficients",
+        "Bounding xy by the square of half the total, ignoring the coefficients of x and y in the constraint.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "area-not-divided-by-w",
+        "Adding the area itself where the length of the other side (area divided by w) is needed.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "arithmetic-slip",
+        "A slip in the arithmetic of a correct method.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "assumes-equal-parts-ignoring-coefficients",
+        "Splitting the total equally between x and y, ignoring the coefficients in the constraint.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "base-and-sides-counted-twice",
+        "Counting the base or the sides of a box twice in its surface area.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "base-area-taken-as-the-side",
+        "Dividing the volume by the side of the base instead of the area of the base.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "counts-only-one-short-side",
+        "Counting only one of the two short sides of a three-sided fence.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "divides-by-the-wrong-number",
+        "Dividing by the wrong number when working back from a bound to the point where equality holds.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "evaluates-at-a-trial-value",
+        "Giving the value of the expression at the trial point of an earlier part instead of its least value.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "evaluates-at-x-equals-1",
+        "Evaluating the expression at x = 1 and taking that as the least value.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "fences-all-four-sides",
+        "Counting fence along the river side too, so four sides are fenced instead of three.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "fixed-charge-counted-twice",
+        "Adding the fixed charge to the cost twice.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "fixed-charge-subtracted",
+        "Subtracting the fixed charge from the least variable cost instead of adding it.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-am-gm-part",
+        "Giving the constant part of the expression only, leaving out the AM-GM minimum of the other terms.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-constant-term",
+        "Giving the AM-GM minimum of the two terms but leaving out the constant term of the expansion.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-factor-in-the-cube",
+        "Solving x cubed equals the volume instead of x cubed equals twice the volume.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-fixed-charge",
+        "Leaving the fixed charge out of the least cost.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-half",
+        "Using the whole total where half of it is needed for each equal term.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-the-three",
+        "Giving the value of one of the three equal terms as the sum of all three.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-to-divide-by-the-coefficient",
+        "Finding the remaining length without dividing by its coefficient in the constraint.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "forgets-to-take-the-root",
+        "Giving x squared (or q over p) where its square root is needed.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-area-not-the-bound",
+        "Giving the area of the paddock where the least length of fence is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-sum-not-the-product",
+        "Adding the two quantities where their product is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-value-not-x",
+        "Giving the least or greatest value where the value of x at which it occurs is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "gives-the-answer-for-x-not-the-value",
+        "Giving the value of x at which equality holds where the least value is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "height-confused-with-side",
+        "Giving the side of the base where the height of the box is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "multiplies-instead-of-squares",
+        "Multiplying x by 3 where 3 times x squared is needed.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "surface-area-left-out-the-base",
+        "Leaving the base out of the surface area of an open box.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "surface-area-sides-miscounted",
+        "Counting the sides of a box wrongly when finding the surface area.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "takes-one-factor-for-x",
+        "Taking one of the constants a or b in (x + a)(x + b)/x as the value of x.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "term-taken-as-the-variable",
+        "Giving the value of one of the two equal terms where the value of x is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "two-term-bound-used-on-three-terms",
+        "Using the two-term bound 2 sqrt(uv) on a sum of three terms.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "uses-the-wrong-coefficient",
+        "Dividing by the coefficient of the other variable when solving for x at the equality case.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "wrong-coefficient-removed",
+        "Removing the wrong multiple of x from the constraint before dividing.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "x-and-y-swapped",
+        "Giving the value of y where x is asked for, or the reverse.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "x-doubled-from-the-two",
+        "Doubling the value of x because of the 2 in the AM-GM bound.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "a-and-b-coefficients-swapped",
+        "Swapping the coefficients of a and b in a vector expression.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "adds-position-vectors",
+        "Adding the position vectors of the two end points where the vector between them needs a subtraction.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "assumes-the-diagonals-bisect",
+        "Assuming the diagonals meet at their midpoints when the figure is a trapezium with unequal parallel sides.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "assumes-the-diagonals-trisect",
+        "Assuming a convenient ratio such as one third for the point where the diagonals meet, without equating coefficients.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "assumes-the-midpoint-theorem",
+        "Using a half where the points divide the sides in a ratio other than 1 : 1.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "coefficient-of-a-taken-as-lambda",
+        "Giving the coefficient of a in the position of the meeting point where the scalar lambda is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "complement-of-x-given",
+        "Giving one minus the coefficient of a where the coefficient itself is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "difference-of-squares-expanded-as-a-square",
+        "Expanding (b - a).(b + a) as (|b| - |a|) squared.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "direction-of-vector-reversed",
+        "Giving the vector from the end to the start, with every sign reversed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "dot-product-sign-reversed",
+        "Getting the dot product of |b|² - |a|² with the sign reversed, as |a|² - |b|².",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "dot-product-sums-the-squares",
+        "Adding |a|² and |b|² where the cross terms cancel to a difference of squares.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "gives-lambda-for-x",
+        "Giving the scalar lambda where the coefficient of a in the position vector is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "half-of-the-dot-product-dropped",
+        "Leaving out the half from the position of the midpoint when expanding the dot product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "lengths-subtracted-not-squared",
+        "Subtracting the two lengths where their squares should be subtracted.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "midline-not-halved",
+        "Giving the sum of the parallel sides where the midline is half the sum.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "midpoint-halving-missed",
+        "Doubling the answer by missing the half in the position of a midpoint.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "new-value-given-not-the-change",
+        "Giving the value |OP|² would take, where the change from its present value is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "one-parallel-side-left-out",
+        "Giving half of one parallel side only where the midline is half the sum of both.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "parallel-side-taken-as-equal",
+        "Treating the parallel sides of a trapezium as equal, as in a parallelogram.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "parallel-sides-subtracted",
+        "Taking half the difference of the parallel sides where the midline is half their sum.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "position-vector-not-displacement",
+        "Giving the position vector of the end point without subtracting the position of the start.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "ratio-op-to-pb-given-as-lambda",
+        "Giving the ratio of the two parts of the diagonal where the fraction of the whole diagonal is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "ratio-part-to-part-used-as-scale",
+        "Using the ratio m : n as the scale factor m/n where the part-to-whole fraction m/(m + n) is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "reciprocal-of-lambda",
+        "Giving the reciprocal of the fraction asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "scale-factor-left-out",
+        "Giving the full vector or length where the shorter one, scaled by the ratio, is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "second-length-left-out",
+        "Squaring only one of the two lengths in the dot product.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sides-added-twice",
+        "Counting a parallel side twice when adding vectors round a trapezium.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sign-slip-in-one-minus-mu",
+        "A slip in the equation relating lambda and mu when equating coefficients.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sign-slip-on-one-vector",
+        "Getting the sign of one of the two coefficients wrong.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "sum-instead-of-difference",
+        "Adding the two position vectors where the vector between the points needs their difference.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "wrong-part-of-the-ratio",
+        "Using n/(m + n), the other part of the ratio, as the scale factor.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "one-term-left-out",
+        "Giving only one of the two terms of a vector expression in a and b.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "volume-given-as-height",
+        "Giving the volume where the height is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "base-area-given-as-height",
+        "Giving the area of the base where the height is asked for.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "sum-taken-for-the-difference",
+        "Adding the two sides where their difference is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "left-hand-side-left-out",
+        "Giving the right-hand side only where the difference of the two sides is asked for.",
+        area="induction",
+    ),
+    CatalogueEntry(
+        "total-doubled",
+        "Doubling the least value, for example by counting the two equal AM-GM terms separately.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "cost-doubled",
+        "Doubling the cost of the fence.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "present-value-given-not-the-change",
+        "Giving the present value of the quantity where the change needed is asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "change-doubled",
+        "Doubling the change that is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "one-part-of-the-ratio-only",
+        "Dividing the length by m + n and stopping, without multiplying by m.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "length-doubled",
+        "Doubling the length found.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "ratio-part-subtracted-from-the-length",
+        "Subtracting a part of the ratio from the length instead of scaling the length.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r4g-class-limit-for-midpoint",
+        "Giving a class limit (the lower or upper end of the class) where the midpoint of the class was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-frequency-for-modal-class",
+        "Giving the frequency of the modal class instead of working with the class itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-middle-row-for-modal-class",
+        "Taking the class in the middle of the table as the modal class instead of the class with the greatest frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midpoints-averaged-without-frequencies",
+        "Averaging the class midpoints without weighting each by its frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-lower-limits-used-as-midpoints",
+        "Using the lower limit of each class in place of its midpoint.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-upper-limits-used-as-midpoints",
+        "Using the upper limit of each class in place of its midpoint.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-divided-by-number-of-classes",
+        "Dividing the sum of frequency times midpoint by the number of classes instead of the total frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-of-the-frequencies",
+        "Giving the mean of the frequencies (total frequency divided by the number of classes) as the mean of the data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-class-off-by-one",
+        "Picking the class next to the one where the cumulative frequency reaches the middle position.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-hidden-class-left-out-of-the-total",
+        "Leaving the unknown frequency out of the total frequency when setting up the equation for the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-frequency-off-by-one",
+        "Solving correctly but giving a frequency that is one or two away from the right whole number.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midpoint-for-lower-limit",
+        "Giving the midpoint of the class where its lower limit was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midpoints-summed-without-frequencies",
+        "Adding the class midpoints without multiplying each by its frequency.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-modal-midpoint-times-total-frequency",
+        "Multiplying the midpoint of the modal class by the total frequency to get the sum of the values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-divided-by-wrong-count",
+        "Dividing a total by a count that is one more than, or different from, the number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-two-means-averaged",
+        "Averaging the two means without weighting each by the number of values it describes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-new-values-left-out-of-the-total",
+        "Dividing by the new count but leaving the new values out of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-total-given-as-mean",
+        "Giving the combined total as the mean without dividing by the number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-other-group-read",
+        "Reading the value for the other group in a back-to-back plot instead of the group named.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-for-median",
+        "Giving the mean of the values where the median was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-midrange-for-median",
+        "Giving the number halfway between the smallest and largest values as the median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-one-middle-value-only",
+        "With an even number of values, giving one of the two middle values instead of the number halfway between them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-leaf-of-median-only",
+        "Giving only the leaf of the median value, ignoring its stem.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-position-for-median",
+        "Giving the position of the middle value as the median instead of the value found there.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-kept-in-both-halves",
+        "Leaving the median in both halves when finding the quartiles of an odd number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-semi-interquartile-range",
+        "Giving half the interquartile range where the whole interquartile range was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-one-iqr-not-the-difference",
+        "Giving the larger interquartile range instead of the difference between the two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-for-upper-quartile",
+        "Comparing with the median of the other group where its upper quartile was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-value-equal-to-quartile-counted",
+        "Counting values equal to the quartile as greater than it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-own-quartile-used",
+        "Comparing with the group's own upper quartile instead of the other group's.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-count-below-not-above",
+        "Counting the values that are not greater than the quartile instead of the values that are.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-count-off-by-one",
+        "Counting one value too many or too few.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-shifted-one-step",
+        "Using a window that is one step to the left or right of the one centred on the stated point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-sum-divided-by-wrong-count",
+        "Dividing the sum of a smoothing window by a number other than the number of points in it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-sum-not-divided",
+        "Giving the sum of the window as the moving mean without dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-raw-value-for-smoothed",
+        "Giving the original observation for the stated point instead of the smoothed value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-wrong-window-length",
+        "Using a 3-point window where 5 points were asked for, or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-instead-of-median-smoothing",
+        "Finding the mean of the window where the median of the window was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-middle-in-time-not-in-size",
+        "Taking the middle observation in time order as the median of the window without putting the values in order.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-mean-minus-raw-value",
+        "Subtracting the original observation from the moving mean instead of the moving median.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-raw-minus-median",
+        "Giving the original observation minus the moving median where the moving mean minus the moving median was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-one-smoothed-value-not-the-difference",
+        "Giving one of the two smoothed values instead of the difference between them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-peak-of-raw-series",
+        "Giving the day of the greatest original observation instead of the day of the greatest moving mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-window-start-day-for-centre",
+        "Naming the first day of the window instead of the day at its centre.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-median-instead-of-mean-smoothing",
+        "Finding the median of the window where the mean of the window was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-smoothed-values-added",
+        "Adding the two smoothed values where their difference was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-first-rate-used-for-all-units",
+        "Charging every unit at the first rate and ignoring the change of rate at the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-second-rate-used-for-all-units",
+        "Charging every unit at the second rate, including the units before the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-fixed-charge-left-out",
+        "Leaving the fixed charge out of the total cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-not-subtracted",
+        "Charging the second rate on all the usage instead of only the units beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-first-section-left-out",
+        "Charging only the units beyond the threshold and leaving out the cost of the first section.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-not-added-back",
+        "Finding the units beyond the threshold but forgetting to add the threshold back to get the total usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-usage-off-by-one",
+        "Solving correctly but giving a usage one unit more than the one that produces the stated cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-break-even-in-first-section",
+        "Solving for the break-even using the first section's rate, although the plans meet beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-fixed-charges-left-out",
+        "Comparing the per-unit parts of the two plans and leaving out their fixed charges.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-break-even-from-threshold-cost",
+        "Starting the second section from the cost at the threshold but then measuring from zero units, so the usage is the number of units beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-added-to-break-even",
+        "Adding the threshold to a break-even usage that already includes it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-cost-difference-not-divided",
+        "Giving the difference between the two costs as the rate, without dividing by the difference in usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-average-cost-per-unit",
+        "Dividing a total cost by its usage to get the rate, which includes the fixed charge and the first section.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-difference-over-larger-usage",
+        "Dividing the difference in cost by the larger usage instead of the difference in usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-difference-over-wrong-units",
+        "Dividing the difference in cost by the larger usage's units beyond the threshold instead of the difference in usage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-flat-rate-applied-to-threshold-only",
+        "Charging the flat plan's rate only for the units up to the other plan's threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-threshold-subtracted-from-flat-plan",
+        "Subtracting the other plan's threshold from the usage on a flat plan that has no threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-wrong-plans-rate-used",
+        "Using the other plan's rate in the flat plan's cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-costs-added-not-subtracted",
+        "Adding the two costs where the difference between them was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-one-cost-not-the-difference",
+        "Giving one of the two costs instead of the difference between them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-fixed-charges-compared-only",
+        "Comparing only the fixed charges of the two plans and ignoring the usage charges.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-rates-compared-only",
+        "Comparing only the difference in rates times the usage, ignoring the fixed charges and the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r4g-change-time-ignored",
+        "Ignoring the minimum time needed to change, so a connection that is missed by a few minutes is counted as caught.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-first-departing-not-earliest-arriving",
+        "Taking the connection that leaves first although a later one arrives earlier.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-departure-for-arrival",
+        "Giving the departure time of the connecting service instead of its arrival time.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-interchange-time-for-final",
+        "Giving the time of arrival at the interchange as the time of arrival at the destination.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-wait-at-start-left-out",
+        "Timing the journey from the first departure and leaving out the wait at the starting station.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-riding-time-only",
+        "Adding the two travelling times and leaving out all the waiting.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-change-time-for-wait",
+        "Adding the minimum change time to the journey instead of the actual wait at the interchange.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-first-service-ignores-connection",
+        "Choosing the latest service that arrives at the interchange before the deadline without checking it can connect.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-arrival-for-departure",
+        "Giving the arrival time at the interchange where the latest departure was asked for.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-latest-connection-only",
+        "Choosing the latest first service that fits one connection but is not the latest that reaches the destination in time.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-later-service-chosen",
+        "Choosing a first service that leaves later than the latest one that still arrives by the deadline.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-service-just-missed",
+        "Choosing the service that left just before she arrived at the station.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-departure-to-departure",
+        "Measuring the wait from the departure of the first service instead of from its arrival at the interchange.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-wait-and-ride-together",
+        "Giving the waiting time plus the riding time of the second service instead of the wait alone.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-clock-numbers-subtracted",
+        "Subtracting two four-digit clock times as ordinary numbers, so 1105 - 1042 gives 63 minutes instead of 23.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-radius-not-squared",
+        "Leaving the radius unsquared in the area formula, so the area is far too small.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-diameter-squared-for-radius-squared",
+        "Squaring the diameter where the radius should be squared.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-arc-formula-for-area",
+        "Using the arc length formula where the area of the sector was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-whole-circle-area",
+        "Giving the area of the whole circle instead of the fraction of it that the sector covers.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-fraction-over-180",
+        "Taking the fraction of the circle as the angle over 180 instead of over 360.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radian-formula-with-degrees",
+        "Using the radian formula half r squared theta with the angle in degrees.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-area-formula-for-arc",
+        "Using the sector area formula where the arc length was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-whole-circumference",
+        "Giving the whole circumference instead of the fraction of it that the sector's arc covers.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radius-for-diameter-in-circumference",
+        "Using pi r instead of 2 pi r for the circumference of the full circle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-used-as-radians",
+        "Using the angle in degrees as if it were in radians in the arc formula.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radii-left-out-of-perimeter",
+        "Giving only the arc as the perimeter of the sector and leaving out the two straight edges.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-one-radius-in-perimeter",
+        "Adding only one radius to the arc to get the perimeter of the sector.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-diameter-added-twice",
+        "Adding two diameters instead of two radii to the arc.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-square-root-not-taken",
+        "Giving r squared as the radius, without taking the square root.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-pi-left-out",
+        "Leaving pi out when working back from the area to the radius.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-fraction-left-out",
+        "Leaving the angle fraction out when working back from the sector's area to the radius.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-diameter-for-radius",
+        "Giving the diameter where the radius was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-circumference-without-the-2",
+        "Leaving the 2 out of the circumference when working back to the angle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radians-given-as-degrees",
+        "Giving the angle in radians (arc divided by radius) where degrees were asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radius-squared-for-arc",
+        "Using the radius squared in the arc formula when working back to the angle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-angle-halved",
+        "Giving half the angle by using 180 where 360 belongs.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radius-left-out",
+        "Leaving the radius out when working back from the arc to the angle.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-radii-subtracted-before-squaring",
+        "Subtracting the two radii and then squaring, instead of subtracting the two squared radii.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-outer-sector-only",
+        "Giving the area of the outer sector instead of the path between the arcs.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-width-for-area",
+        "Using the width of the path in place of the difference of the squared radii.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-sectors-added-not-subtracted",
+        "Adding the two sector areas where the area between them was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-sector-given-for-the-rest",
+        "Giving the area of the sector itself where the area of the rest of the circle was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-area-subtracted-before-multiplying-by-pi",
+        "Subtracting the sector's area from the squared radius and then multiplying by pi.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-east-west-direction-reversed",
+        "Making the clock later for a place to the west, or earlier for a place to the east.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-longitudes-added-same-side",
+        "Adding the two longitudes although both ports are on the same side of the prime meridian, so they should be subtracted.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-longitudes-subtracted-opposite-sides",
+        "Subtracting the two longitudes although the ports are on opposite sides of the prime meridian, so they should be added.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-no-time-shift",
+        "Giving the same clock time for both places, or ignoring the change of time zone.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-half-the-hours",
+        "Dividing the longitude difference by 30 instead of 15 to get the hours.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-flight-time-left-out",
+        "Applying the time difference but leaving out the flight time.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-flight-time-subtracted",
+        "Subtracting the flight time from the departure time instead of adding it.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-time-zone-off-by-one-hour",
+        "Getting the time difference right except for being one hour out, by miscounting the 15 degree steps.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-longitude-rule-wrong-side",
+        "Adding the longitudes when both are on the same side of the prime meridian, or subtracting them when they are on opposite sides.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-degrees-left-as-hours",
+        "Giving the difference in degrees as the number of hours without dividing by 15.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-latitude-for-longitude",
+        "Using the difference in latitude where the difference in longitude was asked for.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-one-longitude-not-the-difference",
+        "Giving one of the two longitudes instead of the difference between them.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-multiplied-by-15",
+        "Multiplying the degrees by 15 instead of dividing by 15 to get hours.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-ten-degrees-per-hour",
+        "Using 10 degrees of longitude for each hour instead of 15.",
+        area="time",
+    ),
+    CatalogueEntry(
+        "r4g-degrees-given-as-km",
+        "Giving the difference in degrees as the distance in kilometres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-nautical-miles-given-as-km",
+        "Using 60 nautical miles per degree and reporting it as kilometres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-longitude-for-latitude",
+        "Using the longitude difference where the latitude difference was needed for a distance along a meridian.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r4g-wrong-transformation-chosen",
+        "Choosing a transformation that does not match the shape of the curve (for example 1 over x for a curve that rises ever more steeply).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-transformed-variable-not-computed",
+        "Putting x into the equation where the transformed value (x squared, log x or 1 over x) belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-intercept-times-slope",
+        "Multiplying the intercept by the slope instead of adding the slope term to the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-straight-line-through-raw-points",
+        "Joining the original points with a straight line instead of transforming x first.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-intercept-left-out",
+        "Predicting from the slope term alone and leaving out the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-transformed-value-given-as-x",
+        "Giving the value of the transformed variable as the value of x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-gradient-on-raw-x",
+        "Finding the gradient from the change in x instead of the change in the transformed variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-rise-without-the-run",
+        "Giving the rise in y as the gradient without dividing by the change in the transformed variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-gradient-inverted",
+        "Dividing the change in the transformed variable by the change in y, so the gradient is upside down.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-run-for-gradient",
+        "Giving the change in the transformed variable as the gradient.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-first-y-as-intercept",
+        "Giving the first y value as the intercept, without taking away the gradient times the transformed x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-intercept-sign-slip",
+        "Adding the gradient times the transformed value to y instead of subtracting it when finding the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-gradient-given-as-intercept",
+        "Giving the gradient as the intercept of the line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4g-undoing-the-transformation-slip",
+        "Undoing the transformation incorrectly, for example reading off a power of ten that is one out.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-no-row-swap",
+        "Eliminating with the entry in the pivot position, ignoring the rule to swap in the row with the largest entry.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-smallest-pivot",
+        "Swapping in the row with the smallest non-zero entry instead of the largest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-sign",
+        "Adding the multiple of the pivot row instead of subtracting it (the sign of the multiplier reversed).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-first-stage-only",
+        "Pivoting at the first stage but not at the second.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-second-stage-only",
+        "Pivoting at the second stage but not at the first.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-rows-restored",
+        "Putting the rows back in their original order after the swap.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-inverted",
+        "Forming the multiplier as pivot divided by the entry, instead of entry divided by pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-swap-b-forgotten",
+        "Swapping rows of the matrix but not the matching entries of the right-hand side.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-rhs-not-updated",
+        "Applying the row operations to the matrix but not to the right-hand side.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-back-substitution-undivided",
+        "Back-substituting without dividing by the diagonal entry.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-solution-order-reversed",
+        "Listing the solution components in reverse order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-first-entry",
+        "Taking the first entry of the first column as the pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-absolute-value",
+        "Giving the size of the pivot and dropping its sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-smallest",
+        "Taking the entry of smallest size in the column as the pivot.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-pivot-largest-signed",
+        "Choosing the largest signed entry rather than the largest in absolute value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-wrong-row",
+        "Using the first-column entry of a different row to form the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-unswapped",
+        "Forming the multiplier with the pivot from before the row swap.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-multiplier-sign-flipped",
+        "Giving the negative of the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-update-added",
+        "Adding instead of subtracting the multiple of the pivot row when updating the entry.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-update-unswapped",
+        "Updating the entry from the row order before the swap.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-update-not-reduced",
+        "Reporting the entry before subtracting the multiple of the pivot row.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-swap-sign-ignored",
+        "Ignoring the sign change from each row interchange when finding the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-swap-sign-extra",
+        "Changing the sign of the determinant for each stage instead of for each row interchange.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-pivots-added",
+        "Adding the pivots instead of multiplying them.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-gauss-det-original-diagonal",
+        "Multiplying the diagonal entries of the original matrix.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-euler-step-only",
+        "Stopping at the predictor y + h f(x, y) and reporting it as the next value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-corrector-slope-at-start",
+        "Evaluating the second slope at the starting y-value instead of at the predicted value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-average-not-halved",
+        "Adding the two slopes without halving them, y + h(k₁ + k₂).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-end-slope-only",
+        "Stepping with the slope at the predicted end point alone, y + h k₂.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-midpoint-method",
+        "Using the slope at the midpoint (the midpoint method) in place of the average of the end slopes.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-x-not-advanced",
+        "Evaluating the second slope at the starting x instead of x + h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-stopped-after-one-step",
+        "Reporting the value after the first step when two steps were asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-slope-step-size-dropped",
+        "Adding the average slope to y without multiplying by the step size.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-predictor-half-step",
+        "Predicting with a half step, y + (h/2)k₁, instead of a full step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-first-slope-at-end",
+        "Evaluating the first slope at x + h instead of at the starting point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-first-slope-initial-value",
+        "Giving the initial y-value where the first slope is asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-predictor-slope-not-multiplied",
+        "Giving the slope k₁ where the predicted value is asked for, without stepping.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-predictor-uses-y-only",
+        "Predicting the next value as y + h, forgetting to multiply the step by the slope.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-at-original-y",
+        "Evaluating the second slope at the original y-value instead of the predicted value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-copies-first",
+        "Repeating the first slope as the second slope.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-heun-second-slope-corrected-value",
+        "Evaluating the second slope at the new corrected value of y rather than the predicted one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-order-off-by-one",
+        "Bounding the n-th derivative instead of the (n+1)-th when n + 1 nodes are used.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-factorial-omitted",
+        "Leaving out the factor 1/(n+1)! in the interpolation error bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-wrong-factorial",
+        "Dividing by n! instead of (n+1)! in the interpolation error bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-max-wrong-end",
+        "Taking the largest value of the derivative at the wrong end of the interval, where it is smallest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-factorial-dropped",
+        "Dropping the factorial that comes from repeated differentiation, writing (-1)^n / x^(n+1) for the derivative of ln x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-node-factor-missed",
+        "Leaving one node out of the product (x − x₀)(x − x₁)⋯(x − xₙ).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-node-spacing-cubed",
+        "Replacing the node product by the cube of the node spacing.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-max-product-wrong",
+        "Taking the largest node product on a spacing h as h² instead of h²/4 for linear interpolation.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-half-factor-missed",
+        "Bounding the linear interpolation error by M h²/4, forgetting the 1/8 in M h²/8.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-nodes-for-subintervals",
+        "Giving the number of nodes (one more than the number of subintervals).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-tolerance-not-squared",
+        "Solving for h instead of h², so the number of subintervals comes from the square root of the right quantity.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-order-too-high",
+        "Bounding a derivative one order higher than the (n+1)-th.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-node-product-with-evaluation-point",
+        "Multiplying the node product by the evaluation point as an extra factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-factorial-too-high",
+        "Dividing by (n+2)! instead of (n+1)! in the interpolation error bound.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ieb-derivative-at-wrong-order",
+        "Using the first derivative of the function in place of the second when bounding linear interpolation.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-gradient-sign",
+        "Setting ∇f = λ∇g instead of ∇f + λ∇g = 0, so the multiplier has the wrong sign.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-gradient-not-doubled",
+        "Differentiating (x − a)² as (x − a), dropping the factor 2, when forming ∇f.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-one-component",
+        "Using the ratio from one component of the gradient equation without checking the other.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-constraint-value",
+        "Giving the value of the constraint function or its right-hand side as the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-gradient-of-g-forgotten",
+        "Dividing the gradient of f by the constraint's coefficients without matching components.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-multipliers-swapped",
+        "Swapping the multipliers of the two constraints.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-single-constraint",
+        "Solving with only one of the two active constraints.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-system-sign",
+        "Solving ∇f = λ₁∇g₁ + λ₂∇g₂ with the sign of ∇f reversed.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-system-transposed",
+        "Setting up the two equations with the gradients' components in the wrong columns.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-circle-not-doubled",
+        "Taking ∇g = (x, y) for g = x² + y² − r², dropping the factor 2, so λ comes out twice too large.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-radius-squared",
+        "Using r² where r belongs in the formula for the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-norm-squared",
+        "Using the squared length of the objective gradient instead of its length.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-circle-point-unscaled",
+        "Taking the boundary point as the objective gradient itself rather than scaled to the circle.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-sum-form",
+        "Using (a + b)/(2r) in place of √(a² + b²)/(2r) for the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-uses-unconstrained",
+        "Giving the amount by which the unconstrained minimum violates the constraint, not divided by the gradient's squared length.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-weights-ignored",
+        "Ignoring the weights on the squares when solving for the multiplier.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-lambda-plain-length",
+        "Dividing the violation by the length of the constraint gradient rather than its square.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-sign",
+        "Moving from the unconstrained minimum in the direction of the constraint gradient instead of against it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-unscaled",
+        "Moving from the unconstrained minimum by λ times the constraint coefficient without dividing by twice the weight.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-unconstrained",
+        "Giving the unconstrained minimiser's coordinate instead of the constrained one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-coordinate-other",
+        "Giving the other coordinate of the constrained minimiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-unconstrained",
+        "Giving the value at the unconstrained minimiser, which is zero or the objective's constant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-unweighted",
+        "Leaving out the weights on the squares when evaluating the objective.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-lambda-squared",
+        "Giving λ² in place of the objective's value at the minimiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-kkt-value-not-squared",
+        "Forgetting to square the distances when evaluating the objective.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-minimum-reported",
+        "Reporting the minimum value (the negative of the maximum) when the maximum was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-radius-for-radius-squared",
+        "Treating the constant on the right of the circle as the radius instead of the radius squared.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-radius-squared-factor",
+        "Multiplying the length of the objective's gradient by the right-hand side instead of its square root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-sum-of-coefficients",
+        "Using the sum of the coefficients in place of the length of the objective's gradient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-objective-at-gradient-point",
+        "Evaluating the objective at the point (a, b) itself instead of at the point on the constraint.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-circle-value-unscaled",
+        "Dividing by the right-hand side instead of multiplying by its square root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-ellipse-weights-ignored",
+        "Ignoring the weights of the squares when solving for the point on an ellipse.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-multiplier-reported",
+        "Reporting the multiplier λ in place of the extreme value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-factor-two-lost",
+        "Losing the factor 2 in the value 2λc by writing the extreme value as λc.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-gradient-cross-term-missed",
+        "Differentiating x² + xy + y² as 2x + 2y, missing the cross term.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-over-weights",
+        "Writing the maximum of xy on px² + qy² = c as c/(2pq) instead of c/(2√(pq)).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-no-root",
+        "Writing the maximum of xy as c/√(pq), a factor 2 too large.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-factor-four",
+        "Writing the maximum of xy as c/(4√(pq)), a factor 2 too small.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-product-at-axis",
+        "Evaluating xy at a point of the ellipse on an axis, where xy = 0.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-squared",
+        "Giving λ² where λ was asked for, forgetting the square root.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-doubled",
+        "Giving 2λ where λ was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-negative-root",
+        "Giving the negative root λ, which belongs to the minimum.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-lambda-unweighted",
+        "Solving for λ with the ellipse's weights p and q left out.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-gradient-not-scaled",
+        "Giving the coordinate as a/(2λ), leaving out the weight on the square.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-sign",
+        "Giving the coordinate of the minimiser instead of the maximiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-swapped",
+        "Giving the other variable's coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-coordinate-uses-doubled-lambda",
+        "Dividing by λ rather than 2pλ when solving for the coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-value-sum-of-coordinates",
+        "Adding the coordinates of the maximiser instead of evaluating the objective.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-value-first-term",
+        "Evaluating only the first term of the objective at the maximiser.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-lagr-value-constraint",
+        "Giving the constraint's right-hand side as the maximum.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-rows-for-columns",
+        "Adding along rows when the 1-norm (largest column sum) was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-columns-for-rows",
+        "Adding down columns when the ∞-norm (largest row sum) was asked for.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-signed-sums",
+        "Adding the entries with their signs instead of their absolute values.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-largest-entry",
+        "Giving the entry of largest size instead of the largest absolute row or column sum.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-all-entries",
+        "Adding the absolute values of every entry in the matrix.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-smallest-sum",
+        "Choosing the smallest absolute sum instead of the largest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-norm-sum-not-max",
+        "Adding the row (or column) sums instead of taking the largest.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-no-inverse",
+        "Multiplying ‖A‖ by itself instead of by ‖A⁻¹‖.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-adjugate-undivided",
+        "Using the adjugate in place of A⁻¹, forgetting to divide by the determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-wrong-norm-on-inverse",
+        "Using the 1-norm for one factor and the ∞-norm for the other.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-quotient",
+        "Dividing ‖A‖ by ‖A⁻¹‖ instead of multiplying.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-determinant",
+        "Giving the determinant or its reciprocal as the condition number.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-other-norm",
+        "Giving the condition number in the other norm (∞ for 1, or 1 for ∞).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-inverse-sign",
+        "Forming the inverse of a 2×2 matrix with the off-diagonal signs unchanged.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-inverse-entries-unswapped",
+        "Forming the inverse of a 2×2 matrix without swapping the diagonal entries.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-bound-divided",
+        "Dividing the relative perturbation by the condition number instead of multiplying.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-bound-forgotten",
+        "Giving the relative perturbation of b as the bound on the relative error of x.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-cond-bound-norm-only",
+        "Multiplying the relative perturbation by ‖A⁻¹‖ alone.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-root-finding-step",
+        "Using Newton's root-finding step x − f(x)/f′(x) instead of x − f′(x)/f″(x).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-step-sign",
+        "Adding the Newton correction instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-no-second-derivative",
+        "Taking a gradient step x − f′(x), leaving out the division by the second derivative.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-ratio-inverted",
+        "Dividing the second derivative by the first instead of the first by the second.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-correction-only",
+        "Reporting the correction f′(x)/f″(x) rather than the new point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-derivative-at-wrong-point",
+        "Evaluating the derivatives at the origin instead of at the starting point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-gradient-step",
+        "Using the gradient step x − ∇f(x) with no Hessian.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-sign-reversed",
+        "Adding H⁻¹∇f to the starting point instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-hessian-not-inverted",
+        "Multiplying the gradient by the Hessian instead of its inverse.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-diagonal-hessian",
+        "Ignoring the mixed second derivative, so the step treats the variables separately.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-inverse-unscaled",
+        "Using the adjugate of the Hessian without dividing by its determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-inverse-no-swap",
+        "Inverting a 2×2 Hessian without swapping its diagonal entries.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-hessian-rows-swapped",
+        "Applying the inverse Hessian with the components of the gradient in the wrong order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-start",
+        "Giving f at the starting point instead of at the new point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-gradient-step",
+        "Evaluating f at the gradient-step point.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-sign-reversed",
+        "Evaluating f at the point reached by adding the Newton correction.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-value-at-diagonal",
+        "Evaluating f at the point from a diagonal-Hessian step.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-main-diagonal-only",
+        "Giving the product of the diagonal entries as the Hessian determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-sum-of-products",
+        "Adding the product of the off-diagonal entries instead of subtracting it.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-trace",
+        "Giving the trace of the Hessian in place of its determinant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-det-first-derivatives",
+        "Building the determinant from the first partial derivatives.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-unchanged",
+        "Giving the starting coordinate: the step is not applied.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-other-sign",
+        "Adding the correction to the coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-no-determinant",
+        "Leaving out the division by the determinant in the new coordinate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-coordinate-swapped-cross",
+        "Using the mixed second derivative with the wrong gradient component.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-change-new-value",
+        "Giving f at the new point instead of the change in f.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-change-sign",
+        "Giving the change in f as the old value minus the new value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-newton-opt-change-start-value",
+        "Giving f at the start as the change.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-halved-bound",
+        "Using the bound 1/λ for the explicit Euler step instead of 2/λ, requiring the factor to stay positive rather than within [−1, 1].",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-smallest-eigenvalue",
+        "Using the eigenvalue of smallest size instead of the largest when finding the step limit for a system.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-trace",
+        "Using the trace of the matrix in place of its eigenvalue of largest size.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-product",
+        "Using the product of the eigenvalues in place of the largest one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-explicit-formula",
+        "Using the explicit Euler limit 2/λ for a method that is partly implicit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-one-over",
+        "Dropping the 2 in the numerator, giving 1/(λ(1 − 2θ)).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-theta-not-doubled",
+        "Using 1 − θ instead of 1 − 2θ in the stability limit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-theta-sign",
+        "Using 1 + 2θ instead of 1 − 2θ in the stability limit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-one-too-high",
+        "Reporting the exponent of the first error term (order plus one) as the order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-one-too-low",
+        "Reporting the number of the highest matching power of e^(−z) less one.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-polynomial-degree",
+        "Taking the degree of the amplification polynomial as the order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-always-one",
+        "Calling every method that is not exact first order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-term-count",
+        "Counting the matching terms of the series, constant term included, as the order.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-order-misjudged",
+        "Judging the order of a method from its number of stages or its look rather than from its amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-stability-misjudged",
+        "Judging stability from the order of the method rather than from the size of its amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-explicit-formula",
+        "Using the explicit amplification factor 1 − z for a method that is partly implicit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-backward-formula",
+        "Using the backward Euler factor 1/(1 + z) for a method that is not fully implicit.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-theta-swapped",
+        "Swapping θ and 1 − θ in the amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-heun-no-half",
+        "Dropping the factor 1/2 on the quadratic term of the Heun amplification factor.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-r-heun-sign",
+        "Taking the Heun amplification factor as 1 + z + z²/2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-steps-one-too-few",
+        "Applying the amplification factor one time too few.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-steps-one-too-many",
+        "Applying the amplification factor one time too many.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-steps-multiplied",
+        "Multiplying the amplification factor by the number of steps instead of raising it to that power.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-const-sign",
+        "Giving the error constant with the wrong sign (R − e^(−z) instead of e^(−z) − R).",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-const-wrong-power",
+        "Reading the mismatch in the coefficient of a later power of z as the error constant.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-ode-const-factorial-only",
+        "Giving the exponential's coefficient 1/(p+1)! as the error constant, without subtracting R's own coefficient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-finer-only",
+        "Reporting the estimate at the smaller step size and not combining it with the larger-step estimate.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-weights-swapped",
+        "Swapping the roles of the two estimates, so the coarse estimate gets the larger weight.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-average",
+        "Averaging the two estimates instead of extrapolating, so the leading error is only halved.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-wrong-order-weights",
+        "Using the weights for the wrong error order, such as (4D(h/2) − D(h))/3 for a first-order formula.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-first-order-weights",
+        "Using the first-order weights 2D(h/2) − D(h) for a second-order formula.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-coarse-only",
+        "Reporting the estimate at the larger step size.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-one-level-only",
+        "Stopping after the first level of extrapolation when two error terms were to be removed.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-second-level-weights",
+        "Using the weights 4 and 3 again at the second level instead of 16 and 15.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-levels-in-wrong-order",
+        "Combining the first and last estimates directly instead of extrapolating the two improved estimates.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-no-division-by-step",
+        "Leaving out the division by the step size in a difference quotient.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-no-division-by-double-step",
+        "Dividing a central difference by h instead of 2h.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-forward-for-central",
+        "Using a forward difference where a central difference was specified.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-error-sign",
+        "Reporting the exact value minus the estimate instead of the estimate minus the exact value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-error-of-coarse",
+        "Computing the error of the coarse central difference instead of the extrapolated value.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-derivative-evaluated-elsewhere",
+        "Evaluating the exact derivative at the wrong point when measuring the error.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "num2t-rich-fine-step-quartered",
+        "Taking the finer step as h/4 instead of h/2.",
+        area="num2",
+    ),
+    CatalogueEntry(
+        "r4i-clt-no-continuity-correction",
+        "Applying the normal approximation to a whole-number total without the continuity correction, standardising the stated boundary itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-continuity-wrong-way",
+        "Applying the continuity correction in the wrong direction, moving the boundary away from the event instead of into it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-strict-inequality-ignored",
+        "Treating 'more than', 'fewer than' or 'strictly between' like 'at least', 'at most' or 'between inclusive', so the boundary is half a unit out.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-sd-of-one-observation",
+        "Standardising a total with the standard deviation of a single observation instead of the standard deviation of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-variance-as-sd",
+        "Using the variance of the total where its standard deviation belongs when standardising.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-tail-reversed",
+        "Giving the probability of the opposite tail, the complement of the event asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-round-down",
+        "Rounding the boundary down where the smallest whole number that meets the bound must be found by rounding up.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-wrong-z",
+        "Using the standard normal value for a different tail probability than the one in the question.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-ignored-spread",
+        "Dividing the load limit by the mean mass alone, ignoring the spread of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-sd-of-total-n-sigma",
+        "Taking the standard deviation of a total of n observations to be n times sigma instead of sigma times the square root of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-round-up",
+        "Rounding the largest permitted number up, so the stated probability limit is exceeded.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-off-by-one-trial",
+        "Adding the mean of one extra observation to the mean of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-mean-of-one-observation",
+        "Giving the mean of a single observation as the mean of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-second-moment-for-mean",
+        "Using the sum of x squared times its probability (the second moment) where the mean is needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-halved-total",
+        "Halving the total, as if averaging over two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-clt-second-moment-for-variance",
+        "Taking the second moment of one observation as its variance, forgetting to subtract the square of the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-mc-inverted-ratio",
+        "Inverting the ratio in the bound, giving the threshold over the mean (or the distance over the standard deviation, squared) instead of the mean over the threshold.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-complement",
+        "Giving the complement of the bound, 1 minus the bound, where the bound itself (or the lower bound it leads to) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-squared",
+        "Squaring the ratio mean over threshold, mixing the Markov bound with the shape of the Chebyshev bound.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-shifted-threshold",
+        "Dividing the mean by the threshold plus or minus the mean, measuring the tail from the wrong place.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-square",
+        "Leaving out a square: using the standard deviation over the distance where the variance over the distance squared belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-squared-numerator-only",
+        "Squaring the standard deviation but not the distance, giving sigma squared over d.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-halved",
+        "Halving the bound, as if only one tail of the interval were counted; the bound covers both tails and cannot be halved without more information.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-farther-end",
+        "Using the end of the interval farther from the mean, which gives a bound that does not hold for the nearer side.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-half-width",
+        "Using half the width of an off-centre interval as the distance from the mean, so the interval is treated as centred.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-variance-for-second-moment",
+        "Using the variance where the second moment (variance plus mean squared) belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-mean-squared-only",
+        "Using the square of the mean alone as the second moment, leaving out the variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-sum-then-square",
+        "Squaring the sum of the mean and the standard deviation instead of adding their squares.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-sample-size",
+        "Using the variance of a single observation for the sample mean, not dividing by n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-n-squared",
+        "Dividing the variance by n squared instead of n when finding the variance of a sample mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-normal-instead-of-chebyshev",
+        "Using a normal-distribution quantile (such as 1.645) where a guarantee for any distribution was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-round-down",
+        "Rounding the sample size down, which does not meet the guarantee.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-root-of-alpha",
+        "Dividing by the square root of alpha instead of alpha when solving for the sample size.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-alpha",
+        "Leaving out the allowed tail probability, giving the variance over the squared distance as the sample size.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-root",
+        "Dividing the standard deviation by alpha instead of by the square root of alpha.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-variance-for-sd",
+        "Using the variance where the standard deviation belongs in the half-width.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-inverted-root",
+        "Multiplying by the square root of alpha instead of dividing by it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-took-the-weaker-bound",
+        "Giving the larger of the two valid bounds instead of the smaller, so the bound is not the best one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-distance-from-zero",
+        "Measuring the distance for the standard deviation bound from zero instead of from the mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-combined-bounds",
+        "Adding or multiplying the two bounds instead of taking the smaller.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-forgot-complement",
+        "Giving the upper bound for the tails where the lower bound for the interval inside them was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-root-n-for-n",
+        "Dividing by the square root of n (or by n times the distance) instead of by n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-multiplied-by-n",
+        "Multiplying the bound by n where the variance of a mean divides by n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-two-tails-doubled",
+        "Doubling the sample size for a two-sided interval that the bound already covers.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-tails-counted-twice",
+        "Doubling the bound before taking its complement, counting the two tails twice when the bound already covers both.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-averaged-with-one",
+        "Averaging the lower bound with 1, as if the guarantee were halfway to certainty.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-swapped-parameters",
+        "Swapping the two parameters of the beta density, so the share is b over a plus b instead of a over a plus b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-denominator-plus-one",
+        "Adding one to the denominator, using a over (a + b + 1), which is the variance-style denominator, for the mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-mode-for-mean",
+        "Giving the mode (a - 1)/(a + b - 2) of the beta density instead of its mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-exponent-for-parameter",
+        "Reading an exponent of the density as the parameter: x to the power a - 1 taken to mean parameter a - 1, off by one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-ratio-not-share",
+        "Giving a over b where the share a over (a + b) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-rate-times-shape",
+        "Multiplying shape and rate instead of dividing shape by the rate.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-mean",
+        "Giving the variance, shape over rate squared, where the mean was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-shape",
+        "Giving one over the rate, leaving out the shape.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-mean-for-variance",
+        "Giving the mean, shape over rate, where the variance was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-wrong-power-of-rate",
+        "Dividing by the rate cubed instead of squared in the variance of a gamma density.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-missing-square",
+        "Leaving out the square on a plus b in the denominator of the beta variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-plus-one",
+        "Dividing by a + b instead of a + b + 1 in the beta variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-division",
+        "Giving m(1 - m) without dividing by a + b + 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-plus-one-sign",
+        "Using a + b - 1 (or shape minus one) where a + b + 1 (or shape plus one) belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-square-of-mean",
+        "Giving the square of the mean as the second moment, forgetting the variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-second-moment",
+        "Giving the variance where the second moment E(X squared) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-square-of-rate",
+        "Dividing by the rate instead of the rate squared in the second moment.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-shape-not-reduced",
+        "Dividing the rate by the shape instead of by the shape minus one for the mean of 1/X.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-reciprocal-of-mean-wrong-way",
+        "Taking the reciprocal of E(X) written upside down: shape over rate for E(1/X).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-rate-inverted",
+        "Using the reciprocal of the rate where the rate belongs.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-inverted-ratio",
+        "Inverting the ratio, multiplying the rate by the shape minus one instead of dividing.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-product-of-means",
+        "Multiplying E(X) by E(1 - X), treating X and 1 - X as independent.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-product",
+        "Giving a variance-style value for E(X(1 - X)) by dividing by an extra a + b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-constant-inverted",
+        "Giving the integral of the kernel instead of its reciprocal, so the constant is upside down.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-factorial-off-by-one",
+        "Using the factorial of p + q instead of p + q + 1 (or the wrong shape factorial) in the constant.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-top-factorial",
+        "Dividing by an extra factor of p + q + 1 where the top factorial should contain it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-factorials-dropped",
+        "Dropping the factorials and keeping only the simple ratio of the exponents.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-factorial-dropped",
+        "Dropping the factorial from the gamma constant.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-power-of-rate-dropped",
+        "Using the rate to the first power instead of the power given by the shape.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-exponential-tail-only",
+        "Giving e to the minus rate times t, the tail of an exponential, for a gamma tail with larger shape.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-poisson-sum-too-short",
+        "Stopping the Poisson sum one term early.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-poisson-sum-too-long",
+        "Carrying the Poisson sum one term too far.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-tail-reversed",
+        "Giving the probability of the opposite tail.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-wrong-limit",
+        "Integrating from the wrong limit, using 1 - t in place of t.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-single-term-only",
+        "Keeping only the first term of the expanded polynomial when integrating.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-forgot-minus-one",
+        "Forgetting to subtract one when recovering alpha plus beta from the mean and variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-minus-two",
+        "Subtracting two instead of one when recovering alpha plus beta.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-total-for-parameter",
+        "Giving alpha plus beta where the first parameter alpha was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-shape-for-rate",
+        "Giving the shape (mean squared over variance) where the rate was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-halved",
+        "Halving the correct value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-multiplied",
+        "Multiplying the mean and the variance instead of dividing.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-variance-for-sd",
+        "Giving the variance where the standard deviation was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-bm-averaged",
+        "Dividing the bias by three, as if averaging the three weights.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-bias-not-squared",
+        "Adding the bias to the variance instead of the squared bias when forming the mean squared error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-bias-sign-inside",
+        "Changing a sign inside the bias, so the squared bias is for a different estimator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-bias-squared-only",
+        "Giving the squared bias alone as the mean squared error, leaving out the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-claimed-unbiased",
+        "Calling the divide-by-n variance estimator unbiased, giving a bias of zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-complement",
+        "Giving 1 - c where c was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-doubled",
+        "Doubling the correct ratio.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-expectation-for-bias",
+        "Giving the expected value of the estimator where its bias (expectation minus the true value) was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-forgot-multiplier",
+        "Leaving out the multiplier k, giving minus the mean over n + k.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-forgot-sample-size",
+        "Leaving the sample size out of the variance of the sample mean, using sigma squared instead of sigma squared over n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-forgot-to-divide",
+        "Giving the mean squared error of one estimator instead of the ratio of the two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-inverted-ratio",
+        "Inverting the factor in the expectation, giving (n + 1)/n times theta where n/(n + 1) times theta belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-mean-not-squared",
+        "Using the mean instead of its square in the optimal shrinkage constant.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-midpoint-for-expectation",
+        "Taking the expected maximum to be the midpoint theta over 2, as for a single observation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-moment-shifted",
+        "Shifting n by one in the moment of the maximum: using n - 1 or n + 2 where n + 1 belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-mse-of-other-estimator",
+        "Giving the mean squared error of the other estimator (twice the sample mean) instead of the one asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-multiplier-not-squared",
+        "Using the multiplier a rather than a squared in the variance of a X-bar.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-n-for-n-minus-one",
+        "Using n instead of n - 1 in the variance of the sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-ratio-inverted",
+        "Inverting the ratio of the two mean squared errors.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-rescaling-ignored",
+        "Giving the variance of the maximum itself, forgetting to scale it by the square of (n + 1)/n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-rescaling-not-squared",
+        "Scaling the variance by (n + 1)/n instead of its square.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-sign-reversed",
+        "Subtracting in the wrong order, so the bias has the wrong sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-square-of-sum-weights",
+        "Using the square of the sum of the weights where the sum of their squares belongs in the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-squared-denominator",
+        "Dividing by n squared instead of n in the bias.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-squared-weights",
+        "Using the sum of squared weights minus one as the bias instead of the sum of weights minus one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-unbiased-assumed",
+        "Treating the estimator as unbiased and giving only a rescaled variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-denominator-not-squared",
+        "Dividing the variance of the sum by n + 2 instead of (n + 2) squared.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-instead-of-mse",
+        "Dividing by the variance of the maximum instead of by its mean squared error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-of-mean-used",
+        "Using the variance of the sample mean (lambda over n) where the variance of the shrunk estimator belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-of-other-estimator",
+        "Giving the variance of the other estimator, twice the sample mean, instead of the one asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-only",
+        "Giving the variance alone as the mean squared error, leaving out the squared bias.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-variance-squared",
+        "Squaring the variance term inside the shrinkage constant.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-bm-wrong-denominator",
+        "Dividing by n (or n - 1, or n + 2) where n + k (or n + 1) belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-bound-for-parameter",
+        "Giving the bound for estimating the parameter itself where a bound for a function of it was asked, leaving out the derivative factor.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-bound-times-variance",
+        "Multiplying the bound by the variance of the estimator instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-ignored",
+        "Ignoring the derivative of the function being estimated and using the bound for the parameter, rescaled wrongly.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-ignored-factor",
+        "Dropping the constant factor from the derivative of the function being estimated.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-not-squared",
+        "Using g-prime where g-prime squared belongs in the numerator of the bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-squared-twice",
+        "Squaring the derivative twice, or squaring its reciprocal too.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-derivative-wrong-power",
+        "Raising the derivative of the function to the wrong power.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-efficiency-inverted",
+        "Giving the variance divided by the bound instead of the bound divided by the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-bound",
+        "Giving the sample size or variance ratio without the bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-info",
+        "Leaving out the Fisher information, giving g-prime squared over n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-n",
+        "Leaving out the sample size: the bound for one observation instead of for the sample.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-to-invert",
+        "Giving n times the information instead of its reciprocal.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-forgot-two-observations",
+        "Using the sample size n in place of the two observations the estimator uses.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-halved-info",
+        "Using half the correct information, giving twice the correct bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-info-per-observation",
+        "Giving the reciprocal of the information of one observation, ignoring n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-info-power-wrong",
+        "Using the wrong power of the parameter in the information.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-info-squared",
+        "Squaring the information before inverting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-n-squared",
+        "Dividing by n squared instead of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-sample-info-for-one",
+        "Giving the information of the whole sample where the information of one observation was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-shape-ignored",
+        "Ignoring the shape of the density, so the information is that of an exponential.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-square-of-sum-weights",
+        "Using the square of the sum of the weights where the sum of squared weights belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-variance-for-information",
+        "Giving the variance lambda where the information 1/lambda was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-variance-shifted",
+        "Using the wrong denominator in the variance of the unbiased estimator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-weights-not-squared",
+        "Summing the weights rather than their squares in the variance of the weighted mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-cr-wrong-power",
+        "Using the wrong power of the parameter in the information, so the bound has the wrong form.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-gb-power-of-mean",
+        "Cubing the mean instead of finding the third moment, ignoring the variance and skew terms.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-gb-second-moment-for-third",
+        "Giving the second moment where the third moment was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-mc-minus-one",
+        "Subtracting one from the multiple k when finding the half-width, using (k - 1) standard deviations.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r4i-av-absolute-not-squared",
+        "Using the absolute deviations of the group means from the grand mean instead of their squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-complement",
+        "Giving the proportion unexplained, SSW over SST, where the explained proportion was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-df-swapped",
+        "Swapping the degrees of freedom, dividing SSB by N - k and SSW by k - 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-divided-by-df",
+        "Dividing a sum of squares by its degrees of freedom when the sum of squares itself was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-divided-by-k",
+        "Dividing by the number of groups k instead of k - 1 (or giving a mean square built on k).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-doubled",
+        "Doubling the half-width, giving the full width of the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-equal-sizes-assumed",
+        "Using the first group size for both groups in 1/n1 + 1/n2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-f-inverted",
+        "Dividing the within-groups mean square by the between-groups mean square.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-f-times-sst",
+        "Multiplying F by SST and dividing by k - 1, mixing up the roles in the F formula.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-correction-term",
+        "Leaving out the correction term T squared over N when forming SSB from group totals.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-df",
+        "Leaving out a degrees-of-freedom divisor (k - 1 or N - k).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-group-size",
+        "Leaving out the group size n when summing squared deviations of group means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-square-root",
+        "Leaving out the square root: using the variance of the difference instead of its standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-forgot-weights",
+        "Adding the group variances without weighting by their degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-gave-ssw",
+        "Giving SSW = SST - SSB where SSB was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-halved",
+        "Halving the correct value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ignored-df",
+        "Ignoring the degrees of freedom, treating F as SSB over SSW.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-mixed-ss-ms",
+        "Dividing SSB by SSB plus the within-groups mean square instead of by SST.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ms-not-ss",
+        "Using the mean squares in place of the sums of squares in the proportion SSB over SST.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-n-for-n-minus-one",
+        "Using n in place of n - 1 when forming the within-groups sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-n-minus-one-for-n",
+        "Using n - 1 in place of n when weighting the squared deviations of the group means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ratio-not-share",
+        "Giving SSB over SSW (a ratio of explained to unexplained) instead of the share SSB over SST.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-sd-for-variance",
+        "Using standard deviations where variances belong in the sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-size-twice",
+        "Multiplying by the group size a second time.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ss-not-ms",
+        "Dividing the sums of squares directly, without first dividing by their degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-sst-over-df",
+        "Dividing SST by k - 1 and giving it as SSB.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-ssw-for-msw",
+        "Multiplying by SSW where the mean square MSW (SSW over its degrees of freedom) belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-unweighted-grand-mean",
+        "Taking the grand mean to be the plain average of the group means when the groups have different sizes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-unweighted-variances",
+        "Averaging the group variances without weighting by degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-wrong-centre",
+        "Measuring deviations from the first group mean instead of from the grand mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-wrong-df",
+        "Using the wrong degrees of freedom for the within-groups mean square (N, N - 1 or N - 2 instead of N - k).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-wrong-divisor-in-sum",
+        "Dividing the sum of squared totals by N instead of by the group size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-z-for-t",
+        "Using the normal value 1.96 where the stated t value belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-av-divided-by-total-n",
+        "Dividing the within-groups sum of squares by N instead of N - k.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-correlation-for-slope",
+        "Giving the correlation coefficient r where the slope was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-denominator-dropped",
+        "Dropping the square root of 1 - r squared from the denominator of the t statistic.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-distance-not-squared",
+        "Using the distance of x0 from the mean without squaring it in the standard error of the mean response.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-divided-by-n",
+        "Dividing the residual sum of squares by n instead of n - 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-divided-by-n-minus-one",
+        "Dividing the residual sum of squares by n - 1 instead of n - 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-centering",
+        "Using the raw totals sum xy over sum x squared, without subtracting the products of the means.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-distance-term",
+        "Leaving out the (x0 - mean)^2/Sxx term in the standard error of the mean response.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-division",
+        "Giving the residual sum of squares without dividing by its degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-division-by-n",
+        "Forgetting to divide by n in the corrections sum x times sum y over n and (sum x)^2 over n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-one-over-n",
+        "Leaving out the 1/n term in the standard error of the mean response.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-sxx",
+        "Dividing the slope by s instead of by s over the square root of Sxx.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-forgot-t-value",
+        "Using one standard error as the margin instead of the t value times the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-margin-only",
+        "Giving the margin of error alone instead of the confidence limit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-mean-formula-used",
+        "Using s over the square root of n, the standard error of a mean, for the slope.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-multiplied",
+        "Multiplying the slope by its standard error instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-multiplied-by-root-sxx",
+        "Multiplying s by the square root of Sxx instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-null-value-ignored",
+        "Ignoring the claimed slope and testing against zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-prediction-interval",
+        "Giving the half-width for predicting a single new value, adding 1 inside the square root.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-r-for-one-minus-r-squared",
+        "Using the square root of r in place of the square root of 1 - r squared.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-regressed-x-on-y",
+        "Dividing Sxy by Syy, the slope of x on y, instead of by Sxx.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-sd-for-variance",
+        "Giving the standard deviation where the variance was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-sign-reversed",
+        "Subtracting the estimate from the claimed slope instead of the claimed slope from the estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-slope-inverted",
+        "Giving Sxx over Sxy, the reciprocal of the slope.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-slope-times-factor",
+        "Multiplying the slope by the t factor instead of recognising the t statistic depends only on r and n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-square-root-missing",
+        "Leaving the square root off 1 - r squared in the denominator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-sxx-root-missing",
+        "Dividing s by Sxx instead of by the square root of Sxx.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-t-inverted",
+        "Dividing the standard error by the slope instead of the slope by its standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-total-for-residual",
+        "Dividing Syy, the total sum of squares, by n - 2 instead of the residual sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-variance-for-sd",
+        "Using the variance s squared where the standard deviation s belongs in the standard error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-wrong-df",
+        "Using n - 1 (or n) in place of n - 2 degrees of freedom.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-wrong-end",
+        "Giving the other end of the confidence interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-rs-z-for-t",
+        "Using the normal value 1.96 where the stated t value belongs.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r4i-pp-complement",
+        "Giving the probability of the opposite event (one minus the answer).",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-pmf-for-wait",
+        "Giving the chance of exactly one arrival in the period where the chance of none was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-mean-as-rate",
+        "Using the mean time between arrivals as if it were the rate.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-halved-exponent",
+        "Halving the mean count in the exponent.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-forgot-memoryless",
+        "Including the time already waited, as if the wait must exceed the elapsed time plus the new time.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-waited-time-only",
+        "Using the time already waited in place of the new time.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-conditioned-on-arrival",
+        "Dividing by the chance of an arrival in the time already waited, as if the earlier wait were known to end.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-mean-for-sd",
+        "Giving the mean time to the k-th arrival where its standard deviation was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-variance-for-sd",
+        "Giving the variance where the standard deviation was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-units-not-converted",
+        "Mixing hours with minutes or seconds with minutes when forming the mean count.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-k-minus-one",
+        "Using k - 1 in place of k in the number of waits added.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-single-interarrival-sd",
+        "Giving the standard deviation of one gap instead of the time to the k-th arrival.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-off-by-one-count",
+        "Using one arrival too many or too few in the count that matches the k-th arrival.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-pmf-for-cdf",
+        "Giving the chance of exactly the stated count where the chance of at least (or fewer than) that count was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-exponential-for-erlang",
+        "Using the one-arrival formula 1 - e^(-mean count) for a later arrival.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-one-stream-only",
+        "Using the rate of one source rather than the combined rate.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-averaged-rates",
+        "Averaging the two rates instead of adding them.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-at-least",
+        "Giving the chance of at least the stated count instead of exactly it.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-product-of-streams",
+        "Multiplying the separate probabilities of the two sources.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-at-most-k",
+        "Counting k arrivals as still being within the period.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-forgot-arrangements",
+        "Leaving out the number of ways the arrivals can be ordered among the sources or among the positions.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-wrong-source",
+        "Swapping the roles of the two sources.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-ignored-third-arrival",
+        "Stopping after two arrivals instead of three.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-wrong-fraction",
+        "Using the share of the session not in the first part.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-poisson-for-conditional",
+        "Using a Poisson probability when the total count is known.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-ignored-the-condition",
+        "Using the rate and ignoring the known total count.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-none-urgent-only",
+        "Giving the chance of no urgent arrival without removing the case of no arrival at all.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-no-arrivals-at-all",
+        "Giving the chance of no arrival of any kind.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-wrong-type",
+        "Treating the non-urgent arrivals as the ones that must not occur.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-independence-assumed",
+        "Multiplying the chance of no urgent arrival by the chance of some arrival as if they were independent.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-rate-for-mean",
+        "Giving the rate per hour where the mean time between calls was asked.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-mean-in-hours",
+        "Giving the mean time between calls in hours rather than minutes.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-rate-times-60",
+        "Multiplying the rate by 60 instead of dividing 60 by it.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "r4i-pp-half-the-mean",
+        "Halving the mean time between calls.",
+        area="stochastic-processes",
+    ),
+    CatalogueEntry(
+        "gf-series-coefficients-added",
+        "Adding the coefficients of two series term by term to get the coefficient of a product, instead of convolving them.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-series-coefficients-multiplied",
+        "Multiplying the matching coefficients of two series to get the coefficient of their product, instead of convolving them.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-convolution-term-count",
+        "Summing one term too few or too many when a coefficient of a product of series is the sum of products of coefficients.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-scale-factor-dropped",
+        "Dropping the power of a when finding the coefficient of x to the k in 1/(1 - ax) to the r.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-scale-factor-not-powered",
+        "Multiplying by a times k instead of raising a to the k when the series is in powers of ax.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-shift-ignored",
+        "Ignoring a factor x to the s in the numerator, so that the coefficient of x to the k is taken instead of x to the k minus s.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-negbinomial-power-off-by-one",
+        "Using the series for 1/(1 - x) to the r plus 1 (or minus 1) because the exponent of the denominator was misread.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-negbinomial-choose-swapped",
+        "Writing the coefficient of x to the k in 1/(1 - x) to the r as C(k + r - 1, r) instead of C(k + r - 1, r - 1).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-bounded-numerator-ignored",
+        "Ignoring the numerator 1 - x to the m that caps the parts, and counting the unrestricted ways.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-correction-terms-truncated",
+        "Stopping the inclusion-exclusion correction terms of a capped count after the first or second, leaving out a later one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-cutoff-off-by-one",
+        "Subtracting the ways where a part is at least m instead of at least m + 1, so every correction term is shifted by one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-inclusion-exclusion-sign",
+        "Adding every correction term of a capped count instead of alternating the signs.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-wrong-denominator-power",
+        "Reading the coefficient of x to the k in 1/(1 - x) to the r as the coefficient for a different power of the denominator.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "gf-coefficient-index-off-by-one",
+        "Taking the coefficient of the neighbouring power of x, one place to the left or right of the one asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-part-size-required",
+        "Counting only the sums that use every allowed part size at least once, when a size may be left out.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-order-counted",
+        "Counting sums that differ only in the order of their terms as different ways, in a partition count.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-part-size-omitted",
+        "Leaving one of the allowed part sizes out of the count.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-repeats-allowed",
+        "Allowing a part to be used more than once when the parts must all be different.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-part-range-off-by-one",
+        "Allowing parts up to one more or one less than the largest part stated.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-limit-ignored",
+        "Ignoring the limit on how many coins or notes of a kind are available, and counting as if the supply were unlimited.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-cap-off-by-one",
+        "Treating a supply of c coins as c + 1 or c - 1 in a limited-supply count.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-at-most-as-exactly",
+        "Treating 'at most c' of a coin as 'exactly c' of it when counting combinations.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "partition-cases-not-added",
+        "Reporting one case, or too few of the disjoint cases, as the total number of ways.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-records-leaf",
+        "Writing down the leaf that is deleted instead of the vertex it was joined to when building a Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-largest-leaf",
+        "Deleting the leaf with the largest label instead of the smallest when building or reading a Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-code-too-long",
+        "Carrying on until one vertex is left, so the Pr\u00fcfer code has n - 1 entries instead of n - 2.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-code-reversed",
+        "Writing the Pr\u00fcfer code, or reading it, from the last entry to the first.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-decode-largest",
+        "Decoding a Pr\u00fcfer code by joining the largest free vertex instead of the smallest to each code entry.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-last-edge-missed",
+        "Forgetting the final edge between the last two vertices when rebuilding a tree from its Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-neighbours-from-code-positions-only",
+        "Listing only the leaves paired with a vertex in the code and missing the neighbours that come from deleting that vertex itself.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "path-direction-reversed",
+        "Listing the vertices of a path from the finish back to the start when asked to start at the first vertex.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "path-endpoints-omitted",
+        "Listing only the vertices strictly between the two ends of a path.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-leaves-are-code-entries",
+        "Taking the vertices that appear in a Pr\u00fcfer code as the leaves, when the leaves are the ones that do not appear.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-leaf-left-out",
+        "Leaving one of the leaves out of the list of vertices missing from a Pr\u00fcfer code.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-degree-is-occurrence-count",
+        "Taking the number of times a vertex appears in its Pr\u00fcfer code as its degree, instead of that number plus one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-degree-overcounted",
+        "Adding too much to the number of appearances of a vertex in its Pr\u00fcfer code when finding its degree.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-all-trees-counted",
+        "Counting all n to the n - 2 labelled trees when a restriction on one vertex was asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-code-length-miscounted",
+        "Using the wrong exponent in a count of Pr\u00fcfer codes, forgetting that the code has n - 2 entries.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "prufer-complement-not-taken",
+        "Reporting the number of trees with a property when the number without it was asked for, or adding the two.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-minimal-maximal-swapped",
+        "Giving the maximal elements of a poset when the minimal elements were asked for, or the other way round.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-least-confused-with-minimal",
+        "Reporting only the smallest number in the set as the minimal elements, when several elements can be minimal.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-greatest-confused-with-maximal",
+        "Reporting only the largest number in the set as the maximal elements, when several elements can be maximal.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-minimal-taken-as-prime",
+        "Listing the primes in the set as its minimal elements, when a composite with no divisor in the set is minimal too.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-cover-vs-below",
+        "Listing every element below (or above) an element instead of only those it covers directly.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-cover-direction-swapped",
+        "Listing the elements that cover an element when the ones it covers were asked for, or the other way round.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-cover-ignores-missing-elements",
+        "Judging a cover by a prime factor of difference, forgetting that missing elements in the set make larger jumps covers.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-includes-element-itself",
+        "Including the element itself among the elements that it covers or that cover it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-all-elements-on-chain",
+        "Taking every element of the poset as lying on a longest chain because each lies on some maximal chain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-endpoints-only",
+        "Giving only the minimal and maximal elements as the elements on longest chains.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-single-chain",
+        "Giving the elements of one longest chain when several longest chains exist.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-chain-length-edges",
+        "Counting the links in a chain instead of its elements, one fewer than the size of the chain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-chain-antichain-swapped",
+        "Giving the size of the largest antichain when the longest chain was asked for, or the other way round.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-antichain-is-minimal-elements",
+        "Taking the number of minimal elements as the size of a largest antichain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-antichain-is-maximal-elements",
+        "Taking the number of maximal elements as the size of a largest antichain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-antichain-complement-of-chain",
+        "Taking the number of elements outside a longest chain as the size of a largest antichain.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-dilworth-mirsky-swapped",
+        "Giving the longest chain size for the fewest chains that cover the poset, mixing up Dilworth's and Mirsky's theorems.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "hasse-chain-cover-one-each",
+        "Covering a poset with one chain per element, or one more chain than needed.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-tie-rule-reversed",
+        "Finalising the later label instead of the earlier one when two vertices tie for the smallest tentative distance.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-labels-not-updated",
+        "Never lowering a vertex's tentative distance after it is first set, so a shorter route found later is ignored.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-fewest-edges-order",
+        "Ordering the vertices by the number of edges from the source instead of by shortest distance.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-nearest-neighbour-walk",
+        "Moving always to the nearest neighbour of the vertex just visited instead of choosing the smallest tentative distance over the whole graph.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-alphabetical-order",
+        "Listing the vertices in alphabetical order rather than the order they are finalised.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-fewest-edges-path",
+        "Taking the route with the fewest edges, or its length, as the shortest route.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-last-edge-omitted",
+        "Giving the distance to the vertex before the target on the route, leaving out the last edge.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-distance-to-wrong-vertex",
+        "Reading the final distance of a different vertex from the table than the one asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-order-read-as-path",
+        "Giving the vertices finalised up to the target, in order, as the route to it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-rate-added-not-multiplied",
+        "Adding the rate to the distance instead of multiplying them to find a cost.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-rate-ignored",
+        "Giving the distance as the cost and leaving out the rate per unit of length.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "dijkstra-rate-applied-per-edge",
+        "Charging the rate once per edge of the route instead of per unit of length.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-forcing-ignored",
+        "Solving only the homogeneous recurrence and leaving out the forcing term that varies with n.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-particular-sign",
+        "Finding the particular solution of a forced recurrence with the wrong sign.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-particular-not-fitted",
+        "Adding the particular solution after fitting the homogeneous constants to the starting terms, instead of fitting them to the sum.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-forcing-used-as-particular",
+        "Taking the forcing term itself as the particular solution without substituting to find its coefficients.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-resonance-power-dropped",
+        "Trying a particular solution with one power of n too few when the forcing term matches a root of the homogeneous equation.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-root-sign",
+        "Taking the characteristic roots with the wrong sign.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-coefficients-as-roots",
+        "Reading the coefficients of a recurrence as the roots of its characteristic equation.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-index-off-by-one",
+        "Returning the term next to the one asked for from a recurrence or its closed form.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-particular-coefficient-slip",
+        "Solving for the coefficient of the particular solution of a forced recurrence and making an arithmetic slip, so the closed form no longer satisfies the recurrence.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "recurrence-coefficients-swapped",
+        "Attaching the two fitted constants of a recurrence solution to the wrong characteristic roots.",
+        area="discrete-mathematics",
     ),
 )
 

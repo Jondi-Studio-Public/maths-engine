@@ -1,0 +1,86 @@
+id: uc2-normal-subgroup-test
+name: Test normality by counting conjugates of a subgroup
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Count the distinct conjugates of a subgroup, which is 1 exactly when it is normal, and use the
+  count to find the order of its normaliser. The conjugates of a dihedral subgroup, of subgroups
+  of S_4, and the normaliser of a two-generator subgroup of S_5 are all counted from the
+  generators. The exam chain finds the order of a subgroup of S_5, the order of its normaliser and
+  the number of its conjugates.
+status: active
+placement_eligible: false
+prerequisites:
+- cyclic-group-element-order
+- ucv1-finite-subgroup-test
+- permutation-composition
+answer: number
+sources:
+- topic: r4c_normal_subgroup_test
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_normal_subgroup_test
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_normal_subgroup_test
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_normal_subgroup_test
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: conjugate-count-all-reflections
+  description: >-
+    Giving the number of reflections as the number of conjugates of a dihedral subgroup.
+- id: conjugate-count-assumes-normal
+  description: >-
+    Taking the subgroup to be normal and so reporting a single conjugate.
+- id: conjugate-count-elements-not-subgroups
+  description: >-
+    Counting the permutations that are conjugate to a generator where the conjugate subgroups were
+    asked for.
+- id: conjugate-count-is-index
+  description: >-
+    Giving the index of the subgroup as the number of its conjugates, which overcounts when pairs
+    of reflections give the same conjugate.
+- id: conjugate-count-is-normaliser-order
+  description: >-
+    Giving the order of the normaliser where the number of conjugates, its index, was asked.
+- id: conjugate-count-is-order
+  description: >-
+    Giving the order of the subgroup as the number of its conjugates.
+- id: normaliser-order-is-centraliser
+  description: >-
+    Giving the order of the centraliser of a generator as the order of the normaliser of the
+    subgroup.
+- id: normaliser-order-is-conjugate-count
+  description: >-
+    Giving the number of conjugates of the subgroup as the order of its normaliser.
+- id: normaliser-order-is-subgroup-order
+  description: >-
+    Taking the normaliser to be the subgroup itself.
+- id: normaliser-order-is-whole-group
+  description: >-
+    Giving the order of the whole group as the order of the normaliser, which is true only for a
+    normal subgroup.
+- id: subgroup-order-is-generator-order
+  description: >-
+    Giving the order of one generator as the order of the subgroup the generators produce.
+- id: subgroup-order-is-index
+  description: >-
+    Giving the index of the subgroup where its order was asked.
+tags: [university-core-v1, university-year-2, abstract-algebra, normal-subgroup,conjugation,normaliser]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

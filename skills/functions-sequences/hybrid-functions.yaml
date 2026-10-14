@@ -1,0 +1,42 @@
+id: hybrid-functions
+name: Hybrid (piecewise) functions
+domain: functions-sequences
+year_level: ['12']
+description: Evaluate a hybrid function from the rule that applies at the input, find the constant that makes it continuous at a join (including constants in both rules or at two joins), and state the domain and range.
+status: active
+placement_eligible: false
+prerequisites:
+- function-notation
+- one-sided-limits
+answer: fraction
+sources:
+- topic: r4e_hybrid_functions
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4e_hybrid_functions
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4e_hybrid_functions
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r4e_hybrid_functions_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: hybrid-wrong-rule
+  description: Uses the rule for a different interval than the one the input belongs to.
+- id: hybrid-boundary-point-in-wrong-piece
+  description: Uses the rule on the other side of a join when the input equals the join, ignoring whether the inequality is strict.
+- id: continuity-sign-error
+  description: Makes a sign slip when equating the two rules at the join.
+- id: continuity-matches-derivatives
+  description: Equates the gradients of the two rules at the join instead of their values.
+- id: continuity-collects-k-one-side-only
+  description: Collects the unknown constant on one side only when it appears in both rules.
+- id: hybrid-range-vertex-misplaced
+  description: Takes the lowest value of a parabola piece to be at its vertex when the vertex lies outside that piece's interval, or the reverse.
+tags: [senior, functions, hybrid-functions, piecewise-functions, continuity, vce-methods, year-12]

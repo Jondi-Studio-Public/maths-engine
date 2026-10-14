@@ -1,0 +1,93 @@
+id: sector-area-and-arc-from-degrees
+name: Find the area and arc of a sector from an angle in degrees
+domain: measurement
+year_level: ['11', '12']
+description: Use a sector's centre angle in degrees. Easy finds the area from the radius and angle. Medium finds the arc length
+  or the perimeter. Hard finds the radius from the area, the angle from the arc length, or the area of a curved path between
+  two arcs. The exam chain finds the sector's area, arc length and perimeter, and the area of the rest of the circle.
+status: active
+placement_eligible: false
+prerequisites:
+- circle-area-to-diameter-and-circumference
+- f10-circle-measures
+answer: number
+sources:
+- topic: r4g_sector_degrees
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_sector_degrees
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_sector_degrees
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_sector_degrees
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-radius-not-squared
+  description: Leaving the radius unsquared in the area formula, so the area is far too small.
+- id: r4g-diameter-squared-for-radius-squared
+  description: Squaring the diameter where the radius should be squared.
+- id: r4g-arc-formula-for-area
+  description: Using the arc length formula where the area of the sector was asked for.
+- id: r4g-radii-left-out-of-perimeter
+  description: Giving only the arc as the perimeter of the sector and leaving out the two straight edges.
+- id: r4g-one-radius-in-perimeter
+  description: Adding only one radius to the arc to get the perimeter of the sector.
+- id: r4g-whole-circumference
+  description: Giving the whole circumference instead of the fraction of it that the sector's arc covers.
+- id: r4g-area-formula-for-arc
+  description: Using the sector area formula where the arc length was asked for.
+- id: r4g-radius-for-diameter-in-circumference
+  description: Using pi r instead of 2 pi r for the circumference of the full circle.
+- id: r4g-square-root-not-taken
+  description: Giving r squared as the radius, without taking the square root.
+- id: r4g-pi-left-out
+  description: Leaving pi out when working back from the area to the radius.
+- id: r4g-angle-fraction-over-180
+  description: Taking the fraction of the circle as the angle over 180 instead of over 360.
+- id: r4g-radii-subtracted-before-squaring
+  description: Subtracting the two radii and then squaring, instead of subtracting the two squared radii.
+- id: r4g-outer-sector-only
+  description: Giving the area of the outer sector instead of the path between the arcs.
+- id: r4g-width-for-area
+  description: Using the width of the path in place of the difference of the squared radii.
+- id: r4g-circumference-without-the-2
+  description: Leaving the 2 out of the circumference when working back to the angle.
+- id: r4g-radians-given-as-degrees
+  description: Giving the angle in radians (arc divided by radius) where degrees were asked for.
+- id: r4g-radius-squared-for-arc
+  description: Using the radius squared in the arc formula when working back to the angle.
+- id: r4g-whole-circle-area
+  description: Giving the area of the whole circle instead of the fraction of it that the sector covers.
+- id: r4g-diameter-added-twice
+  description: Adding two diameters instead of two radii to the arc.
+- id: r4g-sectors-added-not-subtracted
+  description: Adding the two sector areas where the area between them was asked for.
+- id: r4g-sector-given-for-the-rest
+  description: Giving the area of the sector itself where the area of the rest of the circle was asked for.
+- id: r4g-angle-used-as-radians
+  description: Using the angle in degrees as if it were in radians in the arc formula.
+tags:
+- sector
+- arc-length
+- circle
+- acmem093
+- acmgm018
