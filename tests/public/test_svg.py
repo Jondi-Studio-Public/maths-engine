@@ -8,7 +8,8 @@ import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
-from mathgen.figure_kinds import data, early, measure, pattern, scene, space, tally
+from mathgen.figure_kinds import calendar as calendar_kinds, data, early, measure, pattern, scene, space, tally
+
 
 
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
@@ -144,6 +145,21 @@ def _hand_built() -> list[dict]:
             items=[(name, 0.14 * i, 0.33 * (i % 3)) for i, name in enumerate(tally.ICONS)],
             rows=[("apples", 3), ("cats", 5)],
         ),
+
+        calendar_kinds.calendar_month(
+            year=2026,
+            month=10,
+            alt="A calendar",
+            marks=[
+                {"day": 9, "style": "star", "label": "Party"},
+                {"day": 16, "style": "ring", "label": "Swim"},
+                {"day": 21, "style": "shade"},
+            ],
+        ),
+        calendar_kinds.calendar_month(year=2024, month=2, alt="A leap February", week_start="sun", show_year=True),
+        calendar_kinds.day_strip(cards=["wake_up", "breakfast", "school", "play", "dinner", "bed"], alt="A day"),
+        calendar_kinds.day_strip(cards=["sunrise", "bath", "moon", "lunch"], alt="Scrambled", numbered=True),
+        calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
     ]
 
 

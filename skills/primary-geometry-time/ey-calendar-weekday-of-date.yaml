@@ -1,0 +1,41 @@
+id: ey-calendar-weekday-of-date
+name: Name the weekday of a date
+domain: primary-geometry-time
+year_level: ['1', '2']
+naplan_domain: [measurement]
+learner_band: early
+description: Read a calendar to name the weekday of a ringed date, of a date named in words, and of the last day of the month or the first day of the next month.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [tell-time-to-hour]
+answer: mcq
+sources:
+- topic: ey_calendar_weekday
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_calendar_weekday
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_calendar_weekday
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: Read the weekday heading above the column of a ringed date.}
+  medium: {steps: 2, demand: Find a date named in words, then read the weekday heading above its column, with the week starting on Monday or Sunday.}
+  hard: {steps: 3, demand: Use the month's length to find the last date, or the square after it, then read its column heading.}
+misconceptions:
+- id: assumes-month-starts-monday
+  description: Counts the weekday from Monday using only the date number, as if every month began on a Monday.
+- id: neighbouring-column
+  description: Reads the column next to the right one, so names the day before or after.
+- id: wrong-week-start
+  description: Reads the headings as if the week started on Monday when this calendar starts on Sunday, or the other way round.
+- id: next-first-same-as-this
+  description: Says the 1st of next month falls on the same weekday as the 1st of this month.
+tags: [acara-f10-v9, early, time, calendar, weekdays, ac9m1m03, ac9m2m03]

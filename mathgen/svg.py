@@ -2094,11 +2094,220 @@ def _tally(s: dict, ids: _Ids) -> Body:
         y += 8
     return "".join(out), y
 
+# ---------------------------------------------------------------- calendar
+
+_CAL_LEFT, _CAL_CELL_W, _CAL_CELL_H = 25.0, 50.0, 40.0
+
+
+def _star_poly(cx: float, cy: float, r: float) -> str:
+    pts = []
+    for i in range(10):
+        rad = r if i % 2 == 0 else r * 0.45
+        pts.append(_pt(cx, cy, rad, 90 + 36 * i))
+    return _poly(pts, closed=True, fill=INK, stroke=INK, stroke_width=0.5)
+
+
+def _cal_label(x: float, y: float, label: str) -> str:
+    """A short event name squeezed to fit a square (the text is escaped here)."""
+    natural = 4.6 * len(label)
+    return _el(
+        "text",
+        escape(_clean_text(label)),
+        x=x,
+        y=y,
+        dy=".35em",
+        font_size=8.5,
+        text_anchor="middle",
+        font_weight="bold",
+        fill=INK,
+        stroke="none",
+        textLength=_n(min(natural, _CAL_CELL_W - 6)),
+        lengthAdjust="spacingAndGlyphs",
+    )
+
+
+def _calendar(s: dict, ids: _Ids) -> Body:
+    from mathgen.figure_kinds import calendar as cal
+
+    title = cal.month_name(s) + (f" {s['year']}" if s["show_year"] else "")
+    out = [_text(CANVAS / 2, 16, title, size=17, weight="bold")]
+    for c, name in enumerate(cal.week_order(s["week_start"])):
+        out.append(_text(_CAL_LEFT + (c + 0.5) * _CAL_CELL_W, 40, cal.heading(name), size=11, weight="bold"))
+    top = 52.0
+    marks = {m["day"]: m for m in s["marks"]}
+    for day in range(1, s["days"] + 1):
+        r, c = cal.row_of(s, day), cal.column_of(s, day)
+        x, y = _CAL_LEFT + c * _CAL_CELL_W, top + r * _CAL_CELL_H
+        m = marks.get(day)
+        shade = m is not None and m["style"] == "shade"
+        out.append(_rect(x, y, _CAL_CELL_W, _CAL_CELL_H, fill=MID if shade else PAPER, stroke=INK, stroke_width=1))
+        cx = x + _CAL_CELL_W / 2
+        num_y = y + (15 if m and m.get("label") else 20)
+        out.append(_text(cx, num_y, day, size=13))
+        if m is None:
+            continue
+        if m["style"] == "ring":
+            out.append(_circle(cx, num_y, 11, stroke=INK, stroke_width=2.5))
+        elif m["style"] == "star":
+            out.append(_star_poly(x + _CAL_CELL_W - 9, y + 9, 6.5))
+        if m.get("label"):
+            out.append(_cal_label(cx, y + _CAL_CELL_H - 9, m["label"]))
+    return "".join(out), top + cal.rows(s) * _CAL_CELL_H + 10
+
+
+# ---------------------------------------------------------------- day strip
+
+
+def _icon(name: str, cx: float, cy: float) -> str:
+    """A simple monochrome icon about 48 units square, centred on (cx, cy)."""
+
+    def p(x: float, y: float) -> tuple[float, float]:
+        return cx + x, cy + y
+
+    def seg(x1: float, y1: float, x2: float, y2: float, w: float = 2.5) -> str:
+        return _line(cx + x1, cy + y1, cx + x2, cy + y2, stroke=INK, stroke_width=w, stroke_linecap="round")
+
+    def box(x: float, y: float, w: float, h: float, fill: str = LIGHT, rx: float = 0) -> str:
+        return _rect(cx + x, cy + y, w, h, rx=rx, fill=fill, stroke=INK, stroke_width=2)
+
+    def path(cmds: list[tuple], fill: str = "none", w: float = 2) -> str:
+        parts = []
+        for cmd, *args in cmds:
+            if cmd == "A":
+                rx, ry, rot, large, sweep, x, y = args
+                parts.append(f"A {rx} {ry} {rot} {large} {sweep} {_n(cx + x)} {_n(cy + y)}")
+            elif cmd == "Z":
+                parts.append("Z")
+            else:
+                parts.append(cmd + " " + " ".join(f"{_n(cx + a)} {_n(cy + b)}" for a, b in zip(args[::2], args[1::2])))
+        return _path(" ".join(parts), fill=fill, stroke=INK, stroke_width=w, stroke_linecap="round")
+
+    if name == "sunrise":
+        rays = "".join(
+            _line(
+                *_pt(cx, cy + 10, 15, a), *_pt(cx, cy + 10, 22, a), stroke=INK, stroke_width=2.5, stroke_linecap="round"
+            )
+            for a in (20, 55, 90, 125, 160)
+        )
+        return path([("M", -12, 10), ("A", 12, 12, 0, 0, 1, 12, 10), ("Z",)], fill=LIGHT) + seg(-22, 10, 22, 10) + rays
+    if name == "moon":
+        return (
+            _circle(cx - 3, cy, 17, fill=INK, stroke=INK, stroke_width=1)
+            + _circle(cx + 6, cy - 5, 14, fill=PAPER, stroke="none")
+            + _star_poly(cx + 17, cy - 14, 5)
+            + _star_poly(cx + 20, cy + 6, 3.5)
+        )
+    if name == "wake_up":
+        return (
+            _circle(cx - 11, cy - 14, 5, fill=INK, stroke=INK)
+            + _circle(cx + 11, cy - 14, 5, fill=INK, stroke=INK)
+            + seg(-9, 15, -13, 21)
+            + seg(9, 15, 13, 21)
+            + _circle(cx, cy + 2, 14, fill=LIGHT, stroke=INK, stroke_width=2.5)
+            + seg(0, 2, 0, -8, 2)
+            + seg(0, 2, 7, 2, 2)
+        )
+    if name == "breakfast":
+        steam = "".join(path([("M", x, -4), ("Q", x + 4, -9, x, -14)], w=1.8) for x in (-9, 0, 9))
+        return (
+            steam
+            + path([("M", -18, 2), ("A", 18, 18, 0, 0, 0, 18, 2), ("Z",)], fill=LIGHT, w=2.5)
+            + seg(-12, 19, 12, 19)
+        )
+    if name == "school":
+        return (
+            box(-18, -6, 36, 24)
+            + _poly([p(-22, -6), p(0, -22), p(22, -6)], closed=True, fill=MID, stroke=INK, stroke_width=2)
+            + _rect(cx - 5, cy + 6, 10, 12, fill=INK, stroke=INK)
+            + _rect(cx - 15, cy - 1, 6, 6, fill=PAPER, stroke=INK, stroke_width=1.5)
+            + _rect(cx + 9, cy - 1, 6, 6, fill=PAPER, stroke=INK, stroke_width=1.5)
+        )
+    if name == "lunch":
+        return (
+            path([("M", -8, -6), ("L", -8, -13), ("L", 8, -13), ("L", 8, -6)], w=2.5)
+            + box(-19, -6, 38, 25, rx=3)
+            + seg(-19, 5, 19, 5, 2)
+            + _circle(cx, cy + 5, 3, fill=INK, stroke=INK)
+        )
+    if name == "play":
+        return (
+            _circle(cx, cy, 18, fill=LIGHT, stroke=INK, stroke_width=2.5)
+            + seg(-18, 0, 18, 0, 1.8)
+            + seg(0, -18, 0, 18, 1.8)
+            + path([("M", -12, -13), ("Q", -4, 0, -12, 13)], w=1.8)
+            + path([("M", 12, -13), ("Q", 4, 0, 12, 13)], w=1.8)
+        )
+    if name == "dinner":
+        return (
+            seg(-21, -14, -21, -5, 2)
+            + seg(-17, -14, -17, -5, 2)
+            + seg(-21, -5, -17, -5, 2)
+            + seg(-19, -5, -19, 18, 2.5)
+            + _circle(cx - 1, cy + 2, 12, fill=PAPER, stroke=INK, stroke_width=2.5)
+            + _circle(cx - 1, cy + 2, 6.5, fill=LIGHT, stroke=INK, stroke_width=1.5)
+            + _poly([p(17, -14), p(22, -8), p(22, 3), p(17, 3)], closed=True, fill=MID, stroke=INK, stroke_width=1.8)
+            + seg(17, 3, 17, 18, 2.5)
+        )
+    if name == "bath":
+        return (
+            _circle(cx - 6, cy - 9, 5, fill=PAPER, stroke=INK, stroke_width=1.8)
+            + _circle(cx + 5, cy - 15, 4, fill=PAPER, stroke=INK, stroke_width=1.8)
+            + _circle(cx + 11, cy - 7, 3, fill=PAPER, stroke=INK, stroke_width=1.8)
+            + path(
+                [
+                    ("M", -22, 0),
+                    ("L", 22, 0),
+                    ("L", 22, 6),
+                    ("Q", 22, 17, 11, 17),
+                    ("L", -11, 17),
+                    ("Q", -22, 17, -22, 6),
+                    ("Z",),
+                ],
+                fill=LIGHT,
+                w=2.5,
+            )
+            + seg(-14, 17, -16, 22)
+            + seg(14, 17, 16, 22)
+        )
+    if name == "bed":
+        return (
+            _rect(cx - 24, cy - 12, 5, 32, fill=INK, stroke=INK)
+            + box(-19, 0, 42, 10)
+            + box(-16, -6, 13, 7, fill=PAPER, rx=3)
+            + _rect(cx - 1, cy - 5, 24, 6, fill=MID, stroke=INK, stroke_width=1.8)
+            + seg(21, 10, 21, 20)
+            + seg(-19, 20, 21, 20, 1.5)
+        )
+    raise ValueError(f"no icon named {name!r}")
+
+
+_STRIP_CARD_W, _STRIP_GAP, _STRIP_CARD_H = 58.0, 6.0, 82.0
+
+
+def _day_strip(s: dict, ids: _Ids) -> Body:
+    cards = s["cards"]
+    total = len(cards) * _STRIP_CARD_W + (len(cards) - 1) * _STRIP_GAP
+    left = (CANVAS - total) / 2
+    top = 40.0 if s["numbered"] else 10.0
+    out = []
+    for i, c in enumerate(cards):
+        x = left + i * (_STRIP_CARD_W + _STRIP_GAP)
+        cx = x + _STRIP_CARD_W / 2
+        if s["numbered"]:
+            out.append(_circle(cx, 20, 12, fill=PAPER, stroke=INK, stroke_width=2))
+            out.append(_text(cx, 20, i + 1, size=14, weight="bold"))
+        out.append(_rect(x, top, _STRIP_CARD_W, _STRIP_CARD_H, rx=7, fill=PAPER, stroke=INK, stroke_width=2))
+        out.append(_icon(c["icon"], cx, top + 34))
+        out.append(_text(cx, top + _STRIP_CARD_H - 11, c["label"], size=10.5, weight="bold"))
+    return "".join(out), top + _STRIP_CARD_H + 10
+
 
 # ---------------------------------------------------------------- entry point
 
 _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "bar_chart": _bar_chart,
+    "calendar": _calendar,
+    "day_strip": _day_strip,
     "base_ten": _base_ten,
     "box_plot": _box_plot,
     "cartesian": _cartesian,
