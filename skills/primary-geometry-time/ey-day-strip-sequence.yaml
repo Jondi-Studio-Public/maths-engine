@@ -26,9 +26,9 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 difficulty_progression:
-  easy: {steps: 1, demand: Read the cards already in day order and name the one just after or just before a named card.}
-  medium: {steps: 2, demand: Match each scrambled card to a time of day, then find the one card that happens at the stated time.}
-  hard: {steps: 3, demand: Put the scrambled cards in the order of the day, count to the stated place, then give that card's slot number.}
+  easy: {steps: 1, demand: "Read the cards already in day order and name the one just after or just before a named card."}
+  medium: {steps: 2, demand: "Match each scrambled card to a time of day, then find the one card that happens at the stated time."}
+  hard: {steps: 3, demand: "Put the scrambled cards in the order of the day, count to the stated place, then give that card's slot number."}
 misconceptions:
 - id: slot-for-place
   description: Gives the slot the card is drawn in as its place in the day, so the scramble is not undone.

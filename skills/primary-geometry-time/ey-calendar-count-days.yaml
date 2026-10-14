@@ -26,9 +26,9 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 difficulty_progression:
-  easy: {steps: 1, demand: Find the last date on the calendar, which is the number of days in the month.}
-  medium: {steps: 2, demand: Find the days from the star to the ring, then group them into sevens to make weeks.}
-  hard: {steps: 3, demand: Turn the weeks into days (sevens), then add the extra days, with the picture as a check.}
+  easy: {steps: 1, demand: "Find the last date on the calendar, which is the number of days in the month."}
+  medium: {steps: 2, demand: "Find the days from the star to the ring, then group them into sevens to make weeks."}
+  hard: {steps: 3, demand: "Turn the weeks into days (sevens), then add the extra days, with the picture as a check."}
 misconceptions:
 - id: counts-rows-as-days
   description: Multiplies the number of rows by seven, so a month that ends part way through a row is given too many days.

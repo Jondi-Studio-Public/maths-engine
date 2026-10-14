@@ -46,7 +46,7 @@ misconceptions:
 difficulty_progression:
   easy: {steps: 2, demand: 'Judge how wide a single group of dots is: a few steps (tightly packed) or most of the
       axis (spread out).'}
-  medium: {steps: 3, demand: 'Pick out the pattern: one group, two groups with a gap, or a group with one far dot.'}
+  medium: {steps: 3, demand: "'Pick out the pattern: one group, two groups with a gap, or a group with one far dot.'"}
   hard: {steps: 4, demand: 'Find the largest gap between occupied values and the tallest column, then match both
       to one statement.'}
   exam: {steps: 5, demand: 'Read the outlier and the edge of the main group, then the gap and the range of all the

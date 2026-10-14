@@ -45,7 +45,7 @@ misconceptions:
 difficulty_progression:
   easy: {steps: 2, demand: 'Compare g with f: parts below the x-axis reflected (|f|) or the whole graph turned over
       (-f).'}
-  medium: {steps: 3, demand: 'Tell apart f(|x|), |f(x)| and 1/f(x) from symmetry, the folded part and the asymptotes.'}
+  medium: {steps: 3, demand: "'Tell apart f(|x|), |f(x)| and 1/f(x) from symmetry, the folded part and the asymptotes.'"}
   hard: {steps: 3, demand: 'Evaluate a transformed function at a point by reading f at the right place: the absolute
       value, f at |x| or the reciprocal.'}
   exam: {steps: 5, demand: 'Find both zeros of f, hence both asymptotes of 1/f, their distance apart and the midpoint

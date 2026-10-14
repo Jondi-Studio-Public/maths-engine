@@ -26,9 +26,9 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 difficulty_progression:
-  easy: {steps: 1, demand: Read the weekday heading above the column of a ringed date.}
-  medium: {steps: 2, demand: Find a date named in words, then read the weekday heading above its column, with the week starting on Monday or Sunday.}
-  hard: {steps: 3, demand: Use the month's length to find the last date, or the square after it, then read its column heading.}
+  easy: {steps: 1, demand: "Read the weekday heading above the column of a ringed date."}
+  medium: {steps: 2, demand: "Find a date named in words, then read the weekday heading above its column, with the week starting on Monday or Sunday."}
+  hard: {steps: 3, demand: "Use the month's length to find the last date, or the square after it, then read its column heading."}
 misconceptions:
 - id: assumes-month-starts-monday
   description: Counts the weekday from Monday using only the date number, as if every month began on a Monday.

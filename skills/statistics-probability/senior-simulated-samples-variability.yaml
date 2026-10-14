@@ -44,8 +44,8 @@ misconceptions:
 - {id: proportion-over-wrong-total, description: Divides by the wrong total when finding the proportion of the 50
     values in the band.}
 difficulty_progression:
-  easy: {steps: 2, demand: Compare how many classes each histogram covers and how far from the middle the bars reach.}
-  medium: {steps: 3, demand: Link a narrower spread of sample proportions to a larger sample size.}
+  easy: {steps: 2, demand: "Compare how many classes each histogram covers and how far from the middle the bars reach."}
+  medium: {steps: 3, demand: "Link a narrower spread of sample proportions to a larger sample size."}
   hard: {steps: 3, demand: 'Match the shape of one histogram (flat, bell, two bars, long tail) to the kind of source
       that produces it.'}
   exam: {steps: 5, demand: 'Add the two bars of a central band in each display, compare the counts and turn one

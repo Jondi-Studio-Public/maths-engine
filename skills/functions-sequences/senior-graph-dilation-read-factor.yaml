@@ -45,7 +45,7 @@ misconceptions:
     it.}
 - {id: image-y-divided, description: Divides the y-coordinate of the marked point by c instead of multiplying it.}
 difficulty_progression:
-  easy: {steps: 2, demand: Compare the y-intercepts of f and g and divide to find the vertical factor c.}
+  easy: {steps: 2, demand: "Compare the y-intercepts of f and g and divide to find the vertical factor c."}
   medium: {steps: 3, demand: 'Compare the x-intercepts, divide the old distance by the new one, and see that f(kx)
       divides x by k.'}
   hard: {steps: 4, demand: 'Decide whether the dilation is vertical or horizontal from which intercepts moved, then

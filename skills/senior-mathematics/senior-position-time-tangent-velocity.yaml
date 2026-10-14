@@ -46,10 +46,10 @@ misconceptions:
 - {id: average-velocity-without-time, description: Gives the change in position over the backward stretch without
     dividing by how long it took.}
 difficulty_progression:
-  easy: {steps: 2, demand: Read two lattice points on the tangent and find its positive slope as the velocity.}
+  easy: {steps: 2, demand: "Read two lattice points on the tangent and find its positive slope as the velocity."}
   medium: {steps: 3, demand: 'Read the tangent''s slope where the curve is falling and keep the negative sign: the
       cart moves backwards.'}
-  hard: {steps: 3, demand: 'Find where the curve turns (zero slope), then the time the position is decreasing.'}
+  hard: {steps: 3, demand: "'Find where the curve turns (zero slope), then the time the position is decreasing.'"}
   exam: {steps: 5, demand: 'Chain the tangent velocity, the two times at rest, the backward time and the average
       velocity over it.'}
 tags: [acara-senior-v8-4, senior-mathematics, position-time-graph, tangent, velocity, acmmm094, figure]

@@ -44,7 +44,7 @@ misconceptions:
     it instead of subtracting b.'}
 - {id: image-keeps-x, description: Leaves the x-coordinate of the marked point unchanged after a horizontal translation.}
 difficulty_progression:
-  easy: {steps: 2, demand: 'Compare the vertex heights of f and g and find the vertical shift a, including its sign.'}
+  easy: {steps: 2, demand: "'Compare the vertex heights of f and g and find the vertical shift a, including its sign.'"}
   medium: {steps: 3, demand: 'Compare the vertex positions along the x-axis, then turn the move into b in f(x +
       b), reversing the sign.'}
   hard: {steps: 4, demand: Read both the horizontal and the vertical move of the vertex and write both into g(x)

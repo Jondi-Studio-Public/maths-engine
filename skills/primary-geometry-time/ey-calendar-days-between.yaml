@@ -26,9 +26,9 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 difficulty_progression:
-  easy: {steps: 1, demand: Count the days from one marked event to another within the same week.}
-  medium: {steps: 2, demand: Turn the weeks into days, then count on from the event to find the date.}
-  hard: {steps: 3, demand: Find both dates, then subtract them across several weeks, or find the days left to the last date of the month.}
+  easy: {steps: 1, demand: "Count the days from one marked event to another within the same week."}
+  medium: {steps: 2, demand: "Turn the weeks into days, then count on from the event to find the date."}
+  hard: {steps: 3, demand: "Find both dates, then subtract them across several weeks, or find the days left to the last date of the month."}
 misconceptions:
 - id: counts-both-ends
   description: Counts the starting date as well as the finishing date, so gives one day too many.

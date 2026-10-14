@@ -26,9 +26,9 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 difficulty_progression:
-  easy: {steps: 1, demand: Find a weekday in the headings and name the one just after it.}
-  medium: {steps: 2, demand: Find a weekday at the end or start of the heading row, then wrap round to the other end for the day after or before.}
-  hard: {steps: 3, demand: Read the month from the calendar title, step one month on or back, and wrap from December to January or the other way.}
+  easy: {steps: 1, demand: "Find a weekday in the headings and name the one just after it."}
+  medium: {steps: 2, demand: "Find a weekday at the end or start of the heading row, then wrap round to the other end for the day after or before."}
+  hard: {steps: 3, demand: "Read the month from the calendar title, step one month on or back, and wrap from December to January or the other way."}
 misconceptions:
 - id: wrong-direction
   description: Names the day or month before when asked for the one after, or the other way round.
