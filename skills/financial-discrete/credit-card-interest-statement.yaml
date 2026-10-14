@@ -1,0 +1,117 @@
+id: credit-card-interest-statement
+name: Calculate credit card interest, minimum payments and time to clear
+domain: financial-discrete
+description: Use a stated annual rate and minimum-payment rule to find daily interest on a balance, the minimum payment,
+  the interest on what is left, and how long a card takes to clear at a fixed monthly payment.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-interest
+- percentage-of-quantity
+answer: number
+sources:
+- topic: r3e_credit_card
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3e_credit_card
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3e_credit_card
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3e_credit_card
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3e-days-ignored
+  description: Using the yearly interest, or a year's worth of days, instead of the number of days the balance was left
+    unpaid.
+- id: r3e-extra-payment-counted
+  description: Counting one payment too many.
+- id: r3e-interest-added-to-whole-balance
+  description: Adding the interest to the original closing balance instead of the unpaid balance.
+- id: r3e-interest-ignored
+  description: Ignoring the interest added each month.
+- id: r3e-interest-left-out
+  description: Giving the balance without adding the interest.
+- id: r3e-interest-on-original-balance
+  description: Working the interest out on the original balance every month instead of the balance that remains.
+- id: r3e-interest-on-payment
+  description: Charging interest on the payment instead of the unpaid balance.
+- id: r3e-interest-on-whole-balance
+  description: Charging interest on the whole closing balance, though part was paid off.
+- id: r3e-interest-subtracted
+  description: Taking the interest off the balance instead of adding it.
+- id: r3e-last-payment-given-as-interest
+  description: Giving the size of the last payment where the total interest was asked for.
+- id: r3e-last-payment-left-out
+  description: Leaving the last payment out of the total paid.
+- id: r3e-last-payment-taken-as-full
+  description: Treating the last payment as a full payment when finding the total interest.
+- id: r3e-lesser-minimum-chosen
+  description: Taking the smaller of the two minimum-payment amounts instead of the greater.
+- id: r3e-minimum-rules-added
+  description: Adding the percentage amount and the fixed sum instead of choosing the greater.
+- id: r3e-monthly-rate-divided-twice
+  description: Dividing the yearly rate by 12 twice.
+- id: r3e-monthly-rate-used-for-days
+  description: Dividing the yearly interest by 12 for a period that is not a month.
+- id: r3e-one-day-only
+  description: Working out one day's supply charge and stopping there.
+- id: r3e-one-payment-too-few
+  description: Stopping one payment before the balance is actually cleared.
+- id: r3e-payment-added-to-balance
+  description: Adding the payment to the balance instead of taking it off.
+- id: r3e-payment-given-as-balance
+  description: Giving the payment where the balance that remains was asked for.
+- id: r3e-payment-left-out
+  description: Leaving the payment out of the balance.
+- id: r3e-payments-not-applied-each-month
+  description: Taking the payments off at the end instead of applying one each month with its interest.
+- id: r3e-percent-decimal-slip
+  description: Moving the decimal point one place too far when turning a percentage into dollars.
+- id: r3e-percentage-divided-not-multiplied
+  description: Dividing the balance by the percentage instead of multiplying by it as a fraction of 100.
+- id: r3e-percentage-taken-off-instead
+  description: Taking the percentage off the balance instead of finding the percentage of it.
+- id: r3e-total-paid-given-as-interest
+  description: Giving the total of all payments where the interest alone was asked for.
+- id: r3e-year-taken-as-360-days
+  description: Using 360 days for the year when the rate is charged on a 365-day year.
+- id: r3e-yearly-interest-each-month
+  description: Adding a whole year's interest each month.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Charge daily interest on a balance for a stated number of days.
+  medium:
+    steps: 3
+    demand: Choose the greater of a fixed sum and a percentage for the minimum payment; or take the minimum off and charge
+      interest on what is left.
+  hard:
+    steps: 5
+    demand: Run a monthly interest-then-payment recurrence to count the months to clear, find the balance after three payments,
+      or total the interest over the life of the debt.
+  exam:
+    steps: 6
+    demand: Minimum payment, the balance left unpaid, the interest on it for a stated number of days, then the amount owing,
+      each following through.
+tags:
+- consumer-finance
+- credit-card
+- interest
+- minimum-payment
+- recurrence

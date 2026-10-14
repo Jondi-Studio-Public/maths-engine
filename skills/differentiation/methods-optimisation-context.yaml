@@ -1,0 +1,101 @@
+id: methods-optimisation-context
+name: Optimise a quantity described by a situation
+domain: differentiation
+description: Build a function of one variable from a described situation (a tin of fixed volume, a box folded from a rectangular
+  sheet, a rectangle under a parabola, profit with a cubic cost, the point of a parabola nearest a point), state the allowed
+  values, find the stationary point, reject a root outside the allowed values, and show with the second derivative that it
+  is the greatest or least value. Easy asks for the function, medium for the optimising value, hard for the optimum value.
+status: active
+placement_eligible: false
+prerequisites:
+- stationary-points
+- second-derivative
+answer: expression
+sources:
+- topic: r3h_methods_optimisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_methods_optimisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_methods_optimisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_methods_optimisation
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-opt-dropped-factor-in-surface
+  description: Leaving a factor out when writing the surface area, such as 2V/r replaced by V/r, so the function being minimised
+    is wrong.
+- id: r3h-opt-one-end-only
+  description: Counting only one circular end of the tin (or one face) in the surface area.
+- id: r3h-opt-height-substitution-slip
+  description: Substituting the height from the volume incorrectly, such as h = V/(pi r) or V/x instead of V/x^2.
+- id: r3h-opt-extra-face
+  description: Counting a face the object does not have, such as a lid on an open box.
+- id: r3h-opt-wrong-height
+  description: Using the wrong height for the rectangle under the curve, such as k - x instead of k - x^2.
+- id: r3h-opt-half-width-area
+  description: Taking the width of the rectangle as x instead of 2x, so the area is half the true area.
+- id: r3h-opt-curve-not-substituted
+  description: Substituting into the curve incorrectly when writing the height, such as k - x^3.
+- id: r3h-opt-cut-one-end
+  description: Subtracting x once from each side of the sheet instead of 2x, forgetting a square is cut at both ends.
+- id: r3h-opt-forgot-height
+  description: Leaving out the height x of the box, so the function is the area of the base.
+- id: r3h-opt-fold-allowance-slip
+  description: Subtracting 2x from one side of the sheet and only x from the other.
+- id: r3h-opt-revenue-not-profit
+  description: Maximising the revenue instead of the profit, ignoring the cost of production.
+- id: r3h-opt-derivative-power-slip
+  description: Writing the cost term with the wrong power or dropping the factor 3 when differentiating the cubic term.
+- id: r3h-opt-cost-not-subtracted
+  description: Adding the cost to the revenue instead of subtracting it when forming the profit.
+- id: r3h-opt-wrong-coordinate
+  description: Using the point (x, x) instead of (x, x^2) when forming the distance.
+- id: r3h-opt-difference-not-squared
+  description: Not squaring the vertical difference when forming the squared distance.
+- id: r3h-opt-distance-formula-slip
+  description: Adding c instead of subtracting it in the vertical difference when forming the distance.
+- id: r3h-opt-root-outside-domain
+  description: Choosing the stationary point that lies outside the allowed values of the variable, or evaluating the function
+    there.
+- id: r3h-opt-set-function-zero
+  description: Setting the function itself equal to zero, instead of its derivative, to find the optimum.
+- id: r3h-opt-halfway-guess
+  description: Taking the optimum to be halfway through the allowed values without differentiating.
+- id: r3h-opt-reports-variable
+  description: Giving the value of the variable at the optimum when the optimum value of the quantity was asked for.
+- id: r3h-opt-distance-not-rooted
+  description: Giving the least squared distance, the value of D, when the least distance was asked for.
+- id: r3h-opt-evaluated-at-wrong-point
+  description: Evaluating the function at a wrong stationary point, or at a stationary point of a mis-set function.
+- id: r3h-opt-endpoint-value
+  description: Giving the value of the function at the end of the allowed values instead of at the stationary point.
+- id: r3h-opt-nature-sign-reversed
+  description: Giving the second derivative the wrong sign, which would reverse the conclusion about a greatest or least value.
+- id: r3h-opt-second-derivative-at-other-root
+  description: Evaluating the second derivative at the other stationary point, the one outside the allowed values.
+- id: r3h-opt-second-derivative-at-end
+  description: Evaluating the second derivative at the end of the allowed values instead of at the stationary point.
+tags:
+- senior-secondary
+- mathematical-methods
+- differentiation
+- optimisation
+- applications-of-calculus

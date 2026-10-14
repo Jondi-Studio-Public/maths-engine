@@ -1,0 +1,112 @@
+id: shm-displacement-velocity-calculus
+name: "Differentiate the displacement of simple harmonic motion"
+domain: differential-equations
+description: "Differentiate x = A cos(nt) or A sin(nt) (and sums and phase shifts of them) for the velocity and the acceleration, and read the amplitude, period, greatest speed and greatest acceleration from the result."
+status: active
+placement_eligible: false
+prerequisites:
+- senior-recognise-acceleration-as-the-second-derivative-of-position
+- simple-harmonic-angular-frequency
+answer: number
+sources:
+- topic: r3d_shm_calculus
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3d_shm_calculus
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3d_shm_calculus
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3d_shm_calculus_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-acceleration-for-amplitude
+  description: "Reporting the greatest acceleration where the amplitude was asked for."
+- id: r3d-acceleration-for-speed
+  description: "Reporting an acceleration (or the acceleration constant) where a speed was asked for."
+- id: r3d-amplitude-dropped
+  description: "Leaving the amplitude out of the greatest speed, so only the frequency is reported."
+- id: r3d-amplitude-left-in-constant
+  description: "Keeping the amplitude in the constant of x'' = -kx, so k comes out as A n² instead of n²."
+- id: r3d-amplitudes-added
+  description: "Adding the coefficients of the sine and cosine terms instead of combining them as the root of the sum of their squares."
+- id: r3d-chain-factor-missing
+  description: "Differentiating cos(nt) or sin(nt) without the factor n from the chain rule."
+- id: r3d-chain-factor-repeated
+  description: "Multiplying by the chain-rule factor n twice when differentiating once."
+- id: r3d-derivative-sign
+  description: "Getting the sign of a derivative wrong: the derivative of cos is -sin, and of sin is +cos."
+- id: r3d-doubled-not-squared
+  description: "Doubling n where n² is needed in x'' = -n² x."
+- id: r3d-evaluated-displacement
+  description: "Evaluating the displacement function at the time instead of its derivative."
+- id: r3d-first-positive-wrong-branch
+  description: "Taking the wrong branch of kπ - phase for the first time after t = 0 at which the particle is at rest."
+- id: r3d-frequency-for-period
+  description: "Reporting n/(2π), the frequency, where the period 2π/n was asked for."
+- id: r3d-half-period
+  description: "Giving half of the period (π/n) where the full period 2π/n was asked for."
+- id: r3d-integrated-not-differentiated
+  description: "Integrating the displacement function instead of differentiating it, so the amplitude is divided by n."
+- id: r3d-next-rest-taken
+  description: "Giving a later time at which the particle is at rest instead of the first."
+- id: r3d-omega-cubed
+  description: "Differentiating three times (or cubing n) where n² is needed."
+- id: r3d-omega-for-amplitude
+  description: "Reporting n (the ratio of the greatest acceleration to the greatest speed) where the amplitude was asked for."
+- id: r3d-omega-for-period
+  description: "Reporting n, or its reciprocal, where the period was asked for."
+- id: r3d-omega-not-squared
+  description: "Reporting n where n² is the constant in x'' = -n² x."
+- id: r3d-omega-squared-for-omega
+  description: "Reporting n² where n was asked for (or using n² in the period 2π/n)."
+- id: r3d-omega-twice-divided
+  description: "Dividing the greatest speed by n twice when finding the amplitude."
+- id: r3d-one-term-only
+  description: "Using only the larger term of p sin(nt) + q cos(nt) as the amplitude."
+- id: r3d-period-from-k
+  description: "Using 2π/k with the acceleration constant k = n² instead of 2π/n."
+- id: r3d-period-from-speed-only
+  description: "Finding the period from the greatest speed alone, without the greatest acceleration."
+- id: r3d-period-inverted
+  description: "Inverting the period formula: 2πn instead of 2π/n."
+- id: r3d-period-ratio-for-amplitude
+  description: "Reporting V/Q, which is 1/n, where the amplitude V²/Q was asked for."
+- id: r3d-phase-ignored
+  description: "Ignoring the phase constant and using the value for zero phase."
+- id: r3d-phase-sign
+  description: "Getting the sign of the phase wrong, so the quadrant or the time is reflected."
+- id: r3d-quadrant-ignored
+  description: "Taking the inverse tangent of the ratio without deciding which quadrant the angle lies in."
+- id: r3d-ratio-squared-twice
+  description: "Squaring a ratio twice when finding the amplitude or period from two extremes."
+- id: r3d-sin-cos-swapped
+  description: "Swapping sine and cosine, so the wrong trigonometric value is used."
+- id: r3d-speed-for-acceleration
+  description: "Reporting the greatest speed where the greatest acceleration was asked for."
+- id: r3d-speed-for-amplitude
+  description: "Reporting the greatest speed where the amplitude was asked for."
+- id: r3d-speed-for-constant
+  description: "Reporting the greatest speed where the constant k in x'' = -kx was asked for."
+- id: r3d-start-value-for-greatest
+  description: "Using the value at the starting point as the greatest value."
+- id: r3d-start-velocity-scaled
+  description: "Scaling the starting velocity by n and reporting it as the greatest acceleration."
+- id: r3d-stopped-after-first-derivative
+  description: "Stopping after the first derivative, giving the velocity where the acceleration was asked for."
+- id: r3d-sum-for-product
+  description: "Adding where the quantities should be multiplied."
+- id: r3d-trig-not-switched
+  description: "Differentiating cos(nt) as a multiple of cos(nt) again (or sin as sin), without switching to the other function."
+tags:
+- mechanics
+- simple-harmonic-motion
+- calculus
+- specialist-unit-4
+- extension-2

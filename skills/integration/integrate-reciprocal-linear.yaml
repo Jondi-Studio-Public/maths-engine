@@ -1,0 +1,122 @@
+id: integrate-reciprocal-linear
+name: Integrate reciprocals of linear expressions
+domain: integration
+year_level: ['12']
+description: Find antiderivatives of a/x and a/(px + q) as logarithms of an absolute value with the constant of integration,
+  including integrands that need a division first.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: r3b_integrate_reciprocal
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_integrate_reciprocal
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_integrate_reciprocal
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_integrate_reciprocal
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-recip-abs-dropped
+  description: Writing the logarithm of a linear expression without the absolute value bars, so the answer is undefined where
+    the expression is negative.
+- id: r3b-recip-coefficient-inside-log
+  description: Putting the numerator inside the logarithm, as ln|ax|, instead of multiplying the logarithm by a.
+- id: r3b-recip-coefficient-dropped
+  description: Integrating a/x as ln|x|, leaving out the numerator.
+- id: r3b-recip-differentiated
+  description: Differentiating the reciprocal (giving a minus sign and a squared denominator) instead of integrating it.
+- id: r3b-recip-shift-dropped
+  description: Dropping the constant from the linear expression inside the logarithm, so ln|px + q| becomes ln|px| or ln|x|.
+- id: r3b-recip-shift-added-outside
+  description: Moving the constant in the denominator outside the logarithm, giving ln|x| + b instead of ln|x + b|.
+- id: r3b-recip-not-divided
+  description: Integrating a/(px + q) as a ln|px + q|, without dividing by the coefficient p of x.
+- id: r3b-recip-multiplied-by-p
+  description: Multiplying by the coefficient p of x instead of dividing by it when integrating a/(px + q).
+- id: r3b-recip-sign-of-p-lost
+  description: Dividing by the size of a negative coefficient of x, so the logarithm has the wrong sign.
+- id: r3b-recip-term-cancelled-wrongly
+  description: Cancelling x from only part of a fraction such as (px + c)/x, so the 1/x term disappears into a multiple of
+    x.
+- id: r3b-recip-divided-term-dropped
+  description: Integrating only the 1/x part of (px + c)/x, or only the logarithm of an improper fraction, and losing the
+    other term.
+- id: r3b-recip-log-multiplied-by-x
+  description: Integrating c/x as c x ln|x|, treating the x in the denominator as a factor.
+- id: r3b-recip-power-not-divided
+  description: Integrating x^n as x^n, without dividing by the new power.
+- id: r3b-recip-power-not-reduced
+  description: Integrating x^(n-1) (after dividing x^n by x) as x^(n+1)/(n+1), raising the power from the wrong starting point.
+- id: r3b-recip-remainder-not-found
+  description: Integrating (px + c)/(x + b) as p x + c ln|x + b|, using the numerator's constant instead of the remainder
+    after division.
+- id: r3b-recip-numerator-treated-as-constant
+  description: 'Treating the numerator as a constant multiple of the logarithm: integrating px + c over x + b as (px + c)
+    ln|x + b|.'
+- id: r3b-recip-remainder-sign
+  description: Subtracting the remainder term when it should be added, after dividing an improper fraction.
+- id: r3b-recip-linear-term-not-integrated
+  description: Integrating the reciprocal terms but leaving a linear term as it was, without raising its power.
+- id: r3b-chain-divided-instead-of-multiplied
+  description: Dividing the stated gradient by the denominator's value instead of multiplying, when finding the numerator
+    of the gradient function.
+- id: r3b-chain-substitution-ignores-constant
+  description: Substituting the stated x into only the x term of the denominator, ignoring its constant, when using a stated
+    gradient.
+- id: r3b-chain-denominator-ignored
+  description: Taking the stated gradient as the unknown constant itself, without allowing for the denominator.
+- id: r3b-chain-point-not-used
+  description: Giving an antiderivative with no constant term, so the curve is not forced through the stated point.
+- id: r3b-chain-constant-sign
+  description: Finding the constant of integration with the wrong sign.
+- id: r3b-chain-constant-dropped
+  description: Leaving out the constant of integration when evaluating the curve, so the height is only the logarithm term.
+- id: r3b-chain-substituted-into-wrong-part
+  description: Substituting the stated x into the logarithm's argument as x rather than into the whole linear expression.
+- id: r3b-chain-substitution-slip
+  description: Evaluating the linear expression inside the logarithm incorrectly, so the logarithm of a nearby number is given.
+- id: r3b-chain-coefficient-of-x-ignored
+  description: Solving the linear expression for x without dividing by the coefficient of x.
+- id: r3b-chain-constant-ignored
+  description: Solving a linear expression for x by dividing the target by the coefficient of x and ignoring the constant
+    term.
+- id: r3b-chain-sign-slip
+  description: Giving a coefficient with the wrong sign after rearranging the equation that defines it.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Integrate a/x or 1/(x + b) to a logarithm of an absolute value.
+  medium:
+    steps: 3
+    demand: Divide by the coefficient of x in the denominator, with a negative coefficient changing the sign.
+  hard:
+    steps: 4
+    demand: Rewrite (px + c)/x or (px + c)/(x + b) as a sum before integrating, or integrate a sum of reciprocals and a power.
+  exam:
+    steps: 5
+    demand: Find the unknown numerator from a gradient, fix the constant from a point, evaluate the curve exactly and solve
+      for where a gradient is reached.
+tags:
+- acara-senior-v8-4
+- integration
+- ACMMM162

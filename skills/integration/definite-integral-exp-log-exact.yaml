@@ -1,0 +1,129 @@
+id: definite-integral-exp-log-exact
+name: Find exact values of definite integrals of exponentials and reciprocals
+domain: integration
+year_level: ['12']
+description: Evaluate definite integrals of exponential and reciprocal functions exactly, in terms of e and the natural logarithm,
+  including areas, ratios of areas and average values.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+- integrate-exponential-linear-argument
+- integrate-reciprocal-linear
+answer: expression
+sources:
+- topic: r3b_exact_definite_integral
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_exact_definite_integral
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_exact_definite_integral
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_exact_definite_integral
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-def-lower-limit-ignored
+  description: Evaluating the antiderivative at the upper limit only, as if its value at the lower limit were zero.
+- id: r3b-exp-integral-not-divided
+  description: Integrating a e^(kx) as a e^(kx), without dividing by the coefficient k of x in the exponent.
+- id: r3b-def-limits-reversed
+  description: Subtracting the upper-limit value from the lower-limit value, so the answer has the wrong sign.
+- id: r3b-def-lower-term-not-scaled
+  description: Multiplying the upper-limit value of the antiderivative by its coefficient but subtracting 1 unscaled for the
+    lower limit.
+- id: r3b-def-ln-one-as-one
+  description: Taking ln 1 to be 1 instead of 0 when evaluating a logarithm at the lower limit.
+- id: r3b-def-limit-reduced-by-one
+  description: Taking the logarithm of the upper limit minus one instead of subtracting the logarithm of the lower limit.
+- id: r3b-recip-coefficient-dropped
+  description: Integrating a/x as ln|x|, leaving out the numerator.
+- id: r3b-def-limits-subtracted-inside
+  description: Subtracting the limits before evaluating, giving the exponential of the interval's width instead of the difference
+    of two exponentials.
+- id: r3b-def-lower-limit-not-scaled
+  description: Evaluating the exponential at the lower limit without the coefficient of x in the exponent.
+- id: r3b-recip-not-divided
+  description: Integrating a/(px + q) as a ln|px + q|, without dividing by the coefficient p of x.
+- id: r3b-def-log-of-limits
+  description: Taking the logarithm of the ratio of the limits, instead of the ratio of the denominator's values at the limits.
+- id: r3b-def-logs-added
+  description: Adding the logarithms at the two limits instead of subtracting.
+- id: r3b-def-log-of-width
+  description: Taking the logarithm of the difference of the limits, instead of subtracting two logarithms.
+- id: r3b-def-constant-not-integrated
+  description: Integrating a constant term as the constant itself, without multiplying by the width of the interval.
+- id: r3b-def-constant-sign
+  description: Subtracting the integral of a positive constant term, or adding that of a negative one.
+- id: r3b-recip-term-dropped
+  description: Integrating the constant term but leaving out the reciprocal term.
+- id: r3b-def-exponent-k-ignored
+  description: Using the limit itself as the value of e raised to the limit, so e^(k ln q) is read as q and the power k is
+    lost.
+- id: r3b-def-limits-added
+  description: Adding the values at the two limits instead of subtracting.
+- id: r3b-def-logs-not-collapsed
+  description: Replacing e^(k ln q) by k ln q, so the exponential is not removed.
+- id: r3b-avg-not-divided-by-width
+  description: Giving the integral itself as the average value, without dividing by the width of the interval.
+- id: r3b-avg-width-taken-as-upper-limit
+  description: Dividing by the upper limit instead of the width of the interval when finding an average value.
+- id: r3b-avg-multiplied-by-width
+  description: Multiplying by the width of the interval instead of dividing when finding an average value.
+- id: r3b-avg-width-taken-as-exponential-width
+  description: Dividing by the change in the exponential (n minus 1) instead of the width of the interval.
+- id: r3b-avg-width-taken-as-sum
+  description: Dividing by the sum of the limits instead of their difference when finding an average value.
+- id: r3b-def-region-boundary-ignored
+  description: Integrating from 0 (or 1) instead of from the stated lower boundary of the second region.
+- id: r3b-chain-ratio-inverted
+  description: Giving the ratio of the areas the wrong way round.
+- id: r3b-chain-difference-for-ratio
+  description: Subtracting the two areas when the ratio was asked for.
+- id: r3b-chain-share-for-ratio
+  description: Giving the second area as a share of the total instead of as a ratio to the first area.
+- id: r3b-chain-product-for-ratio
+  description: Multiplying the two areas when the ratio was asked for.
+- id: r3b-avg-width-taken-as-second-region
+  description: Dividing by the width of the second region only, when the average value is over both regions.
+- id: r3b-chain-region-left-out
+  description: Leaving one of the two regions out when finding the average value over both.
+- id: r3b-def-ln-limits-confused
+  description: Evaluating the logarithm between the wrong limits, using ln r for the area rather than the power of r that
+    the upper limit is.
+- id: r3b-chain-limits-ratio-for-area-ratio
+  description: Giving the ratio of the limits instead of the ratio of the areas.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Evaluate a single antiderivative at limits where one end gives 0 or 1.
+  medium:
+    steps: 3
+    demand: Evaluate the antiderivative at two non-trivial limits and simplify the difference.
+  hard:
+    steps: 4
+    demand: Use limits written as logarithms so that exponentials collapse, or divide an integral by the width of the interval
+      for an average value.
+  exam:
+    steps: 5
+    demand: Find two areas under one curve, their ratio and the average value over the whole interval.
+tags:
+- acara-senior-v8-4
+- integration
+- ACMMM117
+- ACMMM162

@@ -1,0 +1,83 @@
+id: shm-speed-at-position
+name: "Find speed and position in simple harmonic motion from v² = n²(a² − x²)"
+domain: differential-equations
+description: "Use v² = n²(a² − x²) to find the speed at a displacement, the displacement at a speed, the amplitude, the greatest acceleration and the time between two positions, reading n from the acceleration, the greatest speed, the period or two speeds."
+status: active
+placement_eligible: false
+prerequisites:
+- shm-displacement-velocity-calculus
+answer: number
+sources:
+- topic: r3d_shm_speed
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3d_shm_speed
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3d_shm_speed
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3d_shm_speed_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-acceleration-for-speed
+  description: "Reporting an acceleration (or the acceleration constant) where a speed was asked for."
+- id: r3d-acceleration-ratio-misused
+  description: "Dividing the quoted acceleration by the amplitude instead of by the displacement at which it was measured."
+- id: r3d-amplitude-squared
+  description: "Squaring the amplitude in the greatest acceleration, giving n a² instead of n² a."
+- id: r3d-complementary-time
+  description: "Giving the time for the other part of the quarter cycle instead of the leg that was asked for."
+- id: r3d-constant-for-greatest-acceleration
+  description: "Reporting n², the constant in the acceleration, where the greatest acceleration n² a was asked for."
+- id: r3d-difference-for-squares
+  description: "Using (a - x) where (a² - x²) belongs under the root in v² = n²(a² - x²)."
+- id: r3d-difference-not-squared
+  description: "Subtracting the speeds instead of their squares when eliminating the amplitude from two readings."
+- id: r3d-factor-n-dropped
+  description: "Leaving the factor n out of v = n√(a² - x²), or out of a time such as π/(6n)."
+- id: r3d-given-speed-for-greatest
+  description: "Reporting a speed given in the question as the greatest speed."
+- id: r3d-linear-for-squares
+  description: "Dividing the difference in speeds by the difference in positions instead of working with the squares."
+- id: r3d-n-squared-for-speed
+  description: "Using n² where n multiplies the root in v = n√(a² - x²)."
+- id: r3d-omega-multiplied-for-time
+  description: "Multiplying by n where the time is the angle divided by n."
+- id: r3d-omega-squared-for-omega
+  description: "Reporting n² where n was asked for (or using n² in the period 2π/n)."
+- id: r3d-period-for-frequency
+  description: "Using the period where the angular frequency n belongs, giving 2/n for n."
+- id: r3d-period-ratio-for-amplitude
+  description: "Reporting V/Q, which is 1/n, where the amplitude V²/Q was asked for."
+- id: r3d-speed-for-acceleration
+  description: "Reporting the greatest speed where the greatest acceleration was asked for."
+- id: r3d-speed-for-n
+  description: "Using the greatest speed as if it were n, ignoring the amplitude."
+- id: r3d-speed-over-displacement
+  description: "Treating v = n x, so n = v/x at a single reading."
+- id: r3d-speed-term-only
+  description: "Reporting v/n alone as the amplitude, leaving out the displacement term in a² = x² + (v/n)²."
+- id: r3d-start-value-for-greatest
+  description: "Using the value at the starting point as the greatest value."
+- id: r3d-subtracted-position
+  description: "Subtracting the position from the greatest speed instead of using v = n√(a² - x²)."
+- id: r3d-sum-for-difference
+  description: "Adding two squares where a difference of squares belongs."
+- id: r3d-sum-for-sum-of-squares
+  description: "Adding the displacement and v/n instead of adding their squares and taking the root."
+- id: r3d-time-fraction-of-period-wrong
+  description: "Using the wrong fraction of the period for the leg of the motion."
+- id: r3d-whole-quarter-period
+  description: "Giving a whole quarter period π/(2n) where the leg is only part of a quarter."
+tags:
+- mechanics
+- simple-harmonic-motion
+- calculus
+- specialist-unit-4
+- extension-1

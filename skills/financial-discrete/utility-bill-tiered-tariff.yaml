@@ -1,0 +1,105 @@
+id: utility-bill-tiered-tariff
+name: Calculate a utility bill from a tiered tariff
+domain: financial-discrete
+description: Use a stated tariff with a supply charge, a usage rate that changes after a threshold, GST and a solar feed-in
+  credit to find usage charges, whole bills, and the use behind a stated charge.
+status: active
+placement_eligible: false
+prerequisites:
+- decimal-arithmetic
+- percentage-of-quantity
+answer: number
+sources:
+- topic: r3e_utility_bill
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3e_utility_bill
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3e_utility_bill
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3e_utility_bill
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3e-cents-given-as-dollars
+  description: Giving an amount in cents where dollars were asked for.
+- id: r3e-credit-added
+  description: Adding the solar credit to the bill instead of taking it off.
+- id: r3e-credit-left-out
+  description: Leaving the solar credit off the bill.
+- id: r3e-credit-on-use-not-export
+  description: Working the credit out on the electricity used instead of the electricity exported.
+- id: r3e-credit-taken-off-before-gst
+  description: Taking the credit off before working out GST, though the credit carries no GST.
+- id: r3e-extra-day-of-supply
+  description: Adding an extra day of supply charge.
+- id: r3e-first-block-left-out
+  description: Charging only the use above the threshold and leaving the first block out.
+- id: r3e-gst-left-out
+  description: Leaving the GST out of the invoice total.
+- id: r3e-gst-on-usage-only
+  description: Adding GST to the usage charge only and not to the supply charge.
+- id: r3e-gst-treated-as-inclusive
+  description: Treating the prices as if they already included GST and taking one eleventh of them.
+- id: r3e-higher-rate-on-all-use
+  description: Charging all the use at the higher rate instead of only the use above the threshold.
+- id: r3e-highest-rate-on-all-use
+  description: Charging all the water at the highest rate.
+- id: r3e-lower-rate-on-all-use
+  description: Charging all the use at the lower rate and ignoring the higher rate above the threshold.
+- id: r3e-lowest-rate-on-all-use
+  description: Charging all the water at the lowest rate.
+- id: r3e-middle-rate-on-all-excess
+  description: Charging all use above the first block at the middle rate.
+- id: r3e-one-day-only
+  description: Working out one day's supply charge and stopping there.
+- id: r3e-percent-decimal-slip
+  description: Moving the decimal point one place too far when turning a percentage into dollars.
+- id: r3e-quarter-taken-as-91-days
+  description: Using a standard 91 days where the bill states a different number of days.
+- id: r3e-rates-swapped
+  description: Swapping the two rates, charging the first block at the higher rate and the rest at the lower rate.
+- id: r3e-service-charge-left-out
+  description: Leaving the fixed service charge out of the bill.
+- id: r3e-supply-charge-left-out
+  description: Leaving the supply charge out of the bill.
+- id: r3e-top-rate-on-middle-block
+  description: Charging the middle block at the top rate.
+- id: r3e-wrong-rate-for-excess
+  description: Dividing the charge above the first block by the wrong rate when working back to the use.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Charge the first block of use at one rate and the rest at the next.
+  medium:
+    steps: 4
+    demand: Add the supply charge to a tiered usage charge, then add GST.
+  hard:
+    steps: 5
+    demand: Take off a solar feed-in credit after GST; or run the tiered charge backwards from a charge to the use; or charge
+      three water blocks plus a service charge.
+  exam:
+    steps: 6
+    demand: Supply charge, tiered usage charge, GST, then the amount payable after the feed-in credit, each following through.
+tags:
+- consumer-finance
+- utility-bill
+- tariff
+- piecewise-linear
+- electricity
+- gst

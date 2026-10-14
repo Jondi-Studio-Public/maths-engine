@@ -1,0 +1,103 @@
+id: hecs-help-repayment
+name: Calculate student-loan (HELP) repayments, balances and time to clear
+domain: financial-discrete
+description: Use a stated repayment-income table to find the compulsory repayment on a HELP debt, the balance after repayment
+  and indexation, and the number of years to clear a debt.
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-of-quantity
+- income-tax-bracket-calculation
+answer: number
+sources:
+- topic: r3e_hecs_help
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3e_hecs_help
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3e_hecs_help
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3e_hecs_help
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3e-add-ons-subtracted
+  description: Subtracting the reportable amounts instead of adding them to taxable income.
+- id: r3e-band-rates-summed
+  description: Adding up the rates of all the bands up to the income's band instead of using the one rate for its band.
+- id: r3e-extra-repayment-counted
+  description: Counting one repayment too many.
+- id: r3e-fringe-left-out-of-repayment-income
+  description: Leaving the reportable fringe benefits out of the repayment income.
+- id: r3e-indexation-before-repayment
+  description: Indexing the debt first and taking the repayment off afterwards, when the repayment comes first.
+- id: r3e-indexation-ignored
+  description: Ignoring indexation, so the debt appears to clear in fewer repayments.
+- id: r3e-indexation-left-out
+  description: Leaving the indexation out of the balance.
+- id: r3e-indexation-on-original-debt
+  description: Working the indexation out on the original debt instead of the balance after the repayment.
+- id: r3e-indexation-on-repayment
+  description: Working the indexation out on the repayment instead of the balance.
+- id: r3e-lower-band-rate-used
+  description: Using the rate of the band below the one the income falls in.
+- id: r3e-middle-band-left-out
+  description: Skipping one of the bands between the tax-free threshold and the band the income reaches.
+- id: r3e-next-band-rate-used
+  description: Using the rate of the band above the one the income falls in.
+- id: r3e-one-repayment-too-few
+  description: Stopping one repayment before the debt is actually cleared.
+- id: r3e-percent-decimal-slip
+  description: Moving the decimal point one place too far when turning a percentage into dollars.
+- id: r3e-rate-not-applied-to-excess
+  description: Taking the income above the threshold but never applying the rate to it.
+- id: r3e-rate-on-excess-over-threshold
+  description: Applying a whole-income rate to only the income above the band's threshold.
+- id: r3e-rate-on-whole-income
+  description: Applying the rate of the highest band reached to the whole income instead of only to the slice in that band.
+- id: r3e-repayment-added-to-debt
+  description: Adding the repayment to the debt instead of taking it off.
+- id: r3e-repayment-given-as-balance
+  description: Giving the repayment where the remaining balance was asked for.
+- id: r3e-repayment-left-out
+  description: Indexing the debt but forgetting to take the repayment off.
+- id: r3e-super-left-out-of-repayment-income
+  description: Leaving the reportable super out of the repayment income.
+- id: r3e-taxable-income-only-used
+  description: Using taxable income alone as the repayment income, without the reportable fringe benefits and super.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the band a repayment income falls in and apply that band's rate to the whole income.
+  medium:
+    steps: 4
+    demand: Find the repayment, take it off the debt, then index the balance that remains.
+  hard:
+    steps: 5
+    demand: Count the yearly repayments needed when each year's balance is indexed after repayment; or build repayment income
+      from three amounts and apply a scale that charges each slice.
+  exam:
+    steps: 6
+    demand: Repayment income, the sliced repayment, the balance after repayment, then the balance after indexation, each
+      following through.
+tags:
+- consumer-finance
+- hecs-help
+- student-debt
+- indexation
+- recurrence

@@ -1,0 +1,179 @@
+id: uc2-mle-method-of-moments
+name: Maximum likelihood and method of moments estimators
+domain: statistics
+year_level:
+- university
+description: >-
+  Find maximum likelihood and method of moments estimates and estimators: from a data summary, by
+  differentiating the log-likelihood for a one-parameter density, for a uniform sample where the likelihood has
+  no stationary point, and for a function of the parameter by invariance.
+status: active
+placement_eligible: false
+prerequisites:
+- bernoulli-mle
+- ucv1-one-sample-t-test
+answer: expression
+sources:
+- topic: r3k_mle
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_mle
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_mle
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_mle
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-mle-mean-for-rate
+  description: Giving the sample mean (total over n) where the rate or probability n over total was asked.
+- id: r3k-mle-n-minus-one
+  description: Dividing by n - 1 instead of n in a maximum likelihood estimate, as for the unbiased sample variance.
+- id: r3k-mle-forgot-n
+  description: Leaving out the factor n and giving 1 over the total.
+- id: r3k-mle-n-squared
+  description: Giving n squared over the total, differentiating the log-likelihood n ln r as 2n/r.
+- id: r3k-mle-mode-for-mean
+  description: Giving the most frequent count as the maximum likelihood estimate of a Poisson mean instead of the sample mean.
+- id: r3k-mle-ignored-frequencies
+  description: >-
+    Averaging the distinct counts (or dividing the total by the number of distinct counts) instead of weighting by
+    their frequencies.
+- id: r3k-mle-total-not-mean
+  description: Giving the total of the counts without dividing by the number of intervals.
+- id: r3k-mle-forgot-the-final-success
+  description: Using n over (T - n), counting only the failures, for a geometric success probability.
+- id: r3k-mle-complement
+  description: Giving the failure probability 1 - p̂ instead of the success probability.
+- id: r3k-mle-sign-error
+  description: >-
+    Losing the minus sign when differentiating the log-likelihood, so the estimate is negative (or has the wrong
+    sign).
+- id: r3k-mle-inverted
+  description: 'Inverting the estimator: giving the reciprocal of the maximum likelihood estimate.'
+- id: r3k-mle-multiplied
+  description: Multiplying n by the statistic instead of dividing.
+- id: r3k-mle-pareto-exponent-slip
+  description: Treating x^(-(a+1)) as x^(-a) in the log-likelihood, so a stray n appears in the denominator.
+- id: r3k-mle-forgot-the-shape
+  description: Forgetting the shape parameter 2 of the density, so the factor 1/2 is missing from T over 2n.
+- id: r3k-mle-doubled-not-halved
+  description: Multiplying by 2 where the factor 2 should divide.
+- id: r3k-mle-ignored-the-shift
+  description: Ignoring the shift in the density, using n over T instead of n over (T - n).
+- id: r3k-mle-shift-sign
+  description: Adding the shift instead of subtracting it, n over (T + n).
+- id: r3k-mle-sd-for-variance
+  description: Giving the standard deviation estimate where the variance parameter was asked.
+- id: r3k-mle-spurious-factor
+  description: Inserting a factor 1/2 from the normal density where the parameter is not the normal variance.
+- id: r3k-mle-mom-wrong-mean-formula
+  description: >-
+    Using E(X) = a/(a + 1), the mean of the density a x^(a-1), instead of the mean (a + 1)/(a + 2) of the stated
+    density.
+- id: r3k-mle-mom-estimate-is-the-mean
+  description: Giving the sample mean itself as the estimate of the parameter.
+- id: r3k-mle-mom-forgot-to-solve
+  description: Stopping at 2 x-bar - 1 without solving the moment equation for a.
+- id: r3k-mle-uniform-moment-estimate
+  description: >-
+    Giving the method of moments estimate 2 x-bar where the maximum likelihood estimate (the sample maximum) was
+    asked.
+- id: r3k-mle-uniform-unbiased-adjustment
+  description: >-
+    Giving the bias-corrected (n + 1)/n times the maximum, which is neither the maximum likelihood nor the moment
+    estimate.
+- id: r3k-mle-uniform-midrange
+  description: Giving the sum of the sample minimum and maximum as the estimate for a uniform on (0, a).
+- id: r3k-mle-uniform-sample-maximum
+  description: Giving the sample maximum where the method of moments estimate 2 x-bar was asked.
+- id: r3k-mle-mom-doubled-twice
+  description: Doubling the sample mean twice, 4 x-bar, for a uniform on (0, a).
+- id: r3k-mle-variance-ignored-the-mean
+  description: Using the mean of the squares as the variance, without subtracting the square of the mean.
+- id: r3k-mle-unbiased-for-mle
+  description: Giving the unbiased estimate with divisor n - 1 where the maximum likelihood estimate (divisor n) was asked.
+- id: r3k-mle-variance-wrong-sign
+  description: Adding the square of the mean to the mean of the squares instead of subtracting it.
+- id: r3k-mle-invariance-forgot-the-time
+  description: Estimating P(X > t) as e^(-r̂), forgetting to multiply the rate by t.
+- id: r3k-mle-invariance-complement
+  description: Giving P(X <= t) = 1 - e^(-t r̂) where the tail probability P(X > t) was asked.
+- id: r3k-mle-invariance-forgot-the-exponential
+  description: Giving t r̂ without taking e to the power of its negative, so the estimate is not a probability.
+- id: r3k-mle-loglik-sign-error
+  description: Writing the log-likelihood as n ln r + rT, with the wrong sign on the exponent term.
+- id: r3k-mle-loglik-dropped-the-log
+  description: Writing the log-likelihood with n r instead of n ln r.
+- id: r3k-mle-loglik-forgot-n
+  description: Writing ln r - rT, summing the exponent terms but forgetting that ln r is repeated n times.
+- id: r3k-mle-loglik-forgot-the-total
+  description: Writing n ln r - r, forgetting that the exponent term sums the observations.
+- id: r3k-mle-n-plus-one
+  description: Dividing by n + 1 instead of n when forming the estimate.
+- id: r3k-mle-total-times-n
+  description: Multiplying the total by n instead of dividing it by n.
+- id: r3k-mle-invariance-wrong-time
+  description: Using the wrong time in the exponent of the tail probability e^(-t r), one unit too long.
+- id: r3k-mle-invariance-sign
+  description: Dropping the minus sign in the exponent, giving e^(t r) for the probability of lasting longer than t.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: >-
+      Write the likelihood for an exponential, Poisson or geometric sample from a data summary and solve
+      the score equation for the estimate.
+  medium:
+    steps: 6
+    demand: >-
+      Differentiate the log-likelihood of a less familiar density (power, Pareto, gamma-type, shifted
+      exponential, normal variance, Rayleigh-type) and give the estimator as an expression in n and a
+      stated statistic.
+  hard:
+    steps: 8
+    demand: >-
+      Handle a case where the standard recipe changes: a method of moments estimate by solving E(X) =
+      sample mean, a uniform sample whose likelihood has no stationary point, the maximum likelihood
+      variance of a normal sample, or an invariance estimate of a tail probability.
+  exam:
+    steps: 9
+    demand: >-
+      Writes the log-likelihood, finds the maximum likelihood estimate, then the estimate of the mean
+      (following through) and of a tail probability to 3 decimal places (following through).
+tags:
+- university-core-v1
+- university-year-2
+- statistics
+- maximum-likelihood
+- method-of-moments
+- estimation
+framework_areas:
+- statistics
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: statistics
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: statistics
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: statistics

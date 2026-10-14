@@ -1,0 +1,71 @@
+id: transition-matrix-steady-state
+name: Find the long-run shares of a three-state transition model
+domain: matrices
+description: 'Movements among three states are given in words and the long-run behaviour is found by solving T s = s with
+  the shares adding to 1. Easy: the long-run fraction in one state. Medium: the long-run fraction in two states together,
+  where one state''s movements are given with the rest left over. Hard: one movement share is unknown and the long-run share
+  of a state is stated, so the unknown is found and then the long-run fraction of a second state. The exam chain finds two
+  long-run shares, the third from them (carried forward) and the long-run number in the third state. Goes beyond the two-state
+  stationary skill: three states need a linear system, not a ratio.'
+status: active
+placement_eligible: false
+prerequisites:
+- transition-matrix-states
+- matrix-solve-system
+answer: fraction
+sources:
+- topic: r3c_transition_steady_state
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_transition_steady_state
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_transition_steady_state
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_steady_state_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-ss-complement
+  description: Gives one minus the long-run share where the share itself was asked for.
+- id: r3c-ss-equal-shares
+  description: Assumes the long-run shares are equal, so each state gets the same fraction of the total.
+- id: r3c-ss-not-normalised
+  description: Solves for the shares in proportion to one another but does not scale them so they add to 1 (or to the total).
+- id: r3c-ss-one-group-only
+  description: Gives the long-run share of only one of the two groups asked about, leaving out the other.
+- id: r3c-ss-product
+  description: Multiplies two long-run shares where the third is found by subtracting both from 1.
+- id: r3c-ss-rows-columns-swapped
+  description: Reads the transition table by rows where it is read by columns, so the long-run shares come from the table
+    turned on its side.
+- id: r3c-ss-share-slip
+  description: Finds the unknown share one step of 10 percentage points too high or too low after a slip in balancing the
+    long-run equations.
+- id: r3c-ss-stay-share
+  description: Takes each group's long-run share to be its stay share divided by the total of the stay shares, ignoring the
+    members who move in from the other groups.
+- id: r3c-ss-sum-not-remainder
+  description: Adds the two known long-run shares where the third is what is left of 1 after taking both away.
+- id: r3c-ss-wrong-state
+  description: Gives the long-run share (or number) of a different group from the one asked about.
+tags:
+- matrices
+- transition-matrix
+- steady-state
+- markov
+- r3c_transition_steady_state

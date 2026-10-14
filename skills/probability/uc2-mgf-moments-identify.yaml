@@ -1,0 +1,154 @@
+id: uc2-mgf-moments-identify
+name: Moments and identification from a moment generating function
+domain: probability
+year_level:
+- university
+description: >-
+  Use a moment generating function to find the mean, variance and higher moments of a random variable, to
+  identify its distribution and the distribution of a sum of independent variables, and to find the MGF of a
+  linear transformation.
+status: active
+placement_eligible: false
+prerequisites:
+- discrete-expected-value
+- ucv1-poisson-count-probability
+answer: expression
+sources:
+- topic: r3k_mgf
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_mgf
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_mgf
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_mgf
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-mgf-outer-derivative-only
+  description: >-
+    Differentiating only the outer power (chain rule without the inner derivative), so a factor such as p, b or
+    1/lambda is missing.
+- id: r3k-mgf-swapped-p-and-q
+  description: Swapping the success and failure probabilities when reading the parameters from the MGF.
+- id: r3k-mgf-variance-is-the-mean
+  description: Giving the mean where the variance was asked, as if every distribution had variance equal to its mean.
+- id: r3k-mgf-squared-the-rate
+  description: Squaring the Poisson rate lambda where lambda itself was needed.
+- id: r3k-mgf-second-moment-for-mean
+  description: Giving M''(0) = E(X^2) where the mean E(X) = M'(0) was asked.
+- id: r3k-mgf-variance-is-second-moment
+  description: Giving E(X^2) = M''(0) as the variance, without subtracting the square of the mean.
+- id: r3k-mgf-failures-for-trials
+  description: Giving the mean number of failures q/p where the MGF counts trials, with mean 1/p.
+- id: r3k-mgf-variance-forgot-q
+  description: Giving 1/p^2 for the geometric variance, leaving out the factor q.
+- id: r3k-mgf-scale-for-mean
+  description: Giving the scale b of a gamma-type MGF (1 - bt)^(-a) as the mean, instead of a times b.
+- id: r3k-mgf-rate-for-mean
+  description: Giving the rate lambda of an exponential MGF as the mean, instead of 1/lambda.
+- id: r3k-mgf-evaluated-the-function
+  description: Evaluating M(0) = 1 instead of differentiating the moment generating function.
+- id: r3k-mgf-variance-for-mean
+  description: Giving the variance where the mean was asked.
+- id: r3k-mgf-variance-wrong-sign
+  description: Adding the square of the mean to M''(0) instead of subtracting it.
+- id: r3k-mgf-variance-is-mean-squared
+  description: Giving the square of the mean M'(0)^2 as the variance.
+- id: r3k-mgf-sum-uses-one-variable
+  description: Using the distribution of X alone for the sum X + Y, ignoring Y.
+- id: r3k-mgf-sum-forgot-the-coefficient
+  description: Leaving out the binomial coefficient in the probability mass function.
+- id: r3k-mgf-sum-product-of-probabilities
+  description: Multiplying P(X = j) by P(Y = k - j) for a single split of k instead of identifying the distribution of the sum.
+- id: r3k-mgf-poisson-product-of-rates
+  description: Multiplying the Poisson rates for the sum instead of adding them.
+- id: r3k-mgf-poisson-forgot-factorial
+  description: Leaving out the factorial in the Poisson probability.
+- id: r3k-mgf-poisson-wrong-exponent
+  description: Using e^(-1) in a Poisson probability instead of e^(-lambda).
+- id: r3k-mgf-linear-forgot-the-scale
+  description: Writing the MGF of aX + b as e^(bt) M_X(t) (or the variance unchanged), forgetting that t is replaced by at.
+- id: r3k-mgf-linear-forgot-the-shift
+  description: Writing the MGF of aX + b as M_X(at), forgetting the factor e^(bt).
+- id: r3k-mgf-linear-shift-inside
+  description: Writing M_X(at + b) for the MGF of aX + b.
+- id: r3k-mgf-linear-power-for-scale
+  description: Raising M_X to the power a for the MGF of aX, which is the MGF of a sum of a copies of X.
+- id: r3k-mgf-linear-swapped-a-and-b
+  description: Swapping the roles of a and b in the MGF of aX + b.
+- id: r3k-mgf-third-moment-forgot-factors
+  description: Taking E(X^3) = a b^3 for a gamma-type MGF, leaving out the factors (a + 1)(a + 2).
+- id: r3k-mgf-third-moment-two-factors
+  description: Taking E(X^3) = a(a + 1) b^3, stopping after two factors.
+- id: r3k-mgf-third-moment-cube-of-the-mean
+  description: Giving the cube of the mean as the third moment.
+- id: r3k-mgf-third-moment-wrong-power
+  description: Using b^2 instead of b^3 in the third moment of a gamma-type MGF.
+- id: r3k-mgf-pmf-wrong-index
+  description: Using the probability mass function at k - 1 (or with k and lambda exchanged) instead of at k.
+- id: r3k-mgf-pmf-forgot-failures
+  description: Leaving out the factor (1 - p)^(n - k) for the failures in the binomial probability.
+- id: r3k-mgf-pmf-forgot-successes
+  description: Leaving out the factor p^k for the successes in the binomial probability.
+- id: r3k-mgf-linear-forgot-to-square
+  description: Multiplying the variance by a instead of a^2 for Var(aX + b).
+- id: r3k-mgf-linear-shift-added-to-variance
+  description: Adding the shift b (or b^2) to the variance of aX + b, which a constant shift does not change.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: >-
+      Differentiate a closed-form MGF (binomial, Poisson, geometric, gamma-type or exponential) with the
+      chain rule and evaluate M'(0) for the mean.
+  medium:
+    steps: 6
+    demand: >-
+      Differentiate twice and use Var(X) = M''(0) - M'(0)^2, for the same five families.
+  hard:
+    steps: 8
+    demand: >-
+      Recognise or transform the MGF: the product of two MGFs identifies the distribution of a sum, M_Y(t)
+      = e^(bt) M_X(at) for a linear map, or three derivatives give a third moment.
+  exam:
+    steps: 9
+    demand: >-
+      Finds the mean, the variance (following through from the mean), a probability after identifying the
+      distribution, and the variance of a linear function (following through from the variance).
+tags:
+- university-core-v1
+- university-year-2
+- probability
+- moment-generating-function
+- moments
+- distribution-identification
+framework_areas:
+- probability
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

@@ -1,0 +1,99 @@
+id: uc2-chromatic-polynomial-bipartite-hall
+name: Chromatic polynomials and Hall's condition
+domain: discrete-mathematics
+year_level:
+- university
+description: Count proper colourings of a small graph through its chromatic polynomial, and find the largest matching in
+  a bipartite graph when Hall's condition fails. The exam chain either finds a chromatic polynomial, a colouring count and
+  the chromatic number, or finds the set violating Hall's condition, the deficiency and the largest matching.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-tree-spanning-edge-count
+answer: number
+sources:
+- topic: r3l_chromatic_polynomial_hall
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_chromatic_polynomial_hall
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_chromatic_polynomial_hall
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_chromatic_polynomial_hall
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-chromatic-tree-formula
+  description: Counting the colourings of a graph with cycles as if it were a tree, k(k-1) to the power of the number of
+    other vertices.
+- id: r3l-chromatic-no-constraint
+  description: Counting all k to the n assignments of colours to vertices, ignoring that adjacent vertices must differ.
+- id: r3l-chromatic-pendant-choices
+  description: Allowing a vertex joined to one earlier vertex only k - 2 colours, as if it touched two.
+- id: r3l-chromatic-complete-graph-formula
+  description: Using the chromatic polynomial of a complete graph, k(k-1)(k-2)..., for a graph that is not complete.
+- id: r3l-chromatic-degree-for-earlier-neighbours
+  description: Giving each vertex k minus its full degree choices, instead of k minus the number of earlier neighbours.
+- id: r3l-chromatic-contraction-omitted
+  description: Using the chromatic polynomial of the graph with an edge deleted and forgetting to subtract the one with
+    the edge contracted.
+- id: r3l-chromatic-contraction-sign
+  description: Adding the chromatic polynomial of the contracted graph to that of the deleted graph, instead of subtracting
+    it.
+- id: r3l-chromatic-contraction-only
+  description: Using the chromatic polynomial of the contracted graph alone as the polynomial of the original graph.
+- id: r3l-chromatic-coefficient-sign
+  description: Giving a coefficient of a chromatic polynomial with the wrong sign (the signs alternate).
+- id: r3l-chromatic-wrong-coefficient
+  description: Reading the coefficient of a neighbouring power of k from the chromatic polynomial.
+- id: r3l-hall-assumes-perfect-matching
+  description: Assuming every worker can be given a different job without checking Hall's condition.
+- id: r3l-hall-violating-set-size
+  description: Reporting the size of the set that violates Hall's condition where its deficiency or the matching size was
+    asked for.
+- id: r3l-hall-neighbourhood-size
+  description: Reporting the number of jobs the violating set can do where the deficiency or the matching size was asked
+    for.
+- id: r3l-hall-deficiency-for-matching
+  description: Reporting the deficiency where the size of the largest matching was asked for.
+- id: r3l-hall-matching-off-by-one
+  description: Giving a matching one smaller than the largest possible.
+- id: r3l-chromatic-number-off-by-one
+  description: Giving a chromatic number one too high or one too low.
+- id: r3l-chromatic-max-degree-plus-one
+  description: Taking the maximum degree plus one as the chromatic number, when fewer colours are enough.
+- id: r3l-chromatic-number-is-vertex-count
+  description: Taking the number of vertices as the number of colours needed.
+- id: r3l-hall-set-satisfies-condition
+  description: Naming a set of workers that can do at least as many jobs as it has members, which does not break Hall's
+    condition.
+- id: r3l-hall-deficiency-off-by-one
+  description: Giving a deficiency one too large, for example by counting the neighbourhood as well.
+difficulty_progression: Easy counts the proper colourings of a chordal five-vertex graph with k colours, where each vertex
+  joins an existing clique. Medium finds a coefficient of the chromatic polynomial of a graph with an induced cycle, by
+  deletion and contraction. Hard counts colourings of a six-vertex graph that is not chordal, or finds the largest matching
+  of five workers into five jobs where Hall's condition fails. The exam chain gives either the chromatic polynomial, its
+  value at 4 colours and the chromatic number, or a violating set, the deficiency and the largest matching.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- graph-colouring
+- chromatic-polynomial
+- halls-theorem
+- bipartite-matching

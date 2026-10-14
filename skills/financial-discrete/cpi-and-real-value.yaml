@@ -1,0 +1,95 @@
+id: cpi-and-real-value
+name: Use the CPI to find inflation and real values
+domain: financial-discrete
+description: Use stated index numbers to find an inflation rate, an item's later price, the real value of a salary in earlier
+  dollars, and the change in real pay.
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-change
+- decimal-arithmetic
+answer: number
+sources:
+- topic: r3e_cpi
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3e_cpi
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3e_cpi
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3e_cpi
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3e-base-index-taken-as-100
+  description: Treating the earlier index as 100 and ignoring its actual value.
+- id: r3e-change-over-later-value
+  description: Dividing the change by the later value instead of the earlier one.
+- id: r3e-dollars-given-as-percentage
+  description: Giving the extra cost in dollars where a percentage of the price was asked for.
+- id: r3e-fall-in-later-dollars
+  description: Giving the fall in later-year dollars where the fall in earlier-year dollars was asked for.
+- id: r3e-first-rate-repeated
+  description: Using the first year's rate for all three years.
+- id: r3e-index-points-added-to-price
+  description: Adding the rise in index points to the price in dollars.
+- id: r3e-index-points-given-as-percentage
+  description: Giving the change in index points as if it were a percentage.
+- id: r3e-index-points-subtracted-from-salary
+  description: Subtracting the rise in index points from the salary in dollars.
+- id: r3e-index-points-taken-as-percentage
+  description: Treating the rise in index points as a percentage rise.
+- id: r3e-index-ratio-given-as-rate
+  description: Giving the later index as a percentage of the earlier one, instead of the change.
+- id: r3e-index-ratio-inverted
+  description: Turning the index ratio upside down, so a later price comes out lower or a real value higher.
+- id: r3e-nominal-change-given-as-real
+  description: Giving the percentage rise in the dollar salary as the change in real pay.
+- id: r3e-nominal-rise-given-as-real-fall
+  description: Giving the dollar pay rise where the fall in real value was asked for.
+- id: r3e-price-rise-given-as-real-fall
+  description: Giving the price rise on the salary as the fall in real value.
+- id: r3e-ratio-not-percentage
+  description: Leaving the tax-to-income ratio as a decimal without turning it into a percentage.
+- id: r3e-wrong-number-of-years
+  description: Compounding for the wrong number of years.
+- id: r3e-year-left-out
+  description: Leaving one year's inflation out of the compounding.
+- id: r3e-yearly-rates-added
+  description: Adding the yearly inflation rates instead of compounding them.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the change in the index as a percentage of the earlier index.
+  medium:
+    steps: 2
+    demand: Scale a price by the ratio of the later index to the earlier index.
+  hard:
+    steps: 4
+    demand: Convert a later salary to earlier dollars and find the real fall; or compound three stated yearly inflation
+      rates.
+  exam:
+    steps: 4
+    demand: Inflation rate, a later price, a salary's real value, then the percentage change in real pay, each following
+      through.
+tags:
+- consumer-finance
+- cpi
+- inflation
+- real-value
+- purchasing-power

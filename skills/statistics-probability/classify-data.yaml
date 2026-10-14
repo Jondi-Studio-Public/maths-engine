@@ -1,10 +1,71 @@
 id: classify-data
 name: Classify a data variable
 domain: statistics-probability
-description: Classify a variable as categorical, discrete numerical or continuous numerical.
+description: Classify a variable as categorical (nominal or ordinal) or numerical (discrete or continuous), including variables
+  whose wording invites a mistake, and choose a display that suits a variable.
 status: active
 prerequisites: []
 answer: mcq
-sources: [{topic: classify_data, params: {}, difficulty: easy}]
-misconceptions: [{id: numbers-always-continuous, description: Treats every numerical variable as continuous.}]
-tags: [expansion-batch-3, statistics]
+sources:
+- topic: classify_data
+  params: {}
+  difficulty: easy
+- topic: r3j_classify_variable
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_classify_variable
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_classify_variables
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: numbers-always-continuous
+  description: Treats every numerical variable as continuous.
+- id: r3j-classify-box-plot-for-categories
+  description: Choosing a box plot, which needs numerical data, to show a categorical variable.
+- id: r3j-classify-count-as-category
+  description: Counting the discrete numerical variables as categorical ones in a tally of variable types.
+- id: r3j-classify-count-as-continuous
+  description: Treating a counted variable, whose values are separate whole-number steps, as continuous.
+- id: r3j-classify-display-for-categories
+  description: Choosing a display that shows shares of categories to show the distribution of a measured variable.
+- id: r3j-classify-display-needs-two-variables
+  description: Choosing a display that needs two variables to show the distribution of one variable.
+- id: r3j-classify-histogram-for-categories
+  description: Choosing a histogram, which needs numerical data, to show a categorical variable.
+- id: r3j-classify-measure-as-discrete
+  description: Treating a measured variable as discrete because its values were recorded to a whole unit.
+- id: r3j-classify-measured-as-category
+  description: Counting the measured variables as categorical ones in a tally of variable types.
+- id: r3j-classify-miscounted-one-out
+  description: Miscounting the variables of one type by one when working through the list.
+- id: r3j-classify-number-as-category
+  description: Treating a numerical variable as categorical because its values are numbers written down.
+- id: r3j-classify-numeral-labels-as-measured
+  description: Counting categorical variables written with numerals as measured variables.
+- id: r3j-classify-numerals-as-numbers
+  description: Treating numerals that are only used as labels or identifiers (postcodes, phone numbers, jersey numbers) as
+    numerical data.
+- id: r3j-classify-numerical-count-given
+  description: Giving the number of numerical variables where the number of one type of variable was asked for.
+- id: r3j-classify-order-assumed
+  description: Treating labels that have no natural order as ordered categories.
+- id: r3j-classify-order-ignored
+  description: Treating categories that have a natural order as unordered labels.
+- id: r3j-classify-ranks-as-counts
+  description: Treating ranks or rating numbers as counts or measurements rather than as ordered categories.
+tags:
+- expansion-batch-3
+- statistics
+- nominal-ordinal
+- variable-types

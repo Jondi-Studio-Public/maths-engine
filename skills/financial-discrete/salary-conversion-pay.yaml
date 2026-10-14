@@ -1,0 +1,131 @@
+id: salary-conversion-pay
+name: Convert a salary into pay for other periods and compare jobs
+domain: financial-discrete
+description: Convert an annual salary into weekly, fortnightly, monthly and hourly pay, add allowances and pay rises, work
+  out piecework pay, and compare a salary with an hourly job that has overtime.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-wages
+- decimal-arithmetic
+answer: number
+sources:
+- topic: r3j_salary
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_salary
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_salary
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_salary_vs_hourly
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-salary-allowance-annualised-in-fortnight
+  description: Adding the allowance for a whole year to a single fortnight of pay.
+- id: r3j-salary-allowance-counted-once
+  description: Adding one week of allowance to a fortnight of pay instead of two.
+- id: r3j-salary-allowance-left-out
+  description: Leaving the allowance out of the total pay.
+- id: r3j-salary-days-not-weeks
+  description: Converting a yearly salary to a shorter period through 365 days instead of the stated number of weeks.
+- id: r3j-salary-difference-wrong-way
+  description: Subtracting the larger pay from the smaller, so the gap has the wrong sign.
+- id: r3j-salary-divided-by-near-count
+  description: Dividing a yearly salary by a number close to, but not equal to, the number of pay periods in a year.
+- id: r3j-salary-fifty-two-weeks-assumed
+  description: Using 52 weeks of work where the question states fewer weeks.
+- id: r3j-salary-first-rate-on-all
+  description: Paying every piece at the first rate and ignoring the higher rate after the threshold.
+- id: r3j-salary-fortnight-used-as-week
+  description: Dividing a yearly salary by 26 and then by the weekly hours, treating a fortnight as a week.
+- id: r3j-salary-hours-left-out
+  description: Leaving the weekly hours out when finding a yearly pay from an hourly rate.
+- id: r3j-salary-hours-not-divided
+  description: Stopping at the weekly pay without dividing by the weekly hours to get the hourly rate.
+- id: r3j-salary-leave-weeks-removed
+  description: Dividing a yearly salary by fewer than 52 weeks to find the hourly rate.
+- id: r3j-salary-minimum-added
+  description: Adding the guaranteed minimum to the piecework pay.
+- id: r3j-salary-minimum-taken-as-cap
+  description: Treating the guaranteed minimum as a limit on pay and taking the smaller amount.
+- id: r3j-salary-month-used-as-week
+  description: Dividing a yearly salary by 12 and then by the weekly hours, treating a month as a week.
+- id: r3j-salary-multiplied-by-near-count
+  description: Multiplying a pay by a number close to, but not equal to, the number of pay periods in a year.
+- id: r3j-salary-multiplier-on-all
+  description: Applying the overtime multiplier to every hour, ordinary hours included.
+- id: r3j-salary-one-job-only
+  description: Giving the pay of one job where the difference between two jobs was asked for.
+- id: r3j-salary-overtime-at-double
+  description: Paying overtime at double time when time-and-a-half was stated.
+- id: r3j-salary-overtime-at-ordinary-rate
+  description: Paying the overtime hours at the ordinary rate.
+- id: r3j-salary-overtime-left-out
+  description: Leaving the overtime out of the weekly pay.
+- id: r3j-salary-percent-added-as-dollars
+  description: Adding the percentage rise to the pay as a number of dollars.
+- id: r3j-salary-rise-left-out
+  description: Ignoring the pay rise.
+- id: r3j-salary-rise-only
+  description: Giving the amount of the rise alone instead of the new pay.
+- id: r3j-salary-rise-subtracted
+  description: Taking the percentage off the salary instead of adding it.
+- id: r3j-salary-salary-prorated-to-weeks
+  description: Cutting the salary down to the number of weeks the hourly job is worked, although the salary is paid for the
+    whole year.
+- id: r3j-salary-top-rate-on-all
+  description: Paying every piece at the higher rate instead of only the pieces beyond the threshold.
+- id: r3j-salary-weekly-allowance-added-to-year
+  description: Adding a weekly allowance to a yearly salary before dividing into pay periods.
+- id: r3j-salary-weekly-divisor-for-fortnight
+  description: Dividing a yearly salary by 52 to find a fortnightly pay.
+- id: r3j-salary-weekly-gap-given
+  description: Giving the gap in weekly pay where the gap in yearly pay was asked for.
+- id: r3j-salary-weeks-off-by-two
+  description: Using two more weeks of work than the question states.
+- id: r3j-salary-wrong-hours
+  description: Using a different number of weekly hours from the one stated.
+- id: r3j-salary-wrong-period-divisor
+  description: Dividing a yearly salary by the wrong number of pay periods.
+- id: r3j-salary-wrong-period-multiplier
+  description: Multiplying a pay by the wrong number of pay periods in a year.
+- id: r3j-salary-year-over-weekly-hours
+  description: Dividing the yearly salary by the weekly hours without first finding the weekly pay.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Convert an annual salary to the pay for one week, fortnight or month, or the reverse.
+  medium:
+    steps: 3
+    demand: Find the hourly rate that equals a salary, add a weekly allowance to a fortnightly pay, or find the monthly pay
+      after a percentage rise.
+  hard:
+    steps: 5
+    demand: Find piecework pay at two rates with a guaranteed minimum, or the yearly difference between a salary and an hourly
+      job worked for fewer weeks.
+  exam:
+    steps: 6
+    demand: Weekly pay and hourly rate of a salary, the weekly pay of an hourly job with overtime, and the yearly gap between
+      the jobs.
+tags:
+- general-maths
+- essential-maths
+- pay
+- salary
+- consumer-finance

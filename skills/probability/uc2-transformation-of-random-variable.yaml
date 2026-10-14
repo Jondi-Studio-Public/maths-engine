@@ -1,0 +1,127 @@
+id: uc2-transformation-of-random-variable
+name: Density of a function of a random variable
+domain: probability
+year_level:
+- university
+description: >-
+  Find the density of Y = g(X) from the density of X by the change-of-variable formula or the distribution-
+  function method, including maps that are not one-to-one and the density of a sum of two independent uniform
+  variables.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-joint-continuous-density
+- ucv1-ftc-polynomial
+answer: expression
+sources:
+- topic: r3k_transformation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_transformation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_transformation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_transformation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-transf-forgot-jacobian
+  description: Substituting x = h(y) into the density of X but leaving out the factor |dx/dy|.
+- id: r3k-transf-jacobian-inverted
+  description: Multiplying by the slope dy/dx (or by |a|) instead of dividing, so the Jacobian factor is inverted.
+- id: r3k-transf-negative-slope-sign
+  description: Dividing by a negative slope instead of its absolute value, giving a negative density.
+- id: r3k-transf-forgot-the-shift
+  description: Replacing x by y/a instead of (y - b)/a, forgetting the shift in Y = aX + b.
+- id: r3k-transf-substituted-forward
+  description: Substituting y into the map (writing f_X(g(y))) instead of into its inverse.
+- id: r3k-transf-forgot-to-invert
+  description: Writing f_X(y) |h'(y)|, using the density of X at y rather than at the inverse h(y).
+- id: r3k-transf-one-branch-only
+  description: Using only the positive inverse branch of Y = X^2 (or |X|) where both branches lie in the support of X.
+- id: r3k-transf-doubled-one-branch
+  description: Doubling the contribution of the positive branch instead of adding the two different branch values.
+- id: r3k-transf-averaged-the-branches
+  description: Averaging the contributions of the two inverse branches instead of adding them.
+- id: r3k-transf-subtracted-the-branches
+  description: Subtracting the contribution of the negative branch from that of the positive one instead of adding them.
+- id: r3k-transf-convolution-wrong-piece
+  description: Using the formula for a different piece of the density of a sum of two uniforms (rising, flat or falling).
+- id: r3k-transf-convolution-product-of-densities
+  description: Multiplying the two uniform densities, 1/(ab), and treating the product as the density of the sum.
+- id: r3k-transf-convolution-uniform-on-the-sum
+  description: Treating the sum of the two uniforms as uniform on (0, a + b), with density 1/(a + b).
+- id: r3k-transf-cdf-of-x-not-y
+  description: Giving the distribution function of X at y instead of the distribution function of Y = g(X).
+- id: r3k-transf-cdf-upper-tail
+  description: Giving P(Y > y) = 1 - F_Y(y) where the distribution function P(Y <= y) was asked.
+- id: r3k-transf-cdf-inverse-direction
+  description: Evaluating F_X at g(y) instead of at the inverse h(y) when finding F_Y(y).
+- id: r3k-transf-density-is-the-cdf
+  description: Giving the distribution function F_Y(y) where the density f_Y(y) was asked.
+- id: r3k-transf-value-at-the-wrong-point
+  description: Evaluating the distribution function at the other stated point.
+- id: r3k-transf-forgot-to-subtract
+  description: Giving F_Y(y1) alone for P(y0 < Y < y1), without subtracting F_Y(y0).
+- id: r3k-transf-added-instead-of-subtracted
+  description: Adding F_Y(y0) to F_Y(y1) instead of subtracting it.
+- id: r3k-transf-upper-tail-only
+  description: Giving P(Y > y0) for P(y0 < Y < y1), ignoring the upper end of the interval.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: >-
+      A linear map Y = aX + b with a negative as often as positive, so the Jacobian is 1/|a| and the
+      support reverses.
+  medium:
+    steps: 6
+    demand: >-
+      A monotone non-linear map (X^2, sqrt X, 1/X, e^X or e^-X): invert, substitute and multiply by
+      |dx/dy|.
+  hard:
+    steps: 8
+    demand: >-
+      A map that is not one-to-one, where the two inverse branches must be added, or the density of a sum
+      of two independent uniform variables on one piece of its support.
+  exam:
+    steps: 9
+    demand: >-
+      Finds the distribution function of Y, its value at a point (following through), the density of Y and
+      an interval probability (following through from the distribution function).
+tags:
+- university-core-v1
+- university-year-2
+- probability
+- change-of-variable
+- density-function
+- convolution
+framework_areas:
+- probability
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

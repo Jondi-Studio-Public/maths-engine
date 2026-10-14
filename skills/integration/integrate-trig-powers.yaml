@@ -1,0 +1,91 @@
+id: integrate-trig-powers
+name: Integrate powers of sine and cosine
+domain: integration
+description: Integrate sin^n and cos^n of a linear argument by the double-angle identity for even powers and by substitution
+  for odd powers, including products and exact definite values.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-trig
+- integration-by-substitution
+answer: expression
+sources:
+- topic: r3b_integrate_trig_powers
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_integrate_trig_powers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_integrate_trig_powers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_integrate_trig_powers
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-trig-wrong-double-angle-sign
+  description: Using the wrong sign in the double-angle identity (taking sin^2 as (1 + cos 2x)/2 or cos^2 as (1 - cos 2x)/2),
+    or the wrong sign on a term of the expansion.
+- id: r3b-trig-inner-derivative-ignored
+  description: Integrating a trigonometric function of kx without dividing by k, the coefficient of x.
+- id: r3b-trig-half-angle-factor-dropped
+  description: Dropping the factor 1/2 from the double-angle identity, or integrating cos 2x as sin 2x / 2 without it.
+- id: r3b-trig-power-rule-on-trig
+  description: Applying the power rule to sin^n x or cos^n x, giving the next power divided by n + 1 as if the trigonometric
+    function were the variable.
+- id: r3b-trig-integrated-as-differentiated
+  description: Integrating the cos 2x term to a cosine or the sin 2x term to a sine, instead of swapping the function.
+- id: r3b-trig-substitution-sign
+  description: 'Getting the sign of the substitution wrong: forgetting that du = -sin x dx when u = cos x.'
+- id: r3b-trig-substituted-power-not-divided
+  description: Integrating the powers of u after a substitution without dividing each by its new exponent.
+- id: r3b-trig-identity-sign
+  description: Writing sin^2 x as 1 + cos^2 x, or cos^2 x as 1 + sin^2 x, instead of subtracting.
+- id: r3b-trig-square-binomial-expanded-wrong
+  description: Expanding (1 - u^2)^2 as 1 - u^4, leaving out the middle term.
+- id: r3b-trig-binomial-cross-term-dropped
+  description: Expanding (1 - u^2)^2 with a middle term of -u^2 instead of -2u^2.
+- id: r3b-trig-exponent-denominator-mismatch
+  description: Dividing each power of u by the wrong exponent, swapping the two denominators.
+- id: r3b-trig-substitution-term-dropped
+  description: Leaving out one of the terms of the polynomial in u after substitution, or one of the terms of the antiderivative.
+- id: r3b-trig-square-of-double-angle-dropped
+  description: Squaring (1 - cos 2x)/2 and forgetting that cos^2 2x needs a second double-angle step, leaving out the cos
+    4x term and the extra constant.
+- id: r3b-trig-sign-slip
+  description: Giving the correct size of a definite integral with the wrong sign.
+- id: r3b-trig-half-angle-factor-doubled
+  description: Applying the factor 1/2 of the double-angle identity twice, halving the result again.
+- id: r3b-trig-squared-taken-as-one
+  description: Treating sin^2 x as 1 over the interval, so the integral is just the length of the interval.
+- id: r3b-trig-coefficients-ignored
+  description: Adding the integrals of the separate terms without multiplying each by its coefficient.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Use sin^2 or cos^2 as a double-angle expression and divide by the inner coefficient.
+  medium:
+    steps: 3
+    demand: Split off one factor of an odd power and substitute, expanding the remaining even power.
+  hard:
+    steps: 4
+    demand: Handle a product with one odd power, a fourth power by the double angle twice, or an exact definite value.
+  exam:
+    steps: 5
+    demand: Evaluate exact definite integrals of an odd power, an even power, a combination and a product.
+tags:
+- acara-senior-v8-4
+- integration

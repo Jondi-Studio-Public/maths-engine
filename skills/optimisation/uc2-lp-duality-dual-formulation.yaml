@@ -1,0 +1,98 @@
+id: uc2-lp-duality-dual-formulation
+name: The dual of a linear programme
+domain: optimisation
+year_level:
+- university
+description: Write the dual of a linear programme as an augmented matrix, and use complementary slackness to find the optimal
+  dual solution from a given optimal primal solution. The exam chain writes the dual, finds the slack of each constraint,
+  finds a dual value and uses it to update the optimum.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-simplex-final-tableau-reading
+- matrix-rank-small
+answer: matrix
+sources:
+- topic: r3l_lp_duality
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_lp_duality
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_lp_duality
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_lp_duality
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-dual-not-transposed
+  description: Writing the rows of the primal constraint matrix as the dual constraints, instead of its columns.
+- id: r3l-dual-objective-row-negated
+  description: Writing the dual objective row with the opposite sign to the primal right-hand sides.
+- id: r3l-dual-inequality-flip-sign
+  description: Putting the wrong sign on the right-hand sides of the dual constraints.
+- id: r3l-dual-uses-primal-objective
+  description: Using the primal objective coefficients as the dual objective, and the primal right-hand sides as the dual
+    constraints' right-hand sides.
+- id: r3l-dual-ge-row-not-negated
+  description: Dualising a maximisation with a greater-or-equal constraint without first multiplying that constraint by
+    -1.
+- id: r3l-dual-ge-rhs-not-negated
+  description: Negating the coefficients of a greater-or-equal constraint but not its right-hand side when converting it
+    to less-or-equal.
+- id: r3l-dual-ge-coefficients-not-negated
+  description: Negating the right-hand side of a greater-or-equal constraint but not its coefficients when converting it
+    to less-or-equal.
+- id: r3l-dual-wrong-binding-set
+  description: Choosing the wrong pair of constraints as binding when applying complementary slackness, so a multiplier
+    is put on the constraint that has slack.
+- id: r3l-dual-system-not-transposed
+  description: Solving A y = c for the binding constraints instead of the transposed system A-transpose y = c.
+- id: r3l-dual-primal-solution-reused
+  description: Giving the primal optimal solution, or a primal value, where the dual optimal solution was asked for.
+- id: r3l-dual-slack-as-multiplier
+  description: Reporting the slack of a primal constraint as its dual variable, instead of zero.
+- id: r3l-dual-constraint-rhs-as-slack
+  description: Reporting the right-hand side of each constraint as its slack, forgetting to subtract the value of the left-hand
+    side at the solution.
+- id: r3l-dual-lhs-as-slack
+  description: Reporting the value of the left-hand side at the solution as the slack, instead of the right-hand side minus
+    that value.
+- id: r3l-dual-slack-wrong-row
+  description: Matching a slack value to the wrong constraint when listing the slacks in order.
+- id: r3l-dual-slack-sign
+  description: Writing the slack of a constraint as left-hand side minus right-hand side, so it is negative.
+- id: r3l-dual-price-ignored
+  description: Adding the increase in a constraint's right-hand side straight to the optimal value, without multiplying
+    by its dual value.
+- id: r3l-dual-increase-not-added
+  description: Reporting the rise in the optimal value (dual value times increase) instead of the new optimal value.
+- id: r3l-dual-price-sign
+  description: Applying the dual value with the wrong sign, so extra resource appears to lower the optimum.
+difficulty_progression: Easy dualises a standard-form maximisation or minimisation, writing the transposed constraint system
+  with the right-hand sides and the objective row. Medium dualises a maximisation with a mixture of at-most and at-least
+  constraints, after rewriting the at-least rows so every dual variable is non-negative. Hard gives the optimal primal solution
+  and asks for the optimal dual solution by complementary slackness, which needs the slack constraint identified and a transposed
+  system solved. The exam chain writes the dual matrix, lists the slacks, finds one dual value and follows it through to
+  the new optimum.
+tags:
+- university-core-v1
+- university-year-2
+- optimisation
+- linear-programming
+- duality
+- complementary-slackness

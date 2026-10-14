@@ -1,0 +1,98 @@
+id: compound-recurrence-model
+name: Model growth and decay with a recurrence rule
+domain: financial-discrete
+description: Use a recurrence V(n+1) = rV(n) +/- D, set up from a percentage change and an amount added or removed each step,
+  to find later values, the first step that passes a target and the amount that holds a value constant.
+status: active
+placement_eligible: false
+prerequisites:
+- compound-interest
+answer: number
+sources:
+- topic: r3j_recurrence
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_recurrence
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_recurrence
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_recurrence_savings
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-recurrence-added-amount-left-out
+  description: Leaving out the amount added or removed at each step and only applying the percentage change.
+- id: r3j-recurrence-added-amount-not-compounded
+  description: Adding the total of the amounts to the answer at the end instead of letting each one grow or shrink with the
+    later steps.
+- id: r3j-recurrence-amount-before-change
+  description: Adding or removing the amount before applying the percentage change, instead of after it.
+- id: r3j-recurrence-constant-change-assumed
+  description: Assuming the value changes by the same amount every step instead of following the recurrence.
+- id: r3j-recurrence-divided-by-multiplier
+  description: Dividing by the multiplier where the recurrence multiplies by it.
+- id: r3j-recurrence-double-change
+  description: Doubling the change in one step when finding the amount that holds the value constant.
+- id: r3j-recurrence-doubled-count
+  description: Doubling the number of steps found instead of checking the value at each step.
+- id: r3j-recurrence-growth-and-decay-swapped
+  description: Using the growth multiplier for a loss, or the loss multiplier for growth.
+- id: r3j-recurrence-interest-on-start-only
+  description: Finding the interest on the opening amount only, as if the later amounts earned nothing.
+- id: r3j-recurrence-new-value-given
+  description: Giving the value after one step where the amount to add or remove was asked for.
+- id: r3j-recurrence-one-amount-short
+  description: Counting one fewer deposit or payment than were made.
+- id: r3j-recurrence-one-step-short
+  description: Stopping one step too early.
+- id: r3j-recurrence-one-step-too-many
+  description: Running the recurrence one step too far.
+- id: r3j-recurrence-percent-added-as-dollars
+  description: Adding the percentage rate to the balance as if it were an amount.
+- id: r3j-recurrence-percent-as-tenth
+  description: Writing a percentage as a decimal one place out, so a rate of 4% becomes 0.4.
+- id: r3j-recurrence-rate-not-multiplier
+  description: Multiplying by the rate alone (0.04) instead of by 1 plus the rate (1.04).
+- id: r3j-recurrence-sign-of-amount-reversed
+  description: Taking an amount out where it is put in, or the reverse, at every step.
+- id: r3j-recurrence-simple-instead-of-compound
+  description: Adding the same change at every step as if the rate applied only to the starting value.
+- id: r3j-recurrence-start-value-left-in
+  description: Leaving the starting balance in when asked for the interest earned.
+- id: r3j-recurrence-total-change-given
+  description: Giving the whole change in balance where only the part due to interest was asked for.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Run V(n+1) = rV(n) for a few steps, finding r from a percentage growth or loss.
+  medium:
+    steps: 4
+    demand: Run V(n+1) = rV(n) +/- D for a few steps, with the amount applied after the percentage change.
+  hard:
+    steps: 6
+    demand: Find the first step at which the value passes a target, the amount that holds the value constant, or the part
+      of the change that is due to interest.
+  exam:
+    steps: 6
+    demand: Write the rule as an expression, find the balance after three years, the interest earned, and the first year the
+      balance passes a target.
+tags:
+- general-maths
+- recurrence
+- growth-and-decay
+- sequences

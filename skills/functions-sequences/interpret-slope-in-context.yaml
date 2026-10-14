@@ -1,0 +1,105 @@
+id: interpret-slope-in-context
+name: Interpret the slope of a straight-line graph as a rate of change
+domain: functions-sequences
+description: Read the rate of change from a straight-line cost graph, use it to find extra costs, extra quantities and totals
+  beyond the graph, and compare the rates and the break-even point of two plans.
+status: active
+placement_eligible: false
+needs_figure: true
+capability_gates:
+- figure_stimulus
+prerequisites:
+- rate-of-change
+answer: number
+sources:
+- topic: r3j_slope_context
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_slope_context
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_slope_context
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_slope_two_plans
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-slope-average-cost-as-rate
+  description: Dividing the total cost at one point by the count to get a rate, which ignores the fixed cost in the total.
+- id: r3j-slope-cost-at-crossing-given
+  description: Giving the cost at the point where the lines cross where the count at the crossing was asked for.
+- id: r3j-slope-count-added
+  description: Adding the count to the fixed cost instead of multiplying it by the rate.
+- id: r3j-slope-difference-doubled
+  description: Doubling the difference between two rates.
+- id: r3j-slope-difference-wrong-way
+  description: Subtracting the rates in the wrong order, so the difference has the wrong sign.
+- id: r3j-slope-divided-for-multiplied
+  description: Dividing the count by the rate where it must be multiplied by it.
+- id: r3j-slope-first-unit-total
+  description: Giving the total cost of the first unit, fixed cost included, as the cost of each extra unit.
+- id: r3j-slope-fixed-cost-added
+  description: Adding the fixed cost to an amount that depends only on the rate.
+- id: r3j-slope-fixed-cost-as-rate
+  description: Reading the fixed cost, where the line meets the vertical axis, as the cost of each extra unit.
+- id: r3j-slope-fixed-cost-counted-twice
+  description: Adding the fixed cost twice when finding a total cost.
+- id: r3j-slope-fixed-cost-difference-given
+  description: Giving the difference between the two fixed costs where a rate or a count was asked for.
+- id: r3j-slope-fixed-cost-for-extra
+  description: Using the fixed cost as the cost of each extra unit.
+- id: r3j-slope-fixed-cost-left-out
+  description: Leaving the fixed cost out of a total cost.
+- id: r3j-slope-grid-column-as-units
+  description: Giving the number of grid columns as the number of units when each column stands for several units.
+- id: r3j-slope-grid-step-as-unit
+  description: Taking the rise for one grid step as the rate per unit when a grid step is several units wide.
+- id: r3j-slope-multiplied-for-divided
+  description: Multiplying the amount by the rate where it must be divided by it.
+- id: r3j-slope-neighbouring-gridline
+  description: Reading the count one grid line away from where the lines cross.
+- id: r3j-slope-other-line-read
+  description: Reading the rate of the other plan's line.
+- id: r3j-slope-rates-added
+  description: Adding the two rates where their difference was asked for.
+- id: r3j-slope-rise-as-rate
+  description: Giving the rise between two points as the rate, without dividing by the run.
+- id: r3j-slope-run-over-rise
+  description: Dividing the run by the rise, giving units per dollar instead of dollars per unit.
+- id: r3j-slope-total-as-rate
+  description: Reading the total cost at a point of the line as the cost of each extra unit.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read the cost of each extra unit from a line on unit steps.
+  medium:
+    steps: 3
+    demand: Read the cost of each extra unit when a grid step is several units wide, so the rate is not the rise per grid
+      line.
+  hard:
+    steps: 4
+    demand: 'Use the rate: the extra cost of a stated number of extra units, how many extra units an amount buys, or the total
+      cost beyond the graph.'
+  exam:
+    steps: 5
+    demand: Rates of two plans, how much more per unit one charges, and the count at which the plans cost the same.
+tags:
+- general-maths
+- essential-maths
+- linear-graphs
+- rate-of-change
+- figure-stimulus

@@ -1,0 +1,99 @@
+id: uc2-transportation-assignment
+name: Transportation and assignment problems
+domain: optimisation
+year_level:
+- university
+description: Start a transportation problem with the north-west corner rule, test a route with an improvement index, and
+  solve a four-by-four assignment problem. The exam chain gives the starting allocation, its cost, the index of an improving
+  route and the cost after the exchange.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-lp-formulation-and-corner-points
+- senior-determine-the-optimum-assignment-s-by-inspection-for
+answer: number
+sources:
+- topic: r3l_transportation_assignment
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_transportation_assignment
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_transportation_assignment
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_transportation_assignment
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-transport-wrong-start-rule
+  description: Building the starting solution by a different rule (cheapest route first) when the north-west corner rule
+    was asked for.
+- id: r3l-transport-cost-without-quantity
+  description: Adding up the unit costs of the allocated routes without multiplying each by the number of tonnes moved along
+    it.
+- id: r3l-transport-wrong-start-corner
+  description: Starting the north-west corner rule from the wrong corner of the table.
+- id: r3l-transport-cheapest-everywhere
+  description: Costing the whole supply at the cheapest unit cost in the table, as if every tonne could use the cheapest
+    route.
+- id: r3l-transport-cell-omitted
+  description: Leaving one allocated route out of the total cost of a transportation solution.
+- id: r3l-transport-quantity-misplaced
+  description: Putting a quantity in the wrong allocated cell of a row when filling the table, so the supplies are met but
+    the cost is wrong.
+- id: r3l-assign-greedy-row-minimum
+  description: Giving each worker their cheapest remaining job in turn instead of finding the cheapest assignment overall.
+- id: r3l-assign-reduction-total
+  description: Reporting the total taken off in the row and column reductions as the cost of the assignment, when the zeros
+    still have to be matched.
+- id: r3l-assign-row-minima-only
+  description: Reporting the sum of the row minima as the least total cost, ignoring that two workers can have the same
+    cheapest job.
+- id: r3l-assign-diagonal
+  description: Assigning the first worker to the first job, the second to the second, and so on, without looking for a cheaper
+    assignment.
+- id: r3l-assign-maximised
+  description: Finding the most expensive assignment where the cheapest was asked for.
+- id: r3l-modi-index-sign
+  description: Taking the improvement index with the opposite sign (u + v − c instead of c − u − v).
+- id: r3l-modi-index-potentials-only
+  description: Reporting u_i + v_j for the empty route without subtracting it from the route's unit cost.
+- id: r3l-modi-cost-as-index
+  description: Reporting the unit cost of the empty route as its improvement index.
+- id: r3l-modi-potential-sign
+  description: Building the potentials with a sign error, so they do not satisfy u + v = c on the allocated routes.
+- id: r3l-transport-allocation-transposed
+  description: Writing the allocation table with depots and ports interchanged.
+- id: r3l-modi-index-times-quantity
+  description: Reporting the saving for the whole exchange (index times quantity) where the index per tonne, or the new
+    total cost, was asked for.
+- id: r3l-modi-quantity-ignored
+  description: Applying the improvement index to the total cost for one tonne only, or not at all, instead of for every
+    tonne that moves round the loop.
+difficulty_progression: Easy finds the total cost of the north-west corner starting solution of a balanced problem with
+  three depots. Medium finds the least cost of assigning four workers to four jobs by row and column reduction and matching
+  zeros. Hard finds the improvement index of an empty route from the north-west corner solution, by solving for the potentials
+  with the first potential 0. The exam chain writes the starting allocation as a matrix, finds its cost and the index of
+  an improving route, and follows both through to the cost after moving the greatest possible number of units round the
+  loop.
+tags:
+- university-core-v1
+- university-year-2
+- optimisation
+- transportation-problem
+- assignment-problem
+- hungarian-method

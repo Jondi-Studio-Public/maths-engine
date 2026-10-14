@@ -1,0 +1,102 @@
+id: convert-imperial-length
+name: Convert between imperial lengths and between imperial and metric
+domain: measurement
+description: Convert lengths between inches, feet, yards, miles and nautical miles, and between those and metric units, using
+  conversion factors that are given in the question.
+status: active
+placement_eligible: false
+prerequisites:
+- convert-metric-length
+- decimal-arithmetic
+answer: number
+sources:
+- topic: r3j_imperial
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_imperial
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_imperial
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_imperial_voyage
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-imperial-added-factor
+  description: Adding the conversion factor to the length instead of multiplying by it.
+- id: r3j-imperial-centimetres-given
+  description: Stopping at centimetres when the length was asked for in metres.
+- id: r3j-imperial-decimal-slip
+  description: Moving the decimal point the wrong number of places when changing between centimetres and metres.
+- id: r3j-imperial-divided-for-multiplied
+  description: Dividing by the conversion factor where the larger unit must be multiplied by it.
+- id: r3j-imperial-factor-off-by-one
+  description: Using a conversion factor that is one more than the one stated.
+- id: r3j-imperial-factors-inverted
+  description: Using the two conversion factors the wrong way round.
+- id: r3j-imperial-feet-treated-as-inches
+  description: Skipping the change from feet to inches and treating the feet as inches.
+- id: r3j-imperial-inches-given
+  description: Stopping at inches when the length was asked for in feet.
+- id: r3j-imperial-kilometres-given
+  description: Stopping at kilometres when the length was asked for in miles.
+- id: r3j-imperial-metres-treated-as-centimetres
+  description: Treating a length in metres as if it were in centimetres.
+- id: r3j-imperial-mile-as-kilometre
+  description: Treating a distance in miles as if it were in kilometres.
+- id: r3j-imperial-multiplied-for-divided
+  description: Multiplying by the conversion factor where the smaller unit must be divided by it.
+- id: r3j-imperial-nautical-mile-as-kilometre
+  description: Treating a distance in nautical miles as if it were in kilometres.
+- id: r3j-imperial-nautical-mile-as-mile
+  description: Treating a nautical mile as the same length as a mile.
+- id: r3j-imperial-one-factor-for-both
+  description: Using the same conversion factor for both legs of a journey measured in different units.
+- id: r3j-imperial-step-left-out
+  description: Leaving out one step of a chain of unit conversions.
+- id: r3j-imperial-subtracted-factor
+  description: Subtracting the conversion factor from the length instead of dividing by it.
+- id: r3j-imperial-units-added-without-converting
+  description: Adding distances measured in different units without converting them first.
+- id: r3j-imperial-wrong-factor
+  description: Using the factor for a different pair of units.
+- id: r3j-imperial-wrong-unit-factor
+  description: Using the factor for the other unit of distance.
+- id: r3j-imperial-yards-as-hundredths
+  description: Adding the yards to the kilometres as hundredths instead of converting them to miles first.
+- id: r3j-imperial-yards-left-out
+  description: Leaving the yards out of a distance written in miles and yards.
+- id: r3j-imperial-yards-treated-as-miles
+  description: Converting the yards to kilometres with the factor for miles.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Convert once between two imperial units, multiplying or dividing by the stated factor.
+  medium:
+    steps: 3
+    demand: Chain two or three stated factors to give a metric length, or write a metric length in feet.
+  hard:
+    steps: 4
+    demand: Add a length written in miles and yards and convert it, or change nautical miles to miles through kilometres.
+  exam:
+    steps: 5
+    demand: Two legs of a voyage in different units, converted to kilometres, added, and the total written in nautical miles.
+tags:
+- general-maths
+- essential-maths
+- measurement
+- imperial-units

@@ -1,0 +1,82 @@
+id: hypothesis-test-errors-power
+name: "Find the critical region, Type I and Type II error probabilities and power of a z-test for a mean"
+domain: statistics-probability
+description: "For a z-test of a population mean with known standard deviation, find the critical value of the sample mean from the significance level and the stated critical z value, the probability of a Type I error from a stated critical value, the probability of a Type II error and the power at a stated true mean (one-sided and two-sided), the effect of a larger sample, and the smallest sample size that gives a stated power. The exam chain finds the critical value, beta, the power and the power with a quadrupled sample."
+status: active
+placement_eligible: false
+prerequisites: [senior-calculate-probabilities-and-quantiles-associated-with-a-given]
+answer: number
+sources:
+- topic: r3f_test_errors_power
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3f_test_errors_power
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3f_test_errors_power
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3f_test_errors_power
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Turn the stated critical z value and the standard deviation of the sample mean into a critical value, or find alpha from a stated critical value."}
+  medium: {steps: 3, demand: "Fix the critical value first, then find a normal probability about the true mean: the probability of a Type II error or the power."}
+  hard: {steps: 4, demand: "Handle two critical values for a two-sided test, change the sample size and recompute the standard deviation of the mean, or work backwards from a required power to a sample size."}
+  exam: {steps: 4, demand: "A connected chain: the critical value, beta at a true mean, the power from beta, and the power again with a quadrupled sample."}
+misconceptions:
+- id: r3f-beta-ignores-the-critical-value
+  description: "Finding the probability of a Type II error by standardising the true mean against the null mean, ignoring the critical value of the test."
+- id: r3f-beta-keeps-only-one-critical-value
+  description: "Using only one critical value for a two-sided test when finding the probability of a Type II error, so one tail of the acceptance region is lost."
+- id: r3f-beta-reports-alpha
+  description: "Giving the significance level alpha where the probability of a Type II error was asked for."
+- id: r3f-beta-reports-the-power
+  description: "Giving the power of the test, 1 - beta, where the probability of a Type II error was asked for."
+- id: r3f-beta-uses-sigma-not-the-standard-error
+  description: "Dividing by the population standard deviation sigma instead of the standard deviation of the sample mean when standardising."
+- id: r3f-beta-uses-the-null-mean
+  description: "Standardising with the null mean mu0 instead of the true mean when finding the probability of a Type II error."
+- id: r3f-beta-uses-the-wrong-tail-of-the-true-mean
+  description: "Taking the tail of the true-mean distribution on the wrong side of the critical value when finding beta."
+- id: r3f-critical-value-on-the-wrong-side
+  description: "Placing the critical value on the wrong side of the null mean, subtracting where the alternative hypothesis points upwards or the reverse."
+- id: r3f-critical-value-uses-sigma-not-the-standard-error
+  description: "Using the population standard deviation sigma instead of sigma over the square root of n when finding the critical value."
+- id: r3f-critical-value-uses-z-alone
+  description: "Adding or subtracting the critical z value itself to the null mean, without multiplying by the standard deviation of the sample mean."
+- id: r3f-critical-value-wrong-multiple
+  description: "Multiplying the standard deviation of the sample mean by one more than the critical z value."
+- id: r3f-power-assumed-half
+  description: "Assuming the power of a test is one half."
+- id: r3f-power-doubles-instead-of-quadruples
+  description: "Using the standard deviation for a sample of twice the size when the sample was multiplied by four."
+- id: r3f-power-ignores-the-critical-value
+  description: "Finding the power by standardising the true mean against the null mean, ignoring the critical value of the test."
+- id: r3f-power-ignores-the-larger-sample
+  description: "Giving the original power after the sample size was increased, as though the sample size did not change the spread of the sample mean."
+- id: r3f-power-reports-alpha
+  description: "Giving the significance level alpha where the power of the test was asked for."
+- id: r3f-power-reports-beta
+  description: "Giving the probability of a Type II error beta where the power, 1 - beta, was asked for."
+- id: r3f-sample-size-forgets-to-square
+  description: "Giving (z-alpha + z-beta) times sigma over delta as the sample size, without squaring."
+- id: r3f-sample-size-ignores-the-power-requirement
+  description: "Finding the sample size from the significance level alone, leaving out the z value for the required power."
+- id: r3f-sample-size-rounds-down
+  description: "Rounding the required sample size down, so the test does not quite reach the stated power."
+- id: r3f-sample-size-uses-two-tails
+  description: "Doubling the sample size, as for a two-tailed test, though the test is one-tailed."
+- id: r3f-type-one-error-assumes-five-per-cent
+  description: "Giving 0.05 as the probability of a Type I error without using the stated critical value."
+- id: r3f-type-one-error-doubled-for-a-one-tailed-test
+  description: "Doubling the tail probability for a test that is one-tailed."
+- id: r3f-type-one-error-gives-the-complement
+  description: "Giving the probability of not making a Type I error, one minus the tail probability."
+- id: r3f-type-one-error-uses-sigma-not-the-standard-error
+  description: "Dividing by the population standard deviation sigma instead of the standard deviation of the sample mean when standardising."
+tags: [round-3, statistics-probability, hypothesis-testing, type-ii-error, power, acmsm]

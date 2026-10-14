@@ -1,0 +1,84 @@
+id: permutation-binary-matrices
+name: Scramble and unscramble with permutation matrices; binary matrices of relations
+domain: matrices
+description: 'Matrices of 0s and 1s. Easy: scramble a message in blocks with a given permutation matrix, or write the binary
+  matrix of a relation on five numbers. Medium: unscramble a received message with a given permutation matrix, using that
+  its inverse is its transpose. Hard: the matrix is not given and must be found from one block before and after, then used
+  to unscramble a received message. The exam chain writes the permutation matrix, scrambles a second message, finds how many
+  scrambles restore a block and the fewest scrambles matching a long run (carried forward).'
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-multiplication
+answer: matrix
+sources:
+- topic: r3c_permutation
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_permutation
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_permutation
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_permutation_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-perm-applied-twice
+  description: Applies the permutation matrix twice, multiplying by P and then by P again, where the message was scrambled
+    (or unscrambled) once.
+- id: r3c-perm-count-slip
+  description: Is one out in counting the scrambles, giving one more or one fewer than the right number.
+- id: r3c-perm-diagonal-slip
+  description: Writes the diagonal of the relation matrix the wrong way round, leaving out the pairs where a number is related
+    to itself or adding pairs that are not.
+- id: r3c-perm-entry-slip
+  description: Gets a single entry of the answer matrix wrong while the rest of the matrix is right.
+- id: r3c-perm-inverse-is-itself
+  description: Unscrambles a message by multiplying by P again, treating P as its own inverse, when the inverse of a permutation
+    matrix is its transpose.
+- id: r3c-perm-inverse-used
+  description: Uses the transpose (the inverse) of the permutation matrix where the matrix itself was needed, so the entries
+    are rearranged the opposite way round.
+- id: r3c-perm-ones-zeros-swapped
+  description: Writes a 1 where the numbers are not related and a 0 where they are.
+- id: r3c-perm-order-is-size
+  description: Gives the size of the blocks or the sum of the cycle lengths as the number of scrambles that restores a block,
+    instead of the lowest common multiple of the cycle lengths.
+- id: r3c-perm-quotient-not-remainder
+  description: Gives the number of complete cycles as the number of extra scrambles, where the remainder after dividing by
+    the cycle length was asked for.
+- id: r3c-perm-relation-reversed
+  description: Reads the rule with the two numbers the wrong way round, so the matrix is the transpose of the one asked for.
+- id: r3c-perm-rows-swapped
+  description: Writes the right 1s in the permutation matrix but puts two of the rows in the wrong places.
+- id: r3c-perm-transposed-result
+  description: Writes the scrambled message with the blocks as rows instead of columns.
+- id: r3c-perm-unchanged
+  description: Gives the message back unchanged, as if the permutation matrix had not rearranged anything.
+- id: r3c-perm-wrong-order
+  description: Multiplies the matrices in the order M times P, which rearranges the columns of the message instead of the
+    entries of each block.
+- id: r3c-perm-wrong-positions
+  description: Places the 1s of the permutation matrix in positions that do not move the entries of the block as shown.
+tags:
+- matrices
+- permutation-matrix
+- binary-matrix
+- relation
+- coding
+- r3c_permutation
