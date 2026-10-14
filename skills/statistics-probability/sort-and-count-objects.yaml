@@ -1,0 +1,53 @@
+id: sort-and-count-objects
+name: Sort objects and compare the groups
+domain: statistics-probability
+year_level: ['F']
+naplan_domain: [statistics]
+learner_band: early
+description: "Sort a scatter of small pictures into kinds, count each kind, and compare the groups: how many of one kind, how many more, how many altogether, and the biggest and smallest groups."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [count-to-10, compare-quantities-to-10]
+answer: number
+sources:
+- topic: ey_sort_objects
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_sort_objects
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_sort_objects
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Sort and count one kind of picture."
+  medium:
+    steps: 2
+    demand: "Count two kinds, then compare them or add them."
+  hard:
+    steps: 3
+    demand: "Find the biggest and smallest groups among four kinds, then compare them, or take one kind away from the total."
+misconceptions:
+- id: eyt-counts-all-kinds
+  description: "Counts every picture instead of only the kind (or the two kinds) the question names."
+- id: eyt-other-group
+  description: "Uses the count of a different group from the one named."
+- id: eyt-count-one-over
+  description: "Counts one too many: a picture counted twice, or going one past the end."
+- id: eyt-count-one-short
+  description: "Counts one too few: a picture missed while sorting."
+- id: eyt-reports-one-group
+  description: "Gives the count of one group when asked how many more, how many fewer or how many altogether."
+- id: eyt-adds-instead-of-compares
+  description: "Adds two groups when asked how many more or how many fewer one group has than another."
+- id: eyt-wrong-group
+  description: "Compares the wrong pair of groups, such as the second biggest instead of the biggest."
+tags: [acara-f10-v9, early, ac9mfst01, data, sorting, counting, visual]

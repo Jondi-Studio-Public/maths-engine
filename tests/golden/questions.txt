@@ -490,6 +490,15 @@
 {"answer": "Left", "id": "compare-quantities-to-10/easy/0/68f8555d9106", "text": "Which side has more? ● ● ● ● ● ● ● ● | ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/1/ccb7b16b44b2", "text": "Which side has more? ● ● ● ● ● ● ● ● ● ● | ● ● ● ● ● ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/2/a997756f804c", "text": "Which side has more? ● ● ● ● ● | ● ● ● ● ●"}
+{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/0/d11221d2cd2f", "text": "Kenji checks the tally and the pictures. Which row is wrong?"}
+{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/1/d8d88efe2fe7", "text": "Freya checks the tally and the pictures. Which row is wrong?"}
+{"answer": "The fish row", "id": "compare-tally-and-picture-displays/easy/2/792566d4fb43", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "2", "id": "compare-tally-and-picture-displays/hard/0/39ae3d346a3d", "text": "Priyanka checks the cats row. How many more pictures does it need?"}
+{"answer": "1", "id": "compare-tally-and-picture-displays/hard/1/d58dbda251df", "text": "Diego checks the fish row. How many more pictures does it need?"}
+{"answer": "3", "id": "compare-tally-and-picture-displays/hard/2/551bf855ea4d", "text": "Beatrice checks the stars row. How many more pictures does it need?"}
+{"answer": "The apples row", "id": "compare-tally-and-picture-displays/medium/0/24e05baa646d", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/1/a5daca6d18ce", "text": "One row does not match. Which row is it?"}
+{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/2/d6e43e4ef4d3", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/0/000bf0a7c044", "text": "Pack A: 368 grams for $12.29. Pack B: 485 grams for $28.65. Which is the cheape…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/1/aff9c7f05855", "text": "Pack A: 946 grams for $17.49. Pack B: 347 grams for $29.16. Which is the cheape…"}
 {"answer": "Tie -- the same price per unit", "id": "compare-unit-prices/easy/2/d3a8b94a6f2d", "text": "Pack A: 717 grams for $28.19. Pack B: 2868 grams for $112.76. Which is the chea…"}
@@ -4150,6 +4159,15 @@
 {"answer": "x > 45/2", "id": "one-step-inequalities/medium/0/1a7a9e0a5f3a", "text": "Solve the inequality 2x > 45. Give your answer as an inequality in x; write any…"}
 {"answer": "n > -8/7", "id": "one-step-inequalities/medium/1/70081c69e57d", "text": "Find all values of n for which 7n > -8. Give your answer as an inequality in n;…"}
 {"answer": "n ≤ 8", "id": "one-step-inequalities/medium/2/aab749ee7d02", "text": "Solve 3n ≤ 24. Give your answer as an inequality in n; write any bound that is …"}
+{"answer": "7", "id": "one-to-one-displays/easy/0/c5e0d1acae74", "text": "Lucas counts the stars. How many are there?"}
+{"answer": "4", "id": "one-to-one-displays/easy/1/3faf3a35d16c", "text": "How many balls are there?"}
+{"answer": "6", "id": "one-to-one-displays/easy/2/7f675534bfcd", "text": "Oscar counts the flowers. How many are there?"}
+{"answer": "31", "id": "one-to-one-displays/hard/0/7cad16163246", "text": "How many are there altogether?"}
+{"answer": "15", "id": "one-to-one-displays/hard/1/c41df72ee3b8", "text": "Ava counts every row. How many altogether?"}
+{"answer": "8", "id": "one-to-one-displays/hard/2/69299dc8269a", "text": "How many fewer does the least row have than the most row?"}
+{"answer": "16", "id": "one-to-one-displays/medium/0/1572ab514b29", "text": "Amir adds the stars and the apples. How many altogether?"}
+{"answer": "7", "id": "one-to-one-displays/medium/1/246c101e5d6f", "text": "How many more dogs than cats are there?"}
+{"answer": "5", "id": "one-to-one-displays/medium/2/3fcebe43f5d8", "text": "How many more cars than dogs are there?"}
 {"answer": "3", "id": "order-numbers-to-10/easy/0/86b27988d9ea", "text": "What comes next? 0, 1, 2, __"}
 {"answer": "8", "id": "order-numbers-to-10/easy/1/5b0905f44397", "text": "What comes next? 5, 6, 7, __"}
 {"answer": "4", "id": "order-numbers-to-10/easy/2/939630ad5cc0", "text": "What comes next? 1, 2, 3, __"}
@@ -9028,6 +9046,15 @@
 {"answer": "x = 8, y = 4", "id": "solve-simultaneous-equations/medium/0/c49f9c17bb56", "text": "Solve the simultaneous equations: 3x - 2y = 16 and 5x - 3y = 28"}
 {"answer": "x = -2, y = 5", "id": "solve-simultaneous-equations/medium/1/8c1dd247d87e", "text": "Solve the simultaneous equations: -5x - 2y = 0 and 2x + 4y = 16"}
 {"answer": "x = 7, y = 8", "id": "solve-simultaneous-equations/medium/2/1b0b4b3d0b40", "text": "Solve the simultaneous equations: -4x + 3y = -4 and -x - 5y = -47"}
+{"answer": "1", "id": "sort-and-count-objects/easy/0/00b3f91a8779", "text": "Noah sorts the things. How many apples are there?"}
+{"answer": "5", "id": "sort-and-count-objects/easy/1/aeec3155c2ee", "text": "Count the cars. How many are there?"}
+{"answer": "3", "id": "sort-and-count-objects/easy/2/1d7632e97aa8", "text": "Talia sorts the things. How many stars are there?"}
+{"answer": "6", "id": "sort-and-count-objects/hard/0/78d960432b03", "text": "Liam finds the biggest group. How many are in it?"}
+{"answer": "12", "id": "sort-and-count-objects/hard/1/9c19415cec3f", "text": "Lucas puts the stars aside. How many things are left?"}
+{"answer": "3", "id": "sort-and-count-objects/hard/2/be235d3d2d02", "text": "How many fewer are in the smallest group than the biggest group?"}
+{"answer": "11", "id": "sort-and-count-objects/medium/0/ec9c217da4bc", "text": "How many cats and stars are there altogether?"}
+{"answer": "2", "id": "sort-and-count-objects/medium/1/ee67f91d4fa3", "text": "How many more flowers than apples are there?"}
+{"answer": "1", "id": "sort-and-count-objects/medium/2/220ed86d2847", "text": "How many more cats than fish are there?"}
 {"answer": "3, 4", "id": "spot-bias/easy/0/edb25c984d51", "text": "Leila surveyed the students of Banksia Secondary College on a later start to th…"}
 {"answer": "3, 4", "id": "spot-bias/easy/1/0d1a608550dc", "text": "Kofi surveyed the customers of the Gum Tree Cafe on longer evening opening hour…"}
 {"answer": "1, 4", "id": "spot-bias/easy/2/0d90d4dc3e67", "text": "Leila surveyed the students of Banksia Secondary College on a later start to th…"}
@@ -9109,6 +9136,15 @@
 {"answer": "1", "id": "subtract-within-5/easy/0/3a90d1e96246", "text": "3 - 2 = ?"}
 {"answer": "2", "id": "subtract-within-5/easy/1/408e629a3060", "text": "5 - 3 = ?"}
 {"answer": "1", "id": "subtract-within-5/easy/2/1fdd45e6c2de", "text": "1 - 0 = ?"}
+{"answer": "8", "id": "tally-tables/easy/0/9a1f30f4e078", "text": "Mateo reads the tally. How many fish?"}
+{"answer": "3", "id": "tally-tables/easy/1/86f322f5b887", "text": "How many cars are there?"}
+{"answer": "3", "id": "tally-tables/easy/2/269256a24e1f", "text": "How many cars are there?"}
+{"answer": "The apples row", "id": "tally-tables/hard/0/94f84082e261", "text": "One row of the tally is wrong. Which row is it?"}
+{"answer": "The flowers row", "id": "tally-tables/hard/1/b9e1918c756e", "text": "Diego made a tally of the things. Which row is wrong?"}
+{"answer": "The apples row", "id": "tally-tables/hard/2/c4730c55fe09", "text": "Count the things and read the tally. Which row is wrong?"}
+{"answer": "The fish row", "id": "tally-tables/medium/0/7df7d479d811", "text": "Ravi looks for the row that shows 26. Which row is it?"}
+{"answer": "The flowers row", "id": "tally-tables/medium/1/5b4ff860d0f5", "text": "Yuki looks for the row that shows 22. Which row is it?"}
+{"answer": "The cats row", "id": "tally-tables/medium/2/a204327277ff", "text": "Which row shows 8?"}
 {"answer": "7 o'clock", "id": "tell-time-to-hour/easy/0/655032ffa859", "text": "A clock hangs in the kitchen. Which time is on the clock?"}
 {"answer": "10 o'clock", "id": "tell-time-to-hour/easy/1/4a6f618fc515", "text": "Ben looks at the clock in his room. Choose the time the clock shows."}
 {"answer": "11 o'clock", "id": "tell-time-to-hour/easy/2/405d6f9de20d", "text": "Look at the clock on the wall. Choose the time the clock shows."}
