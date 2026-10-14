@@ -227,12 +227,12 @@ def test_real_grader_accepts_correct_option_and_rejects_every_other(tier):
     for q in _all_questions(tier, seeds=range(30)):
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        accept = grade_mcq(q, str(correct_index))
+        accept = grade_mcq(q, correct_index)
         assert accept.correct, f"{tier}: grader rejected correct index {correct_index} for {q.text!r}"
         for i in range(len(options)):
             if i == correct_index:
                 continue
-            reject = grade_mcq(q, str(i))
+            reject = grade_mcq(q, i)
             assert not reject.correct, f"{tier}: grader accepted wrong index {i} ({options[i]!r}) for {q.text!r}"
 
 

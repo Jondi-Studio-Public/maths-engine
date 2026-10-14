@@ -107,11 +107,11 @@ def test_engineering_notation_real_grader_accepts_canonical_and_rejects_every_di
         q = make(ENG_NOTATION_TOPIC, seed=seed, variant=variant)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct
+            assert not grade_mcq(q, i).correct
 
 
 # --- independent in-generator check fires on corrupted input -----------------

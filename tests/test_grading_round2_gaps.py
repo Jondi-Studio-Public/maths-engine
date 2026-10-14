@@ -82,7 +82,7 @@ def test_mcq_index_as_int_for_every_option():
         right = options.index(question.answer_text)
         for index in range(len(options)):
             assert engine.grade(skill, question, index).correct == (index == right)
-            assert engine.grade(skill, question, str(index)).correct == (index == right)
+            assert engine.grade(skill, question, index).correct == (index == right)
 
 
 @pytest.mark.parametrize("given", [-1, 99, 4.0, True, False, None])

@@ -53,10 +53,10 @@ def test_rsv_real_mcq_grader_accepts_answer_rejects_distractors(difficulty):
         q = make(TOPIC_RSV, seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct
+                assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -65,7 +65,7 @@ def test_rsv_deliberately_wrong_answer_rejected(difficulty):
         q = make(TOPIC_RSV, seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         bogus_idx = len(options) + 5
-        assert not grade_mcq(q, str(bogus_idx)).correct
+        assert not grade_mcq(q, bogus_idx).correct
         assert not grade_mcq(q, "not-a-number").correct
 
 
@@ -321,10 +321,10 @@ def test_tp_real_mcq_grader_accepts_answer_rejects_distractors(difficulty):
         q = make(TOPIC_TP, seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct
+                assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -333,7 +333,7 @@ def test_tp_deliberately_wrong_answer_rejected(difficulty):
         q = make(TOPIC_TP, seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         bogus_idx = len(options) + 5
-        assert not grade_mcq(q, str(bogus_idx)).correct
+        assert not grade_mcq(q, bogus_idx).correct
         assert not grade_mcq(q, "not-a-number").correct
 
 

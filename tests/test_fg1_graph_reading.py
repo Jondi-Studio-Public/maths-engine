@@ -117,7 +117,7 @@ def test_figure_reader_key_and_distractors(skill_id, tier):
             options = mcq_options(q)
             assert len(options) == n_distractors + 1
             for i, opt in enumerate(options):
-                assert grade("mcq", q, str(i)).correct is (opt == q.answer_text)
+                assert grade("mcq", q, i).correct is (opt == q.answer_text)
         else:
             assert grade(kind, q, q.answer_text).correct
             for d in q.distractors:

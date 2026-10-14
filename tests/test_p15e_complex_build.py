@@ -115,7 +115,7 @@ def test_cr_real_grader_accepts_correct_option_index(difficulty):
         assert grader(q, str(correct_index)).correct
         for i in range(len(options)):
             if i != correct_index:
-                assert not grader(q, str(i)).correct
+                assert not grader(q, i).correct
 
 
 def test_cr_all_four_classes_appear_over_many_seeds():

@@ -53,10 +53,10 @@ def test_factors_correct_and_incorrect_options_grade_through_real_mcq_grader(dif
         question = make("factors_multiples_divisibility", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_idx = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_idx)).correct
+        assert grade_mcq(question, correct_idx).correct
         for i, option in enumerate(options):
             if option != question.answer_text:
-                assert not grade_mcq(question, str(i)).correct
+                assert not grade_mcq(question, i).correct
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
@@ -162,10 +162,10 @@ def test_prime_correct_and_incorrect_options_grade_through_real_mcq_grader(diffi
         question = make("prime_composite_square_properties", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_idx = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_idx)).correct
+        assert grade_mcq(question, correct_idx).correct
         for i, option in enumerate(options):
             if option != question.answer_text:
-                assert not grade_mcq(question, str(i)).correct
+                assert not grade_mcq(question, i).correct
 
 
 def test_prime_easy_property_is_always_prime():

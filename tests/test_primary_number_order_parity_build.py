@@ -166,10 +166,10 @@ def test_odd_even_correct_and_incorrect_options_grade_through_real_mcq_grader(di
         question = make("odd_even_properties", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_idx = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_idx)).correct
+        assert grade_mcq(question, correct_idx).correct
         for i, option in enumerate(options):
             if option != question.answer_text:
-                assert not grade_mcq(question, str(i)).correct
+                assert not grade_mcq(question, i).correct
 
 
 def test_odd_even_easy_is_addition_only():

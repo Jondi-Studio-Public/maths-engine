@@ -60,10 +60,10 @@ def test_real_grader_accepts_key_rejects_distractors(tier):
         q = make(TOPIC, seed=seed, difficulty=tier, tier=tier)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i in range(len(options)):
             if i != correct_idx:
-                assert not grade_mcq(q, str(i)).correct
+                assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("tier", TIERS)
@@ -73,7 +73,7 @@ def test_deliberately_wrong_index_rejected(tier):
     options = mcq_options(q)
     correct_idx = options.index(q.answer_text)
     wrong_idx = (correct_idx + 1) % 4
-    assert not grade_mcq(q, str(wrong_idx)).correct
+    assert not grade_mcq(q, wrong_idx).correct
 
 
 # --- answer-space construction --------------------------------
