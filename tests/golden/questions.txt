@@ -5197,9 +5197,9 @@
 {"answer": "9783", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/easy/0/4fc48193f52e", "text": "A population of 4348 grows by 50% each year. Find the population after 2 years."}
 {"answer": "1331", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/easy/1/23ddd94209a4", "text": "A population of 1100 grows by 10% each year. Find the population after 2 years."}
 {"answer": "6678", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/easy/2/87887d857654", "text": "A population of 2968 grows by 50% each year. Find the population after 2 years."}
-{"answer": "(a) 30; (b) 1000; (c) 7", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/0/2323ada3d3a5", "text": "The number of fish in a dam is 1,300 after 1 year, and 2,197 after 3 years, cha…"}
-{"answer": "(a) 20; (b) 625; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/1/a848cbffcb63", "text": "The number of fish in a polluted river is 500 after 1 year, and 320 after 3 yea…"}
-{"answer": "(a) 50; (b) 328; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/2/09f1a786be9b", "text": "The number of rabbits on an island is 492 after 1 year and 1,107 after 3 years.…"}
+{"answer": "(a) 30; (b) 1000; (c) 7", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/0/23d6666fb2ea", "text": "The number of fish in a dam is 1,300 after 1 year, and 2,197 after 3 years, cha…"}
+{"answer": "(a) 20; (b) 625; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/1/5fe163d18426", "text": "The number of fish in a polluted river is 500 after 1 year, and 320 after 3 yea…"}
+{"answer": "(a) 50; (b) 328; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/2/f4060ff2e02e", "text": "The number of rabbits on an island is 492 after 1 year and 1,107 after 3 years.…"}
 {"answer": "1216", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/hard/0/a28f33975ec1", "text": "A population grew by 25% each year for 3 years and is now 2375. What was the or…"}
 {"answer": "2900", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/hard/1/207fdd077b78", "text": "A population grew by 20% each year for 2 years and is now 4176. What was the or…"}
 {"answer": "1350", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/hard/2/b5a45d360ed8", "text": "A population grew by 20% each year for 2 years and is now 1944. What was the or…"}
@@ -5353,9 +5353,9 @@
 {"answer": "4/5", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/easy/0/97b12f012532", "text": "v = (12, 16). The magnitude of v is 20. Find the coefficient of j in the unit v…"}
 {"answer": "12/13", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/easy/1/ceefe350a8ce", "text": "v = (5, 12). The magnitude of v is 13. Find the coefficient of j in the unit ve…"}
 {"answer": "4/5", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/easy/2/fca05a61346d", "text": "v = (9, 12). The magnitude of v is 15. Find the coefficient of j in the unit ve…"}
-{"answer": "(a) 25; (b) 24/25; (c) -96; (d) -95", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/0/19871fbdab7a", "text": "The points A(-6, -7) and B(1, 17) are given. The point C is such that the vecto…"}
+{"answer": "(a) 25; (b) 24/25; (c) -96; (d) -95", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/0/9afb962b6e93", "text": "The points A(-6, -7) and B(1, 17) are given. The point C is such that the vecto…"}
 {"answer": "(a) 17; (b) 8/17; (c) 32; (d) 11", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/1/9eb6da3b0ea1", "text": "The points A(-6, -3) and B(-21, 5) are given. The point C is such that the vect…"}
-{"answer": "(a) 5; (b) -4/5; (c) 12; (d) 14", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/2/1f0b3d4bbcaf", "text": "The points A(5, 8) and B(2, 4) are given. The point C is such that the vector B…"}
+{"answer": "(a) 5; (b) -4/5; (c) 12; (d) 14", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/2/2736bc40de83", "text": "The points A(5, 8) and B(2, 4) are given. The point C is such that the vector B…"}
 {"answer": "24/25", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/hard/0/3442095ccccb", "text": "v = (7, -24), with magnitude 25. The perpendicular unit vector (rotated 90 degr…"}
 {"answer": "-15/17", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/hard/1/0a9145a521bf", "text": "v = (-8, 15), with magnitude 17. The perpendicular unit vector (rotated 90 degr…"}
 {"answer": "3/5", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/hard/2/37f1bfc73868", "text": "v = (12, -16), with magnitude 20. The perpendicular unit vector (rotated 90 deg…"}
@@ -7159,8 +7159,8 @@
 {"answer": "10", "id": "senior-represent-a-scalar-multiple-of-a-vector/easy/0/a00e38c038a5", "text": "v = (5, 2). Find the y-component of 5v."}
 {"answer": "14", "id": "senior-represent-a-scalar-multiple-of-a-vector/easy/1/961b04551f9e", "text": "v = (8, 7). Find the y-component of 2v."}
 {"answer": "27", "id": "senior-represent-a-scalar-multiple-of-a-vector/easy/2/e3dbb5fb3fcb", "text": "v = (7, 9). Find the y-component of 3v."}
-{"answer": "(a) -2; (b) -4; (c) 288", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/0/0a424a4a830b", "text": "The vectors are u = (3, 1), w = (6, -14) and e = (3, -3). There is exactly one …"}
-{"answer": "(a) 3; (b) -2; (c) 52", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/1/a99015312a3f", "text": "Given u = (-3, -4), w = (-5, -6) and e = (2, 3), the vector ku - w is parallel …"}
+{"answer": "(a) -2; (b) -4; (c) 288", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/0/0b3b0f465e0b", "text": "The vectors are u = (3, 1), w = (6, -14) and e = (3, -3). There is exactly one …"}
+{"answer": "(a) 3; (b) -2; (c) 52", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/1/b86fb453faf4", "text": "Given u = (-3, -4), w = (-5, -6) and e = (2, 3), the vector ku - w is parallel …"}
 {"answer": "(a) 5; (b) 3; (c) 45", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/2/e44a32798cb2", "text": "Let u = (1, -3), w = (2, -21) and e = (1, 2). For one value of k, the vector ku…"}
 {"answer": "-7", "id": "senior-represent-a-scalar-multiple-of-a-vector/hard/0/f1da51b05307", "text": "kv = (?, -35) for k = 5. If the y-component of kv is -35, find the original vec…"}
 {"answer": "-8", "id": "senior-represent-a-scalar-multiple-of-a-vector/hard/1/242bc74bd354", "text": "kv = (?, -16) for k = 2. If the y-component of kv is -16, find the original vec…"}
@@ -8062,9 +8062,9 @@
 {"answer": "100", "id": "senior-use-first-order-linear-recurrence-relations-to-model/easy/0/82ed4ba85351", "text": "A model for the membership of a social club is u(n+1) = 0.7u(n) + 30, where u(n…"}
 {"answer": "5.0", "id": "senior-use-first-order-linear-recurrence-relations-to-model/easy/1/67bcf0e07f83", "text": "Each day, the mass of chlorine dissolved in a swimming pool follows the recurre…"}
 {"answer": "70", "id": "senior-use-first-order-linear-recurrence-relations-to-model/easy/2/8a500ed4910d", "text": "Each month, the membership of a social club follows the recurrence u(n+1) = 0.9…"}
-{"answer": "(a) 0.4; (b) 123.0; (c) 205; (d) 6", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/0/0b01dfab20e7", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
-{"answer": "(a) 0.7; (b) 66.0; (c) 220; (d) 9", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/1/c8e0911fbc45", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
-{"answer": "(a) 0.9; (b) 9.5; (c) 95; (d) 38", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/2/ed0efb155469", "text": "The mass of a pollutant in a lake follows a recurrence of the form u(n+1) = a u…"}
+{"answer": "(a) 0.4; (b) 123.0; (c) 205; (d) 6", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/0/0e9cf302f76d", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
+{"answer": "(a) 0.7; (b) 66.0; (c) 220; (d) 9", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/1/d3dabc0368e7", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
+{"answer": "(a) 0.9; (b) 9.5; (c) 95; (d) 38", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/2/cf8a5b9b9fba", "text": "The mass of a pollutant in a lake follows a recurrence of the form u(n+1) = a u…"}
 {"answer": "16.0", "id": "senior-use-first-order-linear-recurrence-relations-to-model/hard/0/f6b767cf1925", "text": "The recurrence u(n+1) = 0.5u(n) + 16 models the mass of chlorine dissolved in a…"}
 {"answer": "86.0", "id": "senior-use-first-order-linear-recurrence-relations-to-model/hard/1/d3a43b66d150", "text": "The recurrence u(n+1) = 0.5(u(n) + 43) models the amount of a drug in a patient…"}
 {"answer": "3.4", "id": "senior-use-first-order-linear-recurrence-relations-to-model/hard/2/fcf11f37994f", "text": "Each day, the mass of chlorine dissolved in a swimming pool follows the recurre…"}
@@ -10804,7 +10804,7 @@
 {"answer": "unstable node", "id": "ucv1-phase-plane-linear-classification/easy/0/d6cb41f69165", "text": "For the linear system x' = 6x, y' = 3y, classify the equilibrium at the origin."}
 {"answer": "saddle", "id": "ucv1-phase-plane-linear-classification/easy/1/d52876a98160", "text": "For the linear system x' = -x, y' = 2y, classify the equilibrium at the origin."}
 {"answer": "stable node", "id": "ucv1-phase-plane-linear-classification/easy/2/a2b8658c6f9f", "text": "For the linear system x' = -4x, y' = -y, classify the equilibrium at the origin."}
-{"answer": "(a) -7; (b) 15; (c) -11; (d) -3.5", "id": "ucv1-phase-plane-linear-classification/exam/0/63f1981c4349", "text": "The linear system x' = -4x - 3y, y' = x - 3y can be written x' = Ax for a 2-by-…"}
+{"answer": "(a) -7; (b) 15; (c) -11; (d) -3.5", "id": "ucv1-phase-plane-linear-classification/exam/0/656bf29f30c2", "text": "The linear system x' = -4x - 3y, y' = x - 3y can be written x' = Ax for a 2-by-…"}
 {"answer": "(a) 4; (b) 19; (c) -60; (d) 2.0", "id": "ucv1-phase-plane-linear-classification/exam/1/17993549ed59", "text": "The linear system x' = 2x + 5y, y' = -3x + 2y can be written x' = Ax for a 2-by…"}
 {"answer": "(a) 5; (b) -14; (c) 81; (d) 7.0", "id": "ucv1-phase-plane-linear-classification/exam/2/c6c99184a6b2", "text": "The linear system x' = 4x + 6y, y' = 3x + y can be written x' = Ax for a 2-by-2…"}
 {"answer": "stable spiral", "id": "ucv1-phase-plane-linear-classification/hard/0/b8f6980b2bd6", "text": "For the linear system x' = y, y' = -7x - 3y, classify the equilibrium at the or…"}
