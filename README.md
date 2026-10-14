@@ -185,7 +185,7 @@ unannounced (see "Seed stability" in `CONTRIBUTING.md`).
 
 **Grading.** The grader that accepts an answer lives next to the generator
 that produced it. Typed numeric answers are graded to their own stated
-precision. Fractions compare by value, so equivalent forms are accepted.
+precision. Fractions compare by value, so equivalent forms are accepted, except where the question asks for lowest terms or simplest form: there an unreduced fraction or a decimal is marked wrong.
 Expressions are compared by symbolic equivalence. Each generator's tests grade
 its own answer as correct and every distractor as wrong, for every candidate.
 `scripts/regrade_sweep.py` re-checks this across all skills and reports false

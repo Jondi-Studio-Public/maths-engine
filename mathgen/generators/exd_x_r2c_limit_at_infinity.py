@@ -50,11 +50,14 @@ def _root(a: int, b: int, c: int) -> str:
     return "√(" + join_terms([(a * a, "x^2"), (b, "x"), (c, "")]) + ")"
 
 
+_EXACT = "Give an exact answer: a fraction in simplest form, or an integer."
+
+
 def _fraction_part(prompt, value, marks, working, wrong, follow=None):
     text = rational_text(value)
     cands = [Distractor(rational_text(v), tag, exact_value(Fraction(int(v.p), int(v.q)))) for v, tag in wrong]
     part = dict(
-        prompt=prompt,
+        prompt=f"{prompt} {_EXACT}",
         answer_kind="fraction",
         answer=exact_value(Fraction(int(value.p), int(value.q))),
         answer_text=text,

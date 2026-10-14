@@ -313,7 +313,8 @@ def simple_probability(rng):
     total = favourable + other
     answer = Fraction(favourable, total)
     return _number(
-        f"A bag has {favourable} red counters and {other} blue counters. What is P(red)?",
+        f"A bag has {favourable} red {'counter' if favourable == 1 else 'counters'} and "
+        f"{other} blue {'counter' if other == 1 else 'counters'}. What is P(red)?",
         answer,
         [Fraction(other, total), Fraction(favourable, other), Fraction(1, total), total],
         working=[f"P(red) = favourable ÷ total = {favourable}/{total} = {rational_text(answer)}."],

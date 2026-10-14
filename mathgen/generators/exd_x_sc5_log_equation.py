@@ -135,7 +135,7 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=a_d,
             ),
             dict(
-                prompt="Solve for x. Only give the value that keeps both logarithms defined.",
+                prompt="Solve for x, to the nearest whole number. Only give the value that keeps both logarithms defined.",
                 answer_kind="number",
                 answer=x0,
                 answer_text=str(x0),
@@ -150,8 +150,8 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=b_d,
             ),
             dict(
-                prompt=f"Hence find the value of log_{{{b}}}(x + {p}).",
-                prompt_latex=rf"\text{{Hence find the value of }}\log_{{{b}}}(x+{p})\text{{.}}",
+                prompt=f"Hence find the value of log_{{{b}}}(x + {p}), to the nearest whole number.",
+                prompt_latex=rf"\text{{Hence find the value of }}\log_{{{b}}}(x+{p})\text{{, to the nearest whole number.}}",
                 answer_kind="number",
                 answer=i,
                 answer_text=str(i),

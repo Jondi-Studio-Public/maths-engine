@@ -146,7 +146,7 @@ def annuity_chain(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=parts_d[1],
             ),
             dict(
-                prompt=f"Find the total amount withdrawn over the {years_out} years.",
+                prompt=f"Using your answer to (b), find the total amount withdrawn over the {years_out} years.",
                 answer_kind="number",
                 answer=c,
                 answer_text=str(c),
@@ -158,7 +158,7 @@ def annuity_chain(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=parts_d[2],
             ),
             dict(
-                prompt=f"Find the interest the account earns while {name} is withdrawing.",
+                prompt=f"Using your answers to (a) and (c), find the interest the account earns while {name} is withdrawing.",
                 answer_kind="number",
                 answer=d,
                 answer_text=str(d),

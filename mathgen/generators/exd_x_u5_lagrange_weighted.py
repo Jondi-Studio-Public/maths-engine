@@ -34,12 +34,15 @@ from mathgen.core import (
 from ._exd_distinct_parts import answers_distinct, junk_safe
 
 
+_EXACT = "Give an exact answer: a fraction in simplest form, or an integer."
+
+
 def _fraction_part(prompt, value, marks, working, candidates, follow_through=None):
     """A `fraction` part whose answer is `value`; `candidates` are (misconception id or None, value) pairs."""
     text = rational_text(value)
     options = [Distractor(rational_text(v), tag, exact_value(v)) for tag, v in candidates if v != value]
     part = dict(
-        prompt=prompt,
+        prompt=f"{prompt} {_EXACT}",
         answer_kind="fraction",
         answer=exact_value(value),
         answer_text=text,
