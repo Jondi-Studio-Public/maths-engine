@@ -195,6 +195,7 @@ def _with_figure(rng, d, fig, units, slant):
         pool = _SLANT_PHRASES if slant else _UNITS_PHRASES if units else _PLAIN_PHRASES
         d["figure"] = fig
         d["text"] = rng.choice(pool).format(name=names, a=_AREA_UNITS[unit])
+        d["working"] = [line.replace("cm²", _AREA_UNITS[unit]) for line in d["working"]]  # the question's own unit
         d["latex"] = latex_prompt(d["text"])
     return d
 

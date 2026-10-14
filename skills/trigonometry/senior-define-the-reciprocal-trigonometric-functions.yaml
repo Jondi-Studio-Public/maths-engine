@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-the-reciprocal-trigonometric-functions
+name: Define the reciprocal trigonometric functions and find their exact values
+domain: trigonometry
+year_level: ['11']
+description: Find the exact value of sec, cosec or cot at a standard angle, using sec = 1/cos, cosec = 1/sin and
+  cot = cos/sin, in degrees in the first quadrant, in degrees in the other quadrants, and in radians for angles that
+  must first be reduced.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-recognise-the-exact-values-of-cos-theta-sin
+answer: expression
+sources:
+- topic: salg_reciprocal_trig_values
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: salg_reciprocal_trig_values
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: salg_reciprocal_trig_values
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: salg_exam_reciprocal_trig_values
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: recip-not-taken
+  description: Gives the value of cos, sin or tan where sec, cosec or cot was asked for, forgetting the reciprocal.
+- id: recip-sec-cosec-swapped
+  description: Takes sec as the reciprocal of sine, or cosec as the reciprocal of cosine.
+- id: recip-cot-as-tan
+  description: Reads cot as tan, giving sin/cos where cos/sin was asked for.
+- id: recip-cot-as-cosec
+  description: Confuses cot with cosec, taking cot as the reciprocal of sine.
+- id: trig-sign-wrong-quadrant
+  description: Gives a negative value where the function is positive in the angle's quadrant.
+- id: trig-quadrant-sign-ignored
+  description: Gives the value of the reference angle without the negative sign the quadrant requires.
+- id: trig-wrong-reference-angle
+  description: Uses the complement of the reference angle, so 30 degrees and 60 degrees are exchanged.
+- id: trig-sin-cos-swapped
+  description: Gives cos where sin was asked for, or the reverse.
+- id: recip-reciprocal-given
+  description: Gives the reciprocal function's value, sec for cos or cosec for sin.
+difficulty_progression: Easy asks for sec, cosec or cot of 30, 45 or 60 degrees, so the work is one reciprocal of a
+  known ratio. Medium moves the angle into the other three quadrants, so the sign has to be decided as well. Hard uses
+  radians for angles that are negative or more than a full turn, so the angle is reduced to a standard angle before
+  the quadrant is found. The exam chain finds sin and cos at an angle outside the first quadrant, then builds cosec
+  and cot from them.
+tags: [acara-v8-4, trigonometry, reciprocal-trigonometric-functions, ACMSM045, ACMSM043]

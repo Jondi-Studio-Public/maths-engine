@@ -58,9 +58,9 @@ def _build(rng: random.Random):
         f"{setting.format(N=N, D=D)} An inspector chooses {n} {noun} at random, without replacement. "
         f"{rng.choice(_RULES).format(unit=unit)}"
     )
-    p1 = "Find the probability that the sample contains no faulty items."
-    p2 = "Find the probability that the sample contains exactly one faulty item."
-    p3 = f"Hence find the probability that the {unit} is rejected."
+    p1 = "Find the probability that the sample contains no faulty items, as a fraction in simplest form."
+    p2 = "Find the probability that the sample contains exactly one faulty item, as a fraction in simplest form."
+    p3 = f"Hence find the probability that the {unit} is rejected, as a fraction in simplest form."
     if not keys_clear(" ".join([stem, p1, p2, p3]), [a, b, c]):
         return None
 

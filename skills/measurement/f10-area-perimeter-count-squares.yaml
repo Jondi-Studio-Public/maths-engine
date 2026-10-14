@@ -1,0 +1,79 @@
+id: f10-area-perimeter-count-squares
+name: Find area and perimeter of an irregular shape on a grid
+domain: measurement
+year_level:
+- '4'
+naplan_domain:
+- measurement
+description: Find the area of an irregular shape drawn on a square grid by counting whole squares and pairing half squares,
+  and its perimeter by counting the sides of squares around it, for squares of 1 cm and for squares of a stated side in metres.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- rectangle-area
+- rectangle-perimeter
+answer: number
+sources:
+- topic: fr2c_grid_area_perimeter
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_grid_area_perimeter
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_grid_area_perimeter
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Count the whole squares inside the shape.
+  medium:
+    steps: 2
+    demand: Count whole squares and pair the half squares; or follow the edge of a notched shape counting each side.
+  hard:
+    steps: 3
+    demand: As the medium tier, then scale by the side of a square (squared for area, once for perimeter).
+misconceptions:
+- id: fr2c-counted-the-bounding-rectangle
+  description: Counting every square in the rectangle that surrounds the shape, including squares that are not shaded.
+- id: fr2c-count-off-by-one
+  description: Being one out when counting units or steps.
+- id: perimeter-for-area
+  description: Adding the sides of a rectangle where its area was asked for.
+- id: fr2c-perimeter-of-bounding-rectangle
+  description: Finding the perimeter of the rectangle around the shape, which misses the length of the notches.
+- id: area-for-perimeter
+  description: Multiplying the sides of a rectangle where its perimeter was asked for.
+- id: fr2c-boundary-squares-counted
+  description: Counting the squares along the edge of the shape instead of the sides of the squares that make up the edge.
+- id: fr2c-part-squares-counted-whole
+  description: Counting each half square as a whole square.
+- id: fr2c-part-squares-ignored
+  description: Leaving out the half squares and counting only the whole squares.
+- id: fr2c-perimeter-missed-inner-edges
+  description: Leaving out some of the sides that face into a notch when counting around the shape.
+- id: fr2c-perimeter-scaled-as-area
+  description: Multiplying a perimeter by the square of the scale, as if it were an area.
+tags:
+- acara-f10-v9
+- primary
+- measurement
+- area
+- perimeter
+- grid
+- figure
+- ac9m4m02

@@ -1,0 +1,66 @@
+id: ucv1-alternating-series-error
+name: Bound and use the error of an alternating series partial sum
+domain: functions-sequences
+year_level: [university]
+description: Use the alternating series estimation theorem to bound the error of a partial sum, find how many terms give
+  a stated accuracy, and bracket the sum of the series.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-understand-the-limiting-behaviour-as-n-rightarrow-infty
+answer: fraction
+sources:
+- topic: fy1so_alternating_series
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1so_alternating_series
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1so_alternating_series
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1so_exd_alternating_series
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: alt-error-halved
+  description: Halving the first dropped term to get the alternating-series error bound.
+- id: alt-error-last-term-used
+  description: Bounding the alternating-series error by the last term kept, b_N, instead of the first term dropped, b_(N+1).
+- id: alt-error-term-after-next
+  description: Bounding the alternating-series error by b_(N+2), skipping the first dropped term.
+- id: alt-error-two-terms-added
+  description: Adding the next two terms, b_(N+1) + b_(N+2), as the error bound.
+- id: alt-interval-bound-not-applied
+  description: Reporting the partial sum as the end of the interval without applying the bound.
+- id: alt-interval-bound-subtracted-the-wrong-way
+  description: Applying the error bound in the wrong direction when bracketing the sum.
+- id: alt-interval-wrong-end
+  description: Taking the partial sum plus the bound as the lower end of the interval.
+- id: alt-partial-sum-sign-pattern
+  description: Using the wrong sign pattern when forming an alternating partial sum.
+- id: alt-partial-sum-wrong-count
+  description: Summing the wrong number of terms of the alternating series.
+- id: alt-terms-off-by-one
+  description: Counting the terms needed one too many for the tolerance.
+- id: alt-terms-uses-last-term
+  description: Requiring b_N below the tolerance rather than b_(N+1), so one term too few.
+- id: alt-tolerance-misread
+  description: Misreading the tolerance as a different power of ten when finding the number of terms.
+tags:
+- first-year-university
+- functions-sequences
+- alternating-series

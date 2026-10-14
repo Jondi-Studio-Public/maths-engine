@@ -1,0 +1,82 @@
+id: f10-capacity-mass-informal-units
+name: Compare and total capacity and mass in informal units
+domain: measurement
+year_level:
+- '2'
+naplan_domain:
+- measurement
+description: 'Compare and combine capacities counted in cups or scoops and masses balanced against blocks or marbles: how
+  many more, how many altogether, how many are still needed to fill a container, and, with a big unit that is several small
+  ones, the count in the smaller unit.'
+status: active
+placement_eligible: false
+prerequisites:
+- f10-compare-order-measure-attributes
+answer: number
+sources:
+- topic: fr2c_informal_capacity_mass
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_informal_capacity_mass
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_informal_capacity_mass
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: One comparison or one total of two counts of the same unit.
+  medium:
+    steps: 2
+    demand: 'Two steps with one unit: add what was used, then take it from the whole; or find one count from a ''more than''
+      and then total.'
+  hard:
+    steps: 3
+    demand: Change big units to small ones, then compare or add on the leftover small units.
+misconceptions:
+- id: fr2c-subtracted-for-total
+  description: Subtracting the two counts when the total of both was asked for.
+- id: fr2c-reports-the-larger-count
+  description: Giving the larger of the two counts instead of working out the question that was asked.
+- id: fr2c-count-off-by-one
+  description: Being one out when counting units or steps.
+- id: added-instead-of-subtracted
+  description: Adding the two quantities where their difference was asked for.
+- id: fr2c-reports-the-smaller-count
+  description: Giving the smaller of the two counts instead of the difference.
+- id: fr2c-took-away-one-item-only
+  description: Taking away only one of the two items being compared with the larger one.
+- id: fr2c-reports-the-amount-poured
+  description: Giving the amount already used or measured instead of the amount still needed or the difference.
+- id: fr2c-second-count-taken-as-given
+  description: Treating "some more than" as the new count itself, and adding it without first adding the extra to the first
+    count.
+- id: fr2c-took-away-one-pour-only
+  description: Taking away only one of the amounts already used, so part of what was used is still counted as left.
+- id: fr2c-first-count-doubled
+  description: Doubling the first count and leaving out the extra that the second item has.
+- id: fr2c-mixed-unit-sizes
+  description: Combining counts of units that are different sizes without first changing them to the same unit.
+- id: fr2c-big-unit-counted-as-small
+  description: Counting a big unit as one small unit, or leaving out the part left over once the big units are changed to
+    small ones.
+tags:
+- acara-f10-v9
+- primary
+- measurement
+- capacity
+- mass
+- informal-units
+- ac9m2m01

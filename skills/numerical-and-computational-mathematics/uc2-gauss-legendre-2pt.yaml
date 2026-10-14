@@ -1,0 +1,81 @@
+id: uc2-gauss-legendre-2pt
+name: Apply two-point Gauss-Legendre quadrature
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Approximate a definite integral by the two-point Gauss-Legendre rule on [-1, 1] or on a general interval, and
+  compare the result with the exact value.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+- composite-trapezoidal-polynomial
+answer: fraction
+sources:
+- topic: r4b_gauss_legendre
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_gauss_legendre
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_gauss_legendre
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_gauss_legendre
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-gauss-nodes-at-plus-minus-one-third
+  description: Placing the nodes at plus and minus one third of the half-width instead of at plus and minus the half-width
+    over root three.
+- id: num2-gauss-one-point-rule-used
+  description: Using the one-point Gauss rule, the midpoint rule, in place of the two-point rule.
+- id: num2-gauss-exact-integral-given
+  description: Integrating the function exactly when the two-point rule is asked for.
+- id: num2-gauss-weights-halved
+  description: Using weights of 1/2 at each node on [-1, 1] instead of weights of 1.
+- id: num2-gauss-nodes-not-mapped-to-the-interval
+  description: Using the nodes plus and minus 1/sqrt(3) directly on [a, b] instead of mapping them to m plus and minus h/sqrt(3)
+    for the interval.
+- id: num2-gauss-interval-scale-factor-dropped
+  description: Leaving out the factor (b - a)/2 that scales the weights from [-1, 1] to the interval [a, b].
+- id: num2-gauss-endpoints-used
+  description: Evaluating the function at the endpoints of the interval, giving the trapezoidal rule, instead of at the
+    Gauss nodes.
+- id: num2-gauss-rule-value-for-error
+  description: Giving the value of the rule where the error or the exact value is asked for.
+- id: num2-gauss-error-sign
+  description: Giving the signed error when the absolute error is asked for.
+- id: num2-gauss-error-as-sum
+  description: Adding the rule value and the exact value instead of taking their difference to find the error.
+- id: num2-gauss-relative-error-not-as-percentage
+  description: Giving the relative error as a fraction of one without multiplying by 100 for a percentage.
+- id: num2-gauss-relative-error-against-one
+  description: Multiplying the error by 100 without dividing by the exact value.
+- id: num2-gauss-relative-error-against-the-rule
+  description: Dividing the error by the rule value instead of by the exact value when finding the relative error.
+difficulty_progression: Easy applies the rule to a quartic on [-1, 1], where the nodes are plus and minus 1/√3. Medium moves
+  to [a, b], so the nodes and weights must be mapped onto the interval first. Hard uses a rational integrand, so the function
+  values at the irrational nodes are surds that combine to a fraction. The exam chain gives the rule value, the exact integral,
+  the absolute error and the relative error as a percentage.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- quadrature
+- gauss-legendre
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

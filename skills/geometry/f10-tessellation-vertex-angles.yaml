@@ -1,0 +1,51 @@
+id: f10-tessellation-vertex-angles
+name: Use interior angles to see how regular polygons fit round a point
+domain: geometry
+year_level: ['6']
+naplan_domain: [space]
+description: Find the interior angle of a regular polygon, how many fit round a point, the number of sides of a regular polygon that completes a vertex of a tiling, and the gap left when polygons that do not tile are placed round a point.
+status: active
+placement_eligible: false
+prerequisites: [f10-polygon-angle-sums]
+answer: number
+sources:
+- topic: fr2a_tessellation_vertex
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2a_tessellation_vertex
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2a_tessellation_vertex
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: fr2a-360-over-interior
+  description: Dividing 360 by the interior angle to find the number of sides, where 360 is divided by the exterior angle.
+- id: fr2a-angle-for-count
+  description: Giving the size of the interior angle as the number of polygons that fit round a point.
+- id: fr2a-angle-for-sides
+  description: Giving the missing angle as the number of sides of the polygon that has it.
+- id: fr2a-angle-sum-for-one-angle
+  description: Giving the angle sum of the whole polygon as the size of one interior angle.
+- id: fr2a-angles-total-for-gap
+  description: Giving the total of the angles that are filled as the size of the gap.
+- id: fr2a-count-off-by-one
+  description: Finishing one more or one fewer than the count.
+- id: fr2a-exterior-for-interior
+  description: Giving the exterior angle of a regular polygon where its interior angle was asked.
+- id: fr2a-one-angle-taken-for-all
+  description: Taking away one interior angle from 360 degrees instead of all of them to find the gap.
+- id: fr2a-reflex-for-interior
+  description: Giving 360 degrees minus the interior angle, the angle outside the corner, as the interior angle.
+- id: fr2a-shared-angle-not-split
+  description: Using the whole remaining angle as the interior angle of one of several identical polygons without sharing it between them.
+- id: fr2a-sides-for-count
+  description: Giving the number of sides of the polygon as the number that fit round a point.
+- id: fr2a-straight-angle-over-sides
+  description: Dividing 180 degrees by the number of sides to get an interior angle.
+- id: fr2a-straight-line-for-point
+  description: Using 180 degrees, the angles on a straight line, instead of 360 degrees round a point.
+tags: [acara-f10-v9, geometry, tessellation, regular-polygons, angles, ac9m6sp03]

@@ -1,0 +1,64 @@
+id: f10-spatial-algorithm-choose-test
+name: Order constructions and complete congruence tests
+domain: geometry
+year_level: ['7', '8', '9', '10']
+naplan_domain: [space]
+description: Choose the correct order for the steps of a compass-and-ruler construction, or choose the one extra fact that
+  completes a named congruence test (SAS or RHS).
+status: active
+placement_eligible: false
+prerequisites:
+- f10-congruence-similarity-criteria
+- f10-geometric-construction-algorithm
+answer: mcq
+sources:
+- topic: fr2e_spatial_algorithm
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2e_spatial_algorithm
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2e_spatial_algorithm
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2e_spatial_algorithm
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2e-spatial-two-steps-swapped
+  description: Swapping two neighbouring steps of a construction, so a step uses something not yet drawn.
+- id: fr2e-spatial-angle-not-between-the-sides
+  description: Treating two equal sides and an angle that is not between them as enough to show triangles congruent.
+- id: fr2e-spatial-fact-completes-a-different-test
+  description: Choosing a fact that would prove the triangles congruent by a different test from the one asked for.
+- id: fr2e-spatial-leg-given-for-hypotenuse
+  description: Offering the other leg of a right-angled triangle where the hypotenuse is needed.
+difficulty_progression: 'Easy chooses the correct order for the four steps of a short construction, each of which uses what
+  the one before drew. Medium does the same for five-step constructions that carry measurements, such as a triangle from
+  two sides and the angle between them or a regular hexagon in a circle. Hard names a congruence test (SAS or RHS)
+  and two facts already known, and asks which one extra fact completes it, where the tempting wrong facts give an angle
+  that is not between the sides or complete a different test. The exam chain works one right-angled triangle: its hypotenuse,
+  the extra fact for the RHS test, the perimeter of the matching triangle, and the steps for constructing it.'
+tags:
+- acara-f10-v9
+- geometry
+- constructions
+- congruence
+- algorithms
+- ac9m7sp04
+- ac9m8sp04
+- ac9m9sp03
+- ac9m10sp03

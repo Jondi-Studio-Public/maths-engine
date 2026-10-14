@@ -1,0 +1,81 @@
+id: f10-growing-visual-patterns
+name: Continue a growing pattern of matchstick figures and find a rule
+domain: functions-sequences
+year_level:
+- '6'
+naplan_domain:
+- algebra
+description: 'Figures 1 to 3 of a pattern built from matchsticks are drawn: find the number of matchsticks in a later figure,
+  find the largest figure a stated number of matchsticks will make, and, in the exam chain, write the rule in n and use it
+  twice.'
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- common-difference
+- generate-sequence-from-rule
+answer: number
+sources:
+- topic: fr2c_growing_patterns
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_growing_patterns
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_growing_patterns
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fr2c_growing_patterns_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: See how many sticks each figure adds and carry on to the next figure.
+  medium:
+    steps: 2
+    demand: Build the rule from the three figures and use it for a figure too far away to draw.
+  hard:
+    steps: 3
+    demand: Build the rule, then work backwards from the number of sticks, allowing for the sticks left over.
+  exam:
+    steps: 4
+    demand: Extend, write the rule, use it forwards and use it backwards.
+misconceptions:
+- id: fr2c-added-one-each-time
+  description: Adding 1 to the count each time instead of the number of sticks that each figure really adds.
+- id: fr2c-multiplied-the-first-figure
+  description: Multiplying the count in Figure 1 by the figure number, as if the pattern started from nothing.
+- id: fr2c-rule-without-constant
+  description: Using only the number added each time as the rule, and leaving out what is needed to match Figure 1.
+- id: fr2c-added-the-first-figure-again
+  description: Adding the count in Figure 1 to the count in Figure 3 instead of the amount added each time.
+- id: fr2c-figure-number-off-by-one
+  description: Using the figure number one more or one fewer than the one asked for.
+- id: fr2c-leftover-rounded-up
+  description: Rounding up when the sticks that are left over are not enough to make the next figure.
+- id: fr2c-rule-constant-taken-as-first-figure
+  description: Adding the count in Figure 1 to the rule instead of the constant that makes the rule fit Figure 1.
+tags:
+- acara-f10-v9
+- primary
+- patterns
+- growing-patterns
+- linear-rule
+- figure
+- ac9m6a01

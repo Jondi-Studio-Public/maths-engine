@@ -148,7 +148,8 @@ def exd_x_r2c_limit_removable(rng, tier: str = "exam"):
     )
     inter_text = rational_text(intercept)
     part_d = dict(
-        prompt="Find the x-coordinate of the point where the graph of y = f(x) crosses the x-axis.",
+        prompt="Find the x-coordinate of the point where the graph of y = f(x) crosses the x-axis. "
+        "Give an exact answer: a fraction in simplest form, or an integer.",
         answer_kind="fraction",
         answer=exact_value(Fraction(int(intercept.p), int(intercept.q))),
         answer_text=inter_text,

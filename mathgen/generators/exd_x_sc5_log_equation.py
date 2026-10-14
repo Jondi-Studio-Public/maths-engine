@@ -81,6 +81,9 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
         Distractor(str(b * n), "wrong-exponential-conversion", b * n),
         Distractor(str(n**b), "wrong-exponential-conversion", n**b),
         Distractor(str(b + n), "wrong-exponential-conversion", b + n),
+        # Used only when the slips above coincide with N (b = n = 2 makes b*n, n**b and b + n all 4).
+        Distractor(str(b ** (n + 1)), "off-by-one-exponent", b ** (n + 1)),
+        Distractor(str(b ** (n - 1)), "off-by-one-exponent", b ** (n - 1)),
     ]
     b_cands = [
         Distractor(str(other_val), "kept-the-invalid-root", other_val),
@@ -135,7 +138,7 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=a_d,
             ),
             dict(
-                prompt="Solve for x. Only give the value that keeps both logarithms defined.",
+                prompt="Solve for x, to the nearest whole number. Only give the value that keeps both logarithms defined.",
                 answer_kind="number",
                 answer=x0,
                 answer_text=str(x0),
@@ -150,8 +153,8 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=b_d,
             ),
             dict(
-                prompt=f"Hence find the value of log_{{{b}}}(x + {p}).",
-                prompt_latex=rf"\text{{Hence find the value of }}\log_{{{b}}}(x+{p})\text{{.}}",
+                prompt=f"Hence find the value of log_{{{b}}}(x + {p}), to the nearest whole number.",
+                prompt_latex=rf"\text{{Hence find the value of }}\log_{{{b}}}(x+{p})\text{{, to the nearest whole number.}}",
                 answer_kind="number",
                 answer=i,
                 answer_text=str(i),

@@ -33,6 +33,17 @@ Each question's id (below) tells you when the question behind it has changed.
 - **Source keys.** A skill source may carry an optional `key` (lower-case words joined by hyphens). It defaults
   to the source's `difficulty` label and is needed only when two sources of one skill share a difficulty.
   `Source.effective_key` reports the name in use, and `engine.pick_source` accepts a key. (#53)
+- **HTTP API and exports.** `python -m mathgen.server` (install the `server` extra) serves the engine over HTTP
+  with `learner` and `author` keys; `mathgen.service` returns skills, questions, worksheets and grading as plain
+  JSON-ready data; `mathgen.export` builds printable papers and Moodle XML and QTI 2.1 banks; `mathgen.svg` draws
+  every figure kind as SVG. A `Dockerfile` and `compose.example.yaml` run it. See `docs/server.md`. (#71, in #81)
+- **MCP server.** `mathgen-mcp` (install the `mcp` extra) serves the engine to AI agents over the Model Context
+  Protocol: find skills, make and mark questions, build worksheets and LMS banks. In the `learner` role no tool
+  returns an answer. See `docs/mcp.md`. (#81)
+- **Agent Plugins.** `plugins/maths-engine-tutor` (learner role) and `plugins/maths-engine-teacher` (author role)
+  package the server with skills for tutoring, worksheets and LMS export, following the Agent Plugins spec, and
+  `.claude-plugin/marketplace.json` lists both for Claude Code. They install `maths-engine[mcp]==0.2.0` from PyPI.
+  (#81)
 - **About 210 new skills**, from early years to second-year university:
   - Years 5 to 10: nets, plan views, scale plans, maps, experimental probability and three modelling skills
     (#75), and 45 F-10 and early-years skills (#91).
@@ -71,6 +82,7 @@ Each question's id (below) tells you when the question behind it has changed.
 
 - A multi-part reply of `0` (the first option's index, or an answer of zero) was read as an empty box and earned
   no marks. (#88)
+- Four exam generators failed on a few seeds when a slip coincided with the answer; they now draw again. (#97)
 - Marking and stem defects found by an audit of the exam chains and university skills: a correct reply with the
   unit written out (`100 s`) or as an exact fraction could score nothing, a wrong unit could score full marks,
   a reply that was not text raised instead of being marked wrong, and several stems used a rounded earlier

@@ -259,9 +259,12 @@ def test_p3b_measurement_units_a_skill_contracts_load_with_expected_shape():
     assert length_skill.placement_eligible is False
     assert length_skill.status == "active"
     assert length_skill.learner_band == "general"
-    assert [source.difficulty for source in length_skill.sources] == ["easy", "medium", "hard"]
-    assert {source.topic for source in length_skill.sources} == {LENGTH_TOPIC}
-    assert [source.stages for source in length_skill.sources] == [[6], [6], [6, "maintenance"]]
+    # The three practice tiers, then the multi-part exam chain added later.
+    practice = [source for source in length_skill.sources if source.difficulty != "exam"]
+    assert [source.difficulty for source in practice] == ["easy", "medium", "hard"]
+    assert {source.topic for source in practice} == {LENGTH_TOPIC}
+    assert [source.stages for source in practice] == [[6], [6], [6, "maintenance"]]
+    assert [source.difficulty for source in length_skill.sources][-1] == "exam"
 
     # Area skill
     assert area_skill.prerequisites == [

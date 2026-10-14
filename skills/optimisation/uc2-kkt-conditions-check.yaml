@@ -1,0 +1,103 @@
+id: uc2-kkt-conditions-check
+name: Apply the KKT conditions
+domain: optimisation
+year_level:
+- university
+description: 'Use the Karush-Kuhn-Tucker conditions on an inequality-constrained problem: solve stationarity for the multipliers
+  at an active point, and find a constrained minimiser.'
+status: active
+placement_eligible: false
+prerequisites:
+- lagrange-constrained-point
+- ucv1-convexity-hessian-sign
+answer: fraction
+sources:
+- topic: r4h_kkt_conditions
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_kkt_conditions
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_kkt_conditions
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_kkt_conditions
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-kkt-gradient-sign
+  description: Setting ∇f = λ∇g instead of ∇f + λ∇g = 0, so the multiplier has the wrong sign.
+- id: num2t-kkt-gradient-not-doubled
+  description: Differentiating (x − a)² as (x − a), dropping the factor 2, when forming ∇f.
+- id: num2t-kkt-one-component
+  description: Using the ratio from one component of the gradient equation without checking the other.
+- id: num2t-kkt-constraint-value
+  description: Giving the value of the constraint function or its right-hand side as the multiplier.
+- id: num2t-kkt-gradient-of-g-forgotten
+  description: Dividing the gradient of f by the constraint's coefficients without matching components.
+- id: num2t-kkt-multipliers-swapped
+  description: Swapping the multipliers of the two constraints.
+- id: num2t-kkt-single-constraint
+  description: Solving with only one of the two active constraints.
+- id: num2t-kkt-system-sign
+  description: Solving ∇f = λ₁∇g₁ + λ₂∇g₂ with the sign of ∇f reversed.
+- id: num2t-kkt-system-transposed
+  description: Setting up the two equations with the gradients' components in the wrong columns.
+- id: num2t-kkt-circle-not-doubled
+  description: Taking ∇g = (x, y) for g = x² + y² − r², dropping the factor 2, so λ comes out twice too large.
+- id: num2t-kkt-radius-squared
+  description: Using r² where r belongs in the formula for the multiplier.
+- id: num2t-kkt-norm-squared
+  description: Using the squared length of the objective gradient instead of its length.
+- id: num2t-kkt-circle-point-unscaled
+  description: Taking the boundary point as the objective gradient itself rather than scaled to the circle.
+- id: num2t-kkt-lambda-sum-form
+  description: Using (a + b)/(2r) in place of √(a² + b²)/(2r) for the multiplier.
+- id: num2t-kkt-lambda-uses-unconstrained
+  description: Giving the amount by which the unconstrained minimum violates the constraint, not divided by the gradient's
+    squared length.
+- id: num2t-kkt-lambda-weights-ignored
+  description: Ignoring the weights on the squares when solving for the multiplier.
+- id: num2t-kkt-lambda-plain-length
+  description: Dividing the violation by the length of the constraint gradient rather than its square.
+- id: num2t-kkt-coordinate-sign
+  description: Moving from the unconstrained minimum in the direction of the constraint gradient instead of against it.
+- id: num2t-kkt-coordinate-unscaled
+  description: Moving from the unconstrained minimum by λ times the constraint coefficient without dividing by twice the weight.
+- id: num2t-kkt-coordinate-unconstrained
+  description: Giving the unconstrained minimiser's coordinate instead of the constrained one.
+- id: num2t-kkt-coordinate-other
+  description: Giving the other coordinate of the constrained minimiser.
+- id: num2t-kkt-value-unconstrained
+  description: Giving the value at the unconstrained minimiser, which is zero or the objective's constant.
+- id: num2t-kkt-value-unweighted
+  description: Leaving out the weights on the squares when evaluating the objective.
+- id: num2t-kkt-value-lambda-squared
+  description: Giving λ² in place of the objective's value at the minimiser.
+- id: num2t-kkt-value-not-squared
+  description: Forgetting to square the distances when evaluating the objective.
+difficulty_progression: Easy solves stationarity for the single multiplier at a stated boundary point, where a negative answer
+  shows the point is not a KKT point. Medium has two active constraints, so the multipliers solve a 2x2 system. Hard has a
+  circular constraint and a linear objective, so the learner must locate the boundary point as well as the multiplier. The
+  exam chain asks for the multiplier, then the minimiser's coordinates from the learner's multiplier, then the minimum value.
+tags:
+- university-year-2
+- optimisation
+- kkt-conditions
+- constrained-optimisation
+- optimisation
+framework_areas:
+- optimisation

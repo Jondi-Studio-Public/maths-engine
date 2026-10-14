@@ -154,6 +154,10 @@ does that translation for you.
 | `mathgen/` | The package: `core.py` shared helpers, `figures.py`, `slots.py`, `engine.py`, `skills.py` loader and validator |
 | `mathgen/generators/` | The question generators, one decorated function each |
 | `mathgen/grading/` | Typed-answer graders: number, fraction, expression, list, multiple choice and others |
+| `mathgen/service.py` | Skills, questions, worksheets and grading as plain JSON, for services and exports |
+| `mathgen/export.py`, `mathgen/svg.py` | Print worksheets and answer keys, Moodle XML and QTI banks; figures as SVG |
+| `mathgen/server/` | The HTTP API (`pip install "maths-engine[server]"`, `python -m mathgen.server`); see `docs/server.md` |
+| `mathgen/mcp_server.py` | The MCP server for AI agents (`mathgen-mcp`); see `docs/mcp.md` |
 | `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
 | `skills/<domain>/<id>.yaml` | One skill definition per file |
 | `scripts/` | Speed check, regrade sweep and other build tooling |
@@ -161,6 +165,18 @@ does that translation for you.
 
 Generator file names carry historical batch prefixes (such as `p19h_`). They
 are identifiers, not categories.
+
+## Over HTTP, for schools and other services
+
+`docs/server.md` describes an HTTP API and a Docker image (`Dockerfile`, `compose.example.yaml`): search skills
+by year or ACARA code, generate questions, build worksheets and tests in versions with answer keys, export them
+for print, Moodle or QTI, and grade replies by question id. It stores nothing, so a school can run its own copy.
+Keep author keys on the server side only, and read the keys, privacy and upgrade notes in `docs/server.md` before exposing it.
+
+## For AI agents
+
+`docs/mcp.md` describes an MCP server (`mathgen-mcp`), and `plugins/` holds two Agent Plugins built on it: a tutor that
+never sees answers and a teacher plugin for worksheets, answer keys and Moodle or QTI banks. See `plugins/README.md`.
 
 ## How determinism and grading work
 
@@ -185,7 +201,7 @@ unannounced (see "Seed stability" in `CONTRIBUTING.md`).
 
 **Grading.** The grader that accepts an answer lives next to the generator
 that produced it. Typed numeric answers are graded to their own stated
-precision. Fractions compare by value, so equivalent forms are accepted.
+precision. Fractions compare by value, so equivalent forms are accepted, except where the question asks for lowest terms or simplest form: there an unreduced fraction or a decimal is marked wrong.
 Expressions are compared by symbolic equivalence. Each generator's tests grade
 its own answer as correct and every distractor as wrong, for every candidate.
 `scripts/regrade_sweep.py` re-checks this across all skills and reports false
@@ -234,8 +250,9 @@ data and reads no clock; the application stores state and passes times in.
 
 The public API is what [`docs/api.md`](https://github.com/Jondi-Studio-Public/maths-engine/blob/main/docs/api.md)
 lists: the names `mathgen` exports, `mathgen.engine`, and the entry points of `mathgen.skills`, `mathgen.grading`
-and `mathgen.scheduling`, the helpers in `mathgen.core` for writing generators, and the `mathgen` command. Anything
-else, and any name that starts with `_`, is internal and may change in any release.
+and `mathgen.scheduling`, the helpers in `mathgen.core` for writing generators, the entry points of
+`mathgen.service`, `mathgen.export` and `mathgen.svg`, and the `mathgen` and `mathgen-mcp` commands. Anything else,
+and any name that starts with `_`, is internal and may change in any release.
 
 Releases follow [Semantic Versioning](https://semver.org). Until 1.0, a minor release (0.2 to 0.3) may change the
 public API, and [`CHANGELOG.md`](https://github.com/Jondi-Studio-Public/maths-engine/blob/main/CHANGELOG.md) says

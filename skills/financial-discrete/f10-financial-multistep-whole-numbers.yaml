@@ -1,0 +1,63 @@
+id: f10-financial-multistep-whole-numbers
+name: Money problems with several steps
+domain: financial-discrete
+year_level: ['3', '4']
+naplan_domain: [number]
+description: Work out a total, a change, a share or a number of weeks in a whole-dollar story that takes two to four steps,
+  carrying each result into the next.
+status: active
+placement_eligible: false
+prerequisites:
+- money-change
+- f10-additive-multiplicative-money-model
+answer: number
+sources:
+- topic: fr2e_money_multistep
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2e_money_multistep
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2e_money_multistep
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2e_money_multistep
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2e-money-count-not-multiplied
+  description: Using the price of one item, or the number of items, where the cost of all of them was needed.
+- id: fr2e-money-part-week-dropped
+  description: Dividing and ignoring the remainder, so the last part-week is not counted and the goal is not yet reached.
+- id: fr2e-money-saved-amount-ignored
+  description: Dividing the whole price by the weekly saving, forgetting the money already saved.
+- id: reported-total-not-change
+  description: Giving the total cost where the change was asked.
+- id: fr2e-money-deposit-ignored
+  description: Sharing the whole price into payments without taking off the deposit.
+difficulty_progression: 'Easy buys several equal items and finds the change, which takes two operations the stem does not
+  name. Medium takes three steps: an order of two kinds of item with a voucher taken off, a bill shared equally, or change
+  when only whole notes are used. Hard is a saving or lay-by plan, where the last part-week still counts as a week or a
+  deposit comes off before the payments are shared. The exam chain follows one order: the total, the change from a note,
+  the whole weeks to afford a game from that change, and the money left over.'
+tags:
+- acara-f10-v9
+- financial-discrete
+- money
+- multi-step
+- modelling
+- ac9m3n06
+- ac9m4n08

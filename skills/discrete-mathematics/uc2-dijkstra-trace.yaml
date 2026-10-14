@@ -1,0 +1,80 @@
+id: uc2-dijkstra-trace
+name: Tracing Dijkstra's algorithm
+domain: discrete-mathematics
+year_level:
+- university
+description: Run Dijkstra's algorithm by hand on a small weighted graph and list the vertices in the order they are finalised,
+  with a stated alphabetical tie rule. The exam chain also finds a shortest distance, the unique shortest route and a cost
+  at a rate per kilometre.
+status: active
+placement_eligible: false
+prerequisites:
+- shortest-network-path
+- senior-use-minimal-spanning-trees-to-solve-minimal-connector
+answer: ordered_list
+sources:
+- topic: r4j_dijkstra_trace
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4j_dijkstra_trace
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4j_dijkstra_trace
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4j_dijkstra_trace
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: dijkstra-alphabetical-order
+  description: Listing the vertices in alphabetical order rather than the order they are finalised.
+- id: dijkstra-distance-to-wrong-vertex
+  description: Reading the final distance of a different vertex from the table than the one asked for.
+- id: dijkstra-fewest-edges-order
+  description: Ordering the vertices by the number of edges from the source instead of by shortest distance.
+- id: dijkstra-fewest-edges-path
+  description: Taking the route with the fewest edges, or its length, as the shortest route.
+- id: dijkstra-labels-not-updated
+  description: Never lowering a vertex's tentative distance after it is first set, so a shorter route found later is ignored.
+- id: dijkstra-last-edge-omitted
+  description: Giving the distance to the vertex before the target on the route, leaving out the last edge.
+- id: dijkstra-nearest-neighbour-walk
+  description: Moving always to the nearest neighbour of the vertex just visited instead of choosing the smallest tentative
+    distance over the whole graph.
+- id: dijkstra-order-read-as-path
+  description: Giving the vertices finalised up to the target, in order, as the route to it.
+- id: dijkstra-rate-added-not-multiplied
+  description: Adding the rate to the distance instead of multiplying them to find a cost.
+- id: dijkstra-rate-applied-per-edge
+  description: Charging the rate once per edge of the route instead of per unit of length.
+- id: dijkstra-rate-ignored
+  description: Giving the distance as the cost and leaving out the rate per unit of length.
+- id: dijkstra-tie-rule-reversed
+  description: Finalising the later label instead of the earlier one when two vertices tie for the smallest tentative distance.
+- id: path-direction-reversed
+  description: Listing the vertices of a path from the finish back to the start when asked to start at the first vertex.
+difficulty_progression: Easy traces six vertices with all distances different. Medium has seven vertices, a tie that the alphabetical
+  rule decides and labels that are lowered after they are first set. Hard uses a directed graph on eight vertices, a source
+  other than A and a vertex that cannot be reached. The exam chain gives the order, the distance to the last vertex finalised,
+  the route to it and a cost that follows through from the distance.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- graph-algorithms
+- dijkstra
+- shortest-path
+- weighted-graphs

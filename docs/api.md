@@ -8,10 +8,10 @@ generator or a skill, see [CONTRIBUTING.md](../CONTRIBUTING.md) and `mathgen/REA
 
 Public means: the names `mathgen/__init__.py` exports (`__all__`), and the names listed on this page in
 `mathgen.engine`, `mathgen.skills`, `mathgen.grading`, `mathgen.scheduling` (`stages`, `prerequisites`, `review`,
-`fsrs`, `calibration`), `mathgen.core` (the helpers for writing generators) and the few names in
-`mathgen.answers` and `mathgen.figures` that generator authors use. Everything else, and every name starting
-with `_`, is internal and may change in any release. Before 1.0 a minor release may change the public API (see
-[CHANGELOG.md](../CHANGELOG.md)).
+`fsrs`, `calibration`), `mathgen.core` (the helpers for writing generators), the entry points of `mathgen.service`,
+`mathgen.export` and `mathgen.svg` and the few names in `mathgen.answers` and `mathgen.figures` that generator
+authors use. Everything else, and every name starting with `_`, is internal and may change in any release. Before
+1.0 a minor release may change the public API (see [CHANGELOG.md](../CHANGELOG.md)).
 
 Importing `mathgen` imports every generator module, which takes about two seconds. Python 3.12 or newer.
 
@@ -246,3 +246,16 @@ Two read-only measurements over plain row dicts you supply.
 |---|---|
 | `item_difficulty(attempt_rows, skills, min_attempts=20) -> dict` | Rasch difficulty per `(skill, tier)` from rows with `user_id`, `skill_id`, `difficulty`, `correct`. `skills` maps id to `Skill`. Returns `skills`, `items`, `inversions` (tiers answered right more often than an earlier tier), `learners`, `attempts`. |
 | `fsrs_calibration(log_rows, bins=10) -> dict` | Predicted against observed recall from rows with `retrievability` (`None` is skipped) and `rating` (1 means forgot). Returns `reviews`, `log_loss`, `rmse_bins`, `mean_predicted`, `observed`, `bins`. |
+
+## Services, exports and figures
+
+These modules build on `engine` for platforms that serve questions to people. Their guides have the details:
+[server.md](server.md) for the HTTP API and [mcp.md](mcp.md) for the MCP server.
+
+| Module | Entry points |
+|---|---|
+| `mathgen.service` | `Library.load(root=None, extra_roots=None, *, id_secret=None)`, then `find_skills`, `make_questions`, `question_by_id`, `build_paper` and `grade_reply`. Everything returned is JSON-ready, answers are left out unless asked for (`answers=True`), and grading rebuilds the question from its id. Raises `service.NotFound` and `service.BadRequest`. |
+| `mathgen.export` | `paper_html(paper, *, version=None, key=False) -> str` (printable A4 HTML), `paper_moodle_xml(paper, *, version="A") -> str`, `paper_qti21_zip(paper, *, version="A") -> bytes`, each taking a paper from `service.build_paper`. |
+| `mathgen.svg` | `figure_svg(spec, *, width=400) -> str` draws a figure spec as a standalone SVG with its alt text as the title; `rendered_kinds()` lists the figure kinds it draws. |
+| `mathgen.server` | The HTTP API: `pip install "maths-engine[server]"`, then `python -m mathgen.server`. |
+| `mathgen.mcp_server` | The MCP server: `pip install "maths-engine[mcp]"`, then `mathgen-mcp`. |

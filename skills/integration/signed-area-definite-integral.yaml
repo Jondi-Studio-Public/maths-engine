@@ -1,0 +1,88 @@
+id: signed-area-definite-integral
+name: Find definite integrals and total areas from the areas above and below the axis
+domain: integration
+year_level: ['12']
+description: Given the areas of the regions between a graph and the x-axis, find the value of a definite integral (regions
+  below the axis count as negative), the total area, an unknown region from the integral and total together, and the integral
+  of k f(x) + m.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+- senior-calculate-the-area-between-curves-in-simple-cases
+answer: number
+sources:
+- topic: sr2b_signed_area
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_signed_area
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_signed_area
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_signed_area
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-total-area-for-integral
+  description: Adding all the areas when the definite integral was asked for, so a region below the axis is counted as positive.
+- id: sr2b-signed-area-sign-reversed
+  description: Giving the right size of the definite integral with the wrong sign.
+- id: sr2b-one-region-only
+  description: Giving the signed area of a single region instead of combining the regions in the interval.
+- id: sr2b-sign-pattern-wrong
+  description: Using the wrong signs for the regions, as if a region above the axis lay below it or the other way round.
+- id: sr2b-region-left-out
+  description: Leaving one of the regions out when combining the areas.
+- id: sr2b-integral-for-total-area
+  description: Giving the definite integral when the total area was asked for, so the region below the axis is subtracted
+    instead of added.
+- id: sr2b-wrong-interval
+  description: Giving the integral over the whole graph when an integral over part of it was asked for.
+- id: sr2b-regions-swapped
+  description: Giving the area of the other unknown region.
+- id: sr2b-integral-for-area
+  description: Giving the value of a definite integral when the area of a region was asked for, so a region below the axis
+    is subtracted.
+- id: sr2b-two-regions-combined
+  description: Giving the combined area of the two unknown regions as the area of one of them.
+- id: sr2b-regions-assumed-equal
+  description: Assuming the two unknown regions have equal areas and halving their total.
+- id: sr2b-signed-and-total-mixed
+  description: Mixing the value of the integral and the total area when solving for an unknown region, using one where the
+    other belongs.
+- id: sr2b-constant-not-integrated-over-width
+  description: Integrating a constant term over an interval as if the constant were simply added, without multiplying by
+    the width of the interval.
+- id: sr2b-constant-term-dropped
+  description: Integrating only the multiple of f(x) and leaving out the integral of the constant term.
+- id: sr2b-scale-factor-dropped
+  description: Integrating the constant term and f(x) but not multiplying the integral of f(x) by its coefficient.
+- id: sr2b-constant-sign-reversed
+  description: Subtracting the integral of a positive constant, or adding that of a negative one, so the constant term has
+    the wrong sign.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Subtract the area below the axis from the area above it for a graph that crosses once.
+  medium:
+    steps: 3
+    demand: Choose between the integral, the total area and the integral over part of the interval for three regions.
+  hard:
+    steps: 4
+    demand: Solve two equations for an unknown region from the integral and the total area, or integrate k f(x) + m with
+      the constant taken over the width.
+  exam:
+    steps: 5
+    demand: Chain the integral over two regions, over all three, the total area and the integral of k f(x) + m.
+tags:
+- acara-senior-v8-4
+- integration
+- definite-integral
+- signed-area
+- ACMMM127

@@ -6,13 +6,14 @@ assumption makes a probability. Both chains here end in the same classification,
 
 Bernoulli chain: a batch of N items, K of them successes; the first m items are examined and set aside and are all
 successes; one more is drawn. (a) the starting probability K/N, (b) the probability for the next draw (K-m)/(N-m),
-(c) the percentage fall from (a) to (b), (d) whether the starting probability can still be used as a fixed Bernoulli
+(c) the percentage fall from (a) to (b), (d) the margin t% minus that fall (the deciding value, a follow-through from
+(c) whose sign settles the verdict), (e) whether the starting probability can still be used as a fixed Bernoulli
 parameter, under an acceptance rule stated in the question (the fall is under t%).
 
 Binomial chain: n items are drawn one after another without replacement from N with K successes. (a) the probability
 that all n are successes if the draws are treated as independent, p^n, (b) the exact probability without
-replacement, (c) the percentage by which the independent model overstates it, (d) whether a binomial model is
-reasonable, under a stated rule (overstatement under t%).
+replacement, (c) the percentage by which the independent model overstates it, (d) the margin t% minus that overstatement (a
+follow-through from (c)), (e) whether a binomial model is reasonable, under a stated rule (overstatement under t%).
 
 Every key is an exact rational built from N, K, m (or n); the rounded percentage is the only rounded key, and it is
 taken from the exact fractions, which the follow-through reproduces. Draws are rejected when the percentage sits
@@ -36,6 +37,8 @@ _CONTEXTS = (
     ("A crate holds {N} apples, {K} of which are bruised.", "apple", "apples", "bruised"),
     ("A depot holds {N} parcels, {K} of which are marked fragile.", "parcel", "parcels", "fragile"),
 )
+_EXACT = "Give an exact answer: a fraction in simplest form."
+
 _BERNOULLI_THRESHOLDS = (1, 2, 5)
 _BINOMIAL_THRESHOLDS = (2, 5, 10)
 
@@ -132,7 +135,12 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
         a = Fraction(K, N)
         b = Fraction(K - j, N - m)
         fall = (a - b) / a * 100
-        if abs(fall - t) < Fraction(3, 10) or not clear_of_boundary(fall, 1) or (fall < t) != want_suited:
+        if (
+            abs(fall - t) < Fraction(3, 10)
+            or not clear_of_boundary(fall, 1)
+            or (fall < t) != want_suited
+            or _junk(fall, t)
+        ):
             continue
         break
     sentence, item, plural, adj = rng.choice(_CONTEXTS)
@@ -146,7 +154,7 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
     suited = fall < t
 
     pa = fraction_part(
-        f"Find the probability that {_article(item)} {item} chosen at random from the whole collection is {adj}.",
+        f"Find the probability that {_article(item)} {item} chosen at random from the whole collection is {adj}. {_EXACT}",
         a,
         1,
         [f"P(success) = {K}/{N} = {rational_text(a)}."],
@@ -159,7 +167,7 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
         sensible_range=(0, 1),
     )
     pb = fraction_part(
-        f"Find the probability that the next {item} is {adj}, given that {j} of the {m} already removed were {adj}.",
+        f"Find the probability that the next {item} is {adj}, given that {j} of the {m} already removed were {adj}. {_EXACT}",
         b,
         2,
         [f"Now {K - j} of the {N - m} remaining are {adj}: {K - j}/{N - m} = {rational_text(b)}."],
@@ -194,14 +202,17 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
     else:
         key, wrongs = NOT_SUITED, [(SUITED, "ignored-removal-effect")]
         why = f"The probability falls by {pct}%, which is not under {t}%, so a fixed probability is not reasonable."
-    pd = word_part(
-        "Is a Bernoulli model with the original success probability suited to this selection? Answer yes or no.",
+    pd = _margin_part(t, fall, "fall", "Bernoulli")
+    pe = word_part(
+        "Hence, is a Bernoulli model with the original success probability suited to this selection? Answer yes or no.",
         key,
         wrongs,
         1,
         [why],
     )
-    return dict(text=stem, parts=[pa, pb, pc, pd])
+    if pd is None:
+        return None
+    return dict(text=stem, parts=[pa, pb, pc, pd, pe])
 
 
 def _build_k_binomial_suitability(rng: random.Random) -> dict | None:
@@ -217,7 +228,12 @@ def _build_k_binomial_suitability(rng: random.Random) -> dict | None:
         for i in range(n):
             b *= Fraction(K - i, N - i)
         over = (a - b) / b * 100
-        if abs(over - t) < Fraction(3, 10) or not clear_of_boundary(over, 1) or (over < t) != want_suited:
+        if (
+            abs(over - t) < Fraction(3, 10)
+            or not clear_of_boundary(over, 1)
+            or (over < t) != want_suited
+            or _junk(over, t)
+        ):
             continue
         break
     sentence, item, plural, adj = rng.choice(_CONTEXTS)
@@ -231,7 +247,7 @@ def _build_k_binomial_suitability(rng: random.Random) -> dict | None:
 
     pa = fraction_part(
         f"Treating the {n} draws as independent, each with the same probability, find the probability that {_all(n)} "
-        f"{plural} in the sample are {adj}.",
+        f"{plural} in the sample are {adj}. {_EXACT}",
         a,
         1,
         [f"p = {K}/{N} = {rational_text(p)}; P(X = {n}) = p^{n} = {rational_text(a)}."],
@@ -280,8 +296,43 @@ def _build_k_binomial_suitability(rng: random.Random) -> dict | None:
     else:
         key, wrongs = NOT_SUITED, [(SUITED, "ignored-removal-effect")]
         why = f"The overstatement is {pct}%, which is not under {t}%, so the binomial model is not reasonable."
-    pd = word_part("Is a binomial model suited to X? Answer yes or no.", key, wrongs, 1, [why])
-    return dict(text=stem, parts=[pa, pb, pc, pd])
+    pd = _margin_part(t, over, "overstatement", "binomial")
+    pe = word_part("Hence, is a binomial model suited to X? Answer yes or no.", key, wrongs, 1, [why])
+    if pd is None:
+        return None
+    return dict(text=stem, parts=[pa, pb, pc, pd, pe])
+
+
+def _junk(measure: Fraction, t: int) -> bool:
+    """True when the rounded percentage or its margin is a whole number a learner could type as a blind guess."""
+    shown = rd(measure, 1)
+    return shown in _GUESSES or (t - shown) in _GUESSES
+
+
+_GUESSES = (0, 1, 2, -1)
+
+
+def _margin_part(t: int, measure: Fraction, name: str, model: str) -> dict | None:
+    """The deciding value: how far the percentage in (c) sits below the stated limit (negative when it is over).
+
+    It follows through from (c), so a learner whose (c) is wrong still earns it for the subtraction, and the verdict
+    that comes next can no longer be a bare guess: the sign of this value is the verdict."""
+    value = t - rd(measure, 1)
+    return number_part(
+        f"The {model} model is accepted when the {name} is under {t}%. Find {t}% minus your answer to (c), "
+        "in percentage points, correct to 1 decimal place. A negative value means the limit is exceeded.",
+        value,
+        1,
+        2,
+        [f"{t} - {tx(measure, 1)} = {tx(value, 1)} percentage points."],
+        [
+            (-value, "sign-error-moving-term"),
+            (t + rd(measure, 1), "sign-error-moving-term"),
+            (t - rd(measure, 1) - 1, None),
+        ],
+        follow_through=f"{t} - part_c",
+        sensible_range=(-1000, 1000),
+    )
 
 
 def _prod(K: int, N: int, n: int, shrink_successes: bool = True, shrink_total: bool = True) -> Fraction:

@@ -1,0 +1,96 @@
+id: ucv1-undetermined-coefficients
+name: Find a particular solution by undetermined coefficients
+domain: ordinary-differential-equations
+year_level: [university]
+description: Find a particular solution of y'' + by' + cy = g(x) for exponential, polynomial, trigonometric and resonant
+  forcing, and use it to solve an initial value problem.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-second-order-characteristic-roots
+answer: expression
+sources:
+- topic: fy1so_ode_undetermined
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1so_ode_undetermined
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1so_ode_undetermined
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1so_exd_ode_undetermined
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode3-characteristic-polynomial-differentiated
+  description: Dividing by the derivative of the characteristic polynomial, 2k + b, instead of its value at k.
+- id: ode3-coefficient-not-divided
+  description: Giving the forcing coefficient as the coefficient of the particular solution, without dividing by the characteristic
+    polynomial's value.
+- id: ode3-constant-term-dropped
+  description: Dropping the constant term of the particular solution.
+- id: ode3-constant-term-slip
+  description: An arithmetic slip in the constant term of the particular solution.
+- id: ode3-constants-swapped
+  description: Swapping the roles of the two homogeneous constants, so each belongs to the wrong exponential.
+- id: ode3-derivative-ic-particular-dropped
+  description: Leaving the particular solution's derivative out of the condition on y'(0).
+- id: ode3-derivative-order-ignored
+  description: Treating y' and y'' as y when substituting, so the characteristic polynomial becomes k^2 + b + c.
+- id: ode3-derivative-terms-dropped
+  description: Dropping the y' (and y'') terms when matching coefficients, so only c times the trial solution is compared.
+- id: ode3-eval-exponent-sign
+  description: Evaluating the particular term with the sign of its exponent flipped.
+- id: ode3-eval-exponential-dropped
+  description: Treating every exponential factor as 1 when evaluating the solution.
+- id: ode3-eval-particular-dropped
+  description: Dropping the particular term when evaluating the solution.
+- id: ode3-eval-point-wrong
+  description: Evaluating the solution at x = 1 rather than the requested x.
+- id: ode3-factor-two-mishandled
+  description: Mishandling the factor of 2 produced by differentiating a repeated or resonant trial solution.
+- id: ode3-first-derivative-dropped
+  description: Leaving the y' contribution out when matching the coefficient of x.
+- id: ode3-ic-ignores-particular
+  description: Fixing the constants from the initial conditions without allowing for the particular solution's value and
+    slope.
+- id: ode3-resonance-derivative-incomplete
+  description: Dividing by 2r instead of 2r + b when the trial solution is x e^(rx).
+- id: ode3-resonance-factor-x-missing
+  description: Trying A e^(rx) when e^(rx) already solves the homogeneous equation, so the factor x is missing.
+- id: ode3-resonance-order-too-high
+  description: Multiplying the trial solution by x more times than the multiplicity of the root.
+- id: ode3-resonance-order-too-low
+  description: Multiplying by x only once when the root is repeated.
+- id: ode3-second-derivative-dropped
+  description: Leaving the y'' contribution (2a) out of the constant-term equation.
+- id: ode3-sign-error
+  description: A sign error when solving for the coefficients.
+- id: ode3-sign-in-characteristic-polynomial
+  description: Substituting k^2 + bk - c instead of k^2 + bk + c for the characteristic polynomial.
+- id: ode3-trig-coefficients-swapped
+  description: Swapping the cosine and sine coefficients of the particular solution.
+- id: ode3-trig-partner-confused
+  description: Using x cos(wx) instead of x sin(wx) as the resonant trial solution's partner.
+- id: ode3-trig-partner-missed
+  description: Taking only a cosine term, missing the sine term that the first derivative forces.
+- id: ode3-wrong-root-used
+  description: Using the other characteristic root in the resonant trial solution.
+tags:
+- first-year-university
+- ordinary-differential-equations
+- undetermined-coefficients

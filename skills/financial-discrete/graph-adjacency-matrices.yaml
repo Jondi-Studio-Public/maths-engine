@@ -1,0 +1,49 @@
+id: graph-adjacency-matrices
+name: Use adjacency matrices to describe a network and count walks
+domain: financial-discrete
+description: >-
+  The adjacency matrix of a network has a 1 where two vertices are joined and a 0 otherwise. Read degrees and the number
+  of edges from one, and count walks of length 2 and 3 with its powers. easy reads a degree or the edge count from a stated
+  matrix, or counts the 1s in the matrix of a stated network; medium counts the walks of length 2 between two vertices
+  (an entry of the matrix squared); hard counts walks of length 3 between two vertices, or all the walks of length 2 from one
+  vertex; exam is a four-part chain on a stated network whose first part writes the adjacency matrix itself, followed by walks
+  of length 2 from one vertex. The answers are whole numbers, and in the exam chain also a matrix.
+status: active
+placement_eligible: false
+prerequisites: [graph-vertex-degrees-handshaking]
+answer: number
+sources:
+- topic: snet_adjacency
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: snet_adjacency
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: snet_adjacency
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: snet_adjacency_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: net-adjacency-sum-as-edges
+  description: Takes the sum of all the entries of an adjacency matrix as the number of edges, forgetting each edge appears twice.
+- id: net-adjacency-walk-length-confused
+  description: Reads the entry of the matrix itself (walks of length 1) where walks of length 2 or 3 were asked for.
+- id: net-adjacency-squared-entrywise
+  description: Squares (or cubes) each entry instead of multiplying the matrix by itself.
+- id: net-adjacency-row-column-added
+  description: Adds the row and the column together instead of multiplying them term by term and adding.
+- id: net-adjacency-diagonal-ones
+  description: Writes 1s on the diagonal of an adjacency matrix, as if each vertex were joined to itself.
+- id: net-adjacency-one-entry-per-edge
+  description: Puts a 1 for each edge in one place only, when the matrix is symmetric.
+difficulty_progression: Easy reads the matrix, or counts its 1s, with no multiplication. Medium needs a matrix product, one
+  row against one column. Hard goes to three steps, or to a whole row of the product, where the shortcut of adding the
+  neighbours' degrees is a new idea. The exam chain writes the matrix, then counts the walks from one vertex, separates those
+  that return to it, and subtracts, each part using the structure of the matrix squared.
+tags: [graph-theory, networks, adjacency-matrix, matrix-powers]

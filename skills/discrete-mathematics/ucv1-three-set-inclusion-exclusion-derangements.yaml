@@ -1,0 +1,93 @@
+id: ucv1-three-set-inclusion-exclusion-derangements
+name: Three-set inclusion-exclusion and derangements
+domain: discrete-mathematics
+year_level:
+- university
+description: Use inclusion-exclusion for three sets, including finding a missing overlap, the number in none or in exactly
+  two of the sets, divisibility counts and derangements, with and without forbidden positions.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-inclusion-exclusion-two-sets
+- combinations
+answer: number
+sources:
+- topic: u2_three_set_ie
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_three_set_ie
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_three_set_ie
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_three_set_ie
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: derange-at-least-k-fixed
+  description: Counting arrangements with at least k fixed points by leaving the rest unrestricted, instead of exactly k.
+- id: derange-choose-fixed-forgotten
+  description: Counting the derangements of the remaining objects but forgetting to choose which ones keep their own place.
+- id: derange-first-not-fixed-only
+  description: Forbidding only one object from its own place, or counting arrangements as (n - 1)!, instead of forbidding
+    all of them.
+- id: derange-truncated-sum
+  description: Stopping the inclusion-exclusion sum for derangements after only a few terms.
+- id: derange-wrong-remaining
+  description: Applying the derangement count to the wrong number of objects, or multiplying the wrong factors together.
+- id: inex3-exactly-one-keeps-overlaps
+  description: Finding the number in exactly one set without removing all the overlaps correctly, so some students are still
+    counted twice.
+- id: inex3-exactly-two-keeps-triple
+  description: Reading a pairwise intersection as the number in exactly those two sets, although it includes those in all
+    three.
+- id: inex3-forgot-overlaps
+  description: Using the sum of the set sizes as the union, ignoring every overlap.
+- id: inex3-forgot-singles
+  description: Leaving the three set sizes out of the three-set formula.
+- id: inex3-forgot-triple
+  description: Subtracting the pairwise intersections but never adding the triple intersection back.
+- id: inex3-pairs-added
+  description: Adding the pairwise intersections instead of subtracting them in the three-set formula.
+- id: inex3-product-not-lcm
+  description: Using the product of two divisors instead of their least common multiple when divisors share a factor.
+- id: inex3-sign-reversed
+  description: Reversing the signs of the inclusion-exclusion formula, so the missing intersection comes out negative.
+- id: inex3-union-not-complement
+  description: Giving the number in at least one set where the number in none, or the reverse, was asked.
+- id: surj-count-no-add-back
+  description: Subtracting the functions that miss one target but not adding back the ones that miss two, so some functions
+    are removed twice.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Rearrange the three-set formula to find the missing triple intersection from the union and the six other counts.
+  medium:
+    steps: 3
+    demand: Find the union with the triple intersection added back, then take the complement, or remove the triple intersection
+      three times to isolate exactly two sets; or count derangements of 4 to 6 objects.
+  hard:
+    steps: 4
+    demand: Count integers divisible by none of three numbers using least common multiples, permutations with exactly k
+      fixed points, or permutations with several forbidden places.
+  exam:
+    steps: 5
+    demand: Use inclusion-exclusion on a three-subject survey to find the triple overlap, the numbers taking exactly one and exactly two subjects, then count the derangements of the exactly-two group.
+tags:
+- university-core-v1
+- discrete-mathematics
+- inclusion-exclusion

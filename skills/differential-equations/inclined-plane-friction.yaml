@@ -1,0 +1,75 @@
+id: inclined-plane-friction
+name: Solve problems on a rough inclined plane
+domain: differential-equations
+description: Resolve the weight on a slope, then use the coefficient of friction to find a normal reaction, a friction
+  force, a limiting coefficient, or the acceleration of a block sliding down.
+status: active
+placement_eligible: false
+prerequisites:
+- newtons-second-law-resultant-force
+answer: number
+sources:
+- topic: smech_inclined_plane
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: smech_inclined_plane
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: smech_inclined_plane
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: smech_inclined_plane_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mech-cos-used-as-mu
+  description: Taking the coefficient of friction on the point of slipping to be cos θ.
+- id: mech-forgot-divide-by-mass
+  description: Reporting the resultant force in newtons where the acceleration was asked, without dividing by the
+    mass.
+- id: mech-forgot-g
+  description: Multiplying the coefficient of friction by the mass and leaving out g.
+- id: mech-forgot-half-in-kinematics
+  description: Dropping the one half in s = ½at² when finding the acceleration from a distance and a time.
+- id: mech-forgot-square-on-time
+  description: Using t where t² is needed in s = ½at².
+- id: mech-friction-direction-reversed
+  description: Adding the friction force to the driving weight, as if friction helped the motion.
+- id: mech-friction-without-coefficient
+  description: Giving the normal reaction as the friction force, leaving out the coefficient of friction.
+- id: mech-ignored-friction
+  description: Leaving the friction force out of the equation of motion.
+- id: mech-ignored-weight-component
+  description: Leaving the weight component along the slope out of the forces on the block.
+- id: mech-limiting-friction-assumed
+  description: Giving the greatest friction μR for a block that is at rest, when the friction actually acting only
+    balances the weight component along the slope.
+- id: mech-sin-cos-swapped
+  description: Using sin where cos belongs (or the reverse) when resolving the weight along and perpendicular to
+    a slope.
+- id: mech-sin-used-as-mu
+  description: Taking the coefficient of friction on the point of slipping to be sin θ.
+- id: mech-speed-used-as-distance
+  description: Reporting the speed after t seconds (at) as the distance travelled.
+- id: mech-tan-inverted
+  description: Giving the coefficient of friction as cos θ / sin θ instead of sin θ / cos θ.
+- id: mech-weight-not-resolved
+  description: Using the whole weight mg where a component of it is needed, as if the plane were horizontal or vertical.
+tags:
+- mechanics
+- inclined-plane
+- friction
+- specialist-unit-4

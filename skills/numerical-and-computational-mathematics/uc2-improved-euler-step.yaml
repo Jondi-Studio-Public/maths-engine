@@ -1,0 +1,84 @@
+id: uc2-improved-euler-step
+name: Take an improved Euler (Heun) step
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Approximate the solution of a first-order differential equation by one or two steps of the improved Euler (Heun)
+  predictor-corrector method.
+status: active
+placement_eligible: false
+prerequisites:
+- explicit-euler-linear-ode
+answer: number
+sources:
+- topic: r4h_improved_euler_step
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_improved_euler_step
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_improved_euler_step
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_improved_euler_step
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-heun-euler-step-only
+  description: Stopping at the predictor y + h f(x, y) and reporting it as the next value.
+- id: num2t-heun-corrector-slope-at-start
+  description: Evaluating the second slope at the starting y-value instead of at the predicted value.
+- id: num2t-heun-average-not-halved
+  description: Adding the two slopes without halving them, y + h(k₁ + k₂).
+- id: num2t-heun-end-slope-only
+  description: Stepping with the slope at the predicted end point alone, y + h k₂.
+- id: num2t-heun-midpoint-method
+  description: Using the slope at the midpoint (the midpoint method) in place of the average of the end slopes.
+- id: num2t-heun-second-slope-x-not-advanced
+  description: Evaluating the second slope at the starting x instead of x + h.
+- id: num2t-heun-stopped-after-one-step
+  description: Reporting the value after the first step when two steps were asked for.
+- id: num2t-heun-slope-step-size-dropped
+  description: Adding the average slope to y without multiplying by the step size.
+- id: num2t-heun-predictor-half-step
+  description: Predicting with a half step, y + (h/2)k₁, instead of a full step.
+- id: num2t-heun-first-slope-at-end
+  description: Evaluating the first slope at x + h instead of at the starting point.
+- id: num2t-heun-first-slope-initial-value
+  description: Giving the initial y-value where the first slope is asked for.
+- id: num2t-heun-predictor-slope-not-multiplied
+  description: Giving the slope k₁ where the predicted value is asked for, without stepping.
+- id: num2t-heun-predictor-uses-y-only
+  description: Predicting the next value as y + h, forgetting to multiply the step by the slope.
+- id: num2t-heun-second-slope-at-original-y
+  description: Evaluating the second slope at the original y-value instead of the predicted value.
+- id: num2t-heun-second-slope-copies-first
+  description: Repeating the first slope as the second slope.
+- id: num2t-heun-second-slope-corrected-value
+  description: Evaluating the second slope at the new corrected value of y rather than the predicted one.
+difficulty_progression: Easy takes one step for a right-hand side that is linear in x and y. Medium takes one step for a nonlinear
+  right-hand side, where the corrector slope depends on the predicted value. Hard takes two steps, so the second step starts
+  from an inexact value. The exam chain asks for the first slope, the Euler predictor, the slope at the predicted point and
+  the corrected value, each built on the learner's previous reply.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- improved-euler
+- heun
+- ode-numerical
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

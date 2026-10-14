@@ -46,8 +46,9 @@ def _poly_text(a_symbol: bool, a_value: int, m: int, n: int) -> str:
 
 
 def _small(value: Fraction) -> bool:
-    """A wrong answer worth offering: a whole number, or a fraction with a small denominator."""
-    return value.denominator <= 4 and abs(value) <= 200
+    """A wrong answer worth offering: a whole number. Every key here is an integer and the stem says that `a` is
+    one, so a fractional option such as 15/2 is ruled out on sight and teaches nothing."""
+    return value.denominator == 1 and abs(value) <= 200
 
 
 def _dist(value: Fraction, tag: str):
@@ -115,6 +116,8 @@ def exd_x_sc1_poly_remainder_unknown(rng, tier="exam"):
         (Fraction(R + n - c * m - c**3, c2), "sign-error-moving-term"),
         (Fraction(R - n - c * m, c2), "dropped-a-term"),
         (Fraction(R - n - c**3, c2), "dropped-a-term"),
+        (Fraction(lead), "forgot-to-divide-by-coefficient"),
+        (Fraction(-a), "sign-reversed-result"),
     ]
     q1 = a + c
     b_cands = [

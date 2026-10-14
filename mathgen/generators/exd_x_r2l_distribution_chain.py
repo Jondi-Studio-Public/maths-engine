@@ -151,6 +151,12 @@ def _build(rng: random.Random) -> dict:
         if r.denominator != 1
         else f"({xs[j]}*part_a - {int(r)})/{xs[j] - xs[i]}"
     )
+    # Each frequency over the total; the two unknowns are the learner's own (b) and (c), so a slip there carries.
+    ft_d = (
+        "("
+        + ", ".join(f"part_b/{n}" if t == i else f"part_c/{n}" if t == j else f"{freqs[t]}/{n}" for t in range(_VALUES))
+        + ")"
+    )
     parts = [
         dict(
             prompt="Use the total number of observations to find m + k.",
@@ -196,6 +202,8 @@ def _build(rng: random.Random) -> dict:
                 f"of x, IN INCREASING ORDER OF x (x = {xs_text}), each as a fraction in lowest terms."
             ),
             answer_kind="ordered_list",
+            follow_through=ft_d,
+            sensible_range=(0, 1),
             answer=list(probs),
             answer_text=d_text,
             answer_latex=d_text,

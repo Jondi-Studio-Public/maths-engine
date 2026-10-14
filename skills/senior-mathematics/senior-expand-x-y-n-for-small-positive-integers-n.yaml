@@ -1,0 +1,61 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-expand-x-y-n-for-small-positive-integers-n
+name: Expand (x + y)^n for small positive integers n
+domain: senior-mathematics
+year_level: ['11']
+description: Expand a power of a binomial for a small positive integer n, using the row of Pascal's triangle for the
+  coefficients, in letters, with a number as the second term, and with a coefficient on the first term as well.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-pascal-s-triangle-and-its-properties
+answer: expression
+sources:
+- topic: salg_binomial_expand
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: salg_binomial_expand
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: salg_binomial_expand
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: salg_exam_binomial_expand
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: binom-pascal-coefficients-omitted
+  description: Leaves out the binomial coefficients, so every term has a coefficient of 1 (or a bare power of the number).
+- id: binom-middle-terms-dropped
+  description: Writes (a + b)^n as a^n + b^n, leaving out every term between the first and the last.
+- id: binom-coefficients-from-previous-row
+  description: Reads the coefficients from row n - 1 of Pascal's triangle instead of row n.
+- id: binom-base-not-raised
+  description: Multiplies each term by the number once instead of raising it to the power that matches the term.
+- id: binom-base-times-exponent
+  description: Multiplies the number by its exponent instead of raising it to that power.
+- id: binom-sign-not-alternating
+  description: Makes every term after the first negative when expanding (a - b)^n, instead of alternating the signs.
+- id: binom-negative-sign-dropped
+  description: Expands (a - b)^n as if it were (a + b)^n, so every term is positive.
+- id: binom-power-of-base-missed
+  description: Finds a coefficient with the right binomial coefficient but only the first power of the number.
+- id: binom-wrong-term-picked
+  description: Gives the coefficient of a neighbouring term instead of the term asked for.
+- id: binom-pascal-coefficient-misread
+  description: Reads the wrong entry from the row of Pascal's triangle.
+- id: binom-constant-term-only
+  description: Gives the constant term as the sum of the coefficients.
+- id: binom-pascal-coefficients-only
+  description: Gives the sum of the binomial coefficients, 2^n, as the sum of the coefficients of the expansion.
+difficulty_progression: Easy expands (x + y)^n in letters, so the work is the row of Pascal's triangle and the falling
+  and rising powers. Medium replaces the second letter by a number, so each term carries a power of it and a negative
+  number makes the signs alternate. Hard puts a coefficient on x, so two numbers are raised to powers, and sometimes a
+  second letter. The exam chain expands (x + a)^3, uses that to expand (x + a)^4, reads a coefficient and sums the
+  coefficients by substituting x = 1.
+tags: [acara-v8-4, binomial-theorem, pascals-triangle, ACMMM046]

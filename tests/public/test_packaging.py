@@ -62,7 +62,10 @@ def test_jsonschema_is_a_dev_dependency_only(pyproject):
 def test_the_distribution_is_not_named_after_the_taken_pypi_project(pyproject):
     project = pyproject["project"]
     assert project["name"] == "maths-engine"  # `mathgen` on PyPI is an unrelated project
-    assert pyproject["project"]["scripts"] == {"mathgen": "mathgen.__main__:main"}
+    assert pyproject["project"]["scripts"] == {
+        "mathgen": "mathgen.__main__:main",
+        "mathgen-mcp": "mathgen.mcp_server:main",  # the MCP server the plugins under plugins/ launch
+    }
 
 
 def test_metadata_is_complete(pyproject):
@@ -100,5 +103,9 @@ def test_the_sdist_carries_every_folder_the_tests_read():
     """An unpacked sdist runs its own tests; `tests/test_ci_*.py` read `.github/`."""
     lines = (ROOT / "MANIFEST.in").read_text(encoding="utf-8").splitlines()
     grafted = {line.split()[1] for line in lines if line.startswith("graft ")}
-    folders = {name for name in (".github", "skills", "scripts", "tests") if (ROOT / name).is_dir()}
+    folders = {
+        name
+        for name in (".github", "skills", "scripts", "tests", "plugins", ".claude-plugin")
+        if (ROOT / name).is_dir()
+    }
     assert folders and folders <= grafted

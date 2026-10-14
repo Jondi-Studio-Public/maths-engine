@@ -1,0 +1,70 @@
+id: f10-pick-the-matching-view
+name: Match a plan view with its front and side elevations
+domain: geometry
+year_level: ['7']
+naplan_domain: [space]
+description: Given the plan view of a structure of identical cubes, choose the front or right-side elevation from four drawings, or, given both elevations, choose the plan view that produces them.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-prism-cross-sections]
+answer: mcq
+sources:
+- topic: fr2a_matching_view
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2a_matching_view
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2a_matching_view
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fr2a_matching_view_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2a-plan-elevation-copied-to-front-row
+  description: Choosing a plan that copies the front elevation along its front row and leaves the other rows unchanged.
+- id: fr2a-plan-every-stack-as-tall-as-column
+  description: "Choosing a plan where every stack in a column is as tall as that column's elevation, which gives the right front view but not the side view."
+- id: fr2a-plan-front-and-back-swapped
+  description: Choosing a plan with its front and back rows the wrong way round.
+- id: fr2a-plan-mirrored
+  description: Choosing a plan that is the left to right mirror image of the one wanted.
+- id: fr2a-plan-rows-and-columns-swapped
+  description: Choosing a plan with its rows and columns swapped, so the front and side views are interchanged.
+- id: fr2a-view-back-stacks-only
+  description: Choosing a view that shows only the stacks at the back.
+- id: fr2a-view-elevation-for-total
+  description: Giving the squares in an elevation as the number of cubes in the whole structure.
+- id: fr2a-view-every-stack-tallest
+  description: Treating every square of the plan as if it had the tallest stack.
+- id: fr2a-view-far-stacks-only
+  description: Choosing a view that shows only the stacks on the far side from the viewer.
+- id: fr2a-view-from-the-back
+  description: Choosing the mirror image of the front view, as seen from behind the structure.
+- id: fr2a-view-from-the-left
+  description: Choosing the mirror image of the right-side view, as seen from the left-hand side.
+- id: fr2a-view-hidden-added
+  description: Adding the cubes that show to the total instead of taking them away.
+- id: fr2a-view-hidden-count-is-visible-count
+  description: Giving the squares that show in the elevation as the number of cubes that do not show.
+- id: fr2a-view-nearest-stacks-only
+  description: Choosing a view that shows only the stacks nearest the viewer and forgets taller stacks behind them.
+- id: fr2a-view-squares-counted
+  description: Counting the squares of the plan that have cubes on them instead of adding the cubes.
+- id: fr2a-view-stacks-added
+  description: Choosing a view where each column or row shows all its stacks added together instead of the tallest.
+- id: fr2a-view-tallest-times-rows
+  description: Multiplying the tallest stack by the number of rows to find the squares in a view.
+- id: fr2a-view-total-for-elevation
+  description: Giving the total number of cubes where the number of squares in an elevation was asked.
+- id: fr2a-view-wrong-side
+  description: Choosing the elevation from the other side of the structure, the front view for the side view or the reverse.
+tags: [acara-f10-v9, geometry, plan-view, elevation, cubes, ac9m7sp01, figure]

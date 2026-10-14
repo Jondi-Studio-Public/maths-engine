@@ -1,0 +1,66 @@
+id: f10-written-division
+name: Divide by a one-digit number with a written method
+domain: primary-number
+year_level: ['4', '5']
+naplan_domain: [number]
+description: Divide a three- or four-digit number by a one-digit divisor with a written method, writing any remainder as a
+  mixed numeral or as a decimal.
+status: active
+placement_eligible: false
+prerequisites:
+- whole-number-division-facts
+- f10-multiply-divide-one-digit-arrays
+answer: number
+sources:
+- topic: fr2b_written_division
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_written_division
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_written_division
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-division-zero-in-quotient-left-out
+  description: Leaving out the 0 in a quotient when a step of the written method gives 0, so 603 is written as 63.
+- id: fr2b-division-quotient-place-value-wrong
+  description: Writing the quotient digits in the wrong places, so the answer is ten times too big.
+- id: fr2b-division-regrouping-slip
+  description: Regrouping wrongly during a step of the written method, so one digit of the quotient is out by one.
+- id: fr2b-remainder-written-over-the-quotient
+  description: Writing the remainder over the quotient instead of over the divisor.
+- id: fr2b-remainder-written-over-the-dividend
+  description: Writing the remainder over the number that was divided instead of over the divisor.
+- id: fr2b-remainder-and-divisor-swapped
+  description: Writing the divisor over the remainder instead of the remainder over the divisor.
+- id: fr2b-remainder-written-as-decimal-digits
+  description: Writing the remainder after the decimal point as it is, so a remainder of 3 becomes .3 whatever the divisor.
+- id: fr2b-decimal-point-misplaced
+  description: Putting the decimal point in the wrong place, so the answer is ten times too big.
+- id: fr2b-remainder-dropped-or-rounded-up
+  description: Giving the whole-number quotient, or the next whole number, and not saying what is left over.
+difficulty_progression: Easy divides exactly where the quotient has a zero digit that has to be written. Medium leaves a remainder
+  that is written as a fraction of the divisor, as a mixed numeral. Hard divides by 2, 4, 5 or 8 so that the remainder is
+  written as a terminating decimal.
+tags:
+- acara-f10-v9
+- primary
+- division
+- written-methods
+- ac9m4n06
+- ac9m5n07

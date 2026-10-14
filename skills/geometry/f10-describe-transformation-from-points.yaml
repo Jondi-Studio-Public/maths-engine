@@ -1,0 +1,96 @@
+id: f10-describe-transformation-from-points
+name: Describe a transformation from a shape and its image
+domain: geometry
+year_level: ['5', '7']
+naplan_domain: [space]
+description: "Given a triangle and its image drawn on a coordinate grid, describe the move: the translation as right and up, a reflection by its mirror line and the distance to it, a half turn by its centre, or the translation left over once a reflection or half turn is undone."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-transform-image-coordinates]
+answer: pair
+sources:
+- topic: fr2a_describe_transform
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2a_describe_transform
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2a_describe_transform
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fr2a_describe_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: adds-instead-of-using-pythagoras
+  description: "Adding the two shorter sides of a right-angled triangle (or the components of a displacement) instead of using Pythagoras' theorem."
+- id: area-for-perimeter
+  description: Multiplying the sides of a rectangle where its perimeter was asked for.
+- id: distance-to-axis-not-to-image
+  description: Giving the distance from the point to the axis instead of the distance to its reflection, which is twice as far.
+- id: forgets-the-square-root
+  description: Stopping at the sum of the squares of the components without taking the square root for the distance.
+- id: fr2a-centre-assumed-origin
+  description: Assuming a half turn is about the origin.
+- id: fr2a-centre-from-difference
+  description: Halving the change from a point to its image instead of the sum, so the centre comes out as half the movement.
+- id: fr2a-centre-not-halved
+  description: Adding the coordinates of a point and its image for the centre of a half turn, without halving.
+- id: fr2a-centre-one-coordinate
+  description: Taking one coordinate of the centre from the point itself instead of from the midpoint.
+- id: fr2a-hypotenuse-left-out-of-perimeter
+  description: Adding only the two shorter sides for the perimeter and leaving the longest side out.
+- id: fr2a-leg-for-longest-side
+  description: Giving the longer leg of a right-angled triangle as its longest side.
+- id: fr2a-mirror-line-not-halved
+  description: Giving the sum of a point and its image as the mirror line instead of the halfway value.
+- id: fr2a-mirror-line-orientation
+  description: Naming a reflection in a vertical line as one in a horizontal line, or the reverse.
+- id: fr2a-mirror-line-sign
+  description: Giving the mirror line the wrong sign when it is on the negative side of the axis.
+- id: fr2a-other-move-ignored
+  description: Finding the translation from the original to the final image and ignoring the reflection or turn in between.
+- id: fr2a-reflection-named-as-slide
+  description: Calling a reflection a translation because the image has moved across without checking which way it faces.
+- id: fr2a-reflection-named-as-turn
+  description: Calling a reflection a half turn because the image is on the opposite side of the original.
+- id: fr2a-side-counted-twice
+  description: Counting one side of the triangle twice in the perimeter.
+- id: fr2a-side-left-out-of-perimeter
+  description: Leaving one side of the triangle out of the perimeter.
+- id: fr2a-slide-named-as-reflection
+  description: Calling a translation a reflection because the shape looks like a copy of itself.
+- id: fr2a-slide-named-as-turn
+  description: Calling a translation a turn.
+- id: fr2a-steps-in-wrong-order
+  description: Doing the two moves in the wrong order, though the order changes where the image lands.
+- id: fr2a-translation-components-swapped
+  description: Applying the horizontal move to y and the vertical move to x.
+- id: fr2a-turn-named-as-reflection
+  description: Calling a half turn a reflection because the image is upside down or reversed.
+- id: fr2a-turn-named-as-slide
+  description: Calling a half turn a translation because the image has moved to another place.
+- id: fr2a-turn-size-or-direction
+  description: Naming the wrong size or direction of turn for a rotation.
+- id: fr2a-vector-component-sign
+  description: Getting the sign of one part of a translation wrong, the up or down part.
+- id: fr2a-vector-from-different-corners
+  description: Finding the translation from a corner of the triangle and the image of a different corner.
+- id: fr2a-vector-sign-dropped
+  description: Giving the size of each part of a translation without its sign, so left and down read as right and up.
+- id: fr2a-vector-sum-not-difference
+  description: Adding the coordinates of the point and its image instead of subtracting to find the translation.
+- id: swapped-coordinates
+  description: Giving the y value where the x value was asked, or the reverse.
+- id: swapped-x-and-y
+  description: Writing the coordinates the wrong way round, (y, x) for (x, y).
+- id: wrong-direction
+  description: Reporting the negated change, end point minus start point taken the wrong way round.
+tags: [acara-f10-v9, geometry, transformations, coordinates, translation, reflection, rotation, ac9m5sp03, ac9m7sp03, figure]
