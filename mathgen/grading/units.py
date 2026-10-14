@@ -103,14 +103,14 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z])(?<![A-Za-z]\^)(?:\d[\d,]*(?:\.\d+)?|\.\d
 # (a label, not a unit), not "to the nearest cent" (a precision: the answer is still in dollars), and not "in n = 5"
 # or "in g(x)" (a variable or a function).
 _ASKED_RE = re.compile(
-    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])(?!\s*(?:per\b|[/·⋅×*]))",
+    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’^])(?!\s*[\d=(])(?!\s*(?:per\b|[/·⋅×*]))",
     re.IGNORECASE,
 )
-# "in N/m", "in kL per hour", "how many cents per 100 g": the question asks for a compound unit that the table has
-# no spelling for. Its parts are read so that a reply in some other unit ("45 kg") can still be refused.
+# "in N/m", "in kL per hour", "in m/s²", "how many cents per 100 g": the question asks for a compound unit that the
+# table has no spelling for. Its parts are read so that a reply in some other unit ("45 kg") can still be refused.
 _ASKED_COMPOUND_RE = re.compile(
     rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})"
-    rf"\s*(?:per\b|[/·⋅×*])\s*(?:\d[\d,]*(?:\.\d+)?\s*)?({_SPELLING_PATTERN})?(?![\w'’])",
+    rf"\s*(?:per\b|[/·⋅×*])\s*(?:\d[\d,]*(?:\.\d+)?\s*)?({_SPELLING_PATTERN})?(?:\^?[23²³])?(?![\w'’])",
     re.IGNORECASE,
 )
 #: Units that are themselves rates: a reply in one of them is not refused for a compound unit asked by its parts.

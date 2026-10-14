@@ -65,6 +65,8 @@ def test_an_earlier_value_is_not_read_as_the_asked_unit():
         ("Find the stiffness k in ω = √(k/m), in N/m.", "100 N", "100 kg"),
         ("Find the flow rate in kL per hour.", "100 kL", "100 kg"),
         ("By how many cents per 100 g is the cheaper buy cheaper?", "100 cents", "100 kg"),
+        ("Find the acceleration of the pair in m/s², correct to 2 decimal places.", "100 m", "100 kg"),
+        ("Find the acceleration in m/s^2.", "100 m", "100 kg"),
     ],
 )
 def test_a_compound_unit_is_not_read_as_its_first_part_but_still_refuses_other_units(text, part, other):
