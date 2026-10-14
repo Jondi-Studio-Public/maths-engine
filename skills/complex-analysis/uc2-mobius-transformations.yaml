@@ -1,0 +1,102 @@
+id: uc2-mobius-transformations
+name: Mobius transformations
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Find the image of a point, the fixed points, or the transformation itself for a Mobius transformation, from points or from a cross-ratio.
+status: active
+placement_eligible: false
+prerequisites:
+- multiply-complex-numbers
+answer: expression
+sources:
+- topic: w5a_mobius
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_mobius
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_mobius
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_mobius
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-mobius-composition-slip
+  description: >-
+    Slipping in composing two Möbius transformations, so a matrix entry of the composite is wrong.
+- id: cx2-mobius-conjugate-quotient
+  description: >-
+    Making a slip in dividing by a complex number, so the result is the complex conjugate of the quotient or has the wrong imaginary sign.
+- id: cx2-mobius-cross-ratio-not-solved-for-w
+  description: >-
+    Stopping at the cross-ratio of the z-values without solving the cross-ratio equation for the image w.
+- id: cx2-mobius-denominator-dropped
+  description: >-
+    Dividing the numerator by the constant d alone, leaving the cz term out of the denominator.
+- id: cx2-mobius-denominator-sign-slip
+  description: >-
+    Changing the sign of the constant term in the denominator, so the point is mapped by (az + b)/(cz - d).
+- id: cx2-mobius-entrywise-square
+  description: >-
+    Squaring each coefficient of a Möbius transformation to find T(T(z)), instead of squaring its matrix.
+- id: cx2-mobius-fixed-point-equation-slip
+  description: >-
+    Setting up the fixed-point equation wrongly, for example c z^2 + (a - d) z - b = 0, or solving with the wrong coefficient.
+- id: cx2-mobius-fixed-point-sign-slip
+  description: >-
+    Making a sign error in solving the fixed-point equation, so the fixed point has the wrong sign.
+- id: cx2-mobius-image-inverted
+  description: >-
+    Giving c/a, or another inverse of a/c, as the image of infinity.
+- id: cx2-mobius-image-of-zero
+  description: >-
+    Giving b/d, the image of 0, as the image of infinity.
+- id: cx2-mobius-inverse-applied-as-forward
+  description: >-
+    Applying T to the given value instead of the inverse of T.
+- id: cx2-mobius-inverse-quotient
+  description: >-
+    Giving the reciprocal of the image, from putting the denominator over the numerator.
+- id: cx2-mobius-inverse-sign-slip
+  description: >-
+    Making a sign error in the inverse transformation (dw - b)/(a - cw).
+- id: cx2-mobius-numerator-sign-slip
+  description: >-
+    Changing the sign of the constant term in the numerator, so the point is mapped by (az - b)/(cz + d).
+- id: cx2-mobius-point-roles-swapped
+  description: >-
+    Sending the three given points to the values 0, 1 and infinity in the wrong order, so the roles of the points are swapped.
+- id: cx2-mobius-points-averaged
+  description: >-
+    Taking the average of the given images as the image of the fourth point.
+- id: cx2-mobius-pole-for-image-of-infinity
+  description: >-
+    Giving -d/c, the point mapped to infinity, as the image of infinity.
+- id: cx2-mobius-wrong-fixed-point
+  description: >-
+    Giving the other fixed point (the conjugate, or the smaller root) instead of the one asked for.
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+tags: [university-year-2, complex-analysis, mobius-transformations, cross-ratio]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 2, demand: "Substitute a point into T(z) = (az + b)/(cz + d), or find the image of infinity or the preimage of a point."}
+  medium: {steps: 3, demand: "Solve T(z) = z for the fixed points, or solve T(z) = w for z with Gaussian-integer answers."}
+  hard: {steps: 5, demand: "Find the transformation sending three points to 0, 1 and infinity, the image of a fourth point from the invariance of the cross-ratio, the second iterate by squaring the matrix, or fixed points of a loxodromic map."}
+  exam: {steps: 5, demand: "Find T(z1) and T(T(z1)), the sum of the fixed points, and the image of that sum."}

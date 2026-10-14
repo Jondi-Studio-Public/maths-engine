@@ -44106,6 +44106,613 @@ _ENTRIES = (
         "Swapping the two components of the gradient to get a perpendicular vector but forgetting to change the sign of one of them.",
         area="multivariable",
     ),
+    # -- second-year complex analysis (cx2) --
+    CatalogueEntry(
+        "cx2-residue-numerator-only",
+        "Giving the numerator's value at the pole as the residue, without dividing by the other factors of the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-times-2-pi-i",
+        "Giving 2*pi*i times the residue (the value of the contour integral) where the residue itself was asked for.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-denominator-derivative-slip",
+        "Differentiating the denominator wrongly in N(a)/D'(a), for example dropping its linear term or leaving a power of the pole unreduced.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-factor-omitted",
+        "Leaving one of the other linear factors out of the denominator when evaluating the residue at a simple pole.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-simple-formula",
+        "Using the simple-pole shortcut (the rest of the function evaluated at the pole) at a pole of order two or more, so no derivative is taken.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-derivative-order",
+        "Differentiating the wrong number of times at a pole of order m: m or m - 2 times instead of m - 1.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-numerator-derivative-only",
+        "Differentiating only the numerator at a double pole and leaving the other factors of the denominator undifferentiated.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-factorial-dropped",
+        "Taking the (m - 1)th derivative of the rest of the function at an m-th order pole but not dividing by (m - 1)!.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-exponential-factor-dropped",
+        "Leaving the exponential factor e^(ca) out of a residue found from e^(cz) over a polynomial.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-exp-chain-factor-dropped",
+        "Differentiating e^(cz) as e^(cz), leaving the factor c out of each derivative.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-leading-term-only",
+        "Taking only the first term of the series of 1/sin(cz), so the correction that produces the z^(-1) term is missed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-coefficient-slip",
+        "Slipping on a coefficient of a Maclaurin series by one factor of c or of a small integer.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-wrong-term",
+        "Reading the residue off the wrong term of the Maclaurin series.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-alternating-sign-dropped",
+        "Forgetting the alternating sign of the cosine or sine series.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-factorial-dropped",
+        "Leaving the factorial out of the Maclaurin coefficient.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-alternating-sign-dropped",
+        "Forgetting that the derivative of sin(pi z) at an integer n is pi times (-1)^n, so the sign alternates.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-pi-dropped",
+        "Forgetting the factor pi from the derivative of sin(pi z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-pi-inverted",
+        "Multiplying by pi where the derivative of sin(pi z) should divide by pi.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-sum-sign",
+        "Taking the residue at the double pole to be the sum of the other residues instead of minus that sum.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-orientation-ignored",
+        "Giving the anticlockwise value when the contour is traversed clockwise, or the reverse: the sign of the integral is wrong.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-forgot-2-pi-i",
+        "Giving the sum of the enclosed residues as the value of the integral, without the factor 2*pi*i.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-sum-of-residues-assumed-zero",
+        "Assuming the residues of a rational function always sum to zero when every pole is enclosed, so the integral is 0; that needs the numerator to be two degrees below the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-wrong-coefficient-for-infinity",
+        "Reading the wrong coefficient of the numerator as the one that governs the integral round a circle enclosing every pole.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-conjugate-treated-as-analytic",
+        "Treating the conjugate of z - c as an analytic factor, instead of rewriting it as r^2/(z - c) on the circle.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-not-squared",
+        "Replacing conj(z - c) by r/(z - c) on the circle of radius r, instead of r^2/(z - c).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-conjugate-residues-doubled",
+        "Counting the residue at the centre twice when the pole lies outside the circle.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-pole-count-slip",
+        "Miscounting how many poles lie inside a circle by comparing the wrong distances with the radius.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-index-off-by-one",
+        "Reading the coefficient of the neighbouring power: the series term one place away from the one asked for.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-argument-scale-dropped",
+        "Leaving the scale factor c out of the series: using the coefficient for g(z) where g(cz) was given.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-power-shift-ignored",
+        "Ignoring the division by z^m (or multiplication by z^p), so the coefficient of the wrong power of the series is read.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-centre-factor-dropped",
+        "Leaving out the constant factor that comes from re-centring an exponential, e^(c z0) in e^(cz) = e^(c z0) e^(c(z - z0)).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-geometric-ratio-inverted",
+        "Expanding 1/(z - a) in powers of a/z where z/a is the ratio that converges, or the reverse.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-geometric-series-slip",
+        "Slipping on the geometric series for 1/(z - a): the wrong sign or a missing factor.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-coefficients-swapped",
+        "Attaching the coefficients of the negative powers to the wrong powers, so a_(-1) and a_(-2) trade places.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-principal-part-term-dropped",
+        "Giving only some of the negative-power terms of the Laurent series as the principal part.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-pole-sign",
+        "Writing the terms of the principal part with (a - z) in place of (z - a), which changes the sign of the odd powers.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-principal-part-includes-regular",
+        "Giving the whole function, or its regular part as well, as the principal part.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-wrong-annulus",
+        "Using the series for a different region than the one stated: the Taylor series inside the inner pole, or the one outside the outer pole.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-partial-fraction-factor-dropped",
+        "Leaving the factor c/(alpha - beta) out of the partial fractions, so the coefficient is the bare power.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-derivative-for-coefficient",
+        "Giving the derivative of the analytic part where the Taylor coefficient (the derivative divided by the factorial) was needed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-distance-squared",
+        "Giving the squared distance to the nearest other singularity as the radius of convergence.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-guessed-one",
+        "Taking the radius of convergence to be 1 without measuring the distance to the other singularity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-from-origin",
+        "Measuring the radius of convergence from the origin, or from the other pole, instead of from the centre of the expansion.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-distance-slip",
+        "Measuring the distance between two points by adding or comparing the real and imaginary differences instead of using the modulus of the difference.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-real-integral-residue-slip",
+        "Slipping in the residue at an upper-half-plane pole of a real integral, for example dropping one of the factors of the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-real-integral-doubled",
+        "Doubling a real integral: counting a symmetric contribution twice, or including a factor 2 that is already in 2*pi*i.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-real-integral-half-range",
+        "Giving the integral over half the range (from 0 to infinity) where the whole line was asked for, or the reverse.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-both-half-planes-included",
+        "Adding the residues at the poles in both half-planes, which cancel to 0 for an integrand that decays like 1/x^2.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-lower-half-plane-orientation",
+        "Closing the contour in the lower half-plane but not reversing the orientation, so the answer has the wrong sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-denominator-sign",
+        "Writing sqrt(a^2 + b^2) in place of sqrt(a^2 - b^2) after the substitution z = e^(i theta).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-b-ignored",
+        "Replacing a + b cos(theta) by a in the result, so the answer is 2*pi/a.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-jacobian-dropped",
+        "Losing a factor of 2 or of 1/i from dtheta = dz/(iz) or from cos(theta) = (z + 1/z)/2, so the answer is out by a constant.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-root-slip",
+        "Slipping on the root of the quadratic in z: choosing the root outside the unit circle, or a sign error in (-a + s)/b.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-numerator-ignored",
+        "Evaluating the integral as if the cosine in the numerator were not there, or using a different multiple angle.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-double-pole-slip",
+        "Slipping in the residue at the double pole inside the unit circle that comes from a squared denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-quartic-surd-dropped",
+        "Losing the factor sqrt(2) that comes from the eighth roots of unity at the poles of 1/(x^4 + a^4).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-quartic-scaling-slip",
+        "Scaling the answer with the wrong power of a for the numerator and denominator of the integrand.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-inverse-quotient",
+        "Giving the reciprocal of the image, from putting the denominator over the numerator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-conjugate-quotient",
+        "Making a slip in dividing by a complex number, so the result is the complex conjugate of the quotient or has the wrong imaginary sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-denominator-sign-slip",
+        "Changing the sign of the constant term in the denominator, so the point is mapped by (az + b)/(cz - d).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-numerator-sign-slip",
+        "Changing the sign of the constant term in the numerator, so the point is mapped by (az - b)/(cz + d).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-denominator-dropped",
+        "Dividing the numerator by the constant d alone, leaving the cz term out of the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-image-of-zero",
+        "Giving b/d, the image of 0, as the image of infinity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-image-inverted",
+        "Giving c/a, or another inverse of a/c, as the image of infinity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-pole-for-image-of-infinity",
+        "Giving -d/c, the point mapped to infinity, as the image of infinity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-inverse-applied-as-forward",
+        "Applying T to the given value instead of the inverse of T.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-inverse-sign-slip",
+        "Making a sign error in the inverse transformation (dw - b)/(a - cw).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-wrong-fixed-point",
+        "Giving the other fixed point (the conjugate, or the smaller root) instead of the one asked for.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-fixed-point-sign-slip",
+        "Making a sign error in solving the fixed-point equation, so the fixed point has the wrong sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-fixed-point-equation-slip",
+        "Setting up the fixed-point equation wrongly, for example c z^2 + (a - d) z - b = 0, or solving with the wrong coefficient.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-point-roles-swapped",
+        "Sending the three given points to the values 0, 1 and infinity in the wrong order, so the roles of the points are swapped.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-cross-ratio-not-solved-for-w",
+        "Stopping at the cross-ratio of the z-values without solving the cross-ratio equation for the image w.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-points-averaged",
+        "Taking the average of the given images as the image of the fourth point.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-entrywise-square",
+        "Squaring each coefficient of a Möbius transformation to find T(T(z)), instead of squaring its matrix.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-composition-slip",
+        "Slipping in composing two Möbius transformations, so a matrix entry of the composite is wrong.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-arctan-quadrant",
+        "Taking the argument as arctan(y/x) without checking the quadrant, so a number with negative real part gets an argument that is wrong by pi.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-argument-sign",
+        "Using the argument with the wrong sign (the conjugate's argument), so the imaginary part of the logarithm has the wrong sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-argument-not-principal",
+        "Giving an argument outside (-pi, pi], such as the argument measured in [0, 2*pi), instead of the principal value.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-modulus-not-logged",
+        "Using the modulus itself as the real part of the logarithm instead of its natural logarithm.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-modulus-squared",
+        "Using ln of the squared modulus (or twice ln|z|) as the real part of Log z.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-product-additive",
+        "Assuming Log(z1 z2) = Log z1 + Log z2 always holds for the principal logarithm, so the difference is 0.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-product-sign",
+        "Giving the correct multiple of 2*pi*i but with the opposite sign when comparing Log of a product with the sum of the logarithms.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-product-wrong-multiple",
+        "Giving the wrong multiple of 2*pi*i for the failure of a logarithm identity, for example from reducing the argument by the wrong number of turns.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-power-rule-assumed",
+        "Assuming Log(z^n) = n Log z for the principal logarithm, so the difference is 0 even when n times the argument leaves (-pi, pi].",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-exponent-sign",
+        "Getting the sign of the real exponent wrong in z^(bi) = exp(-b Arg z), for example writing e^(+b Arg z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-nonprincipal-branch",
+        "Using a branch of the logarithm other than the principal one (an argument shifted by 2*pi) when forming exp(w Log z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-modulus-only",
+        "Concluding that z^w has modulus 1, hence equals 1, because |z| = 1, ignoring the effect of the imaginary exponent.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-argument-doubled",
+        "Scaling the argument by the wrong factor (doubling or halving it) when forming w times Log z.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-argument-dropped",
+        "Forming w times ln|z| only, leaving out the contribution of the argument to w Log z.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-real-part-ignored",
+        "Dropping the factor i^a (the effect of the real part of the exponent) and keeping only the real factor exp(-b Arg z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-imaginary-part-ignored",
+        "Dropping the real factor exp(-b Arg z) (the effect of the imaginary part of the exponent) and keeping only i^a.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-exponent-conjugated",
+        "Using the conjugate of the exponent w in exp(w Log z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-root-other-branch",
+        "Giving another n-th root of z instead of the principal one: the root differs by a factor that is a power of the n-th root of unity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-root-argument-not-reduced",
+        "Taking the n-th root of the number the question was built from, without first reducing the argument of z into (-pi, pi]; the result is a different root.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-root-modulus-only",
+        "Giving only the modulus of the root, leaving out its argument.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-wrong-side",
+        "Taking the argument as +pi where -pi is needed, or the reverse, for the one-sided limit at a point of the cut: the sign of the imaginary part is wrong.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-argument-dropped",
+        "Giving only ln of the modulus as the limit at a point of the cut, leaving out the imaginary part +-pi*i.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-endpoint",
+        "Excluding the branch point itself from the set where the logarithm is discontinuous or undefined.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-wrong-direction",
+        "Describing the cut by the wrong ray: reversing the direction of the inequality or reflecting the branch point.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-factor-two-dropped",
+        "Finding the value just above the cut but forgetting that the jump is twice it (the values above and below are conjugates).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-sign-reversed",
+        "Subtracting the values above and below the cut in the wrong order, so the sign of the jump is reversed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-sum-not-difference",
+        "Adding the values just above and just below the cut instead of subtracting them, which gives a cosine term instead of a sine term.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-i-dropped",
+        "Dropping the factor i from the jump of z^(p/q) across the cut, leaving a real number.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-modulus-power-slip",
+        "Raising the modulus to the wrong power, using |z| instead of |z|^(p/q) in the jump.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-values-added",
+        "Adding the two values where the question asks for their difference.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-conjugate-sign",
+        "Getting the sign of the harmonic conjugate wrong, for example using u_y = v_x instead of u_y = -v_x, or reversing the sign of one term.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-conjugate-swapped-roles",
+        "Swapping the roles of x and y, or of u and v, when building the harmonic conjugate or reading the Cauchy-Riemann equations.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-integration-function-missing",
+        "Integrating u_x with respect to y and stopping, without adding the function h(x) that the second Cauchy-Riemann equation determines.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-constant-not-fixed",
+        "Leaving an arbitrary constant in the harmonic conjugate instead of applying the stated normalisation.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-constant-ignored",
+        "Leaving the imaginary constant out of f(z), so f(0) does not take the stated value.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-chain-factor-dropped",
+        "Leaving out the factor from the chain rule (the constant inside the exponential, trigonometric or rational function) when differentiating or integrating.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-derivative-slip",
+        "Slipping in differentiating u to find u_x, u_y or the second derivatives.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-harmonic-sign",
+        "Setting u_xx - u_yy = 0 or reversing the sign of the parameter when imposing u_xx + u_yy = 0.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-parameter-factor-slip",
+        "Slipping by a small numerical factor when solving u_xx + u_yy = 0 for the parameter.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-f-real-part-only",
+        "Writing f(z) as the real part u with x replaced by z, ignoring the imaginary part of the coefficients.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-f-conjugate",
+        "Writing f(z) in terms of the conjugate of z, or with the imaginary part of every coefficient reversed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-point-equation-slip",
+        "Making an arithmetic slip in solving the two linear Cauchy-Riemann equations for the point.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-point-conjugated",
+        "Giving the conjugate x - iy of the point where the Cauchy-Riemann equations hold.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-derivative-formula",
+        "Using the wrong formula for f' in terms of partial derivatives, for example u_x - i v_x or u_x + i u_y instead of u_x + i v_x.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-derivative-at-wrong-point",
+        "Evaluating the partial derivatives at the wrong point (the origin, or with x and y exchanged) instead of at the point of differentiability.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-arithmetic-slip",
+        "Making an arithmetic slip in the final evaluation, so the value is out by a small factor, a unit or a sign.",
+        area="complex-analysis",
+    ),
+    # -- end second-year complex analysis --
 )
 
 #: Every entry, by id.

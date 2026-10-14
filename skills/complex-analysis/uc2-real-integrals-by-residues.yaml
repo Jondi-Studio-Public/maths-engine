@@ -1,0 +1,111 @@
+id: uc2-real-integrals-by-residues
+name: Real integrals by residues
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Evaluate a real integral over the whole line or a trigonometric integral over a full period by closing the contour and applying the residue theorem.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-contour-integrals-residue-theorem
+answer: expression
+sources:
+- topic: w5a_real_integrals
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_real_integrals
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_real_integrals
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_real_integrals
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-both-half-planes-included
+  description: >-
+    Adding the residues at the poles in both half-planes, which cancel to 0 for an integrand that decays like 1/x^2.
+- id: cx2-denominator-derivative-slip
+  description: >-
+    Differentiating the denominator wrongly in N(a)/D'(a), for example dropping its linear term or leaving a power of the pole unreduced.
+- id: cx2-lower-half-plane-orientation
+  description: >-
+    Closing the contour in the lower half-plane but not reversing the orientation, so the answer has the wrong sign.
+- id: cx2-quartic-scaling-slip
+  description: >-
+    Scaling the answer with the wrong power of a for the numerator and denominator of the integrand.
+- id: cx2-quartic-surd-dropped
+  description: >-
+    Losing the factor sqrt(2) that comes from the eighth roots of unity at the poles of 1/(x^4 + a^4).
+- id: cx2-real-integral-doubled
+  description: >-
+    Doubling a real integral: counting a symmetric contribution twice, or including a factor 2 that is already in 2*pi*i.
+- id: cx2-real-integral-half-range
+  description: >-
+    Giving the integral over half the range (from 0 to infinity) where the whole line was asked for, or the reverse.
+- id: cx2-real-integral-residue-slip
+  description: >-
+    Slipping in the residue at an upper-half-plane pole of a real integral, for example dropping one of the factors of the denominator.
+- id: cx2-residue-factor-omitted
+  description: >-
+    Leaving one of the other linear factors out of the denominator when evaluating the residue at a simple pole.
+- id: cx2-residue-simple-formula
+  description: >-
+    Using the simple-pole shortcut (the rest of the function evaluated at the pole) at a pole of order two or more, so no derivative is taken.
+- id: cx2-trig-b-ignored
+  description: >-
+    Replacing a + b cos(theta) by a in the result, so the answer is 2*pi/a.
+- id: cx2-trig-denominator-sign
+  description: >-
+    Writing sqrt(a^2 + b^2) in place of sqrt(a^2 - b^2) after the substitution z = e^(i theta).
+- id: cx2-trig-double-pole-slip
+  description: >-
+    Slipping in the residue at the double pole inside the unit circle that comes from a squared denominator.
+- id: cx2-trig-jacobian-dropped
+  description: >-
+    Losing a factor of 2 or of 1/i from dtheta = dz/(iz) or from cos(theta) = (z + 1/z)/2, so the answer is out by a constant.
+- id: cx2-trig-numerator-ignored
+  description: >-
+    Evaluating the integral as if the cosine in the numerator were not there, or using a different multiple angle.
+- id: cx2-trig-root-slip
+  description: >-
+    Slipping on the root of the quadratic in z: choosing the root outside the unit circle, or a sign error in (-a + s)/b.
+- id: calc-ratio-inverted
+  description: >-
+    Turning the ratio or parameter upside down: giving the denominator over the numerator, or the reciprocal of the value asked for.
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+- id: forgets-i-in-residue-theorem
+  description: >-
+    Multiplying the residue by 2*pi but leaving out the factor i.
+- id: ignores-pole-enclosed-by-larger-contour
+  description: >-
+    Using only the residue at the first pole for a larger contour that also encloses the second pole.
+- id: residue-at-wrong-pole
+  description: >-
+    Finding the residue at the pole the contour does not enclose, or using it where the other pole's was needed.
+- id: residue-sign-error
+  description: >-
+    Subtracting the poles in the wrong order when forming a residue, so the residue has the wrong sign.
+tags: [university-year-2, complex-analysis, residue-theorem, real-integrals]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 3, demand: "Evaluate an integral of 1/((x^2 + a^2)(x^2 + b^2)) over the real line, or of 1/(a + b cos t) over [0, 2*pi], by one residue."}
+  medium: {steps: 4, demand: "Evaluate the integral over the real line of a rational function with a shifted or scaled denominator, or a trig integral with a numerator."}
+  hard: {steps: 5, demand: "Handle a double pole in the upper half-plane, a quartic denominator that factors with surds, or the square of a trig denominator."}
+  exam: {steps: 5, demand: "Either find two residue coefficients, then the integral over the real line and over the half line, or find the root of a quadratic inside the unit circle, then a trigonometric integral and its derivative in a parameter, each part using the result of the earlier one."}

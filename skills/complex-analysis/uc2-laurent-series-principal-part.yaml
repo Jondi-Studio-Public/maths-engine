@@ -1,0 +1,118 @@
+id: uc2-laurent-series-principal-part
+name: Laurent series and principal parts
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Find a coefficient or the principal part of the Laurent series of a function about a point, in the annulus that is stated or implied.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-power-series-convergence
+- ucv1-residue-simple-pole
+answer: expression
+sources:
+- topic: w5a_laurent
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_laurent
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_laurent
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_laurent
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-laurent-argument-scale-dropped
+  description: >-
+    Leaving the scale factor c out of the series: using the coefficient for g(z) where g(cz) was given.
+- id: cx2-laurent-centre-factor-dropped
+  description: >-
+    Leaving out the constant factor that comes from re-centring an exponential, e^(c z0) in e^(cz) = e^(c z0) e^(c(z - z0)).
+- id: cx2-laurent-coefficients-swapped
+  description: >-
+    Attaching the coefficients of the negative powers to the wrong powers, so a_(-1) and a_(-2) trade places.
+- id: cx2-laurent-derivative-for-coefficient
+  description: >-
+    Giving the derivative of the analytic part where the Taylor coefficient (the derivative divided by the factorial) was needed.
+- id: cx2-laurent-geometric-ratio-inverted
+  description: >-
+    Expanding 1/(z - a) in powers of a/z where z/a is the ratio that converges, or the reverse.
+- id: cx2-laurent-geometric-series-slip
+  description: >-
+    Slipping on the geometric series for 1/(z - a): the wrong sign or a missing factor.
+- id: cx2-laurent-index-off-by-one
+  description: >-
+    Reading the coefficient of the neighbouring power: the series term one place away from the one asked for.
+- id: cx2-laurent-partial-fraction-factor-dropped
+  description: >-
+    Leaving the factor c/(alpha - beta) out of the partial fractions, so the coefficient is the bare power.
+- id: cx2-laurent-pole-sign
+  description: >-
+    Writing the terms of the principal part with (a - z) in place of (z - a), which changes the sign of the odd powers.
+- id: cx2-laurent-power-shift-ignored
+  description: >-
+    Ignoring the division by z^m (or multiplication by z^p), so the coefficient of the wrong power of the series is read.
+- id: cx2-laurent-wrong-annulus
+  description: >-
+    Using the series for a different region than the one stated: the Taylor series inside the inner pole, or the one outside the outer pole.
+- id: cx2-principal-part-includes-regular
+  description: >-
+    Giving the whole function, or its regular part as well, as the principal part.
+- id: cx2-principal-part-term-dropped
+  description: >-
+    Giving only some of the negative-power terms of the Laurent series as the principal part.
+- id: cx2-radius-distance-slip
+  description: >-
+    Measuring the distance between two points by adding or comparing the real and imaginary differences instead of using the modulus of the difference.
+- id: cx2-radius-distance-squared
+  description: >-
+    Giving the squared distance to the nearest other singularity as the radius of convergence.
+- id: cx2-radius-from-origin
+  description: >-
+    Measuring the radius of convergence from the origin, or from the other pole, instead of from the centre of the expansion.
+- id: cx2-radius-guessed-one
+  description: >-
+    Taking the radius of convergence to be 1 without measuring the distance to the other singularity.
+- id: cx2-residue-numerator-derivative-only
+  description: >-
+    Differentiating only the numerator at a double pole and leaving the other factors of the denominator undifferentiated.
+- id: cx2-residue-numerator-only
+  description: >-
+    Giving the numerator's value at the pole as the residue, without dividing by the other factors of the denominator.
+- id: cx2-residue-simple-formula
+  description: >-
+    Using the simple-pole shortcut (the rest of the function evaluated at the pole) at a pole of order two or more, so no derivative is taken.
+- id: cx2-series-alternating-sign-dropped
+  description: >-
+    Forgetting the alternating sign of the cosine or sine series.
+- id: cx2-series-coefficient-slip
+  description: >-
+    Slipping on a coefficient of a Maclaurin series by one factor of c or of a small integer.
+- id: cx2-series-factorial-dropped
+  description: >-
+    Leaving the factorial out of the Maclaurin coefficient.
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+tags: [university-year-2, complex-analysis, laurent-series, principal-part]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 2, demand: "Divide a standard Maclaurin series, or a series about a shifted centre, by a power to read one Laurent coefficient; or expand a rational function in a stated annulus."}
+  medium: {steps: 3, demand: "Write the principal part of a function at a pole by combining a Taylor expansion of the analytic factor with the power of the pole; or find a specific regular-part coefficient."}
+  hard: {steps: 4, demand: "Choose the correct expansion for an annulus (geometric series in z/a or a/z), handle an essential singularity such as e^(c/z), or divide series for cot(cz), 1/(e^(cz) - 1) or 1/sin^2(cz)."}
+  exam: {steps: 4, demand: "Find two coefficients of the principal part at a double pole, assemble the principal part at the other pole, and find the radius of the annulus of convergence."}

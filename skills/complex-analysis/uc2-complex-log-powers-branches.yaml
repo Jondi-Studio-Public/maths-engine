@@ -1,0 +1,135 @@
+id: uc2-complex-log-powers-branches
+name: Complex logarithm, powers and branch cuts
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Find principal values of Log z, z^w and roots, the jump of a branch across its cut, and the limit of a logarithm at a point on its cut.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+answer: expression
+sources:
+- topic: w5a_complex_log
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_complex_log
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_complex_log
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_complex_log
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-cut-argument-dropped
+  description: >-
+    Giving only ln of the modulus as the limit at a point of the cut, leaving out the imaginary part +-pi*i.
+- id: cx2-cut-endpoint
+  description: >-
+    Excluding the branch point itself from the set where the logarithm is discontinuous or undefined.
+- id: cx2-cut-wrong-direction
+  description: >-
+    Describing the cut by the wrong ray: reversing the direction of the inequality or reflecting the branch point.
+- id: cx2-cut-wrong-side
+  description: >-
+    Taking the argument as +pi where -pi is needed, or the reverse, for the one-sided limit at a point of the cut: the sign of the imaginary part is wrong.
+- id: cx2-jump-factor-two-dropped
+  description: >-
+    Finding the value just above the cut but forgetting that the jump is twice it (the values above and below are conjugates).
+- id: cx2-jump-i-dropped
+  description: >-
+    Dropping the factor i from the jump of z^(p/q) across the cut, leaving a real number.
+- id: cx2-jump-modulus-power-slip
+  description: >-
+    Raising the modulus to the wrong power, using |z| instead of |z|^(p/q) in the jump.
+- id: cx2-jump-sign-reversed
+  description: >-
+    Subtracting the values above and below the cut in the wrong order, so the sign of the jump is reversed.
+- id: cx2-jump-sum-not-difference
+  description: >-
+    Adding the values just above and just below the cut instead of subtracting them, which gives a cosine term instead of a sine term.
+- id: cx2-log-arctan-quadrant
+  description: >-
+    Taking the argument as arctan(y/x) without checking the quadrant, so a number with negative real part gets an argument that is wrong by pi.
+- id: cx2-log-argument-not-principal
+  description: >-
+    Giving an argument outside (-pi, pi], such as the argument measured in [0, 2*pi), instead of the principal value.
+- id: cx2-log-argument-sign
+  description: >-
+    Using the argument with the wrong sign (the conjugate's argument), so the imaginary part of the logarithm has the wrong sign.
+- id: cx2-log-modulus-not-logged
+  description: >-
+    Using the modulus itself as the real part of the logarithm instead of its natural logarithm.
+- id: cx2-log-modulus-squared
+  description: >-
+    Using ln of the squared modulus (or twice ln|z|) as the real part of Log z.
+- id: cx2-log-power-rule-assumed
+  description: >-
+    Assuming Log(z^n) = n Log z for the principal logarithm, so the difference is 0 even when n times the argument leaves (-pi, pi].
+- id: cx2-log-product-additive
+  description: >-
+    Assuming Log(z1 z2) = Log z1 + Log z2 always holds for the principal logarithm, so the difference is 0.
+- id: cx2-log-product-sign
+  description: >-
+    Giving the correct multiple of 2*pi*i but with the opposite sign when comparing Log of a product with the sum of the logarithms.
+- id: cx2-log-product-wrong-multiple
+  description: >-
+    Giving the wrong multiple of 2*pi*i for the failure of a logarithm identity, for example from reducing the argument by the wrong number of turns.
+- id: cx2-power-argument-doubled
+  description: >-
+    Scaling the argument by the wrong factor (doubling or halving it) when forming w times Log z.
+- id: cx2-power-exponent-conjugated
+  description: >-
+    Using the conjugate of the exponent w in exp(w Log z).
+- id: cx2-power-exponent-sign
+  description: >-
+    Getting the sign of the real exponent wrong in z^(bi) = exp(-b Arg z), for example writing e^(+b Arg z).
+- id: cx2-power-imaginary-part-ignored
+  description: >-
+    Dropping the real factor exp(-b Arg z) (the effect of the imaginary part of the exponent) and keeping only i^a.
+- id: cx2-power-modulus-only
+  description: >-
+    Concluding that z^w has modulus 1, hence equals 1, because |z| = 1, ignoring the effect of the imaginary exponent.
+- id: cx2-power-nonprincipal-branch
+  description: >-
+    Using a branch of the logarithm other than the principal one (an argument shifted by 2*pi) when forming exp(w Log z).
+- id: cx2-power-real-part-ignored
+  description: >-
+    Dropping the factor i^a (the effect of the real part of the exponent) and keeping only the real factor exp(-b Arg z).
+- id: cx2-root-argument-not-reduced
+  description: >-
+    Taking the n-th root of the number the question was built from, without first reducing the argument of z into (-pi, pi]; the result is a different root.
+- id: cx2-root-modulus-only
+  description: >-
+    Giving only the modulus of the root, leaving out its argument.
+- id: cx2-root-other-branch
+  description: >-
+    Giving another n-th root of z instead of the principal one: the root differs by a factor that is a power of the n-th root of unity.
+- id: cx2-values-added
+  description: >-
+    Adding the two values where the question asks for their difference.
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+tags: [university-year-2, complex-analysis, complex-logarithm, branch-cuts]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 2, demand: "Find the modulus and principal argument of a number in any quadrant to write Log z, or evaluate i^(bi) using exp(w Log z)."}
+  medium: {steps: 3, demand: "Reduce the argument into (-pi, pi] to find a principal root, the failure of Log(z1 z2) = Log z1 + Log z2, a one-sided limit on the cut, or z^(a + bi) for z = i, -i or -1."}
+  hard: {steps: 4, demand: "Find the jump of z^(p/q) across the negative axis, Log(z^n) - n Log z, a principal fractional power when n times the argument wraps, or z^(a + bi) for z on the unit circle."}
+  exam: {steps: 4, demand: "Evaluate Log(z - a) at a point, state the set where it is discontinuous, find a one-sided limit on the cut, and combine the two values."}
