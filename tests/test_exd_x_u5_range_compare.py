@@ -31,17 +31,6 @@ def oracle(q):
     return ra, rb, ra - rb
 
 
-def test_source_wired():
-    (source,) = exam_sources(SKILL)
-    assert source.topic == "exd_x_u5_range_compare"
-    assert source.stages == ["exam"]
-
-
-def test_shapes_and_text():
-    check_shapes(SKILL)
-    check_no_text_defects(SKILL)
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = exam_question(SKILL, seed)

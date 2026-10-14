@@ -1,0 +1,36 @@
+id: f10-shape-sides-spatial-terms
+name: Compare shapes by sides and parallel sides
+domain: early-foundations
+year_level: ['2']
+naplan_domain: [space]
+learner_band: early
+description: Count the sides and corners of a drawn shape, pick the shape that is curved only, straight only or has a pair of parallel sides, and count the shapes in a picture with a stated number of sides.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [f10-sort-classify-familiar-shapes]
+answer: mcq
+sources:
+- topic: ey_shape_sides
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_shape_sides
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_shape_sides
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: every-shape-has-four-sides
+  description: Answers 4 sides for a shape because a square or rectangle is the shape pictured first in mind.
+- id: miscounts-a-side
+  description: Skips a side or counts one twice while going round the shape.
+- id: curved-and-straight-mixed
+  description: Treats a shape with a straight edge and a curved edge, such as a semicircle, as curved only.
+- id: only-the-square-has-four-sides
+  description: Counts only squares among the shapes with 4 sides, leaving out rectangles, rhombuses and kites.
+- id: turned-shape-not-counted
+  description: Leaves out a shape that is turned, so the count of its sides or parallel pairs is too low.
+tags: [early, shapes, sides, parallel, acara-f10-v9, ac9m2sp01]

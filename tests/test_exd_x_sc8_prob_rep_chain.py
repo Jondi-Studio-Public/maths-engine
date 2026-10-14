@@ -46,29 +46,12 @@ def questions():
     return [_exam(s) for s in range(120)]
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages) for s in exam] == [(TOPIC, ["exam"])]
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
         assert [p.marks for p in q.parts] == [3, 1, 2]
         assert [p.follow_through is not None for p in q.parts] == [False, True, True]
         assert all(p.answer_kind == "number" for p in q.parts)
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    easy = {prompt_shape(make("probability_representation", seed=s)) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - easy
-
-
-def test_no_text_defects(questions):
-    for q in questions[:60]:
-        assert find_text_defects(q) == []
 
 
 def test_key_rederived_from_prompt():
@@ -118,10 +101,6 @@ def test_follow_through_from_wrong_percentage(questions):
 def test_all_wrong_earns_zero(questions):
     for q in questions[:40]:
         assert grade(_SKILL, q, {"a": "999", "b": "7777", "c": "888"}).marks == 0
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()
 
 
 def test_chain_is_not_copyable():

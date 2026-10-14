@@ -1,0 +1,51 @@
+id: compare-tally-and-picture-displays
+name: Compare a tally with a picture graph
+domain: statistics-probability
+year_level: ['2']
+naplan_domain: [statistics]
+learner_band: early
+description: "Compare a tally table with a picture column showing the same data: which row does not match, and how many more pictures a short row needs when each picture stands for 2."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [tally-tables, f2-read-a-picture-graph]
+answer: mcq
+sources:
+- topic: ey_compare_displays
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_compare_displays
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_compare_displays
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Compare tally marks with pictures that each stand for one, row by row."
+  medium:
+    steps: 2
+    demand: "Use the key to turn pictures into tally counts, then compare row by row."
+  hard:
+    steps: 3
+    demand: "Halve the tally for the named row using the key, then find how many pictures it is short by."
+misconceptions:
+- id: eyt-picks-a-matching-row
+  description: "Chooses a row where the tally and the pictures agree, so the row that does not match is missed."
+- id: eyt-ignores-the-picture-key
+  description: "Reads each picture as one when the key says each picture stands for two."
+- id: eyt-reports-the-whole-row
+  description: "Gives how many pictures the whole row should have instead of how many more it needs."
+- id: eyt-reports-one-group
+  description: "Gives the number of pictures already drawn instead of how many more are needed."
+- id: eyt-count-one-over
+  description: "Is one too many when counting pictures or tally marks."
+- id: eyt-count-one-short
+  description: "Is one too few when counting pictures or tally marks."
+tags: [acara-f10-v9, early, ac9m2st02, data, tally, picture-graph, visual]

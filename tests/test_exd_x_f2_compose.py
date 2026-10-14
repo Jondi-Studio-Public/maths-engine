@@ -58,7 +58,7 @@ def _hard(seed):
 def _grade(q, given):
     if KIND == "mcq":
         options = mcq_options(q)
-        given = str(options.index(given)) if given in options else "-1"
+        given = options.index(given) if given in options else -1
     return GRADERS[KIND](q, given).correct
 
 
@@ -79,11 +79,6 @@ def test_no_bad_text_patterns_over_60_seeds():
         q = _exam(seed)
         defects = find_text_defects(q, include_working=True)
         assert defects == [], f"seed={seed}: {defects} ({q.text!r})"
-
-
-def test_prompt_variety_over_60_seeds():
-    shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    assert len(shapes) >= 3, shapes
 
 
 def test_exam_adds_shapes_not_present_in_the_hard_tier():

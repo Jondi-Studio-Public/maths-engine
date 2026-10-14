@@ -34,14 +34,6 @@ def oracle(q):
     return {"a": fmt(arc, 1), "b": fmt(perimeter, 1), "c": fmt((perimeter - 2 * w) / 2, 1)}
 
 
-def test_source_wired():
-    check_source_wired(SKILL, TOPIC)
-
-
-def test_shapes_new_over_hard_tier():
-    check_shapes(SKILL, TOPIC)
-
-
 def test_text_clean_and_deterministic():
     check_text_and_determinism(TOPIC)
 

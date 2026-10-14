@@ -89,10 +89,10 @@ def test_classify_real_grader_accepts_answer_and_rejects_distractors(difficulty)
         q = make(CLASSIFY_TOPIC, seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for i, opt in enumerate(options):
             if opt != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct
+                assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

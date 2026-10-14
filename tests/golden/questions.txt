@@ -463,9 +463,15 @@
 {"answer": "(a) 24; (b) 19; (c) Strong evidence of a real difference: t…", "id": "compare-groups-evidence/medium/0/1246723328ae", "text": "Ravi compared the height after eight weeks (cm) of two groups. Plants kept in s…"}
 {"answer": "(a) 14; (b) 13; (c) Strong evidence of a real difference: t…", "id": "compare-groups-evidence/medium/1/89d4139eaee6", "text": "Isla compared the time to cycle to school (minutes) of two groups. Students usi…"}
 {"answer": "(a) 40; (b) 34; (c) Strong evidence of a real difference: t…", "id": "compare-groups-evidence/medium/2/18da64ea7e26", "text": "Aiko compared the time to finish a puzzle (seconds) of two groups. Students who…"}
-{"answer": "Left", "id": "compare-lengths/easy/0/c44529b2d7ef", "text": "Which line is longer? ━━━━━━ | ━━━"}
-{"answer": "Left", "id": "compare-lengths/easy/1/3a21b6f058ff", "text": "Which line is longer? ━━━━━━ | ━━━"}
-{"answer": "Left", "id": "compare-lengths/easy/2/8194925a3f18", "text": "Which line is longer? ━━━━━━ | ━━━"}
+{"answer": "The pencil", "id": "compare-lengths/easy/0/d2c35b065d3e", "text": "Look at the two things. Which is longer?"}
+{"answer": "The snake", "id": "compare-lengths/easy/1/84c37bd4a0b6", "text": "Look at the two things. Which is longer?"}
+{"answer": "The snake", "id": "compare-lengths/easy/2/a32f8486de73", "text": "Which of these is shorter?"}
+{"answer": "The ribbon", "id": "compare-lengths/hard/0/b454d2c0ef05", "text": "Not lined up. Which one is the longest?"}
+{"answer": "The ribbon", "id": "compare-lengths/hard/1/4e94e586e6b2", "text": "Not lined up. Which one is the shortest?"}
+{"answer": "The train", "id": "compare-lengths/hard/2/e05bc8d41eb2", "text": "They are not lined up. Which is the shortest?"}
+{"answer": "The ribbon", "id": "compare-lengths/medium/0/f626b70b1b37", "text": "Which one is the shortest?"}
+{"answer": "The train", "id": "compare-lengths/medium/1/6870ef20220b", "text": "Which of these is the longest?"}
+{"answer": "The train", "id": "compare-lengths/medium/2/3d84b8fd6eb9", "text": "Look at them all. Which is longest?"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/0/403ee1b71e2d", "text": "Relationship A is shown in the graph. Relationship B is y = x - 5. Which relati…"}
 {"answer": "Relationship A", "id": "compare-linear-representations/easy/1/d4f79544e8ca", "text": "The graph shows relationship A. Relationship B has the equation y = 2x + 6. Whi…"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/2/0e337d286348", "text": "The graph shows relationship A. Relationship B is given by y = 3x + 3. Which re…"}
@@ -490,6 +496,15 @@
 {"answer": "Left", "id": "compare-quantities-to-10/easy/0/68f8555d9106", "text": "Which side has more? ● ● ● ● ● ● ● ● | ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/1/ccb7b16b44b2", "text": "Which side has more? ● ● ● ● ● ● ● ● ● ● | ● ● ● ● ● ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/2/a997756f804c", "text": "Which side has more? ● ● ● ● ● | ● ● ● ● ●"}
+{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/0/d11221d2cd2f", "text": "Kenji checks the tally and the pictures. Which row is wrong?"}
+{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/1/d8d88efe2fe7", "text": "Freya checks the tally and the pictures. Which row is wrong?"}
+{"answer": "The fish row", "id": "compare-tally-and-picture-displays/easy/2/792566d4fb43", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "2", "id": "compare-tally-and-picture-displays/hard/0/39ae3d346a3d", "text": "Priyanka checks the cats row. How many more pictures does it need?"}
+{"answer": "1", "id": "compare-tally-and-picture-displays/hard/1/d58dbda251df", "text": "Diego checks the fish row. How many more pictures does it need?"}
+{"answer": "3", "id": "compare-tally-and-picture-displays/hard/2/551bf855ea4d", "text": "Beatrice checks the stars row. How many more pictures does it need?"}
+{"answer": "The apples row", "id": "compare-tally-and-picture-displays/medium/0/24e05baa646d", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/1/a5daca6d18ce", "text": "One row does not match. Which row is it?"}
+{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/2/d6e43e4ef4d3", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/0/000bf0a7c044", "text": "Pack A: 368 grams for $12.29. Pack B: 485 grams for $28.65. Which is the cheape…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/1/aff9c7f05855", "text": "Pack A: 946 grams for $17.49. Pack B: 347 grams for $29.16. Which is the cheape…"}
 {"answer": "Tie -- the same price per unit", "id": "compare-unit-prices/easy/2/d3a8b94a6f2d", "text": "Pack A: 717 grams for $28.19. Pack B: 2868 grams for $112.76. Which is the chea…"}
@@ -622,9 +637,15 @@
 {"answer": "7", "id": "constants-coefficients-terms/medium/0/2bdfa37fb0ac", "text": "What is the coefficient of x^2 in -5*x**3 + 7*x**2 - 8?"}
 {"answer": "7", "id": "constants-coefficients-terms/medium/1/870a777e8840", "text": "What is the coefficient of x^2 in 7*x**3 + 7*x**2?"}
 {"answer": "7", "id": "constants-coefficients-terms/medium/2/2d0fc33be71a", "text": "What is the coefficient of x^2 in 7*x**2 - 5*x - 1?"}
-{"answer": "▲", "id": "continue-patterns/easy/0/304b213a3326", "text": "What comes next? ▲ ■ ▲ ■ ▲ ■ __"}
-{"answer": "🍎", "id": "continue-patterns/easy/1/c02ad4b08fd1", "text": "What comes next? 🍎 🍐 🍎 🍐 🍎 🍐 __"}
-{"answer": "🔵", "id": "continue-patterns/easy/2/85c2021ed542", "text": "What comes next? 🔵 🟡 🔵 🟡 🔵 🟡 __"}
+{"answer": "a solid star", "id": "continue-patterns/easy/0/84424c4840f9", "text": "What should come next?"}
+{"answer": "the number 2", "id": "continue-patterns/easy/1/eca725bbb37f", "text": "What comes next in the pattern?"}
+{"answer": "a solid diamond", "id": "continue-patterns/easy/2/6d2b70e429c5", "text": "Which one comes next in this pattern?"}
+{"answer": "Row A", "id": "continue-patterns/hard/0/65f7bae069b1", "text": "Which row is a pattern like jump, stamp, stamp, jump, stamp, stamp?"}
+{"answer": "Row B", "id": "continue-patterns/hard/1/ff5dd009795f", "text": "Which row has the same pattern as stamp, stamp, jump, jump, stamp, stamp, jump,…"}
+{"answer": "Row B", "id": "continue-patterns/hard/2/6e6981628d63", "text": "Which row is a pattern like jump, jump, stamp, jump, jump, stamp?"}
+{"answer": "a stamp", "id": "continue-patterns/medium/0/c3b77a591620", "text": "What is missing from the pattern?"}
+{"answer": "a solid heart", "id": "continue-patterns/medium/1/1b2e6ef76a80", "text": "Look at the pattern. What fills the empty box?"}
+{"answer": "the number 5", "id": "continue-patterns/medium/2/00cbae691f0e", "text": "What is missing from the pattern?"}
 {"answer": "8", "id": "convert-metric-capacity/easy/0/a18d6904128e", "text": "Convert 8000 mL to L."}
 {"answer": "3", "id": "convert-metric-capacity/easy/1/f13ec3b04a3f", "text": "Convert 3000 mL to L."}
 {"answer": "5", "id": "convert-metric-capacity/easy/2/e26ae0779deb", "text": "Convert 5000 mL to L."}
@@ -1078,6 +1099,78 @@
 {"answer": "-5/2", "id": "explicit-euler-linear-ode/medium/0/7b04194147bd", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-4)y + (1), starting from…"}
 {"answer": "4/3", "id": "explicit-euler-linear-ode/medium/1/6b95d4f0ba01", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (-5)y + (5), starting from…"}
 {"answer": "3", "id": "explicit-euler-linear-ode/medium/2/168adcd308d3", "text": "Use one explicit Euler step of size h = 1/6 for y′ = (5)y + (-4), starting from…"}
+{"answer": "30", "id": "ey-calendar-count-days/easy/0/eb9432a1c5c9", "text": "How many days are in this month?"}
+{"answer": "31", "id": "ey-calendar-count-days/easy/1/82ff0e7d47a2", "text": "How many days does this month have, Sione?"}
+{"answer": "30", "id": "ey-calendar-count-days/easy/2/aa019a76e526", "text": "Ethan counts the days in this month. How many are there?"}
+{"answer": "18", "id": "ey-calendar-count-days/hard/0/9cfd3eebbf85", "text": "From Start to End is 2 weeks and 4 days. How many days is that?"}
+{"answer": "11", "id": "ey-calendar-count-days/hard/1/2da10ee2e209", "text": "Start to End takes 1 week and 4 days. How many days?"}
+{"answer": "20", "id": "ey-calendar-count-days/hard/2/d845c8cbcc57", "text": "Olivia counts from Start to End: 2 weeks and 6 days. How many days?"}
+{"answer": "4", "id": "ey-calendar-count-days/medium/0/6c07ba8df43b", "text": "How many weeks from the Start to the End?"}
+{"answer": "4", "id": "ey-calendar-count-days/medium/1/9dfaabcf1f41", "text": "The Start and the End are how many weeks apart?"}
+{"answer": "4", "id": "ey-calendar-count-days/medium/2/286801ed1cdb", "text": "How many weeks from the Start to the End?"}
+{"answer": "3", "id": "ey-calendar-days-between/easy/0/1ee6ea7e0762", "text": "How many days from the Zoo to the Market?"}
+{"answer": "2", "id": "ey-calendar-days-between/easy/1/36056e7fdf75", "text": "Tariq counts the days from the Market to the Swim. How many?"}
+{"answer": "3", "id": "ey-calendar-days-between/easy/2/fac1af26c30a", "text": "Priya counts the days from the Swim to the Movie. How many?"}
+{"answer": "8", "id": "ey-calendar-days-between/hard/0/42c15498203a", "text": "How many days from the Dentist to the last day of the month?"}
+{"answer": "18", "id": "ey-calendar-days-between/hard/1/36c3073be497", "text": "Ingrid counts from the Concert to the last day of the month. How many days?"}
+{"answer": "15", "id": "ey-calendar-days-between/hard/2/1ea57bbb832c", "text": "How many days from the Footy to the Dentist?"}
+{"answer": "18", "id": "ey-calendar-days-between/medium/0/334d9405a61d", "text": "2 weeks after the Market is which date?"}
+{"answer": "29", "id": "ey-calendar-days-between/medium/1/417ad027a5f5", "text": "What is the date 3 weeks after the Concert?"}
+{"answer": "19", "id": "ey-calendar-days-between/medium/2/bc520806c1ed", "text": "What is the date 2 weeks after the Zoo?"}
+{"answer": "Wednesday", "id": "ey-calendar-days-months-order/easy/0/24b61b272106", "text": "Which day comes next after Tuesday?"}
+{"answer": "Saturday", "id": "ey-calendar-days-months-order/easy/1/c792c3304c1f", "text": "What day comes after Friday?"}
+{"answer": "Friday", "id": "ey-calendar-days-months-order/easy/2/2027a81ca471", "text": "Which day comes next after Thursday?"}
+{"answer": "December", "id": "ey-calendar-days-months-order/hard/0/89f358c48289", "text": "Which month comes next?"}
+{"answer": "February", "id": "ey-calendar-days-months-order/hard/1/7e5c417bbc6e", "text": "Hassan looks at this calendar. Which month came before it?"}
+{"answer": "May", "id": "ey-calendar-days-months-order/hard/2/1120c9a4da09", "text": "Which month comes next?"}
+{"answer": "Sunday", "id": "ey-calendar-days-months-order/medium/0/a8ae0f53885a", "text": "Ravi is thinking about the week. What day comes after Saturday?"}
+{"answer": "Saturday", "id": "ey-calendar-days-months-order/medium/1/a05409c720c3", "text": "Which day comes just before Sunday?"}
+{"answer": "Saturday", "id": "ey-calendar-days-months-order/medium/2/da437908a26f", "text": "Which day comes just before Sunday?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/easy/0/c7dd666c9595", "text": "What day of the week is the ringed date?"}
+{"answer": "Wednesday", "id": "ey-calendar-weekday-of-date/easy/1/70354ca4fe3e", "text": "Which day of the week is the ringed date?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/easy/2/30f88d9389b2", "text": "Which day of the week is the ringed date?"}
+{"answer": "Saturday", "id": "ey-calendar-weekday-of-date/hard/0/e82f2b6e5a33", "text": "What day of the week is the last day of the month?"}
+{"answer": "Sunday", "id": "ey-calendar-weekday-of-date/hard/1/9b7719dd1056", "text": "What day of the week is the 1st of next month?"}
+{"answer": "Tuesday", "id": "ey-calendar-weekday-of-date/hard/2/432887518956", "text": "Which day of the week does next month start on?"}
+{"answer": "Thursday", "id": "ey-calendar-weekday-of-date/medium/0/fde1895338f2", "text": "Which day of the week is the 12th?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/1/115dcab76551", "text": "What day of the week is the 23rd?"}
+{"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/2/8a80e4f90fb2", "text": "Talia has a game on the 8th. What day of the week is that?"}
+{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/0/39c7129984d8", "text": "Is one longer, or are they the same? Count the paper clips."}
+{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/1/930b41815123", "text": "Is one longer, or are they the same? Count the blocks."}
+{"answer": "The rope", "id": "ey-compare-by-paper-clips/easy/2/76ff7c84254c", "text": "Count the blocks. Which one is shorter?"}
+{"answer": "The ribbon and the rope", "id": "ey-compare-by-paper-clips/hard/0/9cb300f93af8", "text": "Which two are the same length?"}
+{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/1/0180122def19", "text": "Which two are as long as each other?"}
+{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/2/3dbaded65f28", "text": "Which two have the same length?"}
+{"answer": "The rope", "id": "ey-compare-by-paper-clips/medium/0/2e274fada775", "text": "Count the blocks. Which one is longest?"}
+{"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/1/f70623567f3d", "text": "Which is the shortest? Count the paper clips."}
+{"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/2/f3947343998d", "text": "Which is the longest? Count the blocks."}
+{"answer": "The jug", "id": "ey-compare-capacity-by-cups/easy/0/9ca58194703b", "text": "Count the cups poured out. Which holds less?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/easy/1/d0e189917989", "text": "Each is poured into small cups. Which holds more?"}
+{"answer": "The bottle", "id": "ey-compare-capacity-by-cups/easy/2/a07f5fcc9587", "text": "Each is poured into small cups. Which holds less?"}
+{"answer": "The cup and the jug", "id": "ey-compare-capacity-by-cups/hard/0/922a592ef3ed", "text": "Which two hold the same? Count the cups."}
+{"answer": "The jug and the bowl", "id": "ey-compare-capacity-by-cups/hard/1/b6a2dd547490", "text": "Which two hold the same? Count the cups."}
+{"answer": "The bottle and the cup", "id": "ey-compare-capacity-by-cups/hard/2/3c2f936ce6a3", "text": "Two of these hold the same amount. Which two?"}
+{"answer": "The jug", "id": "ey-compare-capacity-by-cups/medium/0/37185a29ef58", "text": "Each is poured into small cups. Which holds the least?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/da1b89c56a3d", "text": "Count the cups poured out. Which holds most?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/61967bd6fcd5", "text": "Each is poured into small cups. Which holds the most?"}
+{"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
+{"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
+{"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}
+{"answer": "5", "id": "ey-day-strip-sequence/hard/0/5ba9e3169408", "text": "What number card is second in the day?"}
+{"answer": "6", "id": "ey-day-strip-sequence/hard/1/f8b4dcef9ff1", "text": "In day order, which number card comes second?"}
+{"answer": "2", "id": "ey-day-strip-sequence/hard/2/3f3d40e44254", "text": "Put the day in order. Which number card comes third?"}
+{"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
+{"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
+{"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
+{"answer": "The torch", "id": "ey-order-by-two-balances/easy/0/3af4cb5f4094", "text": "Look at both balances. Which is heaviest?"}
+{"answer": "The banana", "id": "ey-order-by-two-balances/easy/1/3f8f9a7ff2be", "text": "Which one is the heaviest?"}
+{"answer": "The hat", "id": "ey-order-by-two-balances/easy/2/10c49f75d360", "text": "Which one is the heaviest?"}
+{"answer": "hat, shoe, toy car", "id": "ey-order-by-two-balances/hard/0/e35f6eb3d28f", "text": "Use both balances to put the three in order. Which list is right?"}
+{"answer": "hat, apple, drum", "id": "ey-order-by-two-balances/hard/1/e2f1fe119913", "text": "Use both balances to put the three in order. Which list is right?"}
+{"answer": "torch, lunch box, jar", "id": "ey-order-by-two-balances/hard/2/e70ede96ab33", "text": "Which list goes from lightest to heaviest?"}
+{"answer": "The toy car", "id": "ey-order-by-two-balances/medium/0/3e62b5416981", "text": "Which one is the lightest?"}
+{"answer": "The shoe", "id": "ey-order-by-two-balances/medium/1/9c479ba5527c", "text": "Look at both balances. Which is lightest?"}
+{"answer": "The jar", "id": "ey-order-by-two-balances/medium/2/61afaa5dc8a2", "text": "Look at both balances. Which is lightest?"}
 {"answer": "17 - 14 = □", "id": "f10-add-subtract-number-sentences/easy/0/49bc200338d6", "text": "There are 17 children in a class. 14 of the children walk to school and the res…"}
 {"answer": "19 - □ = 16", "id": "f10-add-subtract-number-sentences/easy/1/77b88bda6770", "text": "Liam had 19 tickets. Liam gave 16 tickets to a friend. How many tickets does Li…"}
 {"answer": "□ - 15 = 3", "id": "f10-add-subtract-number-sentences/easy/2/aaafad064f0a", "text": "Kai has 3 boxes. A friend gives Kai 15 more. How many boxes does Kai have in to…"}
@@ -1333,15 +1426,15 @@
 {"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/medium/0/7e7d9f463aa5", "text": "Two groups of students are shown as box plots of their times. Which plot has th…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/1/0b6cd048f392", "text": "These parallel box plots show the marks for two groups of students. Which group…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/75138002c59d", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masse…"}
-{"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/easy/0/b0e5473296a1", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
-{"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/1/1c261693d6b0", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
-{"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/2/5f2a0382ee16", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
-{"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/hard/0/071720da6bb8", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
-{"answer": "Item 1 is heavier than Item 2.", "id": "f10-compare-measurement-attributes/hard/1/1ffe14f31df5", "text": "Item 1 tips the balance down against Item 2. Which statement is true?"}
-{"answer": "Item 1 is the same length as Item 2.", "id": "f10-compare-measurement-attributes/hard/2/34ba4d6baf6b", "text": "Item 1 and Item 2 reach exactly the same point when their ends are lined up. Wh…"}
-{"answer": "Event 2 takes longer than Event 1.", "id": "f10-compare-measurement-attributes/medium/0/60717dbbd6f5", "text": "Event 2 takes longer to finish than Event 1. Which statement is true?"}
-{"answer": "Item 2 holds more than Item 1.", "id": "f10-compare-measurement-attributes/medium/1/fae9e1e01849", "text": "Pouring the liquid from Item 2 into Item 1 makes Item 1 overflow. Which stateme…"}
-{"answer": "Event 1 takes longer than Event 2.", "id": "f10-compare-measurement-attributes/medium/2/83cc0dac337b", "text": "Event 1 takes longer to finish than Event 2. Which statement is true?"}
+{"answer": "The cup", "id": "f10-compare-measurement-attributes/easy/0/2838d01f715b", "text": "Which of these holds the most?"}
+{"answer": "The bottle", "id": "f10-compare-measurement-attributes/easy/1/50eba866b43c", "text": "Which of these holds the least?"}
+{"answer": "The book", "id": "f10-compare-measurement-attributes/easy/2/7ef9cc7180b0", "text": "Look at the balance. Which is lighter?"}
+{"answer": "The bowl", "id": "f10-compare-measurement-attributes/hard/0/c1a36cc91e34", "text": "Look at the water. Which has more?"}
+{"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/1/55462d22efce", "text": "Which one has more water in it?"}
+{"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/2/e33ea2272156", "text": "Look at the water. Which has more?"}
+{"answer": "The banana", "id": "f10-compare-measurement-attributes/medium/0/fae43d393a39", "text": "Which one is heavier?"}
+{"answer": "The bowl", "id": "f10-compare-measurement-attributes/medium/1/9b869f113238", "text": "Which holds the most?"}
+{"answer": "The jar", "id": "f10-compare-measurement-attributes/medium/2/5d3361641b95", "text": "Which one is heavier?"}
 {"answer": "Item 1, Item 2, Item 3", "id": "f10-compare-order-measure-attributes/easy/0/5f3764d370de", "text": "These are the clues, in no particular order: Item 3 tips the balance down again…"}
 {"answer": "Event 1, Event 2, Event 3", "id": "f10-compare-order-measure-attributes/easy/1/e445e3af1b9c", "text": "These are the clues, in no particular order: Event 3 takes longer to finish tha…"}
 {"answer": "Item 3, Item 2, Item 1", "id": "f10-compare-order-measure-attributes/easy/2/b8302de583c8", "text": "These are the clues, in no particular order: Pouring the liquid from Item 1 int…"}
@@ -2368,6 +2461,18 @@
 {"answer": "square, star, diamond", "id": "f10-pattern-copy-repeat-unit/medium/0/cc8d6a39408f", "text": "This pattern repeats. What is the smallest repeating unit, in order? square, st…"}
 {"answer": "star, circle, triangle", "id": "f10-pattern-copy-repeat-unit/medium/1/c22b94743588", "text": "This pattern repeats. What is the smallest repeating unit, in order? star, circ…"}
 {"answer": "star, diamond, triangle", "id": "f10-pattern-copy-repeat-unit/medium/2/bd2a812587bc", "text": "This pattern repeats. What is the smallest repeating unit, in order? star, diam…"}
+{"answer": "3", "id": "f10-pattern-strip-repeating-unit/easy/0/0326278cc9cd", "text": "How many are in the part that repeats?"}
+{"answer": "2", "id": "f10-pattern-strip-repeating-unit/easy/1/ac86ea3e9439", "text": "How many are in the part that repeats?"}
+{"answer": "3", "id": "f10-pattern-strip-repeating-unit/easy/2/344bbedaa2d2", "text": "Talia sees a pattern. How many are in the part that repeats?"}
+{"answer": "Number 8", "id": "f10-pattern-strip-repeating-unit/hard/0/716a9a1b52b4", "text": "Which one does not belong in the pattern?"}
+{"answer": "Number 9", "id": "f10-pattern-strip-repeating-unit/hard/1/9f20da8218ab", "text": "One is wrong. Which one breaks the pattern?"}
+{"answer": "Number 9", "id": "f10-pattern-strip-repeating-unit/hard/2/1ac3a2980fc5", "text": "Look closely. Which one breaks the pattern?"}
+{"answer": "a stamp", "id": "f10-pattern-strip-repeating-unit/later-place/0/a1a908acfc2c", "text": "What will number 12 in this pattern be?"}
+{"answer": "a striped diamond", "id": "f10-pattern-strip-repeating-unit/later-place/1/174a47d3a0b7", "text": "Kenji keeps the pattern going. What is number 10?"}
+{"answer": "the letter N", "id": "f10-pattern-strip-repeating-unit/later-place/2/00e736d03745", "text": "Keep the pattern going. What will number 9 be?"}
+{"answer": "Row B", "id": "f10-pattern-strip-repeating-unit/same-pattern/0/4e053d9c95c3", "text": "Which row is a pattern like 2, 2, 9, 2, 2, 9?"}
+{"answer": "Row C", "id": "f10-pattern-strip-repeating-unit/same-pattern/1/6e56cfc61495", "text": "Which row is made the same way as triangle, triangle, circle, triangle, triangl…"}
+{"answer": "Row A", "id": "f10-pattern-strip-repeating-unit/same-pattern/2/9d33c75b0cb0", "text": "Which row has the same pattern as stamp, stamp, jump, stamp, stamp, jump?"}
 {"answer": "1/5", "id": "f10-percentage-equivalence-comparison/easy/0/c5153d529d3b", "text": "What fraction is equivalent to 20%, using 100% as the whole?"}
 {"answer": "1/2", "id": "f10-percentage-equivalence-comparison/easy/1/2d0fe241ff91", "text": "What fraction is equivalent to 50%, using 100% as the whole?"}
 {"answer": "3/4", "id": "f10-percentage-equivalence-comparison/easy/2/74eebf8cdca4", "text": "What fraction is equivalent to 75%, using 100% as the whole?"}
@@ -2767,6 +2872,15 @@
 {"answer": "8", "id": "f10-shape-features-classification/medium/0/9ed618fa6467", "text": "How many sides does an octagon have?"}
 {"answer": "6", "id": "f10-shape-features-classification/medium/1/c1aabfdf9ba8", "text": "How many sides does a hexagon have?"}
 {"answer": "8", "id": "f10-shape-features-classification/medium/2/bdb663b69fec", "text": "How many sides does an octagon have?"}
+{"answer": "4", "id": "f10-shape-sides-spatial-terms/easy/0/c4d174c51de4", "text": "How many corners does this shape have?"}
+{"answer": "4", "id": "f10-shape-sides-spatial-terms/easy/1/a30e30488975", "text": "How many sides does this shape have?"}
+{"answer": "4", "id": "f10-shape-sides-spatial-terms/easy/2/df207ded557c", "text": "How many sides does this shape have?"}
+{"answer": "3", "id": "f10-shape-sides-spatial-terms/hard/0/3a42f9b629b5", "text": "Count the shapes with at least one pair of parallel sides."}
+{"answer": "3", "id": "f10-shape-sides-spatial-terms/hard/1/9f3b703dc63d", "text": "Count the shapes with 3 sides."}
+{"answer": "2", "id": "f10-shape-sides-spatial-terms/hard/2/48dcc2b59a70", "text": "Count the shapes with at least one pair of parallel sides."}
+{"answer": "Shape D", "id": "f10-shape-sides-spatial-terms/medium/0/76f487c86950", "text": "Which shape has only curved sides?"}
+{"answer": "Shape B", "id": "f10-shape-sides-spatial-terms/medium/1/42fbb3141a71", "text": "Which shape has one or more pairs of parallel sides?"}
+{"answer": "Shape D", "id": "f10-shape-sides-spatial-terms/medium/2/cdc0b989bc16", "text": "Which shape has no curved sides?"}
 {"answer": "Bin B", "id": "f10-shape-sorting-algorithm/easy/0/531a4c6cb7fa", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
 {"answer": "Bin B", "id": "f10-shape-sorting-algorithm/easy/1/ca485617a703", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
 {"answer": "Bin A", "id": "f10-shape-sorting-algorithm/easy/2/ca8f0b02a90d", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Is the nu…"}
@@ -2800,6 +2914,15 @@
 {"answer": "12", "id": "f10-solid-faces-edges-vertices/medium/0/0c2a8e2bc407", "text": "The solid shown is drawn with its hidden edges dashed. How many edges does Priy…"}
 {"answer": "8", "id": "f10-solid-faces-edges-vertices/medium/1/b2997d1aecb8", "text": "Kofi draws the solid shown, with hidden edges dashed. How many edges does the s…"}
 {"answer": "12", "id": "f10-solid-faces-edges-vertices/medium/2/629f4ef60f97", "text": "Zoe draws the solid shown, with hidden edges dashed. How many vertices does the…"}
+{"answer": "2", "id": "f10-sort-classify-familiar-shapes/easy/0/785c416e1c36", "text": "How many shapes are solid?"}
+{"answer": "4", "id": "f10-sort-classify-familiar-shapes/easy/1/53eeb7d78a20", "text": "How many shapes are flat?"}
+{"answer": "3", "id": "f10-sort-classify-familiar-shapes/easy/2/988acd0ae885", "text": "How many shapes are flat?"}
+{"answer": "D, it has a curved side", "id": "f10-sort-classify-familiar-shapes/hard/0/8578fa0e2bf4", "text": "Which shape is the odd one out? Choose the shape and the reason."}
+{"answer": "A, it has a curved side", "id": "f10-sort-classify-familiar-shapes/hard/1/e410d0c71fbb", "text": "Which shape is different? Pick the shape and the reason."}
+{"answer": "C, it has a curved side", "id": "f10-sort-classify-familiar-shapes/hard/2/c67488c9a47b", "text": "Which shape is the odd one out? Choose the shape and the reason."}
+{"answer": "4", "id": "f10-sort-classify-familiar-shapes/medium/0/5a2e13382587", "text": "Count the shapes with 3 corners."}
+{"answer": "3", "id": "f10-sort-classify-familiar-shapes/medium/1/0285dfcac562", "text": "How many shapes have 4 corners?"}
+{"answer": "3", "id": "f10-sort-classify-familiar-shapes/medium/2/40e384b66aa9", "text": "How many shapes have a curved side?"}
 {"answer": "B, A, D, C", "id": "f10-spatial-algorithm-choose-test/easy/0/5b5870559c8c", "text": "These steps to construct an angle of 60° have been shuffled: A. Put the compass…"}
 {"answer": "A, D, B, C", "id": "f10-spatial-algorithm-choose-test/easy/1/4a44edce67e3", "text": "These steps to construct the perpendicular from a point to a line have been shu…"}
 {"answer": "D, A, B, C", "id": "f10-spatial-algorithm-choose-test/easy/2/988feebe9133", "text": "These steps to construct the perpendicular from a point to a line have been shu…"}
@@ -4084,9 +4207,15 @@
 {"answer": "-5 + 30i", "id": "multiply-complex-numbers/exam/0/c839c4673182", "text": "Expand and simplify (3 + 3i)^2 - (3 - 2i)^2."}
 {"answer": "18 + 26i", "id": "multiply-complex-numbers/exam/1/477a03a420f0", "text": "Calculate (3 + i)^3."}
 {"answer": "-8 - 2i", "id": "multiply-complex-numbers/exam/2/86c0e5baff23", "text": "Expand and simplify (1 + 3i)^2 - (2 + 2i)^2."}
-{"answer": "Circle", "id": "name-basic-shapes/easy/0/6f68474ec188", "text": "What shape is this? ●"}
-{"answer": "Triangle", "id": "name-basic-shapes/easy/1/a122238c8ba2", "text": "What shape is this? ▲"}
-{"answer": "Square", "id": "name-basic-shapes/easy/2/85878d60cb04", "text": "What shape is this? ■"}
+{"answer": "Square", "id": "name-basic-shapes/easy/0/2b2ac6f3a840", "text": "What shape is this?"}
+{"answer": "Rectangle", "id": "name-basic-shapes/easy/1/957403a34e89", "text": "Which shape can you see?"}
+{"answer": "Triangle", "id": "name-basic-shapes/easy/2/1a7e636c46b7", "text": "Which shape can you see?"}
+{"answer": "Square", "id": "name-basic-shapes/hard/0/66599108339e", "text": "Which shape is the walls of this house?"}
+{"answer": "Rectangular prism", "id": "name-basic-shapes/hard/1/7a11373363e3", "text": "Which shape does this box look like?"}
+{"answer": "Cylinder", "id": "name-basic-shapes/hard/2/277453cf5c90", "text": "Which shape is this can?"}
+{"answer": "2", "id": "name-basic-shapes/medium/0/1a8684c7c2ee", "text": "Count the triangles."}
+{"answer": "4", "id": "name-basic-shapes/medium/1/4d9442e5a347", "text": "How many squares can you see?"}
+{"answer": "2", "id": "name-basic-shapes/medium/2/f23b9723358c", "text": "Count the squares."}
 {"answer": "9", "id": "network-model-from-situation/easy/0/0344528e1d52", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
 {"answer": "5", "id": "network-model-from-situation/easy/1/4b26a27faf4b", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
 {"answer": "4", "id": "network-model-from-situation/easy/2/2c7a2956cb8b", "text": "7 friends keep a list of the people they message regularly. Messaging goes both…"}
@@ -4180,6 +4309,15 @@
 {"answer": "x > 45/2", "id": "one-step-inequalities/medium/0/1a7a9e0a5f3a", "text": "Solve the inequality 2x > 45. Give your answer as an inequality in x; write any…"}
 {"answer": "n > -8/7", "id": "one-step-inequalities/medium/1/70081c69e57d", "text": "Find all values of n for which 7n > -8. Give your answer as an inequality in n;…"}
 {"answer": "n ≤ 8", "id": "one-step-inequalities/medium/2/aab749ee7d02", "text": "Solve 3n ≤ 24. Give your answer as an inequality in n; write any bound that is …"}
+{"answer": "7", "id": "one-to-one-displays/easy/0/c5e0d1acae74", "text": "Lucas counts the stars. How many are there?"}
+{"answer": "4", "id": "one-to-one-displays/easy/1/3faf3a35d16c", "text": "How many balls are there?"}
+{"answer": "6", "id": "one-to-one-displays/easy/2/7f675534bfcd", "text": "Oscar counts the flowers. How many are there?"}
+{"answer": "31", "id": "one-to-one-displays/hard/0/7cad16163246", "text": "How many are there altogether?"}
+{"answer": "15", "id": "one-to-one-displays/hard/1/c41df72ee3b8", "text": "Ava counts every row. How many altogether?"}
+{"answer": "8", "id": "one-to-one-displays/hard/2/69299dc8269a", "text": "How many fewer does the least row have than the most row?"}
+{"answer": "16", "id": "one-to-one-displays/medium/0/1572ab514b29", "text": "Amir adds the stars and the apples. How many altogether?"}
+{"answer": "7", "id": "one-to-one-displays/medium/1/246c101e5d6f", "text": "How many more dogs than cats are there?"}
+{"answer": "5", "id": "one-to-one-displays/medium/2/3fcebe43f5d8", "text": "How many more cars than dogs are there?"}
 {"answer": "3", "id": "order-numbers-to-10/easy/0/86b27988d9ea", "text": "What comes next? 0, 1, 2, __"}
 {"answer": "8", "id": "order-numbers-to-10/easy/1/5b0905f44397", "text": "What comes next? 5, 6, 7, __"}
 {"answer": "4", "id": "order-numbers-to-10/easy/2/939630ad5cc0", "text": "What comes next? 1, 2, 3, __"}
@@ -5227,9 +5365,9 @@
 {"answer": "9783", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/easy/0/4fc48193f52e", "text": "A population of 4348 grows by 50% each year. Find the population after 2 years."}
 {"answer": "1331", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/easy/1/23ddd94209a4", "text": "A population of 1100 grows by 10% each year. Find the population after 2 years."}
 {"answer": "6678", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/easy/2/87887d857654", "text": "A population of 2968 grows by 50% each year. Find the population after 2 years."}
-{"answer": "(a) 30; (b) 1000; (c) 7", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/0/2323ada3d3a5", "text": "The number of fish in a dam is 1,300 after 1 year, and 2,197 after 3 years, cha…"}
-{"answer": "(a) 20; (b) 625; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/1/a848cbffcb63", "text": "The number of fish in a polluted river is 500 after 1 year, and 320 after 3 yea…"}
-{"answer": "(a) 50; (b) 328; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/2/09f1a786be9b", "text": "The number of rabbits on an island is 492 after 1 year and 1,107 after 3 years.…"}
+{"answer": "(a) 30; (b) 1000; (c) 7", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/0/23d6666fb2ea", "text": "The number of fish in a dam is 1,300 after 1 year, and 2,197 after 3 years, cha…"}
+{"answer": "(a) 20; (b) 625; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/1/5fe163d18426", "text": "The number of fish in a polluted river is 500 after 1 year, and 320 after 3 yea…"}
+{"answer": "(a) 50; (b) 328; (c) 4", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/exam/2/f4060ff2e02e", "text": "The number of rabbits on an island is 492 after 1 year and 1,107 after 3 years.…"}
 {"answer": "1216", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/hard/0/a28f33975ec1", "text": "A population grew by 25% each year for 3 years and is now 2375. What was the or…"}
 {"answer": "2900", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/hard/1/207fdd077b78", "text": "A population grew by 20% each year for 2 years and is now 4176. What was the or…"}
 {"answer": "1350", "id": "senior-consider-similar-problems-involving-compounding-for-example-population/hard/2/b5a45d360ed8", "text": "A population grew by 20% each year for 2 years and is now 1944. What was the or…"}
@@ -5383,9 +5521,9 @@
 {"answer": "4/5", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/easy/0/97b12f012532", "text": "v = (12, 16). The magnitude of v is 20. Find the coefficient of j in the unit v…"}
 {"answer": "12/13", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/easy/1/ceefe350a8ce", "text": "v = (5, 12). The magnitude of v is 13. Find the coefficient of j in the unit ve…"}
 {"answer": "4/5", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/easy/2/fca05a61346d", "text": "v = (9, 12). The magnitude of v is 15. Find the coefficient of j in the unit ve…"}
-{"answer": "(a) 25; (b) 24/25; (c) -96; (d) -95", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/0/19871fbdab7a", "text": "The points A(-6, -7) and B(1, 17) are given. The point C is such that the vecto…"}
+{"answer": "(a) 25; (b) 24/25; (c) -96; (d) -95", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/0/9afb962b6e93", "text": "The points A(-6, -7) and B(1, 17) are given. The point C is such that the vecto…"}
 {"answer": "(a) 17; (b) 8/17; (c) 32; (d) 11", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/1/9eb6da3b0ea1", "text": "The points A(-6, -3) and B(-21, 5) are given. The point C is such that the vect…"}
-{"answer": "(a) 5; (b) -4/5; (c) 12; (d) 14", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/2/1f0b3d4bbcaf", "text": "The points A(5, 8) and B(2, 4) are given. The point C is such that the vector B…"}
+{"answer": "(a) 5; (b) -4/5; (c) 12; (d) 14", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/exam/2/2736bc40de83", "text": "The points A(5, 8) and B(2, 4) are given. The point C is such that the vector B…"}
 {"answer": "24/25", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/hard/0/3442095ccccb", "text": "v = (7, -24), with magnitude 25. The perpendicular unit vector (rotated 90 degr…"}
 {"answer": "-15/17", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/hard/1/0a9145a521bf", "text": "v = (-8, 15), with magnitude 17. The perpendicular unit vector (rotated 90 degr…"}
 {"answer": "3/5", "id": "senior-define-and-use-unit-vectors-and-the-perpendicular/hard/2/37f1bfc73868", "text": "v = (12, -16), with magnitude 20. The perpendicular unit vector (rotated 90 deg…"}
@@ -5464,6 +5602,18 @@
 {"answer": "6:5", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/medium/0/69625c2345ad", "text": "A garden bed contains 36 rose bushes, 30 lavender bushes and 16 daffodils. Simp…"}
 {"answer": "5:7", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/medium/1/6d0b1b6c8304", "text": "A fruit bowl has 25 apples, 35 oranges and 56 mandarins. Express the ratio of a…"}
 {"answer": "4:1", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/medium/2/2dfce5f9eaf7", "text": "In a car park, there are 36 sedans, 9 hatchbacks and 51 vans. Write the ratio o…"}
+{"answer": "Tightly packed", "id": "senior-describe-spread-from-a-dot-plot/easy/0/d231410e6ebc", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "Tightly packed", "id": "senior-describe-spread-from-a-dot-plot/easy/1/a1bd96dfe7a5", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "Tightly packed", "id": "senior-describe-spread-from-a-dot-plot/easy/2/432b49fe1235", "text": "The dot plot shows the number of goals scored by a hockey team in each game of …"}
+{"answer": "(a) 34; (b) 40; (c) 6; (d) 8", "id": "senior-describe-spread-from-a-dot-plot/exam/0/1a8c8252c9c8", "text": "The dot plot shows the number of goals scored by a hockey team in each game of …"}
+{"answer": "(a) 42; (b) 35; (c) 7; (d) 10", "id": "senior-describe-spread-from-a-dot-plot/exam/1/2b8d47b2471f", "text": "The dot plot shows the number of minutes it took some students to get to school…"}
+{"answer": "(a) 54; (b) 46; (c) 8; (d) 11", "id": "senior-describe-spread-from-a-dot-plot/exam/2/9f1605bb2c5d", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "The biggest gap is between 14 and 20, and the most dots are…", "id": "senior-describe-spread-from-a-dot-plot/hard/0/3f912674e179", "text": "The dot plot shows the number of books borrowed by each member of a club in a m…"}
+{"answer": "The biggest gap is between 13 and 22, and the most dots are…", "id": "senior-describe-spread-from-a-dot-plot/hard/1/275eeffcfb8d", "text": "The dot plot shows the number of text messages some students sent in one day. W…"}
+{"answer": "The biggest gap is between 3 and 12, and the most dots are …", "id": "senior-describe-spread-from-a-dot-plot/hard/2/b631240c7273", "text": "The dot plot shows the number of goals scored by a hockey team in each game of …"}
+{"answer": "One cluster with an outlier", "id": "senior-describe-spread-from-a-dot-plot/medium/0/071d0a0bbc58", "text": "The dot plot shows the number of text messages some students sent in one day. W…"}
+{"answer": "Two clusters with a gap between them", "id": "senior-describe-spread-from-a-dot-plot/medium/1/6d72f2b8410d", "text": "The dot plot shows the number of text messages some students sent in one day. W…"}
+{"answer": "One cluster with an outlier", "id": "senior-describe-spread-from-a-dot-plot/medium/2/fbd9daaa3a7f", "text": "The dot plot shows the number of customers who came into a cafe in each hour. W…"}
 {"answer": "negative, linear, moderate", "id": "senior-describe-the-association-between-two-numerical-variables-in/easy/0/c2fec681a9a0", "text": "A researcher describes a scatterplot of hours of sleep per night against hours …"}
 {"answer": "negative, linear, weak", "id": "senior-describe-the-association-between-two-numerical-variables-in/easy/1/535761777d66", "text": "A researcher describes a scatterplot of its resale value against a car's age. A…"}
 {"answer": "positive, non-linear, strong", "id": "senior-describe-the-association-between-two-numerical-variables-in/easy/2/b389790e9528", "text": "A scatterplot of its height after a month against a plant's daily sunlight hour…"}
@@ -6388,6 +6538,54 @@
 {"answer": "dS/ds = c(B - S)", "id": "senior-formulate-differential-equations-including-the-logistic-equation-that/medium/0/9de23e88ad62", "text": "An object's temperature, S, changes over time s. The rate of change of S is pro…"}
 {"answer": "dW/dt = k(B - W)", "id": "senior-formulate-differential-equations-including-the-logistic-equation-that/medium/1/4e7247d0e408", "text": "An object's temperature, W, changes over time t. The rate of change of W is pro…"}
 {"answer": "dQ/ds = c(R - Q)", "id": "senior-formulate-differential-equations-including-the-logistic-equation-that/medium/2/abfeb8a31c13", "text": "An object's temperature, Q, changes over time s. The rate of change of Q is pro…"}
+{"answer": "2", "id": "senior-graph-dilation-read-factor/easy/0/e438f6e12953", "text": "g is a vertical dilation of f, with g(x) = c f(x) and c > 0. Both axes have 1 u…"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/easy/1/b1e71d7c8902", "text": "g is a vertical dilation of f, with g(x) = c f(x) and c > 0. Both axes have 1 u…"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/easy/2/6fee1a6a3bdc", "text": "The graph of g is the graph of f stretched or squashed up and down, so g(x) = c…"}
+{"answer": "(a) 0.50; (b) 2.00; (c) 4.00; (d) 2.00", "id": "senior-graph-dilation-read-factor/exam/0/6b352a1fc7a3", "text": "The graph of g is a dilation of the graph of f, so g(x) = c f(kx) with k > 0. T…"}
+{"answer": "(a) 2.00; (b) -1.00; (c) -2.00; (d) 2.00", "id": "senior-graph-dilation-read-factor/exam/1/9a0ff09796ae", "text": "The graph of g is a dilation of the graph of f, so g(x) = c f(kx) with k > 0. T…"}
+{"answer": "(a) 2.00; (b) -1.00; (c) 1.00; (d) -2.00", "id": "senior-graph-dilation-read-factor/exam/2/b035443d2855", "text": "The graph of g is a dilation of the graph of f, so g(x) = c f(kx) with k > 0. T…"}
+{"answer": "g(x) = f(x/2)", "id": "senior-graph-dilation-read-factor/hard/0/ba75888a742e", "text": "g is a dilation of f. Both axes have 1 unit per grid square. Which equation giv…"}
+{"answer": "g(x) = -f(x)", "id": "senior-graph-dilation-read-factor/hard/1/af5ac8967ead", "text": "g is a dilation of f. Both axes have 1 unit per grid square. Which equation giv…"}
+{"answer": "g(x) = 2f(x)", "id": "senior-graph-dilation-read-factor/hard/2/8d9007277723", "text": "The graph of g is a dilation of the graph of f. Each grid square is 1 unit on b…"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/medium/0/dee7401386a9", "text": "g is a horizontal dilation of f, with g(x) = f(kx) and k > 0. Each grid square …"}
+{"answer": "3", "id": "senior-graph-dilation-read-factor/medium/1/af454ef5a32d", "text": "The graph of g is the graph of f stretched or squashed left and right, so g(x) …"}
+{"answer": "1/2", "id": "senior-graph-dilation-read-factor/medium/2/33d9f3f1ee4a", "text": "g is a horizontal dilation of f, with g(x) = f(kx) and k > 0. Both axes have 1 …"}
+{"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/0/10d1a3cbabbe", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
+{"answer": "g(x) = -f(x)", "id": "senior-graph-reciprocal-abs-compare/easy/1/f42b07977ae6", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
+{"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/2/b845ede63172", "text": "The graph of g is the graph of f reflected in an axis, in part or in whole. Bot…"}
+{"answer": "(a) -5; (b) -1; (c) 4; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/0/11d072416b2c", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) 1; (b) 5; (c) 4; (d) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/190d0c13ead0", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -4; (b) -2; (c) 2; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/2/91e23ef68d49", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "-1", "id": "senior-graph-reciprocal-abs-compare/hard/0/2c8ad3864361", "text": "Here g(x) = f(|x|), and the graph of f is drawn. Each grid square is 1 unit on …"}
+{"answer": "1/2", "id": "senior-graph-reciprocal-abs-compare/hard/1/3066d58eb382", "text": "Here g(x) = 1/f(x), and the graph of f is drawn. Both axes have 1 unit per grid…"}
+{"answer": "3", "id": "senior-graph-reciprocal-abs-compare/hard/2/1fe028ce547b", "text": "The graph of f is drawn. Let g(x) = |f(x)|. Both axes have 1 unit per grid squa…"}
+{"answer": "g(x) = 1/f(x)", "id": "senior-graph-reciprocal-abs-compare/medium/0/6a6cea29e2d7", "text": "g is drawn from f by one of the transformations below. Both axes have 1 unit pe…"}
+{"answer": "g(x) = f(|x|)", "id": "senior-graph-reciprocal-abs-compare/medium/1/405f91d7738a", "text": "g is drawn from f by one of the transformations below. Both axes have 1 unit pe…"}
+{"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/medium/2/860f69b849a2", "text": "The graph of g is a transformation of the graph of f. Both axes have 1 unit per…"}
+{"answer": "rises by $4 per kilometre", "id": "senior-graph-slope-intercept-meaning/easy/0/2bbb60c4c3f6", "text": "A taxi fare is a flat fee plus a charge for each kilometre. The graph shows the…"}
+{"answer": "rises by $2 per kilometre", "id": "senior-graph-slope-intercept-meaning/easy/1/100144227207", "text": "A taxi fare is a flat fee plus a charge for each kilometre. The graph shows the…"}
+{"answer": "rises by $10 per GB", "id": "senior-graph-slope-intercept-meaning/easy/2/e41327705d0d", "text": "A phone plan has a monthly fee plus a charge for each GB of extra data. The gra…"}
+{"answer": "(a) 1; (b) 2; (c) 15; (d) 18", "id": "senior-graph-slope-intercept-meaning/exam/0/04af758d2355", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "(a) 30; (b) 10; (c) 280; (d) 14", "id": "senior-graph-slope-intercept-meaning/exam/1/058b0d84b5a7", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "(a) -20; (b) 100; (c) 60; (d) 4", "id": "senior-graph-slope-intercept-meaning/exam/2/b1a69d019a2a", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "The booking fee is $10, and each extra day adds $15", "id": "senior-graph-slope-intercept-meaning/hard/0/75c76abd270a", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "The charge at the start is 100%, and it falls by 10% each h…", "id": "senior-graph-slope-intercept-meaning/hard/1/ac493513ba2c", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "The booking fee is $50, and each extra day adds $20", "id": "senior-graph-slope-intercept-meaning/hard/2/e57a99931e00", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
+{"answer": "The amount of water in the tank at the start is 32 litres", "id": "senior-graph-slope-intercept-meaning/medium/0/2afb9a2d6feb", "text": "Water is pumped out of a tank at a steady rate. The graph shows the water left …"}
+{"answer": "The charge at the start is 100%", "id": "senior-graph-slope-intercept-meaning/medium/1/85ac3eedc78b", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "The charge at the start is 100%", "id": "senior-graph-slope-intercept-meaning/medium/2/e38ea2acb805", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "-3", "id": "senior-graph-translation-read-shift/easy/0/7c14d0e48df4", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "-2", "id": "senior-graph-translation-read-shift/easy/1/d5db7742ac1f", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/easy/2/fdfedfe91655", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "(a) -3; (b) -4; (c) 2; (d) -6", "id": "senior-graph-translation-read-shift/exam/0/91a0d0e97bc5", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
+{"answer": "(a) 2; (b) -3; (c) 2; (d) -1", "id": "senior-graph-translation-read-shift/exam/1/0eb115e25699", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
+{"answer": "(a) 4; (b) 2; (c) -4; (d) -2", "id": "senior-graph-translation-read-shift/exam/2/d546cbb4f7c5", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
+{"answer": "g(x) = f(x - 3) - 2", "id": "senior-graph-translation-read-shift/hard/0/9501b8a7db04", "text": "g is a translation of f along both axes. Both axes have 1 unit per grid square.…"}
+{"answer": "g(x) = f(x - 2) + 3", "id": "senior-graph-translation-read-shift/hard/1/bb3d2a1ad84f", "text": "The graph of g is the graph of f moved horizontally and vertically. Each grid s…"}
+{"answer": "g(x) = f(x + 1) - 4", "id": "senior-graph-translation-read-shift/hard/2/723840843851", "text": "g is a translation of f along both axes. Both axes have 1 unit per grid square.…"}
+{"answer": "2", "id": "senior-graph-translation-read-shift/medium/0/89639f81a8a3", "text": "The graph of g is the graph of f moved left or right, so g(x) = f(x + b). Each …"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/medium/1/397116a87725", "text": "g is a horizontal translation of f, with g(x) = f(x + b). Each grid square is 1…"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/medium/2/e09fda30244f", "text": "g is a horizontal translation of f, with g(x) = f(x + b). Each grid square is 1…"}
 {"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/easy/0/396434399105", "text": "x^2 - 1 = -2. Is this equation linear in x? If it is linear, also give the valu…"}
 {"answer": "Linear; x = -3", "id": "senior-identify-and-solve-linear-equations/easy/1/a66726df559e", "text": "5x + 9 = -6. Is this equation linear in x? If it is linear, also give the value…"}
 {"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/easy/2/dbea3f3773b9", "text": "x^2 - 1 = -8. Is this equation linear in x? If it is linear, also give the valu…"}
@@ -6916,6 +7114,18 @@
 {"answer": "50", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/medium/0/a516bbeba1d0", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Find…"}
 {"answer": "5.5", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/medium/1/377e1436bda7", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Find…"}
 {"answer": "16", "id": "senior-obtain-measurements-from-scale-drawings-such-as-maps/medium/2/31ca623fbd36", "text": "The map is drawn on a square grid. Each square is 1 cm by 1 cm on the map. Find…"}
+{"answer": "9", "id": "senior-position-time-tangent-velocity/easy/0/e8614c0359ed", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "3", "id": "senior-position-time-tangent-velocity/easy/1/cd934e1cf0c1", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "9", "id": "senior-position-time-tangent-velocity/easy/2/db401c863489", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/0/bfff87abe2b5", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/1/059ab70efd07", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) -3; (b) 1; (c) 3; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/2/ae2c940e530c", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "2", "id": "senior-position-time-tangent-velocity/hard/0/97aaae3e74cf", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "5", "id": "senior-position-time-tangent-velocity/hard/1/ca8953e427bc", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "4", "id": "senior-position-time-tangent-velocity/hard/2/bc5b26a6e7c2", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "-3", "id": "senior-position-time-tangent-velocity/medium/0/16d916b0e8de", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "-9", "id": "senior-position-time-tangent-velocity/medium/1/e6ffb987aa3c", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "-3", "id": "senior-position-time-tangent-velocity/medium/2/e6978cc4599e", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "$545.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/0/66363dfb3981", "text": "A person earns $683.00 per week. Their fixed weekly expenses are $22.00 for ren…"}
 {"answer": "$645.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/1/6049021cfd32", "text": "A person earns $861.00 per week. Their fixed weekly expenses are $106.00 for re…"}
 {"answer": "$136.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/easy/2/ffdf214dfb19", "text": "A person earns $395.00 per week. Their fixed weekly expenses are $111.00 for re…"}
@@ -7252,8 +7462,8 @@
 {"answer": "10", "id": "senior-represent-a-scalar-multiple-of-a-vector/easy/0/a00e38c038a5", "text": "v = (5, 2). Find the y-component of 5v."}
 {"answer": "14", "id": "senior-represent-a-scalar-multiple-of-a-vector/easy/1/961b04551f9e", "text": "v = (8, 7). Find the y-component of 2v."}
 {"answer": "27", "id": "senior-represent-a-scalar-multiple-of-a-vector/easy/2/e3dbb5fb3fcb", "text": "v = (7, 9). Find the y-component of 3v."}
-{"answer": "(a) -2; (b) -4; (c) 288", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/0/0a424a4a830b", "text": "The vectors are u = (3, 1), w = (6, -14) and e = (3, -3). There is exactly one …"}
-{"answer": "(a) 3; (b) -2; (c) 52", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/1/a99015312a3f", "text": "Given u = (-3, -4), w = (-5, -6) and e = (2, 3), the vector ku - w is parallel …"}
+{"answer": "(a) -2; (b) -4; (c) 288", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/0/0b3b0f465e0b", "text": "The vectors are u = (3, 1), w = (6, -14) and e = (3, -3). There is exactly one …"}
+{"answer": "(a) 3; (b) -2; (c) 52", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/1/b86fb453faf4", "text": "Given u = (-3, -4), w = (-5, -6) and e = (2, 3), the vector ku - w is parallel …"}
 {"answer": "(a) 5; (b) 3; (c) 45", "id": "senior-represent-a-scalar-multiple-of-a-vector/exam/2/e44a32798cb2", "text": "Let u = (1, -3), w = (2, -21) and e = (1, 2). For one value of k, the vector ku…"}
 {"answer": "-7", "id": "senior-represent-a-scalar-multiple-of-a-vector/hard/0/f1da51b05307", "text": "kv = (?, -35) for k = 5. If the y-component of kv is -35, find the original vec…"}
 {"answer": "-8", "id": "senior-represent-a-scalar-multiple-of-a-vector/hard/1/242bc74bd354", "text": "kv = (?, -16) for k = 2. If the y-component of kv is -16, find the original vec…"}
@@ -7435,6 +7645,18 @@
 {"answer": "0.62", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/medium/0/e60117b440f8", "text": "A population X has the distribution: P(X = 2) = 1/10; P(X = 5) = 1/5; P(X = 8) …"}
 {"answer": "0.23", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/medium/1/aaa708c7365f", "text": "5 samples of size 32 were randomly and independently drawn from a population X …"}
 {"answer": "-0.60", "id": "senior-simulate-repeated-random-sampling-from-a-variety-of/medium/2/9bfc8c89f177", "text": "A population X has the distribution: P(X = 1) = 1/5; P(X = 2) = 2/5; P(X = 3) =…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/easy/0/9ba158498543", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
+{"answer": "B", "id": "senior-simulated-samples-variability/easy/1/2264574afeff", "text": "Two machines each filled 40 bottles. The histograms show the volume in each bot…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/easy/2/1bf4796f92f7", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
+{"answer": "(a) 31; (b) 46; (c) 15; (d) 0.92", "id": "senior-simulated-samples-variability/exam/0/8d01695b60c3", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 34; (b) 48; (c) 14; (d) 0.96", "id": "senior-simulated-samples-variability/exam/1/2814a2581bed", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 27; (b) 45; (c) 18; (d) 0.90", "id": "senior-simulated-samples-variability/exam/2/67b66005af84", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/0/5af776e52aaf", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
+{"answer": "Uniform: every value about equally likely", "id": "senior-simulated-samples-variability/hard/1/b719bbca7a3e", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
+{"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/2/92dfb5d2a82b", "text": "The histogram shows 60 values simulated from one source. Which source is the mo…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/medium/0/b9f288833b40", "text": "A fair coin was tossed in a simulation, and each display graphs 50 sample propo…"}
+{"answer": "A", "id": "senior-simulated-samples-variability/medium/1/8c8a29944dcd", "text": "A fair coin was tossed in a simulation, and each display graphs 50 sample propo…"}
+{"answer": "B", "id": "senior-simulated-samples-variability/medium/2/870af855c75c", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
 {"answer": "-8.000", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/easy/0/0f7ffec67e7a", "text": "x^3 + 29x^2 + 276x + 864 = 0 has three integer roots. Find the largest one, to …"}
 {"answer": "-6.000", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/easy/1/c8d3648db8ad", "text": "x^3 + 28x^2 + 252x + 720 = 0 has three integer roots. Find the largest one, to …"}
 {"answer": "-5.000", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/easy/2/b1489d684380", "text": "x^3 + 24x^2 + 179x + 420 = 0 has three integer roots. Find the largest one, to …"}
@@ -8164,9 +8386,9 @@
 {"answer": "100", "id": "senior-use-first-order-linear-recurrence-relations-to-model/easy/0/82ed4ba85351", "text": "A model for the membership of a social club is u(n+1) = 0.7u(n) + 30, where u(n…"}
 {"answer": "5.0", "id": "senior-use-first-order-linear-recurrence-relations-to-model/easy/1/67bcf0e07f83", "text": "Each day, the mass of chlorine dissolved in a swimming pool follows the recurre…"}
 {"answer": "70", "id": "senior-use-first-order-linear-recurrence-relations-to-model/easy/2/8a500ed4910d", "text": "Each month, the membership of a social club follows the recurrence u(n+1) = 0.9…"}
-{"answer": "(a) 0.4; (b) 123.0; (c) 205; (d) 6", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/0/0b01dfab20e7", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
-{"answer": "(a) 0.7; (b) 66.0; (c) 220; (d) 9", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/1/c8e0911fbc45", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
-{"answer": "(a) 0.9; (b) 9.5; (c) 95; (d) 38", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/2/ed0efb155469", "text": "The mass of a pollutant in a lake follows a recurrence of the form u(n+1) = a u…"}
+{"answer": "(a) 0.4; (b) 123.0; (c) 205; (d) 6", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/0/0e9cf302f76d", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
+{"answer": "(a) 0.7; (b) 66.0; (c) 220; (d) 9", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/1/d3dabc0368e7", "text": "A model of the mass of a pollutant in a lake uses u(n+1) = a u(n) + b, with u(n…"}
+{"answer": "(a) 0.9; (b) 9.5; (c) 95; (d) 38", "id": "senior-use-first-order-linear-recurrence-relations-to-model/exam/2/cf8a5b9b9fba", "text": "The mass of a pollutant in a lake follows a recurrence of the form u(n+1) = a u…"}
 {"answer": "16.0", "id": "senior-use-first-order-linear-recurrence-relations-to-model/hard/0/f6b767cf1925", "text": "The recurrence u(n+1) = 0.5u(n) + 16 models the mass of chlorine dissolved in a…"}
 {"answer": "86.0", "id": "senior-use-first-order-linear-recurrence-relations-to-model/hard/1/d3a43b66d150", "text": "The recurrence u(n+1) = 0.5(u(n) + 43) models the amount of a drug in a patient…"}
 {"answer": "3.4", "id": "senior-use-first-order-linear-recurrence-relations-to-model/hard/2/fcf11f37994f", "text": "Each day, the mass of chlorine dissolved in a swimming pool follows the recurre…"}
@@ -9139,6 +9361,15 @@
 {"answer": "x = 8, y = 4", "id": "solve-simultaneous-equations/medium/0/c49f9c17bb56", "text": "Solve the simultaneous equations: 3x - 2y = 16 and 5x - 3y = 28"}
 {"answer": "x = -2, y = 5", "id": "solve-simultaneous-equations/medium/1/8c1dd247d87e", "text": "Solve the simultaneous equations: -5x - 2y = 0 and 2x + 4y = 16"}
 {"answer": "x = 7, y = 8", "id": "solve-simultaneous-equations/medium/2/1b0b4b3d0b40", "text": "Solve the simultaneous equations: -4x + 3y = -4 and -x - 5y = -47"}
+{"answer": "1", "id": "sort-and-count-objects/easy/0/00b3f91a8779", "text": "Noah sorts the things. How many apples are there?"}
+{"answer": "5", "id": "sort-and-count-objects/easy/1/aeec3155c2ee", "text": "Count the cars. How many are there?"}
+{"answer": "3", "id": "sort-and-count-objects/easy/2/1d7632e97aa8", "text": "Talia sorts the things. How many stars are there?"}
+{"answer": "6", "id": "sort-and-count-objects/hard/0/78d960432b03", "text": "Liam finds the biggest group. How many are in it?"}
+{"answer": "12", "id": "sort-and-count-objects/hard/1/9c19415cec3f", "text": "Lucas puts the stars aside. How many things are left?"}
+{"answer": "3", "id": "sort-and-count-objects/hard/2/be235d3d2d02", "text": "How many fewer are in the smallest group than the biggest group?"}
+{"answer": "11", "id": "sort-and-count-objects/medium/0/ec9c217da4bc", "text": "How many cats and stars are there altogether?"}
+{"answer": "2", "id": "sort-and-count-objects/medium/1/ee67f91d4fa3", "text": "How many more flowers than apples are there?"}
+{"answer": "1", "id": "sort-and-count-objects/medium/2/220ed86d2847", "text": "How many more cats than fish are there?"}
 {"answer": "3, 4", "id": "spot-bias/easy/0/edb25c984d51", "text": "Leila surveyed the students of Banksia Secondary College on a later start to th…"}
 {"answer": "3, 4", "id": "spot-bias/easy/1/0d1a608550dc", "text": "Kofi surveyed the customers of the Gum Tree Cafe on longer evening opening hour…"}
 {"answer": "1, 4", "id": "spot-bias/easy/2/0d90d4dc3e67", "text": "Leila surveyed the students of Banksia Secondary College on a later start to th…"}
@@ -9220,6 +9451,15 @@
 {"answer": "1", "id": "subtract-within-5/easy/0/3a90d1e96246", "text": "3 - 2 = ?"}
 {"answer": "2", "id": "subtract-within-5/easy/1/408e629a3060", "text": "5 - 3 = ?"}
 {"answer": "1", "id": "subtract-within-5/easy/2/1fdd45e6c2de", "text": "1 - 0 = ?"}
+{"answer": "8", "id": "tally-tables/easy/0/9a1f30f4e078", "text": "Mateo reads the tally. How many fish?"}
+{"answer": "3", "id": "tally-tables/easy/1/86f322f5b887", "text": "How many cars are there?"}
+{"answer": "3", "id": "tally-tables/easy/2/269256a24e1f", "text": "How many cars are there?"}
+{"answer": "The apples row", "id": "tally-tables/hard/0/94f84082e261", "text": "One row of the tally is wrong. Which row is it?"}
+{"answer": "The flowers row", "id": "tally-tables/hard/1/b9e1918c756e", "text": "Diego made a tally of the things. Which row is wrong?"}
+{"answer": "The apples row", "id": "tally-tables/hard/2/c4730c55fe09", "text": "Count the things and read the tally. Which row is wrong?"}
+{"answer": "The fish row", "id": "tally-tables/medium/0/d1e3dc291280", "text": "Look at the tally. Which row shows 26?"}
+{"answer": "The flowers row", "id": "tally-tables/medium/1/5b4ff860d0f5", "text": "Yuki looks for the row that shows 22. Which row is it?"}
+{"answer": "The cats row", "id": "tally-tables/medium/2/a204327277ff", "text": "Which row shows 8?"}
 {"answer": "7 o'clock", "id": "tell-time-to-hour/easy/0/655032ffa859", "text": "A clock hangs in the kitchen. Which time is on the clock?"}
 {"answer": "10 o'clock", "id": "tell-time-to-hour/easy/1/4a6f618fc515", "text": "Ben looks at the clock in his room. Choose the time the clock shows."}
 {"answer": "11 o'clock", "id": "tell-time-to-hour/easy/2/405d6f9de20d", "text": "Look at the clock on the wall. Choose the time the clock shows."}
@@ -10915,7 +11155,7 @@
 {"answer": "unstable node", "id": "ucv1-phase-plane-linear-classification/easy/0/d6cb41f69165", "text": "For the linear system x' = 6x, y' = 3y, classify the equilibrium at the origin."}
 {"answer": "saddle", "id": "ucv1-phase-plane-linear-classification/easy/1/d52876a98160", "text": "For the linear system x' = -x, y' = 2y, classify the equilibrium at the origin."}
 {"answer": "stable node", "id": "ucv1-phase-plane-linear-classification/easy/2/a2b8658c6f9f", "text": "For the linear system x' = -4x, y' = -y, classify the equilibrium at the origin."}
-{"answer": "(a) -7; (b) 15; (c) -11; (d) -3.5", "id": "ucv1-phase-plane-linear-classification/exam/0/63f1981c4349", "text": "The linear system x' = -4x - 3y, y' = x - 3y can be written x' = Ax for a 2-by-…"}
+{"answer": "(a) -7; (b) 15; (c) -11; (d) -3.5", "id": "ucv1-phase-plane-linear-classification/exam/0/656bf29f30c2", "text": "The linear system x' = -4x - 3y, y' = x - 3y can be written x' = Ax for a 2-by-…"}
 {"answer": "(a) 4; (b) 19; (c) -60; (d) 2.0", "id": "ucv1-phase-plane-linear-classification/exam/1/17993549ed59", "text": "The linear system x' = 2x + 5y, y' = -3x + 2y can be written x' = Ax for a 2-by…"}
 {"answer": "(a) 5; (b) -14; (c) 81; (d) 7.0", "id": "ucv1-phase-plane-linear-classification/exam/2/c6c99184a6b2", "text": "The linear system x' = 4x + 6y, y' = 3x + y can be written x' = Ax for a 2-by-2…"}
 {"answer": "stable spiral", "id": "ucv1-phase-plane-linear-classification/hard/0/b8f6980b2bd6", "text": "For the linear system x' = y, y' = -7x - 3y, classify the equilibrium at the or…"}

@@ -65,7 +65,7 @@ def test_independence_correct_answer_grades_correct(difficulty):
         q = make("p19c_independence_verdict", seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         idx = options.index(q.answer_text)
-        result = grade_mcq(q, str(idx))
+        result = grade_mcq(q, idx)
         assert result.correct, f"seed {seed} ({difficulty}): canonical answer did not grade correct"
 
 
@@ -76,7 +76,7 @@ def test_independence_every_distractor_grades_incorrect(difficulty):
         options = mcq_options(q)
         for d in q.distractors:
             idx = options.index(d)
-            result = grade_mcq(q, str(idx))
+            result = grade_mcq(q, idx)
             assert not result.correct, f"seed {seed} ({difficulty}): distractor {d!r} graded correct"
 
 
@@ -291,7 +291,7 @@ def test_language_correct_answer_grades_correct(difficulty):
         q = make("p19c_probability_language_classify", seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         idx = options.index(q.answer_text)
-        result = grade_mcq(q, str(idx))
+        result = grade_mcq(q, idx)
         assert result.correct, f"seed {seed} ({difficulty}): canonical answer did not grade correct"
 
 
@@ -302,7 +302,7 @@ def test_language_every_distractor_grades_incorrect(difficulty):
         options = mcq_options(q)
         for d in q.distractors:
             idx = options.index(d)
-            result = grade_mcq(q, str(idx))
+            result = grade_mcq(q, idx)
             assert not result.correct, f"seed {seed} ({difficulty}): distractor {d!r} graded correct"
 
 

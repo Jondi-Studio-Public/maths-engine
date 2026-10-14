@@ -2,13 +2,25 @@
 
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 
 import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
-from mathgen.figure_kinds import data, early, grid, measure, space
+from mathgen.figure_kinds import (
+    calendar as calendar_kinds,
+    compare,
+    data,
+    early,
+    grid,
+    measure,
+    pattern,
+    scene,
+    space,
+    tally,
+)
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -41,6 +53,9 @@ FIGURE_SKILLS = [
     "senior-interpret-the-derivative-as-the-slope-or-gradient",
     "f3-read-a-column-graph",
     "f2-read-a-picture-graph",
+    "sort-and-count-objects",
+    "tally-tables",
+    "compare-tally-and-picture-displays",
     "f6-read-a-dot-plot",
     "f7-read-a-histogram",
     "f10-read-a-box-plot",
@@ -63,6 +78,52 @@ def _live_figures() -> list[dict]:
                 if fig:
                     found.append(fig)
     return found
+
+
+def _compare_samples() -> list[dict]:
+    """One of every compare_picture layout, with every object style, unit style and container shape."""
+    styles = ("pencil", "ribbon", "snake", "rope", "train")
+    objs = [{"label": st, "style": st, "start": i, "length": 6 - i % 3} for i, st in enumerate(styles)]
+    clips = [{"label": "pencil", "style": "bar", "start": 0, "length": 3, "units": 3}]
+    book = {"label": "book", "mass": 5, "size": 3}
+    apple = {"label": "apple", "mass": 2, "size": 1}
+    shoe = {"label": "shoe", "mass": 9, "size": 2}
+    pans = compare.pan
+    return [
+        compare.compare_lengths(objects=objs, lined_up=False, alt="Five objects"),
+        compare.compare_lengths(objects=[{**o, "start": 0} for o in objs[:2]], lined_up=True, alt="Two lined up"),
+        compare.compare_lengths(objects=clips, lined_up=True, alt="Clips", unit={"name": "block", "style": "block"}),
+        compare.compare_lengths(
+            objects=[{**clips[0], "start": 2}], lined_up=True, alt="Clips", unit={"name": "clip", "style": "paper_clip"}
+        ),
+        compare.compare_balance(
+            balances=[compare.balance(left=pans(objects=[book]), right=pans(blocks=3))], alt="A balance and blocks"
+        ),
+        compare.compare_balance(
+            balances=[
+                compare.balance(
+                    left=pans(objects=[apple, book], blocks=0), right=pans(objects=[shoe, shoe | {"label": "ball"}])
+                )
+            ],
+            alt="Two objects a side",
+        ),
+        compare.compare_balance(
+            balances=[
+                compare.balance(left=pans(objects=[book]), right=pans(objects=[apple])),
+                compare.balance(left=pans(objects=[apple]), right=pans(objects=[shoe])),
+            ],
+            alt="A chain of two balances",
+        ),
+        compare.compare_containers(
+            containers=[
+                {"label": "jug", "shape": "jug", "form": "tall_thin", "capacity": 8, "fill": 8, "cups": 8},
+                {"label": "bowl", "shape": "bowl", "form": "short_wide", "capacity": 8, "fill": 5, "cups": 5},
+                {"label": "bottle", "shape": "bottle", "form": "normal", "capacity": 4, "fill": 0},
+                {"label": "cup", "shape": "cup", "form": "normal", "capacity": 2, "fill": 2},
+            ],
+            alt="Four containers",
+        ),
+    ]
 
 
 def _grid_specimens() -> dict[str, dict]:
@@ -140,6 +201,64 @@ def _hand_built() -> list[dict]:
         early.counters(layout="array", alt="An array", rows=2, cols=3, shape="square", colours=[[1, 2, 1], [2, 1, 2]]),
         early.counters(layout="groups", alt="Groups", groups=[3, 0, 5, 9], shape="diamond"),
         early.counters(layout="dice", alt="Dice", faces=[{"n": n, "colour": 1 + n % 2} for n in (1, 2, 6)]),
+        scene.shape_scene(
+            alt="Shapes",
+            layout="grid",
+            cols=3,
+            items=[
+                scene.scene_item("square", size="large", style="shaded", turn=45, label="A"),
+                scene.scene_item("semicircle", style="dotted"),
+                scene.scene_item("cone", size="small"),
+            ],
+        ),
+        scene.shape_scene(alt="A house", object="house"),
+        pattern.pattern_strip(
+            alt="Pattern rows",
+            numbered=True,
+            rows=[
+                {
+                    "label": "A",
+                    "cells": [
+                        pattern.shape_cell(s, f)
+                        for s, f in (("heart", "striped"), ("star", "open"), ("circle", "solid"))
+                    ]
+                    + [pattern.blank_cell(), pattern.mark_cell()],
+                    "bracket": [0, 2],
+                },
+                {
+                    "label": "B",
+                    "cells": [pattern.action_cell("clap"), pattern.action_cell("stamp"), pattern.action_cell("jump")]
+                    + [pattern.text_cell(7), pattern.text_cell("M"), pattern.stack_cell(10)],
+                },
+            ],
+        ),
+        tally.tally(
+            alt="Tally with counts and pictures",
+            rows=[("dogs", 14), ("cats", 0), ("fish", 20)],
+            show_counts=True,
+            pictures={"symbol": "heart", "each": 2, "counts": [7, 0, 10]},
+            title="Pets",
+        ),
+        tally.tally(
+            alt="Objects and a tally",
+            items=[(name, 0.14 * i, 0.33 * (i % 3)) for i, name in enumerate(tally.ICONS)],
+            rows=[("apples", 3), ("cats", 5)],
+        ),
+        calendar_kinds.calendar_month(
+            year=2026,
+            month=10,
+            alt="A calendar",
+            marks=[
+                {"day": 9, "style": "star", "label": "Party"},
+                {"day": 16, "style": "ring", "label": "Swim"},
+                {"day": 21, "style": "shade"},
+            ],
+        ),
+        calendar_kinds.calendar_month(year=2024, month=2, alt="A leap February", week_start="sun", show_year=True),
+        calendar_kinds.day_strip(cards=["wake_up", "breakfast", "school", "play", "dinner", "bed"], alt="A day"),
+        calendar_kinds.day_strip(cards=["sunrise", "bath", "moon", "lunch"], alt="Scrambled", numbered=True),
+        calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
+        *_compare_samples(),
         *_grid_specimens().values(),
     ]
 
@@ -596,6 +715,39 @@ def test_data_displays_validate_through_figures_check():
     ):
         with pytest.raises(ValueError):
             svg.figure_svg(fig)
+
+
+def test_a_step_segment_draws_a_filled_dot_at_its_closed_end():
+    spec = figures.cartesian(
+        x_range=(0, 4),
+        y_range=(0, 4),
+        segments=[{"from": [0, 2], "to": [2, 2], "open_start": True}],
+        alt="a step",
+    )
+    out = svg.figure_svg(spec)
+    assert out.count("<circle") == 2  # one open end, one filled closed end
+    assert 'fill="currentColor"' in out.split("<circle")[-1].split("/>")[0]
+
+
+def test_axis_numerals_are_drawn_over_the_plot_with_a_paper_halo():
+    spec = figures.cartesian(x_range=(-2, 2), y_range=(-2, 2), curves=[{"pieces": [[[-2, -2], [2, 2]]]}], alt="a curve")
+    out = svg.figure_svg(spec)
+    assert out.rindex('paint-order="stroke"') > out.index("<polyline")  # numerals come after the curve
+    assert 'stroke="#ffffff"' in out
+
+
+def test_a_dimension_label_clears_its_edge():
+    spec = space.diagram(
+        frame=(10, 10),
+        points=[{"id": "A", "at": [1, 1]}, {"id": "B", "at": [9, 1]}, {"id": "C", "at": [5, 8]}],
+        polygons=[{"points": ["A", "B", "C"]}],
+        segments=[{"from": "A", "to": "B", "label": "8 cm"}],
+        alt="a triangle",
+    )
+    out = svg.figure_svg(spec)
+    y = float(re.search(r'<text x="[\d.]+" y="([\d.]+)"[^>]*>8 cm', out).group(1))
+    edge = float(re.search(r'<line x1="[\d.]+" y1="([\d.]+)" x2="[\d.]+" y2="\1"', out).group(1))
+    assert abs(y - edge) >= 12  # half the text height plus a margin, so the edge cannot strike it
 
 
 # ---------------------------------------------------------------- grid drawings

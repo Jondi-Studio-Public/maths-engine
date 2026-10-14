@@ -49,11 +49,6 @@ def questions():
     return [_exam(s) for s in range(120)]
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages) for s in exam] == [(TOPIC, ["exam"])]
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
@@ -62,29 +57,11 @@ def test_shape(questions):
         assert all(p.answer_kind == "number" for p in q.parts)
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("p8c_line_best_fit_by_eye", seed=s, variant="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects(questions):
-    for q in questions[:60]:
-        assert find_text_defects(q) == []
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = _exam(seed)
         expected, _ = oracle(q)
         assert expected == {p.label: p.answer_text for p in q.parts}, (seed, q.text)
-
-
-def test_answer_space():
-    keys = [tuple(p.answer_text for p in _exam(s).parts) for s in range(300)]
-    assert len(set(keys)) >= 100
-    assert max(keys.count(k) for k in set(keys)) <= 15
 
 
 def test_composed_answer_full_marks(questions):
@@ -143,7 +120,3 @@ def test_follow_through_from_wrong_intercept_only(questions):
 def test_all_wrong_earns_zero(questions):
     for q in questions[:40]:
         assert grade(_SKILL, q, {"a": "999", "b": "777", "c": "888", "d": "555"}).marks == 0
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

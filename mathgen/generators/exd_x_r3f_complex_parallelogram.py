@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import random
 
-from ..core import attempts, check, generator, join_terms, phrase
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase
 from ._exd_r3f_parts import number_part
 from ._exd_distinct_parts import distinct_part_answers
 
@@ -107,7 +107,7 @@ def exd_x_r3f_complex_parallelogram(rng: random.Random, tier: str = "exam") -> d
                 follow_through=follow,
                 working=[
                     f"AB = ({ab[0]}, {ab[1]}) and AD = ({ad[0]}, {ad[1]}).",
-                    f"Area = |{ab[0]} × {ad[1]} - ({ab[1]}) × ({ad[0]})| = {area}.",
+                    f"Area = |{ab[0]} × {paren_negative(ad[1])} - ({ab[1]}) × ({ad[0]})| = {area}.",
                 ],
             ),
         ],

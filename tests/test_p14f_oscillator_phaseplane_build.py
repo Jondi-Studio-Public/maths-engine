@@ -65,11 +65,11 @@ def test_osc_real_grader_accepts_canonical_and_rejects_every_distractor(difficul
         q = _make(OSC_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct, f"seed {seed} {difficulty}: canonical index not accepted"
+        assert grade_mcq(q, correct_idx).correct, f"seed {seed} {difficulty}: canonical index not accepted"
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct, (
+            assert not grade_mcq(q, i).correct, (
                 f"seed {seed} {difficulty}: distractor index {i} ({opt}) wrongly accepted"
             )
 
@@ -79,7 +79,7 @@ def test_osc_real_grader_rejects_a_deliberately_wrong_answer(difficulty):
     for seed in SEEDS:
         q = _make(OSC_SOURCES, difficulty, seed)
         options = mcq_options(q)
-        assert not grade_mcq(q, str(len(options) + 5)).correct, (
+        assert not grade_mcq(q, len(options) + 5).correct, (
             f"seed {seed} {difficulty}: out-of-range index wrongly accepted"
         )
         assert not grade_mcq(q, "not a number").correct
@@ -183,11 +183,11 @@ def test_pp_real_grader_accepts_canonical_and_rejects_every_distractor(difficult
         q = _make(PP_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct, f"seed {seed} {difficulty}: canonical index not accepted"
+        assert grade_mcq(q, correct_idx).correct, f"seed {seed} {difficulty}: canonical index not accepted"
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct, (
+            assert not grade_mcq(q, i).correct, (
                 f"seed {seed} {difficulty}: distractor index {i} ({opt}) wrongly accepted"
             )
 
@@ -197,7 +197,7 @@ def test_pp_real_grader_rejects_a_deliberately_wrong_answer(difficulty):
     for seed in SEEDS:
         q = _make(PP_SOURCES, difficulty, seed)
         options = mcq_options(q)
-        assert not grade_mcq(q, str(len(options) + 5)).correct
+        assert not grade_mcq(q, len(options) + 5).correct
         assert not grade_mcq(q, "not a number").correct
 
 

@@ -1,0 +1,41 @@
+id: ey-day-strip-sequence
+name: Put the events of a day in order
+domain: primary-geometry-time
+year_level: [F]
+naplan_domain: [measurement]
+learner_band: early
+description: Use picture cards for the events of a day to say which card comes just after or before another, which card happens at a stated time of day, and which card comes in a stated place once the day is in order.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [tell-time-to-hour, order-numbers-to-10]
+answer: number
+sources:
+- topic: ey_day_strip
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_day_strip
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_day_strip
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Read the cards already in day order and name the one just after or just before a named card."}
+  medium: {steps: 2, demand: "Match each scrambled card to a time of day, then find the one card that happens at the stated time."}
+  hard: {steps: 3, demand: "Put the scrambled cards in the order of the day, count to the stated place, then give that card's slot number."}
+misconceptions:
+- id: slot-for-place
+  description: Gives the slot the card is drawn in as its place in the day, so the scramble is not undone.
+- id: counts-from-the-wrong-end
+  description: Counts the place from the end of the day when asked from the start, or the other way round.
+- id: names-the-card-itself
+  description: Gives the number of the card named in the question instead of the card after or before it.
+- id: mixes-neighbouring-times
+  description: Gives the card from the neighbouring time of day, such as an afternoon card for lunchtime.
+tags: [acara-f10-v9, early, time, sequencing, ac9mfm02]

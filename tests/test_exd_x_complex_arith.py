@@ -143,7 +143,7 @@ def test_real_grader_accepts_key_and_rejects_every_distractor(topic):
         if kind == "mcq":
             options = mcq_options(q)
             for idx, opt in enumerate(options):
-                correct = grader(q, str(idx)).correct
+                correct = grader(q, idx).correct
                 if correct != (opt == q.answer_text):
                     bad.append((seed, idx, opt))
         else:

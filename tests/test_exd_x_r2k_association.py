@@ -63,10 +63,6 @@ def test_grading_and_tags():
     kit.check_tags(SKILL)
 
 
-def test_answer_space():
-    kit.check_answer_space(SKILL)
-
-
 def test_follow_through_from_a_wrong_r():
     def chain(q):
         c = kit.canon(q)

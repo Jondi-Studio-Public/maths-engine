@@ -194,12 +194,12 @@ def test_quantify_compare_real_grader_accepts_canonical_and_rejects_each_wrong_i
         question = make("quantify_compare_to_20", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
 
         for idx, option in enumerate(options):
             if idx == correct_index:
                 continue
-            result = grade_mcq(question, str(idx))
+            result = grade_mcq(question, idx)
             assert not result.correct, f"seed {seed} {difficulty}: index {idx} ({option!r}) wrongly accepted"
 
 

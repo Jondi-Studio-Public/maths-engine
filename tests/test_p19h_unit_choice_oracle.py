@@ -305,7 +305,7 @@ def test_activity_oracle_rejects_a_corrupted_answer():
             options = mcq_options(q)
             wrong_option = next(o for o in options if o != q.answer_text)
             wrong_index = options.index(wrong_option)
-            assert not grade_mcq(q, str(wrong_index)).correct, (tier, q.text, wrong_option)
+            assert not grade_mcq(q, wrong_index).correct, (tier, q.text, wrong_option)
             assert expected != wrong_option, (tier, q.text, wrong_option)
             checked += 1
     assert checked == 3 * len(TIERS)
@@ -324,7 +324,7 @@ def test_milligrams_oracle_rejects_a_corrupted_answer():
             options = mcq_options(q)
             wrong_option = next(o for o in options if o != q.answer_text)
             wrong_index = options.index(wrong_option)
-            assert not grade_mcq(q, str(wrong_index)).correct, (tier, q.text, wrong_option)
+            assert not grade_mcq(q, wrong_index).correct, (tier, q.text, wrong_option)
             assert expected != wrong_option, (tier, q.text, wrong_option)
             checked += 1
     assert checked == 3 * len(TIERS)

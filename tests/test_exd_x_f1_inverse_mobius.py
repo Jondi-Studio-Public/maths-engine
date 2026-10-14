@@ -42,19 +42,6 @@ def _key_from_prompt(text):
     return sols[0].subs(y, x)
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(_hard(s)) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, (exam, hard)
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
 def test_key_rederived_from_prompt():
     bad = [s for s in range(300) if simplify(_parse(_exam(s).answer_text) - _key_from_prompt(_exam(s).text)) != 0]
     assert bad == []

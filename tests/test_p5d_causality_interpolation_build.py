@@ -62,12 +62,10 @@ def test_causality_correlation_classify_correct_answer_grades_correct_and_distra
         # For mcq, grade_mcq expects an index into mcq_options(question)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct, (
-            f"grade_mcq rejected correct answer at index {correct_index}"
-        )
+        assert grade_mcq(question, correct_index).correct, f"grade_mcq rejected correct answer at index {correct_index}"
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            result = grade_mcq(question, str(distractor_index))
+            result = grade_mcq(question, distractor_index)
             assert not result.correct, f"grade_mcq accepted distractor {distractor!r} at index {distractor_index}"
 
 
@@ -232,12 +230,10 @@ def test_interpolation_extrapolation_classify_correct_answer_grades_correct_and_
         question = make("interpolation_extrapolation_classify", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct, (
-            f"grade_mcq rejected correct answer at index {correct_index}"
-        )
+        assert grade_mcq(question, correct_index).correct, f"grade_mcq rejected correct answer at index {correct_index}"
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            result = grade_mcq(question, str(distractor_index))
+            result = grade_mcq(question, distractor_index)
             assert not result.correct, f"grade_mcq accepted distractor {distractor!r} at index {distractor_index}"
 
 

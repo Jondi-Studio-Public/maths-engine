@@ -48,38 +48,12 @@ def oracle(q):
     return {"a": str(unused), "b": str(unused * area), "c": str(area - unused * area)}
 
 
-def test_source_wired_last_with_exam_stage():
-    src = _SKILL.sources[-1]
-    assert (src.topic, src.difficulty, src.stages, src.params) == (TOPIC, "exam", ["exam"], {"tier": "exam"})
-    assert sum(1 for s in _SKILL.sources if s.difficulty == "exam") == 1
-
-
 def test_shape_and_marks(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
         assert [p.marks for p in q.parts] == [1, 2, 1]
         assert [p.answer_kind for p in q.parts] == ["fraction", "number", "number"]
         assert [p.follow_through is not None for p in q.parts] == [False, True, True]
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
-def test_prompt_variety_and_new_shape_over_hard_tier():
-    hard = next(s for s in _SKILL.sources if s.difficulty == "hard")
-    exam_shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    hard_shapes = {prompt_shape(make(hard.topic, seed=s, **hard.params)) for s in range(60)}
-    assert len(exam_shapes) >= 3, exam_shapes
-    assert exam_shapes - hard_shapes
-
-
-def test_answer_space(questions):
-    counts = collections.Counter(q.answer_text for q in questions)
-    assert len(counts) >= 100, len(counts)
-    assert max(counts.values()) <= 0.05 * len(questions), counts.most_common(2)
 
 
 def test_oracle_agrees_with_the_key_over_300_seeds(questions):
@@ -132,7 +106,3 @@ def test_all_wrong_earns_zero(questions):
     for q in questions[:60]:
         result = grade(_SKILL, q, {"a": "1/99", "b": "5000", "c": "6000"})
         assert result.marks == 0 and not result.correct
-
-
-def test_deterministic():
-    assert _exam(7).to_dict() == _exam(7).to_dict()

@@ -66,11 +66,11 @@ class TestMcqGrading:
             q = make(topic, seed=seed, difficulty=difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for index in range(len(options)):
                 if index == correct_index:
                     continue
-                assert not grade_mcq(q, str(index)).correct
+                assert not grade_mcq(q, index).correct
 
     @pytest.mark.parametrize("topic", MCQ_TOPICS)
     @pytest.mark.parametrize("difficulty", TIERS)
@@ -161,7 +161,7 @@ class TestAutomatonAcceptance:
             if wrong in options:
                 wrong_index = options.index(wrong)
                 assert wrong_index != correct_index
-                assert not grade_mcq(q, str(wrong_index)).correct
+                assert not grade_mcq(q, wrong_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_at_least_three_state_distractors_every_seed(self, difficulty):

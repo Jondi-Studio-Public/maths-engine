@@ -118,9 +118,9 @@ def test_real_grader_accepts_the_key_and_rejects_every_other_option(tier):
     for q in _all(tier, range(60)):
         options = mcq_options(q)
         for i, option in enumerate(options):
-            assert grade_mcq(q, str(i)).correct == (option == q.answer_text)
+            assert grade_mcq(q, i).correct == (option == q.answer_text)
         assert not grade_mcq(q, "").correct
-        assert not grade_mcq(q, str(len(options))).correct
+        assert not grade_mcq(q, len(options)).correct
 
 
 def test_answer_latex_is_plain_text():

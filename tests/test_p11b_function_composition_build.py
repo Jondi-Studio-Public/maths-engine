@@ -170,10 +170,10 @@ def test_when_defined_grader_accepts_answer_rejects_distractors(difficulty):
         question = make("function_composition", seed=seed, difficulty=difficulty, mode="when_defined")
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(question, str(distractor_index)).correct
+            assert not grade_mcq(question, distractor_index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -182,7 +182,7 @@ def test_when_defined_deliberately_wrong_index_is_rejected(difficulty):
         question = make("function_composition", seed=seed, difficulty=difficulty, mode="when_defined")
         options = mcq_options(question)
         wrong_index = next(i for i in range(len(options)) if options[i] != question.answer_text)
-        assert not grade_mcq(question, str(wrong_index)).correct
+        assert not grade_mcq(question, wrong_index).correct
 
 
 def test_when_defined_easy_is_always_the_no_exclusion_case():

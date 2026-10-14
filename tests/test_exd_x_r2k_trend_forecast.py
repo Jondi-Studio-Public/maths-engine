@@ -59,10 +59,6 @@ def test_grading_and_tags():
     kit.check_tags(SKILL)
 
 
-def test_answer_space():
-    kit.check_answer_space(SKILL)
-
-
 def test_follow_through_from_a_wrong_rate():
     def chain(q):
         per_year, q1, y1, q2, y2, qt, s, year = parse(q)

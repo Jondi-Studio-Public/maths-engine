@@ -146,10 +146,10 @@ def test_mcq_grader_accepts_canonical_and_rejects_distractors():
             q = _make_from_sources(MCQ_SKILL, difficulty, seed)
             options = mcq_options(q)
             answer_idx = options.index(q.answer_text)
-            assert grade_mcq(q, str(answer_idx)).correct, (difficulty, seed, q.text)
+            assert grade_mcq(q, answer_idx).correct, (difficulty, seed, q.text)
             for i, opt in enumerate(options):
                 if opt != q.answer_text:
-                    assert not grade_mcq(q, str(i)).correct, (difficulty, seed, opt)
+                    assert not grade_mcq(q, i).correct, (difficulty, seed, opt)
 
 
 def test_mcq_options_are_all_day_and_time_strings_never_bare_numbers():

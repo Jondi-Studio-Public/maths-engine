@@ -45,7 +45,7 @@ def test_the_real_grader_accepts_only_the_key(tier):
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4, q.text
         for index, option in enumerate(options):
-            assert grade_mcq(q, str(index)).correct == (option == q.answer_text), (q.text, option)
+            assert grade_mcq(q, index).correct == (option == q.answer_text), (q.text, option)
 
 
 @pytest.mark.parametrize("tier", TIERS)

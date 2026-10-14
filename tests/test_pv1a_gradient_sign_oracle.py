@@ -44,10 +44,10 @@ def test_key_equals_sign_of_the_drawn_line(sources, difficulty, chunk):
         assert sorted([q.answer_text, *q.distractors]) == ["negative", "positive", "zero"]
         options = mcq_options(q)
         assert options.count(want) == 1
-        assert grade_mcq(q, str(options.index(want))).correct
+        assert grade_mcq(q, options.index(want)).correct
         for i, opt in enumerate(options):
             if opt != want:
-                assert not grade_mcq(q, str(i)).correct
+                assert not grade_mcq(q, i).correct
         # a flat line is a horizontal line off the x-axis; the picture is a figure, not text
         if want == "zero":
             (x1, y1), (x2, y2) = q.figure["lines"][0]["through"]

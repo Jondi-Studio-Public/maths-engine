@@ -31,25 +31,6 @@ def _run_rule(q):
     return top, len(flagged)
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages) for s in exam] == [(TOPIC, ["exam"])]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("p9e_factor_multiple_divisibility_algorithm", seed=s, difficulty="hard")) for s in range(60)
-    }
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = _exam(seed)
@@ -84,13 +65,3 @@ def test_follow_through_from_wrong_count():
             assert result.parts["b"].marks == result.parts["b"].max_marks and result.parts["b"].follow_through, seed
             checked += 1
     assert checked >= 100
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

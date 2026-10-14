@@ -60,13 +60,9 @@ def test_an_earlier_value_is_not_read_as_the_asked_unit():
     [
         ("Hence find the bending moment, in kN·m.", "100 kN", "100 s"),
         ("Hence find the rate of change, in dollars per day.", "100 dollars", "100 s"),
-        ("Hence find the average density, in kg/m³.", "100 kg", "100 s"),
         ("Hence find the gradient, in metres per hundred metres.", "100 m", "100 s"),
-        ("Find the stiffness k in ω = √(k/m), in N/m.", "100 N", "100 kg"),
         ("Find the flow rate in kL per hour.", "100 kL", "100 kg"),
         ("By how many cents per 100 g is the cheaper buy cheaper?", "100 cents", "100 kg"),
-        ("Find the acceleration of the pair in m/s², correct to 2 decimal places.", "100 m", "100 kg"),
-        ("Find the acceleration in m/s^2.", "100 m", "100 kg"),
     ],
 )
 def test_a_compound_unit_is_not_read_as_its_first_part_but_still_refuses_other_units(text, part, other):
@@ -75,6 +71,23 @@ def test_a_compound_unit_is_not_read_as_its_first_part_but_still_refuses_other_u
     assert unit_is_acceptable(question, "100")
     assert unit_is_acceptable(question, "100 km/h")  # a rate unit is never refused for a compound ask
     assert not unit_is_acceptable(question, other)
+
+
+@pytest.mark.parametrize(
+    "text, part, other",
+    [
+        ("Hence find the average density, in kg/m³.", "100 kg", "100 s"),
+        ("Find the stiffness k in ω = √(k/m), in N/m.", "100 N", "100 kg"),
+        ("Find the acceleration of the pair in m/s², correct to 2 decimal places.", "100 m", "100 kg"),
+        ("Find the acceleration in m/s^2.", "100 m", "100 kg"),
+    ],
+)
+def test_a_compound_unit_the_table_lists_is_refused_when_only_a_part_is_given(text, part, other):
+    # These compound units are in the unit table, so the unit is judged whole: "100 kg" is not a density.
+    question = _q(text)
+    assert not unit_is_acceptable(question, part)
+    assert not unit_is_acceptable(question, other)
+    assert unit_is_acceptable(question, "100")
 
 
 def test_asked_unit_through_real_questions():

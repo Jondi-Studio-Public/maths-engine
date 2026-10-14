@@ -100,10 +100,10 @@ def check_question(skill, question, text_quality: bool = False) -> list[str]:
             problems.append(f"answer_text {question.answer_text!r} is not among the options")
         else:
             right = options.index(question.answer_text)
-            if not engine.grade(skill, question, str(right)).correct:
+            if not engine.grade(skill, question, right).correct:
                 problems.append(f"the correct option {right} does not grade correct")
             for index, option in enumerate(options):
-                if index != right and engine.grade(skill, question, str(index)).correct:
+                if index != right and engine.grade(skill, question, index).correct:
                     problems.append(f"wrong option {index} {option!r} grades correct")
     else:
         if not engine.grade(skill, question, question.answer_text).correct:

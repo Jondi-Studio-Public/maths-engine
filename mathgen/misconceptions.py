@@ -43,6 +43,82 @@ _ENTRIES = (
         "Leaving out the constant term and dividing the other side by the coefficient straight away.",
         area="equations",
     ),
+    # -- early years: sorting, tally tables and picture displays ----------------------------------------------------
+    CatalogueEntry(
+        "eyt-counts-all-kinds",
+        "Counting every picture or every row when the question asked about one kind (or about two kinds).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-other-group",
+        "Using the count of a different group from the one the question named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-count-one-over",
+        "Counting one too many: a picture or a mark counted twice, or going one past the end.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-count-one-short",
+        "Counting one too few: missing a picture or a mark.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-reports-one-group",
+        "Giving the count of one group when the question asked how many more, how many fewer or how many altogether.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-adds-instead-of-compares",
+        "Adding two groups when the question asked how many more or how many fewer one group has than the other.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-wrong-group",
+        "Comparing the wrong pair of groups, such as the second biggest instead of the biggest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-neighbouring-row",
+        "Reading the row above or below the one the question named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-skips-the-slash",
+        "Counting only the upright strokes of a tally, so each gate of five is read as four.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-gate-counted-as-one",
+        "Counting each gate of five tally marks as a single mark.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-misses-a-group",
+        "Leaving one row out when adding up every row.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-counts-the-rows",
+        "Giving the number of rows when the question asked how many there are altogether.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-picks-a-matching-row",
+        "Choosing a row where the two displays agree, so the row that does not match is missed.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-ignores-the-picture-key",
+        "Reading each picture as one when the key says each picture stands for two.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-reports-the-whole-row",
+        "Giving how many pictures the whole row should have, not how many more it needs.",
+        area="early-years",
+    ),
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",

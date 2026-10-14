@@ -19,8 +19,6 @@ classify-real-numbers:
   classify_real_number/easy: 5
 combinations:
   combinatorics/easy: 18
-compare-lengths:
-  compare_length/easy: 2
 complex-modulus:
   complex_number/easy: 3
 condition-number-diagonal:
@@ -40,10 +38,6 @@ f10-angle-turn-right-reference:
 f10-circle-measures:
   circle_measures/easy: 13
   circle_measures/medium: 13
-f10-compare-measurement-attributes:
-  compare_measurement_attributes/easy: 4
-  compare_measurement_attributes/hard: 12
-  compare_measurement_attributes/medium: 4
 f10-decimal-notation-tenths-hundredths:
   decimal_tenths_hundredths_compose/easy: 17
 f10-fractions-half-quarter-eighth:

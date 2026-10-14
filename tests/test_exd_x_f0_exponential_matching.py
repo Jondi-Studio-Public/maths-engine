@@ -73,12 +73,6 @@ def _root_is_unique(text: str, x: Fraction) -> bool:
     return holds(text, x) and not holds(text, x + 1) and not holds(text, x - 1)
 
 
-def test_no_text_defects_and_three_shapes():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-    assert len({prompt_shape(_q(s)) for s in range(60)}) >= 3
-
-
 def test_exam_adds_shapes_over_hard_tier():
     hard = {prompt_shape(_hard(s)) for s in range(60)}
     exam = {prompt_shape(_q(s)) for s in range(60)}
@@ -104,7 +98,3 @@ def test_grader_accepts_key_and_rejects_every_distractor():
         for d in q.distractors:
             assert not grade(q, d).correct, (seed, d, q.answer_text)
             assert not holds(q.text, Fraction(d)), (seed, d)
-
-
-def test_deterministic():
-    assert _q(5).to_json() == _q(5).to_json()

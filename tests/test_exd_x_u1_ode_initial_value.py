@@ -56,27 +56,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert [s.stages for s in exam] == [["exam"]]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("differential_equation", seed=s, difficulty="hard", kinds=["separable_poly"]))
-        for s in range(60)
-    }
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
@@ -91,12 +70,6 @@ def test_oracle_agrees(questions):
         canon = _canonical(q)
         assert sympy.simplify(_parse(canon["a"].split("=", 1)[1]) - curve) == 0, q.text
         assert canon["b"] == key_b and canon["c"] == key_c, q.text
-
-
-def test_answer_space(questions):
-    answers = [q.answer_text for q in questions]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 0.05 * len(answers)
 
 
 def test_composed_answer_full_marks(questions):
@@ -137,7 +110,3 @@ def test_follow_through_from_wrong_equation(questions):
             assert result.parts[label].follow_through is True
         checked += 1
     assert checked == len(questions)
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

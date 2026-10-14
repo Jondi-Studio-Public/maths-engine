@@ -90,7 +90,7 @@ def test_the_grader_marks_the_true_option_correct_and_the_others_wrong(tier):
         q = make(TOPIC, seed=seed, difficulty=tier)
         noun, broken = _broken_places(q.text)
         for index, option in enumerate(mcq_options(q)):
-            assert grade_mcq(q, str(index)).correct == _true(option, noun, broken), (q.text, option)
+            assert grade_mcq(q, index).correct == _true(option, noun, broken), (q.text, option)
 
 
 def test_hard_and_exam_tables_have_uneven_x_steps_and_wide_steps_appear_among_the_distractors():

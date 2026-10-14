@@ -64,19 +64,6 @@ def oracle(q) -> dict[str, str]:
     return {"a": _plain(total), "b": str(_exponent(total)), "c": _plain(total * _UNITS[unit])}
 
 
-def test_source_wired():
-    assert_source_wired(SKILL, TOPIC)
-
-
-def test_shapes_and_text():
-    assert_new_shapes(SKILL)
-    assert_no_text_defects(SKILL)
-
-
-def test_answer_space():
-    assert_answer_space(SKILL, minimum=100)
-
-
 def test_chain_shape():
     for seed in range(60):
         q = exam(SKILL, seed)

@@ -63,12 +63,12 @@ def test_a_real_grader_accepts_answer_rejects_distractors(difficulty, params):
         q = make(TOPIC_A, seed=seed, difficulty=difficulty, **params)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        result = GRADERS["mcq"](q, str(correct_idx))
+        result = GRADERS["mcq"](q, correct_idx)
         assert result.correct, f"seed={seed}: grader rejected canonical answer {q.answer_text!r}"
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            wrong = GRADERS["mcq"](q, str(i))
+            wrong = GRADERS["mcq"](q, i)
             assert not wrong.correct, f"seed={seed}: grader accepted distractor option {opt!r}"
 
 

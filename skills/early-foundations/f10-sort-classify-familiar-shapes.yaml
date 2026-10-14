@@ -1,0 +1,36 @@
+id: f10-sort-classify-familiar-shapes
+name: Sort and compare familiar shapes
+domain: early-foundations
+year_level: ['1']
+naplan_domain: [space]
+learner_band: early
+description: Sort a picture of shapes into flat and solid, count the shapes with corners or a curved side, and pick the odd one out together with the reason.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [name-basic-shapes]
+answer: mcq
+sources:
+- topic: ey_shape_classify
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_shape_classify
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_shape_classify
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: flat-solid-swap
+  description: Counts the flat shapes when asked for solids, or the other way round.
+- id: only-the-square-has-four-corners
+  description: Counts only squares as having 4 corners, leaving out rectangles, rhombuses and kites.
+- id: semicircle-not-curved
+  description: Treats a shape with one straight edge and one curved edge as having no curved side.
+- id: odd-one-out-by-looks
+  description: Looks for a difference in size, turn or shading instead of the sides, corners or curves that make one shape different.
+- id: right-shape-wrong-reason
+  description: Finds the odd shape but gives a reason about size, turn or shading rather than sides, corners or curves.
+tags: [early, shapes, sorting, classify, acara-f10-v9, ac9m1sp01]

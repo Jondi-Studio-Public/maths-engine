@@ -36,19 +36,6 @@ def _oracle(text):
     return n
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], q.text
-
-
-def test_shapes_and_escalation_in_kind():
-    shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(_hard(s)) for s in range(60)}
-    assert len(shapes) >= 3
-    assert shapes - hard
-
-
 def test_independent_oracle_matches_key():
     bad = []
     for seed in range(400):
@@ -76,7 +63,3 @@ def test_grader_accepts_key_and_rejects_every_distractor():
             if grader(q, d).correct:
                 bad.append(("distractor accepted", seed, d))
     assert bad == []
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

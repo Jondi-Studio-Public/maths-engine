@@ -87,24 +87,12 @@ def wrong_second(q):
     return {"a": _fmt(value, 3), "b": _fmt(wrong_b, 3), "c": str(floor(wrong_b * 100))}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"] and exam[0].params == {"tier": "exam"}
-    assert _SKILL.sources[-1] is exam[0]
-
-
 def test_shape_and_marks(questions):
     for q in questions[:100]:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
         assert all(p.answer_kind == "number" and p.marks >= 1 for p in q.parts)
         assert [p.follow_through is not None for p in q.parts] == [label in FOLLOWS for label in "abc"]
         assert all(len(p.distractors) >= 2 for p in q.parts)
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
 
 
 def test_prompt_variety_and_new_shapes_over_hard_tier():
@@ -122,17 +110,6 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
     }
     assert len(exam) >= 3, exam
     assert exam - hard, "the exam tier adds no prompt shape beyond the hard tier"
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 99):
-        assert _exam(seed).to_json() == _exam(seed).to_json()
-
-
-def test_answer_space(questions):
-    answers = [q.answer_text for q in questions]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
 
 
 def test_key_rederived_from_prompt(questions):

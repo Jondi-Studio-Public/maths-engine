@@ -45,9 +45,9 @@ class TestShape:
         for seed in SEEDS:
             q = make(TOPIC, seed=seed, difficulty=difficulty)
             options = mcq_options(q)
-            assert grade_mcq(q, str(options.index(q.answer_text))).correct
+            assert grade_mcq(q, options.index(q.answer_text)).correct
             for d in q.distractors:
-                assert not grade_mcq(q, str(options.index(d))).correct
+                assert not grade_mcq(q, options.index(d)).correct
             assert not grade_mcq(q, "99").correct
 
     @pytest.mark.parametrize("difficulty", TIERS)

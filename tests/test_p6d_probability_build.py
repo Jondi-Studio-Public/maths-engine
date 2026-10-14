@@ -457,7 +457,7 @@ class TestRandomEqualLikelihoodOutcomes:
                 q = make("random_equal_likelihood_outcomes", seed=seed, difficulty=preset)
                 options = mcq_options(q)
                 answer_index = options.index(q.answer_text)
-                result = grade_mcq(q, str(answer_index))
+                result = grade_mcq(q, answer_index)
                 assert result.correct, f"seed {seed} {preset}: grader rejected answer index {answer_index}"
 
     def test_real_grader_rejects_all_distractors(self):
@@ -468,7 +468,7 @@ class TestRandomEqualLikelihoodOutcomes:
                 options = mcq_options(q)
                 for i, option in enumerate(options):
                     if option != q.answer_text:
-                        result = grade_mcq(q, str(i))
+                        result = grade_mcq(q, i)
                         assert not result.correct, f"seed {seed} {preset}: grader accepted distractor at index {i}"
 
     def test_medium_has_close_but_unequal_option(self):
