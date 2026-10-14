@@ -1,0 +1,36 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-find-actual-measurements-from-scale-drawings-such-as
+name: Find actual measurements from scale drawings, such as lengths, perimeters and areas
+domain: measurement
+year_level: ['12']
+description: 'Given a plan drawn on a square grid (one square is 1 cm) with its scale written as `1 cm : 2 m` or as a ratio `1 : 200`, find the actual measurement. Easy finds one actual length of a rectangle. Medium finds the actual perimeter of an L-shaped or U-shaped room. Hard finds the actual area in square metres, where the area scales by the square of the factor.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rectangle-perimeter, rectangle-area, convert-metric-length]
+answer: number
+sources:
+- topic: grid_scale_actual
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_scale_actual
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_scale_actual
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: uses-drawn-length
+  description: "Gives the length, perimeter or area measured on the plan and never applies the scale."
+- id: leaves-out-a-side
+  description: "Adds all but one side of the room when finding the perimeter, or treats the perimeter as half of the sum of the sides."
+- id: area-times-linear-factor
+  description: "Multiplies the area on the plan by the linear scale factor instead of its square."
+- id: unit-slip
+  description: "Gives the answer in centimetres or square centimetres when metres or square metres were asked for, or reads the ratio as metres."
+tags: [acara-senior-v8-4, measurement, grid_scale_actual, acmem109, scale-drawings, scale, perimeter, area]

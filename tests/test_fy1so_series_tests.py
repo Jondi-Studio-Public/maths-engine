@@ -27,7 +27,15 @@ from tests.fy1so_support import (
 TOPIC = "fy1so_series_tests"
 EXAM = "fy1so_exd_series_tests"
 n = sympy.Symbol("n")
-mpmath.mp.dps = 40
+
+
+@pytest.fixture(autouse=True, scope="module")
+def _mpmath_digits():
+    """Scoped: a bare `mpmath.mp.dps = 40` at import changed the precision for every later test on the worker."""
+    with mpmath.workdps(40):
+        yield
+
+
 _ROOTS = {"√": 2, "∛": 3, "∜": 4}
 
 

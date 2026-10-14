@@ -1,0 +1,44 @@
+id: f10-tessellation-transform-combinations
+name: Combine transformations to make tessellations
+domain: geometry
+year_level: ['6']
+naplan_domain: [space]
+description: Given a tile drawn on a grid, shade its image after a transformation, after a combination of two transformations, or the next two tiles of a tessellation. Easy is one reflection in a drawn mirror line or one translation. Medium is two in a row, such as a reflection then a translation, or reflections in two mirror lines. Hard continues a strip of tiles made by repeated reflections in equally spaced mirror lines or by repeated translations.
+status: deferred
+deferred_reason: visual
+capability_gates: [visual_construction]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-transformations-invariants, f10-symmetry-construction]
+answer: grid_cells
+sources:
+- topic: grid_tessellation_images
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_tessellation_images
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_tessellation_images
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: slides-instead-of-flipping
+  description: Draws the tile at the mirrored position but not turned over, so the image is a translation of the tile instead of its reflection.
+- id: reflects-in-the-wrong-direction
+  description: Reflects across a horizontal line when the mirror line is vertical, or the other way round.
+- id: mirror-distance-off-by-one
+  description: Places the image one square too near or too far from the mirror line, measuring to the wrong edge of a square.
+- id: stops-after-first-transformation
+  description: Does only the first of two transformations and shades the tile in its intermediate position.
+- id: applies-in-the-wrong-order
+  description: Does the two transformations in the other order, which gives a different image when one of them is a reflection and the other a translation.
+- id: translates-the-wrong-way
+  description: Moves the tile in the opposite direction, or swaps the horizontal and vertical parts of the move.
+- id: pattern-not-flipped-each-time
+  description: Continues a reflected pattern by repeating the tile unchanged instead of flipping it in each mirror line.
+- id: draws-only-one-tile
+  description: Shades only the next tile when asked for the next two.
+tags: [acara-f10-v9, geometry, grid_tessellation_images, ac9m6sp03, tessellation, transformations, drawn-answer]

@@ -39,6 +39,7 @@ ANSWER_KINDS = frozenset(
         "line",
         "inequality",
         "matrix",
+        "grid_cells",
     }
 )
 

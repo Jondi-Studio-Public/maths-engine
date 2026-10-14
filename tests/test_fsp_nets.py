@@ -62,7 +62,8 @@ def test_every_cube_net_has_the_twelve_cube_edges():
 def test_skill_wiring():
     assert _SKILL.answer == "mcq" and _SKILL.status == "active"
     assert _SKILL.needs_figure is True and _SKILL.capability_gates == ["figure_stimulus"]
-    assert [(s.topic, s.difficulty) for s in _SKILL.sources] == [
+    # the skill also carries the grid_nets_build_solids tiers, tested in tests/test_grid_solids.py
+    assert [(s.topic, s.difficulty) for s in _SKILL.sources if s.topic.startswith("fsp_")] == [
         ("fsp_nets", "easy"),
         ("fsp_nets", "medium"),
         ("fsp_nets", "hard"),

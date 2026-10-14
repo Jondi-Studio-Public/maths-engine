@@ -11,6 +11,8 @@ import time
 from contextlib import asynccontextmanager, contextmanager
 from typing import Annotated, Any, Literal
 
+from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import RequestValidationError
 from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
@@ -214,6 +216,12 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
         app.add_middleware(
             CORSMiddleware, allow_origins=config.cors_origins, allow_methods=["GET", "POST"], allow_headers=["*"]
         )
+
+    @app.exception_handler(RequestValidationError)
+    async def invalid_request(request: Request, exc: RequestValidationError):
+        # FastAPI's default handler echoes each error's `input`; a lone surrogate there cannot be encoded (500).
+        errors = [{k: v for k, v in e.items() if k not in ("input", "ctx")} for e in exc.errors()]
+        return JSONResponse({"detail": jsonable_encoder(errors)}, status_code=422)
 
     app.add_middleware(BodyLimit, limit=config.max_body_bytes)
     app.add_middleware(SecurityHeaders)  # last added, so outermost: it covers 401s, 413s and CORS answers too

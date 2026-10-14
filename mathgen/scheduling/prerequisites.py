@@ -12,6 +12,13 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "prerequisite_closure",
+    "ready_to_start",
+    "gaps_before",
+]
+
 
 def _by_id(skills) -> dict:
     return skills if isinstance(skills, dict) else {s.id: s for s in skills}
@@ -57,6 +64,8 @@ def gaps_before(skill_id: str, skills, mastered: Iterable[str]) -> list[str]:
     placed: set[str] = set()
     while todo:
         ready = sorted(sid for sid in todo if all(p in placed or p not in todo for p in by_id[sid].prerequisites))
+        if not ready:
+            raise ValueError(f"prerequisite cycle among {sorted(todo)}")
         ordered.extend(ready)
         placed.update(ready)
         todo.difference_update(ready)

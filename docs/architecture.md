@@ -49,6 +49,10 @@ those ids for the whole library; see "Seed stability" in `CONTRIBUTING.md`.
 | `mathgen/capabilities.py` | Reads `skills/capability-gates.yaml` and blocks skills whose gates have not passed. |
 | `mathgen/figures.py`, `mathgen/figure_kinds/` | Figure specs for questions that show a picture. |
 | `mathgen/slots.py`, `mathgen/text_quality.py` | Shared word-problem vocabulary, and checks on learner-facing text. |
+| `mathgen/service.py` | Skills, questions, worksheets and grading as plain JSON-ready data: the layer the HTTP API, the MCP server and the exports share. |
+| `mathgen/export.py`, `mathgen/svg.py` | Printable papers and answer keys, Moodle XML and QTI 2.1 banks; every figure kind drawn as SVG. |
+| `mathgen/server/` | The HTTP API (the `server` extra); see `docs/server.md`. |
+| `mathgen/mcp_server.py` | The MCP server for AI agents (the `mcp` extra, command `mathgen-mcp`); see `docs/mcp.md`. |
 | `mathgen/scheduling/` | Optional spaced-review maths (FSRS, stages, prerequisites, calibration). No database or clock. |
 | `skills/domains.yaml`, `skills/capability-gates.yaml`, `skills/skill.schema.yaml` | Domain bands, the gate registry, and the skill file schema. |
 | `skills/index.yaml` | Generated map from every skill's topics to the module that registers them. |
@@ -71,5 +75,6 @@ python scripts/build_skill_index.py --where t1_simplify_surds   # one topic
 
 ## Loading cost
 
-`import mathgen` imports every generator module so that `REGISTRY` is complete. That takes a
-few seconds; a long-running host pays it once at start-up.
+`import mathgen` imports every generator module so that `REGISTRY` is complete. That takes about
+two seconds; a long-running host pays it once at start-up. A generator that needs a large table builds it on its
+first question, not at import.

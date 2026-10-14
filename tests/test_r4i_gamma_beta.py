@@ -11,6 +11,7 @@ from collections import Counter
 from fractions import Fraction
 
 import mpmath as mp
+import pytest
 import sympy
 from sympy.parsing.sympy_parser import implicit_multiplication_application, parse_expr, standard_transformations
 
@@ -32,7 +33,13 @@ EXAM = "exd_x_r4i_gamma_beta"
 SK = skill("uc2-gamma-beta-moments")
 x = sympy.Symbol("x")
 T = standard_transformations + (implicit_multiplication_application,)
-mp.mp.dps = 30
+
+
+@pytest.fixture(autouse=True, scope="module")
+def _mpmath_digits():
+    """Scoped: a bare `mp.mp.dps = 30` at import changed the precision for every later test on the worker."""
+    with mp.workdps(30):
+        yield
 
 
 def _density(text, const=None):
