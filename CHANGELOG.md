@@ -23,6 +23,16 @@ Each question's id (below) tells you when the question behind it has changed.
 - An unknown topic or skill now suggests the closest names (`did you mean 'quadratic'?`), from `mathgen.make`
   and from the command line.
 - Python 3.14 is listed as supported. The generators and skills were checked on it.
+- **MCP server.** `mathgen-mcp` (install the `mcp` extra) serves the engine to AI agents over the Model Context
+  Protocol: find skills, make and mark questions, build worksheets and LMS banks. In the `learner` role no tool
+  returns an answer. See `docs/mcp.md`. (#81)
+- **Agent Plugins.** `plugins/maths-engine-tutor` (learner role) and `plugins/maths-engine-teacher` (author role)
+  package the server with skills for tutoring, worksheets and LMS export, following the Agent Plugins spec, and
+  `.claude-plugin/marketplace.json` lists both for Claude Code. They install `maths-engine[mcp]==0.2.0` from PyPI.
+  (#81)
+- **HTTP API and exports.** `python -m mathgen.server` (install the `server` extra) serves the engine over HTTP
+  with `learner` and `author` keys; `mathgen.export` builds printable papers and Moodle XML and QTI 2.1 banks;
+  `mathgen.svg` draws every figure kind as SVG. See `docs/server.md`. (#71, in #81)
 
 ### Changed
 
