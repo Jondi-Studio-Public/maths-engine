@@ -156,7 +156,7 @@ def chance_outcome_classify(rng, mode="single_category"):
             text = f"A bag contains {cat_list}. Event X: drawing a {event_category}. How would you classify the likelihood of event X?"
             working = [
                 f"Event X matches 0 out of {total} counters (favourable count 0, total count {total}).",
-                "0 is not at least half of any positive number? No -- 0 is less than any positive count.",
+                f"Is 0 equal to {total}? No. 0 matches none of the counters, so the event cannot happen.",
                 "The event is impossible.",
             ]
         else:

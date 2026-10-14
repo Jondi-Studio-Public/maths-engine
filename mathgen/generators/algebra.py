@@ -14,6 +14,7 @@ from ..core import (
     xy_solution,
     join_terms,
     fmt_signed,
+    paren_negative,
     GRADER_TOLERANCE,
 )
 
@@ -172,7 +173,7 @@ def _linear_equation_double_brackets(rng, coef_hi, sol_hi, b_hi, allow_negative)
         working=[
             f"Expand: {fmt_signed(a1, 'x')} {'+' if b1 >= 0 else '-'} {abs(b1)} = "
             f"{fmt_signed(a2, 'x')} {'+' if b2 >= 0 else '-'} {abs(b2)}",
-            f"x = ({b2} - {b1}) / ({a1} - {a2}) = {x0}",
+            f"x = ({b2} - {paren_negative(b1)}) / ({a1} - {paren_negative(a2)}) = {x0}",
         ],
         distractors=pick_distractors(f"x = {x0}", cands),
     )

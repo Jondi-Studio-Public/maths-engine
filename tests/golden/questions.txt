@@ -986,8 +986,8 @@
 {"answer": "x = 8", "id": "equations-with-brackets/easy/1/e22099455d22", "text": "Solve 5(x + 10) = 90"}
 {"answer": "x = 8", "id": "equations-with-brackets/easy/2/be416683af18", "text": "Solve 2(x + 3) = 22"}
 {"answer": "x = 6", "id": "equations-with-brackets/exam/0/9d312b6c3427", "text": "Solve -4(x - 3) = 4(x - 9)"}
-{"answer": "x = 7", "id": "equations-with-brackets/exam/1/bc10cdcdaacb", "text": "Solve -4(x + 2) = 9(x - 11)"}
-{"answer": "x = 12", "id": "equations-with-brackets/exam/2/572a8bcc99d7", "text": "Solve -6(x + 3) = -5(x + 6)"}
+{"answer": "x = 7", "id": "equations-with-brackets/exam/1/14e8c1fe9f6b", "text": "Solve -4(x + 2) = 9(x - 11)"}
+{"answer": "x = 12", "id": "equations-with-brackets/exam/2/2e712d3144ab", "text": "Solve -6(x + 3) = -5(x + 6)"}
 {"answer": "x = 28", "id": "equations-with-brackets/hard/0/45d28f8cd5d6", "text": "Solve 4 + 4(x + 12) = 164"}
 {"answer": "x = 18", "id": "equations-with-brackets/hard/1/919a67d7bba2", "text": "Solve 25 + 4(x - 10) = 57"}
 {"answer": "x = 18", "id": "equations-with-brackets/hard/2/9a29f87db4d3", "text": "Solve 25 + 9(x + 5) = 232"}
@@ -1243,8 +1243,8 @@
 {"answer": "17", "id": "f10-capacity-mass-informal-units/medium/0/acc593bde134", "text": "The watering can holds 28 scoops of water. Leila pours in 8 scoops and then 3 m…"}
 {"answer": "5", "id": "f10-capacity-mass-informal-units/medium/1/bec73141c456", "text": "The apple balances 20 cubes. The melon balances 7 cubes and the pencil case bal…"}
 {"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/05efcb2ca8de", "text": "The teapot balances 5 cubes. The shoe balances 5 cubes more than the teapot. Ho…"}
-{"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/d2edcaab9563", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
-{"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/a601c8526340", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
+{"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/6172bec54640", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
+{"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/408ac8af0bdd", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
 {"answer": "(a) 870; (b) It is reasonable: it is close to the estimate", "id": "f10-check-given-answer-reasonable/easy/0/4cb6cbc6f516", "text": "A bakery sold 728 pies in June and 141 pies in July. Priya says it sold 869 pie…"}
 {"answer": "(a) 1280; (b) It is too high: it is much more than the esti…", "id": "f10-check-given-answer-reasonable/easy/1/b0f1fcf7abff", "text": "A bakery sold 506 pies in June and 773 pies in July. Noah says it sold 1 379 pi…"}
@@ -1870,8 +1870,8 @@
 {"answer": "column = 3, row = 1", "id": "f10-grid-reference-pathway/easy/0/b626b5939534", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 2, row = 4", "id": "f10-grid-reference-pathway/easy/1/0aace713887a", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
 {"answer": "column = 4, row = 4", "id": "f10-grid-reference-pathway/easy/2/cc7b0c414a76", "text": "A map grid has columns A to F from left to right. Row 1 is the bottom row and r…"}
-{"answer": "(a) 2; (b) 9; (c) 3.0", "id": "f10-grid-reference-pathway/exam/0/6a3fc633f770", "text": "The map of a rainforest reserve near Cairns is a grid with columns A to J from …"}
-{"answer": "(a) 8; (b) 5; (c) 3.0", "id": "f10-grid-reference-pathway/exam/1/105dcfed006e", "text": "The map of a national park in the Grampians is a grid with columns A to I from …"}
+{"answer": "(a) 2; (b) 9; (c) 3.0", "id": "f10-grid-reference-pathway/exam/0/7af2a3b31d32", "text": "The map of a rainforest reserve near Cairns is a grid with columns A to J from …"}
+{"answer": "(a) 8; (b) 5; (c) 3.0", "id": "f10-grid-reference-pathway/exam/1/c4a35820d70a", "text": "The map of a national park in the Grampians is a grid with columns A to I from …"}
 {"answer": "(a) 6; (b) 3; (c) 4.0", "id": "f10-grid-reference-pathway/exam/2/770649103282", "text": "The map of a national park in the Flinders Ranges is a grid with columns A to I…"}
 {"answer": "column = 9, row = 7", "id": "f10-grid-reference-pathway/hard/0/ec4604317b52", "text": "A map grid has columns A to J from left to right. Rows are numbered from the to…"}
 {"answer": "column = 3, row = 1", "id": "f10-grid-reference-pathway/hard/1/c9539be00a2d", "text": "A map grid has columns A to J from left to right. Rows are numbered from the to…"}
@@ -1973,7 +1973,7 @@
 {"answer": "180", "id": "f10-logarithmic-scales/easy/1/d5ccbe1c015d", "text": "On a logarithmic scale, A is marked at 18 and B is marked at 1800, 2 equal scal…"}
 {"answer": "60", "id": "f10-logarithmic-scales/easy/2/019369830fff", "text": "On a logarithmic scale, A is marked at 6 and B is marked at 600, 2 equal scale-…"}
 {"answer": "(a) 100000; (b) 880000; (c) 100", "id": "f10-logarithmic-scales/exam/0/54eee13cde8c", "text": "Sound levels are measured in decibels (dB). On this scale an increase of 10 dB …"}
-{"answer": "(a) 100000; (b) 660000; (c) 110", "id": "f10-logarithmic-scales/exam/1/f99fd656089e", "text": "Sound levels are measured in decibels (dB). On this scale an increase of 10 dB …"}
+{"answer": "(a) 100000; (b) 660000; (c) 110", "id": "f10-logarithmic-scales/exam/1/4ab7aa2b2d59", "text": "Sound levels are measured in decibels (dB). On this scale an increase of 10 dB …"}
 {"answer": "(a) 100000; (b) 480000; (c) 90", "id": "f10-logarithmic-scales/exam/2/b7236e4d5f20", "text": "Sound levels are measured in decibels (dB). On this scale an increase of 10 dB …"}
 {"answer": "0.25", "id": "f10-logarithmic-scales/hard/0/cf50d3cff61b", "text": "On a logarithmic scale, A is marked at 16 and B is marked at 160000, 4 equal sc…"}
 {"answer": "0.25", "id": "f10-logarithmic-scales/hard/1/a01549e3eea0", "text": "On a logarithmic scale, A is marked at 4 and B is marked at 40000, 4 equal scal…"}
@@ -2413,9 +2413,9 @@
 {"answer": "137", "id": "f10-polygon-angle-sums/hard/0/3288928a8243", "text": "An octagon has 7 known interior angles: 127, 130, 161, 143, 144, 136 and 102 de…"}
 {"answer": "163", "id": "f10-polygon-angle-sums/hard/1/9139291108d1", "text": "A quadrilateral has 3 known interior angles: 82, 53 and 62 degrees, with one an…"}
 {"answer": "122", "id": "f10-polygon-angle-sums/hard/2/0a9e321f0696", "text": "A quadrilateral has 3 known interior angles: 72, 72 and 94 degrees, with one an…"}
-{"answer": "46", "id": "f10-polygon-angle-sums/medium/0/9f0aba4d9cf9", "text": "A polygon has 5 sides. 3 of the angles measure 140 degrees each, and the rest m…"}
-{"answer": "29", "id": "f10-polygon-angle-sums/medium/1/9129f0c5993a", "text": "A polygon has 5 sides. 2 of the angles measure 138 degrees each, and the rest m…"}
-{"answer": "130", "id": "f10-polygon-angle-sums/medium/2/1cc3bb9fdc42", "text": "A polygon has 5 sides. 3 of the angles measure 91 degrees each, and the rest me…"}
+{"answer": "46", "id": "f10-polygon-angle-sums/medium/0/eda3b5c60f73", "text": "A polygon has 5 sides. 3 of the angles measure 140 degrees each, and the rest m…"}
+{"answer": "29", "id": "f10-polygon-angle-sums/medium/1/7fbe844108aa", "text": "A polygon has 5 sides. 2 of the angles measure 138 degrees each, and the rest m…"}
+{"answer": "130", "id": "f10-polygon-angle-sums/medium/2/aaf22e2a6f89", "text": "A polygon has 5 sides. 3 of the angles measure 91 degrees each, and the rest me…"}
 {"answer": "equilateral", "id": "f10-polygon-classification/easy/0/d3667658b8ea", "text": "A triangle's sides are 6, 6 and 6 units long. Classify it by its side lengths, …"}
 {"answer": "scalene", "id": "f10-polygon-classification/easy/1/862b441e6774", "text": "The three sides of a triangle measure 14, 12 and 7 units. What is the most spec…"}
 {"answer": "equilateral", "id": "f10-polygon-classification/easy/2/9eac20f893fe", "text": "A triangle has side lengths 9, 9 and 9 units. Classify the triangle by its side…"}
@@ -2584,9 +2584,9 @@
 {"answer": "9.25", "id": "f10-rational-operation-strategy/hard/0/fca30dc64788", "text": "Calculate: (-3/4) + 12 + (-9) - (-7)"}
 {"answer": "18.25", "id": "f10-rational-operation-strategy/hard/1/02c3d4d5b7e8", "text": "Calculate: 9 + 3 - 3/4 - (-7)"}
 {"answer": "-10.81", "id": "f10-rational-operation-strategy/hard/2/5d6cc840f855", "text": "Calculate: 3/20 - (-1) - 12 - (-1/25)"}
-{"answer": "1.32", "id": "f10-rational-operation-strategy/medium/0/551b7d8ac69d", "text": "Calculate: (-3/50) + 3/5 + (-1)"}
-{"answer": "-14.88", "id": "f10-rational-operation-strategy/medium/1/efad9b4af57f", "text": "Calculate: (-10) - (-1/10) - (-6/5)"}
-{"answer": "1.60", "id": "f10-rational-operation-strategy/medium/2/7b5ebd3d1a46", "text": "Calculate: 7/10 + (-3/10) + (-39/10)"}
+{"answer": "1.32", "id": "f10-rational-operation-strategy/medium/0/e19dc1b8462b", "text": "Calculate: 1/50 + (-1/10) + 7/5"}
+{"answer": "-14.88", "id": "f10-rational-operation-strategy/medium/1/6cae58f2a4af", "text": "Calculate: (-14) - 2/25 - 4/5"}
+{"answer": "1.60", "id": "f10-rational-operation-strategy/medium/2/ef0efda0b895", "text": "Calculate: 47/10 + 3/2 + (-23/5)"}
 {"answer": "8", "id": "f10-rational-percentage-estimation/easy/0/0e23b71b287e", "text": "Estimate 10% of 76, rounded to the nearest whole number (round a half up)."}
 {"answer": "4", "id": "f10-rational-percentage-estimation/easy/1/cabb63cd6238", "text": "Estimate 10% of 36, rounded to the nearest whole number (round a half up)."}
 {"answer": "1", "id": "f10-rational-percentage-estimation/easy/2/31bac512b0e4", "text": "Estimate 10% of 12, rounded to the nearest whole number (round a half up)."}
@@ -4130,7 +4130,7 @@
 {"answer": "7 - 2*x", "id": "nth-term-rule/exam/1/09697f292331", "text": "In an arithmetic sequence, term 5 is 3 times term 4, and the sum of terms 1 and…"}
 {"answer": "5*x - 10", "id": "nth-term-rule/exam/2/83ac6cbdf404", "text": "In an arithmetic sequence, term 8 is 3 times term 4, and term 6 is 20. Find the…"}
 {"answer": "2*x + 2", "id": "nth-term-rule/hard/0/58d7b94f8217", "text": "In a sequence, term 2 is 6 and term 4 is 10. Find the nth-term rule (use x for …"}
-{"answer": "4 - x", "id": "nth-term-rule/hard/1/bbf5207db4d1", "text": "In a sequence, term 2 is 2 and term 4 is 0. Find the nth-term rule (use x for t…"}
+{"answer": "4 - x", "id": "nth-term-rule/hard/1/883bceb74758", "text": "In a sequence, term 2 is 2 and term 4 is 0. Find the nth-term rule (use x for t…"}
 {"answer": "6*x - 2", "id": "nth-term-rule/hard/2/adaa32e34475", "text": "In a sequence, term 4 is 22 and term 7 is 40. Find the nth-term rule (use x for…"}
 {"answer": "7*x - 3", "id": "nth-term-rule/medium/0/c2e1ffea4305", "text": "Find the nth-term rule for the sequence: 4, 11, 18, 25, ... (use x for the term…"}
 {"answer": "4 - 5*x", "id": "nth-term-rule/medium/1/3237b4994487", "text": "Find the nth-term rule for the sequence: -1, -6, -11, -16, ... (use x for the t…"}
@@ -4563,7 +4563,7 @@
 {"answer": "3:13", "id": "ratio-rate-proportion/easy/2/ef6d9df722b1", "text": "Simplify the ratio 6:26"}
 {"answer": "(a) 2.50; (b) 113.50; (c) 12.97", "id": "ratio-rate-proportion/exam/0/71ad4ee10e71", "text": "A batch of garden fertiliser is made from blood and bone, seaweed meal and pota…"}
 {"answer": "(a) 6.00; (b) 258.75; (c) 19.17", "id": "ratio-rate-proportion/exam/1/232b547c9b1d", "text": "A bag of birdseed is made from sunflower seeds, millet and cracked corn in the …"}
-{"answer": "(a) 2.50; (b) 222.00; (c) 12.69", "id": "ratio-rate-proportion/exam/2/5d42adb49ab3", "text": "A batch of muesli is made from rolled oats, almonds and sultanas in the ratio 3…"}
+{"answer": "(a) 2.50; (b) 222.00; (c) 12.69", "id": "ratio-rate-proportion/exam/2/7ecf6e843947", "text": "A batch of muesli is made from rolled oats, almonds and sultanas in the ratio 3…"}
 {"answer": "6:1", "id": "ratio-rate-proportion/hard/0/5cc0c516823d", "text": "Write the ratio 18 km to 3000 m in simplest form."}
 {"answer": "3:8", "id": "ratio-rate-proportion/hard/1/dcf2e3ab192d", "text": "Write the ratio 9 hours to 1440 minutes in simplest form."}
 {"answer": "8:7", "id": "ratio-rate-proportion/hard/2/5edd5468ebe2", "text": "Write the ratio 24 km to 21000 m in simplest form."}
@@ -5200,18 +5200,18 @@
 {"answer": "13", "id": "senior-consider-constant-and-non-constant-force/medium/0/9e4cdaddf503", "text": "A 7 kg object, already moving at 5 m/s, experiences a constant net force of 14 …"}
 {"answer": "26", "id": "senior-consider-constant-and-non-constant-force/medium/1/23287fa9c5a7", "text": "A 6 kg object, already moving at 10 m/s, experiences a constant net force of 12…"}
 {"answer": "58", "id": "senior-consider-constant-and-non-constant-force/medium/2/06bb501e2125", "text": "A 3 kg object, already moving at 42 m/s, experiences a constant net force of 6 …"}
-{"answer": "-(x - 2)/3", "id": "senior-consider-inverses-of-one-to-one-function/easy/0/5e19a6e9048c", "text": "Find the inverse function f⁻¹(x) for f(x) = -3×x + 2."}
-{"answer": "(x - 4)/3", "id": "senior-consider-inverses-of-one-to-one-function/easy/1/bcea16bdce5b", "text": "Find the inverse function f⁻¹(x) for f(x) = 3×x + 4."}
-{"answer": "(x + 5)/3", "id": "senior-consider-inverses-of-one-to-one-function/easy/2/a467ada1e747", "text": "Find the inverse function f⁻¹(x) for f(x) = 3×x - 5."}
+{"answer": "-(x - 2)/3", "id": "senior-consider-inverses-of-one-to-one-function/easy/0/ebea932fdc9a", "text": "Find the inverse function f⁻¹(x) for f(x) = -3×x + 2."}
+{"answer": "(x - 4)/3", "id": "senior-consider-inverses-of-one-to-one-function/easy/1/778da10ecec0", "text": "Find the inverse function f⁻¹(x) for f(x) = 3×x + 4."}
+{"answer": "(x + 5)/3", "id": "senior-consider-inverses-of-one-to-one-function/easy/2/6d72d9e5c184", "text": "Find the inverse function f⁻¹(x) for f(x) = 3×x - 5."}
 {"answer": "(2x + 6)/(-x + 2)", "id": "senior-consider-inverses-of-one-to-one-function/exam/0/37920843ff86", "text": "Find the inverse function f⁻¹(x) of f(x) = (2x - 6)/(x + 2)."}
 {"answer": "(-2x - 4)/(-x + 1)", "id": "senior-consider-inverses-of-one-to-one-function/exam/1/96c9872caf20", "text": "Let f(x) = (x + 4)/(x - 2). Determine f⁻¹(x)."}
 {"answer": "(x + 4)/(2x - 4)", "id": "senior-consider-inverses-of-one-to-one-function/exam/2/41ca158a0a4a", "text": "Let f(x) = 2 + 6/(2x - 1). Determine f⁻¹(x)."}
 {"answer": "-3 + 1/(x + 5)", "id": "senior-consider-inverses-of-one-to-one-function/hard/0/5254a9bb6760", "text": "Find the inverse function f⁻¹(x) for f(x) = 1/(x + 3) - 5."}
 {"answer": "-2 + 1/(x - 1)", "id": "senior-consider-inverses-of-one-to-one-function/hard/1/27c19d6cdff9", "text": "Find the inverse function f⁻¹(x) for f(x) = 1/(x + 2) + 1."}
 {"answer": "2 + 1/(x + 3)", "id": "senior-consider-inverses-of-one-to-one-function/hard/2/c0b9ec428b54", "text": "Find the inverse function f⁻¹(x) for f(x) = 1/(x - 2) - 3."}
-{"answer": "-(x - 4)/2 + 2", "id": "senior-consider-inverses-of-one-to-one-function/medium/0/bcd7523a4735", "text": "Find the inverse function f⁻¹(x) for f(x) = -2×(x - 2) + 4."}
-{"answer": "(x - 2)/2 - 6", "id": "senior-consider-inverses-of-one-to-one-function/medium/1/b854e8919825", "text": "Find the inverse function f⁻¹(x) for f(x) = 2×(x + 6) + 2."}
-{"answer": "-(x - 5)/2 - 1", "id": "senior-consider-inverses-of-one-to-one-function/medium/2/42e98381c66e", "text": "Find the inverse function f⁻¹(x) for f(x) = -2×(x + 1) + 5."}
+{"answer": "-(x - 4)/2 + 2", "id": "senior-consider-inverses-of-one-to-one-function/medium/0/38b6bcc5ef28", "text": "Find the inverse function f⁻¹(x) for f(x) = -2×(x - 2) + 4."}
+{"answer": "(x - 2)/2 - 6", "id": "senior-consider-inverses-of-one-to-one-function/medium/1/29c51990a7f5", "text": "Find the inverse function f⁻¹(x) for f(x) = 2×(x + 6) + 2."}
+{"answer": "-(x - 5)/2 - 1", "id": "senior-consider-inverses-of-one-to-one-function/medium/2/9bf5ddfc6162", "text": "Find the inverse function f⁻¹(x) for f(x) = -2×(x + 1) + 5."}
 {"answer": "x = 13, y = 15", "id": "senior-consider-position-of-vectors-as-a-function-of/easy/0/76b80802df7d", "text": "A particle's position vector is r(t) = (3t + 7, 6t + 3), in metres, t in second…"}
 {"answer": "x = 48, y = 36", "id": "senior-consider-position-of-vectors-as-a-function-of/easy/1/57f4bd9817c2", "text": "A particle's position vector is r(t) = (9t - 6, 7t - 6), in metres, t in second…"}
 {"answer": "x = 10, y = 2", "id": "senior-consider-position-of-vectors-as-a-function-of/easy/2/13b227b4ff00", "text": "A particle's position vector is r(t) = (3t - 2, t - 2), in metres, t in seconds…"}
@@ -5542,9 +5542,9 @@
 {"answer": "x^2 - 16x + 100", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/exam/0/ca818b7edf48", "text": "The solutions of x^2 + 6x + 10 = 0 are u and v. Write the monic quadratic polyn…"}
 {"answer": "5x^2 + 10x + 85", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/exam/1/e99ac6f34604", "text": "-1 + 4i is one solution of the equation ax^2 + bx + c = 0, where a = 5 and b an…"}
 {"answer": "x^2 - 14x + 50", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/exam/2/1109df4f65ca", "text": "The solutions of x^2 - 8x + 17 = 0 are u and v. Write the monic quadratic polyn…"}
-{"answer": "106", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/hard/0/e3f13437429c", "text": "-5 - 9i is one solution of x^2 + 10x + c = 0, where the coefficients are real. …"}
-{"answer": "97", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/hard/1/4b536421ba60", "text": "-4 - 9i is one solution of x^2 + 8x + c = 0, where the coefficients are real. F…"}
-{"answer": "20", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/hard/2/0f163f3821be", "text": "-4 - 2i is one solution of x^2 + 8x + c = 0, where the coefficients are real. F…"}
+{"answer": "106", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/hard/0/cd0a6e997a20", "text": "-5 - 9i is one solution of x^2 + 10x + c = 0, where the coefficients are real. …"}
+{"answer": "97", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/hard/1/303c9dff4208", "text": "-4 - 9i is one solution of x^2 + 8x + c = 0, where the coefficients are real. F…"}
+{"answer": "20", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/hard/2/fb46b5166492", "text": "-4 - 2i is one solution of x^2 + 8x + c = 0, where the coefficients are real. F…"}
 {"answer": "-1 + 2i", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/medium/0/2c61db469a20", "text": "The equation 3x^2 + 6x + 15 = 0 has complex roots. State the solution with the …"}
 {"answer": "-1 + i", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/medium/1/bc108a198425", "text": "The equation 2x^2 + 4x + 4 = 0 has complex roots. State the solution with the p…"}
 {"answer": "2 + 2i", "id": "senior-determine-complex-conjugate-solutions-of-real-quadratic-equations/medium/2/7f841da52870", "text": "The equation 2x^2 - 8x + 16 = 0 has complex roots. State the solution with the …"}
@@ -6366,13 +6366,13 @@
 {"answer": "8.98", "id": "senior-find-time-differences-between-two-places-on-earth/medium/2/1cd3a884f10d", "text": "Dubai is located at longitude 55.3°E, and Toronto is located at longitude 79.4°…"}
 {"answer": "D = 105, zeros = 2", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/easy/0/edc7bca602be", "text": "Consider the quadratic 2x^2 + 9x - 3 = 0. Compute its discriminant and state ho…"}
 {"answer": "D = -7, zeros = 0", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/easy/1/c8c95e1875ba", "text": "Consider the quadratic 2x^2 + 3x + 2 = 0. Compute its discriminant and state ho…"}
-{"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/easy/2/c7ac13aa1334", "text": "The quadratic x^2 - 6x + 9 = 0 has some number of real solutions. Find its disc…"}
-{"answer": "D = -4, zeros = 0", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/exam/0/0e24c9bd88e4", "text": "Let f(x) = -x^2 - 4x - 5. Find the discriminant of f, and state how many real z…"}
+{"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/easy/2/1708e3ea308e", "text": "The quadratic x^2 - 6x + 9 = 0 has some number of real solutions. Find its disc…"}
+{"answer": "D = -4, zeros = 0", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/exam/0/1ec6e11ac9fc", "text": "Let f(x) = -x^2 - 4x - 5. Find the discriminant of f, and state how many real z…"}
 {"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/exam/1/c54914a70cfa", "text": "For the curve y = 2x^2 + 8x + 8, find the discriminant of the quadratic and sta…"}
 {"answer": "D = 1, zeros = 2", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/exam/2/12a8e38f7cbb", "text": "For the curve y = 2x^2 + 5x + 3, find the discriminant of the quadratic and sta…"}
 {"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/hard/0/419e5a6e0c30", "text": "For the quadratic -x^2 + 2x - 1 = 0, find the discriminant and the number of re…"}
-{"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/hard/1/9559e93c0b8a", "text": "Consider the quadratic x^2 - 4x + 4 = 0. Identify a, b and c, then compute the …"}
-{"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/hard/2/52e7fa85449c", "text": "For the quadratic x^2 - 8x + 16 = 0, find the discriminant and the number of re…"}
+{"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/hard/1/16038892eb34", "text": "Consider the quadratic x^2 - 4x + 4 = 0. Identify a, b and c, then compute the …"}
+{"answer": "D = 0, zeros = 1", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/hard/2/566bba8d067b", "text": "For the quadratic x^2 - 8x + 16 = 0, find the discriminant and the number of re…"}
 {"answer": "D = -36, zeros = 0", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/medium/0/279e47aaa90c", "text": "Consider the quadratic 6x^2 + 6x + 3 = 0. Compute its discriminant and state ho…"}
 {"answer": "D = 48, zeros = 2", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/medium/1/f52695c0368b", "text": "For the quadratic -4x^2 + 8x - 1 = 0, find the discriminant and the number of r…"}
 {"answer": "D = 132, zeros = 2", "id": "senior-find-turning-points-and-zeros-of-quadratics-and/medium/2/5e43cf7cc275", "text": "For the quadratic 2x^2 + 10x - 4 = 0, find the discriminant and the number of r…"}
@@ -7447,18 +7447,18 @@
 {"answer": "0.500", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/medium/0/d3302a8401fa", "text": "2x^3 - 5x^2 + 16x - 7 = 0. Find the largest real root, to 3 decimal places."}
 {"answer": "2.333", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/medium/1/bb611a0fb1ff", "text": "3x^3 - 13x^2 + 38x - 56 = 0. Find the largest real root, to 3 decimal places."}
 {"answer": "-3.500", "id": "senior-solve-cubic-equations-using-technology-and-algebraically-in/medium/2/785e8f22f3d9", "text": "2x^3 + 9x^2 + 9x + 7 = 0. Find the largest real root, to 3 decimal places."}
-{"answer": "5.545", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/easy/0/d334c4d95b6d", "text": "Solve 8 × e^(x) - 11 = 2037 for x. Give your answer to 3 decimal places."}
-{"answer": "-2.629", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/easy/1/6b3d8b988d19", "text": "Solve 7 × e^(-2x) + 2 = 1346 for x. Give your answer to 3 decimal places."}
-{"answer": "-5.580", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/easy/2/7592e483a6f5", "text": "Solve 8 × e^(-x) - 14 = 2106 for x. Give your answer to 3 decimal places."}
+{"answer": "5.545", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/easy/0/af56480a28d6", "text": "Solve 8 × e^(x) - 11 = 2037 for x. Give your answer to 3 decimal places."}
+{"answer": "-2.629", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/easy/1/35ad2504a05d", "text": "Solve 7 × e^(-2x) + 2 = 1346 for x. Give your answer to 3 decimal places."}
+{"answer": "-5.580", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/easy/2/e738096b6506", "text": "Solve 8 × e^(-x) - 14 = 2106 for x. Give your answer to 3 decimal places."}
 {"answer": "3.418", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/exam/0/e595b82f02db", "text": "e^x = 51 - 6x has exactly one solution for x in the interval [3, 4]. Use techno…"}
 {"answer": "0.738", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/exam/1/ef1c2ca6a39c", "text": "There is exactly one solution for x in the interval [0, 1] to e^x = 8 - 8x. Use…"}
 {"answer": "1.549", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/exam/2/0d4829954f75", "text": "e^x + 6x = 14 has exactly one solution for x in the interval [1, 2]. Use techno…"}
 {"answer": "3.219", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/hard/0/c62f3ddb49ea", "text": "Give the larger of the two real solutions for x to 2e^(2x) - 80e^x + 750 = 0, t…"}
 {"answer": "2.639", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/hard/1/295e890e4893", "text": "The equation 3e^(2x) - 63e^x + 294 = 0 has exactly two real solutions for x; gi…"}
 {"answer": "3.219", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/hard/2/7fc054c99c64", "text": "Give the larger of the two real solutions for x to e^(2x) - 28e^x + 75 = 0, to …"}
-{"answer": "-0.677", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/medium/0/b9e55ba08515", "text": "Solve 6 × e^(x + 6) - 15 = 1215 for x. Give your answer to 3 decimal places."}
-{"answer": "-2.664", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/medium/1/19bee53582e7", "text": "Solve 5 × e^(-x + 1) - 10 = 185 for x. Give your answer to 3 decimal places."}
-{"answer": "2.554", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/medium/2/1a0e1e3d31b1", "text": "Solve 8 × e^(x + 2) - 10 = 750 for x. Give your answer to 3 decimal places."}
+{"answer": "-0.677", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/medium/0/04287fb8b546", "text": "Solve 6 × e^(x + 6) - 15 = 1215 for x. Give your answer to 3 decimal places."}
+{"answer": "-2.664", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/medium/1/56ebd507adde", "text": "Solve 5 × e^(-x + 1) - 10 = 185 for x. Give your answer to 3 decimal places."}
+{"answer": "2.554", "id": "senior-solve-equations-involving-exponential-functions-using-technology-and/medium/2/977c24a93ef1", "text": "Solve 8 × e^(x + 2) - 10 = 750 for x. Give your answer to 3 decimal places."}
 {"answer": "4.473", "id": "senior-solve-equations-involving-indices-using-logarithms/easy/0/dbca1e064a43", "text": "Solve 4^x = 493 for x. Give your answer to 3 decimal places."}
 {"answer": "2.817", "id": "senior-solve-equations-involving-indices-using-logarithms/easy/1/134274323d53", "text": "Solve 8^x = 350 for x. Give your answer to 3 decimal places."}
 {"answer": "4.914", "id": "senior-solve-equations-involving-indices-using-logarithms/easy/2/146c268bf627", "text": "Solve 3^x = 221 for x. Give your answer to 3 decimal places."}
@@ -7877,17 +7877,17 @@
 {"answer": "-7, concave down to concave up", "id": "senior-understand-the-concepts-of-concavity-and-points-of/medium/1/fb0a3ed52981", "text": "The function f(x) = 8·x^3 + 168·x^2 - 7·x - 7 has exactly one point where f''(x…"}
 {"answer": "7, concave down to concave up", "id": "senior-understand-the-concepts-of-concavity-and-points-of/medium/2/f5e64b6ec175", "text": "The function f(x) = 9·x^3 - 189·x^2 + 4·x + 9 has exactly one point where f''(x…"}
 {"answer": "A", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/easy/0/e1566fdac178", "text": "Consider a geometric sequence with positive first term t1 = 6 and common ratio …"}
-{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/easy/1/dc892f0cf904", "text": "The first term of a geometric sequence is t1 = 7 (positive) and its common rati…"}
+{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/easy/1/a985480a69a3", "text": "The first term of a geometric sequence is t1 = 7 (positive) and its common rati…"}
 {"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/easy/2/c407312d235f", "text": "A geometric sequence has first term t1 = 5 (a positive number) and common ratio…"}
-{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/exam/0/d7e8b1a7d68a", "text": "In a geometric sequence with positive first term, t2 = -3 and t5 = 81. What is …"}
-{"answer": "A", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/exam/1/dc93037e6c2a", "text": "A geometric sequence has positive first term. Its second term is t2 = -6 and it…"}
-{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/exam/2/5bf62726aa29", "text": "In a geometric sequence with positive first term, t2 = 48 and t5 = 162. What is…"}
-{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/hard/0/506551922d18", "text": "A sequence has t_n = t1 × r^(n-1) for n = 1, 2, 3, ..., with t1 = 1 and r = -6/…"}
-{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/hard/1/205292efd022", "text": "A sequence is generated by t1 = 9 and the rule t_(n+1) = r × t_n, with r = 6/5.…"}
-{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/hard/2/300f453f881f", "text": "A sequence satisfies t1 = 7 and t_(n+1) = r × t_n for n >= 1, with r = -11/10. …"}
-{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/medium/0/d6cec5d40587", "text": "A geometric sequence starts 12, 18, 27, .... As n → ∞, what happens to the sequ…"}
-{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/medium/1/1610b9fcedef", "text": "The first three terms of a geometric sequence are 3, -9, 27. Classify its limit…"}
-{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/medium/2/df8907154f3c", "text": "The first three terms of a geometric sequence are 3, 6, 12. Classify its limiti…"}
+{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/exam/0/11e1332f167a", "text": "In a geometric sequence with positive first term, t2 = -3 and t5 = 81. What is …"}
+{"answer": "A", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/exam/1/458c358a11a7", "text": "A geometric sequence has positive first term. Its second term is t2 = -6 and it…"}
+{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/exam/2/87f30b41308d", "text": "In a geometric sequence with positive first term, t2 = 48 and t5 = 162. What is…"}
+{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/hard/0/ec438485cf0b", "text": "A sequence has t_n = t1 × r^(n-1) for n = 1, 2, 3, ..., with t1 = 1 and r = -6/…"}
+{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/hard/1/29c49dc22bb9", "text": "A sequence is generated by t1 = 9 and the rule t_(n+1) = r × t_n, with r = 6/5.…"}
+{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/hard/2/7ae9505b7cd6", "text": "A sequence satisfies t1 = 7 and t_(n+1) = r × t_n for n >= 1, with r = -11/10. …"}
+{"answer": "C", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/medium/0/989a9feae60d", "text": "A geometric sequence starts 12, 18, 27, .... As n → ∞, what happens to the sequ…"}
+{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/medium/1/95e08ce5c463", "text": "The first three terms of a geometric sequence are 3, -9, 27. Classify its limit…"}
+{"answer": "B", "id": "senior-understand-the-limiting-behaviour-as-n-rightarrow-infty/medium/2/33c8280023da", "text": "The first three terms of a geometric sequence are 3, 6, 12. Classify its limiti…"}
 {"answer": "23", "id": "senior-understand-the-matrix-definition-and-notation/easy/0/fc1763dbbf44", "text": "A matrix A is defined as A = [[2, 23], [26, 12]]. Using row-column notation a_{…"}
 {"answer": "38", "id": "senior-understand-the-matrix-definition-and-notation/easy/1/f4a1c191edb3", "text": "A matrix A is defined as A = [[34, 18], [38, 3]]. Using row-column notation a_{…"}
 {"answer": "15", "id": "senior-understand-the-matrix-definition-and-notation/easy/2/8333a71c5b1d", "text": "A matrix A is defined as A = [[13, 36, 29], [15, 26, 1], [3, 12, 40]]. Using ro…"}
@@ -10221,7 +10221,7 @@
 {"answer": "C", "id": "ucv1-definition-quantifier-check/easy/2/ab9d9a3e784d", "text": "Let A = {4, 7} and B = {p, r, t}, and let R = {(7, r), (7, t)} be a relation fr…"}
 {"answer": "(a) 2; (b) 2; (c) 4; (d) 108", "id": "ucv1-definition-quantifier-check/exam/0/dd3e6b7db2a0", "text": "A relation R from A = {1, 2, 3, 9, 12, 14} to B = {d, f, h, m, q, w} is given b…"}
 {"answer": "(a) 2; (b) 5; (c) 7; (d) 300", "id": "ucv1-definition-quantifier-check/exam/1/1710fb9129e4", "text": "The relation R = {(2, v), (15, w), (9, s), (9, w), (9, e), (12, v), (2, e), (2,…"}
-{"answer": "(a) 1; (b) 2; (c) 3; (d) 15", "id": "ucv1-definition-quantifier-check/exam/2/02bc8c8630be", "text": "The relation R = {(9, x), (11, s), (5, x), (3, s), (11, e), (11, x)} is defined…"}
+{"answer": "(a) 1; (b) 2; (c) 3; (d) 15", "id": "ucv1-definition-quantifier-check/exam/2/a4caf440f618", "text": "The relation R = {(9, x), (11, s), (5, x), (3, s), (11, e), (11, x)} is defined…"}
 {"answer": "B", "id": "ucv1-definition-quantifier-check/hard/0/c8498dc7ff90", "text": "Let A = {3, 5, 7, 9} and B = {p, t, v, w}, and let R = {(3, w), (5, w), (7, w),…"}
 {"answer": "D", "id": "ucv1-definition-quantifier-check/hard/1/55e8eaf8b17e", "text": "Let A = {1, 3, 4, 8} and B = {q, r, s, v}, and let R = {(3, s), (8, q)} be a re…"}
 {"answer": "C", "id": "ucv1-definition-quantifier-check/hard/2/6267417631b4", "text": "Let A = {2, 5, 6, 8} and B = {q, r, s, u}, and let R = {(2, r), (6, r), (8, r)}…"}

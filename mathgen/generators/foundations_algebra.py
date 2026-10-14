@@ -25,6 +25,7 @@ from ..core import (
     pairwise_distinct,
     symbolically_equal,
     phrase,
+    paren_negative,
 )
 
 x = symbols("x")
@@ -316,7 +317,7 @@ def simplify_expression(rng, kind="brackets", hi=9):
         ds = "+" if d >= 0 else "-"
         bx = fmt_signed(b, "x")
         dx_mag = "x" if abs(d) == 1 else f"{abs(d)}x"
-        text = f"Simplify {a}({bx} {cs} {abs(c)}) {ds} {dx_mag}"
+        text = f"Simplify {a}({bx} {cs} {abs(c)})" + (f" {ds} {dx_mag}" if d else "")
     else:
         a = rng.randint(1, hi)
         b = rng.randint(1, hi)
@@ -792,7 +793,7 @@ def sequence(rng, kind="common_diff", hi=9, n_terms=4):
             answer=d,
             answer_text=str(d),
             answer_latex=str(d),
-            working=[f"Term {p1} and term {p2} span {gap} steps: ({t2} - {t1}) / {gap} = {d}."],
+            working=[f"Term {p1} and term {p2} span {gap} steps: ({t2} - {paren_negative(t1)}) / {gap} = {d}."],
             distractors=pick_distractors(str(d), [str(c) for c in cands]),
         )
     if kind == "nth_term_rule_nonconsecutive":
@@ -824,7 +825,7 @@ def sequence(rng, kind="common_diff", hi=9, n_terms=4):
             answer_text=ans_str,
             answer_latex=latex(rule),
             working=[
-                f"Difference: ({t2} - {t1}) / {gap} = {d}. First term: {t1} - {d}({p1} - 1) = {a1}. a_x = {a1} + ({d})(x - 1) = {rule}."
+                f"Difference: ({t2} - {paren_negative(t1)}) / {gap} = {d}. First term: {t1} - {paren_negative(d)}({p1} - 1) = {a1}. a_x = {a1} + ({d})(x - 1) = {rule}."
             ],
             distractors=pick_distractors(ans_str, cands),
         )
