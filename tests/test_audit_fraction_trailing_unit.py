@@ -31,8 +31,8 @@ def test_whole_dollar_answer_held_as_a_fraction(reply):
 
 
 @pytest.mark.parametrize("reply", ["7.2%", "7.2 %", "36/5 percent"])
-def test_percent_is_read_as_grade_number_reads_it(reply):
-    assert grade("fraction", _q("Find the error.", 36, 5, "36/5"), reply).correct
+def test_an_unasked_percent_is_refused_as_grade_number_refuses_it(reply):
+    assert not grade("fraction", _q("Find the error.", 36, 5, "36/5"), reply).correct
 
 
 @pytest.mark.parametrize("reply", ["1185/8 kg", "148.125 cm", "1185/8 s", "1185/8 dollars"])

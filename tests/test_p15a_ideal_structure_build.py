@@ -54,11 +54,11 @@ def test_ideal_real_grader_accepts_canonical_and_rejects_every_distractor(diffic
         q = _make(IDEAL_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct
+            assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -131,11 +131,11 @@ def test_struct_real_grader_accepts_canonical_and_rejects_every_distractor(diffi
         q = _make(STRUCT_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct
+            assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

@@ -161,10 +161,10 @@ class TestCircleTheoremConversesClassify:
             q = make(CONVERSE_TOPIC, seed=seed, difficulty=difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for dist in q.distractors:
                 dist_index = options.index(dist)
-                assert not grade_mcq(q, str(dist_index)).correct
+                assert not grade_mcq(q, dist_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_plausibility_every_stated_angle_in_bounds(self, difficulty):

@@ -195,8 +195,8 @@ def test_grader_accepts_key_and_rejects_distractors(key):
         q = _exam(key, s)
         if kind == "mcq":
             opts = mcq_options(q)
-            ok = grade(q, str(opts.index(q.answer_text))).correct
-            rejected = [d for d in q.distractors if grade(q, str(opts.index(d))).correct]
+            ok = grade(q, opts.index(q.answer_text)).correct
+            rejected = [d for d in q.distractors if grade(q, opts.index(d)).correct]
         else:
             ok = grade(q, q.answer_text).correct
             rejected = [d for d in q.distractors if grade(q, d).correct]

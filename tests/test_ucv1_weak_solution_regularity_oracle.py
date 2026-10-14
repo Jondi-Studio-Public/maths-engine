@@ -101,7 +101,7 @@ def test_the_grader_marks_the_true_option_correct_and_the_others_wrong(tier):
         q = make(TOPIC, seed=seed, difficulty=tier)
         expected = _label_of_data(q.text) + _equation_order(q.text)
         for index, option in enumerate(mcq_options(q)):
-            assert grade_mcq(q, str(index)).correct == (_statement_orders(option)[0] == expected)
+            assert grade_mcq(q, index).correct == (_statement_orders(option)[0] == expected)
 
 
 def test_the_stated_power_criterion_matches_direct_integration_for_every_exponent_used():

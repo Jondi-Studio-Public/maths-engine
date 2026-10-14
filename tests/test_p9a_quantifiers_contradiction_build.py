@@ -82,10 +82,10 @@ class TestQuantifierEvaluate:
             q = _make_quant(seed, difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for dist in q.distractors:
                 dist_index = options.index(dist)
-                assert not grade_mcq(q, str(dist_index)).correct
+                assert not grade_mcq(q, dist_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_answer_in_options(self, difficulty):
@@ -188,10 +188,10 @@ class TestProofByContradiction:
             q = _make_contra(seed, difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for dist in q.distractors:
                 dist_index = options.index(dist)
-                assert not grade_mcq(q, str(dist_index)).correct
+                assert not grade_mcq(q, dist_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_answer_text_never_in_question_text(self, difficulty):

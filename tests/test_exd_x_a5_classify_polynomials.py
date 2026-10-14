@@ -99,7 +99,7 @@ def test_grader_accepts_key_and_rejects_every_distractor():
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4, (seed, options)
         for index, option in enumerate(options):
-            if grade(q, str(index)).correct != (option == q.answer_text):
+            if grade(q, index).correct != (option == q.answer_text):
                 bad.append((seed, index, option, q.answer_text))
     assert bad == [], bad[:5]
     assert not GRADERS["mcq"](_exam(0), "").correct

@@ -169,7 +169,7 @@ def test_geo_oracle_grader_agrees():
             true_class = _geo_oracle_class(q.text)
             true_letter = _letter_for(q.text, _GEO_OPTION_TEXT, true_class)
             correct_idx = options.index(true_letter)
-            assert grade_mcq(q, str(correct_idx)).correct
+            assert grade_mcq(q, correct_idx).correct
 
 
 # ==========================================================================
@@ -239,4 +239,4 @@ def test_rec_oracle_grader_agrees():
             true_class = _rec_oracle_class(q.text)
             true_letter = _letter_for(q.text, _REC_OPTION_TEXT, true_class)
             correct_idx = options.index(true_letter)
-            assert grade_mcq(q, str(correct_idx)).correct
+            assert grade_mcq(q, correct_idx).correct

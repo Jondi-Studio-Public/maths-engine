@@ -97,10 +97,10 @@ def test_mcq_grader_accepts_the_key_and_rejects_every_other_option(tier):
         assert sorted(options) == ["0", "1", "2"], (tier, seed, options)
         assert len(q.distractors) == 2 and q.answer_text not in q.distractors
         for idx, opt in enumerate(options):
-            got = grade_mcq(q, str(idx)).correct
+            got = grade_mcq(q, idx).correct
             assert got == (opt == q.answer_text), (tier, seed, idx, opt, q.answer_text)
         wrong = (int(q.answer_text) + 1) % 3
-        assert not grade_mcq(q, str(options.index(str(wrong)))).correct
+        assert not grade_mcq(q, options.index(str(wrong))).correct
 
 
 @pytest.mark.parametrize("tier", TIERS)

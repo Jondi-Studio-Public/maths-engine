@@ -83,7 +83,7 @@ def test_grader_accepts_key_option_and_rejects_every_distractor_option():
         options = mcq_options(q)
         assert len(options) >= 3 and len(set(options)) == len(options), seed
         for index, option in enumerate(options):
-            if grade(q, str(index)).correct != (option == q.answer_text):
+            if grade(q, index).correct != (option == q.answer_text):
                 bad.append((seed, index, option, q.answer_text))
     assert bad == [], bad[:3]
 

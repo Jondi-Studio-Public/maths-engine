@@ -66,10 +66,10 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(skills_dict,
         q = _make_from_sources(skills_dict, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct, (difficulty, seed, q.text)
+        assert grade_mcq(q, correct_index).correct, (difficulty, seed, q.text)
         for i, opt in enumerate(options):
             if opt != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct, (difficulty, seed, q.text, opt)
+                assert not grade_mcq(q, i).correct, (difficulty, seed, q.text, opt)
 
 
 @pytest.mark.parametrize("difficulty", DIFFICULTIES)

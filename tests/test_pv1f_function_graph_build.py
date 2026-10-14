@@ -91,7 +91,7 @@ def test_mcq_grader_accepts_the_key_and_rejects_every_other_option(tier):
         assert len(options) == 4 and len(set(options)) == 4, (tier, seed, options)
         assert len(q.distractors) == 3 and q.answer_text not in q.distractors
         for idx, opt in enumerate(options):
-            assert grade_mcq(q, str(idx)).correct == (opt == q.answer_text), (tier, seed, idx)
+            assert grade_mcq(q, idx).correct == (opt == q.answer_text), (tier, seed, idx)
         assert q.answer_latex == f"plain:{q.answer_text}"
 
 

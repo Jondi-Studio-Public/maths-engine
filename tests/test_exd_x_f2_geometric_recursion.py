@@ -55,7 +55,7 @@ def _hard(seed):
 def _grade(q, given):
     if KIND == "mcq":
         options = mcq_options(q)
-        given = str(options.index(given)) if given in options else "-1"
+        given = options.index(given) if given in options else -1
     return GRADERS[KIND](q, given).correct
 
 

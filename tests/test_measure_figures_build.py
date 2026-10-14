@@ -114,7 +114,7 @@ def test_the_real_grader_accepts_the_key_and_rejects_every_distractor(skill_id):
                 options = mcq_options(q)
                 assert sorted(options) == sorted([q.answer_text, *q.distractors])
                 for idx, opt in enumerate(options):
-                    assert grade("mcq", q, str(idx)).correct == (opt == q.answer_text), (tier, seed, opt)
+                    assert grade("mcq", q, idx).correct == (opt == q.answer_text), (tier, seed, opt)
             else:
                 assert grade("number", q, q.answer_text).correct, (tier, seed)
                 for d in q.distractors:

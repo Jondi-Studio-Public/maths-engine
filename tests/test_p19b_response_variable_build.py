@@ -170,9 +170,9 @@ def test_real_grader_accepts_key_and_rejects_every_distractor(tier):
     for seed in SEEDS:
         q = _q(tier, seed)
         options = mcq_options(q)
-        assert grade_mcq(q, str(options.index(q.answer_text))).correct
+        assert grade_mcq(q, options.index(q.answer_text)).correct
         for d in q.distractors:
-            assert not grade_mcq(q, str(options.index(d))).correct
+            assert not grade_mcq(q, options.index(d)).correct
 
 
 def test_default_params_have_enough_distractors():
