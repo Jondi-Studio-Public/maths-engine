@@ -85,7 +85,8 @@ and the shape of what `make()` returns.
    deliberately-wrong test value must be rejected by the grader, checked on
    every candidate and not only on a sample. Typed numeric answers are graded
    to their own stated precision. Fraction answers are compared by value, so a
-   "does not simplify" distractor cannot be built.
+   "does not simplify" distractor cannot be built (unless the stem asks for lowest terms or simplest form, where
+   an unreduced fraction or a decimal is itself wrong).
 5. **Keep it fast.** `python scripts/check_generator_speed.py` times the median of 8
    `make()` calls for every topic's bare default and for every distinct (topic,
    difficulty, params) a skill source uses. It fails if a median is over 250 ms, if

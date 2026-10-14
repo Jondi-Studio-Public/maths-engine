@@ -65,7 +65,7 @@ def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
         assert [p.answer_kind for p in q.parts] == ["ordered_list", "number", "number"]
-        assert all(p.follow_through is None for p in q.parts)
+        assert [p.follow_through is not None for p in q.parts] == [False, True, True]  # from a wrong (a)
 
 
 def test_oracle_agrees(questions):

@@ -1,0 +1,102 @@
+id: uc2-clt-approximation-sums
+name: Normal approximation to sums of counts
+domain: statistics
+year_level:
+- university
+description: "Approximate probabilities for the total of many independent whole-number counts (a table of probabilities or\
+  \ a Poisson count) with the central limit theorem and a continuity correction, and solve the inverse problems: the smallest\
+  \ cut-off for a stated tail, and the largest number of items that keeps a total under a limit."
+status: active
+placement_eligible: false
+prerequisites:
+- z-score
+- finite-distribution-variance
+- ucv1-poisson-count-probability
+answer: number
+sources:
+- topic: r4i_clt_sums
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_clt_sums
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_clt_sums
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_clt_sums
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-clt-no-continuity-correction
+  description: "Applying the normal approximation to a whole-number total without the continuity correction, standardising\
+    \ the stated boundary itself."
+- id: r4i-clt-continuity-wrong-way
+  description: "Applying the continuity correction in the wrong direction, moving the boundary away from the event instead\
+    \ of into it."
+- id: r4i-clt-strict-inequality-ignored
+  description: "Treating 'more than', 'fewer than' or 'strictly between' like 'at least', 'at most' or 'between inclusive',\
+    \ so the boundary is half a unit out."
+- id: r4i-clt-sd-of-one-observation
+  description: "Standardising a total with the standard deviation of a single observation instead of the standard deviation\
+    \ of the total."
+- id: r4i-clt-variance-as-sd
+  description: Using the variance of the total where its standard deviation belongs when standardising.
+- id: r4i-clt-tail-reversed
+  description: Giving the probability of the opposite tail, the complement of the event asked for.
+- id: r4i-clt-round-down
+  description: "Rounding the boundary down where the smallest whole number that meets the bound must be found by rounding\
+    \ up."
+- id: r4i-clt-wrong-z
+  description: Using the standard normal value for a different tail probability than the one in the question.
+- id: r4i-clt-ignored-spread
+  description: Dividing the load limit by the mean mass alone, ignoring the spread of the total.
+- id: r4i-clt-sd-of-total-n-sigma
+  description: "Taking the standard deviation of a total of n observations to be n times sigma instead of sigma times the\
+    \ square root of n."
+- id: r4i-clt-round-up
+  description: Rounding the largest permitted number up, so the stated probability limit is exceeded.
+- id: r4i-clt-off-by-one-trial
+  description: Adding the mean of one extra observation to the mean of the total.
+- id: r4i-clt-mean-of-one-observation
+  description: Giving the mean of a single observation as the mean of the total.
+- id: r4i-clt-second-moment-for-mean
+  description: Using the sum of x squared times its probability (the second moment) where the mean is needed.
+- id: r4i-clt-halved-total
+  description: Halving the total, as if averaging over two.
+- id: r4i-clt-second-moment-for-variance
+  description: "Taking the second moment of one observation as its variance, forgetting to subtract the square of the mean."
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: "Find the mean and variance of one count from its probability table, scale both to the total, and standardise\
+      \ one continuity-corrected boundary."
+  medium:
+    steps: 4
+    demand: "Turn the wording of an inequality (at least, more than, fewer than, between, strictly between) into the correct\
+      \ half-integer boundaries before standardising a Poisson total."
+  hard:
+    steps: 5
+    demand: "Work backwards from a tail probability: solve for the smallest whole cut-off with the continuity correction,\
+      \ or solve a quadratic in the square root of n for the largest number of items."
+  exam:
+    steps: 6
+    demand: "A four-part chain on a total of many independent counts: find the mean and the standard deviation of the total, estimate a tail probability with a continuity correction, then invert the approximation to find the smallest cut-off with a stated tail."
+tags:
+- university-year-2
+- statistics
+- central-limit-theorem
+- continuity-correction
+- sums

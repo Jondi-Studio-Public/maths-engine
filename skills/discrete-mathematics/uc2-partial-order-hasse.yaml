@@ -1,0 +1,91 @@
+id: uc2-partial-order-hasse
+name: Reading a divisibility poset
+domain: discrete-mathematics
+year_level:
+- university
+description: 'Read the structure of a finite set of integers ordered by divisibility without a diagram: minimal or maximal
+  elements, the elements an element covers, and the elements on a longest chain. The exam chain finds the maximal elements,
+  the longest chain size, the largest antichain size and the fewest covering chains.'
+status: active
+placement_eligible: false
+prerequisites:
+- finite-set-operations
+answer: set
+sources:
+- topic: r4j_partial_order_hasse
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4j_partial_order_hasse
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4j_partial_order_hasse
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4j_partial_order_hasse
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: hasse-all-elements-on-chain
+  description: Taking every element of the poset as lying on a longest chain because each lies on some maximal chain.
+- id: hasse-antichain-complement-of-chain
+  description: Taking the number of elements outside a longest chain as the size of a largest antichain.
+- id: hasse-antichain-is-maximal-elements
+  description: Taking the number of maximal elements as the size of a largest antichain.
+- id: hasse-antichain-is-minimal-elements
+  description: Taking the number of minimal elements as the size of a largest antichain.
+- id: hasse-chain-antichain-swapped
+  description: Giving the size of the largest antichain when the longest chain was asked for, or the other way round.
+- id: hasse-chain-cover-one-each
+  description: Covering a poset with one chain per element, or one more chain than needed.
+- id: hasse-chain-length-edges
+  description: Counting the links in a chain instead of its elements, one fewer than the size of the chain.
+- id: hasse-cover-direction-swapped
+  description: Listing the elements that cover an element when the ones it covers were asked for, or the other way round.
+- id: hasse-cover-ignores-missing-elements
+  description: Judging a cover by a prime factor of difference, forgetting that missing elements in the set make larger jumps
+    covers.
+- id: hasse-cover-vs-below
+  description: Listing every element below (or above) an element instead of only those it covers directly.
+- id: hasse-dilworth-mirsky-swapped
+  description: Giving the longest chain size for the fewest chains that cover the poset, mixing up Dilworth's and Mirsky's
+    theorems.
+- id: hasse-endpoints-only
+  description: Giving only the minimal and maximal elements as the elements on longest chains.
+- id: hasse-greatest-confused-with-maximal
+  description: Reporting only the largest number in the set as the maximal elements, when several elements can be maximal.
+- id: hasse-includes-element-itself
+  description: Including the element itself among the elements that it covers or that cover it.
+- id: hasse-least-confused-with-minimal
+  description: Reporting only the smallest number in the set as the minimal elements, when several elements can be minimal.
+- id: hasse-minimal-maximal-swapped
+  description: Giving the maximal elements of a poset when the minimal elements were asked for, or the other way round.
+- id: hasse-minimal-taken-as-prime
+  description: Listing the primes in the set as its minimal elements, when a composite with no divisor in the set is minimal
+    too.
+- id: hasse-single-chain
+  description: Giving the elements of one longest chain when several longest chains exist.
+difficulty_progression: Easy finds the minimal or the maximal elements of a set that has gaps. Medium uses the cover relation,
+  where missing elements make a cover that is not a prime step away. Hard finds all elements that lie on at least one longest
+  chain, which needs the longest chains through every element. The exam chain adds a chain size, an antichain size and Dilworth's
+  theorem, with the last part following through from the antichain.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- partial-orders
+- hasse-diagrams
+- divisibility
+- chains-antichains

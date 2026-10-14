@@ -16,6 +16,7 @@ Every shape has three connected parts: (a) the missing measurement, (b) the scal
 
 from __future__ import annotations
 
+import math
 import random
 from fractions import Fraction
 from math import gcd
@@ -28,6 +29,7 @@ from mathgen.core import (
     generator,
     latex_answer,
     pick_distractors,
+    round_half_up,
     rounded_decimal_string,
     stated_precision_string,
 )
@@ -41,6 +43,10 @@ def _dec(value: Fraction) -> str:
     return exact_decimal_string(value, 2)
 
 
+def _dec_up(value: Fraction) -> str:
+    return stated_precision_string(value, 2)
+
+
 def _cand(value: Fraction, misconception: str) -> Distractor | None:
     if value <= 0:
         return None
@@ -52,6 +58,8 @@ def _tag(true: Fraction, cands, dp: int | None = None) -> list[Distractor]:
     cands = [c for c in cands if c is not None]
     key = stated_precision_string(true, dp) if dp else _dec(true)
     picked = pick_distractors(key, cands, 3)
+    if dp:  # every option is written to the key's decimal places
+        picked = [Distractor(stated_precision_string(Fraction(d.value), dp), d.misconception, d.value) for d in picked]
     check(len(picked) >= 2, "too few distractors")
     check(all(Fraction(d.value) != true for d in picked), "a distractor equals the key")
     return picked
@@ -217,21 +225,35 @@ def _sss(rng: random.Random):
 def _aa(rng: random.Random):
     n1, n2 = rng.choice(_NAMES)
     p, q = rng.choice(_SCALES)
-    a_ang, b_ang = draw_until(
-        rng,
-        lambda r: (r.randint(30, 80), r.randint(35, 85)),
-        lambda ab: ab[0] + ab[1] < 160 and 180 - ab[0] - ab[1] not in ab,
-    )
-    c_ang = 180 - a_ang - b_ang
-    u, w = rng.randint(2, 5), rng.randint(2, 6)
-    ab, bc = q * u, q * w
-    de = p * u
+    # The figure must exist, so the second given side comes from the sine rule: BC = AB sin A / sin C, shown to 1 decimal
+    # place. Every later key is computed from the printed BC. No two angles are equal, so nothing is read off for free.
+    for _ in range(1000):
+        a_ang, b_ang = rng.randint(30, 80), rng.randint(35, 85)
+        c_ang = 180 - a_ang - b_ang
+        if len({a_ang, b_ang, c_ang}) < 3 or not 20 <= c_ang <= 110:
+            continue
+        ab = q * rng.randint(2, 5)
+        exact_bc = ab * math.sin(math.radians(a_ang)) / math.sin(math.radians(c_ang))
+        if abs(exact_bc * 10 % 1 - 0.5) < 1e-6:
+            continue
+        bc = round_half_up(Fraction(exact_bc), 1)
+        ef_exact = Fraction(p, q) * bc
+        # keep (c) clear of a rounding tie, and the sides distinct from each other and from the scale partner
+        if bc == ab or (ef_exact * 100) % 1 == Fraction(1, 2) or bc <= 0:
+            continue
+        break
+    else:
+        raise AssertionError("no consistent angle figure in 1000 draws")
+    de = p * ab // q
     k = Fraction(p, q)
-    ef = p * w
+    ef = round_half_up(ef_exact, 2)
+    bc_text = exact_decimal_string(bc, 1)
+    s1, s2 = f"{n1[0]}{n1[1]}", f"{n1[1]}{n1[2]}"
+    t1, t2 = f"{n2[0]}{n2[1]}", f"{n2[1]}{n2[2]}"
     stem = (
         f"In triangle {n1}, ∠{n1[0]} = {a_ang}° and ∠{n1[1]} = {b_ang}°. In triangle {n2}, ∠{n2[0]} = {a_ang}° and "
         f"∠{n2[2]} = θ. The triangles are similar, with {n1[0]} corresponding to {n2[0]}, {n1[1]} to {n2[1]} and "
-        f"{n1[2]} to {n2[2]}. Also {n1[0]}{n1[1]} = {ab} cm, {n1[1]}{n1[2]} = {bc} cm and {n2[0]}{n2[1]} = {de} cm."
+        f"{n1[2]} to {n2[2]}. Also {s1} = {ab} cm, {s2} = {bc_text} cm and {t1} = {de} cm."
     )
     theta = Fraction(c_ang)
     a_cands = [
@@ -263,17 +285,17 @@ def _aa(rng: random.Random):
             k,
             1,
             dp=2,
-            working=[f"Scale factor = {n2[0]}{n2[1]} ÷ {n1[0]}{n1[1]} = {de} ÷ {ab} = {_dec(k)}."],
+            working=[f"Scale factor = {t1} ÷ {s1} = {de} ÷ {ab} = {_dec(k)}."],
             distractors=_tag(k, b_cands, 2),
         ),
         _part(
-            f"Hence find the length of {n2[1]}{n2[2]}, in centimetres, correct to 2 decimal places.",
-            Fraction(ef),
+            f"Hence find the length of {t2}, in centimetres, correct to 2 decimal places.",
+            ef,
             2,
             dp=2,
-            follow_through=f"part_b * {bc}",
-            working=[f"{n2[1]}{n2[2]} = {_dec(k)} × {bc} = {ef}."],
-            distractors=_tag(Fraction(ef), c_cands, 2),
+            follow_through=f"part_b * {bc_text}",
+            working=[f"{t2} = {_dec(k)} × {bc_text} = {_dec_up(ef)}."],
+            distractors=_tag(ef, c_cands, 2),
         ),
     ]
     return stem, parts

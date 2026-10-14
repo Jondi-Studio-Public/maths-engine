@@ -1,0 +1,35 @@
+id: f10-geometric-proof-reasons
+name: Give the reason for each step of a geometric proof
+domain: geometry
+year_level: ['10']
+naplan_domain: []
+description: A short proof of an angle or congruence fact is set out step by step, and the learner gives the reason for each step from a numbered list of eight (alternate, corresponding and co-interior angles, angles on a line, the angle sum of a triangle, the congruence tests, matching parts of congruent triangles and others).
+status: active
+placement_eligible: false
+prerequisites: [f10-parallel-line-angle-theorems, f10-congruence-similarity-criteria]
+answer: ordered_list
+sources:
+- topic: y910_geometric_proof_reasons
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: y910_geometric_proof_reasons
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: y910_geometric_proof_reasons
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_y910_geometric_proof
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: parallel-line-angle-reasons-confused
+  description: Gives corresponding, alternate or co-interior angles as the reason when a different one of the three applies.
+- id: congruence-tests-confused
+  description: Names the wrong congruence test (SSS, SAS, ASA or RHS) for the equal parts that are known.
+- id: congruence-test-confused-with-matching-parts
+  description: Gives a congruence test as the reason for equal matching parts, or the reverse.
+tags: [f10, geometry, proof, angles, congruence, ac9m10sp01, year-10a]

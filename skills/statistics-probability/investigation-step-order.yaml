@@ -1,0 +1,87 @@
+id: investigation-step-order
+name: Order the steps of a statistical investigation
+domain: statistics-probability
+year_level: ['3', '5', '8']
+naplan_domain: [statistics]
+description: Put described actions of an investigation in order (pose the question, collect, organise, display, analyse, conclude) and name the stage a described action belongs to. The exam chain adds a mean and a difference worked from the collected data.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: ordered_list
+sources:
+- topic: ir2a_investigation_step_order
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_investigation_step_order
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_investigation_step_order
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_investigation_step_order
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-analyses-before-displaying
+  description: Putting the calculation of summary statistics before the data have been displayed.
+- id: ir2a-collects-before-posing-the-question
+  description: Putting data collection before deciding what question the investigation answers.
+- id: ir2a-compares-the-largest-values
+  description: Comparing the largest value in each group instead of the medians.
+- id: ir2a-compares-totals-not-means
+  description: Comparing the totals of two groups when the difference in their means was asked.
+- id: ir2a-concludes-before-analysing
+  description: Putting the conclusion before the data have been analysed.
+- id: ir2a-confuses-analysing-with-concluding
+  description: Treating finding the summary statistics as stating the conclusion, or the reverse.
+- id: ir2a-confuses-organising-with-displaying
+  description: Treating sorting results into a table as drawing a display, or the reverse.
+- id: ir2a-confuses-posing-with-collecting
+  description: Treating collecting the first measurements as posing the question.
+- id: ir2a-displays-before-collecting
+  description: Putting the drawing of a display before the data have been collected.
+- id: ir2a-displays-before-organising
+  description: Putting the drawing of a display before the results have been sorted into a table.
+- id: ir2a-forgets-to-divide-by-the-count
+  description: Giving the total of the values when their mean was asked.
+- id: ir2a-keeps-the-unsound-action
+  description: Keeping an action that makes the investigation unsound, such as changing the question after seeing the result, as one of its steps.
+- id: ir2a-names-the-wrong-stage
+  description: Naming a stage of the investigation that the described action does not belong to.
+- id: ir2a-organises-before-collecting
+  description: Putting the sorting of results before the results have been collected.
+- id: ir2a-reports-the-largest-value
+  description: Giving the largest value in the data instead of the quantity asked for.
+- id: ir2a-reverses-the-whole-order
+  description: Giving the steps of the investigation in reverse order.
+- id: ir2a-swaps-two-neighbouring-steps
+  description: Swapping two steps that are next to each other in a sound investigation.
+- id: ir2a-takes-a-middle-value-for-the-mean
+  description: Giving the middle value of the list when the mean was asked.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_investigation_step_order
+- AC9M3ST03
+- AC9M5ST03
+- AC9M8ST04

@@ -1,0 +1,70 @@
+id: uc2-burnside-counting
+name: Count arrangements up to symmetry with Burnside's lemma
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Count necklaces and bracelets by averaging the colourings fixed by each symmetry: all colours
+  allowed, then reflections included, then exactly m beads of one colour. The exam chain finds two
+  fixed-colouring counts and uses them to count bracelets and necklaces.
+status: active
+placement_eligible: false
+prerequisites:
+- permutation-composition
+answer: number
+sources:
+- topic: r4a_burnside_counting
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_burnside_counting
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_burnside_counting
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_burnside_counting
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: burnside-divided-by-wrong-group-order
+  description: >-
+    Dividing the sum of fixed counts by the wrong number, such as n when the group has 2n elements
+    or 2n when it has n.
+- id: burnside-fixed-count-uses-cycle-length
+  description: >-
+    Counting the colourings a rotation fixes as k raised to the length of its cycles instead of the
+    number of cycles.
+- id: burnside-identity-only
+  description: >-
+    Dividing the number of colourings fixed by the identity alone by the group order, ignoring the
+    colourings that other symmetries fix.
+- id: burnside-ignores-exact-count
+  description: >-
+    Counting all two-colour arrangements up to symmetry, ignoring the condition that exactly m beads
+    are of the first colour.
+- id: burnside-reflection-fixed-count-uses-one-type
+  description: >-
+    Giving every reflection the same number of fixed colourings, when reflections through two beads
+    and through two gaps have different numbers of cycles.
+- id: burnside-reflections-included-for-necklaces
+  description: >-
+    Averaging over rotations and reflections where only rotations were allowed, which counts
+    bracelets and not necklaces.
+- id: burnside-reflections-omitted
+  description: >-
+    Averaging over the rotations alone where reflections were allowed, which counts necklaces and
+    not bracelets.
+tags: [university-core-v1, university-year-2, abstract-algebra, burnside, counting-orbits, necklaces]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

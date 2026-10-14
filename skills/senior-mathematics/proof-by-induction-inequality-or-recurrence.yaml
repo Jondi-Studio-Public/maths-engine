@@ -1,0 +1,48 @@
+id: proof-by-induction-inequality-or-recurrence
+name: "Work the steps of an induction proof of an inequality or a recurrence"
+domain: senior-mathematics
+year_level: ['12']
+description: "For an inequality such as 2^n > n^2, or a recurrence u(n + 1) = a u(n) + c1 n + c0 with a claimed closed form, supply one typed step of its proof by induction -- the smallest n from which the statement holds, the smallest k from which the key inequality of the inductive step holds, or the constant that makes the closed form's inductive step close. The answers are numbers, never free-text reasoning."
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-proof-by-induction
+- senior-use-recursion-to-generate-a-geometric-sequence
+answer: number
+sources:
+- topic: r4f_induction_inequality
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4f_induction_inequality
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4f_induction_inequality
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4f_induction_inequality
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: off-by-one-base-case
+  description: "Starting the induction one value too early or too late, where the inequality first holds for good."
+- id: first-true-value-taken-as-base-case
+  description: "Taking the first n at which the inequality is true as the base case, although it fails at some later values before holding for good."
+- id: strict-inequality-treated-as-non-strict
+  description: "Starting from the first n at which the two sides are equal or the left side is bigger, where the statement needs the left side strictly bigger."
+- id: step-threshold-for-base-case
+  description: "Giving the value from which the inductive step works where the first value of the base case is asked for."
+- id: off-by-one-step-threshold
+  description: "Giving a value one or two out when finding where the inequality used in the inductive step starts to hold."
+- id: base-case-threshold-for-step
+  description: "Giving the base-case value where the value from which the inductive step works is asked for."
+- id: sign-slip-in-matching-coefficients
+  description: "A sign slip when matching coefficients of k or the constants on the two sides of a recurrence step."
+- id: forgets-to-divide-by-one-minus-a
+  description: "Matching coefficients correctly but leaving out the division by 1 - a that isolates the constant."
+- id: base-case-ignores-p-and-r
+  description: "Using u(1) = A a alone, forgetting the p and r terms in the closed form at n = 1."
+tags: [acara-v8-4-specialist, induction, proof, inequality, recurrence]

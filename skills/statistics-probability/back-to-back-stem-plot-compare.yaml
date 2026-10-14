@@ -1,0 +1,87 @@
+id: back-to-back-stem-plot-compare
+name: Compare two groups using a back-to-back stem plot
+domain: statistics-probability
+year_level: ['11']
+description: Read a back-to-back stem plot of two groups, written as text. Easy finds the median of one named group. Medium
+  finds the interquartile range of one group. Hard finds how much greater the less consistent group's interquartile range
+  is, or counts the values of one group above the other group's upper quartile. The exam chain finds a median, both interquartile
+  ranges and the gap between them.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-stem-and-leaf-plots
+- senior-calculate-and-interpret-quartiles-deciles-and-percentiles
+answer: number
+sources:
+- topic: r4g_back_to_back_stem
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_back_to_back_stem
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_back_to_back_stem
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_back_to_back_stem
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-other-group-read
+  description: Reading the value for the other group in a back-to-back plot instead of the group named.
+- id: r4g-midrange-for-median
+  description: Giving the number halfway between the smallest and largest values as the median.
+- id: r4g-one-middle-value-only
+  description: With an even number of values, giving one of the two middle values instead of the number halfway between them.
+- id: r4g-mean-for-median
+  description: Giving the mean of the values where the median was asked for.
+- id: r4g-leaf-of-median-only
+  description: Giving only the leaf of the median value, ignoring its stem.
+- id: box-iqr-as-range
+  description: Giving the range, whisker end to whisker end, where the interquartile range was asked for.
+- id: box-quartile-for-iqr
+  description: Giving a quartile on its own for the interquartile range.
+- id: box-iqr-from-median
+  description: Giving the distance from the median to a quartile for the interquartile range.
+- id: r4g-median-kept-in-both-halves
+  description: Leaving the median in both halves when finding the quartiles of an odd number of values.
+- id: box-iqr-difference-of-medians
+  description: Giving the difference between the medians where the difference between the interquartile ranges was asked for.
+- id: box-iqr-difference-of-ranges
+  description: Giving the difference between the ranges where the difference between the interquartile ranges was asked for.
+- id: box-iqr-difference-summed
+  description: Adding the two interquartile ranges where their difference was asked for.
+- id: r4g-median-for-upper-quartile
+  description: Comparing with the median of the other group where its upper quartile was asked for.
+- id: r4g-value-equal-to-quartile-counted
+  description: Counting values equal to the quartile as greater than it.
+- id: r4g-count-below-not-above
+  description: Counting the values that are not greater than the quartile instead of the values that are.
+- id: box-iqr-difference-of-upper-quartiles
+  description: Giving the difference between the upper quartiles where the difference between the interquartile ranges was
+    asked for.
+- id: r4g-own-quartile-used
+  description: Comparing with the group's own upper quartile instead of the other group's.
+- id: r4g-one-iqr-not-the-difference
+  description: Giving the larger interquartile range instead of the difference between the two.
+tags:
+- stem-and-leaf
+- back-to-back
+- interquartile-range
+- consistency
+- acmem057

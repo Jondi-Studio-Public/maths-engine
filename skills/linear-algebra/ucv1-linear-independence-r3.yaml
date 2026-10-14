@@ -1,0 +1,56 @@
+id: ucv1-linear-independence-r3
+name: Linear independence of three vectors in R^3
+domain: linear-algebra
+year_level: [university]
+description: Decide when three vectors in R^3 are linearly dependent using a determinant, and find the coefficients of a
+  dependence relation.
+status: active
+placement_eligible: false
+prerequisites: [matrix-determinant-3x3]
+answer: number
+sources:
+- topic: fy1la_independence
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_independence
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_independence
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_independence
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: sign-error-moving-term, description: 'Moving a term to the other side of the equals sign without changing its sign:
+    adding it where it should be subtracted, or the reverse.'}
+- {id: forgot-to-divide-by-coefficient, description: 'Stopping once the x term is alone, without dividing by its coefficient.'}
+- {id: dependence-relation-sign-slip, description: 'Giving a coefficient of the wrong sign in a dependence relation: reading
+    w = a·u + b·v as c1·u + c2·v + w = 0 with c1 = a, when c1 = -a.'}
+- {id: dependence-coefficients-swapped, description: Reporting the coefficient of the other vector in a dependence relation.}
+- {id: dependence-coefficient-of-w-reported, description: Reporting the coefficient of the vector that was normalised to
+    1 in the relation instead of the one asked for.}
+- {id: root-chosen-ignoring-condition, description: Solving the determinant equation correctly but giving the root that
+    the condition in the question rules out.}
+- {id: sum-of-roots-as-root, description: Giving the sum of the roots of the determinant equation (minus the linear coefficient
+    over the quadratic coefficient) as one of the roots.}
+- {id: product-of-roots-as-root, description: Giving the product of the roots of the determinant equation (constant over
+    leading coefficient) as one of the roots.}
+- {id: det-expansion-sign-slip, description: 'Getting a sign wrong when expanding a determinant by cofactors, so a coefficient
+    has the wrong sign.'}
+- {id: dropped-constant-term-det, description: Leaving the constant term out of a determinant that depends on a parameter.}
+difficulty_progression: Easy finds the k that makes three vectors dependent when k is in one entry (a linear determinant).
+  Medium starts from vectors that are already dependent and asks for a coefficient of the dependence relation, which needs
+  a linear system and a change of sign. Hard puts k in two entries, so the determinant is quadratic and a condition on k
+  chooses between the roots. The exam chain expands the determinant in k, finds the k, then finds both coefficients of the
+  dependence relation at that k.
+tags: [university-core-v1, linear-algebra, linear-independence, determinant, dependence-relation]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}

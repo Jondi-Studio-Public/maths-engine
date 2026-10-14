@@ -1,0 +1,93 @@
+id: scale-drawing-costs
+name: Find real quantities and costs from a scale drawing
+domain: measurement
+year_level: ['12']
+description: Turn lengths on a scale drawing into real lengths and areas (area scales by the square of the ratio), then
+  into an amount of material to buy, with a waste allowance and whole boxes, and into a total cost.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-obtain-a-scale-factor-and-use-it-to
+- f10-direct-proportion-scale-model
+answer: number
+sources:
+- topic: sr2b_scale_costs
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_scale_costs
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_scale_costs
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_scale_costs
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-area-scaled-linearly
+  description: Multiplying the plan area by the scale as if area scaled like length, instead of by the square of the scale.
+- id: sr2b-square-centimetres-to-metres-with-100
+  description: Changing square centimetres to square metres by dividing by 100 instead of 10 000.
+- id: sr2b-perimeter-for-area
+  description: Adding up the lengths round the edge of the floor when the area was needed.
+- id: sr2b-scale-ignored
+  description: Using the plan measurements as though they were real measurements.
+- id: sr2b-area-given-for-cost
+  description: Giving the floor area in square metres as the cost, without multiplying by the price per square metre.
+- id: sr2b-waste-allowance-left-out
+  description: Working with the floor area exactly and leaving out the extra ordered for waste.
+- id: sr2b-waste-subtracted
+  description: Reducing the area by the waste percentage instead of increasing it.
+- id: sr2b-waste-percentage-added-as-area
+  description: Adding the waste percentage as square metres to the floor area instead of taking a percentage of it.
+- id: sr2b-waste-added-to-price
+  description: Adding the waste percentage to the price per square metre instead of increasing the area.
+- id: sr2b-boxes-not-rounded-up
+  description: Using a part-box count in the cost, when only whole boxes can be bought.
+- id: sr2b-boxes-rounded-down
+  description: Rounding the number of boxes down, which leaves the floor short of material.
+- id: sr2b-box-coverage-priced-as-box
+  description: Multiplying the area the boxes cover by the price of a box.
+- id: sr2b-gate-gap-not-removed
+  description: Charging fencing for the whole distance round, including the gate opening.
+- id: sr2b-gate-price-left-out
+  description: Costing the fencing correctly but leaving out the price of the gate.
+- id: sr2b-gate-ignored
+  description: Costing the whole distance round as fencing and leaving out the gate completely.
+- id: sr2b-centimetres-to-metres-with-10
+  description: Changing centimetres to metres by dividing by 10 instead of 100.
+- id: sr2b-gate-price-counted-twice
+  description: Adding the price of the gate twice.
+- id: sr2b-centimetres-not-converted-to-metres
+  description: Multiplying a plan length by the scale and leaving the answer in centimetres.
+- id: sr2b-scale-applied-the-wrong-way
+  description: Dividing a plan length by the scale where it should be multiplied.
+- id: sr2b-other-side-used
+  description: Giving the real width of the room when its real length was asked for.
+- id: sr2b-one-side-scaled
+  description: Scaling only one of the two plan lengths before multiplying them to find the area.
+- id: sr2b-waste-only
+  description: Giving only the extra area for waste instead of the floor area plus the waste.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Scale both plan lengths, find the area and multiply by a price.
+  medium:
+    steps: 4
+    demand: Add a percentage allowance for waste to the area before costing.
+  hard:
+    steps: 5
+    demand: Round up to whole boxes after the waste allowance, or cost a perimeter with a gap for a gate.
+  exam:
+    steps: 6
+    demand: Chain the real length, the area, the order with waste and the cost of whole boxes.
+tags:
+- acara-senior-v8-4
+- measurement
+- scale-drawings
+- costs
+- ACMEM110

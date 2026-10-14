@@ -1,0 +1,83 @@
+id: ucv1-trig-substitution-integrals
+name: Integration by trigonometric substitution
+domain: integration
+year_level: [university]
+description: Evaluate definite integrals involving √(a² - x²), a² + x², x² - a² or a completed square by choosing
+  x = a sin θ, a tan θ or a sec θ, converting the limits and integrating in θ.
+status: active
+placement_eligible: false
+prerequisites:
+- integration-by-substitution
+- integrate-trig
+answer: number
+sources:
+- topic: ucv1_trig_substitution
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_trig_substitution
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_trig_substitution
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy_trig_substitution
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: trigsub-constant-cubed
+  description: Raising the constant to the third power when the substitution gives a².
+- id: trigsub-constant-dropped
+  description: Leaving the constant factor out of the final answer.
+- id: trigsub-constant-not-squared
+  description: Using a where a² is needed, because x² = a² sin² θ and the constant is squared.
+- id: trigsub-double-angle-sign
+  description: Getting the sign of the sin 2θ term wrong when integrating sin² θ or cos² θ.
+- id: trigsub-double-angle-term-dropped
+  description: Integrating sin² θ or cos² θ as θ/2 and leaving out the sin 2θ term.
+- id: trigsub-evaluates-instead-of-integrates
+  description: Evaluating sin² θ at the limit instead of integrating it.
+- id: trigsub-half-dropped
+  description: Leaving out the factor 1/2 from the identity for sin² θ or cos² θ, or doubling it.
+- id: trigsub-inverse-swapped
+  description: 'Using the wrong inverse trigonometric function for the limit or the antiderivative: arccos where arcsin is needed, or the complement of the right angle.'
+- id: trigsub-limit-double-angle
+  description: Doubling the angle for the new upper limit.
+- id: trigsub-limit-half-angle
+  description: Halving the angle for the new upper limit.
+- id: trigsub-limits-not-converted
+  description: Keeping the x limits as the θ limits, instead of converting them with the substitution.
+- id: trigsub-limits-not-shifted
+  description: Not shifting the limits when a square has been completed, so x - h is replaced by x.
+- id: trigsub-power-ignored
+  description: Treating (a² + x²)^(3/2) as a² + x², losing the sec θ left over after cancelling.
+- id: trigsub-root-dropped
+  description: Dropping the square root when converting the result back from θ to x.
+- id: trigsub-sec-as-tan
+  description: Using the arctan limits where the secant substitution needs arcsec limits.
+- id: trigsub-sign-reversed-limits
+  description: Subtracting the limits in the wrong order, so the answer has the wrong sign.
+- id: trigsub-sin-cos-swapped
+  description: Integrating cos θ as -sin θ or swapping sin θ and cos θ when converting back to x.
+- id: trigsub-spurious-factor
+  description: 'Getting the constant factor wrong after substituting: leaving out the 1/a, or multiplying or dividing by an extra a.'
+- id: trigsub-wrong-inverse
+  description: Using arctan where arcsin is needed, or the reverse, after choosing the wrong substitution.
+- id: trigsub-wrong-power-of-a
+  description: Getting the power of a wrong in the final answer after the substitution.
+difficulty_progression: Easy applies a standard form, where the substitution makes the integrand constant and the work is
+  converting the limits and keeping the constant factor. Medium needs an identity after substituting, a double angle
+  for √(a² - x²) or cancelling a sec³ against a sec², so the integral in θ is not constant. Hard uses the secant
+  substitution, an x² numerator that gives sin² θ, or a quadratic denominator that must be completed to a square
+  before any substitution is seen. The exam chain converts the limit, finds the constant in k∫ sin² θ dθ, integrates
+  sin² θ over the new limits and combines them, with each step following through.
+tags:
+- university-core-v1
+- integration
+- trigonometric-substitution
+- definite-integrals
+framework_areas:
+- integration

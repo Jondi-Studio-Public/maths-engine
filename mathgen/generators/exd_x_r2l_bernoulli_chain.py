@@ -101,7 +101,12 @@ def _run_probability(p: Fraction, outcomes: str) -> Fraction:
     return total
 
 
-def _build(rng: random.Random) -> dict:
+def _within_unit_interval(candidates: list[Distractor]) -> list[Distractor]:
+    """The candidates that are possible probabilities: strictly between 0 and 1."""
+    return [c for c in candidates if 0 < c.value < 1]
+
+
+def _build(rng: random.Random) -> dict | None:
     for _ in attempts(1000, "a failure probability and pattern"):
         den = rng.randint(4, 10)
         num = rng.randint(1, den - 1)
@@ -143,6 +148,17 @@ def _build(rng: random.Random) -> dict:
         Distractor(rational_text(p / q), "odds-as-probability", p / q),
         Distractor(rational_text(1 / q), "reciprocal-of-probability", 1 / q),
         Distractor(rational_text(q / p), "odds-as-probability", q / p),
+        # A total one out: the sample of `den` trials counted as `den - 1`, or as `den + 1`.
+        Distractor(
+            rational_text(Fraction(den - num, den - 1)),
+            "wrong-denominator-for-proportion",
+            Fraction(den - num, den - 1),
+        ),
+        Distractor(
+            rational_text(Fraction(den - num, den + 1)),
+            "wrong-denominator-for-proportion",
+            Fraction(den - num, den + 1),
+        ),
     ]
     # (b) the ordered sequence
     swapped = p**f * q**s
@@ -170,12 +186,14 @@ def _build(rng: random.Random) -> dict:
             comb(n + 1, s + (extra == "S")) * prob_c,
         ),
     ]
-    a_d = pick_distractors(a_text, a_cands, 3)
-    b_d = pick_distractors(b_text, b_cands, 3)
-    c_d = pick_distractors(c_text, c_cands, 3)
+    # Every part asks for a probability, and an option above 1 (or below 0) is ruled out on sight.
+    a_d = pick_distractors(a_text, _within_unit_interval(a_cands), 3)
+    b_d = pick_distractors(b_text, _within_unit_interval(b_cands), 3)
+    c_d = pick_distractors(c_text, _within_unit_interval(c_cands), 3)
     for d in a_d + b_d + c_d:
         check(isinstance(d, Distractor), "a distractor lost its tag")
-    check(len(a_d) == len(b_d) == len(c_d) == 3, "too few distinct distractors")
+    if not len(a_d) == len(b_d) == len(c_d) == 3:
+        return None  # too few distinct options in range for this draw: draw again
     ft_b = f"part_a**{s}*(1 - part_a)**{f}"
     ft_c = f"part_b*{'part_a' if extra == 'S' else '(1 - part_a)'}"
     parts = [
@@ -240,4 +258,8 @@ def _build(rng: random.Random) -> dict:
 def exd_x_r2l_bernoulli_chain(rng: random.Random, tier: str = "exam") -> dict:
     """Failure probability to success probability, then an ordered run of trials, then the run extended by one."""
     check(tier == "exam", "exd_x_r2l_bernoulli_chain: only the exam tier exists")
-    return _build(rng)
+    for _ in attempts(200, "a draw with three in-range options for every part"):
+        built = _build(rng)
+        if built is not None:
+            return built
+    raise AssertionError("unreachable")

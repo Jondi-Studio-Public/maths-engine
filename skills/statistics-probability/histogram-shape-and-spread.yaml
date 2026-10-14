@@ -1,0 +1,50 @@
+id: histogram-shape-and-spread
+name: Read the modal class, spread and middle of a drawn histogram
+domain: statistics-probability
+year_level: ['11']
+description: 'A histogram of equal-width classes is drawn and the frequencies are never listed. Easy: the lower boundary or the frequency of the modal class. Medium: the greatest possible range (empty classes at an end are not counted), or how many values lie below a class boundary. Hard: the lower boundary of the class that holds the median, or an estimate of how many values lie below a value in the middle of a class. The exam chain asks the total, the position of the median (carried forward), the class that holds it and whether the mean is greater than, less than or about equal to the median for the shape drawn. Distinct from senior-compare-the-characteristics-of-the-shape-of-histograms, which classifies the shape only.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f7-read-a-histogram]
+answer: number
+sources:
+- topic: sr2a_histogram_shape
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_histogram_shape
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_histogram_shape
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_histogram_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: hs-modal-upper-edge
+  description: Gives the upper boundary of a class where its lower boundary was asked for.
+- id: hs-modal-frequency-for-boundary
+  description: Gives the height of the tallest bar where the boundary of its class was asked for.
+- id: hs-modal-boundary-for-frequency
+  description: Gives a class boundary where the height of the tallest bar was asked for.
+- id: hs-modal-neighbour-class
+  description: Reads the class or bar beside the one asked about.
+- id: hs-modal-midpoint
+  description: Gives the midpoint of the class where its lower boundary was asked for.
+- id: hs-gridline-slip
+  description: Reads a height or count one gridline or one value away from the correct one.
+- id: hs-class-number-for-frequency
+  description: Counts the classes or their position along the axis instead of reading the frequencies.
+- id: hs-range-whole-axis
+  description: Uses the whole length of the horizontal axis as the range, including empty classes at the ends.
+tags: [acara-senior-v8-4, statistics-probability, histogram, modal-class, median, skewness, figure, sr2a_histogram_shape, acmgm029, acmem060]

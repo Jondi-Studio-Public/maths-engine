@@ -1,0 +1,81 @@
+id: uc2-permutation-cycle-notation
+name: Write a permutation in disjoint cycle notation
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Write a permutation as a product of disjoint cycles, each starting at its smallest entry with
+  fixed points left out: from a list of images, from a product of two permutations, and from a
+  product of overlapping cycles composed right to left. The exam chain finds the cycles of a product
+  of four cycles, then its order, a reduced power and an image under a high power.
+status: active
+placement_eligible: false
+prerequisites:
+- permutation-composition
+answer: set
+sources:
+- topic: r4a_permutation_cycle_notation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_permutation_cycle_notation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_permutation_cycle_notation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_permutation_cycle_notation
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: copies-one-permutation
+  description: >-
+    Reporting one of the two given permutations instead of composing them.
+- id: cycle-factor-left-out
+  description: >-
+    Leaving one of the cycles out of a product of cycles when tracing the points.
+- id: cycle-fixed-point-listed
+  description: >-
+    Listing a fixed point as a one-entry cycle although the convention leaves fixed points out.
+- id: cycle-merged-into-one
+  description: >-
+    Joining two disjoint cycles into one longer cycle instead of keeping them as separate cycles.
+- id: cycle-notation-direction-reversed
+  description: >-
+    Writing each cycle in the opposite direction, which is the cycle notation of the inverse
+    permutation.
+- id: cycle-one-line-read-as-one-cycle
+  description: >-
+    Reading the list of images as a single cycle instead of following each point until it returns.
+- id: exponent-reduced-by-wrong-modulus
+  description: >-
+    Reducing the exponent of a permutation power modulo the number of points instead of modulo the
+    order of the permutation.
+- id: order-as-longest-cycle
+  description: >-
+    Taking the order of a permutation to be its longest cycle length instead of the least common
+    multiple of all of them.
+- id: order-as-number-of-cycles
+  description: >-
+    Taking the order of a permutation to be the number of cycles in it.
+- id: order-as-sum-of-cycle-lengths
+  description: >-
+    Taking the order of a permutation to be the sum of its cycle lengths instead of their least
+    common multiple.
+- id: reverses-composition-order
+  description: >-
+    Applying the first-named permutation first when the composite is defined to apply the second one
+    first.
+tags: [university-core-v1, university-year-2, abstract-algebra, permutations, cycle-notation]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

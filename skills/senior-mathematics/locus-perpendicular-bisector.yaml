@@ -1,0 +1,93 @@
+id: locus-perpendicular-bisector
+name: Find the perpendicular-bisector locus |z - a| = |z - b|
+domain: senior-mathematics
+year_level: ['12']
+description: 'Find the Cartesian equation of the locus |z - a| = |z - b| as a line y = mx + c (or x = k): the perpendicular
+  bisector of the segment joining a and b, from written complex numbers, from two plotted points, and from forms that need
+  rewriting first (a conjugate, a common factor, or the two roots of a quadratic). The exam chain adds the intercept on
+  the real axis, the area cut off with the axes and the least |z| on the locus.'
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- complex-modulus
+- midpoint-two-points
+- senior-find-the-equation-of-a-straight-line-given
+answer: pair
+sources:
+- topic: sr2l_bisector
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sr2l_bisector
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sr2l_bisector
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sr2l_bisector_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sr2l-base-and-height-added
+  description: Adding the base and the height of a triangle instead of multiplying them.
+- id: sr2l-bisector-through-endpoint
+  description: Drawing the perpendicular line through one of the two points instead of through their midpoint.
+- id: sr2l-centre-sign-flipped
+  description: 'Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred
+    at (2, -3) instead of (-2, 3).'
+- id: sr2l-chord-line-for-bisector
+  description: Giving the line through the two points, through their midpoint, where the perpendicular bisector was asked
+    for.
+- id: sr2l-conjugate-ignored
+  description: Treating |z-bar - b| as |z - b|, forgetting that the conjugate reflects b in the real axis.
+- id: sr2l-factor-two-omitted
+  description: Dividing the area by the hypotenuse without the factor of two, giving half the perpendicular distance.
+- id: sr2l-gradient-sign-wrong
+  description: Taking the gradient of the perpendicular bisector to be the reciprocal without its change of sign.
+- id: sr2l-hypotenuse-for-distance
+  description: Giving the hypotenuse of the intercept triangle as the distance from the origin to the line.
+- id: sr2l-intercept-for-distance
+  description: Giving an intercept of the line as its distance from the origin, rather than the length of the perpendicular.
+- id: sr2l-intercept-for-root
+  description: Giving the y-intercept, or its product with the gradient, where the x-intercept was asked for.
+- id: sr2l-real-imaginary-swapped
+  description: Swapping the real and imaginary parts of a centre or point, so the real part is plotted up the imaginary
+    axis.
+- id: sr2l-root-sum-as-point
+  description: Using half the sum of the roots as a point on the bisector instead of finding the roots first.
+- id: sr2l-scale-factor-not-divided
+  description: Reading the centre of |kz + w| = m as -w, without dividing by the coefficient k of z.
+- id: sr2l-sign-lost-solving
+  description: Losing the sign of the gradient when solving mx + c = 0 for x.
+- id: sr2l-triangle-half-omitted
+  description: Giving base times height for the area of a triangle, without halving.
+- id: sr2l-wrong-triangle-side
+  description: Using the same intercept for both the base and the height of the triangle.
+difficulty_progression: 'Easy has the two points a whole-number distance apart along an axis or a diagonal, written with
+  signs to resolve. Medium plots the two points in any direction, so the gradient and the midpoint must be found from the
+  grid. Hard hides the points: |z - a| = |z-bar - b| reflects b, |kz - A| = |kz - B| puts the points at A/k and B/k, and
+  the roots of z^2 - Sz + P = 0 must be found first. The exam chain finds the line, its intercept on the real axis, the
+  area of the triangle it makes with the axes (following through from the intercept) and the least |z| on the locus (following
+  through from the area).'
+tags:
+- complex-numbers
+- complex-plane-loci
+- perpendicular-bisector
+- argand-diagram
+- acara-v8-4
+- ACMSM086

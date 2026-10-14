@@ -1,0 +1,63 @@
+id: ucv1-eigenvalues-characteristic-polynomial
+name: Eigenvalues from the characteristic polynomial
+domain: linear-algebra
+year_level: [university]
+description: Find the eigenvalues of a 2x2 or 3x3 integer matrix that is not triangular by solving its characteristic equation.
+status: active
+placement_eligible: false
+prerequisites: [two-by-two-eigenvalues, matrix-determinant-3x3]
+answer: list
+sources:
+- topic: fy1la_eigenvalues
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_eigenvalues
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_eigenvalues
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_eigenvalues
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: eigenvalue-diagonal-entries-reported, description: 'Reporting the diagonal entries of a matrix as its eigenvalues,
+    which is right only for a triangular matrix.'}
+- {id: eigenvalue-sign-flipped, description: 'Giving every eigenvalue the wrong sign by solving det(A + λI) = 0, or by reading
+    the roots of the characteristic polynomial from the factors (λ - a) as λ = -a.'}
+- {id: eigenvalue-trace-and-determinant-reported, description: Reporting the trace and the determinant as the two eigenvalues
+    of a 2×2 matrix.}
+- {id: eigenvalue-trace-reported-as-root, description: Reporting the trace of the matrix as one of its eigenvalues.}
+- {id: eigenvalue-third-from-trace-sign-slip, description: 'Finding two eigenvalues correctly and the third from the trace
+    with a sign error, so it has the wrong sign.'}
+- {id: eigenvalue-missed-one-root, description: Listing only two of the three eigenvalues of a 3×3 matrix.}
+- {id: sum-of-all-entries-as-trace, description: Adding every entry of the matrix instead of only the leading-diagonal entries
+    to find the trace.}
+- {id: trace-sign-slip, description: Giving the trace of a matrix with the wrong sign.}
+- {id: trace-misses-a-diagonal-entry, description: Leaving one of the leading-diagonal entries out of the trace.}
+- {id: det-expansion-sign-slip, description: 'Getting a sign wrong when expanding a determinant by cofactors, so a coefficient
+    has the wrong sign.'}
+- {id: trace-reported-as-determinant, description: Giving the trace of a matrix where its determinant was asked for.}
+- {id: determinant-as-product-of-diagonal, description: 'Taking the determinant of a matrix to be the product of its leading-diagonal
+    entries, which is right only for a triangular matrix.'}
+- {id: product-of-others-sign-slip, description: Giving the product of the remaining eigenvalues with the wrong sign.}
+- {id: product-multiplied-instead-of-divided, description: 'Multiplying the determinant by the known eigenvalue instead
+    of dividing, to find the product of the others.'}
+- {id: whole-determinant-reported-as-product, description: 'Giving the whole determinant as the product of the other two
+    eigenvalues, without removing the known one.'}
+- {id: sum-of-others-reported-as-product, description: Giving the sum of the other two eigenvalues where their product was
+    asked for.}
+difficulty_progression: Easy uses a full 2x2 matrix, so the eigenvalues cannot be read off the diagonal. Medium uses a 3x3
+  matrix with one isolated eigenvalue, so the characteristic polynomial factors at sight and a quadratic remains. Hard uses
+  a dense 3x3 matrix, where a rational root of the cubic must be found first. The exam chain finds the trace and the determinant,
+  the product of the other two eigenvalues once one is known (following through from the determinant), and all three eigenvalues.
+tags: [university-core-v1, linear-algebra, eigenvalues, characteristic-polynomial]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}

@@ -62,6 +62,7 @@ def junk_safe(parts) -> bool:
     if not any(h.follow_through for h in holders):
         return True
     kinds = [p["answer_kind"] for p in parts]
+    names = [h.label for h in holders]
     canon = [p["answer_text"] for p in parts]
     scenarios = [[str(v)] * len(parts) for v in _JUNK]
     for i in range(len(parts)):
@@ -74,6 +75,12 @@ def junk_safe(parts) -> bool:
         for j, h in enumerate(holders):
             if not h.follow_through or _right(replies[j], canon[j]) or kinds[j] not in VALUE_KINDS:
                 continue
+            if any(
+                kinds[names.index(n)] == "ordered_list"
+                and (not hasattr(values.get(n), "args") or len(values[n].args) != len(parts[names.index(n)]["answer"]))
+                for n in named_parts(h)
+            ):
+                continue  # the grader carries a list reply only at the length of the list asked for
             carried = follow_through_value(h, {k: v for k, v in values.items() if k < h.label})
             reply = values.get(h.label)
             if carried is None or reply is None or not (carried.is_real and reply.is_real):

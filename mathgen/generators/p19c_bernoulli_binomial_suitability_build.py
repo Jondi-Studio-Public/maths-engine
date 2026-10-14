@@ -388,6 +388,10 @@ def p19c_binomial_suitability(rng, tier="medium"):
         # it, so it is never offered as a distractor for this class.
         others = [o for o in others if o != OPT_BINOMIAL_NOT_CONST_P]
     rng.shuffle(others)
+    if cls != OPT_BINOMIAL_SUITED:
+        # "Suited" is on every item's option list, not only on the items where it is the key, so its presence
+        # says nothing: the key is not picked out by being the one "Suited" label among "Not suited" ones.
+        others.sort(key=lambda o: o != OPT_BINOMIAL_SUITED)  # stable: Suited first, the rest still shuffled
     distractors = pick_distractors(cls, others, n=3)
     check(len(distractors) == 3, f"expected 3 distractors, got {len(distractors)}")
     if cls == OPT_BINOMIAL_NOT_INDEP:
