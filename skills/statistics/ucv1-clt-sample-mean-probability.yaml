@@ -1,0 +1,82 @@
+id: ucv1-clt-sample-mean-probability
+name: 'Central limit theorem: sample means and totals'
+domain: statistics
+year_level:
+- university
+description: Use the central limit theorem to find probabilities for a sample mean or a sample total from a population of
+  unknown shape, and the sample size needed to guarantee a stated precision.
+status: active
+placement_eligible: false
+prerequisites:
+- z-score
+answer: number
+sources:
+- topic: u2_clt_sample_mean
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_clt_sample_mean
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_clt_sample_mean
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_clt_sample_mean
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: clt-n-forgot-square
+  description: Stopping at the square root of n, forgetting to square when solving for the sample size.
+- id: clt-n-not-rounded-up
+  description: Rounding the required sample size down, or to the nearest whole number, when it must be rounded up to guarantee
+    the bound.
+- id: clt-n-wrong-z
+  description: Using the z-value for a different confidence level or the wrong number of tails when finding the sample size.
+- id: clt-sd-divided-by-n
+  description: Dividing the standard deviation by n instead of by the square root of n to get the standard error.
+- id: clt-sd-not-reduced
+  description: Standardising a sample mean with the population standard deviation, without dividing by the square root of
+    n.
+- id: clt-tail-reversed
+  description: Giving the probability of the opposite tail, the complement of the one asked for.
+- id: clt-total-sd-n-sigma
+  description: Taking the standard deviation of a total of n observations to be n times sigma instead of sigma times the
+    square root of n.
+- id: clt-total-sd-sigma
+  description: Using the standard deviation of one observation as the standard deviation of a total of n.
+- id: clt-two-sided-one-tail
+  description: Giving the one-sided area Phi(z) where a two-sided probability of lying within a distance is asked.
+- id: clt-variance-as-sd
+  description: Using the variance where the standard deviation belongs when standardising.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Reduce the standard deviation to the standard error sigma over root n, standardise a single boundary for the
+      sample mean, and read one tail.
+  medium:
+    steps: 4
+    demand: Move from the sample mean to the total (mean n mu, sd sigma root n) or find a two-sided probability of lying
+      within a distance of the mean, standardising before combining tails.
+  hard:
+    steps: 5
+    demand: Work backwards from a required probability to a z-value, solve z sigma over root n at most d for n, square and
+      round up, and judge which z and how many tails the wording needs.
+  exam:
+    steps: 6
+    demand: Find the standard error of a sample mean, a probability for the mean and for the total using the normal approximation, then the sample size for a two-sided 95% bound.
+tags:
+- university-core-v1
+- statistics
+- central-limit-theorem

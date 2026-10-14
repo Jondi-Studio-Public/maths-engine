@@ -1,0 +1,63 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-recognise-the-numbers-as-binomial-coefficients
+name: Recognise the numbers C(n, r) as binomial coefficients, as coefficients in the expansion of (x + y)^n
+domain: senior-mathematics
+year_level: ['11']
+description: Find a single coefficient of a binomial expansion without expanding the whole power, by recognising
+  C(n, r) as the coefficient of x^r y^(n-r) in (x + y)^n and multiplying by the powers of any numbers in the binomial.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-expand-x-y-n-for-small-positive-integers-n
+answer: number
+sources:
+- topic: salg_binomial_coefficient
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: salg_binomial_coefficient
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: salg_binomial_coefficient
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: salg_exam_binomial_coefficient
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: binom-wrong-term-picked
+  description: Gives the coefficient of a neighbouring term instead of the term asked for.
+- id: binom-permutation-for-combination
+  description: Counts arrangements, n(n - 1)...(n - r + 1), where the binomial coefficient was needed.
+- id: binom-row-sum-given
+  description: Gives the sum of row n of Pascal's triangle, 2^n, where a single coefficient was asked for.
+- id: binom-numbers-omitted
+  description: Gives the binomial coefficient alone, without the powers of the numbers in the binomial.
+- id: binom-power-of-base-missed
+  description: Multiplies by the number once instead of raising it to the power that matches the term.
+- id: binom-powers-swapped
+  description: Attaches the exponents to the wrong numbers, so r and n - r are the wrong way round.
+- id: binom-negative-sign-dropped
+  description: Loses the sign of a negative number, so an odd power gives a positive coefficient.
+- id: binom-first-number-not-raised
+  description: Raises the constant to its power but leaves the number in front of x as it is.
+- id: binom-second-number-not-raised
+  description: Raises the number in front of x to its power but leaves the constant as it is.
+- id: binom-first-number-only
+  description: Takes the constant term of (ax + b/x)^n to be C(n, n/2) a^n.
+- id: binom-multipliers-omitted
+  description: Adds two coefficients without multiplying each by the number it comes with.
+- id: binom-multipliers-swapped
+  description: Multiplies the two coefficients by p and q the wrong way round.
+- id: binom-one-product-only
+  description: Counts only one of the two ways a term of the next power arises.
+difficulty_progression: Easy reads C(n, r) as the coefficient of x^r y^(n-r) in (x + y)^n. Medium puts a number b in
+  the binomial, so the coefficient is C(n, r) times a power of b whose exponent depends on whether b goes with x or
+  with 1. Hard puts a number on both terms, or asks for the term independent of x in (ax + b/x)^n, where the term must
+  be located before any coefficient is found. The exam chain finds C(n, r), uses it for a coefficient, finds the next
+  coefficient, and combines the two to find a coefficient of the next power up.
+tags: [acara-v8-4, binomial-theorem, binomial-coefficients, ACMMM047]

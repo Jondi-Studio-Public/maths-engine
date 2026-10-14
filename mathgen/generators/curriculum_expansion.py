@@ -57,26 +57,56 @@ def _mcq(text, answer, candidates, *, latex=None, working=None):
 # Batch 2: primary geometry, time and money
 
 
-@generator("classify_angle", level=6)
-def classify_angle(rng):
-    angle = rng.choice((25, 40, 65, 90, 110, 135, 170, 180, 220, 300))
+_ANGLE_CLASSES = ("Acute", "Right", "Obtuse", "Straight", "Reflex")
+_ANGLE_STEMS = (
+    "Classify an angle measuring {angle}°.",
+    "What type of angle measures {angle}°?",
+    "An angle turns through {angle}°. Is it acute, right, obtuse, straight or reflex?",
+    "Which name describes an angle of {angle}°?",
+)
+
+
+def angle_type(angle: int) -> str:
+    """The name of an angle's size class; only exactly 90 is right and exactly 180 straight."""
     if angle < 90:
-        answer = "Acute"
-    elif angle == 90:
-        answer = "Right"
-    elif angle < 180:
-        answer = "Obtuse"
-    elif angle == 180:
-        answer = "Straight"
+        return "Acute"
+    if angle == 90:
+        return "Right"
+    if angle < 180:
+        return "Obtuse"
+    if angle == 180:
+        return "Straight"
+    return "Reflex"
+
+
+@generator("classify_angle", level=6, presets={"easy": {}, "medium": {"near_boundary": True}})
+def classify_angle(rng, near_boundary=False):
+    """All five names are always offered, so no option gives the answer away by being the odd one out.
+
+    By default the angle is drawn from anywhere in the class, 10 to 350 degrees. With ``near_boundary`` it is drawn
+    within ten degrees of 90 or 180 (acute against right against obtuse, and obtuse against straight against
+    reflex), where the measure has to be compared with the boundary rather than judged by eye."""
+    if near_boundary:
+        centre = rng.choice((90, 180))
+        angle = centre + rng.randint(-10, 10)
     else:
-        answer = "Reflex"
+        name = rng.choice(_ANGLE_CLASSES)
+        angle = {
+            "Acute": rng.randint(10, 85),
+            "Right": 90,
+            "Obtuse": rng.randint(95, 175),
+            "Straight": 180,
+            "Reflex": rng.randint(185, 350),
+        }[name]
+    answer = angle_type(angle)
     d = _mcq(
-        f"Classify an angle measuring {angle}°.",
+        rng.choice(_ANGLE_STEMS).format(angle=angle),
         answer,
-        [x for x in ("Acute", "Right", "Obtuse", "Straight", "Reflex") if x != answer],
+        [x for x in _ANGLE_CLASSES if x != answer],
         latex=rf"{angle}^\circ",
         working=[f"An angle of {angle}° is {answer.lower()}."],
     )
+    d["distractors"] = pick_distractors(answer, [x for x in _ANGLE_CLASSES if x != answer], n=4)
     d["answer_latex"] = latex_answer(answer, plain=True)
     return d
 
@@ -283,7 +313,8 @@ def simple_probability(rng):
     total = favourable + other
     answer = Fraction(favourable, total)
     return _number(
-        f"A bag has {favourable} red counters and {other} blue counters. What is P(red)?",
+        f"A bag has {favourable} red {'counter' if favourable == 1 else 'counters'} and "
+        f"{other} blue {'counter' if other == 1 else 'counters'}. What is P(red)?",
         answer,
         [Fraction(other, total), Fraction(favourable, other), Fraction(1, total), total],
         working=[f"P(red) = favourable ÷ total = {favourable}/{total} = {rational_text(answer)}."],

@@ -43,10 +43,10 @@ from mathgen.grading.safe_parse import (
     too_costly,
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
-from mathgen.grading.units import unit_is_acceptable
+from mathgen.grading.units import split_unit, unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
-from mathgen.text_quality import requested_rounding
+from mathgen.text_quality import requested_rounding, requested_significant_figures, significant_figure_count
 
 logger = logging.getLogger("mathgen.grading")
 
@@ -74,15 +74,18 @@ _VARIABLE_LABEL_RE = re.compile(r"[^\W\d_]\d?")  # "x", "λ", "x1": a variable, 
 
 def _label_fits(question, canonical: str | None, label: str | None) -> bool:
     """Whether a reply's label may be dropped: it is the canonical's own label, or the canonical has none and the
-    label is a single variable the question's text names ("x" in "Solve 3^x = 27")."""
+    label is a single variable the question's text names ("x" in "Solve 3^x = 27") or is written exactly as the
+    question writes it ("P(red)" in "What is P(red)?")."""
     if label is None:
         return False
     canonical_label = _label_name(canonical)
     if canonical_label is not None:
         return label == canonical_label
+    text = getattr(question, "text", None) or ""
+    if "(" in label:
+        return re.sub(r"\s+", "", label) in re.sub(r"\s+", "", text)
     if not _VARIABLE_LABEL_RE.fullmatch(label):
         return False
-    text = getattr(question, "text", None) or ""
     return re.search(rf"(?<![^\W\d_]){re.escape(label)}(?![^\W\d_])", text) is not None
 
 
@@ -391,6 +394,27 @@ def _value_side(text: str) -> str:
     return text.rsplit("=", 1)[1]
 
 
+def _has_no_extra_figures(question, given: str) -> bool:
+    """Whether a typed number keeps to the significant figures asked for.
+
+    "Round 22.7012 to 2 significant figures" has canonical 23, and "23.0" states 3 figures: the same value
+    but not the precision asked for, so it is wrong, as "0.550" is for 0.55. Fewer figures cannot pass the
+    value comparison, and a whole number's trailing zeros are ambiguous ("230" can be 2 figures), so only a
+    count above the one asked is refused. The count is the one the prompt states or, when it is an earlier
+    answer ("to that number of significant figures"), the part's `sig_figs`.
+    """
+    figures = requested_significant_figures(getattr(question, "text", "")) or getattr(question, "sig_figs", None)
+    if not isinstance(figures, int) or isinstance(figures, bool):
+        return True
+    shown = _NUMERIC_LITERAL_RE.findall(getattr(question, "answer_text", "") or "")
+    if len(shown) == 1:
+        # A canonical written to more places than the count asked ("0.010" for 1 figure, so that its own
+        # precision is told apart from "0.009") is itself acceptable.
+        figures = max(figures, significant_figure_count(shown[0]))
+    literal = _NUMERIC_LITERAL_RE.search(_number_text(given))
+    return literal is None or significant_figure_count(literal.group(0)) <= figures
+
+
 def _is_rounded_as_asked(question, given: str) -> bool:
     """Whether a typed number has been rounded the way the question asked.
 
@@ -403,7 +427,7 @@ def _is_rounded_as_asked(question, given: str) -> bool:
     """
     places = requested_rounding(getattr(question, "text", ""))
     if places is None:
-        return True
+        return _has_no_extra_figures(question, given)
     literal = _NUMERIC_LITERAL_RE.search(_number_text(given))
     if literal is None:
         return True
@@ -699,12 +723,25 @@ def grade_fraction(question, given: str) -> GradeResult:
     answer = _as_exact_fraction(answer)
     if isinstance(answer, dict) and {"p", "q"} <= set(answer):
         given_normalised = _normalised_values(given)
+        given_with_unit = given
         parsed = _parse_typed_fraction(given)
         if parsed is None and _label_fits(question, canonical, _label_name(given)):
             # "x = 50/7" for a canonical shown as "x = 50/7", or "x = 3" for a bare "3" when the question is about
             # x ("Solve 3^x = 27"). "y = 50/7" is wrong for x, and so is a label the question never names.
             given = _strip_label(given)
             parsed = _parse_typed_fraction(given)
+        if parsed is None:
+            # "1185/8 m^2", "$71": a number with a unit it may carry, as `grade_number` allows. The unit still has
+            # to be one the question allows (see `mathgen.grading.units`).
+            bare, unit = split_unit(given)
+            if unit is not None:
+                parsed = _parse_typed_fraction(bare)
+                if parsed is None and _label_fits(question, canonical, _label_name(bare)):
+                    parsed = _parse_typed_fraction(_strip_label(bare))
+                if parsed is not None:
+                    given = bare
+                    if not unit_is_acceptable(question, given_with_unit):
+                        parsed = None
         if parsed is None:
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
         expected = Fraction(answer["p"], answer["q"])
@@ -719,22 +756,42 @@ def grade_fraction(question, given: str) -> GradeResult:
 
 # "in lowest terms", "in simplest form", "simplify", "fully simplified": the question asks for the fraction
 # itself to be reduced, so "6/8" is not an answer to "Write 6/8 in lowest terms" even though it equals 3/4.
+# A negated use describes the data instead: "f(x) = ... (not yet simplified)", "do not simplify".
 _LOWEST_TERMS_RE = re.compile(
-    r"\b(?:lowest\s+terms|simplest\s+form|simplif(?:y|ied)|fully\s+simplified|reduced?\s+form)\b", re.IGNORECASE
+    r"(?<!\bnot\s)(?<!\bnot\syet\s)(?<!n't\s)"
+    r"\b(?:lowest\s+terms|simplest\s+form|simplif(?:y|ied)|fully\s+simplified|reduced?\s+form)\b",
+    re.IGNORECASE,
 )
 _WRITTEN_FRACTION_PART_RE = re.compile(r"(\d+)\s*/\s*(\d+)\s*$")
 
 
 def _in_lowest_terms_if_asked(question, given: str) -> bool:
-    """Whether a fraction reply is reduced, when the question asks for lowest terms. A reply that writes no a/b
-    (a whole number, a decimal) is judged by value alone, as before."""
+    """Whether a fraction reply is in the form the question asks for, when it asks for lowest terms.
+
+    An a/b reply must be reduced ("6/8" is not). A reply that writes no a/b must be a whole number: a decimal
+    ("0.568" for 71/125) is a different form, not an answer to "write as a fraction in simplest form". Both
+    only apply when the canonical is itself an a/b or a whole number, so a key that is written as a decimal is
+    never refused its own form. The wording is looked for in the text of the question or, for a multi-part
+    question, of the part being marked."""
     if not _LOWEST_TERMS_RE.search(getattr(question, "text", "") or ""):
         return True
-    written = _WRITTEN_FRACTION_PART_RE.search(_tidy_fraction_text(_strip_label(given)))
-    if written is None:
+    shown = _tidy_fraction_text(_strip_label(getattr(question, "answer_text", "") or ""))
+    exact = bool(_WRITTEN_FRACTION_PART_RE.search(shown) or re.fullmatch(r"-?\d+", shown))
+    return _written_in_lowest_terms(given, exact)
+
+
+def _written_in_lowest_terms(given: str, exact_canonical: bool) -> bool:
+    """Whether one reply is written as a reduced a/b or, when the canonical is exact (an a/b or a whole number),
+    as a whole number. With an inexact canonical a decimal is not refused."""
+    tidy = _tidy_fraction_text(_strip_label(given))
+    written = _WRITTEN_FRACTION_PART_RE.search(tidy)
+    if written is not None:
+        numerator, denominator = int(written.group(1)), int(written.group(2))
+        return denominator != 0 and math.gcd(numerator, denominator) == 1
+    if not exact_canonical:
         return True
-    numerator, denominator = int(written.group(1)), int(written.group(2))
-    return denominator != 0 and math.gcd(numerator, denominator) == 1
+    value = _parse_typed_fraction(given)
+    return value is None or value.denominator == 1
 
 
 _PAIR_TOLERANCE = 0.051  # mathgen.grading.spoken's transcript tolerance: now only the fallback
@@ -1386,11 +1443,19 @@ def grade_ordered_list(question, given: str) -> GradeResult:
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
 
     correct = True
+    asks_lowest_terms = bool(_LOWEST_TERMS_RE.search(getattr(question, "text", "") or ""))
     for given_item, expected_item in zip(items, expected):
         if isinstance(expected_item, (int, float, Fraction)):
             given_value = _parse_numeric_item(given_item)
             if given_value is None or not _numeric_items_equal(given_value, expected_item):
                 correct = False
+                break
+            if (
+                asks_lowest_terms
+                and isinstance(expected_item, (int, Fraction))
+                and not _written_in_lowest_terms(given_item, True)
+            ):
+                correct = False  # "14/60" or "0.2333" where each item is to be a fraction in lowest terms
                 break
         elif given_item.strip().lower() != str(expected_item).strip().lower():
             correct = False
@@ -2338,10 +2403,11 @@ _INFINITY_REPLY_RE = re.compile(r"^\s*([+-]?)\s*(?:∞|infinity|inf|oo)\s*$", re
 
 
 # A label naming a derivative or just saying "answer": "f'(x) =", "y'' =", "f′(x) =", "dy/dx =", "d²y/dx² =",
-# "d^2y/dx^2 =", "d/dx =", "Answer:". `_LABEL_RE` takes "y =" and "f(x) =" but not these.
+# "d^2y/dx^2 =", "d/dx =", "Answer:". `_LABEL_RE` takes "y =" and "f(x) =" but not these. The prime may be the
+# curly apostrophe that phone and Mac keyboards type for "'" ("f’(x) =").
 _DERIVATIVE_LABEL_RE = re.compile(
     r"^\s*(?:"
-    r"[^\W\d_]\w*\s*(?:'+|′+|″|‴)\s*(?:\([^()=]*\))?"  # f'(x), y'', g′(t)
+    r"[^\W\d_]\w*\s*(?:['’]+|′+|″|‴)\s*(?:\([^()=]*\))?"  # f'(x), y'', g′(t), f’(x)
     r"|d\s*(?:\^\s*\d|[²³])?\s*(?:[^\W\d_]\w*)?\s*/\s*d\s*[^\W\d_]\w*?\s*(?:\^\s*\d|[²³])?"  # dy/dx, d²y/dx², d/dx
     r")\s*=\s*"
     r"|^\s*answer\s*[:=]\s*",
@@ -3249,5 +3315,10 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
         logger.exception("grade(kind=%r, given=%.200r) raised; grading incorrect", kind, given)
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if not result.correct:
-        _resolve_note(kind, question, given, result, skill)
+        try:
+            _resolve_note(kind, question, given, result, skill)
+        except Exception:
+            # The same backstop for the note: a reply the grader refused (a JSON number where text was
+            # expected, say) is still marked wrong, without a note, rather than raising.
+            logger.exception("note for grade(kind=%r, given=%.200r) raised; no note", kind, given)
     return result

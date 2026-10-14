@@ -3,6 +3,7 @@
 id: senior-identify-the-target-population-to-be-surveyed
 name: Identify the target population to be surveyed
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a stated survey scenario and its research question, choose the correct description of the target population from the offered options -- matching the research question exactly, neither narrower nor broader. Options always include exactly one correct description plus at least two distinct named-error wrong options (too narrow: a proper subset; too broad: a proper superset; and, when a sample is drawn in the scenario, sample-confusion: the surveyed group offered as if it were the population). This is NOT the co-built senior-understand-the-concept-of-a-random-sample (ACMMM171), which judges whether a SELECTION METHOD from an already-identified population is valid, never what the population description should be. Four tiers: easy is a direct restatement of the stated population; medium introduces a drawn sample and offers "the group who were surveyed" as a sample-confusion distractor; hard has a qualifying clause that narrows or widens what looks like the obvious population at first read, construct-to-target so the correct answer is sometimes the obvious population and sometimes the qualified subset; exam combines that qualifying clause with a described sampling frame that itself under-covers the true target population, a genuine new shape over hard.'
 status: active
 placement_eligible: false

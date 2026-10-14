@@ -50,6 +50,11 @@ _SUM_ASK = (
     "the total amount, in dollars",
     "the total cost, in dollars",
 )
+# The stall stem is about money taken in, not spent, so "cost" would be the wrong word for its total.
+_SALES_ASK = (
+    "the total amount, in dollars",
+    "the total takings, in dollars",
+)
 _SHARE_STEMS = (
     "A bakery in Adelaide makes {a} loaves a day for {b} days. The loaves are then shared equally among {c} stores.",
     "A farm near Toowoomba packs {a} eggs into each of {b} crates. The eggs are then divided equally among {c} "
@@ -131,8 +136,9 @@ def exd_x_n2_leading_digit_error(rng, tier="exam"):
     if shape == "sum":
         a, b, c, d = values
         item1, item2 = rng.choice(_SUM_ITEMS)
-        stem = phrase(rng, _SUM_STEMS, name=name, a=a, b=b, c=c, d=d, item1=item1, item2=item2)
-        what = rng.choice(_SUM_ASK)
+        stem_template = rng.choice(_SUM_STEMS)
+        stem = phrase(rng, (stem_template,), name=name, a=a, b=b, c=c, d=d, item1=item1, item2=item2)
+        what = rng.choice(_SALES_ASK if " sells " in stem_template else _SUM_ASK)
         a_prompt = f"Round every number to its leading digit to estimate {what}. Write the estimate as a whole number."
         b_prompt = f"Calculate the exact value of {what}."
         a_work = [f"Estimate = {_lead(a)} × {_lead(b)} + {_lead(c)} × {_lead(d)} = {est}."]

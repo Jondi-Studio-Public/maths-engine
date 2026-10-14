@@ -3,6 +3,7 @@
 id: senior-use-units-of-energy-to-describe-consumption-of
 name: Use units of energy to describe consumption of electricity, such as kilowatt hours
 domain: measurement
+year_level: ['11']
 description: Given a stated electrical appliance's power (in kilowatts or watts) and a stated run time (in hours or minutes), compute the energy consumed in kilowatt-hours, including the combined energy of two appliances.
 status: active
 placement_eligible: false

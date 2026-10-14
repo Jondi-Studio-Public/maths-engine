@@ -1,0 +1,150 @@
+id: uc2-gamma-beta-moments
+name: Gamma and beta distribution moments
+domain: probability
+year_level:
+- university
+description: "Recognise a gamma or beta density from its form and find its moments, normalising constant and tail probabilities\
+  \ exactly, and recover the parameters from a stated mean and variance by matching moments."
+status: active
+placement_eligible: false
+prerequisites:
+- finite-distribution-variance
+- discrete-expected-value
+answer: fraction
+sources:
+- topic: r4i_gamma_beta
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_gamma_beta
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_gamma_beta
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_gamma_beta
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-gb-swapped-parameters
+  description: "Swapping the two parameters of the beta density, so the share is b over a plus b instead of a over a plus\
+    \ b."
+- id: r4i-gb-denominator-plus-one
+  description: "Adding one to the denominator, using a over (a + b + 1), which is the variance-style denominator, for the\
+    \ mean."
+- id: r4i-gb-mode-for-mean
+  description: Giving the mode (a - 1)/(a + b - 2) of the beta density instead of its mean.
+- id: r4i-gb-exponent-for-parameter
+  description: "Reading an exponent of the density as the parameter: x to the power a - 1 taken to mean parameter a - 1, off\
+    \ by one."
+- id: r4i-gb-ratio-not-share
+  description: Giving a over b where the share a over (a + b) was asked.
+- id: r4i-gb-rate-times-shape
+  description: Multiplying shape and rate instead of dividing shape by the rate.
+- id: r4i-gb-variance-for-mean
+  description: Giving the variance, shape over rate squared, where the mean was asked.
+- id: r4i-gb-forgot-shape
+  description: Giving one over the rate, leaving out the shape.
+- id: r4i-gb-mean-for-variance
+  description: Giving the mean, shape over rate, where the variance was asked.
+- id: r4i-gb-wrong-power-of-rate
+  description: Dividing by the rate cubed instead of squared in the variance of a gamma density.
+- id: r4i-gb-missing-square
+  description: Leaving out the square on a plus b in the denominator of the beta variance.
+- id: r4i-gb-forgot-plus-one
+  description: Dividing by a + b instead of a + b + 1 in the beta variance.
+- id: r4i-gb-forgot-division
+  description: Giving m(1 - m) without dividing by a + b + 1.
+- id: r4i-gb-plus-one-sign
+  description: Using a + b - 1 (or shape minus one) where a + b + 1 (or shape plus one) belongs.
+- id: r4i-gb-square-of-mean
+  description: Giving the square of the mean as the second moment, forgetting the variance.
+- id: r4i-gb-variance-for-second-moment
+  description: Giving the variance where the second moment E(X squared) was asked.
+- id: r4i-gb-forgot-square-of-rate
+  description: Dividing by the rate instead of the rate squared in the second moment.
+- id: r4i-gb-shape-not-reduced
+  description: Dividing the rate by the shape instead of by the shape minus one for the mean of 1/X.
+- id: r4i-gb-reciprocal-of-mean-wrong-way
+  description: 'Taking the reciprocal of E(X) written upside down: shape over rate for E(1/X).'
+- id: r4i-gb-rate-inverted
+  description: Using the reciprocal of the rate where the rate belongs.
+- id: r4i-gb-inverted-ratio
+  description: Inverting the ratio, multiplying the rate by the shape minus one instead of dividing.
+- id: r4i-gb-product-of-means
+  description: Multiplying E(X) by E(1 - X), treating X and 1 - X as independent.
+- id: r4i-gb-variance-for-product
+  description: Giving a variance-style value for E(X(1 - X)) by dividing by an extra a + b.
+- id: r4i-gb-constant-inverted
+  description: Giving the integral of the kernel instead of its reciprocal, so the constant is upside down.
+- id: r4i-gb-factorial-off-by-one
+  description: Using the factorial of p + q instead of p + q + 1 (or the wrong shape factorial) in the constant.
+- id: r4i-gb-forgot-top-factorial
+  description: Dividing by an extra factor of p + q + 1 where the top factorial should contain it.
+- id: r4i-gb-factorials-dropped
+  description: Dropping the factorials and keeping only the simple ratio of the exponents.
+- id: r4i-gb-factorial-dropped
+  description: Dropping the factorial from the gamma constant.
+- id: r4i-gb-power-of-rate-dropped
+  description: Using the rate to the first power instead of the power given by the shape.
+- id: r4i-gb-exponential-tail-only
+  description: Giving e to the minus rate times t, the tail of an exponential, for a gamma tail with larger shape.
+- id: r4i-gb-poisson-sum-too-short
+  description: Stopping the Poisson sum one term early.
+- id: r4i-gb-poisson-sum-too-long
+  description: Carrying the Poisson sum one term too far.
+- id: r4i-gb-tail-reversed
+  description: Giving the probability of the opposite tail.
+- id: r4i-gb-wrong-limit
+  description: Integrating from the wrong limit, using 1 - t in place of t.
+- id: r4i-gb-single-term-only
+  description: Keeping only the first term of the expanded polynomial when integrating.
+- id: r4i-gb-forgot-minus-one
+  description: Forgetting to subtract one when recovering alpha plus beta from the mean and variance.
+- id: r4i-gb-minus-two
+  description: Subtracting two instead of one when recovering alpha plus beta.
+- id: r4i-gb-total-for-parameter
+  description: Giving alpha plus beta where the first parameter alpha was asked.
+- id: r4i-gb-shape-for-rate
+  description: Giving the shape (mean squared over variance) where the rate was asked.
+- id: r4i-gb-halved
+  description: Halving the correct value.
+- id: r4i-gb-multiplied
+  description: Multiplying the mean and the variance instead of dividing.
+- id: r4i-gb-variance-for-sd
+  description: Giving the variance where the standard deviation was asked.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Read the shape and rate (or the two beta parameters) from the powers in the density, then apply the mean or variance\
+      \ formula."
+  medium:
+    steps: 4
+    demand: "Go beyond the mean: variance of a beta density, E(X squared) or E(1/X) for a gamma density, or E(X(1 - X)), each\
+      \ needing a shifted-parameter or variance-plus-mean-squared step."
+  hard:
+    steps: 5
+    demand: "Normalise a kernel using factorials, find an exact gamma (Poisson-sum) or beta tail probability, or invert the\
+      \ moment formulas to recover a parameter from a stated mean and variance."
+  exam:
+    steps: 6
+    demand: "A four-part chain on one beta density: find the normalising constant, then the mean, then the variance by building on the mean, then the standard deviation by building on the variance."
+tags:
+- university-year-2
+- probability
+- gamma-distribution
+- beta-distribution
+- moments
+- continuous-distributions

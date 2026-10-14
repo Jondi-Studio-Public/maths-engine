@@ -3,6 +3,7 @@
 id: senior-review-the-concepts-and-language-of-outcomes-sample
 name: Review the concepts and language of outcomes, sample spaces and events
 domain: statistics-probability
+year_level: ['11']
 description: Classify a finite set of outcomes as a single outcome, the sample space itself, an event (a set of outcomes), or an invalid subset, given a bounded equally-likely sample space and the set explicitly stated.
 status: active
 placement_eligible: false

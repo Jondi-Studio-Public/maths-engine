@@ -449,6 +449,9 @@ def triple_integral(rng, tier="easy"):
 _WORD = {0: "x", 1: "y", 2: "z"}
 
 
+_EXACT = " Give an exact answer: a fraction in simplest form, or an integer."
+
+
 def _prompt(text: str) -> dict:
     plain, latex = say_marked(text)
     return dict(prompt=plain, prompt_latex=latex)
@@ -580,7 +583,7 @@ def _exam_once(rng):
         ),
         parts=[
             dict(
-                **_prompt(prompts["a"]),
+                **_prompt(prompts["a"] + _EXACT),
                 answer_kind="fraction",
                 answer=exact_value(V),
                 answer_text=rational_text(V),
@@ -590,7 +593,7 @@ def _exam_once(rng):
                 distractors=parts_dist[0],
             ),
             dict(
-                **_prompt(prompts["b"]),
+                **_prompt(prompts["b"] + _EXACT),
                 answer_kind="fraction",
                 answer=exact_value(M),
                 answer_text=rational_text(M),
@@ -601,7 +604,7 @@ def _exam_once(rng):
                 distractors=parts_dist[1],
             ),
             dict(
-                **_prompt(prompts["c"]),
+                **_prompt(prompts["c"] + _EXACT),
                 answer_kind="fraction",
                 answer=exact_value(ubar),
                 answer_text=rational_text(ubar),
@@ -612,7 +615,7 @@ def _exam_once(rng):
                 distractors=parts_dist[2],
             ),
             dict(
-                **_prompt(prompts["d"]),
+                **_prompt(prompts["d"] + _EXACT),
                 answer_kind="fraction",
                 answer=exact_value(avg),
                 answer_text=rational_text(avg),

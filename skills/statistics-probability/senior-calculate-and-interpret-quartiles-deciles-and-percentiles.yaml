@@ -3,6 +3,7 @@
 id: senior-calculate-and-interpret-quartiles-deciles-and-percentiles
 name: Calculate and interpret quartiles, deciles and percentiles
 domain: statistics-probability
+year_level: ['11']
 description: 'Given an ordered numeric data set of size n = 20 and a stated percentile, decile or quartile level P chosen so that P/100 * n is an exact whole number k, state the data value at rank k in the sorted data (no interpolation). Four tiers, escalating by representation and level-naming, never by size: a sorted raw list with the percentile level stated directly; an unsorted raw list with the level named as a decile or quartile (converted to a percentile/rank first); a frequency table (value: count), where the rank is located by accumulating counts; and a CUMULATIVE frequency table (value: running total), where the running totals must be read correctly rather than re-accumulated. Distinct from f10-boxplot-distribution (an exclusive-method Q1/Q3 pair plus IQR) and senior-complete-a-five-number-summary-for-different-datasets (a fixed nine-value five-number summary): this skill takes ANY level P and returns ONE value by the exact-rank convention; neither neighbour does.'
 status: active
 placement_eligible: false

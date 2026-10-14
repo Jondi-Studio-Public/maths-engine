@@ -3,6 +3,7 @@
 id: senior-use-a-recurrence-relation-to-model-a-reducing
 name: Complete a reducing-balance loan schedule with a recurrence relation
 domain: financial-discrete
+year_level: ['12']
 description: 'Complete the blank cells (interest, repayment, opening and closing balance, and totals) of a reducing-balance loan schedule by running the recurrence A(n+1) = A(n)(1 + r) - R period by period, with the interest rounded to the nearest cent each period and every amount given in dollars to the cent.'
 difficulty_progression: 'Easy states the rate per month and the repayment in words and blanks only the last row, so the learner takes one step of the recurrence: interest on the opening balance, then the closing balance. Medium gives the loan as the recurrence A(n+1) = 1.007 A(n) - R with A(0), so the learner reads the rate off the multiplier and runs two or three steps in a row, each opening balance being the closing balance just found. Hard states an annual rate with interest added monthly or quarterly, so the learner first converts it to a rate per period, then runs the recurrence for several periods and totals the interest and the repayments. Exam states neither the rate nor the repayment: the first row shows an opening balance, the interest and the closing balance, and the learner recovers the rate (interest over opening balance) and the repayment (opening plus interest minus closing) before continuing the schedule and totalling it.'
 status: active

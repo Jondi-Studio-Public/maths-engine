@@ -19,7 +19,8 @@ A key is 16 or more characters of random. In bash, `openssl rand -hex 24` makes 
 [Convert]::ToHexString([Security.Cryptography.RandomNumberGenerator]::GetBytes(24))
 ```
 
-Without any keys the server refuses to start; see `MATHS_API_OPEN` below for the one-teacher-on-one-machine case.
+Without any keys, `python -m mathgen.server` serves only this machine: on a loopback host (the default) it starts open, as
+role `MATHS_API_OPEN_ROLE`, and logs a warning. On any other host it refuses to start; see `MATHS_API_OPEN` below.
 
 `compose.example.yaml` is a starting point for a long-running install. Without Docker:
 
@@ -67,8 +68,9 @@ client-side page**: whoever can read the page can read every answer. Keep it on 
 server call the API. If a browser page calls the API directly, give it only a `learner` key and list the exact
 origin in `MATHS_API_CORS_ORIGINS`, never `*`.
 
-With no keys set the server refuses to start. To run with no keys on purpose (one teacher on their own machine,
-loopback only), set `MATHS_API_OPEN=1`; every caller then has `MATHS_API_OPEN_ROLE`, which defaults to `learner`
+With no keys set, `python -m mathgen.server` on a loopback host (`127.0.0.1`, the default) starts open with a
+warning, since nothing else can reach it; on any other host, and through `create_app` directly, it refuses to start.
+To run with no keys on purpose anyway, set `MATHS_API_OPEN=1`; every caller then has `MATHS_API_OPEN_ROLE`, which defaults to `learner`
 (set it to `author` to see answers), and the server logs a warning.
 
 **Learner keys suit practice, not summative tests.** The source is public, so an `author` key protects
@@ -121,7 +123,7 @@ equivalent form is marked wrong there. For those, grade through `/v1/grade`, or 
 | Variable | Default | |
 |---|---|---|
 | `MATHS_API_KEYS` | none | `role:key,role:key`. Required unless `MATHS_API_OPEN=1`; a value that parses to no keys is an error |
-| `MATHS_API_OPEN` | off | `1` lets the server run with no keys; otherwise it refuses to start |
+| `MATHS_API_OPEN` | off | `1` lets the server run with no keys; otherwise it refuses to start unless it listens on loopback only |
 | `MATHS_API_OPEN_ROLE` | `learner` | the role of every caller when running open |
 | `MATHS_API_ID_SECRET` | none | 16 or more characters. Ids become unregeneratable without the server. Changing it invalidates every outstanding id |
 | `MATHS_API_WORKERS` | CPUs available to the container, at most 8 | worker processes |

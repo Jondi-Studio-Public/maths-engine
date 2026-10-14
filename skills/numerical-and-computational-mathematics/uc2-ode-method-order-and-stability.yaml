@@ -1,0 +1,106 @@
+id: uc2-ode-method-order-and-stability
+name: Find the order and stability of a one-step method
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Use the amplification factor of a one-step method on y' = -lambda y to find its stability limit, its order, and
+  to classify it.
+status: active
+placement_eligible: false
+prerequisites:
+- explicit-euler-linear-ode
+answer: fraction
+sources:
+- topic: r4h_ode_method_order_stability
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_ode_method_order_stability
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_ode_method_order_stability
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_ode_method_order_stability
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-ode-stability-halved-bound
+  description: Using the bound 1/λ for the explicit Euler step instead of 2/λ, requiring the factor to stay positive rather
+    than within [−1, 1].
+- id: num2t-ode-stability-smallest-eigenvalue
+  description: Using the eigenvalue of smallest size instead of the largest when finding the step limit for a system.
+- id: num2t-ode-stability-trace
+  description: Using the trace of the matrix in place of its eigenvalue of largest size.
+- id: num2t-ode-stability-product
+  description: Using the product of the eigenvalues in place of the largest one.
+- id: num2t-ode-stability-explicit-formula
+  description: Using the explicit Euler limit 2/λ for a method that is partly implicit.
+- id: num2t-ode-stability-one-over
+  description: Dropping the 2 in the numerator, giving 1/(λ(1 − 2θ)).
+- id: num2t-ode-stability-theta-not-doubled
+  description: Using 1 − θ instead of 1 − 2θ in the stability limit.
+- id: num2t-ode-stability-theta-sign
+  description: Using 1 + 2θ instead of 1 − 2θ in the stability limit.
+- id: num2t-ode-order-one-too-high
+  description: Reporting the exponent of the first error term (order plus one) as the order.
+- id: num2t-ode-order-one-too-low
+  description: Reporting the number of the highest matching power of e^(−z) less one.
+- id: num2t-ode-order-polynomial-degree
+  description: Taking the degree of the amplification polynomial as the order.
+- id: num2t-ode-order-always-one
+  description: Calling every method that is not exact first order.
+- id: num2t-ode-order-term-count
+  description: Counting the matching terms of the series, constant term included, as the order.
+- id: num2t-ode-order-misjudged
+  description: Judging the order of a method from its number of stages or its look rather than from its amplification factor.
+- id: num2t-ode-stability-misjudged
+  description: Judging stability from the order of the method rather than from the size of its amplification factor.
+- id: num2t-ode-r-explicit-formula
+  description: Using the explicit amplification factor 1 − z for a method that is partly implicit.
+- id: num2t-ode-r-backward-formula
+  description: Using the backward Euler factor 1/(1 + z) for a method that is not fully implicit.
+- id: num2t-ode-r-theta-swapped
+  description: Swapping θ and 1 − θ in the amplification factor.
+- id: num2t-ode-r-heun-no-half
+  description: Dropping the factor 1/2 on the quadratic term of the Heun amplification factor.
+- id: num2t-ode-r-heun-sign
+  description: Taking the Heun amplification factor as 1 + z + z²/2.
+- id: num2t-ode-steps-one-too-few
+  description: Applying the amplification factor one time too few.
+- id: num2t-ode-steps-one-too-many
+  description: Applying the amplification factor one time too many.
+- id: num2t-ode-steps-multiplied
+  description: Multiplying the amplification factor by the number of steps instead of raising it to that power.
+- id: num2t-ode-const-sign
+  description: Giving the error constant with the wrong sign (R − e^(−z) instead of e^(−z) − R).
+- id: num2t-ode-const-wrong-power
+  description: Reading the mismatch in the coefficient of a later power of z as the error constant.
+- id: num2t-ode-const-factorial-only
+  description: Giving the exponential's coefficient 1/(p+1)! as the error constant, without subtracting R's own coefficient.
+difficulty_progression: Easy finds the largest stable explicit Euler step for a triangular system, which means reading the
+  eigenvalues and applying |1 - h lambda| <= 1. Medium finds the stability limit of a theta-method, where the amplification
+  factor is a rational function and the limit is 2/(lambda(1 - 2 theta)). Hard finds the order of a method from its amplification
+  factor alone, by matching Taylor coefficients with e^(-z). The exam chain asks for a classification (multiple choice) of
+  a named method, then its multiplier R, then y3 from the learner's R, then the error constant.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- stability
+- order-of-accuracy
+- ode-numerical
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

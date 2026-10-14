@@ -3,6 +3,7 @@
 id: senior-use-the-leibniz-notation-for-the-derivative-frac
 name: 'Use the Leibniz notation for the derivative: dy/dx = lim_(δx->0) δy/δx and the correspondence dy/dx = f''(x)'
 domain: differentiation
+year_level: ['11']
 description: Given bounded, fully specified inputs, use the Leibniz notation for the derivative dy/dx = lim_(δx->0) δy/δx and the correspondence dy/dx = f'(x) where y = f(x). Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false

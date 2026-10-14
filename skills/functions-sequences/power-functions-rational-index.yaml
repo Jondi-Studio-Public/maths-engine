@@ -1,0 +1,44 @@
+id: power-functions-rational-index
+name: Power functions with a rational index
+domain: functions-sequences
+year_level: ['12']
+description: Work with power functions x^(p/q). Evaluate them, find the domain and range endpoints of a translated power function, and solve equations by undoing the root and the power.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-review-indices-including-fractional-indices-and-the-index
+- function-notation
+answer: fraction
+sources:
+- topic: r4e_power_functions
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4e_power_functions
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4e_power_functions
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r4e_power_functions_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: rational-index-ignores-power
+  description: Takes only the q-th root for x^(p/q) and leaves out the power p.
+- id: rational-index-ignores-root
+  description: Raises to the power p for x^(p/q) and leaves out the q-th root.
+- id: rational-index-divides-instead-of-roots
+  description: Reads the index p/q as dividing x^p by q instead of taking a q-th root.
+- id: rational-index-domain-range-confused
+  description: Gives the vertical shift as the least x in the domain, or the horizontal shift as the least value.
+- id: rational-index-ignores-the-index
+  description: Divides out the multiplier but does not undo the index, so x = c/a.
+- id: rational-index-not-inverted
+  description: Raises both sides to the power p/q when q/p was needed.
+- id: rational-index-domain-root-parity
+  description: Gives x ≥ 0 when the root is odd, or all real numbers when it is even.
+tags: [senior, functions, power-functions, rational-index, vce-methods, year-12]

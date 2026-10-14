@@ -126,3 +126,19 @@ def test_a_figure_the_renderer_cannot_draw_still_gives_a_question(monkeypatch, l
     monkeypatch.setattr(mathgen.svg, "figure_svg", cannot)
     (view,) = service.make_questions(lib, "f10-measure-angle-protractor", seed=1)
     assert view["figure"]["svg"] is None and view["figure"]["alt"] and "spec" not in view["figure"]
+
+
+def test_a_multiple_choice_reply_is_read_as_option_text_first(lib):
+    (view,) = service.make_questions(lib, "add-within-10", seed=0, answers=True)
+    options, right = view["options"], view["answer"]["option"]
+    assert options[right] == "8" and right != 8  # the case: the right option's text is not its index
+    wrong = next(o for o in options if o != "8" and not (o.isdigit() and int(o) < len(options)))
+
+    def mark(reply):
+        return service.grade_reply(lib, view["id"], reply)["correct"]
+
+    assert mark("8") and mark(" 8 ")  # the option 8, not the ninth option
+    assert mark(right)  # an integer is always an index
+    assert mark(chr(ord("A") + right))  # a letter, as the grader reads it
+    assert mark(str(right))  # text that names no option falls back to the grader's index reading
+    assert not mark(wrong)

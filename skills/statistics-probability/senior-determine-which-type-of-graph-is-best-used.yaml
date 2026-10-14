@@ -3,6 +3,7 @@
 id: senior-determine-which-type-of-graph-is-best-used
 name: Determine which type of graph is best used to display a dataset
 domain: statistics-probability
+year_level: ['11']
 description: Given a short description of a dataset (the kind of variable and how many variables are recorded), select from four labelled display types the one best suited to it. easy names the type directly; medium withholds it; hard disguises numeric labels as measurements or a time axis as a second numeric variable; exam extracts the variables from a stated research purpose. Distinct from senior-use-relative-frequencies-and-histograms-obtained-from-data, which hands the learner an already-built display and asks for a probability from it -- this skill never shows a display, only a description, and the decision is which display to draw, not what a display shows.
 status: active
 placement_eligible: false

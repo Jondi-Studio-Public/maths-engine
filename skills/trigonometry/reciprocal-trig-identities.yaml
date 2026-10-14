@@ -1,0 +1,73 @@
+id: reciprocal-trig-identities
+name: Use the identities 1 + tan² = sec² and 1 + cot² = cosec²
+domain: trigonometry
+year_level: ['11']
+description: Use 1 + tan²θ = sec²θ and 1 + cot²θ = cosec²θ to find a reciprocal function from a tangent or cotangent, to
+  find tan or cot from sec or cosec with the sign set by the quadrant, to solve an equation for an acute angle, and to
+  simplify an expression.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-define-the-reciprocal-trigonometric-functions
+answer: expression
+sources:
+- topic: salg_trig_identities
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: salg_trig_identities
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: salg_trig_identities
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: salg_exam_trig_identities
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: recip-identity-root-not-taken
+  description: Stops at sec² (or tan², cosec², cot²) and gives it as the answer without taking the square root.
+- id: recip-identity-tan-not-squared
+  description: Adds 1 to tan instead of to tan squared, so sec is found as 1 + tan.
+- id: recip-identity-one-omitted
+  description: Reads sec² as tan², leaving the 1 out of 1 + tan² = sec².
+- id: recip-identity-sign-slip
+  description: Misapplies the identity with the wrong sign, taking sec² as tan² - 1 or 1 - tan².
+- id: recip-identity-given-repeated
+  description: Gives the value that was stated in the question as the answer for tan or cot.
+- id: recip-identity-factor-left
+  description: Stops part way through a simplification and leaves a squared function or a factor that should cancel.
+- id: recip-identity-not-applied
+  description: Solves as if sec² were another tan², without using 1 + tan² = sec².
+- id: recip-identity-difference-as-zero
+  description: Takes sec²x - tan²x as 0 instead of 1.
+- id: recip-tan-not-applied
+  description: Gives cos for sin by forgetting to multiply by tan.
+- id: recip-tan-divided
+  description: Divides cos by tan instead of multiplying, when finding sin.
+- id: recip-not-taken
+  description: Gives cos, sin or tan where sec, cosec or cot was asked for.
+- id: recip-sec-cosec-swapped
+  description: Mixes up sec and cosec.
+- id: recip-cot-as-tan
+  description: Reads cot as tan, or tan as cot.
+- id: trig-sign-wrong-quadrant
+  description: Gives a negative value where the function is positive in the quadrant.
+- id: trig-quadrant-sign-ignored
+  description: Leaves out the negative sign the quadrant requires.
+- id: trig-wrong-reference-angle
+  description: Uses the complement of the angle, so 30 degrees and 60 degrees are exchanged.
+- id: trig-standard-angle-misread
+  description: Reads the wrong standard angle from the value of tan or cot.
+- id: trig-sin-cos-swapped
+  description: Gives cos where sin was asked for, or the reverse.
+difficulty_progression: Easy gives tan or cot of an acute angle as a ratio of a Pythagorean triple and asks for sec or
+  cosec, which is the identity followed by a positive square root. Medium gives sec or cosec in a stated quadrant
+  outside the first and asks for tan or cot, so the identity gives the size and the quadrant gives the sign. Hard has
+  the learner use the identities in two new ways, to solve an equation in sec² and tan² for an acute angle and to
+  simplify an expression to a single term. The exam chain goes from tan θ and the quadrant to sec²θ, sec θ, cos θ and
+  sin θ.
+tags: [acara-v8-4, trigonometry, reciprocal-trigonometric-functions, pythagorean-identities, ACMSM045, ACMSM043]

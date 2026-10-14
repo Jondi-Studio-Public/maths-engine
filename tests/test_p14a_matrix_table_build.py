@@ -106,7 +106,9 @@ class _CommonBehaviour:
         skill = next(s for s in skills if s.id == SKILL_ID)
         assert skill.answer == "number"
         assert skill.placement_eligible is False
-        assert any(src.topic == TOPIC and src.difficulty == self.TIER for src in skill.sources)
+        # the exam source is now the multi-part network chain; the earlier exam variant is no longer wired
+        topic = "exd_x_r3h_network_journeys" if self.TIER == "exam" else TOPIC
+        assert any(src.topic == topic and src.difficulty == self.TIER for src in skill.sources)
 
 
 class TestEasy(_CommonBehaviour):

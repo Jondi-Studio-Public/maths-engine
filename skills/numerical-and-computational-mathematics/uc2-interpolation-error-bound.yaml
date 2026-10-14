@@ -1,0 +1,83 @@
+id: uc2-interpolation-error-bound
+name: Bound the error of polynomial interpolation
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Bound the error of an interpolating polynomial with the standard formula M/(n+1)! times the node product, or
+  find how many subintervals linear interpolation needs for a tolerance.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-numerical-error-bound
+answer: fraction
+sources:
+- topic: r4h_interpolation_error_bound
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_interpolation_error_bound
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_interpolation_error_bound
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_interpolation_error_bound
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-ieb-derivative-order-off-by-one
+  description: Bounding the n-th derivative instead of the (n+1)-th when n + 1 nodes are used.
+- id: num2t-ieb-factorial-omitted
+  description: Leaving out the factor 1/(n+1)! in the interpolation error bound.
+- id: num2t-ieb-wrong-factorial
+  description: Dividing by n! instead of (n+1)! in the interpolation error bound.
+- id: num2t-ieb-derivative-max-wrong-end
+  description: Taking the largest value of the derivative at the wrong end of the interval, where it is smallest.
+- id: num2t-ieb-derivative-factorial-dropped
+  description: Dropping the factorial that comes from repeated differentiation, writing (-1)^n / x^(n+1) for the derivative
+    of ln x.
+- id: num2t-ieb-node-factor-missed
+  description: Leaving one node out of the product (x − x₀)(x − x₁)⋯(x − xₙ).
+- id: num2t-ieb-node-spacing-cubed
+  description: Replacing the node product by the cube of the node spacing.
+- id: num2t-ieb-max-product-wrong
+  description: Taking the largest node product on a spacing h as h² instead of h²/4 for linear interpolation.
+- id: num2t-ieb-half-factor-missed
+  description: Bounding the linear interpolation error by M h²/4, forgetting the 1/8 in M h²/8.
+- id: num2t-ieb-nodes-for-subintervals
+  description: Giving the number of nodes (one more than the number of subintervals).
+- id: num2t-ieb-tolerance-not-squared
+  description: Solving for h instead of h², so the number of subintervals comes from the square root of the right quantity.
+- id: num2t-ieb-derivative-order-too-high
+  description: Bounding a derivative one order higher than the (n+1)-th.
+- id: num2t-ieb-node-product-with-evaluation-point
+  description: Multiplying the node product by the evaluation point as an extra factor.
+- id: num2t-ieb-factorial-too-high
+  description: Dividing by (n+2)! instead of (n+1)! in the interpolation error bound.
+- id: num2t-ieb-derivative-at-wrong-order
+  description: Using the first derivative of the function in place of the second when bounding linear interpolation.
+difficulty_progression: 'Easy bounds the error at a point for sin kx or cos kx through three nodes, where the derivative bound
+  k^(n+1) is read from the function. Medium uses ln x, 1/x or a power, where the largest derivative sits at one end of the
+  interval and a factorial appears in it. Hard reverses the problem: the fewest equal subintervals that guarantee a tolerance
+  for linear interpolation, which needs the second derivative bound, the h²/8 bound and a square root. The exam chain asks
+  for the derivative bound, then the node product, then the error bound from the learner''s two values.'
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- interpolation
+- error-bounds
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

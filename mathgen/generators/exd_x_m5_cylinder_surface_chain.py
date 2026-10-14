@@ -44,7 +44,8 @@ _A_PROMPT = (
     "Calculate the height of the cylinder in centimetres, correct to 1 decimal place.",
 )
 _B_PROMPT = (
-    "Hence find the capacity of the cylinder in millilitres (1 cm³ = 1 mL), correct to the nearest millilitre.",
+    "Using your height from (a), find the capacity of the cylinder in millilitres (1 cm³ = 1 mL), "
+    "correct to the nearest millilitre.",
     "Using your height from (a), find how many millilitres the cylinder holds (1 cm³ = 1 mL), "
     "to the nearest millilitre.",
 )

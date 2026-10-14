@@ -196,6 +196,14 @@ def test_multi_part_grades_hide_every_parts_answer(learner, author):
     assert all(part["canonical"] for part in shown["parts"].values())
 
 
+def test_a_multiple_choice_reply_may_be_the_option_text(learner):
+    data, _, _ = call(learner, "make_questions", {"skill_id": "add-within-10", "seed": 0})
+    question = data["questions"][0]
+    assert "8" in question["options"]
+    marked, is_error, text = call(learner, "grade_answer", {"question_id": question["id"], "reply": "8"})
+    assert not is_error and marked["correct"] is True, text
+
+
 def test_an_object_reply_to_a_one_answer_question_is_refused(learner):
     data, _, _ = call(learner, "make_questions", {"skill_id": "simplify-surds", "seed": 5})
     _, is_error, text = call(learner, "grade_answer", {"question_id": data["questions"][0]["id"], "reply": {"a": "1"}})
@@ -234,10 +242,10 @@ def test_every_chart_kind_reaches_the_learner_as_a_picture(learner, author, kind
 
 def test_find_and_describe_skills(learner):
     data, is_error, _ = call(learner, "find_skills", {"text": "surd", "limit": 3})
-    assert not is_error and data["total"] >= len(data["skills"]) and len(data["skills"]) <= 3
+    assert not is_error and data["count"] >= len(data["skills"]) and len(data["skills"]) <= 3
     every, _, _ = call(learner, "find_skills", {"text": "surd", "limit": 100})
-    assert every["total"] == data["total"] and "simplify-surds" in [s["id"] for s in every["skills"]]
-    year8, _, _ = call(learner, "find_skills", {"curriculum_code": "AC9M8", "limit": 100})
+    assert every["count"] == data["count"] and "simplify-surds" in [s["id"] for s in every["skills"]]
+    year8, _, _ = call(learner, "find_skills", {"code": "AC9M8", "limit": 100})
     assert year8["skills"] and all(any(c.startswith("AC9M8") for c in s["curriculum_codes"]) for s in year8["skills"])
     skill, _, _ = call(learner, "get_skill", {"skill_id": "simplify-surds"})
     assert skill["id"] == "simplify-surds" and "prerequisites" in skill

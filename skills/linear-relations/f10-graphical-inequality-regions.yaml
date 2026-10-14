@@ -1,0 +1,37 @@
+id: f10-graphical-inequality-regions
+name: Decide which points lie in the region of a linear inequality
+domain: linear-relations
+year_level: ['10']
+naplan_domain: []
+description: Read the equation of a drawn line (or two lines), then decide which points satisfy an inequality or a pair of inequalities, with the boundary in or out. Answers are typed sets of point labels.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [equation-from-graph]
+answer: set
+sources:
+- topic: y910_graph_inequality_region
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: y910_graph_inequality_region
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: y910_graph_inequality_region
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_y910_graph_system
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: region-on-the-wrong-side-of-the-line
+  description: Chooses the region above the line when it is below, or the reverse.
+- id: boundary-point-handled-the-wrong-way
+  description: Includes a point on a strict boundary (> or <), or leaves out a point on an inclusive one (≥ or ≤).
+- id: only-one-condition-checked
+  description: Tests a point against one of two conditions and stops.
+tags: [f10, linear-relations, inequalities, graphs, ac9m10a02, year-10a]

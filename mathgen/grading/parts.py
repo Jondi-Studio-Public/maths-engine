@@ -19,19 +19,23 @@ from __future__ import annotations
 
 import dataclasses
 import json
+import math
 import re
 from fractions import Fraction
 
 import sympy
 from sympy.core.function import AppliedUndef
 
+from mathgen.text_quality import requested_significant_figures
 from mathgen.core import VerificationError, round_half_up, stated_precision_string, numeric_answer, rational_text
 
 from . import typed
 from .safe_parse import sympify_safely
 
-#: Answer kinds whose reply reads as a single value, so a later part's `follow_through` can name them.
-VALUE_KINDS = frozenset({"number", "fraction", "expression"})
+#: Answer kinds whose reply reads as a single value, so a later part's `follow_through` can name them. An
+#: `ordered_list` reply reads as a SymPy `Tuple` of numbers: a `follow_through` can name one (to hand it to a
+#: function such as `perm_order`) and can itself work out one (a tuple of expressions, compared item by item).
+VALUE_KINDS = frozenset({"number", "fraction", "expression", "ordered_list"})
 
 _SYMBOL_PREFIX = "part_"
 _NUMBER_LITERAL_RE = re.compile(r"-?\d+(?:\.\d+)?")
@@ -78,12 +82,22 @@ def unreadable_note(parts) -> str:
     )
 
 
+def _reply_text(value) -> str:
+    """One part's reply as text. A number is its digits, so an option index or answer of 0 is a reply and not an
+    empty box (0 is falsy, which `value or ""` would turn into ""); a bool is no reply; None is none."""
+    if value is None or isinstance(value, bool):
+        return ""
+    if isinstance(value, (int, float)):
+        return str(value)
+    return str(value or "")
+
+
 def _split(parts, given) -> dict[str, str] | None:
     """`given` as one reply per part label, or None when text was given that cannot be split into parts."""
     labels = [p.label for p in parts]
     if isinstance(given, dict):
-        return {label: str(given.get(label, "") or "") for label in labels}
-    text = str(given or "").strip()
+        return {label: _reply_text(given.get(label)) for label in labels}
+    text = _reply_text(given).strip()
     if not text:
         return {label: "" for label in labels}
     if text.startswith("{"):
@@ -92,7 +106,7 @@ def _split(parts, given) -> dict[str, str] | None:
         except ValueError:
             loaded = None
         if isinstance(loaded, dict):
-            return {label: str(loaded.get(label, "") or "") for label in labels}
+            return {label: _reply_text(loaded.get(label)) for label in labels}
     if len(labels) == 1:
         # One part: a leading marker is dropped, anything else is the reply.
         match = _label_marker(labels[0]).match(text)
@@ -145,6 +159,12 @@ def reply_value(kind: str, reply: str):
         if kind == "expression":
             value = typed._parse_expression(typed._strip_label(reply))
             return value if isinstance(value, sympy.Basic) else None
+        if kind == "ordered_list":
+            items = typed._strip_ordinal_prefixes(typed._split_ordered_items(typed._strip_label(reply)))
+            numbers = [typed._parse_numeric_item(item) for item in items]
+            if not numbers or any(n is None for n in numbers):
+                return None
+            return sympy.Tuple(*(sympy.Rational(n.numerator, n.denominator) for n in numbers))
     except Exception:  # noqa: BLE001 - an unreadable reply simply has no value to follow through from
         return None
     return None
@@ -156,16 +176,52 @@ def reply_value(kind: str, reply: str):
 #: Functions a `follow_through` expression may use beyond the safe parser's own (which reads them as
 #: undefined functions): `erf` and `erfc` for normal probabilities, and `Subs(expr, (x, y), (2, 3))` to
 #: evaluate an earlier part's expression at a point.
+def _permutation(images) -> list[int]:
+    """A reply read as a permutation of 1..n written as the list of images, or ValueError when it is none."""
+    values = [int(v) for v in images if getattr(v, "is_Integer", False)]
+    if len(values) != len(images) or sorted(values) != list(range(1, len(values) + 1)):
+        raise ValueError("not a permutation of 1..n")
+    return values
+
+
+def _perm_order(images):
+    """The order of the permutation written as the list of images of 1..n: the lcm of its cycle lengths."""
+    perm, seen, order = _permutation(images), set(), 1
+    for start in range(1, len(perm) + 1):
+        length, point = 0, start
+        while point not in seen:
+            seen.add(point)
+            point, length = perm[point - 1], length + 1
+        order = math.lcm(order, length) if length else order
+    return sympy.Integer(order)
+
+
+def _perm_image(images, point, power):
+    """Where `point` goes under the permutation (a list of images of 1..n) applied `power` times."""
+    perm, here = _permutation(images), int(point)
+    if not 1 <= here <= len(perm) or int(power) < 0 or int(power) > 10**6:
+        raise ValueError("point or power out of range")
+    cycle, probe = [here], perm[here - 1]
+    while probe != here:
+        cycle.append(probe)
+        probe = perm[probe - 1]
+    return sympy.Integer(cycle[int(power) % len(cycle)])
+
+
 _FUNCTIONS = {
     "erf": sympy.erf,
     "erfc": sympy.erfc,
     "Subs": lambda expr, names, values: expr.subs(dict(zip(names, values))),
+    "perm_order": _perm_order,
+    "perm_image": _perm_image,
 }
 
 
 def follow_through_expression(part) -> sympy.Expr:
     """`part.follow_through` parsed (by the engine's safe parser), with `pi` and `E` as the constants."""
     expr = sympify_safely(part.follow_through)
+    if isinstance(expr, tuple):  # "(e1, e2, ...)": the items of an ordered_list part
+        expr = sympy.Tuple(*expr)
     return expr.xreplace({sympy.Symbol("pi"): sympy.pi, sympy.Symbol("E"): sympy.E})
 
 
@@ -183,6 +239,63 @@ def named_parts(part) -> list[str]:
     return sorted(s.name[len(_SYMBOL_PREFIX) :] for s in expr.free_symbols if s.name.startswith(_SYMBOL_PREFIX))
 
 
+def _decade(value: Fraction) -> int:
+    """The e with 10**e <= value < 10**(e + 1), for a positive `value`."""
+    e = len(str(value.numerator // value.denominator)) - 1 if value >= 1 else 0
+    ten = Fraction(10)
+    while value >= ten ** (e + 1):
+        e += 1
+    while value < ten**e:
+        e -= 1
+    return e
+
+
+def _figure_count(part) -> int | None:
+    """The significant figures `part` is already fixed to, or None (a label there is an earlier answer's)."""
+    count = getattr(part, "sig_figs", None)
+    return count if isinstance(count, int) and not isinstance(count, bool) and count > 0 else None
+
+
+def _counted(part, parts, values=None):
+    """`part` with its `sig_figs` made a whole number, read from the earlier part it names: that part's
+    canonical answer, or its reply in `values` when given. A reply that is no sensible count leaves none."""
+    label = getattr(part, "sig_figs", None)
+    if not isinstance(label, str):
+        return part
+    if values is None:
+        source = next((p for p in parts if p.label == label), None)
+        value = _canonical_value(source) if source is not None else None
+    else:
+        value = values.get(label)
+    count = None
+    if value is not None and getattr(value, "is_Integer", False) and 0 < int(value) <= 15:
+        count = int(value)
+    return dataclasses.replace(part, sig_figs=count)
+
+
+def _retarget_list(part, value, common):
+    """`part` (an ordered list of numbers) with the tuple `value` as its answer, each item stated the way the
+    part's own items are: a fraction in lowest terms when they are fractions, a whole number when they are
+    whole numbers. None when `value` is no tuple of such numbers or has another length than the part's list."""
+    expected = part.answer
+    if not isinstance(value, sympy.Tuple) or not isinstance(expected, list) or len(value) != len(expected):
+        return None
+    items = []
+    for item, like in zip(value, expected):
+        if not getattr(item, "is_Rational", False):
+            return None
+        if isinstance(like, int) and not isinstance(like, bool):
+            if not item.is_Integer:
+                return None
+            items.append(int(item))
+        else:
+            items.append(Fraction(int(item.p), int(item.q)))
+    text = ", ".join(rational_text(sympy.Rational(i.numerator, i.denominator)) for i in map(Fraction, items))
+    if (part.answer_text or "").startswith("("):
+        text = f"({text})"
+    return dataclasses.replace(part, answer=items, answer_text=text, **common)
+
+
 def retarget(part, value):
     """A copy of `part` whose canonical answer is `value`, stated the way the part states its own answer, or
     None when `value` cannot be stated that way (not a real number for a number part, not rational for a
@@ -191,6 +304,8 @@ def retarget(part, value):
     common = dict(answer_alt=None, distractors=[], option_notes={}, distractor_values={}, distractor_credit={})
     if kind == "expression":
         return dataclasses.replace(part, answer=value, answer_text=sympy.sstr(value), **common)
+    if kind == "ordered_list":
+        return _retarget_list(part, value, common)
     if not value.is_number:
         return None
     # An exact Rational is already its own fraction; nsimplify can rewrite a large one (2567/795) as a
@@ -212,7 +327,15 @@ def retarget(part, value):
     if not approx.is_finite or abs(approx) > _LARGEST:
         return None  # no answer is this big, and writing it out exactly (exp of a huge reply) takes minutes
     exact = Fraction(str(sympy.N(value, _DIGITS)))
-    rounded = round_half_up(exact, places) if exact >= 0 else -round_half_up(-exact, places)
+    figures = requested_significant_figures(part.prompt) or _figure_count(part)
+    if figures is not None and exact != 0:
+        # A part that asks for N significant figures is stated to N, not to the places the canonical happens to
+        # show: the same learner reply rounds differently from a different carried value.
+        unit = Fraction(10) ** (_decade(abs(exact)) - figures + 1)
+        rounded = round_half_up(abs(exact) / unit, 0) * unit * (1 if exact > 0 else -1)
+        places = max(0, -(_decade(abs(exact)) - figures + 1))
+    else:
+        rounded = round_half_up(exact, places) if exact >= 0 else -round_half_up(-exact, places)
     stated = stated_precision_string(rounded, places) if places else str(int(rounded))
     answer_text = _NUMBER_LITERAL_RE.sub(stated, part.answer_text, count=1)
     return dataclasses.replace(part, answer=numeric_answer(rounded), answer_text=answer_text, **common)
@@ -225,7 +348,10 @@ def follow_through_target(part, values: dict[str, object]):
     if value is None:
         return None
     try:
-        return retarget(part, value)
+        target = retarget(_counted(part, (), values), value)
+        if target is not None and part.answer_kind == "ordered_list" and not _items_in_range(part, target):
+            return None
+        return target
     except (TypeError, ValueError, ZeroDivisionError, ArithmeticError):
         return None
 
@@ -297,11 +423,26 @@ def _verify_range(part) -> None:
         or (None not in bounds and bounds[0] >= bounds[1])
     ):
         raise VerificationError(f"part {part.label!r}: sensible_range must be (low, high), either end a number or None")
+    if part.answer_kind == "ordered_list" and isinstance(part.answer, list):
+        if not _items_in_range(part, part):
+            raise VerificationError(f"part {part.label!r}: its answer {part.answer_text!r} is outside sensible_range")
+        return
     if part.answer_kind not in ("number", "fraction"):
         raise VerificationError(f"part {part.label!r}: sensible_range needs a number or fraction part")
     value = reply_value(part.answer_kind, part.answer_text)
     if value is None or not _in_range(bounds, value):
         raise VerificationError(f"part {part.label!r}: its answer {part.answer_text!r} is outside sensible_range")
+
+
+def _items_in_range(part, target) -> bool:
+    """Whether every item of the list answer `target` lies in `part.sensible_range` (an open interval for each
+    item, as for a single value): a distribution with a "probability" of 1.4 is no follow-through."""
+    if part.sensible_range is None:
+        return True
+    return all(
+        _in_range(part.sensible_range, sympy.Rational(Fraction(i).numerator, Fraction(i).denominator))
+        for i in target.answer
+    )
 
 
 def _within_one_place(part, target) -> bool:
@@ -339,7 +480,7 @@ def grade_parts(question, given, *, skill=None) -> typed.GradeResult:
         reply = replies.get(part.label, "")
         if len(reply) > typed.MAX_REPLY_LENGTH:
             reply = ""
-        result = typed.grade(part.answer_kind, part, reply, skill=skill)
+        result = typed.grade(part.answer_kind, _counted(part, question.parts), reply, skill=skill)
         earned = Fraction(part.marks) if result.correct else Fraction(0)
         if not result.correct:
             off_canonical.add(part.label)
@@ -399,6 +540,12 @@ def _carries(parts, part, values, known=frozenset()) -> bool:
     by_label = {p.label: p for p in parts}
     for name in named_parts(part):
         value, source = values.get(name), by_label[name]
+        if source.answer_kind == "ordered_list":
+            # A list reply carries only when it has the length of the list asked for: "1" typed for a
+            # permutation of eight images is no permutation, and works out a "result" of its own.
+            if not isinstance(value, sympy.Tuple) or len(value) != len(source.answer or ()):
+                return False
+            continue
         if value is None or not getattr(value, "is_number", False):
             continue
         if _states_zero(source, value) and not _same(_canonical_value(source), 0):

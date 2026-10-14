@@ -6,7 +6,8 @@ name: 'Formulate differential equations including the logistic equation that wil
 domain: differential-equations
 description: Given a verbal description of a rate relationship (proportional growth/decay,
   Newton's law of cooling, logistic growth, or a combined input/decay rate), choose the
-  differential equation FORM that models it. Never asks the learner to solve the equation.
+  differential equation FORM that models it. At the exam tier a well-mixed tank is worked numerically (the
+  rate in, the rate out, dQ/dt and the long-run amount). Never asks the learner to solve the equation.
 status: active
 placement_eligible: false
 prerequisites:
@@ -28,9 +29,8 @@ sources:
     variant: hard
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p13b_formulate_de
-  params:
-    variant: exam
+- topic: exd_x_r3i_mixing_rates
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

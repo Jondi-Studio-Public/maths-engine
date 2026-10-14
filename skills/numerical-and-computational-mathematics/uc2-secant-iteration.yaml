@@ -1,0 +1,82 @@
+id: uc2-secant-iteration
+name: Apply the secant method
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Take one or two secant steps for an equation given as f(x) or as two sides, from two starting values, and measure
+  how close the iterate is to the root.
+status: active
+placement_eligible: false
+prerequisites:
+- newton-method-iteration
+answer: number
+sources:
+- topic: r4b_secant_iteration
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_secant_iteration
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_secant_iteration
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_secant_iteration
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-secant-newton-step-confused
+  description: Taking a Newton step from the latest point, x - f(x)/f'(x), when the secant method replaces the derivative
+    by the slope of the chord through the last two points.
+- id: num2-secant-correction-sign
+  description: Adding the correction f(x_n)(x_n - x_(n-1))/(f(x_n) - f(x_(n-1))) to x_n instead of subtracting it.
+- id: num2-secant-f-factor-dropped
+  description: Leaving the factor f(x_n) out of the secant correction, so the step is (x_n - x_(n-1))/(f(x_n) - f(x_(n-1))).
+- id: num2-secant-averaged-starting-values
+  description: Taking the average of the two starting values as the next iterate instead of the zero of the chord.
+- id: num2-secant-wrong-rearrangement
+  description: Dropping the constant when writing x^3 = ax + b as f(x) = 0, so the step uses a different function.
+- id: num2-secant-window-not-advanced
+  description: Taking the second secant step from the starting pair again, instead of the two newest iterates.
+- id: num2-secant-stopped-early
+  description: Reporting the first iterate when the question asks for the iterate after a second step.
+- id: num2-secant-evaluates-x-not-f
+  description: Giving the iterate itself where the value of f at the iterate is asked for.
+- id: num2-secant-residual-previous-iterate
+  description: Evaluating f at the previous iterate x_1 instead of the new iterate x_2.
+- id: num2-secant-residual-sign
+  description: Getting the sign of f(x) wrong when squaring and subtracting the constant.
+- id: num2-secant-square-dropped
+  description: Subtracting the constant from the iterate without squaring it when evaluating x^2 - N.
+- id: num2-secant-error-sign
+  description: Giving the signed difference between the iterate and the root when the absolute error is asked for.
+- id: num2-secant-error-of-wrong-iterate
+  description: Finding the error of the earlier iterate x_2 instead of the latest iterate x_3.
+- id: num2-secant-residual-for-error
+  description: Giving the residual |f(x)| of an iterate in place of its error as an estimate of the root.
+- id: num2-secant-error-against-x2
+  description: Measuring the error of x_3 against the previous iterate x_2 instead of against the true root.
+difficulty_progression: Easy is one secant step for x² − N from two starting values, to 4 decimal places. Medium gives the
+  equation as x³ = ax + b, so the function must be formed first, then one step. Hard takes two steps from starting values
+  on the same side of the root, so the second step must use the two newest iterates. The exam chain follows x² − N through
+  x₂, f(x₂), x₃ and the absolute error of x₃ as an estimate of √N.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- secant-method
+- root-finding
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

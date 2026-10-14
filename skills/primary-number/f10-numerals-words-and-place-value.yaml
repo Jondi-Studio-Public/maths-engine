@@ -1,0 +1,67 @@
+id: f10-numerals-words-and-place-value
+name: Write large numbers from words and use place value
+domain: primary-number
+year_level: ['3']
+naplan_domain: [number]
+description: Write a number above ten thousand as a numeral from its words, give the value of a named digit, and move a number
+  up or down by a power of ten where the change has to regroup.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-number-represent-order-to-1000
+answer: number
+sources:
+- topic: fr2b_numerals_place_value
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_numerals_place_value
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_numerals_place_value
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-numeral-written-without-placeholder-zero
+  description: 'Writing the parts of a number side by side and leaving out the 0 for an empty place: twenty-three thousand
+    and six written as 236.'
+- id: fr2b-numeral-digits-transposed
+  description: Swapping two neighbouring digits when writing a number from its words.
+- id: fr2b-numeral-has-wrong-number-of-zeros
+  description: Writing a numeral with one zero too many or too few, so it is ten times too big or too small.
+- id: fr2b-digit-value-is-the-digit-itself
+  description: Giving the digit itself as its value, as if 7 in 472 036 were worth 7.
+- id: fr2b-digit-value-from-wrong-place
+  description: Reading the digit's place one or two places out, so its value is ten or a hundred times too big or too small.
+- id: fr2b-place-name-given-for-digit-value
+  description: Giving the value of the place (such as 10 000) instead of the value of the digit in it (such as 70 000).
+- id: fr2b-no-regrouping-across-a-zero-or-nine
+  description: Changing only the digit in the named place, so 9 becomes 0 or 0 becomes 9 and the next place is not regrouped.
+- id: fr2b-changes-the-wrong-place
+  description: Adding or taking away ten times too much or too little, because the place named was mixed up with a neighbouring
+    place.
+- id: fr2b-more-and-less-reversed
+  description: Adding when the question says less, or taking away when it says more.
+difficulty_progression: Easy turns number words into a numeral where a place is empty, so a zero has to be written. Medium
+  gives a six-digit numeral and asks what one named digit is worth, so the place has to be read and not just the digit. Hard
+  gives the number in words and moves it by 10, 100, 1 000 or 10 000 where the digit in that place is 0 or 9, so the change
+  regroups across the next place.
+tags:
+- acara-f10-v9
+- primary
+- place-value
+- number-words
+- ac9m3n01

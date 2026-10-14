@@ -102,23 +102,94 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z])(?<![A-Za-z]\^)(?:\d[\d,]*(?:\.\d+)?|\.\d
 # "to mm", "into grams", "in km/h", "how many kilojoules": the unit the question asks for by name. Not "in year 3"
 # (a label, not a unit), not "to the nearest cent" (a precision: the answer is still in dollars), and not "in n = 5"
 # or "in g(x)" (a variable or a function).
-_ASKED_RE = re.compile(rf"\b(?:to|into|in|how\s+many)\s+({_SPELLING_PATTERN})(?![\w²³'’])(?!\s*[\d=(])", re.IGNORECASE)
-_SENTENCE_RE = re.compile(r"[^.?!]+[.?!]?")
+_ASKED_RE = re.compile(
+    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’^])(?!\s*[\d=(])(?!\s*(?:per\b|[/·⋅×*]))",
+    re.IGNORECASE,
+)
+# "in N/m", "in kL per hour", "in m/s²", "how many cents per 100 g": the question asks for a compound unit that the
+# table has no spelling for. Its parts are read so that a reply in some other unit ("45 kg") can still be refused.
+_ASKED_COMPOUND_RE = re.compile(
+    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})"
+    rf"\s*(?:per\b|[/·⋅×*])\s*(?:\d[\d,]*(?:\.\d+)?\s*)?({_SPELLING_PATTERN})?(?:\^?[23²³])?(?![\w'’])",
+    re.IGNORECASE,
+)
+#: Units that are themselves rates: a reply in one of them is not refused for a compound unit asked by its parts.
+_RATE_UNITS = frozenset({"km/h", "m/s", "mph"})
+# "Using your speed in m/s": the unit describes a value the learner already has, not the unit being asked for.
+_EARLIER_VALUE_RE = re.compile(r"\byour\s+\w+(?:\s+\w+)?\s+$", re.IGNORECASE)
+# ... but "Give your answer in dollars" asks for the answer's unit: the verb in front of "your" says so.
+_ASKING_VERB_BEFORE_RE = re.compile(
+    r"\b(?:give|write|state|express|show|leave|round|present|enter|type)\s+$", re.IGNORECASE
+)
+# A full stop inside a number ("4.5 seconds") does not end a sentence.
+_SENTENCE_RE = re.compile(r"(?:[^.?!]|\.(?=\d))+[.?!]?")
 _ASKING_RE = re.compile(
-    r"^\s*(?:find|convert|calculate|work\s+out|determine|write|express|give|estimate|state|what|how)\b", re.IGNORECASE
+    r"^\s*(?:find|convert|calculate|work\s+out|determine|write|express|give|estimate|state|what|how|"
+    r"hence|therefore|thus|then|round|using\s+(?:your|the)|use\s+(?:your|the))\b",
+    re.IGNORECASE,
 )
 
 
+_LEADING_DOLLAR_RE = re.compile(r"^\s*\$\s*(?=\S)")
+_PERCENT_RE = re.compile(r"\s*(?:%|percent)\s*$", re.IGNORECASE)
+
+
+def split_unit(text: str) -> tuple[str, str | None]:
+    """`text` as (the number it states, the recognised unit written with it).
+
+    The unit is a trailing one ("1185/8 m^2", "109.5 m/s", "71 dollars") or a leading "$" ("$71"); the number
+    is the rest, unit removed. With no recognised unit the text comes back unchanged with None. A percent
+    sign or the word "percent" is taken off too and reported as the unit "%", which is not in the unit table
+    and so is never judged against what the question asks for."""
+    text = text or ""
+    numbers = list(_NUMBER_RE.finditer(text))
+    if numbers:
+        rest = text[numbers[-1].end() :].strip().rstrip(".!")
+        match = _MENTION_RE.match(rest)
+        if match is not None and match.end() == len(rest.rstrip()):
+            return text[: numbers[-1].end()], _SPELLING_TO_UNIT[match.group(0).lower()]
+    dollar = _LEADING_DOLLAR_RE.match(text)
+    if dollar is not None:
+        return text[dollar.end() :], "dollar"
+    percent = _PERCENT_RE.search(text)
+    if percent is not None and numbers:
+        return text[: percent.start()], "%"
+    return text, None
+
+
 def _unit_of(text: str) -> str | None:
-    """The recognised unit written straight after the last number in `text`, or None."""
+    """The recognised unit written straight after the last number in `text`, or None. A leading "$" is not
+    judged: "$501" for an amount in cents has always been read as the number 501."""
+    unit = split_unit(text)[1]
+    return None if unit in ("%", "dollar") and not _trailing_unit(text) else unit
+
+
+def _trailing_unit(text: str) -> bool:
+    """Whether `text` writes a recognised unit straight after its last number."""
     numbers = list(_NUMBER_RE.finditer(text or ""))
     if not numbers:
-        return None
+        return False
     rest = text[numbers[-1].end() :].strip().rstrip(".!")
     match = _MENTION_RE.match(rest)
-    if match is None or match.end() != len(rest.rstrip()):
-        return None
-    return _SPELLING_TO_UNIT[match.group(0).lower()]
+    return match is not None and match.end() == len(rest.rstrip())
+
+
+def _describes_earlier_value(before: str) -> bool:
+    """Whether the words in front of an "in <unit>" make it describe a value the learner already has."""
+    found = _EARLIER_VALUE_RE.search(before)
+    return found is not None and _ASKING_VERB_BEFORE_RE.search(before[: found.start()]) is None
+
+
+def _asking_matches(question, pattern: re.Pattern) -> list[re.Match]:
+    """Every match of `pattern` in a sentence of the question that asks for the answer, in order, leaving out
+    an "in <unit>" that describes a value the learner already has."""
+    return [
+        match
+        for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
+        if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
+        for match in pattern.finditer(sentence)
+        if not _describes_earlier_value(sentence[: match.start()])
+    ]
 
 
 def _asked_unit(question) -> str | None:
@@ -126,13 +197,16 @@ def _asked_unit(question) -> str | None:
     shown = _unit_of(getattr(question, "answer_text", "") or "")
     if shown is not None:
         return shown
-    asked = [
-        spelling
-        for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
-        if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
-        for spelling in _ASKED_RE.findall(sentence)
-    ]
-    return _SPELLING_TO_UNIT[asked[-1].lower()] if asked else None
+    asked = _asking_matches(question, _ASKED_RE)
+    return _SPELLING_TO_UNIT[asked[-1].group(1).lower()] if asked else None
+
+
+def _asked_compound_parts(question) -> frozenset[str] | None:
+    """The recognised parts of the last compound unit the question asks for ("N/m" gives N and m), or None."""
+    asked = _asking_matches(question, _ASKED_COMPOUND_RE)
+    if not asked:
+        return None
+    return frozenset(_SPELLING_TO_UNIT[spelling.lower()] for spelling in asked[-1].groups() if spelling)
 
 
 def unit_is_acceptable(question, given: str) -> bool:
@@ -141,4 +215,7 @@ def unit_is_acceptable(question, given: str) -> bool:
     if unit is None:
         return True
     asked = _asked_unit(question)
-    return asked is None or unit == asked
+    if asked is not None:
+        return unit == asked
+    parts = _asked_compound_parts(question)
+    return parts is None or unit in parts or unit in _RATE_UNITS

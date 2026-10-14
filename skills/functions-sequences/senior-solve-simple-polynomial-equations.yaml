@@ -3,6 +3,7 @@
 id: senior-solve-simple-polynomial-equations
 name: Solve simple polynomial equations
 domain: functions-sequences
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, solve simple polynomial equations. Return the resulting value, expression, relation, or classification. Every question is a monic quadratic in z with a non-real complex-conjugate root pair; the learner types the root with positive imaginary part, a complex value in the form a + bi (never a sum, product, or coefficient built from a stated root pair -- that is the scope of the sibling skill senior-consider-conjugate-roots-for-polynomials-with-real-coefficients, ACMSM090, which only ever asks for a real number). Never cubic or higher-degree, never factorisation or graphing.'
 status: active
 placement_eligible: false

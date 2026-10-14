@@ -3,6 +3,7 @@
 id: senior-determine-and-use-the-formulas-for-finding-the
 name: Determine and use the formulas for finding the number of elements in the union of two and the union of three sets
 domain: senior-mathematics
+year_level: ['11']
 description: |
   Given bounded, fully specified inputs, determine and use the formulas for finding the
   number of elements in the union of two and the union of three sets. Return the resulting
@@ -35,7 +36,7 @@ sources:
     params: {mode: three_set_unknown}
     difficulty: hard
     stages: [5, 6, maintenance]
-  - topic: exd_x_h5_set_membership_counts
+  - topic: exd_x_r3c_club_overlaps
     params: {tier: exam}
     difficulty: exam
     stages: [exam]

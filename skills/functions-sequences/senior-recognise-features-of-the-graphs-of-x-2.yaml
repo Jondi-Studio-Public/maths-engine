@@ -3,6 +3,7 @@
 id: senior-recognise-features-of-the-graphs-of-x-2
 name: 'Recognise features of the graphs of \(x^2+y^2=r^2\) and \(\left(x-a\right)^2+\left(y-b\right)^2=r^2\), including their circular shapes, their centres and their radii'
 domain: functions-sequences
+year_level: ['11']
 description: Given a circle drawn on an integer grid, state the coordinates (a, b) of its centre, by reading a marked centre, finding the middle of an unmarked circle, or choosing the right one of two circles. Never asks for the radius, an equation, a tangent or a chord.
 status: active
 capability_gates: [figure_stimulus]

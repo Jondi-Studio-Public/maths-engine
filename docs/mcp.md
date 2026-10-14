@@ -86,15 +86,15 @@ Both roles have these. Replies are JSON.
 | Tool | Parameters | Returns |
 |---|---|---|
 | `engine_info` | none | engine and library versions, the role, the paper formats allowed, and attribution text |
-| `find_skills` | `text`, `year` (`F`, `1` ... `10`, `10A`), `curriculum_code` (an ACARA code or prefix, such as `AC9M8`), `domain`, `framework` (`acara-f10-v9`, `acara-senior-v8-4`, `university-core-v1`), `answer_kind`, `gradeable_only` (default false), `limit` (1 to 100, default 25) | `{"total", "skills"}`; every filter given must match |
+| `find_skills` | `text`, `year` (`F`, `1` ... `10`, `10A`), `code` (an ACARA code or prefix, such as `AC9M8`), `domain`, `framework` (`acara-f10-v9`, `acara-senior-v8-4`, `university-core-v1`), `answer_kind`, `difficulty`, `tag`, `gradeable` (default false), `limit` (1 to 100, default 25) | `{"count", "skills"}`, with `count` the number matched; every filter given must match. Names match the HTTP API's `GET /v1/skills` |
 | `get_skill` | `skill_id` | one skill in full: description, sources, prerequisites, tags, misconceptions |
 | `make_questions` | `skill_id`, `count` (1 to 30, default 1), `seed`, `source`, `include_figures` (default false) | `{"questions": [...]}`; each has an `id` |
 | `get_question` | `question_id`, `include_figures` | one question, rebuilt from its id |
 | `grade_answer` | `question_id`, `reply` | whether the reply is right, a note, any misconception it shows, marks and per-part results |
 | `build_paper` | `spec`, `format`, `version` | JSON, or the path of a file written; see below |
 
-`reply` is the learner's text. For multiple choice it is the 0-based option index or the option text; for a
-multi-part question an object keyed by part label.
+`reply` is the learner's text. For multiple choice it is the option's text as a string (`"8"` picks the option 8), or
+the option's 0-based index as an integer (`1`); for a multi-part question an object keyed by part label.
 
 A table question's reply is one string (not an object), in any of three forms. The question's `table` lists the
 blanks, each named by a 0-based `"row,column"` key.

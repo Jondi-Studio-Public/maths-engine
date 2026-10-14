@@ -1,0 +1,78 @@
+id: f10-trial-tallies-compare-outcomes
+name: Read tallies from repeated chance trials
+domain: statistics-probability
+year_level: ['3', '4', '5']
+naplan_domain: [probability]
+description: >-
+  Read the tallies from repeated chance trials with whole-number answers and no fractions. Easy reads one tally,
+  the gap between two tallies, or the count for the most common outcome. Medium compares an outcome's tally with
+  the count equal likelihood would give for a spinner with equal sections. Hard works with a tally after the first
+  trials and again after more, to find the extra trials on their own, the gap between two outcomes in them, or the
+  most common outcome against equal likelihood.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-chance-language-and-outcomes
+answer: number
+sources:
+- topic: fr2d_trial_tallies
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2d_trial_tallies
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2d_trial_tallies
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: fr2d-adds-instead-of-compares
+  description: >-
+    Adding two counts where the question asked how many more one is than the other.
+- id: fr2d-adds-instead-of-subtracts
+  description: >-
+    Adding the tally from the first trials to the final tally, where the extra trials needed a subtraction.
+- id: fr2d-compares-with-another-outcome
+  description: >-
+    Comparing an outcome with another outcome, where the comparison asked for was with the equal-likelihood
+    count.
+- id: fr2d-count-for-difference-from-expected
+  description: >-
+    Giving the number of times an outcome came up, where the question asked how far that is from the equal-
+    likelihood count.
+- id: fr2d-equal-share-for-difference
+  description: >-
+    Giving the equal-likelihood count itself, where the question asked how far the result was from it.
+- id: fr2d-gap-for-count
+  description: >-
+    Giving the gap between the most and least common outcomes where the count itself was asked for.
+- id: fr2d-gap-over-all-trials
+  description: >-
+    Finding the gap between two outcomes over all the trials, where only the extra trials were asked about.
+- id: fr2d-gap-over-first-trials
+  description: >-
+    Finding the gap between two outcomes in the first trials, where only the extra trials were asked about.
+- id: fr2d-reads-first-tally-not-extra
+  description: >-
+    Giving the tally from the first trials, where only the extra trials were asked about.
+- id: fr2d-reads-the-least-common
+  description: >-
+    Reading the least common outcome where the most common was asked for.
+- id: fr2d-reads-the-wrong-outcome
+  description: >-
+    Reading the tally of a different outcome from the one the question asked about.
+- id: fr2d-reads-total-not-extra
+  description: >-
+    Giving the tally at the end of all the trials, where only the extra trials were asked about.
+- id: fr2d-reports-the-total
+  description: >-
+    Giving the total number of trials where a count for one outcome was asked for.
+- id: fr2d-tally-group-as-one
+  description: >-
+    Counting each group of five tally marks as one mark, so a tally of 13 is read as 5.
+- id: fr2d-tally-off-by-one
+  description: >-
+    Being one out when reading or working with a tally count.
+tags: [acara-f10-v9, statistics-probability, fr2d_trial_tallies, AC9M3P02, AC9M4P02, AC9M5P02]

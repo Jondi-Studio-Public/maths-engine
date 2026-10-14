@@ -1,0 +1,94 @@
+id: uc2-quotient-group-order-and-structure
+name: Find the order and structure of a quotient group
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Find the order of an element and of the whole quotient group of an abelian group, and read off
+  its structure: the order of a coset in Z_n/⟨k⟩, the order of (Z_m × Z_n)/⟨(a, b)⟩, and how many
+  elements of the quotient are killed by a given integer, which needs the invariant factors. The
+  exam chain finds the order of a generator, the order of the quotient, the order of a coset and
+  the invariant factors.
+status: active
+placement_eligible: false
+prerequisites:
+- cyclic-group-element-order
+- ucv1-quotient-ring-operation
+answer: number
+sources:
+- topic: r4c_quotient_group_order_and_structure
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_quotient_group_order_and_structure
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_quotient_group_order_and_structure
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_quotient_group_order_and_structure
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: coset-order-ignores-the-subgroup
+  description: >-
+    Giving the order of the representative in the big group as the order of its coset in the
+    quotient.
+- id: coset-order-is-exponent
+  description: >-
+    Giving the exponent of the quotient as the order of one particular coset.
+- id: elements-killed-by-k-taken-as-k
+  description: >-
+    Taking the number of elements with kg = 0 to be k itself, as in a cyclic group where k divides
+    the order.
+- id: invariant-factors-order-swapped
+  description: >-
+    Listing the invariant factors with the larger one first, so that the smaller does not divide
+    the larger.
+- id: pair-order-taken-as-product-of-component-orders
+  description: >-
+    Taking the order of a pair to be the product of the orders of its components instead of their
+    least common multiple.
+- id: quotient-assumed-cyclic
+  description: >-
+    Writing the quotient as a single cyclic group Z_1 x Z_N without checking whether it splits.
+- id: quotient-element-order-in-the-big-group
+  description: >-
+    Giving the order of the representative in the original group as its order in the quotient.
+- id: quotient-element-order-is-group-order
+  description: >-
+    Giving the order of the quotient group as the order of the element in it.
+- id: quotient-element-order-is-subgroup-order
+  description: >-
+    Giving the order of the subgroup that was divided out as the order of an element of the
+    quotient.
+- id: quotient-factorwise-instead-of-by-lattice
+  description: >-
+    Taking the quotient of each coordinate by its own component of the generator, which ignores
+    that the generator ties the coordinates together.
+- id: quotient-order-forgets-the-subgroup
+  description: >-
+    Giving the order of the whole group as the order of the quotient.
+- id: quotient-order-is-subgroup-order
+  description: >-
+    Giving the order of the subgroup generated as the order of the quotient group.
+- id: quotient-solutions-from-largest-factor-only
+  description: >-
+    Counting solutions of kg = 0 in the larger cyclic factor only and ignoring the smaller one.
+- id: solution-counts-added-not-multiplied
+  description: >-
+    Adding the numbers of solutions in the two factors of a direct product instead of multiplying
+    them.
+tags: [university-core-v1, university-year-2, abstract-algebra, quotient-group,invariant-factors,abelian-groups]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

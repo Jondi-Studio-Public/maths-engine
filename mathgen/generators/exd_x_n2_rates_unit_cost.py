@@ -41,8 +41,8 @@ _PACKS = (250, 400, 500, 600, 750, 800, 1000, 1200)
 _SHOP_STEMS = (
     "{name} is comparing two brands of {food} at a supermarket in Newcastle. Brand A sells {ga} g for ${ca}. "
     "Brand B sells {gb} g for ${cb}.",
-    "At a shop in Fremantle, {food} comes in two brands. A {ga} g pack of Brand A costs ${ca} and a {gb} g pack "
-    "of Brand B costs ${cb}. {name} wants the better value.",
+    "At a shop in Fremantle there are two brands of {food}. A {ga} g pack of Brand A costs ${ca} and a {gb} g "
+    "pack of Brand B costs ${cb}.",
 )
 _FUEL_STEMS = (
     "{name} is choosing between two cars for a trip around Tasmania. Car A uses {fa} L of fuel per 100 km and "

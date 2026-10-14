@@ -3,6 +3,7 @@
 id: senior-calculate-payments-based-on-government-allowances-and-pensions
 name: Calculate payments based on government allowances and pensions
 domain: arithmetic
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, calculate payments based on government allowances and pensions. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

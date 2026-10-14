@@ -1,0 +1,90 @@
+id: uc2-fixed-point-iteration-convergence
+name: Analyse fixed-point iteration convergence
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Decide which fixed point an iteration x(n+1) = g(x(n)) is drawn to, find the rate |g'| there, count the iterations
+  an a priori bound needs, and choose a constant that makes the convergence quadratic.
+status: active
+placement_eligible: false
+prerequisites:
+- newton-method-iteration
+answer: fraction
+sources:
+- topic: r4b_fixed_point_convergence
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_fixed_point_convergence
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_fixed_point_convergence
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_fixed_point_convergence
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-fixed-point-rate-at-the-other-fixed-point
+  description: Evaluating the derivative of the iteration function at the other fixed point, which repels the iteration,
+    instead of the one it converges to.
+- id: num2-fixed-point-derivative-factor-two-dropped
+  description: Differentiating x squared as x instead of 2x when finding g'(x), so the rate is half its true value.
+- id: num2-fixed-point-derivative-at-the-start
+  description: Evaluating g' at the starting value x_0 instead of at the fixed point.
+- id: num2-fixed-point-rate-inverted
+  description: Giving the reciprocal of the rate, 1/|g'(p)|, so a rate below 1 is reported above 1.
+- id: num2-fixed-point-value-for-rate
+  description: Giving the fixed point itself where the rate |g'(p)| is asked for.
+- id: num2-fixed-point-bound-first-step-ignored
+  description: Dropping the factor |x_1 - x_0| from the a priori bound, so the count is for a unit first step.
+- id: num2-fixed-point-lambda-at-the-fixed-point
+  description: Using |g'| at the fixed point as the contraction constant when the question asks for its largest value on
+    the whole interval.
+- id: num2-fixed-point-iteration-count-off-by-one
+  description: Giving one iteration more or fewer than the least n that satisfies the bound.
+- id: num2-fixed-point-bound-denominator-dropped
+  description: Dropping the factor 1/(1 - lambda) from the a priori bound lambda^n/(1 - lambda)|x_1 - x_0|.
+- id: num2-fixed-point-newton-constant-sign
+  description: Getting the sign of the constant wrong when solving 1 - k f'(p) = 0.
+- id: num2-fixed-point-newton-constant-from-x-term-only
+  description: Differentiating only the x squared term of the quadratic, so k = 1/(2p) instead of 1/f'(p).
+- id: num2-fixed-point-newton-constant-at-zero
+  description: Evaluating f' at x = 0 instead of at the root.
+- id: num2-fixed-point-newton-constant-inverted
+  description: Giving f'(p) where its reciprocal 1/f'(p) is the constant asked for.
+- id: num2-fixed-point-other-root-reported
+  description: Giving the larger fixed point where the smaller one is asked for.
+- id: num2-fixed-point-sum-of-roots-reported
+  description: Giving the sum of the roots (the coefficient of x) instead of a root.
+- id: num2-fixed-point-constant-term-reported
+  description: Giving the product of the roots (the constant term) instead of a root.
+- id: num2-fixed-point-sign-slip-in-root
+  description: Giving the distance between the two roots instead of the smaller root.
+- id: num2-fixed-point-rate-complement
+  description: Giving 1 - |g'(p)| instead of |g'(p)|.
+difficulty_progression: Easy asks for |g'| at the fixed point the iteration converges to, so both fixed points must be found
+  and tested. Medium asks for the least number of iterations the a priori error bound guarantees on a stated interval, using
+  the largest |g'| on that interval and the first step size. Hard asks for the constant k in x − k·f(x) that makes the convergence
+  to the smaller root quadratic. The exam chain finds the smaller fixed point, the rate there, the rate at the other fixed
+  point, and the iteration count from the learner's own rate.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- fixed-point-iteration
+- convergence
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

@@ -22,7 +22,7 @@ sources:
   params: {variant: reflex}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h4_centre_isosceles_chords
+- topic: exd_x_r3e_circle_centre_chain
   params: {tier: exam}
   difficulty: exam
   stages:

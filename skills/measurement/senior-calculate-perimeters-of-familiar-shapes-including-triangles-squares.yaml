@@ -3,6 +3,7 @@
 id: senior-calculate-perimeters-of-familiar-shapes-including-triangles-squares
 name: Calculate perimeters of familiar shapes, including triangles, squares, rectangles, polygons, circles, arc lengths, and composites of these
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, calculate perimeters of familiar shapes, including triangles, squares, rectangles, polygons, circles, arc lengths, and composites of these. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

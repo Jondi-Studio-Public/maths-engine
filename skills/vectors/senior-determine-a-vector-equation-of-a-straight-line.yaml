@@ -4,6 +4,7 @@ id: senior-determine-a-vector-equation-of-a-straight-line
 name: Determine a vector equation of a straight line and straight-line segment, given the position of
   two points, or equivalent information, in both two and three dimensions
 domain: vectors
+year_level: ['12']
 description: Given bounded, fully specified inputs, determine a vector equation of a straight
   line and straight-line segment, given the position of two points, or equivalent information, in both
   two and three dimensions. Return the resulting value, expression, relation, or classification.

@@ -61,6 +61,11 @@ _PROJECT_TO = (40, 50, 60, 80, 100, 120, 150, 200, 250)
 _MARGIN = Fraction(1, 10)  # keep the projected count this far from a rounding boundary (.5)
 
 
+def _within_unit_interval(candidates: list[Distractor]) -> list[Distractor]:
+    """The candidates that are possible probabilities: strictly between 0 and 1, never ruled out on sight."""
+    return [c for c in candidates if 0 < c.value < 1]
+
+
 def _distractor_sets(counts, missing, partner, total, horizon, p, prob_d, answer_c):
     """Three tagged distractors for each of the four parts, or None when a part cannot get three distinct ones."""
     m, o = counts[missing], counts[partner]
@@ -116,9 +121,9 @@ def _distractor_sets(counts, missing, partner, total, horizon, p, prob_d, answer
         Distractor(rational_text(1 - p * p), "gave-complement-of-both", 1 - p * p),
     ]
     a_d = pick_distractors(a_text, a_cands, 3, tolerance=GRADER_TOLERANCE)
-    b_d = pick_distractors(b_text, b_cands, 3)
+    b_d = pick_distractors(b_text, _within_unit_interval(b_cands), 3)
     c_d = pick_distractors(c_text, c_cands, 3, tolerance=GRADER_TOLERANCE)
-    d_d = pick_distractors(d_text, d_cands, 3)
+    d_d = pick_distractors(d_text, _within_unit_interval(d_cands), 3)
     if not len(a_d) == len(b_d) == len(c_d) == len(d_d) == 3:
         return None
     return a_d, b_d, c_d, d_d

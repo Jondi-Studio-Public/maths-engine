@@ -1,0 +1,85 @@
+id: f10-expanded-notation-decompose
+name: Write numbers in expanded notation with powers of ten
+domain: secondary-number
+year_level: ['7']
+naplan_domain: [number]
+description: Give the powers of ten in the expanded notation of a whole number or decimal, and after the number is multiplied
+  or divided by a power of ten.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-powers-ten-multiply-divide
+- f10-decimal-notation-tenths-hundredths
+answer: ordered_list
+sources:
+- topic: fr2b_expanded_notation
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_expanded_notation
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_expanded_notation
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2b_expanded_notation
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2b-exponent-counts-digits-not-zeros
+  description: Giving the number of digits in the place value as the exponent instead of the number of zeros, so 10 000 is
+    taken as 10 to the power 5.
+- id: fr2b-exponent-skips-zero-digits
+  description: Counting the powers of ten only across the non-zero digits, so a zero digit does not take up a place.
+- id: fr2b-exponents-listed-in-reverse-order
+  description: Listing the exponents from the smallest to the largest when the terms were written from the largest place down.
+- id: fr2b-decimal-exponent-sign-dropped
+  description: Dropping the minus sign on an exponent for a place after the decimal point.
+- id: fr2b-first-decimal-place-counted-as-power-zero
+  description: Counting the first place after the decimal point as power 0, one place too high.
+- id: fr2b-scaling-shifts-exponents-the-wrong-way
+  description: Lowering every exponent when the number is multiplied by a power of ten, or raising them when it is divided.
+- id: fr2b-scaling-shift-counts-digits
+  description: Shifting the exponents by the number of digits in the power of ten instead of the number of zeros.
+- id: fr2b-scaling-leaves-exponents-unchanged
+  description: Keeping the old exponents after multiplying or dividing by a power of ten.
+- id: fr2b-exponent-given-as-the-place-value
+  description: Giving the place value (such as 10) where the exponent of ten (such as 1) was asked for.
+- id: fr2b-exponent-off-by-one
+  description: Giving an exponent one too high or one too low when counting the places from the units digit.
+- id: fr2b-places-apart-adds-the-exponents
+  description: Adding the two exponents instead of subtracting them to find how far apart two digits are.
+- id: fr2b-places-apart-counts-digits-between
+  description: Counting only the digits between the two digits, not the step to each one, so the answer is one too small.
+- id: fr2b-places-apart-counts-both-ends
+  description: Counting both of the digits as well as the steps between them, so the answer is one too big.
+- id: fr2b-scaling-multiplies-the-exponent
+  description: Multiplying the exponent by the number of tens instead of adding to it.
+difficulty_progression: Easy asks for the exponents in the expansion of a whole number with an empty place, so the zeros have
+  to be counted. Medium uses a decimal, so the exponents after the point are negative. Hard gives an expansion, multiplies
+  or divides the number by a power of ten, and asks for the exponents of the new expansion. The exam chain reads the exponent
+  of a digit before the point and one after it, how many places apart they are (following through), and the exponent after
+  the number is scaled (following through).
+tags:
+- acara-f10-v9
+- secondary
+- place-value
+- powers-of-ten
+- expanded-notation
+- ac9m7n03

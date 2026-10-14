@@ -3,6 +3,7 @@
 id: senior-use-ordered-pair-notation-and-column-vector-notation
 name: Use ordered pair notation and column vector notation to represent a vector
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, use ordered pair notation and column vector notation to represent a vector. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
@@ -22,7 +23,7 @@ sources:
   params: {variant: inverse}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_g3_vec_notation
+- topic: exd_x_r3e_vector_points
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -25,6 +25,10 @@ sources:
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w12b_plot_linear_points
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: coordinates-reversed
   description: Writes the pair as (y, x) instead of (x, y).

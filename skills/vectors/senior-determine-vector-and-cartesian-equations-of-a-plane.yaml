@@ -3,6 +3,7 @@
 id: senior-determine-vector-and-cartesian-equations-of-a-plane
 name: Determine vector and Cartesian equations of a plane and of regions in a plane
 domain: vectors
+year_level: ['12']
 description: Given bounded, fully specified inputs, determine vector and Cartesian equations of
   a plane and of regions in a plane. Return the resulting value, expression, relation, or classification.
 status: active

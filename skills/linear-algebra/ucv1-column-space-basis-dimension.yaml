@@ -1,0 +1,74 @@
+id: ucv1-column-space-basis-dimension
+name: Basis and dimension of a column space; rank-nullity
+domain: linear-algebra
+year_level: [university]
+description: Find the dimension of a column space or span, apply the rank-nullity theorem, and choose a basis of the column
+  space from the pivot columns.
+status: active
+placement_eligible: false
+prerequisites: [ucv1-row-reduction-rref, matrix-rank-small]
+answer: number
+sources:
+- topic: fy1la_column_space
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1la_column_space
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1la_column_space
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1la_column_space
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: rank-nullity-uses-rows, description: Subtracting the rank from the number of rows where rank-nullity uses the number
+    of columns.}
+- {id: rank-nullity-sum-reported, description: Giving the number of columns (rank plus nullity) as the answer instead of
+    subtracting.}
+- {id: rank-nullity-swapped, description: 'Giving the rank where the nullity was asked for, or the nullity where the rank
+    was asked for.'}
+- {id: rank-nullity-off-by-one, description: Counting the dimension one too high when applying rank-nullity.}
+- {id: dimension-counts-vectors, description: 'Taking the dimension of a span to be the number of vectors listed, without
+    checking for dependence.'}
+- {id: dimension-counts-coordinates, description: Taking the dimension of a span to be the dimension of the space the vectors
+    live in.}
+- {id: rank-misses-a-pivot, description: Counting one pivot too few when reading the rank off the reduced matrix.}
+- {id: dimension-counts-dependent-vector, description: Counting a vector that is a combination of the others as one more
+    dimension.}
+- {id: left-null-space-confused-with-null-space, description: Giving the dimension of the null space of A (columns minus
+    rank) where the null space of the transpose (rows minus rank) was asked for.}
+- {id: rank-counts-all-rows, description: 'Giving the number of rows as the rank, without noticing that a row reduces to
+    zero.'}
+- {id: rank-counts-all-columns, description: Giving the number of columns as the rank.}
+- {id: free-variables-from-rows, description: Counting free variables as the number of rows minus the rank instead of the
+    number of unknowns minus the rank.}
+- {id: free-variables-miscounted, description: Miscounting the non-pivot columns when listing the free variables.}
+- {id: free-variables-all-columns, description: Treating every unknown as a free variable instead of subtracting the pivots.}
+- {id: free-columns-as-basis, description: Choosing the non-pivot columns as a basis of the column space instead of the
+    pivot columns.}
+- {id: first-columns-assumed-independent, description: Taking the first columns as a basis of the column space without checking
+    which columns are pivot columns.}
+- {id: basis-mixes-pivot-and-free-columns, description: 'Choosing a basis made of one pivot column and one non-pivot column,
+    so the columns are not the pivot columns.'}
+- {id: coefficients-order-swapped, description: 'Giving the coefficients of a linear combination in the wrong order: b for
+    u1 and a for u2.'}
+- {id: span-coefficient-sign-slip, description: Getting the sign of a coefficient wrong when solving for the scalars in
+    a linear combination.}
+- {id: coefficients-read-from-wrong-column, description: Reading the coefficients of a dependent column from the wrong non-pivot
+    column of the reduced matrix.}
+difficulty_progression: Easy applies rank-nullity with no matrix to reduce. Medium asks how many of four listed
+  vectors are redundant, so the vectors must be reduced, the pivots counted and the dimension subtracted from the number of vectors. Hard asks for the dimension of the null space of
+  the transpose, which is rows minus rank rather than columns minus rank. The exam chain finds the rank, the nullity (following
+  through from the rank), the pivot columns of A as a basis, and the coefficients that write a non-pivot column in terms
+  of the basis.
+tags: [university-core-v1, linear-algebra, column-space, basis, rank-nullity]
+framework_areas: [linear-algebra]
+alignments:
+- {source_id: mit-subject-catalogue, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: cambridge-course-list, status: candidate, framework: university-core-v1, area: linear-algebra}
+- {source_id: oxford-first-year, status: candidate, framework: university-core-v1, area: linear-algebra}

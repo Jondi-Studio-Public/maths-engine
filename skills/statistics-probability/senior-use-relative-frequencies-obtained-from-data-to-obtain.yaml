@@ -3,6 +3,7 @@
 id: senior-use-relative-frequencies-obtained-from-data-to-obtain
 name: Use relative frequencies obtained from data to obtain point estimates of probabilities associated with a discrete random variable
 domain: statistics-probability
+year_level: ['12']
 description: From a frequency table of observed values of a discrete random variable, produce the estimated probability distribution as an ordered list of P(X = x), one per value, in the order the prompt states. The graded value is always the full distribution list, never a single probability.
 status: active
 placement_eligible: false

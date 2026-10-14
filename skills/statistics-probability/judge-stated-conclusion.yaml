@@ -1,0 +1,94 @@
+id: judge-stated-conclusion
+name: Judge whether data supports a conclusion
+domain: statistics-probability
+year_level: ['8', '9', '10']
+naplan_domain: [statistics]
+description: 'Recompute the quantity behind a stated conclusion from the table (a percentage or a mean), then judge whether the data supports the conclusion: sound, wrong figure, too few values, cause claimed from association, an outlier, or a prediction beyond the data. The exam chain checks the figure and then the verdict.'
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: number
+sources:
+- topic: ir2a_judge_stated_conclusion
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_judge_stated_conclusion
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_judge_stated_conclusion
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_judge_stated_conclusion
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-accepts-a-flawed-claim
+  description: Accepting a claim because its figures are right, without checking the size of the sample, how the groups were formed, or the range of the data.
+- id: ir2a-adds-instead-of-multiplying
+  description: Adding the slope to the x-value instead of multiplying them.
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-compares-counts-not-percentages
+  description: Subtracting the numbers of cases in two groups of different sizes instead of their percentages.
+- id: ir2a-divides-by-both-groups
+  description: Dividing a group's count by the size of both groups together instead of by its own size.
+- id: ir2a-divides-by-one-too-few
+  description: Dividing a total by one fewer than the number of values when finding the mean.
+- id: ir2a-divides-by-the-rest-of-the-whole
+  description: Dividing a group's count by the count of everything else instead of by the whole.
+- id: ir2a-flips-the-sign-of-the-slope-term
+  description: Subtracting the slope term from the constant when it should be added.
+- id: ir2a-forgets-the-intercept
+  description: Predicting from a line by multiplying the slope by x and leaving out the constant term.
+- id: ir2a-forgets-to-divide-by-the-count
+  description: Giving the total of the values when their mean was asked.
+- id: ir2a-gives-a-relative-change-not-points
+  description: Giving the gap as a percentage of the smaller group's percentage instead of in percentage points.
+- id: ir2a-gives-the-mean-for-the-median
+  description: Giving the mean when the median was asked.
+- id: ir2a-gives-the-mean-not-the-excess
+  description: Giving the mean itself when how far it sits above the median was asked.
+- id: ir2a-gives-the-median-not-the-excess
+  description: Giving the median itself when how far the mean sits above it was asked.
+- id: ir2a-gives-the-rest-of-the-whole
+  description: Giving the percentage or angle left over for the other groups instead of the group's own.
+- id: ir2a-names-the-wrong-flaw
+  description: Naming a flaw that the claim does not have, and missing the one it does.
+- id: ir2a-rejects-a-sound-claim
+  description: Judging that a claim is flawed when the figures match the data and the study was designed to test it.
+- id: ir2a-reports-the-count-as-a-percentage
+  description: Giving a group's count as if it were its percentage.
+- id: ir2a-reports-the-largest-value
+  description: Giving the largest value in the data instead of the quantity asked for.
+- id: ir2a-subtracts-in-the-wrong-order
+  description: Subtracting the later value from the earlier one, so a rise is given as a fall.
+- id: ir2a-takes-a-middle-value-for-the-mean
+  description: Giving the middle value of the list when the mean was asked.
+- id: ir2a-takes-the-middle-of-the-list-unsorted
+  description: Taking the middle value of the list as it was written instead of putting the values in order first.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_judge_stated_conclusion
+- AC9M8ST04
+- AC9M9ST01
+- AC9M9ST05
+- AC9M10ST05

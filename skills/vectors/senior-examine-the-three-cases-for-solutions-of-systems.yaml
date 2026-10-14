@@ -3,6 +3,7 @@
 id: senior-examine-the-three-cases-for-solutions-of-systems
 name: Examine the three cases for solutions of systems of equations
 domain: vectors
+year_level: ['12']
 description: 'Given a system of three linear equations in three variables, or its row-reduced
   form, classify it as having exactly one solution, no solution, or infinitely many solutions.
   Easy reads the decisive bottom row of a given echelon augmented matrix directly. Medium spots
@@ -10,9 +11,10 @@ description: 'Given a system of three linear equations in three variables, or it
   of the other two) in a full system and compares the corresponding right-hand sides; unique
   systems are built to look similar with no giveaway. Hard uses the same decision with NO
   visible dependency, so the learner must eliminate fully (or compute rank/determinant) before
-  testing consistency. Exam carries a real parameter k under a stated condition (k ≠ c, k = c,
-  or for every value of k), reasoning about expressions in k rather than a single substitution.
-  Never asks for the solution itself (matrix-solve-system, solve-simultaneous-equations solve;
+  testing consistency. Exam is a three-part chain on a system with a parameter k and a constant m: find the
+  value of k at which the solution stops being unique, the value of m for which the system then has
+  infinitely many solutions, and one point of the resulting line of solutions. Apart from that last
+  part, never asks for the solution itself (matrix-solve-system, solve-simultaneous-equations solve;
   this skill classifies) and never draws or requires a figure (the geometric interpretation
   appears only as a fixed, class-true description of the named case).'
 status: active
@@ -30,7 +32,8 @@ sources:
 - topic: pv0b_system_cases
   difficulty: hard
   stages: [6, maintenance]
-- topic: pv0b_system_cases
+- topic: exd_x_r3h_system_parameters
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

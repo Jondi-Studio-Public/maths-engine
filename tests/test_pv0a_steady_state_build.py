@@ -4,6 +4,8 @@ Covers ``mathgen/generators/pv0a_steady_state_build.py`` (topic
 ``pv0a_recurrence_steady_state``).
 """
 
+from dataclasses import replace
+
 import functools
 import re
 from fractions import Fraction
@@ -29,6 +31,9 @@ def _skills_dict():
 def _make_from_sources(difficulty, seed):
     skill = _skills_dict()[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if src.difficulty == "exam":
+        # The skill's exam source is now a multi-part chain; these checks keep covering the single-answer exam generator it replaced.
+        src = replace(src, topic="pv0a_recurrence_steady_state", params={"variant": "exam"})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 

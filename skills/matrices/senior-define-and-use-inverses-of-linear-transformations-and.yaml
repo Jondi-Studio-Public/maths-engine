@@ -3,6 +3,7 @@
 id: senior-define-and-use-inverses-of-linear-transformations-and
 name: Recover the original point under an inverse linear transformation
 domain: matrices
+year_level: ['11']
 description: Given bounded, fully specified inputs, define and use inverses of linear transformations and the relationship with the matrix inverse. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

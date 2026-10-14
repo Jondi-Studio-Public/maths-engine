@@ -3,6 +3,7 @@
 id: senior-use-technology-to-find-the-correlation-coefficient-an
 name: Use technology to find the correlation coefficient
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a small, fully stated bivariate data set (5 to 8 pairs, printed in the prompt), find Pearson''s product-moment correlation coefficient r between two stated variables, to 3 decimal places -- a calculator is allowed; no formula is asked for by hand. Four tiers: direct computation from one printed pair of columns; the variable of interest constructed as the DIFFERENCE of two printed columns before correlating; strength (|r|) compared between two data sets sharing the same variable names in different settings, with its sign reported; and a frequency-weighted data set where repeated observations must be counted the stated number of times. Distinct from senior-distinguish-between-causality-and-correlation-through-examples (ACMEM145/ACMGM100), which never computes r and only quotes an approximate value as context for a causation-versus-correlation judgement.'
 status: active
 placement_eligible: false

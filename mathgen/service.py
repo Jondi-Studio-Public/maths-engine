@@ -581,21 +581,46 @@ def _strip_canonical(data):
     return data
 
 
+def _option_reply(item, reply):
+    """A reply to a multiple-choice question or part, as the grader reads it.
+
+    A reply here has a JSON type, so an integer is always the 0-based index of an option, and text is first read as
+    an option's text: "8" picks the option 8, wherever it sits, as the command line does. The grader alone reads
+    digits as an index, which would mark "8" against the ninth option. Text is matched whole with spacing
+    collapsed, then ignoring case if only one option matches that way. Text that names no option goes to the
+    grader as it is, which reads a letter ("B") or an index written as text.
+    """
+    if not isinstance(reply, str):
+        return str(reply)
+    options = [" ".join(str(option).split()) for option in mcq_options(item)]
+    text = " ".join(reply.split())
+    if text in options:
+        return str(options.index(text))
+    folded = [i for i, option in enumerate(options) if option.casefold() == text.casefold()]
+    return str(folded[0]) if len(folded) == 1 else reply
+
+
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
     """Mark `reply` against the question `qid` names. `reply` is the learner's text; for a multiple-choice question
-    the 0-based index of the option picked (or its text); for a multi-part question a dict keyed by part label.
-    Raises `QuestionChanged` when the library no longer generates that question, `BadRequest` for a rubric skill."""
+    the option's text, or the 0-based index of the option picked as an integer; for a multi-part question a dict
+    keyed by part label. Raises `QuestionChanged` when the library no longer generates that question, `BadRequest`
+    for a rubric skill."""
     question, skill = _regenerate(lib, qid)
     if not gradeable(skill):
         raise BadRequest(f"skill {skill.id!r} is marked against a rubric by a person, not by the engine")
     if isinstance(reply, bool) or not isinstance(reply, (str, int, dict)):
         raise BadRequest("a reply is text, an option index, or an object of replies keyed by part label")
-    if isinstance(reply, int):
-        reply = str(reply)
     if isinstance(reply, dict):
-        reply = {str(k): (str(v) if isinstance(v, int) and not isinstance(v, bool) else v) for k, v in reply.items()}
-        if not all(isinstance(v, str) for v in reply.values()):
+        if not all(isinstance(v, str) or (isinstance(v, int) and not isinstance(v, bool)) for v in reply.values()):
             raise BadRequest("each part's reply is text or an option index")
         if not question.parts:
             raise BadRequest("this question has one answer; send its reply as text, not an object of parts")
+        mcq_parts = {part.label: part for part in question.parts if part.answer_kind == "mcq"}
+        reply = {
+            str(k): (_option_reply(mcq_parts[str(k)], v) if str(k) in mcq_parts else str(v)) for k, v in reply.items()
+        }
+    elif skill.answer == "mcq" and not question.parts:
+        reply = _option_reply(question, reply)
+    elif isinstance(reply, int):
+        reply = str(reply)
     return {"id": qid, **result_view(engine.grade(skill, question, reply), reveal=reveal)}
