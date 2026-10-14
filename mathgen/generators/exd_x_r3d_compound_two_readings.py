@@ -160,7 +160,7 @@ def exd_x_r3d_compound_two_readings(rng: random.Random, tier: str = "exam") -> d
                 follow_through=c_ft,
                 sensible_range=(0, None),
                 working=[
-                    f"{p0}·{mult}^{n - 1} = {float(values[n - 1]):.1f} and {p0}·{mult}^{n} = {float(values[n]):.1f}, so it first passes {threshold} after {n} {unit}s."
+                    f"{p0}·({mult})^{n - 1} = {float(values[n - 1]):.1f} and {p0}·({mult})^{n} = {float(values[n]):.1f}, so it first passes {threshold} after {n} {unit}s."
                 ],
                 distractors=c_d,
             ),

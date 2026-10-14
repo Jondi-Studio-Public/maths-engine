@@ -134,7 +134,7 @@ def exd_x_r3g_recurrence_fit(rng: random.Random, tier: str = "exam") -> dict:
             3,
             [
                 f"The distance from the limit shrinks by a factor of {a} each {period}: it starts at {abs(gap)}.",
-                f"{abs(gap)} x {a}^{n} = {float(abs(gap) * a**n):.3g} < 1 but {abs(gap)} x {a}^{n - 1} = "
+                f"{abs(gap)} x ({a})^{n} = {float(abs(gap) * a**n):.3g} < 1 but {abs(gap)} x ({a})^{n - 1} = "
                 f"{float(abs(gap) * a ** (n - 1)):.3g} > 1, so n = {n}.",
             ],
             [
