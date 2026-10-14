@@ -1153,6 +1153,15 @@
 {"answer": "The jug", "id": "ey-compare-capacity-by-cups/medium/0/37185a29ef58", "text": "Each is poured into small cups. Which holds the least?"}
 {"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/da1b89c56a3d", "text": "Count the cups poured out. Which holds most?"}
 {"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/61967bd6fcd5", "text": "Each is poured into small cups. Which holds the most?"}
+{"answer": "The bath", "id": "ey-compare-duration/easy/0/869a39b1a73f", "text": "Look at the boxes. Which one takes longer?"}
+{"answer": "The tidy up", "id": "ey-compare-duration/easy/1/ce64dec07735", "text": "Each box is the same time. Which takes longer?"}
+{"answer": "The sleep", "id": "ey-compare-duration/easy/2/6ba5ca32c31e", "text": "Look at the boxes. Which one takes longer?"}
+{"answer": "The sleep", "id": "ey-compare-duration/hard/0/98ffc1a7c2a2", "text": "They start at different times. Which takes the longest?"}
+{"answer": "The sleep", "id": "ey-compare-duration/hard/1/18f8c1506b76", "text": "They start at different times. Which takes the longest?"}
+{"answer": "The nod, The wave, The wash hands", "id": "ey-compare-duration/hard/2/b73ac6d0661e", "text": "Count the boxes. Which list is shortest time first?"}
+{"answer": "The sleep", "id": "ey-compare-duration/medium/0/366dd8ab6ed0", "text": "Each box is one go. Which one takes longest?"}
+{"answer": "The sing", "id": "ey-compare-duration/medium/1/02b8d3fe1476", "text": "Look at the boxes. Which takes the least time?"}
+{"answer": "The sleep", "id": "ey-compare-duration/medium/2/93c397105bc7", "text": "Each box is one go. Which one takes longest?"}
 {"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
 {"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
 {"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}

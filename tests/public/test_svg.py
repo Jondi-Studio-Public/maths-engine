@@ -122,6 +122,25 @@ def _compare_samples() -> list[dict]:
             ],
             alt="Four containers",
         ),
+        compare.compare_durations(
+            events=[
+                {"label": "clap", "size": 3, "start": 0, "blocks": 2},
+                {"label": "sing", "size": 1, "start": 0, "blocks": 6},
+            ],
+            unit="sand",
+            same_start=True,
+            alt="Two events from one start line",
+        ),
+        compare.compare_durations(
+            events=[
+                {"label": "hop", "size": 2, "start": 4, "blocks": 3},
+                {"label": "bath", "size": 1, "start": 0, "blocks": 6},
+                {"label": "blink", "size": 3, "start": 7, "blocks": 1},
+            ],
+            unit="tick",
+            same_start=False,
+            alt="Three events that start at different places",
+        ),
     ]
 
 

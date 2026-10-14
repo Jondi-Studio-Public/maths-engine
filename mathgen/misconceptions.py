@@ -33933,6 +33933,27 @@ _ENTRIES = (
         "Using the z-value for a different confidence level or the wrong number of tails when finding the sample size.",
         area="clt",
     ),
+    CatalogueEntry(
+        "duration-picks-top-event",
+        "Choosing the event drawn first (at the top) instead of comparing how many boxes each one fills.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-picks-bigger-picture",
+        "Choosing the event with the biggest picture card, when the size of the card says nothing about how long it takes.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-reads-finish-line",
+        "Choosing the event that finishes last, when events that start at different times can finish in a different "
+        "order from how long they take.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-says-same",
+        "Saying two events take the same time when one fills more boxes than the other.",
+        area="early-years",
+    ),
 )
 
 #: Every entry, by id.
