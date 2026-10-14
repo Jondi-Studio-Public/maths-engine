@@ -49,11 +49,6 @@ def test_shapes_over_60_seeds_and_new_over_hard():
     assert exam - hard
 
 
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == []
-
-
 def test_independent_oracle_agrees_over_300_seeds():
     bad = []
     for s in range(300):

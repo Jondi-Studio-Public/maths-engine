@@ -18,20 +18,6 @@ def _make(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_make(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD, seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, "the exam source adds no prompt shape beyond the hard tier"
-
-
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _make(seed).to_json()
-
-
 def _oracle(text: str) -> str:
     total, share = map(int, re.search(r"survey of (\d+) \w+ found that (\d+)%", text).groups())
     q = int(re.search(r"Of this group, (\d+)%", text).group(1))

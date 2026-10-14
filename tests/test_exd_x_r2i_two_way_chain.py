@@ -53,10 +53,6 @@ def oracle(q):
 CHECKS = standard_checks(TOPIC, SKILL, oracle, LABELS, MARKS, FT_LABELS)
 
 
-def test_source_wired():
-    CHECKS["wired"]()
-
-
 def test_shape_and_text():
     CHECKS["shape"]()
 
@@ -75,14 +71,6 @@ def test_composed_reply_earns_full_marks():
 
 def test_distractors_are_tagged_and_rejected():
     CHECKS["distractors_rejected"]()
-
-
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()
 
 
 def test_prompts_name_the_groups_and_the_response():

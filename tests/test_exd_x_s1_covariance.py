@@ -48,21 +48,6 @@ def _oracle(text):
     return _cov([(a * x + b, c * y + d, w) for x, y, w in joint])
 
 
-def test_shapes_over_60_seeds_and_new_over_hard():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("finite_joint_covariance", seed=s, difficulty="hard", kind="missing_weight"))
-        for s in range(60)
-    }
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == []
-
-
 def test_both_forms_occur():
     forms = {"One of" in _q(s).text for s in range(40)}
     assert forms == {True, False}

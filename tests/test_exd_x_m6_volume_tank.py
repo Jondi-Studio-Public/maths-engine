@@ -62,11 +62,6 @@ def _s(value, dp):
     return f"{float(value):.{dp}f}"
 
 
-def test_source_wired_last():
-    src = _SKILL.sources[-1]
-    assert (src.topic, src.difficulty, src.stages, src.params) == (TOPIC, "exam", ["exam"], {"tier": "exam"})
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
@@ -80,11 +75,6 @@ def test_prompt_shapes_add_to_hard_tier():
     hard = {prompt_shape(make(HARD[0], seed=s, difficulty=HARD[1])) for s in range(80)}
     assert len(exam) >= 3, exam
     assert exam - hard
-
-
-def test_no_text_defects(questions):
-    for q in questions[:60]:
-        assert find_text_defects(q) == [], q.text
 
 
 def test_oracle_agrees(questions):
@@ -122,13 +112,3 @@ def test_follow_through_from_a_wrong_first_answer(questions):
             assert result.parts[label].follow_through is True
         assert not result.correct
     assert checked >= 120
-
-
-def test_answer_space_is_wide(questions):
-    answers = Counter(q.answer_text for q in questions)
-    assert len(answers) >= 100
-    assert max(answers.values()) / len(questions) <= 0.05
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7, difficulty="exam").to_dict() == make(TOPIC, seed=7, difficulty="exam").to_dict()

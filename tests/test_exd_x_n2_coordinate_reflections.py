@@ -60,23 +60,12 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired_last_with_exam_stage():
-    source = _SKILL.sources[-1]
-    assert source.topic == TOPIC and source.difficulty == "exam"
-    assert list(source.stages) == ["exam"] and dict(source.params) == {"tier": "exam"}
-
-
 def test_shape(questions):
     for q in questions[:60]:
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
         assert [p.answer_kind for p in q.parts] == ["pair", "number", "number", "number"]
         assert [p.marks for p in q.parts] == [2, 1, 1, 2]
         assert [p.follow_through is not None for p in q.parts] == [False, False, False, True]
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == [], seed
 
 
 def test_prompt_shapes_new_against_hard_tier():
@@ -93,12 +82,6 @@ def test_oracle_agrees_over_300_seeds(questions):
 def test_both_stem_forms_and_both_orders_occur(questions):
     assert {bool(re.search(r"\d+ units? (left|right|above|below)", q.stem)) for q in questions} == {True, False}
     assert {re.findall(r"in the ([xy])-axis", q.stem)[0] for q in questions} == {"x", "y"}
-
-
-def test_answer_space(questions):
-    answers = [q.answer_text for q in questions]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
 
 
 def test_key_accepted_and_every_distractor_rejected(questions):
@@ -131,7 +114,3 @@ def test_follow_through_from_wrong_side_lengths(questions):
         assert result.parts["d"].marks == 2 and result.parts["d"].follow_through, (q.text, b_wrong, d_wrong)
         checked += 1
     assert checked >= 60
-
-
-def test_deterministic():
-    assert _exam(7).to_dict() == _exam(7).to_dict()

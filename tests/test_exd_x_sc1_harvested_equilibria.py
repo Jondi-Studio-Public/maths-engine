@@ -77,8 +77,3 @@ def test_follow_through_from_a_wrong_equilibrium():
         assert result.parts["b"].marks == 2 and result.parts["b"].follow_through, (seed, reply)
         if smaller > 0:
             assert result.parts["c"].marks == 2 and result.parts["c"].follow_through, (seed, reply)
-
-
-def test_answer_space_and_determinism():
-    sup.check_answer_space(SKILL_ID)
-    sup.check_deterministic(SKILL_ID)

@@ -57,11 +57,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages, s.params) for s in exam] == [(TOPIC, ["exam"], {"tier": "exam"})]
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
@@ -129,23 +124,3 @@ def test_all_wrong_earns_zero(questions):
     for q in questions[:40]:
         result = grade(_SKILL, q, {"a": "999.99", "b": "1.11", "c": "2.22"})
         assert result.marks == 0
-
-
-def test_answer_space(questions):
-    tuples = Counter(tuple(p.answer_text for p in q.parts) for q in questions[:300])
-    assert len(tuples) >= 100, len(tuples)
-    assert max(tuples.values()) <= 15, tuples.most_common(3)
-
-
-def test_no_text_defects_and_shapes():
-    exam = {prompt_shape(make(TOPIC, seed=s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("p19h_energy_kwh_consumption", seed=s, difficulty="hard", mode="kwh_hard")) for s in range(60)
-    }
-    assert len(exam) >= 3 and exam - hard
-    for s in range(60):
-        assert find_text_defects(make(TOPIC, seed=s)) == []
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()

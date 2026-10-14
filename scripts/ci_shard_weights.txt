@@ -45,3 +45,13 @@
 140.3 tests/test_mathgen_sweep_default_part_1.py
 134.5 tests/test_mathgen_sweep_default_part_2.py
 146.6 tests/test_mathgen_sweep_default_part_3.py
+# tests/test_generator_contract_exam_part_*.py: 300 exam-tier seeds of every exam topic, 1,890 CPU-s on a 4-core
+# machine (2026-10-13) x 0.575, spread evenly over the eight parts.
+136.0 tests/test_generator_contract_exam_part_0.py
+136.0 tests/test_generator_contract_exam_part_1.py
+136.0 tests/test_generator_contract_exam_part_2.py
+136.0 tests/test_generator_contract_exam_part_3.py
+136.0 tests/test_generator_contract_exam_part_4.py
+136.0 tests/test_generator_contract_exam_part_5.py
+136.0 tests/test_generator_contract_exam_part_6.py
+136.0 tests/test_generator_contract_exam_part_7.py

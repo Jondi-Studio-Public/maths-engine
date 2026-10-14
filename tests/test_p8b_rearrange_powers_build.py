@@ -84,13 +84,6 @@ def _skill(skill_id):
 # --- determinism / pool size ------------------------------------------------
 
 
-def test_deterministic_across_seeds():
-    for seed in SEEDS:
-        q1 = make("rearrange_powers_roots", seed=seed, difficulty="hard")
-        q2 = make("rearrange_powers_roots", seed=seed, difficulty="hard")
-        assert q1.to_json() == q2.to_json()
-
-
 def test_pool_size_is_at_least_seven():
     """7 (formula, target) cases exist by design. 60 seeds is enough to see all 7 with
     `rng.choice`."""

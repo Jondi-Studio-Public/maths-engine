@@ -37,17 +37,6 @@ def oracle(q):
     return sorted(_value(item) for item in body.split(";"))
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC] and exam[0].stages == ["exam"]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD[0], seed=s, **HARD[1])) for s in range(60)}
-    assert len(exam) >= 3 and exam - hard
-
-
 def test_key_matches_independent_derivation_over_300_seeds():
     bad = []
     for seed in range(300):
@@ -81,7 +70,3 @@ def test_distractors_tagged():
         assert set(q.distractor_values) == set(q.distractors)
         ids |= set(q.option_notes.values())
     assert {"placeholder-zero-dropped", "reversed-order"} <= ids
-
-
-def test_answer_space():
-    assert len({_q(s).answer_text for s in range(300)}) >= 100

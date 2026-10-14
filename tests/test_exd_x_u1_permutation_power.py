@@ -43,24 +43,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert [s.stages for s in exam] == [["exam"]]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("permutation_composition", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c"]
@@ -71,12 +53,6 @@ def test_shape(questions):
 def test_oracle_agrees(questions):
     for q in questions:
         assert oracle(q) == _canonical(q), q.text
-
-
-def test_answer_space(questions):
-    answers = [q.answer_text for q in questions]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 0.05 * len(answers)
 
 
 def test_composed_answer_full_marks(questions):
@@ -102,7 +78,3 @@ def test_parts_marked_independently(questions):
         result = grade(_SKILL, q, {**canon, "a": q.parts[0].distractors[0]})
         assert result.parts["a"].marks == 0
         assert result.parts["b"].marks == 2 and result.parts["c"].marks == 2
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

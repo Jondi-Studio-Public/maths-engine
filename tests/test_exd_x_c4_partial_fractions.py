@@ -28,12 +28,6 @@ def _hard(seed: int) -> Question:
     return make(HARD_TOPIC, seed=seed, difficulty="hard", **_HARD_KW)
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
 def test_prompt_variety_and_new_shapes_over_hard_tier():
     shapes = {prompt_shape(_make(s)) for s in range(60)}
     assert len(shapes) >= 3, shapes
@@ -44,11 +38,6 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
 def test_determinism():
     for seed in (0, 1, 7, 99, 12345):
         assert _make(seed).to_json() == _make(seed).to_json()
-
-
-def test_unknown_tier_rejected():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=0, tier="nonsense")
 
 
 from mpmath import mp, quad

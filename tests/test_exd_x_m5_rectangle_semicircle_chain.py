@@ -22,14 +22,6 @@ def oracle(q):
     return {"a": c.show(semi, 1), "b": c.show(rect, 1), "c": c.show(side, 1)}
 
 
-def test_shapes():
-    c.check_shapes(TOPIC, SKILL_ID)
-
-
-def test_source_wired():
-    c.check_source_wired(TOPIC, SKILL_ID)
-
-
 def test_key_rederived_from_prompt():
     c.check_oracle(TOPIC, oracle)
 

@@ -28,12 +28,6 @@ def _same(text, expected):
     return sympy.simplify(sympy.sympify(text) - expected) == 0
 
 
-def test_source_wired():
-    exam = [s for s in SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_prompt_shapes_are_new():
     exam = {prompt_shape(_exam(s)) for s in range(60)}
     hard = {prompt_shape(make("t1_simplify_surds", seed=s, difficulty="hard")) for s in range(60)}
@@ -61,12 +55,6 @@ def test_shape():
     assert [p.answer_kind for p in q.parts] == ["expression", "number", "expression"]
     assert [bool(p.follow_through) for p in q.parts] == [False, False, True]
     assert all(len(p.distractors) >= 2 for p in q.parts)
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
 
 
 def test_key_accepted_and_distractors_rejected():
@@ -113,7 +101,3 @@ def test_follow_through_from_wrong_squared_diagonal():
 def test_all_wrong_earns_nothing():
     result = grade(SKILL, _exam(3), {"a": "7", "b": "7", "c": "7"})
     assert result.marks == 0 and not result.correct
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

@@ -37,10 +37,6 @@ def test_key_from_prompt():
     S.check_oracle(TOPIC, oracle)
 
 
-def test_answer_space():
-    S.check_answer_space(TOPIC)
-
-
 def test_grading():
     S.check_grading(TOPIC, SKILL_ID)
 

@@ -58,21 +58,11 @@ def _q(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-
-
 def test_shape_variety_and_novelty_over_hard():
     exam = {prompt_shape(_q(s)) for s in range(60)}
     hard = {prompt_shape(make("finite_sample_space_probability", seed=s, difficulty="hard")) for s in range(60)}
     assert len(exam) >= 3, exam
     assert len(exam - hard) >= 3, (exam, hard)
-
-
-def test_deterministic():
-    for seed in (0, 1, 5, 123):
-        assert _q(seed).to_json() == _q(seed).to_json()
 
 
 def test_oracle_matches_key_over_300_seeds():

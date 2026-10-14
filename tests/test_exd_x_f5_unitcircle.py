@@ -27,29 +27,6 @@ def _hard(seed):
     return make("unit_circle_tan_evaluate", seed=seed, variant="mixed_with_quadrantal")
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
-def test_prompt_variety_and_new_shapes_over_hard_tier():
-    exam_shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    assert len(exam_shapes) >= 3, exam_shapes
-    hard_shapes = {prompt_shape(_hard(s)) for s in range(60)}
-    assert exam_shapes - hard_shapes
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 99):
-        assert _exam(seed).to_json() == _exam(seed).to_json()
-
-
-def test_unknown_tier_is_rejected():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=0, tier="nope")
-
-
 def _missing(value: Fraction) -> Fraction:
     rest = 1 - value * value
     num, den = math.isqrt(rest.numerator), math.isqrt(rest.denominator)

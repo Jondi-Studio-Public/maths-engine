@@ -39,24 +39,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("circle_reverse_from_area", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_shape():
     q = _exam(1)
     assert [p.label for p in q.parts] == ["a", "b", "c"]
@@ -121,13 +103,3 @@ def test_follow_through_from_wrong_circumference(questions):
         result = grade(_SKILL, q, {"a": q.parts[0].answer_text, "b": f"{b:.1f}", "c": str(math.ceil(b / spacing))})
         assert result.parts["b"].marks == 0
         assert result.parts["c"].marks == result.parts["c"].max_marks
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

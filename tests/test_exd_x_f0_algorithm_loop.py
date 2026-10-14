@@ -47,12 +47,6 @@ def rerun(text: str) -> list[int]:
     return out
 
 
-def test_no_text_defects_and_three_shapes():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-    assert len({prompt_shape(_q(s)) for s in range(60)}) >= 3
-
-
 def test_exam_adds_shapes_over_hard_tier():
     hard = {prompt_shape(_hard(s)) for s in range(60)}
     exam = {prompt_shape(_q(s)) for s in range(60)}
@@ -90,7 +84,3 @@ def test_every_run_uses_both_branches_and_ends_at_the_stop():
         values = q.answer
         assert 5 <= len(values) <= 10
         assert len(set(values)) == len(values)
-
-
-def test_deterministic():
-    assert _q(3).to_json() == _q(3).to_json()
