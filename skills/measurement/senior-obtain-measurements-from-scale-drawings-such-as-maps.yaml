@@ -1,0 +1,38 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-obtain-measurements-from-scale-drawings-such-as-maps
+name: Obtain measurements from scale drawings, such as maps or building plans, to solve problems
+domain: measurement
+year_level: ['11']
+description: 'Given a map drawn on a square grid (one square is 1 cm) with a road, a river, symbols and a scale, find distances and journey times. Easy finds the distance along one straight road. Medium finds the distance along a road of three legs that doubles back, so the straight-across distance is not the answer. Hard finds the walking time along a road of four or five legs at a stated speed.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-find-actual-measurements-from-scale-drawings-such-as, convert-metric-length]
+answer: number
+sources:
+- topic: grid_scale_map
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_scale_map
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_scale_map
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: map-distance-not-scaled
+  description: "Gives the distance measured on the map and never applies the scale."
+- id: straight-across-distance
+  description: "Gives the distance straight across and up, ignoring the legs where the road doubles back."
+- id: leaves-out-a-leg
+  description: "Adds all but one leg of the road."
+- id: time-unit-slip
+  description: "Gives the time in hours, or reads decimal hours as minutes, when minutes were asked for."
+- id: multiplies-speed
+  description: "Multiplies the distance by the speed instead of dividing."
+tags: [acara-senior-v8-4, measurement, grid_scale_map, acmgm023, scale-drawings, maps, distance, speed]

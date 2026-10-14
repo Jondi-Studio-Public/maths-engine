@@ -2,8 +2,10 @@ id: f10-enlargement-invariants
 name: Identify what an enlargement changes and keeps
 domain: geometry
 year_level: ['9']
-description: Given a shape enlarged from a centre of enlargement by a stated scale factor, find the image's length, angle, area, perimeter or distance from the centre, using the fact that lengths scale by the factor, areas by its square and angles not at all.
+description: Given a shape enlarged from a centre of enlargement by a stated scale factor, find the image's length, angle, area, perimeter or distance from the centre, using the fact that lengths scale by the factor, areas by its square and angles not at all. One source draws a triangle or rectangle on a square grid with its centre of enlargement and asks for a length of the image and then the coordinates of its vertices.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
 prerequisites: [f10-transformations-invariants]
 answer: number
@@ -20,6 +22,11 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: grid_enlargement_image
+  key: grid-image
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
 - topic: exd_x_sc2_enlargement_chain
   params: {tier: exam}
   difficulty: exam
@@ -62,4 +69,16 @@ misconceptions:
   description: (Hard tier) Multiplies the area by the square of the denominator, treating a scale factor below 1 as if it enlarged.
 - id: rounds-the-scale-factor
   description: (Hard tier) Rounds a decimal scale factor to a whole number before multiplying.
+- id: enlarges-from-the-origin
+  description: (Grid source) Multiplies each vertex's coordinates by the scale factor, enlarging from (0, 0) instead of from the centre of enlargement O.
+- id: forgets-to-add-the-centre-back
+  description: (Grid source) Multiplies the distances from O by the scale factor but gives them as the coordinates, without adding the position of O back.
+- id: uses-one-factor-too-many
+  description: (Grid source) Moves each vertex a further scale factor times its distance from O, so the image is enlarged by one more than the stated factor.
+- id: enlarges-from-a-vertex
+  description: (Grid source) Takes a vertex of the shape, not the marked point O, as the centre of enlargement.
+- id: image-vertices-out-of-order
+  description: (Grid source) Lists the image vertices in a different order from the vertices they come from.
+- id: leaves-out-the-slanted-side
+  description: (Grid source) Adds only the sides that run along the grid lines when finding a perimeter, so the slanted side is missing.
 tags: [f10, geometry, enlargement, scale-factor, similarity, acara-v9-year-9]
