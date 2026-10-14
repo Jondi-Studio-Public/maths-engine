@@ -133,7 +133,12 @@ def _build(rng, variant):
 )
 def exd_x_s4_union(rng, tier="exam"):
     variant = rng.choice(("exactly_one", "intersection", "neither"))
-    d, a, b, c, u, answer, text, cands, working = _build(rng, variant)
+    # A few draws leave fewer than two misconceptions that are distinct proper probabilities; draw again rather
+    # than fail. The first draw is kept whenever it works, so every question that built before is unchanged.
+    for _ in range(20):
+        d, a, b, c, u, answer, text, cands, working = _build(rng, variant)
+        if len({Fraction(x, d) for x in cands if _ok(x, d)} - {answer}) >= 2:
+            break
 
     # Independent re-derivation from the inclusion-exclusion identities, using sets of equally likely points.
     only_a, only_b, both = a - c, b - c, c

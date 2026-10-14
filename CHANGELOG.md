@@ -37,6 +37,10 @@ Each question's id (below) tells you when the question behind it has changed.
   with `learner` and `author` keys; `mathgen.service` returns skills, questions, worksheets and grading as plain
   JSON-ready data; `mathgen.export` builds printable papers and Moodle XML and QTI 2.1 banks; `mathgen.svg` draws
   every figure kind as SVG. A `Dockerfile` and `compose.example.yaml` run it. See `docs/server.md`. (#71, in #81)
+- **Ready-made LMS question banks.** `scripts/build_banks.py` writes a Moodle XML bank and a QTI 2.1 package (for
+  Canvas and others) for every skill, ready to attach to a release. See `docs/banks.md`. In the exports, a QTI item
+  marks each reply exactly and shows the right answer as feedback, a Moodle option explains itself in words, and the
+  QTI export is marked experimental. (#87)
 - **MCP server.** `mathgen-mcp` (install the `mcp` extra) serves the engine to AI agents over the Model Context
   Protocol: find skills, make and mark questions, build worksheets and LMS banks. In the `learner` role no tool
   returns an answer. See `docs/mcp.md`. (#81)

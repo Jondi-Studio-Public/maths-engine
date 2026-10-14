@@ -27,6 +27,15 @@ from tests.fy1so_support import (
 TOPIC = "fy1so_series_tests"
 EXAM = "fy1so_exd_series_tests"
 n = sympy.Symbol("n")
+
+
+@pytest.fixture(autouse=True, scope="module")
+def _mpmath_digits():
+    """Scoped: a bare `mpmath.mp.dps = 40` at import changed the precision for every later test on the worker."""
+    with mpmath.workdps(40):
+        yield
+
+
 _ROOTS = {"√": 2, "∛": 3, "∜": 4}
 
 
@@ -38,7 +47,6 @@ def _term(text: str, k: int):
     return parse_text(body, {"n": n})
 
 
-@mpmath.workdps(40)  # scoped: a bare mp.dps = 40 here leaked into every later test on the same worker
 def _exponent(text: str, k: int) -> float:
     """The exponent p of a term, from the slope of log |a_n| between two huge n (never from a formula for p)."""
     f = sympy.lambdify(n, abs(_term(text, k)), "mpmath")
@@ -54,7 +62,6 @@ def test_easy_least_k_oracle():
         assert _exponent(q.text, first - 1) <= 1 + 1e-6  # just below it the series is the harmonic series or worse
 
 
-@mpmath.workdps(40)
 def _limit_of_ratio(text: str):
     body = re.search(r"a_n = (.+?) and b_n = (.+?)\. Find", text)
     a = parse_text(body.group(1), {"n": n})
@@ -63,7 +70,6 @@ def _limit_of_ratio(text: str):
     return f(mpmath.mpf(10) ** 30)
 
 
-@mpmath.workdps(40)
 def test_medium_limit_comparison_oracle():
     for seed in SEEDS:
         q = make(TOPIC, seed=seed, difficulty="medium")
