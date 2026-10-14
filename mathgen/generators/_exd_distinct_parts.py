@@ -24,6 +24,13 @@ from mathgen.core import VerificationError
 _TRIES = 400
 
 
+class DrawRejected(VerificationError):
+    """Raised inside a generator wrapped by `distinct_part_answers` to throw the current draw away, as an unequal
+    or junk-unsafe draw is: the wrapper runs the generator again on the same, already consumed, stream. Use it for
+    a draw that is correct but cannot be asked well, such as one whose slips leave a part with fewer than two
+    distractors. Unwrapped, it is an ordinary `VerificationError`."""
+
+
 def answer_key(part) -> object:
     text = str(part["answer_text"] if isinstance(part, dict) else part.answer_text).strip()
     try:
@@ -116,7 +123,10 @@ def distinct_part_answers(fn):
     @functools.wraps(fn)
     def wrapper(rng, *args, **kwargs):
         for _ in range(_TRIES):
-            built = fn(rng, *args, **kwargs)
+            try:
+                built = fn(rng, *args, **kwargs)
+            except DrawRejected:
+                continue
             if answers_distinct(built["parts"]) and junk_safe(built["parts"]):
                 return built
         raise VerificationError(
