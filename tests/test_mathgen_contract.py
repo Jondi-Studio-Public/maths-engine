@@ -346,6 +346,17 @@ OPTION_NOTES_TOPICS = frozenset(
         "senior_event_set_notation",
         "senior_percentaged_two_way_table",
         "senior_reducing_balance_schedule",
+        "snet_adjacency",
+        "snet_degrees",
+        "snet_eulerian",
+        "snet_hamiltonian",
+        "snet_route_types",
+        "smech_connected_particles",
+        "smech_equilibrium",
+        "smech_inclined_plane",
+        "smech_newton_second_law",
+        "smech_residual_plots",
+        "smech_residuals",
         "sequence_term_from_rule",
         "transformations_invariants",
         "triple_integral",
@@ -360,6 +371,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "ucv1_proof_by_induction",
         "ucv1_series_convergence",
         "ucv1_weak_solution_regularity",
+        "salg_binomial_coefficient",
+        "salg_binomial_expand",
+        "salg_de_moivre_power",
+        "salg_polar_multiply_divide",
+        "salg_reciprocal_trig_values",
+        "salg_trig_identities",
     }
 )
 
@@ -642,6 +659,7 @@ ANSWER_FORM_TOPICS = {
     "simplify_expression": "expanded",
     # Eigenvector answers are graded up to a scalar multiple, so the question declares it.
     "ucv1_eigenvectors": "scalar_multiple",
+    "salg_binomial_expand": "expanded",
 }
 
 # Topics that set `answer_form` on only some of their question kinds: when it is

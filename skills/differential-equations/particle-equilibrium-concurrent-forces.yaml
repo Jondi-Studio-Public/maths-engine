@@ -1,0 +1,86 @@
+id: particle-equilibrium-concurrent-forces
+name: Find unknown forces on a particle in equilibrium
+domain: differential-equations
+description: Resolve concurrent forces in two perpendicular directions and set each total to zero to find an unknown
+  force component, a magnitude, or the tensions in strings supporting a weight.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-understand-motion-of-a-body-under-concurrent-forces
+answer: number
+sources:
+- topic: smech_equilibrium
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: smech_equilibrium
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: smech_equilibrium
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: smech_equilibrium_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mech-added-components
+  description: Adding the components of a vector to get its magnitude instead of using Pythagoras.
+- id: mech-added-squares
+  description: Adding the squares of the weight and the greatest tension where the tension is the hypotenuse.
+- id: mech-assumed-symmetric
+  description: Assuming the two strings share the weight equally, so each tension is W / (2 sin angle), although
+    the angles differ.
+- id: mech-forgot-g
+  description: Multiplying the coefficient of friction by the mass and leaving out g.
+- id: mech-forgot-square-root
+  description: Reporting v² as the speed.
+- id: mech-g-applied-twice
+  description: Multiplying by g a second time after the weight has already been found.
+- id: mech-halved-weight
+  description: Taking half the weight.
+- id: mech-ignored-one-force
+  description: Leaving one of the stated forces out of the resultant.
+- id: mech-other-string-ignored
+  description: Balancing the weight against one string alone, as if the other string took no part.
+- id: mech-resultant-for-unknown
+  description: Giving the magnitude or direction of the resultant force where the unknown force was asked for.
+- id: mech-sign-error-in-balance
+  description: 'Adding the known components and stopping, instead of making the unknown one cancel them: the sign
+    of the answer is reversed.'
+- id: mech-sin-cos-swapped
+  description: Using sin where cos belongs (or the reverse) when resolving the weight along and perpendicular to
+    a slope.
+- id: mech-strings-swapped
+  description: Giving the tension in the other string.
+- id: mech-subtracted-instead-of-pythagoras
+  description: Subtracting the weight from the greatest tension where the horizontal force, the weight and the tension
+    form a right-angled triangle.
+- id: mech-tan-inverted-in-balance
+  description: Using cos θ / sin θ where tan θ is needed, or the reverse, when relating the horizontal and vertical
+    forces.
+- id: mech-tension-equals-weight
+  description: Taking the tension in the string to equal the weight of one of the masses, which is only true when
+    there is no acceleration.
+- id: mech-used-one-component
+  description: Reporting one component of a vector as its magnitude.
+- id: mech-wrong-component
+  description: Balancing the forces in the wrong direction, using the north components where the east components
+    are needed or the reverse.
+tags:
+- mechanics
+- equilibrium
+- concurrent-forces
+- tension
+- specialist-unit-4

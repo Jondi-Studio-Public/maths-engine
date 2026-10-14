@@ -16079,6 +16079,1213 @@ _ENTRIES = (
         "Finding the boundary below which values are outliers (Q1 less 1.5 x IQR) where the upper one was asked for.",
         area="statistics",
     ),
+    CatalogueEntry(
+        "net-degree-miscount",
+        "Miscounting the edges at a vertex (or the vertices of a stated kind), so the answer is one too high or one too low.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-wrong-vertex",
+        "Giving the degree of a different vertex from the one asked about.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-as-edge-total",
+        "Giving the total number of edges in the network when the degree of one vertex was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-sum-as-edges",
+        "Taking the sum of the degrees as the number of edges, forgetting that every edge is counted at both of its ends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-edges-as-degree-sum",
+        "Using the number of edges where the sum of the degrees belongs, forgetting to double it first.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-handshake-slip",
+        "Right method for the degree sum, but the arithmetic is out by one or two.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-vertices-as-edges",
+        "Giving the number of vertices when the number of edges was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-odd-even-swapped",
+        "Counting the vertices of even degree when the vertices of odd degree were asked for, or the reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-odd-degrees-summed",
+        "Adding up the odd degrees instead of counting how many vertices have an odd degree.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-half-of-missing",
+        "Halving the missing amount after subtracting from the degree sum, as if it were the number of edges at the vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-average-degree-used",
+        "Giving the average of the known degrees for the missing degree instead of using the degree sum.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-class-swapped",
+        "Giving the number of vertices of the other degree than the one asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-assumes-equal-split",
+        "Assuming half the vertices have each of the two stated degrees without using the number of edges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-forgot-divide-by-gap",
+        "Stopping at the amount the degree sum exceeds the smaller degree times the vertices, without dividing by the "
+        "difference between the two degrees.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-rounded-up-not-down",
+        "Rounding up when the greatest whole number of vertices was wanted, which would break the degree condition.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-sum-as-vertices",
+        "Giving the degree sum as the number of vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-halved-instead-of-doubled",
+        "Halving the number of edges where the degree sum (twice the edges) belongs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-listed-sum-only",
+        "Giving the sum of the degrees that are listed instead of the sum of all of them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hidden-vertex-ignored",
+        "Counting only the listed vertices, leaving out the vertex whose degree had to be found first.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-deleted-edges-kept",
+        "Giving the original number of edges after a vertex and its edges are deleted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-edges-removed-twice",
+        "Removing the edges at a deleted vertex twice, once at each end.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-answered-removed-edges",
+        "Giving the number of edges removed instead of the number that remain.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-route-too-general",
+        "Naming a route with a correct but less specific name (a walk for a trail, or a trail for a path), when the most "
+        "specific name was wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-trail-allows-repeated-edge",
+        "Calling a route a trail (or a closed trail) although it uses an edge more than once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-path-allows-repeated-vertex",
+        "Calling a route a path although it visits a vertex more than once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-circuit-cycle-confused",
+        "Calling a closed trail a cycle although it visits a vertex other than the start more than once, or the reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-open-closed-confused",
+        "Not checking whether the route ends where it starts, so an open route is given a closed name or the reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-vertices-counted-as-edges",
+        "Counting the vertices in a route instead of the edges (steps) it uses.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-repeats-not-counted",
+        "Counting each different edge of a route once when every step was to be counted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-repeats-counted-as-different",
+        "Counting a repeated edge as a different edge each time it is used.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-all-network-edges-counted",
+        "Giving the number of edges in the whole network instead of the number the route uses.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-different-edges-for-reuse",
+        "Giving the number of different edges used where the number of repeated uses was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-repeated-vertices-for-edges",
+        "Counting the repeated vertices of a route instead of the repeated uses of an edge.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-circuit-trail-confused",
+        "Mixing up an Eulerian trail (two odd vertices, different ends) with an Eulerian circuit (no odd vertices).",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-parity-reversed",
+        "Thinking a network with every degree even cannot be travelled, or that odd degrees are what make a circuit work.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-two-odd-rejected",
+        "Ruling out an Eulerian trail because there are odd vertices, forgetting that exactly two odd vertices are allowed.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-odd-vertices-ignored",
+        "Not counting the odd vertices at all, so a network with four odd vertices (or two) is judged to have an Eulerian circuit.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-many-odd-accepted",
+        "Accepting an Eulerian trail with more than two odd vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-ignores-connectedness",
+        "Checking only that every degree is even and not that the network is in one piece.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-start-highest-degree",
+        "Starting an Eulerian trail at the vertices of highest degree instead of the two odd vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-one-odd-one-even",
+        "Choosing one odd vertex and one even vertex as the ends of an Eulerian trail.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-start-even-vertices",
+        "Choosing even vertices as the ends of an Eulerian trail.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-edge-per-odd-vertex",
+        "Adding one new edge for every odd vertex, when each new edge fixes two odd vertices at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-euler-added-edges-not-counted",
+        "Giving the original number of edges for the length of the circuit, leaving out the edges that were added.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-skipped-vertex-accepted",
+        "Accepting a closed route as a Hamiltonian cycle although it misses a vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-repeat-accepted",
+        "Accepting a route as a Hamiltonian cycle although it visits a vertex twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-path-counted-as-cycle",
+        "Counting a route that visits every vertex once but does not return to its start as a Hamiltonian cycle.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-non-edge-accepted",
+        "Accepting a route that moves between two vertices that no edge joins.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-valid-rejected",
+        "Rejecting a genuine Hamiltonian cycle, for example because it is written from a different start or in reverse.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-miscount",
+        "Listing the Hamiltonian cycles or paths and missing one, or counting one twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-direction-counted",
+        "Counting a Hamiltonian cycle and the same cycle travelled in reverse as two different cycles.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-start-counted",
+        "Counting the same Hamiltonian cycle once for each vertex it can be started from.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-all-orderings-counted",
+        "Counting every starting vertex and both directions of each Hamiltonian cycle as different cycles.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-direction-ignored",
+        "Counting tours by starting vertex only, so a tour and its reverse are not told apart when they should be.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-start-ignored",
+        "Counting tours by direction only (or not at all), so tours from different starting vertices are not told apart "
+        "when they should be.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-any-start-counted",
+        "Counting Hamiltonian paths from every vertex when only those from the named vertex were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-hamilton-path-cycle-confused",
+        "Counting only the Hamiltonian paths that can return to the start, which are the cycles, instead of all the paths.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-spanning-tree-instead-of-tour",
+        "Giving the length of a minimum spanning tree for the shortest tour, which must also return to the start.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-longest-tour-chosen",
+        "Choosing the longest tour when the shortest was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-second-cheapest-tour-chosen",
+        "Stopping at the second-shortest tour.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-cheapest-roads-chosen",
+        "Adding the shortest few roads without checking that they make a tour that visits every place once and returns.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-cents-as-dollars",
+        "Multiplying by 15 instead of 0.15, reading the price in cents as dollars.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-divided-by-price",
+        "Dividing the distance by the price per kilometre instead of multiplying.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-doubled-return",
+        "Doubling the cost of a tour that already returns to its start.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-price-decimal-slip",
+        "Misplacing the decimal point in the price per kilometre.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-edges-for-degree",
+        "Giving the number of edges in the network for the degree of one vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-sum-for-degree",
+        "Adding every entry of the matrix for the degree of one vertex instead of one row.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-vertices-for-degree",
+        "Giving the number of other vertices for the degree of one vertex, as if it were joined to all of them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-sum-as-edges",
+        "Taking the sum of all the entries of an adjacency matrix as the number of edges, forgetting each edge appears twice.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-one-entry-per-edge",
+        "Putting a 1 for each edge in one place only (above the diagonal), or counting one 1 per edge, when the matrix is "
+        "symmetric.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-all-entries-counted",
+        "Counting every entry of the matrix, 0s as well as 1s.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-walk-length-confused",
+        "Reading the entry of the matrix itself (walks of length 1) where walks of length 2 or 3 were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-squared-entrywise",
+        "Squaring (or cubing) each entry instead of multiplying the matrix by itself.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-row-column-added",
+        "Adding the row and the column together instead of multiplying them term by term and adding.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-degrees-multiplied",
+        "Multiplying the degrees of the two end vertices to count walks of length 2.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-one-step-only",
+        "Counting walks of length 1 (the degree) where walks of length 2 were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-all-starts-counted",
+        "Counting the walks of length 2 from every vertex when only those from one vertex were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-degree-sum-as-walks",
+        "Giving the sum of all the degrees as the number of walks of length 2 from one vertex.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-ends-not-restricted",
+        "Giving all the walks of length 2 from the vertex when only those that return to it were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-ends-elsewhere",
+        "Giving the walks that end elsewhere (or the walks that return) when the other kind was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-closed-walks-not-subtracted",
+        "Not taking the walks that return to the start away from the total when only those ending elsewhere were wanted.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-diagonal-ones",
+        "Writing 1s on the diagonal of an adjacency matrix, as if each vertex were joined to itself.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-edge-missed",
+        "Leaving an edge out of the adjacency matrix.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "net-adjacency-wrong-vertex-order",
+        "Writing the rows and columns of the adjacency matrix in a different order from the alphabetical order of the vertices.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "mech-forgot-divide-by-mass",
+        "Reporting the resultant force in newtons where the acceleration was asked, without dividing by the mass.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resistance-added",
+        "Adding a resisting force to the forces that drive the motion instead of subtracting it.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-one-force",
+        "Leaving one of the stated forces out of the resultant.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-multiplied-by-mass",
+        "Multiplying by the mass where F = ma needs a division by it.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resultant-for-resistance",
+        "Reporting the resultant force as the unknown resistance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-mass-in-resultant",
+        "Using the acceleration as the resultant force, without multiplying it by the mass.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-resistance",
+        "Leaving the resisting force out of the resultant force.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-speed-used-as-acceleration",
+        "Using the speed reached as if it were the acceleration, without dividing by the time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-two-in-kinematics",
+        "Dropping the 2 in v² = u² + 2as when finding the acceleration or speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-half-in-kinematics",
+        "Dropping the one half in s = ½at² when finding the acceleration from a distance and a time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-kinetic-energy-for-force",
+        "Reporting the kinetic energy ½mu² (or part of it) as the braking force, without dividing by the stopping distance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-weight-and-acceleration-opposed",
+        "Subtracting the acceleration from g where the load accelerates upward, or adding it where it accelerates downward.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-weight",
+        "Leaving the weight out of the vertical force balance, so the cable is thought to supply only m×a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-acceleration",
+        "Taking the tension to be just the weight although the load is accelerating.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resultant-sign-reversed",
+        "Subtracting the resultant from the known forces instead of the known forces from the resultant, which reverses the sign of the unknown force.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-added-known-forces-to-resultant",
+        "Adding the known forces to the resultant instead of subtracting them when finding the unknown force.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-used-one-component",
+        "Reporting one component of a vector as its magnitude.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-added-components",
+        "Adding the components of a vector to get its magnitude instead of using Pythagoras.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-resultant-for-unknown",
+        "Giving the magnitude or direction of the resultant force where the unknown force was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-angle-from-wrong-axis",
+        "Measuring the angle from the north axis instead of from east, which gives its complement.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-quadrant-ignored",
+        "Taking the angle from the inverse tangent of the positive ratio without placing the vector in its true quadrant.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-angle-reflected",
+        "Giving 180° minus the angle instead of the angle.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-system-mass-omitted",
+        "Using only one body's mass as the mass of the whole system, or the wrong mass in a single body's equation.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-acceleration-of-car",
+        "Taking the tension to be the driving force less the resistance on the car, forgetting that the car is accelerating too.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-masses-swapped",
+        "Putting the block's mass where the hanging mass belongs, so the wrong weight drives the motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-free-fall-assumed",
+        "Giving g as the acceleration, as if the hanging mass fell freely.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tension-equals-weight",
+        "Taking the tension in the string to equal the weight of one of the masses, which is only true when there is no acceleration.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-wrong-body-mass",
+        "Using the mass of the other body in one body's equation of motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ratio-inverted",
+        "Inverting the ratio of the masses, so the acceleration comes out larger than g.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tension-averaged",
+        "Taking the tension to be the average of the two weights.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-g",
+        "Multiplying the coefficient of friction by the mass and leaving out g.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-friction-without-coefficient",
+        "Giving the normal reaction as the friction force, leaving out the coefficient of friction.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-g-applied-twice",
+        "Multiplying by g a second time after the weight has already been found.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-friction",
+        "Leaving the friction force out of the equation of motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-friction-direction-reversed",
+        "Adding the friction force to the driving weight, as if friction helped the motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-friction-omitted-from-block",
+        "Leaving friction out of the block's own equation, so the tension is just m×a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-square-root",
+        "Reporting v² as the speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-sin-cos-swapped",
+        "Using sin where cos belongs (or the reverse) when resolving the weight along and perpendicular to a slope.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-weight-not-resolved",
+        "Using the whole weight mg where a component of it is needed, as if the plane were horizontal or vertical.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-component-resolved-twice",
+        "Resolving the weight into a component and then resolving that component again.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tan-inverted",
+        "Giving the coefficient of friction as cos θ / sin θ instead of sin θ / cos θ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-sin-used-as-mu",
+        "Taking the coefficient of friction on the point of slipping to be sin θ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-cos-used-as-mu",
+        "Taking the coefficient of friction on the point of slipping to be cos θ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-limiting-friction-assumed",
+        "Giving the greatest friction μR for a block that is at rest, when the friction actually acting only balances the weight component along the slope.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-ignored-weight-component",
+        "Leaving the weight component along the slope out of the forces on the block.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-forgot-square-on-time",
+        "Using t where t² is needed in s = ½at².",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-speed-used-as-distance",
+        "Reporting the speed after t seconds (at) as the distance travelled.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-sign-error-in-balance",
+        "Adding the known components and stopping, instead of making the unknown one cancel them: the sign of the answer is reversed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-wrong-component",
+        "Balancing the forces in the wrong direction, using the north components where the east components are needed or the reverse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-strings-swapped",
+        "Giving the tension in the other string.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-tan-inverted-in-balance",
+        "Using cos θ / sin θ where tan θ is needed, or the reverse, when relating the horizontal and vertical forces.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-assumed-symmetric",
+        "Assuming the two strings share the weight equally, so each tension is W / (2 sin angle), although the angles differ.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-other-string-ignored",
+        "Balancing the weight against one string alone, as if the other string took no part.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-horizontal-balance-skipped",
+        "Using only the vertical balance with both sines added, and never balancing the horizontal components.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-halved-weight",
+        "Taking half the weight.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-subtracted-instead-of-pythagoras",
+        "Subtracting the weight from the greatest tension where the horizontal force, the weight and the tension form a right-angled triangle.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-added-squares",
+        "Adding the squares of the weight and the greatest tension where the tension is the hypotenuse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-limit-resolved-as-fixed-angle",
+        "Resolving the greatest tension at the original angle, although the angle grows as the horizontal force increases.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "mech-predicted-reported-as-residual",
+        "Reporting the predicted value where the residual was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-observed-reported-as-residual",
+        "Reporting the observed value where the residual was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-intercept-left-out",
+        "Leaving the intercept out when predicting from the line, so the prediction is just slope times x.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-slope-term-left-out",
+        "Leaving the slope term out when predicting from the line, so the prediction is just the intercept.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sign-of-residual-dropped",
+        "Reporting the size of the residual without its sign.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-wrong-extreme-chosen",
+        "Choosing the greatest residual by value, not by size, so a large negative residual is passed over.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-first-residual-only",
+        "Computing one residual and reporting it as the answer for all the observations.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sum-sign-not-reversed",
+        "Giving the sum of the residuals that are listed instead of the number that makes the total zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-missing-residual-taken-as-zero",
+        "Assuming a residual that is not listed must be zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-mean-of-the-others",
+        "Giving the mean of the listed residuals as the missing residual.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-residuals-always-sum-to-zero",
+        "Saying residuals always sum to zero, which is only true about the least-squares line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-absolute-residuals-summed",
+        "Adding the sizes of the residuals instead of the residuals themselves.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-squared-residuals-summed",
+        "Adding the squares of the residuals where their plain sum was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-observed-used-as-predicted",
+        "Using the observed value as the predicted value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-x-value-replaced-by-one",
+        "Putting x = 1 into the line instead of the stated value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-intercept-and-slope-swapped",
+        "Swapping the intercept and the slope when substituting into the line.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-absolute-not-squared",
+        "Adding the sizes of the residuals where their squares were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-one-residual-squared",
+        "Squaring only the largest residual instead of all five.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-mean-instead-of-sum",
+        "Dividing the sum of squared residuals by the number of observations.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-pattern-seen-in-random-scatter",
+        "Seeing a pattern in residuals that are scattered at random, and rejecting a linear model that fits well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-pattern-read-as-random-scatter",
+        "Reading residuals that form a curve or fan as random scatter, and accepting a linear model that does not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-fan-and-curve-confused",
+        "Describing residuals that fan out as a curve, or a curved residual pattern as fanning.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-pattern-taken-as-good-fit",
+        "Taking a clear pattern in the residuals as a sign that the linear model fits well, when a pattern is the sign that it does not.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-nonzero-residuals-mean-poor-fit",
+        "Rejecting a linear model because the residuals are not all zero, although a good fit leaves small residuals with no pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-r-squared-trusted",
+        "Accepting a linear model because r² is high, without checking the residuals for a pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sum-zero-taken-as-linear",
+        "Taking residuals that add to zero as evidence of a linear relationship, when the residuals of every least-squares line add to zero.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-large-residuals-mean-poor-fit",
+        "Judging a linear model by the size of a few residuals instead of by whether they form a pattern.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-low-r-squared-rejects",
+        "Rejecting a linear model because r² is low, although patternless residuals mean only that predictions are less precise.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-sign-mix-taken-as-pattern",
+        "Treating a mix of positive and negative residuals as a pattern, when both signs are expected of a good fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "mech-one-residual-left-out",
+        "Leaving the residual just calculated out of the sum of squares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficients-omitted",
+        "Expanding a power of a binomial with the powers of each term but no binomial coefficients: every coefficient "
+        "is left as 1 (or as a bare power of the number).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-middle-terms-dropped",
+        "Writing (a + b)^n as a^n + b^n: leaving out every term between the first and the last.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-coefficients-from-previous-row",
+        "Reading the coefficients from row n - 1 of Pascal's triangle instead of row n, so one coefficient is missing "
+        "and the last term is left with a coefficient of 1.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-base-not-raised",
+        "Multiplying each term by the number once instead of raising it to the power that matches its position: "
+        "reading the term in b^3 as b times the binomial coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-base-times-exponent",
+        "Multiplying the number by its exponent instead of raising it to that power: reading 3^2 as 3 x 2 in a term of "
+        "the expansion.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-sign-not-alternating",
+        "Expanding (a - b)^n with every term after the first negative, instead of letting the sign alternate with the "
+        "power of the negative number.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-negative-sign-dropped",
+        "Expanding (a - b)^n as if it were (a + b)^n: the minus sign is lost and every term is positive.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-power-of-base-missed",
+        "Finding a coefficient in a binomial expansion with the right binomial coefficient but only the first power of "
+        "the number instead of the power that matches the term.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-wrong-term-picked",
+        "Giving the coefficient of a neighbouring term (x^1 or x^3) in the expansion instead of the term asked for.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficient-misread",
+        "Reading the wrong entry from the row of Pascal's triangle: taking 4 instead of 6 as the middle coefficient of "
+        "the fourth row.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-constant-term-only",
+        "Giving the sum of the coefficients of an expansion as its constant term alone.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-pascal-coefficients-only",
+        "Giving the sum of the binomial coefficients, 2^n, as the sum of the coefficients of an expansion whose terms "
+        "also carry powers of a number.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-permutation-for-combination",
+        "Counting arrangements, n(n - 1)...(n - r + 1), where the binomial coefficient C(n, r) was needed.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-row-sum-given",
+        "Giving the sum of row n of Pascal's triangle, 2^n, where a single binomial coefficient was asked for.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-numbers-omitted",
+        "Giving the binomial coefficient alone as the coefficient of a term, without the powers of the numbers in the "
+        "binomial.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-powers-swapped",
+        "Attaching the exponents to the wrong numbers: using the power r on one number and n - r on the other the "
+        "wrong way round.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-first-number-not-raised",
+        "Raising the second number to its power but leaving the number in front of x as it is, so the power of that "
+        "number is missing from the coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-second-number-not-raised",
+        "Raising the number in front of x to its power but leaving the constant as it is, so the power of the "
+        "constant is missing from the coefficient.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-first-number-only",
+        "Finding the constant term of (ax + b/x)^n as C(n, n/2) a^n, ignoring that half the factors are b/x.",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-multipliers-omitted",
+        "Adding the two earlier coefficients without multiplying each by the number it comes with when multiplying a "
+        "power of (px + q) by (px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-multipliers-swapped",
+        "Multiplying the coefficient of x^r by q and the coefficient of x^(r+1) by p, the wrong way round, when "
+        "multiplying a power of (px + q) by (px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "binom-one-product-only",
+        "Counting only one of the two ways a term of the next power arises when multiplying a power of (px + q) by "
+        "(px + q).",
+        area="binomial",
+    ),
+    CatalogueEntry(
+        "recip-not-taken",
+        "Giving the value of cos, sin or tan where sec, cosec or cot was asked for: forgetting to take the reciprocal.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-sec-cosec-swapped",
+        "Mixing up sec and cosec: taking sec as the reciprocal of sine, or cosec as the reciprocal of cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-cot-as-tan",
+        "Reading cot as tan (or tan as cot): giving sin/cos where cos/sin was asked for.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-cot-as-cosec",
+        "Confusing cot with cosec: taking cot as the reciprocal of sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-sign-wrong-quadrant",
+        "Giving a negative value where the function is positive in the angle's quadrant.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-quadrant-sign-ignored",
+        "Giving the value of the reference angle without the negative sign the angle's quadrant requires.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-wrong-reference-angle",
+        "Using the complement of the reference angle: taking the value at 60 degrees where 30 degrees was needed, or "
+        "the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-sin-cos-swapped",
+        "Giving the value of cos at the angle where sin was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-reciprocal-given",
+        "Giving the reciprocal function's value, sec for cos or cosec for sin, where cos or sin was asked for.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-root-not-taken",
+        "Stopping at sec^2 (or tan^2, cosec^2, cot^2) from 1 + tan^2 = sec^2 and giving it as the answer, without "
+        "taking the square root.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-tan-not-squared",
+        "Adding 1 to tan (or cot) instead of to tan squared when using 1 + tan^2 = sec^2, so sec is found as 1 + tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-one-omitted",
+        "Reading sec^2 as tan^2: leaving the 1 out of 1 + tan^2 = sec^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-sign-slip",
+        "Misapplying the identity with the wrong sign, so sec^2 is taken as tan^2 - 1 or 1 - tan^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-given-repeated",
+        "Giving the value that was stated in the question (sec or cosec) as the answer for tan or cot.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-factor-left",
+        "Stopping part way through a simplification and leaving a squared function or a factor that should have "
+        "cancelled.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-not-applied",
+        "Solving an equation in sec^2 and tan^2 as if sec^2 were another tan^2, without using 1 + tan^2 = sec^2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-identity-difference-as-zero",
+        "Taking sec^2 x - tan^2 x as 0 instead of 1, so the constant terms are left on their own.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-tan-not-applied",
+        "Giving cos instead of sin by forgetting to multiply by tan when finding sin from cos and tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "recip-tan-divided",
+        "Dividing cos by tan instead of multiplying, when finding sin from cos and tan.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-standard-angle-misread",
+        "Reading the wrong standard angle from the value of tan or cot, such as 45 degrees where tan is sqrt(3), or "
+        "30 degrees where tan is 1.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "polar-moduli-added",
+        "Adding the moduli instead of multiplying them when multiplying complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-moduli-subtracted",
+        "Subtracting the moduli instead of dividing them when dividing complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-arguments-subtracted-on-multiplying",
+        "Subtracting the arguments instead of adding them when multiplying complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-division-arguments-added",
+        "Adding the arguments instead of subtracting them when dividing complex numbers in polar form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-argument-of-first-only",
+        "Keeping the argument of the first number and ignoring the second, or the modulus of one number only.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-arguments-subtracted-in-wrong-order",
+        "Subtracting the arguments the wrong way round when dividing, so the argument has the wrong size.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-division-as-multiplication",
+        "Multiplying the moduli (or dividing nothing) where a quotient was needed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-angle-not-reduced",
+        "Leaving the argument as 360 degrees or more (or negative) instead of bringing it back into the range 0 to 360.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-angle-reduced-by-half-turn",
+        "Reducing an argument of more than 360 degrees by 180 degrees instead of by a full turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-argument-signs-mixed",
+        "Subtracting the arguments of w and u from that of z, instead of adding the argument of the factor in the "
+        "numerator.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polar-modulus-of-first-only",
+        "Giving the modulus of one of the numbers as the modulus of the product.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-not-raised",
+        "Applying De Moivre's theorem and leaving the modulus as it was, instead of raising it to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-multiplied",
+        "Multiplying the modulus by n instead of raising it to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-argument-not-multiplied",
+        "Raising the modulus to the power n but leaving the argument unchanged, instead of multiplying it by n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-negative-power-sign-lost",
+        "Giving the argument of z^n for a negative n as if n were positive, so the argument has the wrong sign.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-quadrant-ignored",
+        "Finding the argument of a number from its reference angle alone, without placing it in the quadrant of the "
+        "point.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-root-not-taken",
+        "Giving the sum of the squares of the real and imaginary parts as the modulus, without the square root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-is-one-component",
+        "Taking the modulus to be one of the two parts of the number, or their sum, instead of the square root of "
+        "the sum of their squares.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-argument-from-wrong-ratio",
+        "Finding the argument from the real part over the imaginary part, so the reference angle is the complement "
+        "of the right one.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-modulus-raised-the-wrong-way",
+        "Raising n to the power of the modulus instead of the modulus to the power n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-conjugate-given",
+        "Writing the power in Cartesian form with the sign of the imaginary part reversed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "demoivre-sine-cosine-swapped",
+        "Writing the power in Cartesian form with sine as the real part and cosine as the imaginary part.",
+        area="complex-numbers",
+    ),
 )
 
 #: Every entry, by id.

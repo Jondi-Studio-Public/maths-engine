@@ -462,6 +462,14 @@ cone-volume:
     module: mathgen/generators/t5_circle_cone_build.py
   - topic: exd_x_m1_cone_stockpile
     module: mathgen/generators/exd_x_m1_cone_stockpile.py
+connected-particles-pulleys-and-towing:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: smech_connected_particles
+    module: mathgen/generators/smech_connected_particles_build.py
+  - topic: smech_connected_particles_exam
+    module: mathgen/generators/smech_connected_particles_build.py
 constants-coefficients-terms:
   domain: language-formulas
   status: active
@@ -1964,6 +1972,46 @@ gradient-vector:
   sources:
   - topic: partial_derivatives
     module: mathgen/generators/calculus.py
+graph-adjacency-matrices:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: snet_adjacency
+    module: mathgen/generators/snet_adjacency_build.py
+  - topic: snet_adjacency_chain
+    module: mathgen/generators/snet_adjacency_build.py
+graph-eulerian-trails-circuits:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: snet_eulerian
+    module: mathgen/generators/snet_eulerian_build.py
+  - topic: snet_eulerian_chain
+    module: mathgen/generators/snet_eulerian_build.py
+graph-hamiltonian-paths-cycles:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: snet_hamiltonian
+    module: mathgen/generators/snet_hamiltonian_build.py
+  - topic: snet_hamiltonian_chain
+    module: mathgen/generators/snet_hamiltonian_build.py
+graph-vertex-degrees-handshaking:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: snet_degrees
+    module: mathgen/generators/snet_degrees_build.py
+  - topic: snet_degrees_chain
+    module: mathgen/generators/snet_degrees_build.py
+graph-walks-trails-paths-cycles:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: snet_route_types
+    module: mathgen/generators/snet_route_types_build.py
+  - topic: snet_route_types_chain
+    module: mathgen/generators/snet_route_types_build.py
 graph-y-mx:
   domain: linear-relations
   status: active
@@ -2008,6 +2056,14 @@ identity-and-no-solution:
   sources:
   - topic: linear_equation
     module: mathgen/generators/algebra.py
+inclined-plane-friction:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: smech_inclined_plane
+    module: mathgen/generators/smech_inclined_plane_build.py
+  - topic: smech_inclined_plane_exam
+    module: mathgen/generators/smech_inclined_plane_build.py
 independent-dependent-variables:
   domain: linear-relations
   status: deferred
@@ -2144,6 +2200,14 @@ least-squares-line:
     module: mathgen/generators/university_stat_learning.py
   - topic: exd_x_u6_regression_prediction
     module: mathgen/generators/exd_x_u6_regression_prediction.py
+least-squares-residuals:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: smech_residuals
+    module: mathgen/generators/smech_residuals_build.py
+  - topic: smech_residuals_exam
+    module: mathgen/generators/smech_residuals_build.py
 limit-at-infinity:
   domain: limits
   status: active
@@ -2392,6 +2456,14 @@ newton-method-iteration:
     module: mathgen/generators/university_foundations.py
   - topic: exd_x_u4_newton_square_root
     module: mathgen/generators/exd_x_u4_newton_square_root.py
+newtons-second-law-resultant-force:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: smech_newton_second_law
+    module: mathgen/generators/smech_newton_second_law_build.py
+  - topic: smech_newton_second_law_exam
+    module: mathgen/generators/smech_newton_second_law_build.py
 nth-term-rule:
   domain: functions-sequences
   status: active
@@ -2466,6 +2538,14 @@ partial-derivative-y:
     module: mathgen/generators/calculus.py
   - topic: exd_x_u5_partial_chain
     module: mathgen/generators/exd_x_u5_partial_chain.py
+particle-equilibrium-concurrent-forces:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: smech_equilibrium
+    module: mathgen/generators/smech_equilibrium_build.py
+  - topic: smech_equilibrium_exam
+    module: mathgen/generators/smech_equilibrium_build.py
 percentage-change:
   domain: secondary-number
   status: active
@@ -2668,6 +2748,14 @@ rearrange-simple-formulas:
     module: mathgen/generators/p8b_rearrange_powers_build.py
   - topic: exd_x_a3_rearrange_repeated_subject
     module: mathgen/generators/exd_x_a3_rearrange_repeated_subject.py
+reciprocal-trig-identities:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: salg_trig_identities
+    module: mathgen/generators/salg_trig_identities_build.py
+  - topic: salg_exam_trig_identities
+    module: mathgen/generators/salg_trig_identities_build.py
 recognise-equivalent-expressions:
   domain: expressions-equivalence
   status: deferred
@@ -2738,6 +2826,14 @@ recurring-decimal-to-fraction:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_n4_recurring_mixed
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
+residual-plot-linear-model-check:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: smech_residual_plots
+    module: mathgen/generators/smech_residual_plots_build.py
+  - topic: smech_residual_plots_exam
+    module: mathgen/generators/smech_residual_plots_build.py
 reverse-percentage:
   domain: secondary-number
   status: active
@@ -3112,6 +3208,14 @@ senior-define-and-use-inverses-of-linear-transformations-and:
     module: mathgen/generators/p9d_linear_transform_composition_inverse_build.py
   - topic: exd_x_r2d_lt_inverse_chain
     module: mathgen/generators/exd_x_r2d_lt_inverse_chain.py
+senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: salg_polar_multiply_divide
+    module: mathgen/generators/salg_polar_multiply_divide_build.py
+  - topic: salg_exam_polar_multiply_divide
+    module: mathgen/generators/salg_polar_multiply_divide_build.py
 senior-define-and-use-multiplication-by-a-scalar-of:
   domain: vectors
   status: active
@@ -3160,6 +3264,14 @@ senior-define-the-natural-logarithm-ln-x-log-ex:
     module: mathgen/generators/p3c_logarithms_b_build.py
   - topic: exd_x_f1_ln_exponential_equation
     module: mathgen/generators/exd_x_f1_ln_exponential_equation.py
+senior-define-the-reciprocal-trigonometric-functions:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: salg_reciprocal_trig_values
+    module: mathgen/generators/salg_reciprocal_trig_values_build.py
+  - topic: salg_exam_reciprocal_trig_values
+    module: mathgen/generators/salg_reciprocal_trig_values_build.py
 senior-demonstrate-an-understanding-of-the-elementary-ideas-and:
   domain: arithmetic
   status: active
@@ -3596,6 +3708,14 @@ senior-expand-quadratic-and-cubic-polynomials-from-factors:
     module: mathgen/generators/p6e_quadratic_construction_build.py
   - topic: exd_x_a2_expand_cubic_shapes
     module: mathgen/generators/exd_x_a2_expand_cubic_shapes_build.py
+senior-expand-x-y-n-for-small-positive-integers-n:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: salg_binomial_expand
+    module: mathgen/generators/salg_binomial_expand_build.py
+  - topic: salg_exam_binomial_expand
+    module: mathgen/generators/salg_binomial_expand_build.py
 senior-express-a-vector-in-component-form-using-the:
   domain: vectors
   status: active
@@ -4176,6 +4296,14 @@ senior-recognise-the-need-for-milligrams:
     module: mathgen/generators/p19h_unit_choice_build.py
   - topic: exd_x_r3g_dose_units
     module: mathgen/generators/exd_x_r3g_dose_units.py
+senior-recognise-the-numbers-as-binomial-coefficients:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: salg_binomial_coefficient
+    module: mathgen/generators/salg_binomial_coefficient_build.py
+  - topic: salg_exam_binomial_coefficient
+    module: mathgen/generators/salg_binomial_coefficient_build.py
 senior-recognise-the-qualitative-features-of-the-graph-of:
   domain: functions-sequences
   status: active
@@ -4698,6 +4826,14 @@ senior-use-currency-exchange-rates-to-determine-the-cost:
     module: mathgen/generators/p8e_currency_exchange_build.py
   - topic: exd_x_n2_currency_round_trip
     module: mathgen/generators/exd_x_n2_currency_round_trip.py
+senior-use-de-moivre-s-theorem-for-integral-powers:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: salg_de_moivre_power
+    module: mathgen/generators/salg_de_moivre_power_build.py
+  - topic: salg_exam_de_moivre_power
+    module: mathgen/generators/salg_de_moivre_power_build.py
 senior-use-ests-and-lsts-to-locate-the-critical:
   domain: financial-discrete
   status: active

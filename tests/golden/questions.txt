@@ -496,6 +496,18 @@
 {"answer": "564.4", "id": "cone-volume/medium/0/52e65bb7b19c", "text": "A cone has a diameter of 14 cm and a height of 11 cm. Using π ≈ 3.14159, find i…"}
 {"answer": "3539.5", "id": "cone-volume/medium/1/97336e0cff09", "text": "A cone has a diameter of 26 cm and a height of 20 cm. Using π ≈ 3.14159, find i…"}
 {"answer": "1876.6", "id": "cone-volume/medium/2/cfee12719b4b", "text": "A cone has a diameter of 32 cm and a height of 7 cm. Using π ≈ 3.14159, find it…"}
+{"answer": "1.50", "id": "connected-particles-pulleys-and-towing/easy/0/7483565ed678", "text": "A truck of mass 1000 kg tows a trailer of mass 400 kg along a straight level ro…"}
+{"answer": "0.75", "id": "connected-particles-pulleys-and-towing/easy/1/f7f6e6f75c80", "text": "A ute of mass 800 kg tows a caravan of mass 300 kg along a straight level road.…"}
+{"answer": "0.50", "id": "connected-particles-pulleys-and-towing/easy/2/38dd1bf03459", "text": "A ute of mass 2000 kg tows a caravan of mass 600 kg along a straight level road…"}
+{"answer": "(a) 14.70; (b) 5.25; (c) 40.95; (d) 3.24", "id": "connected-particles-pulleys-and-towing/exam/0/5668f57fd02d", "text": "A block of mass 5 kg rests on a rough horizontal table. The coefficient of fric…"}
+{"answer": "(a) 7.35; (b) 7.35; (c) 29.40; (d) 6.64", "id": "connected-particles-pulleys-and-towing/exam/1/dafc90748e3d", "text": "A light inextensible string joins a block of mass 3 kg, resting on a rough hori…"}
+{"answer": "(a) 6.86; (b) 2.94; (c) 27.44; (d) 2.97", "id": "connected-particles-pulleys-and-towing/exam/2/e53c5ef109e5", "text": "A light inextensible string joins a block of mass 7 kg, resting on a rough hori…"}
+{"answer": "2.45", "id": "connected-particles-pulleys-and-towing/hard/0/789887efdb4a", "text": "Masses of 3 kg and 5 kg are joined by a light inextensible string passing over …"}
+{"answer": "2.45", "id": "connected-particles-pulleys-and-towing/hard/1/29bc8e0466af", "text": "Masses of 6 kg and 10 kg are joined by a light inextensible string passing over…"}
+{"answer": "11.76", "id": "connected-particles-pulleys-and-towing/hard/2/03b813fae339", "text": "A block of mass 3 kg rests on a smooth horizontal table. It is joined by a ligh…"}
+{"answer": "6.86", "id": "connected-particles-pulleys-and-towing/medium/0/d0d9b16c0643", "text": "A block of mass 3 kg rests on a smooth horizontal table. It is joined by a ligh…"}
+{"answer": "6.30", "id": "connected-particles-pulleys-and-towing/medium/1/7af208e4b65c", "text": "A block of mass 5 kg rests on a smooth horizontal table. It is joined by a ligh…"}
+{"answer": "7.84", "id": "connected-particles-pulleys-and-towing/medium/2/8f6bcf0d1ce8", "text": "A block of mass 3 kg rests on a smooth horizontal table. It is joined by a ligh…"}
 {"answer": "-3", "id": "constants-coefficients-terms/easy/0/c894552a62d8", "text": "What is the coefficient of x^2 in -2*x**3 - 3*x**2 + 3?"}
 {"answer": "-3", "id": "constants-coefficients-terms/easy/1/b1756628531d", "text": "What is the coefficient of x in x**3 - 3*x - 1?"}
 {"answer": "8", "id": "constants-coefficients-terms/easy/2/2bff281fd6c0", "text": "What is the coefficient of x^3 in 8*x**3 - 6*x**2 - 9?"}
@@ -2683,6 +2695,66 @@
 {"answer": "-3/2", "id": "gradient-from-graph/medium/0/a13ccf80e42a", "text": "The graph shows a straight line on a coordinate grid. What is the slope of the …"}
 {"answer": "-2", "id": "gradient-from-graph/medium/1/1a313516b1fb", "text": "Study the straight line on this coordinate grid. What is the gradient of the li…"}
 {"answer": "-2/3", "id": "gradient-from-graph/medium/2/01f837c3f1fc", "text": "The diagram shows the graph of a straight line. What is the slope of the line? …"}
+{"answer": "8", "id": "graph-adjacency-matrices/easy/0/191e3ed6eeea", "text": "A network has the adjacency matrix [[0, 1, 1, 0, 1], [1, 0, 1, 0, 1], [1, 1, 0,…"}
+{"answer": "3", "id": "graph-adjacency-matrices/easy/1/86d190f6131f", "text": "The adjacency matrix of a network is [[0, 0, 1, 0, 1, 0], [0, 0, 1, 0, 1, 1], […"}
+{"answer": "12", "id": "graph-adjacency-matrices/easy/2/d47c32bb3858", "text": "A school lab has 5 computers, A to E, joined by network cables. Each pair of le…"}
+{"answer": "(a) [[0, 0, 0, 0, 1, 1], [0, 0, 1, 1, 1, 0], [0, 1, 0, 1, 1…", "id": "graph-adjacency-matrices/exam/0/6c9cbaea1b31", "text": "A national park has 6 lookouts, A to F, connected by walking tracks. Each pair …"}
+{"answer": "(a) [[0, 0, 0, 0, 1, 0], [0, 0, 0, 1, 0, 1], [0, 0, 0, 1, 1…", "id": "graph-adjacency-matrices/exam/1/3fa6883698d1", "text": "A tour company runs ferries between 6 islands, A to F. Each pair of letters nam…"}
+{"answer": "(a) [[0, 0, 0, 1, 1], [0, 0, 0, 1, 1], [0, 0, 0, 1, 1], [1,…", "id": "graph-adjacency-matrices/exam/2/67ff2d740a23", "text": "A school lab has 5 computers, A to E, joined by network cables. Each pair of le…"}
+{"answer": "8", "id": "graph-adjacency-matrices/hard/0/d202eff3d7ed", "text": "A network has the adjacency matrix [[0, 0, 0, 1, 0, 0], [0, 0, 1, 1, 1, 0], [0,…"}
+{"answer": "7", "id": "graph-adjacency-matrices/hard/1/6e2dcf6ec74c", "text": "A network has the adjacency matrix [[0, 1, 1, 1, 0], [1, 0, 0, 1, 1], [1, 0, 0,…"}
+{"answer": "5", "id": "graph-adjacency-matrices/hard/2/26297560b076", "text": "A network has the adjacency matrix [[0, 0, 1, 1, 1], [0, 0, 1, 0, 1], [1, 1, 0,…"}
+{"answer": "2", "id": "graph-adjacency-matrices/medium/0/c5010463b5ed", "text": "A network has the adjacency matrix [[0, 0, 0, 0, 0, 1], [0, 0, 0, 1, 1, 1], [0,…"}
+{"answer": "2", "id": "graph-adjacency-matrices/medium/1/f1dec3819f2c", "text": "A network has the adjacency matrix [[0, 1, 1, 1, 1], [1, 0, 1, 1, 0], [1, 1, 0,…"}
+{"answer": "4", "id": "graph-adjacency-matrices/medium/2/36bfa586bbed", "text": "A network has the adjacency matrix [[0, 1, 1, 0, 1, 1], [1, 0, 0, 1, 1, 1], [1,…"}
+{"answer": "It has an Eulerian circuit.", "id": "graph-eulerian-trails-circuits/easy/0/37aed505cecd", "text": "Towns A to F in a country region are linked by direct roads. Each pair of lette…"}
+{"answer": "It has an Eulerian trail but no Eulerian circuit.", "id": "graph-eulerian-trails-circuits/easy/1/d0321053dd7f", "text": "A rail network connects 5 stations, A to E. Each pair of letters names the two …"}
+{"answer": "It has an Eulerian circuit.", "id": "graph-eulerian-trails-circuits/easy/2/ff3b8c94b66d", "text": "Towns A to E in a country region are linked by direct roads. Each pair of lette…"}
+{"answer": "(a) 0; (b) 0; (c) 10; (d) 1", "id": "graph-eulerian-trails-circuits/exam/0/e49bcf3586ba", "text": "A council has built bike paths between 7 suburbs, A to G. Each pair of letters …"}
+{"answer": "(a) 6; (b) 3; (c) 12; (d) 2", "id": "graph-eulerian-trails-circuits/exam/1/a1470188a9c8", "text": "A tour company runs ferries between 7 islands, A to G. Each pair of letters nam…"}
+{"answer": "(a) 4; (b) 2; (c) 9; (d) 1", "id": "graph-eulerian-trails-circuits/exam/2/05b44d0c210e", "text": "A tour company runs ferries between 6 islands, A to F. Each pair of letters nam…"}
+{"answer": "Network Q", "id": "graph-eulerian-trails-circuits/hard/0/81cc0b96e20f", "text": "A planner is comparing four networks of towns. Each pair of letters names the t…"}
+{"answer": "Network P", "id": "graph-eulerian-trails-circuits/hard/1/8d974ee131a0", "text": "Four networks of lookouts are listed by the pairs of lookouts that each walking…"}
+{"answer": "Network P", "id": "graph-eulerian-trails-circuits/hard/2/f72240fbbbbe", "text": "Network P: AB, AC, AD, AE, BE, CE, DE. Network Q: AC, AE, BC, BD, BF, CD, CE, C…"}
+{"answer": "C and D", "id": "graph-eulerian-trails-circuits/medium/0/120a4442fe21", "text": "A council has built bike paths between 6 suburbs, A to F. Each pair of letters …"}
+{"answer": "C and E", "id": "graph-eulerian-trails-circuits/medium/1/701e4ede5b8e", "text": "A rail network connects 6 stations, A to F. Each pair of letters names the two …"}
+{"answer": "B and D", "id": "graph-eulerian-trails-circuits/medium/2/8701318c2a62", "text": "A national park has 5 lookouts, A to E, connected by walking tracks. Each pair …"}
+{"answer": "0", "id": "graph-hamiltonian-paths-cycles/easy/0/391d9064ef33", "text": "A national park has 5 lookouts, A to E, connected by walking tracks. Each pair …"}
+{"answer": "2", "id": "graph-hamiltonian-paths-cycles/easy/1/108ee00c9ba9", "text": "A national park has 5 lookouts, A to E, connected by walking tracks. Each pair …"}
+{"answer": "1", "id": "graph-hamiltonian-paths-cycles/easy/2/d24b8ffc1d3a", "text": "A rail network connects 5 stations, A to E. Each pair of letters names the two …"}
+{"answer": "(a) 4; (b) 48; (c) 364; (d) 54.60", "id": "graph-hamiltonian-paths-cycles/exam/0/3a81be06dad4", "text": "A coach company is planning a tour of 6 country towns, A to F, using direct roa…"}
+{"answer": "(a) 6; (b) 60; (c) 320; (d) 48.00", "id": "graph-hamiltonian-paths-cycles/exam/1/de402464cbd7", "text": "A coach company is planning a tour of 5 country towns, A to E, using direct roa…"}
+{"answer": "(a) 4; (b) 40; (c) 224; (d) 33.60", "id": "graph-hamiltonian-paths-cycles/exam/2/1c1a59c6ee68", "text": "A delivery driver must call at 5 country towns, A to E, using the direct roads …"}
+{"answer": "7", "id": "graph-hamiltonian-paths-cycles/hard/0/206b94e55694", "text": "A museum has 6 galleries, A to F, joined by doorways. Each pair of letters name…"}
+{"answer": "4", "id": "graph-hamiltonian-paths-cycles/hard/1/718267b391dd", "text": "A council has built bike paths between 6 suburbs, A to F. Each pair of letters …"}
+{"answer": "7", "id": "graph-hamiltonian-paths-cycles/hard/2/ddc19d4a6c5d", "text": "A council has built bike paths between 6 suburbs, A to F. Each pair of letters …"}
+{"answer": "2", "id": "graph-hamiltonian-paths-cycles/medium/0/081f698b3d6c", "text": "A council has built bike paths between 6 suburbs, A to F. Each pair of letters …"}
+{"answer": "1", "id": "graph-hamiltonian-paths-cycles/medium/1/aa46059078a0", "text": "A national park has 5 lookouts, A to E, connected by walking tracks. Each pair …"}
+{"answer": "6", "id": "graph-hamiltonian-paths-cycles/medium/2/77ad05144c3c", "text": "A rail network connects 5 stations, A to E. Each pair of letters names the two …"}
+{"answer": "3", "id": "graph-vertex-degrees-handshaking/easy/0/2a2a519d67cd", "text": "A school lab has 7 computers, A to G, joined by network cables. Each pair of le…"}
+{"answer": "3", "id": "graph-vertex-degrees-handshaking/easy/1/3665114d0518", "text": "A national park has 6 lookouts, A to F, connected by walking tracks. Each pair …"}
+{"answer": "2", "id": "graph-vertex-degrees-handshaking/easy/2/55173ab4f177", "text": "A tour company runs ferries between 7 islands, A to G. Each pair of letters nam…"}
+{"answer": "(a) 24; (b) 2; (c) 4; (d) 10", "id": "graph-vertex-degrees-handshaking/exam/0/b418df9f56cb", "text": "In a network of 8 stations (A to H) there are 12 rail links altogether. The deg…"}
+{"answer": "(a) 30; (b) 3; (c) 6; (d) 12", "id": "graph-vertex-degrees-handshaking/exam/1/1f1ab37d6e29", "text": "A network joins 8 islands, A to H, and has 15 ferry routes. The degree of each …"}
+{"answer": "(a) 32; (b) 4; (c) 2; (d) 12", "id": "graph-vertex-degrees-handshaking/exam/2/d9138b0d6ea7", "text": "In a network of 8 towns (A to H) there are 16 roads altogether. The degrees of …"}
+{"answer": "8", "id": "graph-vertex-degrees-handshaking/hard/0/9b8409d0b689", "text": "A network has 15 vertices and 27 rail links. Every vertex has degree 2 or degre…"}
+{"answer": "7", "id": "graph-vertex-degrees-handshaking/hard/1/ce02bde91885", "text": "A network has 15 bike paths, and every vertex has degree at least 4. What is th…"}
+{"answer": "8", "id": "graph-vertex-degrees-handshaking/hard/2/ca6b3ef438a4", "text": "A network has 12 vertices and 14 bike paths. Every vertex has degree 1 or degre…"}
+{"answer": "2", "id": "graph-vertex-degrees-handshaking/medium/0/ca3cdcfa3669", "text": "A network has 11 walking tracks joining 8 vertices, A to H. The degrees of all …"}
+{"answer": "12", "id": "graph-vertex-degrees-handshaking/medium/1/5c341405bfe6", "text": "The vertices of a network have degrees 3, 3, 4, 5, 3, 1, 5. How many bike paths…"}
+{"answer": "8", "id": "graph-vertex-degrees-handshaking/medium/2/fae630d9ed91", "text": "A network has 6 vertices with degrees 1, 3, 4, 2, 3, 3. How many roads does it …"}
+{"answer": "Trail", "id": "graph-walks-trails-paths-cycles/easy/0/1566aa358ad0", "text": "A rail network connects 6 stations, A to F. Each pair of letters names the two …"}
+{"answer": "Path", "id": "graph-walks-trails-paths-cycles/easy/1/ca43a133c9ea", "text": "A national park has 6 lookouts, A to F, connected by walking tracks. Each pair …"}
+{"answer": "Trail", "id": "graph-walks-trails-paths-cycles/easy/2/dd1248f1400a", "text": "A rail network connects 6 stations, A to F. Each pair of letters names the two …"}
+{"answer": "(a) 5; (b) 2; (c) 3; (d) Walk", "id": "graph-walks-trails-paths-cycles/exam/0/1df305359092", "text": "Towns A to F in a country region are linked by direct roads. Each pair of lette…"}
+{"answer": "(a) 5; (b) 4; (c) 1; (d) Closed walk", "id": "graph-walks-trails-paths-cycles/exam/1/b6f3a81998f5", "text": "A tour company runs ferries between 6 islands, A to F. Each pair of letters nam…"}
+{"answer": "(a) 5; (b) 4; (c) 1; (d) Closed walk", "id": "graph-walks-trails-paths-cycles/exam/2/0b647e691556", "text": "A council has built bike paths between 6 suburbs, A to F. Each pair of letters …"}
+{"answer": "C-D-E-B-F-B", "id": "graph-walks-trails-paths-cycles/hard/0/9a74622aefae", "text": "A museum has 6 galleries, A to F, joined by doorways. Each pair of letters name…"}
+{"answer": "F-B-E", "id": "graph-walks-trails-paths-cycles/hard/1/3d252e0dac0e", "text": "A museum has 6 galleries, A to F, joined by doorways. Each pair of letters name…"}
+{"answer": "F-D-C-F-E-F-A-D", "id": "graph-walks-trails-paths-cycles/hard/2/35de27074352", "text": "A museum has 6 galleries, A to F, joined by doorways. Each pair of letters name…"}
+{"answer": "Closed walk", "id": "graph-walks-trails-paths-cycles/medium/0/9408c039bc64", "text": "A national park has 6 lookouts, A to F, connected by walking tracks. Each pair …"}
+{"answer": "Closed trail (circuit)", "id": "graph-walks-trails-paths-cycles/medium/1/1d2be297216d", "text": "A council has built bike paths between 6 suburbs, A to F. Each pair of letters …"}
+{"answer": "Cycle", "id": "graph-walks-trails-paths-cycles/medium/2/4eb777adbec4", "text": "A tour company runs ferries between 6 islands, A to F. Each pair of letters nam…"}
 {"answer": "(-1, -1), (0, 1), (1, 3)", "id": "graph-y-mx-plus-b/easy/0/392f2f00f9a7", "text": "The diagram shows the graph of a straight line. Which set of (x, y) pairs belon…"}
 {"answer": "(0, -2), (1, 1), (2, 4)", "id": "graph-y-mx-plus-b/easy/1/d04cf9d42a0a", "text": "A straight line is shown on the coordinate grid below. Which set of (x, y) pair…"}
 {"answer": "(-1, -1), (0, 2), (1, 5)", "id": "graph-y-mx-plus-b/easy/2/1df402482d98", "text": "The diagram shows the graph of a straight line. Which list of (x, y) pairs show…"}
@@ -2734,6 +2806,18 @@
 {"answer": "5*q**2", "id": "identify-like-terms/medium/0/21a56b66b296", "text": "Which of these is a like term to 10*q**2?"}
 {"answer": "9*p**2", "id": "identify-like-terms/medium/1/49d26f174451", "text": "Which of these is a like term to 8*p**2?"}
 {"answer": "9*m**3", "id": "identify-like-terms/medium/2/8d583e7c902c", "text": "Which of these is a like term to 8*m**3?"}
+{"answer": "5.88", "id": "inclined-plane-friction/easy/0/0fa3629599c7", "text": "A suitcase of mass 2 kg rests on a rough plane inclined at an angle θ to the ho…"}
+{"answer": "15.68", "id": "inclined-plane-friction/easy/1/47c8456faafb", "text": "A block of mass 20 kg rests on a rough ramp whose slope makes an angle θ with t…"}
+{"answer": "117.60", "id": "inclined-plane-friction/easy/2/0f54e6e3c0c5", "text": "A block of mass 20 kg rests on a rough ramp whose slope makes an angle θ with t…"}
+{"answer": "(a) 47.04; (b) 11.76; (c) 3.92; (d) 31.36", "id": "inclined-plane-friction/exam/0/00a36f2db392", "text": "A block of mass 6 kg is released from rest on a rough plane inclined at an angl…"}
+{"answer": "(a) 31.36; (b) 7.84; (c) 3.92; (d) 17.64", "id": "inclined-plane-friction/exam/1/97d503ccd965", "text": "A suitcase of mass 4 kg is released from rest on a rough plane inclined at an a…"}
+{"answer": "(a) 23.52; (b) 11.76; (c) 4.90; (d) 39.20", "id": "inclined-plane-friction/exam/2/7d619b8b6b82", "text": "A trolley of mass 4 kg is released from rest on a rough plane inclined at an an…"}
+{"answer": "3.92", "id": "inclined-plane-friction/hard/0/57364f93e79a", "text": "A trolley of mass 12 kg is released from rest on a rough plane inclined at an a…"}
+{"answer": "31.36", "id": "inclined-plane-friction/hard/1/f86e8c4006ca", "text": "A trolley of mass 4 kg is pulled up a rough plane inclined at an angle θ to the…"}
+{"answer": "129.36", "id": "inclined-plane-friction/hard/2/f73ee727835d", "text": "A block of mass 12 kg is pulled up a rough plane inclined at an angle θ to the …"}
+{"answer": "0.75", "id": "inclined-plane-friction/medium/0/9eebc0d85213", "text": "A crate of mass 15 kg is on a rough plane inclined at an angle θ to the horizon…"}
+{"answer": "35.28", "id": "inclined-plane-friction/medium/1/662821bf490f", "text": "A trolley of mass 6 kg rests on a rough plane inclined at an angle θ to the hor…"}
+{"answer": "58.80", "id": "inclined-plane-friction/medium/2/a0944d388cfd", "text": "A trolley of mass 10 kg rests on a rough plane inclined at an angle θ to the ho…"}
 {"answer": "x > 9", "id": "inequalities-negative-mult-div/easy/0/8565f019053a", "text": "Solve the inequality -2x < -18. Give your answer as an inequality in x; write a…"}
 {"answer": "x ≥ 2", "id": "inequalities-negative-mult-div/easy/1/32626ce1acb7", "text": "Solve the inequality -2x ≤ -4. Give your answer as an inequality in x; write an…"}
 {"answer": "t > 4", "id": "inequalities-negative-mult-div/easy/2/4bf14c068827", "text": "Solve the inequality -7t < -28. Give your answer as an inequality in t; write a…"}
@@ -2905,6 +2989,18 @@
 {"answer": "m = -8, b = 3", "id": "least-squares-line/medium/0/8ee3c71fe2e0", "text": "For the data points (0, 4), (1, -6), (2, -14), (3, -20), find the least-squares…"}
 {"answer": "m = -6, b = -3", "id": "least-squares-line/medium/1/2e235f4be3f6", "text": "For the data points (0, -2), (1, -10), (2, -16), (3, -20), find the least-squar…"}
 {"answer": "m = -4, b = -11", "id": "least-squares-line/medium/2/c56e0971ebf9", "text": "For the data points (0, -10), (1, -16), (2, -20), (3, -22), find the least-squa…"}
+{"answer": "-0.8", "id": "least-squares-residuals/easy/0/e8adbfdb1e7d", "text": "For solar output (kWh) against hours of sunshine, the least-squares line is pre…"}
+{"answer": "-1.6", "id": "least-squares-residuals/easy/1/794eae5ed817", "text": "For test score against hours of study per week, the least-squares line is predi…"}
+{"answer": "1.4", "id": "least-squares-residuals/easy/2/55a8dfc512c1", "text": "For test score against hours of study per week, the least-squares line is predi…"}
+{"answer": "(a) 326.0; (b) 1.0; (c) -3.2; (d) 15.60", "id": "least-squares-residuals/exam/0/6ebe41ca5330", "text": "Daily maximum temperature (°C) (x) and ice-cream sales (y) are recorded for fiv…"}
+{"answer": "(a) 246.3; (b) -1.3; (c) 8.0; (d) 101.10", "id": "least-squares-residuals/exam/1/44f6e87da5fe", "text": "Daily maximum temperature (°C) (x) and ice-cream sales (y) are recorded for fiv…"}
+{"answer": "(a) 101.0; (b) 2.0; (c) -4.9; (d) 37.90", "id": "least-squares-residuals/exam/2/0518b9a584a9", "text": "Hours of study per week (x) and test score (y) are recorded for five observatio…"}
+{"answer": "0.2", "id": "least-squares-residuals/hard/0/c5e70d1b40f9", "text": "The least-squares line for test score against hours of study per week is predic…"}
+{"answer": "-0.2", "id": "least-squares-residuals/hard/1/f3fa517db671", "text": "The least-squares line for ice-cream sales against daily maximum temperature (°…"}
+{"answer": "-9.6", "id": "least-squares-residuals/hard/2/b3d072f77e93", "text": "The least-squares line for ice-cream sales against daily maximum temperature (°…"}
+{"answer": "-1.7", "id": "least-squares-residuals/medium/0/2736415dc0fa", "text": "Hours of sunshine (x) and solar output (kWh) (y) are recorded for five observat…"}
+{"answer": "4.0", "id": "least-squares-residuals/medium/1/0f43951ac653", "text": "Hours of study per week (x) and test score (y) are recorded for five observatio…"}
+{"answer": "1.6", "id": "least-squares-residuals/medium/2/fb124a452104", "text": "Age of the car (years) (x) and advertised price ($ thousand) (y) are recorded f…"}
 {"answer": "-1/3", "id": "limit-at-infinity/easy/0/be9bc1ba2094", "text": "Find the limit as x → ∞ of (-2*x**2 + 8*x + 1) / (6*x**2 + x - 2)"}
 {"answer": "1", "id": "limit-at-infinity/easy/1/3e8686adcae4", "text": "Find the limit as x → ∞ of (2*x**2 + 4*x + 9) / (2*x**2 + 2*x - 9)"}
 {"answer": "1/2", "id": "limit-at-infinity/easy/2/8801743b4989", "text": "Find the limit as x → ∞ of (4*x**2 + x + 1) / (8*x**2 - 5*x - 8)"}
@@ -3202,6 +3298,18 @@
 {"answer": "11/2", "id": "newton-method-iteration/medium/0/6e1305c9e632", "text": "For f(x) = x^2 - 6x + 3, take one Newton step from x₀ = 5. Find x₁."}
 {"answer": "-6", "id": "newton-method-iteration/medium/1/0da06ce23922", "text": "For f(x) = x^2 + 3x - 2, take one Newton step from x₀ = -2. Find x₁."}
 {"answer": "-1/2", "id": "newton-method-iteration/medium/2/4d4a8bbd13fc", "text": "For f(x) = x^2 + 4x + 4, take one Newton step from x₀ = 1. Find x₁."}
+{"answer": "0.8", "id": "newtons-second-law-resultant-force/easy/0/bae92dc56d5a", "text": "A go-kart of mass 25 kg moves along a horizontal track under two forces in the …"}
+{"answer": "40", "id": "newtons-second-law-resultant-force/easy/1/39737538e199", "text": "A go-kart is pulled along a horizontal track by two forces of 60 N and 38 N in …"}
+{"answer": "30", "id": "newtons-second-law-resultant-force/easy/2/4ce91ad63bbc", "text": "A barrow is pulled along a horizontal track by two forces of 31 N and 10 N in t…"}
+{"answer": "(a) -16; (b) 22; (c) 27.2; (d) 126", "id": "newtons-second-law-resultant-force/exam/0/f9ecb44853a8", "text": "A particle of mass 4 kg moves on a smooth horizontal surface. Relative to east …"}
+{"answer": "(a) 3; (b) 27; (c) 27.2; (d) 84", "id": "newtons-second-law-resultant-force/exam/1/d0128bd7994d", "text": "A 10 kg trolley moves on a smooth horizontal floor under three forces, written …"}
+{"answer": "(a) 32; (b) 27; (c) 41.9; (d) 40", "id": "newtons-second-law-resultant-force/exam/2/6a6c175746df", "text": "A 10 kg trolley moves on a smooth horizontal floor under three forces, written …"}
+{"answer": "5900.0", "id": "newtons-second-law-resultant-force/hard/0/80d3b2296429", "text": "A crane lifts a load of mass 500 kg vertically with a cable. The load accelerat…"}
+{"answer": "2325.0", "id": "newtons-second-law-resultant-force/hard/1/8361aab9a815", "text": "A lift of mass 250 kg is held by a cable and is accelerating downward at 0.5 m/…"}
+{"answer": "930.0", "id": "newtons-second-law-resultant-force/hard/2/1986daeb2395", "text": "A lift of mass 100 kg is held by a cable and is accelerating downward at 0.5 m/…"}
+{"answer": "70", "id": "newtons-second-law-resultant-force/medium/0/fdc984161273", "text": "A trolley of mass 25 kg is pushed from rest along level ground by a constant ho…"}
+{"answer": "6000", "id": "newtons-second-law-resultant-force/medium/1/23c1d5c8ff2b", "text": "A car of mass 1500 kg is travelling at 20 m/s when the brakes are applied. It i…"}
+{"answer": "4000", "id": "newtons-second-law-resultant-force/medium/2/537127f33967", "text": "A car of mass 1000 kg is travelling at 20 m/s when the brakes are applied. It i…"}
 {"answer": "5*x - 1", "id": "nth-term-rule/easy/0/7b499182cddd", "text": "Find the nth-term rule for the sequence: 4, 9, 14, 19, ... (use x for the term …"}
 {"answer": "10 - 2*x", "id": "nth-term-rule/easy/1/3883f2a31ebe", "text": "Find the nth-term rule for the sequence: 8, 6, 4, 2, ... (use x for the term nu…"}
 {"answer": "x + 8", "id": "nth-term-rule/easy/2/df6d1bede0ad", "text": "Find the nth-term rule for the sequence: 9, 10, 11, 12, ... (use x for the term…"}
@@ -3298,6 +3406,18 @@
 {"answer": "8*x**3*y + 3*y**2", "id": "partial-derivative-y/medium/0/e377c439481f", "text": "f(x, y) = -x**4 + 4*x**3*y**2 + y**3. Find ∂f/∂y"}
 {"answer": "4*x - 2*y", "id": "partial-derivative-y/medium/1/035a3c4462cc", "text": "f(x, y) = 4*x**2 + 4*x*y - y**2. Find ∂f/∂y"}
 {"answer": "-3*x*y**2 - 24*y**3", "id": "partial-derivative-y/medium/2/82bd3bd5c111", "text": "f(x, y) = 5*x**2 - x*y**3 - 6*y**4. Find ∂f/∂y"}
+{"answer": "9", "id": "particle-equilibrium-concurrent-forces/easy/0/ad6345609588", "text": "A particle is in equilibrium under the three forces F1 = (0, 1) N, F2 = (k, 11)…"}
+{"answer": "15", "id": "particle-equilibrium-concurrent-forces/easy/1/1f7005d7253a", "text": "A particle is in equilibrium under the three forces F1 = (-3, -5) N, F2 = (k, 0…"}
+{"answer": "-2", "id": "particle-equilibrium-concurrent-forces/easy/2/48e96abf92c6", "text": "A particle is in equilibrium under the three forces F1 = (-6, -6) N, F2 = (k, 0…"}
+{"answer": "(a) 235.20; (b) 392.00; (c) 313.60; (d) 541.1", "id": "particle-equilibrium-concurrent-forces/exam/0/480f7debd951", "text": "A banner of mass 24 kg hangs from a light string fixed to a ceiling. A horizont…"}
+{"answer": "(a) 205.80; (b) 257.25; (c) 154.35; (d) 331.3", "id": "particle-equilibrium-concurrent-forces/exam/1/23c62d248f5d", "text": "A lamp of mass 21 kg hangs from a light string fixed to a ceiling. A horizontal…"}
+{"answer": "(a) 176.40; (b) 294.00; (c) 235.20; (d) 403.1", "id": "particle-equilibrium-concurrent-forces/exam/2/cf4ca6a88fa3", "text": "A banner of mass 18 kg hangs from a light string fixed to a ceiling. A horizont…"}
+{"answer": "282.10", "id": "particle-equilibrium-concurrent-forces/hard/0/360d19ff6798", "text": "A flower basket of mass 31 kg hangs at rest from a point P on two light strings…"}
+{"answer": "98.00", "id": "particle-equilibrium-concurrent-forces/hard/1/e16e8a310ae6", "text": "A flower basket of mass 26 kg hangs at rest from a point P on two light strings…"}
+{"answer": "235.20", "id": "particle-equilibrium-concurrent-forces/hard/2/7153cd91d568", "text": "A sign of mass 26 kg hangs at rest from a point P on two light strings. One str…"}
+{"answer": "222.95", "id": "particle-equilibrium-concurrent-forces/medium/0/5cf9114083ad", "text": "A lamp of mass 21 kg hangs at rest from a point P. P is held by a light string …"}
+{"answer": "98.00", "id": "particle-equilibrium-concurrent-forces/medium/1/ca72444ad09b", "text": "A banner of mass 6 kg hangs at rest from a point P. P is held by a light string…"}
+{"answer": "441.00", "id": "particle-equilibrium-concurrent-forces/medium/2/d66b5ad16a7f", "text": "A flower basket of mass 27 kg hangs at rest from a point P. P is held by a ligh…"}
 {"answer": "10", "id": "percentage-change/easy/0/7b000bfa08e3", "text": "The number of members of a surf life saving club on the Gold Coast rose from 32…"}
 {"answer": "10", "id": "percentage-change/easy/1/75be6a831e59", "text": "The weekly rent on a unit in Brisbane rose from $240 to $264. What is the perce…"}
 {"answer": "20", "id": "percentage-change/easy/2/4b1985a5e112", "text": "The number of members of a surf life saving club on the Gold Coast rose from 38…"}
@@ -3562,6 +3682,18 @@
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/0/c55b4b9ed2be", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/1/c8ff1a45c975", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "-a*t/2 + s/t", "id": "rearrange-simple-formulas/powers-roots/2/0cc130ad6206", "text": "Make u the subject of the formula s = ut + ½at²"}
+{"answer": "5/3", "id": "reciprocal-trig-identities/easy/0/45bbc0a1fe86", "text": "Given that tan θ = 4/3 and θ is acute, find the exact value of sec θ."}
+{"answer": "25/24", "id": "reciprocal-trig-identities/easy/1/47ca1261b646", "text": "The angle θ is acute and cot θ = 7/24. Find cosec θ."}
+{"answer": "25/24", "id": "reciprocal-trig-identities/easy/2/f8d2f8a554d8", "text": "For an acute angle θ with tan θ = 7/24, find the value of sec θ."}
+{"answer": "(a) 25/16; (b) 5/4; (c) 4/5; (d) 3/5", "id": "reciprocal-trig-identities/exam/0/8bf3b421ffd8", "text": "The angle θ satisfies tan θ = 3/4 and 0° < θ < 90°. (a) Find the exact value of…"}
+{"answer": "(a) 625/49; (b) 25/7; (c) 7/25; (d) -24/25", "id": "reciprocal-trig-identities/exam/1/651328483b42", "text": "Given that tan θ = -24/7 and 270° < θ < 360°. (a) Find the exact value of sec²θ…"}
+{"answer": "(a) 25/9; (b) -5/3; (c) -3/5; (d) 4/5", "id": "reciprocal-trig-identities/exam/2/c8c693008e8b", "text": "The angle θ satisfies tan θ = -4/3 and 90° < θ < 180°. (a) Find the exact value…"}
+{"answer": "60", "id": "reciprocal-trig-identities/hard/0/c70ec33e830f", "text": "Find the acute angle θ, in degrees, that satisfies 5cosec²θ - 11cot²θ = 3."}
+{"answer": "30", "id": "reciprocal-trig-identities/hard/1/64c2fac0c0f4", "text": "Solve 6sec²θ - 9tan²θ = 5 for the acute angle θ, in degrees."}
+{"answer": "2*cos(x)^2", "id": "reciprocal-trig-identities/hard/2/bbc2d25352e3", "text": "Simplify 2(cosec²x - 1)sin²x."}
+{"answer": "-5/12", "id": "reciprocal-trig-identities/medium/0/7a9e865a0bfb", "text": "The angle θ satisfies cosec θ = 13/12 and 90° < θ < 180°. Find cot θ."}
+{"answer": "-8/15", "id": "reciprocal-trig-identities/medium/1/3aff250cc2de", "text": "Given that sec θ = -17/15 and 90° < θ < 180°, find the exact value of tan θ."}
+{"answer": "-3/4", "id": "reciprocal-trig-identities/medium/2/e9440e041c24", "text": "The angle θ satisfies sec θ = -5/4 and 90° < θ < 180°. Find tan θ."}
 {"answer": "8", "id": "recognise-numerals-to-10/easy/0/5ad3d72248b6", "text": "Tap the number 8"}
 {"answer": "10", "id": "recognise-numerals-to-10/easy/1/35ec3258cfe6", "text": "Tap the number 10"}
 {"answer": "6", "id": "recognise-numerals-to-10/easy/2/db77affa9cef", "text": "Tap the number 6"}
@@ -3640,6 +3772,18 @@
 {"answer": "(a) 2/3; (b) 263/300; (c) 21/100", "id": "recurring-decimal-to-fraction/exam/0/6f71c77dc384", "text": "Let y = 0.666... (the digit 6 repeats forever) and x = 0.87666... (the digits 8…"}
 {"answer": "(a) 26/33; (b) 46/165; (c) 28/55", "id": "recurring-decimal-to-fraction/exam/1/e20711b08006", "text": "Let y = 0.787878... (the digits 78 repeat forever) and x = 0.2787878... (the di…"}
 {"answer": "(a) 50/99; (b) 322/495; (c) 8/55", "id": "recurring-decimal-to-fraction/exam/2/1d08aaa20c07", "text": "Let y = 0.505050... (the digits 50 repeat forever) and x = 0.6505050... (the di…"}
+{"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/easy/0/5d23b115025c", "text": "The residuals from a least-squares line fitted to test score and hours of study…"}
+{"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/easy/1/f8006c14e863", "text": "A least-squares line is fitted to data on dam inflow against rainfall in a mont…"}
+{"answer": "Not appropriate: the residuals form a curved pattern", "id": "residual-plot-linear-model-check/easy/2/bd3ee9acdae9", "text": "The residuals from a least-squares line fitted to dam inflow and rainfall in a …"}
+{"answer": "(a) 14.4; (b) 0.6; (c) Appropriate: the residuals are scatt…", "id": "residual-plot-linear-model-check/exam/0/dc8b54aad611", "text": "Training sessions per week (x) and 5 km time (minutes) (y) are recorded for fiv…"}
+{"answer": "(a) 21.2; (b) -0.2; (c) Not appropriate: the residuals form…", "id": "residual-plot-linear-model-check/exam/1/35ce07fca6b4", "text": "Hours of sunshine (x) and solar output (kWh) (y) are recorded for five observat…"}
+{"answer": "(a) 102.2; (b) 0.8; (c) Appropriate: the residuals are scat…", "id": "residual-plot-linear-model-check/exam/2/f15472d20da9", "text": "Daily maximum temperature (°C) (x) and ice-cream sales (y) are recorded for fiv…"}
+{"answer": "Not appropriate: the residuals form a curved pattern, even …", "id": "residual-plot-linear-model-check/hard/0/dd1fe8287fa8", "text": "A least-squares line fitted to nine data points has a coefficient of determinat…"}
+{"answer": "Appropriate: the residuals show no pattern; r² = 0.53 only …", "id": "residual-plot-linear-model-check/hard/1/61df56102c91", "text": "A least-squares line is fitted to nine observations, and the coefficient of det…"}
+{"answer": "Appropriate: the residuals show no pattern; r² = 0.53 only …", "id": "residual-plot-linear-model-check/hard/2/e18f873f316d", "text": "A least-squares line fitted to nine data points has a coefficient of determinat…"}
+{"answer": "Not appropriate: the residuals form a curved pattern", "id": "residual-plot-linear-model-check/medium/0/3f68969f472a", "text": "Residuals from a least-squares line for advertised price against age of a car i…"}
+{"answer": "Not appropriate: the residuals fan out as x increases", "id": "residual-plot-linear-model-check/medium/1/e2ee855596b3", "text": "The residuals for a line fitted to council rates against size of a house block …"}
+{"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/medium/2/bf50851d4fed", "text": "Residuals from a least-squares line for words typed per minute against hours of…"}
 {"answer": "500", "id": "reverse-percentage/easy/0/d40c9b218644", "text": "A price including 10% GST is $550. What was the price before GST was added?"}
 {"answer": "600", "id": "reverse-percentage/easy/1/20dcb277f92e", "text": "After a 10% increase, the weekly rent on a unit in Brisbane is $660. What was i…"}
 {"answer": "375", "id": "reverse-percentage/easy/2/27e576022681", "text": "After a 20% increase, the number of members of a surf life saving club on the G…"}
@@ -4210,6 +4354,18 @@
 {"answer": "x = 4, y = -9", "id": "senior-define-and-use-inverses-of-linear-transformations-and/medium/0/a2789eb8276e", "text": "A rotation of 90 degrees about the origin maps a point to the image (9, 4). Fin…"}
 {"answer": "x = -8, y = 5", "id": "senior-define-and-use-inverses-of-linear-transformations-and/medium/1/8c7271819bb6", "text": "A rotation of 270 degrees about the origin maps a point to the image (5, 8). Fi…"}
 {"answer": "x = 6, y = 3", "id": "senior-define-and-use-inverses-of-linear-transformations-and/medium/2/0836df0dd302", "text": "A rotation of 90 degrees about the origin maps a point to the image (-3, 6). Fi…"}
+{"answer": "(10, 140)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/easy/0/336b0c08ea2f", "text": "Given z = 2 cis 120° and w = 5 cis 20°, find zw. Give the result as r cis θ by …"}
+{"answer": "(12, 150)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/easy/1/634e0304903e", "text": "Let z = 2 cis 40° and w = 6 cis 110°. Find zw. Give the result as r cis θ by wr…"}
+{"answer": "(30, 130)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/easy/2/6386dea311fd", "text": "Two complex numbers are z = 6 cis 10° and w = 5 cis 120°. Find zw. Give the res…"}
+{"answer": "(a) 36; (b) 250; (c) 4; (d) 90", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/exam/0/6f02685fa845", "text": "Let z = 6 cis 260°, w = 6 cis 350° and u = 9 cis 160°. (a) Find the modulus of …"}
+{"answer": "(a) 20; (b) 270; (c) 2; (d) 150", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/exam/1/d436cb83f97d", "text": "Three complex numbers are z = 4 cis 350°, w = 5 cis 280° and u = 10 cis 120°. (…"}
+{"answer": "(a) 24; (b) 280; (c) 12; (d) 80", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/exam/2/453fbd1d3365", "text": "Let z = 4 cis 330°, w = 6 cis 310° and u = 2 cis 200°. (a) Find the modulus of …"}
+{"answer": "(6, 120)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/hard/0/b5cd7b5987ee", "text": "Given z = 4 cis 330°, w = 3 cis 180° and u = 2 cis 30°, find zw/u. Give the res…"}
+{"answer": "(3, 320)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/hard/1/7eba3117714d", "text": "Let z = 15 cis 40° and w = 5 cis 80°. Find z/w. Give the result as r cis θ by w…"}
+{"answer": "(2, 170)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/hard/2/324f12838ea9", "text": "Let z = 10 cis 70° and w = 5 cis 260°. Find z/w. Give the result as r cis θ by …"}
+{"answer": "(6, 120)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/medium/0/825142559217", "text": "Two complex numbers are z = 12 cis 130° and w = 2 cis 10°. Find z/w. Give the r…"}
+{"answer": "(7, 30)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/medium/1/ecd1e3920596", "text": "Let z = 28 cis 150° and w = 4 cis 120°. Find z/w. Give the result as r cis θ by…"}
+{"answer": "(4, 30)", "id": "senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form/medium/2/6b3e6b68e0c1", "text": "Two complex numbers are z = 16 cis 110° and w = 4 cis 80°. Find z/w. Give the r…"}
 {"answer": "24", "id": "senior-define-and-use-multiplication-by-a-scalar-of/easy/0/c1042781a392", "text": "v = 3i + 6j. Find the coefficient of j in 4v."}
 {"answer": "24", "id": "senior-define-and-use-multiplication-by-a-scalar-of/easy/1/95ab9f4af73d", "text": "v = 8i + 5j. Find the coefficient of i in 3v."}
 {"answer": "24", "id": "senior-define-and-use-multiplication-by-a-scalar-of/easy/2/c638954336ca", "text": "v = 7i + 6j. Find the coefficient of j in 4v."}
@@ -4282,6 +4438,18 @@
 {"answer": "2.079", "id": "senior-define-the-natural-logarithm-ln-x-log-ex/medium/0/6eaef7030efb", "text": "Evaluate ln(8). Give your answer to 3 decimal places."}
 {"answer": "2.565", "id": "senior-define-the-natural-logarithm-ln-x-log-ex/medium/1/65130df0e3d9", "text": "Evaluate ln(13). Give your answer to 3 decimal places."}
 {"answer": "2.708", "id": "senior-define-the-natural-logarithm-ln-x-log-ex/medium/2/aab2afe85560", "text": "Evaluate ln(15). Give your answer to 3 decimal places."}
+{"answer": "sqrt(3)/3", "id": "senior-define-the-reciprocal-trigonometric-functions/easy/0/b0cdff5c7d7a", "text": "Evaluate cot 60°, giving the exact value."}
+{"answer": "2*sqrt(3)/3", "id": "senior-define-the-reciprocal-trigonometric-functions/easy/1/ec555f57575e", "text": "Find the exact value of cosec 60°."}
+{"answer": "2", "id": "senior-define-the-reciprocal-trigonometric-functions/easy/2/9a3f94fe56ed", "text": "Evaluate sec 60°, giving the exact value."}
+{"answer": "(a) -sqrt(3)/2; (b) 1/2; (c) -2*sqrt(3)/3; (d) -sqrt(3)/3", "id": "senior-define-the-reciprocal-trigonometric-functions/exam/0/1df771a131dc", "text": "Let θ = -7π/3. (a) Find the exact value of sin θ. (b) Find the exact value of c…"}
+{"answer": "(a) -sqrt(2)/2; (b) -sqrt(2)/2; (c) -sqrt(2); (d) 1", "id": "senior-define-the-reciprocal-trigonometric-functions/exam/1/039042014e9d", "text": "Let θ = 5π/4. (a) Write down the exact value of sin θ. (b) Find the exact value…"}
+{"answer": "(a) -1/2; (b) -sqrt(3)/2; (c) -2; (d) sqrt(3)", "id": "senior-define-the-reciprocal-trigonometric-functions/exam/2/dfcc9cbc6b5e", "text": "Let θ = -17π/6. (a) Write down the exact value of sin θ. (b) Find the exact val…"}
+{"answer": "sqrt(2)", "id": "senior-define-the-reciprocal-trigonometric-functions/hard/0/bf6ade9a458b", "text": "Write down the exact value of cosec (-7π/4)."}
+{"answer": "sqrt(2)", "id": "senior-define-the-reciprocal-trigonometric-functions/hard/1/e30fdcc56762", "text": "Find the exact value of sec (7π/4)."}
+{"answer": "-2*sqrt(3)/3", "id": "senior-define-the-reciprocal-trigonometric-functions/hard/2/342f3fba062e", "text": "Evaluate cosec (5π/3), giving the exact value."}
+{"answer": "-2", "id": "senior-define-the-reciprocal-trigonometric-functions/medium/0/5328925742c9", "text": "Evaluate cosec 210°, giving the exact value."}
+{"answer": "-sqrt(2)", "id": "senior-define-the-reciprocal-trigonometric-functions/medium/1/641ce1ba4c9e", "text": "Evaluate cosec 225°, giving the exact value."}
+{"answer": "sqrt(3)", "id": "senior-define-the-reciprocal-trigonometric-functions/medium/2/3e436f2603b5", "text": "Find the exact value of cot 210°."}
 {"answer": "4:5", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/easy/0/8eccd575cd0c", "text": "A car park has 12 sedans and 15 hatchbacks. Express the ratio of sedans to hatc…"}
 {"answer": "8:1", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/easy/1/ab4b61dd8754", "text": "A car park contains 56 sedans and 7 hatchbacks. Simplify the ratio of sedans to…"}
 {"answer": "8:3", "id": "senior-demonstrate-an-understanding-of-the-elementary-ideas-and/easy/2/d9fb8cd15649", "text": "A recipe box has 56 muffin trays and 21 cake tins. Express the ratio of muffin …"}
@@ -4960,6 +5128,18 @@
 {"answer": "x^3 + 7x^2 + 14x + 8", "id": "senior-expand-quadratic-and-cubic-polynomials-from-factors/medium/0/2f362f7c1f26", "text": "Expand (x + 4)(x + 2)(x + 1)"}
 {"answer": "x^3 + 3x^2 - 16x - 48", "id": "senior-expand-quadratic-and-cubic-polynomials-from-factors/medium/1/7222c403c4f4", "text": "Expand (x + 3)(x + 4)(x - 4)"}
 {"answer": "x^3 - 4x^2 - 20x + 48", "id": "senior-expand-quadratic-and-cubic-polynomials-from-factors/medium/2/5a24bab849f4", "text": "Expand (x + 4)(x - 2)(x - 6)"}
+{"answer": "a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5", "id": "senior-expand-x-y-n-for-small-positive-integers-n/easy/0/51ab1fb347e1", "text": "Find the expansion of (a + b)⁵."}
+{"answer": "a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4", "id": "senior-expand-x-y-n-for-small-positive-integers-n/easy/1/9eccff9604f6", "text": "Expand (a + b)⁴."}
+{"answer": "x^3 + 3x^2y + 3xy^2 + y^3", "id": "senior-expand-x-y-n-for-small-positive-integers-n/easy/2/b5c3f82610b0", "text": "Write (x + y)³ as a sum of terms."}
+{"answer": "(a) u^3 + 9u^2 + 27u + 27; (b) u^4 + 12u^3 + 54u^2 + 108u +…", "id": "senior-expand-x-y-n-for-small-positive-integers-n/exam/0/182afbde6c5f", "text": "Consider powers of the binomial u + 3. (a) Expand (u + 3)³. (b) Hence expand (u…"}
+{"answer": "(a) p^4 + 16p^3 + 96p^2 + 256p + 256; (b) p^5 + 20p^4 + 160…", "id": "senior-expand-x-y-n-for-small-positive-integers-n/exam/1/20417d9bad64", "text": "Consider powers of the binomial p + 4. (a) Expand (p + 4)⁴. (b) Hence expand (p…"}
+{"answer": "(a) t^4 + 16t^3 + 96t^2 + 256t + 256; (b) t^5 + 20t^4 + 160…", "id": "senior-expand-x-y-n-for-small-positive-integers-n/exam/2/9f4c806c91c0", "text": "Consider powers of the binomial t + 4. (a) Expand (t + 4)⁴. (b) Hence expand (t…"}
+{"answer": "27s^3 + 81s^2t + 81st^2 + 27t^3", "id": "senior-expand-x-y-n-for-small-positive-integers-n/hard/0/e3d1371fbffc", "text": "Find the expansion of (3s + 3t)³."}
+{"answer": "32x^5 + 80x^4 + 80x^3 + 40x^2 + 10x + 1", "id": "senior-expand-x-y-n-for-small-positive-integers-n/hard/1/816774daff26", "text": "Find the expansion of (2x + 1)⁵."}
+{"answer": "32x^5 - 160x^4 + 320x^3 - 320x^2 + 160x - 32", "id": "senior-expand-x-y-n-for-small-positive-integers-n/hard/2/aadc7cebd327", "text": "Expand (2x - 2)⁵."}
+{"answer": "t^4 + 12t^3 + 54t^2 + 108t + 81", "id": "senior-expand-x-y-n-for-small-positive-integers-n/medium/0/fa36c8833b6d", "text": "Write (t + 3)⁴ as a sum of terms."}
+{"answer": "z^3 - 12z^2 + 48z - 64", "id": "senior-expand-x-y-n-for-small-positive-integers-n/medium/1/2e06a6116248", "text": "Expand (z - 4)³."}
+{"answer": "z^3 - 6z^2 + 12z - 8", "id": "senior-expand-x-y-n-for-small-positive-integers-n/medium/2/7484db573089", "text": "Write (z - 2)³ as a sum of terms."}
 {"answer": "6", "id": "senior-express-a-vector-in-component-form-using-the/easy/0/6b5926e6839b", "text": "A vector represents a movement of 1 unit to the right and 6 units up. Write thi…"}
 {"answer": "9", "id": "senior-express-a-vector-in-component-form-using-the/easy/1/3221015bebf9", "text": "A vector represents a movement of 9 units to the right and 3 units up. Write th…"}
 {"answer": "7", "id": "senior-express-a-vector-in-component-form-using-the/easy/2/54299aa2b516", "text": "A vector represents a movement of 8 units to the right and 7 units up. Write th…"}
@@ -5956,6 +6136,18 @@
 {"answer": "mg", "id": "senior-recognise-the-need-for-milligrams/medium/0/70f83d6eabe8", "text": "A pharmacy's stock sheet for one bottle lists 5 vitamin tablets, each with a ma…"}
 {"answer": "mg", "id": "senior-recognise-the-need-for-milligrams/medium/1/5e48b0543914", "text": "A pharmacy's stock sheet for one bottle lists 24 vitamin tablets, each with a m…"}
 {"answer": "kg", "id": "senior-recognise-the-need-for-milligrams/medium/2/13bd306153a9", "text": "A dairy's delivery note lists 4 blocks of butter, each with a mass of 500 g. Wh…"}
+{"answer": "6", "id": "senior-recognise-the-numbers-as-binomial-coefficients/easy/0/d72a01221dd7", "text": "Find the coefficient of x²y² in the expansion of (x + y)⁴."}
+{"answer": "6", "id": "senior-recognise-the-numbers-as-binomial-coefficients/easy/1/9075225d9f18", "text": "Evaluate C(4, 2), the coefficient of x²y² in the expansion of (x + y)⁴."}
+{"answer": "10", "id": "senior-recognise-the-numbers-as-binomial-coefficients/easy/2/34612e303ec1", "text": "What is the coefficient of x³y² when (x + y)⁵ is expanded?"}
+{"answer": "(a) 20; (b) -4320; (c) 2160; (d) -15120", "id": "senior-recognise-the-numbers-as-binomial-coefficients/exam/0/a27925a6a914", "text": "Consider the expansion of (2x - 3)⁶ in powers of x. (a) Write down the value of…"}
+{"answer": "(a) 10; (b) 1080; (c) 810; (d) 4860", "id": "senior-recognise-the-numbers-as-binomial-coefficients/exam/1/98dd1af99514", "text": "Consider the expansion of (3x + 2)⁵ in powers of x. (a) Write down the value of…"}
+{"answer": "(a) 10; (b) 4320; (c) -1620; (d) 19440", "id": "senior-recognise-the-numbers-as-binomial-coefficients/exam/2/c9dbf04cc644", "text": "Consider the expansion of (3x - 4)⁵ in powers of x. (a) Write down the value of…"}
+{"answer": "-80", "id": "senior-recognise-the-numbers-as-binomial-coefficients/hard/0/57d44103f49f", "text": "Find the coefficient of x⁴ in the expansion of (2x - 1)⁵."}
+{"answer": "960", "id": "senior-recognise-the-numbers-as-binomial-coefficients/hard/1/d7bf5f844074", "text": "What is the coefficient of x⁴ in (2x - 2)⁶?"}
+{"answer": "4320", "id": "senior-recognise-the-numbers-as-binomial-coefficients/hard/2/2a62184ec712", "text": "Find the coefficient of x³ in the expansion of (2x + 3)⁶."}
+{"answer": "405", "id": "senior-recognise-the-numbers-as-binomial-coefficients/medium/0/c10d1da5cfc4", "text": "What is the coefficient of x when (x + 3)⁵ is expanded?"}
+{"answer": "24", "id": "senior-recognise-the-numbers-as-binomial-coefficients/medium/1/4a8b28a8c1ce", "text": "What is the coefficient of x² when (x - 2)⁴ is expanded?"}
+{"answer": "32", "id": "senior-recognise-the-numbers-as-binomial-coefficients/medium/2/3628a23f997b", "text": "What is the coefficient of x when (x + 2)⁴ is expanded?"}
 {"answer": "x = 2", "id": "senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156/easy/0/faa4c3e18ca6", "text": "A logarithmic curve y = log_a(x + c), with a > 1 and c an integer, is drawn bel…"}
 {"answer": "x = 3", "id": "senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156/easy/1/ac5bc9c80add", "text": "The graph of y = log_a(x + c) is drawn on the grid, where a > 1 and c is an int…"}
 {"answer": "x = -5", "id": "senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156/easy/2/d269c2b263dd", "text": "The graph shows y = log_a(x + c) for a number a greater than 1 and an integer c…"}
@@ -6823,6 +7015,18 @@
 {"answer": "A$100.00", "id": "senior-use-currency-exchange-rates-to-determine-the-cost/medium/0/13b087c9b9fa", "text": "The exchange rate is A$1 = £1.59. What is the value, in Australian dollars, of …"}
 {"answer": "A$200.00", "id": "senior-use-currency-exchange-rates-to-determine-the-cost/medium/1/4709bf6f08fc", "text": "The exchange rate is A$1 = €1.88. What is the value, in Australian dollars, of …"}
 {"answer": "A$600.00", "id": "senior-use-currency-exchange-rates-to-determine-the-cost/medium/2/8c7e9562d500", "text": "The exchange rate is A$1 = US$0.66. What is the cost, in Australian dollars, of…"}
+{"answer": "(8, 150)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/easy/0/dfd865ca90cd", "text": "Let z = 2 cis 50°. Find z³. Give the result as r cis θ by writing the pair (r, …"}
+{"answer": "(27, 240)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/easy/1/45de5ec9c539", "text": "For z = 3 cis 80°, find z³. Give the result as r cis θ by writing the pair (r, …"}
+{"answer": "(4, 180)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/easy/2/1ff0eac905b4", "text": "For z = 2 cis 90°, find z². Give the result as r cis θ by writing the pair (r, …"}
+{"answer": "(a) 2; (b) 210; (c) 32; (d) 16sqrt(3) - 16i", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/exam/0/35c38a04b594", "text": "Let z = -√3 - i. (a) Find the modulus of z. (b) Find the argument of z, in degr…"}
+{"answer": "(a) 2; (b) 120; (c) 128; (d) -64 + 64sqrt(3)i", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/exam/1/fd9eee70f902", "text": "Let z = -1 + i√3. (a) Find the modulus of z. (b) Find the argument of z, in deg…"}
+{"answer": "(a) 2; (b) 120; (c) 256; (d) -128 - 128sqrt(3)i", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/exam/2/007935ac4bc5", "text": "Let z = -1 + i√3. (a) Find the modulus of z. (b) Find the argument of z, in deg…"}
+{"answer": "(128, 30)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/hard/0/f6cf6f791087", "text": "Let z = -√3 - i. Find z⁷. Give the result as r cis θ by writing the pair (r, θ)…"}
+{"answer": "(8, 270)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/hard/1/c529929ae324", "text": "For z = -√3 - i, find z³. Give the result as r cis θ by writing the pair (r, θ)…"}
+{"answer": "(128, 330)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/hard/2/4853f9f1b1c3", "text": "For z = -√3 + i, find z⁷. Give the result as r cis θ by writing the pair (r, θ)…"}
+{"answer": "(1, 180)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/medium/0/2826c1e65add", "text": "Given z = cis 60°, find z⁻³. Give the result as r cis θ by writing the pair (r,…"}
+{"answer": "(1, 200)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/medium/1/598ed4b1c9d3", "text": "Given z = cis 80°, find z⁷. Give the result as r cis θ by writing the pair (r, …"}
+{"answer": "(1, 0)", "id": "senior-use-de-moivre-s-theorem-for-integral-powers/medium/2/0a52326b1595", "text": "For z = cis 120°, find z⁻³. Give the result as r cis θ by writing the pair (r, …"}
 {"answer": "No", "id": "senior-use-ests-and-lsts-to-locate-the-critical/easy/0/a7d993ce1a43", "text": "The project starts at time 0. Activity A: duration 2 days, no predecessors. Act…"}
 {"answer": "No", "id": "senior-use-ests-and-lsts-to-locate-the-critical/easy/1/28cdaec7ebe6", "text": "The project starts at time 0. Activity A: duration 4 days, no predecessors. Act…"}
 {"answer": "Yes", "id": "senior-use-ests-and-lsts-to-locate-the-critical/easy/2/0e0c09de9f37", "text": "The project starts at time 0. Activity A: duration 10 days, no predecessors. Ac…"}
