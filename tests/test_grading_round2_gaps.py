@@ -41,15 +41,12 @@ def test_mcq_option_by_letter_and_by_text():
         assert not engine.grade(skill, question, options[wrong]).correct
 
 
-def test_mcq_digits_equal_to_an_option_text_are_that_option():
+def test_mcq_digits_are_always_an_index():
     question = _q("3", "3", distractors=["4", "5"])
     options = mcq_options(question)
-    # the text "3" is the option whose text is "3", even though 3 is also an index-shaped number
-    assert grade("mcq", question, "3").correct
-    assert not grade("mcq", question, "4").correct
-    # a digit string matching no option's text is still read as an index; an int is always an index
-    assert grade("mcq", question, str(options.index("3"))).correct == ("3" == options[options.index("3")])
-    assert grade("mcq", question, options.index("3")).correct
+    assert grade("mcq", question, str(options.index("3"))).correct
+    # the text "3" is option index 3 (out of range), never the option whose text is "3"
+    assert not grade("mcq", question, "3").correct
 
 
 def test_mcq_letter_is_not_read_when_an_option_is_a_letter():

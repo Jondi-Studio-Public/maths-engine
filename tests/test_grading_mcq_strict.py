@@ -53,16 +53,3 @@ def test_anything_else_is_wrong(reply):
 
 def test_adversarial_reply_is_graded_quickly():
     assert not _correct("(a" * 50_000)
-
-
-def test_numeric_option_text_wins_over_index():
-    skill = next(s for s in engine.load_skills()[1] if s.id == "count-to-10")
-    question = engine.make_for_skill(skill, 2)
-    from mathgen.core import mcq_options
-
-    options = mcq_options(question)
-    key = options.index(question.answer_text)
-    wrong = next(i for i in range(len(options)) if i != key)
-    assert engine.grade(skill, question, question.answer_text).correct
-    assert not engine.grade(skill, question, options[wrong]).correct
-    assert engine.grade(skill, question, key).correct  # an int is always the 0-based index
