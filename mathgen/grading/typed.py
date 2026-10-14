@@ -2673,12 +2673,13 @@ def _mcq_choice_by_text(options: list, given: str) -> int | None:
     """The option a reply names by its text or its letter, or None when it names neither.
 
     Option text is matched whole, ignoring case, spacing and one trailing full stop. A letter is read only when
-    no option is itself a single letter, so "x" is never mistaken for option X's position. A reply of digits
-    only is never matched here: it is an index, as documented, even when an option's text is the same digits.
+    no option is itself a single letter, so "x" is never mistaken for option X's position. When the options are
+    themselves numbers, a reply equal to an option's text is that option, never an index; only a reply that matches
+    no option's text is read as an index by `grade_mcq`.
     """
     reply = " ".join(given.split()).casefold()
     bare = reply.removesuffix(".").rstrip()
-    if not bare or bare.isdigit():
+    if not bare:
         return None
     texts = [" ".join(str(option).split()).casefold() for option in options]
     for candidate in (reply, bare):
@@ -2702,13 +2703,14 @@ def grade_mcq(question, given: str) -> GradeResult:
     """
     options = mcq_options(question)
     canonical = question.answer_text
+    chosen = None
     if isinstance(given, int) and not isinstance(given, bool):
-        # The documented reply is the option's 0-based index, and a library caller passes it as an int; the regex
-        # below takes text, so an int raised and every such reply was marked wrong.
+        # An int is the documented 0-based option index, never option text.
         given = str(given)
-    if not isinstance(given, str):
+    elif isinstance(given, str):
+        chosen = _mcq_choice_by_text(options, given)
+    else:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    chosen = _mcq_choice_by_text(options, given)
     if chosen is None:
         reply = given.strip().removesuffix(".").rstrip()
         if not _INDEX_RE.fullmatch(reply):
