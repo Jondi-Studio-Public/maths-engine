@@ -9142,7 +9142,7 @@
 {"answer": "The apples row", "id": "tally-tables/hard/0/94f84082e261", "text": "One row of the tally is wrong. Which row is it?"}
 {"answer": "The flowers row", "id": "tally-tables/hard/1/b9e1918c756e", "text": "Diego made a tally of the things. Which row is wrong?"}
 {"answer": "The apples row", "id": "tally-tables/hard/2/c4730c55fe09", "text": "Count the things and read the tally. Which row is wrong?"}
-{"answer": "The fish row", "id": "tally-tables/medium/0/7df7d479d811", "text": "Ravi looks for the row that shows 26. Which row is it?"}
+{"answer": "The fish row", "id": "tally-tables/medium/0/d1e3dc291280", "text": "Look at the tally. Which row shows 26?"}
 {"answer": "The flowers row", "id": "tally-tables/medium/1/5b4ff860d0f5", "text": "Yuki looks for the row that shows 22. Which row is it?"}
 {"answer": "The cats row", "id": "tally-tables/medium/2/a204327277ff", "text": "Which row shows 8?"}
 {"answer": "7 o'clock", "id": "tell-time-to-hour/easy/0/655032ffa859", "text": "A clock hangs in the kitchen. Which time is on the clock?"}
