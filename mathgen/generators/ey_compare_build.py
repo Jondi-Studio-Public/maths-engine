@@ -121,6 +121,18 @@ _LENGTH_TEXT = {
 }
 
 
+# When the two are equally long the question must say that "the same" is a possible answer.
+_EQUAL_TEXT = (
+    "Is one longer, or are they the same length?",
+    "Look at both. Is one longer, or are they the same?",
+    "Is one of them shorter, or are they the same length?",
+)
+_EQUAL_CLIP_TEXT = (
+    "Count the {u}s. Is one longer, or are they equally long?",
+    "Is one longer, or are they the same? Count the {u}s.",
+)
+
+
 def _length_objects(rng, n: int):
     picks = rng.sample(_LENGTH_OBJECTS, n)
     return [{"label": lbl, "style": style} for lbl, style in picks]
@@ -187,7 +199,7 @@ def compare_length_picture(rng, tier="easy"):
     )
     pair = len(objs) == 2
     pool = _LENGTH_TEXT[("pair_" if pair else "loose_" if not lined else "many_") + ("more" if more else "less")]
-    text = rng.choice(pool)
+    text = rng.choice(_EQUAL_TEXT) if key is None else rng.choice(pool)
     labels = [o["label"] for o in objs]
     if key is None:
         answer_text = _SAME
@@ -264,8 +276,23 @@ def _object_vs_blocks(rng):
         return {"label": label, "mass": mass, "size": rng.choice((1, 2, 3))}, blocks
 
 
+# A container's name must fit how it is drawn: only a bowl is short and wide, and a bowl is never tall and thin.
+_FORM_SHAPES = {"tall_thin": ("jug", "cup", "bottle"), "short_wide": ("bowl",), "normal": _SHAPES}
+
+
+def _shapes_for(rng, forms: list[str]) -> list[str] | None:
+    """Distinct container names that suit each form, or None when this set of forms has no such naming."""
+    for _ in range(40):
+        shapes = rng.sample(_SHAPES, len(forms))
+        if all(sh in _FORM_SHAPES[fm] for sh, fm in zip(shapes, forms)):
+            return shapes
+    return None
+
+
 def _containers_brimful(rng, caps: list[int], forms: list[str]):
-    shapes = rng.sample(_SHAPES, len(caps))
+    shapes = _shapes_for(rng, forms)
+    if shapes is None:
+        return None
     return [{"label": sh, "shape": sh, "form": fm, "capacity": c, "fill": c} for sh, fm, c in zip(shapes, forms, caps)]
 
 
@@ -291,6 +318,8 @@ def _draw_capacity(rng, tier: str):
         if len(set(caps)) != 3 or abs(best - near) / max(best, near) < 0.25 or len(set(forms)) < 2:
             continue
         cs = _containers_brimful(rng, caps, forms)
+        if cs is None:
+            continue
         values = {c["label"]: c["capacity"] for c in cs}
         key = _extreme(values, more)
         heights = {c["label"]: _height(c) for c in cs}
@@ -535,6 +564,8 @@ def compare_by_paper_clips(rng, tier="easy"):
         return _finish(fig, text, answer_text, distractors, working, _read_clips)
     pair_q = len(objs) == 2
     text = rng.choice(_CLIP_TEXT[("pair_" if pair_q else "many_") + ("more" if more else "less")]).format(u=uname)
+    if key is None:  # equal lengths: only an explicit equality question may have "same" as its key
+        text = rng.choice(_EQUAL_CLIP_TEXT).format(u=uname)
     if key is None:
         answer_text = _SAME
         cands = [_the(lbl) for lbl in labels]
@@ -671,7 +702,6 @@ def _poured(shape: str, form: str, cap: int) -> dict:
 def _draw_cups(rng, tier: str):
     """(containers, more, key, trap)."""
     more = rng.random() < 0.5
-    shapes = rng.sample(_SHAPES, {"easy": 2, "medium": 3, "hard": 4}[tier])
     for _ in attempts(4000, "a poured-cups comparison"):
         if tier == "hard":
             group = rng.choice(_SAME_HEIGHT)
@@ -680,6 +710,9 @@ def _draw_cups(rng, tier: str):
             f1, f2 = rng.sample(cmp.FORMS, 2)
             specs = [(fa, ca), (fb, cb), (f1, c0), (f2, c0)]
             rng.shuffle(specs)
+            shapes = _shapes_for(rng, [f for f, _ in specs])
+            if shapes is None:
+                continue
             cs = [_poured(sh, f, c) for sh, (f, c) in zip(shapes, specs)]
             key = tuple(c["label"] for c in cs if c["capacity"] == c0)
             trap = tuple(
@@ -690,10 +723,13 @@ def _draw_cups(rng, tier: str):
             if len({c["capacity"] for c in cs}) != 3 or len(key) != 2 or len(trap) != 2:
                 continue
             return cs, more, key, trap
-        n = len(shapes)
+        n = {"easy": 2, "medium": 3, "hard": 4}[tier]
         caps = [rng.randint(1, 8) for _ in range(n)]
         forms = [rng.choice(cmp.FORMS) for _ in range(n)]
         if len(set(caps)) != n or len(set(forms)) < 2:
+            continue
+        shapes = _shapes_for(rng, forms)
+        if shapes is None:
             continue
         if n == 2 and abs(caps[0] - caps[1]) < 2:
             continue

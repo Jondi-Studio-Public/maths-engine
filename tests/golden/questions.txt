@@ -1135,8 +1135,8 @@
 {"answer": "Thursday", "id": "ey-calendar-weekday-of-date/medium/0/fde1895338f2", "text": "Which day of the week is the 12th?"}
 {"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/1/115dcab76551", "text": "What day of the week is the 23rd?"}
 {"answer": "Monday", "id": "ey-calendar-weekday-of-date/medium/2/8a80e4f90fb2", "text": "Talia has a game on the 8th. What day of the week is that?"}
-{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/0/8e1fea3081de", "text": "Which is shorter? Use the paper clips."}
-{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/1/331ea9948d12", "text": "Count the blocks. Which one is longer?"}
+{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/0/39c7129984d8", "text": "Is one longer, or are they the same? Count the paper clips."}
+{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/1/930b41815123", "text": "Is one longer, or are they the same? Count the blocks."}
 {"answer": "The rope", "id": "ey-compare-by-paper-clips/easy/2/76ff7c84254c", "text": "Count the blocks. Which one is shorter?"}
 {"answer": "The ribbon and the rope", "id": "ey-compare-by-paper-clips/hard/0/9cb300f93af8", "text": "Which two are the same length?"}
 {"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/1/0180122def19", "text": "Which two are as long as each other?"}
@@ -1144,15 +1144,15 @@
 {"answer": "The rope", "id": "ey-compare-by-paper-clips/medium/0/2e274fada775", "text": "Count the blocks. Which one is longest?"}
 {"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/1/f70623567f3d", "text": "Which is the shortest? Count the paper clips."}
 {"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/2/f3947343998d", "text": "Which is the longest? Count the blocks."}
-{"answer": "The bottle", "id": "ey-compare-capacity-by-cups/easy/0/6640977f85a2", "text": "Count the cups poured out. Which holds less?"}
-{"answer": "The bottle", "id": "ey-compare-capacity-by-cups/easy/1/b7b48dd0d3ef", "text": "Each is poured into small cups. Which holds more?"}
-{"answer": "The cup", "id": "ey-compare-capacity-by-cups/easy/2/ff3a6765c3b0", "text": "Count the cups poured out. Which holds less?"}
-{"answer": "The jug and the bottle", "id": "ey-compare-capacity-by-cups/hard/0/f58bb4bf177d", "text": "Two of these hold the same amount. Which two?"}
-{"answer": "The cup and the jug", "id": "ey-compare-capacity-by-cups/hard/1/290f7e4b35f5", "text": "Which two hold the same? Count the cups."}
-{"answer": "The cup and the bottle", "id": "ey-compare-capacity-by-cups/hard/2/a382b5dea657", "text": "Each is poured into small cups. Which two hold the same?"}
-{"answer": "The cup", "id": "ey-compare-capacity-by-cups/medium/0/2960f2475e8a", "text": "Count the cups poured out. Which holds least?"}
-{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/c24fe7cb53b9", "text": "Count the cups poured out. Which holds most?"}
-{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/1e27eedd6431", "text": "Each is poured into small cups. Which holds the most?"}
+{"answer": "The jug", "id": "ey-compare-capacity-by-cups/easy/0/9ca58194703b", "text": "Count the cups poured out. Which holds less?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/easy/1/d0e189917989", "text": "Each is poured into small cups. Which holds more?"}
+{"answer": "The bottle", "id": "ey-compare-capacity-by-cups/easy/2/a07f5fcc9587", "text": "Each is poured into small cups. Which holds less?"}
+{"answer": "The cup and the jug", "id": "ey-compare-capacity-by-cups/hard/0/922a592ef3ed", "text": "Which two hold the same? Count the cups."}
+{"answer": "The jug and the bowl", "id": "ey-compare-capacity-by-cups/hard/1/b6a2dd547490", "text": "Which two hold the same? Count the cups."}
+{"answer": "The bottle and the cup", "id": "ey-compare-capacity-by-cups/hard/2/3c2f936ce6a3", "text": "Two of these hold the same amount. Which two?"}
+{"answer": "The jug", "id": "ey-compare-capacity-by-cups/medium/0/37185a29ef58", "text": "Each is poured into small cups. Which holds the least?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/da1b89c56a3d", "text": "Count the cups poured out. Which holds most?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/61967bd6fcd5", "text": "Each is poured into small cups. Which holds the most?"}
 {"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
 {"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
 {"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}
@@ -1433,7 +1433,7 @@
 {"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/1/55462d22efce", "text": "Which one has more water in it?"}
 {"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/2/e33ea2272156", "text": "Look at the water. Which has more?"}
 {"answer": "The banana", "id": "f10-compare-measurement-attributes/medium/0/fae43d393a39", "text": "Which one is heavier?"}
-{"answer": "The bowl", "id": "f10-compare-measurement-attributes/medium/1/37997f0cedbd", "text": "Which of these holds the most?"}
+{"answer": "The bowl", "id": "f10-compare-measurement-attributes/medium/1/9b869f113238", "text": "Which holds the most?"}
 {"answer": "The jar", "id": "f10-compare-measurement-attributes/medium/2/5d3361641b95", "text": "Which one is heavier?"}
 {"answer": "Item 1, Item 2, Item 3", "id": "f10-compare-order-measure-attributes/easy/0/5f3764d370de", "text": "These are the clues, in no particular order: Item 3 tips the balance down again…"}
 {"answer": "Event 1, Event 2, Event 3", "id": "f10-compare-order-measure-attributes/easy/1/e445e3af1b9c", "text": "These are the clues, in no particular order: Event 3 takes longer to finish tha…"}
