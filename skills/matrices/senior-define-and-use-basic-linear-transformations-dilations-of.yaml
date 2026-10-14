@@ -39,6 +39,11 @@ sources:
     params: {tier: exam}
     difficulty: exam
     stages: [exam]
+  - topic: exd_x_g4_lt_basic
+    params: {tier: exam}
+    difficulty: exam
+    key: exam-single
+    stages: [exam]
 misconceptions:
   - id: swapped-lambda
     description: For a dilation, applies lambda2 to x and lambda1 to y instead of lambda1 to x and lambda2 to y.

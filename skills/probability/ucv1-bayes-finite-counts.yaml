@@ -36,6 +36,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_s0_bayes2
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: likelihood-instead-of-posterior
   description: Reports the raw per-group rate for group 1 (or its complement, on

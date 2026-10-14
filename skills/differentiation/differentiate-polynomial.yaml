@@ -38,6 +38,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c1_polynomial
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: forgot-decrement-power
   description: Forgetting to decrement the power after differentiating.

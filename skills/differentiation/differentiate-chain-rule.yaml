@@ -38,6 +38,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c1_chain
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: forgot-inner-derivative
   description: Differentiates the outer function only.

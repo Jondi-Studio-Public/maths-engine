@@ -7,6 +7,6 @@ prerequisites:
 - complex-imaginary-part
 - senior-define-the-imaginary-number-i-as-a-root
 answer: mcq
-sources: [{topic: complex_number, params: {kind: add}, difficulty: easy}, {topic: exd_x_r2e_complex_add, params: {tier: exam}, difficulty: exam, stages: [exam]}]
+sources: [{topic: complex_number, params: {kind: add}, difficulty: easy}, {topic: exd_x_r2e_complex_add, params: {tier: exam}, difficulty: exam, stages: [exam]}, {topic: exd_x_complex_add, params: {tier: exam}, difficulty: exam, key: exam-single, stages: [exam]}]
 misconceptions: [{id: mixes-components, description: Combines a real part with an imaginary coefficient.}]
 tags: [expansion-batch-6, complex-numbers, acara-v8-4]

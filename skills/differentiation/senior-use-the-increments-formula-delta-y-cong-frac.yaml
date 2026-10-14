@@ -29,6 +29,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c3_increments
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: used-exact-change-not-approx
   description: Reports the true exact change f(x0+δx) - f(x0) instead of the linear estimate.
