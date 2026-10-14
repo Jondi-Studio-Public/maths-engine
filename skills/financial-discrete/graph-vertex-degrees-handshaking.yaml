@@ -1,0 +1,50 @@
+id: graph-vertex-degrees-handshaking
+name: Find vertex degrees and use the handshaking lemma
+domain: financial-discrete
+description: >-
+  Find the degree of a vertex of a stated network, and use the fact that the degrees add to twice the number of edges
+  to find an edge count, a missing degree or the number of odd vertices. easy reads a degree, an edge count or the odd
+  vertices from a stated network; medium finds an edge count from a degree list or the one unlisted degree from the edge
+  count; hard has no network at all, only the number of vertices and edges and two possible degrees (or a least degree),
+  and asks how many vertices have a degree or how many vertices there can be; exam is a four-part chain from the degree
+  sum to a missing degree, the odd vertices and the edges left after a vertex is deleted. Every answer is a whole number.
+status: active
+placement_eligible: false
+prerequisites: [shortest-network-path]
+answer: number
+sources:
+- topic: snet_degrees
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: snet_degrees
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: snet_degrees
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: snet_degrees_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: net-degree-sum-as-edges
+  description: Takes the sum of the degrees as the number of edges, forgetting that every edge is counted at both of its ends.
+- id: net-edges-as-degree-sum
+  description: Uses the number of edges where the sum of the degrees belongs, forgetting to double it first.
+- id: net-degree-miscount
+  description: Miscounts the edges at a vertex, or the odd vertices, so the answer is one too high or one too low.
+- id: net-odd-even-swapped
+  description: Counts the vertices of even degree when the vertices of odd degree were asked for.
+- id: net-hidden-vertex-ignored
+  description: Counts only the listed vertices and leaves out the vertex whose degree had to be found first.
+- id: net-deleted-edges-kept
+  description: Gives the original number of edges after a vertex and its edges have been deleted.
+difficulty_progression: Easy reads a degree, an edge count or the odd vertices straight from a stated network or degree
+  list. Medium needs the handshaking lemma the other way round, to find the one unlisted degree. Hard drops the network
+  and sets up the lemma as an equation for the number of vertices of one degree, or as an inequality for the most vertices
+  possible. The exam chain finds the degree sum, the missing degree, the odd vertices (a parity argument) and the edges left
+  after deleting a vertex, each using the one before.
+tags: [graph-theory, networks, degree, handshaking-lemma]

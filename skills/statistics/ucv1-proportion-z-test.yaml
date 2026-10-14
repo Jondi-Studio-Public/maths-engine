@@ -1,0 +1,113 @@
+id: ucv1-proportion-z-test
+name: Compute the pieces of a one-sample z test for a proportion
+domain: statistics
+year_level: [university]
+description: >-
+  Test a claimed population proportion with a large sample: find the standard error under the
+  null hypothesis, the z statistic, the p-value for a two-sided or one-sided alternative, and
+  the sample proportion or count at the edge of the 5% rejection region. The standard error
+  always uses the claimed proportion, not the sample proportion. A conclusion appears only as
+  the one-mark last part of the four-part exam chain. Confidence intervals for a proportion are
+  taught by the neighbouring interval skills.
+status: active
+placement_eligible: false
+prerequisites: [bernoulli-mle, z-score]
+answer: number
+sources:
+- topic: fy1ms_z_test_proportion
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_z_test_proportion
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_z_test_proportion
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_z_test_proportion
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ztest-se-uses-sample-proportion
+  description: >-
+    Building the standard error from the sample proportion, √(p̂(1 − p̂)/n), when a test must
+    use the hypothesised proportion p0.
+- id: ztest-se-no-root
+  description: >-
+    Forgetting the square root: giving p0(1 − p0)/n as the standard error of a sample
+    proportion.
+- id: ztest-se-complement-forgotten
+  description: >-
+    Using √(p0/n) as the standard error, leaving out the factor 1 − p0.
+- id: ztest-se-divides-by-n
+  description: >-
+    Dividing √(p0(1 − p0)) by n instead of by √n.
+- id: ztest-se-root-n-forgotten
+  description: >-
+    Giving √(p0(1 − p0)) as the standard error without dividing by √n.
+- id: ztest-sign-reversed
+  description: >-
+    Subtracting in the wrong order, p0 − p̂, so the test statistic has the wrong sign.
+- id: ztest-count-used-as-proportion
+  description: >-
+    Using the number of successes where the sample proportion belongs, so the difference from p0
+    is hundreds of times too large.
+- id: ztest-percent-not-converted
+  description: >-
+    Using a sample percentage such as 41.5 where the proportion 0.415 belongs.
+- id: ztest-hypothesised-proportion-ignored
+  description: >-
+    Giving the sample proportion itself when asked for its difference from the hypothesised
+    proportion.
+- id: ztest-sample-proportion-wrong-denominator
+  description: >-
+    Dividing the number of successes by the successes plus the sample size instead of by the
+    sample size.
+- id: ztest-pvalue-doubling-forgotten
+  description: >-
+    Giving a single tail area as the p-value of a two-sided test.
+- id: ztest-pvalue-cdf-as-pvalue
+  description: >-
+    Giving the area to the left of |z| as the p-value instead of the area in the tail.
+- id: ztest-pvalue-complement
+  description: >-
+    Subtracting the two-sided p-value from 1.
+- id: ztest-pvalue-wrong-tail
+  description: >-
+    Taking the tail on the wrong side of z for the alternative hypothesis: the area to the left
+    for H1: p > p0, or to the right for H1: p < p0.
+- id: ztest-pvalue-doubled-for-one-sided
+  description: >-
+    Doubling the tail area for a one-sided alternative hypothesis.
+- id: ztest-pvalue-sign-ignored
+  description: >-
+    Using the tail beyond |z| whatever the sign of z, so a statistic on the wrong side of p0 for
+    a one-sided alternative gives a small p-value instead of a large one.
+- id: ztest-cutoff-wrong-side
+  description: >-
+    Subtracting z* × SE from p0 for the upper rejection boundary of a test of H1: p > p0.
+- id: ztest-cutoff-margin-as-bound
+  description: >-
+    Giving the margin z* × SE as the boundary instead of adding it to p0.
+- id: ztest-wrong-critical-value
+  description: >-
+    Using a critical value that does not match the stated one, such as the two-sided 1.96 where the question
+    gives the one-sided 1.645.
+- id: ztest-count-rounded-down
+  description: >-
+    Rounding the boundary count down, so the count named does not actually reject H0.
+- id: ztest-count-rounded-up-twice
+  description: >-
+    Adding one to the smallest whole number above the boundary count.
+- id: ztest-conclusion-decision-reversed
+  description: >-
+    Reading the comparison with 0.05 the wrong way round: rejecting H0 for a large p-value or
+    not rejecting it for a small one.
+- id: ztest-conclusion-sample-differs
+  description: >-
+    Rejecting H0 just because the sample proportion is not exactly p0, without looking at the
+    p-value.
+tags: [university-core-v1, statistics, hypothesis-testing, proportions]

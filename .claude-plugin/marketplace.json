@@ -1,0 +1,44 @@
+{
+  "name": "maths-engine",
+  "owner": {
+    "name": "Jondi Haynes",
+    "url": "https://github.com/Jondi-Studio-Public"
+  },
+  "metadata": {
+    "description": "Agent plugins for maths-engine: verified maths questions, marking and worksheets."
+  },
+  "plugins": [
+    {
+      "name": "maths-engine-tutor",
+      "source": "./plugins/maths-engine-tutor",
+      "description": "Maths practice for learners: questions from early years to first-year university, marked by the engine, with no answers given away. Australian Curriculum aligned.",
+      "version": "0.2.0",
+      "license": "MIT",
+      "keywords": [
+        "mathematics",
+        "education",
+        "tutoring",
+        "practice",
+        "australian-curriculum",
+        "mcp"
+      ]
+    },
+    {
+      "name": "maths-engine-teacher",
+      "source": "./plugins/maths-engine-teacher",
+      "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
+      "version": "0.2.0",
+      "license": "MIT",
+      "keywords": [
+        "mathematics",
+        "education",
+        "worksheets",
+        "assessment",
+        "moodle",
+        "qti",
+        "australian-curriculum",
+        "mcp"
+      ]
+    }
+  ]
+}

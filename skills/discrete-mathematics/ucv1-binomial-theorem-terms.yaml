@@ -1,0 +1,73 @@
+id: ucv1-binomial-theorem-terms
+name: Terms and coefficients of a binomial expansion
+domain: discrete-mathematics
+year_level: [university]
+description: Use the general term C(n, r) aⁿ⁻ʳ bʳ of a binomial expansion to find a stated coefficient, the term independent
+  of x, or the coefficient of a power of x in a product of two expansions.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-binomial-trinomial
+answer: number
+sources:
+- topic: ucv1_binomial_terms
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_binomial_terms
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_binomial_terms
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy_binomial_terms
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: binom-coefficient-as-product
+  description: Writing the binomial coefficient C(n, r) as the product n × r.
+- id: binom-coefficient-forgot-denominator
+  description: Writing C(n, r) as n!/r!, leaving out the (n - r)! in the denominator.
+- id: binom-count-from-wrong-end
+  description: Counting r from the other end of the expansion, giving n - r.
+- id: binom-independent-term-middle
+  description: Assuming the term independent of x is the middle term, instead of solving for r from the power of x.
+- id: binom-next-term-not-updated
+  description: Giving the term already found where the coefficient of the next term was asked for.
+- id: binom-product-drops-end-terms
+  description: In a product of two expansions, leaving out the pairs that use the constant term of one factor.
+- id: binom-product-ignores-cross-terms
+  description: In a product of two expansions, adding the coefficients of x^k from each and leaving out the products of lower-power terms.
+- id: binom-product-multiplies-coefficients
+  description: In a product of two expansions, multiplying the two coefficients of x^k instead of pairing powers that add to k.
+- id: binom-term-coefficients-dropped
+  description: Giving the binomial coefficient or the coefficient without the powers of the numbers a and b.
+- id: binom-term-forgot-a-power
+  description: 'Leaving out the power of the first term: the coefficient is C(n, r) multiplied by only the power of the second term.'
+- id: binom-term-forgot-b-power
+  description: 'Leaving out the power of the second term: the coefficient is C(n, r) multiplied by only the power of the first term.'
+- id: binom-term-number-confusion
+  description: Giving the number of the term (r + 1) where r, the index in the general term, was asked for.
+- id: binom-term-off-by-one
+  description: 'Taking the wrong term: the (r + 1)th term has r in its binomial coefficient, and a slip of one gives the neighbouring term.'
+- id: binom-term-powers-swapped
+  description: Putting the powers on the wrong terms, so a is raised to r and b to n - r.
+- id: binom-term-sign-flipped
+  description: Getting the sign of a term wrong, so the coefficient has the opposite sign.
+- id: binom-term-sign-lost
+  description: Dropping the minus sign of the second term when it is raised to an odd power.
+difficulty_progression: Easy picks one coefficient from (a + bx)ⁿ, where the power of x is the index r itself. Medium
+  uses (a xᵖ + b/xᵠ)ⁿ, so r has to be found by matching the power of x. Hard asks for the term independent of x with n up
+  to 12, which means solving p(n - r) = q r, or the coefficient of x² or x³ in a product of two expansions, which
+  has several contributing pairs of terms. The exam chain finds r, the binomial coefficient and the independent term
+  by following through, then the next term using the ratio of consecutive terms.
+tags:
+- university-core-v1
+- discrete-mathematics
+- binomial-theorem
+- combinatorics
+framework_areas:
+- discrete-mathematics

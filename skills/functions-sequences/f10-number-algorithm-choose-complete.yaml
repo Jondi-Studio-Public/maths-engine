@@ -1,0 +1,64 @@
+id: f10-number-algorithm-choose-complete
+name: Choose and complete a number algorithm
+domain: functions-sequences
+year_level: ['3', '4', '5', '6']
+naplan_domain: [number, algebra]
+description: Given the goal of an algorithm, choose the instructions that write exactly the right numbers, choose the order
+  of scrambled number-machine steps, or fill in the missing decision of a loop from the numbers it writes.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-number-algorithms-decisions
+answer: mcq
+sources:
+- topic: fr2e_number_algorithm
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2e_number_algorithm
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2e_number_algorithm
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2e_number_algorithm
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2e-algorithm-stop-test-boundary
+  description: Mixing up "stop at this number or more" with "stop when more than this number", so the last number is wrongly
+    kept or left out.
+- id: fr2e-algorithm-wrong-start
+  description: Starting the list at the wrong number, such as zero for a list of positive multiples, or one step too late.
+- id: fr2e-algorithm-two-steps-swapped
+  description: Swapping two neighbouring steps, so the machine gives a different output.
+- id: fr2e-algorithm-rule-fitted-to-one-step
+  description: Choosing a rule because it fits the first step it is tried on, without checking it on the later steps.
+- id: fr2e-algorithm-steps-run-forwards-to-undo
+  description: Running the steps forwards on the output instead of undoing them in reverse order.
+difficulty_progression: 'Easy chooses between four sets of instructions that each differ in one thing (where the list starts,
+  where it stops, the step size), checked by what they write. Medium chooses the one order of four scrambled number-machine
+  steps that turns a stated input into a stated output. Hard gives the numbers a loop with a branch wrote and asks for the
+  missing rule, where every wrong rule agrees with the right one on the first number it is used on. The exam chain follows
+  one number machine: the order of its steps, a second run, the output fed back in, and the input that gives a stated output.'
+tags:
+- acara-f10-v9
+- functions-sequences
+- algorithms
+- number
+- ac9m3n07
+- ac9m4n09
+- ac9m5n10
+- ac9m6a03

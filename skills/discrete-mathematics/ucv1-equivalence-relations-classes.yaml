@@ -1,0 +1,88 @@
+id: ucv1-equivalence-relations-classes
+name: Equivalence relations and their classes
+domain: discrete-mathematics
+year_level: [university]
+description: Decide what must be added to a relation on a finite set to make it reflexive, symmetric and transitive, and
+  count the classes or ordered pairs of an equivalence relation such as congruence modulo n.
+status: active
+placement_eligible: false
+prerequisites:
+- finite-set-operations
+answer: number
+sources:
+- topic: ucv1_equivalence_relations
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_equivalence_relations
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_equivalence_relations
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy_equivalence_relations
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: equiv-adds-only-reflexive
+  description: Counting only the missing pairs (a, a), and not the pairs needed for symmetry and transitivity.
+- id: equiv-adds-only-symmetric
+  description: Counting only the pairs needed to make the relation symmetric.
+- id: equiv-class-count-for-size
+  description: Giving the number of classes (the modulus) where the size of a class was asked for.
+- id: equiv-class-counts-one-direction
+  description: Counting only the elements above (or below) the given element in its class, not the whole class.
+- id: equiv-class-rounds-down
+  description: Rounding the number of elements in a class down (N divided by n, ignoring the remainder), so classes that take a share of the leftover elements are undercounted.
+- id: equiv-class-rounds-up-always
+  description: Adding one to the quotient whether or not there is a remainder, so a class that fits exactly is overcounted.
+- id: equiv-classes-as-elements
+  description: Taking the number of classes to be the number of elements of the set, as if no two elements were related.
+- id: equiv-counts-whole-relation
+  description: Giving the size of the finished equivalence relation instead of the number of pairs to add to R.
+- id: equiv-forgets-transitivity
+  description: Adding the reflexive and symmetric pairs but not the pairs that transitivity then requires.
+- id: equiv-gcd-counts-units
+  description: "Counting only the elements that share no factor with n (Euler's totient) instead of every divisor of n."
+- id: equiv-gcd-misses-n
+  description: Leaving out one divisor (1 or n itself) when counting the classes by the divisors of n, or counting an extra one.
+- id: equiv-lcm-as-gcd
+  description: Using the greatest common divisor where the least common multiple is needed.
+- id: equiv-lcm-as-larger
+  description: Using the larger of m and k where the least common multiple is needed.
+- id: equiv-lcm-as-product
+  description: Using m × k where the least common multiple of m and k is needed.
+- id: equiv-lcm-as-sum
+  description: Using m + k where the least common multiple of m and k is needed.
+- id: equiv-pairs-all-classes-largest
+  description: Treating every class as if it had the size of the largest class when counting ordered pairs.
+- id: equiv-pairs-each-element-with-largest
+  description: Counting, for each element, the size of the largest class, instead of the size of its own class.
+- id: equiv-pairs-equal-classes
+  description: Splitting the pairs evenly over the classes, as if every class had the same size.
+- id: equiv-pairs-ordered-not-halved
+  description: Giving the ordered pairs of different elements where unordered pairs were asked for.
+- id: equiv-pairs-reflexive-not-removed
+  description: Halving the ordered pairs without first removing the pairs (a, a), or removing them twice.
+- id: equiv-pairs-reflexive-only
+  description: Counting only the pairs (a, a) as the ordered pairs of the relation.
+- id: equiv-squares-assumes-pm-only
+  description: Counting the classes of a² ≡ b² as if only a ≡ ±b (mod n) made elements related, which is true only when n is prime.
+difficulty_progression: Easy uses congruence modulo n on {1, ..., N}, where the class sizes differ because N is not a
+  multiple of n. Medium gives a relation as a list of ordered pairs and asks how many pairs complete it, so reflexivity,
+  symmetry and transitivity all have to be checked and the missing pairs counted together. Hard asks for the number
+  of classes made by a rule that is not plainly a congruence (squares modulo n, equal gcd with n, congruence modulo two
+  numbers at once), which needs the classes understood rather than read from n. The exam chain counts the classes of
+  a congruence, the largest class by following through, the ordered pairs from the class sizes, and the unordered
+  pairs.
+tags:
+- university-core-v1
+- discrete-mathematics
+- relations
+- equivalence-relations
+- partitions
+framework_areas:
+- discrete-mathematics

@@ -1,0 +1,64 @@
+id: f10-financial-multistep-percent
+name: Discounts, GST and best buys
+domain: financial-discrete
+year_level: ['5', '6']
+naplan_domain: [number]
+description: Chain a percentage discount, GST and a unit-price comparison to find what a shopper pays, which offer is cheaper
+  per 100 g, or which shop is cheaper and by how much.
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-discount
+- compare-unit-prices
+answer: number
+sources:
+- topic: fr2e_percent_multistep
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2e_percent_multistep
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2e_percent_multistep
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2e_percent_multistep
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2e-percent-gst-on-original-price
+  description: Working out the GST on the marked price instead of on the sale price.
+- id: fr2e-percent-net-of-two-percents
+  description: Combining a discount and GST by taking one percentage off the other, as if they applied to the same price.
+- id: fr2e-percent-unit-price-before-discount
+  description: Comparing unit prices using the marked price of the discounted pack, not its sale price.
+- id: fr2e-percent-pack-prices-compared
+  description: Comparing what the packs cost, ignoring that they hold different masses.
+- id: reports-discount-not-sale-price
+  description: Giving the amount of the discount where the price paid was asked.
+difficulty_progression: 'Easy finds a sale price after one percentage discount. Medium adds GST to the sale price, so the
+  two percentages have to be applied one after the other to different amounts. Hard compares two packs of different sizes,
+  one of them discounted, and gives how much less per 100 g the cheaper one costs. The exam chain compares two shops: the
+  discounted price at one, the price with GST at the other, which is cheaper and by how much (multiple choice), and the
+  cost of several items at the cheaper shop.'
+tags:
+- acara-f10-v9
+- financial-discrete
+- percentages
+- gst
+- unit-price
+- modelling
+- ac9m5n09
+- ac9m6n09

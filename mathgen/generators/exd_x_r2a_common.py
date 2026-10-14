@@ -160,6 +160,9 @@ def x_equals(x0) -> tuple[str, str]:
     return f"x = {rational_text(x0)}", f"x = {_tex_rational(x0)}"
 
 
+EXACT_NOTE = "Give an exact answer: a fraction in simplest form, or an integer."
+
+
 def part_prompt(template: str, **slots: tuple[str, str]) -> dict:
     """`prompt` and `prompt_latex` for a part from a template with `{name}` slots, each `(plain, latex)`."""
     return dict(
@@ -392,7 +395,9 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
     # (b) the gradient at x = x0 -------------------------------------------------------------------------------
     xv, yf = x_equals(x0), YF
     part_b = fraction_part(
-        part_prompt("Hence find the gradient of the graph of {yf} at the point where {xv}.", yf=yf, xv=xv),
+        part_prompt(
+            "Hence find the gradient of the graph of {yf} at the point where {xv}. " + EXACT_NOTE, yf=yf, xv=xv
+        ),
         m,
         1,
         [f"Substitute x = {rational_text(x0)} into f'(x): f'({rational_text(x0)}) = {rational_text(m)}."],
@@ -453,7 +458,7 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
     if variant == "tangent_x":
         x_int = -c0 / slope
         part_d = fraction_part(
-            "Find the x-coordinate of the point where this tangent meets the x-axis.",
+            "Find the x-coordinate of the point where this tangent meets the x-axis." + " " + EXACT_NOTE,
             x_int,
             1,
             [f"Put y = 0: 0 = {_line_text(slope, c0)}, so x = {rational_text(x_int)}."],
@@ -469,7 +474,7 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
         x_int = -c0 / slope
         area = abs(c0 * x_int) / 2
         part_d = fraction_part(
-            "Find the area of the triangle enclosed by this tangent and the two coordinate axes.",
+            "Find the area of the triangle enclosed by this tangent and the two coordinate axes." + " " + EXACT_NOTE,
             area,
             2,
             [
@@ -486,7 +491,7 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
         )
     else:  # normal_y
         part_d = fraction_part(
-            "Find the y-coordinate of the point where this normal meets the y-axis.",
+            "Find the y-coordinate of the point where this normal meets the y-axis." + " " + EXACT_NOTE,
             c0,
             1,
             [f"Put x = 0 in the normal: y = {rational_text(c0)}."],

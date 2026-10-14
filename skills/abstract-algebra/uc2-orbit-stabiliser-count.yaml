@@ -1,0 +1,82 @@
+id: uc2-orbit-stabiliser-count
+name: Count orbits and stabilisers of a group action
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Use |G| = |orbit| x |stabiliser|: the stabiliser of a point under a cyclic group of permutations,
+  and the orbit of a colouring of an n-gon's vertices under the dihedral group, including three-
+  colour patterns from a repeating block. The exam chain finds a stabiliser, an orbit, how many
+  symmetries send one colouring to another and a stabiliser from an orbit size.
+status: active
+placement_eligible: false
+prerequisites:
+- permutation-composition
+- cyclic-group-element-order
+answer: number
+sources:
+- topic: r4a_orbit_stabiliser_count
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_orbit_stabiliser_count
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_orbit_stabiliser_count
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_orbit_stabiliser_count
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: orbit-size-as-stabiliser-order
+  description: >-
+    Giving the order of the stabiliser where the size of the orbit was asked.
+- id: orbit-size-ignores-reflections-in-stabiliser
+  description: >-
+    Counting only the rotations that fix the colouring in the stabiliser, and so overstating the
+    orbit size.
+- id: orbit-size-rotations-only
+  description: >-
+    Finding the orbit under the rotations alone, leaving out the reflections.
+- id: orbit-size-uses-n-not-2n
+  description: >-
+    Dividing n instead of the order 2n of the dihedral group by the stabiliser order to find the
+    orbit size.
+- id: orbit-size-whole-group
+  description: >-
+    Taking the orbit to have as many elements as the group, which is true only when the stabiliser
+    is trivial.
+- id: preimage-count-assumes-one-to-one
+  description: >-
+    Counting one preimage for each element, as if the homomorphism were one-to-one.
+- id: stabiliser-order-as-group-order
+  description: >-
+    Giving the order of the whole group as the order of the stabiliser.
+- id: stabiliser-order-as-orbit-size
+  description: >-
+    Giving the size of the orbit where the order of the stabiliser was asked.
+- id: stabiliser-order-subtracts-orbit
+  description: >-
+    Subtracting the orbit size from the group order instead of dividing, to find the stabiliser
+    order.
+- id: stabiliser-order-trivial-assumed
+  description: >-
+    Taking the stabiliser to be trivial, as if no non-identity element fixed the point or colouring.
+- id: stabiliser-order-uses-n-not-2n
+  description: >-
+    Dividing n instead of the order 2n of the dihedral group by the orbit size to find the
+    stabiliser order.
+tags: [university-core-v1, university-year-2, abstract-algebra, group-action, orbit, stabiliser]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

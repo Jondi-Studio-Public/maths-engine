@@ -24,6 +24,13 @@ from mathgen.core import VerificationError
 _TRIES = 400
 
 
+class DrawRejected(VerificationError):
+    """Raised inside a generator wrapped by `distinct_part_answers` to throw the current draw away, as an unequal
+    or junk-unsafe draw is: the wrapper runs the generator again on the same, already consumed, stream. Use it for
+    a draw that is correct but cannot be asked well, such as one whose slips leave a part with fewer than two
+    distractors. Unwrapped, it is an ordinary `VerificationError`."""
+
+
 def answer_key(part) -> object:
     text = str(part["answer_text"] if isinstance(part, dict) else part.answer_text).strip()
     try:
@@ -55,6 +62,7 @@ def junk_safe(parts) -> bool:
     if not any(h.follow_through for h in holders):
         return True
     kinds = [p["answer_kind"] for p in parts]
+    names = [h.label for h in holders]
     canon = [p["answer_text"] for p in parts]
     scenarios = [[str(v)] * len(parts) for v in _JUNK]
     for i in range(len(parts)):
@@ -67,6 +75,12 @@ def junk_safe(parts) -> bool:
         for j, h in enumerate(holders):
             if not h.follow_through or _right(replies[j], canon[j]) or kinds[j] not in VALUE_KINDS:
                 continue
+            if any(
+                kinds[names.index(n)] == "ordered_list"
+                and (not hasattr(values.get(n), "args") or len(values[n].args) != len(parts[names.index(n)]["answer"]))
+                for n in named_parts(h)
+            ):
+                continue  # the grader carries a list reply only at the length of the list asked for
             carried = follow_through_value(h, {k: v for k, v in values.items() if k < h.label})
             reply = values.get(h.label)
             if carried is None or reply is None or not (carried.is_real and reply.is_real):
@@ -116,7 +130,10 @@ def distinct_part_answers(fn):
     @functools.wraps(fn)
     def wrapper(rng, *args, **kwargs):
         for _ in range(_TRIES):
-            built = fn(rng, *args, **kwargs)
+            try:
+                built = fn(rng, *args, **kwargs)
+            except DrawRejected:
+                continue
             if answers_distinct(built["parts"]) and junk_safe(built["parts"]):
                 return built
         raise VerificationError(

@@ -1,0 +1,88 @@
+id: uc2-matrix-norm-1-and-infinity
+name: Compute matrix norms and the condition number
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Compute the induced 1-norm and infinity-norm of a matrix, and the condition number kappa = norm(A) norm(inverse
+  of A).
+status: active
+placement_eligible: false
+prerequisites:
+- condition-number-diagonal
+answer: fraction
+sources:
+- topic: r4h_matrix_norm_condition
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_matrix_norm_condition
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_matrix_norm_condition
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_matrix_norm_condition
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-norm-rows-for-columns
+  description: Adding along rows when the 1-norm (largest column sum) was asked for.
+- id: num2t-norm-columns-for-rows
+  description: Adding down columns when the ∞-norm (largest row sum) was asked for.
+- id: num2t-norm-signed-sums
+  description: Adding the entries with their signs instead of their absolute values.
+- id: num2t-norm-largest-entry
+  description: Giving the entry of largest size instead of the largest absolute row or column sum.
+- id: num2t-norm-all-entries
+  description: Adding the absolute values of every entry in the matrix.
+- id: num2t-norm-smallest-sum
+  description: Choosing the smallest absolute sum instead of the largest.
+- id: num2t-norm-sum-not-max
+  description: Adding the row (or column) sums instead of taking the largest.
+- id: num2t-cond-no-inverse
+  description: Multiplying ‖A‖ by itself instead of by ‖A⁻¹‖.
+- id: num2t-cond-adjugate-undivided
+  description: Using the adjugate in place of A⁻¹, forgetting to divide by the determinant.
+- id: num2t-cond-wrong-norm-on-inverse
+  description: Using the 1-norm for one factor and the ∞-norm for the other.
+- id: num2t-cond-quotient
+  description: Dividing ‖A‖ by ‖A⁻¹‖ instead of multiplying.
+- id: num2t-cond-determinant
+  description: Giving the determinant or its reciprocal as the condition number.
+- id: num2t-cond-other-norm
+  description: Giving the condition number in the other norm (∞ for 1, or 1 for ∞).
+- id: num2t-cond-inverse-sign
+  description: Forming the inverse of a 2×2 matrix with the off-diagonal signs unchanged.
+- id: num2t-cond-inverse-entries-unswapped
+  description: Forming the inverse of a 2×2 matrix without swapping the diagonal entries.
+- id: num2t-cond-bound-divided
+  description: Dividing the relative perturbation by the condition number instead of multiplying.
+- id: num2t-cond-bound-forgotten
+  description: Giving the relative perturbation of b as the bound on the relative error of x.
+- id: num2t-cond-bound-norm-only
+  description: Multiplying the relative perturbation by ‖A⁻¹‖ alone.
+difficulty_progression: Easy finds one induced norm of a 3x3 matrix with negative entries, which means choosing between column
+  and row sums. Medium finds a condition number of a 2x2 matrix, which also needs the inverse. Hard finds the 1-norm condition
+  number of a 3x3 matrix, which needs a 3x3 inverse. The exam chain asks for the norm, the norm of the inverse, kappa from
+  the learner's two values, and the bound on the relative error of a solution from a perturbed right-hand side.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- matrix-norm
+- condition-number
+- linear-systems
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

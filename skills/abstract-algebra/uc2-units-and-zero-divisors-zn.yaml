@@ -1,0 +1,113 @@
+id: uc2-units-and-zero-divisors-zn
+name: Find units, zero divisors and idempotents in Z_n
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Describe the units, zero divisors, nilpotent and idempotent elements of the ring Z_n, and solve
+  congruences ax = b (mod n) when a and n share a factor. The exam chain counts the units, zero
+  divisors and nilpotent elements of Z_n and lists its idempotents.
+status: active
+placement_eligible: false
+prerequisites:
+- modular-arithmetic-congruence
+- euclidean-algorithm-gcd
+answer: set
+sources:
+- topic: r4c_units_and_zero_divisors_zn
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_units_and_zero_divisors_zn
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_units_and_zero_divisors_zn
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_units_and_zero_divisors_zn
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: congruence-divides-only-the-right-side
+  description: >-
+    Dividing the right side by the gcd but not the coefficient or the modulus.
+- id: congruence-misses-a-solution
+  description: >-
+    Leaving out one of the gcd solutions of the congruence modulo n.
+- id: congruence-single-solution-only
+  description: >-
+    Giving only the solution found after dividing by the gcd, and missing the other solutions
+    modulo n.
+- id: congruence-spacing-uses-the-gcd
+  description: >-
+    Spacing the solutions by the gcd instead of by n divided by the gcd.
+- id: idempotents-confused-with-nilpotents
+  description: >-
+    Giving the nilpotent elements where the idempotent elements were asked.
+- id: idempotents-confused-with-square-roots-of-one
+  description: >-
+    Giving the solutions of x^2 = 1 where the solutions of e^2 = e were asked.
+- id: idempotents-misses-one
+  description: >-
+    Leaving one of the non-trivial idempotents out of the list.
+- id: idempotents-only-the-trivial-ones
+  description: >-
+    Listing only 0 and 1 as the idempotents, although a modulus with several primes has more.
+- id: nilpotents-confused-with-multiples-of-n-over-radical
+  description: >-
+    Taking the multiples of n divided by the radical as the nilpotent elements instead of the
+    multiples of the radical.
+- id: nilpotents-counted-as-non-units
+  description: >-
+    Counting every non-unit as nilpotent.
+- id: nilpotents-counted-by-radical
+  description: >-
+    Giving the radical of n, the product of its distinct primes, as the number of nilpotent
+    elements instead of n divided by it.
+- id: nilpotents-leave-out-zero
+  description: >-
+    Leaving 0 out of the nilpotent elements, although 0 to the first power is 0.
+- id: nilpotents-multiples-of-one-prime
+  description: >-
+    Taking the multiples of one prime factor of n as the nilpotent elements, when every prime
+    factor must divide a.
+- id: nilpotents-only-zero
+  description: >-
+    Taking 0 to be the only nilpotent element, which is right only when n has no repeated prime
+    factor.
+- id: nilpotents-square-zero-only
+  description: >-
+    Listing only the elements whose square is 0, which misses nilpotents of higher index when a
+    prime appears to a power above 2.
+- id: units-counted-as-non-units
+  description: >-
+    Giving the number of non-units where the number of units was asked.
+- id: units-only-the-odd-residues
+  description: >-
+    Counting the odd residues as the units, which ignores the other prime factors of n.
+- id: zero-divisors-counted-as-units
+  description: >-
+    Giving the number of units where the number of zero divisors was asked.
+- id: zero-divisors-every-nonzero-element
+  description: >-
+    Treating every non-zero element of Z_n as a zero divisor, as if n had no units.
+- id: zero-divisors-include-zero
+  description: >-
+    Counting 0 as a zero divisor, although a zero divisor is defined to be non-zero.
+- id: zero-divisors-only-the-even-residues
+  description: >-
+    Counting only the even residues as zero divisors, which is right only when 2 is the sole prime
+    factor of n.
+tags: [university-core-v1, university-year-2, abstract-algebra, ring-theory,units,zero-divisors,idempotents,congruences]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

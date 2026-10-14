@@ -1,0 +1,59 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form
+name: Define and use multiplication and division of complex numbers in polar form
+domain: senior-mathematics
+year_level: ['12']
+description: Multiply and divide complex numbers given as r cis theta with whole-number moduli and arguments in degrees,
+  by multiplying or dividing the moduli and adding or subtracting the arguments, bringing the argument back into the
+  range 0 to 360 degrees when it leaves it.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+answer: pair
+sources:
+- topic: salg_polar_multiply_divide
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: salg_polar_multiply_divide
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: salg_polar_multiply_divide
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: salg_exam_polar_multiply_divide
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: polar-moduli-added
+  description: Adds the moduli instead of multiplying them.
+- id: polar-moduli-subtracted
+  description: Subtracts the moduli instead of dividing them.
+- id: polar-arguments-subtracted-on-multiplying
+  description: Subtracts the arguments instead of adding them when multiplying.
+- id: polar-division-arguments-added
+  description: Adds the arguments instead of subtracting them when dividing.
+- id: polar-argument-of-first-only
+  description: Keeps the argument of the first number and ignores the second.
+- id: polar-arguments-subtracted-in-wrong-order
+  description: Subtracts the arguments the wrong way round when dividing.
+- id: polar-division-as-multiplication
+  description: Multiplies the moduli where a quotient was needed.
+- id: polar-angle-not-reduced
+  description: Leaves the argument at 360 degrees or more, or negative, instead of bringing it into range.
+- id: polar-angle-reduced-by-half-turn
+  description: Reduces an argument of more than 360 degrees by 180 degrees instead of a full turn.
+- id: polar-argument-signs-mixed
+  description: Subtracts the arguments of both w and z from each other when combining three numbers.
+- id: polar-modulus-of-first-only
+  description: Gives the modulus of one of the numbers as the modulus of the product.
+difficulty_progression: Easy multiplies two numbers whose arguments add to less than 360 degrees. Medium divides, with
+  the first argument larger so that the difference is positive. Hard brings an argument back into range, either after
+  a sum of 360 degrees or more or after a negative difference, or combines three numbers as zw/u. The exam chain finds
+  the modulus and the reduced argument of zw, then uses them to find the modulus and argument of zw/u.
+tags: [acara-v8-4, complex-numbers, polar-form, ACMSM082]

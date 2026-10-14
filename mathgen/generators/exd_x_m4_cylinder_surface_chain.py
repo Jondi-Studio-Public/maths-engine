@@ -139,7 +139,8 @@ def exd_x_m4_cylinder_surface_chain(rng: random.Random, tier: str = "exam") -> d
                 distractors=a_d,
             ),
             dict(
-                prompt="Hence find the total outside surface area of the container, in cm², correct to 1 decimal place.",
+                prompt="Using your radius from (a), find the total outside surface area of the container, in cm², "
+                "correct to 1 decimal place.",
                 answer_kind="number",
                 answer=numeric_answer(_dp1(sa)),
                 answer_text=sa_text,
@@ -151,7 +152,7 @@ def exd_x_m4_cylinder_surface_chain(rng: random.Random, tier: str = "exam") -> d
                 distractors=b_d,
             ),
             dict(
-                prompt="What percentage of the total outside surface area is the curved side? "
+                prompt="Using your radius from (a), what percentage of the total outside surface area is the curved side? "
                 "Give your answer correct to 1 decimal place.",
                 answer_kind="number",
                 answer=numeric_answer(_dp1(pc)),

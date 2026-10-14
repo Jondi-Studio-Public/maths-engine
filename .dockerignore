@@ -1,0 +1,13 @@
+# Send Docker only what the Dockerfile copies, so a checkout's .env, .git and caches never leave the machine.
+*
+!pyproject.toml
+!README.md
+!LICENSE
+!LICENSE-CONTENT
+!NOTICE
+!MANIFEST.in
+!.github/requirements-ci.txt
+!mathgen
+!skills
+**/__pycache__
+**/*.pyc

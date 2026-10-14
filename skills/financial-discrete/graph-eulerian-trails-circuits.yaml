@@ -1,0 +1,49 @@
+id: graph-eulerian-trails-circuits
+name: Decide whether a network has an Eulerian trail or circuit
+domain: financial-discrete
+description: >-
+  Use the degrees of a connected network to decide whether it has an Eulerian trail (a trail using every edge once) or
+  an Eulerian circuit, and where a trail must start and end. easy decides circuit, trail only or neither for a stated
+  network; medium picks the two vertices an Eulerian trail must start and end at; hard picks, from four networks listed by
+  their edges, the one with an Eulerian circuit (the others have two odd vertices, four odd vertices, or even degrees but two
+  separate pieces); exam is a four-part chain on a network with four odd vertices, counting the odd vertices and the fewest
+  new edges for a circuit and for a trail. The answer is a statement or pair of vertices chosen from a list, or a count.
+status: active
+placement_eligible: false
+prerequisites: [graph-vertex-degrees-handshaking, graph-walks-trails-paths-cycles]
+answer: mcq
+sources:
+- topic: snet_eulerian
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: snet_eulerian
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: snet_eulerian
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: snet_eulerian_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: net-euler-circuit-trail-confused
+  description: Mixes up an Eulerian trail (two odd vertices, different ends) with an Eulerian circuit (no odd vertices).
+- id: net-euler-two-odd-rejected
+  description: Rules out an Eulerian trail because there are odd vertices, forgetting that exactly two odd vertices are allowed.
+- id: net-euler-odd-vertices-ignored
+  description: Does not count the odd vertices, so a network with two or four odd vertices is judged to have an Eulerian circuit.
+- id: net-euler-ignores-connectedness
+  description: Checks only that every degree is even and not that the network is in one piece.
+- id: net-euler-start-highest-degree
+  description: Starts an Eulerian trail at the vertices of highest degree instead of the two odd vertices.
+- id: net-euler-edge-per-odd-vertex
+  description: Adds one new edge for every odd vertex, when each new edge fixes two odd vertices at once.
+difficulty_progression: Easy applies the degree rule to one stated network. Medium turns the rule round to locate the two ends
+  of a trail. Hard has four networks to compare and adds the connectedness condition, which the degrees alone do not show.
+  The exam chain counts the odd vertices, then reasons about repair, pairing odd vertices with new edges to reach a circuit
+  and then a trail, and counts the edges of the resulting circuit.
+tags: [graph-theory, networks, eulerian-trail, eulerian-circuit]

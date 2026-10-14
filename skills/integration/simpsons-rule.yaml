@@ -1,0 +1,41 @@
+id: simpsons-rule
+name: Estimate a definite integral with Simpson's rule
+domain: integration
+year_level: ['12']
+description: Estimate an integral or an area with Simpson's rule on 2, 4 or 6 equal strips from a formula or a table of measurements, recover an unknown ordinate from a stated estimate, and compare an estimate with the exact value.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+answer: number
+sources:
+- topic: r4e_simpsons_rule
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4e_simpsons_rule
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4e_simpsons_rule
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r4e_simpsons_rule_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: simpson-trapezoidal-weights
+  description: Applies the trapezium rule's weights 1, 2, 2, ..., 2, 1 (and h/2) when Simpson's rule was asked for.
+- id: simpson-weights-swapped
+  description: Puts the weight 4 on the even-numbered ordinates and 2 on the odd-numbered ones, the wrong way round.
+- id: simpson-all-inner-weight-4
+  description: Gives every inner ordinate the weight 4 instead of alternating 4 and 2.
+- id: simpson-wrong-multiplier
+  description: Multiplies the weighted sum by h/2 (or another factor) instead of h/3.
+- id: simpson-strips-counted-as-ordinates
+  description: Counts the n + 1 ordinates as the number of strips, so the strip width is the interval length over n + 1.
+- id: simpson-uses-interval-length-as-h
+  description: Uses the whole interval length as the strip width h.
+tags: [senior, integration, simpsons-rule, numerical-integration, qld-s32, year-12]

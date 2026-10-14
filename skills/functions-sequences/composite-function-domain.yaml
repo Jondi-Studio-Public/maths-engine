@@ -1,0 +1,97 @@
+id: composite-function-domain
+name: Find the largest domain of a composite function
+domain: functions-sequences
+year_level: ['12']
+description: Write the largest domain of g(f(x)) as an inequality (or a union) for functions involving a square root, a
+  reciprocal or a logarithm, including cases where f has its own domain and f(x) must also lie in the domain of g.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-find-the-composition-of-two-functions
+- senior-determine-when-the-composition-of-two-functions-is
+answer: inequality
+sources:
+- topic: sr2b_composite_domain
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_composite_domain
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_composite_domain
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_composite_domain
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-boundary-wrongly-excluded
+  description: Using a strict inequality where the end-point is allowed, so a value that makes the composite defined is
+    left out.
+- id: sr2b-inequality-direction-wrong
+  description: Not reversing the inequality when dividing by a negative coefficient, or reversing it when the coefficient
+    is positive.
+- id: sr2b-boundary-sign-slip
+  description: Solving the condition on the composite correctly but giving the boundary value with the wrong sign.
+- id: sr2b-outer-domain-used-for-x
+  description: Using the domain of the outer function g as the domain of x, without substituting f(x).
+- id: sr2b-boundary-wrongly-included
+  description: Using a non-strict inequality where the end-point is not allowed, so a value that makes the composite undefined
+    is included.
+- id: sr2b-no-restriction-found
+  description: Concluding the composite is defined for every real number when the outer function excludes a value the inner
+    function takes.
+- id: sr2b-one-side-only
+  description: Giving only one side of an excluded value as the domain.
+- id: sr2b-quadratic-inequality-wrong-way
+  description: Solving a quadratic inequality for the inside of the roots when the outside is needed, or the other way round.
+- id: sr2b-negative-branch-dropped
+  description: Solving x squared against a number and keeping only the positive root, so the negative branch of the domain
+    is lost.
+- id: sr2b-square-root-not-taken
+  description: Treating x squared against a number as x against that number, without taking the square root.
+- id: sr2b-sign-condition-ignored
+  description: Excluding only the value where the reciprocal is undefined and missing that the square root then needs it
+    to be positive.
+- id: sr2b-one-root-only
+  description: Excluding only the positive solution of x squared equal to a number and missing the negative one.
+- id: sr2b-outer-condition-missed
+  description: Applying only the domain of the inner function and missing the condition the outer function puts on the inner
+    function's values.
+- id: sr2b-inner-domain-missed
+  description: Applying only the condition from the outer function and leaving out the domain of the inner function.
+- id: sr2b-inner-not-squared
+  description: Removing a square root from one side of an inequality or equation without squaring the other side.
+- id: sr2b-squared-negative-bound
+  description: Squaring a condition that a square root exceeds a negative number and using the result as a bound, when the
+    condition always holds.
+- id: sr2b-excluded-value-missed
+  description: Finding the domain of the inner function only and missing the value that the outer function cannot accept.
+- id: sr2b-excluded-value-not-converted
+  description: Excluding the value the outer function cannot accept, but not solving for the x that produces it.
+- id: sr2b-shift-ignored
+  description: Leaving out the shift in the inner function when turning a condition on f(x) into one on x.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Apply one condition (positive, non-negative or non-zero) to a linear f(x) and solve, reversing the inequality
+      when the coefficient is negative.
+  medium:
+    steps: 3
+    demand: Solve a quadratic, root or reciprocal condition on f(x), giving a union of rays, an interval or a line with
+      points removed.
+  hard:
+    steps: 4
+    demand: Combine the domain of f with the condition on f(x), where the bound depends on squaring, a sign or a logarithm.
+  exam:
+    steps: 5
+    demand: Find the least x for which f is defined, the single excluded value, and the full domain of g(f(x)).
+tags:
+- acara-senior-v8-4
+- functions-sequences
+- composite-functions
+- domain
+- ACMSM092

@@ -1,0 +1,48 @@
+id: scatterplot-fit-line-read-predict
+name: 'Read a drawn line of best fit: gradient, prediction and residual'
+domain: statistics-probability
+year_level: ['12']
+description: 'A line of best fit is drawn on a scatterplot of ten points and its equation is never stated. Easy: the gradient of the line. Medium: predict the value for an x that has a plotted point, so reading the point instead of the line is a real mistake. Hard: the residual of a labelled point (actual minus predicted), or the x at which the line predicts a stated value. The exam chain asks the gradient, a prediction (carried forward), the residual of the point there (carried forward) and why predicting far outside the data is unreliable. Every drawn line is within a small tolerance of the least-squares line of its points. Distinct from senior-use-the-line-of-best-fit-to-make, which works from a stated equation.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [scatterplot-describe-association]
+answer: number
+sources:
+- topic: sr2a_scatter_fit
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_scatter_fit
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_scatter_fit
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_scatter_fit_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: fl-slope-sign
+  description: Gives the gradient of a falling line as a positive number, or of a rising line as a negative number.
+- id: fl-slope-as-intercept
+  description: Gives the value where the line meets the vertical axis in place of the gradient.
+- id: fl-slope-run-over-rise
+  description: Divides the run by the rise instead of the rise by the run when finding the gradient.
+- id: fl-slope-whole-rise
+  description: Gives the rise over the whole drawn line, or a doubled rise, instead of the rise for each unit across.
+- id: fl-predict-nearest-point
+  description: Reads the value of the plotted data point instead of the value the line predicts.
+- id: fl-predict-forgets-intercept
+  description: Multiplies the gradient by the value across but leaves out where the line meets the vertical axis.
+- id: fl-predict-slope-one
+  description: Adds the value across to the intercept as if the gradient were 1.
+tags: [acara-senior-v8-4, statistics-probability, scatterplot, line-of-best-fit, residual, prediction, figure, sr2a_scatter_fit, acmem141, acmgm062]

@@ -1,0 +1,120 @@
+id: uc2-lagranges-theorem-applications
+name: Apply Lagrange's theorem to subgroup orders and indices
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Use Lagrange's theorem and the index of a chain of subgroups with no group given in full: the
+  order from a tower of indices, the orders it rules out, the size of a product set, and the
+  possible orders of an intersection. The exam chain follows indices through a chain of subgroups to
+  the largest subgroup above one of them.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-finite-subgroup-test
+- cyclic-group-element-order
+answer: number
+sources:
+- topic: r4a_lagranges_theorem_applications
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_lagranges_theorem_applications
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_lagranges_theorem_applications
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_lagranges_theorem_applications
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: index-confused-with-subgroup-order
+  description: >-
+    Reporting the order of the subgroup where its index was asked.
+- id: index-of-trivial-subgroup-confusion
+  description: >-
+    Reporting the order of the whole group, the index of the trivial subgroup, as the index.
+- id: index-tower-added
+  description: >-
+    Adding the indices (and the order) in a chain of subgroups where they multiply.
+- id: index-tower-middle-index-forgotten
+  description: >-
+    Leaving out the index of the middle subgroup when multiplying along a chain of subgroups.
+- id: index-tower-multiplied-wrong-way
+  description: >-
+    Multiplying the index by the other index where the index of the middle subgroup is a quotient.
+- id: index-tower-subgroup-order-forgotten
+  description: >-
+    Multiplying only the two indices in a chain of subgroups and leaving out the order of the
+    smallest subgroup.
+- id: index-tower-subtracted
+  description: >-
+    Subtracting the indices in a chain of subgroups where they multiply.
+- id: index-tower-top-index-forgotten
+  description: >-
+    Leaving out the index of the top subgroup when multiplying along a chain of subgroups.
+- id: intersection-count-drops-the-extreme
+  description: >-
+    Leaving out the largest or smallest possible order of the intersection.
+- id: intersection-count-ignores-divisibility
+  description: >-
+    Counting every integer at least |H||K|/|G| up to the gcd, ignoring that the order of the
+    intersection divides the gcd.
+- id: intersection-count-ignores-product-bound
+  description: >-
+    Counting every divisor of the gcd as a possible order of the intersection, ignoring that |HK|
+    cannot exceed |G|.
+- id: intersection-order-halved-regardless
+  description: >-
+    Halving the order to find the largest proper subgroup order, even when the smallest prime factor
+    is not 2.
+- id: intersection-order-one-less
+  description: >-
+    Taking one less than the order as the largest proper subgroup order, which does not divide it.
+- id: intersection-order-uses-largest-prime
+  description: >-
+    Dividing by the largest prime factor instead of the smallest to find the largest proper divisor.
+- id: intersection-order-whole-subgroup
+  description: >-
+    Allowing the intersection of two different subgroups of the same order to be a whole subgroup.
+- id: largest-subgroup-halves-regardless
+  description: >-
+    Halving the group order for the largest proper subgroup above K, even when 2 does not divide the
+    index of K.
+- id: largest-subgroup-uses-largest-prime
+  description: >-
+    Dividing by the largest prime factor of the index instead of the smallest to find the largest
+    subgroup order.
+- id: product-set-size-by-inclusion-exclusion
+  description: >-
+    Counting the product set HK as a union of two sets of sizes |H| and |K|, adding them or adding
+    and subtracting one.
+- id: product-set-size-largest-factor
+  description: >-
+    Taking the product set HK to be as large as the bigger of the two subgroups.
+- id: product-set-size-whole-group
+  description: >-
+    Taking the product set HK to be the whole group, when it is a set of |H||K| elements only
+    because the intersection is trivial.
+- id: ruled-out-count-drops-ends
+  description: >-
+    Treating 1 and the group order as ruled out, when they are the orders of the trivial and whole
+    subgroups.
+- id: ruled-out-count-uses-allowed
+  description: >-
+    Counting the integers Lagrange allows as orders of subgroups, which are the divisors, instead of
+    those it rules out.
+tags: [university-core-v1, university-year-2, abstract-algebra, lagrange, index, subgroup-orders]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

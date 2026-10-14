@@ -1,0 +1,110 @@
+id: ucv1-sequence-limits-squeeze-monotone
+name: 'Limits of sequences: dominant terms, squeeze and monotone recursion'
+domain: functions-sequences
+year_level:
+- university
+description: Find the limit of a sequence by dividing through by the dominant term, rationalising a difference of square
+  roots, squeezing a bounded oscillation, or solving L = f(L) for a monotone bounded recursive sequence and choosing the
+  correct root.
+status: active
+placement_eligible: false
+prerequisites:
+- limit-at-infinity
+- nth-term-rule
+answer: fraction
+sources:
+- topic: u2_sequence_limits
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_sequence_limits
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_sequence_limits
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_sequence_limits
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: seqlim-combined-limit-factor-dropped
+  description: Forgetting that the factor multiplying the sequence also has a limit that must be included.
+- id: seqlim-combined-limit-uses-constants
+  description: Combining the limit with the constant terms of the factor instead of the leading coefficients.
+- id: seqlim-divisor-dropped
+  description: Forgetting to divide by the divisor in the recurrence.
+- id: seqlim-fixed-point-multiplied
+  description: Multiplying where the fixed-point equation requires dividing, or taking the product of the roots as the root.
+- id: seqlim-fixed-point-sign
+  description: A sign error when solving L = f(L) for the fixed point.
+- id: seqlim-fixed-point-squared
+  description: Squaring or doubling where the fixed-point equation requires a square root, or stopping at L squared.
+- id: seqlim-ignores-denominator
+  description: Giving the leading coefficient of the numerator alone, forgetting to divide by the denominator's.
+- id: seqlim-ignores-multiplier
+  description: Taking the constant added in the recurrence as the limit, ignoring the multiplier on the previous term.
+- id: seqlim-infinity-minus-infinity-is-zero
+  description: Concluding that a difference of two terms tending to infinity must tend to zero.
+- id: seqlim-leading-ratio-unequal-degree
+  description: Taking the ratio of the leading coefficients as the limit even though the numerator has a lower degree than
+    the denominator.
+- id: seqlim-limit-is-first-term
+  description: Giving the first (or second) term of the recurrence as the limit.
+- id: seqlim-next-coefficient
+  description: Using the ratio of the second coefficients instead of the leading ones after dividing by the highest power.
+- id: seqlim-oscillation-no-limit-claimed
+  description: Claiming the limit is zero or does not exist because the numerator oscillates.
+- id: seqlim-oscillation-treated-as-limit
+  description: Adding the bound of a bounded oscillating term into the limit, instead of seeing that it vanishes against
+    n.
+- id: seqlim-picks-smaller-base
+  description: Reading the limit from the smaller exponential terms instead of the dominant ones.
+- id: seqlim-precedence-in-recurrence
+  description: Squaring only the first term in (a squared plus c) over s, adding c over s instead of dividing the whole
+    sum.
+- id: seqlim-ratio-inverted
+  description: Inverting the ratio of leading coefficients (or of the dominant terms) when reading off the limit.
+- id: seqlim-root-conjugate-dropped-half
+  description: Forgetting the 2 that appears after multiplying by the conjugate (the two square roots each tend to n).
+- id: seqlim-root-constant-term
+  description: Letting the constant term under the root contribute to the limit, although it vanishes against n.
+- id: seqlim-root-sum-for-difference
+  description: Adding the coefficients under the roots where the conjugate method gives their difference.
+- id: seqlim-square-dropped
+  description: Forgetting to square the previous term when applying the recurrence.
+- id: seqlim-substitute-n-equals-one
+  description: Substituting n = 1 (or adding the coefficients) instead of letting n grow.
+- id: seqlim-wrong-fixed-point-root
+  description: Choosing the wrong root of the limit equation, ignoring where the sequence starts or that the terms are positive.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Compare the degrees of numerator and denominator and divide through by the highest power of n.
+  medium:
+    steps: 3
+    demand: 'Choose the right device for the form: divide by the dominant exponential, multiply by the conjugate, squeeze
+      a bounded oscillation between two sequences with the same limit, or solve a linear recurrence for its fixed point.'
+  hard:
+    steps: 5
+    demand: Use monotonicity and a bound to justify that a recursive sequence converges, solve the fixed-point equation
+      for both roots, and use the starting value to decide which root is the limit.
+  exam:
+    steps: 6
+    demand: Find the possible limits of a quadratic recurrence, compute a term, decide which limit applies, then use it to find the limit of a related rational expression in n.
+tags:
+- university-core-v1
+- functions-sequences
+- sequence-limits
+- squeeze-theorem

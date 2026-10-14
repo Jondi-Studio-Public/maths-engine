@@ -1,0 +1,96 @@
+id: uc2-symmetric-group-conjugacy
+name: Count conjugacy classes and centralisers in S_n
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Use cycle types to count in the symmetric group: the size of the conjugacy class of a
+  permutation, the order of its centraliser, and how many elements have a given order. The exam
+  chain finds the order of a permutation, its class size, its centraliser order and the cycle type
+  of one of its powers.
+status: active
+placement_eligible: false
+prerequisites:
+- permutation-composition
+- cyclic-group-element-order
+answer: number
+sources:
+- topic: r4c_symmetric_group_conjugacy
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_symmetric_group_conjugacy
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_symmetric_group_conjugacy
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_symmetric_group_conjugacy
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: centraliser-forgets-repeated-cycle-symmetry
+  description: >-
+    Leaving out the m! ways of swapping m cycles of the same length when finding the centraliser.
+- id: centraliser-order-is-class-size
+  description: >-
+    Giving the size of the conjugacy class where the order of the centraliser was asked.
+- id: centraliser-order-is-element-order
+  description: >-
+    Giving the order of the permutation as the order of its centraliser.
+- id: centraliser-order-is-product-of-cycle-lengths
+  description: >-
+    Taking the order of the centraliser to be the product of the cycle lengths, forgetting that
+    equal cycles can be swapped.
+- id: class-size-counts-cycles
+  description: >-
+    Giving the number of cycles of the permutation as the number of conjugates.
+- id: class-size-forgets-cycle-rotations
+  description: >-
+    Leaving out the factor for the different starting points of each cycle, which counts each
+    permutation more than once.
+- id: class-size-forgets-repeated-cycle-symmetry
+  description: >-
+    Leaving out the factor for interchanging cycles of the same length, which counts each
+    permutation more than once.
+- id: class-size-is-centraliser-order
+  description: >-
+    Giving the order of the centraliser where the size of the conjugacy class was asked.
+- id: element-count-misses-a-cycle-type
+  description: >-
+    Leaving one of the cycle types with the right least common multiple out of the sum.
+- id: element-count-order-divides-instead-of-equals
+  description: >-
+    Counting permutations whose order divides k instead of those whose order is exactly k.
+- id: element-count-single-cycle-type
+  description: >-
+    Counting only the largest cycle type with the right order.
+- id: element-count-types-not-elements
+  description: >-
+    Giving the number of cycle types instead of the number of permutations.
+- id: perm-order-is-product-of-cycle-lengths
+  description: >-
+    Taking the order of a permutation to be the product of its cycle lengths instead of their
+    least common multiple.
+- id: power-cycle-lengths-without-splitting
+  description: >-
+    Shortening each cycle by the gcd but forgetting that it splits into that many cycles.
+- id: power-exponent-off-by-one
+  description: >-
+    Finding the cycle type of the permutation raised to a neighbouring power.
+- id: power-keeps-cycle-type
+  description: >-
+    Giving the cycle type of the permutation itself as the cycle type of one of its powers.
+tags: [university-core-v1, university-year-2, abstract-algebra, symmetric-group,conjugacy-class,centraliser,cycle-type]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

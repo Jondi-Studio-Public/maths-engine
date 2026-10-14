@@ -1,0 +1,86 @@
+id: uc2-power-method-step
+name: Apply the power method
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Estimate the dominant eigenvalue of a matrix by steps of the power method with the largest entry scaled to
+  1, and find the Rayleigh quotient of the scaled vector.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+answer: number
+sources:
+- topic: r4b_power_method
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4b_power_method
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4b_power_method
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4b_power_method
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2-power-method-estimate-from-earlier-step
+  description: Giving the eigenvalue estimate from an earlier step than the one asked for.
+- id: num2-power-method-extra-step-taken
+  description: Applying the iteration one time more than the question asks for.
+- id: num2-power-method-estimate-without-scaling
+  description: Multiplying the scale factors together, or using the unscaled product, so the estimate is not the entry that
+    scales the latest vector.
+- id: num2-power-method-transpose-used
+  description: Multiplying by the transpose of A instead of by A.
+- id: num2-power-method-ratio-of-another-component
+  description: Taking the ratio of a different component of the product and the previous vector, instead of the entry of
+    largest magnitude.
+- id: num2-power-method-scale-factor-for-rayleigh-quotient
+  description: Giving the next scale factor in place of the Rayleigh quotient of the scaled vector.
+- id: num2-power-method-rayleigh-denominator-missed
+  description: Giving x^T A x without dividing by x^T x.
+- id: num2-power-method-rayleigh-from-earlier-vector
+  description: Finding the Rayleigh quotient of the first scaled vector when the second is asked for.
+- id: num2-power-method-rayleigh-norm-of-product
+  description: Dividing the squared length of A x by x^T x, which estimates the square of the eigenvalue, instead of x^T
+    A x over x^T x.
+- id: num2-power-method-sign-of-scale-lost
+  description: Dividing by the size of the largest entry instead of by the entry itself, so a negative scale factor loses
+    its sign.
+- id: num2-power-method-vector-not-scaled
+  description: Giving the product A x_0 without dividing by its entry of largest magnitude.
+- id: num2-power-method-scaled-by-smallest-entry
+  description: Dividing the product by its entry of smallest magnitude instead of its entry of largest magnitude.
+- id: num2-power-method-scaled-by-sum-of-entries
+  description: Dividing the product by the sum of its entries instead of by its entry of largest magnitude.
+- id: num2-power-method-eigenvalue-for-error
+  description: Giving the eigenvalue itself where the distance of the estimate from it is asked for.
+- id: num2-power-method-error-as-ratio
+  description: Giving the ratio of the estimate to the eigenvalue instead of the distance between them.
+difficulty_progression: Easy takes two steps for a 2x2 matrix and asks for the eigenvalue estimate. Medium does the same
+  for a 3x3 matrix, where the scaling entry changes and the vectors have fractional entries. Hard asks for the Rayleigh
+  quotient of the second scaled vector, which needs the vector, the product with A and two dot products. The exam chain
+  finds the first estimate, one entry of the first scaled vector, the second estimate from both, and its distance from the
+  stated dominant eigenvalue.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- power-method
+- eigenvalues
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

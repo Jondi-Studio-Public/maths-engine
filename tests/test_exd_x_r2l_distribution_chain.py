@@ -82,7 +82,7 @@ def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
         assert [p.marks for p in q.parts] == [1, 2, 1, 2]
-        assert [p.follow_through is not None for p in q.parts] == [False, True, True, False]
+        assert [p.follow_through is not None for p in q.parts] == [False, True, True, True]  # (d) follows through too
         assert [p.answer_kind for p in q.parts] == ["number", "number", "number", "ordered_list"]
 
 

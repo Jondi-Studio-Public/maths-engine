@@ -1,0 +1,103 @@
+id: ucv1-tangent-plane-linear-approximation
+name: Find a tangent plane and use it to approximate a function
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: >-
+  For a surface z = f(x, y) given by a polynomial, a square-root surface or an implicit
+  equation, find the tangent plane at a point from the partial derivatives (or the gradient) and
+  use it: estimate f near the point, read off the plane's constant term or its intercept. The
+  four-part exam chain runs from the two partial derivatives through the plane's equation to a
+  numerical estimate.
+status: active
+placement_eligible: false
+prerequisites: [partial-derivative-x, partial-derivative-y]
+answer: number
+sources:
+- topic: fy1ms_tangent_plane
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fy1ms_tangent_plane
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fy1ms_tangent_plane
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy1ms_tangent_plane
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: linear-approx-omits-base-value
+  description: >-
+    Giving only the change fx·h + fy·k predicted by the tangent plane, without adding the value
+    f(x0, y0) at the point.
+- id: tangent-plane-partials-swapped
+  description: >-
+    Using f_y where f_x belongs and f_x where f_y belongs in the tangent plane or the linear
+    approximation.
+- id: linear-approx-exact-value-given
+  description: >-
+    Evaluating f itself at the nearby point instead of using the tangent plane, so the exact
+    value is given where the linear estimate was asked for.
+- id: linear-approx-one-variable-only
+  description: >-
+    Changing only x in the linear approximation and leaving out the f_y·k term for the change in
+    y.
+- id: linear-approx-slope-times-coordinate
+  description: >-
+    Multiplying each slope by the coordinate of the point instead of by the small step in that
+    variable.
+- id: tangent-plane-shift-forgotten
+  description: >-
+    Reading the constant term of z = Ax + By + C as f(x0, y0), forgetting that the plane is
+    written about the point so A·x0 + B·y0 must be subtracted.
+- id: tangent-plane-shift-sign
+  description: >-
+    Adding A·x0 + B·y0 to f(x0, y0) instead of subtracting it when expanding the point form of
+    the tangent plane.
+- id: tangent-plane-shift-one-variable
+  description: >-
+    Subtracting the A·x0 term but leaving out B·y0 when expanding the point form of the tangent
+    plane.
+- id: tangent-plane-shift-uses-slopes-only
+  description: >-
+    Subtracting the slopes A and B themselves instead of A·x0 and B·y0 when expanding the point
+    form of the tangent plane.
+- id: tangent-plane-constant-negated
+  description: >-
+    A sign error across the answer: the constant term or intercept has the opposite sign to the
+    correct one.
+- id: radial-slope-taken-as-one
+  description: >-
+    Taking the partial derivatives of the square-root surface as 1, forgetting the factor x/√(x²
+    + y²) from the chain rule.
+- id: radial-slope-denominator-squared
+  description: >-
+    Dividing by x² + y² instead of √(x² + y²) when differentiating a square root of a sum of
+    squares.
+- id: implicit-plane-coefficients-dropped
+  description: >-
+    Writing the tangent plane to an implicit surface as x0·x + y0·y + z0·z = k, forgetting the
+    coefficients of the surface's equation.
+- id: implicit-plane-constant-halved
+  description: >-
+    Setting the gradient dotted with (x, y, z) equal to k, which leaves out the factor 2 that
+    the constant needs once the gradient 2a·x0, 2b·y0, 2c·z0 is used.
+- id: tangent-plane-wrong-axis-intercept
+  description: >-
+    Finding where the tangent plane meets a different axis from the one asked for.
+- id: partial-power-rule-multiplier-dropped
+  description: >-
+    Differentiating a power by lowering its exponent but not multiplying by the old exponent:
+    the derivative of x³ taken as x².
+- id: tangent-plane-point-coordinates-swapped
+  description: >-
+    Substituting the point's coordinates into the partial derivative the wrong way round: x0 for
+    y and y0 for x.
+- id: partial-sign-slip
+  description: >-
+    A sign slip in a partial derivative, giving the negative of its value.
+tags: [university-core-v1, multivariable-calculus, tangent-plane]

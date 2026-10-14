@@ -1,0 +1,91 @@
+id: newtons-second-law-resultant-force
+name: Apply Newton's second law to a resultant of several forces
+domain: differential-equations
+description: Use F = ma with several forces on one body, in one dimension and with force vectors, to find an acceleration,
+  a missing force or a mass, including the components, size and direction of an unknown force.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-examine-momentum-force-resultant-force-action-and-reaction
+answer: number
+sources:
+- topic: smech_newton_second_law
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: smech_newton_second_law
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: smech_newton_second_law
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: smech_newton_second_law_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mech-added-components
+  description: Adding the components of a vector to get its magnitude instead of using Pythagoras.
+- id: mech-added-known-forces-to-resultant
+  description: Adding the known forces to the resultant instead of subtracting them when finding the unknown force.
+- id: mech-angle-from-wrong-axis
+  description: Measuring the angle from the north axis instead of from east, which gives its complement.
+- id: mech-angle-reflected
+  description: Giving 180° minus the angle instead of the angle.
+- id: mech-forgot-divide-by-mass
+  description: Reporting the resultant force in newtons where the acceleration was asked, without dividing by the
+    mass.
+- id: mech-forgot-half-in-kinematics
+  description: Dropping the one half in s = ½at² when finding the acceleration from a distance and a time.
+- id: mech-forgot-mass-in-resultant
+  description: Using the acceleration as the resultant force, without multiplying it by the mass.
+- id: mech-forgot-two-in-kinematics
+  description: Dropping the 2 in v² = u² + 2as when finding the acceleration or speed.
+- id: mech-ignored-acceleration
+  description: Taking the tension to be just the weight although the load is accelerating.
+- id: mech-ignored-one-force
+  description: Leaving one of the stated forces out of the resultant.
+- id: mech-ignored-resistance
+  description: Leaving the resisting force out of the resultant force.
+- id: mech-ignored-weight
+  description: Leaving the weight out of the vertical force balance, so the cable is thought to supply only m×a.
+- id: mech-kinetic-energy-for-force
+  description: Reporting the kinetic energy ½mu² (or part of it) as the braking force, without dividing by the stopping
+    distance.
+- id: mech-multiplied-by-mass
+  description: Multiplying by the mass where F = ma needs a division by it.
+- id: mech-quadrant-ignored
+  description: Taking the angle from the inverse tangent of the positive ratio without placing the vector in its
+    true quadrant.
+- id: mech-resistance-added
+  description: Adding a resisting force to the forces that drive the motion instead of subtracting it.
+- id: mech-resultant-for-resistance
+  description: Reporting the resultant force as the unknown resistance.
+- id: mech-resultant-for-unknown
+  description: Giving the magnitude or direction of the resultant force where the unknown force was asked for.
+- id: mech-resultant-sign-reversed
+  description: Subtracting the resultant from the known forces instead of the known forces from the resultant, which
+    reverses the sign of the unknown force.
+- id: mech-speed-used-as-acceleration
+  description: Using the speed reached as if it were the acceleration, without dividing by the time.
+- id: mech-used-one-component
+  description: Reporting one component of a vector as its magnitude.
+- id: mech-weight-and-acceleration-opposed
+  description: Subtracting the acceleration from g where the load accelerates upward, or adding it where it accelerates
+    downward.
+tags:
+- mechanics
+- newtons-second-law
+- resultant-force
+- specialist-unit-4

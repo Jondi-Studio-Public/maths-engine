@@ -1,0 +1,87 @@
+id: ucv1-ode-separable-product
+name: Solve a separable ODE dy/dx = g(x)h(y) with an initial condition
+domain: ordinary-differential-equations
+year_level: [university]
+description: Separate variables in dy/dx = g(x)h(y), integrate both sides, and use the initial condition, including partial
+  fractions and an exam chain on where the solution ends.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-separable-poly
+answer: expression
+sources:
+- topic: fy1so_ode_separable
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1so_ode_separable
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1so_ode_separable
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1so_exd_ode_separable
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-arctan-inverse-confused
+  description: Writing arctan of the right-hand side instead of tan of it when undoing arctan y.
+- id: ode2-arctan-not-inverted
+  description: Stopping at arctan y = (the integral) and giving that as y, without applying tan.
+- id: ode2-constant-added-not-multiplied
+  description: 'Writing the exponentiated solution as y0 + e^(...) instead of y0 e^(...): the constant from e^C multiplies,
+    not adds.'
+- id: ode2-exponent-sign
+  description: Taking the exponent of the logistic solution with the wrong sign.
+- id: ode2-factor-two-mishandled
+  description: Mishandling the factor of 2 produced by integrating y or x (halving or doubling once too often).
+- id: ode2-half-forgotten
+  description: Forgetting the 1/2 when integrating y with respect to y, so the constant is y0^2 rather than y0^2/2.
+- id: ode2-ic-constant-dropped
+  description: 'Dropping the constant from the initial condition: giving e^(...) without the factor y(0).'
+- id: ode2-ic-constant-misapplied
+  description: Putting the initial condition in the wrong place when solving for the constant.
+- id: ode2-ic-squared-forgotten
+  description: Forgetting to square (or square root) the initial value when working with y^2.
+- id: ode2-integration-constant-dropped
+  description: Dropping the constant of integration, so the solution misses its '+ 1'.
+- id: ode2-ln-not-exponentiated
+  description: Leaving ln y = (the integral) as the answer instead of exponentiating to solve for y.
+- id: ode2-partial-fraction-factor-missed
+  description: Missing the 1/M factor in the partial fractions of 1/(y(M - y)), so the exponent lacks the factor M.
+- id: ode2-partial-fraction-sign
+  description: A sign error in the partial fractions, giving y0 - (M - y0)e^(...) in the denominator.
+- id: ode2-power-rule-misapplied
+  description: Using the wrong power for the antiderivative (x^2 for x, or no power at all).
+- id: ode2-power-rule-not-divided
+  description: Integrating a power of x without dividing by the new exponent.
+- id: ode2-reciprocal-forgotten
+  description: Using y0 where 1/y0 is needed (or the reverse) after integrating 1/y^2.
+- id: ode2-reciprocal-sign
+  description: Losing the minus sign of the integral of 1/y^2 = -1/y.
+- id: ode2-reciprocal-squared
+  description: 'Squaring the reciprocal: giving -1/y0^2 instead of -1/y0.'
+- id: ode2-sign-error-root
+  description: A sign error when moving to a square root or a root's argument.
+- id: ode2-square-root-forgotten
+  description: Forgetting to take the square root after solving for x^2.
+- id: ode2-y-dy-integrated-as-y
+  description: Integrating y dy as y rather than y^2/2.
+- id: ode2-y-power-ignored
+  description: Treating dy/dx = a x y^2 as dy/dx = a x y and giving an exponential.
+tags:
+- first-year-university
+- ordinary-differential-equations
+- separable

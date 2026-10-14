@@ -220,6 +220,38 @@ def _comparison(text: str, variables: set) -> sympy.Set:
     raise _Unreadable
 
 
+_ABSOLUTE = r"(?:\|\s*([^|]+?)\s*\||abs\s*\(\s*([^()]+?)\s*\))"
+_ABSOLUTE_LEFT_RE = re.compile(rf"^{_ABSOLUTE}\s*(<=|<)\s*(.+)$", re.IGNORECASE)
+_ABSOLUTE_RIGHT_RE = re.compile(rf"^(.+?)\s*(>=|>)\s*{_ABSOLUTE}$", re.IGNORECASE)
+_DISTANCE_FROM_RE = re.compile(r"^([^\W\d]\w*)\s*(?:([+-])\s*(.+))?$")
+
+
+def _absolute(text: str, variables: set) -> sympy.Set | None:
+    """`|x - a| < r` (or `<=`, `abs(x - a)`, `r > |x - a|`) as the interval a - r < x < a + r, or None when
+    `text` is not that form. The radius must be a positive number: anything else is unreadable."""
+    left = _ABSOLUTE_LEFT_RE.match(text)
+    right = None if left else _ABSOLUTE_RIGHT_RE.match(text)
+    if left:
+        inner, op, radius = (left.group(1) or left.group(2)), left.group(3), left.group(4)
+    elif right:
+        radius, op, inner = right.group(1), right.group(2), (right.group(3) or right.group(4))
+    else:
+        return None
+    parts = _DISTANCE_FROM_RE.match(inner.strip())
+    if parts is None or not _is_variable(parts.group(1)):
+        raise _Unreadable
+    centre = 0
+    if parts.group(2):
+        offset = _bound(parts.group(3), allow_infinity=False)
+        centre = -offset if parts.group(2) == "+" else offset
+    reach = _bound(radius, allow_infinity=False)
+    if not bool(reach > 0):
+        raise _Unreadable
+    variables.add(parts.group(1))
+    strict = len(op) == 1  # "<" or ">", not "<=" or ">="
+    return sympy.Interval(centre - reach, centre + reach, left_open=strict, right_open=strict)
+
+
 def _atom(text: str, variables: set) -> sympy.Set:
     text = text.strip()
     if not text:
@@ -238,6 +270,9 @@ def _atom(text: str, variables: set) -> sympy.Set:
     interval = _interval(text)
     if interval is not None:
         return interval
+    absolute = _absolute(text, variables)
+    if absolute is not None:
+        return absolute
     return _comparison(text, variables)
 
 

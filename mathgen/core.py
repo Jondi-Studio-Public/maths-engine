@@ -80,6 +80,9 @@ class Question:
             d.pop("parts", None)
         if d.get("stem") is None:
             d.pop("stem", None)
+        for part in d.get("parts", ()):
+            if part.get("sig_figs") is None:
+                part.pop("sig_figs", None)  # omitted when unset, like `answer_alt`, so unset parts hash as before
         if d.get("answer_alt") is None:
             d.pop("answer_alt", None)
         if not d.get("option_notes"):
@@ -135,6 +138,9 @@ class Part:
     distractor_values: dict[str, Any] = field(default_factory=dict)  # as on `Question` (mathgen/answers.py)
     distractor_credit: dict[str, str] = field(default_factory=dict)  # as on `Question`: a share of this part's marks
     sensible_range: tuple | None = None  # (low, high), open, None for no bound: see below
+    sig_figs: int | str | None = None  # significant figures the answer is given to when the prompt leaves the count
+    # to an earlier answer ("to that number of significant figures"): the label of the part that gives it. Graders
+    # refuse a reply with more figures; follow-through uses the learner's own count.
     seed: str = ""  # "<question seed>:<label>"; shuffles this part's options for an mcq part (`mcq_options`)
 
     @property

@@ -1,0 +1,98 @@
+id: f10-quadratic-parameter-effects
+name: Explain what the parameters do to a parabola
+domain: quadratics
+naplan_domain: [algebra]
+year_level: ['9']
+description: 'Say how the graph of y = a(x - h)^2 + k is related to the graph of y = x^2: which equation gives a drawn move
+  of y = x^2, what a, h and k do in words, and how the shifted graph of y = f(x) is written. The exam chain goes from a description
+  to the vertex, the least or greatest value and the y-intercept.'
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+- function-notation
+answer: mcq
+sources:
+- topic: fr2c_parabola_effects
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_parabola_effects
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_parabola_effects
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fr2c_parabola_effects_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Read the move of the vertex from the drawn graph and write the matching equation.
+  medium:
+    steps: 2
+    demand: Read a, h and k in the equation and describe the reflection and both moves.
+  hard:
+    steps: 3
+    demand: Compare width, direction and vertex with y = x^2; or find the shift of a general graph y = f(x).
+  exam:
+    steps: 4
+    demand: Describe the graph, find the vertex, the least or greatest value, then the y-intercept using them.
+misconceptions:
+- id: fr2c-vertical-shift-direction-reversed
+  description: 'Moving a graph the wrong way up or down: subtracting k for a move up or adding it for a move down.'
+- id: fr2c-shift-on-wrong-axis
+  description: Writing a sideways move as a change to y (x squared plus a number) or an up or down move as a change inside
+    the bracket.
+- id: fr2c-shift-direction-reversed
+  description: 'Moving a graph the wrong way sideways: writing (x + h) for a move to the right or (x - h) for a move to the
+    left.'
+- id: fr2c-reflection-missed
+  description: Missing that a negative a turns the parabola upside down, or giving a positive a to a parabola that opens downwards.
+- id: fr2c-reflected-when-not-needed
+  description: Saying a graph is reflected or opens downwards when the equation has a positive a.
+- id: fr2c-width-reversed
+  description: Saying a parabola is wider when a is larger than 1 in size, or narrower when a is a fraction.
+- id: fr2c-vertex-sign-slip
+  description: Reading a coordinate of the vertex with the wrong sign.
+- id: fr2c-horizontal-shift-sign-reversed
+  description: Writing the opposite sign inside the bracket for the horizontal position of the vertex.
+- id: fr2c-vertex-coordinates-swapped
+  description: Giving the y-coordinate of the vertex where the x-coordinate was asked for, or the reverse.
+- id: fr2c-vertical-shift-sign-reversed
+  description: Writing the opposite sign for the vertical position of the vertex.
+- id: fr2c-a-taken-as-the-vertex
+  description: Reading the number in front of the bracket as a coordinate of the vertex.
+- id: fr2c-bracket-not-squared
+  description: Leaving out the square on the bracket when the value is put into the equation.
+- id: fr2c-intercept-is-the-vertex-height
+  description: Giving the height of the vertex as the y-intercept.
+- id: fr2c-square-applied-after-multiplying
+  description: Multiplying by the number in front of the bracket before squaring, so that number is squared as well.
+- id: fr2c-constant-dropped
+  description: Leaving out the constant at the end of the equation when finding a value.
+tags:
+- acara-f10-v9
+- secondary
+- quadratics
+- parabola
+- transformations
+- parameters
+- figure
+- ac9m9a06

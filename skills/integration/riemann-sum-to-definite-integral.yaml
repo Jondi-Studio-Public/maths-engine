@@ -1,0 +1,42 @@
+id: riemann-sum-to-definite-integral
+name: From a Riemann sum to the definite integral
+domain: integration
+year_level: ['12']
+description: Take the limit of a Riemann sum as the number of strips grows, recognise a limit of sums as a definite integral from its sample points and width, and find how many strips bring a left or right sum within a tolerance of the integral.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-examine-the-area-problem-and-use-sums-of
+- definite-integral
+answer: fraction
+sources:
+- topic: r4e_riemann_limit
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4e_riemann_limit
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4e_riemann_limit
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r4e_riemann_limit_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: riemann-limit-at-n-equals-one
+  description: Reads the value of the sum at n = 1 instead of the value it approaches as n grows.
+- id: riemann-limit-keeps-lower-order-terms
+  description: Keeps the terms in 1/n along with the constant term when taking the limit.
+- id: riemann-limit-drops-lower-limit
+  description: Reads sample points a + ci/n as an integral from 0 to c, ignoring the starting point a.
+- id: riemann-limit-width-as-upper-limit
+  description: Takes the width c in a + ci/n as the upper limit, so the interval runs from a to c.
+- id: riemann-n-from-error-bound
+  description: Uses the crude error bound (b - a)(f(b) - f(a))/n and finds a larger n than the least one that works.
+- id: riemann-n-off-by-one-at-threshold
+  description: Gives the n just below or just above the least one that meets the tolerance.
+tags: [senior, integration, riemann-sum, definite-integral, acmmm126, year-12]

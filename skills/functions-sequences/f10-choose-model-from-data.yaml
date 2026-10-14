@@ -1,0 +1,66 @@
+id: f10-choose-model-from-data
+name: Choose a model from a table of values
+domain: functions-sequences
+year_level: ['9', '10']
+naplan_domain: [algebra]
+description: Decide whether a table of values follows a linear, quadratic or exponential model by its first differences,
+  second differences or ratios, then write the rule, predict, and find where the model stops being sensible.
+status: active
+placement_eligible: false
+prerequisites:
+- compare-functions-representations
+- common-difference
+answer: mcq
+sources:
+- topic: fr2e_choose_model
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2e_choose_model
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2e_choose_model
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2e_choose_model
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2e-model-first-pair-only-checked
+  description: Judging the model from the first two rows only, without checking that the pattern holds for the rest of the
+    table.
+- id: fr2e-model-first-difference-used-for-any-model
+  description: Using the first difference as a constant slope when the first differences are not constant.
+- id: fr2e-model-second-difference-not-halved
+  description: Using the second difference as the coefficient of x squared, without halving it.
+- id: fr2e-model-linear-extrapolation-of-curve
+  description: Continuing a curved pattern with the last first difference as if it were constant.
+- id: fr2e-model-step-in-x-ignored
+  description: Using the change between rows as the change for each 1 in x when x goes up by more than 1 each row.
+difficulty_progression: 'Easy chooses the model: four statements about the table, only one of them true, three of them supported
+  by the first pair of rows. Medium chooses the rule, so the model has to be chosen before the parameters can be found and
+  the wrong rules come from named errors. Hard steps x by 2 or 3 between rows, so every difference and ratio is per row,
+  and asks for the value at an x that is not in the table. The exam chain follows one table: the model (multiple choice),
+  its rule, the value at a stated x (following through from the rule), and the first whole x at which a stated physical
+  limit makes the model impossible.'
+tags:
+- acara-f10-v9
+- functions-sequences
+- modelling
+- linear
+- quadratic
+- exponential
+- ac9m9a05
+- ac9m10a04

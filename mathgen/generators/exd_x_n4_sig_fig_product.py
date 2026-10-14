@@ -195,6 +195,7 @@ def exd_x_n4_sig_fig_product(rng, tier: str = "exam"):
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=follow,
+                sig_figs="b",
                 working=[f"{a_text} rounded to {k} significant figures is {c_text} {unit_name}²."],
                 distractors=d_c,
             ),

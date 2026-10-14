@@ -1,0 +1,85 @@
+id: grouped-frequency-table-class-intervals
+name: Use a grouped frequency table with class intervals
+domain: statistics-probability
+year_level: ['11']
+description: Read a grouped frequency table written with class intervals. Easy finds the midpoint of the modal class. Medium
+  estimates the mean from the class midpoints. Hard finds the lower limit of the class that contains the median, or recovers
+  a missing frequency from a stated estimated mean. The exam chain estimates the total, the mean, the median class and the
+  mean after further values are added.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-mean
+- calculate-median
+- f7-read-a-histogram
+answer: number
+sources:
+- topic: r4g_grouped_frequency
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_grouped_frequency
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_grouped_frequency
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_grouped_frequency
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-class-limit-for-midpoint
+  description: Giving a class limit (the lower or upper end of the class) where the midpoint of the class was asked for.
+- id: r4g-frequency-for-modal-class
+  description: Giving the frequency of the modal class instead of working with the class itself.
+- id: r4g-midpoints-averaged-without-frequencies
+  description: Averaging the class midpoints without weighting each by its frequency.
+- id: r4g-lower-limits-used-as-midpoints
+  description: Using the lower limit of each class in place of its midpoint.
+- id: r4g-divided-by-number-of-classes
+  description: Dividing the sum of frequency times midpoint by the number of classes instead of the total frequency.
+- id: r4g-upper-limits-used-as-midpoints
+  description: Using the upper limit of each class in place of its midpoint.
+- id: r4g-median-class-off-by-one
+  description: Picking the class next to the one where the cumulative frequency reaches the middle position.
+- id: r4g-midpoint-for-lower-limit
+  description: Giving the midpoint of the class where its lower limit was asked for.
+- id: r4g-frequency-off-by-one
+  description: Solving correctly but giving a frequency that is one or two away from the right whole number.
+- id: hist-modal-class-for-median-class
+  description: Taking the class with the highest frequency to be the class that contains the median.
+- id: r4g-hidden-class-left-out-of-the-total
+  description: Leaving the unknown frequency out of the total frequency when setting up the equation for the mean.
+- id: r4g-midpoints-summed-without-frequencies
+  description: Adding the class midpoints without multiplying each by its frequency.
+- id: r4g-divided-by-wrong-count
+  description: Dividing a total by a count that is one more than, or different from, the number of values.
+- id: r4g-two-means-averaged
+  description: Averaging the two means without weighting each by the number of values it describes.
+- id: r4g-new-values-left-out-of-the-total
+  description: Dividing by the new count but leaving the new values out of the total.
+- id: r4g-mean-of-the-frequencies
+  description: Giving the mean of the frequencies (total frequency divided by the number of classes) as the mean of the data.
+- id: hist-middle-class-for-median-class
+  description: Taking the middle class on the axis, not the class holding the middle value, as the median class.
+tags:
+- grouped-frequency
+- class-intervals
+- estimated-mean
+- acmem045
+- acmem046

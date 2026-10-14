@@ -1,0 +1,46 @@
+id: curve-features-from-derivative-signs
+name: Curve features from the signs of f' and f''
+domain: differentiation
+year_level: ['12']
+description: Read where a function is increasing or decreasing and where its graph is concave up or down from the sign of f' and f'' given as a formula, including a squared factor, and combine the two; then find stationary points and the point of inflection of a cubic.
+status: active
+placement_eligible: false
+prerequisites:
+- stationary-points
+- second-derivative
+answer: inequality
+sources:
+- topic: r4e_curve_features
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4e_curve_features
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4e_curve_features
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r4e_curve_features_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: curve-increasing-decreasing-swapped
+  description: Gives the intervals where f is decreasing when increasing was asked for, or the reverse.
+- id: curve-drops-one-interval
+  description: Gives only one of the two intervals on which the derivative has the required sign.
+- id: curve-includes-stationary-points
+  description: Writes closed endpoints that include the stationary points, when open intervals were asked for.
+- id: curve-splits-at-inflexion-stationary-point
+  description: Breaks an interval at a stationary point where f' touches zero but does not change sign.
+- id: curve-concave-up-down-swapped
+  description: Gives the intervals of concave down when concave up was asked for, or the reverse.
+- id: curve-concavity-from-first-derivative
+  description: Reads concavity from the sign of f' instead of the sign of f''.
+- id: curve-vertex-without-halving
+  description: Leaves the factor 2 out when differentiating f' = ax^2 + bx + c, so the point of change of concavity is twice too far.
+- id: curve-only-first-condition
+  description: Answers for the first of two stated conditions and ignores the other.
+tags: [senior, differentiation, curve-sketching, concavity, acmmm112, year-12]

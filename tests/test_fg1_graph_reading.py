@@ -250,7 +250,7 @@ def test_proportional_line_goes_through_the_origin_and_hard_has_unequal_scales()
             assert q.figure["y_range"][0] <= 0 <= q.figure["y_range"][1]
             assert (q.figure["x_grid"] != q.figure["y_grid"]) is (tier == "hard")
             if tier == "easy":
-                assert m in (1, 2, 3)
+                assert m in (1, 2, 3, 4, 5, 6)
     notes = Counter()
     for seed in range(80):
         notes.update(_gen("graph-y-mx", "easy", seed).option_notes.values())
@@ -446,9 +446,18 @@ def test_inequality_tiers():
     for seed in SEEDS:
         easy = _gen("inequality-solutions-number-line", "easy", seed)
         assert len(easy.figure["rays"]) == 1 and easy.figure["intervals"] == []
-        assert {o[:1] for o in mcq_options(easy)} == {"x"}
-        assert len({re.sub(r"[<≤>≥]", "?", o) for o in mcq_options(easy)}) == 1
-        assert {re.search(r"[<≤>≥]", o).group() for o in mcq_options(easy)} == {"<", "≤", ">", "≥"}
+        options = mcq_options(easy)
+        if all(re.fullmatch(r"-?\d+", o) for o in options):
+            # the "which number is a solution" shape: exactly one offered number is in the shaded ray
+            ray = easy.figure["rays"][0]
+            p = ray["from"]
+            sign = 1 if ray["direction"] == "right" else -1
+            inside = [o for o in options if (int(o) - p) * sign > 0 or (not ray.get("open") and int(o) == p)]
+            assert len(options) == 4 and len(inside) == 1 and inside[0] == easy.answer_text
+        else:
+            assert {o[:1] for o in options} == {"x"}
+            assert len({re.sub(r"[<≤>≥]", "?", o) for o in options}) == 1
+            assert {re.search(r"[<≤>≥]", o).group() for o in options} == {"<", "≤", ">", "≥"}
         medium = _gen("inequality-solutions-number-line", "medium", seed)
         assert len(medium.figure["intervals"]) == 1 and medium.figure["rays"] == []
         assert len({o.replace("<", "?").replace("≤", "?") for o in mcq_options(medium)}) == 1

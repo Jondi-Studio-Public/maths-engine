@@ -1,0 +1,77 @@
+id: data-transformation-to-linearity
+name: Transform data to linearity and predict
+domain: statistics-probability
+year_level:
+- '12'
+description: Straighten a curved scatterplot by squaring x, taking log x or taking 1 over x, chosen from the shape of the
+  curve, and predict from the straight line. Easy picks the matching fitted line from three and predicts. Medium builds the
+  line from two points. Hard recognises the transformation from a table and predicts y or finds x. The exam chain finds the
+  gradient, intercept, a prediction and an inverse prediction.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-develop-a-linear-formula-from-a-word-description
+- equation-from-table
+answer: number
+sources:
+- topic: r4g_transform_linearity
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_transform_linearity
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_transform_linearity
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_transform_linearity
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-wrong-transformation-chosen
+  description: Choosing a transformation that does not match the shape of the curve (for example 1 over x for a curve that
+    rises ever more steeply).
+- id: r4g-transformed-variable-not-computed
+  description: Putting x into the equation where the transformed value (x squared, log x or 1 over x) belongs.
+- id: r4g-intercept-times-slope
+  description: Multiplying the intercept by the slope instead of adding the slope term to the intercept.
+- id: r4g-straight-line-through-raw-points
+  description: Joining the original points with a straight line instead of transforming x first.
+- id: r4g-transformed-value-given-as-x
+  description: Giving the value of the transformed variable as the value of x.
+- id: r4g-rise-without-the-run
+  description: Giving the rise in y as the gradient without dividing by the change in the transformed variable.
+- id: r4g-run-for-gradient
+  description: Giving the change in the transformed variable as the gradient.
+- id: r4g-first-y-as-intercept
+  description: Giving the first y value as the intercept, without taking away the gradient times the transformed x.
+- id: r4g-intercept-sign-slip
+  description: Adding the gradient times the transformed value to y instead of subtracting it when finding the intercept.
+- id: r4g-gradient-on-raw-x
+  description: Finding the gradient from the change in x instead of the change in the transformed variable.
+- id: r4g-gradient-given-as-intercept
+  description: Giving the gradient as the intercept of the line.
+- id: r4g-undoing-the-transformation-slip
+  description: Undoing the transformation incorrectly, for example reading off a power of ten that is one out.
+- id: r4g-gradient-inverted
+  description: Dividing the change in the transformed variable by the change in y, so the gradient is upside down.
+tags:
+- transformation
+- linearity
+- regression
+- vce-general
