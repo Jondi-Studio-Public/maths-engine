@@ -13,5 +13,9 @@ sources:
 - topic: shape_names
   params: {}
   difficulty: easy
+- topic: ey6a_shape_names
+  key: glyphs-and-clues
+  params: {}
+  difficulty: easy
 misconceptions: []
 tags: [age-5, shapes, visual]

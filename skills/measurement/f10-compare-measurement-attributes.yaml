@@ -8,15 +8,15 @@ placement_eligible: false
 prerequisites: [compare-lengths]
 answer: mcq
 sources:
-- topic: compare_measurement_attributes
+- topic: ey6a_compare_attributes
   params: {attr_pool: ["length", "mass"], equal_fraction: 0.0}
   difficulty: easy
   stages: [0, 1, 2]
-- topic: compare_measurement_attributes
+- topic: ey6a_compare_attributes
   params: {attr_pool: ["capacity", "duration"], equal_fraction: 0.0}
   difficulty: medium
   stages: [3, 4]
-- topic: compare_measurement_attributes
+- topic: ey6a_compare_attributes
   params: {attr_pool: ["length", "mass", "capacity", "duration"], equal_fraction: 0.333}
   difficulty: hard
   stages: [5, 6, maintenance]

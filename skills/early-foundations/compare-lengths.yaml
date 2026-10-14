@@ -13,5 +13,13 @@ sources:
 - topic: compare_length
   params: {}
   difficulty: easy
+- topic: ey6a_compare_length
+  key: three-lines
+  params: {lines: 3}
+  difficulty: easy
+- topic: ey6a_compare_length
+  key: four-lines
+  params: {lines: 4}
+  difficulty: easy
 misconceptions: []
 tags: [age-5, measurement, visual]

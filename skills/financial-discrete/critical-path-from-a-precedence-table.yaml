@@ -1,0 +1,65 @@
+id: critical-path-from-a-precedence-table
+name: Count dummy activities and find the critical time from a precedence table
+domain: financial-discrete
+year_level: ['12']
+description: >-
+  Work from a project's precedence table, without drawing the diagram, to count the dummy activities its
+  activity-on-arrow network needs (the fewest possible) and to find the critical time. Easy counts the dummies of a
+  five or six activity table. Medium finds the critical time of a table whose diagram needs a dummy. Hard counts
+  dummies in larger tables, counts all the arrows of the diagram, or finds the critical time with a rival route within
+  two days. The exam chain counts the dummies, the arrows (carried forward), the critical time and the new critical
+  time after a critical activity is shortened (carried forward). Distinct from the skills that read floats and
+  critical paths off a drawn network.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-the-critical-path-to-determine-the-minimum
+answer: number
+sources:
+- topic: w5b_precedence_table
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_precedence_table
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_precedence_table
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_precedence_table
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Find the activities whose predecessors overlap another activity's without matching it, and the pairs that would share both ends, and count the dummies they need."
+  medium:
+    steps: 3
+    demand: "Read the routes from the table, treat a dummy as zero duration, and find the longest."
+  hard:
+    steps: 4
+    demand: "Count the fewest dummies in a larger table and carry the count to the number of arrows, or separate a critical route from a rival within two days."
+  exam:
+    steps: 5
+    demand: "Count the dummies, carry the count to the number of arrows, find the critical time, then find the new critical time when a critical activity is shortened past its margin."
+misconceptions:
+- id: counts-every-merge-as-a-dummy
+  description: Counting every activity with two or more predecessors as needing a dummy, instead of only those whose predecessors overlap another activity's without matching them.
+- id: counts-every-fork-as-a-dummy
+  description: Counting every activity that is a predecessor of two or more others as needing a dummy.
+- id: counts-start-activities-beyond-the-first-as-dummies
+  description: Counting each extra activity that has no predecessor as a dummy; activities may all start at the one start event.
+- id: dummy-count-one-too-few
+  description: Counting one fewer dummy than the diagram needs, often by missing two activities that would otherwise start and finish at the same events.
+- id: counts-only-the-activities
+  description: Counting the arrows for the real activities and leaving the dummies out.
+- id: sums-all-durations
+  description: Adding every duration in the table instead of the durations along the longest route.
+- id: takes-shorter-path
+  description: Using a shorter route where two routes merge instead of the longer.
+- id: stops-one-activity-early
+  description: Giving the finish time of an activity that is not the last instead of the true end of the project.
+tags: [acara-senior-v8-4, financial-discrete, networks, dummy-activities, acmgm104]

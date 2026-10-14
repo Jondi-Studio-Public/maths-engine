@@ -1,0 +1,60 @@
+id: e-as-a-limit-from-a-table
+name: Find the number e from tables of (a^h - 1)/h
+domain: differentiation
+year_level: ['12']
+description: >-
+  Read tables of (a^h - 1)/h at small values of h and use them to find the number e, the base for which the limit is 1,
+  as the gradient of y = a^x at (0, 1). Easy picks the base from tables at two small h. Medium adds a large-h row built
+  to mislead, so the trend down each column has to be followed. Hard interpolates between two bases for the base whose
+  limit is a stated value other than 1, or scales a limit to a base that is a power of the tabulated one. The exam chain reads two limits, finds
+  the base by interpolation (carried forward) and finds where the tangent at (0, 1) meets the x-axis. Distinct from
+  senior-estimate-the-limit-of-frac-a-h-1, which estimates the limit for one stated base and does not identify e.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-estimate-the-limit-of-frac-a-h-1
+answer: number
+sources:
+- topic: w5b_e_limit_table
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_e_limit_table
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_e_limit_table
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_e_limit_table
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Compare each base's last-row value with 1 and choose the nearest."
+  medium:
+    steps: 3
+    demand: "Follow each column down to the value it settles on, ignoring the large-h row that looks nearest 1, then compare with 1."
+  hard:
+    steps: 4
+    demand: "Interpolate on the limits between two bases to reach a stated limit, or recognise that (a^k)^h = a^(kh) multiplies the limit by k and scale it."
+  exam:
+    steps: 5
+    demand: "Read a limit from each table, interpolate the base from the two limits you found, then use the limit to find where the tangent at (0, 1) meets the x-axis."
+misconceptions:
+- id: picks-base-from-the-coarsest-row
+  description: Choosing the base whose value in the largest-h row is nearest 1, instead of following each column down to the value it settles on as h shrinks.
+- id: gives-the-limit-instead-of-the-base
+  description: Giving the value the quotient tends to (1) where the base that produces it was asked for.
+- id: midpoint-of-the-two-bases-used
+  description: Taking the halfway point between the two bases instead of interpolating on the quotient.
+- id: interpolation-ratio-inverted
+  description: Interpolating with the ratio the wrong way round.
+- id: limit-not-scaled-by-the-exponent
+  description: Giving the limit for the original base for a base that is a power of it, ignoring that (a^k)^h = a^(kh) multiplies the limit by k.
+- id: tangent-intercept-sign-dropped
+  description: Giving the tangent's x-intercept with the wrong sign; the tangent at (0, 1) rises to the right, so it meets the axis on the left.
+tags: [acara-senior-v8-4, differentiation, euler-number, limits, acmmm099]

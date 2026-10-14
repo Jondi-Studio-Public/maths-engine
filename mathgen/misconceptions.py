@@ -43822,6 +43822,287 @@ _ENTRIES = (
         "r3a-unknown-value-copied-from-neighbouring-outcome",
         "Giving the value of a neighbouring outcome in the table instead of solving E(X) for the unknown value.",
         area="probability",
+    # -- e as a limit, from tables of (a^h - 1)/h ---------------------------------------------------------------------
+    CatalogueEntry(
+        "picks-base-from-the-coarsest-row",
+        "Choosing the base whose value in the largest-h row is nearest 1, instead of following each column down to the "
+        "value it settles on as h shrinks.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "picks-the-neighbouring-base-above",
+        "Choosing the next base up from the one whose quotient settles at 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "picks-the-neighbouring-base-below",
+        "Choosing the next base down from the one whose quotient settles at 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "picks-the-largest-base",
+        "Choosing the largest base in the table without comparing its quotient with 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "gives-the-limit-instead-of-the-base",
+        "Giving the value the quotient tends to (1) where the base that produces it was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "midpoint-of-the-two-bases-used",
+        "Taking the halfway point between the two bases instead of interpolating on the quotient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "interpolation-ratio-inverted",
+        "Interpolating with the ratio the wrong way round, so the answer sits as far from the nearer base as it should "
+        "from the farther one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "nearer-base-taken-without-interpolating",
+        "Giving whichever tabulated base has the quotient nearer 1 instead of interpolating between the two.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "interpolation-fraction-not-scaled-to-the-bases",
+        "Giving the fraction of the way from one quotient to the other and forgetting to scale it by the gap between the "
+        "bases and add it to the lower base.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "limit-not-scaled-by-the-exponent",
+        "Giving the limit for the original base for a base that is a power of it, ignoring that (a^k)^h = a^(kh) "
+        "multiplies the limit by k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "exponent-added-to-the-limit",
+        "Adding the exponent to the limit instead of multiplying the limit by it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "limit-raised-to-the-exponent",
+        "Raising the limit to the exponent instead of multiplying the limit by it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "limit-divided-by-the-exponent",
+        "Dividing the limit by the exponent where multiplying was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "sign-of-exponent-dropped",
+        "Dropping the minus sign of a negative exponent, so the limit for a base below 1 comes out positive.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "reads-coarsest-row-as-the-limit",
+        "Reading the limit off the largest-h row of the table instead of the value the rows are settling to.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-sign-dropped",
+        "Giving the distance from the origin to where the tangent meets the x-axis with the wrong sign: the tangent at "
+        "(0, 1) rises to the right, so it meets the axis on the left.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-is-the-gradient",
+        "Giving the gradient of the tangent as its x-intercept.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-uses-the-other-base",
+        "Finding the intercept with the gradient of the other base in the table.",
+        area="calculus",
+    ),
+    # -- gives the base instead of the limit ------------------------------------------------------------------------
+    CatalogueEntry(
+        "gives-the-base-instead-of-the-limit",
+        "Giving the base of the exponential where the value its quotient tends to was asked for.",
+        area="calculus",
+    ),
+    # -- activity networks from a precedence table ------------------------------------------------------------------
+    CatalogueEntry(
+        "counts-every-merge-as-a-dummy",
+        "Counting every activity with two or more predecessors as needing a dummy, instead of only those whose "
+        "predecessors overlap another activity's without matching them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-every-fork-as-a-dummy",
+        "Counting every activity that is a predecessor of two or more others as needing a dummy.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-start-activities-beyond-the-first-as-dummies",
+        "Counting each extra activity that has no predecessor as a dummy; activities may all start at the one start "
+        "event.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dummy-count-one-too-many",
+        "Counting one more dummy activity than the diagram needs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dummy-count-one-too-few",
+        "Counting one fewer dummy activity than the diagram needs, often by missing two activities that would "
+        "otherwise start and finish at the same events.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dummy-count-two-too-many",
+        "Counting two more dummy activities than the diagram needs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-only-the-activities",
+        "Counting the arrows for the real activities and leaving the dummies out.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-only-the-dummies",
+        "Giving the number of dummies where the number of all the arrows was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "arrow-count-one-too-many",
+        "Adding one arrow too many to the total of activities and dummies.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "arrow-count-one-too-few",
+        "Leaving one arrow out of the total of activities and dummies.",
+        area="networks",
+    ),
+    # -- z-test for a mean, gradient vectors (w5c) -----------------------------------------------------------------
+    CatalogueEntry(
+        "sample-size-not-squared",
+        "Finding the smallest sample size from z*·σ/difference as though it were n, forgetting that this equals √n and must be squared.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "sample-size-ratio-inverted",
+        "Inverting the ratio when solving for the sample size, using (z*·difference/σ)² in place of (z*·σ/difference)².",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "sample-size-off-by-one",
+        "Rounding the sample size up and then adding one more, so the answer is one larger than the least whole number that works.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "gave-power-for-type-two-error",
+        "Giving the probability of rejecting a false null hypothesis (the power) where the probability of a type II error was asked for.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "shift-applied-wrong-way",
+        "Moving the true mean's shift the wrong way relative to the critical value, adding it to z* instead of subtracting it.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "type-two-ignores-critical-value",
+        "Finding the probability of a type II error from the shift between the means alone, leaving the critical value out.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "two-sided-p-not-halved",
+        "Reading a two-sided p-value back through the table as a single tail, without halving it first.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "gradient-chain-inner-derivative-dropped",
+        "Differentiating the outer function of a composite (a logarithm, root or exponential) and leaving out the derivative of the inner expression, so a factor such as 2x or 1/r is missing from a component of the gradient.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-divided-by-squared-length",
+        "Dividing the gradient by its squared length instead of its length, so the vector is too short to be a unit vector.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-length-no-root",
+        "Giving the sum of the squares of the components of the gradient as its length, without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-normalised-by-component-sum",
+        "Dividing the gradient by the sum of the sizes of its components instead of by its length, so the result is not a unit vector.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-partial-repeated",
+        "Writing the same partial derivative as both components of the gradient.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-quotient-rule-reversed",
+        "Subtracting the two products of the quotient rule in the wrong order, so both components of the gradient have the wrong sign.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-vector-components-swapped",
+        "Writing the gradient as (f_y, f_x), with the partial derivatives in the wrong order.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-other-variable-also-differentiated",
+        "Applying the product rule to both variables when taking a partial derivative of a term such as x^2 y, so the term is differentiated with respect to y as well as x.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "point-coordinates-swapped",
+        "Swapping the x and y coordinates of the point found from the equations.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "point-sign-slip",
+        "Solving the gradient equations correctly but giving one coordinate of the point with the wrong sign.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "solve-gradient-ignores-cross-term",
+        "Solving for the point by setting each partial derivative equal to its stated value separately, ignoring the cross term that links x and y.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "solve-gradient-set-to-zero",
+        "Setting the gradient equal to the zero vector (finding the critical point) instead of to the stated vector.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "steepest-ascent-for-descent",
+        "Giving the direction of steepest ascent where the direction of steepest descent was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "steepest-descent-for-ascent",
+        "Giving the direction of steepest descent, the negative of the gradient direction, where steepest ascent was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-component-sign-lost",
+        "Giving a vector with the right length but the wrong sign on one component, so it is not perpendicular to the gradient.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-opposite-orientation",
+        "Giving the tangent to the level curve pointing the opposite way from the orientation asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-parallel-to-gradient",
+        "Giving the unit vector along the gradient where the unit tangent to the level curve, which is perpendicular to it, was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-perpendicular-not-sign-changed",
+        "Swapping the two components of the gradient to get a perpendicular vector but forgetting to change the sign of one of them.",
+        area="multivariable",
     ),
 )
 

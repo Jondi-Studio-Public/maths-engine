@@ -305,6 +305,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "fy1la_independence",
         "fy1la_rref",
         "fy1la_span",
+        "w5c_gradient_vector",
+        "w5c_z_test_mean",
         "enlargement_invariants",
         "exd_x_pr7_large_numbers_mixed_forms",
         "exd_x_pr7_order_to_1000_regrouped",
@@ -642,6 +644,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "r3l_simplex_final_tableau",
         "r3l_simplex_one_pivot",
         "r3l_transportation_assignment",
+        "w5b_e_limit_table",
+        "w5b_precedence_table",
     }
 )
 

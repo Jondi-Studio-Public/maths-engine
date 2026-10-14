@@ -13,5 +13,9 @@ sources:
 - topic: repeating_pattern
   params: {}
   difficulty: easy
+- topic: ey6a_repeating_pattern
+  key: varied-units
+  params: {}
+  difficulty: easy
 misconceptions: []
 tags: [age-5, patterns, visual]
