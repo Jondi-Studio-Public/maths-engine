@@ -91,8 +91,19 @@ def _clean_text(s: Any) -> str:
     return _XML_ILLEGAL.sub("", str(s))
 
 
-def _text(x: float, y: float, s: Any, *, size: float = 12, anchor: str = "middle", weight: str | None = None) -> str:
-    """Text centred vertically on ``y``. The string is XML-escaped here and nowhere else."""
+def _text(
+    x: float,
+    y: float,
+    s: Any,
+    *,
+    size: float = 12,
+    anchor: str = "middle",
+    weight: str | None = None,
+    halo: bool = False,
+) -> str:
+    """Text centred vertically on ``y``. The string is XML-escaped here and nowhere else.
+
+    ``halo`` outlines the glyphs in paper colour so a line or curve passing underneath does not strike them out."""
     return _el(
         "text",
         escape(_clean_text(s)),
@@ -103,7 +114,10 @@ def _text(x: float, y: float, s: Any, *, size: float = 12, anchor: str = "middle
         text_anchor=anchor,
         font_weight=weight,
         fill=INK,
-        stroke="none",
+        stroke=PAPER if halo else "none",
+        stroke_width=3.5 if halo else None,
+        stroke_linejoin="round" if halo else None,
+        paint_order="stroke" if halo else None,
     )
 
 
@@ -259,6 +273,7 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
     out.append(_line(left, ay, left + pw, ay, stroke=INK, stroke_width=1.5))
     out.append(_line(ax, top, ax, top + ph, stroke=INK, stroke_width=1.5))
 
+    ticks_text = []
     if s.get("tick_labels", True):
         kx = max(1, math.ceil(30 / (xg * sx)))
         ky = max(1, math.ceil(18 / (yg * sy)))
@@ -267,18 +282,18 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
             v = n * xg
             out.append(_line(X(v), ay - 3, X(v), ay + 3, stroke=INK, stroke_width=1))
             if n % kx == 0 and not (abs(v) < 1e-9 and y0 <= 0 <= y1 and x0 <= 0 <= x1):
-                out.append(_text(X(v), ay + 14, fmt_x(v), size=11))
+                ticks_text.append(_text(X(v), ay + 14, fmt_x(v), size=11, halo=True))
         for n in range(ny0, ny1 + 1):
             v = n * yg
             out.append(_line(ax - 3, Y(v), ax + 3, Y(v), stroke=INK, stroke_width=1))
             if n % ky == 0 and not (abs(v) < 1e-9 and y0 <= 0 <= y1 and x0 <= 0 <= x1):
-                out.append(_text(ax - 7, Y(v), _num_text(v), size=11, anchor="end"))
+                ticks_text.append(_text(ax - 7, Y(v), _num_text(v), size=11, anchor="end", halo=True))
         if y0 <= 0 <= y1 and x0 <= 0 <= x1:
-            out.append(_text(ax - 7, ay + 12, "0", size=11, anchor="end"))
+            ticks_text.append(_text(ax - 7, ay + 12, "0", size=11, anchor="end", halo=True))
     if s.get("x_label"):
-        out.append(_text(left + pw - 2, ay - 11, s["x_label"], size=12, anchor="end", weight="bold"))
+        out.append(_text(left + pw - 2, ay - 11, s["x_label"], size=12, anchor="end", weight="bold", halo=True))
     if s.get("y_label"):
-        out.append(_text(ax + 8, top + 9, s["y_label"], size=12, anchor="start", weight="bold"))
+        out.append(_text(ax + 8, top + 9, s["y_label"], size=12, anchor="start", weight="bold", halo=True))
 
     clip = ids("plot")
     inner = []
@@ -294,19 +309,29 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
         (ax_, ay_), (bx_, by_) = seg
         inner.append(_line(X(ax_), Y(ay_), X(bx_), Y(by_), stroke=INK, stroke_width=2))
         if ln.get("label"):
-            labels.append(_text(X(bx_) - 4, Y(by_) - 9, ln["label"], size=12, anchor="end"))
+            labels.append(_text(X(bx_) - 4, Y(by_) - 9, ln["label"], size=12, anchor="end", halo=True))
     for sg in s.get("segments", ()):
         (a, b), (c, d) = sg["from"], sg["to"]
         inner.append(_line(X(a), Y(b), X(c), Y(d), stroke=INK, stroke_width=2))
         for flag, (px, py) in (("open_start", (a, b)), ("open_end", (c, d))):
             if sg.get(flag):
                 inner.append(_circle(X(px), Y(py), 4, fill=PAPER, stroke=INK, stroke_width=1.8))
+        if bool(sg.get("open_start")) != bool(sg.get("open_end")):  # a step: the other end is the closed (filled) one
+            px, py = (c, d) if sg.get("open_start") else (a, b)
+            inner.append(_circle(X(px), Y(py), 4, fill=INK, stroke="none"))
         if sg.get("label"):
-            labels.append(_text((X(a) + X(c)) / 2, (Y(b) + Y(d)) / 2 - 10, sg["label"], size=12))
+            labels.append(_text((X(a) + X(c)) / 2, (Y(b) + Y(d)) / 2 - 10, sg["label"], size=12, halo=True))
+    clamped = 0
     for c in s.get("curves", ()):
         if c.get("label") and c["pieces"]:
             ex, ey = c["pieces"][-1][-1]
-            labels.append(_text(min(X(ex) + 4, left + pw - 4), Y(ey) - 9, c["label"], size=12, anchor="end"))
+            ly = Y(ey) - 9
+            if ly < top + 8:  # the curve leaves through the top edge: keep the label inside, below any earlier one
+                ly = top + 8 + 14 * clamped
+                clamped += 1
+                labels.append(_text(min(X(ex) + 8, left + pw - 4), ly, c["label"], size=12, anchor="start", halo=True))
+            else:
+                labels.append(_text(min(X(ex) + 4, left + pw - 4), ly, c["label"], size=12, anchor="end", halo=True))
     for p in s.get("points", ()):
         px, py = X(p["at"][0]), Y(p["at"][1])
         if p.get("open"):
@@ -316,11 +341,19 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
         if p.get("label"):
             right = px > left + pw - 50
             labels.append(
-                _text(px + (-7 if right else 7), py - 9, p["label"], size=12, anchor="end" if right else "start")
+                _text(
+                    px + (-7 if right else 7),
+                    py - 9,
+                    p["label"],
+                    size=12,
+                    anchor="end" if right else "start",
+                    halo=True,
+                )
             )
     out.append(
         _el("clipPath", _rect(left - 4, top - 4, pw + 8, ph + 8), id=clip)
         + _g(*inner, clip_path=f"url(#{clip})")
+        + _g(*ticks_text)
         + _g(*labels)
     )
     return "".join(out), top + ph + bottom
@@ -1045,7 +1078,9 @@ def _diagram(s: dict, ids: _Ids) -> Body:
                 )
             )
         if sg.get("label"):
-            marks.append(_text(mid[0] + nx * 13, mid[1] + ny * 13, sg["label"], size=13))
+            # clear the edge: the label's half-width along the normal, plus a margin
+            gap = abs(nx) * _text_w(sg["label"], 13) / 2 + abs(ny) * 7.5 + 5
+            marks.append(_text(mid[0] + nx * gap, mid[1] + ny * gap, sg["label"], size=13, halo=True))
     out.extend(marks)
 
     for a in s.get("angles", ()):

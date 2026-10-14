@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -714,6 +715,39 @@ def test_data_displays_validate_through_figures_check():
     ):
         with pytest.raises(ValueError):
             svg.figure_svg(fig)
+
+
+def test_a_step_segment_draws_a_filled_dot_at_its_closed_end():
+    spec = figures.cartesian(
+        x_range=(0, 4),
+        y_range=(0, 4),
+        segments=[{"from": [0, 2], "to": [2, 2], "open_start": True}],
+        alt="a step",
+    )
+    out = svg.figure_svg(spec)
+    assert out.count("<circle") == 2  # one open end, one filled closed end
+    assert 'fill="currentColor"' in out.split("<circle")[-1].split("/>")[0]
+
+
+def test_axis_numerals_are_drawn_over_the_plot_with_a_paper_halo():
+    spec = figures.cartesian(x_range=(-2, 2), y_range=(-2, 2), curves=[{"pieces": [[[-2, -2], [2, 2]]]}], alt="a curve")
+    out = svg.figure_svg(spec)
+    assert out.rindex('paint-order="stroke"') > out.index("<polyline")  # numerals come after the curve
+    assert 'stroke="#ffffff"' in out
+
+
+def test_a_dimension_label_clears_its_edge():
+    spec = space.diagram(
+        frame=(10, 10),
+        points=[{"id": "A", "at": [1, 1]}, {"id": "B", "at": [9, 1]}, {"id": "C", "at": [5, 8]}],
+        polygons=[{"points": ["A", "B", "C"]}],
+        segments=[{"from": "A", "to": "B", "label": "8 cm"}],
+        alt="a triangle",
+    )
+    out = svg.figure_svg(spec)
+    y = float(re.search(r'<text x="[\d.]+" y="([\d.]+)"[^>]*>8 cm', out).group(1))
+    edge = float(re.search(r'<line x1="[\d.]+" y1="([\d.]+)" x2="[\d.]+" y2="\1"', out).group(1))
+    assert abs(y - edge) >= 12  # half the text height plus a margin, so the edge cannot strike it
 
 
 # ---------------------------------------------------------------- grid drawings
