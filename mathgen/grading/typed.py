@@ -3407,6 +3407,24 @@ def _one_gap(match: re.Match) -> str:
     return "\n" if "\n" in match.group() else " "
 
 
+#: The kinds whose reply is a value or a list of values, which a learner may write as a sentence would end
+#: ("The answer is 3/13.") or as a line of working would begin ("= 3/13"). The other kinds read their text whole.
+_TIDIED_ENDS_KINDS = frozenset({"number", "fraction", "expression", "ordered_list", "pair", "list", "set"})
+
+
+def _without_sentence_ends(given: str) -> str:
+    """`given` without one leading "=" and one trailing full stop, so "= 3/13" and "3/13." read as "3/13".
+
+    A decimal point is not a full stop ("3." is 3, "3.5." is 3.5, and ".5" keeps its point), and an ellipsis
+    ("0.333...") is left whole."""
+    text = given.strip()
+    if text.endswith(".") and not text.endswith(".."):
+        text = text[:-1].rstrip()
+    if text.startswith("=") and not text.startswith("=="):
+        text = text[1:].lstrip()
+    return text
+
+
 def normalise_reply(kind: str, given: str) -> str:
     r"""`given` as every grader of `kind` reads it.
 
@@ -3414,7 +3432,10 @@ def normalise_reply(kind: str, given: str) -> str:
     every space of the run, and several together are quartic), so no run reaches them longer than one
     character: a run that holds a line break is that one line break, any other run one space. Nothing a
     parser reads is in the width of a gap."""
-    return _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, _WHITESPACE_RUN_RE.sub(_one_gap, given)))
+    given = _WHITESPACE_RUN_RE.sub(_one_gap, given)
+    if kind in _TIDIED_ENDS_KINDS:
+        given = _without_sentence_ends(given)
+    return _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, given))
 
 
 def grade(kind: str, question, given, *, skill=None) -> GradeResult:
