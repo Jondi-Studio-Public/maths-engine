@@ -701,6 +701,20 @@ def _reply_is_an_expression(question, given: str, *, value_side: bool = False) -
     return bool(marks)
 
 
+_PERCENT_IN_REPLY_RE = re.compile(r"%|\bper[ \t]?cent\b", re.IGNORECASE)
+
+
+def _states_an_unasked_percent(question, given: str) -> bool:
+    """Whether the reply puts "%" or "percent" after its value when the question is not about percent.
+
+    "0.27%" is 0.0027, not 0.27, and "3/4%" is not 3/4, so such a reply is refused unless the question's text
+    (or a part's prompt) mentions percent or the canonical answer is itself written with it."""
+    if _PERCENT_IN_REPLY_RE.search(given or "") is None:
+        return False
+    asked = " ".join(str(getattr(question, name, "") or "") for name in ("text", "prompt", "answer_text"))
+    return _PERCENT_WORD_RE.search(asked) is None
+
+
 @_multi_part_aware
 def grade_number(question, given: str) -> GradeResult:
     """Typed numeric answers are graded against a target/tolerance derived
@@ -746,6 +760,8 @@ def grade_number(question, given: str) -> GradeResult:
         correct = False  # "30 kg" for "Convert 3 cm to mm": see mathgen.grading.units
     if correct and _reply_is_an_expression(question, given, value_side=True):
         correct = False  # "sqrt(9)", "9!", "2*9": an operation on the value, not the value
+    if correct and _states_an_unasked_percent(question, given):
+        correct = False  # "0.27 percent" for 0.27: the same refusal as "0.27%", which is an expression above
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
@@ -828,6 +844,7 @@ def grade_fraction(question, given: str) -> GradeResult:
             parsed == expected
             and _ratio_form_is_acceptable(canonical, given)
             and _in_lowest_terms_if_asked(question, given)
+            and not _states_an_unasked_percent(question, given_with_unit)
         )
         return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
     return _check_answer_kind(question, given)
