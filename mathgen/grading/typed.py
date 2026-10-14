@@ -2647,27 +2647,29 @@ def grade_expression(question, given: str) -> GradeResult:
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
-_INDEX_RE = re.compile(r"-?\d{1,9}")
+_INDEX_RE = re.compile(r"\d{1,9}")
 # "B", "b)", "(B)", "B.": an option's letter, A for the first option.
-_OPTION_LETTER_RE = re.compile(r"^\(?\s*([A-Za-z])\s*[).:]?$")
+_OPTION_LETTER_RE = re.compile(r"\(([A-Za-z])\)|([A-Za-z])[).]?")
 
 
 def _mcq_choice_by_text(options: list, given: str) -> int | None:
-    """The option a reply names by its text or its letter, or None to read it as an index.
+    """The option a reply names by its text or its letter, or None when it names neither.
 
-    A reply of digits only is always an index, as documented, even when an option's text is the same digits.
-    Option text is matched whole, ignoring case and spacing. A letter is read only when no option is itself a
-    single letter, so "x" is never mistaken for option X's position.
+    Option text is matched whole, ignoring case, spacing and one trailing full stop. A letter is read only when
+    no option is itself a single letter, so "x" is never mistaken for option X's position. A reply of digits
+    only is never matched here: it is an index, as documented, even when an option's text is the same digits.
     """
     reply = " ".join(given.split()).casefold()
-    if not reply or reply.lstrip("-").isdigit():
+    bare = reply.removesuffix(".").rstrip()
+    if not bare or bare.isdigit():
         return None
     texts = [" ".join(str(option).split()).casefold() for option in options]
-    if reply in texts:
-        return texts.index(reply)
-    letter = _OPTION_LETTER_RE.match(reply)
+    for candidate in (reply, bare):
+        if candidate in texts:
+            return texts.index(candidate)
+    letter = _OPTION_LETTER_RE.fullmatch(reply)
     if letter and not any(len(text) == 1 and text.isalpha() for text in texts):
-        index = ord(letter.group(1).lower()) - ord("a")
+        index = ord((letter.group(1) or letter.group(2)).lower()) - ord("a")
         if index < len(options):
             return index
     return None
@@ -2675,6 +2677,12 @@ def _mcq_choice_by_text(options: list, given: str) -> int | None:
 
 @_multi_part_aware
 def grade_mcq(question, given: str) -> GradeResult:
+    """Correct only for a reply that is exactly one option: its 0-based index, its letter, or its text.
+
+    Anything else -- extra words, a second number, a decimal, a sign -- is wrong rather than guessed at, so a reply
+    that names two options or hedges ("1 or 2", "not 1", "x=1") can never score by containing the right digit.
+    One trailing full stop is allowed ("1.", "B.", "the option text.").
+    """
     options = mcq_options(question)
     canonical = question.answer_text
     if isinstance(given, int) and not isinstance(given, bool):
@@ -2684,16 +2692,14 @@ def grade_mcq(question, given: str) -> GradeResult:
     if not isinstance(given, str):
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     chosen = _mcq_choice_by_text(options, given)
-    if chosen is not None:
-        return GradeResult(correct=options[chosen] == canonical, canonical=canonical, given_normalised=options[chosen])
-    match = _INDEX_RE.search(given)
-    if not match:
-        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    idx = int(match.group())
-    if not (0 <= idx < len(options)):
-        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    correct = options[idx] == question.answer_text
-    return GradeResult(correct=correct, canonical=canonical, given_normalised=options[idx])
+    if chosen is None:
+        reply = given.strip().removesuffix(".").rstrip()
+        if not _INDEX_RE.fullmatch(reply):
+            return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+        chosen = int(reply)
+        if not (0 <= chosen < len(options)):
+            return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    return GradeResult(correct=options[chosen] == canonical, canonical=canonical, given_normalised=options[chosen])
 
 
 # -- table ---------------
