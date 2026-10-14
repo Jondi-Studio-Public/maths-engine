@@ -962,6 +962,16 @@ def test_a_document_that_a_test_script_or_config_names_is_never_docs_only(tmp_pa
     )
 
 
+@needs_shell
+def test_markdown_under_plugins_is_code_for_the_docs_only_filter(tmp_path):
+    """The plugins' skills are instructions agents follow, and tests/public/test_plugins.py reads every one of them."""
+    verdicts = _classify(tmp_path, ["plugins/maths-engine-tutor/skills/maths-tutoring/SKILL.md", "docs/server.md"])
+    assert verdicts == {
+        "plugins/maths-engine-tutor/skills/maths-tutoring/SKILL.md": "code=true",
+        "docs/server.md": "code=false",
+    }
+
+
 def _root_files() -> list[str]:
     try:
         done = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True)
@@ -1000,6 +1010,11 @@ ALLOWED_TREE = {
     "mathgen/library/helpers.py": "x = 1\n",  # a directory called library, not lib
     "tests/envelope/test_a.py": "x = 1\n",  # a directory called envelope, not env
     "docs/vendor_notes.md": "x\n",  # vendor only as part of a file name
+    # the Agent Plugins manifests, at their own paths
+    "plugins/p/plugin.json": "{}\n",
+    "plugins/p/mcp.json": "{}\n",
+    "plugins/p/.claude-plugin/plugin.json": "{}\n",
+    ".claude-plugin/marketplace.json": "{}\n",
 }
 
 
@@ -1054,6 +1069,16 @@ REFUSED_PATHS = [
     "Pipfile.lock",
     "poetry.lock",
     "data.json",
+    "plugin.json",  # the manifest names pass only at the plugins' own paths
+    "mcp.json",
+    "marketplace.json",
+    "docs/mcp.json",
+    "plugins/plugin.json",
+    "plugins/p/marketplace.json",
+    "plugins/p/data.json",
+    "plugins/p/skills/s/plugin.json",  # a case pattern's * would match the extra folders
+    "plugins/p/q/mcp.json",
+    "plugins/p/x/.claude-plugin/plugin.json",
     "page.html",
     "run.sh",
     "Makefile",
