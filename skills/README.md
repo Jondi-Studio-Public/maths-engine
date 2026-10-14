@@ -119,7 +119,10 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   has no year unless a person sets it.
 - **Optional:** `placement_eligible` (default `true`), `placement_order`, `placement_questions`,
   `placement_pass`, `learner_band` (`early`, `primary` or `general`), `framework_areas`, `alignments`,
-  `needs_figure`, `capability_gates` and `mental` (below).
+  `needs_figure`, `read_aloud`, `capability_gates` and `mental` (below).
+- **`read_aloud`** (default `false`): the prompts are meant to be read aloud to a young learner, so each
+  is at most 15 words and the figure carries the detail. `tests/test_read_aloud.py` checks every
+  question of every active `read_aloud` skill against that cap.
 - **`alignments`:** entries of `source_id`, `status`, `code`, `framework`, `area`, `verified_on`.
   `status` is `verified`, `candidate` or `unverified`. Only `verified` is a formal claim, and it
   requires `verified_on`. A `framework` entry requires an `area`.

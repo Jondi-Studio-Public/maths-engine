@@ -44,6 +44,7 @@ __all__ = [
 # `skills/` beside `mathgen/` in a repository checkout, or the copy inside an installed wheel.
 DEFAULT_SKILLS_DIR = default_skills_dir()
 VALID_STAGES = {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
+READ_ALOUD_MAX_WORDS = 15  # the longest prompt a `read_aloud` skill may ask (tests/test_read_aloud.py)
 # The tier a source stands for. An active skill's sources must each name one (see `validate`).
 VALID_DIFFICULTIES = ("easy", "medium", "hard", "exam")
 SOURCE_KEY_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")  # a source `key`: lower-case words joined by hyphens
@@ -233,6 +234,9 @@ class Skill:
     # The skill's questions carry a figure the learner must see
     # it has no spoken form, so the skill may not have a mental block.
     needs_figure: bool = False
+    # An early-years skill whose prompts are short enough to be read aloud to a child who cannot yet read
+    # them: at most READ_ALOUD_MAX_WORDS words, with the figure carrying the rest (tests/test_read_aloud.py).
+    read_aloud: bool = False
     # Rubric-assessed skills: `answer: rubric` names a versioned rubric. `rubric_id` is required and
     # validated below; `rubric_high_stakes` lets a skill (a proof, say) declare that its
     # answers always need the most careful marking route.
@@ -387,6 +391,7 @@ def _skill_from_dict(d: dict, path: Path) -> Skill:
         exam_board=_labels(d.get("exam_board")),
         mental=_mental_from_dict(d.get("mental")),
         needs_figure=bool(d.get("needs_figure", False)),
+        read_aloud=bool(d.get("read_aloud", False)),
         rubric_id=rubric_id,
         rubric_high_stakes=rubric_high_stakes,
         difficulty_progression=_progression_from_value(d.get("difficulty_progression")),

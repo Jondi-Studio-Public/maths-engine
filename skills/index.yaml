@@ -408,8 +408,8 @@ compare-lengths:
   domain: early-foundations
   status: active
   sources:
-  - topic: compare_length
-    module: mathgen/generators/early_math.py
+  - topic: compare_length_picture
+    module: mathgen/generators/ey_compare_build.py
 compare-linear-representations:
   domain: linear-relations
   status: active
@@ -430,6 +430,12 @@ compare-quantities-to-10:
   sources:
   - topic: compare_quantities
     module: mathgen/generators/early_math.py
+compare-tally-and-picture-displays:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_compare_displays
+    module: mathgen/generators/ey_compare_displays_build.py
 compare-unit-prices:
   domain: arithmetic
   status: active
@@ -546,8 +552,10 @@ continue-patterns:
   domain: early-foundations
   status: active
   sources:
-  - topic: repeating_pattern
-    module: mathgen/generators/early_math.py
+  - topic: ey_pattern_continue
+    module: mathgen/generators/ey_patterns_build.py
+  - topic: ey_pattern_match
+    module: mathgen/generators/ey_patterns_build.py
 convert-metric-capacity:
   domain: measurement
   status: active
@@ -882,6 +890,54 @@ explicit-euler-linear-ode:
     module: mathgen/generators/university_scientific_computing.py
   - topic: exd_x_u4_euler_steady_state
     module: mathgen/generators/exd_x_u4_euler_steady_state.py
+ey-calendar-count-days:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_span
+    module: mathgen/generators/ey_calendar_build.py
+ey-calendar-days-between:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_between
+    module: mathgen/generators/ey_calendar_build.py
+ey-calendar-days-months-order:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_order
+    module: mathgen/generators/ey_calendar_build.py
+ey-calendar-weekday-of-date:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_calendar_weekday
+    module: mathgen/generators/ey_calendar_build.py
+ey-compare-by-paper-clips:
+  domain: measurement
+  status: active
+  sources:
+  - topic: compare_by_paper_clips
+    module: mathgen/generators/ey_compare_build.py
+ey-compare-capacity-by-cups:
+  domain: measurement
+  status: active
+  sources:
+  - topic: compare_capacity_by_cups
+    module: mathgen/generators/ey_compare_build.py
+ey-day-strip-sequence:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_day_strip
+    module: mathgen/generators/ey_day_strip_build.py
+ey-order-by-two-balances:
+  domain: measurement
+  status: active
+  sources:
+  - topic: order_by_two_balances
+    module: mathgen/generators/ey_compare_build.py
 f10-add-subtract-number-sentences:
   domain: equations
   status: active
@@ -1060,8 +1116,8 @@ f10-compare-measurement-attributes:
   domain: measurement
   status: active
   sources:
-  - topic: compare_measurement_attributes
-    module: mathgen/generators/p4a_compare_attributes_build.py
+  - topic: compare_mass_capacity_picture
+    module: mathgen/generators/ey_compare_build.py
 f10-compare-order-measure-attributes:
   domain: measurement
   status: active
@@ -1734,6 +1790,14 @@ f10-pattern-copy-repeat-unit:
     module: mathgen/generators/foundations_pattern_situation_build.py
   - topic: exd_x_pr1_pattern_chain
     module: mathgen/generators/exd_x_pr1_early_chains.py
+f10-pattern-strip-repeating-unit:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey_pattern_unit
+    module: mathgen/generators/ey_patterns_build.py
+  - topic: ey_pattern_match
+    module: mathgen/generators/ey_patterns_build.py
 f10-percentage-equivalence-comparison:
   domain: primary-number
   status: active
@@ -1998,6 +2062,12 @@ f10-shape-features-classification:
   sources:
   - topic: shape_features_classification
     module: mathgen/generators/p4b_angle_shape_build.py
+f10-shape-sides-spatial-terms:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey_shape_sides
+    module: mathgen/generators/ey_shapes_build.py
 f10-shape-sorting-algorithm:
   domain: geometry
   status: active
@@ -2020,6 +2090,12 @@ f10-solid-faces-edges-vertices:
     module: mathgen/generators/fsp_solids_build.py
   - topic: fsp_solids_exam
     module: mathgen/generators/fsp_solids_build.py
+f10-sort-classify-familiar-shapes:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey_shape_classify
+    module: mathgen/generators/ey_shapes_build.py
 f10-spatial-algorithm-choose-test:
   domain: geometry
   status: active
@@ -2990,8 +3066,8 @@ name-basic-shapes:
   domain: early-foundations
   status: active
   sources:
-  - topic: shape_names
-    module: mathgen/generators/early_math.py
+  - topic: ey_shape_recognise
+    module: mathgen/generators/ey_shapes_build.py
 network-model-from-situation:
   domain: financial-discrete
   status: active
@@ -3060,6 +3136,12 @@ one-step-inequalities:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_one_step
     module: mathgen/generators/linear_inequalities_build.py
+one-to-one-displays:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_one_to_one_data
+    module: mathgen/generators/ey_one_to_one_data_build.py
 order-numbers-to-10:
   domain: early-foundations
   status: active
@@ -3964,6 +4046,14 @@ senior-demonstrate-an-understanding-of-the-elementary-ideas-and:
     module: mathgen/generators/p19i_ratio_build.py
   - topic: exd_x_r3i_ratio_batch
     module: mathgen/generators/exd_x_r3i_ratio_batch.py
+senior-describe-spread-from-a-dot-plot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_dot_plot_spread
+    module: mathgen/generators/ey_senior_spread_build.py
+  - topic: ey_dot_plot_spread_exam
+    module: mathgen/generators/ey_senior_spread_build.py
 senior-describe-the-association-between-two-numerical-variables-in:
   domain: statistics-probability
   status: active
@@ -4554,6 +4644,38 @@ senior-formulate-differential-equations-including-the-logistic-equation-that:
     module: mathgen/generators/p13b_de_qualitative_build.py
   - topic: exd_x_r3i_mixing_rates
     module: mathgen/generators/exd_x_r3i_mixing_rates.py
+senior-graph-dilation-read-factor:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: ey_graph_dilation
+    module: mathgen/generators/ey_senior_transform_build.py
+  - topic: ey_graph_dilation_exam
+    module: mathgen/generators/ey_senior_transform_build.py
+senior-graph-reciprocal-abs-compare:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: ey_graph_reciprocal_abs
+    module: mathgen/generators/ey_senior_transform_build.py
+  - topic: ey_graph_reciprocal_abs_exam
+    module: mathgen/generators/ey_senior_transform_build.py
+senior-graph-slope-intercept-meaning:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: ey_context_line
+    module: mathgen/generators/ey_senior_context_graphs_build.py
+  - topic: ey_context_line_exam
+    module: mathgen/generators/ey_senior_context_graphs_build.py
+senior-graph-translation-read-shift:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: ey_graph_translation
+    module: mathgen/generators/ey_senior_transform_build.py
+  - topic: ey_graph_translation_exam
+    module: mathgen/generators/ey_senior_transform_build.py
 senior-identify-and-solve-linear-equations:
   domain: linear-relations
   status: active
@@ -4862,6 +4984,14 @@ senior-obtain-measurements-from-scale-drawings-such-as-maps:
   sources:
   - topic: grid_scale_map
     module: mathgen/generators/grid_scale_drawing_build.py
+senior-position-time-tangent-velocity:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: ey_position_tangent
+    module: mathgen/generators/ey_senior_context_graphs_build.py
+  - topic: ey_position_tangent_exam
+    module: mathgen/generators/ey_senior_context_graphs_build.py
 senior-prepare-a-personal-budget-for-a-given-income:
   domain: arithmetic
   status: active
@@ -5166,6 +5296,14 @@ senior-simulate-repeated-random-sampling-from-a-variety-of-acmsm139:
     module: mathgen/generators/p16b_xbar_standardise_build.py
   - topic: exd_x_r2k_xbar_pvalue
     module: mathgen/generators/exd_x_r2k_xbar_pvalue.py
+senior-simulated-samples-variability:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_sample_variability
+    module: mathgen/generators/ey_senior_spread_build.py
+  - topic: ey_sample_variability_exam
+    module: mathgen/generators/ey_senior_spread_build.py
 senior-sketch-elevation-views-of-different-models:
   domain: measurement
   status: deferred
@@ -6272,6 +6410,12 @@ solve-simultaneous-equations:
     module: mathgen/generators/algebra.py
   - topic: exd_x_u3_simultaneous_prices
     module: mathgen/generators/exd_x_u3_simultaneous_prices.py
+sort-and-count-objects:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_sort_objects
+    module: mathgen/generators/ey_sort_objects_build.py
 spot-bias:
   domain: statistics-probability
   status: active
@@ -6352,6 +6496,12 @@ subtract-within-5:
   sources:
   - topic: early_subtraction
     module: mathgen/generators/early_math.py
+tally-tables:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ey_tally_tables
+    module: mathgen/generators/ey_tally_tables_build.py
 tell-time-to-hour:
   domain: early-foundations
   status: active

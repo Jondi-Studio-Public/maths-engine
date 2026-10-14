@@ -31,6 +31,8 @@ from xml.sax.saxutils import escape, quoteattr
 
 from mathgen import figures
 from mathgen.figure_kinds.data import _key_text
+from mathgen.figure_kinds.tally import picture_key_text
+
 from mathgen.figure_kinds.grid import SYMBOLS
 
 __all__ = ["figure_svg"]
@@ -1661,6 +1663,931 @@ def _pie_chart(s: dict, ids: _Ids) -> Body:
     return "".join(out), cy + r + 26
 
 
+# ---------------------------------------------------------------- shape scene
+
+_SCENE_SCALE = {"small": 0.55, "medium": 0.75, "large": 1.0}
+
+
+def _scene_paint(style: str, primary: bool = True) -> dict:
+    """Plain is hollow, shaded is filled, dotted has a dotted outline: told apart without colour."""
+    if style == "shaded":
+        return dict(fill=MID if primary else DARK, stroke_width=2, stroke_linejoin="round")
+    if style == "dotted":
+        return dict(fill=PAPER, stroke_width=2.6, stroke_dasharray="0.1 5.5", stroke_linecap="round")
+    return dict(fill=PAPER if primary else LIGHT, stroke_width=2, stroke_linejoin="round")
+
+
+def _regular(n: int, r: float, start_deg: float = 0) -> list[tuple[float, float]]:
+    """A regular polygon's corners about the origin, the first ``start_deg`` clockwise from straight up."""
+    return [_clock_pt(0, 0, r, start_deg + k * 360 / n) for k in range(n)]
+
+
+def _shape_body(shape: str, r: float, style: str) -> str:
+    """One shape or solid centred on the origin, ``r`` about its half-size."""
+    p, q = _scene_paint(style), _scene_paint(style, primary=False)
+    if shape == "circle":
+        return _circle(0, 0, r, **p)
+    if shape == "oval":
+        return _el("ellipse", cx=0, cy=0, rx=r, ry=0.62 * r, **p)
+    if shape == "triangle":
+        return _poly([(0, -r), (0.95 * r, 0.75 * r), (-0.95 * r, 0.75 * r)], True, **p)
+    if shape == "square":
+        return _rect(-0.72 * r, -0.72 * r, 1.44 * r, 1.44 * r, **p)
+    if shape == "rectangle":
+        return _rect(-0.95 * r, -0.55 * r, 1.9 * r, 1.1 * r, **p)
+    if shape == "hexagon":
+        return _poly(_regular(6, r, 90), True, **p)
+    if shape == "pentagon":
+        return _poly(_regular(5, r), True, **p)
+    if shape == "rhombus":
+        return _poly([(0, -r), (0.62 * r, 0), (0, r), (-0.62 * r, 0)], True, **p)
+    if shape == "kite":
+        return _poly([(0, -0.9 * r), (0.62 * r, -0.2 * r), (0, r), (-0.62 * r, -0.2 * r)], True, **p)
+    if shape == "semicircle":
+        return _path(f"M{_n(-r)} {_n(0.45 * r)}A{_n(r)} {_n(r)} 0 0 1 {_n(r)} {_n(0.45 * r)}Z", **p)
+    if shape in ("cube", "rectangular prism"):
+        w, h, d = (1.2, 1.2, 0.4) if shape == "cube" else (1.5, 0.8, 0.4)
+        x0, y0 = -0.7 * r if shape == "cube" else -0.85 * r, (-0.3 if shape == "cube" else -0.15) * r
+        x1, y1, dd = x0 + w * r, y0 + h * r, d * r
+        return (
+            _poly([(x0, y0), (x1, y0), (x1 + dd, y0 - dd), (x0 + dd, y0 - dd)], True, **q)
+            + _poly([(x1, y0), (x1 + dd, y0 - dd), (x1 + dd, y1 - dd), (x1, y1)], True, **q)
+            + _rect(x0, y0, w * r, h * r, **p)
+        )
+    if shape == "sphere":
+        return _circle(0, 0, r, **p) + _path(
+            f"M{_n(-r)} 0A{_n(r)} {_n(0.3 * r)} 0 0 0 {_n(r)} 0", **{**q, "fill": "none", "stroke_dasharray": None}
+        )
+    if shape == "cylinder":
+        rx, ry, top, bottom = 0.7 * r, 0.25 * r, -0.65 * r, 0.65 * r
+        return _path(
+            f"M{_n(-rx)} {_n(top)}V{_n(bottom)}A{_n(rx)} {_n(ry)} 0 0 0 {_n(rx)} {_n(bottom)}V{_n(top)}Z",
+            **p,
+        ) + _el("ellipse", cx=0, cy=top, rx=rx, ry=ry, **q)
+    if shape == "cone":
+        rx, ry, base, apex = 0.8 * r, 0.25 * r, 0.65 * r, -0.95 * r
+        return _path(
+            f"M{_n(-rx)} {_n(base)}L0 {_n(apex)}L{_n(rx)} {_n(base)}A{_n(rx)} {_n(ry)} 0 0 1 {_n(-rx)} {_n(base)}Z", **p
+        )
+    # square pyramid: a front face, a side face and the base edge
+    apex, fl, fr, br = (-0.05 * r, -0.95 * r), (-0.85 * r, 0.6 * r), (0.4 * r, 0.6 * r), (0.9 * r, 0.3 * r)
+    return _poly([apex, fr, br], True, **q) + _poly([apex, fl, fr], True, **p)
+
+
+def _scene_object(name: str, ids: _Ids) -> Body:
+    """An everyday object drawn from shapes, in the 400-wide space. Nothing in it is a word."""
+    cx = CANVAS / 2
+    plain = "plain"
+    if name == "house":
+        walls = _g(_shape_body("square", 76, plain), transform=f"translate({_n(cx)} 160)")
+        roof = _poly([(cx - 100, 108), (cx + 100, 108), (cx, 28)], True, **_scene_paint(plain))
+        return walls + roof, 240
+    if name == "clock":
+        out = [_g(_shape_body("circle", 88, plain), transform=f"translate({_n(cx)} 108)")]
+        for k in range(12):
+            a, b = _clock_pt(cx, 108, 80, k * 30), _clock_pt(cx, 108, 70, k * 30)
+            out.append(_line(a[0], a[1], b[0], b[1], stroke_width=2))
+        for deg, length in ((60, 44), (180, 62)):
+            x, y = _clock_pt(cx, 108, length, deg)
+            out.append(_line(cx, 108, x, y, stroke_width=4, stroke_linecap="round"))
+        return "".join(out), 216
+    if name == "ball":
+        out = [_g(_shape_body("sphere", 88, plain), transform=f"translate({_n(cx)} 108)")]
+        out.append(_path(f"M{_n(cx - 62)} {_n(46)}Q{_n(cx - 20)} 108 {_n(cx - 62)} 170", stroke_width=2))
+        out.append(_path(f"M{_n(cx + 62)} {_n(46)}Q{_n(cx + 20)} 108 {_n(cx + 62)} 170", stroke_width=2))
+        return "".join(out), 216
+    if name == "box":
+        return _g(_shape_body("rectangular prism", 105, plain), transform=f"translate({_n(cx)} 118)"), 236
+    if name == "can":
+        return _g(_shape_body("cylinder", 110, plain), transform=f"translate({_n(cx)} 118)"), 236
+    # ice cream: a cone point-down, with a scoop sitting on top of it
+    cone = _poly([(cx - 52, 120), (cx + 52, 120), (cx, 218)], True, **_scene_paint(plain))
+    waffle = "".join(_line(cx + dx, 120, cx + dx * 0.0, 218, stroke_width=1) for dx in (-26, 26)) + _line(
+        cx - 30, 150, cx + 30, 150, stroke_width=1
+    )
+    scoop = _path(f"M{_n(cx - 58)} 120A58 58 0 0 1 {_n(cx + 58)} 120Z", **_scene_paint("shaded"))
+    return cone + waffle + scoop, 238
+
+
+def _shape_scene(s: dict, ids: _Ids) -> Body:
+    if s["object"] is not None:
+        return _scene_object(s["object"]["name"], ids)
+    items = s["items"]
+    n = len(items)
+    cols = s["cols"] if s["layout"] == "grid" else (n if n <= 6 else math.ceil(n / 2))
+    cell = min(84.0, 380.0 / cols)
+    label_h = 16.0 if any(it["label"] for it in items) else 0.0
+    row_h = cell + label_h
+    x0 = (CANVAS - cols * cell) / 2
+    out = []
+    for i, it in enumerate(items):
+        row, col = divmod(i, cols)
+        in_row = min(cols, n - row * cols)
+        left = (CANVAS - in_row * cell) / 2 if s["layout"] == "row" else x0
+        wobble = ((i * 37) % 5 - 2) * cell * 0.04 if s["layout"] == "row" else 0.0
+        cx, cy = left + col * cell + cell / 2, 12 + row * row_h + cell / 2 + wobble
+        r = cell * 0.40 * _SCENE_SCALE[it["size"]]
+        body = _shape_body(it["shape"], r, it["style"])
+        rot = f" rotate({it['turn']})" if it["turn"] else ""
+        out.append(_g(body, transform=f"translate({_n(cx)} {_n(cy)}){rot}"))
+        if it["label"]:
+            out.append(_text(cx, 12 + row * row_h + cell + label_h / 2, it["label"], size=13, weight="bold"))
+    rows = math.ceil(n / cols)
+    return "".join(out), 12 + rows * row_h + 8
+
+
+# ---------------------------------------------------------------- pattern strip
+
+_STRIP_LEFT = 12.0
+
+
+def _pattern_shape(cell: dict, cx: float, cy: float, r: float, stripe: str) -> str:
+    fill = {"solid": INK, "open": PAPER, "striped": f"url(#{stripe})"}[cell["fill"]]
+    return _symbol_shape(cell["shape"], cx - r, cy - r, 2 * r, 2 * r, fill=fill, stroke=INK, stroke_width=2)
+
+
+def _action_icon(action: str, cx: float, cy: float) -> str:
+    ink = {"stroke": INK, "stroke_width": 1.8}
+    if action == "clap":
+        left = _el(
+            "ellipse",
+            cx=cx - 5,
+            cy=cy,
+            rx=4.5,
+            ry=10,
+            transform=f"rotate(-18 {_n(cx - 5)} {_n(cy)})",
+            fill=LIGHT,
+            **ink,
+        )
+        right = _el(
+            "ellipse", cx=cx + 5, cy=cy, rx=4.5, ry=10, transform=f"rotate(18 {_n(cx + 5)} {_n(cy)})", fill=LIGHT, **ink
+        )
+        burst = "".join(
+            _line(cx + dx * 4, cy - 15 - dy, cx + dx * 9, cy - 20 - dy, **ink) for dx, dy in ((-1, 0), (0, 2), (1, 0))
+        )
+        return left + right + burst
+    if action == "stamp":
+        return (
+            _rect(cx - 5, cy - 14, 9, 17, fill=LIGHT, **ink)
+            + _rect(cx - 5, cy + 1, 18, 8, rx=3, fill=LIGHT, **ink)
+            + _line(cx - 14, cy + 13, cx + 16, cy + 13, **ink)
+        )
+    return (
+        _circle(cx, cy - 13, 3.5, fill=INK, stroke="none")
+        + _line(cx, cy - 9, cx, cy + 3, **ink)
+        + _line(cx, cy - 6, cx - 8, cy - 14, **ink)
+        + _line(cx, cy - 6, cx + 8, cy - 14, **ink)
+        + _line(cx, cy + 3, cx - 7, cy + 12, **ink)
+        + _line(cx, cy + 3, cx + 7, cy + 12, **ink)
+    )
+
+
+def _stack_counters(count: int, cx: float, top: float, height: float, cw: float) -> str:
+    step = min(8.0, height / count)
+    r = min(step * 0.42, cw * 0.3)
+    return "".join(_circle(cx, top + height - step * (i + 0.5), r, fill=INK, stroke="none") for i in range(count))
+
+
+def _pattern_strip(s: dict, ids: _Ids) -> Body:
+    rows = s["rows"]
+    stripe = ids("stripe")
+    labelled = any(r.get("label") for r in rows)
+    left = _STRIP_LEFT + (34.0 if labelled else 0.0)
+    widest = max(len(r["cells"]) for r in rows)
+    cw = min(48.0, (CANVAS - left - 12) / widest)
+    cells = [c for r in rows for c in r["cells"]]
+    has_action = any(c["type"] == "action" for c in cells)
+    has_stack = any(c["type"] == "stack" for c in cells)
+    box_h = 82.0 if has_stack else (64.0 if has_action else 48.0)
+    out = []
+    if any(c["type"] == "shape" and c["fill"] == "striped" for c in cells):
+        out.append(
+            _el(
+                "defs",
+                _el(
+                    "pattern",
+                    _rect(0, 0, 5, 5, fill=PAPER, stroke="none") + _line(0, 0, 0, 5, stroke=INK, stroke_width=2),
+                    id=stripe,
+                    patternUnits="userSpaceOnUse",
+                    width=5,
+                    height=5,
+                    patternTransform="rotate(45)",
+                ),
+            )
+        )
+    y = 12.0
+    for r in rows:
+        if r.get("label"):
+            out.append(_text(left - 8, y + box_h / 2, r["label"], size=18, anchor="end", weight="bold"))
+        for i, c in enumerate(r["cells"]):
+            x = left + i * cw
+            cx, cy = x + cw / 2, y + box_h / 2
+            t = c["type"]
+            if t == "blank":
+                out.append(
+                    _rect(
+                        x + 2,
+                        y + 2,
+                        cw - 4,
+                        box_h - 4,
+                        rx=4,
+                        fill=PAPER,
+                        stroke=INK,
+                        stroke_width=1.5,
+                        stroke_dasharray="5 4",
+                    )
+                )
+                continue
+            out.append(_rect(x + 2, y + 2, cw - 4, box_h - 4, rx=4, fill=PAPER, stroke=GRID, stroke_width=1))
+            if t == "mark":
+                out.append(_text(cx, cy, "?", size=26, weight="bold"))
+            elif t == "text":
+                out.append(_text(cx, cy, c["text"], size=min(28.0, cw * 0.7), weight="bold"))
+            elif t == "shape":
+                out.append(_pattern_shape(c, cx, cy, min(cw * 0.34, 16.0), stripe))
+            elif t == "action":
+                out.append(_action_icon(c["action"], cx, cy - 8))
+                out.append(_text(cx, y + box_h - 11, c["action"], size=min(12.0, cw * 0.3)))
+            else:
+                out.append(_stack_counters(c["count"], cx, y + 8, box_h - 16, cw))
+        if r.get("bracket"):
+            a, b = r["bracket"]
+            x0, x1, by = left + a * cw + 3, left + (b + 1) * cw - 3, y + box_h + 7
+            out.append(_poly([(x0, by - 5), (x0, by), (x1, by), (x1, by - 5)], stroke=INK, stroke_width=2))
+            y += 10
+        y += box_h
+        if s["numbered"]:
+            for i in range(len(r["cells"])):
+                out.append(_text(left + i * cw + cw / 2, y + 9, i + 1, size=11))
+            y += 18
+        y += 14
+    return "".join(out), y
+
+
+# ---------------------------------------------------------------- tally
+
+
+def _icon(name: str, cx: float, cy: float) -> str:
+    """One small picture, about 28 units across, centred on (cx, cy). Each has its own outline, so no two are told apart by shading alone."""
+    kw: dict[str, Any] = {"fill": PAPER, "stroke": INK, "stroke_width": 1.6}
+    dot: dict[str, Any] = {"fill": INK, "stroke": "none"}
+    out: list[str] = []
+    if name == "apple":
+        out.append(_circle(cx, cy + 2, 10.5, **kw))
+        out.append(_line(cx, cy - 8, cx + 2, cy - 14, stroke=INK, stroke_width=1.8))
+        out.append(
+            _path(
+                f"M{_n(cx + 2)} {_n(cy - 12)}Q{_n(cx + 10)} {_n(cy - 16)} {_n(cx + 9)} {_n(cy - 9)}Z",
+                fill=DARK,
+                stroke=INK,
+                stroke_width=1,
+            )
+        )
+    elif name == "ball":
+        out.append(_circle(cx, cy, 11.5, **kw))
+        out.append(_path(f"M{_n(cx - 11)} {_n(cy)}H{_n(cx + 11)}", stroke=INK, stroke_width=1.4))
+        out.append(
+            _path(
+                f"M{_n(cx)} {_n(cy - 11.5)}Q{_n(cx + 8)} {_n(cy)} {_n(cx)} {_n(cy + 11.5)}",
+                stroke=INK,
+                stroke_width=1.4,
+            )
+        )
+    elif name == "cat":
+        out.append(_poly([(cx - 10, cy - 1), (cx - 9, cy - 13), (cx - 2, cy - 7)], True, **kw))
+        out.append(_poly([(cx + 10, cy - 1), (cx + 9, cy - 13), (cx + 2, cy - 7)], True, **kw))
+        out.append(_circle(cx, cy + 2, 10.5, **kw))
+        out.append(_circle(cx - 4, cy, 1.4, **dot))
+        out.append(_circle(cx + 4, cy, 1.4, **dot))
+        out.append(_poly([(cx - 1.5, cy + 3), (cx + 1.5, cy + 3), (cx, cy + 5)], True, **dot))
+        for sgn in (-1, 1):
+            out.append(_line(cx + sgn * 4, cy + 5, cx + sgn * 13, cy + 3, stroke=INK, stroke_width=1))
+            out.append(_line(cx + sgn * 4, cy + 7, cx + sgn * 13, cy + 8, stroke=INK, stroke_width=1))
+    elif name == "dog":
+        out.append(_el("ellipse", cx=cx - 11, cy=cy + 1, rx=4, ry=8, fill=DARK, stroke=INK, stroke_width=1.4))
+        out.append(_el("ellipse", cx=cx + 11, cy=cy + 1, rx=4, ry=8, fill=DARK, stroke=INK, stroke_width=1.4))
+        out.append(_el("ellipse", cx=cx, cy=cy, rx=9, ry=10.5, **kw))
+        out.append(_circle(cx - 3.5, cy - 2, 1.4, **dot))
+        out.append(_circle(cx + 3.5, cy - 2, 1.4, **dot))
+        out.append(_el("ellipse", cx=cx, cy=cy + 4, rx=3, ry=2.2, **dot))
+    elif name == "fish":
+        out.append(_poly([(cx + 6, cy), (cx + 14, cy - 7), (cx + 14, cy + 7)], True, **kw))
+        out.append(_el("ellipse", cx=cx - 2, cy=cy, rx=11, ry=7.5, **kw))
+        out.append(_circle(cx - 7, cy - 2, 1.5, **dot))
+    elif name == "flower":
+        out.append(_line(cx, cy + 3, cx, cy + 14, stroke=INK, stroke_width=1.8))
+        for k in range(5):
+            px, py = _clock_pt(cx, cy - 3, 7.5, k * 72)
+            out.append(_circle(px, py, 4.6, **kw))
+        out.append(_circle(cx, cy - 3, 3.4, fill=INK, stroke=INK, stroke_width=1))
+    elif name == "star":
+        out.append(_poly(_star(cx, cy + 1, 14), True, stroke_linejoin="round", **kw))
+    else:  # car
+        out.append(
+            _poly(
+                [
+                    (cx - 11, cy + 4),
+                    (cx - 9, cy - 3),
+                    (cx - 4, cy - 8),
+                    (cx + 5, cy - 8),
+                    (cx + 9, cy - 3),
+                    (cx + 13, cy - 2),
+                    (cx + 13, cy + 4),
+                ],
+                True,
+                stroke_linejoin="round",
+                **kw,
+            )
+        )
+        out.append(_circle(cx - 6, cy + 6, 3.6, fill=INK, stroke=INK, stroke_width=1))
+        out.append(_circle(cx + 7, cy + 6, 3.6, fill=INK, stroke=INK, stroke_width=1))
+    return "".join(out)
+
+
+def _tally_marks(x: float, y: float, count: int, gap: float, height: float) -> str:
+    """``count`` tally marks from (x, y), the top left; each full gate of five has a diagonal across four upright strokes."""
+    out = []
+    gate_w = 3 * gap
+    pitch = gate_w + 0.9 * gap + 8
+    for g in range(count // 5 + (1 if count % 5 else 0)):
+        gx = x + g * pitch
+        strokes = min(4, count - g * 5)
+        for k in range(strokes):
+            out.append(
+                _line(gx + k * gap, y, gx + k * gap, y + height, stroke=INK, stroke_width=2.2, stroke_linecap="round")
+            )
+        if count - g * 5 >= 5:
+            out.append(
+                _line(
+                    gx - 4,
+                    y + height * 0.82,
+                    gx + gate_w + 4,
+                    y + height * 0.18,
+                    stroke=INK,
+                    stroke_width=2.2,
+                    stroke_linecap="round",
+                )
+            )
+    return "".join(out)
+
+
+def _tally(s: dict, ids: _Ids) -> Body:
+    rows, items = s["rows"], s["items"]
+    out: list[str] = []
+    y = 4.0
+    if items:
+        w, h, x0, y0 = 330.0, 190.0, 35.0, 28.0
+        for it in items:
+            cx, cy = x0 + it["at"][0] * w, y0 + it["at"][1] * h
+            out.append(_icon(it["label"], cx, cy))
+            out.append(_text(cx, cy + 22, it["label"], size=11))
+        y = y0 + h + 36
+        if rows:
+            out.append(_line(16, y - 12, CANVAS - 16, y - 12, stroke=GRID, stroke_width=1))
+    if rows:
+        pics = s.get("pictures")
+        left = min(14 + max(_text_w(r["label"], 13) for r in rows) + 10, 120.0)
+        gap = 6.5 if pics else 8.0
+        pitch = 3 * gap + 0.9 * gap + 8
+        widest = max(r["count"] for r in rows)
+        tally_w = max(1, -(-widest // 5)) * pitch
+        row_h, mark_h = 34.0, 22.0
+        x_tally = left + 8
+        x_count = x_tally + max(tally_w, 50.0) + 8
+        x_pics = (x_count + 40) if s["show_counts"] else x_count
+        head = y + 6
+        out.append(_text(x_tally, head, "Tally", size=12, anchor="start", weight="bold"))
+        if s["show_counts"]:
+            out.append(_text(x_count + 14, head, "Count", size=12, weight="bold"))
+        if pics:
+            out.append(_text(x_pics, head, "Pictures", size=12, anchor="start", weight="bold"))
+        top = head + 14
+        out.append(_line(14, top, CANVAS - 14, top, stroke=INK, stroke_width=1.3))
+        out.append(_line(left, top, left, top + row_h * len(rows), stroke=INK, stroke_width=1.3))
+        cell = 15.0
+        for i, r in enumerate(rows):
+            cy = top + row_h * i + row_h / 2
+            out.append(
+                _line(14, top + row_h * (i + 1), CANVAS - 14, top + row_h * (i + 1), stroke=GRID, stroke_width=0.8)
+            )
+            out.append(_text(left - 8, cy, r["label"], size=13, anchor="end"))
+            out.append(_tally_marks(x_tally, cy - mark_h / 2, r["count"], gap, mark_h))
+            if s["show_counts"]:
+                out.append(_text(x_count + 14, cy, r["count"], size=14))
+            if pics:
+                for k in range(pics["counts"][i]):
+                    out.append(
+                        _symbol_shape(
+                            pics["symbol"],
+                            x_pics + k * (cell + 2),
+                            cy - cell / 2,
+                            cell,
+                            cell,
+                            fill=DARK,
+                            stroke=INK,
+                            stroke_width=1.2,
+                        )
+                    )
+        y = top + row_h * len(rows) + 6
+        if pics:
+            y += 16
+            out.append(
+                _symbol_shape(pics["symbol"], x_pics, y - cell / 2, cell, cell, fill=DARK, stroke=INK, stroke_width=1.2)
+            )
+            out.append(_text(x_pics + cell + 8, y, picture_key_text(s), size=13, anchor="start"))
+            y += cell / 2
+        y += 8
+    return "".join(out), y
+
+
+# ---------------------------------------------------------------- calendar
+
+_CAL_LEFT, _CAL_CELL_W, _CAL_CELL_H = 25.0, 50.0, 40.0
+
+
+def _star_poly(cx: float, cy: float, r: float) -> str:
+    pts = []
+    for i in range(10):
+        rad = r if i % 2 == 0 else r * 0.45
+        pts.append(_pt(cx, cy, rad, 90 + 36 * i))
+    return _poly(pts, closed=True, fill=INK, stroke=INK, stroke_width=0.5)
+
+
+def _cal_label(x: float, y: float, label: str) -> str:
+    """A short event name squeezed to fit a square (the text is escaped here)."""
+    natural = 4.6 * len(label)
+    return _el(
+        "text",
+        escape(_clean_text(label)),
+        x=x,
+        y=y,
+        dy=".35em",
+        font_size=8.5,
+        text_anchor="middle",
+        font_weight="bold",
+        fill=INK,
+        stroke="none",
+        textLength=_n(min(natural, _CAL_CELL_W - 6)),
+        lengthAdjust="spacingAndGlyphs",
+    )
+
+
+def _calendar(s: dict, ids: _Ids) -> Body:
+    from mathgen.figure_kinds import calendar as cal
+
+    title = cal.month_name(s) + (f" {s['year']}" if s["show_year"] else "")
+    out = [_text(CANVAS / 2, 16, title, size=17, weight="bold")]
+    for c, name in enumerate(cal.week_order(s["week_start"])):
+        out.append(_text(_CAL_LEFT + (c + 0.5) * _CAL_CELL_W, 40, cal.heading(name), size=11, weight="bold"))
+    top = 52.0
+    marks = {m["day"]: m for m in s["marks"]}
+    for day in range(1, s["days"] + 1):
+        r, c = cal.row_of(s, day), cal.column_of(s, day)
+        x, y = _CAL_LEFT + c * _CAL_CELL_W, top + r * _CAL_CELL_H
+        m = marks.get(day)
+        shade = m is not None and m["style"] == "shade"
+        out.append(_rect(x, y, _CAL_CELL_W, _CAL_CELL_H, fill=MID if shade else PAPER, stroke=INK, stroke_width=1))
+        cx = x + _CAL_CELL_W / 2
+        num_y = y + (15 if m and m.get("label") else 20)
+        out.append(_text(cx, num_y, day, size=13))
+        if m is None:
+            continue
+        if m["style"] == "ring":
+            out.append(_circle(cx, num_y, 11, stroke=INK, stroke_width=2.5))
+        elif m["style"] == "star":
+            out.append(_star_poly(x + _CAL_CELL_W - 9, y + 9, 6.5))
+        if m.get("label"):
+            out.append(_cal_label(cx, y + _CAL_CELL_H - 9, m["label"]))
+    return "".join(out), top + cal.rows(s) * _CAL_CELL_H + 10
+
+
+# ---------------------------------------------------------------- day strip
+
+
+def _card_icon(name: str, cx: float, cy: float) -> str:
+    """A simple monochrome icon about 48 units square, centred on (cx, cy)."""
+
+    def p(x: float, y: float) -> tuple[float, float]:
+        return cx + x, cy + y
+
+    def seg(x1: float, y1: float, x2: float, y2: float, w: float = 2.5) -> str:
+        return _line(cx + x1, cy + y1, cx + x2, cy + y2, stroke=INK, stroke_width=w, stroke_linecap="round")
+
+    def box(x: float, y: float, w: float, h: float, fill: str = LIGHT, rx: float = 0) -> str:
+        return _rect(cx + x, cy + y, w, h, rx=rx, fill=fill, stroke=INK, stroke_width=2)
+
+    def path(cmds: list[tuple], fill: str = "none", w: float = 2) -> str:
+        parts = []
+        for cmd, *args in cmds:
+            if cmd == "A":
+                rx, ry, rot, large, sweep, x, y = args
+                parts.append(f"A {rx} {ry} {rot} {large} {sweep} {_n(cx + x)} {_n(cy + y)}")
+            elif cmd == "Z":
+                parts.append("Z")
+            else:
+                parts.append(cmd + " " + " ".join(f"{_n(cx + a)} {_n(cy + b)}" for a, b in zip(args[::2], args[1::2])))
+        return _path(" ".join(parts), fill=fill, stroke=INK, stroke_width=w, stroke_linecap="round")
+
+    if name == "sunrise":
+        rays = "".join(
+            _line(
+                *_pt(cx, cy + 10, 15, a), *_pt(cx, cy + 10, 22, a), stroke=INK, stroke_width=2.5, stroke_linecap="round"
+            )
+            for a in (20, 55, 90, 125, 160)
+        )
+        return path([("M", -12, 10), ("A", 12, 12, 0, 0, 1, 12, 10), ("Z",)], fill=LIGHT) + seg(-22, 10, 22, 10) + rays
+    if name == "moon":
+        return (
+            _circle(cx - 3, cy, 17, fill=INK, stroke=INK, stroke_width=1)
+            + _circle(cx + 6, cy - 5, 14, fill=PAPER, stroke="none")
+            + _star_poly(cx + 17, cy - 14, 5)
+            + _star_poly(cx + 20, cy + 6, 3.5)
+        )
+    if name == "wake_up":
+        return (
+            _circle(cx - 11, cy - 14, 5, fill=INK, stroke=INK)
+            + _circle(cx + 11, cy - 14, 5, fill=INK, stroke=INK)
+            + seg(-9, 15, -13, 21)
+            + seg(9, 15, 13, 21)
+            + _circle(cx, cy + 2, 14, fill=LIGHT, stroke=INK, stroke_width=2.5)
+            + seg(0, 2, 0, -8, 2)
+            + seg(0, 2, 7, 2, 2)
+        )
+    if name == "breakfast":
+        steam = "".join(path([("M", x, -4), ("Q", x + 4, -9, x, -14)], w=1.8) for x in (-9, 0, 9))
+        return (
+            steam
+            + path([("M", -18, 2), ("A", 18, 18, 0, 0, 0, 18, 2), ("Z",)], fill=LIGHT, w=2.5)
+            + seg(-12, 19, 12, 19)
+        )
+    if name == "school":
+        return (
+            box(-18, -6, 36, 24)
+            + _poly([p(-22, -6), p(0, -22), p(22, -6)], closed=True, fill=MID, stroke=INK, stroke_width=2)
+            + _rect(cx - 5, cy + 6, 10, 12, fill=INK, stroke=INK)
+            + _rect(cx - 15, cy - 1, 6, 6, fill=PAPER, stroke=INK, stroke_width=1.5)
+            + _rect(cx + 9, cy - 1, 6, 6, fill=PAPER, stroke=INK, stroke_width=1.5)
+        )
+    if name == "lunch":
+        return (
+            path([("M", -8, -6), ("L", -8, -13), ("L", 8, -13), ("L", 8, -6)], w=2.5)
+            + box(-19, -6, 38, 25, rx=3)
+            + seg(-19, 5, 19, 5, 2)
+            + _circle(cx, cy + 5, 3, fill=INK, stroke=INK)
+        )
+    if name == "play":
+        return (
+            _circle(cx, cy, 18, fill=LIGHT, stroke=INK, stroke_width=2.5)
+            + seg(-18, 0, 18, 0, 1.8)
+            + seg(0, -18, 0, 18, 1.8)
+            + path([("M", -12, -13), ("Q", -4, 0, -12, 13)], w=1.8)
+            + path([("M", 12, -13), ("Q", 4, 0, 12, 13)], w=1.8)
+        )
+    if name == "dinner":
+        return (
+            seg(-21, -14, -21, -5, 2)
+            + seg(-17, -14, -17, -5, 2)
+            + seg(-21, -5, -17, -5, 2)
+            + seg(-19, -5, -19, 18, 2.5)
+            + _circle(cx - 1, cy + 2, 12, fill=PAPER, stroke=INK, stroke_width=2.5)
+            + _circle(cx - 1, cy + 2, 6.5, fill=LIGHT, stroke=INK, stroke_width=1.5)
+            + _poly([p(17, -14), p(22, -8), p(22, 3), p(17, 3)], closed=True, fill=MID, stroke=INK, stroke_width=1.8)
+            + seg(17, 3, 17, 18, 2.5)
+        )
+    if name == "bath":
+        return (
+            _circle(cx - 6, cy - 9, 5, fill=PAPER, stroke=INK, stroke_width=1.8)
+            + _circle(cx + 5, cy - 15, 4, fill=PAPER, stroke=INK, stroke_width=1.8)
+            + _circle(cx + 11, cy - 7, 3, fill=PAPER, stroke=INK, stroke_width=1.8)
+            + path(
+                [
+                    ("M", -22, 0),
+                    ("L", 22, 0),
+                    ("L", 22, 6),
+                    ("Q", 22, 17, 11, 17),
+                    ("L", -11, 17),
+                    ("Q", -22, 17, -22, 6),
+                    ("Z",),
+                ],
+                fill=LIGHT,
+                w=2.5,
+            )
+            + seg(-14, 17, -16, 22)
+            + seg(14, 17, 16, 22)
+        )
+    if name == "bed":
+        return (
+            _rect(cx - 24, cy - 12, 5, 32, fill=INK, stroke=INK)
+            + box(-19, 0, 42, 10)
+            + box(-16, -6, 13, 7, fill=PAPER, rx=3)
+            + _rect(cx - 1, cy - 5, 24, 6, fill=MID, stroke=INK, stroke_width=1.8)
+            + seg(21, 10, 21, 20)
+            + seg(-19, 20, 21, 20, 1.5)
+        )
+    raise ValueError(f"no icon named {name!r}")
+
+
+_STRIP_CARD_W, _STRIP_GAP, _STRIP_CARD_H = 58.0, 6.0, 82.0
+
+
+def _day_strip(s: dict, ids: _Ids) -> Body:
+    cards = s["cards"]
+    total = len(cards) * _STRIP_CARD_W + (len(cards) - 1) * _STRIP_GAP
+    left = (CANVAS - total) / 2
+    top = 40.0 if s["numbered"] else 10.0
+    out = []
+    for i, c in enumerate(cards):
+        x = left + i * (_STRIP_CARD_W + _STRIP_GAP)
+        cx = x + _STRIP_CARD_W / 2
+        if s["numbered"]:
+            out.append(_circle(cx, 20, 12, fill=PAPER, stroke=INK, stroke_width=2))
+            out.append(_text(cx, 20, i + 1, size=14, weight="bold"))
+        out.append(_rect(x, top, _STRIP_CARD_W, _STRIP_CARD_H, rx=7, fill=PAPER, stroke=INK, stroke_width=2))
+        out.append(_card_icon(c["icon"], cx, top + 34))
+        out.append(_text(cx, top + _STRIP_CARD_H - 11, c["label"], size=10.5, weight="bold"))
+    return "".join(out), top + _STRIP_CARD_H + 10
+
+
+# ---------------------------------------------------------------- compare_picture
+
+
+def _cp_object(style: str, x0: float, y: float, w: float, h: float) -> str:
+    """One object for a length comparison, ``w`` wide and ``h`` tall with its top at ``y``."""
+    x1, mid = x0 + w, y + h / 2
+    base = dict(fill=PAPER, stroke=INK, stroke_width=1.6)
+    if style == "pencil":
+        tip = min(10.0, w / 2)
+        return (
+            _poly([(x0, y), (x1 - tip, y), (x1, mid), (x1 - tip, y + h), (x0, y + h)], True, **base)
+            + _line(x0 + 7, y, x0 + 7, y + h, stroke=INK, stroke_width=1.2)
+            + _line(x1 - tip, y, x1 - tip, y + h, stroke=INK, stroke_width=1.2)
+        )
+    if style == "ribbon":
+        notch = min(7.0, w / 3)
+        return _poly([(x0, y), (x1, y), (x1 - notch, mid), (x1, y + h), (x0, y + h)], True, **base) + _line(
+            x0 + 4, mid, x1 - notch - 4, mid, stroke=DARK, stroke_width=0.8, stroke_dasharray="3 2"
+        )
+    if style == "rope":
+        out = [_rect(x0, y, w, h, rx=3, **base)]
+        k = 5.0
+        while x0 + k + h * 0.5 < x1 - 1:
+            out.append(_line(x0 + k, y + h, x0 + k + h * 0.5, y, stroke=DARK, stroke_width=1))
+            k += 6
+        return "".join(out)
+    if style == "snake":
+        pts = []
+        steps = max(8, int(w / 4))
+        for i in range(steps + 1):
+            px = x0 + w * 0.97 * i / steps
+            pts.append((px, mid + math.sin(i * 1.3) * h * 0.35))
+        return (
+            _poly(pts, False, stroke=INK, stroke_width=h * 0.5, stroke_linecap="round", stroke_linejoin="round")
+            + _poly(pts, False, stroke=PAPER, stroke_width=h * 0.5 - 3, stroke_linecap="round", stroke_linejoin="round")
+            + _circle(pts[-1][0], pts[-1][1], h * 0.32, fill=INK, stroke="none")
+        )
+    if style == "train":
+        out = [_rect(x0, y, w, h - 4, rx=2, **base)]
+        n = max(1, int(w // 24))
+        for i in range(1, n):
+            out.append(_line(x0 + w * i / n, y, x0 + w * i / n, y + h - 4, stroke=INK, stroke_width=1.2))
+        for cx in (x0 + 8, x1 - 8):
+            out.append(_circle(cx, y + h - 3, 3, fill=INK, stroke="none"))
+        return "".join(out)
+    return _rect(x0, y, w, h, rx=2, **base)
+
+
+def _cp_unit(style: str, x: float, y: float, w: float) -> str:
+    """One informal unit (a paper clip or a block), ``w`` wide, drawn with a little gap either side."""
+    x += 1
+    w -= 2
+    if style == "paper_clip":
+        return _rect(x, y + 1, w, 8, rx=4, fill=PAPER, stroke=INK, stroke_width=1.3) + _rect(
+            x + 3, y + 3.5, w - 6, 3, rx=1.5, fill="none", stroke=DARK, stroke_width=1
+        )
+    return _rect(x, y, w, 10, rx=1.5, fill=LIGHT, stroke=INK, stroke_width=1.3)
+
+
+def _compare_lengths(s: dict) -> Body:
+    objects = s["objects"]
+    unit = s.get("unit")
+    left = 70.0
+    extent = max(o["start"] + o["length"] for o in objects)
+    u = min(30.0, (CANVAS - left - 14) / max(extent, 4))
+    h = 16.0
+    pitch = 46.0 if unit else 34.0
+    out = []
+    y = 14.0
+    top = y - 6
+    for o in objects:
+        x0 = left + o["start"] * u
+        out.append(_text(left - 8 if s["lined_up"] else x0 - 8, y + h / 2, o["label"], size=12, anchor="end"))
+        out.append(_cp_object(o["style"], x0, y, o["length"] * u, h))
+        if unit:
+            for i in range(o["units"]):
+                out.append(_cp_unit(unit["style"], x0 + i * u, y + h + 4, u))
+        y += pitch
+    if s["lined_up"]:
+        out.append(
+            _line(
+                left,
+                top,
+                left,
+                y - pitch + h + (24 if unit else 8),
+                stroke=DARK,
+                stroke_width=1,
+                stroke_dasharray="4 3",
+            )
+        )
+    return "".join(out), y + 2
+
+
+_BAL_SIZE = {1: 14, 2: 20, 3: 28}
+
+
+def _cp_box(x: float, bottom: float, label: str, size: int) -> tuple[str, float]:
+    """An object sitting on a pan with its bottom edge at ``bottom``; (markup, drawn width)."""
+    h = _BAL_SIZE[size]
+    w = min(66.0, max(30.0, len(label) * 5.6 + 8) + 4 * (size - 1))
+    return (
+        _rect(x, bottom - h - 4, w, h + 4, rx=3, fill=PAPER, stroke=INK, stroke_width=1.5)
+        + _text(x + w / 2, bottom - (h + 4) / 2, label, size=9.5),
+        w,
+    )
+
+
+def _cp_pan_load(p: dict, cx: float, bottom: float) -> str:
+    """The load on one pan, centred on ``cx``."""
+    gap = 6.0
+    items: list[tuple[str, int] | None] = [(o["label"], o["size"]) for o in p["objects"]]
+    widths = [min(66.0, max(30.0, len(lbl) * 5.6 + 8) + 4 * (sz - 1)) for lbl, sz in items]
+    block_cols = min(4, p["blocks"])
+    block_w = block_cols * 13.0
+    total = sum(widths) + gap * max(0, len(widths) - 1) + (gap if widths and block_cols else 0) + block_w
+    x = cx - total / 2
+    out = []
+    for (lbl, sz), w in zip(items, widths):
+        markup, _ = _cp_box(x, bottom, lbl, sz)
+        out.append(markup)
+        x += w + gap
+    for i in range(p["blocks"]):
+        col, row = i % 4, i // 4
+        out.append(
+            _rect(x + col * 13, bottom - 13 * (row + 1) - 1, 12, 12, fill=LIGHT, stroke=INK, stroke_width=1.3)
+            + _line(
+                x + col * 13 + 2,
+                bottom - 13 * (row + 1) + 5,
+                x + col * 13 + 10,
+                bottom - 13 * (row + 1) + 5,
+                stroke=DARK,
+                stroke_width=0.8,
+            )
+        )
+    return "".join(out)
+
+
+def _cp_balance(b: dict, cx: float, half: float, pan_half: float, top: float) -> tuple[str, float]:
+    """One pan balance centred on ``cx``; (markup, bottom y). The heavier pan hangs lower."""
+    angle = {"left_down": 11.0, "right_down": -11.0, "level": 0.0}[b["tilt"]]
+    dy = half * math.sin(math.radians(angle))
+    dx = half * math.cos(math.radians(angle))
+    pivot = top + 24
+    ends = {"left": (cx - dx, pivot + dy), "right": (cx + dx, pivot - dy)}
+    string = 46.0
+    low = max(e[1] for e in ends.values()) + string
+    base_y = low + 18
+    out = [
+        _line(cx, pivot, cx, base_y, stroke=INK, stroke_width=3),
+        _rect(cx - 26, base_y, 52, 7, rx=2, fill=LIGHT, stroke=INK, stroke_width=1.5),
+        _line(
+            ends["left"][0],
+            ends["left"][1],
+            ends["right"][0],
+            ends["right"][1],
+            stroke=INK,
+            stroke_width=3.5,
+            stroke_linecap="round",
+        ),
+        _circle(cx, pivot, 4, fill=PAPER, stroke=INK, stroke_width=1.8),
+    ]
+    for side in ("left", "right"):
+        ex, ey = ends[side]
+        py = ey + string
+        out.append(_line(ex, ey, ex - pan_half, py, stroke=INK, stroke_width=1))
+        out.append(_line(ex, ey, ex + pan_half, py, stroke=INK, stroke_width=1))
+        out.append(
+            _path(
+                f"M{_n(ex - pan_half)},{_n(py)} Q{_n(ex)},{_n(py + 11)} {_n(ex + pan_half)},{_n(py)}",
+                fill=LIGHT,
+                stroke=INK,
+                stroke_width=1.8,
+            )
+        )
+        out.append(_cp_pan_load(b[side], ex, py - 1))
+    return "".join(out), base_y + 8
+
+
+def _compare_balance(s: dict) -> Body:
+    bals = s["balances"]
+    if len(bals) == 1:
+        body, bottom = _cp_balance(bals[0], CANVAS / 2, 108, 62, 44)
+        return body, bottom + 8
+    out, bottom = [], 0.0
+    for b, cx in zip(bals, (100, 300)):
+        body, bt = _cp_balance(b, cx, 58, 34, 44)
+        out.append(body)
+        bottom = max(bottom, bt)
+    return "".join(out), bottom + 8
+
+
+def _cp_container(c: dict, cx: float, base: float) -> str:
+    from mathgen.figure_kinds.compare import container_size
+
+    w, h = container_size(c["capacity"], c["form"])
+    shape = c["shape"]
+    flare = {"cup": 1.18, "bowl": 1.5, "jug": 1.0, "bottle": 1.0}[shape]
+    wb, wt = w / ((1 + flare) / 2), w / ((1 + flare) / 2) * flare  # bottom and top widths, mean width w
+    x0b, x1b = cx - wb / 2, cx + wb / 2
+    x0t, x1t = cx - wt / 2, cx + wt / 2
+    top = base - h
+    frac = c["fill"] / c["capacity"]
+    out = []
+    if c["fill"]:
+        ly = base - h * frac
+        wl = wb + (wt - wb) * frac
+        out.append(
+            _poly(
+                [(cx - wb / 2, base), (cx + wb / 2, base), (cx + wl / 2, ly), (cx - wl / 2, ly)],
+                True,
+                fill=LIGHT,
+                stroke="none",
+            )
+        )
+        if c["fill"] < c["capacity"]:
+            out.append(_line(cx - wl / 2, ly, cx + wl / 2, ly, stroke=INK, stroke_width=1.6))
+    outline = dict(fill="none", stroke=INK, stroke_width=2, stroke_linejoin="round")
+    out.append(_poly([(x0t, top), (x0b, base), (x1b, base), (x1t, top)], False, **outline))
+    if shape == "jug":
+        hx = x1b + (x1t - x1b) / 2
+        out.append(
+            _path(
+                f"M{_n(hx)},{_n(top + h * 0.2)} q{_n(14)},0 {_n(14)},{_n(h * 0.25)} t{_n(-14)},{_n(h * 0.25)}",
+                fill="none",
+                stroke=INK,
+                stroke_width=2,
+            )
+        )
+        out.append(_poly([(x0t, top), (x0t - 7, top - 5), (x0t + 6, top)], False, stroke=INK, stroke_width=2))
+    if shape == "bottle":
+        nw = min(wt * 0.4, 16)
+        out.append(
+            _poly(
+                [(cx - nw / 2, top - 16), (cx - nw / 2, top), (cx + nw / 2, top), (cx + nw / 2, top - 16)],
+                False,
+                **outline,
+            )
+        )
+        out.append(_line(cx - nw / 2 - 2, top - 16, cx + nw / 2 + 2, top - 16, stroke=INK, stroke_width=2.5))
+    if shape in ("cup", "bowl"):
+        out.append(_line(x0t - 2, top, x1t + 2, top, stroke=INK, stroke_width=2.5))
+    return "".join(out)
+
+
+def _compare_containers(s: dict) -> Body:
+    from mathgen.figure_kinds.compare import container_size
+
+    cs = s["containers"]
+    slot = CANVAS / len(cs)
+    tallest = max(container_size(c["capacity"], c["form"])[1] for c in cs)
+    base = 22 + tallest + (16 if any(c["shape"] == "bottle" for c in cs) else 0)
+    out = []
+    bottom = base
+    for i, c in enumerate(cs):
+        cx = slot * (i + 0.5)
+        out.append(_cp_container(c, cx, base))
+        out.append(_text(cx, base + 14, c["label"], size=12))
+        if c.get("cups"):
+            n = c["cups"]
+            for k in range(n):
+                col, row = k % 4, k // 4
+                px = cx - min(n, 4) * 11 / 2 + col * 11
+                py = base + 28 + row * 17
+                out.append(
+                    _poly(
+                        [(px, py), (px + 10, py), (px + 8, py + 13), (px + 2, py + 13)],
+                        True,
+                        fill=LIGHT,
+                        stroke=INK,
+                        stroke_width=1.2,
+                    )
+                )
+            bottom = max(bottom, base + 28 + ((n - 1) // 4) * 17 + 14)
+    return "".join(out), max(bottom, base + 14) + 12
+
+
+def _compare_picture(s: dict, ids: _Ids) -> Body:
+    return {"lengths": _compare_lengths, "balance": _compare_balance, "containers": _compare_containers}[s["layout"]](s)
+
+
 # ---------------------------------------------------------------- grid drawing
 #
 # A map, plan, shape or stack of cubes drawn on a grid of unit cells (specs in `mathgen.figure_kinds.grid`). Every
@@ -2131,11 +3058,14 @@ def _grid_drawing(s: dict, ids: _Ids) -> Body:
 
 _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "bar_chart": _bar_chart,
+    "calendar": _calendar,
+    "day_strip": _day_strip,
     "base_ten": _base_ten,
     "box_plot": _box_plot,
     "cartesian": _cartesian,
     "clock": _clock,
     "clock_set": _clock_set,
+    "compare_picture": _compare_picture,
     "counters": _counters,
     "diagram": _diagram,
     "dot_plot": _dot_plot,
@@ -2145,10 +3075,13 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "hundred_chart": _hundred_chart,
     "money": _money,
     "number_line": _number_line,
+    "pattern_strip": _pattern_strip,
     "picture_graph": _picture_graph,
     "pie_chart": _pie_chart,
     "protractor": _protractor,
     "scale": _scale,
+    "shape_scene": _shape_scene,
+    "tally": _tally,
     "tree_diagram": _tree,
     "unit_strip": _unit_strip,
     "venn": _venn,
