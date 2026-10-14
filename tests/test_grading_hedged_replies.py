@@ -59,3 +59,25 @@ def test_a_word_the_answer_uses_is_not_a_hedge():
         distractors=["Suitable", "Cannot tell"],
     )
     assert grade("mcq", q, "Not suitable").correct
+
+
+def _midpoint():
+    return Question(
+        topic="t",
+        level=0,
+        seed=1,
+        text="Find the midpoint M of A(1, 2) and B(3, 4).",
+        latex="",
+        answer={"x": 2, "y": 3},
+        answer_text="(2, 3)",
+    )
+
+
+@pytest.mark.parametrize("reply", ["M(2, 3)", "M (2, 3)", "(2, 3)", "M = (2, 3)"])
+def test_a_point_written_with_the_name_the_question_gives_it_is_correct(reply):
+    assert grade("pair", _midpoint(), reply).correct
+
+
+@pytest.mark.parametrize("reply", ["f(2, 3)", "N(2, 3)", "sqrt((2, 3))", "(2, 3)!"])
+def test_a_function_or_an_unnamed_point_around_a_pair_is_wrong(reply):
+    assert not grade("pair", _midpoint(), reply).correct

@@ -1228,6 +1228,21 @@ def _component_form(given: str, count: int) -> str | None:
     return "(" + ", ".join(coefficients.get(unit, "0") for unit in units) + ")"
 
 
+# "M(4, 3)": a point written with its name, as the question names it. A capital letter (with a prime or a digit)
+# right before the bracket is a point's name, not a function, when the question uses that name on its own.
+_POINT_NAME_RE = re.compile(r"^\s*([A-Z](?:['′’]|\d)?)[ \t]*(?=\()")
+
+
+def _without_point_name(question, given: str) -> str:
+    match = _POINT_NAME_RE.match(given or "")
+    if match is None:
+        return given
+    name = re.escape(match.group(1))
+    if re.search(rf"(?<![\w'′’]){name}(?![\w'′’])", getattr(question, "text", "") or ""):
+        return given[match.end() :]
+    return given
+
+
 @_multi_part_aware
 def grade_pair(question, given: str) -> GradeResult:
     """Unlike `check_answer`'s dict branch (which accepts the two values in
@@ -1246,7 +1261,9 @@ def grade_pair(question, given: str) -> GradeResult:
     expected_values = list(answer.values())
     given = _component_form(given, len(expected_values)) or given
     given_values = _normalised_values(given)
-    if _reply_negates_the_answer(question, given) or _reply_is_an_expression(question, given):
+    if _reply_negates_the_answer(question, given) or _reply_is_an_expression(
+        question, _without_point_name(question, given)
+    ):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_values)
     equation_verdict = _equation_pair_matches(canonical, given)
     if equation_verdict is not None:
