@@ -1,0 +1,34 @@
+id: ey-order-by-two-balances
+name: Order three objects by mass using two balances
+domain: measurement
+year_level: ['1']
+naplan_domain: [measurement]
+learner_band: early
+description: Read two pan balances that share one object to work out which of three objects is heaviest or lightest, and to put all three in order from lightest to heaviest.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [f10-compare-measurement-attributes]
+answer: mcq
+sources:
+- topic: order_by_two_balances
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: order_by_two_balances
+  difficulty: medium
+  stages: [3, 4]
+- topic: order_by_two_balances
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: picks-the-shared-object
+  description: Picks the object that is on both balances, because it is the one that stands out, rather than reading how each balance tips.
+- id: reads-one-balance-only
+  description: Answers from a single balance and does not use the second to place the third object.
+- id: bigger-is-heavier
+  description: Orders the objects by how big they are drawn instead of by how the balances tip.
+- id: reverses-the-order
+  description: Lists the objects from heaviest to lightest when asked for lightest to heaviest.
+tags: [acara-f10-v9, early, measurement, mass, indirect-comparison, ordering, balance, ac9m1m01, age-6, visual]

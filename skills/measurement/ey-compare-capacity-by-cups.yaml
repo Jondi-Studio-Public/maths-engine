@@ -1,0 +1,34 @@
+id: ey-compare-capacity-by-cups
+name: Compare capacity by pouring into small cups
+domain: measurement
+year_level: ['1']
+naplan_domain: [measurement]
+learner_band: early
+description: Compare containers of different shapes by counting how many small cups each one fills when poured out, saying which holds more, which holds less and which two hold the same.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [f10-compare-measurement-attributes]
+answer: mcq
+sources:
+- topic: compare_capacity_by_cups
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: compare_capacity_by_cups
+  difficulty: medium
+  stages: [3, 4]
+- topic: compare_capacity_by_cups
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: taller-holds-more
+  description: Picks the tallest container instead of counting the cups it filled.
+- id: same-height-same-capacity
+  description: Says two containers hold the same because they stand equally tall, when they fill different numbers of cups.
+- id: reads-least-as-most
+  description: Answers the opposite question, giving the container that holds the most when asked for the least or the reverse.
+- id: miscounts-the-cups
+  description: Counts one cup too many or too few, so two close containers swap places.
+tags: [acara-f10-v9, early, measurement, capacity, indirect-comparison, informal-units, ac9m1m01, age-6, visual]
