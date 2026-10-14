@@ -2554,9 +2554,9 @@
 {"answer": "9.25", "id": "f10-rational-operation-strategy/hard/0/fca30dc64788", "text": "Calculate: (-3/4) + 12 + (-9) - (-7)"}
 {"answer": "18.25", "id": "f10-rational-operation-strategy/hard/1/02c3d4d5b7e8", "text": "Calculate: 9 + 3 - 3/4 - (-7)"}
 {"answer": "-10.81", "id": "f10-rational-operation-strategy/hard/2/5d6cc840f855", "text": "Calculate: 3/20 - (-1) - 12 - (-1/25)"}
-{"answer": "1.32", "id": "f10-rational-operation-strategy/medium/0/551b7d8ac69d", "text": "Calculate: (-3/50) + 3/5 + (-1)"}
-{"answer": "-14.88", "id": "f10-rational-operation-strategy/medium/1/efad9b4af57f", "text": "Calculate: (-10) - (-1/10) - (-6/5)"}
-{"answer": "1.60", "id": "f10-rational-operation-strategy/medium/2/7b5ebd3d1a46", "text": "Calculate: 7/10 + (-3/10) + (-39/10)"}
+{"answer": "1.32", "id": "f10-rational-operation-strategy/medium/0/e19dc1b8462b", "text": "Calculate: 1/50 + (-1/10) + 7/5"}
+{"answer": "-14.88", "id": "f10-rational-operation-strategy/medium/1/6cae58f2a4af", "text": "Calculate: (-14) - 2/25 - 4/5"}
+{"answer": "1.60", "id": "f10-rational-operation-strategy/medium/2/ef0efda0b895", "text": "Calculate: 47/10 + 3/2 + (-23/5)"}
 {"answer": "8", "id": "f10-rational-percentage-estimation/easy/0/0e23b71b287e", "text": "Estimate 10% of 76, rounded to the nearest whole number (round a half up)."}
 {"answer": "4", "id": "f10-rational-percentage-estimation/easy/1/cabb63cd6238", "text": "Estimate 10% of 36, rounded to the nearest whole number (round a half up)."}
 {"answer": "1", "id": "f10-rational-percentage-estimation/easy/2/31bac512b0e4", "text": "Estimate 10% of 12, rounded to the nearest whole number (round a half up)."}
