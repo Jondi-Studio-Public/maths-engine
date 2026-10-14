@@ -44,7 +44,7 @@ def _equation(s: str):
 
 def _grade(q, given):
     if KIND == "mcq":
-        return GRADERS["mcq"](q, str(mcq_options(q).index(given))).correct
+        return GRADERS["mcq"](q, mcq_options(q).index(given)).correct
     return GRADERS[KIND](q, given).correct
 
 

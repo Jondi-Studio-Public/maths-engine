@@ -241,7 +241,7 @@ def _check_figure_plausibility(skill: Skill, question, grader) -> str | None:
         options = mcq_options(question)
         if reread not in options:
             return f"figure reader derived {reread!r}, which is not one of the mcq options"
-        reread = str(options.index(reread))
+        reread = options.index(reread)
     result = grader(question, reread)
     if not result.correct:
         return f"figure reader derived {reread!r}, which does not grade correct against the key"
