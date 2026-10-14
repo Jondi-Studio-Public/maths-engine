@@ -1,0 +1,115 @@
+id: uc2-complex-eigenvalues-2x2
+name: Complex eigenvalues of a real 2×2 matrix
+domain: linear-algebra
+year_level:
+- university
+description: Find the complex eigenvalues of a real 2×2 matrix, their imaginary part, modulus and argument, the modulus
+  for a power or inverse of the matrix, and entries of its powers.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+- senior-determine-complex-conjugate-solutions-of-real-quadratic-equations
+answer: expression
+sources:
+- topic: s2b2_complex_eigenvalues_2x2
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_complex_eigenvalues_2x2
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_complex_eigenvalues_2x2
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_complex_eigenvalues_2x2
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: complex-argument-complement
+  description: Giving π/2 minus the argument, from measuring the angle from the imaginary axis instead of the real axis.
+- id: complex-argument-quadrant-ignored
+  description: Taking arctan(b/a) as the argument without adjusting for the quadrant when the real part is negative.
+- id: complex-argument-ratio-inverted
+  description: Using arctan(a/b) in place of arctan(b/a) for the argument.
+- id: complex-conjugate-chosen
+  description: Giving the conjugate eigenvalue a - bi, or the negative of the argument, instead of the one with positive
+    imaginary part.
+- id: complex-imaginary-part-is-determinant
+  description: Giving the determinant of the matrix as the imaginary part of the eigenvalues.
+- id: complex-imaginary-part-squared
+  description: Giving b² where b was asked for, after solving a² + b² = det A and stopping early.
+- id: complex-modulus-difference-of-squares
+  description: Subtracting the squares of the real and imaginary parts under the root instead of adding them.
+- id: complex-modulus-from-discriminant
+  description: Taking the modulus to be the square root of the size of the discriminant tr² - 4 det.
+- id: complex-modulus-inverse-not-reciprocated
+  description: Taking the modulus of the eigenvalues of the inverse to be the modulus for A itself, or its negative, instead
+    of its reciprocal.
+- id: complex-modulus-is-trace
+  description: Giving the size of the trace as the modulus of the eigenvalues.
+- id: complex-modulus-power-as-multiple
+  description: 'Multiplying the modulus by the exponent instead of raising it to that power: |λ|ᵏ read as k|λ|.'
+- id: complex-modulus-power-ignored
+  description: Finding the modulus of the eigenvalues of A and reporting it as the modulus for a power or inverse of A,
+    as if raising A to a power did not change its eigenvalues.
+- id: complex-modulus-squared-forgot-root
+  description: Giving a² + b², which equals det A, as the modulus without taking the square root.
+- id: complex-modulus-squared-power
+  description: Raising the squared modulus a² + b² to the exponent k, instead of the modulus itself.
+- id: complex-modulus-sum-not-root
+  description: Adding the sizes of the real and imaginary parts to get the modulus, |a| + |b|, instead of √(a² + b²).
+- id: complex-quadratic-formula-halving
+  description: Leaving out the division by 2 in the quadratic formula, so the imaginary part is the whole square root of
+    the negative discriminant.
+- id: complex-real-imag-swapped
+  description: 'Giving the real part where the imaginary part was asked for and the reverse: a + bi written as b + ai.'
+- id: complex-real-part-is-trace
+  description: Giving the trace of the matrix as the real part of the eigenvalues instead of half the trace.
+- id: eigval-determinant-as-eigenvalue
+  description: Reporting the determinant of the matrix as an eigenvalue.
+- id: matrix-power-as-multiple
+  description: Treating Aⁿ as n times A.
+- id: matrix-power-entrywise
+  description: Raising each entry of a matrix to the power n instead of multiplying the matrix by itself n times.
+- id: matrix-power-off-by-one
+  description: Using Dⁿ⁻¹ (or Dⁿ⁺¹) in P Dⁿ P⁻¹, so the result is A to the wrong power.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Use the trace and determinant to find the discriminant and read off the imaginary part b of the eigenvalue a
+      + bi.
+  medium:
+    steps: 3
+    demand: Find the modulus √(a² + b²), or the modulus of the eigenvalues of A², A³ or A⁻¹, whose eigenvalues are the powers
+      of those of A.
+  hard:
+    steps: 4
+    demand: Find the exact argument with the right quadrant, or use polar form to find an entry of a power Aⁿ = P Cⁿ P⁻¹
+      whose angle is a multiple of π/4.
+  exam:
+    steps: 5
+    demand: Find a and b, then the modulus and the argument following through from them.
+tags:
+- university-year-2
+- linear-algebra
+- complex-eigenvalues
+- rotation-scaling

@@ -1,0 +1,99 @@
+id: uc2-matrix-of-linear-map
+name: Matrix of a linear map relative to given bases
+domain: linear-algebra
+year_level:
+- university
+description: Find the matrix of a linear map relative to supplied bases of R^2, R^3, the quadratics or a function space
+  (differentiation, evaluation functionals, p' + c p), and move between matrices of the same map with A' = P^-1 A P. The
+  exam chain uses the trace and determinant as basis-free checks.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-change-of-basis-matrix
+- ucv1-diagonalisation
+answer: matrix
+sources:
+- topic: s2b1_matrix_of_linear_map
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b1_matrix_of_linear_map
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b1_matrix_of_linear_map
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b1_map_matrix
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: map-matrix-standard-used
+  description: Giving the matrix of the map in the standard basis where its matrix relative to another basis was asked for.
+- id: map-matrix-forgot-output-basis
+  description: Writing the images of the basis vectors as columns of standard coordinates, without converting them to coordinates
+    relative to the output basis.
+- id: map-matrix-forgot-input-basis
+  description: Converting the output to the new basis but applying the map to the standard basis vectors instead of the
+    basis vectors, so the factor P is missing.
+- id: map-matrix-transposed
+  description: Writing the coordinates of each image as a row of the matrix of the map instead of a column.
+- id: map-matrix-derivative-factor-dropped
+  description: Dropping the power-rule factor when differentiating a basis polynomial or a multiple of x^k, so the entry
+    is too small by that factor.
+- id: map-matrix-basis-order-ignored
+  description: Reading the coordinates in the standard order of the functions instead of the order in which the basis is
+    listed.
+- id: map-matrix-term-dropped
+  description: Leaving one term of the formula for the map out when finding its matrix, such as the identity part of D plus
+    a multiple of the identity.
+- id: diag-conjugation-reversed
+  description: Multiplying in the order P⁻¹DP instead of PDP⁻¹ (or the same reversal for P⁻¹AP).
+- id: diag-forgot-inverse
+  description: Stopping at PD, leaving out the final multiplication by P⁻¹.
+- id: map-matrix-trace-includes-offdiagonal
+  description: Adding off-diagonal entries into the trace, which is the sum of the diagonal entries only.
+- id: map-matrix-det-for-trace
+  description: Giving the trace of the matrix where its determinant was asked for, or adding the eigenvalues where they
+    should be multiplied.
+difficulty_progression: Easy finds the matrix of a formula-defined map of R^2 relative to one non-standard basis (C^-1 A
+  B with fractional entries). Medium moves to maps of polynomials given by formulas (p' + cp, xp' - cp, p(x + s) - p(x),
+  a mixed formula) relative to a non-standard basis of P_2, or differentiation from P_3 in the shifted basis 1, (x - a),
+  (x - a)^2, (x - a)^3 to P_2 (a 3x4 matrix). Hard has different bases for domain and codomain (evaluation functionals P_2
+  to R^2, a 2x3 matrix), a function space spanned by x^2 e^(kx), x e^(kx), e^(kx) with the basis listed in reverse order,
+  and 3x3 similarity in both directions (A' = P^-1 A P and A = P M P^-1). The exam chain finds the trace of the standard
+  matrix, the matrix in another basis, then uses the invariance of the trace (following through) and the determinant.
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- linear-maps
+- matrix-of-a-map
+- change-of-basis
+- similarity
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

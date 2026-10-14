@@ -1,0 +1,106 @@
+id: uc2-kernel-and-image
+name: Kernel and image of an abstract linear map
+domain: linear-algebra
+year_level:
+- university
+description: Find the dimension of the kernel and image of a linear map on polynomial spaces or 2x2 matrices given by a
+  formula or by conditions (not by a matrix), use rank-nullity, and find the parameter value that makes a map non-injective.
+  The exam chain finds the bad parameter, the nullity, the rank by rank-nullity and a normalised kernel vector.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-null-space
+- uc2-matrix-of-linear-map
+answer: number
+sources:
+- topic: s2b1_kernel_and_image
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b1_kernel_and_image
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b1_kernel_and_image
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b1_kernel_image
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: rank-nullity-confused
+  description: Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.
+- id: nullity-counts-columns
+  description: Taking the nullity to be the number of columns, forgetting to subtract the rank.
+- id: nullity-uses-rows
+  description: Subtracting the rank from the number of rows instead of the number of columns to get the nullity.
+- id: rank-off-by-one
+  description: Miscounting the pivots during row reduction, so the rank is one too high or one too low.
+- id: kernel-assumed-trivial
+  description: Assuming the kernel of a linear map is just the zero vector without checking for a non-zero solution of T(v)
+    = 0.
+- id: image-assumed-whole-codomain
+  description: Taking the dimension of the image to be the dimension of the codomain, without checking that the map is onto.
+- id: kernel-assumed-by-eigenvalue-count
+  description: Counting the eigenvalues of A and B instead of the eigenvalues they share when finding the kernel of X ->
+    AX - XB.
+- id: eigval-other-root
+  description: Giving the other eigenvalue when the larger or smaller one was asked for.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: eigval-determinant-as-eigenvalue
+  description: Reporting the determinant of the matrix as an eigenvalue.
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+- id: det-sarrus-sign-slip
+  description: Getting the sign of one of the six products wrong when expanding a 3×3 determinant.
+- id: kernel-not-normalised
+  description: Reading a coordinate off the kernel vector as it came out of the row reduction, without rescaling so that
+    the stated coefficient is 1.
+- id: kernel-wrong-coefficient
+  description: Giving a different coefficient of the kernel polynomial from the one asked for (the x term for the constant
+    term).
+- id: kernel-coefficient-inverted
+  description: Dividing the wrong way when rescaling a kernel vector, so the coefficient is the reciprocal of the right
+    one.
+difficulty_progression: 'Easy asks for the dimension of the kernel or image of a map defined by one idea on polynomials
+  or 2x2 matrices (p(x) - p(-x), p'''', values at nodes, (p(a), p''(a)), X -/+ X^T, tr(X) I), where the kernel must be understood
+  rather than read from a table. Medium needs the matrix of the map or a structural argument (p(x + s) - p(x), x p'' - k
+  p, p'''' - c p'', X to AX, X to AX - XA) and asks for the rank or nullity. Hard has a parameter: the k at which a family
+  of maps P_2 to R^3 gets a non-trivial kernel, the larger eigenvalue at which X to AX - kX fails to be injective, or the
+  kernel dimension of X to AX - XB, which counts shared eigenvalues. The exam chain finds that k, the nullity there, the
+  rank by rank-nullity (following through), and a normalised kernel vector.'
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- linear-maps
+- kernel
+- image
+- rank-nullity
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

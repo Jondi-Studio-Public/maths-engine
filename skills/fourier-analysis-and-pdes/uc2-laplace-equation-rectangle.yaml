@@ -1,0 +1,90 @@
+id: uc2-laplace-equation-rectangle
+name: Laplace's equation on a rectangle
+domain: fourier-analysis-and-pdes
+year_level:
+- university
+description: 'Solve Laplace''s equation on a rectangular plate with one hot edge, or two opposite hot edges, by separation
+  of variables: find a series coefficient from the edge profile and the temperature at a point or at the centre.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-fourier-half-range
+answer: number
+sources:
+- topic: s2c3_laplace_rectangle
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_laplace_rectangle
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_laplace_rectangle
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_laplace_rectangle
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: laplace-hyperbolic-factor-dropped
+  description: Leaving the factor sinh(n pi r / l)/sinh(n pi d / l) out of each term, so the temperature is just the edge
+    series at that position.
+- id: laplace-hyperbolic-not-normalised
+  description: Using sinh(n pi r / l) without dividing by sinh(n pi d / l), so the series does not reduce to the edge profile
+    on the hot edge.
+- id: laplace-distance-from-hot-edge
+  description: Measuring the distance r from the hot edge, instead of from the opposite cold edge.
+- id: laplace-cosh-for-sinh
+  description: Using cosh(n pi r / l)/cosh(n pi d / l) in place of the sinh ratio.
+- id: laplace-lengths-swapped
+  description: Swapping the two sides of the plate, so the edge length and the width across it trade places in the sine
+    and sinh arguments.
+- id: fourier-half-range-factor-dropped
+  description: Using the factor 1/L instead of 2/L in a half-range coefficient, so the answer is half the true value.
+- id: fourier-coefficient-sign-flip
+  description: Losing a sign in the integration by parts or in evaluating cos(n pi), so the coefficient has the wrong sign.
+- id: fourier-sine-cosine-swap
+  description: Reporting b_n where a_n was asked for, or the reverse.
+- id: laplace-coefficient-includes-hyperbolic-factor
+  description: Multiplying the Fourier coefficient by the hyperbolic factor, which belongs to the position and not to the
+    edge profile.
+- id: laplace-one-edge-only
+  description: Giving the contribution of only one of the two hot edges, instead of adding both solutions.
+- id: laplace-first-mode-only
+  description: Keeping only the first term of the series, although the next terms still contribute at that point.
+- id: laplace-sign-between-edges
+  description: Subtracting the bottom-edge solution from the top-edge solution instead of adding them.
+- id: laplace-pi-dropped
+  description: Leaving pi out of the integral of sin(n pi x / a), so the coefficient is out by a factor of pi.
+- id: laplace-odd-mode-squared
+  description: Dividing by n squared instead of n when going from B_1 to B_3 for a constant edge.
+- id: laplace-even-mode-reasoning
+  description: Treating the third coefficient as half the first, by reasoning about the even modes.
+- id: laplace-odd-mode-inverted
+  description: Multiplying by n instead of dividing, so B_3 comes out as 3 times B_1.
+difficulty_progression: Easy gives the hot edge as a sum of two sine modes, which may be any of the four sides, so the learner
+  must find the edge length and the depth across it, then attach sinh(n pi r / l) / sinh(n pi d / l) to each mode and evaluate
+  at a point. Medium gives a constant, ramp or tent edge profile and asks for one coefficient, which is a half-range sine
+  integral over the length of the hot edge. Hard either holds two opposite edges at different profiles, so two solutions
+  are added (the second uses the distance from the other edge), or asks for the temperature at the centre of the plate to
+  2 decimal places by summing the terms that matter. The exam chain finds B1, B3 (following through from B1), the first
+  mode's contribution at the centre (following through from B1) and the centre temperature.
+tags:
+- university-year-2
+- fourier-analysis-and-pdes
+- laplace-equation
+- separation-of-variables
+- fourier-series
+framework_areas:
+- fourier-analysis-and-pdes

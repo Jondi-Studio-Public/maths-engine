@@ -1,0 +1,84 @@
+id: uc2-fourier-series-full-period
+name: Fourier series of a piecewise function on a full period
+domain: fourier-analysis-and-pdes
+year_level:
+- university
+description: Find a Fourier coefficient a0, an or bn of a piecewise function with period 2L by integrating over [-L, L],
+  and say what value the series converges to at a jump, at the end of a period or outside [-L, L).
+status: active
+placement_eligible: false
+prerequisites:
+- fourier-coefficient-simple
+answer: number
+sources:
+- topic: s2c3_fourier_series
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_fourier_series
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_fourier_series
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_fourier_series
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fourier-a0-half-confused
+  description: Reporting a0/2, the constant term of the series, where the coefficient a0 was asked for.
+- id: fourier-normalisation-doubled
+  description: Doubling a Fourier coefficient by using the half-range factor 2/L on a full period [-L, L].
+- id: fourier-one-piece-only
+  description: Integrating over [0, L] only, or over one piece of the function, instead of the whole period [-L, L].
+- id: fourier-normalisation-halved
+  description: Dividing a Fourier coefficient by 2L instead of L, so the answer is half the true value.
+- id: fourier-period-scaling-dropped
+  description: Integrating against cos(nx) or sin(nx) instead of cos(n pi x/L) or sin(n pi x/L), so the half-period L drops
+    out of the frequency.
+- id: fourier-coefficient-sign-flip
+  description: Losing a sign in the integration by parts or in evaluating cos(n pi), so the coefficient has the wrong sign.
+- id: fourier-sine-cosine-swap
+  description: Reporting b_n where a_n was asked for, or the reverse.
+- id: fourier-jump-one-sided-value
+  description: Reading the value of the series at a jump as one of the one-sided limits of f, instead of their average.
+- id: fourier-mean-value-only
+  description: Giving the mean value a0/2 of f over a period as the value of the series at the point.
+- id: fourier-jump-average-wrong-pair
+  description: Averaging the wrong pair of values at the end of the period, such as f(-L) and f(L) taken from the same piece.
+- id: fourier-jump-value-zero
+  description: Saying the series is 0 at a jump or at the end of the period, because the sine terms vanish there.
+- id: fourier-periodicity-ignored
+  description: Evaluating the formula for the nearest piece at a point outside [-L, L) instead of using the period 2L to
+    bring the point back.
+- id: fourier-amplitude-added-linearly
+  description: Adding |a_n| and |b_n| for the amplitude of a harmonic instead of combining them in quadrature.
+- id: fourier-amplitude-no-root
+  description: Giving a_n squared plus b_n squared as the amplitude, without taking the square root.
+- id: fourier-amplitude-larger-only
+  description: Taking the larger of |a_n| and |b_n| as the amplitude of the harmonic.
+difficulty_progression: Easy asks for one coefficient of a step function whose break is at 0 or at plus or minus L/2, so
+  the integral splits and the cos(n pi) pattern has to be handled. Medium puts a linear piece in the function, so each coefficient
+  needs integration by parts on both pieces. Hard either asks for the value the series converges to at a jump, at the end
+  of a period or at a point outside [-L, L) (no integration, but the convergence theorem and the period have to be used),
+  or gives a function that breaks away from the middle of the period. The exam chain finds a_n and b_n, combines them into
+  the amplitude of the harmonic (following through) and finds the series value at a jump.
+tags:
+- university-year-2
+- fourier-analysis-and-pdes
+- fourier-series
+- piecewise-functions
+framework_areas:
+- fourier-analysis-and-pdes

@@ -1,0 +1,91 @@
+id: uc2-matrix-exponential
+name: Compute the matrix exponential e^(At)
+domain: linear-algebra
+year_level:
+- university
+description: Find entries of e^(At) for 2×2 and 3×3 integer matrices, diagonalisable or with Jordan blocks, as expressions
+  in t, and use them to solve x' = Ax.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-diagonalisation
+- ucv1-eigenvectors
+answer: expression
+sources:
+- topic: s2b2_matrix_exponential
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_matrix_exponential
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_matrix_exponential
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_matrix_exponential
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: diag-conjugation-reversed
+  description: Multiplying in the order P⁻¹DP instead of PDP⁻¹ (or the same reversal for P⁻¹AP).
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: matrix-exp-columns-not-weighted
+  description: Adding the entries of a row of e^(At) without weighting them by the components of the initial vector.
+- id: matrix-exp-eigenvalues-swapped
+  description: Attaching the exponentials e^(λt) to the wrong coefficients in P e^(Dt) P⁻¹, so each eigenvalue is paired
+    with the other's coefficient.
+- id: matrix-exp-entrywise
+  description: Taking the exponential of each entry of A separately, so the entry of e^(At) is e^(a t) with a the entry
+    of A.
+- id: matrix-exp-identity-added-offdiagonal
+  description: Adding the identity to the off-diagonal entries too, so the term 1 appears in an entry that should be only
+    e^(λt) t N.
+- id: matrix-exp-nilpotent-t-factor-dropped
+  description: Writing e^(λt)(I + N) for e^(At) when A = λI + N with N² = 0, leaving the factor t off N.
+- id: matrix-exp-nilpotent-term-dropped
+  description: Stopping at e^(λt) I and leaving out the tN (and t²N²/2) terms that a Jordan block adds.
+- id: matrix-exp-sign-in-exponent
+  description: Using e^(-λt) in place of e^(λt) in the exponentials of the diagonal matrix.
+- id: matrix-exp-t-dropped
+  description: Writing e^(λ) for e^(λt), so the entry of the matrix exponential has no t in the exponent.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Diagonalise a dense 2×2 matrix and form one entry of P e^(Dt) P⁻¹ as a combination of two exponentials.
+  medium:
+    steps: 3
+    demand: Recognise A = λI + N with N nilpotent, so that e^(At) = e^(λt)(I + tN), and read off one entry.
+  hard:
+    steps: 5
+    demand: For a 3×3 matrix, assemble e^(Jt) from distinct exponentials or from a Jordan block with t and t²/2 terms, conjugate
+      back, and give an entry or a component of x(t).
+  exam:
+    steps: 5
+    demand: Find the repeated eigenvalue, the t-coefficient of two entries of e^(At), and of a component of the solution
+      of x' = Ax that combines them.
+tags:
+- university-year-2
+- linear-algebra
+- matrix-exponential
+- linear-systems

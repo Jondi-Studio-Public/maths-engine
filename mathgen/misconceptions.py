@@ -20285,6 +20285,1768 @@ _ENTRIES = (
     CatalogueEntry(
         "discriminant-wrong-factor",
         "Using the wrong multiple of d in the discriminant t² - 4d.",
+        "cylindrical-jacobian-omitted",
+        "Leaving out the factor r in the volume element of cylindrical coordinates, dV = r dz dr dθ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-radius-not-squared",
+        "Replacing x² + y² by r instead of r² when converting an integrand to cylindrical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-radius-limit-squared",
+        "Using the squared radius of the cylinder, not the radius, as the upper limit for r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-angle-range-halved",
+        "Using the wrong range of angle: half a turn for a full cylinder, or a full turn for half of one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-radius-from-height",
+        "Using the height of the plane as the upper limit for r instead of finding where the surface meets it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-bounding-cylinder",
+        "Giving the volume or integral over the enclosing cylinder instead of the solid inside it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-surfaces-swapped",
+        "Taking the lower surface as the upper one, so the height of the solid comes out negative.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-intersection-misread",
+        "Misreading where two surfaces meet, and using the wrong upper limit for r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-x-as-r",
+        "Replacing x by r instead of r cos θ when the integrand or a bounding surface depends on x.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-slope-term-dropped",
+        "Dropping the sloping term of the top surface because its cosine seems to integrate away.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-sphere-height-constant",
+        "Using the sphere's radius as a constant height instead of the √(R² - r²) it has at distance r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-ball-only",
+        "Integrating over the whole ball and ignoring the cylinder that cuts it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-upper-half-only",
+        "Integrating z from 0 instead of from the lower half of the sphere, giving half the solid.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-offset-angle-range",
+        "Taking θ over a full turn for a cylinder through the origin, whose angle runs over only half a turn.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-offset-radius",
+        "Taking a constant upper limit for r on a cylinder through the origin, whose radius depends on θ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-lower-surface-dropped",
+        "Starting z at the plane z = 0 instead of the lower surface of the solid.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-jacobian-omitted",
+        "Leaving out the whole volume factor ρ² sin φ of spherical coordinates and integrating dρ dφ dθ alone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-sin-phi-omitted",
+        "Writing the volume element of spherical coordinates as ρ² dρ dφ dθ, without the factor sin φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-rho-squared-omitted",
+        "Writing the volume element of spherical coordinates as sin φ dρ dφ dθ, without the factor ρ².",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-colatitude-confused",
+        "Taking φ as the angle up from the xy-plane, so z = ρ sin φ, instead of the angle down from the positive z-axis.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-radius-limit-squared",
+        "Using the squared radius of the sphere, not the radius, as the limit for ρ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-angle-range-halved",
+        "Using the wrong range of the angle: half a turn in φ for a whole ball, or the whole range for half of one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cone-angle-complement",
+        "Measuring the half-angle of a cone from the xy-plane instead of from the z-axis, so φ stops at π/2 minus the right angle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-polar-angle-range",
+        "Letting φ run from 0 to π when the solid lies in a cone or above a plane.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-hemisphere-as-cone",
+        "Stopping φ at π/2, the whole upper half, when the solid lies in a narrower cone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-octant-ignored",
+        "Integrating over the whole shell, with θ over 0 to 2π and φ over 0 to π, when the solid is only the first octant.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-octant-angle-halved",
+        "Giving φ the range 0 to π although z is non-negative, so the solid is taken in both halves.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-offset-radius",
+        "Taking a constant limit for ρ on a sphere through the origin, whose radius depends on φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-offset-angle-range",
+        "Letting φ run from 0 to π on a sphere through the origin that lies above the xy-plane.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cap-lower-limit-zero",
+        "Starting ρ at 0 for the cap above a plane, so the cone of rays is integrated down to the origin.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-plane-limit-cos",
+        "Writing the plane z = h as ρ = h cos φ instead of ρ = h sec φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-inner-sphere-ignored",
+        "Starting ρ at 0 for a shell, so the hole in the middle is filled in.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-lower-limit-added",
+        "Adding the value of the antiderivative at the lower limit of φ to the value at the upper limit instead of subtracting it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "integral-constant-multiplier-dropped",
+        "Integrating the function without the constant multiplier in front of it, so the answer is a fraction of the true value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-plane-ignored",
+        "Ignoring the plane that cuts off the cap and integrating over the whole upper half of the ball.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cap-cone-instead",
+        "Integrating ρ from 0 to the plane instead of from the plane to the sphere, which gives the cone below the plane instead of the cap above it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cap-complement",
+        "Giving the part of the ball on the other side of the plane, the whole ball less the cap, instead of the cap.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-arctan-inverted",
+        "Using arctan(z/r) instead of arctan(r/z), which gives the angle from the xy-plane.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-complement",
+        "Measuring φ up from the xy-plane instead of down from the positive z-axis.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-reflected",
+        "Giving π minus the right angle, as if z had the opposite sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-sine-for-cosine",
+        "Using arcsin(z/ρ) where cos φ = z/ρ is needed.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-includes-z",
+        "Including z when finding the distance from the z-axis, which gives the distance from the origin.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-root-missing",
+        "Giving x² + y² without taking the square root.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-sum-not-root",
+        "Adding |x| and |y| instead of taking the root of the sum of squares.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-reference-angle-sign",
+        "Using the absolute value of the cosine or sine, so the coordinate loses its sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-height-only",
+        "Taking ρ to be the height |z|.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-planar",
+        "Giving the distance r from the z-axis for the distance ρ from the origin.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-root-missing",
+        "Giving ρ² without taking the square root.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-sum-not-root",
+        "Adding the sizes of the coordinates instead of taking the root of the sum of squares.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-sign-flipped",
+        "Giving the coordinate with the wrong sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-sin-cos-swapped",
+        "Using sine where cosine belongs, or the reverse, in a conversion formula.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-cos-squared",
+        "Squaring cos φ in z = ρ cos φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-phi-complement",
+        "Swapping sin φ and cos φ in the conversion formulas from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-rho-dropped",
+        "Leaving out the factor ρ when finding a coordinate from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-sin-for-cos",
+        "Using ρ sin φ cos θ, the x-coordinate, for z.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-sin-phi-dropped",
+        "Leaving out the factor sin φ when finding x, y or r from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-sin-phi-squared",
+        "Squaring sin φ in r = ρ sin φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-theta-dropped",
+        "Leaving out the factor cos θ or sin θ when finding x or y from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-theta-factor",
+        "Multiplying r by cos θ, which gives x instead of r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-angle-as-slope",
+        "Giving the angle itself as the slope of the cone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-coefficient-dropped",
+        "Dropping the coefficient when converting an equation, such as 2a to a.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-constant-radius",
+        "Giving a constant for the radius of a surface whose radius depends on the angle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-cosine-for-cotangent",
+        "Giving cos φ for the slope cot φ of the cone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-diameter-for-radius",
+        "Reading the diameter off the equation and giving it as the radius.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-halved-again",
+        "Halving the coefficient a second time when reading a radius or centre off an equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-opening-angle",
+        "Giving the full opening angle of a cone, twice the angle from its axis.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-power-slip",
+        "Using the wrong power of the radial variable when solving the converted equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-r-not-squared",
+        "Writing x² + y² as r instead of r² in the converted equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-radius-squared",
+        "Giving the square of the radius.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-reciprocal-slip",
+        "Multiplying by a trigonometric function where the equation divides by it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-root-missing",
+        "Leaving the equation as r² = ... and giving that as the value of r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-sign-slip",
+        "Taking the wrong sign inside a root or a sum when solving the converted equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-sine-for-cosine",
+        "Using sine where cosine belongs in a converted equation, or the reverse.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-slope-as-angle",
+        "Giving the slope of a cone as if it were its angle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-slope-inverted",
+        "Giving tan φ for the slope of the cone instead of cot φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-arctan-inverted",
+        "Using arctan(x/y) instead of arctan(y/x) for the angle θ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-half-turn",
+        "Giving the angle of the opposite point, half a turn from the right one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-mirrored",
+        "Giving the angle measured the other way round the axis, 2π minus the right one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-quadrant-ignored",
+        "Reading θ straight from arctan(y/x), which ignores the quadrant of the point.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-reference-angle",
+        "Giving the acute reference angle instead of the angle in the right quadrant.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-trig-factor-dropped",
+        "Dropping the cosine or sine factor, so that x or y comes out as r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-difference-of-squares",
+        "Finding r as the root of x² - y² instead of x² + y².",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-difference-of-squares",
+        "Finding ρ as the root of r² - z² instead of r² + z².",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-quadrant-ignored",
+        "Reading φ straight from arctan(r/z), which gives a negative angle when z is negative.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-cosine-for-angle",
+        "Giving the value of cos φ = z/ρ as if it were the angle φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-limits-swapped",
+        "Writing the limits of the inner integral the wrong way round, so the answer comes out with the wrong sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-limits-swapped-outer",
+        "Reversing the limits on one slice of a split region, so that slice is subtracted instead of added.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-bounding-rectangle",
+        "Integrating over the rectangle that encloses the region instead of between its boundary curves.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-lower-curve-dropped",
+        "Taking the lower boundary of the region as zero instead of the lower curve.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-limit-variable-confused",
+        "Writing the limits in the wrong variable, so a limit in x is used where one in y is needed.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-second-slice-dropped",
+        "Integrating over only the first slice of a region whose boundary changes, and leaving out the rest.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-slice-change-ignored",
+        "Using one pair of boundary curves across the whole region although the lower or upper curve changes part-way.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-average-not-divided",
+        "Giving the integral of the quantity over the region as its average value, without dividing by the area.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-limits-swapped",
+        "Reversing the sign of the answer by taking the limits of the reversed integral the wrong way round.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-substitution-factor",
+        "Losing or adding the constant factor from the substitution, for example forgetting the 1/2 in the integral of u times e to the u squared.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-lower-limit-forgotten",
+        "Evaluating the antiderivative at the upper limit only and not subtracting its value at the lower limit.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-lower-limit-added",
+        "Adding the value of the antiderivative at the lower limit instead of subtracting it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-coefficient-dropped",
+        "Leaving the constant multiplier of the integrand out of the final answer.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-coefficient-squared",
+        "Applying the constant multiplier of the integrand twice.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-swapped-extent",
+        "Using the outer variable's largest value as the upper limit of the reversed integral instead of the inner variable's.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-slope-misread",
+        "Solving the boundary line for the wrong variable, so its slope is inverted in the reversed limits.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-slope-dropped",
+        "Dropping the slope of the boundary line when it becomes the upper limit of the reversed inner integral.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-product-rule-slip",
+        "Getting the sign wrong when integrating u sin u by parts.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-bounding-rectangle",
+        "Giving the area of the rectangle that encloses the region.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-curve-area-as-triangle",
+        "Treating the region under a parabola or cubic as a triangle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-complement-area",
+        "Giving the area of the part of the bounding rectangle outside the region.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-constant-inner-limit",
+        "Using the largest value of the bound as a constant limit for the inner integral instead of its value at the point.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-derivative-of-limit",
+        "Multiplying by the derivative of the bound instead of its value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-mean-inverted",
+        "Dividing the area by the integral instead of the integral by the area to find the mean value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-mean-wrong-area",
+        "Dividing by the area of the bounding rectangle, not of the region, to find the mean value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-omitted",
+        "Leaving out the Jacobian factor, so that dA is replaced by du dv.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-inverted",
+        "Using the Jacobian where its reciprocal is needed, or the reciprocal where the Jacobian is needed, when changing variables.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-sign-ignored",
+        "Using a negative Jacobian without taking its absolute value, so the area element and the answer come out negative.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-sign-dropped",
+        "Giving the absolute value of the Jacobian when its signed value was asked for.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-cross-term-dropped",
+        "Taking the Jacobian as the product of the two diagonal partial derivatives and leaving out the cross term of the determinant.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-factor-slip",
+        "Getting a constant in the Jacobian wrong, such as 1/v in place of 1/(2v) for x = √(u/v), y = √(uv).",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-variable-swapped",
+        "Writing the Jacobian in terms of the wrong new variable.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-integrand-not-substituted",
+        "Changing the limits and the area element but leaving the integrand in x and y, or treating x and y as u and v.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-limits-from-region",
+        "Using the extent of the original region in x and y as the limits for the new variables u and v.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-integrand-dropped",
+        "Integrating 1 over the new region instead of the integrand, so the answer is the area.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-inversion-slip",
+        "Making a sign error when solving the substitution for x and y in terms of u and v.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-triangle-as-rectangle",
+        "Integrating over the square 0 ≤ u, v ≤ k instead of the triangle u + v ≤ k.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "vc2-div-wrong-variable",
+        "Differentiates each component with respect to the next variable (P by y, Q by z, R by x) instead of its own variable.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-component-dropped",
+        "Adds only two of the three partial derivatives that make up the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-confused-with-curl",
+        "Adds the components of the curl instead of the three partial derivatives that make up the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-left-as-vector",
+        "Leaves the three partial derivatives as a vector instead of adding them, so the divergence is not a single expression.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-chain-factor-dropped",
+        "Differentiates a function of a function, such as sin(xz) or e^(xy), and leaves out the derivative of the inner function.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-product-rule-term-dropped",
+        "Differentiates only one factor of a product, losing the other product-rule term.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-solve-sign",
+        "Sets up the condition on the unknown constant correctly but solves it with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-param-factor-dropped",
+        "Forgets the factor that comes from differentiating a power (y^2 gives 2y) when collecting the terms in the unknown constant.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-parameters-swapped",
+        "Gives the two constants in the wrong order.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-param-off-by-one",
+        "Slips by one in the arithmetic of the final value.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-power-factor-not-differentiated",
+        "Treats (x^2 + y^2 + z^2)^n as a constant when differentiating the radial field, keeping only the 3 from the three variables.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-chain-factor-dropped",
+        "Differentiates (x^2 + y^2 + z^2)^n with the power rule and leaves out the factor 2x from the inner function.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-power-rule-slip",
+        "Keeps the power n instead of lowering it to n - 1 after differentiating (x^2 + y^2 + z^2)^n.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-own-variable-undercounted",
+        "Counts the derivatives of x, y and z with respect to themselves as 1 in all instead of 3.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-exp-zero-as-zero",
+        "Evaluates e^0 as 0 instead of 1.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-field-value-not-divergence",
+        "Adds the values of the components at the point instead of finding the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-added-term-not-differentiated",
+        "Does not differentiate the added term kz, so it solves k times z instead of the derivative k.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-product-rule-sign",
+        "Subtracts the second term of the product rule for the divergence of a scalar times a vector field.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-density-factor-dropped",
+        "Leaves out the scalar factor g when multiplying it by the divergence in the product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-j-sign",
+        "Expands the curl determinant without the minus sign on the j component, so the j component has the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-reversed-order",
+        "Subtracts the two partial derivatives in each component of the curl in the wrong order, so every sign is reversed.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-components-shifted",
+        "Writes the components of the curl in the wrong places, putting the k expression where the i expression belongs.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-partial-dropped",
+        "Uses only one partial derivative in a component of the curl instead of the difference of two.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-partials-added",
+        "Adds the two partial derivatives in a component of the curl instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-wrong-variables",
+        "Differentiates with respect to the wrong variables in a component of the curl, such as R_z - Q_y for R_y - Q_z.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-gave-divergence",
+        "Finds the divergence, a single number, instead of the curl, a vector.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-solve-sign",
+        "Sets up the equations for the unknown constants correctly but gives a constant with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-parameters-swapped",
+        "Gives the two constants in the wrong order.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-factor-two-dropped",
+        "Takes the curl of the rotation field ω × r to be ω instead of 2ω.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-magnitude-not-rooted",
+        "Gives the sum of the squares of the components as the magnitude, without taking the square root.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-magnitude-sum",
+        "Adds the components, or their absolute values, instead of taking the root of the sum of squares.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-magnitude-component-dropped",
+        "Uses only two of the three components when finding the magnitude.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-coefficient-not-scaled",
+        "Takes the unknown to be the coefficient in the potential, forgetting the factor that differentiating a power brings in.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-solve-sign",
+        "Sets up the zero-curl condition correctly but gives the constant with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-power-factor-extra",
+        "Multiplies by the wrong power when matching the mixed partial derivatives of the field.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-off-by-one",
+        "Slips by one in the arithmetic of the final value.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-half",
+        "Halves the answer, differentiating a squared factor with the wrong coefficient.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-one-variable-only",
+        "Integrates P with respect to x and stops, so the terms in y and z alone are missing.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-third-component-ignored",
+        "Matches the potential to P and Q but never checks R, so the terms in z alone are missing.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-double-counted",
+        "Adds the integrals of P, Q and R separately, counting every mixed term more than once.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-sign",
+        "Writes the potential with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-direction-sign",
+        "Takes the potential difference the wrong way round, so the sign of the work is wrong.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-endpoints-added",
+        "Adds the potential at the two endpoints instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-forgot-initial-potential",
+        "Gives the potential at the end point as the work, without subtracting the potential at the start.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-endpoint-field",
+        "Takes the work to be the field at the end point dotted with the displacement.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-sign",
+        "Gets the sign of the cross-product term wrong in the product rule for the curl, or writes the cross product in the wrong order.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-product-term-dropped",
+        "Applies only one term of a product rule, leaving out the other.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-scalar-multiplied-twice",
+        "Multiplies the whole sum by the scalar function instead of only the first term of the product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-product-term-sign",
+        "Subtracts the second term of a product rule that adds it.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-scalar-factor-dropped",
+        "Leaves the scalar function out of the first term of a product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-triple-product-sign",
+        "Takes the two terms of the divergence of a cross product, G . curl F and F . curl G, the wrong way round.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-triple-product-plus",
+        "Adds the two terms of the divergence of a cross product instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-divergences-multiplied",
+        "Takes the divergence of a cross product to be the product of the divergences.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-dropped",
+        "Leaves out the 2 grad f . grad g term in the Laplacian of a product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-factor-two-dropped",
+        "Includes grad f . grad g in the Laplacian of a product with a factor 1 instead of 2.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-laplacians-multiplied",
+        "Takes the Laplacian of a product to be the product of the Laplacians.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-second-term-dropped",
+        "Drops the term -grad f . curl G from the divergence of grad f cross G, reasoning that only the curl of a gradient is zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-dot-for-curl",
+        "Uses grad f . G in place of grad f . curl G.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-radial-one-dimensional",
+        "Uses the one-dimensional second derivative n(n - 1) r^(n - 2) for the Laplacian of r^n, forgetting the 2/r term from the other two directions.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-radial-power-not-lowered",
+        "Keeps the power r^n instead of lowering it to r^(n - 2) in the Laplacian of r^n.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-radial-wrong-factor",
+        "Uses the wrong coefficient (n(n + 2) or n squared) for the Laplacian of r^n.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-difference-as-sum",
+        "Adds f times the Laplacian of g and g times the Laplacian of f instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-kept",
+        "Keeps a grad f . grad g term that cancels between the two products.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-double-curl-sign",
+        "Reverses the sign of the identity for the double curl, giving the Laplacian minus the gradient of the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-laplacian-term-dropped",
+        "Leaves out the Laplacian term in the identity for the double curl.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-gradient-term-dropped",
+        "Leaves out the gradient of the divergence in the identity for the double curl.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-double-curl-plus",
+        "Adds the Laplacian instead of subtracting it in the identity for the double curl.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-gradient-replaced-by-ones",
+        "Dots the field with (1, 1, 1) instead of with the gradient.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-dot-product-missing-field",
+        "Adds the components of the gradient without dotting them with the field.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-for-dot",
+        "Uses the cross product of the field and the gradient where the dot product is needed.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-scalar-added",
+        "Adds the value of the scalar function to the dot product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-div-curl-not-zero",
+        "Believes the divergence of a curl is not zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-gradient-times-divergence",
+        "Believes the divergence of f v is the product of the gradient of f and the divergence of v.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-dot-for-cross",
+        "Uses the dot product grad f . v where the cross product grad f x v belongs in the curl product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-of-divergences",
+        "Believes the divergence of a cross product is the cross product of the divergences, which are scalars.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-laplacian-zero",
+        "Believes the divergence of a gradient (the Laplacian) is always zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-double-curl-zero",
+        "Believes the curl of a curl is always zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-grad-div-zero",
+        "Believes the gradient of a divergence is always zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-componentwise",
+        "Multiplies the tangent vectors component by component instead of taking their cross product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-j-sign",
+        "Expands the cross product determinant without the minus sign on the j component, so the middle component has the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-order-reversed",
+        "Takes the cross product in the wrong order, r_v x r_u instead of r_u x r_v, so every component has the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-terms-added",
+        "Adds the two products in a component of the cross product instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-divided-by-length-squared",
+        "Divides the normal vector by the square of its length instead of its length when making it a unit vector.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-divided-by-sum",
+        "Divides the normal vector by the sum of its components instead of its length when making it a unit vector.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-graph-normal-sign",
+        "Uses (f_u, f_v, 1) as the normal to the graph z = f(u, v) instead of (-f_u, -f_v, 1).",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-intercept-inverted",
+        "Finds where the tangent plane meets the z-axis but divides the z-component of the normal by the plane constant instead of the other way round.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-intercept-not-divided",
+        "Gives the plane constant as the z-intercept without dividing by the z-component of the normal.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-intercept-point-height",
+        "Gives the height of the point of tangency as the z-intercept of the tangent plane.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-normal-not-normalised",
+        "Gives the normal vector itself when the unit normal is asked for.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-off-by-one",
+        "Makes an arithmetic slip of one when evaluating the component of the normal at the point.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-parameters-as-coordinates",
+        "Substitutes the parameter values u and v for the coordinates x and y of the point.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-parameters-swapped",
+        "Substitutes the values of u and v into the wrong parameters, so the point is the mirror of the one asked for.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-plane-constant-component-dropped",
+        "Leaves out the z term when forming the constant of the tangent plane.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-plane-constant-normal-sum",
+        "Gives the sum of the components of the normal as the constant of the tangent plane.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-position-not-differentiated",
+        "Crosses the position vector r with a tangent vector instead of crossing the two tangent vectors.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-tangents-added",
+        "Adds the two tangent vectors r_u and r_v instead of taking their cross product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-angle-dropped",
+        "Leaves out the range of the angle parameter v, integrating over u only.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-antiderivative-factor",
+        "Gets the constant in the antiderivative wrong when integrating the square-root expression, so the area is a multiple of the true area.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-antiderivative-sign",
+        "Takes the antiderivative of sin u to be cos u, giving 1 + cos of the upper limit where 1 - cos is needed.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-cost-added",
+        "Adds the price per square metre to the area instead of multiplying.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-cost-divided",
+        "Divides the area by the price per square metre instead of multiplying.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-halved",
+        "Halves the area of a cylinder, as if it were a cone.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-integral-slip",
+        "Integrates the length of the normal incorrectly, for example integrating u to u squared and not u squared over 2, or sin u to cos u.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-integrand-not-integrated",
+        "Evaluates the integrand at the upper limit instead of integrating it.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-jacobian-factor-dropped",
+        "Leaves the factor u out of the area element of a cone, so the integral is over a constant.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-lower-limit-dropped",
+        "Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-magnitude-not-rooted",
+        "Uses the sum of the squares of the components of r_u x r_v as the area element, without taking the square root.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-radii-swapped",
+        "Swaps the two radii of a torus in the area formula.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-radius-squared",
+        "Squares the radius of a cylinder in the area element.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-range-added",
+        "Adds the lengths of the parameter ranges instead of multiplying them to get the area of the parameter region.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-range-dropped",
+        "Gives the length of r_u x r_v, or an integral over only one parameter, without integrating over the whole parameter range.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-scale-dropped",
+        "Leaves a constant factor out of the length of r_u x r_v, such as the radius of a cylinder or the factor a of a cone.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-sine-dropped",
+        "Leaves the factor sin u out of the area element of a sphere and integrates the constant a squared.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-speed-dropped",
+        "Gives the area of the parameter region itself, leaving out the length of r_u x r_v.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-sum-of-components",
+        "Adds the absolute values of the components of r_u x r_v instead of finding its length.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-term-kept",
+        "Keeps the cos u term of a torus area element as if it integrated to a non-zero amount.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-triangle-as-square",
+        "Uses the area k squared of a square for the area of the triangular parameter region.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-wrong-component",
+        "Takes the product of the two scale factors as the constant in the area element instead of finding the length of r_u x r_v.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-angle-halved",
+        "Halves the area of a sphere zone by integrating v over half the circle, or by using pi where 2 pi belongs.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-antiderivative-sign",
+        "Takes the antiderivative of sin u to be cos u, or substitutes w = cos u and loses the sign, so 1 - cos of the upper limit becomes 1 + cos or cos - 1.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-area-element-dropped",
+        "Integrates g(r(u, v)) du dv, leaving out the length of r_u x r_v, so the surface area element is replaced by the parameter area element.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-average-height-wrong",
+        "Takes the average density to be the density constant times the radius, as if the height z were the radius everywhere.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-average-inverted",
+        "Divides the area by the mass instead of the mass by the area when finding the average density.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-average-not-divided",
+        "Gives the total mass as the average density without dividing by the area.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-derivative-slip",
+        "Gives the area-element constant of a sphere as twice the radius, differentiating a squared radius.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-height-taken-constant",
+        "Takes z to be the radius a everywhere on the dome instead of a cos u, so the density is constant.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-integrand-at-corner",
+        "Evaluates g at the corner of the parameter region u = 0, v = 0 instead of integrating it over the region.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-integrand-dropped",
+        "Integrates 1 instead of g, finding the area of the surface instead of the integral of g.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-jacobian-factor-dropped",
+        "Leaves the factor u out of the length of r_u x r_v for a cone, so the integrand has one power of u too few.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-magnitude-not-rooted",
+        "Uses the sum of the squares of the components of r_u x r_v as the area element, without taking the square root.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-power-rule-division-dropped",
+        "Raises the power of u or v by one when integrating but does not divide by the new power.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-radius-cubed",
+        "Gives the area-element constant of a sphere as the cube of the radius instead of the square.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-radius-not-substituted",
+        "Writes x and y in terms of cos v and sin v but leaves out the radius a, so the radius factors are missing.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-scale-added",
+        "Adds the radius and its square when finding the area-element constant of a sphere.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-scale-dropped",
+        "Leaves a constant factor out of the length of r_u x r_v, such as the radius of a cylinder, the factor a of a cone, or a power of the radius of a sphere.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-sine-dropped",
+        "Leaves the factor sin u out of the area element of a sphere and integrates the constant a squared.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-substitution-limits-slip",
+        "Makes the substitution w = cos u but uses the limits in the wrong order or leaves out the value at u = 0.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-triangle-as-square",
+        "Integrates over the square 0 to k by 0 to k instead of the triangle, so the inner limit does not depend on u.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-triangle-halved",
+        "Integrates over the square and halves the result, as if the triangle were half of the square for any g.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-trig-average-slip",
+        "Takes the integral of cos squared v or sin squared v over the range to be the length of the range, or doubles an integral of sin u cos u, instead of using the half-angle form.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-trig-power-slip",
+        "Integrates sin u cos u as sin u, losing one power of sine.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "flux-graph-normal-signs",
+        "Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1), so the slope terms have the wrong sign.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-z-not-replaced",
+        "Leaving z in the field as 0 (or a constant) instead of replacing it by the height f(x, y) of the surface.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-dropped-r",
+        "Leaving the k component R out of the dot product F . (-f_x, -f_y, 1).",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-components-swapped",
+        "Pairing P with f_y and Q with f_x in the dot product with the normal.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-wrong-direction",
+        "Taking the flux in the opposite direction to the one the question states, so the sign is wrong.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-polar-no-r",
+        "Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-div-at-top",
+        "Evaluating div F on the top surface and integrating over the base, instead of integrating div F up through the solid.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-div-constant-height",
+        "Treating div F as constant in z, multiplying its value on the base by the height of the solid.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-bottom-ignored",
+        "Taking the flux through the walls to be the total minus the top alone, leaving the base out; or the total flux to be the flux through the top.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-base-sign",
+        "Subtracting the base flux with the wrong sign when finding the flux through the walls from the divergence theorem.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-walls-reversed",
+        "Subtracting the total from the other fluxes instead of the other fluxes from the total.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-inward-normal",
+        "Using the normal that points into the solid, so the flux through a piece of the surface has the wrong sign.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-opposite-face",
+        "Evaluating the field on the opposite face of the box (the plane at the other end of the axis) instead of on the face asked for.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-wrong-component",
+        "Integrating a component of the field that does not cross the piece (P on a face where the normal is k, say) instead of the component along the normal.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-forgot-radius-factor",
+        "Writing the area element of a cylinder of radius a as dtheta dz and leaving out the factor a.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-unnormalised-normal",
+        "Dotting with (x, y, 0), which has length a, as if it were the unit normal, and also multiplying by a, so the flux is a times too large.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-forgot-polar-r",
+        "Integrating over a disc in polar coordinates without the factor r in dA = r dr dtheta.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-cap-at-wrong-height",
+        "Evaluating the field on the wrong end of the cylinder (z = 0 on the top, or z = h on the base).",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-sphere-no-sin",
+        "Leaving the factor sin(phi) out of the area element a^2 sin(phi) dphi dtheta of a sphere.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-sphere-radius-power",
+        "Using the wrong power of the radius a in the area element of a sphere.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-total-missing-end",
+        "Adding up the fluxes through only two of the three pieces of the closed cylinder.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-total-missing-side",
+        "Counting only the two flat ends of the closed cylinder and leaving out the curved side.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-base-sign",
+        "Using the normal +k on the base of a solid, where the outward normal is -k, so the base flux has the wrong sign.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "green-wrong-direction",
+        "Getting the sign wrong by using the wrong direction of travel: Green's theorem gives the counterclockwise circulation, and clockwise is its negative.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-divergence-for-curl",
+        "Integrating P_x + Q_y (or Q_y - P_x) in place of the curl Q_x - P_y.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-dropped-py",
+        "Integrating only Q_x and leaving out the term -P_y of the curl.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-dropped-qx",
+        "Integrating only -P_y and leaving out the term Q_x of the curl.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-not-differentiated",
+        "Integrating Q - P over the region without taking the partial derivatives.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-polar-no-r",
+        "Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-open-boundary",
+        "Taking the line integral along the curved part of the boundary alone and forgetting that Green's theorem needs the whole closed curve (the straight piece too).",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-mean-no-area",
+        "Giving the integral of the curl as its mean value, without dividing by the area of the region.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-mean-times-area",
+        "Multiplying the integral of the curl by the area instead of dividing by it.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-orientation-ignored",
+        "Scaling the work for a doubled force but not changing its sign for the clockwise loop.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-scale-ignored",
+        "Changing the sign for the clockwise loop but not doubling the work for the doubled force.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-scale-squared",
+        "Squaring the factor of 2 for the doubled force, so the work is four times too big.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "area-forgot-half",
+        "Using the line integral of x dy - y dx as the area, without the factor 1/2.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-terms-added",
+        "Adding the two terms, x dy + y dx, in place of subtracting them; the integral round a closed curve is then 0.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-signed-clockwise",
+        "Giving the area with the wrong sign: the line integral is positive only for a counterclockwise traversal, and an area is never negative.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-partial-curve",
+        "Integrating round only part of the boundary: half the parameter range, a single arc, or all the edges but the closing one.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-scale-linear",
+        "Multiplying the area by the enlargement factor instead of its square.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-scale-cubed",
+        "Multiplying the area by the cube of the enlargement factor.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-scale-unchanged",
+        "Leaving the area unchanged after an enlargement.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-between-reversed",
+        "Subtracting the outer area from the inner one, so the area between the curves comes out negative.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-between-outer-only",
+        "Giving the area inside the outer curve as the area between the curves.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-fraction-inverted",
+        "Dividing the outer area by the inner one instead of the inner by the outer.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-fraction-complement",
+        "Giving the fraction of the outer area that lies outside the curve instead of inside it.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-fraction-of-complement",
+        "Dividing the enclosed area by the area between the curves instead of by the area inside the outer curve.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-mulch-on-enlarged",
+        "Using the area of the enlarged bed, not the original bed, to work out an amount that depends on the original bed.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-mulch-on-between",
+        "Using the area between the bed and the outer curve in place of the area of the bed itself.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "div-sum-of-components",
+        "Integrating P + Q + R over the solid instead of the divergence P_x + Q_y + R_z.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-mixed-partials",
+        "Taking the divergence as P_y + Q_z + R_x, differentiating each component with respect to the wrong variable.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-dropped-term",
+        "Leaving one of the three partial derivatives out of the divergence.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-spherical-no-rho-squared",
+        "Leaving the factor rho^2 out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-spherical-no-sin",
+        "Leaving the factor sin(phi) out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-cylindrical-no-r",
+        "Leaving the factor r out of the volume element r dr dtheta dz in cylindrical coordinates.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-inward",
+        "Giving the inward flux, with the wrong sign, instead of the outward flux.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-open-surface",
+        "Giving the total flux through the closed surface as the flux through the curved part alone, without subtracting the flux through the flat piece that closes it.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-base-added",
+        "Adding the flux through the flat piece to the total instead of subtracting it.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-flat-wrong-height",
+        "Evaluating the field at the wrong height on the flat piece (z = 0 on the lid, or the top height on the base).",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-base-sign",
+        "Taking the flux through the flat piece with the wrong sign, using the upward normal on a base whose outward normal points down.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-total-for-flat",
+        "Giving the total flux through the closed surface as the flux through the flat piece.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-total-reversed",
+        "Subtracting the total from the flat flux instead of the flat flux from the total.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-wrong-direction",
+        "Getting the sign of the circulation wrong by using the wrong orientation: counterclockwise as seen from above goes with the upward normal, clockwise with the downward one.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-flat-surface",
+        "Treating the tilted surface as if it were flat, integrating only the k component of curl F over the base and ignoring the slope of the surface.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-normal-signs",
+        "Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1).",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-z-not-replaced",
+        "Leaving z in curl F as 0 instead of replacing it by the height f(x, y) of the surface.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-curl-sign-slip",
+        "Getting the sign of one component of curl F wrong when writing out the determinant.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-flux-of-field",
+        "Integrating F . n over the surface instead of curl F . n, the flux of the field itself.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-polar-no-r",
+        "Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-orientation-ignored",
+        "Tripling the work for the stronger force but not changing its sign for the clockwise loop.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-scale-ignored",
+        "Changing the sign for the clockwise loop but not tripling the work for the stronger force.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-scale-squared",
+        "Squaring the factor of 3 for the tripled force, so the work is nine times too big.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-gradient-not-ignored",
+        "Adding a non-zero contribution for the gradient field, forgetting that the circulation of a gradient round a closed curve is 0.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-conservative-all-zero",
+        "Deciding the whole circulation is 0 because a conservative field was added, when only the added gradient contributes 0.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-gradient-doubled",
+        "Counting the original field twice when a conservative field is added.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "verify-piece-missing",
+        "Adding up the direct integrals over all but one piece of the boundary and calling that the total, so the two sides do not agree.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-reversed",
+        "Running one piece of the boundary the wrong way (or taking its normal the wrong way), so its contribution has the wrong sign.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-sides-added",
+        "Adding the two sides of the theorem together instead of recognising that they are equal.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-wrong-direction",
+        "Taking the whole answer with the opposite orientation to the one the theorem uses.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-is-whole",
+        "Giving the value for the whole boundary as the value for a single piece of it.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-share",
+        "Splitting the total equally among the pieces of the boundary, as if each contributed the same.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-swapped",
+        "Reporting the value for a different piece of the boundary from the one asked about.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-one-piece-subtracted",
+        "Taking only one of the two known pieces away from the total when finding the remaining piece.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-pieces-for-remaining",
+        "Giving the sum of the pieces already found as the value of the remaining piece, instead of the total minus that sum.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-remaining-sign",
+        "Subtracting the wrong way round when finding the remaining piece, so the sign is reversed.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-total-added",
+        "Adding the known pieces to the total instead of subtracting them when finding the remaining piece.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "coords-order-swapped",
+        "Writing the coordinates relative to a basis in the reverse order, so each is paired with the wrong basis vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coords-standard-used",
+        "Giving the entries of the vector itself as its coordinates, as if the basis were the standard one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coords-basis-as-rows",
+        "Writing the basis vectors as the rows of the coefficient matrix instead of its columns, so the system solved is for the transpose.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coords-sign-slip",
+        "Losing a minus sign on one coordinate when solving for the coordinates relative to a basis.",
         area="linear-algebra",
     ),
     CatalogueEntry(
@@ -44713,6 +46475,2334 @@ _ENTRIES = (
         area="complex-analysis",
     ),
     # -- end second-year complex analysis --
+        "Taking the coordinate of (x - a)^k to be the k-th derivative at a, without dividing by k factorial.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "taylor-centre-sign-error",
+        "Expanding about -a instead of a when the basis is the powers of (x - a).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-direction-reversed",
+        "Using the transition matrix the wrong way round: giving the matrix from C to B where the matrix from B to C was asked for, or multiplying by P where P-inverse is needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-transposed",
+        "Writing the coordinates of each old basis vector as a row of the transition matrix instead of a column, so the matrix is transposed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-product-order",
+        "Multiplying the factors of a transition matrix in the wrong order (B times C-inverse instead of C-inverse times B, or the first transition on the left).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-forgot-target-inverse",
+        "Stopping at the matrix whose columns are the old basis vectors, forgetting to convert them into coordinates relative to the new basis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-standard-used",
+        "Giving the matrix of the map in the standard basis where its matrix relative to another basis was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-forgot-output-basis",
+        "Writing the images of the basis vectors as columns of standard coordinates, without converting them to coordinates relative to the output basis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-forgot-input-basis",
+        "Converting the output to the new basis but applying the map to the standard basis vectors instead of the basis vectors, so the factor P is missing.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-transposed",
+        "Writing the coordinates of each image as a row of the matrix of the map instead of a column.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-derivative-factor-dropped",
+        "Dropping the power-rule factor when differentiating a basis polynomial or a multiple of x^k, so the entry is too small by that factor.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-basis-order-ignored",
+        "Reading the coordinates in the standard order of the functions instead of the order in which the basis is listed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-term-dropped",
+        "Leaving one term of the formula for the map out when finding its matrix, such as the identity part of D plus a multiple of the identity.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-trace-includes-offdiagonal",
+        "Adding off-diagonal entries into the trace, which is the sum of the diagonal entries only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-det-for-trace",
+        "Giving the trace of the matrix where its determinant was asked for, or adding the eigenvalues where they should be multiplied.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-assumed-trivial",
+        "Assuming the kernel of a linear map is just the zero vector without checking for a non-zero solution of T(v) = 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "image-assumed-whole-codomain",
+        "Taking the dimension of the image to be the dimension of the codomain, without checking that the map is onto.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-assumed-by-eigenvalue-count",
+        "Counting the eigenvalues of A and B instead of the eigenvalues they share when finding the kernel of X -> AX - XB.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-not-normalised",
+        "Reading a coordinate off the kernel vector as it came out of the row reduction, without rescaling so that the stated coefficient is 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-wrong-coefficient",
+        "Giving a different coefficient of the kernel polynomial from the one asked for (the x term for the constant term).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-coefficient-inverted",
+        "Dividing the wrong way when rescaling a kernel vector, so the coefficient is the reciprocal of the right one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-vectors-as-columns",
+        "Writing the basis vectors as the columns of the answer matrix when the rows were asked for, so the matrix is transposed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-order-ignored",
+        "Listing the basis vectors in the wrong order, not following the order of the free variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-free-variables-misidentified",
+        "Choosing the wrong variables as free (for example the first ones rather than the ones without a pivot), so each vector is built on the wrong coordinates.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-not-normalised",
+        "Giving a correct but unreduced basis vector, a multiple of the one in reduced row echelon form, when the normal form was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-equations",
+        "Taking the dimension of the solution space to be n minus the number of equations, even though some equations depend on the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-ignores-parameter",
+        "Giving the dimension at the special value of the parameter for every value of the parameter.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-used-one-subspace",
+        "Giving a basis of one of the two subspaces instead of their intersection.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-sum-for-intersection",
+        "Adding generators of the two subspaces instead of finding the vectors that lie in both.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-substitution-sign-slip",
+        "Substituting a vector of the spanning set into the equation of the other subspace and getting the sign of the resulting relation wrong.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-zero-vector-only",
+        "Treating a set as a subspace because it contains the zero vector, without checking closure under addition and scalar multiplication.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-addition-only",
+        "Checking closure under addition but not under scalar multiplication.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-scalar-only",
+        "Checking closure under scalar multiplication but not under addition.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-count-complement",
+        "Reporting the number of sets that are not subspaces instead of the number that are.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-miscounted",
+        "Miscounting the sets that are subspaces by accepting a set that fails a closure condition.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-other-root",
+        "Choosing the other root of the condition on the parameter when the question asks for the larger or smaller one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-parameter-sum-for-root",
+        "Giving the sum of the roots of the parameter condition instead of the requested root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-parameter-product-for-root",
+        "Giving the product of the roots of the parameter condition instead of the requested root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-parameter-zero",
+        "Assuming the parameter must be zero for the set to contain the zero vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-zero-vector-overlooked",
+        "Overlooking that a set failing to contain the zero vector is not a subspace, and testing closure first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-equation-means-subspace",
+        "Assuming any set defined by an equation is a subspace, even when the equation is not homogeneous linear.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-dimension-ambient",
+        "Giving the dimension of the ambient space instead of the dimension of the subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-dimension-affine-for-linear",
+        "Treating a translated solution set as if it had the dimension of the subspace it is parallel to, and calling it a subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "multiplicity-roles-swapped",
+        "Giving the geometric multiplicity where the algebraic one was asked for and the reverse, so the pair is written the wrong way round.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "geo-equals-alg",
+        "Assuming the geometric multiplicity of an eigenvalue equals its algebraic multiplicity, without finding the dimension of its eigenspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "multiplicity-counted-once",
+        "Counting an eigenvalue once in both multiplicities, as if it were a simple root with a single eigenvector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "alg-multiplicity-off-by-one",
+        "Reading the power of (λ - λ₀) in the characteristic polynomial one too high or one too low.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "diag-condition-gap-dropped",
+        "Leaving the difference between the two eigenvalues out of the condition that makes the rows of A - λI proportional.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "diag-condition-wrong-ratio",
+        "Writing the condition for proportional rows of A - λI with the entries paired the wrong way round.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "parameter-zero-assumed",
+        "Taking the parameter to be 0 because the matrix looks simpler there, without checking the rank condition.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "diag-parameter-other-collision",
+        "Giving the other value of the parameter at which two eigenvalues coincide, where the eigenspace is still large enough.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigval-trace-single-count",
+        "Subtracting a repeated eigenvalue from the trace only once when finding the third eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "geo-always-one",
+        "Taking the geometric multiplicity to be 1 for every eigenvalue, as if each had a single eigenvector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigvec-not-normalised",
+        "Giving eigenvectors with whole-number entries without dividing each by its length, so the columns of Q are not unit vectors.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigvec-normalised-by-sum",
+        "Scaling an eigenvector by the sum of its entries instead of its length when making it a unit vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "projection-not-normalised",
+        "Writing the projection as v vᵀ without dividing by vᵀv.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "projection-complement-confused",
+        "Giving the projection onto the complementary subspace: the line instead of the plane, or the plane instead of the line.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "projection-scaled-by-eigenvalue",
+        "Multiplying the projection onto an eigenspace by its eigenvalue, which gives that term of the spectral decomposition rather than the projection.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-cross-term-not-halved",
+        "Writing the coefficient of a cross term such as xy as the off-diagonal entry of the matrix, instead of half of it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-matrix-not-symmetric",
+        "Putting each cross-term coefficient in one off-diagonal entry only and leaving the mirror entry zero, so the matrix is not symmetric.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-diagonal-halved",
+        "Halving every entry of the matrix of a quadratic form, the diagonal ones as well as the off-diagonal ones.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-cross-terms-misplaced",
+        "Putting the coefficient of one cross term, such as xz, in the entry that belongs to a different pair of variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-diagonal-read-as-eigenvalues",
+        "Reading the coefficients of x², y², z² as the eigenvalues of a quadratic form that also has cross terms.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigval-order-reversed",
+        "Listing the eigenvalues from largest to smallest when the question asked for increasing order.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-schur-complement-det-dropped",
+        "Leaving out the determinant of the leading block when solving for the value of the parameter that makes the determinant of the whole matrix positive.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-positive-diagonal-assumed",
+        "Concluding that a form is positive definite as soon as its diagonal coefficients are positive, so the parameter threshold is 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-zero-eigenvalue-counted-positive",
+        "Counting a zero eigenvalue among the positive ones when finding the signature.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-zero-eigenvalue-counted-negative",
+        "Counting a zero eigenvalue among the negative ones when finding the signature.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-sign-reversed",
+        "Reversing the sign pattern of the eigenvalues, so a positive definite form is called negative definite or the numbers of positive and negative eigenvalues are swapped.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-definiteness-from-diagonal",
+        "Judging the signs of the eigenvalues from the signs of the diagonal coefficients, ignoring the cross terms.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-cross-term-kept-after-rotation",
+        "Keeping the cross term when writing a quadratic form in its principal axes, where it should have disappeared.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "principal-axes-eigenvalues-swapped",
+        "Attaching the eigenvalues to the principal-axis coordinates in the wrong order.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-semidefinite-vs-definite",
+        "Confusing a definite form with a semi-definite one: calling a form with a zero eigenvalue definite, or a form with no zero eigenvalue semi-definite.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-indefinite-assumed",
+        "Calling a form indefinite because it has a cross term or a negative entry in its matrix, without looking at its eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-diagonal-assumed",
+        "Writing the diagonal matrix of eigenvalues as the Jordan form of a matrix that does not have enough independent eigenvectors to be diagonalised.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-one-below-diagonal",
+        "Putting the 1s of a Jordan block below the diagonal when the normal form has them directly above it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-blocks-misordered",
+        "Placing the Jordan blocks in an order other than the one stated: by increasing eigenvalue, the larger block first for equal eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-from-multiplicity",
+        "Taking the size of the Jordan block for an eigenvalue to be its algebraic multiplicity, without finding the dimension of the eigenspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-off-by-one",
+        "Splitting a Jordan block into one block that is too small and an extra block of size 1, from an eigenspace of the wrong dimension.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-squared-not-renormalised",
+        "Squaring a Jordan matrix and leaving the result, with 2λ above the diagonal, instead of writing the Jordan form of the square.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-kept-for-zero",
+        "Keeping a Jordan block of size 2 for the square of a matrix whose block has eigenvalue 0, although a block J(0; 2) squares to zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-rank-confused",
+        "Giving the rank of A - λI as the size of the largest Jordan block instead of the rank plus one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-count-as-size",
+        "Giving the number of Jordan blocks as the size of the largest block.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-entrywise",
+        "Taking the exponential of each entry of A separately, so the entry of e^(At) is e^(a t) with a the entry of A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-eigenvalues-swapped",
+        "Attaching the exponentials e^(λt) to the wrong coefficients in P e^(Dt) P⁻¹, so each eigenvalue is paired with the other's coefficient.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-t-dropped",
+        "Writing e^(λ) for e^(λt), so the entry of the matrix exponential has no t in the exponent.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-sign-in-exponent",
+        "Using e^(-λt) in place of e^(λt) in the exponentials of the diagonal matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-nilpotent-term-dropped",
+        "Stopping at e^(λt) I and leaving out the tN (and t²N²/2) terms that a Jordan block adds.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-identity-added-offdiagonal",
+        "Adding the identity to the off-diagonal entries too, so the term 1 appears in an entry that should be only e^(λt) t N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-eigenvalue-factor-dropped",
+        "Writing the entry of e^(At) = e^(λt)(I + tN) without the factor e^(λt).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-factorial-dropped",
+        "Writing t² where t²/2 belongs in e^(λt)(I + tN + t²N²/2) for a Jordan block of size 3.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-columns-not-weighted",
+        "Adding the entries of a row of e^(At) without weighting them by the components of the initial vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-nilpotent-t-factor-dropped",
+        "Writing e^(λt)(I + N) for e^(At) when A = λI + N with N² = 0, leaving the factor t off N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-eigenvalues-swapped",
+        "Attaching each coefficient of a closed form to the eigenvalue belonging to the other term.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-index-shift",
+        "Writing the closed form of a sequence with the index shifted by one, so each term carries λ^(n+1) in place of λ^n.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-coefficients-from-initial-values",
+        "Taking the coefficients of the eigenvalue terms to be the initial values themselves, without expressing x₀ in the eigenvectors.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-coefficient-base-confused",
+        "Swapping the roles of coefficient and base in a term c·λⁿ, writing λ·cⁿ.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-eigenvector-weight-dropped",
+        "Leaving out the entry of the eigenvector when forming each coefficient of the component, so only the coordinates of x₀ in the eigenbasis appear.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-long-run-initial",
+        "Giving the initial vector as the long-run state, as if the chain did not move.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-equal-split",
+        "Assuming the long-run state is an equal split between the states.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-state-swapped",
+        "Giving the long-run numbers in the wrong order, so each state gets the other state's share.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-forgot-total",
+        "Giving the steady-state proportions without multiplying by the total number in the system.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-ratio-not-normalised",
+        "Scaling the steady state by the total divided by 10 instead of dividing by the sum of its entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-eigenvector-not-scaled",
+        "Giving the whole-number eigenvector for the eigenvalue 1 instead of scaling it to the total of the initial vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-ratio-inverted",
+        "Giving the proportion for the other state, from taking the switching rate out of a state as the share that ends up in it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-rate-as-share",
+        "Reading one of the switching rates in the matrix as the long-run share of a state.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-second-eigenvalue-one-entry",
+        "Taking the second eigenvalue of a 2×2 stochastic matrix to be 1 minus one of the switching rates, instead of 1 minus their sum.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-second-eigenvalue-sum",
+        "Taking the second eigenvalue of a 2×2 stochastic matrix to be the sum of the two switching rates instead of 1 minus the sum.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-real-imag-swapped",
+        "Giving the real part where the imaginary part was asked for and the reverse: a + bi written as b + ai.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-conjugate-chosen",
+        "Giving the conjugate eigenvalue a - bi, or the negative of the argument, instead of the one with positive imaginary part.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-formula-halving",
+        "Leaving out the division by 2 in the quadratic formula, so the imaginary part is the whole square root of the negative discriminant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-real-part-is-trace",
+        "Giving the trace of the matrix as the real part of the eigenvalues instead of half the trace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-imaginary-part-is-determinant",
+        "Giving the determinant of the matrix as the imaginary part of the eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-imaginary-part-squared",
+        "Giving b² where b was asked for, after solving a² + b² = det A and stopping early.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-squared-forgot-root",
+        "Giving a² + b², which equals det A, as the modulus without taking the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-sum-not-root",
+        "Adding the sizes of the real and imaginary parts to get the modulus, |a| + |b|, instead of √(a² + b²).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-difference-of-squares",
+        "Subtracting the squares of the real and imaginary parts under the root instead of adding them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-is-trace",
+        "Giving the size of the trace as the modulus of the eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-from-discriminant",
+        "Taking the modulus to be the square root of the size of the discriminant tr² - 4 det.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-rotation-sign",
+        "Writing the rotation-scaling matrix with the signs of b the wrong way round, [[a, b], [-b, a]] for [[a, -b], [b, a]].",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-rotation-not-antisymmetric",
+        "Writing the rotation-scaling matrix with the same sign on both b entries, so it is not [[a, -b], [b, a]].",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-imaginary-part-dropped",
+        "Giving a·I as the rotation-scaling matrix, leaving out the rotation that b contributes.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-argument-quadrant-ignored",
+        "Taking arctan(b/a) as the argument without adjusting for the quadrant when the real part is negative.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-argument-ratio-inverted",
+        "Using arctan(a/b) in place of arctan(b/a) for the argument.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-argument-complement",
+        "Giving π/2 minus the argument, from measuring the angle from the imaginary axis instead of the real axis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-power-angle-rounded",
+        "Giving a lower power of the matrix by rounding the exponent down to an even number.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "geo-reported-as-matrix-size",
+        "Giving the size of the matrix as the dimension of an eigenspace, as if every vector were an eigenvector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-congruence-order-reversed",
+        "Transforming a quadratic form under x = Py as P A Pᵀ instead of Pᵀ A P, so the transpose is on the wrong side.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-congruence-as-similarity",
+        "Transforming a quadratic form under x = Py as P⁻¹ A P, the rule for a change of basis of a linear map, instead of Pᵀ A P.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-substitution-one-sided",
+        "Substituting x = Py into only one side of xᵀAx, giving A P or Pᵀ A instead of Pᵀ A P.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-substitution-matrix-reported",
+        "Reporting the substitution matrix P, or PᵀP, as the matrix of the form in the new variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-squares-cross-terms-dropped",
+        "Writing the matrix of a sum of squares of linear forms from the squares of the coefficients alone, dropping the cross products of different variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-squares-cross-terms-not-halved",
+        "Putting the full cross-product coefficient of a variable pair into each of the two symmetric entries, instead of half of it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-power-ignored",
+        "Finding the modulus of the eigenvalues of A and reporting it as the modulus for a power or inverse of A, as if raising A to a power did not change its eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-power-as-multiple",
+        "Multiplying the modulus by the exponent instead of raising it to that power: |λ|ᵏ read as k|λ|.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-squared-power",
+        "Raising the squared modulus a² + b² to the exponent k, instead of the modulus itself.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-inverse-not-reciprocated",
+        "Taking the modulus of the eigenvalues of the inverse to be the modulus for A itself, or its negative, instead of its reciprocal.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-returns-projection",
+        "Reporting the projection of v2 onto u1 as the second vector, instead of subtracting it from v2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-adds-projection",
+        "Adding the projection to the vector instead of subtracting it, so the result is not orthogonal to the earlier vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-forgot-divide-by-norm-squared",
+        "Subtracting (v2 . u1) u1 without dividing by u1 . u1, so the multiple of u1 taken off is too large.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-divides-by-wrong-vector",
+        "Dividing the dot product by the squared length of the vector being orthogonalised instead of the squared length of the vector projected onto.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-projects-onto-original-vector",
+        "Subtracting projections onto the original vectors v1, v2 instead of the orthogonal vectors u1, u2, so the result is not orthogonal to u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-drops-first-projection",
+        "Subtracting only the projection onto the latest orthogonal vector and leaving out the projection onto u1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-drops-second-projection",
+        "Subtracting only the projection onto u1 and leaving out the projection onto u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-integral-replaced-by-coefficient-dot",
+        "Using the dot product of the coefficient vectors in place of the integral inner product of the polynomials.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-inverted-coefficient",
+        "Turning the projection coefficient upside down: dividing u1 . u1 by v2 . u1 instead of v2 . u1 by u1 . u1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-coefficient-not-squared",
+        "Using c where c squared belongs when finding the squared length of u2 = v2 - c u1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-drops-projection-from-length",
+        "Giving the squared length of v2 as the squared length of u2, forgetting that the projection has been removed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-length-of-projection",
+        "Giving the squared length of the projection c u1 instead of the squared length of the remainder u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-ignores-the-weights",
+        "Using the ordinary dot product in the Gram-Schmidt process when the inner product has weights.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-gives-w-itself",
+        "Giving a basis of W itself, in reduced form, instead of a basis of its orthogonal complement.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-sign-error-in-null-vectors",
+        "Forgetting the minus sign when writing the solutions of the equations, so each basis vector has the wrong sign on its pivot entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-not-in-reduced-form",
+        "Giving a correct basis of the complement that is not in reduced row echelon form (cleared denominators, or unreduced rows), so it is not the normal form asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-only-first-vector",
+        "Finding the vectors orthogonal to the first spanning vector only, and ignoring the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-too-few-vectors",
+        "Giving fewer basis vectors than the complement has, stopping after the first free variable.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-keeps-the-dependent-equation",
+        "Keeping every row of the system as a basis vector of the complement, including the equation that is a combination of the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-forgot-coefficient-of-k",
+        "Solving a. z = 0 for k without dividing by the coefficient of k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-onto-the-wrong-vector",
+        "Projecting the line's direction onto the given vector instead of the given vector onto the line's direction.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-divide-by-norm-squared",
+        "Multiplying a by v . a without dividing by a . a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-gives-the-perpendicular-part",
+        "Giving the component of v perpendicular to the subspace, v - p, instead of the projection p.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-scales-v-not-a",
+        "Finding the right coefficient (v . a)/(a . a) but multiplying v by it instead of a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-adds-line-projections",
+        "Projecting onto each spanning vector separately and adding, which only works when the spanning vectors are orthogonal.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-onto-one-spanning-vector",
+        "Projecting onto only one of the two spanning vectors of the plane.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-matrix-onto-the-complement",
+        "Giving the projection matrix onto the orthogonal complement (the matrix of the normal direction) instead of onto the subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-matrix-forgot-the-inverse",
+        "Using A A^T as the projection matrix, leaving out the factor (A^T A)^-1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-matrix-forgot-divide-by-norm-squared",
+        "Using n n^T, or I - n n^T, without dividing by n . n.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-distance-is-the-projection-length",
+        "Giving the length of the projection as the distance to the subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-to-subtract-the-projection",
+        "Giving the length of v itself as the distance, without removing the projection.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-pythagoras-with-the-wrong-sign",
+        "Adding the squared lengths of v and its projection to get the squared distance instead of subtracting.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-the-square-root",
+        "Giving the squared distance where the distance itself was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-cosine-for-sine",
+        "Giving the cosine of the angle between v and the plane (projection length over length of v) where the sine was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-wrong-ratio",
+        "Dividing the distance by the length of the projection instead of by the length of v.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-to-divide-by-the-length",
+        "Giving the distance as the sine of the angle, without dividing by the length of v.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-solves-only-the-first-equations",
+        "Solving exactly the first few equations and ignoring the rest, instead of minimising the error over all of them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-reports-the-right-hand-side-of-the-normal-equations",
+        "Stopping at the right-hand side A^T b of the normal equations without solving for x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-coefficients-in-the-wrong-order",
+        "Giving the least-squares coefficients in the reverse of the order the model lists them (slope before intercept, or highest power first).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-line-through-the-mean-only",
+        "Fitting the horizontal line through the mean of the y values and ignoring the trend.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-gives-the-fitted-values",
+        "Giving the fitted values Ax instead of the residual b - Ax.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-residual-sign-reversed",
+        "Giving Ax - b instead of b - Ax for the residual.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-sign-slip",
+        "Adding the two terms of the determinant of A^T A instead of subtracting.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-forgot-n",
+        "Leaving out the factor n (the number of data points) in the first term of the determinant of A^T A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-dropped-second-term",
+        "Stopping at n times the sum of x squared, forgetting to subtract the square of the sum of x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-dropped-first-term",
+        "Giving only the square of the sum of x as the determinant of A^T A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-without-centring",
+        "Dividing the sum of xy by the sum of x squared, as for a line through the origin, instead of using the normal equations.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-wrong-denominator",
+        "Dividing the slope numerator by n times the sum of x squared instead of by the determinant of A^T A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-numerator-reversed",
+        "Reversing the order of the two terms in the numerator of the slope, which gives the slope the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-forgot-n",
+        "Leaving out the factor n in the first term of the slope numerator.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-intercept-is-the-mean-of-y",
+        "Giving the mean of the y values as the intercept, forgetting that the slope shifts it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-intercept-forgot-divide-by-n",
+        "Finding the sum of y minus m times the sum of x and not dividing by n.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-intercept-from-one-point",
+        "Finding the intercept so that the line passes through the first data point only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-forgot-the-square-root",
+        "Giving the squared length of the residual where its length was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-sum-of-residuals-not-length",
+        "Adding the sizes of the residuals instead of finding the length of the residual vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-residual-from-the-mean-line",
+        "Measuring the residual from the horizontal line at the mean of y instead of from the least-squares line.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-length-of-b-not-the-residual",
+        "Giving the length of the data vector b instead of the length of the residual b - Ax.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-diagonal-is-squared-length",
+        "Putting the squared length of the orthogonalised column on the diagonal of R instead of the length.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-off-diagonal-not-divided-by-length",
+        "Using the dot product with the unnormalised column for an entry above the diagonal of R, instead of the dot product with the unit vector q.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-r-not-upper-triangular",
+        "Giving R as a lower triangular matrix, the transpose of the right answer.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-diagonal-from-original-column",
+        "Taking the diagonal entries of R as the lengths of the original columns of A, without removing the projections first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-columns-not-normalised",
+        "Giving the orthogonal columns of Gram-Schmidt as Q without dividing each by its length.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-skips-orthogonalising",
+        "Normalising the second column of A directly instead of the column left after subtracting its projection on the first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-transposed",
+        "Giving the transpose of Q, with the orthonormal vectors as rows.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-column-sign-flipped",
+        "Reversing the sign of a column of Q, which would make the diagonal of R negative.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-norm-is-sum-of-entries",
+        "Taking the length of a column to be the sum of the sizes of its entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-confuses-r11-and-r22",
+        "Giving another entry of R in place of the one asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-norm-off-by-one",
+        "Misjudging the length of a vector by one unit through a slip in the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-divides-by-squared-length",
+        "Dividing the dot product of the columns by the squared length of the first column instead of its length.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-divides-by-the-wrong-length",
+        "Dividing the dot product of the columns by the length of the second column instead of the first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-forgot-back-substitution",
+        "Giving Qᵀb as the solution without solving the triangular system Rx = Qᵀb.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-back-substitution-order-reversed",
+        "Solving the upper triangular system from the top, as if it were lower triangular, instead of from the bottom.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-dropped-a-term",
+        "Leaving one term out of the dot product z . v = 0 when solving for the unknown entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "vop-sign-on-first-term",
+        "Putting the wrong sign on the first term in variation of parameters: using +y2 g/W where -y2 g/W is needed, so y_p changes sign in one term.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-swapped-solutions",
+        "Pairing u1 with y2 and u2 with y1 (or swapping u1' and u2') when forming y_p = u1 y1 + u2 y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-forgot-to-integrate",
+        "Using u1' and u2' directly in y_p without integrating them.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-reversed",
+        "Taking the Wronskian as y1' y2 - y1 y2', the negative of the right one, so every u and y_p has the wrong sign.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-one-term-only",
+        "Keeping only one of the two terms u1 y1 and u2 y2 in the particular solution.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-sum",
+        "Adding y1 y2' and y1' y2 in the Wronskian instead of subtracting.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-wrong-arrangement",
+        "Building the Wronskian as y1 y2 - y1' y2' instead of y1 y2' - y1' y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-no-derivative",
+        "Forgetting to differentiate y1 in the Wronskian, which gives y1 y2' - y1 y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-forgotten",
+        "Leaving out the division by the Wronskian in u1' = -y2 g/W or u2' = y1 g/W.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-multiplied",
+        "Multiplying by the Wronskian instead of dividing by it in u1' or u2'.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-sign-on-second-term",
+        "Putting the wrong sign on the second term in variation of parameters, so y_p = u1 y1 - u2 y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-dropped-function-of-y",
+        "Integrating M with respect to x to get F but leaving out the function of y that must be added, so F_y no longer equals N.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-both-integrals-added",
+        "Adding the integral of M with respect to x and the integral of N with respect to y, which counts the cross terms twice.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-integrated-wrong-variable",
+        "Integrating M with respect to y instead of x when looking for the potential.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-sign-on-g",
+        "Subtracting the missing function of y (or of x) instead of adding it to the integral.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-dropped-function-of-x",
+        "Integrating N with respect to y but leaving out the function of x that must be added.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-test-wrong-partials",
+        "Testing exactness with M_x = N_y instead of M_y = N_x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-derivative-power-dropped",
+        "Forgetting the power in differentiating when comparing M_y with N_x, so k comes out as a bare coefficient.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-sign-of-k",
+        "Getting the sign of k wrong when equating M_y and N_x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-k-inverted",
+        "Dividing the coefficients the wrong way round when solving for k.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-ic-sign-on-constant",
+        "Writing the constant C with the wrong sign after substituting the initial condition into F.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-ic-swapped-point",
+        "Substituting the initial condition as (y0, x0) instead of (x0, y0).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-sign-reversed",
+        "Reversing the numerator of the quotient, so the integrating factor is the reciprocal of the right one.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-not-exponentiated",
+        "Integrating the quotient but not exponentiating, so the exponent is given as the integrating factor.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-ratio-only",
+        "Giving the quotient itself as the integrating factor, without integrating.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-wrong-variable",
+        "Writing the integrating factor in the other variable.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-wrong-denominator",
+        "Dividing the difference of partial derivatives by M instead of N, or by N instead of M.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-quotient-numerator-only",
+        "Leaving out the division by M or N in the quotient.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-quotient-wrong-partials",
+        "Using M_x - N_y in the quotient instead of M_y - N_x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-not-applied",
+        "Finding the potential of the original equation instead of the equation multiplied by the integrating factor.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-forgot-final-power",
+        "Stopping at the solution v of the linear equation without converting back to y = v^(1/(1-n)).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-inverted-power",
+        "Converting back with the wrong power, y = v^(-1/(1-n)) instead of v^(1/(1-n)).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-ic-applied-to-v",
+        "Using the initial value of y as the initial value of v, instead of y(x0) raised to the power 1 - n.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-forgot-one-minus-n",
+        "Leaving the factor 1 - n out of the linear equation for v, so v' + P v = Q.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-q-not-scaled",
+        "Multiplying P by 1 - n in the linear equation for v but forgetting to multiply Q by it.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-wrong-exponent",
+        "Using the wrong power in the substitution, such as v = y^n or v = y^(n-1) instead of v = y^(1-n).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-integrating-factor-uses-p",
+        "Forming the integrating factor from P instead of (1 - n) P.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-integrating-factor-sign",
+        "Giving the integrating factor the wrong sign in the exponent.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-integrating-factor-not-exponentiated",
+        "Giving the integral of the coefficient instead of its exponential as the integrating factor.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-forgot-back-substitution",
+        "Stopping at v(x) without multiplying by x to return to y = vx.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-constant-error",
+        "Fixing the constant of integration wrongly from the initial condition, such as inverting it or using the wrong value of y/x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-sign-in-separation",
+        "Making a sign slip while separating variables and integrating after the substitution y = vx.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-dropped-product-rule",
+        "Taking dy/dx = x dv/dx and leaving out the v term of the product rule in y = vx.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-reciprocal-slip",
+        "Inverting the result of the integration, so v is replaced by 1/v.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-coefficient-dropped",
+        "Dropping the coefficient of the squared term, or the factor 2 from the half-angle, in the solution.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-divided-by-x",
+        "Writing dv/dx without the factor x, so the transformed equation is divided by x once too often.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-wrong-term",
+        "Swapping the roles of the v and v^2 terms in the equation for v.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-sign-in-partial-fractions",
+        "Getting a sign wrong in the partial fractions for the separated integral.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-indicial-slip",
+        "Forming the exponent equation wrongly from y = x^r, such as r^2 + a r + b = 0, forgetting that y'' gives r(r - 1).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-sign-of-exponent",
+        "Reversing the sign of the exponents, so x^r is written as x^(-r).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-constants-swapped",
+        "Attaching the constants to the wrong powers of x after solving the initial conditions.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-missing-log",
+        "For a repeated root or complex roots, leaving out the ln x, writing the second solution as x^(r+1) or using cos(bx) instead of cos(b ln x).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-derivative-slip",
+        "Forgetting the term from the first solution when matching y'(1) for a repeated or complex root.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-indicial-sign",
+        "Giving the exponent equation the wrong sign on its middle coefficient.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-root-slip",
+        "Slipping when reading the required value off the exponent equation, such as reversing its sign or using the other root.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-particular-coefficient-slip",
+        "Slipping in the coefficient of the particular solution when substituting the trial form, such as forgetting to divide by p^2 + bp + c or dropping the b term.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-particular-derivative-dropped",
+        "Dropping the term from the first derivative of the trial solution, so a linear particular solution has the wrong constant term.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-resonance-coefficient-slip",
+        "Getting the coefficient of the resonant particular solution wrong, such as forgetting to divide by 2p + b or by 2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-resonance-factor-x-dropped",
+        "Using a trial solution with the same form as a term of the complementary function instead of multiplying by x (or x^2).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-ic-applied-to-homogeneous-only",
+        "Fitting the constants of the complementary function to the initial conditions without allowing for the particular solution.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-ic-derivative-particular-forgotten",
+        "Subtracting the particular solution from y(0) but not its slope from y'(0) when fitting the constants.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-homogeneous-root-sign",
+        "Reading the characteristic roots with the wrong sign, so the complementary function has e^(-rx) in place of e^(rx).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-particular-sign-error",
+        "Taking the particular solution with the wrong overall sign.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-complex-real-part-dropped",
+        "For complex roots, dropping the exponential factor e^(ax) from the complementary function.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-force-not-divided-by-mass",
+        "Leaving out the division by the mass when writing the equation of motion, so the forcing term is F0 instead of F0/m.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-sign-of-detuning",
+        "Reversing the sign of the difference between the natural and driving frequencies squared, so the amplitude has the wrong sign.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-frequencies-added",
+        "Adding the squares of the natural and driving frequencies instead of subtracting them.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-sin-for-cos",
+        "Writing the forced response as a sine when the driving force is a cosine.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-stiffness-as-frequency",
+        "Using the spring stiffness k where the squared natural frequency k/m belongs.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-factor-two",
+        "Missing the factor 2 in the resonant solution F0 t sin(w0 t)/(2 m w0), or putting it in the wrong place.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-no-growth",
+        "Using the non-resonant form for a system driven at its natural frequency, so the amplitude does not grow.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-wrong-trig",
+        "Writing the resonant solution with cos instead of sin for a force that is a cosine.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-frequency-slip",
+        "Dividing by w0 squared instead of w0 in the resonant amplitude growth rate.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-initial-conditions-ignored",
+        "Giving only the forced response and ignoring the starting conditions.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-homogeneous-sine",
+        "Adding a sine term at the natural frequency, although the mass starts with zero velocity.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-natural-frequency-used",
+        "Giving the undamped natural frequency as the frequency of greatest steady amplitude in a damped system.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-damped-frequency-used",
+        "Giving the damped natural frequency as the frequency of greatest steady amplitude.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-peak-damping-slip",
+        "Making a slip in the damping term of the formula for the frequency of greatest amplitude, k/m - c^2/(2m^2).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-beat-period-slip",
+        "Using the wrong frequency combination for the beat period, such as the sum of the frequencies or the period of the fast oscillation.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-beat-amplitude-slip",
+        "Taking the greatest displacement during beats to be the amplitude of one cosine rather than twice it.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-frequency-slip",
+        "Slipping when finding the natural angular frequency or a quantity built from it, such as using k/m or k instead of its square root.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-wrong-root-chosen",
+        "Giving the other root of the indicial equation from the one the question asked for, or building the series on the wrong exponent.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-sign-error",
+        "Giving a root of the indicial equation with the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-leading-coefficient-ignored",
+        "Forming the indicial equation without dividing by, or including, the coefficient of x² y'', so the roots come out wrong.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-r-minus-one-dropped",
+        "Writing r² in place of r(r - 1) for the y'' term of the indicial equation.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-root-sum-given",
+        "Giving the sum of the two indicial roots, 1 - B0/A, instead of one root.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-sign-slip",
+        "Moving the terms of the Frobenius recurrence across the equals sign without changing their signs.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-coefficient-index-shifted",
+        "Using r + n in place of r + n - k for the exponent in the y' term of the recurrence.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-n-for-r-plus-n",
+        "Evaluating the indicial polynomial at n instead of at r + n when dividing in the recurrence.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-term-left-out",
+        "Leaving one of the earlier coefficients out of the recurrence, so a_2 is built from a_1 alone.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-second-derivative-factor-dropped",
+        "Writing the contribution of y'' to the coefficient recurrence with the factor (n+2) but not (n+1), or the like, so a term of the second derivative is under-counted.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-derivative-factor-dropped",
+        "Writing the contribution of a term such as x y' to the recurrence as a_n, leaving out the factor n that differentiation brings down.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-sign-slip",
+        "Moving the other terms of the recurrence across the equals sign without changing their signs, so every later coefficient has the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-initial-values-swapped",
+        "Taking a_0 to be y'(x0) and a_1 to be y(x0), the wrong way round.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-wrong-coefficient-index",
+        "Giving the coefficient of a neighbouring power, a_(n-1), where a_n was asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-expansion-point-ignored",
+        "Expanding about x = x0 but using the coefficients of the equation in powers of x, without re-expanding them in powers of (x - x0).",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-term-left-out-of-sum",
+        "Stopping the partial sum one term early, leaving out the last term of the truncated series.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-damping-term-sign",
+        "Taking the damping term to enter the Jacobian with the wrong sign, writing +c where the derivative gives -c.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-transposed",
+        "Writing the Jacobian matrix transposed, with the partial derivatives of each variable down a row instead of along it.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-rows-swapped",
+        "Putting the partial derivatives of the second equation in the first row of the Jacobian matrix and the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-at-wrong-equilibrium",
+        "Evaluating the Jacobian matrix at a different equilibrium from the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-at-origin",
+        "Evaluating the Jacobian matrix at the origin instead of at the equilibrium asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-product-rule-missed",
+        "Differentiating a product such as x(a - bx - cy) by treating the factor x as a constant, so the bracket itself is lost.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-equilibrium-from-single-equations",
+        "Solving each bracket of the system for its own axis, instead of solving the two equations together for the coexistence equilibrium.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-classification-stability-flip",
+        "Reading the type of the equilibrium correctly but the stability wrongly, calling a stable point unstable or the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-classification-node-spiral-swapped",
+        "Calling a node a spiral, or a spiral a node, by misjudging the sign of trace² - 4 × determinant.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-classification-saddle-misjudged",
+        "Misjudging the sign of the determinant, so a saddle is called a node or spiral or the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-cramer-sign-slip",
+        "Getting a sign wrong when solving the two linear nullcline equations for the coexistence equilibrium.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-coordinates-swapped",
+        "Giving the y-coordinate of the equilibrium where the x-coordinate was asked, or the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-solution-not-divided-by-determinant",
+        "Stopping before dividing by the determinant (or the coefficient) when solving the nullcline equations.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-ratio-inverted",
+        "Inverting a ratio when solving a nullcline equation, giving e/d where d/e is needed.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-trace-for-determinant",
+        "Giving the trace of the Jacobian matrix where its determinant was asked.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-determinant-sign-slip",
+        "Getting the sign of the determinant of the Jacobian matrix wrong.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-determinant-factor-left-out",
+        "Leaving a constant factor out of the determinant of the Jacobian matrix, such as bf - ce.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-repeated-eigenvalue-no-t-term",
+        "Treating a repeated eigenvalue with one eigenvector like a pair of ordinary exponentials, and leaving out the t e^(λt) term of the solution.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-matrix-used-instead-of-nilpotent-part",
+        "Using A where A - λI is needed, so the coefficient of the t e^(λt) term is built from the wrong vector.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-t-term-sign",
+        "Getting the sign of the t e^(λt) term wrong when the generalised eigenvector is found from (A - λI)w = v.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-nilpotent-part-sign",
+        "Forming A + λI instead of A - λI.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-off-diagonal-term-dropped",
+        "Leaving the off-diagonal term out when multiplying A - λI by the initial vector.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-cos-sin-coefficients-swapped",
+        "Swapping the cosine and sine coefficients, so the initial value multiplies the sine and the other coefficient multiplies the cosine.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frequency-from-discriminant",
+        "Taking the square root of the discriminant as the frequency, without halving it, so the oscillation runs twice as fast.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-sine-coefficient-not-divided-by-frequency",
+        "Leaving out the division by the frequency in the coefficient of the sine term.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-growth-factor-dropped",
+        "Dropping the factor e^(αt) from the real solution when the real part α of the eigenvalues is not zero.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-sine-term-sign",
+        "Taking the eigenvalue with negative imaginary part, so the sine term of the real solution has the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-real-part-not-halved",
+        "Giving the trace as the real part of the complex eigenvalues instead of half the trace.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-real-and-imaginary-parts-swapped",
+        "Swapping the real and imaginary parts of the complex eigenvalues.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-imaginary-part-not-rooted",
+        "Giving β² instead of β as the imaginary part of the eigenvalues.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-imaginary-part-not-halved",
+        "Giving the square root of the discriminant, 2β, as the imaginary part instead of half of it.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-modulus-as-imaginary-part",
+        "Giving the modulus of the eigenvalue, the square root of the determinant, as its imaginary part.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-exponent-sign-flipped",
+        "Writing the exponential for an eigenvalue as e^(-λt) instead of e^(λt) in the solution of x' = Ax.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvalue-eigenvector-mismatch",
+        "Pairing an eigenvector with the exponential of a different eigenvalue.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-initial-values-as-coefficients",
+        "Taking the constants in the general solution to be the initial values themselves, instead of solving the initial conditions for them.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-entry-dropped",
+        "Leaving the eigenvector's entry out of a term, so the term is c e^(λt) instead of c v e^(λt).",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-other-component-given",
+        "Giving a different component of the solution from the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-characteristic-sign-error",
+        "Solving λ² + Tλ + D = 0 instead of λ² - Tλ + D = 0, so every eigenvalue has the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-wrong-eigenvalue-chosen",
+        "Giving the other eigenvalue from the one the question asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-diagonal-entries-as-eigenvalues",
+        "Reading the diagonal entries of the matrix as its eigenvalues.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-trace-as-eigenvalue",
+        "Giving the trace of the matrix as an eigenvalue.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-determinant-as-eigenvalue",
+        "Giving the determinant of the matrix as an eigenvalue.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-wrong-diagonal-entry",
+        "Using the wrong diagonal entry of the matrix when solving (A - λI)v = 0 for the eigenvector.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-of-other-eigenvalue",
+        "Finding the eigenvector for the other eigenvalue from the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-sign-slip",
+        "Getting the sign of an eigenvector entry wrong when solving (A - λI)v = 0.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-not-normalised",
+        "Stopping before scaling the eigenvector to the stated form, so its entry is not the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "fourier-normalisation-halved",
+        "Dividing a Fourier coefficient by 2L instead of L, so the answer is half the true value.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-normalisation-doubled",
+        "Doubling a Fourier coefficient by using the half-range factor 2/L on a full period [-L, L].",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-a0-half-confused",
+        "Reporting a0/2, the constant term of the series, where the coefficient a0 was asked for.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-one-piece-only",
+        "Integrating over [0, L] only, or over one piece of the function, instead of the whole period [-L, L].",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-period-scaling-dropped",
+        "Integrating against cos(nx) or sin(nx) instead of cos(n pi x/L) or sin(n pi x/L), so the half-period L drops out of the frequency.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-sine-cosine-swap",
+        "Reporting b_n where a_n was asked for, or the reverse.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-coefficient-sign-flip",
+        "Losing a sign in the integration by parts or in evaluating cos(n pi), so the coefficient has the wrong sign.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-amplitude-added-linearly",
+        "Adding |a_n| and |b_n| for the amplitude of a harmonic instead of combining them in quadrature.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-amplitude-no-root",
+        "Giving a_n squared plus b_n squared as the amplitude, without taking the square root.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-amplitude-larger-only",
+        "Taking the larger of |a_n| and |b_n| as the amplitude of the harmonic.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-jump-one-sided-value",
+        "Reading the value of the series at a jump as one of the one-sided limits of f, instead of their average.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-jump-value-zero",
+        "Saying the series is 0 at a jump or at the end of the period, because the sine terms vanish there.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-periodicity-ignored",
+        "Evaluating the formula for the nearest piece at a point outside [-L, L) instead of using the period 2L to bring the point back.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-mean-value-only",
+        "Giving the mean value a0/2 of f over a period as the value of the series at the point.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-jump-average-wrong-pair",
+        "Averaging the wrong pair of values at the end of the period, such as f(-L) and f(L) taken from the same piece.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-half-range-factor-dropped",
+        "Using the factor 1/L instead of 2/L in a half-range coefficient, so the answer is half the true value.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-wrong-extension",
+        "Using the even extension for the sine series, or the odd extension for the cosine series, when finding the value outside (0, L).",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-sine-end-not-zero",
+        "Taking the value of a half-range sine series at x = 0 or x = L to be f there, when every sine term is zero at both ends.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "heat-decay-linear-in-n",
+        "Using the decay rate k(pi/L)^2 n for mode n instead of k(n pi/L)^2, so the squared n is lost.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-pi-dropped",
+        "Using the decay rate k n^2/L^2 for mode n, leaving pi out of k(n pi/L)^2.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-wavenumber-unsquared",
+        "Using the decay rate k n pi/L for mode n, with the wavenumber n pi/L not squared.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-length-unsquared",
+        "Using the decay rate k(n pi)^2/L for mode n, with the rod length L not squared.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-wrong-mode-family",
+        "Using cosine modes where the ends are held at fixed temperatures, or sine modes where they are insulated.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-no-decay",
+        "Giving the initial temperature at the point, as if no time had passed.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-series-truncated-to-first-term",
+        "Keeping only the first mode of the series, although the later modes still contribute at that time.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-mean-term-dropped",
+        "Leaving out the constant term a0/2 of an insulated rod, which does not decay.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-steady-state-omitted",
+        "Giving only the decaying transient and leaving out the steady-state temperature distribution.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-steady-state-not-subtracted",
+        "Fitting the series to the initial temperature itself, instead of to what is left after the steady state is subtracted.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-applied-to-coefficient",
+        "Multiplying the Fourier coefficient by a decay factor, although the coefficient is the value at time zero.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-wrong-mode-number",
+        "Giving the coefficient of the first mode where the coefficient of the third was asked for.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-fade-target-wrong",
+        "Solving for the time at which the amplitude reaches the wrong level, not 1 degree.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-time-constant-not-fade-time",
+        "Giving the time constant 1/lambda instead of the time for the amplitude to fall to 1 degree.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "dalembert-half-dropped",
+        "Adding f(x - ct) and f(x + ct) in d'Alembert's formula without the factor one half.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-one-pulse-only",
+        "Using only one travelling pulse, f(x - ct) or f(x + ct), instead of the average of both.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-term-undivided",
+        "Adding the integral of the initial velocity from x - ct to x + ct without dividing by 2c.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-term-half",
+        "Dividing the integral of the initial velocity by 2 instead of by 2c.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-term-dropped",
+        "Leaving the initial-velocity term out of d'Alembert's formula.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-sign",
+        "Subtracting the initial-velocity term in d'Alembert's formula instead of adding it.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "wave-speed-not-square-rooted",
+        "Using the coefficient c squared (or T/rho) as the wave speed, when the speed is its square root.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-inverted",
+        "Taking the wave speed to be the square root of rho/T instead of T/rho.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-root-of-tension-only",
+        "Taking the wave speed to be the square root of the tension divided by the density, with the root on the tension only.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-product",
+        "Taking the wave speed to be the square root of the product of tension and density instead of their quotient.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-doubled",
+        "Doubling the wave speed by using 2T instead of T in the formula c = sqrt(T/rho).",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-no-time-evolution",
+        "Giving the initial displacement at the point, as if no time had passed.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-velocity-coefficient-not-divided",
+        "Using the initial-velocity coefficient B_n directly in B_n sin(w_n t), without dividing by the angular frequency w_n.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-pi-dropped",
+        "Using w_n = n c/L for the angular frequency, leaving pi out of n pi c/L.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-c-dropped",
+        "Using w_n = n pi/L for the angular frequency, leaving the wave speed out of n pi c/L.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-mode-frequency-not-scaled",
+        "Giving every mode the angular frequency of the first mode, instead of n times it.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-cos-sin-swap",
+        "Putting the displacement coefficient with sin(w t) and the velocity coefficient with cos(w t), the wrong way round.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-time-unit-ms-as-s",
+        "Using the time in milliseconds as if it were in seconds.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-fundamental-half-wavelength-missed",
+        "Taking the fundamental frequency to be c/L, forgetting that the fundamental wavelength is 2L.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-fundamental-quarter-wavelength",
+        "Taking the fundamental frequency to be c/(4L), as for a string free at one end.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-hertz-vs-radians",
+        "Giving the angular frequency in rad/s where the frequency in hertz was asked.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-inverted",
+        "Giving the period-like quantity L/(2c), or c times 2L, instead of the frequency c/(2L).",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-mode-frequency-squared",
+        "Taking the angular frequency of mode n to be n squared times that of the first mode.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-of-first-mode",
+        "Giving the angular frequency of the first mode where the second mode was asked for.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "laplace-hyperbolic-factor-dropped",
+        "Leaving the factor sinh(n pi r / l)/sinh(n pi d / l) out of each term, so the temperature is just the edge series at that position.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-lengths-swapped",
+        "Swapping the two sides of the plate, so the edge length and the width across it trade places in the sine and sinh arguments.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-hyperbolic-not-normalised",
+        "Using sinh(n pi r / l) without dividing by sinh(n pi d / l), so the series does not reduce to the edge profile on the hot edge.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-distance-from-hot-edge",
+        "Measuring the distance r from the hot edge, instead of from the opposite cold edge.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-cosh-for-sinh",
+        "Using cosh(n pi r / l)/cosh(n pi d / l) in place of the sinh ratio.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-first-mode-only",
+        "Keeping only the first term of the series, although the next terms still contribute at that point.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-coefficient-includes-hyperbolic-factor",
+        "Multiplying the Fourier coefficient by the hyperbolic factor, which belongs to the position and not to the edge profile.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-one-edge-only",
+        "Giving the contribution of only one of the two hot edges, instead of adding both solutions.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-sign-between-edges",
+        "Subtracting the bottom-edge solution from the top-edge solution instead of adding them.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-constant-edge-coefficient-halved",
+        "Using 2c/pi for the first coefficient of a constant edge, instead of 4c/pi.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-pi-dropped",
+        "Leaving pi out of the integral of sin(n pi x / a), so the coefficient is out by a factor of pi.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-odd-mode-squared",
+        "Dividing by n squared instead of n when going from B_1 to B_3 for a constant edge.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-even-mode-reasoning",
+        "Treating the third coefficient as half the first, by reasoning about the even modes.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-odd-mode-inverted",
+        "Multiplying by n instead of dividing, so B_3 comes out as 3 times B_1.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-all-modes-equal",
+        "Taking every coefficient of a constant edge to be the same as the first.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "sl-dirichlet-formula-used",
+        "Using the eigenvalues (n pi / l)^2 of the problem with both ends fixed, when one end is free (or the frequencies are those of a mixed problem).",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-index-off-by-one",
+        "Counting the eigenvalues from the wrong index, so the answer is the neighbouring eigenvalue.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-half-factor-dropped",
+        "Using (2n - 1) pi / l instead of (2n - 1) pi / (2 l) for a mixed problem, missing the factor 2 in the quarter wavelength.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-eigenvalue-not-squared",
+        "Giving the wavenumber k instead of the eigenvalue lambda = k squared.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-interval-endpoint-for-length",
+        "Using the right end point b in place of the interval length b - a on a shifted interval.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-zero-eigenvalue-forgotten",
+        "Leaving out the eigenvalue lambda = 0 when counting, so every later eigenvalue is numbered one place too early.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-half-factor-wrongly-used",
+        "Using (n pi / 2l)^2 for a problem with both ends insulated, as if the ends were mixed.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-multiplicity-ignored",
+        "Counting each repeated eigenvalue of the periodic problem once, instead of once for each independent eigenfunction.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-normalisation-forgotten",
+        "Giving the value of the un-normalised eigenfunction sin(kx) or cos(kx), without the normalising factor.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-normalisation-wrong-constant",
+        "Normalising with 1/sqrt(l) instead of sqrt(2/l), as if the integral of sin squared over the interval were l.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-normalisation-root-dropped",
+        "Normalising with 2/l instead of sqrt(2/l).",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-interval-shift-ignored",
+        "Evaluating sin(kx) or cos(kx) at x instead of at x - a on an interval that starts at a.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-mixed-formula-used",
+        "Using the wavenumbers of the mixed problem for a problem with both ends fixed.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-robin-condition-ignored",
+        "Using the eigenvalues of the problem with a Neumann end, ignoring the h y term in the end condition.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-dirichlet-limit-used",
+        "Using the eigenvalues (n pi / L)^2 of the problem with both ends fixed in place of the Robin condition.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-robin-sign-error",
+        "Solving tan(mu L) = mu/h instead of tan(mu L) = -mu/h for the Robin condition.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-norm-not-divided",
+        "Giving the integral of f times the eigenfunction without dividing by the norm of the eigenfunction.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-norm-wrong",
+        "Dividing by L instead of L/2, the squared norm of the eigenfunction, so the coefficient is half the true value.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-coefficient-sign-flip",
+        "Losing a sign when evaluating the integral at the end points.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-index-squared-from-first",
+        "Multiplying the first eigenvalue by n squared, as for a problem with both ends fixed, when the mixed eigenvalues grow like (2n - 1) squared.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-sine-cosine-swap",
+        "Using sin(kx) where the eigenfunction is cos(kx), or the reverse, so the integral is taken against the wrong function.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "lt2-body-not-shifted",
+        "Applies the second shift theorem to a body written in t without first rewriting it in terms of t - a, so the e^(-as) factor multiplies the transform of the unshifted body.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-body-shifted-wrong-way",
+        "Rewrites the body in terms of t - a with the wrong sign (using t - a in place of t + a), so the constants after the shift are wrong.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-switch-factor-dropped",
+        "Leaves out the e^(-as) factor and transforms the body as if it acted from t = 0.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-shift-factor-sign",
+        "Writes e^(+as) instead of e^(-as) for a signal that switches on at t = a.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-no-shift-in-time",
+        "Inverts the transform but leaves out the delay, writing the terms in t instead of t - a.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-shift-sign-in-time",
+        "Delays the inverse transform the wrong way, writing t + a in place of t - a.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-sin-cos-swapped-in-inverse",
+        "Swaps the sine and cosine terms when inverting, or in a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-sine-not-divided-by-b",
+        "Inverts Q/(s^2 + b^2) as Q sin(bt) instead of (Q/b) sin(bt).",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-frequency-is-b-squared",
+        "Reads the denominator s^2 + b^2 as a frequency of b^2 instead of b.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-convolution-term-dropped",
+        "Loses one of the terms when inverting a product of transforms or evaluating a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-convolution-sign-slip",
+        "Gets the sign of one term wrong when inverting a product of transforms or evaluating a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-convolution-denominator-forgotten",
+        "Leaves the common denominator (such as p^2 + b^2) out of a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-step-treated-as-impulse",
+        "Transforms the unit step u(t - T) as e^(-Ts) instead of e^(-Ts)/s, losing the factor 1/s.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-damping-term-sign",
+        "Takes the transform of py' as -p s Y, so the middle term of the denominator has the wrong sign.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-damping-term-dropped",
+        "Drops the damping term from the denominator of Y(s).",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-no-divide",
+        "Takes the long-time value to be the forcing amplitude A, forgetting to divide by q.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-inverted",
+        "Takes the long-time value to be q/A instead of A/q.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-wrong-coefficient",
+        "Divides the forcing amplitude by the damping coefficient, or by p + q, instead of q.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-sign",
+        "Gets the sign of the long-time value wrong.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-used-for-y",
+        "Gives the long-time value A/q instead of the value of y at the stated time.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-steady-term-dropped",
+        "Leaves the constant term A/q out of the step response.",
+        area="lt2",
+    ),
 )
 
 #: Every entry, by id.

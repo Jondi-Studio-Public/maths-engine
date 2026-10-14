@@ -1,0 +1,125 @@
+id: uc2-least-squares-normal-equations
+name: Least squares by the normal equations
+domain: linear-algebra
+year_level:
+- university
+description: Find the least-squares line, parabola or solution of an inconsistent system Ax = b from the normal equations
+  A^T A x = A^T b, and the residual vector or its length.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-projection-onto-subspace
+- matrix-solve-system
+answer: matrix
+sources:
+- topic: s2b3_least_squares
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b3_least_squares
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b3_least_squares
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b3_least_squares
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ls-solves-only-the-first-equations
+  description: Solving exactly the first few equations and ignoring the rest, instead of minimising the error over all of
+    them.
+- id: ls-reports-the-right-hand-side-of-the-normal-equations
+  description: Stopping at the right-hand side A^T b of the normal equations without solving for x.
+- id: ls-coefficients-in-the-wrong-order
+  description: Giving the least-squares coefficients in the reverse of the order the model lists them (slope before intercept,
+    or highest power first).
+- id: ls-line-through-the-mean-only
+  description: Fitting the horizontal line through the mean of the y values and ignoring the trend.
+- id: ls-gives-the-fitted-values
+  description: Giving the fitted values Ax instead of the residual b - Ax.
+- id: ls-residual-sign-reversed
+  description: Giving Ax - b instead of b - Ax for the residual.
+- id: ls-determinant-sign-slip
+  description: Adding the two terms of the determinant of A^T A instead of subtracting.
+- id: ls-determinant-forgot-n
+  description: Leaving out the factor n (the number of data points) in the first term of the determinant of A^T A.
+- id: ls-determinant-dropped-second-term
+  description: Stopping at n times the sum of x squared, forgetting to subtract the square of the sum of x.
+- id: ls-determinant-dropped-first-term
+  description: Giving only the square of the sum of x as the determinant of A^T A.
+- id: ls-slope-without-centring
+  description: Dividing the sum of xy by the sum of x squared, as for a line through the origin, instead of using the normal
+    equations.
+- id: ls-slope-wrong-denominator
+  description: Dividing the slope numerator by n times the sum of x squared instead of by the determinant of A^T A.
+- id: ls-slope-numerator-reversed
+  description: Reversing the order of the two terms in the numerator of the slope, which gives the slope the wrong sign.
+- id: ls-slope-forgot-n
+  description: Leaving out the factor n in the first term of the slope numerator.
+- id: ls-intercept-is-the-mean-of-y
+  description: Giving the mean of the y values as the intercept, forgetting that the slope shifts it.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: ls-intercept-forgot-divide-by-n
+  description: Finding the sum of y minus m times the sum of x and not dividing by n.
+- id: ls-intercept-from-one-point
+  description: Finding the intercept so that the line passes through the first data point only.
+- id: ls-forgot-the-square-root
+  description: Giving the squared length of the residual where its length was asked for.
+- id: ls-sum-of-residuals-not-length
+  description: Adding the sizes of the residuals instead of finding the length of the residual vector.
+- id: ls-residual-from-the-mean-line
+  description: Measuring the residual from the horizontal line at the mean of y instead of from the least-squares line.
+- id: ls-length-of-b-not-the-residual
+  description: Giving the length of the data vector b instead of the length of the residual b - Ax.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Set up A and b for a line through three data points, form the 2 by 2 normal equations and solve them.
+  medium:
+    steps: 5
+    demand: Solve an abstract inconsistent system, or go one step further to the residual vector b - Ax.
+  hard:
+    steps: 6
+    demand: Fit a parabola, so the normal system is 3 by 3 and the order of the coefficients and the reuse of the symmetric
+      structure both matter.
+  exam:
+    steps: 7
+    demand: Finds det(A^T A), the slope and the intercept (each following through) and the exact length of the residual
+      vector.
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- least-squares
+- normal-equations
+- regression
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

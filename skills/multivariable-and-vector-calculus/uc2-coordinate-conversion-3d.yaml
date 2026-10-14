@@ -1,0 +1,189 @@
+id: uc2-coordinate-conversion-3d
+name: Convert between Cartesian, cylindrical and spherical coordinates
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: >-
+  Convert a point between Cartesian, cylindrical and spherical coordinates, giving one coordinate
+  exactly with its range stated (theta in 0 to 2 pi, phi from the positive z-axis in 0 to pi), and
+  convert a surface from a Cartesian equation to a cylindrical or spherical one, or read the shape
+  back from a cylindrical or spherical equation. The exam chain follows a drone's position from
+  Cartesian coordinates through r, theta, rho and phi.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-triple-integral
+answer: expression
+sources:
+- topic: s2a1_coordconv
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a1_coordconv
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a1_coordconv
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a1_coordconv
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: coord-phi-arctan-inverted
+  description: >-
+    Using arctan(z/r) instead of arctan(r/z), which gives the angle from the xy-plane.
+- id: coord-phi-complement
+  description: >-
+    Measuring φ up from the xy-plane instead of down from the positive z-axis.
+- id: coord-phi-cosine-for-angle
+  description: >-
+    Giving the value of cos φ = z/ρ as if it were the angle φ.
+- id: coord-phi-quadrant-ignored
+  description: >-
+    Reading φ straight from arctan(r/z), which gives a negative angle when z is negative.
+- id: coord-phi-reflected
+  description: >-
+    Giving π minus the right angle, as if z had the opposite sign.
+- id: coord-phi-sine-for-cosine
+  description: >-
+    Using arcsin(z/ρ) where cos φ = z/ρ is needed.
+- id: coord-r-difference-of-squares
+  description: >-
+    Finding r as the root of x² - y² instead of x² + y².
+- id: coord-r-includes-z
+  description: >-
+    Including z when finding the distance from the z-axis, which gives the distance from the
+    origin.
+- id: coord-r-root-missing
+  description: >-
+    Giving x² + y² without taking the square root.
+- id: coord-r-sum-not-root
+  description: >-
+    Adding |x| and |y| instead of taking the root of the sum of squares.
+- id: coord-reference-angle-sign
+  description: >-
+    Using the absolute value of the cosine or sine, so the coordinate loses its sign.
+- id: coord-rho-difference-of-squares
+  description: >-
+    Finding ρ as the root of r² - z² instead of r² + z².
+- id: coord-rho-height-only
+  description: >-
+    Taking ρ to be the height |z|.
+- id: coord-rho-planar
+  description: >-
+    Giving the distance r from the z-axis for the distance ρ from the origin.
+- id: coord-rho-root-missing
+  description: >-
+    Giving ρ² without taking the square root.
+- id: coord-rho-sum-not-root
+  description: >-
+    Adding the sizes of the coordinates instead of taking the root of the sum of squares.
+- id: coord-sign-flipped
+  description: >-
+    Giving the coordinate with the wrong sign.
+- id: coord-sin-cos-swapped
+  description: >-
+    Using sine where cosine belongs, or the reverse, in a conversion formula.
+- id: coord-spherical-cos-squared
+  description: >-
+    Squaring cos φ in z = ρ cos φ.
+- id: coord-spherical-phi-complement
+  description: >-
+    Swapping sin φ and cos φ in the conversion formulas from spherical coordinates.
+- id: coord-spherical-rho-dropped
+  description: >-
+    Leaving out the factor ρ when finding a coordinate from spherical coordinates.
+- id: coord-spherical-sin-for-cos
+  description: >-
+    Using ρ sin φ cos θ, the x-coordinate, for z.
+- id: coord-spherical-sin-phi-dropped
+  description: >-
+    Leaving out the factor sin φ when finding x, y or r from spherical coordinates.
+- id: coord-spherical-sin-phi-squared
+  description: >-
+    Squaring sin φ in r = ρ sin φ.
+- id: coord-spherical-theta-dropped
+  description: >-
+    Leaving out the factor cos θ or sin θ when finding x or y from spherical coordinates.
+- id: coord-spherical-theta-factor
+  description: >-
+    Multiplying r by cos θ, which gives x instead of r.
+- id: coord-surface-angle-as-slope
+  description: >-
+    Giving the angle itself as the slope of the cone.
+- id: coord-surface-coefficient-dropped
+  description: >-
+    Dropping the coefficient when converting an equation, such as 2a to a.
+- id: coord-surface-constant-radius
+  description: >-
+    Giving a constant for the radius of a surface whose radius depends on the angle.
+- id: coord-surface-cosine-for-cotangent
+  description: >-
+    Giving cos φ for the slope cot φ of the cone.
+- id: coord-surface-diameter-for-radius
+  description: >-
+    Reading the diameter off the equation and giving it as the radius.
+- id: coord-surface-halved-again
+  description: >-
+    Halving the coefficient a second time when reading a radius or centre off an equation.
+- id: coord-surface-opening-angle
+  description: >-
+    Giving the full opening angle of a cone, twice the angle from its axis.
+- id: coord-surface-power-slip
+  description: >-
+    Using the wrong power of the radial variable when solving the converted equation.
+- id: coord-surface-r-not-squared
+  description: >-
+    Writing x² + y² as r instead of r² in the converted equation.
+- id: coord-surface-radius-squared
+  description: >-
+    Giving the square of the radius.
+- id: coord-surface-reciprocal-slip
+  description: >-
+    Multiplying by a trigonometric function where the equation divides by it.
+- id: coord-surface-root-missing
+  description: >-
+    Leaving the equation as r² = ... and giving that as the value of r.
+- id: coord-surface-sign-slip
+  description: >-
+    Taking the wrong sign inside a root or a sum when solving the converted equation.
+- id: coord-surface-sine-for-cosine
+  description: >-
+    Using sine where cosine belongs in a converted equation, or the reverse.
+- id: coord-surface-slope-as-angle
+  description: >-
+    Giving the slope of a cone as if it were its angle.
+- id: coord-surface-slope-inverted
+  description: >-
+    Giving tan φ for the slope of the cone instead of cot φ.
+- id: coord-theta-arctan-inverted
+  description: >-
+    Using arctan(x/y) instead of arctan(y/x) for the angle θ.
+- id: coord-theta-half-turn
+  description: >-
+    Giving the angle of the opposite point, half a turn from the right one.
+- id: coord-theta-mirrored
+  description: >-
+    Giving the angle measured the other way round the axis, 2π minus the right one.
+- id: coord-theta-quadrant-ignored
+  description: >-
+    Reading θ straight from arctan(y/x), which ignores the quadrant of the point.
+- id: coord-theta-reference-angle
+  description: >-
+    Giving the acute reference angle instead of the angle in the right quadrant.
+- id: coord-trig-factor-dropped
+  description: >-
+    Dropping the cosine or sine factor, so that x or y comes out as r.
+tags: [university-core-v1, university-year-2, multivariable-calculus, coordinate-systems, cylindrical-coordinates, spherical-coordinates]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

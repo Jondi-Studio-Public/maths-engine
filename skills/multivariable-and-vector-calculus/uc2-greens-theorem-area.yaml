@@ -1,0 +1,96 @@
+id: uc2-greens-theorem-area
+name: Green's theorem for area
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Find the area enclosed by a curve by applying Green's theorem to a field whose curl is 1, such as the line
+  integral of (x dy - y dx) / 2, using a parametrisation of the boundary.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-greens-theorem-circulation
+answer: expression
+sources:
+- topic: s2a3_green_area
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_green_area
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_green_area
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_green_area
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: area-between-outer-only
+  description: Giving the area inside the outer curve as the area between the curves.
+- id: area-between-reversed
+  description: Subtracting the outer area from the inner one, so the area between the curves comes out negative.
+- id: area-forgot-half
+  description: Using the line integral of x dy - y dx as the area, without the factor 1/2.
+- id: area-fraction-complement
+  description: Giving the fraction of the outer area that lies outside the curve instead of inside it.
+- id: area-fraction-inverted
+  description: Dividing the outer area by the inner one instead of the inner by the outer.
+- id: area-fraction-of-complement
+  description: Dividing the enclosed area by the area between the curves instead of by the area inside the outer curve.
+- id: area-mulch-on-between
+  description: Using the area between the bed and the outer curve in place of the area of the bed itself.
+- id: area-mulch-on-enlarged
+  description: Using the area of the enlarged bed, not the original bed, to work out an amount that depends on the original
+    bed.
+- id: area-partial-curve
+  description: 'Integrating round only part of the boundary: half the parameter range, a single arc, or all the edges but
+    the closing one.'
+- id: area-scale-cubed
+  description: Multiplying the area by the cube of the enlargement factor.
+- id: area-scale-linear
+  description: Multiplying the area by the enlargement factor instead of its square.
+- id: area-scale-unchanged
+  description: Leaving the area unchanged after an enlargement.
+- id: area-signed-clockwise
+  description: 'Giving the area with the wrong sign: the line integral is positive only for a counterclockwise traversal,
+    and an area is never negative.'
+- id: area-terms-added
+  description: Adding the two terms, x dy + y dx, in place of subtracting them; the integral round a closed curve is then
+    0.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Choose the area form (x dy - y dx) / 2, parametrise a tilted ellipse or a polygon, and integrate over the boundary.
+  medium:
+    steps: 5
+    demand: Do the same for an astroid, deltoid, cardioid or nephroid, whose parametrisation needs trigonometric identities
+      to integrate.
+  hard:
+    steps: 7
+    demand: Close an arc with its chord, or traverse a non-convex polygon or polynomial loop in the right direction, and
+      add the pieces.
+  exam:
+    steps: 8
+    demand: "Chain four parts on one parametrised curve: area from a line integral, the area after every length is scaled, the area between the curve and a bounding circle, then a mass that follows through from the area."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- line-integrals
+- greens-theorem
+- area
+framework_areas:
+- multivariable-and-vector-calculus

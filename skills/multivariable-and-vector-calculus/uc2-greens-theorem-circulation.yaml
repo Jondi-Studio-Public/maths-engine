@@ -1,0 +1,86 @@
+id: uc2-greens-theorem-circulation
+name: Green's theorem for circulation
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Find the circulation of a plane vector field round a closed curve, with the direction stated, by turning the
+  line integral into a double integral of Q_x - P_y over the region inside.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-double-integral-rectangle
+- ucv1-line-integral
+answer: expression
+sources:
+- topic: s2a3_green_circulation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_green_circulation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_green_circulation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_green_circulation
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: green-divergence-for-curl
+  description: Integrating P_x + Q_y (or Q_y - P_x) in place of the curl Q_x - P_y.
+- id: green-dropped-py
+  description: Integrating only Q_x and leaving out the term -P_y of the curl.
+- id: green-dropped-qx
+  description: Integrating only -P_y and leaving out the term Q_x of the curl.
+- id: green-mean-no-area
+  description: Giving the integral of the curl as its mean value, without dividing by the area of the region.
+- id: green-mean-times-area
+  description: Multiplying the integral of the curl by the area instead of dividing by it.
+- id: green-not-differentiated
+  description: Integrating Q - P over the region without taking the partial derivatives.
+- id: green-orientation-ignored
+  description: Scaling the work for a doubled force but not changing its sign for the clockwise loop.
+- id: green-polar-no-r
+  description: Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).
+- id: green-scale-ignored
+  description: Changing the sign for the clockwise loop but not doubling the work for the doubled force.
+- id: green-scale-squared
+  description: Squaring the factor of 2 for the doubled force, so the work is four times too big.
+- id: green-wrong-direction
+  description: 'Getting the sign wrong by using the wrong direction of travel: Green''s theorem gives the counterclockwise
+    circulation, and clockwise is its negative.'
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Recognise a closed counterclockwise rectangle, form Q_x - P_y and integrate it over the rectangle.
+  medium:
+    steps: 4
+    demand: Do the same over a right triangle, whose limits depend on the other variable, and attend to a clockwise direction.
+  hard:
+    steps: 6
+    demand: Work over a disc, half-disc or the region between a parabola and a line, using polar coordinates with the factor
+      r or curved limits, and the stated direction.
+  exam:
+    steps: 7
+    demand: "Chain four parts on one loop: write the work as a double integral and find its integrand, evaluate it, find the mean value over the region, then reverse the direction and scale the force."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- line-integrals
+- greens-theorem
+framework_areas:
+- multivariable-and-vector-calculus

@@ -1,0 +1,114 @@
+id: uc2-qr-factorisation
+name: QR factorisation
+domain: linear-algebra
+year_level:
+- university
+description: Find the entries of Q and R in the QR factorisation of a 3 by 2 or 3 by 3 integer matrix, with R having a positive
+  diagonal so both factors are unique, and use it to solve a least-squares problem.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-gram-schmidt
+- matrix-multiplication
+answer: matrix
+sources:
+- topic: s2b3_qr
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b3_qr
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b3_qr
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b3_qr
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: qr-diagonal-is-squared-length
+  description: Putting the squared length of the orthogonalised column on the diagonal of R instead of the length.
+- id: qr-off-diagonal-not-divided-by-length
+  description: Using the dot product with the unnormalised column for an entry above the diagonal of R, instead of the dot
+    product with the unit vector q.
+- id: qr-r-not-upper-triangular
+  description: Giving R as a lower triangular matrix, the transpose of the right answer.
+- id: qr-diagonal-from-original-column
+  description: Taking the diagonal entries of R as the lengths of the original columns of A, without removing the projections
+    first.
+- id: qr-q-columns-not-normalised
+  description: Giving the orthogonal columns of Gram-Schmidt as Q without dividing each by its length.
+- id: qr-q-skips-orthogonalising
+  description: Normalising the second column of A directly instead of the column left after subtracting its projection on
+    the first.
+- id: qr-q-transposed
+  description: Giving the transpose of Q, with the orthonormal vectors as rows.
+- id: qr-q-column-sign-flipped
+  description: Reversing the sign of a column of Q, which would make the diagonal of R negative.
+- id: qr-norm-is-sum-of-entries
+  description: Taking the length of a column to be the sum of the sizes of its entries.
+- id: qr-confuses-r11-and-r22
+  description: Giving another entry of R in place of the one asked for.
+- id: qr-norm-off-by-one
+  description: Misjudging the length of a vector by one unit through a slip in the square root.
+- id: qr-divides-by-squared-length
+  description: Dividing the dot product of the columns by the squared length of the first column instead of its length.
+- id: qr-divides-by-the-wrong-length
+  description: Dividing the dot product of the columns by the length of the second column instead of the first.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: qr-forgot-back-substitution
+  description: Giving Qᵀb as the solution without solving the triangular system Rx = Qᵀb.
+- id: qr-back-substitution-order-reversed
+  description: Solving the upper triangular system from the top, as if it were lower triangular, instead of from the bottom.
+- id: ls-coefficients-in-the-wrong-order
+  description: Giving the least-squares coefficients in the reverse of the order the model lists them (slope before intercept,
+    or highest power first).
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Gram-Schmidt on two columns with whole-number lengths, then read off r11, r12 and r22.
+  medium:
+    steps: 5
+    demand: Orthogonalise the columns and divide each by its length to write out the 3 by 2 matrix Q.
+  hard:
+    steps: 6
+    demand: Work with three columns, or with lengths that are square roots, keeping every entry exact.
+  exam:
+    steps: 7
+    demand: Finds r11, r12 and r22 (each following through), then solves the least-squares problem through R x = Q^T b.
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- qr-factorisation
+- orthogonality
+- gram-schmidt
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

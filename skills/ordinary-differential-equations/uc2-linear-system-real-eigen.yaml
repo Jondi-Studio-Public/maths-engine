@@ -1,0 +1,82 @@
+id: uc2-linear-system-real-eigen
+name: Solve a linear system with real eigenvalues
+domain: ordinary-differential-equations
+year_level:
+- university
+description: Solve the initial value problem x' = Ax for a 2x2 or 3x3 constant matrix with real, distinct eigenvalues,
+  and give one component of the solution as a function of t or as a value at a stated time.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+- ucv1-diagonalisation
+answer: expression
+sources:
+- topic: s2c2_linear_system_real_eigen
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c2_linear_system_real_eigen
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c2_linear_system_real_eigen
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c2_linear_system_real_eigen
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-exponent-sign-flipped
+  description: Writing the exponential for an eigenvalue as e^(-λt) instead of e^(λt) in the solution of x' = Ax.
+- id: ode2-eigenvalue-eigenvector-mismatch
+  description: Pairing an eigenvector with the exponential of a different eigenvalue.
+- id: ode2-initial-values-as-coefficients
+  description: Taking the constants in the general solution to be the initial values themselves, instead of solving
+    the initial conditions for them.
+- id: ode2-eigenvector-entry-dropped
+  description: Leaving the eigenvector's entry out of a term, so the term is c e^(λt) instead of c v e^(λt).
+- id: ode2-other-component-given
+  description: Giving a different component of the solution from the one asked for.
+- id: ode2-characteristic-sign-error
+  description: Solving λ² + Tλ + D = 0 instead of λ² - Tλ + D = 0, so every eigenvalue has the wrong sign.
+- id: ode2-wrong-eigenvalue-chosen
+  description: Giving the other eigenvalue from the one the question asked for.
+- id: ode2-diagonal-entries-as-eigenvalues
+  description: Reading the diagonal entries of the matrix as its eigenvalues.
+- id: ode2-trace-as-eigenvalue
+  description: Giving the trace of the matrix as an eigenvalue.
+- id: ode2-determinant-as-eigenvalue
+  description: Giving the determinant of the matrix as an eigenvalue.
+- id: ode2-eigenvector-wrong-diagonal-entry
+  description: Using the wrong diagonal entry of the matrix when solving (A - λI)v = 0 for the eigenvector.
+- id: ode2-eigenvector-of-other-eigenvalue
+  description: Finding the eigenvector for the other eigenvalue from the one asked for.
+- id: ode2-eigenvector-sign-slip
+  description: Getting the sign of an eigenvector entry wrong when solving (A - λI)v = 0.
+- id: ode2-eigenvector-not-normalised
+  description: Stopping before scaling the eigenvector to the stated form, so its entry is not the one asked for.
+difficulty_progression: 'Easy is a full 2x2 system: the eigenvalues come from the characteristic quadratic, the
+  constants from two initial values, and the answer is one component. Medium is a 3x3 upper-triangular system, where
+  the eigenvalues can be read off the diagonal but each eigenvector needs back substitution and the asked component
+  is the one that depends on the other two. Hard is a 3x3 system with a full matrix, so the eigenvalues come from
+  a cubic and every eigenvector and the three constants need solving. The exam chain takes a 2x2 system through
+  the larger eigenvalue, an eigenvector scaled to end in 1, the component x(t), and its value at a stated time.'
+tags:
+- university-year-2
+- ordinary-differential-equations
+- linear-systems
+- eigenvalues
+framework_areas:
+- ordinary-differential-equations

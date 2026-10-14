@@ -1,0 +1,106 @@
+id: uc2-orthogonal-complement
+name: Orthogonal complement of a subspace
+domain: linear-algebra
+year_level:
+- university
+description: Find the orthogonal complement of a span, or of the solution set of a system, as the unique basis given by
+  the non-zero rows of a reduced row echelon form, and find its dimension.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-null-space
+- vector-dot-product
+answer: matrix
+sources:
+- topic: s2b3_orthogonal_complement
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b3_orthogonal_complement
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b3_orthogonal_complement
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b3_orthogonal_complement
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: oc-gives-w-itself
+  description: Giving a basis of W itself, in reduced form, instead of a basis of its orthogonal complement.
+- id: oc-sign-error-in-null-vectors
+  description: Forgetting the minus sign when writing the solutions of the equations, so each basis vector has the wrong
+    sign on its pivot entries.
+- id: oc-not-in-reduced-form
+  description: Giving a correct basis of the complement that is not in reduced row echelon form (cleared denominators, or
+    unreduced rows), so it is not the normal form asked for.
+- id: oc-only-first-vector
+  description: Finding the vectors orthogonal to the first spanning vector only, and ignoring the others.
+- id: oc-too-few-vectors
+  description: Giving fewer basis vectors than the complement has, stopping after the first free variable.
+- id: oc-keeps-the-dependent-equation
+  description: Keeping every row of the system as a basis vector of the complement, including the equation that is a combination
+    of the others.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: oc-forgot-coefficient-of-k
+  description: Solving a. z = 0 for k without dividing by the coefficient of k.
+- id: oc-dropped-a-term
+  description: Leaving one term out of the dot product z . v = 0 when solving for the unknown entry.
+- id: rank-nullity-confused
+  description: Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.
+- id: rank-off-by-one
+  description: Miscounting the pivots during row reduction, so the rank is one too high or one too low.
+- id: nullity-counts-columns
+  description: Taking the nullity to be the number of columns, forgetting to subtract the rank.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Write the conditions x . v = 0 for one or two spanning vectors in R^3 and solve them in reduced form.
+  medium:
+    steps: 4
+    demand: Solve the orthogonality conditions in R^4, where two or more free variables are left and the basis must be put
+      in reduced row echelon form.
+  hard:
+    steps: 5
+    demand: Recognise a redundant spanning vector or a dependent equation, or that the complement of a solution set is the
+      row space of its system, before reducing.
+  exam:
+    steps: 7
+    demand: Finds dim W, then dim W-perp (following through), the reduced basis of W-perp in R^5, and the entry k that puts
+      a vector in W-perp.
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- orthogonality
+- orthogonal-complement
+- subspaces
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

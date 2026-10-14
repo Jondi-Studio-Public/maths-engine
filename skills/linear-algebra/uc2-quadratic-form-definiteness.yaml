@@ -1,0 +1,117 @@
+id: uc2-quadratic-form-definiteness
+name: Classify a quadratic form by its eigenvalues
+domain: linear-algebra
+year_level:
+- university
+description: Write a quadratic form as xᵀAx with A symmetric, diagonalise it by its eigenvalues, transform it under a change
+  of variable, and classify it as definite, semi-definite or indefinite.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+- ucv1-diagonalisation
+answer: matrix
+sources:
+- topic: s2b2_quadratic_form_definiteness
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_quadratic_form_definiteness
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_quadratic_form_definiteness
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_quadratic_form_definiteness
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: eigval-determinant-as-eigenvalue
+  description: Reporting the determinant of the matrix as an eigenvalue.
+- id: eigval-order-reversed
+  description: Listing the eigenvalues from largest to smallest when the question asked for increasing order.
+- id: eigval-other-root
+  description: Giving the other eigenvalue when the larger or smaller one was asked for.
+- id: eigval-repeated-given
+  description: Repeating the eigenvalue given in the question as the other eigenvalue.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: eigval-trace-difference-sign
+  description: Adding the known eigenvalue to the trace instead of subtracting it to find the other eigenvalue.
+- id: qf-congruence-as-similarity
+  description: Transforming a quadratic form under x = Py as P⁻¹ A P, the rule for a change of basis of a linear map, instead
+    of Pᵀ A P.
+- id: qf-congruence-order-reversed
+  description: Transforming a quadratic form under x = Py as P A Pᵀ instead of Pᵀ A P, so the transpose is on the wrong
+    side.
+- id: qf-cross-term-not-halved
+  description: Writing the coefficient of a cross term such as xy as the off-diagonal entry of the matrix, instead of half
+    of it.
+- id: qf-cross-terms-misplaced
+  description: Putting the coefficient of one cross term, such as xz, in the entry that belongs to a different pair of variables.
+- id: qf-diagonal-halved
+  description: Halving every entry of the matrix of a quadratic form, the diagonal ones as well as the off-diagonal ones.
+- id: qf-diagonal-read-as-eigenvalues
+  description: Reading the coefficients of x², y², z² as the eigenvalues of a quadratic form that also has cross terms.
+- id: qf-indefinite-assumed
+  description: Calling a form indefinite because it has a cross term or a negative entry in its matrix, without looking
+    at its eigenvalues.
+- id: qf-matrix-not-symmetric
+  description: Putting each cross-term coefficient in one off-diagonal entry only and leaving the mirror entry zero, so
+    the matrix is not symmetric.
+- id: qf-semidefinite-vs-definite
+  description: 'Confusing a definite form with a semi-definite one: calling a form with a zero eigenvalue definite, or a
+    form with no zero eigenvalue semi-definite.'
+- id: qf-sign-reversed
+  description: Reversing the sign pattern of the eigenvalues, so a positive definite form is called negative definite or
+    the numbers of positive and negative eigenvalues are swapped.
+- id: qf-squares-cross-terms-dropped
+  description: Writing the matrix of a sum of squares of linear forms from the squares of the coefficients alone, dropping
+    the cross products of different variables.
+- id: qf-squares-cross-terms-not-halved
+  description: Putting the full cross-product coefficient of a variable pair into each of the two symmetric entries, instead
+    of half of it.
+- id: qf-substitution-matrix-reported
+  description: Reporting the substitution matrix P, or PᵀP, as the matrix of the form in the new variables.
+- id: qf-substitution-one-sided
+  description: Substituting x = Py into only one side of xᵀAx, giving A P or Pᵀ A instead of Pᵀ A P.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+- id: sign-flip-one-root
+  description: Getting the sign of one root wrong when reading the roots from the factors.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read the diagonal and half the cross-term coefficients into the symmetric matrix of a 3-variable form.
+  medium:
+    steps: 3
+    demand: Build the symmetric matrix of a 2- or 3-variable form, find its eigenvalues, and assemble them in increasing
+      order into the diagonal matrix D.
+  hard:
+    steps: 4
+    demand: Find the matrix of a form after a linear substitution x = Py, which is PᵀAP and not P⁻¹AP or PAPᵀ, or the matrix
+      of a sum of squares of linear forms from the products of their coefficients.
+  exam:
+    steps: 5
+    demand: Write the matrix, find one eigenvalue and the other from the trace, then classify the form.
+tags:
+- university-year-2
+- linear-algebra
+- quadratic-forms
+- definiteness

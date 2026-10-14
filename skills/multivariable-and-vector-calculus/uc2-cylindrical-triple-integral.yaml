@@ -1,0 +1,124 @@
+id: uc2-cylindrical-triple-integral
+name: Evaluate a triple integral in cylindrical coordinates
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: >-
+  Convert a solid described by Cartesian inequalities to cylindrical coordinates and evaluate a
+  triple integral over it, with the factor r in dV, an exact answer in pi, and the volume, mass,
+  centre of mass and average density of a solid with a density. Regions run from cylinders and
+  paraboloid bowls, through the gap between a cone and a paraboloid, to a ball cut by a cylinder,
+  a cylinder through the origin whose radius depends on the angle, and the space between two
+  paraboloids.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-triple-integral
+answer: expression
+sources:
+- topic: s2a1_cylindrical
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a1_cylindrical
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a1_cylindrical
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a1_cylindrical
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cylindrical-jacobian-omitted
+  description: >-
+    Leaving out the factor r in the volume element of cylindrical coordinates, dV = r dz dr dθ.
+- id: cylindrical-radius-not-squared
+  description: >-
+    Replacing x² + y² by r instead of r² when converting an integrand to cylindrical coordinates.
+- id: cylindrical-radius-limit-squared
+  description: >-
+    Using the squared radius of the cylinder, not the radius, as the upper limit for r.
+- id: cylindrical-angle-range-halved
+  description: >-
+    Using the wrong range of angle: half a turn for a full cylinder, or a full turn for half of
+    one.
+- id: cylindrical-radius-from-height
+  description: >-
+    Using the height of the plane as the upper limit for r instead of finding where the surface
+    meets it.
+- id: cylindrical-bounding-cylinder
+  description: >-
+    Giving the volume or integral over the enclosing cylinder instead of the solid inside it.
+- id: cylindrical-surfaces-swapped
+  description: >-
+    Taking the lower surface as the upper one, so the height of the solid comes out negative.
+- id: cylindrical-intersection-misread
+  description: >-
+    Misreading where two surfaces meet, and using the wrong upper limit for r.
+- id: cylindrical-x-as-r
+  description: >-
+    Replacing x by r instead of r cos θ when the integrand or a bounding surface depends on x.
+- id: cylindrical-slope-term-dropped
+  description: >-
+    Dropping the sloping term of the top surface because its cosine seems to integrate away.
+- id: cylindrical-sphere-height-constant
+  description: >-
+    Using the sphere's radius as a constant height instead of the √(R² - r²) it has at distance r.
+- id: cylindrical-ball-only
+  description: >-
+    Integrating over the whole ball and ignoring the cylinder that cuts it.
+- id: cylindrical-upper-half-only
+  description: >-
+    Integrating z from 0 instead of from the lower half of the sphere, giving half the solid.
+- id: cylindrical-offset-angle-range
+  description: >-
+    Taking θ over a full turn for a cylinder through the origin, whose angle runs over only half a
+    turn.
+- id: cylindrical-offset-radius
+  description: >-
+    Taking a constant upper limit for r on a cylinder through the origin, whose radius depends on
+    θ.
+- id: cylindrical-lower-surface-dropped
+  description: >-
+    Starting z at the plane z = 0 instead of the lower surface of the solid.
+- id: triple-integral-density-term-dropped
+  description: >-
+    Taking the density as the constant term only, leaving out the variable part, when finding the
+    mass.
+- id: triple-integral-density-maximum
+  description: >-
+    Using the greatest density in the solid as if it applied everywhere, mass = (maximum density)
+    x volume.
+- id: triple-integral-density-midpoint
+  description: >-
+    Using the density halfway along its range instead of integrating the density over the solid.
+- id: triple-integral-moment-not-divided
+  description: >-
+    Giving the moment of the solid, the integral of x rho dV, as the centre-of-mass coordinate
+    without dividing by the mass.
+- id: triple-integral-centroid-uniform
+  description: >-
+    Giving the centroid of the solid, as if the density were uniform, for the centre of mass.
+- id: triple-integral-moment-inverted
+  description: >-
+    Dividing the wrong way round: mass over moment, or volume over mass.
+- id: triple-integral-wrong-coordinate
+  description: >-
+    Finding a different coordinate of the centre of mass from the one asked for.
+- id: triple-integral-mass-not-divided
+  description: >-
+    Giving the mass where the average density, mass divided by volume, was asked for.
+tags: [university-core-v1, university-year-2, multivariable-calculus, triple-integrals, cylindrical-coordinates]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

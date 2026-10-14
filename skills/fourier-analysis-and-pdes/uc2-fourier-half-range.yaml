@@ -1,0 +1,75 @@
+id: uc2-fourier-half-range
+name: Half-range Fourier sine and cosine series
+domain: fourier-analysis-and-pdes
+year_level:
+- university
+description: Find a coefficient of the half-range Fourier sine or cosine series of a function given on [0, L], and say what
+  value each series converges to at a stated point by using the odd or even periodic extension.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-fourier-series-full-period
+answer: number
+sources:
+- topic: s2c3_fourier_half_range
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_fourier_half_range
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_fourier_half_range
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_fourier_half_range
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fourier-half-range-factor-dropped
+  description: Using the factor 1/L instead of 2/L in a half-range coefficient, so the answer is half the true value.
+- id: fourier-sine-cosine-swap
+  description: Reporting b_n where a_n was asked for, or the reverse.
+- id: fourier-period-scaling-dropped
+  description: Integrating against cos(nx) or sin(nx) instead of cos(n pi x/L) or sin(n pi x/L), so the half-period L drops
+    out of the frequency.
+- id: fourier-coefficient-sign-flip
+  description: Losing a sign in the integration by parts or in evaluating cos(n pi), so the coefficient has the wrong sign.
+- id: fourier-normalisation-doubled
+  description: Doubling a Fourier coefficient by using the half-range factor 2/L on a full period [-L, L].
+- id: fourier-a0-half-confused
+  description: Reporting a0/2, the constant term of the series, where the coefficient a0 was asked for.
+- id: fourier-jump-one-sided-value
+  description: Reading the value of the series at a jump as one of the one-sided limits of f, instead of their average.
+- id: fourier-jump-value-zero
+  description: Saying the series is 0 at a jump or at the end of the period, because the sine terms vanish there.
+- id: fourier-wrong-extension
+  description: Using the even extension for the sine series, or the odd extension for the cosine series, when finding the
+    value outside (0, L).
+- id: fourier-periodicity-ignored
+  description: Evaluating the formula for the nearest piece at a point outside [-L, L) instead of using the period 2L to
+    bring the point back.
+difficulty_progression: Easy asks for one coefficient (b_n of the sine series, or a_0 or a_n of the cosine series) of a
+  single linear piece, so the learner must choose the factor 2/L and the right trigonometric weight. Medium gives two linear
+  pieces that break inside [0, L], so the integral splits and each piece needs integration by parts. Hard asks what a half-range
+  series converges to at a point such as a jump, an end point, a negative x or a point beyond L, which needs the odd or
+  the even extension and the period 2L. The exam chain finds b_n, a_n, the sine-series value at a point outside [0, L] and
+  the cosine-series value at a jump.
+tags:
+- university-year-2
+- fourier-analysis-and-pdes
+- fourier-series
+- half-range-series
+framework_areas:
+- fourier-analysis-and-pdes

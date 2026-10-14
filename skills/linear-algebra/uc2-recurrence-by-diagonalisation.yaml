@@ -1,0 +1,99 @@
+id: uc2-recurrence-by-diagonalisation
+name: Solve a linear recurrence system by diagonalisation
+domain: linear-algebra
+year_level:
+- university
+description: 'Solve xₙ₊₁ = Axₙ by diagonalising A: closed forms for coupled sequences and the long-run count in each state
+  of a Markov-type system.'
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-diagonalisation
+- ucv1-eigenvectors
+answer: expression
+sources:
+- topic: s2b2_recurrence_diagonalisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_recurrence_diagonalisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_recurrence_diagonalisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_recurrence_diagonalisation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: markov-eigenvector-not-scaled
+  description: Giving the whole-number eigenvector for the eigenvalue 1 instead of scaling it to the total of the initial
+    vector.
+- id: markov-equal-split
+  description: Assuming the long-run state is an equal split between the states.
+- id: markov-long-run-initial
+  description: Giving the initial vector as the long-run state, as if the chain did not move.
+- id: markov-rate-as-share
+  description: Reading one of the switching rates in the matrix as the long-run share of a state.
+- id: markov-ratio-inverted
+  description: Giving the proportion for the other state, from taking the switching rate out of a state as the share that
+    ends up in it.
+- id: markov-ratio-not-normalised
+  description: Scaling the steady state by the total divided by 10 instead of dividing by the sum of its entries.
+- id: markov-second-eigenvalue-one-entry
+  description: Taking the second eigenvalue of a 2×2 stochastic matrix to be 1 minus one of the switching rates, instead
+    of 1 minus their sum.
+- id: markov-second-eigenvalue-sum
+  description: Taking the second eigenvalue of a 2×2 stochastic matrix to be the sum of the two switching rates instead
+    of 1 minus the sum.
+- id: markov-state-swapped
+  description: Giving the long-run numbers in the wrong order, so each state gets the other state's share.
+- id: rec-coefficient-base-confused
+  description: Swapping the roles of coefficient and base in a term c·λⁿ, writing λ·cⁿ.
+- id: rec-coefficients-from-initial-values
+  description: Taking the coefficients of the eigenvalue terms to be the initial values themselves, without expressing x₀
+    in the eigenvectors.
+- id: rec-eigenvalues-swapped
+  description: Attaching each coefficient of a closed form to the eigenvalue belonging to the other term.
+- id: rec-index-shift
+  description: Writing the closed form of a sequence with the index shifted by one, so each term carries λ^(n+1) in place
+    of λ^n.
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+- id: sign-flip-one-root
+  description: Getting the sign of one root wrong when reading the roots from the factors.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find the eigenvalue-1 eigenvector of a 2-state stochastic matrix and scale it to the total of the initial vector
+      to get the long-run count in one state.
+  medium:
+    steps: 4
+    demand: Diagonalise a 2×2 integer system, express the initial vector in the eigenvectors, and write one component as
+      c₁λ₁ⁿ + c₂λ₂ⁿ.
+  hard:
+    steps: 5
+    demand: Do the same for a 3×3 system with three exponentials, or find the long-run count in one state of a 3-state Markov
+      chain whose other two eigenvalues are inside the unit circle.
+  exam:
+    steps: 5
+    demand: Find the second eigenvalue, the steady-state share, the closed form of a component, and its limit from the share.
+tags:
+- university-year-2
+- linear-algebra
+- recurrences
+- markov-chains
+- diagonalisation

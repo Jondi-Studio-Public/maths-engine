@@ -1,0 +1,75 @@
+id: uc2-frobenius-indicial
+name: Find the exponents and coefficients of a Frobenius series
+domain: ordinary-differential-equations
+year_level:
+- university
+description: At a regular singular point, find the roots of the indicial equation of a second-order linear ODE and
+  the first coefficients of the Frobenius series solutions.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-power-series-solution
+- ucv1-second-order-characteristic-roots
+answer: fraction
+sources:
+- topic: s2c2_frobenius_indicial
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c2_frobenius_indicial
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c2_frobenius_indicial
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c2_frobenius_indicial
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-indicial-wrong-root-chosen
+  description: Giving the other root of the indicial equation from the one the question asked for, or building the
+    series on the wrong exponent.
+- id: ode2-indicial-sign-error
+  description: Giving a root of the indicial equation with the wrong sign.
+- id: ode2-indicial-leading-coefficient-ignored
+  description: Forming the indicial equation without dividing by, or including, the coefficient of x² y'', so the
+    roots come out wrong.
+- id: ode2-indicial-r-minus-one-dropped
+  description: Writing r² in place of r(r - 1) for the y'' term of the indicial equation.
+- id: ode2-indicial-root-sum-given
+  description: Giving the sum of the two indicial roots, 1 - B0/A, instead of one root.
+- id: ode2-frobenius-sign-slip
+  description: Moving the terms of the Frobenius recurrence across the equals sign without changing their signs.
+- id: ode2-frobenius-coefficient-index-shifted
+  description: Using r + n in place of r + n - k for the exponent in the y' term of the recurrence.
+- id: ode2-frobenius-n-for-r-plus-n
+  description: Evaluating the indicial polynomial at n instead of at r + n when dividing in the recurrence.
+- id: ode2-frobenius-term-left-out
+  description: Leaving one of the earlier coefficients out of the recurrence, so a_2 is built from a_1 alone.
+difficulty_progression: Easy asks for the larger indicial root of A x^2 y'' + x(B0 + B1 x + ...) y' + (C0 + C1 x
+  + ...) y = 0, where only the constant terms B0 and C0 and the leading coefficient A matter and the x terms are
+  there to be ignored. Medium asks for a_1 of the series with the larger exponent, which needs the recurrence, and
+  half the questions are written as a x y'' + (b + c x) y' + d y = 0, which has to be multiplied by x to reach the
+  standard form. Hard asks for a_2 of the series with the smaller exponent, with terms up to x^2 in both coefficient
+  functions, so the recurrence has two earlier terms. The exam chain finds both roots (the second from the first,
+  since they add to 1 - B0/A) and a_1 for each.
+tags:
+- university-year-2
+- ordinary-differential-equations
+- frobenius-method
+- indicial-equation
+- regular-singular-point
+framework_areas:
+- ordinary-differential-equations

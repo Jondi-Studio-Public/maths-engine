@@ -1,0 +1,102 @@
+id: uc2-diagonalisability-test
+name: Test whether a 3×3 matrix is diagonalisable
+domain: linear-algebra
+year_level:
+- university
+description: Decide whether a 3×3 integer matrix is diagonalisable by comparing the algebraic and geometric multiplicity
+  of each eigenvalue, including the value of a parameter at which it fails.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+- ucv1-null-space
+answer: number
+sources:
+- topic: s2b2_diagonalisability_test
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_diagonalisability_test
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_diagonalisability_test
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_diagonalisability_test
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: alg-multiplicity-off-by-one
+  description: Reading the power of (λ - λ₀) in the characteristic polynomial one too high or one too low.
+- id: diag-condition-gap-dropped
+  description: Leaving the difference between the two eigenvalues out of the condition that makes the rows of A - λI proportional.
+- id: diag-condition-wrong-ratio
+  description: Writing the condition for proportional rows of A - λI with the entries paired the wrong way round.
+- id: diag-parameter-other-collision
+  description: Giving the other value of the parameter at which two eigenvalues coincide, where the eigenspace is still
+    large enough.
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+- id: eigval-other-root
+  description: Giving the other eigenvalue when the larger or smaller one was asked for.
+- id: eigval-repeated-given
+  description: Repeating the eigenvalue given in the question as the other eigenvalue.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: eigval-trace-difference-sign
+  description: Adding the known eigenvalue to the trace instead of subtracting it to find the other eigenvalue.
+- id: eigval-trace-single-count
+  description: Subtracting a repeated eigenvalue from the trace only once when finding the third eigenvalue.
+- id: geo-equals-alg
+  description: Assuming the geometric multiplicity of an eigenvalue equals its algebraic multiplicity, without finding the
+    dimension of its eigenspace.
+- id: nullity-counts-columns
+  description: Taking the nullity to be the number of columns, forgetting to subtract the rank.
+- id: parameter-zero-assumed
+  description: Taking the parameter to be 0 because the matrix looks simpler there, without checking the rank condition.
+- id: rank-counts-nonzero-rows
+  description: Taking the rank to be the number of non-zero rows of the original matrix, without noticing that one is a
+    combination of the others.
+- id: rank-nullity-confused
+  description: Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.
+- id: rank-off-by-one
+  description: Miscounting the pivots during row reduction, so the rank is one too high or one too low.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: For a stated eigenvalue of a dense 3×3 matrix, find the geometric multiplicity from the rank of A - λI by rank-nullity.
+  medium:
+    steps: 3
+    demand: 'A parameter k sits in one off-diagonal entry of a matrix whose eigenvalues do not depend on k: find the repeated
+      eigenvalue, then the value of k that makes the rows of A - λI proportional so the eigenspace has dimension 2.'
+  hard:
+    steps: 4
+    demand: 'The parameter k is a diagonal entry, so the eigenvalues k, λ, μ collide at two values of k: test the eigenspace
+      at both collisions and choose the one where the geometric multiplicity falls short.'
+  exam:
+    steps: 5
+    demand: Find the repeated eigenvalue, the third eigenvalue from the trace, the rank of A - λI and the geometric multiplicity,
+      each feeding the next.
+tags:
+- university-year-2
+- linear-algebra
+- diagonalisability
+- eigenvalues

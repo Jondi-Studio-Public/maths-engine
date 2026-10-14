@@ -1,0 +1,72 @@
+id: uc2-power-series-solution
+name: Solve a linear ODE by power series about an ordinary point
+domain: ordinary-differential-equations
+year_level:
+- university
+description: Find the coefficients of the power series solution of a second-order linear ODE with polynomial coefficients
+  about an ordinary point, from the recurrence relation and the initial values.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-power-series-convergence
+- ucv1-second-order-characteristic-roots
+answer: fraction
+sources:
+- topic: s2c2_power_series_solution
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c2_power_series_solution
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c2_power_series_solution
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c2_power_series_solution
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-series-second-derivative-factor-dropped
+  description: Writing the contribution of y'' to the coefficient recurrence with the factor (n+2) but not (n+1),
+    or the like, so a term of the second derivative is under-counted.
+- id: ode2-series-derivative-factor-dropped
+  description: Writing the contribution of a term such as x y' to the recurrence as a_n, leaving out the factor
+    n that differentiation brings down.
+- id: ode2-series-sign-slip
+  description: Moving the other terms of the recurrence across the equals sign without changing their signs, so
+    every later coefficient has the wrong sign.
+- id: ode2-series-initial-values-swapped
+  description: Taking a_0 to be y'(x0) and a_1 to be y(x0), the wrong way round.
+- id: ode2-series-wrong-coefficient-index
+  description: Giving the coefficient of a neighbouring power, a_(n-1), where a_n was asked for.
+- id: ode2-series-expansion-point-ignored
+  description: Expanding about x = x0 but using the coefficients of the equation in powers of x, without re-expanding
+    them in powers of (x - x0).
+- id: ode2-series-term-left-out-of-sum
+  description: Stopping the partial sum one term early, leaving out the last term of the truncated series.
+difficulty_progression: 'Easy is y'''' + p x y'' + q y = 0 about x = 0, where the recurrence links a_(n+2) to a_n
+  and the coefficient of x^4 or x^5 takes two steps. Medium keeps the two-step recurrence but the leading coefficient
+  1 + c x^2 is not 1, so it contributes to the recurrence too. Hard expands about x = 1, 2 or -1: the coefficients
+  of the equation must first be re-expanded in powers of (x - x0), and the recurrence then links a_(n+2) to both
+  a_(n+1) and a_n. The exam chain finds a_2, a_3 and a_4 in turn, each using the earlier ones, then evaluates the
+  truncated series at a stated point.'
+tags:
+- university-year-2
+- ordinary-differential-equations
+- power-series
+- recurrence-relation
+- ordinary-point
+framework_areas:
+- ordinary-differential-equations

@@ -1,0 +1,87 @@
+id: uc2-coordinates-in-basis
+name: Coordinates relative to a non-standard basis
+domain: linear-algebra
+year_level:
+- university
+description: Find the coordinate vector of a vector of R^3, a polynomial or a 2x2 matrix relative to a supplied non-standard
+  basis, including bases of shifted powers (x - a)^k and of a plane in R^4. The exam chain finds the parameter that breaks
+  a basis, a determinant, a coordinate vector and a converted component.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-coordinate-basis
+- ucv1-linear-system-determinant
+answer: matrix
+sources:
+- topic: s2b1_coordinates_in_basis
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b1_coordinates_in_basis
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b1_coordinates_in_basis
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b1_coordinates
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: coords-order-swapped
+  description: Writing the coordinates relative to a basis in the reverse order, so each is paired with the wrong basis
+    vector.
+- id: coords-standard-used
+  description: Giving the entries of the vector itself as its coordinates, as if the basis were the standard one.
+- id: coords-basis-as-rows
+  description: Writing the basis vectors as the rows of the coefficient matrix instead of its columns, so the system solved
+    is for the transpose.
+- id: coords-sign-slip
+  description: Losing a minus sign on one coordinate when solving for the coordinates relative to a basis.
+- id: taylor-derivative-not-divided
+  description: Taking the coordinate of (x - a)^k to be the k-th derivative at a, without dividing by k factorial.
+- id: taylor-centre-sign-error
+  description: Expanding about -a instead of a when the basis is the powers of (x - a).
+- id: colspace-forgot-multiplier
+  description: Solving the consistency condition y·b = 0 without dividing by the coefficient of k.
+- id: det-sarrus-sign-slip
+  description: Getting the sign of one of the six products wrong when expanding a 3×3 determinant.
+difficulty_progression: 'Easy solves a 3x3 system for the coordinates of a vector of R^3 (whole-number coordinates). Medium
+  moves to a basis of quadratic polynomials whose coordinates are fractions, so the system must be solved exactly. Hard
+  changes the setting: Taylor coordinates in the shifted basis 1, (x - a), (x - a)^2, (x - a)^3, a basis of 2x2 matrices
+  (a 4x4 system), or a plane in R^4 where four equations in two unknowns must be consistent. The exam chain finds the parameter
+  k at which three vectors stop being a basis, the determinant at a stated k (following through), the coordinates of a vector
+  at that k, and a component of the vector with stated coordinates.'
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- basis
+- coordinates
+- vector-spaces
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

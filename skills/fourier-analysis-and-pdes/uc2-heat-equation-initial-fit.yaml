@@ -1,0 +1,80 @@
+id: uc2-heat-equation-initial-fit
+name: Fit the heat equation on a rod to its initial temperature
+domain: fourier-analysis-and-pdes
+year_level:
+- university
+description: Solve the heat equation on a rod with fixed-temperature or insulated ends by separation of variables, fit the
+  series to the initial temperature (a finite sum of modes or a function that needs Fourier coefficients), and find the
+  temperature at a point and time.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-heat-equation-mode
+- uc2-fourier-half-range
+answer: number
+sources:
+- topic: s2c3_heat_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_heat_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_heat_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_heat_equation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: heat-decay-linear-in-n
+  description: Using the decay rate k(pi/L)^2 n for mode n instead of k(n pi/L)^2, so the squared n is lost.
+- id: heat-decay-pi-dropped
+  description: Using the decay rate k n^2/L^2 for mode n, leaving pi out of k(n pi/L)^2.
+- id: heat-decay-wavenumber-unsquared
+  description: Using the decay rate k n pi/L for mode n, with the wavenumber n pi/L not squared.
+- id: heat-decay-length-unsquared
+  description: Using the decay rate k(n pi)^2/L for mode n, with the rod length L not squared.
+- id: fourier-half-range-factor-dropped
+  description: Using the factor 1/L instead of 2/L in a half-range coefficient, so the answer is half the true value.
+- id: fourier-coefficient-sign-flip
+  description: Losing a sign in the integration by parts or in evaluating cos(n pi), so the coefficient has the wrong sign.
+- id: heat-wrong-mode-family
+  description: Using cosine modes where the ends are held at fixed temperatures, or sine modes where they are insulated.
+- id: heat-decay-applied-to-coefficient
+  description: Multiplying the Fourier coefficient by a decay factor, although the coefficient is the value at time zero.
+- id: heat-steady-state-omitted
+  description: Giving only the decaying transient and leaving out the steady-state temperature distribution.
+- id: heat-steady-state-not-subtracted
+  description: Fitting the series to the initial temperature itself, instead of to what is left after the steady state is
+    subtracted.
+- id: heat-fade-target-wrong
+  description: Solving for the time at which the amplitude reaches the wrong level, not 1 degree.
+difficulty_progression: Easy gives the initial temperature as a sum of two modes, so the learner must choose sine modes
+  for fixed-temperature ends or cosine modes for insulated ends, attach the decay k(n pi/L)^2 to each mode and evaluate.
+  Medium gives a function (constant, ramp, tent or a heated middle section), so the Fourier coefficients have to be found
+  first and the later modes still matter at the time asked; it also asks for a single coefficient of the solution. Hard
+  holds the two ends at different temperatures, so the steady state is subtracted, the transient is fitted to what remains
+  of the initial temperature, and the steady state is added back. The exam chain finds the decay rate and the coefficient
+  of the third mode, the temperature at a point, and the time for that mode to fade to one degree (following through from
+  the first two parts).
+tags:
+- university-year-2
+- fourier-analysis-and-pdes
+- heat-equation
+- separation-of-variables
+- fourier-series
+framework_areas:
+- fourier-analysis-and-pdes

@@ -1,0 +1,102 @@
+id: uc2-jordan-form
+name: Find the Jordan normal form
+domain: linear-algebra
+year_level:
+- university
+description: Find the Jordan normal form of a 2×2 or 3×3 integer matrix with a repeated eigenvalue, in a stated block order,
+  and the size of its largest block.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-diagonalisation
+- ucv1-null-space
+answer: matrix
+sources:
+- topic: s2b2_jordan_form
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_jordan_form
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_jordan_form
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_jordan_form
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: eigval-trace-single-count
+  description: Subtracting a repeated eigenvalue from the trace only once when finding the third eigenvalue.
+- id: jordan-block-count-as-size
+  description: Giving the number of Jordan blocks as the size of the largest block.
+- id: jordan-block-size-from-multiplicity
+  description: Taking the size of the Jordan block for an eigenvalue to be its algebraic multiplicity, without finding the
+    dimension of the eigenspace.
+- id: jordan-block-size-kept-for-zero
+  description: Keeping a Jordan block of size 2 for the square of a matrix whose block has eigenvalue 0, although a block
+    J(0; 2) squares to zero.
+- id: jordan-block-size-off-by-one
+  description: Splitting a Jordan block into one block that is too small and an extra block of size 1, from an eigenspace
+    of the wrong dimension.
+- id: jordan-block-size-rank-confused
+  description: Giving the rank of A - λI as the size of the largest Jordan block instead of the rank plus one.
+- id: jordan-block-squared-not-renormalised
+  description: Squaring a Jordan matrix and leaving the result, with 2λ above the diagonal, instead of writing the Jordan
+    form of the square.
+- id: jordan-blocks-misordered
+  description: 'Placing the Jordan blocks in an order other than the one stated: by increasing eigenvalue, the larger block
+    first for equal eigenvalues.'
+- id: jordan-diagonal-assumed
+  description: Writing the diagonal matrix of eigenvalues as the Jordan form of a matrix that does not have enough independent
+    eigenvectors to be diagonalised.
+- id: jordan-one-below-diagonal
+  description: Putting the 1s of a Jordan block below the diagonal when the normal form has them directly above it.
+- id: rank-counts-nonzero-rows
+  description: Taking the rank to be the number of non-zero rows of the original matrix, without noticing that one is a
+    combination of the others.
+- id: rank-nullity-confused
+  description: Giving the rank where the nullity was asked for, or the nullity where the rank was asked for.
+- id: rank-off-by-one
+  description: Miscounting the pivots during row reduction, so the rank is one too high or one too low.
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find the eigenvalues, then the dimension of the eigenspace of the repeated one from a rank, to decide between
+      a Jordan block and two blocks of size 1; order the blocks as stated.
+  medium:
+    steps: 3
+    demand: 'A single triple eigenvalue: the rank of A - λI decides between one block of size 3 and blocks of sizes 2 and
+      1.'
+  hard:
+    steps: 4
+    demand: Find the Jordan form of A², which needs the block structure of A and the rule that a nilpotent block of eigenvalue
+      0 splits when squared.
+  exam:
+    steps: 5
+    demand: Find the triple eigenvalue, the rank of A - λI, the size of the largest block from that rank, and then the full
+      Jordan matrix.
+tags:
+- university-year-2
+- linear-algebra
+- jordan-form
+- eigenvalues

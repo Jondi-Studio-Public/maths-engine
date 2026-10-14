@@ -1,0 +1,107 @@
+id: uc2-gram-schmidt
+name: Gram–Schmidt orthogonalisation
+domain: linear-algebra
+year_level:
+- university
+description: Apply the Gram–Schmidt process, in the order given and without normalising, to vectors in R^3 and R^4, to polynomials
+  under an integral inner product on [-1, 1] or [0, 1], and to vectors under a weighted inner product, and give the exact
+  orthogonal vector.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-gram-schmidt-2d
+- vector-dot-product
+answer: matrix
+sources:
+- topic: s2b3_gram_schmidt
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b3_gram_schmidt
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b3_gram_schmidt
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b3_gram_schmidt
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: gs-returns-projection
+  description: Reporting the projection of v2 onto u1 as the second vector, instead of subtracting it from v2.
+- id: gs-adds-projection
+  description: Adding the projection to the vector instead of subtracting it, so the result is not orthogonal to the earlier
+    vector.
+- id: gs-forgot-divide-by-norm-squared
+  description: Subtracting (v2 . u1) u1 without dividing by u1 . u1, so the multiple of u1 taken off is too large.
+- id: gs-divides-by-wrong-vector
+  description: Dividing the dot product by the squared length of the vector being orthogonalised instead of the squared
+    length of the vector projected onto.
+- id: gs-projects-onto-original-vector
+  description: Subtracting projections onto the original vectors v1, v2 instead of the orthogonal vectors u1, u2, so the
+    result is not orthogonal to u2.
+- id: gs-drops-first-projection
+  description: Subtracting only the projection onto the latest orthogonal vector and leaving out the projection onto u1.
+- id: gs-drops-second-projection
+  description: Subtracting only the projection onto u1 and leaving out the projection onto u2.
+- id: gs-integral-replaced-by-coefficient-dot
+  description: Using the dot product of the coefficient vectors in place of the integral inner product of the polynomials.
+- id: gs-ignores-the-weights
+  description: Using the ordinary dot product in the Gram-Schmidt process when the inner product has weights.
+- id: gs-inverted-coefficient
+  description: 'Turning the projection coefficient upside down: dividing u1 . u1 by v2 . u1 instead of v2 . u1 by u1 . u1.'
+- id: gs-coefficient-not-squared
+  description: Using c where c squared belongs when finding the squared length of u2 = v2 - c u1.
+- id: gs-drops-projection-from-length
+  description: Giving the squared length of v2 as the squared length of u2, forgetting that the projection has been removed.
+- id: gs-length-of-projection
+  description: Giving the squared length of the projection c u1 instead of the squared length of the remainder u2.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find one projection coefficient from two dot products and subtract the projection from the second vector.
+  medium:
+    steps: 5
+    demand: Build u2, then subtract the projections of v3 onto both u1 and u2 (the orthogonal vectors, not v1 and v2).
+  hard:
+    steps: 6
+    demand: Replace the dot product by an integral or a weighted sum in every coefficient, including the squared lengths,
+      then run the full process.
+  exam:
+    steps: 7
+    demand: Finds the projection coefficient, u2, the squared length of u2 (following through from the coefficient) and
+      then u3.
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- gram-schmidt
+- orthogonality
+- inner-product
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
