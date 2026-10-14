@@ -622,9 +622,15 @@
 {"answer": "7", "id": "constants-coefficients-terms/medium/0/2bdfa37fb0ac", "text": "What is the coefficient of x^2 in -5*x**3 + 7*x**2 - 8?"}
 {"answer": "7", "id": "constants-coefficients-terms/medium/1/870a777e8840", "text": "What is the coefficient of x^2 in 7*x**3 + 7*x**2?"}
 {"answer": "7", "id": "constants-coefficients-terms/medium/2/2d0fc33be71a", "text": "What is the coefficient of x^2 in 7*x**2 - 5*x - 1?"}
-{"answer": "▲", "id": "continue-patterns/easy/0/304b213a3326", "text": "What comes next? ▲ ■ ▲ ■ ▲ ■ __"}
-{"answer": "🍎", "id": "continue-patterns/easy/1/c02ad4b08fd1", "text": "What comes next? 🍎 🍐 🍎 🍐 🍎 🍐 __"}
-{"answer": "🔵", "id": "continue-patterns/easy/2/85c2021ed542", "text": "What comes next? 🔵 🟡 🔵 🟡 🔵 🟡 __"}
+{"answer": "a solid star", "id": "continue-patterns/easy/0/84424c4840f9", "text": "What should come next?"}
+{"answer": "the number 2", "id": "continue-patterns/easy/1/eca725bbb37f", "text": "What comes next in the pattern?"}
+{"answer": "a solid diamond", "id": "continue-patterns/easy/2/6d2b70e429c5", "text": "Which one comes next in this pattern?"}
+{"answer": "Row A", "id": "continue-patterns/hard/0/65f7bae069b1", "text": "Which row is a pattern like jump, stamp, stamp, jump, stamp, stamp?"}
+{"answer": "Row B", "id": "continue-patterns/hard/1/ff5dd009795f", "text": "Which row has the same pattern as stamp, stamp, jump, jump, stamp, stamp, jump,…"}
+{"answer": "Row B", "id": "continue-patterns/hard/2/6e6981628d63", "text": "Which row is a pattern like jump, jump, stamp, jump, jump, stamp?"}
+{"answer": "a stamp", "id": "continue-patterns/medium/0/c3b77a591620", "text": "What is missing from the pattern?"}
+{"answer": "a solid heart", "id": "continue-patterns/medium/1/1b2e6ef76a80", "text": "Look at the pattern. What fills the empty box?"}
+{"answer": "the number 5", "id": "continue-patterns/medium/2/00cbae691f0e", "text": "What is missing from the pattern?"}
 {"answer": "8", "id": "convert-metric-capacity/easy/0/a18d6904128e", "text": "Convert 8000 mL to L."}
 {"answer": "3", "id": "convert-metric-capacity/easy/1/f13ec3b04a3f", "text": "Convert 3000 mL to L."}
 {"answer": "5", "id": "convert-metric-capacity/easy/2/e26ae0779deb", "text": "Convert 5000 mL to L."}
@@ -2338,6 +2344,18 @@
 {"answer": "square, star, diamond", "id": "f10-pattern-copy-repeat-unit/medium/0/cc8d6a39408f", "text": "This pattern repeats. What is the smallest repeating unit, in order? square, st…"}
 {"answer": "star, circle, triangle", "id": "f10-pattern-copy-repeat-unit/medium/1/c22b94743588", "text": "This pattern repeats. What is the smallest repeating unit, in order? star, circ…"}
 {"answer": "star, diamond, triangle", "id": "f10-pattern-copy-repeat-unit/medium/2/bd2a812587bc", "text": "This pattern repeats. What is the smallest repeating unit, in order? star, diam…"}
+{"answer": "3", "id": "f10-pattern-strip-repeating-unit/easy/0/0326278cc9cd", "text": "How many are in the part that repeats?"}
+{"answer": "2", "id": "f10-pattern-strip-repeating-unit/easy/1/ac86ea3e9439", "text": "How many are in the part that repeats?"}
+{"answer": "3", "id": "f10-pattern-strip-repeating-unit/easy/2/344bbedaa2d2", "text": "Talia sees a pattern. How many are in the part that repeats?"}
+{"answer": "Number 8", "id": "f10-pattern-strip-repeating-unit/hard/0/716a9a1b52b4", "text": "Which one does not belong in the pattern?"}
+{"answer": "Number 9", "id": "f10-pattern-strip-repeating-unit/hard/1/9f20da8218ab", "text": "One is wrong. Which one breaks the pattern?"}
+{"answer": "Number 9", "id": "f10-pattern-strip-repeating-unit/hard/2/1ac3a2980fc5", "text": "Look closely. Which one breaks the pattern?"}
+{"answer": "a stamp", "id": "f10-pattern-strip-repeating-unit/later-place/0/a1a908acfc2c", "text": "What will number 12 in this pattern be?"}
+{"answer": "a striped diamond", "id": "f10-pattern-strip-repeating-unit/later-place/1/174a47d3a0b7", "text": "Kenji keeps the pattern going. What is number 10?"}
+{"answer": "the letter N", "id": "f10-pattern-strip-repeating-unit/later-place/2/00e736d03745", "text": "Keep the pattern going. What will number 9 be?"}
+{"answer": "Row B", "id": "f10-pattern-strip-repeating-unit/same-pattern/0/4e053d9c95c3", "text": "Which row is a pattern like 2, 2, 9, 2, 2, 9?"}
+{"answer": "Row C", "id": "f10-pattern-strip-repeating-unit/same-pattern/1/6e56cfc61495", "text": "Which row is made the same way as triangle, triangle, circle, triangle, triangl…"}
+{"answer": "Row A", "id": "f10-pattern-strip-repeating-unit/same-pattern/2/9d33c75b0cb0", "text": "Which row has the same pattern as stamp, stamp, jump, stamp, stamp, jump?"}
 {"answer": "1/5", "id": "f10-percentage-equivalence-comparison/easy/0/c5153d529d3b", "text": "What fraction is equivalent to 20%, using 100% as the whole?"}
 {"answer": "1/2", "id": "f10-percentage-equivalence-comparison/easy/1/2d0fe241ff91", "text": "What fraction is equivalent to 50%, using 100% as the whole?"}
 {"answer": "3/4", "id": "f10-percentage-equivalence-comparison/easy/2/74eebf8cdca4", "text": "What fraction is equivalent to 75%, using 100% as the whole?"}

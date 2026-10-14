@@ -546,8 +546,10 @@ continue-patterns:
   domain: early-foundations
   status: active
   sources:
-  - topic: repeating_pattern
-    module: mathgen/generators/early_math.py
+  - topic: ey_pattern_continue
+    module: mathgen/generators/ey_patterns_build.py
+  - topic: ey_pattern_match
+    module: mathgen/generators/ey_patterns_build.py
 convert-metric-capacity:
   domain: measurement
   status: active
@@ -1718,6 +1720,14 @@ f10-pattern-copy-repeat-unit:
     module: mathgen/generators/foundations_pattern_situation_build.py
   - topic: exd_x_pr1_pattern_chain
     module: mathgen/generators/exd_x_pr1_early_chains.py
+f10-pattern-strip-repeating-unit:
+  domain: early-foundations
+  status: active
+  sources:
+  - topic: ey_pattern_unit
+    module: mathgen/generators/ey_patterns_build.py
+  - topic: ey_pattern_match
+    module: mathgen/generators/ey_patterns_build.py
 f10-percentage-equivalence-comparison:
   domain: primary-number
   status: active
