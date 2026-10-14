@@ -1,0 +1,93 @@
+id: locus-circle-disc-pick-sketch
+name: Read circle and disc loci from an Argand diagram
+domain: senior-mathematics
+year_level: ['12']
+description: 'Read a circle, a set of plotted points or a pair of concentric circles from an Argand diagram and choose the
+  relation that describes them: the equation |z - w| = r of a drawn circle, which labelled points satisfy a disc inequality,
+  and the double inequality for the region between two circles. The exam chain finds the radius of a circle through a point,
+  the greatest and least |z| over its disc and which number lies inside it.'
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- complex-modulus
+- senior-consider-complex-numbers-as-points-in-a-plane
+answer: mcq
+sources:
+- topic: sr2l_circle_pick
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sr2l_circle_pick
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sr2l_circle_pick
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sr2l_circle_pick_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sr2l-boundary-included-or-excluded
+  description: Counting a point on the boundary for a strict inequality, or leaving it out for a non-strict one.
+- id: sr2l-centre-modulus-only
+  description: Giving the distance from the origin to the centre as the greatest or least value of |z|, forgetting the radius.
+- id: sr2l-centre-sign-flipped
+  description: 'Reading the centre of a locus |z - w| = r with the signs of w reversed: z + 2 - 3i is taken to be centred
+    at (2, -3) instead of (-2, 3).'
+- id: sr2l-components-added
+  description: Adding the real and imaginary parts of a difference of complex numbers instead of taking its modulus.
+- id: sr2l-diameter-for-radius
+  description: Using the diameter of a circle where its radius belongs.
+- id: sr2l-difference-of-radii
+  description: Using the difference of the two radii as the outer radius of the region between concentric circles.
+- id: sr2l-greatest-and-least-confused
+  description: Giving the greatest value of |z| over a disc where the least was asked for, or the reverse.
+- id: sr2l-inner-circle-ignored
+  description: Describing the region between two circles by its outer boundary alone, so the inner disc is wrongly included.
+- id: sr2l-inside-outside-reversed
+  description: Choosing the points outside the circle where the points inside were asked for, or the reverse.
+- id: sr2l-larger-component-only
+  description: Taking the larger of the real and imaginary parts as the modulus.
+- id: sr2l-modulus-compared-with-radius
+  description: Testing |z| against the radius instead of |z - c|, measuring the distance from the origin and not from the
+    centre.
+- id: sr2l-modulus-of-point-not-distance
+  description: Using the modulus of a point on the circle as the radius, instead of its distance from the centre.
+- id: sr2l-radius-for-modulus
+  description: Giving the radius of a disc as the greatest or least value of |z|, forgetting that the centre is not the
+    origin.
+- id: sr2l-radius-squared
+  description: Using the radius squared where the radius belongs, or comparing a squared distance with the radius itself.
+- id: sr2l-real-imaginary-swapped
+  description: Swapping the real and imaginary parts of a centre or point, so the real part is plotted up the imaginary
+    axis.
+- id: sr2l-subtracted-the-wrong-way
+  description: Subtracting the larger quantity from the smaller, which gives a negative modulus.
+difficulty_progression: Easy reads one drawn circle and writes |z - w| = r, where the sign of the centre is the trap. Medium
+  plots four points, one of them exactly on the circle, and asks which satisfy a strict or non-strict inequality, so the
+  boundary matters. Hard draws two concentric circles and states which boundary belongs to the region between them, so the
+  double inequality has to carry the right strict and non-strict signs. The exam chain finds a radius from a point on the
+  circle, then the greatest and least |z| over the disc (following through from the radius) and which complex number lies
+  strictly inside.
+tags:
+- complex-numbers
+- complex-plane-loci
+- circle
+- argand-diagram
+- acara-v8-4
+- ACMSM086

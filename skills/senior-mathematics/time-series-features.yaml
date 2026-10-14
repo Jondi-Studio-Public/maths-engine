@@ -1,0 +1,48 @@
+id: time-series-features
+name: Read the features of a time series from its line graph
+domain: senior-mathematics
+year_level: ['12']
+description: 'A time series is drawn as a line graph with seasonal variation, a steady change of level from one cycle to the next, and sometimes one value changed by a one-off event. Easy: the difference between two plotted readings. Medium: forecast the next value from the stated cycle length and the change from one cycle to the next. Hard: which time point is the irregular one, or a forecast whose nearest same-season value is the irregular one. The exam chain asks the cycle length, the irregular time point, the change of level per cycle and a forecast (carried forward). The prompt never lists the values. Distinct from senior-deseasonalise-a-time-series-by-using-a-seasonal, which divides by given seasonal indices.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-line-graph-change-over-time]
+answer: number
+sources:
+- topic: sr2a_time_series
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [6]
+- topic: sr2a_time_series
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [6]
+- topic: sr2a_time_series
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: sr2a_time_series_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ts-adds-readings
+  description: Adds the two values read from the graph instead of finding how much higher one is than the other.
+- id: ts-neighbour-read
+  description: Reads the value at the time point next to the one named, so the difference is for the wrong pair of times.
+- id: ts-gridline-slip
+  description: Reads a value one gridline too high or too low on the vertical axis.
+- id: ts-one-reading
+  description: Gives one of the two values read from the graph where the difference between them was asked for.
+- id: ts-no-trend-added
+  description: Predicts the value in the same season of the last cycle and does not add the change of level from one cycle to the next.
+- id: ts-ignores-season
+  description: Adds the change of level to the latest value instead of the value in the same season one cycle ago, ignoring the seasonal pattern.
+- id: ts-trend-twice
+  description: Adds the change of level for two cycles when the prediction is only one cycle on from the value used.
+tags: [acara-senior-v8-4, senior-mathematics, time-series, seasonal, trend, figure, sr2a_time_series, acmgm088, acmgm087]

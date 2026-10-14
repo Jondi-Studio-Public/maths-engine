@@ -31,6 +31,10 @@ def _skills_dict():
 
 def _make_from_sources(difficulty, seed):
     skill = _skills_dict()[SKILL]
+    if difficulty == "exam":
+        # The skill's exam tier is now the multi-part chain `exd_x_r2x_direct_proportion_table`; this module
+        # tests this topic's own single-step exam preset, which the generator still provides.
+        return make(TOPIC, seed=seed, difficulty="exam")
     src = next(s for s in skill.sources if s.difficulty == difficulty)
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
