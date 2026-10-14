@@ -59,9 +59,8 @@ Each question's id (below) tells you when the question behind it has changed.
     mathematics (#93).
 - **Grid figures and shaded-cell answers.** A `grid_drawing` figure kind draws scale drawings, maps with grid
   references, stacks of cubes, nets and plan or elevation views. A `grid_cells` answer kind lets a learner answer by
-  shading cells, with four match modes (exact, translate, congruent and cube net). 16 grid skills use them: 12
-  reading skills are active, and 4 shading skills are deferred until the visual-construction gate is benchmarked.
-  (#90)
+  shading cells, with four match modes (exact, translate, congruent and cube net). 17 skills use them: 13 are
+  active, and 4 shading skills are deferred until the visual-construction gate is benchmarked. (#90)
 - **Exam chains.** 13 graph-reading, box-plot and time skills (#83) and the tree-diagram, Venn and stem-and-leaf
   skills (#75) gain multi-part exam questions with follow-through, marks and tagged distractors.
 - **Year levels for senior skills.** `year_level` is now filled for 269 senior skills from ACARA's unit pages
