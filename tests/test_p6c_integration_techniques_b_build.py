@@ -98,7 +98,7 @@ def test_both_skills_load_correctly():
     assert volumes.answer == "expression"
     assert volumes.placement_eligible is False
     assert "integrate-polynomial" in volumes.prerequisites
-    assert len(volumes.sources) == 4  # easy, medium, hard, exam
+    assert len(volumes.sources) == 5  # easy, medium, hard, exam, exam-single
 
 
 # --- arcsin/arctan specific tests -------------------------------------------

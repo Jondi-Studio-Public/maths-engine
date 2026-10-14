@@ -80,14 +80,27 @@ def test_exam_source_is_last_and_in_exam_stage_only(skill_id):
     _, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
     assert skill.answer == kind
-    assert len(skill.sources) == 4
-    last = skill.sources[-1]
+    single_topic = topic
     # Three exam sources moved to multi-part chains (tests/test_exd_x_r2d_velocity_chain.py, tests/test_exd_x_r2c_*.py).
     topic = {
         "exd_x_g2_velocity_composition": "exd_x_r2d_velocity_chain",
         "exd_x_g2_projectile_landing": "exd_x_r2c_projectile",
         "exd_x_g2_position_collision": "exd_x_r2c_collision",
     }.get(topic, topic)
+    if topic != single_topic:
+        # The chain is the default exam source; the old generator follows it as the extra `exam-single` source.
+        assert len(skill.sources) == 5
+        single = skill.sources[-1]
+        assert (single.topic, single.difficulty, list(single.stages), single.key) == (
+            single_topic,
+            "exam",
+            ["exam"],
+            "exam-single",
+        )
+        last = skill.sources[-2]
+    else:
+        assert len(skill.sources) == 4
+        last = skill.sources[-1]
     assert (last.topic, last.difficulty, list(last.stages)) == (topic, "exam", ["exam"])
 
 

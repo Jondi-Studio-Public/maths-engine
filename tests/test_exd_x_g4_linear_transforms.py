@@ -37,13 +37,16 @@ def _make(topic, seed):
 def test_yaml_has_the_exam_source_last(skill_id, topic):
     sources = _skill(skill_id).sources
     # These three skills' exam sources moved to multi-part chains (tests/test_exd_x_r2d_lt_*.py).
-    topic = {
+    # The chain is the default exam source; the old generator follows it as the extra `exam-single` source.
+    chain = {
         "exd_x_g4_lt_basic": "exd_x_r2d_lt_reflection_gradient",
         "exd_x_g4_lt_composition": "exd_x_r2d_lt_composition_chain",
         "exd_x_g4_lt_inverse": "exd_x_r2d_lt_inverse_chain",
-    }.get(topic, topic)
+    }[topic]
+    assert (sources[-2].topic, sources[-2].difficulty, list(sources[-2].stages)) == (chain, "exam", ["exam"])
     assert (sources[-1].topic, sources[-1].difficulty, list(sources[-1].stages)) == (topic, "exam", ["exam"])
-    assert len(sources) == 4
+    assert sources[-1].key == "exam-single"
+    assert len(sources) == 5
 
 
 @pytest.mark.parametrize("skill_id,topic", ALL)

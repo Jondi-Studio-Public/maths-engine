@@ -34,9 +34,11 @@ def _independent_line(text: str):
 
 
 def test_registered():
-    # The skill's exam source is now the multi-part chain; this single-answer preset stays registered, unused.
-    last = sup.skill(SKILL)["sources"][-1]
-    assert last["topic"] == "exd_x_r2a_parallel_tangent_normal"
+    # The skill's default exam source is the multi-part chain; this single-answer preset is its `exam-single` source.
+    sources = sup.skill(SKILL)["sources"]
+    assert sources[-2]["topic"] == "exd_x_r2a_parallel_tangent_normal" and "key" not in sources[-2]
+    last = sources[-1]
+    assert last["topic"] == TOPIC and last["key"] == "exam-single"
     assert last["difficulty"] == "exam" and last["stages"] == ["exam"]
 
 

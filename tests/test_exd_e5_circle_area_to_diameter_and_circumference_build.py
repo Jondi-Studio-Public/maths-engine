@@ -400,10 +400,19 @@ class TestSkillLoads:
         assert set(skill.prerequisites) == {"f10-circle-measures"}
         stages_covered = set()
         for source in skill.sources:
-            # The exam tier is now the multi-part chain (tests/test_exam_parts_circle_radius_arc.py).
-            assert source.topic == ("exam_parts_circle_radius_arc" if source.difficulty == "exam" else TOPIC)
+            # The default exam tier is the multi-part chain (tests/test_exam_parts_circle_radius_arc.py); the old
+            # single-part generator is the extra `exam-single` source.
+            is_chain = source.difficulty == "exam" and source.effective_key == "exam"
+            assert source.topic == ("exam_parts_circle_radius_arc" if is_chain else TOPIC)
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
-        exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
+        exam_sources = [s for s in skill.sources if s.difficulty == "exam" and s.effective_key == "exam"]
         assert len(exam_sources) == 1
         assert exam_sources[0].stages == ["exam"]
+        single = skill.sources[-1]  # the old single-part generator, wired as the extra `exam-single` source
+        assert (single.topic, single.difficulty, single.effective_key, single.stages) == (
+            TOPIC,
+            "exam",
+            "exam-single",
+            ["exam"],
+        )

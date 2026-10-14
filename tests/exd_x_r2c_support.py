@@ -30,7 +30,7 @@ def canonical(q) -> dict[str, str]:
 
 
 def check_wired(skill_id: str, topic: str) -> None:
-    sources = [s for s in skill(skill_id).sources if s.difficulty == "exam"]
+    sources = [s for s in skill(skill_id).sources if s.difficulty == "exam" and s.effective_key == "exam"]
     assert [s.topic for s in sources] == [topic]
     assert list(sources[0].stages) == ["exam"]
 

@@ -261,7 +261,7 @@ class TestSkillsLoad:
         assert skill.answer == "number"
         assert skill.prerequisites == ["differentiate-polynomial", "senior-use-the-notation-frac-delta-y-delta-x"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 4
+        assert len(skill.sources) == 5
         assert len(skill.misconceptions) >= 1
 
     def test_increments_skill_loads_with_correct_metadata(self):
@@ -271,7 +271,7 @@ class TestSkillsLoad:
         assert skill.answer == "fraction"
         assert skill.prerequisites == ["differentiate-polynomial", "senior-use-the-leibniz-notation-delta-x-and-delta"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 4
+        assert len(skill.sources) == 5
         assert len(skill.misconceptions) >= 1
 
     def test_both_skills_sources_cover_all_difficulties(self):

@@ -38,7 +38,7 @@ def hard_question(skill_id: str, seed: int):
 
 def assert_registered(skill_id: str, topic: str) -> None:
     sources = skill_yaml(skill_id)["sources"]
-    exam = [s for s in sources if s["difficulty"] == "exam"]
+    exam = [s for s in sources if s["difficulty"] == "exam" and "key" not in s]
     assert len(exam) == 1
     assert exam[0]["topic"] == topic
     assert exam[0]["stages"] == ["exam"]

@@ -136,7 +136,7 @@ def _canonical(q):
 
 @pytest.mark.parametrize(("topic", "skill_id", "hard_topic", "marks"), CASES)
 def test_wired_to_the_skill(topic, skill_id, hard_topic, marks):
-    exam = [s for s in _SKILLS[skill_id].sources if s.difficulty == "exam"]
+    exam = [s for s in _SKILLS[skill_id].sources if s.difficulty == "exam" and s.effective_key == "exam"]
     assert [(s.topic, s.params, s.stages) for s in exam] == [(topic, {"tier": "exam"}, ["exam"])]
 
 

@@ -31,7 +31,7 @@ def skill(skill_id: str):
 
 
 def exam_source(skill_id: str):
-    return [s for s in skill(skill_id).sources if s.difficulty == "exam"]
+    return [s for s in skill(skill_id).sources if s.difficulty == "exam" and s.effective_key == "exam"]
 
 
 def parse_math(text: str, variable: sympy.Symbol = x):

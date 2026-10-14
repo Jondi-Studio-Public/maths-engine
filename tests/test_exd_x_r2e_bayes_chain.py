@@ -60,7 +60,7 @@ def oracle(q) -> dict[str, str]:
 
 
 def test_wired_to_the_skill():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
+    exam = [s for s in _SKILL.sources if s.difficulty == "exam" and s.effective_key == "exam"]
     assert [(s.topic, s.params, s.stages) for s in exam] == [(TOPIC, {"tier": "exam"}, ["exam"])]
 
 

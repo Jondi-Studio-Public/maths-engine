@@ -287,14 +287,21 @@ class TestSkillLoads:
         assert set(skill.prerequisites) == {"simplify-surds"}
         stages_covered = set()
         for source in skill.sources:
-            # The exam tier is now a multi-part chain (tests/test_exd_x_r2j_radical_monomial_chain.py).
+            # The default exam tier is a multi-part chain (tests/test_exd_x_r2j_radical_monomial_chain.py); the old
+            # single-part generator is the extra `exam-single` source.
+            is_chain = source.difficulty == "exam" and source.effective_key == "exam"
             assert source.topic == (
-                "exd_x_r2j_radical_monomial_chain"
-                if source.difficulty == "exam"
-                else "exd_e2_simplify_radicals_of_monomials"
+                "exd_x_r2j_radical_monomial_chain" if is_chain else "exd_e2_simplify_radicals_of_monomials"
             )
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
-        exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
+        exam_sources = [s for s in skill.sources if s.difficulty == "exam" and s.effective_key == "exam"]
         assert len(exam_sources) == 1
         assert exam_sources[0].stages == ["exam"]
+        single = skill.sources[-1]  # the old single-part generator, wired as the extra `exam-single` source
+        assert (single.topic, single.difficulty, single.effective_key, single.stages) == (
+            "exd_e2_simplify_radicals_of_monomials",
+            "exam",
+            "exam-single",
+            ["exam"],
+        )

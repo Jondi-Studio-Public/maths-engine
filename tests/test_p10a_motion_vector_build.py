@@ -285,7 +285,7 @@ def test_skill_2_loads_with_correct_properties():
     assert skill.answer == "number"
     assert skill.placement_eligible is False
     assert skill.prerequisites == ["vector-addition"]
-    assert len(skill.sources) == 4
+    assert len(skill.sources) == 5
     for source in skill.sources:
         if source.difficulty == "exam":
             continue  # the exam source is covered by this skill's tests/test_exd_x_* file

@@ -48,12 +48,19 @@ def test_skill_yaml_has_the_exam_source_last():
         .glob("skills/*/senior-angles-at-the-circumference-of-a-circle-subtended.yaml")
     )
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
-    last = skill["sources"][-1]
-    assert last["topic"] == "exd_x_r2f_chords_chain"
+    # The chain is the default exam source; the old generator follows it as the extra `exam-single` source.
+    chain, last = skill["sources"][-2:]
+    assert chain["topic"] == "exd_x_r2f_chords_chain"
+    assert chain["difficulty"] == "exam"
+    assert chain["stages"] == ["exam"]
+    assert chain["params"] == {"tier": "exam"}
+    assert "key" not in chain
+    assert last["topic"] == "exd_x_h4_chords_intersecting"
     assert last["difficulty"] == "exam"
     assert last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}
-    assert [s["difficulty"] for s in skill["sources"]] == ["easy", "medium", "hard", "exam"]
+    assert last["key"] == "exam-single"
+    assert [s["difficulty"] for s in skill["sources"]] == ["easy", "medium", "hard", "exam", "exam"]
 
 
 _X = sympy.Symbol("x")

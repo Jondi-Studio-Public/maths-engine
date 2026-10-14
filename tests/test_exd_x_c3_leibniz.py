@@ -34,7 +34,11 @@ def _independent_key(text: str) -> int:
 
 
 def test_registered():
-    sup.assert_registered_as_exam_source(SKILL, "exd_x_r2b_leibniz_chain")
+    # The default exam source is the multi-part chain; this single-answer preset is its `exam-single` source.
+    sources = sup.skill(SKILL)["sources"]
+    assert sources[-2]["topic"] == "exd_x_r2b_leibniz_chain" and "key" not in sources[-2]
+    sup.assert_registered_as_exam_source(SKILL, TOPIC)
+    assert sources[-1]["key"] == "exam-single"
 
 
 def test_text_and_determinism():
