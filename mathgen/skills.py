@@ -372,7 +372,7 @@ def _skill_from_dict(d: dict, path: Path) -> Skill:
         description=d.get("description", ""),
         status=d.get("status", "active"),
         deferred_reason=d.get("deferred_reason"),
-        prerequisites=list(d.get("prerequisites") or []),
+        prerequisites=list(_labels(d.get("prerequisites"))),
         capability_gates=[canonical_gate_id(g) for g in (d.get("capability_gates") or [])],
         answer=d.get("answer", ""),
         sources=sources,
@@ -538,6 +538,8 @@ def _load_domains(root: Path, skills: list[Skill]) -> list[Domain]:
                     band_names[bid] = b.get("name", bid)
         domains = []
         for i, e in enumerate(entries):
+            if not isinstance(e, dict) or not e.get("id"):
+                raise ValueError(f"{domains_path}: domain entry {i} needs an `id`, got {e!r}")
             did = e["id"]
             band = e.get("band")
             # `band` carries the raw value verbatim (None if absent) so
@@ -770,7 +772,9 @@ def validate(
                     )
                 else:
                     seen_keys[ekey] = i
-            if src.stages:
+            if src.stages is not None and not isinstance(src.stages, list):
+                report.errors.append(f"{s.id}: source {i} stages must be a list, got {src.stages!r}")
+            elif src.stages:
                 for st in src.stages:
                     if st not in VALID_STAGES:
                         report.errors.append(f"{s.id}: source stage {st!r} invalid")

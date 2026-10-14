@@ -47,6 +47,8 @@ MAX_VERSIONS = 10
 MIN_ID_SECRET_CHARS = 16
 #: How many extra seeds `make_questions` tries to find questions that differ, before it accepts repeats.
 _DISTINCT_TRIES = 4
+#: One past the largest seed (or nonce) an id can carry; `_regenerate` refuses anything from here up.
+MAX_NONCE = 2**63
 
 _V9_CODE = re.compile(r"^AC9M(F|10A|10|[1-9])[A-Z]{1,3}\d{2}$")
 _SENIOR_CODE = re.compile(r"^ACM[A-Z]{2}\d{3}$")
@@ -406,6 +408,9 @@ def make_questions(
     out, seen = [], set()
     n = start
     budget = count * (1 + _DISTINCT_TRIES)
+    if start + budget > MAX_NONCE:
+        # Seeds run up to `budget` past `start`, and an id's seed field must stay below 2**63 to be graded.
+        raise BadRequest(f"seed {start} is too close to the top of the range for {count} question(s)")
     spare: list[dict] = []
     while len(out) < count and n < start + budget:
         question, qid = _make_with_id(lib, skill, n, src)
@@ -435,7 +440,7 @@ def _regenerate(lib: Library, qid: str):
         except KeyError as exc:
             raise NotFound(exc.args[0] if exc.args else str(exc)) from None
         return question, skill
-    if not 0 <= nonce < 2**63:
+    if not 0 <= nonce < MAX_NONCE:
         raise BadRequest(f"not a question id: seed out of range in {qid!r}")
     matches = [src for src in skill.sources if src.effective_key == key]
     if not matches:
