@@ -27,6 +27,12 @@ from ..core import attempts, check, generator
 from ..figure_kinds import data
 from ._ey_senior_kit import mcq, num_part, retry_short
 
+_TAILS = (
+    "Read the values from the grid.",
+    "Every value you need sits on a grid crossing.",
+    "Work through the parts in order.",
+)
+
 # =============================================================================================== dot plot (ACMEM054)
 
 DOTS = "ey_dot_plot_spread"
@@ -35,7 +41,11 @@ DOTS_EXAM = "ey_dot_plot_spread_exam"
 _QUANTITIES = (
     ("The dot plot shows the number of text messages {who} sent in one day.", "Messages sent", ("some students",)),
     ("The dot plot shows the number of goals scored by a hockey team in each game of a season.", "Goals scored", ()),
-    ("The dot plot shows the number of minutes it took {who} to get to school.", "Minutes to get to school", ("some students",)),
+    (
+        "The dot plot shows the number of minutes it took {who} to get to school.",
+        "Minutes to get to school",
+        ("some students",),
+    ),
     ("The dot plot shows the number of books borrowed by each member of a club in a month.", "Books borrowed", ()),
     ("The dot plot shows the number of customers who came into a cafe in each hour.", "Customers in an hour", ()),
 )
@@ -43,7 +53,9 @@ _TICKS = 16  # the axis spans 16 steps: 17 numerals
 
 
 def _plot(rows: dict, low: int, label: str, alt="a dot plot of a set of whole-number data"):
-    return data.dot_plot(low=low, high=low + _TICKS, step=1, dots={low + k: n for k, n in sorted(rows.items())}, alt=alt, x_label=label)
+    return data.dot_plot(
+        low=low, high=low + _TICKS, step=1, dots={low + k: n for k, n in sorted(rows.items())}, alt=alt, x_label=label
+    )
 
 
 def _features(rows: dict) -> dict:
@@ -58,7 +70,9 @@ def _features(rows: dict) -> dict:
         cur.append(b)
     clusters.append(cur)
     sizes = [sum(rows[t] for t in c) for c in clusters]
-    return dict(ticks=ticks, runs=runs, clusters=clusters, sizes=sizes, span=ticks[-1] - ticks[0], total=sum(rows.values()))
+    return dict(
+        ticks=ticks, runs=runs, clusters=clusters, sizes=sizes, span=ticks[-1] - ticks[0], total=sum(rows.values())
+    )
 
 
 def _lone(f: dict) -> int:
@@ -163,7 +177,9 @@ def _hard_facts(rows: dict) -> dict:
     top = max(rows.values())
     modes = [t for t, n in rows.items() if n == top]
     check(len(modes) == 1, "dot plot: no unique most crowded value")
-    return dict(gap=runs[0][:2], second=runs[1][:2], mode=modes[0], others=[t for t in f["ticks"] if t != modes[0]], rows=rows)
+    return dict(
+        gap=runs[0][:2], second=runs[1][:2], mode=modes[0], others=[t for t in f["ticks"] if t != modes[0]], rows=rows
+    )
 
 
 def _hard_statement(g, m) -> str:
@@ -192,10 +208,14 @@ def ey_dot_plot_spread(rng, tier="easy"):
                 continue
         fig = _plot(rows, low, label)
         if tier == "easy":
-            ask = rng.choice(("Which words best describe the spread of the dots?", "How would you describe the spread of the data?"))
+            ask = rng.choice(
+                ("Which words best describe the spread of the dots?", "How would you describe the spread of the data?")
+            )
             options = [_WORDS["tight"], _WORDS["spread"], _WORDS["two_clusters"], _WORDS["outlier"]]
         else:
-            ask = rng.choice(("Which description fits the dot plot best?", "Which words best describe the shape of the spread?"))
+            ask = rng.choice(
+                ("Which description fits the dot plot best?", "Which words best describe the shape of the spread?")
+            )
             options = list(_DOT_OPTIONS)
         key = _WORDS[kind]
         distractors = mcq(key, [o for o in options if o != key])
@@ -233,7 +253,13 @@ def ey_dot_plot_spread(rng, tier="easy"):
     check(_read_dots(q) == key, "the dot plot reader disagrees with the key")
     figures.assert_no_leak(fig, [key, *distractors])
     return dict(
-        text=text, answer=key, answer_text=key, answer_latex=f"plain:{key}", distractors=distractors, working=working, figure=fig
+        text=text,
+        answer=key,
+        answer_text=key,
+        answer_latex=f"plain:{key}",
+        distractors=distractors,
+        working=working,
+        figure=fig,
     )
 
 
@@ -307,7 +333,7 @@ def ey_dot_plot_spread_exam(rng, tier="exam"):
     ]
     text = f"{scene} One value is an outlier."
     figures.assert_no_leak(fig, [str(ob), str(nb)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _read_dots_exam(question) -> str:
@@ -390,8 +416,18 @@ def _histogram(panels, x_label, alt):
 
 
 _SPREAD_STORIES = (
-    ("Two classes each sat a test scored out of 10. The histograms show the scores of {n} students from each class.", "Score", 0, 1),
-    ("Two machines each filled {n} bottles. The histograms show the volume in each bottle, in tenths of a litre.", "Volume (tenths of a litre)", 0, 1),
+    (
+        "Two classes each sat a test scored out of 10. The histograms show the scores of {n} students from each class.",
+        "Score",
+        0,
+        1,
+    ),
+    (
+        "Two machines each filled {n} bottles. The histograms show the volume in each bottle, in tenths of a litre.",
+        "Volume (tenths of a litre)",
+        0,
+        1,
+    ),
 )
 _SAMPLE_OPTIONS = ("A", "B", "Both are about the same")
 
@@ -457,7 +493,12 @@ def _classify_source(panel: dict) -> str:
     left, right = sum(fr[:5]), sum(fr[5:])
     if 3 <= peak <= 6 and fr[0] <= top / 3 and fr[-1] <= top / 3 and abs(left - right) <= 0.3 * n:
         return "normal"
-    if peak <= 1 and fr[-1] <= top / 4 and left >= 0.7 * n and all(a >= b - 1 for a, b in zip(fr[peak:], fr[peak + 1 :])):
+    if (
+        peak <= 1
+        and fr[-1] <= top / 4
+        and left >= 0.7 * n
+        and all(a >= b - 1 for a, b in zip(fr[peak:], fr[peak + 1 :]))
+    ):
         return "skewed"
     raise AssertionError("histogram: the source is not clear-cut")
 
@@ -487,6 +528,7 @@ def ey_sample_variability(rng, tier="easy"):
             (
                 f"The histogram shows {n} values simulated from one source. Which source is the most likely?",
                 f"{n} values were simulated from one source and graphed. Which source do they most likely come from?",
+                f"A computer simulated {n} values from one source. The histogram shows them. Which source is the best guess?",
             )
         )
         key = _SOURCES[kind]
@@ -510,8 +552,10 @@ def ey_sample_variability(rng, tier="easy"):
             wide_ok = (_spread(pa) > 1.4 * _spread(pb)) if wide_first else (_spread(pb) > 1.4 * _spread(pa))
             if wide_ok and (_width(pa) > _width(pb)) == wide_first:
                 break
-        fig = _histogram([("Sample A", a, _EDGES_10), ("Sample B", b, _EDGES_10)], xl, "two histograms of simulated data")
-        text = f"{story.format(n=n)} Which sample is more spread out?"
+        fig = _histogram(
+            [("Sample A", a, _EDGES_10), ("Sample B", b, _EDGES_10)], xl, "two histograms of simulated data"
+        )
+        text = f"{story.format(n=n)} {rng.choice(('Which sample is more spread out?', 'Which sample varies more?', 'Which of the two samples has the greater spread?'))}"
         key = "A" if wide_first else "B"
         distractors = mcq(key, [o for o in _SAMPLE_OPTIONS if o != key])
         working = [f"Sample {key} has bars across more classes and further from the middle, so it is more spread out."]
@@ -533,9 +577,15 @@ def ey_sample_variability(rng, tier="easy"):
             "two histograms of sample proportions from simulated coin tosses",
         )
         size = n_big if asked_big else n_small
+        lead = rng.choice(
+            (
+                "Each display shows 50 sample proportions of heads from simulated tosses of a fair coin.",
+                "A fair coin was tossed in a simulation, and each display graphs 50 sample proportions of heads.",
+                "Two simulations of a fair coin each produced 50 sample proportions of heads, graphed below.",
+            )
+        )
         text = (
-            f"Each display shows 50 sample proportions of heads from simulated tosses of a fair coin. "
-            f"One display used samples of {n_small} tosses and the other used samples of {n_big} tosses. "
+            f"{lead} One display used samples of {n_small} tosses and the other used samples of {n_big} tosses. "
             f"Which display used samples of {size} tosses?"
         )
         big_is = "A" if big_first else "B"
@@ -549,7 +599,13 @@ def ey_sample_variability(rng, tier="easy"):
     check(_read_samples(q) == key, "the sample variability reader disagrees with the key")
     figures.assert_no_leak(fig, [key, *distractors])
     return dict(
-        text=text, answer=key, answer_text=key, answer_latex=f"plain:{key}", distractors=distractors, working=working, figure=fig
+        text=text,
+        answer=key,
+        answer_text=key,
+        answer_latex=f"plain:{key}",
+        distractors=distractors,
+        working=working,
+        figure=fig,
     )
 
 
@@ -563,7 +619,7 @@ def _read_samples(question) -> str:
     wide = 0 if spreads[0] > spreads[1] else 1
     check(max(spreads) > 1.4 * min(spreads), "the two displays do not differ clearly in spread")
     check((widths[0] > widths[1]) == (wide == 0) and widths[0] != widths[1], "the spread and the range disagree")
-    if "more spread out" in text:
+    if "Which display used" not in text:
         return "AB"[wide]
     sizes = [int(s) for s in re.findall(r"samples of (\d+) tosses", text)]
     check(len(sizes) == 3, "cannot read the sample sizes")
@@ -630,7 +686,7 @@ def ey_sample_variability_exam(rng, tier="exam"):
         ),
     ]
     figures.assert_no_leak(fig, [str(band_s), str(band_b), str(diff)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _read_samples_exam(question) -> str:

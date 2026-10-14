@@ -63,6 +63,12 @@ def _ints(curve) -> dict:
     return {int(x): y for x, y in curve_map(curve).items() if x.denominator == 1}
 
 
+_TAILS = (
+    "Read the values from the grid.",
+    "Every value you need sits on a grid crossing.",
+    "Work through the parts in order.",
+)
+
 # =============================================================================================== translation (ACMMM025)
 
 TRANSLATION = "ey_graph_translation"
@@ -139,7 +145,10 @@ def ey_graph_translation(rng, tier="easy"):
             )
         )
         key, wrong = str(a), [-a, k + a, k, -(k + a)]
-        working = [f"The vertex of f is at ({h}, {k}) and the vertex of g is at ({h}, {k + a}).", f"a = {k + a} - {pn(k)} = {a}."]
+        working = [
+            f"The vertex of f is at ({h}, {k}) and the vertex of g is at ({h}, {k + a}).",
+            f"a = {k + a} - {pn(k)} = {a}.",
+        ]
     elif tier == "medium":
         text = rng.choice(
             (
@@ -240,7 +249,7 @@ def ey_graph_translation_exam(rng, tier="exam"):
         ),
     ]
     figures.assert_no_leak(fig, [str(b), str(a)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _read_translation_exam(question) -> str:
@@ -316,7 +325,9 @@ _BOTH = [
     for kind, m, s in _BASES
     for c in (F(2), F(3), F(1, 2), F(-1), F(-2))
     for k in (F(2), F(3), F(1, 2))
-    if (F(m) / k).denominator == 1 and F(m) / k <= 7 and (c * _f0(kind, m, s)).denominator == 1
+    if (F(m) / k).denominator == 1
+    and F(m) / k <= 7
+    and (c * _f0(kind, m, s)).denominator == 1
     and abs(c * _f0(kind, m, s)) <= 7
 ]
 
@@ -375,7 +386,10 @@ def ey_graph_dilation(rng, tier="easy"):
         f0 = _f0(kind, m, s)
         key = frac_text(c)
         wrong = [1 / c, c - 1, c * f0, f0 * c - f0]
-        working = [f"The y-intercept of f is {f0} and the y-intercept of g is {c * f0}.", f"c = {c * f0} / {f0} = {frac_text(c)}."]
+        working = [
+            f"The y-intercept of f is {f0} and the y-intercept of g is {c * f0}.",
+            f"c = {c * f0} / {f0} = {frac_text(c)}.",
+        ]
     elif tier == "medium":
         kind, m, s, k = rng.choice(_HORIZONTAL)
         form, v, c = "h", k, F(1)
@@ -388,7 +402,7 @@ def ey_graph_dilation(rng, tier="easy"):
         )
         key = frac_text(k)
         root = F(m) / k
-        wrong = [1 / k, root, m - root, F(m) * k]
+        wrong = [1 / k, k * k, root, m - root, F(m) * k]
         working = [
             f"The x-intercepts of f are +-{m} and the x-intercepts of g are +-{frac_text(root)}.",
             f"f(kx) = 0 when kx = {m}, so x = {m}/k: k = {m} / {frac_text(root)} = {frac_text(k)}.",
@@ -426,7 +440,13 @@ def ey_graph_dilation(rng, tier="easy"):
     )
     figures.assert_no_leak(fig, [key, *distractors])
     return dict(
-        text=text, answer=key, answer_text=key, answer_latex=f"plain:{key}", distractors=distractors, working=working, figure=fig
+        text=text,
+        answer=key,
+        answer_text=key,
+        answer_latex=f"plain:{key}",
+        distractors=distractors,
+        working=working,
+        figure=fig,
     )
 
 
@@ -474,7 +494,9 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             k,
             [1 / k, root, F(m) * k],
             places=2,
-            working=[f"The x-intercepts go from +-{m} to +-{frac_text(root)}, so k = {m} / {frac_text(root)} = {frac_text(k)}."],
+            working=[
+                f"The x-intercepts go from +-{m} to +-{frac_text(root)}, so k = {m} / {frac_text(root)} = {frac_text(k)}."
+            ],
         ),
         num_part(
             "Find the value of c.",
@@ -501,7 +523,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
         ),
     ]
     figures.assert_no_leak(fig, [frac_text(k), frac_text(c)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _read_dilation_exam(question) -> str:
@@ -632,12 +654,20 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
         working = {
             "|f(x)|": ["Every part of f below the x-axis is reflected above it; the rest is unchanged."],
             "-f(x)": ["Every point of f is reflected in the x-axis: above becomes below and below becomes above."],
-            "f(|x|)": ["The part of f with x >= 0 is kept and reflected in the y-axis, so g is symmetric about the y-axis."],
+            "f(|x|)": [
+                "The part of f with x >= 0 is kept and reflected in the y-axis, so g is symmetric about the y-axis."
+            ],
             "1/f(x)": ["g has a vertical asymptote at each zero of f, and is positive where f is positive."],
         }[name] + [f"So {key}."]
         figures.assert_no_leak(fig, [key])
         return dict(
-            text=text, answer=key, answer_text=key, answer_latex=f"plain:{key}", distractors=distractors, working=working, figure=fig
+            text=text,
+            answer=key,
+            answer_text=key,
+            answer_latex=f"plain:{key}",
+            distractors=distractors,
+            working=working,
+            figure=fig,
         )
     # hard: a value of the transformed function, read from the graph of f alone
     mode = rng.choice(("abs", "fabs", "recip"))
@@ -678,7 +708,13 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
     check(_read_recip(q) == key, "the reciprocal reader disagrees with the key")
     figures.assert_no_leak(fig, [key])
     return dict(
-        text=text, answer=key, answer_text=key, answer_latex=f"plain:{key}", distractors=distractors, working=working, figure=fig
+        text=text,
+        answer=key,
+        answer_text=key,
+        answer_latex=f"plain:{key}",
+        distractors=distractors,
+        working=working,
+        figure=fig,
     )
 
 
@@ -753,7 +789,7 @@ def ey_graph_reciprocal_abs_exam(rng, tier="exam"):
         ),
     ]
     figures.assert_no_leak(fig, [str(r1), str(r2)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _read_recip_exam(question) -> str:

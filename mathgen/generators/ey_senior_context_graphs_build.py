@@ -25,6 +25,12 @@ from .. import figures
 from ..core import attempts, check, generator
 from ._ey_senior_kit import curve_map, frac_text, mcq, near, num_part, retry_short, sample
 
+_TAILS = (
+    "Read the values from the grid.",
+    "Every value you need sits on a grid crossing.",
+    "Work through the parts in order.",
+)
+
 # =============================================================================================== a modelled line (ACMGM042)
 
 CONTEXT = "ey_context_line"
@@ -213,7 +219,11 @@ def _statement(ctx, c, m, fixed=None, step=None, rising=None) -> str:
     step = abs(m) if step is None else step
     up = (m > 0) if rising is None else rising
     verb = "adds" if up else "falls by"
-    tail = f"and each extra {ctx['xs']} {verb} {_val(ctx, step)}" if up else f"and it falls by {_val(ctx, step)} each {ctx['xs']}"
+    tail = (
+        f"and each extra {ctx['xs']} {verb} {_val(ctx, step)}"
+        if up
+        else f"and it falls by {_val(ctx, step)} each {ctx['xs']}"
+    )
     return f"{_intercept_sentence(ctx, fixed)}, {tail}"
 
 
@@ -247,7 +257,10 @@ def ey_context_line(rng, tier="easy"):
         text = f"{ctx['intro']} {rng.choice(('What does the point where the line meets the vertical axis tell you?', 'What does the vertical intercept of the line tell you?'))}"
         key = _intercept_sentence(ctx, c)
         wrong = _intercept_wrong(ctx, c, m, y_end)
-        working = [f"The line meets the vertical axis at (0, {c}): the value when no {ctx['xp']} have passed.", f"{key}."]
+        working = [
+            f"The line meets the vertical axis at (0, {c}): the value when no {ctx['xp']} have passed.",
+            f"{key}.",
+        ]
     else:
         text = f"{ctx['intro']} {rng.choice(('Which statement about the situation is correct?', 'Which statement describes the line correctly?'))}"
         key = _statement(ctx, c, m)
@@ -266,7 +279,13 @@ def ey_context_line(rng, tier="easy"):
     check(_read_context(q) == key, "the context reader disagrees with the key")
     figures.assert_no_leak(fig, [key, *distractors])
     return dict(
-        text=text, answer=key, answer_text=key, answer_latex=f"plain:{key}", distractors=distractors, working=working, figure=fig
+        text=text,
+        answer=key,
+        answer_text=key,
+        answer_latex=f"plain:{key}",
+        distractors=distractors,
+        working=working,
+        figure=fig,
     )
 
 
@@ -313,7 +332,7 @@ def ey_context_line_exam(rng, tier="exam"):
                 continue
             n_pred, n_goal = sorted(rng.sample(options, 2))
         target = c + m * n_goal
-        if target > 0 and n_pred != n_goal:
+        if target > 1 and n_pred != n_goal:
             break
     fig = _line_figure(ctx, c, m, X, Y, s, marks)
     value = c + m * n_pred
@@ -348,7 +367,7 @@ def ey_context_line_exam(rng, tier="exam"):
         ),
     ]
     figures.assert_no_leak(fig, [str(m), str(c)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _unit_of(ctx: dict) -> str:
@@ -487,13 +506,14 @@ def ey_position_tangent(rng, tier="easy"):
         s0, v = round(s(t0)), _vel(a, t1, t2, t0)
         fig = _curve_figure(a, t1, t2, d, T, lo, hi, tangent_at=t0)
         extra = "" if tier == "easy" else " A negative velocity means the cart is moving backwards."
-        text = f"{_CART} The line touches the curve at T. What is the velocity of the cart at T, in metres per second?{extra}"
+        text = f"{_CART} The line touches the curve at T. {rng.choice(('What is the velocity of the cart at T, in metres per second?', 'Find the velocity of the cart at T, in metres per second.', 'How fast, and in which direction, is the cart moving at T? Give the velocity in metres per second.'))}{extra}"
         sec = round(s(t0 + 1)) - s0 if t0 < T else s0 - round(s(t0 - 1))
         wrong = [-v, F(s0, t0) if t0 else s0, sec, s0]
         key = str(v)
         working = [
             f"The tangent at T passes through ({t0}, {s0}) and ({t0 + 1}, {s0 + v}).",
-            f"Velocity = slope of the tangent = {v} metres per second" + (", so the cart is moving backwards." if v < 0 else "."),
+            f"Velocity = slope of the tangent = {v} metres per second"
+            + (", so the cart is moving backwards." if v < 0 else "."),
         ]
         distractors = mcq_number(key, wrong)
         figures.assert_no_leak(fig, [key, *distractors])
@@ -503,9 +523,12 @@ def ey_position_tangent(rng, tier="easy"):
     a, t1, t2, d, T, lo, hi = _draw_curve(rng)
     fig = _curve_figure(a, t1, t2, d, T, lo, hi)
     if mode == "rest":
-        text = f"{_CART} The cart is at rest twice. At what time, in seconds, is it at rest the second time?"
+        text = f"{_CART} {rng.choice(('The cart is at rest twice. At what time, in seconds, is it at rest the second time?', 'The cart stops twice. At what time, in seconds, does it stop the second time?', 'At what time, in seconds, is the cart at rest for the second time?'))}"
         key, wrong = str(t2), [t1, T, (t1 + t2) // 2 if (t1 + t2) % 2 == 0 else t1 + 1, round(_pos(a, t1, t2, d)(t2))]
-        working = [f"At rest means the slope of the curve is zero: the curve turns at t = {t1} and t = {t2}.", f"The second time is {t2} seconds."]
+        working = [
+            f"At rest means the slope of the curve is zero: the curve turns at t = {t1} and t = {t2}.",
+            f"The second time is {t2} seconds.",
+        ]
     else:
         text = f"{_CART} For how many of the seconds from t = 0 to t = {T} is the cart moving backwards (s getting smaller)?"
         back = (t2 - t1) if a > 0 else (t1 + (T - t2))
@@ -549,7 +572,7 @@ def _read_tangent(question) -> str:
     check(len(rests) == 2, "the curve must turn exactly twice")
     r1, r2 = (int(t) for t in rests)
     T = fig["x_range"][1]
-    if "at rest the second time" in text:
+    if "second time" in text:
         return str(r2)
     descending = sum(1 for t0, t in zip(sorted(cm), sorted(cm)[1:]) if cm[t] < cm[t0])
     return str(round(descending / 12))
@@ -566,7 +589,11 @@ def ey_position_tangent_exam(rng, tier="exam"):
     for _ in attempts(500, "a curve with a tangent and whole average velocity"):
         a, t1, t2, d, T, lo, hi = _draw_curve(rng, a_choices=(3,))
         s = _pos(a, t1, t2, d)
-        t0s = [t for t in range(0, T + 1) if t not in (t1, t2) and _tangent_ok(a, t1, t2, d, T, lo, hi, t, 1 if _vel(a, t1, t2, t) > 0 else -1)]
+        t0s = [
+            t
+            for t in range(0, T + 1)
+            if t not in (t1, t2) and _tangent_ok(a, t1, t2, d, T, lo, hi, t, 1 if _vel(a, t1, t2, t) > 0 else -1)
+        ]
         s1, s2 = round(s(t1)), round(s(t2))
         if t0s and (s2 - s1) % (t2 - t1) == 0:
             break
@@ -611,7 +638,7 @@ def ey_position_tangent_exam(rng, tier="exam"):
         ),
     ]
     figures.assert_no_leak(fig, [str(v0), str(t1), str(t2)])
-    return dict(text=text, figure=fig, parts=parts)
+    return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
 def _read_tangent_exam(question) -> str:
