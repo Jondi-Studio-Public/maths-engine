@@ -2619,8 +2619,67 @@ def _compare_containers(s: dict) -> Body:
     return "".join(out), max(bottom, base + 14) + 12
 
 
+_CP_CARD_H = {1: 22, 2: 30, 3: 38}
+
+
+def _cp_time_box(unit: str, x: float, y: float, w: float, h: float) -> str:
+    """One equal stretch of time: a box with a sand timer, a clock face or a dot in it."""
+    out = _rect(x + 1, y, w - 2, h, rx=2, fill=LIGHT, stroke=INK, stroke_width=1.3)
+    cx, cy = x + w / 2, y + h / 2
+    if unit == "sand":
+        a, b = 5.0, h * 0.36
+        out += _poly(
+            [(cx - a, cy - b), (cx + a, cy - b), (cx, cy), (cx + a, cy + b), (cx - a, cy + b), (cx, cy)],
+            True,
+            fill=PAPER,
+            stroke=INK,
+            stroke_width=1.1,
+        )
+    elif unit == "tick":
+        out += _circle(cx, cy, h * 0.33, fill=PAPER, stroke=INK, stroke_width=1.1)
+        out += _line(cx, cy, cx, cy - h * 0.26, stroke=INK, stroke_width=1.2) + _line(
+            cx, cy, cx + h * 0.18, cy, stroke=INK, stroke_width=1.2
+        )
+    else:
+        out += _circle(cx, cy, 3.2, fill=INK, stroke="none")
+    return out
+
+
+def _compare_durations(s: dict) -> Body:
+    events = s["events"]
+    left = 92.0
+    extent = max(e["start"] + e["blocks"] for e in events)
+    u = min(26.0, (CANVAS - left - 14) / max(extent, 5))
+    bh = 22.0
+    pitch = 46.0
+    out = []
+    y = 14.0
+    top = y - 8
+    for e in events:
+        cy = y + bh / 2
+        ch = _CP_CARD_H[e["size"]]
+        cw = 66 + 4 * e["size"]
+        out.append(_rect(6, cy - ch / 2, cw, ch, rx=4, fill=PAPER, stroke=INK, stroke_width=1.5))
+        out.append(_text(6 + cw / 2, cy + 4, e["label"], size=10 + e["size"], anchor="middle"))
+        x0 = left + e["start"] * u
+        for i in range(e["blocks"]):
+            out.append(_cp_time_box(s["unit"], x0 + i * u, y, u, bh))
+        if not s["same_start"]:
+            out.append(_circle(x0, cy - bh / 2 - 5, 3.5, fill=INK, stroke="none"))
+            out.append(_circle(x0 + e["blocks"] * u, cy - bh / 2 - 5, 3.5, fill=PAPER, stroke=INK, stroke_width=1.4))
+        y += pitch
+    if s["same_start"]:
+        out.append(_line(left, top, left, y - pitch + bh + 8, stroke=DARK, stroke_width=1, stroke_dasharray="4 3"))
+    return "".join(out), y + 2
+
+
 def _compare_picture(s: dict, ids: _Ids) -> Body:
-    return {"lengths": _compare_lengths, "balance": _compare_balance, "containers": _compare_containers}[s["layout"]](s)
+    return {
+        "lengths": _compare_lengths,
+        "balance": _compare_balance,
+        "containers": _compare_containers,
+        "durations": _compare_durations,
+    }[s["layout"]](s)
 
 
 # ---------------------------------------------------------------- grid drawing

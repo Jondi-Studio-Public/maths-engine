@@ -1,0 +1,42 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: f10-model-plans-cube-counts
+name: Count the cubes in a model from its plan
+domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [space]
+description: "Read the plan of a model built from cubes, seen from above, where the number on each square is how many cubes are stacked there. Easy counts the cubes in a plan with no gaps. Medium has bare squares, and either counts the cubes or finds how many more cubes make every stack as tall as the tallest. Hard gives the total number of cubes and one stack marked with a question mark, and finds the cubes in that stack."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+learner_band: primary
+prerequisites: [f10-shape-features-classification]
+answer: number
+sources:
+- topic: grid_model_plans
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_model_plans
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_model_plans
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: counts-squares-not-cubes
+  description: Counts the squares of the plan, one for each stack, and ignores how many cubes are in each stack.
+- id: assumes-every-stack-is-tallest
+  description: Multiplies the tallest stack by the number of squares, as if every stack were as tall as the tallest one.
+- id: leaves-out-a-stack
+  description: Adds all the stacks but one, usually the tallest, so the total is too small.
+- id: counts-bare-squares
+  description: Treats a bare square as a stack, so the total, or the cubes needed to fill up, is too big.
+- id: gives-the-total-for-the-stack
+  description: Gives the total number of cubes in the model when asked for one stack, or the total of the other stacks.
+- id: forgets-to-take-away-the-known-stacks
+  description: Starts to subtract from the total but takes away the count of the stacks, not the cubes in them.
+tags: [acara-f10-v9, primary-geometry-time, grid_model_plans, ac9m3sp01, cubes, plan-view, figure]
