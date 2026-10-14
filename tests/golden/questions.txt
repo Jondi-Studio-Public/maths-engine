@@ -463,9 +463,15 @@
 {"answer": "(a) 24; (b) 19; (c) Strong evidence of a real difference: t…", "id": "compare-groups-evidence/medium/0/1246723328ae", "text": "Ravi compared the height after eight weeks (cm) of two groups. Plants kept in s…"}
 {"answer": "(a) 14; (b) 13; (c) Strong evidence of a real difference: t…", "id": "compare-groups-evidence/medium/1/89d4139eaee6", "text": "Isla compared the time to cycle to school (minutes) of two groups. Students usi…"}
 {"answer": "(a) 40; (b) 34; (c) Strong evidence of a real difference: t…", "id": "compare-groups-evidence/medium/2/18da64ea7e26", "text": "Aiko compared the time to finish a puzzle (seconds) of two groups. Students who…"}
-{"answer": "Left", "id": "compare-lengths/easy/0/c44529b2d7ef", "text": "Which line is longer? ━━━━━━ | ━━━"}
-{"answer": "Left", "id": "compare-lengths/easy/1/3a21b6f058ff", "text": "Which line is longer? ━━━━━━ | ━━━"}
-{"answer": "Left", "id": "compare-lengths/easy/2/8194925a3f18", "text": "Which line is longer? ━━━━━━ | ━━━"}
+{"answer": "The pencil", "id": "compare-lengths/easy/0/d2c35b065d3e", "text": "Look at the two things. Which is longer?"}
+{"answer": "The snake", "id": "compare-lengths/easy/1/84c37bd4a0b6", "text": "Look at the two things. Which is longer?"}
+{"answer": "The snake", "id": "compare-lengths/easy/2/a32f8486de73", "text": "Which of these is shorter?"}
+{"answer": "The ribbon", "id": "compare-lengths/hard/0/b454d2c0ef05", "text": "Not lined up. Which one is the longest?"}
+{"answer": "The ribbon", "id": "compare-lengths/hard/1/4e94e586e6b2", "text": "Not lined up. Which one is the shortest?"}
+{"answer": "The train", "id": "compare-lengths/hard/2/e05bc8d41eb2", "text": "They are not lined up. Which is the shortest?"}
+{"answer": "The ribbon", "id": "compare-lengths/medium/0/f626b70b1b37", "text": "Which one is the shortest?"}
+{"answer": "The train", "id": "compare-lengths/medium/1/6870ef20220b", "text": "Which of these is the longest?"}
+{"answer": "The train", "id": "compare-lengths/medium/2/3d84b8fd6eb9", "text": "Look at them all. Which is longest?"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/0/403ee1b71e2d", "text": "Relationship A is shown in the graph. Relationship B is y = x - 5. Which relati…"}
 {"answer": "Relationship A", "id": "compare-linear-representations/easy/1/d4f79544e8ca", "text": "The graph shows relationship A. Relationship B has the equation y = 2x + 6. Whi…"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/2/0e337d286348", "text": "The graph shows relationship A. Relationship B is given by y = 3x + 3. Which re…"}
@@ -1138,6 +1144,34 @@
 {"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
 {"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
 {"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
+
+{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/0/8e1fea3081de", "text": "Which is shorter? Use the paper clips."}
+{"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/1/331ea9948d12", "text": "Count the blocks. Which one is longer?"}
+{"answer": "The rope", "id": "ey-compare-by-paper-clips/easy/2/76ff7c84254c", "text": "Count the blocks. Which one is shorter?"}
+{"answer": "The ribbon and the rope", "id": "ey-compare-by-paper-clips/hard/0/9cb300f93af8", "text": "Which two are the same length?"}
+{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/1/0180122def19", "text": "Which two are as long as each other?"}
+{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/2/3dbaded65f28", "text": "Which two have the same length?"}
+{"answer": "The rope", "id": "ey-compare-by-paper-clips/medium/0/2e274fada775", "text": "Count the blocks. Which one is longest?"}
+{"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/1/f70623567f3d", "text": "Which is the shortest? Count the paper clips."}
+{"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/2/f3947343998d", "text": "Which is the longest? Count the blocks."}
+{"answer": "The bottle", "id": "ey-compare-capacity-by-cups/easy/0/6640977f85a2", "text": "Count the cups poured out. Which holds less?"}
+{"answer": "The bottle", "id": "ey-compare-capacity-by-cups/easy/1/b7b48dd0d3ef", "text": "Each is poured into small cups. Which holds more?"}
+{"answer": "The cup", "id": "ey-compare-capacity-by-cups/easy/2/ff3a6765c3b0", "text": "Count the cups poured out. Which holds less?"}
+{"answer": "The jug and the bottle", "id": "ey-compare-capacity-by-cups/hard/0/f58bb4bf177d", "text": "Two of these hold the same amount. Which two?"}
+{"answer": "The cup and the jug", "id": "ey-compare-capacity-by-cups/hard/1/290f7e4b35f5", "text": "Which two hold the same? Count the cups."}
+{"answer": "The cup and the bottle", "id": "ey-compare-capacity-by-cups/hard/2/a382b5dea657", "text": "Each is poured into small cups. Which two hold the same?"}
+{"answer": "The cup", "id": "ey-compare-capacity-by-cups/medium/0/2960f2475e8a", "text": "Count the cups poured out. Which holds least?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/c24fe7cb53b9", "text": "Count the cups poured out. Which holds most?"}
+{"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/1e27eedd6431", "text": "Each is poured into small cups. Which holds the most?"}
+{"answer": "The torch", "id": "ey-order-by-two-balances/easy/0/3af4cb5f4094", "text": "Look at both balances. Which is heaviest?"}
+{"answer": "The banana", "id": "ey-order-by-two-balances/easy/1/3f8f9a7ff2be", "text": "Which one is the heaviest?"}
+{"answer": "The hat", "id": "ey-order-by-two-balances/easy/2/10c49f75d360", "text": "Which one is the heaviest?"}
+{"answer": "hat, shoe, toy car", "id": "ey-order-by-two-balances/hard/0/e35f6eb3d28f", "text": "Use both balances to put the three in order. Which list is right?"}
+{"answer": "hat, apple, drum", "id": "ey-order-by-two-balances/hard/1/e2f1fe119913", "text": "Use both balances to put the three in order. Which list is right?"}
+{"answer": "torch, lunch box, jar", "id": "ey-order-by-two-balances/hard/2/e70ede96ab33", "text": "Which list goes from lightest to heaviest?"}
+{"answer": "The toy car", "id": "ey-order-by-two-balances/medium/0/3e62b5416981", "text": "Which one is the lightest?"}
+{"answer": "The shoe", "id": "ey-order-by-two-balances/medium/1/9c479ba5527c", "text": "Look at both balances. Which is lightest?"}
+{"answer": "The jar", "id": "ey-order-by-two-balances/medium/2/61afaa5dc8a2", "text": "Look at both balances. Which is lightest?"}
 {"answer": "17 - 14 = □", "id": "f10-add-subtract-number-sentences/easy/0/49bc200338d6", "text": "There are 17 children in a class. 14 of the children walk to school and the res…"}
 {"answer": "19 - □ = 16", "id": "f10-add-subtract-number-sentences/easy/1/77b88bda6770", "text": "Liam had 19 tickets. Liam gave 16 tickets to a friend. How many tickets does Li…"}
 {"answer": "□ - 15 = 3", "id": "f10-add-subtract-number-sentences/easy/2/aaafad064f0a", "text": "Kai has 3 boxes. A friend gives Kai 15 more. How many boxes does Kai have in to…"}
@@ -1393,15 +1427,15 @@
 {"answer": "Team Blue (the lower plot)", "id": "f10-compare-box-plots/medium/0/7e7d9f463aa5", "text": "Two groups of students are shown as box plots of their times. Which plot has th…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/1/0b6cd048f392", "text": "These parallel box plots show the marks for two groups of students. Which group…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/75138002c59d", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masse…"}
-{"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/easy/0/b0e5473296a1", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
-{"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/1/1c261693d6b0", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
-{"answer": "Item 1 is longer than Item 2.", "id": "f10-compare-measurement-attributes/easy/2/5f2a0382ee16", "text": "Item 1 reaches further than Item 2 when their ends are lined up. Which statemen…"}
-{"answer": "Item 2 is heavier than Item 1.", "id": "f10-compare-measurement-attributes/hard/0/071720da6bb8", "text": "Item 2 tips the balance down against Item 1. Which statement is true?"}
-{"answer": "Item 1 is heavier than Item 2.", "id": "f10-compare-measurement-attributes/hard/1/1ffe14f31df5", "text": "Item 1 tips the balance down against Item 2. Which statement is true?"}
-{"answer": "Item 1 is the same length as Item 2.", "id": "f10-compare-measurement-attributes/hard/2/34ba4d6baf6b", "text": "Item 1 and Item 2 reach exactly the same point when their ends are lined up. Wh…"}
-{"answer": "Event 2 takes longer than Event 1.", "id": "f10-compare-measurement-attributes/medium/0/60717dbbd6f5", "text": "Event 2 takes longer to finish than Event 1. Which statement is true?"}
-{"answer": "Item 2 holds more than Item 1.", "id": "f10-compare-measurement-attributes/medium/1/fae9e1e01849", "text": "Pouring the liquid from Item 2 into Item 1 makes Item 1 overflow. Which stateme…"}
-{"answer": "Event 1 takes longer than Event 2.", "id": "f10-compare-measurement-attributes/medium/2/83cc0dac337b", "text": "Event 1 takes longer to finish than Event 2. Which statement is true?"}
+{"answer": "The cup", "id": "f10-compare-measurement-attributes/easy/0/2838d01f715b", "text": "Which of these holds the most?"}
+{"answer": "The bottle", "id": "f10-compare-measurement-attributes/easy/1/50eba866b43c", "text": "Which of these holds the least?"}
+{"answer": "The book", "id": "f10-compare-measurement-attributes/easy/2/7ef9cc7180b0", "text": "Look at the balance. Which is lighter?"}
+{"answer": "The bowl", "id": "f10-compare-measurement-attributes/hard/0/c1a36cc91e34", "text": "Look at the water. Which has more?"}
+{"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/1/55462d22efce", "text": "Which one has more water in it?"}
+{"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/2/e33ea2272156", "text": "Look at the water. Which has more?"}
+{"answer": "The banana", "id": "f10-compare-measurement-attributes/medium/0/fae43d393a39", "text": "Which one is heavier?"}
+{"answer": "The bowl", "id": "f10-compare-measurement-attributes/medium/1/37997f0cedbd", "text": "Which of these holds the most?"}
+{"answer": "The jar", "id": "f10-compare-measurement-attributes/medium/2/5d3361641b95", "text": "Which one is heavier?"}
 {"answer": "Item 1, Item 2, Item 3", "id": "f10-compare-order-measure-attributes/easy/0/5f3764d370de", "text": "These are the clues, in no particular order: Item 3 tips the balance down again…"}
 {"answer": "Event 1, Event 2, Event 3", "id": "f10-compare-order-measure-attributes/easy/1/e445e3af1b9c", "text": "These are the clues, in no particular order: Event 3 takes longer to finish tha…"}
 {"answer": "Item 3, Item 2, Item 1", "id": "f10-compare-order-measure-attributes/easy/2/b8302de583c8", "text": "These are the clues, in no particular order: Pouring the liquid from Item 1 int…"}

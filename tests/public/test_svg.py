@@ -8,7 +8,8 @@ import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
-from mathgen.figure_kinds import calendar as calendar_kinds, data, early, measure, pattern, scene, space, tally
+from mathgen.figure_kinds import calendar as calendar_kinds, compare, data, early, measure, pattern, scene, space, tally
+
 
 
 
@@ -69,6 +70,52 @@ def _live_figures() -> list[dict]:
                 if fig:
                     found.append(fig)
     return found
+
+
+def _compare_samples() -> list[dict]:
+    """One of every compare_picture layout, with every object style, unit style and container shape."""
+    styles = ("pencil", "ribbon", "snake", "rope", "train")
+    objs = [{"label": st, "style": st, "start": i, "length": 6 - i % 3} for i, st in enumerate(styles)]
+    clips = [{"label": "pencil", "style": "bar", "start": 0, "length": 3, "units": 3}]
+    book = {"label": "book", "mass": 5, "size": 3}
+    apple = {"label": "apple", "mass": 2, "size": 1}
+    shoe = {"label": "shoe", "mass": 9, "size": 2}
+    pans = compare.pan
+    return [
+        compare.compare_lengths(objects=objs, lined_up=False, alt="Five objects"),
+        compare.compare_lengths(objects=[{**o, "start": 0} for o in objs[:2]], lined_up=True, alt="Two lined up"),
+        compare.compare_lengths(objects=clips, lined_up=True, alt="Clips", unit={"name": "block", "style": "block"}),
+        compare.compare_lengths(
+            objects=[{**clips[0], "start": 2}], lined_up=True, alt="Clips", unit={"name": "clip", "style": "paper_clip"}
+        ),
+        compare.compare_balance(
+            balances=[compare.balance(left=pans(objects=[book]), right=pans(blocks=3))], alt="A balance and blocks"
+        ),
+        compare.compare_balance(
+            balances=[
+                compare.balance(
+                    left=pans(objects=[apple, book], blocks=0), right=pans(objects=[shoe, shoe | {"label": "ball"}])
+                )
+            ],
+            alt="Two objects a side",
+        ),
+        compare.compare_balance(
+            balances=[
+                compare.balance(left=pans(objects=[book]), right=pans(objects=[apple])),
+                compare.balance(left=pans(objects=[apple]), right=pans(objects=[shoe])),
+            ],
+            alt="A chain of two balances",
+        ),
+        compare.compare_containers(
+            containers=[
+                {"label": "jug", "shape": "jug", "form": "tall_thin", "capacity": 8, "fill": 8, "cups": 8},
+                {"label": "bowl", "shape": "bowl", "form": "short_wide", "capacity": 8, "fill": 5, "cups": 5},
+                {"label": "bottle", "shape": "bottle", "form": "normal", "capacity": 4, "fill": 0},
+                {"label": "cup", "shape": "cup", "form": "normal", "capacity": 2, "fill": 2},
+            ],
+            alt="Four containers",
+        ),
+    ]
 
 
 def _hand_built() -> list[dict]:
@@ -160,6 +207,8 @@ def _hand_built() -> list[dict]:
         calendar_kinds.day_strip(cards=["wake_up", "breakfast", "school", "play", "dinner", "bed"], alt="A day"),
         calendar_kinds.day_strip(cards=["sunrise", "bath", "moon", "lunch"], alt="Scrambled", numbered=True),
         calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
+
+        *_compare_samples(),
     ]
 
 

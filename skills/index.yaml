@@ -408,8 +408,8 @@ compare-lengths:
   domain: early-foundations
   status: active
   sources:
-  - topic: compare_length
-    module: mathgen/generators/early_math.py
+  - topic: compare_length_picture
+    module: mathgen/generators/ey_compare_build.py
 compare-linear-representations:
   domain: linear-relations
   status: active
@@ -920,6 +920,25 @@ ey-day-strip-sequence:
   sources:
   - topic: ey_day_strip
     module: mathgen/generators/ey_day_strip_build.py
+
+ey-compare-by-paper-clips:
+  domain: measurement
+  status: active
+  sources:
+  - topic: compare_by_paper_clips
+    module: mathgen/generators/ey_compare_build.py
+ey-compare-capacity-by-cups:
+  domain: measurement
+  status: active
+  sources:
+  - topic: compare_capacity_by_cups
+    module: mathgen/generators/ey_compare_build.py
+ey-order-by-two-balances:
+  domain: measurement
+  status: active
+  sources:
+  - topic: order_by_two_balances
+    module: mathgen/generators/ey_compare_build.py
 f10-add-subtract-number-sentences:
   domain: equations
   status: active
@@ -1098,8 +1117,8 @@ f10-compare-measurement-attributes:
   domain: measurement
   status: active
   sources:
-  - topic: compare_measurement_attributes
-    module: mathgen/generators/p4a_compare_attributes_build.py
+  - topic: compare_mass_capacity_picture
+    module: mathgen/generators/ey_compare_build.py
 f10-compare-order-measure-attributes:
   domain: measurement
   status: active

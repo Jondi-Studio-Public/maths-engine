@@ -2301,6 +2301,285 @@ def _day_strip(s: dict, ids: _Ids) -> Body:
         out.append(_text(cx, top + _STRIP_CARD_H - 11, c["label"], size=10.5, weight="bold"))
     return "".join(out), top + _STRIP_CARD_H + 10
 
+# ---------------------------------------------------------------- compare_picture
+
+
+def _cp_object(style: str, x0: float, y: float, w: float, h: float) -> str:
+    """One object for a length comparison, ``w`` wide and ``h`` tall with its top at ``y``."""
+    x1, mid = x0 + w, y + h / 2
+    base = dict(fill=PAPER, stroke=INK, stroke_width=1.6)
+    if style == "pencil":
+        tip = min(10.0, w / 2)
+        return (
+            _poly([(x0, y), (x1 - tip, y), (x1, mid), (x1 - tip, y + h), (x0, y + h)], True, **base)
+            + _line(x0 + 7, y, x0 + 7, y + h, stroke=INK, stroke_width=1.2)
+            + _line(x1 - tip, y, x1 - tip, y + h, stroke=INK, stroke_width=1.2)
+        )
+    if style == "ribbon":
+        notch = min(7.0, w / 3)
+        return _poly([(x0, y), (x1, y), (x1 - notch, mid), (x1, y + h), (x0, y + h)], True, **base) + _line(
+            x0 + 4, mid, x1 - notch - 4, mid, stroke=DARK, stroke_width=0.8, stroke_dasharray="3 2"
+        )
+    if style == "rope":
+        out = [_rect(x0, y, w, h, rx=3, **base)]
+        k = 5.0
+        while x0 + k + h * 0.5 < x1 - 1:
+            out.append(_line(x0 + k, y + h, x0 + k + h * 0.5, y, stroke=DARK, stroke_width=1))
+            k += 6
+        return "".join(out)
+    if style == "snake":
+        pts = []
+        steps = max(8, int(w / 4))
+        for i in range(steps + 1):
+            px = x0 + w * 0.97 * i / steps
+            pts.append((px, mid + math.sin(i * 1.3) * h * 0.35))
+        return (
+            _poly(pts, False, stroke=INK, stroke_width=h * 0.5, stroke_linecap="round", stroke_linejoin="round")
+            + _poly(pts, False, stroke=PAPER, stroke_width=h * 0.5 - 3, stroke_linecap="round", stroke_linejoin="round")
+            + _circle(pts[-1][0], pts[-1][1], h * 0.32, fill=INK, stroke="none")
+        )
+    if style == "train":
+        out = [_rect(x0, y, w, h - 4, rx=2, **base)]
+        n = max(1, int(w // 24))
+        for i in range(1, n):
+            out.append(_line(x0 + w * i / n, y, x0 + w * i / n, y + h - 4, stroke=INK, stroke_width=1.2))
+        for cx in (x0 + 8, x1 - 8):
+            out.append(_circle(cx, y + h - 3, 3, fill=INK, stroke="none"))
+        return "".join(out)
+    return _rect(x0, y, w, h, rx=2, **base)
+
+
+def _cp_unit(style: str, x: float, y: float, w: float) -> str:
+    """One informal unit (a paper clip or a block), ``w`` wide, drawn with a little gap either side."""
+    x += 1
+    w -= 2
+    if style == "paper_clip":
+        return _rect(x, y + 1, w, 8, rx=4, fill=PAPER, stroke=INK, stroke_width=1.3) + _rect(
+            x + 3, y + 3.5, w - 6, 3, rx=1.5, fill="none", stroke=DARK, stroke_width=1
+        )
+    return _rect(x, y, w, 10, rx=1.5, fill=LIGHT, stroke=INK, stroke_width=1.3)
+
+
+def _compare_lengths(s: dict) -> Body:
+    objects = s["objects"]
+    unit = s.get("unit")
+    left = 70.0
+    extent = max(o["start"] + o["length"] for o in objects)
+    u = min(30.0, (CANVAS - left - 14) / max(extent, 4))
+    h = 16.0
+    pitch = 46.0 if unit else 34.0
+    out = []
+    y = 14.0
+    top = y - 6
+    for o in objects:
+        x0 = left + o["start"] * u
+        out.append(_text(left - 8 if s["lined_up"] else x0 - 8, y + h / 2, o["label"], size=12, anchor="end"))
+        out.append(_cp_object(o["style"], x0, y, o["length"] * u, h))
+        if unit:
+            for i in range(o["units"]):
+                out.append(_cp_unit(unit["style"], x0 + i * u, y + h + 4, u))
+        y += pitch
+    if s["lined_up"]:
+        out.append(
+            _line(
+                left,
+                top,
+                left,
+                y - pitch + h + (24 if unit else 8),
+                stroke=DARK,
+                stroke_width=1,
+                stroke_dasharray="4 3",
+            )
+        )
+    return "".join(out), y + 2
+
+
+_BAL_SIZE = {1: 14, 2: 20, 3: 28}
+
+
+def _cp_box(x: float, bottom: float, label: str, size: int) -> tuple[str, float]:
+    """An object sitting on a pan with its bottom edge at ``bottom``; (markup, drawn width)."""
+    h = _BAL_SIZE[size]
+    w = min(66.0, max(30.0, len(label) * 5.6 + 8) + 4 * (size - 1))
+    return (
+        _rect(x, bottom - h - 4, w, h + 4, rx=3, fill=PAPER, stroke=INK, stroke_width=1.5)
+        + _text(x + w / 2, bottom - (h + 4) / 2, label, size=9.5),
+        w,
+    )
+
+
+def _cp_pan_load(p: dict, cx: float, bottom: float) -> str:
+    """The load on one pan, centred on ``cx``."""
+    gap = 6.0
+    items: list[tuple[str, int] | None] = [(o["label"], o["size"]) for o in p["objects"]]
+    widths = [min(66.0, max(30.0, len(lbl) * 5.6 + 8) + 4 * (sz - 1)) for lbl, sz in items]
+    block_cols = min(4, p["blocks"])
+    block_w = block_cols * 13.0
+    total = sum(widths) + gap * max(0, len(widths) - 1) + (gap if widths and block_cols else 0) + block_w
+    x = cx - total / 2
+    out = []
+    for (lbl, sz), w in zip(items, widths):
+        markup, _ = _cp_box(x, bottom, lbl, sz)
+        out.append(markup)
+        x += w + gap
+    for i in range(p["blocks"]):
+        col, row = i % 4, i // 4
+        out.append(
+            _rect(x + col * 13, bottom - 13 * (row + 1) - 1, 12, 12, fill=LIGHT, stroke=INK, stroke_width=1.3)
+            + _line(
+                x + col * 13 + 2,
+                bottom - 13 * (row + 1) + 5,
+                x + col * 13 + 10,
+                bottom - 13 * (row + 1) + 5,
+                stroke=DARK,
+                stroke_width=0.8,
+            )
+        )
+    return "".join(out)
+
+
+def _cp_balance(b: dict, cx: float, half: float, pan_half: float, top: float) -> tuple[str, float]:
+    """One pan balance centred on ``cx``; (markup, bottom y). The heavier pan hangs lower."""
+    angle = {"left_down": 11.0, "right_down": -11.0, "level": 0.0}[b["tilt"]]
+    dy = half * math.sin(math.radians(angle))
+    dx = half * math.cos(math.radians(angle))
+    pivot = top + 24
+    ends = {"left": (cx - dx, pivot + dy), "right": (cx + dx, pivot - dy)}
+    string = 46.0
+    low = max(e[1] for e in ends.values()) + string
+    base_y = low + 18
+    out = [
+        _line(cx, pivot, cx, base_y, stroke=INK, stroke_width=3),
+        _rect(cx - 26, base_y, 52, 7, rx=2, fill=LIGHT, stroke=INK, stroke_width=1.5),
+        _line(
+            ends["left"][0],
+            ends["left"][1],
+            ends["right"][0],
+            ends["right"][1],
+            stroke=INK,
+            stroke_width=3.5,
+            stroke_linecap="round",
+        ),
+        _circle(cx, pivot, 4, fill=PAPER, stroke=INK, stroke_width=1.8),
+    ]
+    for side in ("left", "right"):
+        ex, ey = ends[side]
+        py = ey + string
+        out.append(_line(ex, ey, ex - pan_half, py, stroke=INK, stroke_width=1))
+        out.append(_line(ex, ey, ex + pan_half, py, stroke=INK, stroke_width=1))
+        out.append(
+            _path(
+                f"M{_n(ex - pan_half)},{_n(py)} Q{_n(ex)},{_n(py + 11)} {_n(ex + pan_half)},{_n(py)}",
+                fill=LIGHT,
+                stroke=INK,
+                stroke_width=1.8,
+            )
+        )
+        out.append(_cp_pan_load(b[side], ex, py - 1))
+    return "".join(out), base_y + 8
+
+
+def _compare_balance(s: dict) -> Body:
+    bals = s["balances"]
+    if len(bals) == 1:
+        body, bottom = _cp_balance(bals[0], CANVAS / 2, 108, 62, 44)
+        return body, bottom + 8
+    out, bottom = [], 0.0
+    for b, cx in zip(bals, (100, 300)):
+        body, bt = _cp_balance(b, cx, 58, 34, 44)
+        out.append(body)
+        bottom = max(bottom, bt)
+    return "".join(out), bottom + 8
+
+
+def _cp_container(c: dict, cx: float, base: float) -> str:
+    from mathgen.figure_kinds.compare import container_size
+
+    w, h = container_size(c["capacity"], c["form"])
+    shape = c["shape"]
+    flare = {"cup": 1.18, "bowl": 1.5, "jug": 1.0, "bottle": 1.0}[shape]
+    wb, wt = w / ((1 + flare) / 2), w / ((1 + flare) / 2) * flare  # bottom and top widths, mean width w
+    x0b, x1b = cx - wb / 2, cx + wb / 2
+    x0t, x1t = cx - wt / 2, cx + wt / 2
+    top = base - h
+    frac = c["fill"] / c["capacity"]
+    out = []
+    if c["fill"]:
+        ly = base - h * frac
+        wl = wb + (wt - wb) * frac
+        out.append(
+            _poly(
+                [(cx - wb / 2, base), (cx + wb / 2, base), (cx + wl / 2, ly), (cx - wl / 2, ly)],
+                True,
+                fill=LIGHT,
+                stroke="none",
+            )
+        )
+        if c["fill"] < c["capacity"]:
+            out.append(_line(cx - wl / 2, ly, cx + wl / 2, ly, stroke=INK, stroke_width=1.6))
+    outline = dict(fill="none", stroke=INK, stroke_width=2, stroke_linejoin="round")
+    out.append(_poly([(x0t, top), (x0b, base), (x1b, base), (x1t, top)], False, **outline))
+    if shape == "jug":
+        hx = x1b + (x1t - x1b) / 2
+        out.append(
+            _path(
+                f"M{_n(hx)},{_n(top + h * 0.2)} q{_n(14)},0 {_n(14)},{_n(h * 0.25)} t{_n(-14)},{_n(h * 0.25)}",
+                fill="none",
+                stroke=INK,
+                stroke_width=2,
+            )
+        )
+        out.append(_poly([(x0t, top), (x0t - 7, top - 5), (x0t + 6, top)], False, stroke=INK, stroke_width=2))
+    if shape == "bottle":
+        nw = min(wt * 0.4, 16)
+        out.append(
+            _poly(
+                [(cx - nw / 2, top - 16), (cx - nw / 2, top), (cx + nw / 2, top), (cx + nw / 2, top - 16)],
+                False,
+                **outline,
+            )
+        )
+        out.append(_line(cx - nw / 2 - 2, top - 16, cx + nw / 2 + 2, top - 16, stroke=INK, stroke_width=2.5))
+    if shape in ("cup", "bowl"):
+        out.append(_line(x0t - 2, top, x1t + 2, top, stroke=INK, stroke_width=2.5))
+    return "".join(out)
+
+
+def _compare_containers(s: dict) -> Body:
+    from mathgen.figure_kinds.compare import container_size
+
+    cs = s["containers"]
+    slot = CANVAS / len(cs)
+    tallest = max(container_size(c["capacity"], c["form"])[1] for c in cs)
+    base = 22 + tallest + (16 if any(c["shape"] == "bottle" for c in cs) else 0)
+    out = []
+    bottom = base
+    for i, c in enumerate(cs):
+        cx = slot * (i + 0.5)
+        out.append(_cp_container(c, cx, base))
+        out.append(_text(cx, base + 14, c["label"], size=12))
+        if c.get("cups"):
+            n = c["cups"]
+            for k in range(n):
+                col, row = k % 4, k // 4
+                px = cx - min(n, 4) * 11 / 2 + col * 11
+                py = base + 28 + row * 17
+                out.append(
+                    _poly(
+                        [(px, py), (px + 10, py), (px + 8, py + 13), (px + 2, py + 13)],
+                        True,
+                        fill=LIGHT,
+                        stroke=INK,
+                        stroke_width=1.2,
+                    )
+                )
+            bottom = max(bottom, base + 28 + ((n - 1) // 4) * 17 + 14)
+    return "".join(out), max(bottom, base + 14) + 12
+
+
+def _compare_picture(s: dict, ids: _Ids) -> Body:
+    return {"lengths": _compare_lengths, "balance": _compare_balance, "containers": _compare_containers}[s["layout"]](s)
+
 
 # ---------------------------------------------------------------- entry point
 
@@ -2313,6 +2592,7 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "cartesian": _cartesian,
     "clock": _clock,
     "clock_set": _clock_set,
+    "compare_picture": _compare_picture,
     "counters": _counters,
     "diagram": _diagram,
     "dot_plot": _dot_plot,
