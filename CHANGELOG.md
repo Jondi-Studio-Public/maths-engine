@@ -15,7 +15,7 @@ Each question's id (below) tells you when the question behind it has changed.
 ### Upgrading from 0.1.0
 
 - Many questions differ from 0.1.0 for the same seed: 107 exam tiers became multi-part chains (#72), other exam
-  tiers gained chains (#75, #83, #94), and marking and stem fixes changed some prompts (#82). Store question ids
+  tiers gained chains (#75, #83, #94), and marking and stem fixes changed some prompts (#82, #98). Store question ids
   (below), not just seeds, and use `engine.regenerate` to tell when a stored question has changed.
 - `Part` gained a `sig_figs` field before `seed` (#82). Code that builds a `Part` positionally past
   `sensible_range` must pass `seed` by keyword.
@@ -57,6 +57,11 @@ Each question's id (below) tells you when the question behind it has changed.
     (#77), and linear algebra, Taylor polynomials, series tests and ODEs (#79).
   - Second-year university: abstract algebra, numerical methods, probability and statistics, and discrete
     mathematics (#93).
+- **Grid figures and shaded-cell answers.** A `grid_drawing` figure kind draws scale drawings, maps with grid
+  references, stacks of cubes, nets and plan or elevation views. A `grid_cells` answer kind lets a learner answer by
+  shading cells, with four match modes (exact, translate, congruent and cube net). 16 grid skills use them: 12
+  reading skills are active, and 4 shading skills are deferred until the visual-construction gate is benchmarked.
+  (#90)
 - **Exam chains.** 13 graph-reading, box-plot and time skills (#83) and the tree-diagram, Venn and stem-and-leaf
   skills (#75) gain multi-part exam questions with follow-through, marks and tagged distractors.
 - **Year levels for senior skills.** `year_level` is now filled for 269 senior skills from ACARA's unit pages
@@ -88,7 +93,13 @@ Each question's id (below) tells you when the question behind it has changed.
   no marks. (#88)
 - Four exam generators failed on a few seeds when a slip coincided with the answer; they now draw again. (#97)
 - `f10-rational-operation-strategy` (medium) gave a wrong answer key on 299 of 300 seeds, offering the true answer
-  as a wrong option. The key now matches the question on every seed. (#98)
+  as a wrong option. The key now matches the question on every seed. Worked solutions in 13 other skills printed
+  wrong or garbled text with right keys (a skipped division, negatives without brackets, `|r| <= -1`, "1 steps");
+  they read correctly now. (#98)
+- A prerequisite cycle made `gaps_before` loop forever; it now raises `ValueError`. A space between digits in a typed
+  reply ("2 000", "3 4") was read as a product, so `x > 2 000` earned full marks against `x > 0`; it is no longer a
+  product, and mixed numbers such as "2 1/2" still read. A lone surrogate in a JSON string made the HTTP API answer
+  500; it now answers 422. A space after `author:` in `MATHS_API_KEYS` kept the key from ever matching. (#100)
 - Marking and stem defects found by an audit of the exam chains and university skills: a correct reply with the
   unit written out (`100 s`) or as an exact fraction could score nothing, a wrong unit could score full marks,
   a reply that was not text raised instead of being marked wrong, and several stems used a rounded earlier
