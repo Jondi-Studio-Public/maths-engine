@@ -12,8 +12,10 @@ AUTHOR = "a" * 24
 LEARNER = "l" * 24
 A = {"Authorization": f"Bearer {AUTHOR}"}
 L = {"X-API-Key": LEARNER}
-# A reply SymPy never finishes simplifying (mathgen/grading/safe_parse.py); the deadline must stop it.
-HANGS = "sqrt(acos(x)^2)"
+# A reply that takes real work to mark. The grader now bounds every reply it can find that SymPy would never
+# finish (`sqrt(acos(x)^2)` used to be one), so the deadline test gives the server a deadline no grade can meet
+# instead of relying on a hang that the grader keeps getting better at refusing.
+SLOW = "(x + 1)^20 - (x - 1)^20"
 
 
 @pytest.fixture(scope="module")
@@ -139,10 +141,12 @@ def test_an_id_whose_content_changed_is_refused_not_marked(client):
     assert client.post("/v1/grade", json={"id": "not-an-id", "reply": "1"}, headers=L).status_code == 422
 
 
-def test_a_reply_that_never_finishes_times_out_and_the_server_carries_on(client, lib):
+def test_a_reply_that_never_finishes_times_out_and_the_server_carries_on(client, lib, pool):
     skill = first(lib, lambda s: s.answer == "expression")
     (q,) = ask(client, skill.id)
-    assert client.post("/v1/grade", json={"id": q["id"], "reply": HANGS}, headers=L).status_code == 504
+    impatient = Config(keys=[(AUTHOR, "author"), (LEARNER, "learner")], timeout=0.001, max_body_bytes=20_000)
+    with TestClient(create_app(impatient, pool=pool)) as fast:
+        assert fast.post("/v1/grade", json={"id": q["id"], "reply": SLOW}, headers=L).status_code == 504
     assert client.post("/v1/grade", json={"id": q["id"], "reply": "x"}, headers=L).status_code == 200
 
 
