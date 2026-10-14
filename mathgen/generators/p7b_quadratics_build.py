@@ -68,7 +68,16 @@ from fractions import Fraction
 import sympy
 from sympy import Rational, Symbol, expand, symbols
 
-from ..core import check, check_distinct, check_equivalent, generator, join_terms, pick_distractors, rational_text
+from ..core import (
+    check,
+    check_distinct,
+    check_equivalent,
+    generator,
+    join_terms,
+    paren_negative,
+    pick_distractors,
+    rational_text,
+)
 
 x = symbols("x")
 i_sym = Symbol("i")
@@ -581,7 +590,7 @@ def _complex_hard(rng):
             "Complex roots of a real-coefficient quadratic occur in conjugate pairs, "
             f"so the other root is {_complex_text(Fraction(p, 1), Fraction(q, 1))}.",
             "For a monic quadratic, c is the product of the two roots:",
-            f"c = ({given_text})({_complex_text(Fraction(p, 1), Fraction(q, 1))}) = {p}^2 + {q}^2 = {answer_text}",
+            f"c = ({given_text})({_complex_text(Fraction(p, 1), Fraction(q, 1))}) = {paren_negative(p)}^2 + {paren_negative(q)}^2 = {answer_text}",
         ],
         distractors=distractors,
     )
