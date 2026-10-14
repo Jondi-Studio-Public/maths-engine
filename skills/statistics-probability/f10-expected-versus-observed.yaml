@@ -1,0 +1,95 @@
+id: f10-expected-versus-observed
+name: Compare expected and observed frequencies
+domain: statistics-probability
+year_level: ['6', '7']
+naplan_domain: [probability]
+description: 'Predict how many times an event should happen in a number of trials from its theoretical probability,
+  then compare the prediction with the number that happened in an experiment. Easy finds the expected count from
+  a die, a spinner or a bag. Medium finds how far the observed count is from the expected count. Hard needs a second
+  step to reach the probability: a sector angle, marbles taken out of the bag first, or an overlapping ''or'' on
+  a die.'
+status: active
+placement_eligible: false
+prerequisites:
+- expected-frequency
+- f10-relative-frequency-estimate
+answer: number
+sources:
+- topic: fpm_expected_vs_observed
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fpm_expected_vs_observed
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fpm_expected_vs_observed
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fpm_expected_observed_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: adds-instead-of-subtracting
+  description: Adding two results where their difference is asked.
+- id: and-instead-of-or
+  description: Counting only the trials where both events happen for an event described with "or".
+- id: compares-with-the-rest-not-the-whole
+  description: Dividing the favourable outcomes by the other outcomes instead of by all the outcomes.
+- id: counts-only-one-named-category
+  description: Using the count of only one of the two categories named in an event.
+- id: divides-by-the-complement
+  description: Dividing the target count by the probability of the opposite event instead of the probability of
+    the event.
+- id: expected-complement-count
+  description: Finding the expected count for everything except the category asked about.
+- id: expected-count-multiplies-by-favourable-only
+  description: Multiplying the number of trials by the number of favourable outcomes without dividing by the number
+    of possible outcomes.
+- id: expected-count-uses-one-outcome
+  description: Dividing the number of trials by the number of possible outcomes, as though only one outcome were
+    favourable.
+- id: gave-complement-for-event
+  description: Giving the probability of the opposite event (or the complementary proportion) for the one asked.
+- id: ignores-the-removed-marbles
+  description: Using the original numbers in the bag when some marbles had been taken out before the draw.
+- id: multiplies-instead-of-dividing
+  description: Multiplying by the number in front of the unknown instead of dividing by it.
+- id: overlap-counted-twice-in-or
+  description: Adding the totals for the two events without taking off the overlap, so the trials where both happen
+    are counted twice.
+- id: removes-from-the-red-but-not-the-total
+  description: Taking removed marbles off the count of one colour but forgetting that the total number of marbles
+    drops as well.
+- id: reports-expected-not-difference
+  description: Giving the expected count where the difference between observed and expected was asked for.
+- id: reports-observed-not-difference
+  description: Giving the observed count where the difference between observed and expected was asked for.
+- id: reports-observed-not-expected
+  description: Giving the number that happened in the experiment where the number theory predicts was asked for.
+- id: reports-the-target-not-the-trials
+  description: Giving the number of times wanted where the number of trials needed to expect it was asked for.
+- id: uses-a-half-turn-as-the-whole-circle
+  description: Dividing a sector angle by 180 degrees instead of 360 degrees to find its share of the circle.
+- id: uses-observed-as-theoretical-probability
+  description: Using what happened in the experiment as the theoretical probability of the event.
+tags:
+- acara-f10-v9
+- statistics-probability
+- fpm_expected_vs_observed
+- ac9m6p02
+- ac9m7p02

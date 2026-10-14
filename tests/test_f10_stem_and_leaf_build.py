@@ -39,7 +39,7 @@ def _make(difficulty, seed):
 def test_skill_shape():
     assert SKILL.status == "active"
     assert SKILL.answer == "number"
-    assert [s.difficulty for s in SKILL.sources] == TIERS
+    assert [s.difficulty for s in SKILL.sources if s.difficulty != "exam"] == TIERS
     assert "AC9M7ST02" in SKILL.tags
 
 
