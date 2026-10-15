@@ -31,8 +31,15 @@
 4.0 tests/test_mathgen_text.py::test_no_bad_sign_patterns_new_kind_variants
 6.2 tests/test_mathgen_text.py::test_quotient_rule_derivative_never_zero
 0.1 tests/test_mathgen_variety.py::test_one_shape_source_still_bounded
-169.3 tests/test_mathgen_variety.py::test_tier_escalation_part_0
-169.2 tests/test_mathgen_variety.py::test_tier_escalation_part_1
+# test_tier_escalation: about 1,000 cases, 1,200 s on a runner in all (measured 2026-10-15), in eight parts.
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_0
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_1
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_2
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_3
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_4
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_5
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_6
+150.0 tests/test_mathgen_variety.py::test_tier_escalation_part_7
 47.7 tests/test_mathgen_variety.py::test_variety_backlog_still_thin
 # The shared sweep (tests/mathgen_sweep_cases.py): each part file builds its topics once and
 # runs every per-topic check on them. Measured as above (4-core CPU seconds x 0.575).

@@ -2599,17 +2599,47 @@ def _check_tier_escalation(skill_id):
     )
 
 
-# Two functions over alternate skills, so the CI sharder (scripts/ci_shard.py, which splits a
-# file by test function and cannot split one function's parameters) can put the two halves in
-# different shards: as one function this was the largest unit of work in the suite. The slices
-# `[0::2]` and `[1::2]` together are every testable skill, once.
-@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[0::2])
+# Eight functions over every eighth skill, so the CI sharder (scripts/ci_shard.py, which splits a
+# file by test function and cannot split one function's parameters) can spread them over shards:
+# as one function this was the largest unit of work in the suite (about 1,000 cases, 20 minutes on a
+# runner). The slices `[0::8]` .. `[7::8]` together are every testable skill, once.
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[0::8])
 def test_tier_escalation_part_0(skill_id):
     _check_tier_escalation(skill_id)
 
 
-@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[1::2])
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[1::8])
 def test_tier_escalation_part_1(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[2::8])
+def test_tier_escalation_part_2(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[3::8])
+def test_tier_escalation_part_3(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[4::8])
+def test_tier_escalation_part_4(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[5::8])
+def test_tier_escalation_part_5(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[6::8])
+def test_tier_escalation_part_6(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[7::8])
+def test_tier_escalation_part_7(skill_id):
     _check_tier_escalation(skill_id)
 
 
