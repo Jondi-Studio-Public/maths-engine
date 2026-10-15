@@ -33,6 +33,26 @@ from .core import display_question, paper_notation  # noqa: F401  (re-exported)
 from .grading import GradeResult, grade as _grade_kind
 from .skills import Domain, Skill, Source, load_skills  # noqa: F401  (re-exported)
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "load_skills",
+    "make_for_skill",
+    "make_with_id",
+    "question_id",
+    "content_hash",
+    "parse_question_id",
+    "regenerate",
+    "pick_source",
+    "grade",
+    "QuestionChanged",
+    "Skill",
+    "Source",
+    "Domain",
+    "GradeResult",
+    "display_question",
+    "paper_notation",
+]
+
 
 def _tuplify(params: dict | None) -> dict:
     """Generators expect e.g. `kinds=(...)`; YAML and JSON only have lists."""

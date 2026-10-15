@@ -37,6 +37,7 @@ def parse_keys(text: str) -> list[tuple[str, str]]:
         if not entry:
             continue
         role, sep, key = entry.partition(":")
+        key = key.strip()
         if not sep or role not in ROLES or len(key) < 16:
             raise ValueError("MATHS_API_KEYS entries are `author:<key>` or `learner:<key>`, keys 16+ characters")
         keys.append((key, role))

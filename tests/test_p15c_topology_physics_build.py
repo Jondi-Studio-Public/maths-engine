@@ -53,10 +53,10 @@ def test_topology_real_grader_accepts_canonical_and_rejects_every_distractor(dif
         q = _make(TOPOLOGY_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for index, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(index)).correct
+                assert not grade_mcq(q, index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -160,10 +160,10 @@ def test_symmetry_real_grader_accepts_canonical_and_rejects_every_distractor(dif
         q = _make(SYMMETRY_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for index, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(index)).correct
+                assert not grade_mcq(q, index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

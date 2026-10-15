@@ -105,7 +105,7 @@ def exd_x_r2g_relation_repair(rng: random.Random, tier: str = "exam") -> dict:
             working=[
                 "An element with k images needs k - 1 of its pairs deleted.",
                 f"The elements with several images have {', '.join(str(k) for k in sorted(multi))} images, so "
-                f"{surplus} pairs go.",
+                f"{surplus} pair{' goes' if surplus == 1 else 's go'}.",
             ],
             wrong=[
                 (len(multi), "counts-elements-not-pairs"),
@@ -145,7 +145,7 @@ def exd_x_r2g_relation_repair(rng: random.Random, tier: str = "exam") -> dict:
             marks=2,
             follow_through=f"{nb}**part_a*{product}",
             working=[
-                f"Each of the {a} elements with no image has {nb} choices; the others have {', '.join(str(k) for k in sorted(multi))} choices.",
+                f"{'The 1 element' if a == 1 else f'Each of the {a} elements'} with no image has {nb} choices; the others have {', '.join(str(k) for k in sorted(multi))} choices.",
                 f"{nb}^{a} x {product} = {count}.",
             ],
             wrong=[

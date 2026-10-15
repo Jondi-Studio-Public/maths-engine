@@ -1,0 +1,41 @@
+id: ey-calendar-days-months-order
+name: Order days of the week and months
+domain: primary-geometry-time
+year_level: [F, '1']
+naplan_domain: [measurement]
+learner_band: early
+description: Use the headings of a calendar to say which day of the week comes after or before another, including where the week ends and starts again, and which month comes next or came before the one drawn.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [tell-time-to-hour]
+answer: mcq
+sources:
+- topic: ey_calendar_order
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_calendar_order
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_calendar_order
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Find a weekday in the headings and name the one just after it."}
+  medium: {steps: 2, demand: "Find a weekday at the end or start of the heading row, then wrap round to the other end for the day after or before."}
+  hard: {steps: 3, demand: "Read the month from the calendar title, step one month on or back, and wrap from December to January or the other way."}
+misconceptions:
+- id: wrong-direction
+  description: Names the day or month before when asked for the one after, or the other way round.
+- id: no-wrap-at-row-end
+  description: Cannot go on past the last heading, so repeats the day or stops, instead of starting the week again.
+- id: skips-one
+  description: Jumps two days or two months, missing the very next one.
+- id: month-name-repeated
+  description: Gives the month already drawn instead of the one that follows.
+tags: [acara-f10-v9, early, time, calendar, sequencing, ac9mfm02, ac9m1m03]

@@ -34,7 +34,7 @@ mathgen-mcp --role author --out-dir ~/out    # where files are written
 | `--role learner\|author` | `learner` | what the server may return, below |
 | `--out-dir DIR` | `~/maths-engine-exports` | where worksheets and exports are written |
 | `--skills DIR` | none | an extra folder of skill YAML; repeat the flag for more |
-| `--workers N` | `1` | worker processes for generating and marking |
+| `--workers N` | `1` | worker processes for generating and marking (1 to 8) |
 | `--timeout SECONDS` | `30` | how long one generate or mark call may run; must be greater than 0 |
 | `--version` | | print the version and exit |
 
@@ -91,7 +91,7 @@ Both roles have these. Replies are JSON.
 | `make_questions` | `skill_id`, `count` (1 to 30, default 1), `seed`, `source`, `include_figures` (default false) | `{"questions": [...]}`; each has an `id` |
 | `get_question` | `question_id`, `include_figures` | one question, rebuilt from its id |
 | `grade_answer` | `question_id`, `reply` | whether the reply is right, a note, any misconception it shows, marks and per-part results |
-| `build_paper` | `spec`, `format`, `version` | JSON, or the path of a file written; see below |
+| `build_paper` | `spec`, `format`, `version`, `include_figures` (default false) | JSON, or the path of a file written; see below |
 
 `reply` is the learner's text. For multiple choice it is the option's text as a string (`"8"` picks the option 8), or
 the option's 0-based index as an integer (`1`); for a multi-part question an object keyed by part label.

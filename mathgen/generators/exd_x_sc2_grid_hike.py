@@ -152,7 +152,7 @@ def exd_x_sc2_grid_hike(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 working=[
                     f"One square is {_km(side)} km, so the legs are "
-                    + ", ".join(f"{count} squares {word}" for word, count in legs)
+                    + ", ".join(f"{count} square{'' if count == 1 else 's'} {word}" for word, count in legs)
                     + ".",
                     f"Start in column {sc}: the east and west legs move it by {col - sc:+d}, so the column is {col}.",
                 ],

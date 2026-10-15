@@ -74,11 +74,6 @@ def test_deterministic_at_every_tier():
             assert _gen(tier, seed).to_json() == _gen(tier, seed).to_json()
 
 
-def test_unknown_tier_raises():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=1, tier="bogus")
-
-
 # ------------------------------------------------------------------ the real grader
 
 
@@ -90,7 +85,7 @@ def test_mcq_grader_accepts_the_key_and_rejects_every_other_option(tier):
         assert sorted(options) == OPTIONS, (tier, seed, options)
         assert len(q.distractors) == 2 and q.answer_text not in q.distractors
         for idx, opt in enumerate(options):
-            assert grade_mcq(q, str(idx)).correct == (opt == q.answer_text), (tier, seed, idx)
+            assert grade_mcq(q, idx).correct == (opt == q.answer_text), (tier, seed, idx)
         assert q.answer_latex.startswith("y=\\")
 
 

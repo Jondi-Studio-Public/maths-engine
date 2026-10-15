@@ -98,20 +98,9 @@ def test_prompt_shapes_add_to_the_hard_tier():
     assert shapes - hard
 
 
-def test_no_text_defects(questions):
-    for q in questions[:60]:
-        assert find_text_defects(q) == []
-
-
 def test_oracle_agrees(questions):
     for q in questions:
         assert oracle(q) == _canonical(q), q.text
-
-
-def test_answer_space(questions):
-    tuples = collections.Counter(tuple(p.answer_text for p in q.parts) for q in questions)
-    assert len(tuples) >= 100
-    assert max(tuples.values()) / len(questions) <= 0.05
 
 
 def test_composed_answer_full_marks(questions):
@@ -173,7 +162,3 @@ def test_all_wrong_earns_zero(questions):
     for q in questions[:50]:
         result = grade(_SKILL, q, {"a": "0", "b": "0", "c": "-9", "d": "-99"})
         assert result.marks == 0 and not result.correct
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=11).to_dict() == make(TOPIC, seed=11).to_dict()

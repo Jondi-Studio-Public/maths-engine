@@ -127,7 +127,7 @@ def test_compare_box_plots_mcq_key_and_distractors(tier):
         options = mcq_options(q)
         assert len(options) == (4 if tier == "hard" else 3) and len(set(options)) == len(options)
         for idx, opt in enumerate(options):
-            assert grade_mcq(q, str(idx)).correct == (opt == q.answer_text)
+            assert grade_mcq(q, idx).correct == (opt == q.answer_text)
 
 
 @pytest.mark.parametrize("skill_id", ALL)

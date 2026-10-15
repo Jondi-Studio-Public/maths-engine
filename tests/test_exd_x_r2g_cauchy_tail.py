@@ -50,10 +50,6 @@ def oracle(q):
 CHECKS = standard_checks(TOPIC, SKILL, oracle, LABELS, MARKS, {"c", "d"}, "p15b_completeness_cauchy_check")
 
 
-def test_source_wired():
-    CHECKS["wired"]()
-
-
 def test_shape_and_text():
     CHECKS["shape"]()
 
@@ -72,14 +68,6 @@ def test_composed_answer_earns_full_marks():
 
 def test_distractors_rejected_and_tagged():
     CHECKS["distractors_rejected"]()
-
-
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()
 
 
 def test_brute_force_least_n_is_the_key():

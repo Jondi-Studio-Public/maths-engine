@@ -87,10 +87,11 @@ def test_reworded_skills_say_they_are_reading_skills(skill_id):
 
 def test_nets_skill_is_built_with_an_exam_tier():
     # The nets skill was deferred until its own generators and figures were built; it is now
-    # active, so pin that it carries an exam tier rather than that it stays switched off.
+    # active, so pin that it carries an exam tier and the grid nets rather than that it stays switched off.
     skill = _skills()["f10-nets-build-solids"]
     assert skill.status == "active"
     assert any(s.difficulty == "exam" for s in skill.sources)
+    assert "grid_nets_build_solids" in {s.topic for s in skill.sources}
 
 
 # ------------------------------------------------------------------ figure, leak, reader, grader
@@ -117,7 +118,7 @@ def test_figure_reader_key_and_distractors(skill_id, tier):
             options = mcq_options(q)
             assert len(options) == n_distractors + 1
             for i, opt in enumerate(options):
-                assert grade("mcq", q, str(i)).correct is (opt == q.answer_text)
+                assert grade("mcq", q, i).correct is (opt == q.answer_text)
         else:
             assert grade(kind, q, q.answer_text).correct
             for d in q.distractors:

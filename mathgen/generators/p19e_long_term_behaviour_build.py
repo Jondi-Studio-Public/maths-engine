@@ -242,7 +242,7 @@ def p19e_geometric_limit_class(rng, tier="easy"):
 
     working = [
         f"r = {rational_text(r)}.",
-        f"|r| {'< 1' if -1 < r < 1 else ('> 1' if r > 1 else '<= -1')} -> {GEO_OPTION_TEXT[target]}.",
+        f"{'|r| < 1' if -1 < r < 1 else ('r > 1' if r > 1 else 'r <= -1')} -> {GEO_OPTION_TEXT[target]}.",
         f"Option {answer_letter} is the only one consistent with this.",
     ]
 

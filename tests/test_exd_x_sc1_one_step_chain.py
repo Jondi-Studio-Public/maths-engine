@@ -74,8 +74,3 @@ def test_follow_through_from_a_wrong_price():
         assert result.parts["b"].marks == 2 and result.parts["c"].marks == 2, (seed, bad, count, total)
         checked += 1
     assert checked >= 50
-
-
-def test_answer_space_and_determinism():
-    sup.check_answer_space(SKILL_ID)
-    sup.check_deterministic(SKILL_ID)

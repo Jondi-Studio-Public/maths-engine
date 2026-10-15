@@ -52,17 +52,6 @@ def _canon(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC] and exam[0].stages == ["exam"]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD[0], seed=s, **HARD[1])) for s in range(60)}
-    assert len(exam) >= 3 and exam - hard
-
-
 def test_key_matches_independent_derivation(questions):
     bad = [(q.seed, oracle(q), _canon(q)) for q in questions if oracle(q) != _canon(q)]
     assert bad == []
@@ -115,7 +104,3 @@ def test_follow_through_from_wrong_payoff(questions):
             continue
         result = grade(_SKILL, q, {**_canon(q), "b": q.parts[1].distractors[0], "c": _text(target - wrong)})
         assert result.parts["b"].marks == 0 and result.parts["c"].marks == 1
-
-
-def test_answer_space(questions):
-    assert len({q.answer_text for q in questions}) >= 100

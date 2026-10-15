@@ -196,12 +196,12 @@ def test_real_grader_accepts_key_rejects_distractors(tier):
     for q in _all(tier, range(30)):
         options = mcq_options(q)
         key_idx = options.index(q.answer_text)
-        result = grade_mcq(q, str(key_idx))
+        result = grade_mcq(q, key_idx)
         assert result.correct, f"{tier}: key rejected for {q.text!r}"
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            result = grade_mcq(q, str(i))
+            result = grade_mcq(q, i)
             assert not result.correct, f"{tier}: distractor {opt!r} accepted for {q.text!r}"
 
 

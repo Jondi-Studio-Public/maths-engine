@@ -1,9 +1,11 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
 id: f10-nets-build-solids
 name: Connect nets and three-dimensional objects
 domain: primary-geometry-time
 year_level: ['5']
 naplan_domain: [space]
-description: Given a drawn net, name the solid it folds into, decide whether squares joined edge to edge fold into a cube (and why not), and find which corners of a lettered cube net meet when it is folded. The exam chain works from a drawn net of a closed box with measurements marked, to the area of a side face, then its width, surface area and volume.
+description: "Given a drawn net, name the solid it folds into, decide whether squares joined edge to edge fold into a cube (and why not), and find which corners of a lettered cube net meet when it is folded. Grid questions draw nets on a square grid: name the solid, pick the one net of a cube from four drawings, and name the face opposite a lettered face once the cube is folded. The exam chain works from a drawn net of a closed box with measurements marked, to the area of a side face, then its width, surface area and volume."
 status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
@@ -16,13 +18,28 @@ sources:
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: easy
+  key: grid-easy
+  stages: [0, 1, 2]
 - topic: fsp_nets
   params: {}
   difficulty: medium
   stages: [3, 4]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: medium
+  key: grid-medium
+  stages: [3, 4]
 - topic: fsp_nets
   params: {}
   difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: hard
+  key: grid-hard
   stages: [5, 6, maintenance]
 - topic: fsp_nets_exam
   params: {}
@@ -74,4 +91,8 @@ misconceptions:
   description: Adds the sides of a rectangle where its area was asked for.
 - id: net-face-sides-added
   description: Adds a face's length and height once instead of multiplying them to get its area.
+- id: opposite-is-the-neighbour
+  description: Names a face that touches the marked face in the net, forgetting that touching faces fold to meet at an edge.
+- id: opposite-is-across-the-row
+  description: Names the face at the far end of the marked face's row or column, forgetting that faces two apart in a row are the ones that end up opposite.
 tags: [acara-f10-v9, geometry, nets, solids, cube, prism, pyramid, ac9m5sp01, figure]

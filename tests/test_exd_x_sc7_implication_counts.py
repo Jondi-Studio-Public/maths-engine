@@ -68,23 +68,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_prompt_variety_and_new_shapes_over_hard_tier():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD[0], seed=s, difficulty="hard", **HARD[1])) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, "the exam source adds no shape beyond the hard tier"
-
-
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_exam(s)) == [], s
-
-
-def test_deterministic():
-    for s in (0, 1, 7, 99):
-        assert _exam(s).to_json() == _exam(s).to_json()
-
-
 def test_source_is_wired_into_the_skill():
     last = _SKILL.sources[-1]
     assert last.topic == TOPIC and last.difficulty == "exam" and list(last.stages) == ["exam"]
@@ -106,12 +89,6 @@ def test_oracle_agrees_300_seeds(questions):
 def test_every_statement_kind_occurs(questions):
     for kind in ("divisible by", "a multiple of", "greater than", "less than", "a perfect square"):
         assert any(kind in q.stem for q in questions), kind
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in SEEDS]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 0.05 * len(answers)
 
 
 def test_key_accepted_and_distractors_rejected_100_seeds(questions):

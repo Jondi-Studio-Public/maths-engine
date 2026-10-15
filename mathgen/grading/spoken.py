@@ -71,10 +71,13 @@ DENOMINATORS = {
 }
 NUMBER_WORDS = set(UNITS) | set(TEENS) | set(TENS) | set(SCALES) | set(DENOMINATORS) | {"point"}
 
-_DIGIT_RE = re.compile(r"^-?\d+(\.\d+)?(/\d+)?$")
+_DIGIT_RE = re.compile(r"^-?(?:\d+(?:\.\d+)?|\.\d+)(/\d+)?$")
 #: Longest run of digits read as one number. Nobody says (or answers with) a 300-digit number, and Python
 #: refuses to turn 4300 digits into an integer at all: that raised `ValueError` out of the transcript path.
 _MAX_NUMBER_DIGITS = 300
+#: Longest run of scale words ("hundred hundred hundred ...") that is read at all. A longer run is not a number
+#: anyone says, so it is dropped before reading rather than turned into an enormous product.
+_MAX_SCALE_RUN = 12
 
 
 def _number_token_value(token: str):
@@ -101,80 +104,186 @@ def _is_zero_denominator(token: str) -> bool:
 
 def _tokenize(text: str) -> list:
     text = text.lower()
-    # Keep the sign on digit negatives ("-5" -> "minus 5") before hyphens are
+    # Keep the sign on digit negatives ("-5" -> "minus 5", "-.5" -> "minus .5") before hyphens are
     # split for word numbers ("forty-two" -> "forty two").
-    text = re.sub(r"-(?=\d)", " minus ", text)
+    text = re.sub(r"-(?=\.?\d)", " minus ", text)
     text = text.replace("-", " ")
-    return re.findall(r"\d+(?:\.\d+)?(?:/\d+)?|[a-z']+", text)
+    return re.findall(r"\d+(?:\.\d+)?(?:/\d+)?|\.\d+|[a-z']+", text)
+
+
+def _drop_long_scale_runs(tokens: list) -> list:
+    """`tokens` without any run of more than `_MAX_SCALE_RUN` consecutive scale words, dropped whole, in one pass."""
+    out = []
+    start = None
+    for k, token in enumerate(tokens + [None]):
+        if token in SCALES:
+            if start is None:
+                start = k
+            continue
+        if start is not None:
+            if k - start <= _MAX_SCALE_RUN:
+                out.extend(tokens[start:k])
+            start = None
+        if token is not None:
+            out.append(token)
+    return out
+
+
+def _decimal_digits(tokens: list, j: int):
+    """The digits after a spoken "point" (tokens[j:]): digit words ("one four", "oh five") or a run of digits.
+    Returns (digit string, next index), or None when no digit follows."""
+    n = len(tokens)
+    digits = ""
+    while j < n and len(digits) < _MAX_NUMBER_DIGITS:
+        t = tokens[j]
+        if t in UNITS:
+            digits += str(UNITS[t])
+        elif t.isdigit():
+            digits += t
+        else:
+            break
+        j += 1
+    if not digits:
+        return None
+    return digits, j
 
 
 def _consume_word_number(tokens: list, i: int):
-    """Parse a run of number words starting at tokens[i]. Returns (Fraction, next_index) or None."""
-    total = 0
-    current = 0
-    consumed = False
+    """Parse one spoken number starting at tokens[i]. Returns (Fraction, next_index) or None.
+
+    One number is a well-formed compound and no more: "forty two", "a hundred and forty four", "one thousand
+    and five", "twelve hundred", "thirty six point nine", "point five". Two number words that do not make a
+    compound ("twelve twelve", "three four", "three and four") are two numbers: the first is returned and the
+    reader starts again at the second. "and" joins only straight after hundred/thousand/million."""
     n = len(tokens)
+    total = 0
+    current = 0  # the part under a hundred, plus hundreds, of the group being built
+    consumed = False
+    last = None  # "unit", "zero", "teen", "tens", "hundred" or "scale": what the last word was
+    last_scale = None  # the smallest of thousand/million seen so far; the next one must be smaller
+    if i < n and tokens[i] == "point":
+        decimal = _decimal_digits(tokens, i + 1)
+        if decimal is None:
+            return None
+        digits, j = decimal
+        return Fraction(int(digits), 10 ** len(digits)), j
     while i < n:
         t = tokens[i]
-        if t == "a" and i + 1 < n and tokens[i + 1] in SCALES:
-            current = 1
-            i += 1
-            consumed = True
-        elif t in UNITS:
-            current += UNITS[t]
-            i += 1
-            consumed = True
-        elif t in TEENS:
-            current += TEENS[t]
-            i += 1
-            consumed = True
-        elif t in TENS:
-            current += TENS[t]
-            i += 1
-            consumed = True
-        elif t in SCALES:
-            if not consumed:
-                current = 1  # "hundred and four"
-            if t == "hundred":
-                current = (current or 1) * 100
+        if t == "a":
+            # "a hundred", "a thousand": only at the start of a number
+            if not consumed and i + 1 < n and tokens[i + 1] in SCALES:
+                current = 1
+                last = "unit"
+                i += 1
+                consumed = True
+                continue
+            break
+        if t in UNITS:
+            value = UNITS[t]
+            if last is None:
+                last = "zero" if value == 0 else "unit"
+            elif value != 0 and last in ("hundred", "scale", "tens"):
+                # "one hundred five", "twenty one"; but not "twenty twenty" or "five five"
+                if last == "tens" and current % 10 != 0:
+                    break
+                last = "unit"
             else:
-                total += (current or 1) * SCALES[t]
-                current = 0
-            i += 1
-            consumed = True
+                break
+            current += value
+        elif t in TEENS:
+            if last not in (None, "hundred", "scale"):
+                break
+            current += TEENS[t]
+            last = "teen"
+        elif t in TENS:
+            if last not in (None, "hundred", "scale"):
+                break
+            current += TENS[t]
+            last = "tens"
+        elif t == "hundred":
+            if last is None:
+                current = 100  # "hundred and four"
+            elif last in ("unit", "teen", "tens") and current < 100:
+                current *= 100
+            else:
+                break
+            last = "hundred"
+        elif t in SCALES:  # thousand, million
+            scale = SCALES[t]
+            if last_scale is not None and scale >= last_scale:
+                break
+            if last is None:
+                current = 1
+            elif last in ("zero", "scale"):
+                break
+            total += current * scale
+            current = 0
+            last_scale = scale
+            last = "scale"
         elif (
             t == "and"
-            and consumed
+            and last in ("hundred", "scale")
             and i + 1 < n
-            and (tokens[i + 1] in UNITS or tokens[i + 1] in TEENS or tokens[i + 1] in TENS)
+            and (
+                tokens[i + 1] in UNITS and UNITS[tokens[i + 1]] != 0 or tokens[i + 1] in TEENS or tokens[i + 1] in TENS
+            )
         ):
             i += 1  # "a hundred and forty four"
+            continue
         else:
             break
+        i += 1
+        consumed = True
     if not consumed:
         return None
     value = Fraction(total + current)
     # Decimal part: "thirty six point nine" -> 36.9
     if i < n and tokens[i] == "point":
-        j = i + 1
-        digits = ""
-        while j < n and tokens[j] in UNITS and len(digits) < _MAX_NUMBER_DIGITS:
-            digits += str(UNITS[tokens[j]])
-            j += 1
-        if digits:
+        decimal = _decimal_digits(tokens, i + 1)
+        if decimal is not None:
+            digits, j = decimal
             value = value + Fraction(int(digits), 10 ** len(digits))
             i = j
     return value, i
 
 
+def _mixed_fraction_part(tokens: list, j: int):
+    """The proper fraction of a mixed number, read from tokens[j:] after its "and": "a half", "a quarter",
+    "three quarters", "3/4". Returns (Fraction, next_index) or None."""
+    n = len(tokens)
+    if j >= n:
+        return None
+    t = tokens[j]
+    if "/" in t:
+        frac = _number_token_value(t)
+        if frac is not None and 0 < frac < 1:
+            return frac, j + 1
+        return None
+    if t == "a" and j + 1 < n and tokens[j + 1] in DENOMINATORS:
+        return Fraction(1, DENOMINATORS[tokens[j + 1]]), j + 2
+    if _DIGIT_RE.match(t):
+        numerator, k = _number_token_value(t), j + 1
+    else:
+        parsed = _consume_word_number(tokens, j)
+        if parsed is None:
+            return None
+        numerator, k = parsed
+    if numerator is None or numerator.denominator != 1 or k >= n or tokens[k] not in DENOMINATORS:
+        return None
+    denominator = DENOMINATORS[tokens[k]]
+    if not 0 < numerator < denominator:
+        return None
+    return Fraction(numerator, denominator), k + 1
+
+
 def extract_values(text: str) -> list:
     """Extract all numeric values (as Fractions) from a spoken transcript.
 
-    Handles digit strings ("144", "36.9", "3/5"), word numbers ("a hundred and forty four",
-    "thirty six point nine"), negatives ("minus three", "negative three"), and fractions
-    ("three over five", "three fifths", "a half").
-    """
-    tokens = _tokenize(text)
+    Handles digit strings ("144", "36.9", ".5", "3/5"), word numbers ("a hundred and forty four",
+    "thirty six point nine", "point five"), negatives ("minus three", "negative three"), fractions
+    ("three over five", "three fifths", "a half") and mixed numbers ("three and a half"). Number words that
+    are not one number ("three and four", "twelve twelve") are separate values."""
+    tokens = _drop_long_scale_runs(_tokenize(text))
     if any(_is_zero_denominator(t) for t in tokens):
         return []  # "1/0" is not a number, and a reply with one in it has no value to read
     values = []
@@ -206,7 +315,7 @@ def extract_values(text: str) -> list:
                 negate = False
                 i += 1
                 continue
-        # Fraction forms following a number: "three over five", "three fifths"
+        # Fraction forms following a number: "three over five", "three fifths", "three and a half"
         if i < n and tokens[i] == "over":
             nxt = None
             if i + 1 < n:
@@ -220,6 +329,11 @@ def extract_values(text: str) -> list:
         elif i < n and tokens[i] in DENOMINATORS and value == int(value):
             value = Fraction(int(value), DENOMINATORS[tokens[i]])
             i += 1
+        elif i < n and tokens[i] == "and" and value == int(value):
+            part = _mixed_fraction_part(tokens, i + 1)
+            if part is not None:
+                value = value + part[0]
+                i = part[1]
         if negate:
             value = -value
             negate = False
@@ -284,7 +398,7 @@ def spoken_to_expr(text: str):
         if _DIGIT_RE.match(t):
             value = _number_token_value(t)
             if value is not None:  # a number too long to read, or over zero, is skipped
-                parts.append(str(value) if "/" in t else t)
+                parts.append(str(value) if "/" in t or t.startswith(".") else t)
             i += 1
             continue
         parsed = _consume_word_number(tokens, i)

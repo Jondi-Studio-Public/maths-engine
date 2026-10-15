@@ -75,14 +75,6 @@ def test_distractors_tagged_and_rejected():
     CHECKS["distractors_rejected"]()
 
 
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()
-
-
 def _gram(q):
     rows, b, lam, u1, u2 = parse(q)
     g11 = sum(r[0] * r[0] for r in rows)

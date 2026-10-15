@@ -170,6 +170,9 @@ properties:
     description: True when the questions carry a figure the learner must see. Such a skill may not have
       a mental block.
     type: boolean
+  read_aloud:
+    description: True when the skill is for early readers who hear the question read aloud. Every prompt and part prompt is then at most 15 words (READ_ALOUD_MAX_WORDS). Default false.
+    type: boolean
   mental:
     description: A fluency ladder for quick no-paper practice.
     $ref: '#/$defs/mental'

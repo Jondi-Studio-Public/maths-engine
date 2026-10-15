@@ -74,12 +74,10 @@ def test_spread_correct_answer_grades_correct_and_distractors_grade_incorrect(
         )
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(question, str(distractor_index)).correct, (
-                f"distractor {distractor!r} graded as correct"
-            )
+            assert not grade_mcq(question, distractor_index).correct, f"distractor {distractor!r} graded as correct"
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])
@@ -200,12 +198,10 @@ def test_sets_correct_answer_grades_correct_and_distractors_grade_incorrect(
         )
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(question, str(distractor_index)).correct, (
-                f"distractor {distractor!r} graded as correct"
-            )
+            assert not grade_mcq(question, distractor_index).correct, f"distractor {distractor!r} graded as correct"
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])

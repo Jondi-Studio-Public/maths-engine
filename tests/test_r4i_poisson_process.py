@@ -45,9 +45,9 @@ def _near(a, key, places):
 
 def _erlang_cdf(k, rate, t):
     """P(T_k <= t) by integrating the gamma density, not by the Poisson sum."""
-    mpmath.mp.dps = 30
-    pdf = lambda u: rate**k * u ** (k - 1) * mpmath.e ** (-rate * u) / mpmath.factorial(k - 1)
-    return float(mpmath.quad(pdf, [0, t]))
+    with mpmath.workdps(30):
+        pdf = lambda u: rate**k * u ** (k - 1) * mpmath.e ** (-rate * u) / mpmath.factorial(k - 1)
+        return float(mpmath.quad(pdf, [0, t]))
 
 
 def _poisson_pmf(m, mu):
@@ -73,8 +73,8 @@ def test_easy_keys():
             continue
         wait = int(re.search(r"longer than (\d+) minutes", t).group(1))
         # P(T > wait) by integrating the density lam/60 e^(-lam u/60) from wait to infinity
-        mpmath.mp.dps = 30
-        expect = float(mpmath.quad(lambda u: (lam / 60) * mpmath.e ** (-(lam / 60) * u), [wait, mpmath.inf]))
+        with mpmath.workdps(30):
+            expect = float(mpmath.quad(lambda u: (lam / 60) * mpmath.e ** (-(lam / 60) * u), [wait, mpmath.inf]))
         assert _near(expect, key, 4), (seed, t)
         seen["memoryless" if "has been seen" in t else "survival"] += 1
     assert len(seen) == 3 and min(seen.values()) >= 20, seen

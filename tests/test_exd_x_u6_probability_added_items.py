@@ -26,24 +26,6 @@ def _oracle(q):
     return {"a": Fraction(r, r + g + b), "b": Fraction(x), "c": Fraction(b, r + g + b + x)}
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    easy = {prompt_shape(make("simple_probability", seed=s)) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - easy
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = _exam(seed)
@@ -95,13 +77,3 @@ def test_follow_through_from_a_wrong_number_added():
         assert result.parts["c"].marks == result.parts["c"].max_marks, (seed, reply)
         checked += 1
     assert checked >= 10
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

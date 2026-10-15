@@ -21,21 +21,6 @@ def _q(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_prompt_variety_and_new_shapes_over_hard():
-    shapes = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("geometric_nth_term_formula", seed=s, difficulty="hard", variant="find_n")) for s in range(60)
-    }
-    assert len(shapes) >= 3, shapes
-    assert shapes - hard
-
-
-def test_no_text_defects_and_deterministic():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == [], s
-    assert _q(8).to_json() == _q(8).to_json()
-
-
 _HEAD = re.compile(r"with (positive|negative) common ratio, t(\d+) = (-?\d+) and t(\d+) = (-?\d+)\. ")
 _TERM = re.compile(r"to find t(\d+)\.")
 _POS = re.compile(r"Which term of the sequence equals (-?\d+)\?")

@@ -86,7 +86,7 @@ def test_reader_grader_and_options(tier):
         assert set(options) == LABELS and len(options) == 3
         assert len(q.distractors) == 2 and q.answer_text not in q.distractors
         for i, opt in enumerate(options):
-            assert grade_mcq(q, str(i)).correct is (opt == q.answer_text)
+            assert grade_mcq(q, i).correct is (opt == q.answer_text)
         assert set(q.option_notes) == set(q.distractors)
 
 

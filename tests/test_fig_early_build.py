@@ -64,7 +64,7 @@ def _tiers(skill_id):
 def _is_right(skill_id, q, text):
     kind = _skills()[skill_id].answer
     if kind == "mcq":
-        return grade("mcq", q, str(mcq_options(q).index(text))).correct
+        return grade("mcq", q, mcq_options(q).index(text)).correct
     return grade(kind, q, text).correct
 
 

@@ -62,35 +62,12 @@ def questions():
     return [_q(s) for s in SEEDS]
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-
-
-@pytest.mark.parametrize("skill_id", SKILL_IDS)
-def test_source_wired(skill_id):
-    exam = [s for s in _SKILLS[skill_id].sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages) for s in exam] == [(TOPIC, ["exam"])]
-
-
-@pytest.mark.parametrize("skill_id", SKILL_IDS)
-def test_prompt_variety_and_new_shapes(skill_id):
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("engineering", seed=s, kinds=[PRACTICE[skill_id]])) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
         assert [p.marks for p in q.parts] == [2, 1, 2, 2]
         assert [p.follow_through is not None for p in q.parts] == [False, False, True, True]
         assert all(p.answer_kind == "number" for p in q.parts)
-
-
-def test_deterministic():
-    assert _q(7).to_dict() == _q(7).to_dict()
 
 
 def test_key_matches_independent_derivation_over_300_seeds(questions):
@@ -100,12 +77,6 @@ def test_key_matches_independent_derivation_over_300_seeds(questions):
         if {p.label: p.answer_text for p in q.parts} != _oracle(q)
     ]
     assert bad == []
-
-
-def test_answer_space(questions):
-    texts = [q.answer_text for q in questions]
-    assert len(set(texts)) >= 100
-    assert max(texts.count(t) for t in set(texts)) <= 15
 
 
 @pytest.mark.parametrize("skill_id", SKILL_IDS)

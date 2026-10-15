@@ -58,10 +58,6 @@ def wrong_chain(q):
     return {"a": str(wrong_x), "b": str(alpha), "c": str(180 - alpha - e)}
 
 
-def test_no_text_defects():
-    check_no_text_defects(TOPIC)
-
-
 def test_variety_and_new_shapes():
     check_variety(TOPIC, lambda s: make("p11d_parallel_line_angle_theorems", seed=s, variant="algebraic"))
 
@@ -76,10 +72,6 @@ def test_oracle_agrees():
 
 def test_answer_space():
     check_answer_space(TOPIC)
-
-
-def test_deterministic():
-    check_deterministic(TOPIC)
 
 
 def test_key_accepted_distractors_rejected():

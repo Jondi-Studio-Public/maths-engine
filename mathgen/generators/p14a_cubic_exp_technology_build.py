@@ -497,7 +497,7 @@ def _build_easy_additive_isolate(rng) -> dict:
     candidates_val = [v for v in candidates_val if abs(v - x_exact) > 0.01]
 
     working = [
-        f"{A}e^({exponent}) = {T}" if c == 0 else f"{A}e^({exponent}) = {d} {'- ' if c > 0 else '+ '}{abs(c)} = {T}",
+        f"{A}e^({exponent}) = {d} {'- ' if c > 0 else '+ '}{abs(c)} = {d - c}",
         f"e^({exponent}) = {T}",
         f"{exponent} = ln({T})",
         f"x = {answer_text}",
@@ -544,7 +544,8 @@ def _build_medium_linear_exponent_additive(rng) -> dict:
     candidates_val = [v for v in candidates_val if abs(v - x_exact) > 0.01]
 
     working = [
-        f"{A}e^({exponent_inner}) = {T}",
+        f"{A}e^({exponent_inner}) = {d} {'- ' if c > 0 else '+ '}{abs(c)} = {d - c}",
+        f"e^({exponent_inner}) = {T}",
         f"{exponent_inner} = ln({T})",
         f"x = (ln({T}) - ({m})) / {k}",
         f"x = {answer_text}",

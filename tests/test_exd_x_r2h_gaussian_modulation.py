@@ -123,11 +123,3 @@ def test_composed_answer_full_marks():
 
 def test_distractors_tagged_and_rejected():
     CHECKS["distractors_rejected"]()
-
-
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()

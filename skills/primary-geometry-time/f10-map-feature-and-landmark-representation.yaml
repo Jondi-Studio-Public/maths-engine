@@ -1,0 +1,41 @@
+id: f10-map-feature-and-landmark-representation
+name: Locate landmarks on a map with grid references
+domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [space]
+description: Given a map of a familiar place on a grid with column letters, row numbers, landmark symbols and a north arrow, say which landmark is in a named square, give the grid reference of a landmark, or follow compass directions from a landmark. Easy names the landmark in a square. Medium gives a landmark's grid reference or names the landmark that lies north, south, east or west of a square. Hard follows two moves from a named landmark to the finishing square.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-position-location-language]
+answer: mcq
+sources:
+- topic: grid_map_landmarks
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_map_landmarks
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_map_landmarks
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: column-and-row-swapped
+  description: Reads the number as the column and the letter as the row, so the square or the reference is reflected across the diagonal.
+- id: rows-counted-from-the-top
+  description: Counts the rows down from the top of the map instead of up from the bottom, so the row is flipped.
+- id: off-by-one-square
+  description: Starts counting at zero or skips a square, landing one column or row away from the right one.
+- id: east-west-confused
+  description: Looks west when asked for east, or the reverse, so the answer is the landmark on the opposite side.
+- id: north-south-confused
+  description: Looks down the page for north, or up for south, so the answer is the landmark on the opposite side.
+- id: counts-the-start-square
+  description: Counts the square already stood on as the first step of a move, so the finish is short by one square in each direction.
+- id: distances-swapped
+  description: Applies the first distance to the second direction and the second distance to the first.
+tags: [acara-f10-v9, primary, geometry, map, grid-reference, landmarks, ac9m3sp02]

@@ -62,10 +62,10 @@ def test_grader_accepts_answer_and_rejects_distractors(tier):
         q = make("p19b_noncausal_explanation", seed=seed, difficulty=tier, tier=tier)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for distractor in q.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(q, str(distractor_index)).correct
+            assert not grade_mcq(q, distractor_index).correct
 
 
 @pytest.mark.parametrize("tier", TIERS)

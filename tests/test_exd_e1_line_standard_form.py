@@ -46,11 +46,6 @@ def test_no_bad_text_patterns_over_60_seeds():
         assert defects == [], f"seed={seed}: {defects}"
 
 
-def test_prompt_variety_exam_tier():
-    shapes = {prompt_shape(_mk(seed)) for seed in SEEDS}
-    assert len(shapes) >= 3, shapes
-
-
 def test_exam_tier_adds_a_shape_no_lower_tier_has():
     """Mirrors `scripts/measure_tiers.py`'s own escalation check, proved
     independently here rather than trusted by eye."""

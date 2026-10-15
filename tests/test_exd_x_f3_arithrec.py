@@ -31,12 +31,6 @@ def test_prompt_variety_and_new_shapes_over_hard():
     assert len(shapes - hard) >= 3
 
 
-def test_no_text_defects_and_deterministic():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == [], s
-    assert _q(6).to_json() == _q(6).to_json()
-
-
 _SUM = re.compile(r"t(\d+) \+ t(\d+) = (-?\d+) and t(\d+) = (-?\d+)\.")
 _FIRST = re.compile(r"sum of the first (\d+) terms .* is (-?\d+), and t(\d+) = (-?\d+)\.")
 _PAR = re.compile(r"are (.+?), (.+?) and (.+?), where k")

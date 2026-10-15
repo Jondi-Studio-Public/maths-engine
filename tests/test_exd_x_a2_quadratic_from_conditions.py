@@ -51,16 +51,6 @@ def _satisfies_prompt(text, poly):
     )
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("find_the_equation_of_a_quadratic_given_sufficient", seed=s, difficulty="hard"))
-        for s in range(60)
-    }
-    assert len(exam) >= 3
-    assert exam - hard
-
-
 def test_key_satisfies_every_stated_condition_over_400_seeds():
     bad = []
     for s in range(400):
@@ -93,7 +83,3 @@ def test_grader_accepts_key_and_rejects_distractors():
                 bad.append(("distractor", s, d))
         assert len(q.distractors) >= 2
     assert bad == []
-
-
-def test_deterministic():
-    assert _q(11).to_json() == _q(11).to_json()

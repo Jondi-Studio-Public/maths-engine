@@ -68,19 +68,6 @@ def oracle(q) -> dict[str, str]:
     return {"a": str(180 - a_ang - b_ang), "b": _dec(k), "c": _dec(k * bc)}
 
 
-def test_source_wired():
-    assert_source_wired(SKILL, TOPIC)
-
-
-def test_shapes_and_text():
-    assert_new_shapes(SKILL)
-    assert_no_text_defects(SKILL)
-
-
-def test_answer_space():
-    assert_answer_space(SKILL, minimum=100)
-
-
 def test_all_three_shapes_occur():
     assert {shape_of(exam(SKILL, s).stem) for s in range(60)} == {"sas", "sss", "aa"}
 

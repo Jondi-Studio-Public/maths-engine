@@ -75,9 +75,9 @@ def test_key_equals_the_figure_derivation(tier, chunk):
         assert q.answer_text == want, (tier, seed, n, q.text)
         assert sorted([q.answer_text, *q.distractors]) == sorted([INC, DEC, APP])
         options = mcq_options(q)
-        assert grade_mcq(q, str(options.index(want))).correct
+        assert grade_mcq(q, options.index(want)).correct
         for i, opt in enumerate(options):
-            assert grade_mcq(q, str(i)).correct is (opt == want)
+            assert grade_mcq(q, i).correct is (opt == want)
 
 
 @pytest.mark.parametrize("tier", TIERS)
