@@ -14,8 +14,9 @@ from __future__ import annotations
 
 import random
 
-from sympy import Integer, Rational, Symbol, expand, integrate, log, simplify
+from sympy import Integer, Rational, Symbol, expand, log, simplify
 
+from ..calc_cache import integrate
 from ..core import check_equivalent, generator, join_terms, latex_answer, latex_prompt, pick_distractors
 
 _X = Symbol("x", real=True)

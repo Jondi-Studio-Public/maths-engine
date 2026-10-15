@@ -9,10 +9,27 @@ import math
 import random
 import re
 from fractions import Fraction
+from functools import lru_cache
 from dataclasses import dataclass, field, asdict
 from typing import Any, Callable
 
-from sympy import Eq, Float, Integer, Rational, S, Symbol, Tuple, simplify, sympify
+from sympy import (
+    Eq,
+    Float,
+    Integer,
+    Rational,
+    S,
+    Symbol,
+    Tuple,
+    cancel,
+    expand,
+    expand_trig,
+    radsimp,
+    simplify,
+    srepr,
+    sympify,
+)
+from sympy.functions.elementary.trigonometric import TrigonometricFunction
 from sympy import latex as _sympy_latex
 from sympy.core.function import AppliedUndef
 from sympy.core.sympify import SympifyError
@@ -1135,6 +1152,11 @@ def _probe_differs(left, right) -> bool:
             # evalf(subs=...) evaluates numerically straight away. A symbolic .subs() first auto-evaluates
             # the substituted function exactly, and for sqrt(acos(x)**2) at x = 11/5 that took 40 s.
             value = abs(difference.evalf(30, subs=substitutions))
+            if value.is_number and value.is_finite and not value > Float("1e-9"):
+                # `scale` is never below 1, so a value this small cannot exceed 1e-9 * scale whatever `scale` is:
+                # this point can only be inconclusive or "no difference". Skipping the two scale evaluations
+                # leaves the outcome unchanged and saves two thirds of the evalf work on equal pairs.
+                continue
             scale = max(
                 abs(left.evalf(30, subs=substitutions)),
                 abs(right.evalf(30, subs=substitutions)),
@@ -1179,9 +1201,61 @@ def symbolically_equal(left, right) -> bool:
         # An infinite or undefined value is only "equal" to the very same expression. Sent to `simplify`, a
         # reply such as 1/0 or log(0) spent seconds there and could never be shown equal to a finite answer.
         return bool(left == right)
+    return _compare_sympified(_Pair(left, right))
+
+
+class _Pair:
+    """A sympified (left, right) pair, hashed and compared by `srepr` so `_compare_sympified` can cache on it."""
+
+    __slots__ = ("left", "right", "_key")
+
+    def __init__(self, left, right):
+        self.left, self.right = left, right
+        self._key = (srepr(left), srepr(right))
+
+    def __hash__(self):
+        return hash(self._key)
+
+    def __eq__(self, other):
+        return isinstance(other, _Pair) and self._key == other._key
+
+
+@lru_cache(maxsize=20000)
+def _compare_sympified(pair: _Pair) -> bool:
+    """The probe, the cheap exact proofs, then `simplify`, for one sympified pair; the result is cached.
+
+    Generators and the contract tests compare the same expression pairs again and again (a distractor set repeats
+    across seeds), and the answer is a pure function of the two expressions' `srepr`. Exceptions are not cached."""
+    left, right = pair.left, pair.right
     if _probe_differs(left, right):
         return False
+    if _cheap_proof_of_equal(left, right):
+        return True
     return bool(simplify(left - right).is_zero)
+
+
+def _cheap_proof_of_equal(left, right) -> bool:
+    """True only when a cheap EXACT step proves `left - right` is zero; False means "not proved", never "different".
+
+    Each step is a SymPy rewrite that must return exactly 0 (structural equality of the two sides, `expand`, `cancel`
+    for a rational function, `expand` of `radsimp` for surd denominators, `expand_trig` for multiple-angle identities). Anything else, an exception included, falls
+    through to the caller's `simplify`. No numeric evidence is ever used here.
+    """
+    try:
+        if left == right:
+            return True
+        difference = left - right
+        if expand(difference) == 0:
+            return True
+        if difference.is_rational_function() is True and cancel(difference) == 0:
+            return True
+        if expand(radsimp(difference)) == 0:
+            return True
+        if difference.has(TrigonometricFunction) and expand(expand_trig(difference)) == 0:
+            return True
+    except Exception:  # noqa: BLE001 - any failure just means "not proved here"; simplify decides
+        return False
+    return False
 
 
 # A generator has exactly two symbolic things to prove about every question it
