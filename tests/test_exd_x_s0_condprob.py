@@ -30,16 +30,6 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
     assert shapes - hard, "the exam source adds no shape beyond the hard tier"
 
 
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_exam(s)) == []
-
-
-def test_deterministic():
-    for s in (0, 1, 7, 99):
-        assert _exam(s).to_json() == _exam(s).to_json()
-
-
 def _frac(text):
     return Fraction(text)
 

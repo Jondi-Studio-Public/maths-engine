@@ -22,13 +22,6 @@ def _hard(seed):
     return make("expand_binomial_product_monic", seed=seed, difficulty="hard")
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(_hard(s)) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
 def _key_from_prompt(text):
     body = re.search(r"(\(.*\)(?:\^2)?)", text).group(1)
     body = body.replace("^", "**")

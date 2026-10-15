@@ -74,11 +74,6 @@ def test_deterministic_at_every_tier():
             assert _gen(tier, seed).to_json() == _gen(tier, seed).to_json()
 
 
-def test_unknown_tier_raises():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=1, tier="bogus")
-
-
 # ------------------------------------------------------------------ the real grader
 
 

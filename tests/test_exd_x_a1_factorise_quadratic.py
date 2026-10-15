@@ -24,18 +24,6 @@ def _parse(text):
     return parse_expr(text.replace("^", "**"), transformations=_TRANSFORMS)
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("factorise_quadratic", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = _exam(seed)
@@ -71,7 +59,3 @@ def test_prompt_typed_back_is_rejected():
         shapes.add("x^4" in prompt_expr)
         assert not grade(q, prompt_expr).correct, (seed, q.text)
     assert shapes == {True, False}
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

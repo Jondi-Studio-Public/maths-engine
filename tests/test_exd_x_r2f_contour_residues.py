@@ -65,12 +65,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_shape(questions):
     for q in questions[:60]:
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
@@ -78,18 +72,6 @@ def test_shape(questions):
         assert [p.follow_through is not None for p in q.parts] == [False, True, True, True]
         assert [p.answer_kind for p in q.parts] == ["fraction", "fraction", "expression", "expression"]
         assert all(len(p.distractors) >= 2 and p.option_notes for p in q.parts)
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("p15e_contour_integral_residue", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects(questions):
-    for q in questions[:60]:
-        assert find_text_defects(q) == []
 
 
 def test_oracle_agrees(questions):
@@ -172,16 +154,6 @@ def test_all_wrong_earns_zero(questions):
     for q in questions[:40]:
         result = grade(_SKILL, q, {"a": "99", "b": "5/13", "c": "pi", "d": "7*I"})
         assert result.marks == 0 and not result.correct
-
-
-def test_answer_space(questions):
-    tuples = Counter(q.answer_text for q in questions)
-    assert len(tuples) >= 100
-    assert max(tuples.values()) / len(questions) <= 0.05
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()
 
 
 def test_chain_is_not_copyable():

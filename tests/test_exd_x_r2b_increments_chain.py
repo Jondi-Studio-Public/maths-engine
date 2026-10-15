@@ -56,10 +56,6 @@ def test_prompt_shapes():
     sup.assert_shapes(SKILL_ID, TOPIC)
 
 
-def test_answer_space():
-    sup.assert_answer_space(TOPIC)
-
-
 def test_key_matches_independent_derivation():
     for seed in SEEDS:
         q = sup.exam_question(TOPIC, seed)

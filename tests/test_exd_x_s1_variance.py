@@ -41,18 +41,6 @@ def _oracle(text):
     return _var([int(a) * v + shift for v in values], weights)
 
 
-def test_shapes_over_60_seeds_and_new_over_hard():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("finite_distribution_variance", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == []
-
-
 def test_independent_oracle_agrees_over_300_seeds():
     bad = []
     for s in range(300):

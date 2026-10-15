@@ -24,14 +24,6 @@ def oracle(q):
     }
 
 
-def test_shapes():
-    c.check_shapes(TOPIC, SKILL_ID)
-
-
-def test_source_wired():
-    c.check_source_wired(TOPIC, SKILL_ID)
-
-
 def test_key_rederived_from_prompt():
     c.check_oracle(TOPIC, oracle)
 

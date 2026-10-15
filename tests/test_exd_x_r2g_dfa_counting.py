@@ -57,10 +57,6 @@ def oracle(q):
 CHECKS = standard_checks(TOPIC, SKILL, oracle, LABELS, MARKS, {"d"}, "p15d_automaton_acceptance")
 
 
-def test_source_wired():
-    CHECKS["wired"]()
-
-
 def test_shape_and_text():
     CHECKS["shape"]()
 
@@ -79,14 +75,6 @@ def test_composed_answer_earns_full_marks():
 
 def test_distractors_rejected_and_tagged():
     CHECKS["distractors_rejected"]()
-
-
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()
 
 
 def test_follow_through_from_wrong_count():

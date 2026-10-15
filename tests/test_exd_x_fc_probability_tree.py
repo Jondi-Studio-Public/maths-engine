@@ -37,14 +37,6 @@ def oracle(q):
     return first[0], second[1][1], both_first, both_first + first[1] * second[1][1]
 
 
-def test_source_wired():
-    check_wired(SKILL_ID, TOPIC)
-
-
-def test_prompt_variety_and_new_shapes_over_hard_tier():
-    check_shapes(TOPIC, "fig_prob_tree")
-
-
 def test_clean_and_deterministic():
     check_clean_and_deterministic(TOPIC)
 
@@ -94,10 +86,6 @@ def test_grading_and_distractors():
     check_grading(SKILL_ID, TOPIC, 120)
 
 
-def test_answer_space():
-    check_answer_space(TOPIC, distinct=50)
-
-
 def test_follow_through_from_wrong_first_branch():
     """Using the other colour's probability for (a) carries through (c), and (d) when (b) is right."""
 
@@ -119,8 +107,3 @@ def test_follow_through_from_wrong_second_branch():
         return "b", rational_text(wrong_b), {"d": rational_text(wrong_d)}
 
     check_follow_through(SKILL_ID, TOPIC, carried, 60)
-
-
-def test_unknown_tier_rejected():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=0, tier="nonsense")

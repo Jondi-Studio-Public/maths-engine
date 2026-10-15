@@ -39,17 +39,6 @@ def _canon(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC] and exam[0].stages == ["exam"]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD[0], seed=s, **HARD[1])) for s in range(60)}
-    assert len(exam) >= 3 and exam - hard
-
-
 def test_the_percentage_is_never_a_benchmark(questions):
     for q in questions:
         assert int(re.search(r"with (\d+)% off", q.stem).group(1)) not in (10, 25, 50)
@@ -92,8 +81,3 @@ def test_follow_through_from_wrong_discount(questions):
             continue
         result = grade(_SKILL, q, {"a": str(a), "b": str(wrong), "c": str(a - wrong)})
         assert result.parts["b"].marks == 0 and result.parts["c"].marks == 1
-
-
-def test_answer_space(questions):
-    counts = Counter(q.answer_text for q in questions)
-    assert len(counts) >= 100 and counts.most_common(1)[0][1] <= 15

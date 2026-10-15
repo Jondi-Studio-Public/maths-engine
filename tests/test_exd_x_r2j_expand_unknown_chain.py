@@ -66,10 +66,6 @@ def test_oracle_agrees(questions):
         assert sympy.expand(_parse(c["b"]) - sympy.sympify(o["b"])) == 0, q.text
 
 
-def test_answer_space():
-    kit.check_answer_space(SKILL)
-
-
 def test_grading():
     kit.check_grading(SKILL, n=100)
 

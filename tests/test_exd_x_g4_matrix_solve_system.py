@@ -29,11 +29,6 @@ def test_yaml_has_the_exam_source_last():
     assert len(_skill().sources) == 4
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_make(seed)) == []
-
-
 def test_prompt_shapes_are_varied_and_new_over_hard():
     hard = next(s for s in _skill().sources if s.difficulty == "hard")
     hard_shapes = {
@@ -50,10 +45,6 @@ def test_prompt_shapes_are_varied_and_new_over_hard():
     shapes = {prompt_shape(_make(s)) for s in range(60)}
     assert len(shapes) >= 3
     assert len(shapes - hard_shapes) >= 3
-
-
-def test_deterministic():
-    assert _make(7).to_json() == _make(7).to_json()
 
 
 _MAT = re.compile(r"\[(-?\d+) (-?\d+); (-?\d+) (-?\d+)\]")

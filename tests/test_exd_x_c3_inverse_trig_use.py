@@ -28,10 +28,6 @@ def test_text_and_determinism():
     sup.assert_clean_text_and_deterministic(TOPIC)
 
 
-def test_shapes():
-    sup.assert_shapes(SKILL, TOPIC)
-
-
 def test_key_matches_floating_point_evaluation_of_the_rendered_prompt():
     for seed in range(300):
         q = sup.exam_question(TOPIC, seed)

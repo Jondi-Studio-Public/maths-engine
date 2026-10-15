@@ -58,10 +58,6 @@ def wrong_chain(q):
     }
 
 
-def test_no_text_defects():
-    check_no_text_defects(TOPIC)
-
-
 def test_variety_and_new_shapes():
     check_variety(TOPIC, lambda s: make("enlargement_invariants", seed=s, difficulty="hard"))
 
@@ -76,10 +72,6 @@ def test_oracle_agrees():
 
 def test_answer_space():
     check_answer_space(TOPIC)
-
-
-def test_deterministic():
-    check_deterministic(TOPIC)
 
 
 def test_key_accepted_distractors_rejected():

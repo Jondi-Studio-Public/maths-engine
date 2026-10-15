@@ -22,22 +22,6 @@ def _q(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_prompt_variety_and_new_shapes_over_hard():
-    shapes = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD, seed=s, difficulty="hard")) for s in range(60)}
-    assert len(shapes) >= 3, shapes
-    assert shapes - hard, "exam adds no shape beyond the hard tier"
-
-
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == [], s
-
-
-def test_deterministic():
-    assert _q(7).to_json() == _q(7).to_json()
-
-
 _TWO = re.compile(r"has t(\d+) = (-?\d+) and t(\d+) = (-?\d+)\.")
 _SUM = re.compile(r"t(\d+) \+ t(\d+) = (-?\d+) and t(\d+) = (-?\d+)\.")
 _PAR = re.compile(r"are (.+?), (.+?) and (.+?), where k")

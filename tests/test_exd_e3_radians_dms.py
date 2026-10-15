@@ -64,13 +64,6 @@ def _oracle_dms(R: float) -> tuple[int, int]:
 # --- determinism -------------------------------------------------------
 
 
-def test_deterministic_across_seeds():
-    for seed in SEEDS:
-        q1 = make(TOPIC, seed=seed, difficulty=TIER)
-        q2 = make(TOPIC, seed=seed, difficulty=TIER)
-        assert q1.to_json() == q2.to_json()
-
-
 # --- input shape: a genuine pi-multiple, not a bare rational -------------
 
 

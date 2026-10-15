@@ -47,14 +47,6 @@ def questions():
     return [exam(TOPIC, s) for s in range(320)]
 
 
-def test_source_wired():
-    check_wired(SKILL_ID, TOPIC)
-
-
-def test_prompt_variety_and_new_shapes_over_hard_tier():
-    check_shapes(TOPIC, HARD_TOPIC, HARD_KWARGS)
-
-
 def test_clean_and_deterministic():
     check_clean_and_deterministic(TOPIC)
 
@@ -87,10 +79,6 @@ def test_grading_and_distractors():
     check_grading(SKILL_ID, TOPIC, 120)
 
 
-def test_answer_space():
-    check_answer_space(TOPIC)
-
-
 def test_follow_through_from_a_wrong_right_hand_limit():
     """A wrong (b) carried into k and the limit: both later parts earn their marks."""
 
@@ -110,8 +98,3 @@ def test_follow_through_from_a_wrong_right_hand_limit():
         return "b", str(wrong_right), {"c": str(k_wrong), "d": str(limit_wrong)}
 
     check_follow_through(SKILL_ID, TOPIC, carried, 60)
-
-
-def test_unknown_tier_rejected():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=0, tier="nonsense")

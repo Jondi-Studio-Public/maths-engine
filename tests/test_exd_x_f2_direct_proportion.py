@@ -73,11 +73,6 @@ def test_no_bad_text_patterns_over_60_seeds():
         assert defects == [], f"seed={seed}: {defects} ({q.text!r})"
 
 
-def test_prompt_variety_over_60_seeds():
-    shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    assert len(shapes) >= 3, shapes
-
-
 def test_exam_adds_shapes_not_present_in_the_hard_tier():
     hard = {prompt_shape(_hard(s)) for s in range(60)}
     exam = {prompt_shape(_exam(s)) for s in range(60)}

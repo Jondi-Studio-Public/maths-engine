@@ -41,14 +41,6 @@ def oracle(q):
     return missing, in_second, exactly_one, Fraction(shown["AB"], in_second)
 
 
-def test_source_wired():
-    check_wired(SKILL_ID, TOPIC)
-
-
-def test_prompt_variety_and_new_shapes_over_hard_tier():
-    check_shapes(TOPIC, "fig_venn_counts")
-
-
 def test_clean_and_deterministic():
     check_clean_and_deterministic(TOPIC)
 
@@ -88,10 +80,6 @@ def test_grading_and_distractors():
     check_grading(SKILL_ID, TOPIC, 120)
 
 
-def test_answer_space():
-    check_answer_space(TOPIC)
-
-
 def test_follow_through_from_wrong_missing_region():
     """A missing region that is too big carries through the circle total and both probabilities."""
 
@@ -121,8 +109,3 @@ def test_follow_through_from_wrong_circle_total():
         return "b", str(wrong_b), {"d": rational_text(Fraction(both, wrong_b))}
 
     check_follow_through(SKILL_ID, TOPIC, carried, 60)
-
-
-def test_unknown_tier_rejected():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=0, tier="nonsense")

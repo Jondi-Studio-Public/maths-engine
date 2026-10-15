@@ -55,12 +55,6 @@ def test_shape(questions):
         assert all(p.answer_kind == "number" for p in q.parts)
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_oracle_agrees(questions):
     for q in questions:
         assert derive(q) == _canonical(q), q.text
@@ -107,7 +101,3 @@ def test_prompt_shapes_new():
     hard = {prompt_shape(make(hard_src.topic, seed=s, **hard_src.params)) for s in range(60)}
     assert len(exam) >= 3
     assert exam - hard
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()

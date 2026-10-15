@@ -36,10 +36,6 @@ def oracle(q):
     return fp, x_max, f.subs(x, x_max), inflection
 
 
-def test_source_wired():
-    check_wired(SKILL_ID, TOPIC)
-
-
 def test_structure_and_tags():
     check_structure(TOPIC, ["expression", "fraction", "fraction", "fraction"], [2, 2, 1, 1], [False, True, True, True])
 
@@ -94,10 +90,6 @@ def test_follow_through_from_a_wrong_quadratic_derivative():
 
 def test_all_wrong_earns_nothing():
     check_all_wrong_earns_nothing(SKILL_ID, TOPIC, {"a": "x", "b": "999", "c": "123", "d": "-77"})
-
-
-def test_answer_space():
-    check_answer_space(TOPIC)
 
 
 def test_text_is_clean_and_generation_is_deterministic():

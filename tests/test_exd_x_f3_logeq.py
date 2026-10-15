@@ -20,19 +20,6 @@ def _q(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_prompt_variety_and_new_shapes_over_hard():
-    shapes = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("solve_indices_with_logarithms", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(shapes) >= 3, shapes
-    assert shapes - hard
-
-
-def test_no_text_defects_and_deterministic():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == [], s
-    assert _q(5).to_json() == _q(5).to_json()
-
-
 _BASES = re.compile(r"Solve (\d+)\^\(x \+ (\d+)\) = (\d+)\^(?:x|\(x ([+-]) (\d+)\)) for x\.")
 _QUAD = re.compile(r"Solve (\d+)\^\(2x\)(?: ([+-]) (\d+)\(\d+\^x\))? - (\d+) = 0 for x\.")
 

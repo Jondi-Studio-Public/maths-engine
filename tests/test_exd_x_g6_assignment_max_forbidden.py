@@ -33,16 +33,6 @@ def test_variety_and_new_shapes_over_hard_tier():
     assert len(exam - hard) >= 3
 
 
-def test_no_text_defects():
-    for s in range(60):
-        assert find_text_defects(_exam(s)) == []
-
-
-def test_deterministic():
-    for s in (0, 1, 3, 77):
-        assert _exam(s).to_json() == _exam(s).to_json()
-
-
 def test_oracle_matches_key_and_restriction_matters():
     bad = []
     for s in range(300):
