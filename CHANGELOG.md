@@ -29,6 +29,9 @@ Each question's id (below) tells you when the question behind it has changed.
   that option (text wins). The command line does this for you. "Point five" reads as 0.5, and "three and four" is
   two values, not 7. About 140 canonical answers that were wrongly refused (numeric-option multiple choice, 34
   skills such as `count-to-10`) are now right. Every other canonical answer is still accepted.
+- Unit prefixes are read case-sensitively where it matters (#111): `2000 ML` (megalitres) no longer passes for
+  `2000 mL`, and `mPa` or `mHz` (milli spelled with a small m on a mega unit) no longer pass for `MPa` or `MHz`.
+  `2000 ml`, `5 KM` and all-capital `MM` are still read as before.
 - Some questions changed text for the same seed, so their ids change: 11 worked solutions that printed `-3² - 4(6)`
   where `(-3)²` was meant (#104), and the early-years skills rebuilt in #103 (below). `compare-lengths` is now
   picture-based, `f10-compare-measurement-attributes` is renamed "Compare mass and capacity directly" and no longer
@@ -117,6 +120,10 @@ Each question's id (below) tells you when the question behind it has changed.
   `make_questions` now refuses such a seed with a clear `BadRequest`. `skills.validate` reported a crash instead of a
   problem for a `stages` value that is not a list or for nested or string `prerequisites`, and a `domains.yaml` entry
   without an `id` raised a bare `KeyError`; it now raises a `ValueError` naming the file and entry. (#107)
+- Four marking misreads from the engine core bug hunt (#111). A mixed number typed as `1 1/2` was read as 1/2, so
+  a key of 3/2 was rejected and a key of 1/2 accepted; it now reads as 3/2, and `-1 1/2` as -3/2. `e^2`, `log10(x)`
+  and `log2(x)` could not be read. A zero vector never matched a zero key in a matrix scalar multiple, and
+  `(a)5(b)6(c)7` with no spaces was not split into parts. A plain "2 3" is still 2 times 3.
 - A reply of about fifteen characters, such as `sqrt(acos(x)^2)`, held the grader for 40 seconds or more on about a
   hundred expression skills, and `1/0`, `tan(pi/2)`, `log(0)` and `nan` took 3 to 6 seconds on
   `ucv1-heat-equation-mode`; all now grade in under 0.1 seconds. (#104)
