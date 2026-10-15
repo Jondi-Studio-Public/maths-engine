@@ -240,7 +240,8 @@ def _statement(ctx, c, m, fixed=None, step=None, rising=None) -> str:
 @retry_short
 def ey_context_line(rng, tier="easy"):
     """Slope with units, meaning of the intercept, or a statement that gets both right, from a drawn line."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     ctx, c, m, X, Y, s, marks = _draw_line(rng, tier)
     fig = _line_figure(ctx, c, m, X, Y, s, marks)
     y_end = c + m * marks[-1]
@@ -324,7 +325,8 @@ figures.register_reader(CONTEXT, _read_context)
 @retry_short
 def ey_context_line_exam(rng, tier="exam"):
     """Exam chain: the slope, the intercept, a predicted value and the count that gives a stated amount."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a line whose prediction and inverse are whole numbers"):
         ctx, c, m, X, Y, s, marks = _draw_line(rng, "exam")
         if m > 0:
@@ -540,7 +542,8 @@ def _read_tangent_velocity(fig) -> int:
 @retry_short
 def ey_position_tangent(rng, tier="easy"):
     """Velocity from a tangent (forwards, then backwards), or the times and length of backwards movement."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     if tier in ("easy", "medium"):
         want = 1 if tier == "easy" else -1
         for _ in attempts(500, "a curve with a tangent of the wanted direction"):
@@ -632,7 +635,8 @@ figures.register_reader(TANGENT, _read_tangent)
 @retry_short
 def ey_position_tangent_exam(rng, tier="exam"):
     """Exam chain: the velocity at T, both times at rest, the time moving backwards, the average velocity then."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a curve with a tangent and whole average velocity"):
         a, t1, t2, d, T, lo, hi, g = _draw_curve_exam(rng)
         s = _pos(a, t1, t2, d)

@@ -134,7 +134,8 @@ def _eq(b: int, a: int) -> str:
 @retry_short
 def ey_graph_translation(rng, tier="easy"):
     """Read a, b or the matching equation from the graphs of f and g = f(x + b) + a."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     shape, h, k, a, b = _draw_translation(rng, tier)
     fig = _translation_figure(shape, h, k, a, b)
     scale = rng.choice(_SCALE)
@@ -209,7 +210,8 @@ figures.register_reader(TRANSLATION, _read_translation)
 @retry_short
 def ey_graph_translation_exam(rng, tier="exam"):
     """Exam chain: b, then a, then the coordinates of the image of the marked point P."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a translation with a marked point whose image stays on the grid"):
         shape, h, k, a, b = _draw_translation(rng, "hard")
         p = h + rng.choice((-2, -1, 1, 2))
@@ -372,7 +374,8 @@ def _dil_wrong(form: str, v: F) -> list[str]:
 @retry_short
 def ey_graph_dilation(rng, tier="easy"):
     """Read c, k or the matching equation from the graphs of f and a dilation of f."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     scale = rng.choice(_SCALE)
     if tier == "easy":
         kind, m, s, c = rng.choice([r for r in _VERTICAL if r[3] > 0])
@@ -476,7 +479,8 @@ figures.register_reader(DILATION, _read_dilation)
 @retry_short
 def ey_graph_dilation_exam(rng, tier="exam"):
     """Exam chain: k from the x-intercepts, c from the y-intercept, then the image of the marked point P."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a dilation with a marked point whose image stays on the grid"):
         kind, m, s, c, k = rng.choice(_BOTH)
         p = rng.choice([t for t in range(-6, 7) if t != 0 and (F(t) / k).denominator == 1])
@@ -623,7 +627,8 @@ def _distinct_forms(fn) -> bool:
 @retry_short
 def ey_graph_reciprocal_abs(rng, tier="easy"):
     """Identify g (|f|, -f, f(|x|), 1/f) from the two graphs, or read a value of g from the graph of f."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     scale = rng.choice(_SCALE)
     if tier in ("easy", "medium"):
         name = rng.choice(("|f(x)|", "-f(x)") if tier == "easy" else ("f(|x|)", "|f(x)|", "1/f(x)"))
@@ -761,7 +766,8 @@ def _recip_exam_options():
 @retry_short
 def ey_graph_reciprocal_abs_exam(rng, tier="exam"):
     """Exam chain: the asymptotes of 1/f from the zeros of f, their distance apart and the midpoint between them."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     r1, r2, a = rng.choice(_recip_exam_options())
     fn = lambda x: float(a) * (x - r1) * (x - r2)  # noqa: E731
     fig = _plane([sample(fn, label="f")], alt="the graph of f on a coordinate grid, one unit per grid square")
