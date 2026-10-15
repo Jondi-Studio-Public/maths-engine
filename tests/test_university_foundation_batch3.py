@@ -32,7 +32,7 @@ def test_batch3_topics_are_registered_deterministic_and_gradable(topic, answer_k
         assert len(first.distractors) == len(set(first.distractors))
         if answer_kind == "mcq":
             options = grading.mcq_options(first)
-            given = str(options.index(first.answer_text))
+            given = options.index(first.answer_text)
         else:
             given = first.answer_text
         assert grading.grade(answer_kind, first, given).correct

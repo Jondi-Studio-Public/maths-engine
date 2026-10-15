@@ -1,0 +1,44 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: f10-box-nets-on-a-grid
+name: Construct the net of a box on a grid
+domain: primary-geometry-time
+year_level: ['6']
+naplan_domain: [space]
+description: "Construct the net of a box, a rectangular prism, by shading its faces on a square grid. Easy shades a net with the top and bottom both joined to the first face of a row of four side faces. Medium joins the top and bottom to named side faces, so each one is as wide as the face it meets. Hard shows the row of side faces and the top, and asks for the missing bottom joined to a named face, with its size read from the net."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+learner_band: primary
+prerequisites: [f10-nets-build-solids]
+answer: grid_cells
+sources:
+- topic: grid_prism_nets
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_prism_nets
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_prism_nets
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: net-face-wrong-size-for-its-edge
+  description: Draws a top or bottom that is not as wide as the side face it is joined to, so the edges would not meet when the net is folded.
+- id: net-face-missing
+  description: Leaves out the top or the bottom, so the net has five faces and folds into an open box.
+- id: net-side-faces-in-wrong-order
+  description: Puts two wide faces side by side in the row of side faces, so the row does not go round the box.
+- id: net-height-mixed-with-base
+  description: Uses the height of the box as one side of the top or bottom, so the top and bottom are the wrong size.
+- id: net-faces-joined-to-wrong-face
+  description: Joins the top or the bottom to a different side face from the one named, or leaves a gap between them.
+- id: net-bottom-copies-top
+  description: Copies the top, size and turn, for the bottom, even when the bottom is joined to a side face of the other width.
+- id: net-bottom-shifted-along-edge
+  description: Slides the bottom along the edge it is joined to, so it does not sit square with the face above it.
+tags: [acara-f10-v9, primary-geometry-time, grid_prism_nets, ac9m6sp01, nets, prism, drawn-answer, figure]
