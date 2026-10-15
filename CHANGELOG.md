@@ -15,13 +15,24 @@ Each question's id (below) tells you when the question behind it has changed.
 ### Upgrading from 0.1.0
 
 - Many questions differ from 0.1.0 for the same seed: 107 exam tiers became multi-part chains (#72), other exam
-  tiers gained chains (#75, #83, #94), and marking and stem fixes changed some prompts (#82). Store question ids
+  tiers gained chains (#75, #83, #94), and marking and stem fixes changed some prompts (#82, #98). Store question ids
   (below), not just seeds, and use `engine.regenerate` to tell when a stored question has changed.
 - `Part` gained a `sig_figs` field before `seed` (#82). Code that builds a `Part` positionally past
   `sensible_range` must pass `seed` by keyword.
 - Marking is stricter where the question asks for it (#82): a decimal or unreduced fraction is wrong where lowest
   terms or simplest form is asked, a reply with more significant figures than asked is wrong, and a reply in a
   unit other than the one asked for is wrong. Every canonical answer in the library is still accepted.
+- Marking is stricter again (#104). An expression around the value (`sqrt(9)`, `9!`, `9%`, `f(9)`, `2*9`) is wrong
+  for an answer of 9, and so is a doubting reply ("not 9", "9 is wrong", "maybe 9", "no 9"). A multiple-choice
+  reply takes only an option index, a label (`B`, `(b)`) or the whole option text. **Send an option index as an
+  integer, not a digit string**: where the options are themselves numbers, a string equal to an option's text picks
+  that option (text wins). The command line does this for you. "Point five" reads as 0.5, and "three and four" is
+  two values, not 7. About 140 canonical answers that were wrongly refused (numeric-option multiple choice, 34
+  skills such as `count-to-10`) are now right. Every other canonical answer is still accepted.
+- Some questions changed text for the same seed, so their ids change: 11 worked solutions that printed `-3² - 4(6)`
+  where `(-3)²` was meant (#104), and the early-years skills rebuilt in #103 (below). `compare-lengths` is now
+  picture-based, `f10-compare-measurement-attributes` is renamed "Compare mass and capacity directly" and no longer
+  asks about length or duration, and no skill now covers comparing durations directly.
 
 ### Added
 
@@ -57,6 +68,15 @@ Each question's id (below) tells you when the question behind it has changed.
     (#77), and linear algebra, Taylor polynomials, series tests and ODEs (#79).
   - Second-year university: abstract algebra, numerical methods, probability and statistics, and discrete
     mathematics (#93).
+- **Grid figures and shaded-cell answers.** A `grid_drawing` figure kind draws scale drawings, maps with grid
+  references, stacks of cubes, nets and plan or elevation views. A `grid_cells` answer kind lets a learner answer by
+  shading cells, with four match modes (exact, translate, congruent and cube net). 17 skills use them: 13 are
+  active, and 4 shading skills are deferred until the visual-construction gate is benchmarked. (#90)
+- **Early-years figures and read-aloud.** Five new figure kinds (`shape_scene`, `pattern_strip`, `tally`,
+  `calendar`/`day_strip` and `compare_picture`) have SVG renderers, and a `read_aloud` skill flag marks skills whose
+  prompts are at most 15 words. 22 new and 6 rewritten Foundation to Year 2 skills use them for shapes, patterns,
+  data, calendars and measurement comparison, and seven new senior graph-reading skills reuse the cartesian,
+  dot-plot and histogram figures. (#103)
 - **Exam chains.** 13 graph-reading, box-plot and time skills (#83) and the tree-diagram, Venn and stem-and-leaf
   skills (#75) gain multi-part exam questions with follow-through, marks and tagged distractors.
 - **Year levels for senior skills.** `year_level` is now filled for 269 senior skills from ACARA's unit pages
@@ -64,6 +84,10 @@ Each question's id (below) tells you when the question behind it has changed.
 - **Grader.** `|x - 1| < 4` is read as an inequality, a row or column vector may carry a transpose mark
   (`(2, 3)^T`), a fraction reply may carry the unit asked for or a leading `$`, and a labelled reply such as
   `P(red) = 1/8` is accepted. (#82)
+- **A shared quality contract for exam generators.** Every exam generator is now checked the same way: at least 100
+  distinct answers with none above 5%, no text defects, three or more prompt shapes, well-formed parts and
+  determinism. Known gaps are pinned in a shrink-only `tests/generator_contract_baseline.yaml`. The check found
+  `exd_x_sc3_apply_rule_chain` saying "1 seconds", now "1 second". (#89)
 - An unknown topic or skill now suggests the closest names (`did you mean 'quadratic'?`), from `mathgen.make`
   and from the command line. (#86)
 - Python 3.14 is listed as supported. The generators and skills were checked on it. (#86)
@@ -84,11 +108,27 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Fixed
 
+- Figures: tick, axis and point labels no longer have curves struck through them, a step graph draws the filled dot at
+  its closed end, side-length labels sit clear of the edge, and curve labels that left the frame are kept inside.
+  Only the picture changes, never a question, key or grader. (#102)
+- A seed near 2**63 issued a question id the server then refused to grade when `MATHS_API_ID_SECRET` is set;
+  `make_questions` now refuses such a seed with a clear `BadRequest`. `skills.validate` reported a crash instead of a
+  problem for a `stages` value that is not a list or for nested or string `prerequisites`, and a `domains.yaml` entry
+  without an `id` raised a bare `KeyError`; it now raises a `ValueError` naming the file and entry. (#107)
+- A reply of about fifteen characters, such as `sqrt(acos(x)^2)`, held the grader for 40 seconds or more on about a
+  hundred expression skills, and `1/0`, `tan(pi/2)`, `log(0)` and `nan` took 3 to 6 seconds on
+  `ucv1-heat-equation-mode`; all now grade in under 0.1 seconds. (#104)
 - A multi-part reply of `0` (the first option's index, or an answer of zero) was read as an empty box and earned
   no marks. (#88)
 - Four exam generators failed on a few seeds when a slip coincided with the answer; they now draw again. (#97)
 - `f10-rational-operation-strategy` (medium) gave a wrong answer key on 299 of 300 seeds, offering the true answer
-  as a wrong option. The key now matches the question on every seed. (#98)
+  as a wrong option. The key now matches the question on every seed. Worked solutions in 13 other skills printed
+  wrong or garbled text with right keys (a skipped division, negatives without brackets, `|r| <= -1`, "1 steps");
+  they read correctly now. (#98)
+- A prerequisite cycle made `gaps_before` loop forever; it now raises `ValueError`. A space between digits in a typed
+  reply ("2 000", "3 4") was read as a product, so `x > 2 000` earned full marks against `x > 0`; it is no longer a
+  product, and mixed numbers such as "2 1/2" still read. A lone surrogate in a JSON string made the HTTP API answer
+  500; it now answers 422. A space after `author:` in `MATHS_API_KEYS` kept the key from ever matching. (#100)
 - Marking and stem defects found by an audit of the exam chains and university skills: a correct reply with the
   unit written out (`100 s`) or as an exact fraction could score nothing, a wrong unit could score full marks,
   a reply that was not text raised instead of being marked wrong, and several stems used a rounded earlier
