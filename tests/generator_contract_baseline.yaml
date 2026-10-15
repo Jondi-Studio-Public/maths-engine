@@ -1037,6 +1037,8 @@ answer_space:
   exd_x_u2_sequence_limits: [45, 19]
   ey_context_line_exam: [162, 22]
   ey_graph_reciprocal_abs_exam: [8, 43]
+  ey_position_tangent_exam: [4, 107]
+  ey_sample_variability_exam: [18, 68]
   f10_linear_conjecture: [27, 164]
   find_the_equation_of_a_straight_line_given: [74, 9]
   find_the_surface_area_of_pyramids_such_as: [17, 33]
