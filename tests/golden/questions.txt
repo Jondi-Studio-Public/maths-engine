@@ -6634,9 +6634,9 @@
 {"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/0/10d1a3cbabbe", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
 {"answer": "g(x) = -f(x)", "id": "senior-graph-reciprocal-abs-compare/easy/1/f42b07977ae6", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
 {"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/2/b845ede63172", "text": "The graph of g is the graph of f reflected in an axis, in part or in whole. Bot…"}
-{"answer": "(a) -5; (b) -1; (c) 4; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/0/11d072416b2c", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
-{"answer": "(a) 1; (b) 5; (c) 4; (d) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/190d0c13ead0", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
-{"answer": "(a) -4; (b) -2; (c) 2; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/2/91e23ef68d49", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -2; (b) 0; (c) 2; (d) -1; (e) 3", "id": "senior-graph-reciprocal-abs-compare/exam/0/c52f771c9979", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -6; (b) -4; (c) 2; (d) -5; (e) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/c0eff1729a4e", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -2; (b) 0; (c) 2; (d) -1; (e) -4", "id": "senior-graph-reciprocal-abs-compare/exam/2/821ba4bfa371", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
 {"answer": "-1", "id": "senior-graph-reciprocal-abs-compare/hard/0/2c8ad3864361", "text": "Here g(x) = f(|x|), and the graph of f is drawn. Each grid square is 1 unit on …"}
 {"answer": "1/2", "id": "senior-graph-reciprocal-abs-compare/hard/1/3066d58eb382", "text": "Here g(x) = 1/f(x), and the graph of f is drawn. Both axes have 1 unit per grid…"}
 {"answer": "3", "id": "senior-graph-reciprocal-abs-compare/hard/2/1fe028ce547b", "text": "The graph of f is drawn. Let g(x) = |f(x)|. Both axes have 1 unit per grid squa…"}
@@ -6648,7 +6648,7 @@
 {"answer": "rises by $10 per GB", "id": "senior-graph-slope-intercept-meaning/easy/2/e41327705d0d", "text": "A phone plan has a monthly fee plus a charge for each GB of extra data. The gra…"}
 {"answer": "(a) 1; (b) 2; (c) 15; (d) 18", "id": "senior-graph-slope-intercept-meaning/exam/0/04af758d2355", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
 {"answer": "(a) 30; (b) 10; (c) 280; (d) 14", "id": "senior-graph-slope-intercept-meaning/exam/1/058b0d84b5a7", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
-{"answer": "(a) -20; (b) 100; (c) 60; (d) 4", "id": "senior-graph-slope-intercept-meaning/exam/2/b1a69d019a2a", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "(a) -20; (b) 100; (c) 60; (d) 4", "id": "senior-graph-slope-intercept-meaning/exam/2/dbdbd403f8c7", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
 {"answer": "The booking fee is $10, and each extra day adds $15", "id": "senior-graph-slope-intercept-meaning/hard/0/75c76abd270a", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
 {"answer": "The charge at the start is 100%, and it falls by 10% each h…", "id": "senior-graph-slope-intercept-meaning/hard/1/ac493513ba2c", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
 {"answer": "The booking fee is $50, and each extra day adds $20", "id": "senior-graph-slope-intercept-meaning/hard/2/e57a99931e00", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
@@ -7141,9 +7141,9 @@
 {"answer": "40°N, 170°W", "id": "senior-latitude-longitude-grid-places/easy/0/103917825edf", "text": "Find place B on the map grid. Which choice gives its latitude, then its longitu…"}
 {"answer": "30°N, 120°E", "id": "senior-latitude-longitude-grid-places/easy/1/8e7ffb030af3", "text": "Each square on the map grid is 10 degrees. What are the latitude and longitude …"}
 {"answer": "20°S, 160°E", "id": "senior-latitude-longitude-grid-places/easy/2/f8a2883c4440", "text": "A map has a line every 10 degrees. Give the position of place A as latitude, th…"}
-{"answer": "7770 km", "id": "senior-latitude-longitude-grid-places/exam/0/6746dcfb060f", "text": "A map grid has a line every 10 degrees and shows places A and B. Taking 1 degre…"}
-{"answer": "7770 km", "id": "senior-latitude-longitude-grid-places/exam/1/36467248eff6", "text": "A map grid has a line every 10 degrees and shows places A and B. Taking 1 degre…"}
-{"answer": "8880 km", "id": "senior-latitude-longitude-grid-places/exam/2/e963ed98b1fa", "text": "Places A and B are marked on a map grid with a line every 10 degrees. A plane f…"}
+{"answer": "4440 km", "id": "senior-latitude-longitude-grid-places/exam/0/ba9d1a1e0de6", "text": "Each square of the map grid is 10 degrees. A plane flies due north along a line…"}
+{"answer": "5550 km", "id": "senior-latitude-longitude-grid-places/exam/1/d177c8b1167b", "text": "A map grid has a line every 10 degrees and shows places A and B. Taking 1 degre…"}
+{"answer": "6660 km", "id": "senior-latitude-longitude-grid-places/exam/2/30977dc3b058", "text": "Places A and B are marked on a map grid with a line every 10 degrees. A plane f…"}
 {"answer": "80°", "id": "senior-latitude-longitude-grid-places/hard/0/e8614ff3d02f", "text": "Find the number of degrees of latitude from A to B. The lines on the map grid a…"}
 {"answer": "80°", "id": "senior-latitude-longitude-grid-places/hard/1/cb6d308a592a", "text": "Each square on the map grid is 10 degrees. How many degrees of latitude are the…"}
 {"answer": "70°", "id": "senior-latitude-longitude-grid-places/hard/2/215b8305bf40", "text": "Place A and place B are marked on the map grid, which has a line every 10 degre…"}
@@ -7210,9 +7210,9 @@
 {"answer": "9", "id": "senior-position-time-tangent-velocity/easy/0/e8614c0359ed", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "3", "id": "senior-position-time-tangent-velocity/easy/1/cd934e1cf0c1", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "9", "id": "senior-position-time-tangent-velocity/easy/2/db401c863489", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
-{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/0/bfff87abe2b5", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
-{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/1/059ab70efd07", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
-{"answer": "(a) -3; (b) 1; (c) 3; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/2/ae2c940e530c", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 72; (b) 2; (c) 4; (d) 2; (e) -16", "id": "senior-position-time-tangent-velocity/exam/0/b411ab1fcb9d", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 48; (b) 1; (c) 2; (d) 1; (e) -4", "id": "senior-position-time-tangent-velocity/exam/1/88e2d83501bc", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 27; (b) 1; (c) 3; (d) 2; (e) -6", "id": "senior-position-time-tangent-velocity/exam/2/23bf13334545", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "2", "id": "senior-position-time-tangent-velocity/hard/0/97aaae3e74cf", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "5", "id": "senior-position-time-tangent-velocity/hard/1/ca8953e427bc", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "4", "id": "senior-position-time-tangent-velocity/hard/2/bc5b26a6e7c2", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
@@ -7741,9 +7741,9 @@
 {"answer": "A", "id": "senior-simulated-samples-variability/easy/0/9ba158498543", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
 {"answer": "B", "id": "senior-simulated-samples-variability/easy/1/2264574afeff", "text": "Two machines each filled 40 bottles. The histograms show the volume in each bot…"}
 {"answer": "A", "id": "senior-simulated-samples-variability/easy/2/1bf4796f92f7", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
-{"answer": "(a) 31; (b) 46; (c) 15; (d) 0.92", "id": "senior-simulated-samples-variability/exam/0/8d01695b60c3", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
-{"answer": "(a) 34; (b) 48; (c) 14; (d) 0.96", "id": "senior-simulated-samples-variability/exam/1/2814a2581bed", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
-{"answer": "(a) 27; (b) 45; (c) 18; (d) 0.90", "id": "senior-simulated-samples-variability/exam/2/67b66005af84", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 5; (b) 14; (c) 9; (d) 0.70", "id": "senior-simulated-samples-variability/exam/0/56306f13399c", "text": "Each display shows 20 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 6; (b) 15; (c) 9; (d) 0.75", "id": "senior-simulated-samples-variability/exam/1/7cf67cc78dc0", "text": "Each display shows 20 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 25; (b) 40; (c) 15; (d) 0.80", "id": "senior-simulated-samples-variability/exam/2/3a19d4862acb", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
 {"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/0/5af776e52aaf", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
 {"answer": "Uniform: every value about equally likely", "id": "senior-simulated-samples-variability/hard/1/b719bbca7a3e", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
 {"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/2/92dfb5d2a82b", "text": "The histogram shows 60 values simulated from one source. Which source is the mo…"}

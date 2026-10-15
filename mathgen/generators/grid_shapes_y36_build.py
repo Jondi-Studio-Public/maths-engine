@@ -955,8 +955,23 @@ def grid_latlong_exam(rng):
     """The distance north-south between two places on a map grid, from their latitudes and 111 km a degree."""
 
     def build(r):
-        a, b = _opposite(r)
-        fig = _map_figure(_HARD_LAT0, _HARD_LON0, _HARD_W, _HARD_H, {"A": a, "B": b}, every=2)
+        # the map is 8 to 16 squares high and 12 wide, anywhere on the globe, with the equator on one of its lines;
+        # A and B sit on opposite sides of the equator, 2 to 14 squares apart, so the distance takes many values
+        h, w = r.randint(8, 16), 12
+        equator = r.randint(max(3, h - 9), min(h - 3, 9))  # 90 degrees at most each side
+        lat0, lon0 = -10 * equator, 10 * r.randint(-18, 6)
+        gap = r.randint(2, h - 2)
+        pairs = [(y, y + gap) for y in range(1, h - gap) if y < equator < y + gap]
+        if not pairs:
+            return None
+        ya, yb = r.choice(pairs)
+        xa, xb = r.sample(range(1, w), 2)
+        if abs(xa - xb) < 2:
+            return None
+        a, b = (lat0 + 10 * ya, lon0 + 10 * xa), (lat0 + 10 * yb, lon0 + 10 * xb)
+        if r.random() < 0.5:
+            a, b = b, a
+        fig = _map_figure(lat0, lon0, w, h, {"A": a, "B": b}, every=2)
         d_lon, d_lat = abs(a[1] - b[1]), abs(a[0] - b[0])
         km = 111 * d_lat
         text = phrase(
