@@ -45,7 +45,7 @@ def _q(skill_id, tier, seed):
 
 
 def _is_right(q, text):
-    return grade("mcq", q, str(mcq_options(q).index(text))).correct
+    return grade("mcq", q, mcq_options(q).index(text)).correct
 
 
 # ------------------------------------------------------------------ the skill files

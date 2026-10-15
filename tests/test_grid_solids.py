@@ -55,7 +55,7 @@ def _gen(skill_id, tier, seed):
 def _grade_given(skill_id, q, text):
     """Grade an option the way a client does: an mcq option is sent by its index."""
     if SKILLS[skill_id][0] == "mcq":
-        return grade("mcq", q, str(mcq_options(q).index(text)))
+        return grade("mcq", q, mcq_options(q).index(text))
     return grade("number", q, text)
 
 
