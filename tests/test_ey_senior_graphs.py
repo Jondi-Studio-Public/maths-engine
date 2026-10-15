@@ -109,7 +109,7 @@ def _q(skill_id, tier, seed):
 def _is_right(skill_id, q, text):
     kind = SKILLS[skill_id][3]
     if kind == "mcq" and not getattr(q, "parts", None):
-        return grade("mcq", q, str(mcq_options(q).index(text))).correct
+        return grade("mcq", q, mcq_options(q).index(text)).correct
     return grade(kind, q, text).correct
 
 
