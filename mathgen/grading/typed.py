@@ -1956,9 +1956,39 @@ def _too_costly_to_parse(candidate: str) -> bool:
     return too_costly(candidate, transformations=_TRANSFORMATIONS)
 
 
+# A mixed number inside an expression: "1 1/2", "x - 2 3/4", "(1 1/2, 3)". It stands where a whole operand can
+# start (the start, or after + - ( , =) and ends where one can end, so "2 3" (implicit multiplication) and
+# "x^2 3/4" are read as before.
+_MIXED_OPERAND_RE = re.compile(r"(^|[+\-(,=])(\s*)(\d+)[ \t]+(\d+)[ \t]*/[ \t]*(\d+)(?=\s*(?:$|[+\-),=]))")
+# "log10(x)", "log_10(x)", "log2(x)", "log_2(x)": a base written into the name.
+_LOG_BASE_RE = re.compile(r"\blog_?(10|2)\s*\(")
+
+
+def _mixed_numbers(text: str) -> str:
+    """`text` with each mixed number written as a sum ("1 1/2" -> "(1+1/2)") so it is not read as 1 * 1/2."""
+    return _MIXED_OPERAND_RE.sub(lambda m: f"{m[1]}{m[2]}({m[3]}+{m[4]}/{m[5]})", text)
+
+
+def _log_bases(text: str) -> str:
+    """`text` with "log10(x)" and "log2(x)" written as sympy's "log(x, 10)" and "log(x, 2)". A call whose brackets
+    never close is left as it is (it is unreadable anyway)."""
+    while True:
+        found = _LOG_BASE_RE.search(text)
+        if found is None:
+            return text
+        depth, i = 1, found.end()
+        while i < len(text) and depth:
+            depth += {"(": 1, ")": -1}.get(text[i], 0)
+            i += 1
+        if depth:
+            return text
+        text = f"{text[: found.start()]}log({text[found.end() : i - 1]}, {found.group(1)}){text[i:]}"
+
+
 def _sympy_text(text: str) -> str | None:
     """`text` rewritten for sympy's parser, or None when the learner notation has no single reading."""
-    candidate = _normalize_learner_notation(_round_brackets(text).translate(_MULTIPLICATION_SIGNS))
+    text = _log_bases(_mixed_numbers(_round_brackets(text)))
+    candidate = _normalize_learner_notation(text.translate(_MULTIPLICATION_SIGNS))
     if candidate is None:
         return None  # no single reading: never guess, never hand it to the spoken fallback
     candidate = _bars_to_abs(candidate)
