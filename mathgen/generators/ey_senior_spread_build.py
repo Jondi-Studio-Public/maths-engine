@@ -194,7 +194,8 @@ def _hard_statement(g, m) -> str:
 @retry_short
 def ey_dot_plot_spread(rng, tier="easy"):
     """Describe the spread of a dot plot in words that are tied to what the dots do."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     scene, label, low = _scene(rng)
     if tier in ("easy", "medium"):
         kind = rng.choice(("tight", "spread") if tier == "easy" else tuple(_BUILD))
@@ -283,7 +284,8 @@ figures.register_reader(DOTS, _read_dots)
 @retry_short
 def ey_dot_plot_spread_exam(rng, tier="exam"):
     """Exam chain: the outlier, the top of the main cluster, the size of the gap and the range of all the data."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     scene, label, low = _scene(rng)
     for _ in attempts(200, "a cluster with an outlier"):
         try:
@@ -450,6 +452,18 @@ def _proportions_counts(rng, n_trials: int, p: F, total: int = 50) -> list[int]:
     return _jitter(rng, _apportion(_binomial_classes(n_trials, p, total), total))
 
 
+def _simulated_proportions(rng, n_trials: int, total: int) -> list[int]:
+    """Class counts of ``total`` simulated sample proportions of heads, each from ``n_trials`` fair tosses."""
+    counts = [0] * 10
+    for _ in range(total):
+        heads = rng.getrandbits(n_trials).bit_count()
+        counts[min(9, heads * 10 // n_trials)] += 1
+    return counts
+
+
+# (small, large) sample sizes of the exam display pair, and how many sample proportions each display holds
+_EXAM_SIZES = ((16, 64), (25, 100), (20, 80), (9, 36), (10, 40), (15, 60), (12, 48), (30, 120), (36, 144))
+_EXAM_TOTALS = (20, 25, 50)
 _EDGES_PROP = [round(i / 10, 1) for i in range(11)]
 _EDGES_10 = list(range(11))
 _SOURCES = {
@@ -511,7 +525,8 @@ def _classify_source(panel: dict) -> str:
 @retry_short
 def ey_sample_variability(rng, tier="easy"):
     """Compare the spread of simulated samples, or name the source of a simulated sample."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     if tier == "hard":
         kind = rng.choice(tuple(_SOURCES))
         n = rng.choice((50, 60))
@@ -636,14 +651,15 @@ figures.register_reader(SAMPLES, _read_samples)
 @retry_short
 def ey_sample_variability_exam(rng, tier="exam"):
     """Exam chain: the values in the central band of each display, how many more, and the proportion."""
-    check(tier == "exam", f"unknown tier {tier!r}")
-    n_small, n_big = rng.choice(((16, 64), (25, 100), (20, 80)))
-    p = F(1, 2)
-    for _ in attempts(200, "two displays whose central bands differ"):
-        small = _proportions_counts(rng, n_small, p)
-        big = _proportions_counts(rng, n_big, p)
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
+    n_small, n_big = rng.choice(_EXAM_SIZES)
+    total = rng.choice(_EXAM_TOTALS)
+    for _ in attempts(500, "two displays whose central bands differ"):
+        small = _simulated_proportions(rng, n_small, total)
+        big = _simulated_proportions(rng, n_big, total)
         band_s, band_b = small[4] + small[5], big[4] + big[5]
-        if band_b - band_s >= 4 and band_b < 50:
+        if band_b - band_s >= max(3, total // 10) and band_b < total:
             break
     fig = _histogram(
         [("Display A", small, _EDGES_PROP), ("Display B", big, _EDGES_PROP)],
@@ -651,11 +667,11 @@ def ey_sample_variability_exam(rng, tier="exam"):
         "two histograms of sample proportions from simulated coin tosses",
     )
     text = (
-        f"Each display shows 50 sample proportions of heads from simulated tosses of a fair coin. "
+        f"Each display shows {total} sample proportions of heads from simulated tosses of a fair coin. "
         f"Display A used samples of {n_small} tosses and display B used samples of {n_big} tosses."
     )
     diff = band_b - band_s
-    proportion = F(band_b, 50)
+    proportion = F(band_b, total)
     parts = [
         num_part(
             "How many values in display A are from 0.4 up to (but not including) 0.6?",
@@ -677,12 +693,12 @@ def ey_sample_variability_exam(rng, tier="exam"):
             working=[f"{band_b} - {band_s} = {diff}."],
         ),
         num_part(
-            "Hence find the proportion of display B's 50 values in that band, as a decimal.",
+            f"Hence find the proportion of display B's {total} values in that band, as a decimal.",
             proportion,
-            [F(band_s, 50), F(diff, 50), F(band_b, 100)],
+            [F(band_s, total), F(diff, total), F(band_b, 2 * total)],
             places=2,
-            follow="part_b/50",
-            working=[f"{band_b} / 50 = {float(proportion):.2f}."],
+            follow=f"part_b/{total}",
+            working=[f"{band_b} / {total} = {float(proportion):.2f}."],
         ),
     ]
     figures.assert_no_leak(fig, [str(band_s), str(band_b), str(diff)])
@@ -694,7 +710,8 @@ def _read_samples_exam(question) -> str:
     bands = [p["frequencies"][4] + p["frequencies"][5] for p in panels]
     from ..core import round_half_up, stated_precision_string
 
-    prop = stated_precision_string(round_half_up(F(bands[1], 50), 2), 2)
+    total = sum(panels[1]["frequencies"])
+    prop = stated_precision_string(round_half_up(F(bands[1], total), 2), 2)
     return f"(a) {bands[0]}; (b) {bands[1]}; (c) {bands[1] - bands[0]}; (d) {prop}"
 
 
