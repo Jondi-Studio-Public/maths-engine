@@ -13,7 +13,7 @@ What the other library-wide tests already cover, and so is NOT repeated here:
   tier of every topic: `tests/test_mathgen_contract.py::test_determinism`;
 - text defects, prompt-shape variety and distinct-question counts of every BUILD topic at every tier:
   `tests/mathgen_sweep_cases.py`;
-- an exam source adds a prompt shape the lower tiers lack: `tests/test_mathgen_variety.py::test_tier_escalation`
+- an exam source adds a prompt shape the lower tiers lack: `tests/test_mathgen_variety.py::test_tier_escalation_part_0` and `_part_1`
   (the exam source is the last source of its skill, so it is held against the union of every lower tier);
 - the real grader accepts the key and rejects every distractor: `scripts/skill_contract.check_grader`.
 

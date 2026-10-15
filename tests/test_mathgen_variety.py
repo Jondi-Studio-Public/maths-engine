@@ -2588,8 +2588,7 @@ TIER_ESCALATION_BACKLOG: dict[str, str] = {}
 _TIER_TESTABLE_IDS = sorted(set(_TIER_QUALIFYING_SKILLS) - set(TIER_ESCALATION_BACKLOG))
 
 
-@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS)
-def test_tier_escalation(skill_id):
+def _check_tier_escalation(skill_id):
     skill = _TIER_QUALIFYING_SKILLS[skill_id]
     verdict, _adds = _classify_skill(skill, _TIER_SEEDS)
     assert verdict == "escalates", (
@@ -2598,6 +2597,20 @@ def test_tier_escalation(skill_id):
         f"a genuine range-only hard tier (add it to TIER_ESCALATION_BACKLOG "
         f"with the skill/seed evidence) or a fixable one"
     )
+
+
+# Two functions over alternate skills, so the CI sharder (scripts/ci_shard.py, which splits a
+# file by test function and cannot split one function's parameters) can put the two halves in
+# different shards: as one function this was the largest unit of work in the suite. The slices
+# `[0::2]` and `[1::2]` together are every testable skill, once.
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[0::2])
+def test_tier_escalation_part_0(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[1::2])
+def test_tier_escalation_part_1(skill_id):
+    _check_tier_escalation(skill_id)
 
 
 @pytest.mark.parametrize("skill_id", sorted(TIER_ESCALATION_BACKLOG))
