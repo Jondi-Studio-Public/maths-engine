@@ -99,14 +99,24 @@ def load_weights(path: Path = WEIGHTS) -> dict[str, float]:
 def test_function_ids(path: Path) -> list[str]:
     """Every test a module defines, as the names pytest selects them by.
 
-    ``test_fn`` for a module-level function and ``Class::test_fn`` for a method of a ``Test*``
-    class, in source order, each once. A name defined twice is one test (the later definition
+    ``test_fn`` for a module-level function (or a ``test_fn = factory(...)`` assignment) and
+    ``Class::test_fn`` for a method of a ``Test*`` class, in source order, each once. A name defined twice is one test (the later definition
     replaces the earlier), so it is listed once.
     """
     names: list[str] = []
     for node in ast.parse(path.read_text(encoding="utf-8")).body:
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test"):
             names.append(node.name)
+        elif (
+            isinstance(node, ast.Assign)
+            and len(node.targets) == 1
+            and isinstance(node.targets[0], ast.Name)
+            and node.targets[0].id.startswith("test")
+            and isinstance(node.value, ast.Call)
+        ):
+            # ``test_shape = family_test("shape", 4)``: pytest collects a module-level callable
+            # by name, so a test built by a factory is a test function like any other.
+            names.append(node.targets[0].id)
         elif isinstance(node, ast.ClassDef) and node.name.startswith("Test"):
             names += [
                 f"{node.name}::{item.name}"

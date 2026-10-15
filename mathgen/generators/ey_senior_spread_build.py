@@ -194,7 +194,8 @@ def _hard_statement(g, m) -> str:
 @retry_short
 def ey_dot_plot_spread(rng, tier="easy"):
     """Describe the spread of a dot plot in words that are tied to what the dots do."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     scene, label, low = _scene(rng)
     if tier in ("easy", "medium"):
         kind = rng.choice(("tight", "spread") if tier == "easy" else tuple(_BUILD))
@@ -283,7 +284,8 @@ figures.register_reader(DOTS, _read_dots)
 @retry_short
 def ey_dot_plot_spread_exam(rng, tier="exam"):
     """Exam chain: the outlier, the top of the main cluster, the size of the gap and the range of all the data."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     scene, label, low = _scene(rng)
     for _ in attempts(200, "a cluster with an outlier"):
         try:
@@ -511,7 +513,8 @@ def _classify_source(panel: dict) -> str:
 @retry_short
 def ey_sample_variability(rng, tier="easy"):
     """Compare the spread of simulated samples, or name the source of a simulated sample."""
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     if tier == "hard":
         kind = rng.choice(tuple(_SOURCES))
         n = rng.choice((50, 60))
@@ -636,7 +639,8 @@ figures.register_reader(SAMPLES, _read_samples)
 @retry_short
 def ey_sample_variability_exam(rng, tier="exam"):
     """Exam chain: the values in the central band of each display, how many more, and the proportion."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     n_small, n_big = rng.choice(((16, 64), (25, 100), (20, 80)))
     p = F(1, 2)
     for _ in attempts(200, "two displays whose central bands differ"):
