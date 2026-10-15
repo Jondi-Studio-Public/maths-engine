@@ -32,7 +32,7 @@ Each question's id (below) tells you when the question behind it has changed.
 - Some questions changed text for the same seed, so their ids change: 11 worked solutions that printed `-3² - 4(6)`
   where `(-3)²` was meant (#104), and the early-years skills rebuilt in #103 (below). `compare-lengths` is now
   picture-based, `f10-compare-measurement-attributes` is renamed "Compare mass and capacity directly" and no longer
-  asks about length or duration, and no skill now covers comparing durations directly.
+  asks about length or duration; `ey-compare-duration` (#108) now covers comparing durations.
 
 ### Added
 
@@ -76,7 +76,9 @@ Each question's id (below) tells you when the question behind it has changed.
   `calendar`/`day_strip` and `compare_picture`) have SVG renderers, and a `read_aloud` skill flag marks skills whose
   prompts are at most 15 words. 22 new and 6 rewritten Foundation to Year 2 skills use them for shapes, patterns,
   data, calendars and measurement comparison, and seven new senior graph-reading skills reuse the cartesian,
-  dot-plot and histogram figures. (#103)
+  dot-plot and histogram figures. (#103) Ten more skills follow (#108): position words, directions, steps and
+  quarter or half turns on a grid, simple maps, Years 3 to 6 plans, turns and nets on a grid, latitude and longitude,
+  and `ey-compare-duration`, which uses a new `durations` layout of `compare_picture`.
 - **Exam chains.** 13 graph-reading, box-plot and time skills (#83) and the tree-diagram, Venn and stem-and-leaf
   skills (#75) gain multi-part exam questions with follow-through, marks and tagged distractors.
 - **Year levels for senior skills.** `year_level` is now filled for 269 senior skills from ACARA's unit pages
