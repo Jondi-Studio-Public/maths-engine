@@ -1,0 +1,45 @@
+id: ey-quarter-half-turns
+name: Find where you face after quarter and half turns
+domain: primary-geometry-time
+year_level: ['2']
+naplan_domain: [measurement]
+learner_band: early
+description: "Read a picture of a ring marked You with an arrow showing which way it faces, make a quarter turn left or right or a half turn, and say which picture you now face or which turn was made."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-follow-directions-grid]
+answer: mcq
+sources:
+- topic: ey_turns
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_turns
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_turns
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Make one quarter turn left or right from facing up the page."}
+  medium: {steps: 2, demand: "Make one quarter or half turn from facing any way, so left and right belong to the one turning."}
+  hard: {steps: 3, demand: "Join two turns, or name the turn that takes you from facing one picture to facing another."}
+misconceptions:
+- id: eyp-left-right-swapped
+  description: "Turns the wrong way, because left and right are taken from the page and not from the way the ring faces."
+- id: eyp-quarter-as-half
+  description: "Turns a half turn when told a quarter turn."
+- id: eyp-half-as-quarter
+  description: "Turns only a quarter turn when told a half turn."
+- id: eyp-no-turn
+  description: "Stays facing the same way after the turn."
+- id: eyp-full-turn
+  description: "Says a turn that ends facing the other way is a full turn."
+- id: eyp-stops-early
+  description: "Does only one of two turns."
+tags: [acara-f10-v9, early, space, turns, direction, ac9m2m05]

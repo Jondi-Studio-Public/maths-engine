@@ -1037,6 +1037,7 @@ answer_space:
   fy1so_exd_series_tests: [55, 12]
   fy1so_exd_taylor_polynomial: [64, 15]
   fy1so_exd_taylor_remainder: [50, 13]
+  grid_latlong_exam: [10, 53]
   index_laws_review: [54, 17]
   linear_equation: [9, 42]
   model_assumption_audit: [78, 10]

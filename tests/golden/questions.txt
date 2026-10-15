@@ -1153,6 +1153,24 @@
 {"answer": "The jug", "id": "ey-compare-capacity-by-cups/medium/0/37185a29ef58", "text": "Each is poured into small cups. Which holds the least?"}
 {"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/1/da1b89c56a3d", "text": "Count the cups poured out. Which holds most?"}
 {"answer": "The bowl", "id": "ey-compare-capacity-by-cups/medium/2/61967bd6fcd5", "text": "Each is poured into small cups. Which holds the most?"}
+{"answer": "The bath", "id": "ey-compare-duration/easy/0/869a39b1a73f", "text": "Look at the boxes. Which one takes longer?"}
+{"answer": "The tidy up", "id": "ey-compare-duration/easy/1/ce64dec07735", "text": "Each box is the same time. Which takes longer?"}
+{"answer": "The sleep", "id": "ey-compare-duration/easy/2/6ba5ca32c31e", "text": "Look at the boxes. Which one takes longer?"}
+{"answer": "The sleep", "id": "ey-compare-duration/hard/0/98ffc1a7c2a2", "text": "They start at different times. Which takes the longest?"}
+{"answer": "The sleep", "id": "ey-compare-duration/hard/1/18f8c1506b76", "text": "They start at different times. Which takes the longest?"}
+{"answer": "The nod, The wave, The wash hands", "id": "ey-compare-duration/hard/2/b73ac6d0661e", "text": "Count the boxes. Which list is shortest time first?"}
+{"answer": "The sleep", "id": "ey-compare-duration/medium/0/366dd8ab6ed0", "text": "Each box is one go. Which one takes longest?"}
+{"answer": "The sing", "id": "ey-compare-duration/medium/1/02b8d3fe1476", "text": "Look at the boxes. Which takes the least time?"}
+{"answer": "The sleep", "id": "ey-compare-duration/medium/2/93c397105bc7", "text": "Each box is one go. Which one takes longest?"}
+{"answer": "3", "id": "ey-count-steps-on-grid/easy/0/014a7f37f087", "text": "How many steps is it along the path to the tent?"}
+{"answer": "2", "id": "ey-count-steps-on-grid/easy/1/31435f641006", "text": "Follow the straight path from the ring. How many steps to the hospital?"}
+{"answer": "2", "id": "ey-count-steps-on-grid/easy/2/4f840d9e6ae5", "text": "How many steps is it along the path to the tree?"}
+{"answer": "7", "id": "ey-count-steps-on-grid/hard/0/3e5d71d43a63", "text": "Walk along the squares. How many steps from the tree to the church?"}
+{"answer": "7", "id": "ey-count-steps-on-grid/hard/1/5a11e3cb30d2", "text": "Nadia walks along the squares from the hospital to the lighthouse. How many ste…"}
+{"answer": "5", "id": "ey-count-steps-on-grid/hard/2/608c551c36c9", "text": "Oscar walks along the squares from the tent to the school. How many steps?"}
+{"answer": "6", "id": "ey-count-steps-on-grid/medium/0/a57256db8af8", "text": "Follow the path from the ring. How many steps is it to the school?"}
+{"answer": "7", "id": "ey-count-steps-on-grid/medium/1/e56b95aaa39e", "text": "Follow the path round the corners. How many steps to the lighthouse?"}
+{"answer": "4", "id": "ey-count-steps-on-grid/medium/2/9e7e6d117b67", "text": "Follow the path from the ring. How many steps is it to the school?"}
 {"answer": "2", "id": "ey-day-strip-sequence/easy/0/c76ce4921814", "text": "Which card comes after Wake up? Say its number."}
 {"answer": "1", "id": "ey-day-strip-sequence/easy/1/2dc4435a68e3", "text": "Hassan looks at the day. What number is the card before Lunch?"}
 {"answer": "2", "id": "ey-day-strip-sequence/easy/2/bf8cb3c52700", "text": "Priyanka looks at the day. What number is the card before Moon?"}
@@ -1162,6 +1180,15 @@
 {"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
 {"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
 {"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
+{"answer": "hospital", "id": "ey-follow-directions-grid/easy/0/407a88f0a8a4", "text": "Go right 2 steps from Start. What is there?"}
+{"answer": "tree", "id": "ey-follow-directions-grid/easy/1/757bf3d11d93", "text": "Begin at Start. Go down 2 steps. What do you find?"}
+{"answer": "house", "id": "ey-follow-directions-grid/easy/2/bc13e8ac9695", "text": "Go down 2 steps from Start. What is there?"}
+{"answer": "house", "id": "ey-follow-directions-grid/hard/0/fce46867cfc3", "text": "From Start, go right 2, down 3, then left 1. What is there?"}
+{"answer": "school", "id": "ey-follow-directions-grid/hard/1/a659320e65bb", "text": "Ava goes down 1, left 1, then up 2 from Start. What does Ava find?"}
+{"answer": "aeroplane", "id": "ey-follow-directions-grid/hard/2/5bd98a83c11f", "text": "Lucas goes right 2, up 3, then left 1 from Start. What does Lucas find?"}
+{"answer": "hospital", "id": "ey-follow-directions-grid/medium/0/e4dcbbdca086", "text": "Kai starts at Start and goes up 2, then left 1. What does Kai find?"}
+{"answer": "tree", "id": "ey-follow-directions-grid/medium/1/d0bafd6c1253", "text": "Nadia starts at Start and goes down 1, then left 2. What does Nadia find?"}
+{"answer": "aeroplane", "id": "ey-follow-directions-grid/medium/2/0e5e062256af", "text": "Begin at Start. Go up 1, then left 3. What do you find?"}
 {"answer": "The torch", "id": "ey-order-by-two-balances/easy/0/3af4cb5f4094", "text": "Look at both balances. Which is heaviest?"}
 {"answer": "The banana", "id": "ey-order-by-two-balances/easy/1/3f8f9a7ff2be", "text": "Which one is the heaviest?"}
 {"answer": "The hat", "id": "ey-order-by-two-balances/easy/2/10c49f75d360", "text": "Which one is the heaviest?"}
@@ -1171,6 +1198,33 @@
 {"answer": "The toy car", "id": "ey-order-by-two-balances/medium/0/3e62b5416981", "text": "Which one is the lightest?"}
 {"answer": "The shoe", "id": "ey-order-by-two-balances/medium/1/9c479ba5527c", "text": "Look at both balances. Which is lightest?"}
 {"answer": "The jar", "id": "ey-order-by-two-balances/medium/2/61afaa5dc8a2", "text": "Look at both balances. Which is lightest?"}
+{"answer": "tent", "id": "ey-position-words-scene/easy/0/b5adb8ab44aa", "text": "Which picture is directly above the tree?"}
+{"answer": "hospital", "id": "ey-position-words-scene/easy/1/415008ff6360", "text": "What is between the aeroplane and the school?"}
+{"answer": "tree", "id": "ey-position-words-scene/easy/2/82b10996ec13", "text": "Which picture is directly left of the aeroplane?"}
+{"answer": "lighthouse", "id": "ey-position-words-scene/hard/0/e6fecba819da", "text": "What is just above the house and just left of the hospital?"}
+{"answer": "tree", "id": "ey-position-words-scene/hard/1/f9daa5d6b56d", "text": "Which picture is between the tent and the house?"}
+{"answer": "tree", "id": "ey-position-words-scene/hard/2/e64fa60e2e03", "text": "What is between the tent and the church?"}
+{"answer": "tent", "id": "ey-position-words-scene/medium/0/35cb13c496f1", "text": "What is directly left of the lighthouse?"}
+{"answer": "school", "id": "ey-position-words-scene/medium/1/9dda85379cdd", "text": "What is directly above the house?"}
+{"answer": "tree", "id": "ey-position-words-scene/medium/2/13faa35822a8", "text": "What is just above the house?"}
+{"answer": "tent", "id": "ey-quarter-half-turns/easy/0/f9891f02aa41", "text": "Ingrid does a quarter turn left. What does Ingrid face now?"}
+{"answer": "church", "id": "ey-quarter-half-turns/easy/1/6e4a0aac915f", "text": "Turn a quarter turn to the left. What do you face now?"}
+{"answer": "church", "id": "ey-quarter-half-turns/easy/2/617e2d46481f", "text": "Turn a quarter turn left. What do you face now?"}
+{"answer": "tent", "id": "ey-quarter-half-turns/hard/0/a278bf37071f", "text": "Make a half turn, then a quarter turn left. What is in front now?"}
+{"answer": "a half turn", "id": "ey-quarter-half-turns/hard/1/7d108612badb", "text": "You turn to face the aeroplane. Which turn is it?"}
+{"answer": "a quarter turn left", "id": "ey-quarter-half-turns/hard/2/a4b1efc74cbb", "text": "You turn to face the hospital. Which turn is it?"}
+{"answer": "school", "id": "ey-quarter-half-turns/medium/0/0cf8a5d777cb", "text": "Make a half turn. What is in front of you now?"}
+{"answer": "church", "id": "ey-quarter-half-turns/medium/1/8e10168efcd6", "text": "Make a quarter turn left. What is in front of you now?"}
+{"answer": "hospital", "id": "ey-quarter-half-turns/medium/2/c6a9c69d643d", "text": "Make a half turn. What is in front of you now?"}
+{"answer": "house", "id": "ey-simple-map-reading/easy/0/6fd3825fcbea", "text": "Which place is on the far left of the map?"}
+{"answer": "church", "id": "ey-simple-map-reading/easy/1/7184c26bda5c", "text": "Which place is at the bottom of the map?"}
+{"answer": "tree", "id": "ey-simple-map-reading/easy/2/40bb74c90901", "text": "Which place is at the top of the map?"}
+{"answer": "the aeroplane and the school", "id": "ey-simple-map-reading/hard/0/ea9e83b8bc38", "text": "Kenji walks along the squares. Which two places are the nearest together?"}
+{"answer": "the aeroplane and the church", "id": "ey-simple-map-reading/hard/1/4855daf03523", "text": "Walk along the squares. Which two places are the closest?"}
+{"answer": "the church and the house", "id": "ey-simple-map-reading/hard/2/3a08f040e038", "text": "Walk along the squares. Which two places are the closest?"}
+{"answer": "lighthouse", "id": "ey-simple-map-reading/medium/0/448aac2627f6", "text": "What is nearest to the tree?"}
+{"answer": "tree", "id": "ey-simple-map-reading/medium/1/e0fab21de3d2", "text": "What is the farthest place from the school?"}
+{"answer": "tent", "id": "ey-simple-map-reading/medium/2/2b757dcf522d", "text": "Which place is farthest from the lighthouse?"}
 {"answer": "17 - 14 = □", "id": "f10-add-subtract-number-sentences/easy/0/49bc200338d6", "text": "There are 17 children in a class. 14 of the children walk to school and the res…"}
 {"answer": "19 - □ = 16", "id": "f10-add-subtract-number-sentences/easy/1/77b88bda6770", "text": "Liam had 19 tickets. Liam gave 16 tickets to a friend. How many tickets does Li…"}
 {"answer": "□ - 15 = 3", "id": "f10-add-subtract-number-sentences/easy/2/aaafad064f0a", "text": "Kai has 3 boxes. A friend gives Kai 15 more. How many boxes does Kai have in to…"}
@@ -1306,6 +1360,15 @@
 {"answer": "150", "id": "f10-base-ten-blocks-number/medium/0/2e2f75e94fc7", "text": "Mia builds a number with flats, rods and cubes. What number is it?"}
 {"answer": "506", "id": "f10-base-ten-blocks-number/medium/1/4c28c5ee9a34", "text": "Diego builds a number with flats, rods and cubes. What number is it?"}
 {"answer": "560", "id": "f10-base-ten-blocks-number/medium/2/9c7e06b74e5a", "text": "Mateo builds a number with flats, rods and cubes. What number is it?"}
+{"answer": "(0, 0) (0, 1) (0, 2) (0, 3) (1, 3) (2, 3) (3, 3) (4, 3) (5,…", "id": "f10-box-nets-on-a-grid/easy/0/396c0acf0a8c", "text": "Shade the net of a box on the grid, which is 9 squares wide and 8 squares tall.…"}
+{"answer": "(0, 1) (1, 1) (2, 1) (0, 2) (1, 2) (2, 2) (3, 2) (4, 2) (5,…", "id": "f10-box-nets-on-a-grid/easy/1/124ba96493c0", "text": "Shade the net of a box on the grid, which is 9 squares wide and 5 squares tall.…"}
+{"answer": "(1, 1) (2, 1) (1, 2) (2, 2) (1, 3) (2, 3) (3, 3) (4, 3) (5,…", "id": "f10-box-nets-on-a-grid/easy/2/2c97b2512a23", "text": "Shade the net of a box on the grid, which is 9 squares wide and 7 squares tall.…"}
+{"answer": "(0, 4) (1, 4) (2, 4) (3, 4) (4, 4)", "id": "f10-box-nets-on-a-grid/hard/0/d0ac2a71292f", "text": "The hatched squares are the net of a box without its bottom face. Shade the bot…"}
+{"answer": "(8, 0) (9, 0) (8, 1) (9, 1) (8, 2) (9, 2)", "id": "f10-box-nets-on-a-grid/hard/1/52fe575f7da0", "text": "The hatched squares are the net of a box without its bottom face. Shade the bot…"}
+{"answer": "(5, 1) (6, 1) (7, 1) (5, 2) (6, 2) (7, 2)", "id": "f10-box-nets-on-a-grid/hard/2/31f584cca707", "text": "A box net is drawn in hatched squares, with the bottom missing. Shade the missi…"}
+{"answer": "(5, 1) (6, 1) (7, 1) (5, 2) (6, 2) (7, 2) (0, 3) (1, 3) (2,…", "id": "f10-box-nets-on-a-grid/medium/0/c0f82b77ab52", "text": "Shade the net of a box on the grid, which is 11 squares wide and 8 squares tall…"}
+{"answer": "(5, 2) (5, 3) (0, 4) (1, 4) (2, 4) (3, 4) (4, 4) (5, 4) (0,…", "id": "f10-box-nets-on-a-grid/medium/1/caa00a65697d", "text": "Shade the net of a box on the grid, which is 7 squares wide and 8 squares tall.…"}
+{"answer": "(3, 2) (4, 2) (3, 3) (4, 3) (3, 4) (4, 4) (0, 5) (1, 5) (2,…", "id": "f10-box-nets-on-a-grid/medium/2/de29d0d24e7b", "text": "Shade the net of a box on the grid, which is 12 squares wide and 8 squares tall…"}
 {"answer": "Q1 = 31, Q3 = 78, IQR = 47", "id": "f10-boxplot-distribution/easy/0/6502482a6201", "text": "A sample of delivery times (minutes), already sorted from smallest to largest, …"}
 {"answer": "Q1 = 63, Q3 = 88, IQR = 25", "id": "f10-boxplot-distribution/easy/1/189d61cc8044", "text": "A sample of test scores (out of 100), already sorted from smallest to largest, …"}
 {"answer": "Q1 = 54, Q3 = 81, IQR = 27", "id": "f10-boxplot-distribution/easy/2/125635cebc16", "text": "Here are 7 test scores (out of 100), listed from smallest to largest: 41, 54, 5…"}
@@ -2176,6 +2239,15 @@
 {"answer": "13 4/5", "id": "f10-mixed-numerals-number-line/medium/0/a2adc1be3a98", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
 {"answer": "16 1/5", "id": "f10-mixed-numerals-number-line/medium/1/a6e99f6ca884", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
 {"answer": "16 2/5", "id": "f10-mixed-numerals-number-line/medium/2/ee10789c334f", "text": "The number line is labelled at its two ends only. What number is marked by P? W…"}
+{"answer": "10", "id": "f10-model-plans-cube-counts/easy/0/9a3fb258bfc1", "text": "A model is built from cubes. The plan shows how many cubes are in each stack. H…"}
+{"answer": "11", "id": "f10-model-plans-cube-counts/easy/1/a8735712c20d", "text": "This plan is a model seen from above. The number on a square is how many cubes …"}
+{"answer": "13", "id": "f10-model-plans-cube-counts/easy/2/1547133ec80e", "text": "A model is built from cubes. The plan shows how many cubes are in each stack. H…"}
+{"answer": "4", "id": "f10-model-plans-cube-counts/hard/0/ffaf716fe080", "text": "34 cubes make this model. The numbers on the plan tell the size of each stack, …"}
+{"answer": "5", "id": "f10-model-plans-cube-counts/hard/1/4686b57416da", "text": "29 cubes make this model. The numbers on the plan tell the size of each stack, …"}
+{"answer": "2", "id": "f10-model-plans-cube-counts/hard/2/10542e73c8e8", "text": "The plan shows a cube model that has 20 cubes in all. One stack is marked with …"}
+{"answer": "13", "id": "f10-model-plans-cube-counts/medium/0/28cea7248474", "text": "The plan shows a model built from cubes. A bare square has no cubes on it. How …"}
+{"answer": "8", "id": "f10-model-plans-cube-counts/medium/1/bd82da5d8253", "text": "Look at the plan of the cube model. How many more cubes make every stack the sa…"}
+{"answer": "16", "id": "f10-model-plans-cube-counts/medium/2/211eae0c8fb1", "text": "A model is built from cubes, as the plan shows. Every stack that has cubes is m…"}
 {"answer": "$3", "id": "f10-money-change-from-note/easy/0/90d19360f399", "text": "Beatrice pays for a kite that costs $7 with this note. How much change does Bea…"}
 {"answer": "$6", "id": "f10-money-change-from-note/easy/1/a1f21b85f27a", "text": "A book costs $4. Amir pays with this note. What is the change?"}
 {"answer": "$2", "id": "f10-money-change-from-note/easy/2/219d620e4568", "text": "Ravi buys a toy for $3. Ravi pays with this note. How much change?"}
@@ -3115,6 +3187,15 @@
 {"answer": "34.4", "id": "f10-trig-ratios-similarity/medium/0/954961bf29fc", "text": "In a right-angled triangle, one acute angle is 40 degrees. The leg adjacent to …"}
 {"answer": "10.2", "id": "f10-trig-ratios-similarity/medium/1/5a086204f4ef", "text": "In a right-angled triangle, one acute angle is 75 degrees. The side opposite th…"}
 {"answer": "40.6", "id": "f10-trig-ratios-similarity/medium/2/41d41c475dff", "text": "In a right-angled triangle, one acute angle is 52 degrees. The leg adjacent to …"}
+{"answer": "(3, 5) (3, 6) (4, 6) (3, 7) (4, 7)", "id": "f10-turn-shapes-on-a-grid/easy/0/2200f6d6fd7d", "text": "The shaded shape is turned a half turn about the point P. Shade where the shape…"}
+{"answer": "(2, 3) (2, 4) (1, 5) (2, 5)", "id": "f10-turn-shapes-on-a-grid/easy/1/780d7425208d", "text": "The shape drawn in shaded squares is turned a half turn about the point P. Shad…"}
+{"answer": "(2, 2) (3, 2) (2, 3) (3, 3) (3, 4)", "id": "f10-turn-shapes-on-a-grid/easy/2/1fa729c468b1", "text": "The shape drawn in shaded squares is turned a half turn about the point P. Shad…"}
+{"answer": "(10, 1) (8, 2) (9, 2) (10, 2) (11, 2)", "id": "f10-turn-shapes-on-a-grid/hard/0/1aad47faa799", "text": "One move takes the shaded shape to the hatched shape. If the move was a turn, i…"}
+{"answer": "(5, 2) (5, 3) (5, 4) (6, 4)", "id": "f10-turn-shapes-on-a-grid/hard/1/cbcb0ccc5f65", "text": "The shaded shape moved to the hatched shape with one move. If the move was a tu…"}
+{"answer": "(9, 1) (9, 2) (9, 3) (10, 3)", "id": "f10-turn-shapes-on-a-grid/hard/2/281df6e0fb65", "text": "The hatched shape is the shaded shape after one move. Shade the shape you get w…"}
+{"answer": "(1, 3) (2, 3) (3, 3) (3, 4)", "id": "f10-turn-shapes-on-a-grid/medium/0/d329d33c6afa", "text": "The shape drawn in shaded squares is turned a quarter turn anticlockwise about …"}
+{"answer": "(3, 1) (4, 1) (5, 1) (6, 1) (4, 2)", "id": "f10-turn-shapes-on-a-grid/medium/1/09803217f2ed", "text": "The shaded shape is turned a quarter turn clockwise about the point P. Show the…"}
+{"answer": "(3, 1) (4, 1) (5, 1) (6, 1) (6, 2)", "id": "f10-turn-shapes-on-a-grid/medium/2/bef50701ddbe", "text": "The shaded shape is turned a quarter turn clockwise about the point P. Shade th…"}
 {"answer": "Adult Free swim = 4, Adult Laps = 1, Adult Total = 5, Teen …", "id": "f10-two-way-table-relationship/easy/0/fc310f63ecae", "text": "For each of the people at a pool, the age group and the activity were noted as …"}
 {"answer": "Child Returned = 4, Child Total = 7, Student Studied = 3, S…", "id": "f10-two-way-table-relationship/easy/1/b9615cca40c6", "text": "For each of the library visitors, the visitor type and the activity were noted …"}
 {"answer": "Child Borrowed = 5, Child Studied = 1, Student Borrowed = 4…", "id": "f10-two-way-table-relationship/easy/2/8e177111fc5d", "text": "The visitor type and the activity of each of the library visitors were recorded…"}
@@ -6553,9 +6634,9 @@
 {"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/0/10d1a3cbabbe", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
 {"answer": "g(x) = -f(x)", "id": "senior-graph-reciprocal-abs-compare/easy/1/f42b07977ae6", "text": "g is drawn by reflecting f, wholly or partly. Both axes have 1 unit per grid sq…"}
 {"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/easy/2/b845ede63172", "text": "The graph of g is the graph of f reflected in an axis, in part or in whole. Bot…"}
-{"answer": "(a) -5; (b) -1; (c) 4; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/0/11d072416b2c", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
-{"answer": "(a) 1; (b) 5; (c) 4; (d) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/190d0c13ead0", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
-{"answer": "(a) -4; (b) -2; (c) 2; (d) -3", "id": "senior-graph-reciprocal-abs-compare/exam/2/91e23ef68d49", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -2; (b) 0; (c) 2; (d) -1; (e) 3", "id": "senior-graph-reciprocal-abs-compare/exam/0/c52f771c9979", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -6; (b) -4; (c) 2; (d) -5; (e) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/c0eff1729a4e", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
+{"answer": "(a) -2; (b) 0; (c) 2; (d) -1; (e) -4", "id": "senior-graph-reciprocal-abs-compare/exam/2/821ba4bfa371", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
 {"answer": "-1", "id": "senior-graph-reciprocal-abs-compare/hard/0/2c8ad3864361", "text": "Here g(x) = f(|x|), and the graph of f is drawn. Each grid square is 1 unit on …"}
 {"answer": "1/2", "id": "senior-graph-reciprocal-abs-compare/hard/1/3066d58eb382", "text": "Here g(x) = 1/f(x), and the graph of f is drawn. Both axes have 1 unit per grid…"}
 {"answer": "3", "id": "senior-graph-reciprocal-abs-compare/hard/2/1fe028ce547b", "text": "The graph of f is drawn. Let g(x) = |f(x)|. Both axes have 1 unit per grid squa…"}
@@ -6567,7 +6648,7 @@
 {"answer": "rises by $10 per GB", "id": "senior-graph-slope-intercept-meaning/easy/2/e41327705d0d", "text": "A phone plan has a monthly fee plus a charge for each GB of extra data. The gra…"}
 {"answer": "(a) 1; (b) 2; (c) 15; (d) 18", "id": "senior-graph-slope-intercept-meaning/exam/0/04af758d2355", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
 {"answer": "(a) 30; (b) 10; (c) 280; (d) 14", "id": "senior-graph-slope-intercept-meaning/exam/1/058b0d84b5a7", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
-{"answer": "(a) -20; (b) 100; (c) 60; (d) 4", "id": "senior-graph-slope-intercept-meaning/exam/2/b1a69d019a2a", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
+{"answer": "(a) -20; (b) 100; (c) 60; (d) 4", "id": "senior-graph-slope-intercept-meaning/exam/2/dbdbd403f8c7", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
 {"answer": "The booking fee is $10, and each extra day adds $15", "id": "senior-graph-slope-intercept-meaning/hard/0/75c76abd270a", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
 {"answer": "The charge at the start is 100%, and it falls by 10% each h…", "id": "senior-graph-slope-intercept-meaning/hard/1/ac493513ba2c", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
 {"answer": "The booking fee is $50, and each extra day adds $20", "id": "senior-graph-slope-intercept-meaning/hard/2/e57a99931e00", "text": "A hire company charges a booking fee plus a daily rate. The graph shows the tot…"}
@@ -7057,6 +7138,18 @@
 {"answer": "47", "id": "senior-investigate-the-effect-of-the-interest-rate-and/medium/0/7918705204bf", "text": "A flat-interest loan of $56400 is charged at 7% per annum, repaid in monthly in…"}
 {"answer": "18", "id": "senior-investigate-the-effect-of-the-interest-rate-and/medium/1/6271ad085dc9", "text": "A flat-interest loan of $21600 is charged at 4% per annum, repaid in monthly in…"}
 {"answer": "49", "id": "senior-investigate-the-effect-of-the-interest-rate-and/medium/2/ba278fad9c13", "text": "Priya borrows $58800 at a flat interest rate of 12% p.a. She repays $1788 each …"}
+{"answer": "40°N, 170°W", "id": "senior-latitude-longitude-grid-places/easy/0/103917825edf", "text": "Find place B on the map grid. Which choice gives its latitude, then its longitu…"}
+{"answer": "30°N, 120°E", "id": "senior-latitude-longitude-grid-places/easy/1/8e7ffb030af3", "text": "Each square on the map grid is 10 degrees. What are the latitude and longitude …"}
+{"answer": "20°S, 160°E", "id": "senior-latitude-longitude-grid-places/easy/2/f8a2883c4440", "text": "A map has a line every 10 degrees. Give the position of place A as latitude, th…"}
+{"answer": "4440 km", "id": "senior-latitude-longitude-grid-places/exam/0/ba9d1a1e0de6", "text": "Each square of the map grid is 10 degrees. A plane flies due north along a line…"}
+{"answer": "5550 km", "id": "senior-latitude-longitude-grid-places/exam/1/d177c8b1167b", "text": "A map grid has a line every 10 degrees and shows places A and B. Taking 1 degre…"}
+{"answer": "6660 km", "id": "senior-latitude-longitude-grid-places/exam/2/30977dc3b058", "text": "Places A and B are marked on a map grid with a line every 10 degrees. A plane f…"}
+{"answer": "80°", "id": "senior-latitude-longitude-grid-places/hard/0/e8614ff3d02f", "text": "Find the number of degrees of latitude from A to B. The lines on the map grid a…"}
+{"answer": "80°", "id": "senior-latitude-longitude-grid-places/hard/1/cb6d308a592a", "text": "Each square on the map grid is 10 degrees. How many degrees of latitude are the…"}
+{"answer": "70°", "id": "senior-latitude-longitude-grid-places/hard/2/215b8305bf40", "text": "Place A and place B are marked on the map grid, which has a line every 10 degre…"}
+{"answer": "Place A", "id": "senior-latitude-longitude-grid-places/medium/0/09857544a896", "text": "Each square on the map grid is 10 degrees. Which place is at 10°N, 20°E?"}
+{"answer": "Place B", "id": "senior-latitude-longitude-grid-places/medium/1/b3fffeaaa430", "text": "Find the place at latitude 10°N and longitude 20°W. Each square is 10 degrees."}
+{"answer": "Place D", "id": "senior-latitude-longitude-grid-places/medium/2/1984a1871ac2", "text": "Four places are marked on the map grid, which has a line every 10 degrees. Whic…"}
 {"answer": "x = 1, y = 5", "id": "senior-midpoints-of-the-sides-of-a-quadrilateral-join/easy/0/beba2f9c7155", "text": "Quadrilateral ABCD has vertices A(1, 5), B(5, 1) and C(3, 1); the fourth vertex…"}
 {"answer": "x = -1, y = 5", "id": "senior-midpoints-of-the-sides-of-a-quadrilateral-join/easy/1/306c3588c4d3", "text": "Quadrilateral ABCD has vertices A(1, 2), B(5, 0) and C(3, 0); the fourth vertex…"}
 {"answer": "x = 3, y = 5", "id": "senior-midpoints-of-the-sides-of-a-quadrilateral-join/easy/2/15d191947eb9", "text": "Quadrilateral ABCD has vertices A(2, 4), B(2, 0) and C(4, 2); the fourth vertex…"}
@@ -7117,9 +7210,9 @@
 {"answer": "9", "id": "senior-position-time-tangent-velocity/easy/0/e8614c0359ed", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "3", "id": "senior-position-time-tangent-velocity/easy/1/cd934e1cf0c1", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "9", "id": "senior-position-time-tangent-velocity/easy/2/db401c863489", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
-{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/0/bfff87abe2b5", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
-{"answer": "(a) 9; (b) 2; (c) 4; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/1/059ab70efd07", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
-{"answer": "(a) -3; (b) 1; (c) 3; (d) 2; (e) -2", "id": "senior-position-time-tangent-velocity/exam/2/ae2c940e530c", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 72; (b) 2; (c) 4; (d) 2; (e) -16", "id": "senior-position-time-tangent-velocity/exam/0/b411ab1fcb9d", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 48; (b) 1; (c) 2; (d) 1; (e) -4", "id": "senior-position-time-tangent-velocity/exam/1/88e2d83501bc", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
+{"answer": "(a) 27; (b) 1; (c) 3; (d) 2; (e) -6", "id": "senior-position-time-tangent-velocity/exam/2/23bf13334545", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "2", "id": "senior-position-time-tangent-velocity/hard/0/97aaae3e74cf", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "5", "id": "senior-position-time-tangent-velocity/hard/1/ca8953e427bc", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
 {"answer": "4", "id": "senior-position-time-tangent-velocity/hard/2/bc5b26a6e7c2", "text": "The graph shows the position s metres of a cart on a straight track, t seconds …"}
@@ -7648,9 +7741,9 @@
 {"answer": "A", "id": "senior-simulated-samples-variability/easy/0/9ba158498543", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
 {"answer": "B", "id": "senior-simulated-samples-variability/easy/1/2264574afeff", "text": "Two machines each filled 40 bottles. The histograms show the volume in each bot…"}
 {"answer": "A", "id": "senior-simulated-samples-variability/easy/2/1bf4796f92f7", "text": "Two classes each sat a test scored out of 10. The histograms show the scores of…"}
-{"answer": "(a) 31; (b) 46; (c) 15; (d) 0.92", "id": "senior-simulated-samples-variability/exam/0/8d01695b60c3", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
-{"answer": "(a) 34; (b) 48; (c) 14; (d) 0.96", "id": "senior-simulated-samples-variability/exam/1/2814a2581bed", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
-{"answer": "(a) 27; (b) 45; (c) 18; (d) 0.90", "id": "senior-simulated-samples-variability/exam/2/67b66005af84", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 5; (b) 14; (c) 9; (d) 0.70", "id": "senior-simulated-samples-variability/exam/0/56306f13399c", "text": "Each display shows 20 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 6; (b) 15; (c) 9; (d) 0.75", "id": "senior-simulated-samples-variability/exam/1/7cf67cc78dc0", "text": "Each display shows 20 sample proportions of heads from simulated tosses of a fa…"}
+{"answer": "(a) 25; (b) 40; (c) 15; (d) 0.80", "id": "senior-simulated-samples-variability/exam/2/3a19d4862acb", "text": "Each display shows 50 sample proportions of heads from simulated tosses of a fa…"}
 {"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/0/5af776e52aaf", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
 {"answer": "Uniform: every value about equally likely", "id": "senior-simulated-samples-variability/hard/1/b719bbca7a3e", "text": "The histogram shows 50 values simulated from one source. Which source is the mo…"}
 {"answer": "Bernoulli: only two possible outcomes", "id": "senior-simulated-samples-variability/hard/2/92dfb5d2a82b", "text": "The histogram shows 60 values simulated from one source. Which source is the mo…"}

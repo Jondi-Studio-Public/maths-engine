@@ -926,18 +926,54 @@ ey-compare-capacity-by-cups:
   sources:
   - topic: compare_capacity_by_cups
     module: mathgen/generators/ey_compare_build.py
+ey-compare-duration:
+  domain: measurement
+  status: active
+  sources:
+  - topic: compare_duration_picture
+    module: mathgen/generators/ey_duration_build.py
+ey-count-steps-on-grid:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_count_steps
+    module: mathgen/generators/ey_position_build.py
 ey-day-strip-sequence:
   domain: primary-geometry-time
   status: active
   sources:
   - topic: ey_day_strip
     module: mathgen/generators/ey_day_strip_build.py
+ey-follow-directions-grid:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_follow_directions
+    module: mathgen/generators/ey_position_build.py
 ey-order-by-two-balances:
   domain: measurement
   status: active
   sources:
   - topic: order_by_two_balances
     module: mathgen/generators/ey_compare_build.py
+ey-position-words-scene:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_position_words
+    module: mathgen/generators/ey_position_build.py
+ey-quarter-half-turns:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_turns
+    module: mathgen/generators/ey_position_build.py
+ey-simple-map-reading:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_map_reading
+    module: mathgen/generators/ey_position_build.py
 f10-add-subtract-number-sentences:
   domain: equations
   status: active
@@ -1028,6 +1064,12 @@ f10-base-ten-blocks-number:
   sources:
   - topic: base_ten_read
     module: mathgen/generators/fig4_base_ten_build.py
+f10-box-nets-on-a-grid:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: grid_prism_nets
+    module: mathgen/generators/grid_shapes_y36_build.py
 f10-boxplot-distribution:
   domain: statistics-probability
   status: active
@@ -1604,6 +1646,12 @@ f10-mixed-numerals-number-line:
   sources:
   - topic: fr2b_mixed_numerals_number_line
     module: mathgen/generators/fr2b_mixed_numerals_number_line_build.py
+f10-model-plans-cube-counts:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: grid_model_plans
+    module: mathgen/generators/grid_shapes_y36_build.py
 f10-money-change-from-note:
   domain: early-foundations
   status: active
@@ -2230,6 +2278,12 @@ f10-trig-ratios-similarity:
     module: mathgen/generators/f10_trig_ratios_similarity_build.py
   - topic: exd_x_u7_two_ramps_chain
     module: mathgen/generators/exd_x_u7_two_ramps_chain.py
+f10-turn-shapes-on-a-grid:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: grid_shape_turns
+    module: mathgen/generators/grid_shapes_y36_build.py
 f10-two-dimensional-object-representations:
   domain: primary-geometry-time
   status: deferred
@@ -4946,6 +5000,14 @@ senior-investigate-the-effect-of-the-interest-rate-and:
     module: mathgen/generators/p12b_loan_term_build.py
   - topic: exd_x_r3g_loan_term
     module: mathgen/generators/exd_x_r3g_loan_term.py
+senior-latitude-longitude-grid-places:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: grid_latlong_places
+    module: mathgen/generators/grid_shapes_y36_build.py
+  - topic: grid_latlong_exam
+    module: mathgen/generators/grid_shapes_y36_build.py
 senior-midpoints-of-the-sides-of-a-quadrilateral-join:
   domain: senior-mathematics
   status: active

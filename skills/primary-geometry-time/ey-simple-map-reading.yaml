@@ -1,0 +1,43 @@
+id: ey-simple-map-reading
+name: Read a simple map
+domain: primary-geometry-time
+year_level: ['2']
+naplan_domain: [space]
+learner_band: early
+description: "Read a small map of five places on a grid: name the place at the top, bottom, left or right, the place closest to or farthest from another, and the two places that are the fewest steps apart."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-position-words-scene]
+answer: mcq
+sources:
+- topic: ey_map_reading
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_map_reading
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_map_reading
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Name the place at the very top, bottom, far left or far right of the map."}
+  medium: {steps: 2, demand: "Find the place closest to, or farthest from, a named place by counting the squares."}
+  hard: {steps: 3, demand: "Compare the steps along the squares between several pairs of places to find the closest pair."}
+misconceptions:
+- id: eyp-opposite-direction
+  description: "Names the place at the opposite edge, such as the bottom when asked for the top."
+- id: eyp-nearly-extreme
+  description: "Names the place second from the edge instead of the one right at the edge."
+- id: eyp-farthest-for-closest
+  description: "Names the farthest place when asked for the closest, or the closest when asked for the farthest."
+- id: eyp-looks-one-way
+  description: "Judges distance by one direction only, such as places in the same row, and ignores the other."
+- id: eyp-cuts-corner
+  description: "Counts a corner as one step, so thinks a pair that is close as the crow flies is close along the squares."
+tags: [acara-f10-v9, early, space, maps, position, ac9m2sp02]

@@ -45,7 +45,7 @@ def _q(topic, tier, seed):
 
 
 def _is_right(skill_id, q, text):
-    return grade(_skills()[skill_id].answer, q, str(mcq_options(q).index(text))).correct
+    return grade(_skills()[skill_id].answer, q, mcq_options(q).index(text)).correct
 
 
 # ------------------------------------------------------------------ the topics
