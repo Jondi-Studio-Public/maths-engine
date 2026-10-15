@@ -48,7 +48,7 @@ def _grade(kind, q, text):
     if kind == "mcq":
         from mathgen.grading.typed import mcq_options
 
-        return grade("mcq", q, str(mcq_options(q).index(text))).correct
+        return grade("mcq", q, mcq_options(q).index(text)).correct
     return grade("number", q, text).correct
 
 
