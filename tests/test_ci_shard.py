@@ -333,12 +333,16 @@ def _module_level_tests(path: Path) -> set[str]:
 
     text = path.read_text(encoding="utf-8")
     assert not re.search(r"^class Test", text, re.M), f"{path.name} has a test class; extend this check"
-    return set(re.findall(r"^(?:async )?def (test\w*)\(", text, re.M))
+    defs = re.findall(r"^(?:async )?def (test\w*)\(", text, re.M)
+    # a test built by a factory: `test_shape = family_test("shape", 4)`
+    built = re.findall(r"^(test\w*) = \w+\(", text, re.M)
+    return set(defs) | set(built)
 
 
 def test_split_files_emit_every_test_function_exactly_once():
     split = _split_files()
-    assert len(split) == 5, f"expected the five tests/test_mathgen_*.py sweeps, got {split}"
+    sweeps = {f"tests/test_mathgen_{name}.py" for name in ("answers", "contract", "options", "text", "variety")}
+    assert sweeps <= set(split), f"the five tests/test_mathgen_*.py sweeps must stay split, got {split}"
     emitted = [t for shard in ci_shard.partition(ROOT, SHARDS) for t in shard]
     for name in split:
         wanted = sorted(f"{name}::{fn}" for fn in _module_level_tests(ROOT / name))
@@ -407,6 +411,26 @@ def test_split_file_runs_every_function_including_ones_the_weights_do_not_name(t
         "tests/test_slow.py::TestGroup::test_method",
         "tests/test_slow.py::test_listed",
         "tests/test_slow.py::test_new_unlisted",
+    ]
+
+
+def test_a_test_built_by_a_factory_is_split_like_a_def(tmp_path):
+    """`test_shape = family_test("shape", 4)` is collected by pytest as test_shape, so it is a unit of its own."""
+    tests = tmp_path / "tests"
+    tests.mkdir()
+    (tests / "test_parts.py").write_text(
+        'test_shape = family_test("shape", 0)\n'
+        'test_options = family_test("options", 0)\n'
+        "test_plain = 3\n"  # not a call: not a test function
+        "helper = make()\n"  # not named test*
+        "def test_def(): pass\n"
+    )
+    weights = {"tests/test_parts.py::test_shape": 50.0}
+    flat = sorted(t for shard in ci_shard.partition(tmp_path, 2, weights) for t in shard)
+    assert flat == [
+        "tests/test_parts.py::test_def",
+        "tests/test_parts.py::test_options",
+        "tests/test_parts.py::test_shape",
     ]
 
 
