@@ -14,7 +14,9 @@
 
 from __future__ import annotations
 
-from sympy import symbols, sqrt, asin, atan, pi, diff, integrate, Rational, simplify
+from sympy import symbols, sqrt, asin, atan, pi, diff, Rational, simplify
+
+from ..calc_cache import integrate
 
 from ..core import check, check_equivalent, check_distinct, generator, latex_answer, pick_distractors
 

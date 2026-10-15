@@ -27,7 +27,15 @@ import math
 import random
 from fractions import Fraction
 
-import numpy as np
+from functools import cache
+
+
+@cache
+def _np():
+    import numpy
+
+    return numpy
+
 
 from ..core import attempts, check, generator
 from ._fy1ms_common import (
@@ -77,7 +85,7 @@ _ANGULAR = {
 #: name -> (plain, tex, power of r in the integrand, (i, j) for cos^i sin^j, Cartesian function)
 _INTEGRANDS = {
     "r2": ("(x² + y²)", "(x^2 + y^2)", 2, (0, 0), lambda a, b: a * a + b * b),
-    "r": ("√(x² + y²)", r"\sqrt{x^2 + y^2}", 1, (0, 0), lambda a, b: np.sqrt(a * a + b * b)),
+    "r": ("√(x² + y²)", r"\sqrt{x^2 + y^2}", 1, (0, 0), lambda a, b: _np().sqrt(a * a + b * b)),
     "r4": ("(x² + y²)²", r"(x^2 + y^2)^2", 4, (0, 0), lambda a, b: (a * a + b * b) ** 2),
     "x": ("x", "x", 1, (1, 0), lambda a, b: a),
     "y": ("y", "y", 1, (0, 1), lambda a, b: b),
@@ -86,16 +94,20 @@ _INTEGRANDS = {
     "y2": ("y²", "y^2", 2, (0, 2), lambda a, b: b * b),
 }
 
-_GL_X, _GL_W = np.polynomial.legendre.leggauss(24)
+
+@cache
+def _gl():
+    return _np().polynomial.legendre.leggauss(24)
 
 
 def _quadrature(f, angles: tuple[float, float], r_lo: float, r_hi: float) -> float:
     """Gauss-Legendre approximation of the integral of f(x, y) over the polar rectangle, with dA = r dr dtheta."""
+    _GL_X, _GL_W = _gl()
     th = 0.5 * (angles[1] - angles[0]) * _GL_X + 0.5 * (angles[1] + angles[0])
     rr = 0.5 * (r_hi - r_lo) * _GL_X + 0.5 * (r_hi + r_lo)
-    r_grid, t_grid = np.meshgrid(rr, th)
-    values = f(r_grid * np.cos(t_grid), r_grid * np.sin(t_grid)) * r_grid
-    weights = np.outer(_GL_W, _GL_W) * 0.25 * (angles[1] - angles[0]) * (r_hi - r_lo)
+    r_grid, t_grid = _np().meshgrid(rr, th)
+    values = f(r_grid * _np().cos(t_grid), r_grid * _np().sin(t_grid)) * r_grid
+    weights = _np().outer(_GL_W, _GL_W) * 0.25 * (angles[1] - angles[0]) * (r_hi - r_lo)
     return float((values * weights).sum())
 
 
@@ -313,7 +325,7 @@ def _hard_gaussian(rng: random.Random) -> dict:
     lo, hi = _ANGLES[region]
     check(
         abs(
-            _quadrature(lambda a, b: np.exp(-(a * a + b * b)), (lo * math.pi / 2, hi * math.pi / 2), 0.0, radius)
+            _quadrature(lambda a, b: _np().exp(-(a * a + b * b)), (lo * math.pi / 2, hi * math.pi / 2), 0.0, radius)
             - value
         )
         < 1e-9,
@@ -378,7 +390,7 @@ def _hard_volume(rng: random.Random) -> dict:
     else:
         h = rng.choice((1, 2, 3, 4, 5))
         value = pi * h**3 / 3
-        quad = _quadrature(lambda a, b: h - np.sqrt(a * a + b * b), (0.0, 2 * pi), 0.0, float(h))
+        quad = _quadrature(lambda a, b: h - _np().sqrt(a * a + b * b), (0.0, 2 * pi), 0.0, float(h))
         cands = [
             num_dist(pi * h * h, 2, "polar-jacobian-omitted"),
             num_dist(pi * h**3, 2, "volume-as-base-area-times-peak-height"),

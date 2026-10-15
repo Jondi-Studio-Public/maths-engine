@@ -18,16 +18,22 @@ answer is a whole number of metres or centimetres.
 from __future__ import annotations
 
 import math
+from functools import cache
 
 from ..core import check, generator, phrase, pick_distractors
 
-_TRIPLES = [(a, b, c) for c in range(5, 101) for a in range(3, c) for b in range(a, c) if a * a + b * b == c * c]
 
-# hypotenuse -> every (leg, leg) pair with that hypotenuse; ladders need at least two.
-_BY_HYP: dict[int, list[tuple[int, int]]] = {}
-for _a, _b, _c in _TRIPLES:
-    _BY_HYP.setdefault(_c, []).append((_a, _b))
-_SHARED = sorted(h for h, pairs in _BY_HYP.items() if len(pairs) >= 2 and h <= 65)
+@cache
+def _pythag():
+    triples = [(a, b, c) for c in range(5, 101) for a in range(3, c) for b in range(a, c) if a * a + b * b == c * c]
+
+    # hypotenuse -> every (leg, leg) pair with that hypotenuse; ladders need at least two.
+    by_hyp: dict[int, list[tuple[int, int]]] = {}
+    for a, b, c in triples:
+        by_hyp.setdefault(c, []).append((a, b))
+    shared = sorted(h for h, pairs in by_hyp.items() if len(pairs) >= 2 and h <= 65)
+    return triples, by_hyp, shared
+
 
 _LADDER = (
     "A {h} cm ladder leans against a vertical wall with its foot {x1} cm from the wall. The top of the ladder slips {s} cm down the wall. How far does the foot of the ladder move away from the wall, in cm?",
@@ -46,8 +52,8 @@ _RHOMBUS = (
 
 
 def _ladder(rng):
-    h = rng.choice(_SHARED)
-    (xa, ya), (xb, yb) = rng.sample(_BY_HYP[h], 2)
+    h = rng.choice(_pythag()[2])
+    (xa, ya), (xb, yb) = rng.sample(_pythag()[1][h], 2)
     # order so the first position has the foot nearer the wall (top higher) and the second has it further out
     (x1, y1), (x2, y2) = sorted([(xa, ya), (xb, yb)], key=lambda p: p[0])
     check(x1 < x2 and y1 > y2 and x1 * x1 + y1 * y1 == h * h and x2 * x2 + y2 * y2 == h * h)
@@ -62,7 +68,7 @@ def _ladder(rng):
 
 def _poles(rng):
     for _ in range(100):
-        dh, d, w = rng.choice(_TRIPLES)
+        dh, d, w = rng.choice(_pythag()[0])
         if rng.random() < 0.5:
             dh, d = d, dh
         k = rng.randint(1, 3)
@@ -84,7 +90,7 @@ def _poles(rng):
 
 def _rhombus(rng):
     for _ in range(100):
-        a, b, s = rng.choice(_TRIPLES)
+        a, b, s = rng.choice(_pythag()[0])
         k = rng.randint(1, 3)
         a, b, s = a * k, b * k, s * k
         if s > 85:
