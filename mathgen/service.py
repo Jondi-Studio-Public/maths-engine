@@ -596,13 +596,13 @@ def _option_reply(item, reply):
     grader as it is, which reads a letter ("B") or an index written as text.
     """
     if not isinstance(reply, str):
-        return str(reply)
+        return reply
     options = [" ".join(str(option).split()) for option in mcq_options(item)]
     text = " ".join(reply.split())
     if text in options:
-        return str(options.index(text))
+        return options.index(text)
     folded = [i for i, option in enumerate(options) if option.casefold() == text.casefold()]
-    return str(folded[0]) if len(folded) == 1 else reply
+    return folded[0] if len(folded) == 1 else reply
 
 
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:

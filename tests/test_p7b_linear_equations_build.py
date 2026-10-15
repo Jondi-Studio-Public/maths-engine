@@ -159,11 +159,11 @@ class TestIdentifyAndSolveLinearEquations:
         for seed in SEEDS:
             q = make(TOPIC_2, seed=seed, difficulty=tier)
             options = mcq_options(q)
-            correct_index = str(options.index(q.answer_text))
+            correct_index = options.index(q.answer_text)
             result = GRADERS["mcq"](q, correct_index)
             assert result.correct, f"seed {seed}: grader rejected correct option index"
             for d in q.distractors:
-                idx = str(options.index(d))
+                idx = options.index(d)
                 result = GRADERS["mcq"](q, idx)
                 assert not result.correct, f"seed {seed}: grader accepted distractor index for {d!r}"
 
