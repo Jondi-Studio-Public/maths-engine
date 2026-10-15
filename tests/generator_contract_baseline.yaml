@@ -479,6 +479,20 @@ unknown_tier:
   exd_x_y910_geometric_proof: raises VerificationError, not ValueError
   exd_x_y910_graph_system: raises VerificationError, not ValueError
   exd_x_y910_line_plane_angle: raises VerificationError, not ValueError
+  ey_context_line: raises VerificationError, not ValueError
+  ey_context_line_exam: raises VerificationError, not ValueError
+  ey_dot_plot_spread: raises VerificationError, not ValueError
+  ey_dot_plot_spread_exam: raises VerificationError, not ValueError
+  ey_graph_dilation: raises VerificationError, not ValueError
+  ey_graph_dilation_exam: raises VerificationError, not ValueError
+  ey_graph_reciprocal_abs: raises VerificationError, not ValueError
+  ey_graph_reciprocal_abs_exam: raises VerificationError, not ValueError
+  ey_graph_translation: raises VerificationError, not ValueError
+  ey_graph_translation_exam: raises VerificationError, not ValueError
+  ey_position_tangent: raises VerificationError, not ValueError
+  ey_position_tangent_exam: raises VerificationError, not ValueError
+  ey_sample_variability: raises VerificationError, not ValueError
+  ey_sample_variability_exam: raises VerificationError, not ValueError
   f10_linear_conjecture: raises VerificationError, not ValueError
   f10_partition_tens_ones: raises VerificationError, not ValueError
   factorise_quadratic: builds a question for an unknown tier
@@ -1021,6 +1035,7 @@ answer_space:
   exd_x_u2_log_differentiation: [12, 47]
   exd_x_u2_parametric_polar: [54, 14]
   exd_x_u2_sequence_limits: [45, 19]
+  ey_graph_reciprocal_abs_exam: [8, 43]
   f10_linear_conjecture: [27, 164]
   find_the_equation_of_a_straight_line_given: [74, 9]
   find_the_surface_area_of_pyramids_such_as: [17, 33]
