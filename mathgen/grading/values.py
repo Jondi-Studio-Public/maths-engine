@@ -21,6 +21,7 @@ MAX_VALUE_LENGTH = 40
 #: The characters a closed-form constant is written with; anything else is not a number.
 _CONSTANT_CHARS_RE = re.compile(r"[0-9a-zA-Z.+\-*/^()√π× \t]+")
 _SPACED_DIGITS_RE = re.compile(r"\d[ \t]+\d")
+_EULER_POWER_RE = re.compile(r"(?<![\w.])e(?=\s*\*\*)")
 
 
 def read_value(text: str):
@@ -36,6 +37,7 @@ def read_value(text: str):
     candidate = _sympy_text(text)
     if candidate is None:
         return None
+    candidate = _EULER_POWER_RE.sub("E", candidate)  # "e^2" is exp(2); a lone "e" is still not a number here
     try:
         value = parse_expression_safely(candidate, transformations=_TRANSFORMATIONS)
     except TooCostly:

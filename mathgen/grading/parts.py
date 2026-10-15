@@ -58,14 +58,27 @@ def symbol_name(label: str) -> str:
 # -- reading the reply --------------------------------------------------------------------------------------
 
 
-def _label_marker(label: str) -> re.Pattern:
+def _label_marker(label: str, glued: bool = False) -> re.Pattern:
     """A marker for part `label`, in any case, at the start of the reply or after whitespace, ";" or ",":
     "(a)", "(a):", "a)", "a:", "a=", or "a." followed by a space (so a decimal point in "1.5" or "6.1" is never
     a marker). Only the question's own labels are looked for, so a variable such as the "x" in "x = 3" is not
-    one, and a label letter inside a word or glued to a digit or operator ("2a = 4") does not count."""
+    one, and a label letter inside a word or glued to a digit or operator ("2a = 4") does not count.
+
+    With `glued`, a bracketed "(b)" may also follow a digit or a closing bracket with no space, as in
+    "(a)5(b)6" (see `_glued_markers`)."""
     escaped = re.escape(label)
     body = rf"(?:\(\s*{escaped}\s*\)\s*[:.=]?|{escaped}\s*(?:[):=]|\.(?=\s|$)))"
+    if glued:
+        bracketed = rf"(?<=[\d)])\(\s*{escaped}\s*\)\s*[:.=]?"
+        return re.compile(rf"(?:^|(?<=[\s;,])){body}\s*|{bracketed}\s*", re.IGNORECASE)
     return re.compile(rf"(?:^|(?<=[\s;,])){body}\s*", re.IGNORECASE)
+
+
+def _glued_markers(labels: list[str], text: str) -> bool:
+    """Whether `text` opens with a bracketed part label ("(a)5(b)6"), which is what lets a later bracketed label
+    follow its neighbour with no space. A reply that does not open that way keeps the strict markers, so "3(b)"
+    inside a working is never a label."""
+    return any(re.match(rf"\(\s*{re.escape(label)}\s*\)", text, re.IGNORECASE) for label in labels)
 
 
 #: `GradeResult.note_kind` of a multi-part result whose text reply could not be split into one reply per part.
@@ -115,8 +128,9 @@ def _split(parts, given) -> dict[str, str] | None:
     # "(a) 2.8 (b) 17.6" still marks (a) and (b). The text must open with a marker, or hold two or more
     # (so a lead-in such as "My answers: a) 2.8 b) 17.6" reads, and a lone "a" in prose does not).
     spans = []
+    glued = _glued_markers(labels, text)
     for label in labels:
-        match = _label_marker(label).search(text)
+        match = _label_marker(label, glued).search(text)
         if match is not None:
             spans.append((match.start(), match.end(), label))
     spans.sort()
