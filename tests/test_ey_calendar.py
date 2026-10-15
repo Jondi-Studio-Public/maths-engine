@@ -46,7 +46,7 @@ def _q(skill_id, tier, seed):
 
 def _is_right(skill_id, q, text):
     if SKILLS[skill_id][1] == "mcq":
-        return grade("mcq", q, str(mcq_options(q).index(text))).correct
+        return grade("mcq", q, mcq_options(q).index(text)).correct
     return grade("number", q, text).correct
 
 
