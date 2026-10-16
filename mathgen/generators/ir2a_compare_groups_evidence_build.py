@@ -170,6 +170,40 @@ def _summaries_text(ctx, sa, sb):
     return f"{one(ctx['a'].capitalize(), sa)}. {one(ctx['b'].capitalize(), sb)}."
 
 
+def _median_diff_wrongs(sa, sb, d):
+    """Wrong values for the difference in medians. On the rare draw where the usual four give fewer than two
+    distinct values besides the key (the part needs two), an off-by-one or two slip in the subtraction is appended;
+    every other draw keeps exactly the usual four, so its question does not change."""
+    usual = [
+        (int(sa["med"] + sb["med"]), "ir2a-adds-instead-of-subtracting"),
+        (abs(sa["hi"] - sb["hi"]), "ir2a-compares-the-largest-values"),
+        (abs(sa["q3"] - sb["q3"]), "ir2a-compares-upper-quartiles-not-medians"),
+        (abs(sa["lo"] - sb["lo"]), "ir2a-compares-the-smallest-values"),
+    ]
+    if len({v for v, _ in usual if v != d}) >= 2:
+        return usual
+    slips = [(d + 1, "ir2a-uses-a-miscalculated-difference"), (d - 1, "ir2a-uses-a-miscalculated-difference")]
+    return usual + [(v, t) for v, t in slips if v >= 0]
+
+
+def _iqr_wrongs(s):
+    """Wrong values for one group's interquartile range. On the rare draw where the usual three give fewer than two
+    distinct values besides the key (the part needs two), the upper half of the box and the lower quartile are
+    appended, under the nearest existing tags; every other draw keeps the usual three."""
+    key = int(s["iqr"])
+    usual = [
+        (s["hi"] - s["lo"], "ir2a-uses-the-range-not-the-iqr"),
+        (int(s["q3"]), "ir2a-gives-the-upper-quartile-not-the-iqr"),
+        (int(s["med"] - s["q1"]), "ir2a-halves-the-iqr"),
+    ]
+    if len({v for v, _ in usual if v != key}) >= 2:
+        return usual
+    return usual + [
+        (int(s["q3"] - s["med"]), "ir2a-halves-the-iqr"),
+        (int(s["q1"]), "ir2a-gives-the-upper-quartile-not-the-iqr"),
+    ]
+
+
 def _number_parts(sa, sb, ctx):
     d = int(abs(sa["med"] - sb["med"]))
     L = int(max(sa["iqr"], sb["iqr"]))
@@ -179,12 +213,7 @@ def _number_parts(sa, sb, ctx):
         places=0,
         marks=1,
         working=[f"Medians: {int(sa['med'])} and {int(sb['med'])}.", f"Difference = {d}."],
-        wrong=[
-            (int(sa["med"] + sb["med"]), "ir2a-adds-instead-of-subtracting"),
-            (abs(sa["hi"] - sb["hi"]), "ir2a-compares-the-largest-values"),
-            (abs(sa["q3"] - sb["q3"]), "ir2a-compares-upper-quartiles-not-medians"),
-            (abs(sa["lo"] - sb["lo"]), "ir2a-compares-the-smallest-values"),
-        ],
+        wrong=_median_diff_wrongs(sa, sb, d),
         sensible_range=(0, None),
     )
     pb = number_part(
@@ -265,12 +294,7 @@ def exd_x_ir2a_compare_groups_evidence(rng: random.Random, tier: str = "exam") -
         places=0,
         marks=2,
         working=[f"Medians: {int(sa['med'])} and {int(sb['med'])}; difference {d}."],
-        wrong=[
-            (int(sa["med"] + sb["med"]), "ir2a-adds-instead-of-subtracting"),
-            (abs(sa["hi"] - sb["hi"]), "ir2a-compares-the-largest-values"),
-            (abs(sa["q3"] - sb["q3"]), "ir2a-compares-upper-quartiles-not-medians"),
-            (abs(sa["lo"] - sb["lo"]), "ir2a-compares-the-smallest-values"),
-        ],
+        wrong=_median_diff_wrongs(sa, sb, d),
         sensible_range=(0, None),
     )
     pb = number_part(
@@ -279,11 +303,7 @@ def exd_x_ir2a_compare_groups_evidence(rng: random.Random, tier: str = "exam") -
         places=0,
         marks=2,
         working=[f"Q1 = {int(sa['q1'])}, Q3 = {int(sa['q3'])}, IQR = {int(sa['iqr'])}."],
-        wrong=[
-            (sa["hi"] - sa["lo"], "ir2a-uses-the-range-not-the-iqr"),
-            (int(sa["q3"]), "ir2a-gives-the-upper-quartile-not-the-iqr"),
-            (int(sa["med"] - sa["q1"]), "ir2a-halves-the-iqr"),
-        ],
+        wrong=_iqr_wrongs(sa),
         sensible_range=(0, None),
     )
     pc = number_part(
@@ -292,11 +312,7 @@ def exd_x_ir2a_compare_groups_evidence(rng: random.Random, tier: str = "exam") -
         places=0,
         marks=2,
         working=[f"Q1 = {int(sb['q1'])}, Q3 = {int(sb['q3'])}, IQR = {int(sb['iqr'])}."],
-        wrong=[
-            (sb["hi"] - sb["lo"], "ir2a-uses-the-range-not-the-iqr"),
-            (int(sb["q3"]), "ir2a-gives-the-upper-quartile-not-the-iqr"),
-            (int(sb["med"] - sb["q1"]), "ir2a-halves-the-iqr"),
-        ],
+        wrong=_iqr_wrongs(sb),
         sensible_range=(0, None),
     )
     gap = L - d

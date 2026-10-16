@@ -124,6 +124,10 @@ Each question's id (below) tells you when the question behind it has changed.
   a key of 3/2 was rejected and a key of 1/2 accepted; it now reads as 3/2, and `-1 1/2` as -3/2. `e^2`, `log10(x)`
   and `log2(x)` could not be read. A zero vector never matched a zero key in a matrix scalar multiple, and
   `(a)5(b)6(c)7` with no spaces was not split into parts. A plain "2 3" is still 2 times 3.
+- `compare-groups-evidence` raised an error on about 1 draw in 300 to 1,000 (every tier, including the exam chain)
+  when its wrong answers for a difference in medians, or in an interquartile range, collapsed onto the right one,
+  leaving fewer than two distractors; building the question banks stopped on it. Those draws now get spare wrong
+  values, and every other draw is unchanged. (#113)
 - A reply of about fifteen characters, such as `sqrt(acos(x)^2)`, held the grader for 40 seconds or more on about a
   hundred expression skills, and `1/0`, `tan(pi/2)`, `log(0)` and `nan` took 3 to 6 seconds on
   `ucv1-heat-equation-mode`; all now grade in under 0.1 seconds. (#104)
