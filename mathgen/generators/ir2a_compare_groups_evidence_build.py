@@ -170,6 +170,24 @@ def _summaries_text(ctx, sa, sb):
     return f"{one(ctx['a'].capitalize(), sa)}. {one(ctx['b'].capitalize(), sb)}."
 
 
+def _spare_median_gaps(sa, sb, d):
+    """Extra wrong answers for the median difference, only for the rare draw where the usual
+    ones (largest values, upper quartiles, smallest values) mostly land on the right answer.
+    Appended after them and only when needed, so every other draw is unchanged."""
+    usual = {
+        int(sa["med"] + sb["med"]),
+        abs(sa["hi"] - sb["hi"]),
+        abs(sa["q3"] - sb["q3"]),
+        abs(sa["lo"] - sb["lo"]),
+    }
+    if len(usual - {d}) >= 2:
+        return []
+    return [
+        (abs(sa["q1"] - sb["q1"]), "ir2a-uses-a-miscalculated-difference"),
+        (abs(sa["iqr"] - sb["iqr"]), "ir2a-uses-a-miscalculated-difference"),
+    ]
+
+
 def _number_parts(sa, sb, ctx):
     d = int(abs(sa["med"] - sb["med"]))
     L = int(max(sa["iqr"], sb["iqr"]))
@@ -184,7 +202,8 @@ def _number_parts(sa, sb, ctx):
             (abs(sa["hi"] - sb["hi"]), "ir2a-compares-the-largest-values"),
             (abs(sa["q3"] - sb["q3"]), "ir2a-compares-upper-quartiles-not-medians"),
             (abs(sa["lo"] - sb["lo"]), "ir2a-compares-the-smallest-values"),
-        ],
+        ]
+        + _spare_median_gaps(sa, sb, d),
         sensible_range=(0, None),
     )
     pb = number_part(
@@ -270,7 +289,8 @@ def exd_x_ir2a_compare_groups_evidence(rng: random.Random, tier: str = "exam") -
             (abs(sa["hi"] - sb["hi"]), "ir2a-compares-the-largest-values"),
             (abs(sa["q3"] - sb["q3"]), "ir2a-compares-upper-quartiles-not-medians"),
             (abs(sa["lo"] - sb["lo"]), "ir2a-compares-the-smallest-values"),
-        ],
+        ]
+        + _spare_median_gaps(sa, sb, d),
         sensible_range=(0, None),
     )
     pb = number_part(
