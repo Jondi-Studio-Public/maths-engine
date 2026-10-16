@@ -127,7 +127,7 @@ Each question's id (below) tells you when the question behind it has changed.
 - `compare-groups-evidence` raised an error on about 1 draw in 300 to 1,000 (every tier, including the exam chain)
   when its wrong answers for a difference in medians, or in an interquartile range, collapsed onto the right one,
   leaving fewer than two distractors; building the question banks stopped on it. Those draws now get spare wrong
-  values, and every other draw is unchanged. (#113)
+  values, and every other draw is unchanged. (#114)
 - A reply of about fifteen characters, such as `sqrt(acos(x)^2)`, held the grader for 40 seconds or more on about a
   hundred expression skills, and `1/0`, `tan(pi/2)`, `log(0)` and `nan` took 3 to 6 seconds on
   `ucv1-heat-equation-mode`; all now grade in under 0.1 seconds. (#104)
