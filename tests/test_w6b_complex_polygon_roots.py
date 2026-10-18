@@ -179,7 +179,7 @@ def test_exam_oracle():
     shapes = set()
     for seed in range(150):
         q = make(EXAM, seed=seed, difficulty="exam")
-        n = int(re.search(r"The (\d+) roots", q.stem).group(1))
+        n = int(re.search(r"z\^(\d+) = ", q.stem).group(1))
         w = int(re.search(r"z\^\d+ = (\d+)", q.stem).group(1))
         shapes.add(n)
         roots = [complex(r) for r in sympy.Poly(sympy.Symbol("z") ** n - w).nroots()]
@@ -198,7 +198,7 @@ def test_exam_follow_through_from_a_wrong_radius():
         return [str(int(q.parts[0].answer) + 1), str(int(q.parts[0].answer) + 2)]
 
     def follow(q, reply):
-        n = int(re.search(r"The (\d+) roots", q.stem).group(1))
+        n = int(re.search(r"z\^(\d+) = ", q.stem).group(1))
         return f"{2 * int(reply) * math.sin(math.pi / n):.2f}"
 
     assert check_follow_through(SK, EXAM, "a", wrong, "b", follow, n=40) >= 40
